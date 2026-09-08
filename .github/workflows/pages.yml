@@ -24,13 +24,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 组装站点：应用（apps/）+ 共享数据（data/），入口由 action 复制生成
+      - name: Prepare site
+        run: |
+          mkdir -p _site
+          cp -r apps _site/apps
+          cp -r data _site/data
+          cp apps/web/index.html _site/index.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
