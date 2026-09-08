@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""采集广州七区小学 POI 与区边界，输出 map-app/data 数据文件。
+"""采集广州七区小学 POI 与区边界，输出项目共享数据目录 data/。
 
-用法: python3 fetch_schools.py
+用法: python3 scripts/fetch_schools.py
 依赖: 项目根 .env 中的 AMAP_WEB_KEY（Web 服务类型 Key）
 数据源: 高德地图 Web 服务 API（place/text 与 config/district）
 输出:
-  map-app/data/schools.js   页面加载用（window.GZ_SCHOOLS）
-  map-app/data/schools-gz.json  可读复核用
+  data/schools.js   页面加载用（window.GZ_SCHOOLS，多端共用）
+  data/schools-gz.json  可读复核用
 """
 import json
 import os
