@@ -104,6 +104,8 @@
   .si-zone > p { background: #F7F8FA; border-radius: 8px; padding: 8px 10px; margin-top: 2px; }
   .si-src { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line); font-size: 10.5px; color: #9AA0A6; }
   .si-empty { color: var(--text-sub); margin-top: 6px; }
+  a.note-link { color: #1A6BD6; text-decoration: none; border-bottom: 1px dashed #B9CDEA; }
+  a.note-link:hover { text-decoration: underline; }
   @media (max-width: 600px) {
     #school-info { right: 10px; bottom: 10px; left: 10px; width: auto; max-height: 55vh; }
   }
@@ -310,6 +312,14 @@
     }
 
     /* ========== 学校招生信息（点击点位展示） ========== */
+    // 备注里的「见说明N」转为跳转材料页的锚点链接（notes.html#explain-N）
+    function linkifyNotes(t) {
+      return t.replace(/见说明(\d+)(?:、说明(\d+))?/g, function (m, a, b) {
+        var links = '<a class="note-link" href="notes.html#explain-' + a + '" target="_blank">见说明' + a + '</a>';
+        if (b) links += '、<a class="note-link" href="notes.html#explain-' + b + '" target="_blank">见说明' + b + '</a>';
+        return links;
+      });
+    }
     var ENROLL = window.GZ_ENROLL_PANYU || null;
     var enrollById = {};
     if (ENROLL) {
@@ -337,7 +347,7 @@
           html += '<div class="si-row"><span>计划人数</span><b>' + esc(String(r.plan_count)) + ' 人</b></div>';
         }
         html += '<div class="si-row si-zone"><span>招生地段<br>及条件</span><p>' + esc(r.zone || '—') + '</p></div>';
-        if (r.note) html += '<div class="si-row"><span>备注</span><p>' + esc(r.note) + '</p></div>';
+        if (r.note) html += '<div class="si-row"><span>备注</span><p>' + linkifyNotes(esc(r.note)) + '</p></div>';
         html += '<div class="si-src">数据来源：' + esc((ENROLL && ENROLL.source) || '') + '（' + (ENROLL && ENROLL.year || '') + '）</div>';
       } else {
         html += '<div class="si-empty">暂无 2026 年招生数据（可后续补充）</div>';
