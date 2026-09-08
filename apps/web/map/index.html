@@ -70,6 +70,44 @@
     font-size: 11px; color: var(--text-sub); line-height: 1.55;
   }
 
+  /* 学校招生信息卡片 */
+  #school-info {
+    position: absolute;
+    right: 14px; bottom: 14px;
+    width: 340px;
+    max-width: calc(100vw - 28px);
+    max-height: 62vh;
+    overflow-y: auto;
+    background: rgba(255,255,255,0.97);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 6px 28px rgba(20,30,50,0.16);
+    padding: 14px 16px 12px;
+    z-index: 1100;
+    font-size: 12.5px;
+  }
+  #si-close {
+    position: absolute; top: 8px; right: 10px;
+    border: none; background: none;
+    font-size: 18px; line-height: 1; color: #8A93A3; cursor: pointer;
+    padding: 4px 6px;
+  }
+  #si-close:hover { color: var(--text); }
+  .si-name { font-size: 15px; font-weight: 700; padding-right: 26px; line-height: 1.4; }
+  .si-row { margin-top: 8px; display: flex; gap: 8px; }
+  .si-row > span:first-child {
+    flex: none; width: 76px; color: var(--text-sub); font-size: 11.5px; padding-top: 1px;
+  }
+  .si-row > b { font-weight: 600; }
+  .si-row p { margin: 0; line-height: 1.65; }
+  .si-zone { display: block; }
+  .si-zone > p { background: #F7F8FA; border-radius: 8px; padding: 8px 10px; margin-top: 2px; }
+  .si-src { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line); font-size: 10.5px; color: #9AA0A6; }
+  .si-empty { color: var(--text-sub); margin-top: 6px; }
+  @media (max-width: 600px) {
+    #school-info { right: 10px; bottom: 10px; left: 10px; width: auto; max-height: 55vh; }
+  }
+
   /* 校名提示 */
   .school-label {
     font-size: 11px; line-height: 1.3; color: #333;
@@ -108,8 +146,15 @@
     <div id="footnote">拖动 / 滚轮 / 双指缩放查看。悬停点位显示校名。<br>每区最多展示 100 所（高德单次搜索上限）。</div>
   </aside>
 
-  <!-- 本地数据：由 map-app/scripts/fetch_schools.py 采集生成 -->
+  <!-- 学校招生信息卡片（点击点位显示） -->
+  <div id="school-info" hidden aria-label="学校招生信息">
+    <button id="si-close" aria-label="关闭">×</button>
+    <div id="si-body"></div>
+  </div>
+
+  <!-- 本地数据：由项目 scripts/ 采集生成 -->
   <script src="../../../data/schools.js"></script>
+  <script src="../../../data/enrollments/2026-panyu.js"></script>
   <script src="assets/leaflet.js"></script>
   <script>
   (function () {
@@ -186,6 +231,14 @@
       watchResize();
       watchGesture();
       map.on('zoomend', updateMarkerRadius);
+      map.on('click', function (e) {
+        // 点在学校点位（path）上时由点位 handler 展示信息，不关闭卡片
+        var t = e.originalEvent && e.originalEvent.target;
+        if (t && t.classList && t.classList.contains('leaflet-interactive')) return;
+        hideSchoolInfo();
+      });
+      var closeBtn = document.getElementById('si-close');
+      if (closeBtn) closeBtn.addEventListener('click', hideSchoolInfo);
     }
 
     /* ========== 区边界 ========== */
@@ -251,8 +304,46 @@
           opacity: 0.95,
           className: 'school-label'
         });
+        m.on('click', function () { showSchoolInfo(s.name); });
         markers.push(m);
       });
+    }
+
+    /* ========== 学校招生信息（点击点位展示） ========== */
+    var ENROLL = window.GZ_ENROLL_PANYU || null;
+    var enrollById = {};
+    if (ENROLL) {
+      (ENROLL.records || []).forEach(function (r) {
+        if (r.school_id && !enrollById[r.school_id]) enrollById[r.school_id] = r;
+      });
+    }
+    function hideSchoolInfo() {
+      var el = document.getElementById('school-info');
+      if (el) el.hidden = true;
+    }
+    function showSchoolInfo(name) {
+      var el = document.getElementById('school-info');
+      var body = document.getElementById('si-body');
+      if (!el || !body) return;
+      var r = enrollById[name];
+      var html = '<div class="si-name">' + esc(name) + '</div>';
+      if (r) {
+        html += '<div class="si-row"><span>学区</span><b>' + esc(r.district) + '</b></div>';
+        html += '<div class="si-row"><span>性质</span><b>' + esc(r.nature === '公办' ? '公办（地段入学）' : '民办（电脑派位）') + '</b></div>';
+        if (r.plan_classes != null) {
+          html += '<div class="si-row"><span>计划班数</span><b>' + esc(String(r.plan_classes)) + ' 个班</b></div>';
+        }
+        if (r.plan_count != null) {
+          html += '<div class="si-row"><span>计划人数</span><b>' + esc(String(r.plan_count)) + ' 人</b></div>';
+        }
+        html += '<div class="si-row si-zone"><span>招生地段<br>及条件</span><p>' + esc(r.zone || '—') + '</p></div>';
+        if (r.note) html += '<div class="si-row"><span>备注</span><p>' + esc(r.note) + '</p></div>';
+        html += '<div class="si-src">数据来源：' + esc((ENROLL && ENROLL.source) || '') + '（' + (ENROLL && ENROLL.year || '') + '）</div>';
+      } else {
+        html += '<div class="si-empty">暂无 2026 年招生数据（可后续补充）</div>';
+      }
+      body.innerHTML = html;
+      el.hidden = false;
     }
 
     /* ========== 图例与统计 ========== */
