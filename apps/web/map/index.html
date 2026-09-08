@@ -185,6 +185,7 @@
       updateLegend();
       watchResize();
       watchGesture();
+      map.on('zoomend', updateMarkerRadius);
     }
 
     /* ========== 区边界 ========== */
@@ -219,12 +220,26 @@
     }
 
     /* ========== 小学点位 ========== */
+    // 半径随缩放级别递增：放得越大，点位越醒目
+    function radiusForZoom(z) {
+      z = Math.round(z);
+      if (z >= 15) return 10;
+      if (z >= 14) return 9;
+      if (z >= 13) return 8;
+      if (z >= 12) return 7;
+      if (z >= 11) return 6;
+      return 5;
+    }
+    function updateMarkerRadius() {
+      var r = radiusForZoom(map.getZoom());
+      markers.forEach(function (m) { m.setRadius(r); });
+    }
     function renderSchools() {
       (DATA.schools || []).forEach(function (s) {
         var d = districtByAdcode[s.adcode];
         if (!d) return;
         var m = L.circleMarker([s.lat, s.lng], {
-          radius: 5,
+          radius: radiusForZoom(map.getZoom()),
           color: '#FFFFFF',
           weight: 1.5,
           fillColor: d.color,
