@@ -109,7 +109,7 @@
   </aside>
 
   <!-- 本地数据：由 map-app/scripts/fetch_schools.py 采集生成 -->
-  <script src="../../data/schools.js"></script>
+  <script src="../../../data/schools.js"></script>
   <script src="assets/leaflet.js"></script>
   <script>
   (function () {
@@ -159,7 +159,7 @@
         return;
       }
       if (!DATA) {
-        showError('本地数据未加载：请确认 ../../data/schools.js 与页面在同一目录');
+        showError('本地数据未加载：请确认 ../../../data/schools.js 与页面在同一目录');
         return;
       }
       map = L.map('map', {
@@ -318,7 +318,7 @@
     }
     start();
     setTimeout(function () {
-      if (!map) showError('地图加载失败：请检查 assets/ 与 ../../data/ 目录是否完整');
+      if (!map) showError('地图加载失败：请检查 assets/ 与 ../../../data/ 目录是否完整');
     }, 15000);
   })();
   </script>
