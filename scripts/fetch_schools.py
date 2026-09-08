@@ -10,13 +10,14 @@
 """
 import json
 import os
+import re
 import sys
 import time
 import urllib.parse
 import urllib.request
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # map-app/
-ROOT = os.path.dirname(BASE)  # 项目根
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # 项目根（scripts/ 的上层）
+ROOT = BASE
 
 DISTRICTS = [
     ("荔湾区", "440103"),
@@ -53,45 +54,65 @@ def api(url):
 
 
 def fetch_pois(key, adcode):
-    """翻页采集某区名称含「小学」的 POI，单次搜索最多 100 条（平台上限）"""
-    out, page, offset = [], 1, 25
-    while True:
-        q = urllib.parse.urlencode({
-            "key": key, "keywords": "小学", "city": adcode, "citylimit": "true",
-            "offset": str(offset), "page": str(page), "extensions": "all",
-        })
-        d = api("https://restapi.amap.com/v3/place/text?" + q)
-        if d.get("status") != "1":
-            print(f"  [warn] {adcode} page {page}: {d.get('info')}")
-            break
-        pois = d.get("pois") or []
-        for p in pois:
-            loc = (p.get("location") or "").split(",")
-            if len(loc) != 2:
-                continue
-            name = p.get("name") or ""
-            if "小学" not in name:
-                continue
-            out.append({
-                "name": name,
-                "lng": float(loc[0]),
-                "lat": float(loc[1]),
-                "adcode": adcode,
-            })
-        count = int(d.get("count") or 0)
-        if not pois or page * offset >= count or page * offset >= 100:
-            break
-        page += 1
-        time.sleep(0.4)
-    # 按 名称+坐标 去重
-    seen, uniq = set(), []
+    """翻页采集某区小学 POI。
+
+    查询方式（合并去重）：
+      1. types=141203（高德「小学」分类）——分类最准，含「XX学校(小学部)」等
+      2. keywords=小学 —— 兜底补充名称含「小学」但未归入该分类的
+    无 100 条上限：高德单次搜索可按 offset/page 翻页，实际返回数远超 100。
+    """
+    out = []
+
+    def collect(params):
+        page = 1
+        while True:
+            p = dict(params)
+            p.update({"offset": "25", "page": str(page), "extensions": "all"})
+            d = api("https://restapi.amap.com/v3/place/text?" + urllib.parse.urlencode(p))
+            if d.get("status") != "1":
+                print(f"  [warn] {adcode} {params.get('types') or params.get('keywords')} page {page}: {d.get('info')}")
+                break
+            pois = d.get("pois") or []
+            for poi in pois:
+                loc = (poi.get("location") or "").split(",")
+                if len(loc) != 2:
+                    continue
+                out.append({
+                    "name": poi.get("name") or "",
+                    "lng": float(loc[0]),
+                    "lat": float(loc[1]),
+                    "adcode": adcode,
+                })
+            count = int(d.get("count") or 0)
+            if not pois or page * 25 >= count:
+                break
+            page += 1
+            time.sleep(0.4)
+
+    collect({"key": key, "types": "141203", "city": adcode, "citylimit": "true"})
+    time.sleep(0.4)
+    collect({"key": key, "keywords": "小学", "city": adcode, "citylimit": "true"})
+
+    # 只保留小学/学校类 POI：名称含「小学/学校/附小/小学部」且非培训机构
+    NON_SCHOOL = ["培训", "托辅", "托管", "辅导", "自习", "成长中心", "学习中心",
+                  "学习规划", "国际教育", "教育咨询", "文具", "书店", "幼儿园",
+                  "工地", "城门楼", "教师楼", "智云书房", "博通教育", "知了托管",
+                  "玩具店", "童趣园", "感统", "口才"]
+    keep, seen = [], set()
     for s in out:
-        k = (s["name"], round(s["lng"], 5), round(s["lat"], 5))
+        n = s["name"]
+        if not n:
+            continue
+        if not ("小学" in n or "学校" in n or "附小" in n or "小学部" in n):
+            continue
+        if any(b in n for b in NON_SCHOOL):
+            continue
+        k = (n, round(s["lng"], 5), round(s["lat"], 5))
         if k in seen:
             continue
         seen.add(k)
-        uniq.append(s)
-    return uniq
+        keep.append(s)
+    return keep
 
 
 def fetch_boundary(key, name):
@@ -121,14 +142,17 @@ def fetch_boundary(key, name):
 
 def main():
     key = load_key()
+    # 可选参数：只采集指定区（如 python3 fetch_schools.py 440113）
+    only = {a for a in sys.argv[1:] if re.fullmatch(r"\d{6}", a)}
+    districts = [d for d in DISTRICTS if not only or d[1] in only]
     result = {
         "updated": time.strftime("%Y-%m-%d"),
         "source": "高德地图 Web 服务 API (place/text + config/district)",
-        "note": "每区最多 100 所（高德单次搜索上限）",
+        "note": "小学分类(types=141203)翻页采集 + 关键词补充，无 100 条限制",
         "districts": [],
         "schools": [],
     }
-    for name, adcode in DISTRICTS:
+    for name, adcode in districts:
         print(f"== {name} ({adcode})")
         schools = fetch_pois(key, adcode)
         print(f"   schools: {len(schools)}")
@@ -148,9 +172,9 @@ def main():
         f.write(";\n")
 
     total = len(result["schools"])
-    per = {name: sum(1 for s in result["schools"] if s["adcode"] == adcode) for name, adcode in DISTRICTS}
+    per = {name: sum(1 for s in result["schools"] if s["adcode"] == adcode) for name, adcode in districts}
     print(f"\n完成: 共 {total} 所小学")
-    print("各区: " + ", ".join(f"{n} {per[n]}" for n, _ in DISTRICTS))
+    print("各区: " + ", ".join(f"{n} {per[n]}" for n, _ in districts))
     print(f"输出: {os.path.join(data_dir, 'schools.js')} / schools-gz.json")
 
 

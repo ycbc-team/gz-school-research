@@ -12,7 +12,9 @@
 """
 import json
 import os
+import re
 import sys
+import unicodedata
 import xlrd
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,6 +22,88 @@ OUT_DIR = os.path.join(ROOT, "data", "enrollments")
 
 def norm(s):
     return str(s).strip() if s is not None else ""
+
+# ---- 名称归一化与匹配 ----
+VARIANTS = {"穂": "穗", "敎": "教", "學": "学", "朮": "术", "甦": "苏"}
+PREFIXES = ["市桥", "钟村", "石壁", "大石", "洛浦", "南村镇", "化龙镇", "新造镇",
+            "小谷围街", "石楼镇", "石碁镇", "沙湾", "桥南", "东环", "沙头", "南村",
+            "石碁"]
+CAMPUS_WORDS = ["东校区", "西校区", "南校区", "北校区", "大龙校区", "首开校区",
+                "新校区", "校区"]
+# 泛称后缀：如「中心小学」「第二小学」「实验小学」，作为被包含短侧时容易误配，禁止参与包含匹配
+GENERIC_TAILS = ("中心小学", "第二小学", "第一小学", "第三小学", "第四小学",
+                 "第五小学", "实验小学", "实验学校")
+
+def is_generic(s):
+    return any(s == g or s.endswith(g) for g in GENERIC_TAILS)
+
+def norm_school(n):
+    n = unicodedata.normalize("NFKC", str(n))
+    n = n.replace("广州市", "").replace("番禺区", "").replace("番禺", "")
+    for a, b in VARIANTS.items():
+        n = n.replace(a, b)
+    n = re.sub(r"[（(].*?[)）]", "", n)
+    n = n.replace("小学校", "小学")
+    n = n.replace("镇", "")  # 化龙镇/石楼镇/石碁镇等，删「镇」统一（镇名去掉仍唯一）
+    n = n.strip()
+    return n
+
+def strip_prefix(n):
+    for p in PREFIXES:
+        if n.startswith(p):
+            return n[len(p):]
+    return n
+
+def is_campus(n):
+    return any(w in n for w in CAMPUS_WORDS)
+
+def rank_candidates(rec_school, poi_list):
+    """为一条官方记录计算所有 POI 的匹配分，返回降序候选 [(score, prefer, poi)]
+
+    规则（保守优先，避免「中心小学」等公共词误配）：
+      1000 全名精确
+       950 官方 strip 镇街前缀 == POI 全名（市桥东兴小学 → 东兴小学）
+       900 POI strip 前缀 == 官方全名
+       850 「学校/小学」词尾等价后精确（横江民生学校 ↔ 横江民生小学）
+       600+ 全名互相包含
+       500+ 单侧 strip 后包含
+       450+ 词尾等价后包含
+    严禁双侧 strip 后比较（会把所有「XX中心小学」归并为「中心小学」）。
+    """
+    nx = norm_school(rec_school)
+    nxs = strip_prefix(nx)
+    nx_eq = nxs.replace("学校", "小学")
+    rec_campus = is_campus(rec_school)
+    out = []
+    for p in poi_list:
+        pn = norm_school(p["name"])
+        pns = strip_prefix(pn)
+        pn_eq = pns.replace("学校", "小学")
+        score = 0
+        if nx == pn:
+            score = 1000
+        elif nxs == pn:
+            score = 950
+        elif nx == pns:
+            score = 900
+        elif nx_eq == pn:
+            score = 850
+        elif nx in pn or pn in nx:
+            short = nx if len(nx) <= len(pn) else pn
+            score = 600 + min(len(nx), len(pn)) if not is_generic(short) else 0
+        elif (len(nxs) >= 3 and nxs in pn and not is_generic(nxs)) or \
+             (len(pns) >= 3 and nx in pns and not is_generic(pns)):
+            score = 500 + min(len(nx), len(pn))
+        elif (len(nx_eq) >= 3 and nx_eq in pn_eq and not is_generic(nx_eq)) or \
+             (len(pn_eq) >= 3 and pn_eq in nx_eq and not is_generic(pn_eq)):
+            score = 450 + min(len(nx_eq), len(pn_eq))
+        if score <= 0:
+            continue
+        # 偏好：官方记录含「校区」→ 校区 POI 优先；否则主校区（无校区字样）优先
+        prefer = 0 if rec_campus == is_campus(p["name"]) else (-1 if is_campus(p["name"]) else 1)
+        out.append((score, prefer, p))
+    out.sort(key=lambda x: (-x[0], -x[1]))
+    return out
 
 def main():
     xls_path = sys.argv[1] if len(sys.argv) > 1 else "/Users/bytedance/Downloads/panyu_2026.xls"
@@ -74,63 +158,50 @@ def main():
             "source": "番禺区教育局2026",
         })
 
-    # ---- 与已有番禺学校点位匹配（双向包含 + 长度差异去歧义） ----
+    # ---- 与已有番禺学校点位匹配 ----
     with open(os.path.join(ROOT, "data", "schools.js"), encoding="utf-8") as f:
         js = f.read()
-    import re
     m = re.search(r"window\.GZ_SCHOOLS\s*=\s*(\{.*?\});?\s*$", js, re.S)
     data = json.loads(m.group(1))
     panyu = [s for s in data.get("schools", []) if s.get("adcode") == "440113"]
 
-    def norm_school(n):
-        n = str(n).replace("广州市", "").replace("番禺区", "").replace("番禺", "")
-        n = re.sub(r"[（(].*?[)）]", "", n)
-        n = n.replace("小学校", "小学").strip()
-        return n
+    # 全局按匹配分从高到低分配 POI；同一 POI 被多条官方记录竞争时，高分者得，其余记歧义
+    bindings = []  # (score, rec_idx, poi)
+    for idx, rec in enumerate(records):
+        cands = rank_candidates(rec["school"], panyu)
+        if cands:
+            bindings.append((cands[0][0], idx, cands[0][2]))
+    bindings.sort(key=lambda x: -x[0])
 
-    def sim(a, b):
-        if not a or not b:
-            return 0
-        if a == b:
-            return len(a) * 2
-        if a in b or b in a:
-            return min(len(a), len(b))
-        return 0
-
-    poi_by_school = {}
-    for s in panyu:
-        poi_by_school.setdefault(s["name"], s)
-
-    matched, unmatched, ambiguous = [], [], []
+    matched_records, ambiguous = [], []
     used_poi = {}
-    for rec in records:
-        nx = norm_school(rec["school"])
-        best = None
-        best_score = 0
-        for s in panyu:
-            np_ = norm_school(s["name"])
-            sc = sim(nx, np_)
-            if sc > best_score or (sc == best_score and sc > 0 and best is not None and abs(len(nx) - len(norm_school(best["name"]))) > abs(len(nx) - len(np_))):
-                best, best_score = s, sc
-        if best and best_score > 0:
-            hit = best
-            if hit["name"] in used_poi and used_poi[hit["name"]] != rec["school"]:
-                ambiguous.append({"school": rec["school"], "poi": hit["name"]})
-            used_poi[hit["name"]] = rec["school"]
-            rec["school_id"] = hit["name"]
-            rec["lng"], rec["lat"] = hit["lng"], hit["lat"]
-            matched.append(rec)
-        else:
-            unmatched.append(rec["school"])
+    has_poi = set()
+    for score, idx, poi in bindings:
+        if poi["name"] in used_poi:
+            ambiguous.append({"school": records[idx]["school"], "poi": poi["name"],
+                              "compete_with": used_poi[poi["name"]]})
+            continue
+        used_poi[poi["name"]] = records[idx]["school"]
+        has_poi.add(poi["name"])
+        rec = dict(records[idx])
+        rec["school_id"] = poi["name"]
+        rec["lng"], rec["lat"] = poi["lng"], poi["lat"]
+        matched_records.append(rec)
+
+    # 未被任何官方记录绑定的 POI（高德有、官方无）
+    poi_leftover = [s["name"] for s in panyu if s["name"] not in has_poi]
+    matched_names = {r["school"] for r in matched_records}
+    unmatched = [r["school"] for r in records if r["school"] not in matched_names]
 
     result = {
         "year": 2026,
         "district": "番禺区",
         "source": "番禺区教育局《2026年番禺区义务教育阶段学校招生计划、招生地段及条件》",
         "source_url": "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10794/mpost_10794083.html",
-        "records": matched,
+        "records": matched_records,
         "unmatched": sorted(set(unmatched)),
         "ambiguous": ambiguous,
+        "poi_leftover": sorted(set(poi_leftover)),
     }
 
     os.makedirs(OUT_DIR, exist_ok=True)
@@ -142,9 +213,11 @@ def main():
         f.write(";\n")
 
     print(f"记录总数: {len(records)}（公办{sum(1 for r in records if r['nature']=='公办')} / 民办{sum(1 for r in records if r['nature']=='民办')}）")
-    print(f"匹配到点位: {len(matched)} / 未匹配: {len(unmatched)} / 歧义: {len(ambiguous)}")
+    print(f"番禺 POI: {len(panyu)} | 匹配到点位: {len(matched_records)} / 未匹配: {len(unmatched)} / 歧义: {len(ambiguous)} / POI无官方记录: {len(poi_leftover)}")
     if unmatched:
-        print("未匹配学校名:", sorted(set(unmatched))[:40])
+        print("官方有高德无（未匹配）:", sorted(set(unmatched))[:50])
+    if poi_leftover:
+        print("高德有官方无（POI 无记录）:", sorted(poi_leftover))
     if ambiguous:
         print("歧义绑定:", ambiguous[:20])
 
