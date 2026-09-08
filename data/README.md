@@ -10,13 +10,14 @@
 | `schools.js` | 浏览器端直接用 `<script>` 加载（写入 `window.GZ_SCHOOLS`），内容与 JSON 一致 |
 | `enrollments/2026-panyu.json` | 番禺区 2026 年小学招生计划与地段数据（官方 xls 解析，试点） |
 | `enrollments/2026-panyu.js` | 同上，浏览器端加载（写入 `window.GZ_ENROLL_PANYU`） |
+| `schools-backfill.json` | 缺校补位搜索的补充点位留痕（src=backfill） |
 
 ## 数据口径
 
 - **数据源**：高德地图 Web 服务 API（place/text 小学分类 types=141203 + 关键词「小学」补充 + config/district 区边界），2026-09-08 快照
 - **范围**：广州市 7 区——荔湾 440103 / 越秀 440104 / 海珠 440105 / 天河 440106 / 白云 440111 / 黄埔 440112 / 番禺 440113
 - **采集方式**：分类查询 + 翻页（offset/page），**无单区 100 条上限**（旧版有人为截断，已修复）
-- **数量**：共 700+ 所（各区以最终采集结果为准，番禺 179 所，较旧版 97 大幅补全）
+- **数量**：共 971 所（各区以采集结果为准；番禺 211 所，其中 32 所为缺校补位搜索补入，标记 `src=backfill`）
 - **坐标系**：GCJ-02（与高德地图瓦片一致）
 
 ## 结构
@@ -50,6 +51,16 @@ python3 scripts/build_panyu_enrollment.py # 番禺招生数据，解析官方 xl
 
 - **数据源**：番禺区教育局通知 https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10794/mpost_10794083.html （附件直链 `.../attachment/8/8018/8018386/10794083.xls`）
 - **记录**：189 条（公办小学 150 + 民办 39）。字段：`school`（官方名）/ `district`（学区）/ `nature`（公办|民办）/ `plan_classes`（计划班数）/ `plan_count`（民办计划人数）/ `zone`（招生服务地段及条件原文）/ `note` / `school_id`（匹配到点位的基础数据校名）
-- **匹配**：94 条已绑定地图点位（`school_id` + 经纬度）；95 条未匹配（官方名单 189 所 > 高德 POI 97 所，点位本身不全，后续补点位）
+- **匹配**：**182/189 已绑定地图点位**（96%）；7 所高德确实缺失（清单见 `docs/番禺试点数据缺口清单.md`）
 - **口径说明**：地段文本保留官方原文；公办小学按地段入学（"人户一致"优先，见备注与各学区说明），民办小学无地段、超计划电脑派位
 - **每年留存**：地段逐年可能微调，每年追加一个 `enrollments/<year>-<区>.json`，不覆盖旧年份
+
+### 更新顺序（注意）
+
+```bash
+python3 scripts/fetch_schools.py           # 全量基础点位（会覆盖 schools.js，丢失 backfill 补充）
+python3 scripts/backfill_schools.py        # 缺校补位（重新执行以保留补充点位）
+python3 scripts/build_panyu_enrollment.py  # 番禺招生数据绑定
+```
+
+> 重跑 fetch_schools.py 前务必确认 backfill 点位是否需要保留；建议全流程按上面顺序跑。

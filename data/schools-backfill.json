@@ -1,0 +1,454 @@
+{
+ "updated": "2026-09-08",
+ "added": 32,
+ "items": [
+  {
+   "school": "京师奥园南奥实验学校",
+   "poi": {
+    "name": "京师奥园南奥实验学校",
+    "lng": 113.324291,
+    "lat": 22.989366,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "北新正华学校",
+   "poi": {
+    "name": "番禺区北新正华学校",
+    "lng": 113.470854,
+    "lat": 22.955552,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "南村镇锦绣香江学校",
+   "poi": {
+    "name": "番禺区锦绣香江学校",
+    "lng": 113.342312,
+    "lat": 22.990088,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 950,
+    "match_rule": "exact"
+   },
+   "score": 950,
+   "note": ""
+  },
+  {
+   "school": "南雅学校",
+   "poi": {
+    "name": "南雅学校",
+    "lng": 113.370725,
+    "lat": 23.011982,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "嘉诚学校",
+   "poi": {
+    "name": "嘉诚学校",
+    "lng": 113.429425,
+    "lat": 22.975814,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "大石会江实验学校",
+   "poi": {
+    "name": "会江实验学校",
+    "lng": 113.291613,
+    "lat": 23.007627,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 950,
+    "match_rule": "exact"
+   },
+   "score": 950,
+   "note": ""
+  },
+  {
+   "school": "天星学校",
+   "poi": {
+    "name": "天星学校",
+    "lng": 113.430357,
+    "lat": 22.955967,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "广东仲元中学莲花湾学校",
+   "poi": {
+    "name": "广东仲元中学莲花湾学校",
+    "lng": 113.511735,
+    "lat": 23.012912,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "广东仲元中学附属学校",
+   "poi": {
+    "name": "广东仲元中学附属学校",
+    "lng": 113.287754,
+    "lat": 23.050362,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "广东外语外贸大学番禺实验学校",
+   "poi": {
+    "name": "广东外语外贸大学番禺实验学校",
+    "lng": 113.272306,
+    "lat": 23.017004,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "广东番禺中学教育集团兴南学校",
+   "poi": {
+    "name": "广东番禺中学教育集团兴南学校",
+    "lng": 113.40262,
+    "lat": 22.998262,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "广博学校",
+   "poi": {
+    "name": "广博学校",
+    "lng": 113.291879,
+    "lat": 22.970881,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "广大附中番禺实验学校",
+   "poi": {
+    "name": "广大附中番禺实验学校",
+    "lng": 113.504953,
+    "lat": 23.016243,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "广州南方学院番禺附属中学",
+   "poi": {
+    "name": "广州南方学院番禺附属中学",
+    "lng": 113.349712,
+    "lat": 23.023582,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "恒润实验学校",
+   "poi": {
+    "name": "恒润实验学校",
+    "lng": 113.277278,
+    "lat": 23.033409,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "执鸿学校",
+   "poi": {
+    "name": "广州执鸿学校",
+    "lng": 113.294208,
+    "lat": 23.036459,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 604,
+    "match_rule": "fuzzy"
+   },
+   "score": 604,
+   "note": ""
+  },
+  {
+   "school": "新君豪中英文学校",
+   "poi": {
+    "name": "新君豪中英文学校",
+    "lng": 113.447856,
+    "lat": 22.954106,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "新英豪中英文学校",
+   "poi": {
+    "name": "新英豪中英文学校",
+    "lng": 113.345845,
+    "lat": 22.962605,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "明德广地实验学校",
+   "poi": {
+    "name": "明德广地实验学校",
+    "lng": 113.341866,
+    "lat": 23.020033,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "毓贤学校",
+   "poi": {
+    "name": "广州番禺区毓贤学校",
+    "lng": 113.338633,
+    "lat": 22.960182,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 604,
+    "match_rule": "fuzzy"
+   },
+   "score": 604,
+   "note": ""
+  },
+  {
+   "school": "番外外国语学校",
+   "poi": {
+    "name": "广州番外外国语学校",
+    "lng": 113.372089,
+    "lat": 22.975547,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 607,
+    "match_rule": "fuzzy"
+   },
+   "score": 607,
+   "note": ""
+  },
+  {
+   "school": "番广附创新城学校",
+   "poi": {
+    "name": "广州市番禺区番广附创新城学校",
+    "lng": 113.423318,
+    "lat": 23.023687,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "祈福新邨学校",
+   "poi": {
+    "name": "祈福新邨学校",
+    "lng": 113.322074,
+    "lat": 22.962704,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "祈福英语实验学校",
+   "poi": {
+    "name": "祈福英语实验学校",
+    "lng": 113.331615,
+    "lat": 22.964787,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "诺德安达学校",
+   "poi": {
+    "name": "广州市番禺区诺德安达学校",
+    "lng": 113.401515,
+    "lat": 22.980084,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "金华学校",
+   "poi": {
+    "name": "金华学校",
+    "lng": 113.387738,
+    "lat": 22.952343,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "金海岸学校",
+   "poi": {
+    "name": "金海岸学校",
+    "lng": 113.410189,
+    "lat": 22.933606,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "金海岸实验学校",
+   "poi": {
+    "name": "番禺区金海岸实验学校",
+    "lng": 113.404813,
+    "lat": 22.931224,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "钟村奥园学校",
+   "poi": {
+    "name": "钟村奥园学校",
+    "lng": 113.322727,
+    "lat": 22.983281,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "隽新学校",
+   "poi": {
+    "name": "广州市番禺区隽新学校",
+    "lng": 113.288216,
+    "lat": 22.988286,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "香江实验学校",
+   "poi": {
+    "name": "广州市番禺区香江实验学校",
+    "lng": 113.342595,
+    "lat": 22.990699,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  },
+  {
+   "school": "鸿翔学校",
+   "poi": {
+    "name": "番禺鸿翔学校",
+    "lng": 113.311467,
+    "lat": 22.969976,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "exact"
+   },
+   "score": 1000,
+   "note": ""
+  }
+ ]
+}
