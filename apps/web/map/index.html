@@ -214,9 +214,10 @@
         showError('本地数据未加载：请确认 ../../../data/schools.js 与页面在同一目录');
         return;
       }
+      var cc0 = coreCenter();
       map = L.map('map', {
-        center: [23.16, 113.35],
-        zoom: 10,
+        center: cc0 || [23.16, 113.35],
+        zoom: cc0 ? INITIAL_ZOOM : 10,
         minZoom: 9,
         maxZoom: 18,
         zoomSnap: 0.5,
@@ -395,11 +396,34 @@
     }
 
     /* ========== 收尾：视野与限制 ========== */
+    // 中心城区（默认视野聚焦范围）：荔湾 / 越秀 / 海珠 / 天河
+    var CORE_ADCODES = { '440103': true, '440104': true, '440105': true, '440106': true };
+    var INITIAL_ZOOM = 13; // 初始视野固定缩放级别（不随窗口大小自适应，打开即聚焦中心城区）
+    function coreCenter() {
+      var sw = null, ne = null;
+      (DATA.districts || []).forEach(function (dd) {
+        if (!CORE_ADCODES[dd.adcode]) return;
+        (dd.boundary || []).forEach(function (path) {
+          path.forEach(function (pt) {
+            if (!sw) { sw = { lat: pt[1], lng: pt[0] }; ne = { lat: pt[1], lng: pt[0] }; }
+            else {
+              sw.lat = Math.min(sw.lat, pt[1]); sw.lng = Math.min(sw.lng, pt[0]);
+              ne.lat = Math.max(ne.lat, pt[1]); ne.lng = Math.max(ne.lng, pt[0]);
+            }
+          });
+        });
+      });
+      return sw ? [(sw.lat + ne.lat) / 2, (sw.lng + ne.lng) / 2] : null;
+    }
     function finalize() {
       if (unionSW && unionNE) {
         var b = L.latLngBounds([unionSW.lat, unionSW.lng], [unionNE.lat, unionNE.lng]);
-        map.fitBounds(b.pad(0.05));
-        map.setMaxBounds(b.pad(0.12)); // 拖动范围限制在七区附近
+        if (!coreCenter()) {
+          // 兜底：核心四区数据缺失时退化为七区全景（固定级别，无动画）
+          map.fitBounds(b.pad(0.05), { animate: false });
+          map.setZoom(map.getZoom() + 1);
+        }
+        map.setMaxBounds(b.pad(0.5)); // 拖动范围限制：七区并集 + 50% 内边距（2026-09-08 调大）
       }
     }
 
