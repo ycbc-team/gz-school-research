@@ -8,7 +8,7 @@
   2. 逐校调高德 place/text 检索（city=440113，不限分类）
   3. 高置信命中 → 合并进 data/schools.js + schools-gz.json（追加，src=backfill 标记）
      并存 data/schools-backfill.json 留痕
-  4. 之后重跑 scripts/build_panyu_enrollment.py 完成绑定
+  4. 之后重跑 scripts/build_district_enrollment.py panyu 完成绑定
 """
 import json
 import os

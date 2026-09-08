@@ -104,6 +104,7 @@
   .si-zone > p { background: #F7F8FA; border-radius: 8px; padding: 8px 10px; margin-top: 2px; }
   .si-src { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line); font-size: 10.5px; color: #9AA0A6; }
   .si-empty { color: var(--text-sub); margin-top: 6px; }
+  .si-hint { color: var(--text-sub); font-size: 12px; line-height: 1.6; margin-top: 6px; }
   a.note-link { color: #1A6BD6; text-decoration: none; border-bottom: 1px dashed #B9CDEA; }
   a.note-link:hover { text-decoration: underline; }
   @media (max-width: 600px) {
@@ -145,7 +146,7 @@
       <div id="legend-rows"></div>
       <div class="sum" id="legend-sum" hidden></div>
     </div>
-    <div id="footnote">拖动 / 滚轮 / 双指缩放查看。悬停点位显示校名，点击番禺点位显示招生信息。<br>数据源：高德地图 POI（小学分类+翻页采集，无 100 条限制）· 番禺招生：区教育局 2026 年文件。</div>
+    <div id="footnote">拖动 / 滚轮 / 双指缩放查看。悬停点位显示校名，点击实心点位显示 2026 年招生信息（半透明点位暂无数据）。<br>数据源：高德地图 POI（小学分类+翻页采集，无 100 条限制）· 招生：各区教育局 2026 年官方文件。</div>
   </aside>
 
   <!-- 学校招生信息卡片（点击点位显示） -->
@@ -157,6 +158,10 @@
   <!-- 本地数据：由项目 scripts/ 采集生成 -->
   <script src="../../../data/schools.js"></script>
   <script src="../../../data/enrollments/2026-panyu.js"></script>
+  <script src="../../../data/enrollments/2026-liwan.js"></script>
+  <script src="../../../data/enrollments/2026-yuexiu.js"></script>
+  <script src="../../../data/enrollments/2026-haizhu.js"></script>
+  <script src="../../../data/enrollments/2026-tianhe.js"></script>
   <script src="assets/leaflet.js"></script>
   <script>
   (function () {
@@ -293,12 +298,13 @@
       (DATA.schools || []).forEach(function (s) {
         var d = districtByAdcode[s.adcode];
         if (!d) return;
+        var hasData = !!enrollById[s.name];
         var m = L.circleMarker([s.lat, s.lng], {
           radius: radiusForZoom(map.getZoom()),
-          color: '#FFFFFF',
-          weight: 1.5,
+          color: hasData ? '#FFFFFF' : 'rgba(255,255,255,0.85)',
+          weight: hasData ? 2.4 : 0.8,
           fillColor: d.color,
-          fillOpacity: 0.95
+          fillOpacity: hasData ? 0.95 : 0.25
         }).addTo(map);
         m.bindTooltip(esc(s.name), {
           direction: 'top',
@@ -306,7 +312,7 @@
           opacity: 0.95,
           className: 'school-label'
         });
-        m.on('click', function () { showSchoolInfo(s.name); });
+        m.on('click', function () { showSchoolInfo(s.name, s.adcode); });
         markers.push(m);
       });
     }
@@ -320,18 +326,23 @@
         return links;
       });
     }
-    var ENROLL = window.GZ_ENROLL_PANYU || null;
+    var ENROLLS = [
+      window.GZ_ENROLL_PANYU, window.GZ_ENROLL_LIWAN, window.GZ_ENROLL_YUEXIU,
+      window.GZ_ENROLL_HAIZHU, window.GZ_ENROLL_TIANHE
+    ].filter(Boolean);
     var enrollById = {};
-    if (ENROLL) {
-      (ENROLL.records || []).forEach(function (r) {
+    var enrollDistricts = {};
+    ENROLLS.forEach(function (E) {
+      if (E.district) enrollDistricts[E.district] = true;
+      (E.records || []).forEach(function (r) {
         if (r.school_id && !enrollById[r.school_id]) enrollById[r.school_id] = r;
       });
-    }
+    });
     function hideSchoolInfo() {
       var el = document.getElementById('school-info');
       if (el) el.hidden = true;
     }
-    function showSchoolInfo(name) {
+    function showSchoolInfo(name, adcode) {
       var el = document.getElementById('school-info');
       var body = document.getElementById('si-body');
       if (!el || !body) return;
@@ -348,9 +359,15 @@
         }
         html += '<div class="si-row si-zone"><span>招生地段<br>及条件</span><p>' + esc(r.zone || '—') + '</p></div>';
         if (r.note) html += '<div class="si-row"><span>备注</span><p>' + linkifyNotes(esc(r.note)) + '</p></div>';
-        html += '<div class="si-src">数据来源：' + esc((ENROLL && ENROLL.source) || '') + '（' + (ENROLL && ENROLL.year || '') + '）</div>';
+        html += '<div class="si-src">数据来源：' + esc((r && r.source) || '—') + '</div>';
       } else {
-        html += '<div class="si-empty">暂无 2026 年招生数据（可后续补充）</div>';
+        var districtName = '';
+        DISTRICTS.forEach(function (dd) { if (dd.adcode === adcode) districtName = dd.name; });
+        var enrolled = enrollDistricts[districtName];
+        html += '<div class="si-empty">暂无 2026 年招生数据</div>';
+        html += '<div class="si-hint">' + (enrolled
+          ? '该点位不在 2026 年' + esc(districtName || '本区') + '公办小学官方名单中（或为名单内学校的别名/分校区，尚未人工核对）。'
+          : esc(districtName || '该区') + '的 2026 年招生数据尚未接入（白云、黄埔为低优先级）。') + '</div>';
       }
       body.innerHTML = html;
       el.hidden = false;
@@ -362,16 +379,19 @@
       var html = '';
       var total = 0;
       DISTRICTS.forEach(function (d) {
-        var n = (DATA.schools || []).filter(function (s) { return s.adcode === d.adcode; }).length;
+        var arr = (DATA.schools || []).filter(function (s) { return s.adcode === d.adcode; });
+        var en = arr.filter(function (s) { return enrollById[s.name]; }).length;
+        var n = arr.length;
         total += n;
         html += '<div class="row"><span class="dot" style="background:' + d.color + '"></span>' +
-                '<span>' + esc(d.name) + '</span><span class="count">' + n + ' 所</span></div>';
+                '<span>' + esc(d.name) + '</span><span class="count">' + n + ' 所 · 数据 ' + en + '</span></div>';
       });
       rows.innerHTML = html;
       var sum = document.getElementById('legend-sum');
       sum.hidden = false;
-      sum.innerHTML = '<span>合计</span><span class="count">' + total + ' 所</span>';
-      setStatus('已标注 ' + total + ' 所小学 · 本地数据快照' + (DATA.updated ? '（' + esc(DATA.updated) + '）' : ''));
+      var dataTotal = (DATA.schools || []).filter(function (s) { return enrollById[s.name]; }).length;
+      sum.innerHTML = '<span>合计</span><span class="count">' + total + ' 所 · 数据 ' + dataTotal + '</span>';
+      setStatus('已标注 ' + total + ' 所小学（实心=已接入2026招生数据，半透明=暂无）' + (DATA.updated ? ' · ' + esc(DATA.updated) : ''));
     }
 
     /* ========== 收尾：视野与限制 ========== */
