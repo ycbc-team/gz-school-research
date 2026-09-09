@@ -9,7 +9,7 @@
     <view class="card" wx:for="{{list}}" wx:key="name">
       <view class="card-head">
         <view class="card-name">{{item.name}}</view>
-        <view class="badge badge-{{item.conclusion}}">{{item.conclusion}}</view>
+        <view class="badge badge-{{item.badgeClass}}">{{item.conclusion}}</view>
       </view>
       <view class="tier">民间标签：{{item.rumor_tier}}</view>
       <view class="basis" wx:if="{{item.conclusion_basis}}">{{item.conclusion_basis}}</view>

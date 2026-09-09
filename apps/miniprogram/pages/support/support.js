@@ -1,5 +1,8 @@
 const { tier1Schools, middleTier1Schools, shared } = require('../../utils/data.js');
 
+// conclusion 中文值 → WXSS 合法类名（WXSS 类选择器不支持中文）
+const CONCLUSION_CLASS = { 有支撑: 'supported', 部分支撑: 'partial', 不支撑: 'unsupported' };
+
 Page({
   data: {
     stage: 'primary',
@@ -12,8 +15,12 @@ Page({
     this.apply('primary');
   },
   apply(stage) {
-    const list = stage === 'primary' ? tier1Schools : middleTier1Schools;
+    const source = stage === 'primary' ? tier1Schools : middleTier1Schools;
     const by = { 有支撑: 0, 部分支撑: 0, 不支撑: 0 };
+    const list = source.map((s) => ({
+      ...s,
+      badgeClass: CONCLUSION_CLASS[s.conclusion] || 'unknown',
+    }));
     list.forEach((s) => {
       if (by[s.conclusion] !== undefined) by[s.conclusion] += 1;
     });

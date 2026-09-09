@@ -12,8 +12,8 @@
 .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16rpx; }
 .card-name { font-size: 30rpx; font-weight: 600; line-height: 1.4; }
 .badge { flex-shrink: 0; color: #fff; font-size: 22rpx; font-weight: 600; border-radius: 999rpx; padding: 4rpx 20rpx; }
-.badge-有支撑 { background: #2f7d1f; }
-.badge-部分支撑 { background: #b07d1f; }
-.badge-不支撑 { background: #c9534f; }
+.badge-supported { background: #2f7d1f; }
+.badge-partial { background: #b07d1f; }
+.badge-unsupported { background: #c9534f; }
 .tier { font-size: 24rpx; color: #6b7280; margin-top: 12rpx; }
 .basis { font-size: 24rpx; color: #444; margin-top: 8rpx; line-height: 1.6; }
