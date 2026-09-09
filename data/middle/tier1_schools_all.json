@@ -1,0 +1,1475 @@
+{
+  "title": "广州8区网传第一梯队初中名单与客观数据核验",
+  "verified_date": "2026-09-09",
+  "scope": "荔湾/越秀/海珠/天河/白云/黄埔/番禺/增城",
+  "methodology": {
+    "rumor_sources": "多来源交叉（今日头条·城纪/广州升学情报局/唐宋cn/粤校金榜、广州妈妈网、抖音升学号与房产号、吉屋·广州淘房志、南方+/金羊网/广州日报、本地宝等）",
+    "verification_layers": {
+      "A层_主要依据": [
+        "中考成绩（注明年份与统计口径；2018年起官方禁止公布逐校成绩，均为网传喜报/家长汇总，公开可溯即采信并标注）",
+        "完全中学的省/国家级示范性高中称号（广州市教育局2024年5月公布名单）",
+        "2025-2026年高中录取分数线（市招考办发布，反映完全中学整体实力）",
+        "教育集团身份与集团名额分配数据（市招考办2025年集团直接名额分配文件）"
+      ],
+      "B层_辅助": [
+        "省一级/市一级历史称号（1994-2005评定，仅作历史标注）",
+        "建校历史、特色班/竞赛、民间口碑"
+      ],
+      "C层_不采信": [
+        "无年份/无统计口径的'均分XX'数字",
+        "学区房价格",
+        "无法溯源的升学率百分比"
+      ]
+    },
+    "policy_note": "①2018年起官方禁止学校公布中考成绩，本报告所有中考数据均为网传喜报/家长论坛汇总，注明年份与口径，非官方发布；②'省一级/重点学校'称号2005年停评、2007年广州取消等级制，仅作历史称号；③广州官方从不发布逐校初中成绩排名；④所有'第一梯队'均为民间口径，非官方评价。中考总分口径：2024年起810分（2021-2023新中考同为810分），2016-2020年亦为810分制（高分段750+即证），2015年及以前为710分旧口径；第一梯度线随年份波动（2023年702/2024年702/2025年707/2026年712），比较须同口径。"
+  },
+  "summary": {
+    "total_schools": 57,
+    "by_district": {
+      "越秀区": 9,
+      "荔湾区": 7,
+      "海珠区": 5,
+      "天河区": 9,
+      "白云区": 7,
+      "黄埔区": 8,
+      "番禺区": 8,
+      "增城区": 4
+    },
+    "by_conclusion": {
+      "有支撑": 44,
+      "部分支撑": 13,
+      "不支撑": 0
+    }
+  },
+  "districts": {
+    "越秀区": {
+      "mechanism_note": "公办初中以分组电脑派位为主+部分对口直升（2025年：育才实验面向全区部分直升、华侨外国语/八一实验/知用/七中实验/真光本校直升、培正→培正小学、育才→育才学校对口直升）。省市属名校初中部（省实/执信/二中/广附/铁一）集中于此，民间称'豪门区'。",
+      "schools": [
+        {
+          "name": "广东实验中学（初中部）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·城纪（2026-09）", "url": "http://m.toutiao.com/group/7681581778460738082/", "label": "全市公认头部公办初中"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "越秀豪门·南山班"},
+            {"source": "抖音·2025越秀区初中TOP10（2025-07）", "url": "https://www.iesdouyin.com/share/video/7528363086584024359", "label": "越秀第1"}
+          ],
+          "rumor_notes": "几乎所有版本第一梯队均含省实初中部，无版本争议。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2017,
+            "scope": "全校",
+            "data": "750+共15人、740+共49人、715+共157人、698+占45%（旧口径810分制网传汇总）；2024年网传南山班一梯率45%左右",
+            "official": false,
+            "source_url": "https://m.gzmama.com/thread-5528871-1-1.html",
+            "note": "网传喜报，非官方"
+          },
+          "demonstration_high": {"level": "国家级示范性（省直属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广东实验中学教育集团", "role": "核心校", "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "founded": {"year": 1888, "note": "前身格致书院"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "省直属国家级示范性高中（官方名单）+网传中考数据（2017年750+15人，2024年南山班一梯率约45%）+集团核心校，硬指标齐全。",
+          "data_gaps": ["2018年后官方不公布逐校中考成绩，近年数据均为网传口径"]
+        },
+        {
+          "name": "广州市执信中学（执信路校区）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·城纪（2026-09）", "url": "http://m.toutiao.com/group/7681581778460738082/", "label": "全市公认头部公办初中"},
+            {"source": "抖音·2025越秀区初中TOP10（2025-07）", "url": "https://www.iesdouyin.com/share/video/7528363086584024359", "label": "越秀第2"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "越秀豪门·奥班"}
+          ],
+          "rumor_notes": "无版本争议的第一梯队。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2019,
+            "scope": "全校",
+            "data": "2019年750+占全市8%（全市第1、第2高分均出自执信），20%学生超730，45%超700，55%超高优线（官方口径喜报）；2024年网传水荫校区一梯率近40%、2+4创培班均分745+",
+            "official": false,
+            "source_url": "https://m.gzmama.com/thread-5528871-1-1.html",
+            "note": "2019为学校公布喜报（广州妈妈网收录），2024为网传"
+          },
+          "demonstration_high": {"level": "国家级示范性（市直属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市执信中学教育集团", "role": "核心校", "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "founded": {"year": 1921, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "市直属国家级示范性（官方）+2019年官方口径喜报（750+占全市8%、45%超700）+2024年网传一梯率近40%。",
+          "data_gaps": ["近年初中部逐校成绩未官方公布"]
+        },
+        {
+          "name": "广州市第二中学（初中部）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·城纪（2026-09）", "url": "http://m.toutiao.com/group/7681581778460738082/", "label": "越秀头部"},
+            {"source": "抖音·2025越秀区初中TOP10（2025-07）", "url": "https://www.iesdouyin.com/share/video/7528363086584024359", "label": "越秀第3"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "越秀豪门·基地班"}
+          ],
+          "rumor_notes": "家长口碑极好的老牌公办豪门。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2017,
+            "scope": "全校",
+            "data": "2017年750+共17人、740+共31人、715+共121人、698+共202人（810分制网传汇总）；2024年网传最高分771",
+            "official": false,
+            "source_url": "https://m.gzmama.com/thread-5528871-1-1.html",
+            "note": "网传喜报"
+          },
+          "demonstration_high": {"level": "国家级示范性（市直属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市第二中学教育集团（2017年成立）", "role": "核心校", "source_url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html"},
+          "founded": {"year": 1930, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "市直属国家级示范性（官方）+网传中考数据（2017年750+17人；2024年最高771）+二中集团核心校。",
+          "data_gaps": ["近年逐校成绩未官方公布"]
+        },
+        {
+          "name": "广州大学附属中学（黄华路校区）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·城纪（2026-09）", "url": "http://m.toutiao.com/group/7681581778460738082/", "label": "越秀头部"},
+            {"source": "抖音·2025越秀区初中TOP10（2025-07）", "url": "https://www.iesdouyin.com/share/video/7528363086584024359", "label": "越秀第4"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "越秀豪门·HHL"}
+          ],
+          "rumor_notes": "理科教学优势突出。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2017,
+            "scope": "全校",
+            "data": "2017年750+共16人、740+共35人、715+共182人、698+共287人（810分制网传汇总）",
+            "official": false,
+            "source_url": "https://m.gzmama.com/thread-5528871-1-1.html",
+            "note": "网传喜报"
+          },
+          "demonstration_high": {"level": "国家级示范性（市直属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州大学附属中学教育集团", "role": "核心校", "source_url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html"},
+          "founded": {"year": 1948, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "市直属国家级示范性（官方）+网传中考数据（2017年750+16人）+广附集团核心校。",
+          "data_gaps": ["近年逐校成绩未官方公布"]
+        },
+        {
+          "name": "广州市铁一中学（越秀校区）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·城纪（2026-09）", "url": "http://m.toutiao.com/group/7681581778460738082/", "label": "加工能力广受好评"},
+            {"source": "抖音·2025越秀区初中TOP10（2025-07）", "url": "https://www.iesdouyin.com/share/video/7528363086584024359", "label": "越秀第5"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "越秀·铁英班"}
+          ],
+          "rumor_notes": "2026年广州中考前九自招入围数全市前列（广附系并列），加工能力口碑强。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2017,
+            "scope": "全校",
+            "data": "2017年740+共16人、720+共73人、715+共74人、698+共187人；2016年总均分669.29、750+共12人（810分制网传汇总）",
+            "official": false,
+            "source_url": "https://m.gzmama.com/thread-5528871-1-1.html",
+            "note": "网传喜报"
+          },
+          "demonstration_high": {"level": "国家级示范性（市直属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广铁一中教育集团", "role": "核心校", "source_url": "https://huacheng.gz-cmc.com/pages/2024/11/11/9ee41fb5c25946fa8bab16763a8efb7d.html"},
+          "founded": {"year": 1952, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "市直属国家级示范性（官方）+网传中考数据（2017年740+16人）+铁一集团核心校；2025年铁一越秀高中录取717分（官方）。",
+          "data_gaps": ["近年初中逐校成绩未官方公布"]
+        },
+        {
+          "name": "广州市第七中学（本部）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·2025越秀区初中TOP10（2025-07）", "url": "https://www.iesdouyin.com/share/video/7528363086584024359", "label": "越秀第6"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "越秀·四叶草班"},
+            {"source": "今日头条·城纪（2026-09）", "url": "http://m.toutiao.com/group/7681581778460738082/", "label": "第二梯队优质公办（版本差异）"}
+          ],
+          "rumor_notes": "多数版本列第一梯队，部分版本（城纪2026）将其列第二梯队，存在版本差异。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2018,
+            "scope": "全校",
+            "data": "2018年686+共104人占32.8%、610+共239人占75.4%、最高762；2017年总均分660（810分制网传汇总）",
+            "official": false,
+            "source_url": "https://m.gzmama.com/thread-5528871-1-1.html",
+            "note": "网传喜报"
+          },
+          "demonstration_high": {"level": "国家级示范性（越秀区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市第七中学教育集团", "role": "核心校", "source_url": null},
+          "founded": {"year": 1888, "note": "前身培道学校"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "区属国家级示范性（官方）+网传中考数据（2018年686+32.8%、最高762）+2025年高中录取710分（官方）。",
+          "data_gaps": ["2020年后逐校中考数据未官方公布；集团核心校公开文件未查到"]
+        },
+        {
+          "name": "广州市第十六中学（本部）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·2025越秀区初中TOP10（2025-07）", "url": "https://www.iesdouyin.com/share/video/7528363086584024359", "label": "越秀第7"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "越秀·君武班"},
+            {"source": "抖音·广州市第十六中学2024年中考（2025-02）", "url": "https://www.iesdouyin.com/share/video/7470097944335699259", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "首批省一级、首批国家级示范性。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传最高751分、示范性高中上线率55%、普高率78%、君武班均分703；2023年网传750+至少19人；2018年700+共83人",
+            "official": false,
+            "source_url": "https://www.iesdouyin.com/share/video/7470097944335699259",
+            "note": "网传喜报，多源交叉"
+          },
+          "demonstration_high": {"level": "国家级示范性（越秀区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市第十六中学教育集团", "role": "核心校", "source_url": null},
+          "founded": {"year": 1934, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "首批省一级+首批国家级示范性（官方）+网传中考数据（2024年示范上线率55%、君武班均分703；2023年750+19人）+2025年高中录取707分（官方）。",
+          "data_gaps": ["2024年后逐校数据未官方公布"]
+        },
+        {
+          "name": "广州市越秀区育才实验学校",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·2025越秀区初中TOP10（2025-07）", "url": "https://www.iesdouyin.com/share/video/7528363086584024359", "label": "越秀第8"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "越秀·尖创班"},
+            {"source": "手机搜狐·中考均分678（2024-08）", "url": "https://m.sohu.com/a/798038417_121036519/", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "2000年创办为民办，2022年8月民转公为越秀区属公办寄宿制初中；'民转公摇一代'2024年首秀仍居区内前列。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年全校均分678、700+超100人、最高775、760+5人、750+8人、740+21人、730+40人、6人单科满分；2022年（民转公前）700+占74.9%",
+            "official": false,
+            "source_url": "https://m.sohu.com/a/798038417_121036519/",
+            "note": "网传喜报（开放日/家长汇总），非官方"
+          },
+          "education_group": {"name": null, "role": null, "source_url": null},
+          "founded": {"year": 2000, "note": "2022年8月民转公"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "网传中考数据公开可溯（2024年全校均分678、700+超100人、最高775）+2025年越秀区招生计划单列6班（官方），民转公后仍居区内前列。",
+          "data_gaps": ["官方不公布逐校成绩，2024后数据待补充；未查到其教育集团核心校公开信息"]
+        },
+        {
+          "name": "广州市培正中学（初中部）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·2025越秀区初中TOP10（2025-07）", "url": "https://www.iesdouyin.com/share/video/7528363086584024359", "label": "越秀第9"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "越秀·创新班"},
+            {"source": "广州妈妈网·中考数据汇总", "url": "https://m.gzmama.com/thread-5528871-1-1.html", "label": "2019中考数据"}
+          ],
+          "rumor_notes": "部分版本将培正列第一梯队、部分列第二梯队（2020版本第二梯队），存在版本差异。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2019,
+            "scope": "全校",
+            "data": "2019年30%以上同学超高优线（686）、60%超示范性高中控制线（616）；2018年善正班均分688.09；2024年网传最高754",
+            "official": false,
+            "source_url": "https://m.gzmama.com/thread-5528871-1-1.html",
+            "note": "网传喜报"
+          },
+          "demonstration_high": {"level": "国家级示范性（越秀区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市培正中学教育集团", "role": "核心校", "source_url": "https://www.nfnews.com/content/A6ErvnBWoK.html"},
+          "founded": {"year": 1889, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "区属国家级示范性（官方）+网传中考数据（2019年30%超高优线、善正班均分688）+培正教育集团核心校+对口培正小学直升（官方2025细则）。",
+          "data_gaps": ["近年逐校数据未官方公布；梯队位置版本有差异"]
+        }
+      ]
+    },
+    "荔湾区": {
+      "mechanism_note": "公办初中以分组电脑派位为主；广雅中学初中部2021年复办、西关广雅实验（西雅）为广雅集团管理公办初中；省市属名校初中资源少于越秀，区属龙头为真光中学。",
+      "schools": [
+        {
+          "name": "广东广雅中学（初中部）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·城纪（2026-09）", "url": "http://m.toutiao.com/group/7681581778460738082/", "label": "荔湾区内标杆"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "豪门·岭南班"},
+            {"source": "抖音·荔湾广雅初中部中考喜报（2025-08）", "url": "https://www.iesdouyin.com/share/video/7543860875091741962", "label": "2024/2025中考数据"}
+          ],
+          "rumor_notes": "2021年复办初中部，2024年首届中考即冲上'豪门'梯队。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "初中部",
+            "data": "2024年首届中考：770+4人、765+5人、760+7人、755+14人、750+17人、740+35人、重点班均分750+；2025年网传最高770+、750+20余人、730+近100人、一梯上线200+人",
+            "official": false,
+            "source_url": "https://www.iesdouyin.com/share/video/7543860875091741962",
+            "note": "网传喜报（2024首届、2025第二届）"
+          },
+          "demonstration_high": {"level": "国家级示范性（省直属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广东广雅中学教育集团", "role": "核心校", "source_url": null},
+          "founded": {"year": 1888, "note": "初中部2021年复办"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "省直属国家级示范性（官方）+2024/2025年网传中考数据（750+17人、重点班均分750+）+广雅集团核心校。",
+          "data_gaps": ["2024年为首届中考，历史数据有限；官方未公布逐校成绩"]
+        },
+        {
+          "name": "广州市荔湾区西关广雅实验学校（西雅）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·城纪（2026-09）", "url": "http://m.toutiao.com/group/7681581778460738082/", "label": "广雅集团嫡系分校"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "荔湾一线·岭南班"},
+            {"source": "抖音·西关广雅实验学校（2026-01）", "url": "https://www.iesdouyin.com/share/video/7598546394581268453", "label": "2024/2025中考数据"}
+          ],
+          "rumor_notes": "广雅中学管理的公办初中，一校三区（东风西路/南岸路/大坦沙）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传最高778分；2025年网传最高764分、750+4人、740+35人",
+            "official": false,
+            "source_url": "https://www.iesdouyin.com/share/video/7598546394581268453",
+            "note": "网传喜报"
+          },
+          "education_group": {"name": "广东广雅中学教育集团", "role": "成员校（委托广雅管理）", "source_url": "https://www.iesdouyin.com/share/video/7582485842069949731"},
+          "founded": {"year": 2014, "note": "前身广雅实验学校；2024年形成一校三区"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "广雅集团委托管理的公办初中（办学地位明确）+2024/2025年网传中考数据（最高778/764分）。",
+          "data_gaps": ["官方未公布逐校中考成绩"]
+        },
+        {
+          "name": "广东实验中学荔湾学校（省实荔湾）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "荔湾一线·南山班"},
+            {"source": "今日头条·粤校金榜·96所中考成绩大汇总（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "省实集团在荔湾的九年一贯制公办校（广钢新城），2024年为首届中考。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：101人达省实线占28%、170人达前8高中线占47%、750+9人、740+25人、最高777分荔湾第一、特色班均分735、前50均分741+",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报（表内'荔S'）"
+          },
+          "education_group": {"name": "广东实验中学教育集团", "role": "成员校", "source_url": null},
+          "founded": {"year": 2019, "note": "2024年首届中考"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "省实集团成员校（集团身份明确）+2024年网传中考数据（最高777荔湾第一、750+9人、28%达省实线）。",
+          "data_gaps": ["官方未公布逐校成绩；首届中考后数据待补充"]
+        },
+        {
+          "name": "广州市真光中学（校本部）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·城纪（2026-09）", "url": "http://m.toutiao.com/group/7681581778460738082/", "label": "荔湾老牌强校"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "荔湾·大成班"},
+            {"source": "抖音·真光本部中考（2025-09）", "url": "https://www.iesdouyin.com/share/video/7549100624051195177", "label": "2024/2025中考数据"}
+          ],
+          "rumor_notes": "荔湾区属龙头、百年老校；2025年高中录取689分进入一梯线（官方），是荔湾区属龙头代表。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：达示范性高中线58.8%、达普高线81.7%、最高766分（2人）；2025年网传最高750、普高率约80%居荔湾前三",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报（表内'真G'）"
+          },
+          "demonstration_high": {"level": "国家级示范性（荔湾区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市真光中学教育集团", "role": "核心校", "source_url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html"},
+          "founded": {"year": 1872, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "区属国家级示范性（官方）+网传中考数据（2024年示范上线58.8%、最高766）+真光集团核心校+2025年高中录取689进入一梯线（官方）。",
+          "data_gaps": ["近年初中逐校成绩未官方公布"]
+        },
+        {
+          "name": "广州市第一中学",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·广州升学情报局（2025-03）", "url": "http://m.toutiao.com/group/7478940785577165375/", "label": "荔湾第一梯队"},
+            {"source": "广州妈妈网·中考数据汇总", "url": "https://m.gzmama.com/thread-5528871-1-1.html", "label": "2016-2017中考数据"}
+          ],
+          "rumor_notes": "情报局2025版本列第一梯队，但2026年抖音梯度榜未将其列入一线，存在版本差异。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2017,
+            "scope": "全校",
+            "data": "2017年740+1人、715+20人；2016年总均分576.75、700+38人（810分制网传汇总）",
+            "official": false,
+            "source_url": "https://m.gzmama.com/thread-5528871-1-1.html",
+            "note": "网传汇总"
+          },
+          "demonstration_high": {"level": "国家级示范性（荔湾区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市第一中学教育集团", "role": "核心校", "source_url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html"},
+          "founded": {"year": 1928, "note": null},
+          "conclusion": "部分支撑",
+          "conclusion_basis": "区属国家级示范性+一中集团核心校（官方），办学地位明确；但初中部近年网传中考数据薄弱（2017年700+仅38人、2026梯队榜未入一线），'第一梯队'仅个别版本支撑。",
+          "data_gaps": ["近年初中逐校中考成绩未查到公开数据"]
+        },
+        {
+          "name": "广州市第四中学",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·广州升学情报局（2025-03）", "url": "http://m.toutiao.com/group/7478940785577165375/", "label": "荔湾第一梯队"},
+            {"source": "广州妈妈网·中考数据汇总", "url": "https://m.gzmama.com/thread-5528871-1-1.html", "label": "2016-2017中考数据"}
+          ],
+          "rumor_notes": "情报局2025版本列第一梯队，2026年抖音梯度榜列四中聚贤（锐志班）为一线；四中本部初中'第一梯队'网传来源有限。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2017,
+            "scope": "全校",
+            "data": "2017年740+3人、715+24人；2016年750+2人、700+76人占19.9%（810分制网传汇总）",
+            "official": false,
+            "source_url": "https://m.gzmama.com/thread-5528871-1-1.html",
+            "note": "网传汇总"
+          },
+          "demonstration_high": {"level": "国家级示范性（荔湾区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市第四中学教育集团", "role": "核心校", "source_url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html"},
+          "founded": {"year": 1917, "note": null},
+          "conclusion": "部分支撑",
+          "conclusion_basis": "区属国家级示范性+四中集团核心校（官方），办学地位明确；但初中部近年公开中考数据薄弱、'第一梯队'网传来源不足（2026版本多指四中聚贤而非四中本部）。",
+          "data_gaps": ["近年初中逐校中考成绩未查到公开数据"]
+        },
+        {
+          "name": "广州市西关外国语学校",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·广州升学情报局（2025-03）", "url": "http://m.toutiao.com/group/7478940785577165375/", "label": "荔湾第一梯队"},
+            {"source": "广州妈妈网·中考数据汇总", "url": "https://m.gzmama.com/thread-5528871-1-1.html", "label": "2016-2018中考数据"}
+          ],
+          "rumor_notes": "外语特色区属校，小升初外语直升比例高；'第一梯队'仅情报局版本明确列入。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2018,
+            "scope": "全校",
+            "data": "2018年总均分661、686+107人；2016年总均分697、700+138人（810分制网传汇总）",
+            "official": false,
+            "source_url": "https://m.gzmama.com/thread-5528871-1-1.html",
+            "note": "网传汇总"
+          },
+          "demonstration_high": {"level": "广州市示范性（荔湾区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市西关外国语学校集团", "role": "核心校", "source_url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html"},
+          "founded": {"year": 1948, "note": null},
+          "conclusion": "部分支撑",
+          "conclusion_basis": "市示范性（官方）+集团核心校（官方），外语特色定位明确；但初中部近年公开中考数据薄弱、'第一梯队'网传来源单一。",
+          "data_gaps": ["近年初中逐校中考成绩未查到公开数据"]
+        }
+      ]
+    },
+    "海珠区": {
+      "mechanism_note": "公办初中以多校划片+电脑派位为主，部分对口直升试点；六中本部（市属）为区内龙头，中大附中2022年转公办（省属）。",
+      "schools": [
+        {
+          "name": "广州市第六中学（本部）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·海珠区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7632901407076016310", "label": "海珠第一梯队"},
+            {"source": "今日头条·城纪（2026-09）", "url": "http://m.toutiao.com/group/7681581778460738082/", "label": "海珠公办龙头"},
+            {"source": "今日头条·粤校金榜·96所中考成绩大汇总（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "市属名校初中部，海珠区公办标杆。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：780+1人、770+4人、760+12人、750+60人、730+182人，前50均分758，超一梯线（702）330人、超二梯线465人",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报（表内'龙哥'）"
+          },
+          "demonstration_high": {"level": "国家级示范性（市直属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市第六中学教育集团", "role": "核心校", "source_url": null},
+          "founded": {"year": 1937, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "市直属国家级示范性（官方）+2024年网传中考数据（750+60人、超一梯330人）+2025年高中录取710分（官方）。",
+          "data_gaps": ["官方不公布逐校初中成绩"]
+        },
+        {
+          "name": "中山大学附属中学",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·海珠区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7632901407076016310", "label": "海珠第一梯队"},
+            {"source": "手机搜狐·中大附中2023中考（2024-09）", "url": "https://m.sohu.com/a/811365795_121036519/", "label": "2023中考数据"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "2022年民转公（省属公办），2024年网传均分688居海珠第一。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：参考299人、均分688区内第一、最高776、750+18人（6%）、740+44人、730+71人、超一梯（702）163人（54.52%）；2023年网传均分688、一梯率54.5%",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报（表内'金店'）"
+          },
+          "demonstration_high": {"level": "广州市示范性（省属·中大办）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "中山大学附属学校（中大附中教育集团）", "role": "核心校", "source_url": null},
+          "founded": {"year": 1924, "note": "2022年民转公"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "市示范性+中大品牌（官方名单）；2023/2024年网传中考数据（均分688海珠第一、一梯率54.5%）公开可溯。",
+          "data_gaps": ["转公后生源口径变化，数据年份需注意；官方未公布逐校成绩"]
+        },
+        {
+          "name": "广州市第五中学（本部）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·海珠区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7632901407076016310", "label": "海珠第一梯队"},
+            {"source": "今日头条·唐宋cn·海珠名额分配700+上岸分析（2026-09）", "url": "https://www.toutiao.com/article/7514043495498531364/", "label": "名额分配700+上岸第一梯队代表"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "海珠区属龙头、'张衡班'口碑强；2025年高中录取711分居区属之首（官方）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传最高781分；2025年网传张衡班均分730+、一梯率超50%",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报"
+          },
+          "demonstration_high": {"level": "国家级示范性（海珠区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市第五中学教育集团", "role": "核心校", "source_url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html"},
+          "founded": {"year": 1951, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "区属国家级示范性（官方）+网传中考数据（2024最高781、张衡班一梯率超50%）+五中集团核心校+2025年高中录取711分区属第一（官方）。",
+          "data_gaps": ["官方不公布逐校初中成绩"]
+        },
+        {
+          "name": "广州市南武中学（本部）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·海珠区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7632901407076016310", "label": "部分版本第一梯队"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"},
+            {"source": "广州妈妈网·中考数据汇总", "url": "https://m.gzmama.com/thread-5528871-1-1.html", "label": "2017中考数据"}
+          ],
+          "rumor_notes": "百年老校、区属龙头之一；'剑吴班'口碑强；2026版本多列第一梯队、部分列第二梯队（2026-04列第二）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传最高764分；2017年750+2人、698+99人；2016年总均分660（810分制网传汇总）",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报"
+          },
+          "demonstration_high": {"level": "国家级示范性（海珠区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市南武中学教育集团", "role": "核心校", "source_url": null},
+          "founded": {"year": 1905, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "区属国家级示范性（官方）+网传中考数据（2024最高764、2017年750+2人）+南武集团核心校。",
+          "data_gaps": ["近年逐校数据未官方公布；梯队位置版本有差异"]
+        },
+        {
+          "name": "广州市海珠外国语实验中学",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "广州妈妈网·中考数据汇总", "url": "https://m.gzmama.com/thread-5528871-1-1.html", "label": "2016-2018中考数据"},
+            {"source": "今日头条·城纪（2026-09）", "url": "http://m.toutiao.com/group/7681581778460738082/", "label": "海珠口碑校（版本差异）"}
+          ],
+          "rumor_notes": "外语特色区属校、'院士班'口碑；2026年4月抖音梯队列第三梯队，'第一梯队'网传来源不足。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2018,
+            "scope": "全校",
+            "data": "2018年750+5人占2.1%、700+104人占45%、总均分661；2017年总均分704.02（810分制网传汇总）",
+            "official": false,
+            "source_url": "https://m.gzmama.com/thread-5528871-1-1.html",
+            "note": "网传汇总"
+          },
+          "demonstration_high": {"level": "广州市示范性（海珠区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": null, "role": null, "source_url": null},
+          "founded": {"year": 1960, "note": null},
+          "conclusion": "部分支撑",
+          "conclusion_basis": "市示范性（官方）+历史网传中考数据（2017年总均分704）显示外语特色校实力；但2026年多版本列第二/三梯队，'第一梯队'网传来源不足。",
+          "data_gaps": ["近年逐校数据未官方公布；梯队位置版本差异大"]
+        }
+      ]
+    },
+    "天河区": {
+      "mechanism_note": "公办初中以单校划片对口直升为主；华附初中部、天河外国语、清湾、执信天河等自主报名+电脑派位；民办天省实验为头部民办。",
+      "schools": [
+        {
+          "name": "华南师范大学附属中学（初中部）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·天河区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7631075215054176185", "label": "天河第一梯队"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "豪门·奥班"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "省属名校初中部（奥班），广东省教育厅直属。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：初三考入华附高中部167人、最高764、740+31人、前100均分736、前300均分711、全校均分688、一梯率52%；2019年奥班均分708（810分制网传汇总）",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报（表内'HF'）"
+          },
+          "demonstration_high": {"level": "国家级示范性（省直属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "华南师范大学附属中学教育集团", "role": "核心校", "source_url": null},
+          "founded": {"year": 1888, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "省直属国家级示范性（官方）+2024年网传中考数据（均分688、一梯率52%）+华附集团核心校。",
+          "data_gaps": ["初中部招生规模小（奥班+普通班），数据口径特殊"]
+        },
+        {
+          "name": "广州市天河外国语学校（珠江新城校区）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·天河区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7631075215054176185", "label": "天河第一梯队"},
+            {"source": "今日头条·城纪（2026-09）", "url": "http://m.toutiao.com/group/7681581778460738082/", "label": "天河公办初中标杆"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "天河区属公办标杆、外语特色+2+4班；2026年高中录取708分（官方，连续一梯队）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传90+人上一梯线；2017年总均分729.8、700+占76%（810分制网传汇总）；2025年网传最高780",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报"
+          },
+          "demonstration_high": {"level": "广州市示范性（天河区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州天河外国语教育集团", "role": "核心校", "source_url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html"},
+          "founded": {"year": 2012, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "市示范性（官方）+2024年网传中考数据（90+人上一梯）+天外集团核心校+2025/2026年高中录取714/708分（官方，连续一梯队）。",
+          "data_gaps": ["官方不公布逐校初中成绩"]
+        },
+        {
+          "name": "广州中学",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·天河区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7631075215054176185", "label": "天河第一/二梯队（版本差异）"},
+            {"source": "今日头条·城纪（2026-09）", "url": "http://m.toutiao.com/group/7681581778460738082/", "label": "天河头部公办"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "天河区属最大规模公办完全中学、'小创班'口碑强；2025年高中录取693分（官方）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传最高762分；2025年网传小创班均分733、一梯率超50%",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报"
+          },
+          "demonstration_high": {"level": "国家级示范性（天河区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州中学教育集团", "role": "核心校", "source_url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html"},
+          "founded": {"year": 2017, "note": "由天河区属名校整合组建"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "区属国家级示范性（官方）+2024年网传中考数据（最高762）+广州中学集团核心校+2025年高中录取693分（官方）。",
+          "data_gaps": ["官方不公布逐校初中成绩；梯队位置版本有差异"]
+        },
+        {
+          "name": "广州市执信中学（天河校区）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·2026业主排名（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673472197583763374", "label": "天河第3（部分版本）"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"},
+            {"source": "抖音·天河区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7631075215054176185", "label": "部分版本列第三梯队（版本差异）"}
+          ],
+          "rumor_notes": "执信集团2021年开办的公办完全中学（初中+高中），新校区口碑上升快；2026年高中录取731分（官方）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "初中部",
+            "data": "2024年网传（首届中考）最高757分；2025年网传740+约60人",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报"
+          },
+          "demonstration_high": {"level": "依托广州市执信中学（市直属国家级示范性）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市执信中学教育集团", "role": "成员校（执信天河校区）", "source_url": null},
+          "founded": {"year": 2021, "note": "首届中考2024年"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "执信集团身份（市属名校集团）+2024年首届中考网传数据（最高757）+2026年高中录取731分（官方），上升期强校。",
+          "data_gaps": ["新校历史短，首届中考后数据待补充；梯队位置版本差异大"]
+        },
+        {
+          "name": "清华附中湾区学校",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·天河区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7631075215054176185", "label": "天河第一梯队"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"},
+            {"source": "金羊网·2025中考第三批TOP10（2025-07）", "url": "http://news.ycwb.com/ikinvkltii/content_53552761.htm", "label": "2025高中录取"}
+          ],
+          "rumor_notes": "清华附中与广州市共建的市属公办十二年制学校（智谷校区2021年启用、智慧城校区2026年启用）；首届中考2024年。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "初中部",
+            "data": "2024年网传最高754分；2025年网传一梯率约35%",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报（表内'清W'）"
+          },
+          "demonstration_high": {"level": "市属公办十二年制（非示范性名单内，新体制校）", "year": null, "source_url": "https://www.iesdouyin.com/share/video/7640361737163919670"},
+          "education_group": {"name": "清华附中教育合作（广州市属）", "role": "核心校", "source_url": null},
+          "founded": {"year": 2021, "note": "智谷校区启用"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "市属公办十二年制（官方合作办学）+2024年网传首届中考数据（最高754）+2025/2026年高中录取712分（官方，一梯线）。",
+          "data_gaps": ["新校历史短，数据待积累"]
+        },
+        {
+          "name": "广州市第一一三中学",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·天河区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7631075215054176185", "label": "天河第一/二梯队（版本差异）"},
+            {"source": "手机搜狐·113中2025中考（2025-07）", "url": "https://m.sohu.com/a/919243688_121036519/", "label": "2025中考数据"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "天河区属老牌公办（金融城校区2024年新启用），'红棉班'口碑强；2024年网传一梯率19.5%居天河公办前列。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：一梯202人占19.5%、最高762、750+11人、730+59人、710+152人、835人80.4%达普高线；2025年网传最高772、740+48人、一梯率19%",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报（表内'113'）"
+          },
+          "demonstration_high": {"level": "广州市示范性（天河区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": null, "role": null, "source_url": null},
+          "founded": {"year": 1978, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "市示范性（官方）+2024/2025年网传中考数据（一梯率19-19.5%、最高772）公开可溯，天河公办头部。",
+          "data_gaps": ["官方不公布逐校初中成绩"]
+        },
+        {
+          "name": "广州市天河中学",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·唐宋cn·天河初中2026中考成绩（2026-08）", "url": "https://www.toutiao.com/article/7524746744744730624/", "label": "天河优质初中（版本差异）"},
+            {"source": "广州妈妈网·中考数据汇总", "url": "https://m.gzmama.com/thread-5528871-1-1.html", "label": "2017中考数据"}
+          ],
+          "rumor_notes": "区属国家级示范性完全中学；2026-04抖音梯队列第二梯队，'第一梯队'网传来源不足。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2017,
+            "scope": "全校",
+            "data": "2017年740+5人、715+38人、700+77人（810分制网传汇总）；2025年网传最高753",
+            "official": false,
+            "source_url": "https://m.gzmama.com/thread-5528871-1-1.html",
+            "note": "网传汇总"
+          },
+          "demonstration_high": {"level": "国家级示范性（天河区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市天河中学教育集团", "role": "核心校", "source_url": null},
+          "founded": {"year": 1990, "note": null},
+          "conclusion": "部分支撑",
+          "conclusion_basis": "区属国家级示范性（官方）+天河中学集团核心校，办学地位明确；但近年网传中考数据有限、2026年多版本列第二梯队，'第一梯队'网传来源不足。",
+          "data_gaps": ["近年逐校中考成绩未查到公开数据"]
+        },
+        {
+          "name": "广州市天河区汇景实验学校",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·天河区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7631075215054176185", "label": "天河第二梯队（版本差异）"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"},
+            {"source": "今日头条·唐宋cn·天河初中2026中考（2026-08）", "url": "https://www.toutiao.com/article/7524746744744730624/", "label": "2026中考均分第一（网传）"}
+          ],
+          "rumor_notes": "九年一贯制公办（对口汇景新城），2026年网传中考均分717.4居天河第一；部分版本列第一梯队。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：超一梯（702）260人、普高率80%；2026年网传全校均分717.4居天河区第一",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报（表内'汇J'）"
+          },
+          "education_group": {"name": null, "role": null, "source_url": null},
+          "founded": {"year": 2010, "note": "九年一贯制"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "2024/2026年网传中考数据公开可溯（2024年超一梯260人；2026年网传均分717.4天河第一），公办口碑校。",
+          "data_gaps": ["官方不公布逐校成绩；集团身份未查到公开信息"]
+        },
+        {
+          "name": "广州天省实验学校（民办）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·天河区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7631075215054176185", "label": "天河第一梯队"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"},
+            {"source": "抖音·2026业主排名（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673472197583763374", "label": "天河第2（部分版本）"}
+          ],
+          "rumor_notes": "原广东实验中学附属天河学校（天省），民办市示范性；'实验班'口碑强。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：最高781、760+16人、750+41人、4个实验班均分738、一梯率近50%、普高率超90%；2023年网传最高780",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报（表内'T省'）"
+          },
+          "demonstration_high": {"level": "广州市示范性（民办）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州天省教育集团（民办）", "role": "核心校", "source_url": null},
+          "founded": {"year": 2005, "note": "原省实天河附中"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "民办市示范性（官方名单）+2024年网传中考数据（一梯率近50%、最高781）公开可溯，民办头部。",
+          "data_gaps": ["民办摇号后生源口径变化；官方不公布逐校成绩"]
+        }
+      ]
+    },
+    "白云区": {
+      "mechanism_note": "2022年民转公后'公办崛起+民校优质'并存；金广附2022年转公办；省市属名校集团（省实/铁一/广附/培英）密集布点。",
+      "schools": [
+        {
+          "name": "广州市白云区金广实验学校（金广附/广大附中实验中学）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·白云区初中梯队（2026-06/08）", "url": "https://www.iesdouyin.com/share/video/7648230724705609204", "label": "白云公办三强"},
+            {"source": "腾讯新闻·金广附转公（2022-08）", "url": "http://news.qq.com/rain/a/20220812A0B9PY00", "label": "2018-2022中考均分五连冠"},
+            {"source": "今日头条·白云公办16所中考汇总（2023-09）", "url": "http://m.toutiao.com/group/7277848800595608124/", "label": "广大附中实验中学简介"}
+          ],
+          "rumor_notes": "广附集团核心分校（白云区教育局与广附合办），2022年民转公；网传2018-2022年中考均分广州五连冠。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2023,
+            "scope": "全校",
+            "data": "2023年网传中考居公民双第一：最高770、奥1班均分757.89、金广奥体系班均分741.64、750+占19.8%；2025年网传金奥班84%冲前四高中；2022年官方名额分配录取：省实743（市教育局PDF）",
+            "official": false,
+            "source_url": "https://www.iesdouyin.com/share/video/7314976489244609842",
+            "note": "网传喜报；2022年省实743为官方名额分配录取数据"
+          },
+          "quota_allocation": {"year": 2022, "data": "广州市白云区金广实验学校（送生）获广东实验中学名额分配录取743分（官方录取表）", "source_url": "https://gzzk.gz.gov.cn/attachment/7/7132/7132846/8419234.pdf"},
+          "education_group": {"name": "广州大学附属中学教育集团（白云广附集团）", "role": "核心校/总校", "source_url": "http://news.qq.com/rain/a/20220812A0B9PY00"},
+          "founded": {"year": 2011, "note": "2022年民转公，更名广大附中实验中学"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "广附集团总校（官方+媒体）+2023年网传中考数据（奥1班均分757.89）+2022年官方名额分配录取743分（市教育局PDF），白云区公办龙头。",
+          "data_gaps": ["官方不公布逐校成绩；转公后生源口径变化"]
+        },
+        {
+          "name": "广东实验中学永平校区（省实永平）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·白云区初中梯队（2026-06/08）", "url": "https://www.iesdouyin.com/share/video/7648230724705609204", "label": "白云公办三强"},
+            {"source": "今日头条·城纪（2026-09）", "url": "http://m.toutiao.com/group/7681581778460738082/", "label": "白云口碑新校"}
+          ],
+          "rumor_notes": "省实集团在白云的公办九年一贯制新校区（2023年启用）；'海东青班'网传首届（2026年）成绩亮眼。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2026,
+            "scope": "首届中考",
+            "data": "2026年网传首届中考：最高767、760+5人、750+11人、海东青班均分748、一梯率65%（网传，待多方交叉）",
+            "official": false,
+            "source_url": "https://www.iesdouyin.com/share/video/7670503616897380465",
+            "note": "网传首届喜报，单一来源待核"
+          },
+          "education_group": {"name": "广东实验中学教育集团", "role": "成员校（永平校区）", "source_url": null},
+          "founded": {"year": 2023, "note": "2026年首届中考"},
+          "conclusion": "部分支撑",
+          "conclusion_basis": "省实集团成员校（办学地位明确）+2026年网传首届中考数据，但新校历史短、数据为单一网传来源，硬数据待积累。",
+          "data_gaps": ["官方未公布首届中考成绩；2026年数据仅网传单一来源"]
+        },
+        {
+          "name": "广州市培英中学（云城校区）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·白云区初中梯队（2026-06）", "url": "https://www.iesdouyin.com/share/video/7648230724705609204", "label": "白云公办三强"},
+            {"source": "南方+·培英2025中招（2025-07）", "url": "https://www.nfnews.com/content/xovKKMVpyJ.html", "label": "2025高中录取707首破一梯"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "白云区百年老校（1879年创办）、区属龙头完全中学，'钱学森班'口碑强；2025年高中录取707分首次破一梯线（官方）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "初中部",
+            "data": "2024年网传最高760、均分近700、普高84.2%居平沙片区公办第一（'培Y岭南'，推断为培英系）；2025年网传云城校区钱学森班均分707+",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报；2025高中707为官方录取数据"
+          },
+          "demonstration_high": {"level": "国家级示范性（白云区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市培英中学教育集团", "role": "核心校", "source_url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html"},
+          "founded": {"year": 1879, "note": "云城校区2023年启用"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "区属国家级示范性（官方）+2024年网传中考数据（最高760）+培英集团核心校+2025年高中录取707分首破一梯（官方）。",
+          "data_gaps": ["云城校区初中逐校成绩未官方公布"]
+        },
+        {
+          "name": "广州市白云区华赋学校（民办）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·白云区初中梯队（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673472197583763374", "label": "白云第一梯队"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "民办初中，'梦翔班'口碑强（家长称'烧鸡'）；2026年多版本列白云第一梯队。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：第一781、第二771、第三765，梦翔班均分760，100%达普高线；2023年网传均分680+",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报（表内'烧鸡'）"
+          },
+          "education_group": {"name": null, "role": null, "source_url": null},
+          "founded": {"year": 2013, "note": "民办"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "2024年网传中考数据公开可溯（梦翔班均分760、最高781），民办头部校。",
+          "data_gaps": ["官方不公布民办校逐校成绩；集团身份未查到公开信息"]
+        },
+        {
+          "name": "广州市白云实验学校（白云省实，民办）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·广州升学情报局（2025-03）", "url": "http://m.toutiao.com/group/7479333108983104019/", "label": "白云第一梯队"},
+            {"source": "抖音·白云区初中梯队（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673472197583763374", "label": "白云第二梯队（版本差异）"}
+          ],
+          "rumor_notes": "省实系民办初中（白云省实），'南山班'口碑强；部分2026版本列第二梯队，存在版本差异。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：一梯（702）389人、最高758、南山班全员达高保线、均分720+",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7479333108983104019/",
+            "note": "网传喜报（情报局汇总）"
+          },
+          "education_group": {"name": "广东实验中学教育集团（合作办学）", "role": "成员校（民办）", "source_url": null},
+          "founded": {"year": 2018, "note": "民办"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "省实系合作办学身份+2024年网传中考数据（一梯389人、南山班均分720+）公开可溯，民办头部。",
+          "data_gaps": ["官方不公布民办校逐校成绩；梯队位置版本有差异"]
+        },
+        {
+          "name": "广州市白云区云雅实验学校（云雅/白云广雅，民办）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·广州升学情报局（2025-03）", "url": "http://m.toutiao.com/group/7479333108983104019/", "label": "白云第一梯队"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "广雅系民办初中（白云广雅），'冠冕班'口碑强。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：最高790、前30均分741、95%达普高线、一梯率约60%",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报（表内'白鸭'）"
+          },
+          "education_group": {"name": "广东广雅中学教育集团（合作办学）", "role": "成员校（民办）", "source_url": null},
+          "founded": {"year": 2011, "note": "民办"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "广雅系合作办学身份+2024年网传中考数据（最高790、前30均分741）公开可溯，民办头部。",
+          "data_gaps": ["官方不公布民办校逐校成绩"]
+        },
+        {
+          "name": "广州市白云区铁一学校（白云铁一）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "今日头条·广州升学情报局（2025-03）", "url": "http://m.toutiao.com/group/7479333108983104019/", "label": "白云第一/二梯队（版本差异）"},
+            {"source": "抖音·白云区初中梯队（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673472197583763374", "label": "白云第二梯队（版本差异）"},
+            {"source": "金羊网·2025中考第三批TOP10（2025-07）", "url": "http://news.ycwb.com/ikinvkltii/content_53552761.htm", "label": "2025高中录取"}
+          ],
+          "rumor_notes": "铁一集团在白云的公办学校（九年一贯制+高中），'铁英班'口碑强；2025年高中录取707/712分（官方）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2023,
+            "scope": "初中部",
+            "data": "2023年网传平均分631居白云区公办第一；2025年网传铁英班均分700+",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7479333108983104019/",
+            "note": "网传汇总"
+          },
+          "demonstration_high": {"level": "依托广铁一中（市直属国家级示范性）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广铁一中教育集团", "role": "成员校（白云铁一）", "source_url": null},
+          "founded": {"year": 2020, "note": "白云铁一开办"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "铁一集团身份（市属名校集团）+2023年网传中考数据（均分631白云公办第一）+2025年高中录取707/712分（官方）。",
+          "data_gaps": ["官方不公布逐校初中成绩；梯队位置版本有差异"]
+        }
+      ]
+    },
+    "黄埔区": {
+      "mechanism_note": "公办初中以对口直升/电脑派位为主；2022年黄埔广附、二中苏元等民转公；省市属名校集团（华附知识城/二中/广附/铁一）密集布点。",
+      "schools": [
+        {
+          "name": "华南师范大学附属中学（知识城校区）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "吉屋·广州淘房志·2025黄埔梯队排行（2025-02）", "url": "https://m.jiwu.com/www/news/5707101.html", "label": "黄埔第一梯队"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "黄埔豪门·丘班"},
+            {"source": "黄埔区政府·华附知识城校区启用（2023-09）", "url": "https://www.hp.gov.cn/gzjg/ggnyqgljg/zxgzzschzswbgs/xxgk/content/post_9194323.html", "label": "2023年启用（官方）"}
+          ],
+          "rumor_notes": "华附集团在知识城的省属公办新校区（2023年9月启用），'丘成桐少年班'定位；2026年首届中考，官方未公布成绩。民间标签、非官方。",
+          "zhongkao": {
+            "year": null,
+            "scope": "首届中考2026年",
+            "data": "未查到（2023年启用，2026年首届中考，官方未公布；网传数据未见公开）",
+            "official": false,
+            "source_url": null,
+            "note": "数据缺口"
+          },
+          "education_group": {"name": "华南师范大学附属中学教育集团", "role": "成员校（知识城校区）", "source_url": "https://www.hp.gov.cn/gzjg/ggnyqgljg/zxgzzschzswbgs/xxgk/content/post_9194323.html"},
+          "founded": {"year": 2023, "note": "2026年首届中考"},
+          "conclusion": "部分支撑",
+          "conclusion_basis": "省属华附集团身份+官方启用信息（2023年）+2026梯度榜'豪门'定位，办学地位明确；但首届中考数据未查到，硬数据待积累。",
+          "data_gaps": ["2026年首届中考成绩未查到公开数据"]
+        },
+        {
+          "name": "广州大学附属中学黄埔实验学校（黄埔广附）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "吉屋·广州淘房志·2025黄埔梯队排行（2025-02）", "url": "https://m.jiwu.com/www/news/5707101.html", "label": "黄埔第一梯队"},
+            {"source": "抖音·黄埔广附（西）2025中考（2025-07）", "url": "https://www.iesdouyin.com/share/video/7530954265804819748", "label": "2025中考数据"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "黄埔一线·核心素养班"}
+          ],
+          "rumor_notes": "广附集团在黄埔的公办校（原民办黄埔广附实验学校，2022年民转公），一校两区（东/西）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2025,
+            "scope": "西校区",
+            "data": "2025年网传：770+1人、760+2人、750+3人、730+73人、超一梯（707）160人；2024年网传最高763",
+            "official": false,
+            "source_url": "https://www.iesdouyin.com/share/video/7530954265804819748",
+            "note": "网传喜报"
+          },
+          "education_group": {"name": "广州大学附属中学教育集团", "role": "成员校（黄埔广附）", "source_url": null},
+          "founded": {"year": 2013, "note": "2022年民转公"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "广附集团成员校（集团身份明确）+2024/2025年网传中考数据（2025年超一梯160人）公开可溯，黄埔头部。",
+          "data_gaps": ["官方不公布逐校成绩；转公后生源口径变化"]
+        },
+        {
+          "name": "广州市黄埔区苏元学校（二中苏元）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "吉屋·广州淘房志·2025黄埔梯队排行（2025-02）", "url": "https://m.jiwu.com/www/news/5707101.html", "label": "黄埔第一梯队"},
+            {"source": "抖音·二中系小升初（2026-06）", "url": "https://www.iesdouyin.com/share/video/7622685931548225915", "label": "2025中考数据"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "黄埔一线·启航班"}
+          ],
+          "rumor_notes": "二中集团核心分校（苏元学校，原民办2022年转公办，2024年增设高中）；'启航班'口碑强。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2025,
+            "scope": "全校",
+            "data": "2025年网传97%学生超第一梯队线（707）、700+占高比例；2022年网传760+11人占全市1/7",
+            "official": false,
+            "source_url": "https://www.iesdouyin.com/share/video/7622685931548225915",
+            "note": "网传喜报"
+          },
+          "education_group": {"name": "广州市第二中学教育集团", "role": "成员校（苏元学校）", "source_url": null},
+          "founded": {"year": 2008, "note": "2022年转公办，2024年设高中部"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "二中集团成员校（集团身份明确）+2022/2025年网传中考数据（2025年97%超一梯线、2022年760+11人）公开可溯，黄埔头部。",
+          "data_gaps": ["官方不公布逐校成绩"]
+        },
+        {
+          "name": "广州市第二中学（科学城校区）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "黄埔豪门·基地班"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024网传数据（代号'E基'推断）"}
+          ],
+          "rumor_notes": "二中集团在科学城的市属校区（'基地班'定位）；2026梯度榜列黄埔豪门；注意：'基地班'归属二中系存在版本歧义（二中本部基地班在越秀）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "基地班（推断）",
+            "data": "2024年网传最高786分（粤校金榜表内'E基'，推断为二中科学城校区基地班）；官方未单列科学城校区初中部数据",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传数据+代号推断，需进一步核实"
+          },
+          "education_group": {"name": "广州市第二中学教育集团", "role": "核心校（科学城校区）", "source_url": null},
+          "founded": {"year": 2017, "note": "科学城校区启用"},
+          "conclusion": "部分支撑",
+          "conclusion_basis": "二中集团身份（办学地位明确）+2026梯度榜'豪门'定位，但科学城校区初中部独立办学信息官方未单列，中考数据为表内代号推断，硬数据有限。",
+          "data_gaps": ["官方未单列科学城校区初中部招生/中考数据；'基地班'归属存在版本歧义"]
+        },
+        {
+          "name": "广州市玉岩中学",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "吉屋·广州淘房志·2025黄埔梯队排行（2025-02）", "url": "https://m.jiwu.com/www/news/5707101.html", "label": "黄埔第一/二梯队（版本差异）"},
+            {"source": "抖音·玉岩2025中考（2025-07）", "url": "https://www.iesdouyin.com/share/video/7654580948169188849", "label": "2025中考数据"},
+            {"source": "金羊网·2025中考第三批TOP10（2025-07）", "url": "http://news.ycwb.com/ikinvkltii/content_53552761.htm", "label": "2025高中录取"}
+          ],
+          "rumor_notes": "黄埔区属龙头完全中学（2006年建校），'琢玉班'口碑强；2025年高中录取712分（官方）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2025,
+            "scope": "全校",
+            "data": "2025年网传最高788、750+数十人、全校均分690-705；2024年网传一梯率约30%",
+            "official": false,
+            "source_url": "https://www.iesdouyin.com/share/video/7654580948169188849",
+            "note": "网传喜报"
+          },
+          "demonstration_high": {"level": "国家级示范性（黄埔区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市玉岩中学教育集团", "role": "核心校", "source_url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html"},
+          "founded": {"year": 2006, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "区属国家级示范性（官方）+2025年网传中考数据（最高788、均分690-705）+玉岩集团核心校+2025年高中录取712分（官方）。",
+          "data_gaps": ["官方不公布逐校初中成绩"]
+        },
+        {
+          "name": "广州市第八十六中学",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "吉屋·广州淘房志·2025黄埔梯队排行（2025-02）", "url": "https://m.jiwu.com/www/news/5707101.html", "label": "黄埔第一/二梯队（版本差异）"},
+            {"source": "抖音·86中2025中考（2025-07）", "url": "https://www.iesdouyin.com/share/video/7559545365805010228", "label": "2025中考数据"},
+            {"source": "金羊网·2025中考第三批TOP10（2025-07）", "url": "http://news.ycwb.com/ikinvkltii/content_53552761.htm", "label": "2025高中录取"}
+          ],
+          "rumor_notes": "黄埔区属老牌完全中学（1956年建校），'海洋班'特色；2025年高中录取698分（官方）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：一梯率22.5%、海洋班51.2%、最高754、730+近20人；2025年网传一梯185人、上线率30%",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报"
+          },
+          "demonstration_high": {"level": "国家级示范性（黄埔区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州市第八十六中学教育集团", "role": "核心校", "source_url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html"},
+          "founded": {"year": 1956, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "区属国家级示范性（官方）+2024/2025年网传中考数据（一梯率22.5-30%）+86中集团核心校+2025年高中录取698分（官方）。",
+          "data_gaps": ["官方不公布逐校初中成绩"]
+        },
+        {
+          "name": "广州市黄埔区铁英学校（黄埔铁英）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "吉屋·广州淘房志·2025黄埔梯队排行（2025-02）", "url": "https://m.jiwu.com/www/news/5707101.html", "label": "黄埔第一/二梯队（版本差异）"},
+            {"source": "抖音·2026广州初中梯度排行榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673416431010652842", "label": "黄埔·铁英班"}
+          ],
+          "rumor_notes": "铁一集团在黄埔的公办校（铁英学校），'铁英班'口碑；2026梯度榜列黄埔一线（铁英班）。民间标签、非官方。",
+          "zhongkao": {
+            "year": null,
+            "scope": null,
+            "data": "未查到公开中考数据",
+            "official": false,
+            "source_url": null,
+            "note": "数据缺口"
+          },
+          "education_group": {"name": "广铁一中教育集团", "role": "成员校（铁英学校）", "source_url": null},
+          "founded": {"year": 2020, "note": null},
+          "conclusion": "部分支撑",
+          "conclusion_basis": "铁一集团成员校（办学地位明确）+网传'铁英班'口碑，但公开中考数据未查到，硬数据待补充。",
+          "data_gaps": ["中考成绩未查到公开数据"]
+        },
+        {
+          "name": "北京师范大学广州实验学校",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "吉屋·广州淘房志·2025黄埔梯队排行（2025-02）", "url": "https://m.jiwu.com/www/news/5707101.html", "label": "黄埔第一/二梯队（版本差异）"},
+            {"source": "广州日报·示范性高中名单（2024-05）", "url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm", "label": "市示范性（官方）"}
+          ],
+          "rumor_notes": "黄埔区属公办（北师大合作办学，十二年制），市示范性；网传口碑好但公开中考数据少。民间标签、非官方。",
+          "zhongkao": {
+            "year": null,
+            "scope": null,
+            "data": "未查到公开中考数据",
+            "official": false,
+            "source_url": null,
+            "note": "数据缺口"
+          },
+          "demonstration_high": {"level": "广州市示范性（黄埔区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "北京师范大学基础教育合作（黄埔区属）", "role": "核心校", "source_url": null},
+          "founded": {"year": 2016, "note": null},
+          "conclusion": "部分支撑",
+          "conclusion_basis": "市示范性（官方）+北师大合作办学身份（办学地位明确），但公开中考数据未查到，硬数据待补充。",
+          "data_gaps": ["中考成绩未查到公开数据"]
+        }
+      ]
+    },
+    "番禺区": {
+      "mechanism_note": "公办初中数量全市最多（52所）但整体'公弱民强'；省市属名校校区（广大附中大学城/铁一亚运城）为公办头部，民办（祈福/番外/恒润等）口碑突出。",
+      "schools": [
+        {
+          "name": "广州大学附属中学（大学城校区）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·番禺区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7632567289129332155", "label": "番禺公办第一梯队"},
+            {"source": "抖音·2026番禺初中实力榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7674910907666795828", "label": "番禺第1"},
+            {"source": "抖音·2025中考各校成绩（2025-07）", "url": "https://www.iesdouyin.com/share/video/7529736808624655631", "label": "2025中考数据"}
+          ],
+          "rumor_notes": "广附集团市属校区（大学城），2026年多版本列番禺初中第1；2026年广州中考前九自招入围169人全市第1（网传）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2025,
+            "scope": "全校",
+            "data": "2025年网传：高保线（一梯）上356人占47.3%、前九自招入围169人全市第一、最高774；2024年网传最高761、750+25人",
+            "official": false,
+            "source_url": "https://www.iesdouyin.com/share/video/7529736808624655631",
+            "note": "网传喜报"
+          },
+          "demonstration_high": {"level": "依托广州大学附属中学（市直属国家级示范性）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广州大学附属中学教育集团", "role": "核心校（大学城校区）", "source_url": null},
+          "founded": {"year": 1948, "note": "大学城校区2009年启用"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "市属广附集团（官方名单）+2024/2025年网传中考数据（2025年一梯率47.3%、前九自招入围169人全市第一）公开可溯，番禺公办龙头。",
+          "data_gaps": ["官方不公布逐校初中成绩"]
+        },
+        {
+          "name": "广州市铁一中学（番禺校区/亚运城）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·番禺区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7632567289129332155", "label": "番禺公办第一梯队"},
+            {"source": "手机搜狐·铁一亚运城（2026-04）", "url": "https://m.sohu.com/a/1043154105_121036519/", "label": "历年中考数据"},
+            {"source": "抖音·2026番禺初中实力榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7674910907666795828", "label": "番禺第3"}
+          ],
+          "rumor_notes": "铁一集团市属校区（亚运城，2012年启用），公办头部；2025年高中录取（番禺校区）715分（官方）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传最高762分；2022年网传均分660+；2025年网传一梯率约45%、铁英班均分730+",
+            "official": false,
+            "source_url": "https://m.sohu.com/a/1043154105_121036519/",
+            "note": "网传喜报"
+          },
+          "demonstration_high": {"level": "依托广铁一中（市直属国家级示范性）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广铁一中教育集团", "role": "核心校（番禺校区）", "source_url": null},
+          "founded": {"year": 1952, "note": "番禺校区2012年启用"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "市属铁一集团（官方名单）+网传中考数据（2024年最高762、2022年均分660+）公开可溯+2025年高中录取715分（官方），番禺公办头部。",
+          "data_gaps": ["官方不公布逐校初中成绩"]
+        },
+        {
+          "name": "广州市番禺区桥城中学",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·番禺区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7632567289129332155", "label": "番禺第一梯队"},
+            {"source": "抖音·2026番禺初中实力榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7674910907666795828", "label": "番禺第4"},
+            {"source": "广州妈妈网·中考数据汇总", "url": "https://m.gzmama.com/thread-5528871-1-1.html", "label": "2017中考数据"}
+          ],
+          "rumor_notes": "番禺区属公办初中老牌强校，2026年多版本列番禺公办前二。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2017,
+            "scope": "全校",
+            "data": "2017年740+20人、715+109人、700+172人（810分制网传汇总）；2025年网传最高763、一梯率约40%",
+            "official": false,
+            "source_url": "https://m.gzmama.com/thread-5528871-1-1.html",
+            "note": "网传汇总"
+          },
+          "education_group": {"name": null, "role": null, "source_url": null},
+          "founded": {"year": 2003, "note": null},
+          "conclusion": "有支撑",
+          "conclusion_basis": "2017年网传中考数据（740+20人）+2025年网传数据（最高763），番禺公办老牌强校。",
+          "data_gaps": ["官方不公布逐校成绩；近年数据为网传单一来源"]
+        },
+        {
+          "name": "广东仲元中学（初中部）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·2026番禺初中实力榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7674910907666795828", "label": "番禺第5"},
+            {"source": "广州日报·示范性高中名单（2024-05）", "url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm", "label": "国家级示范性（官方）"},
+            {"source": "金羊网·2025中考第三批TOP10（2025-07）", "url": "http://news.ycwb.com/ikinvkltii/content_53552761.htm", "label": "2025高中录取"}
+          ],
+          "rumor_notes": "番禺区属龙头完全中学（1934年创办，首批国家级示范性）；'仲元'初中部口碑好但公开中考数据少。民间标签、非官方。",
+          "zhongkao": {
+            "year": null,
+            "scope": "初中部",
+            "data": "未查到初中部近年公开中考数据（2025年高中录取709/702分为官方数据）",
+            "official": false,
+            "source_url": null,
+            "note": "数据缺口"
+          },
+          "demonstration_high": {"level": "国家级示范性（番禺区属）", "year": null, "source_url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm"},
+          "education_group": {"name": "广东仲元中学教育集团", "role": "核心校", "source_url": null},
+          "founded": {"year": 1934, "note": null},
+          "conclusion": "部分支撑",
+          "conclusion_basis": "区属国家级示范性+仲元集团核心校（官方），办学地位明确；但初中部近年公开中考数据未查到，'第一梯队'网传来源有限。",
+          "data_gaps": ["初中部中考成绩未查到公开数据"]
+        },
+        {
+          "name": "广州市番禺区祈福新邨学校（小金龙，民办）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·番禺区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7632567289129332155", "label": "番禺第一梯队"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"},
+            {"source": "抖音·2026番禺初中实力榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7674910907666795828", "label": "番禺第2"}
+          ],
+          "rumor_notes": "祈福集团民办校（九年一贯制），'零班'口碑强；2026年多版本列番禺前二。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：最高769、零班均分755+、一档线（702）130+人占六成、普高率98%",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报（表内'小金龙'）"
+          },
+          "education_group": {"name": null, "role": null, "source_url": null},
+          "founded": {"year": 2001, "note": "民办"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "2024年网传中考数据公开可溯（零班均分755+、最高769），民办头部。",
+          "data_gaps": ["官方不公布民办校逐校成绩"]
+        },
+        {
+          "name": "广州市番禺区恒润实验学校（民办）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·番禺区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7632567289129332155", "label": "番禺第一梯队"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "中大附中托管背景的民办九年一贯制校（2017年开办），口碑稳。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：均分671、一梯率35.4%、普高率98%",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报（表内'恒R'）"
+          },
+          "education_group": {"name": null, "role": null, "source_url": null},
+          "founded": {"year": 2017, "note": "民办"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "2024年网传中考数据公开可溯（均分671、普高率98%），民办口碑校。",
+          "data_gaps": ["官方不公布民办校逐校成绩"]
+        },
+        {
+          "name": "广州市番禺区番外外国语学校（番外，民办）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·番禺区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7632567289129332155", "label": "番禺第一梯队"},
+            {"source": "广东育路教育网·番外近三年中考成绩（2026-01）", "url": "http://gd.yuloo.com/slxx/gwpyfls/news/77722.shtml", "label": "2023-2025中考数据"},
+            {"source": "抖音·2026番禺初中实力榜（2026-08）", "url": "https://www.iesdouyin.com/share/video/7674910907666795828", "label": "番禺第7"}
+          ],
+          "rumor_notes": "原广东外语外贸大学附设番禺外国语学校（2018年创办民办九年一贯制），2024年均分692.9居市桥片区第一。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2025,
+            "scope": "全校",
+            "data": "2025年网传：年级均分686.76、博雅班均分734.17、最高765、一梯率40.2%、二梯率77.38%、三梯率83.5%、普高率100%；2024年网传均分692.9市桥第一、一梯率31.81%",
+            "official": false,
+            "source_url": "http://gd.yuloo.com/slxx/gwpyfls/news/77722.shtml",
+            "note": "网传喜报（育路网汇总）"
+          },
+          "education_group": {"name": "广东外语外贸大学附属（合作办学）", "role": "成员校（民办）", "source_url": null},
+          "founded": {"year": 2018, "note": "民办"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "2024/2025年网传中考数据公开可溯（2025年一梯率40.2%、普高率100%），民办口碑校。",
+          "data_gaps": ["官方不公布民办校逐校成绩"]
+        },
+        {
+          "name": "广州市番禺执信中学（星执学校，民办）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·番禺区初中梯队（2026-04）", "url": "https://www.iesdouyin.com/share/video/7632567289129332155", "label": "番禺第二梯队（版本差异）"},
+            {"source": "广州妈妈网·中考数据汇总", "url": "https://m.gzmama.com/thread-5528871-1-1.html", "label": "2016-2018中考数据"}
+          ],
+          "rumor_notes": "执信系民办（番禺执信，2005年开办），2026年多版本列第二梯队，'第一梯队'网传来源有限。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2018,
+            "scope": "全校",
+            "data": "2018年总均分681、700+103人、610+259人（810分制网传汇总）",
+            "official": false,
+            "source_url": "https://m.gzmama.com/thread-5528871-1-1.html",
+            "note": "网传汇总"
+          },
+          "education_group": {"name": "广州市执信中学教育集团（合作办学）", "role": "成员校（民办）", "source_url": null},
+          "founded": {"year": 2005, "note": "民办"},
+          "conclusion": "部分支撑",
+          "conclusion_basis": "执信系合作办学身份+2018年网传中考数据（均分681），办学地位明确；但近年数据有限、2026年多版本列第二梯队，'第一梯队'网传来源不足。",
+          "data_gaps": ["近年逐校中考成绩未查到公开数据"]
+        }
+      ]
+    },
+    "增城区": {
+      "mechanism_note": "公办初中以对口直升为主；增城广附（广附接管）、增城应元（二中托管）等名校集团布点，民办黄广附属为区内民办龙头。",
+      "schools": [
+        {
+          "name": "广州大学附属中学增城实验学校（增城广附）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·2026增城梯队（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673472197583763374", "label": "增城第一梯队"},
+            {"source": "抖音·增城广附（2025-09）", "url": "https://www.iesdouyin.com/share/video/7584707648705105186", "label": "区属龙头·2022开办高中"},
+            {"source": "高考直通车·2023中考喜报（2024-05）", "url": "https://app.gaokaozhitongche.com/news/h/QOgEB612", "label": "2023中考数据"}
+          ],
+          "rumor_notes": "2018年广附接管（原增城实验学校），2022年增设高中部，增城区属公办龙头；2025年高中录取660分（官方，增城第二）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "全校",
+            "data": "2024年网传：一梯线（702）111人、700+123人、最高764、国防班均分728、二梯269人；2023年网传700+近100人、前100均分723；2025年网传一梯线突破100人、零系班均分745.7",
+            "official": false,
+            "source_url": "https://app.gaokaozhitongche.com/news/h/QOgEB612",
+            "note": "网传喜报（粤校金榜表内'增CF'）"
+          },
+          "demonstration_high": {"level": "区属公办完全中学（2022年增设高中部）", "year": 2022, "source_url": "https://www.iesdouyin.com/share/video/7584707648705105186"},
+          "education_group": {"name": "广州大学附属中学教育集团（接管办学）", "role": "成员校（增城实验学校）", "source_url": "https://www.iesdouyin.com/share/video/7584707648705105186"},
+          "founded": {"year": 2010, "note": "2018年广附接管，2022年增设高中部"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "广附集团接管办学（身份明确）+2023/2024年网传中考数据（2024年一梯111人、最高764）公开可溯+2025年高中录取660分（官方），增城区属龙头。",
+          "data_gaps": ["官方不公布逐校初中成绩"]
+        },
+        {
+          "name": "广州市增城区应元学校（增城应元）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·2026增城梯队（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673472197583763374", "label": "增城第一梯队"},
+            {"source": "抖音·增城应元2025中考（2025-07）", "url": "https://www.iesdouyin.com/share/video/7571441490804317669", "label": "2025中考数据"},
+            {"source": "今日头条·粤校金榜（2025-05）", "url": "http://m.toutiao.com/group/7506820416376160820/", "label": "2024中考数据"}
+          ],
+          "rumor_notes": "二中集团托管的公办校（增城应元，2018年开办初中），2025年中考773分居增城第一；2025年高中录取627分（官方）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2025,
+            "scope": "全校",
+            "data": "2025年网传：最高773全区第一、750+10人、730+51人、700+106人、一梯率超20%、应元班90%达高优线；2024年网传：763+5人、750+40人、730+69人、应元班近9成一梯",
+            "official": false,
+            "source_url": "https://www.iesdouyin.com/share/video/7571441490804317669",
+            "note": "网传喜报（粤校金榜表内'增JZ'）"
+          },
+          "demonstration_high": {"level": "区属公办完全中学（2025年增设高中部）", "year": 2025, "source_url": null},
+          "education_group": {"name": "广州市第二中学教育集团（托管）", "role": "成员校（应元学校）", "source_url": null},
+          "founded": {"year": 2018, "note": "2025年增设高中部"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "二中集团托管（身份明确）+2024/2025年网传中考数据（2025年最高773全区第一、应元班90%达高优线）公开可溯+2025年高中录取627分（官方），增城头部。",
+          "data_gaps": ["官方不公布逐校初中成绩"]
+        },
+        {
+          "name": "广州市黄广附属学校（增城黄广，民办）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·2026增城梯队（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673472197583763374", "label": "增城第一梯队"},
+            {"source": "抖音·黄广附属2025中考（2025-10）", "url": "https://www.iesdouyin.com/share/video/7556896721595632896", "label": "2025中考数据"},
+            {"source": "手机搜狐·2020年57校中考汇总（2021-01）", "url": "https://m.sohu.com/a/447588045_695359/", "label": "2020中考数据"}
+          ],
+          "rumor_notes": "原黄冈中学广州增城学校（民办15年一贯制，2017年创办），2020年中考人均712.2居增城第一；2025年高考特控率81%创增城新高（官方媒体报道）。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2025,
+            "scope": "全校",
+            "data": "2025年网传：最高767、707+52人、700+177人、年级均分690.22、前100均分734；2024年网传均分691、最高777；2023年网传均分695.13、700+占52%；2020年网传人均712.2居增城第一",
+            "official": false,
+            "source_url": "https://www.iesdouyin.com/share/video/7556896721595632896",
+            "note": "网传喜报（多年度）"
+          },
+          "education_group": {"name": "黄冈教育集团（黄广系）", "role": "核心校（增城校区）", "source_url": "https://huacheng.gz-cmc.com/pages/2026/04/01/6db52883043b4ae1844deb0b91f34b8a.html"},
+          "founded": {"year": 2017, "note": "民办，2020年增设高中部"},
+          "conclusion": "有支撑",
+          "conclusion_basis": "2020-2025年多年度网传中考数据公开可溯（2020年人均712.2增城第一、2025年均分690.22）+2025年高考特控率81%（官方媒体），民办龙头。",
+          "data_gaps": ["官方不公布民办校逐校成绩；2026年后数据待补充"]
+        },
+        {
+          "name": "广州市增城区增城中学（初中部）",
+          "rumor_tier": "第一梯队",
+          "rumor_sources": [
+            {"source": "抖音·2026增城梯队（2026-08）", "url": "https://www.iesdouyin.com/share/video/7673472197583763374", "label": "部分版本列第二/三梯队（版本差异）"},
+            {"source": "广州天气网·增城中学学校主页", "url": "http://www.tqyb.com.cn/gz/departments/school_home/", "label": "1995省一级·2008国家级示范性"},
+            {"source": "南方+·增城2025录取线（2025-07）", "url": "https://static.nfnews.com/content/202507/23/c11539112.html", "label": "2025高中录取665增城第一"}
+          ],
+          "rumor_notes": "增城区属龙头完全中学（1928年创办，1995年省一级、2008年国家级示范性）；2025年高中录取665分居增城第一（官方）；初中部'第一梯队'网传来源仅个别版本。民间标签、非官方。",
+          "zhongkao": {
+            "year": 2024,
+            "scope": "初中部",
+            "data": "2024年网传：最高753、700+33人、一梯（702）32人、普高线237人（目标达成率111%）；2025年网传一梯率约20%",
+            "official": false,
+            "source_url": "http://m.toutiao.com/group/7506820416376160820/",
+            "note": "网传喜报（粤校金榜表内'增城JZ'）"
+          },
+          "demonstration_high": {"level": "国家级示范性（增城区属）", "year": 2008, "source_url": "http://www.tqyb.com.cn/gz/departments/school_home/"},
+          "provincial_level_title": {"title": "广东省一级学校", "year": 1995, "source_url": "http://www.tqyb.com.cn/gz/departments/school_home/"},
+          "education_group": {"name": "增城中学教育集团", "role": "核心校", "source_url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html"},
+          "founded": {"year": 1928, "note": null},
+          "conclusion": "部分支撑",
+          "conclusion_basis": "国家级示范性+1995年省一级（官方历史称号）+增城中学集团核心校，办学地位明确；但初中部网传中考高分数据一般（2024年700+33人）、2026版本多列第二/三梯队，'第一梯队'网传来源不足。",
+          "data_gaps": ["初中部近年中考成绩未官方公布；梯队位置版本差异大"]
+        }
+      ]
+    }
+  },
+  "source_urls": [
+    "http://m.toutiao.com/group/7681581778460738082/",
+    "https://m.gzmama.com/thread-5528871-1-1.html",
+    "https://www.iesdouyin.com/share/video/7673416431010652842",
+    "https://www.iesdouyin.com/share/video/7673472197583763374",
+    "https://www.iesdouyin.com/share/video/7528363086584024359",
+    "http://m.toutiao.com/group/7478940785577165375/",
+    "http://m.toutiao.com/group/7479333108983104019/",
+    "https://www.iesdouyin.com/share/video/7632901407076016310",
+    "https://www.iesdouyin.com/share/video/7631075215054176185",
+    "https://www.iesdouyin.com/share/video/7632567289129332155",
+    "https://www.iesdouyin.com/share/video/7674910907666795828",
+    "https://m.jiwu.com/www/news/5707101.html",
+    "https://www.iesdouyin.com/share/video/7529736808624655631",
+    "http://m.toutiao.com/group/7506820416376160820/",
+    "https://m.sohu.com/a/805755613_106610/",
+    "http://news.ycwb.com/ikinvkltii/content_53552761.htm",
+    "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm",
+    "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html",
+    "https://www.nfnews.com/content/A6ErvnBWoK.html",
+    "https://www.nfnews.com/content/xovKKMVpyJ.html",
+    "https://static.nfnews.com/content/202507/23/c11539112.html",
+    "http://www.tqyb.com.cn/gz/departments/school_home/",
+    "https://www.hp.gov.cn/gzjg/ggnyqgljg/zxgzzschzswbgs/xxgk/content/post_9194323.html",
+    "https://www.hp.gov.cn/2021gb/zz/mtxx/content/post_8172222.html",
+    "http://jyj.gz.gov.cn/gkmlpt/content/10/10788/post_10788405.html",
+    "https://m.sohu.com/a/811365795_121036519/",
+    "https://m.sohu.com/a/919243688_121036519/",
+    "https://app.gaokaozhitongche.com/news/h/QOgEB612",
+    "https://c.m.163.com/news/a/ICHLNB4T05564QTY.html",
+    "https://m.sohu.com/a/798038417_121036519/",
+    "http://gd.yuloo.com/slxx/gwpyfls/news/77722.shtml",
+    "https://m.sohu.com/a/447588045_695359/",
+    "https://www.iesdouyin.com/share/video/7571441490804317669",
+    "https://www.iesdouyin.com/share/video/7584707648705105186",
+    "https://www.iesdouyin.com/share/video/7654580948169188849",
+    "https://www.iesdouyin.com/share/video/7559545365805010228",
+    "https://www.iesdouyin.com/share/video/7530954265804819748",
+    "https://www.iesdouyin.com/share/video/7671497351337661169",
+    "http://news.qq.com/rain/a/20220812A0B9PY00",
+    "http://edu.ycwb.com/2025-07/22/content_53552751.htm",
+    "https://m.sohu.com/a/1043154105_121036519/",
+    "https://www.iesdouyin.com/share/video/7543860875091741962",
+    "https://www.iesdouyin.com/share/video/7598546394581268453",
+    "https://www.iesdouyin.com/share/video/7549100624051195177",
+    "https://huacheng.gz-cmc.com/pages/2026/04/01/6db52883043b4ae1844deb0b91f34b8a.html",
+    "https://www.iesdouyin.com/share/video/7556896721595632896",
+    "http://m.toutiao.com/group/7277848800595608124/",
+    "https://www.iesdouyin.com/share/video/7622685931548225915",
+    "https://gzzk.gz.gov.cn/attachment/7/7132/7132846/8419234.pdf",
+    "https://www.iesdouyin.com/share/video/7648230724705609204",
+    "https://www.iesdouyin.com/share/video/7670503616897380465",
+    "https://www.iesdouyin.com/share/video/7470097944335699259"
+  ]
+}

@@ -117,6 +117,9 @@ def fetch_pois(key, adcode):
             return False
         if any(b in n for b in NON_SCHOOL):
             return False
+        # 附属小学 / 小学部：非初中点位，剔除（「XX初中部(XX小学校区)」含初中，保留）
+        if "小学" in n and "初中" not in n:
+            return False
         if "初中" in n:
             return True
         if "中学" in n:
