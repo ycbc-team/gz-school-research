@@ -24,18 +24,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 组装站点：应用（apps/）+ 共享数据（data/），入口页由 action 生成到站点根目录
+      # 组装站点：应用（apps/）+ 共享数据（data/）+ 图标（img/），入口页由 action 生成到站点根目录
       - name: Prepare site
         run: |
           set -euo pipefail
           mkdir -p _site
           cp -r apps _site/apps
           cp -r data _site/data
+          cp -r img _site/img
           # 入口页源码位于 apps/web/，其相对链接（如 map/index.html）对本地打开正确；
           # 部署后入口位于站点根目录，地图页实际在 apps/web/map/，需改写该相对链接。
           # 先校验预期链接存在，缺失则构建失败，避免静默产出打不开的入口页。
           grep -q 'href="map/index.html"' apps/web/index.html
-          sed 's|href="map/index.html"|href="apps/web/map/index.html"|' apps/web/index.html > _site/index.html
+          sed -e 's|href="map/index.html"|href="apps/web/map/index.html"|' \
+              -e 's|href="../../img/guangzhou-xuetu-144.png"|href="img/guangzhou-xuetu-144.png"|' \
+              apps/web/index.html > _site/index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
