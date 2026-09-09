@@ -56,6 +56,11 @@ const districtTotal = (schools: typeof primarySchools.schools) => {
         <div class="feature-desc">小学 {{ tier1Schools.length }} 所 + 初中 {{ middleTier1Schools.length }} 所网传名校核验</div>
         <span class="tag tag-new">新版</span>
       </RouterLink>
+      <RouterLink to="/policy" class="feature">
+        <div class="feature-name">番禺区 2026 年小学招生政策说明</div>
+        <div class="feature-desc">"人户一致"认定条件 · 学位安排 · 各教育指导中心联系方式</div>
+        <span class="tag tag-new">新版</span>
+      </RouterLink>
     </div>
   </section>
 </template>
