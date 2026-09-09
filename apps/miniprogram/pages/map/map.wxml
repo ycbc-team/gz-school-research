@@ -1,0 +1,20 @@
+<view class="page">
+  <view class="toolbar">
+    <view
+      class="chip {{item.active ? 'active' : ''}}"
+      wx:for="{{districts}}"
+      wx:key="adcode"
+      data-adcode="{{item.adcode}}"
+      bindtap="toggle"
+    >{{item.name}} {{item.count}}</view>
+  </view>
+  <view class="info">{{info}}</view>
+  <map
+    class="map"
+    latitude="23.13"
+    longitude="113.3"
+    scale="11"
+    markers="{{markers}}"
+    enable-rotate="{{false}}"
+  ></map>
+</view>

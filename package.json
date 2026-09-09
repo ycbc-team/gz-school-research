@@ -1,0 +1,18 @@
+{
+  "name": "gz-school-research",
+  "private": true,
+  "version": "0.1.0",
+  "description": "广州学校升学调研：Web (Vue3) + 微信小程序 (原生) + 共享核心包 (@gz/shared)",
+  "workspaces": [
+    "packages/*",
+    "apps/web"
+  ],
+  "scripts": {
+    "build:shared": "npm run build -w @gz/shared",
+    "dev:web": "npm run dev -w @gz/web",
+    "build:web": "npm run build -w @gz/web",
+    "preview:web": "npm run preview -w @gz/web",
+    "build:mp": "node scripts/miniprogram/build.mjs",
+    "check": "npm run typecheck -ws --if-present"
+  }
+}

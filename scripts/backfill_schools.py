@@ -6,7 +6,8 @@
 数据流:
   1. 读取 data/primary/enrollments/2026-panyu.json 的 unmatched（官方有、高德无）
   2. 逐校调高德 place/text 检索（city=440113，不限分类）
-  3. 高置信命中 → 合并进 data/primary/schools.js + schools-gz.json（追加，src=backfill 标记）
+  3. 高置信命中 → 合并进 data/primary/schools-gz.json（唯一真源，追加，src=backfill 标记）
+     + apps/web/legacy/_generated/primary/schools.js（旧页面兼容产物）
      并存 data/primary/schools-backfill.json 留痕
   4. 之后重跑 scripts/build_district_enrollment.py panyu 完成绑定
 """
@@ -125,11 +126,9 @@ def main():
         enr = json.load(f)
     missing = sorted(set(enr["unmatched"]))
 
-    # 加载现有 POI 避免重复
-    with open(os.path.join(DATA, "schools.js"), encoding="utf-8") as f:
-        js = f.read()
-    m = re.search(r"window\.GZ_SCHOOLS\s*=\s*(\{.*?\});?\s*$", js, re.S)
-    data = json.loads(m.group(1))
+    # 加载现有 POI 避免重复（数据真源为 JSON；js 产物同步写 legacy/_generated）
+    with open(os.path.join(DATA, "schools-gz.json"), encoding="utf-8") as f:
+        data = json.load(f)
     existing = {(s["name"], round(s["lng"], 5), round(s["lat"], 5)) for s in data["schools"]}
 
     found, uncertain, notfound = [], [], []
@@ -174,14 +173,16 @@ def main():
         data["note"] = data.get("note", "") + "；含 backfill 补充点位"
         with open(os.path.join(DATA, "schools-gz.json"), "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
-        with open(os.path.join(DATA, "schools.js"), "w", encoding="utf-8") as f:
+        legacy_dir = os.path.join(BASE, "apps", "web", "legacy", "_generated", "primary")
+        os.makedirs(legacy_dir, exist_ok=True)
+        with open(os.path.join(legacy_dir, "schools.js"), "w", encoding="utf-8") as f:
             f.write("window.GZ_SCHOOLS = ")
             json.dump(data, f, ensure_ascii=False)
             f.write(";\n")
         with open(os.path.join(DATA, "schools-backfill.json"), "w", encoding="utf-8") as f:
             json.dump({"updated": time.strftime("%Y-%m-%d"), "added": added, "items": found},
                       f, ensure_ascii=False, indent=1)
-        print(f"\n已追加 {added} 个补充点位 → data/primary/schools.js")
+        print(f"\n已追加 {added} 个补充点位 → data/primary/schools-gz.json（js 产物已同步 legacy/_generated）")
 
     print(f"命中: {len(found)} / 存疑: {len(uncertain)} / 未找到: {len(notfound)}")
     print("\n== 命中 ==")

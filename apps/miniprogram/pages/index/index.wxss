@@ -1,0 +1,18 @@
+.page { padding: 32rpx; }
+.title { font-size: 38rpx; font-weight: 700; line-height: 1.4; }
+.sub { font-size: 24rpx; color: #6b7280; margin-top: 12rpx; }
+
+.stats { display: flex; flex-wrap: wrap; gap: 20rpx; margin: 32rpx 0; }
+.stat {
+  flex: 1 1 300rpx; min-width: 0;
+  background: #fff; border: 1rpx solid #e4e3dd; border-radius: 20rpx; padding: 24rpx;
+  box-sizing: border-box;
+}
+.stat-value { font-size: 52rpx; font-weight: 700; color: #3a5396; }
+.stat-label { font-size: 28rpx; font-weight: 600; margin-top: 4rpx; }
+.stat-sub { font-size: 22rpx; color: #6b7280; margin-top: 8rpx; }
+
+.features { display: flex; flex-direction: column; gap: 20rpx; }
+.feature { background: #fff; border: 1rpx solid #e4e3dd; border-radius: 20rpx; padding: 28rpx; }
+.feature-name { font-size: 30rpx; font-weight: 600; }
+.feature-desc { font-size: 24rpx; color: #6b7280; margin-top: 10rpx; }

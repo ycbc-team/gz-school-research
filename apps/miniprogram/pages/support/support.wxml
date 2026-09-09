@@ -1,0 +1,18 @@
+<view class="page">
+  <view class="toolbar">
+    <view class="chip {{stage === 'primary' ? 'active' : ''}}" data-stage="primary" bindtap="switchStage">小学 {{primaryCount}} 所</view>
+    <view class="chip {{stage === 'middle' ? 'active' : ''}}" data-stage="middle" bindtap="switchStage">初中 {{middleCount}} 所</view>
+    <view class="summary">{{summary}}</view>
+  </view>
+
+  <view class="cards">
+    <view class="card" wx:for="{{list}}" wx:key="name">
+      <view class="card-head">
+        <view class="card-name">{{item.name}}</view>
+        <view class="badge badge-{{item.conclusion}}">{{item.conclusion}}</view>
+      </view>
+      <view class="tier">民间标签：{{item.rumor_tier}}</view>
+      <view class="basis" wx:if="{{item.conclusion_basis}}">{{item.conclusion_basis}}</view>
+    </view>
+  </view>
+</view>

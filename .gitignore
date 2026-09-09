@@ -19,3 +19,19 @@
 
 # 日志
 *.log
+
+# Node / monorepo
+node_modules/
+dist/
+*.tsbuildinfo
+.pnpm-store/
+
+# 微信小程序构建产物（由 scripts/miniprogram/build.mjs 从 data/ JSON 与 packages/shared 生成）
+apps/miniprogram/shared/
+apps/miniprogram/data/
+apps/miniprogram/miniprogram_npm/
+
+data/linkage
+
+# 微信开发者工具个人配置
+project.private.config.json

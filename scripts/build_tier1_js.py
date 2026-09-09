@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "primary" / "tier1_schools_all.json"
-OUT = ROOT / "data" / "primary" / "tier1.js"
+OUT = ROOT / "apps" / "web" / "legacy" / "_generated" / "primary" / "tier1.js"
 
 # 手工补充的匹配别名（tier1 规范名 -> 额外别名，用于校区/旧称/惯用简称）
 ALIAS_EXTRA = {
@@ -156,15 +156,17 @@ def main() -> None:
     schools = []
     for dist, meta in data["districts"].items():
         for s in meta["schools"]:
-            aliases = []
-            base = strip_parenthesis(s["name"]).replace("广州市", "")
-            aliases.append(base)
-            short = norm_short(s["name"])
-            if short and short != base and len(short) >= 4 and short not in GENERIC_SHORT:
-                aliases.append(short)
-            for extra in ALIAS_EXTRA.get(s["name"], []):
-                if extra not in aliases:
-                    aliases.append(extra)
+            # aliases/coords 已随 sync_tier1_aliases.py 回填进 JSON 真源；此处仅兜底旧逻辑
+            aliases = list(s.get("aliases") or [])
+            if not aliases:
+                base = strip_parenthesis(s["name"]).replace("广州市", "")
+                aliases.append(base)
+                short = norm_short(s["name"])
+                if short and short != base and len(short) >= 4 and short not in GENERIC_SHORT:
+                    aliases.append(short)
+                for extra in ALIAS_EXTRA.get(s["name"], []):
+                    if extra not in aliases:
+                        aliases.append(extra)
             rec = {
                 "name": s["name"],
                 "district": dist,
@@ -185,7 +187,11 @@ def main() -> None:
                 },
                 "aliases": aliases,
             }
-            if s["name"] in EXTRA_COORDS:
+            if s.get("coords"):
+                rec["coords"] = s["coords"]
+                rec["coord_addr"] = s.get("coord_addr", "")
+                rec["coord_source"] = s.get("coord_source", "")
+            elif s["name"] in EXTRA_COORDS:
                 ec = EXTRA_COORDS[s["name"]]
                 rec["coords"] = {"lng": ec["lng"], "lat": ec["lat"]}
                 rec["coord_addr"] = ec["addr"]
@@ -202,9 +208,9 @@ def main() -> None:
     print(f"written: {OUT}  ({len(schools)} schools)")
 
     # ---- 匹配模拟验证：与地图页同算法（仅用 tier1.js 中预生成别名，无二次短化） ----
-    src = (ROOT / "data" / "primary" / "schools.js").read_text(encoding="utf-8")
-    m = re.search(r"window\.GZ_SCHOOLS\s*=\s*(\{.*?\});?\s*$", src, re.S)
-    poi_data = json.loads(m.group(1))
+    # 数据真源为 data/primary/schools-gz.json（JSON 唯一真源，js 产物已迁至 legacy/_generated）
+    with (ROOT / "data" / "primary" / "schools-gz.json").open(encoding="utf-8") as f:
+        poi_data = json.load(f)
     poi_names = [x["name"] for x in poi_data["schools"]]
 
     def norm_poi(n: str) -> str:

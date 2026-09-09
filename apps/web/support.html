@@ -311,8 +311,8 @@
   </footer>
 </div>
 
-<script src="../../data/primary/tier1.js"></script>
-<script src="../../data/middle/tier1.js"></script>
+<script src="legacy/_generated/primary/tier1.js"></script>
+<script src="legacy/_generated/middle/tier1.js"></script>
 <script>
 (function () {
   'use strict';
@@ -358,7 +358,7 @@
     var secF = document.getElementById('sec-full');
     var secP = document.getElementById('sec-part');
     if (!TIER1 || !TIER1.schools || !TIER1.schools.length) {
-      var msg = '小学数据未加载：请确认 ../../data/primary/tier1.js 与本页在同一项目目录下（需由 scripts/build_tier1_js.py 生成）。';
+      var msg = '小学数据未加载：请确认 legacy/_generated/primary/tier1.js 与本页在同一项目目录下（需由 scripts/build_tier1_js.py 生成）。';
       tbF.innerHTML = '<tr><td colspan="7">' + esc(msg) + '</td></tr>';
       tbP.innerHTML = '';
       secF.querySelector('.sec-desc').textContent = msg;
@@ -380,7 +380,7 @@
     var secMF = document.getElementById('sec-m-full');
     var secMP = document.getElementById('sec-m-part');
     if (!MTIER1 || !MTIER1.schools || !MTIER1.schools.length) {
-      var mmsg = '初中数据未加载：请确认 ../../data/middle/tier1.js 与本页在同一项目目录下（需由 scripts/build_middle_tier1_js.py 生成）。';
+      var mmsg = '初中数据未加载：请确认 legacy/_generated/middle/tier1.js 与本页在同一项目目录下（需由 scripts/build_middle_tier1_js.py 生成）。';
       tbMF.innerHTML = '<tr><td colspan="7">' + esc(mmsg) + '</td></tr>';
       tbMP.innerHTML = '<tr><td colspan="8">' + esc(mmsg) + '</td></tr>';
       secMF.querySelector('.sec-desc').textContent = mmsg;

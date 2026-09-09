@@ -6,27 +6,32 @@
 
 ```
 apps/web/
-├── index.html          # 应用入口（功能列表，新增功能在此扩展）
-├── map/                # 【功能】七区中小学分布地图（Leaflet，小学+初中合并）
-│   ├── index.html      # 地图页，浏览器直接打开
+├── index.html          # 应用入口（旧版功能列表页，Vue3 重构后下线）
+├── map/                # 【功能·旧版】七区中小学分布地图（Leaflet，file:// 直接打开）
+│   ├── index.html      # 地图页，引用 legacy/_generated/combined.js
 │   └── assets/         # Leaflet 库（本地化，不依赖 CDN）
-├── support.html        # “支撑度”说明页（小学+初中口径）
+├── support.html        # 【功能·旧版】“支撑度”说明页（小学+初中口径）
+├── legacy/             # 旧版页面专用目录
+│   └── _generated/     # 浏览器兼容产物（window.GZ_* 的 .js），由 scripts/ 从 data/*.json 生成，勿手改
 └── README.md
 ```
 
-## 当前功能
+## 当前功能（旧版，file:// 直接打开）
 
 | 功能 | 路径 | 说明 |
 | --- | --- | --- |
 | 七区中小学分布地图 | `map/index.html` | 广州 7 区小学 918 点位 + 初中 310 点位，四类配色 + 筛选 + 支撑度核验，纯本地数据 |
+| 口碑学校 · 支撑度说明 | `support.html` | 小学 59 所 + 初中 53 所网传名校核验：按学段给出判定规则与信号维度 |
 
-## 约定
+## 数据引用约定
 
-- 每个功能一个独立子目录（如 `map/`），后续功能（学校详情、对比、路线规划等）按同方式扩展，并在 `index.html` 入口登记
-- 共享数据统一从 `../../data/primary/`（小学）或 `../../data/middle/`（初中）读取（`<script src="../../data/primary/schools.js">`），不在应用内复制数据
-- 本地资源放功能自己的 `assets/` 下，用相对路径引用
-- 公共 Key / token 一律放项目根 `.env`，不写入代码
+- **数据真源：项目根 `data/` 下的 JSON**（`data/primary/schools-gz.json` 等）。
+- 旧版页面因 file:// 直开无法 fetch，引用 `legacy/_generated/` 下的 js 兼容产物
+  （如 `map/index.html` → `../legacy/_generated/combined.js`；`support.html` →
+  `legacy/_generated/primary/tier1.js`）。产物由 `scripts/*.py` 从 JSON 生成，勿手改。
+- 新增页面一律从 `data/*.json` 读取，不再引入 `window.GZ_*` 全局变量。
 
 ## 运行
 
 浏览器直接打开 `apps/web/index.html`（入口）或 `apps/web/map/index.html`（地图）即可，无需构建与服务。
+（Vue3 重构进行中，新工程将使用 Vite dev server 与构建产物，见根 README。）

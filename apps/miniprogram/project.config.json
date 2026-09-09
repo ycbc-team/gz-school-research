@@ -1,0 +1,15 @@
+{
+  "compileType": "miniprogram",
+  "libVersion": "3.17.2",
+  "appid": "wx065a716583cf971c",
+  "projectname": "gz_school_research",
+  "setting": {
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "enhance": true,
+    "useCompilerPlugins": false,
+    "babelSetting": { "ignore": [], "disablePlugins": [], "outputPath": "" }
+  },
+  "condition": {}
+}

@@ -10,7 +10,8 @@
 
 用法: python3 scripts/build_district_enrollment.py <区名:yuexiu|liwan|haizhu|tianhe|panyu> [越秀txt路径]
       或 python3 scripts/build_district_enrollment.py all
-输出: data/primary/enrollments/2026-<区>.json + .js
+输出: data/primary/enrollments/2026-<区>.json（唯一真源）
+      apps/web/legacy/_generated/primary/enrollments/2026-<区>.js（旧页面兼容产物）
 """
 import json
 import os
@@ -23,6 +24,7 @@ from xml.etree import ElementTree as ET
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "primary")
 OUT_DIR = os.path.join(DATA, "enrollments")
+LEGACY_ENROLL = os.path.join(ROOT, "apps", "web", "legacy", "_generated", "primary", "enrollments")
 TMP = "/tmp/gzsrc"
 
 NS = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
@@ -332,9 +334,9 @@ def parse_panyu(xls_path):
     return records
 
 def match_and_write(district_key, records, source, source_url):
-    js = open(os.path.join(DATA, "schools.js"), encoding="utf-8").read()
-    m = re.search(r"window\.GZ_SCHOOLS\s*=\s*(\{.*?\});?\s*$", js, re.S)
-    data = json.loads(m.group(1))
+    # 数据真源为 data/primary/schools-gz.json（JSON 唯一真源，js 产物已迁至 legacy/_generated）
+    with open(os.path.join(DATA, "schools-gz.json"), encoding="utf-8") as f:
+        data = json.load(f)
     poi_pool = [s for s in data.get("schools", []) if s.get("adcode") == DISTRICTS[district_key]["adcode"]]
     # 排除泛名/在建类 POI（如「学校」「建设中」）
     BAD_POI = ("建设中", "在建", "工地", "装修", "筹备", "规划", "选址")
@@ -382,7 +384,8 @@ def match_and_write(district_key, records, source, source_url):
     var = f"GZ_ENROLL_{district_key.upper()}"
     with open(os.path.join(OUT_DIR, f"2026-{district_key}.json"), "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=1)
-    with open(os.path.join(OUT_DIR, f"2026-{district_key}.js"), "w", encoding="utf-8") as f:
+    os.makedirs(LEGACY_ENROLL, exist_ok=True)
+    with open(os.path.join(LEGACY_ENROLL, f"2026-{district_key}.js"), "w", encoding="utf-8") as f:
         f.write(f"window.{var} = ")
         json.dump(result, f, ensure_ascii=False, separators=(",", ":"))
         f.write(";\n")

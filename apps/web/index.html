@@ -1,74 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>广州学校升学调研 · Web 应用</title>
-<link rel="icon" type="image/png" href="../../img/guangzhou-xuetu-144.png">
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
-    background: #F4F3EE;
-    color: #1A1B1C;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-  }
-  .shell {
-    width: 100%;
-    max-width: 420px;
-    background: #FFFFFF;
-    border: 1px solid #E4E3DD;
-    border-radius: 16px;
-    padding: 28px;
-  }
-  h1 { font-size: 18px; font-weight: 700; letter-spacing: 0.01em; }
-  .sub { font-size: 13px; color: #6B7280; margin-top: 6px; line-height: 1.6; }
-  .section-title {
-    margin: 22px 0 10px;
-    font-size: 12px; font-weight: 600; color: #6B7280; letter-spacing: 0.06em;
-  }
-  .feature {
-    display: block;
-    text-decoration: none;
-    color: #1A1B1C;
-    border: 1px solid #E4E3DD;
-    border-radius: 12px;
-    padding: 14px 16px;
-    transition: border-color 0.15s, background 0.15s;
-  }
-  .feature:hover { border-color: #9BBBF4; background: #F7F9FE; }
-  .feature .name { font-size: 15px; font-weight: 600; }
-  .feature .desc { font-size: 12px; color: #6B7280; margin-top: 4px; }
-  .feature .tag {
-    display: inline-block; margin-top: 8px;
-    font-size: 11px; color: #4A5FA8;
-    background: #EDF1FD; border-radius: 999px; padding: 2px 10px;
-  }
-  .foot { margin-top: 24px; font-size: 11px; color: #9AA0A6; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>广州学校升学调研</title>
+  <link rel="icon" type="image/png" href="../../img/guangzhou-xuetu-144.png" />
 </head>
 <body>
-  <div class="shell">
-    <h1>广州学校升学调研</h1>
-    <div class="sub">为孩子寻找合适升学路线的调研工具集<br>数据共享自项目 <code>data/</code> 目录</div>
-
-    <div class="section-title">功能</div>
-    <a class="feature" href="map/index.html">
-      <div class="name">七区中小学·高中分布地图</div>
-      <div class="desc">918 小学 + 310 初中 + 126 高中点位 · 高中按省市属示范/区属示范/普通三类配色 · 特控线等客观指标</div>
-      <span class="tag">当前可用</span>
-    </a>
-    <a class="feature" href="support.html" style="margin-top:12px;">
-      <div class="name">口碑学校 · 支撑度说明</div>
-      <div class="desc">小学 59 所 + 初中 53 所网传名校核验：按学段给出判定规则与信号维度</div>
-      <span class="tag">当前可用</span>
-    </a>
-
-    <div class="foot">更多功能（学校详情、对比、路线规划）后续在此扩展</div>
-  </div>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

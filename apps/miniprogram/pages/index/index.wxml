@@ -1,0 +1,23 @@
+<view class="page">
+  <view class="title">为孩子寻找合适升学路线的调研工具集</view>
+  <view class="sub">数据共享自项目 data/（JSON 唯一真源）</view>
+
+  <view class="stats">
+    <view class="stat" wx:for="{{stats}}" wx:key="label">
+      <view class="stat-value">{{item.value}}</view>
+      <view class="stat-label">{{item.label}}</view>
+      <view class="stat-sub">{{item.sub}}</view>
+    </view>
+  </view>
+
+  <view class="features">
+    <view class="feature" bindtap="goMap">
+      <view class="feature-name">七区中小学·高中分布地图</view>
+      <view class="feature-desc">点位分布 · 区筛选 · 内置 map 组件（GCJ-02）</view>
+    </view>
+    <view class="feature" bindtap="goSupport">
+      <view class="feature-name">口碑学校 · 支撑度核验</view>
+      <view class="feature-desc">小学 {{stats[3].sub}} 网传名校核验</view>
+    </view>
+  </view>
+</view>

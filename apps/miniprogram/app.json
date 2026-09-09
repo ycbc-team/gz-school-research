@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/map/map",
+    "pages/support/support"
+  ],
+  "window": {
+    "navigationBarTitleText": "广州学校升学调研",
+    "navigationBarBackgroundColor": "#F4F3EE",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F4F3EE"
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
