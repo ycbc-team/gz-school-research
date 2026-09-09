@@ -77,7 +77,7 @@
 
   /* 各区学校数量（小学 / 初中两栏） */
   #dist-stats { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 9px; }
-  #dist-rows { display: grid; grid-template-columns: 1fr 46px 46px; column-gap: 6px; row-gap: 2px; font-size: 12px; }
+  #dist-rows { display: grid; grid-template-columns: 1fr 46px 46px 46px; column-gap: 6px; row-gap: 2px; font-size: 12px; }
   #dist-rows .d-name { color: var(--text-sub); }
   #dist-rows .d-head { color: var(--text-sub); font-size: 10.5px; font-weight: 600; text-align: right; }
   #dist-rows .d-p, #dist-rows .d-m, #dist-rows .d-h { text-align: right; font-variant-numeric: tabular-nums; }
@@ -178,14 +178,12 @@
 
   <aside id="panel" aria-label="筛选与统计">
     <h1>广州七区中小学·高中分布</h1>
-    <div class="subtitle">升学调研 · 数据源：高德 POI + 官方名单/录取线 + 各校高考喜报</div>
-    <div id="status"><span id="status-text">正在加载地图…</span></div>
     <div id="filters">
       <div class="block-title">显示点位（数量随勾选实时统计）</div>
-      <label class="f-row"><input type="checkbox" id="f-p-normal" checked><span class="dot" style="background:#94A3B8"></span><span>小学普通</span><span class="f-count" id="c-pN">0</span></label>
-      <label class="f-row"><input type="checkbox" id="f-p-tier" checked><span class="dot" style="background:#2563EB"></span><span>小学第一梯队</span><span class="f-count" id="c-pT">0</span></label>
-      <label class="f-row"><input type="checkbox" id="f-m-normal" checked><span class="dot" style="background:#A8A29E"></span><span>初中普通</span><span class="f-count" id="c-mN">0</span></label>
-      <label class="f-row"><input type="checkbox" id="f-m-tier" checked><span class="dot" style="background:#DC2626"></span><span>初中第一梯队</span><span class="f-count" id="c-mT">0</span></label>
+      <label class="f-row"><input type="checkbox" id="f-p-normal" checked><span class="dot" style="background:#94A3B8"></span><span>小学·普通</span><span class="f-count" id="c-pN">0</span></label>
+      <label class="f-row"><input type="checkbox" id="f-p-tier" checked><span class="dot" style="background:#2563EB"></span><span>小学·口碑</span><span class="f-count" id="c-pT">0</span></label>
+      <label class="f-row"><input type="checkbox" id="f-m-normal" checked><span class="dot" style="background:#A8A29E"></span><span>初中·普通</span><span class="f-count" id="c-mN">0</span></label>
+      <label class="f-row"><input type="checkbox" id="f-m-tier" checked><span class="dot" style="background:#DC2626"></span><span>初中·口碑</span><span class="f-count" id="c-mT">0</span></label>
       <label class="f-row"><input type="checkbox" id="f-h-normal" checked><span class="dot" style="background:#64748B"></span><span>高中·普通</span><span class="f-count" id="c-hN">0</span></label>
       <label class="f-row"><input type="checkbox" id="f-h-dist" checked><span class="dot" style="background:#10B981"></span><span>高中·区属示范</span><span class="f-count" id="c-hD">0</span></label>
       <label class="f-row"><input type="checkbox" id="f-h-city" checked><span class="dot" style="background:#F59E0B"></span><span>高中·省市属示范</span><span class="f-count" id="c-hM">0</span></label>
@@ -195,7 +193,7 @@
       <div class="block-title">各区学校 · 小学 / 初中 / 高中</div>
       <div id="dist-rows"></div>
     </div>
-    <div id="footnote">拖动 / 滚轮 / 双指缩放查看。悬停显示校名，点击点位显示信息卡。独立法人挂牌校（虚线点）不计入第一梯队，点击详情卡见未计入原因。高中分类口径：省市属示范 / 区属示范 / 普通（详见卡片内“口径”与数据说明）。</div>
+    <div id="footnote">拖动 / 滚轮 / 双指缩放查看。悬停显示校名，点击点位显示信息卡。独立法人挂牌校（虚线点）不计入口碑学校，点击详情卡见未计入原因。高中分类口径：省市属示范 / 区属示范 / 普通（详见卡片内“口径”与数据说明）。</div>
   </aside>
 
   <!-- 学校招生信息卡片（点击点位显示） -->
@@ -230,17 +228,17 @@
     var LEVELS_H = window.GZ_HIGH_LEVELS || null;    // 高中分类与指标
 
     /* ========== 7 类点位配色 ==========
-       小学普通 #94A3B8 / 小学梯队 #2563EB / 初中普通 #A8A29E / 初中梯队 #DC2626
+       小学普通 #94A3B8 / 小学口碑 #2563EB / 初中普通 #A8A29E / 初中口碑 #DC2626
        高中普通 #64748B / 高中·区属示范 #10B981 / 高中·省市属示范 #F59E0B
-       小学、初中“第一梯队” = 有支撑 ∪ 部分支撑，且排除独立法人挂牌校（tier1_eligible=false）；
-       挂牌校以虚线点展示、计入“普通”统计、不占梯队名额，详情卡标注未计入原因；
+       小学、初中“口碑学校” = 有支撑 ∪ 部分支撑，且排除独立法人挂牌校（tier1_eligible=false）；
+       挂牌校以虚线点展示、计入“普通”统计、不占口碑名额，详情卡标注未计入原因；
        有支撑加外圈晕光，部分支撑仅加粗无晕光。
        高中三类按官方“隶属+示范性”划分：省市属示范（省属/市属示范性，含市属优质）、区属示范（区属国家级/市级示范）、普通（其余公办+民办）。 */
     var CLASS_CFG = {
-      pN: { stage: 'primary', tier: false, color: '#94A3B8', label: '小学普通' },
-      pT: { stage: 'primary', tier: true,  color: '#2563EB', label: '小学第一梯队' },
-      mN: { stage: 'middle',  tier: false, color: '#A8A29E', label: '初中普通' },
-      mT: { stage: 'middle',  tier: true,  color: '#DC2626', label: '初中第一梯队' },
+      pN: { stage: 'primary', tier: false, color: '#94A3B8', label: '小学·普通' },
+      pT: { stage: 'primary', tier: true,  color: '#2563EB', label: '小学·口碑' },
+      mN: { stage: 'middle',  tier: false, color: '#A8A29E', label: '初中·普通' },
+      mT: { stage: 'middle',  tier: true,  color: '#DC2626', label: '初中·口碑' },
       hN: { stage: 'high',    tier: false, color: '#64748B', label: '高中·普通' },
       hD: { stage: 'high',    tier: true,  color: '#10B981', label: '高中·区属示范' },
       hM: { stage: 'high',    tier: true,  color: '#F59E0B', label: '高中·省市属示范' }
@@ -289,7 +287,7 @@
       return hit;
     }
     function isTierRecord(t) {
-      // 独立法人挂牌校（tier1_eligible=false）不计入第一梯队，即使网传判定为有支撑
+      // 独立法人挂牌校（tier1_eligible=false）不计入口碑学校，即使网传判定为有支撑
       return !!t && t.tier1_eligible !== false && (t.verdict === '有支撑' || t.verdict === '部分支撑');
     }
     /* ========== 高中分类查表：按规范校名/别名匹配 levels（避免与小学初中梯队表混用） ========== */
@@ -346,6 +344,7 @@
     function setStatus(text, mode) {
       var st = document.getElementById('status');
       var tx = document.getElementById('status-text');
+      if (!st || !tx) return;   // 状态行已从面板移除，仅保留错误兜底逻辑
       tx.textContent = text;
       st.className = mode || '';
     }
@@ -504,7 +503,7 @@
         s.weight = (tier && tier.verdict === '有支撑') ? 2.8 : 2.2;  // 有支撑加粗
       }
       if (tier && tier.tier1_eligible === false) {
-        // 独立法人挂牌校：虚线描边，地图上一眼可辨，但不占“第一梯队”名额
+        // 独立法人挂牌校：虚线描边，地图上一眼可辨，但不占“口碑学校”名额
         s.dashArray = '4 3';
         s.fillOpacity = 0.85;
       }
@@ -691,14 +690,14 @@
         // 支撑度区块：网传梯队标签 + 具体支撑信号 + 说明页链接
         var v = tier.verdict || '';
         if (tier.tier1_eligible === false) {
-          // 独立法人挂牌校：未计入第一梯队，展示“未选为口碑学校”的原因说明标志
+          // 独立法人挂牌校：未计入口碑学校，展示原因说明标志
           html += '<div class="si-tier"><span class="badge badge-license">独立法人挂牌校</span>' +
-                  '<span>网传“' + esc(tier.rumor_tier || '第一梯队') + '”· 独立法人，未计入第一梯队</span></div>';
+                  '<span>网传“口碑学校”· 独立法人，未计入口碑学校</span></div>';
           if (tier.exclude_reason) html += siRow('未计入原因', esc(tier.exclude_reason), 'zone');
         } else {
           var badgeCls = v === '有支撑' ? 'tier-full' : (v === '部分支撑' ? 'tier-part' : 'tier-none');
           html += '<div class="si-tier"><span class="badge ' + badgeCls + '">' + esc(v) + '</span>' +
-                  '<span>网传“' + esc(tier.rumor_tier || '第一梯队') + '”· 民间口径非官方</span></div>';
+                  '<span>网传“口碑学校”· 民间口径非官方</span></div>';
           if (tier.entity_relation === '同法人校区') html += siRow('校区关系', '同法人校区 · 与本部同一法人', 'b');
         }
         var sg = tier.signals || {};
