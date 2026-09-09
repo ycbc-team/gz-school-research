@@ -46,21 +46,50 @@ export interface RumorSource {
 
 export interface Tier1School {
   name: string;
+  /** 所在区（由 sync_tier1_aliases.py 从产物回填，真源字段） */
+  district?: string;
   rumor_tier: string;
   rumor_sources: RumorSource[];
   rumor_notes?: string;
+  /** 小学：小升初出口信号 */
   xiaoshengchu?: {
     group: string;
     feed_junior_highs: string[];
+    direct_feed?: string | null;
+    source_url?: string;
+    source_note?: string;
   };
+  /** 初中：中考成绩信号（网传口径，非官方） */
+  zhongkao?: {
+    year: number;
+    scope: string;
+    data: string;
+    official: boolean;
+    source_url: string;
+    note?: string;
+  };
+  /** 初中：示范性高中称号 */
+  demonstration_high?: {
+    level: string;
+    year: number | null;
+    source_url: string;
+  } | null;
+  /** 教育集团身份 */
   education_group?: {
     name: string;
     role: string;
     source_url: string;
   };
+  /** 小学：2026 计划班数 */
   plan_classes_2026?: number | null;
+  /** 小学：学位预警 */
   degree_warning?: string | null;
+  /** 小学：省一级历史称号 */
   provincial_level_title?: { year: number; note: string } | null;
+  /** 初中：建校年份 */
+  founded?: { year: number; note?: string };
+  /** 初中：名额分配（指标到校）记录 */
+  quota_allocation?: { year: number; data: string; source_url: string };
   conclusion: Verdict;
   conclusion_basis?: string;
   data_gaps?: string[];
@@ -116,7 +145,8 @@ export interface HighLevelSchool {
   category: HighSchoolCategory;
   affiliation: string;
   demo?: string;
-  campuses: Array<{ name: string; lng?: number; lat?: number }>;
+  /** 校区名（字符串，与旧版产物一致） */
+  campuses: string[];
   aliases: string[];
   indicators: Record<string, string | number | null>;
 }

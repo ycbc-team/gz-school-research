@@ -6,7 +6,6 @@
 数据源: 高德地图 Web 服务 API（place/text 与 config/district）
 输出:
   data/primary/schools-gz.json  唯一数据真源（JSON）
-  apps/web/legacy/_generated/primary/schools.js  旧页面兼容产物（window.GZ_SCHOOLS）
 """
 import json
 import os
@@ -163,21 +162,15 @@ def main():
         time.sleep(0.4)
 
     data_dir = os.path.join(BASE, "data", "primary")
-    legacy_dir = os.path.join(BASE, "apps", "web", "legacy", "_generated", "primary")
     os.makedirs(data_dir, exist_ok=True)
-    os.makedirs(legacy_dir, exist_ok=True)
     with open(os.path.join(data_dir, "schools-gz.json"), "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, separators=(",", ":"))
-    with open(os.path.join(legacy_dir, "schools.js"), "w", encoding="utf-8") as f:
-        f.write("window.GZ_SCHOOLS = ")
-        json.dump(result, f, ensure_ascii=False)
-        f.write(";\n")
 
     total = len(result["schools"])
     per = {name: sum(1 for s in result["schools"] if s["adcode"] == adcode) for name, adcode in districts}
     print(f"\n完成: 共 {total} 所小学")
     print("各区: " + ", ".join(f"{n} {per[n]}" for n, _ in districts))
-    print(f"输出: {os.path.join(data_dir, 'schools-gz.json')} / {os.path.join(legacy_dir, 'schools.js')}")
+    print(f"输出: {os.path.join(data_dir, 'schools-gz.json')}")
 
 
 if __name__ == "__main__":

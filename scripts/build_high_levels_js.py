@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""构建高中浏览器端数据：
-1) 按 levels.json（学校清单+分类+指标）清洗高德 POI → data/high/schools-gz.json（清洗版真源）
-   + apps/web/legacy/_generated/high/schools.js（window.GZ_HIGH_SCHOOLS）
-2) levels.json → apps/web/legacy/_generated/high/levels.js（window.GZ_HIGH_LEVELS）
+"""构建高中数据真源：
+按 levels.json（学校清单+分类+指标）清洗高德 POI → data/high/schools-gz.json（清洗版真源）。
 
 用法: python3 scripts/build_high_levels_js.py
 依赖: data/high/schools-gz.json（fetch_high_schools.py 产物）、data/high/levels.json（人工调研产物）
@@ -14,7 +12,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 HIGH = ROOT / "data" / "high"
-LEGACY_HIGH = ROOT / "apps" / "web" / "legacy" / "_generated" / "high"
 
 DISTRICT_ADCODE = {
     "荔湾区": "440103", "越秀区": "440104", "海珠区": "440105",
@@ -36,12 +33,6 @@ def norm(s: str) -> str:
     s = s.replace("（", "(").replace("）", ")")
     s = re.sub(r"[()]", "", s)
     return re.sub(r"\s+", "", s)
-
-
-def build_levels_js(levels):
-    js = "/* 由 scripts/build_high_levels_js.py 生成，勿手改 */\n"
-    js += "window.GZ_HIGH_LEVELS = " + json.dumps(levels, ensure_ascii=False) + ";\n"
-    (LEGACY_HIGH / "levels.js").write_text(js, encoding="utf-8")
 
 
 def main():
@@ -92,23 +83,17 @@ def main():
                 "adcode": adcode, "school": sc["name"], "supplement": True,
             })
 
-    # 4) 输出清洗版点位：json 写回 data/（唯一真源），js 写 legacy/_generated/（旧页面兼容产物）
+    # 4) 输出清洗版点位（唯一真源）
     result = {
         "updated": levels["updated"],
         "source": "高德地图 Web 服务 API 点位 + levels.json 补点",
         "note": "高中点位（含完全中学），已按学校清单清洗，保留校名+校区；school 字段为规范校名",
         "schools": points,
     }
-    LEGACY_HIGH.mkdir(parents=True, exist_ok=True)
-    (LEGACY_HIGH / "schools.js").write_text(
-        "window.GZ_HIGH_SCHOOLS = " + json.dumps(result, ensure_ascii=False) + ";\n",
-        encoding="utf-8",
-    )
     (HIGH / "schools-gz.json").write_text(
         json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n",
         encoding="utf-8",
     )
-    build_levels_js(levels)
 
     # 5) 统计
     per = {}
