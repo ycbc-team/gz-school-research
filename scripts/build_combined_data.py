@@ -8,9 +8,11 @@
   data/primary/enrollments/*.js  -> window.GZ_ENROLL_*
   data/middle/schools.js         -> window.GZ_MIDDLE_SCHOOLS
   data/middle/tier1.js           -> window.GZ_MIDDLE_TIER1
+  data/high/schools.js           -> window.GZ_HIGH_SCHOOLS
+  data/high/levels.js            -> window.GZ_HIGH_LEVELS
 
 用法: python3 scripts/build_combined_data.py
-效果: 地图页从加载 9 个 JS 文件（约 790KB，含缩进空白）变为 1 个 compact 文件，
+效果: 地图页从加载 11 个 JS 文件（约 790KB，含缩进空白）变为 1 个 compact 文件，
       减少 file:// 下的文件读取与解析开销（首次加载提速）。
 各源文件保持不变（多端共用不受影响）。
 """
@@ -28,6 +30,8 @@ SRC_FILES = [
     *sorted((DATA / "primary" / "enrollments").glob("*.js")),
     DATA / "middle" / "schools.js",
     DATA / "middle" / "tier1.js",
+    DATA / "high" / "schools.js",
+    DATA / "high" / "levels.js",
 ]
 
 PATTERN = re.compile(r"window\.([A-Z0-9_]+)\s*=\s*(\{.*?\});?\s*$", re.S)

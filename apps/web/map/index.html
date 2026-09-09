@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>广州七区中小学分布 · 升学调研</title>
+<title>广州七区中小学·高中分布 · 升学调研</title>
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://webrd0s.is.autonavi.com">
 <link rel="stylesheet" href="assets/leaflet.css">
@@ -80,9 +80,10 @@
   #dist-rows { display: grid; grid-template-columns: 1fr 46px 46px; column-gap: 6px; row-gap: 2px; font-size: 12px; }
   #dist-rows .d-name { color: var(--text-sub); }
   #dist-rows .d-head { color: var(--text-sub); font-size: 10.5px; font-weight: 600; text-align: right; }
-  #dist-rows .d-p, #dist-rows .d-m { text-align: right; font-variant-numeric: tabular-nums; }
+  #dist-rows .d-p, #dist-rows .d-m, #dist-rows .d-h { text-align: right; font-variant-numeric: tabular-nums; }
   #dist-rows .d-p { color: #2563EB; }
   #dist-rows .d-m { color: #DC2626; }
+  #dist-rows .d-h { color: #F59E0B; }
 
   #footnote {
     margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--line);
@@ -131,6 +132,9 @@
     border-radius: 6px; padding: 2px 9px;
   }
   .badge.tier-full { background: #E11D48; }
+  .badge.high-city { background: #B45309; }
+  .badge.high-dist { background: #0F766E; }
+  .badge.high-normal { background: #57534E; }
   .badge.tier-part { background: #F59E0B; }
   .badge.tier-none { background: #8A94A6; }
   .si-tier-link { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line); }
@@ -172,8 +176,8 @@
   <div id="map"></div>
 
   <aside id="panel" aria-label="筛选与统计">
-    <h1>广州七区中小学分布</h1>
-    <div class="subtitle">升学调研 · 数据源：高德地图 POI</div>
+    <h1>广州七区中小学·高中分布</h1>
+    <div class="subtitle">升学调研 · 数据源：高德 POI + 官方名单/录取线 + 各校高考喜报</div>
     <div id="status"><span id="status-text">正在加载地图…</span></div>
     <div id="filters">
       <div class="block-title">显示点位（数量随勾选实时统计）</div>
@@ -181,13 +185,16 @@
       <label class="f-row"><input type="checkbox" id="f-p-tier" checked><span class="dot" style="background:#2563EB"></span><span>小学第一梯队</span><span class="f-count" id="c-pT">0</span></label>
       <label class="f-row"><input type="checkbox" id="f-m-normal" checked><span class="dot" style="background:#A8A29E"></span><span>初中普通</span><span class="f-count" id="c-mN">0</span></label>
       <label class="f-row"><input type="checkbox" id="f-m-tier" checked><span class="dot" style="background:#DC2626"></span><span>初中第一梯队</span><span class="f-count" id="c-mT">0</span></label>
+      <label class="f-row"><input type="checkbox" id="f-h-normal" checked><span class="dot" style="background:#64748B"></span><span>高中·普通</span><span class="f-count" id="c-hN">0</span></label>
+      <label class="f-row"><input type="checkbox" id="f-h-dist" checked><span class="dot" style="background:#10B981"></span><span>高中·区属示范</span><span class="f-count" id="c-hD">0</span></label>
+      <label class="f-row"><input type="checkbox" id="f-h-city" checked><span class="dot" style="background:#F59E0B"></span><span>高中·省市属示范</span><span class="f-count" id="c-hM">0</span></label>
       <div class="f-btns"><button id="f-all" type="button">全选</button><button id="f-none" type="button">全不选</button></div>
     </div>
     <div id="dist-stats">
-      <div class="block-title">各区学校 · 小学 / 初中</div>
+      <div class="block-title">各区学校 · 小学 / 初中 / 高中</div>
       <div id="dist-rows"></div>
     </div>
-    <div id="footnote">拖动 / 滚轮 / 双指缩放查看。悬停显示校名，点击点位显示信息卡：网传梯队校会给出支撑信号与判定依据，并链接到“支撑度”说明页。</div>
+    <div id="footnote">拖动 / 滚轮 / 双指缩放查看。悬停显示校名，点击点位显示信息卡。高中分类口径：省市属示范 / 区属示范 / 普通（详见卡片内“口径”与数据说明）。</div>
   </aside>
 
   <!-- 学校招生信息卡片（点击点位显示） -->
@@ -218,18 +225,26 @@
     var TIER1_P = window.GZ_TIER1 || null;           // 小学梯队核验
     var DATA_M = window.GZ_MIDDLE_SCHOOLS || null;   // 初中点位
     var TIER1_M = window.GZ_MIDDLE_TIER1 || null;    // 初中梯队核验
+    var DATA_H = window.GZ_HIGH_SCHOOLS || null;     // 高中点位
+    var LEVELS_H = window.GZ_HIGH_LEVELS || null;    // 高中分类与指标
 
-    /* ========== 4 类点位配色 ==========
+    /* ========== 7 类点位配色 ==========
        小学普通 #94A3B8 / 小学梯队 #2563EB / 初中普通 #A8A29E / 初中梯队 #DC2626
-       “第一梯队” = 有支撑 ∪ 部分支撑；有支撑加外圈晕光，部分支撑仅加粗无晕光 */
+       高中普通 #64748B / 高中·区属示范 #10B981 / 高中·省市属示范 #F59E0B
+       小学、初中“第一梯队” = 有支撑 ∪ 部分支撑；有支撑加外圈晕光，部分支撑仅加粗无晕光。
+       高中三类按官方“隶属+示范性”划分：省市属示范（省属/市属示范性，含市属优质）、区属示范（区属国家级/市级示范）、普通（其余公办+民办）。 */
     var CLASS_CFG = {
       pN: { stage: 'primary', tier: false, color: '#94A3B8', label: '小学普通' },
       pT: { stage: 'primary', tier: true,  color: '#2563EB', label: '小学第一梯队' },
       mN: { stage: 'middle',  tier: false, color: '#A8A29E', label: '初中普通' },
-      mT: { stage: 'middle',  tier: true,  color: '#DC2626', label: '初中第一梯队' }
+      mT: { stage: 'middle',  tier: true,  color: '#DC2626', label: '初中第一梯队' },
+      hN: { stage: 'high',    tier: false, color: '#64748B', label: '高中·普通' },
+      hD: { stage: 'high',    tier: true,  color: '#10B981', label: '高中·区属示范' },
+      hM: { stage: 'high',    tier: true,  color: '#F59E0B', label: '高中·省市属示范' }
     };
     var GLOW_COLOR = { primary: 'rgba(37,99,235,0.35)', middle: 'rgba(220,38,38,0.35)' };
-    var FILTER_ID = { pN: 'f-p-normal', pT: 'f-p-tier', mN: 'f-m-normal', mT: 'f-m-tier' };
+    var FILTER_ID = { pN: 'f-p-normal', pT: 'f-p-tier', mN: 'f-m-normal', mT: 'f-m-tier',
+                      hN: 'f-h-normal', hD: 'f-h-dist', hM: 'f-h-city' };
 
     /* ========== 梯队匹配：两学段独立 tierTable（别名匹配表，勿混用） ========== */
     function normName(n, mode) {
@@ -272,6 +287,39 @@
     }
     function isTierRecord(t) {
       return !!t && (t.verdict === '有支撑' || t.verdict === '部分支撑');
+    }
+    /* ========== 高中分类查表：按规范校名/别名匹配 levels（避免与小学初中梯队表混用） ========== */
+    var highTable = {};
+    (function () {
+      if (!LEVELS_H) return;
+      (LEVELS_H.schools || []).forEach(function (sc) {
+        var keys = [sc.name].concat(sc.aliases || []);
+        keys.forEach(function (k) {
+          var nk = normName(k, 'middle');
+          if (nk && !highTable[nk]) highTable[nk] = sc;
+        });
+        (sc.campuses || []).forEach(function (c) {
+          var nk = normName(c, 'middle');
+          if (nk && !highTable[nk]) highTable[nk] = sc;
+        });
+      });
+    })();
+    function highRecord(pt) {
+      var key = normName(pt.school || pt.name, 'middle');
+      var rec = highTable[key];
+      if (!rec) {  // 兜底：点位名匹配
+        var n = normName(pt.name, 'middle');
+        Object.keys(highTable).forEach(function (k) {
+          if (!rec && n === k) rec = highTable[k];
+        });
+      }
+      return rec || null;
+    }
+    function highCls(rec) {
+      if (!rec) return 'hN';
+      if (rec.category === '省市属示范') return 'hM';
+      if (rec.category === '区属示范') return 'hD';
+      return 'hN';
     }
 
     var map = null;
@@ -317,6 +365,10 @@
       }
       if (!DATA_M) {
         showError('初中数据未加载：请确认 ../../../data/middle/schools.js 与页面在同一目录');
+        return;
+      }
+      if (!DATA_H) {
+        showError('高中数据未加载：请确认 ../../../data/high/schools.js 与页面在同一目录');
         return;
       }
       Object.keys(CLASS_CFG).forEach(function (k) { groups[k] = L.layerGroup(); });
@@ -467,11 +519,19 @@
       return out;
     }
     function addPoint(pt, renderedTier) {
-      var tier = tierOf(pt.stage, pt.name);
-      pt.tier = tier;
-      if (tier) renderedTier[tier.name] = true;
-      var isTier = isTierRecord(tier);
-      pt.cls = (pt.stage === 'primary') ? (isTier ? 'pT' : 'pN') : (isTier ? 'mT' : 'mN');
+      var tier = null;
+      if (pt.stage === 'high') {
+        // 高中：按 levels 分类定三类颜色
+        var rec = highRecord(pt);
+        pt.tier = rec;
+        pt.cls = highCls(rec);
+      } else {
+        tier = tierOf(pt.stage, pt.name);
+        pt.tier = tier;
+        if (tier) renderedTier[tier.name] = true;
+        var isTier = isTierRecord(tier);
+        pt.cls = (pt.stage === 'primary') ? (isTier ? 'pT' : 'pN') : (isTier ? 'mT' : 'mN');
+      }
       var g = groups[pt.cls];
       var m = L.circleMarker([pt.lat, pt.lng], markerStyle(pt.cls, tier)).addTo(g);
       if (tier && tier.verdict === '有支撑') {
@@ -507,6 +567,10 @@
       (DATA_M.schools || []).forEach(function (s) {
         if (!districtByAdcode[s.adcode]) return;
         addPoint({ name: s.name, lat: s.lat, lng: s.lng, adcode: s.adcode, stage: 'middle' }, renderedTier.middle);
+      });
+      (DATA_H.schools || []).forEach(function (s) {
+        if (!districtByAdcode[s.adcode]) return;
+        addPoint({ name: s.name, lat: s.lat, lng: s.lng, adcode: s.adcode, stage: 'high', school: s.school }, {});
       });
       // 补点：小学 3 所 + 初中 14 所，归入对应学段
       extraPoints(TIER1_P, 'primary').forEach(function (es) {
@@ -591,7 +655,30 @@
       var districtName = districtNameOf(pt.adcode);
       var html = '<div class="si-name">' + esc(name) + '</div>';
 
-      if (tier) {
+      if (stage === 'high') {
+        // 高中：类别徽标 + 隶属/示范性 + 高考出口指标 + 录取门槛
+        var rec = pt.tier;
+        if (rec) {
+          var ind = rec.indicators || {};
+          var badgeCls2 = rec.category === '省市属示范' ? 'high-city' : (rec.category === '区属示范' ? 'high-dist' : 'high-normal');
+          html += '<div class="si-tier"><span class="badge ' + badgeCls2 + '">' + esc(rec.category) + '</span>' +
+                  '<span>' + esc(rec.demo || '') + ' · ' + esc(rec.affiliation || '') + '</span></div>';
+          if (ind.tekong_2026) html += siRow('特控线上线率 2026', esc(ind.tekong_2026), 'b');
+          if (ind.tekong_2025) html += siRow('特控线上线率 2025', esc(ind.tekong_2025), 'b');
+          if (ind.tekong) html += siRow('特控率（网传）', esc(ind.tekong), 'b');
+          if (ind.gaofen_2026) html += siRow('高分段 2026', esc(ind.gaofen_2026));
+          if (ind.gaofen_2025) html += siRow('高分段 2025', esc(ind.gaofen_2025));
+          if (ind.benke_2026) html += siRow('本科率 2026', esc(ind.benke_2026), 'b');
+          if (ind.benke_2025) html += siRow('本科率 2025', esc(ind.benke_2025), 'b');
+          if (ind.score_2025) html += siRow('2025中考录取线<br>（户籍生）', esc(ind.score_2025), 'b');
+          if (ind.note) html += siRow('备注', esc(ind.note));
+          html += '<div class="si-src">口径：特控线=特殊类型招生控制线（高优线）；率为各校喜报/网传数据，非官方统一发布。分类依据：2026名额分配名单+2025录取线表。</div>';
+        } else {
+          html += '<div class="si-row"><span>学段</span><b>高中</b></div>';
+          html += '<div class="si-row"><span>所在区</span><b>' + esc(districtName || '—') + '</b></div>';
+          html += '<div class="si-hint">该点位暂未匹配到高中分类（可能为未收录学校）。</div>';
+        }
+      } else if (tier) {
         // 支撑度区块：网传梯队标签 + 具体支撑信号 + 说明页链接
         var v = tier.verdict || '';
         var badgeCls = v === '有支撑' ? 'tier-full' : (v === '部分支撑' ? 'tier-part' : 'tier-none');
@@ -615,33 +702,8 @@
         html += '<div class="si-tier-link"><a href="../support.html" target="_blank">查看“支撑度”说明页 →</a></div>';
       } else {
         // 普通校：学段提示 + 区名
-        html += '<div class="si-row"><span>学段</span><b>' + (stage === 'primary' ? '小学' : '初中') + '</b></div>';
+        html += '<div class="si-row"><span>学段</span><b>' + (stage === 'primary' ? '小学' : (stage === 'middle' ? '初中' : '高中')) + '</b></div>';
         html += '<div class="si-row"><span>所在区</span><b>' + esc(districtName || '—') + '</b></div>';
-      }
-
-      if (stage === 'primary') {
-        // 招生数据（学区/性质/班数/地段）
-        var r = enrollById[name];
-        if (r) {
-          html += '<div class="si-row"><span>学区</span><b>' + esc(r.district) + '</b></div>';
-          html += '<div class="si-row"><span>性质</span><b>' + esc(r.nature === '公办' ? '公办（地段入学）' : '民办（电脑派位）') + '</b></div>';
-          if (r.plan_classes != null) {
-            html += '<div class="si-row"><span>计划班数</span><b>' + esc(String(r.plan_classes)) + ' 个班</b></div>';
-          }
-          if (r.plan_count != null) {
-            html += '<div class="si-row"><span>计划人数</span><b>' + esc(String(r.plan_count)) + ' 人</b></div>';
-          }
-          html += '<div class="si-row si-zone"><span>招生地段<br>及条件</span><p>' + esc(r.zone || '—') + '</p></div>';
-          if (r.note) html += '<div class="si-row"><span>备注</span><p>' + linkifyNotes(esc(r.note)) + '</p></div>';
-          html += '<div class="si-src">数据来源：' + esc((r && r.source) || '—') + '</div>';
-        } else {
-          html += '<div class="si-empty">暂无 2026 年招生数据</div>';
-          html += '<div class="si-hint">' + (enrollDistricts[districtName]
-            ? '该点位不在 2026 年' + esc(districtName || '本区') + '公办小学官方名单中（或为名单内学校的别名/分校区，尚未人工核对）。'
-            : esc(districtName || '该区') + '的 2026 年招生数据尚未接入（白云、黄埔为低优先级）。') + '</div>';
-        }
-      } else if (!tier) {
-        html += '<div class="si-hint">普通初中点位。网传梯队名单为民间口径，未上榜不代表学校实力评价。</div>';
       }
       body.innerHTML = html;
       el.hidden = false;
@@ -650,34 +712,37 @@
     /* ========== 图例与统计（随筛选实时更新） ========== */
     function updateLegend() {
       // 数量为全量总览，不随勾选变化；勾选只控制地图点位显隐
-      var counts = { pN: 0, pT: 0, mN: 0, mT: 0 };
-      var pDist = {}, mDist = {};
+      var counts = { pN: 0, pT: 0, mN: 0, mT: 0, hN: 0, hD: 0, hM: 0 };
+      var pDist = {}, mDist = {}, hDist = {};
       allPoints.forEach(function (pt) {
         counts[pt.cls]++;
         var d = districtByAdcode[pt.adcode];
         if (!d) return;
         if (pt.stage === 'primary') pDist[d.name] = (pDist[d.name] || 0) + 1;
-        else mDist[d.name] = (mDist[d.name] || 0) + 1;
+        else if (pt.stage === 'middle') mDist[d.name] = (mDist[d.name] || 0) + 1;
+        else hDist[d.name] = (hDist[d.name] || 0) + 1;
       });
       // 筛选器行内数量（全量）
-      ['pN', 'pT', 'mN', 'mT'].forEach(function (cls) {
+      ['pN', 'pT', 'mN', 'mT', 'hN', 'hD', 'hM'].forEach(function (cls) {
         var el = document.getElementById('c-' + cls);
         if (el) el.textContent = counts[cls];
       });
-      // 各区学校：小学 / 初中 两栏（全量）
+      // 各区学校：小学 / 初中 / 高中 三栏（全量）
       var dr = document.getElementById('dist-rows');
       if (dr) {
-        var html = '<div class="d-head"></div><div class="d-head">小学</div><div class="d-head">初中</div>';
+        var html = '<div class="d-head"></div><div class="d-head">小学</div><div class="d-head">初中</div><div class="d-head">高中</div>';
         DISTRICTS.forEach(function (d) {
           html += '<div class="d-name">' + esc(d.name.replace('区', '')) + '</div>' +
                   '<div class="d-p">' + (pDist[d.name] || 0) + '</div>' +
-                  '<div class="d-m">' + (mDist[d.name] || 0) + '</div>';
+                  '<div class="d-m">' + (mDist[d.name] || 0) + '</div>' +
+                  '<div class="d-h">' + (hDist[d.name] || 0) + '</div>';
         });
         dr.innerHTML = html;
       }
       // 状态栏：全量标注数量
-      var total = counts.pN + counts.pT + counts.mN + counts.mT;
-      setStatus('已标注 ' + total + ' 所：小学 ' + (counts.pN + counts.pT) + ' · 初中 ' + (counts.mN + counts.mT));
+      var total = counts.pN + counts.pT + counts.mN + counts.mT + counts.hN + counts.hD + counts.hM;
+      setStatus('已标注 ' + total + ' 所：小学 ' + (counts.pN + counts.pT) + ' · 初中 ' + (counts.mN + counts.mT) +
+                ' · 高中 ' + (counts.hN + counts.hD + counts.hM));
     }
 
     /* ========== 收尾：视野与限制 ========== */
