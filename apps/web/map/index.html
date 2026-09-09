@@ -137,6 +137,7 @@
   .badge.high-normal { background: #57534E; }
   .badge.tier-part { background: #F59E0B; }
   .badge.tier-none { background: #8A94A6; }
+  .badge.license { background: #4B5563; }
   .si-tier-link { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line); }
   .si-tier-link a {
     color: #1A6BD6; text-decoration: none; font-size: 12.5px; font-weight: 600;
@@ -194,7 +195,7 @@
       <div class="block-title">各区学校 · 小学 / 初中 / 高中</div>
       <div id="dist-rows"></div>
     </div>
-    <div id="footnote">拖动 / 滚轮 / 双指缩放查看。悬停显示校名，点击点位显示信息卡。高中分类口径：省市属示范 / 区属示范 / 普通（详见卡片内“口径”与数据说明）。</div>
+    <div id="footnote">拖动 / 滚轮 / 双指缩放查看。悬停显示校名，点击点位显示信息卡。独立法人挂牌校（虚线点）不计入第一梯队，点击详情卡见未计入原因。高中分类口径：省市属示范 / 区属示范 / 普通（详见卡片内“口径”与数据说明）。</div>
   </aside>
 
   <!-- 学校招生信息卡片（点击点位显示） -->
@@ -231,7 +232,9 @@
     /* ========== 7 类点位配色 ==========
        小学普通 #94A3B8 / 小学梯队 #2563EB / 初中普通 #A8A29E / 初中梯队 #DC2626
        高中普通 #64748B / 高中·区属示范 #10B981 / 高中·省市属示范 #F59E0B
-       小学、初中“第一梯队” = 有支撑 ∪ 部分支撑；有支撑加外圈晕光，部分支撑仅加粗无晕光。
+       小学、初中“第一梯队” = 有支撑 ∪ 部分支撑，且排除独立法人挂牌校（tier1_eligible=false）；
+       挂牌校以虚线点展示、计入“普通”统计、不占梯队名额，详情卡标注未计入原因；
+       有支撑加外圈晕光，部分支撑仅加粗无晕光。
        高中三类按官方“隶属+示范性”划分：省市属示范（省属/市属示范性，含市属优质）、区属示范（区属国家级/市级示范）、普通（其余公办+民办）。 */
     var CLASS_CFG = {
       pN: { stage: 'primary', tier: false, color: '#94A3B8', label: '小学普通' },
@@ -286,7 +289,8 @@
       return hit;
     }
     function isTierRecord(t) {
-      return !!t && (t.verdict === '有支撑' || t.verdict === '部分支撑');
+      // 独立法人挂牌校（tier1_eligible=false）不计入第一梯队，即使网传判定为有支撑
+      return !!t && t.tier1_eligible !== false && (t.verdict === '有支撑' || t.verdict === '部分支撑');
     }
     /* ========== 高中分类查表：按规范校名/别名匹配 levels（避免与小学初中梯队表混用） ========== */
     var highTable = {};
@@ -499,6 +503,11 @@
       } else {
         s.weight = (tier && tier.verdict === '有支撑') ? 2.8 : 2.2;  // 有支撑加粗
       }
+      if (tier && tier.tier1_eligible === false) {
+        // 独立法人挂牌校：虚线描边，地图上一眼可辨，但不占“第一梯队”名额
+        s.dashArray = '4 3';
+        s.fillOpacity = 0.85;
+      }
       return s;
     }
     // 高德 POI 无主点位、经 Amap Web API 补充坐标的梯队学校（tier1.js 内 coords）
@@ -534,8 +543,8 @@
       }
       var g = groups[pt.cls];
       var m = L.circleMarker([pt.lat, pt.lng], markerStyle(pt.cls, tier)).addTo(g);
-      if (tier && tier.verdict === '有支撑') {
-        // 有支撑：外侧再加一圈晕光，更醒目
+      if (tier && tier.verdict === '有支撑' && tier.tier1_eligible !== false) {
+        // 有支撑：外侧再加一圈晕光，更醒目（挂牌校不叠加晕光，避免误读为梯队）
         L.circleMarker([pt.lat, pt.lng], {
           radius: radiusForZoom(map.getZoom()) + 4,
           color: GLOW_COLOR[pt.stage],
@@ -544,7 +553,7 @@
           interactive: false
         }).addTo(g);
       }
-      m.bindTooltip(esc(pt.name), {
+      m.bindTooltip(esc(pt.name) + ((tier && tier.tier1_eligible === false) ? ' · 挂牌校' : ''), {
         direction: 'top',
         offset: [0, -8],
         opacity: 0.95,
@@ -681,9 +690,17 @@
       } else if (tier) {
         // 支撑度区块：网传梯队标签 + 具体支撑信号 + 说明页链接
         var v = tier.verdict || '';
-        var badgeCls = v === '有支撑' ? 'tier-full' : (v === '部分支撑' ? 'tier-part' : 'tier-none');
-        html += '<div class="si-tier"><span class="badge ' + badgeCls + '">' + esc(v) + '</span>' +
-                '<span>网传“' + esc(tier.rumor_tier || '第一梯队') + '”· 民间口径非官方</span></div>';
+        if (tier.tier1_eligible === false) {
+          // 独立法人挂牌校：未计入第一梯队，展示“未选为口碑学校”的原因说明标志
+          html += '<div class="si-tier"><span class="badge badge-license">独立法人挂牌校</span>' +
+                  '<span>网传“' + esc(tier.rumor_tier || '第一梯队') + '”· 独立法人，未计入第一梯队</span></div>';
+          if (tier.exclude_reason) html += siRow('未计入原因', esc(tier.exclude_reason), 'zone');
+        } else {
+          var badgeCls = v === '有支撑' ? 'tier-full' : (v === '部分支撑' ? 'tier-part' : 'tier-none');
+          html += '<div class="si-tier"><span class="badge ' + badgeCls + '">' + esc(v) + '</span>' +
+                  '<span>网传“' + esc(tier.rumor_tier || '第一梯队') + '”· 民间口径非官方</span></div>';
+          if (tier.entity_relation === '同法人校区') html += siRow('校区关系', '同法人校区 · 与本部同一法人', 'b');
+        }
         var sg = tier.signals || {};
         if (stage === 'primary') {
           if (sg.xiaoshengchu) html += siRow('出口机制', esc(sg.xiaoshengchu));
