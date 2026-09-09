@@ -1,130 +1,577 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
+/**
+ * 七区中小学·高中分布地图（Vue3 + Leaflet，功能对齐旧版 map/index.html）：
+ * - 七类点位配色：小学普通/口碑、初中普通/口碑、高中普通/区属示范/省市属示范
+ * - 有支撑加粗+晕光、部分支撑加粗、独立法人挂牌校虚线点
+ * - 7 类筛选 + 全选/全不选；各区小学/初中/高中三栏统计（全量，不随勾选变化）
+ * - 点击点位信息卡：高中（分类/指标/口径）、小学初中（梯队信号/判定依据）、普通（学段/区）
+ * - 高德瓦片 GCJ-02 同坐标系；区边界 + 核心四区初始视野 + 半径随缩放
+ */
+import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {
-  filterSchools,
+  buildAliasTable,
   matchTier1ByPoiName,
-  GZ_DISTRICTS,
-  type Verdict,
+  normName,
+  formatPrimarySignals,
+  formatMiddleSignals,
+  type SchoolStage,
+  type Tier1School,
+  type HighLevelSchool,
 } from '@gz/shared';
-import { primarySchools, tier1Schools } from '../data';
+import {
+  primarySchools,
+  middleSchools,
+  highSchools,
+  primaryTier1,
+  middleTier1,
+  highLevels,
+  tier1Schools,
+  middleTier1Schools,
+} from '../data';
 
-const mapEl = ref<HTMLDivElement | null>(null);
-const selected = ref<string[]>([]);
-const info = ref('');
+/* ========== 配置（与旧版 map/index.html 一致） ========== */
+const DISTRICTS = [
+  { name: '荔湾区', adcode: '440103', color: '#C0392B' },
+  { name: '越秀区', adcode: '440104', color: '#B7950B' },
+  { name: '海珠区', adcode: '440105', color: '#27AE60' },
+  { name: '天河区', adcode: '440106', color: '#16A085' },
+  { name: '白云区', adcode: '440111', color: '#2980B9' },
+  { name: '黄埔区', adcode: '440112', color: '#6C3483' },
+  { name: '番禺区', adcode: '440113', color: '#C2185B' },
+];
+const districtByAdcode = Object.fromEntries(DISTRICTS.map((d) => [d.adcode, d.name]));
+const adcodeByDistrict = Object.fromEntries(DISTRICTS.map((d) => [d.name, d.adcode]));
 
-let map: L.Map | null = null;
-let layer: L.LayerGroup | null = null;
+const CLASS_CFG = {
+  pN: { stage: 'primary', color: '#94A3B8', label: '小学·普通' },
+  pT: { stage: 'primary', color: '#2563EB', label: '小学·口碑' },
+  mN: { stage: 'middle', color: '#A8A29E', label: '初中·普通' },
+  mT: { stage: 'middle', color: '#DC2626', label: '初中·口碑' },
+  hN: { stage: 'high', color: '#64748B', label: '高中·普通' },
+  hD: { stage: 'high', color: '#10B981', label: '高中·区属示范' },
+  hM: { stage: 'high', color: '#F59E0B', label: '高中·省市属示范' },
+} as const;
+type ClsKey = keyof typeof CLASS_CFG;
+const GLOW_COLOR: Record<string, string> = {
+  primary: 'rgba(37,99,235,0.35)',
+  middle: 'rgba(220,38,38,0.35)',
+};
 
-const districts = GZ_DISTRICTS.map((d) => ({
-  ...d,
-  count: primarySchools.schools.filter((s) => s.adcode === d.adcode).length,
-}));
-const visibleCount = computed(() =>
-  filterSchools(primarySchools.schools, { adcodes: selected.value }).length,
-);
-
-function tierOf(name: string): { verdict?: Verdict; color: string; label: string } {
-  const hit = matchTier1ByPoiName(name, tier1Schools);
-  if (!hit) return { color: '#98a1ac', label: '普通' };
-  const mapV: Record<Verdict, { color: string; label: string }> = {
-    有支撑: { color: '#2f7d1f', label: '有支撑' },
-    部分支撑: { color: '#e8a33d', label: '部分支撑' },
-    不支撑: { color: '#c9534f', label: '不支撑' },
-  };
-  return { verdict: hit.conclusion, ...mapV[hit.conclusion] };
+/* ========== 梯队/高中匹配表（构建一次，性能复用） ========== */
+const tierTables = {
+  primary: buildAliasTable(tier1Schools),
+  middle: buildAliasTable(middleTier1Schools),
+};
+function tierOf(stage: 'primary' | 'middle', name: string): Tier1School | undefined {
+  return matchTier1ByPoiName(name, stage === 'primary' ? tier1Schools : middleTier1Schools, tierTables[stage]);
+}
+/** 独立法人挂牌校（tier1_eligible=false）不计入口碑学校 */
+function isTierRecord(t?: Tier1School): boolean {
+  return !!t && t.tier1_eligible !== false && (t.conclusion === '有支撑' || t.conclusion === '部分支撑');
 }
 
-function render() {
-  if (!map || !layer) return;
-  layer.clearLayers();
-  const list = filterSchools(primarySchools.schools, { adcodes: selected.value });
-  for (const s of list) {
-    const t = tierOf(s.name);
-    L.circleMarker([s.lat, s.lng], {
-      radius: 4,
-      color: t.color,
-      weight: 1,
-      fillColor: t.color,
-      fillOpacity: 0.85,
-    })
-      .bindTooltip(`${s.name}${t.verdict ? ` · ${t.label}` : ''}`, {
-        direction: 'top',
-        offset: L.point(0, -6),
-        className: 'poi-tip',
-      })
-      .addTo(layer);
+const highTable = new Map<string, HighLevelSchool>();
+for (const sc of highLevels.schools) {
+  for (const k of [sc.name, ...(sc.aliases || []), ...(sc.campuses || [])]) {
+    const nk = normName(k);
+    if (nk && !highTable.has(nk)) highTable.set(nk, sc);
   }
-  info.value = `当前显示 ${list.length} 所小学${selected.value.length ? '（已按区筛选）' : ''}`;
+}
+function highRecord(pt: { school?: string; name: string }): HighLevelSchool | undefined {
+  const key = normName(pt.school || pt.name);
+  const rec = highTable.get(key);
+  if (rec) return rec;
+  // 兜底：点位名精确匹配
+  const n = normName(pt.name);
+  if (!n) return undefined;
+  return highTable.get(n);
+}
+function highCls(rec?: HighLevelSchool): ClsKey {
+  if (!rec) return 'hN';
+  if (rec.category === '省市属示范') return 'hM';
+  if (rec.category === '区属示范') return 'hD';
+  return 'hN';
 }
 
-function toggle(adcode: string) {
-  selected.value = selected.value.includes(adcode)
-    ? selected.value.filter((a) => a !== adcode)
-    : [...selected.value, adcode];
-  render();
+/* ========== 点位聚合 ========== */
+interface Pt {
+  name: string;
+  lat: number;
+  lng: number;
+  adcode: string;
+  stage: SchoolStage;
+  cls: ClsKey;
+  tier?: Tier1School | null; // 小学/初中梯队记录
+  rec?: HighLevelSchool | null; // 高中分类记录
+}
+
+const allPoints: Pt[] = [];
+const tierByName: Record<string, true> = {};
+function buildPoints() {
+  for (const s of primarySchools.schools) {
+    if (!districtByAdcode[s.adcode]) continue;
+    const t = tierOf('primary', s.name);
+    allPoints.push({
+      name: s.name, lat: s.lat, lng: s.lng, adcode: s.adcode,
+      stage: 'primary', cls: isTierRecord(t) ? 'pT' : 'pN', tier: t ?? null,
+    });
+    if (t) tierByName[t.name] = true;
+  }
+  for (const s of middleSchools.schools) {
+    if (!districtByAdcode[s.adcode]) continue;
+    const t = tierOf('middle', s.name);
+    allPoints.push({
+      name: s.name, lat: s.lat, lng: s.lng, adcode: s.adcode,
+      stage: 'middle', cls: isTierRecord(t) ? 'mT' : 'mN', tier: t ?? null,
+    });
+    if (t) tierByName[t.name] = true;
+  }
+  for (const s of highSchools.schools) {
+    if (!districtByAdcode[s.adcode]) continue;
+    const rec = highRecord(s);
+    allPoints.push({
+      name: s.name, lat: s.lat, lng: s.lng, adcode: s.adcode,
+      stage: 'high', cls: highCls(rec), rec: rec ?? null,
+    });
+  }
+  // 补点：tier1 内手工坐标（小学 3 所 + 初中 14 所），按名去重
+  const addExtra = (snapshot: { districts: Record<string, { schools: Tier1School[] }> }, stage: 'primary' | 'middle') => {
+    for (const sc of Object.values(snapshot.districts).flatMap((d) => d.schools)) {
+      if (!sc.coords || tierByName[sc.name]) continue;
+      allPoints.push({
+        name: sc.name,
+        lat: sc.coords.lat,
+        lng: sc.coords.lng,
+        adcode: adcodeByDistrict[sc.district ?? ''] || '',
+        stage,
+        cls: isTierRecord(sc) ? (stage === 'primary' ? 'pT' : 'mT') : (stage === 'primary' ? 'pN' : 'mN'),
+        tier: sc,
+      });
+      tierByName[sc.name] = true;
+    }
+  };
+  addExtra(primaryTier1, 'primary');
+  addExtra(middleTier1, 'middle');
+}
+
+/* ========== 统计（全量，不随筛选变化） ========== */
+const counts = reactive<Record<ClsKey, number>>({ pN: 0, pT: 0, mN: 0, mT: 0, hN: 0, hD: 0, hM: 0 });
+const distStats = reactive<Array<{ name: string; p: number; m: number; h: number }>>(
+  DISTRICTS.map((d) => ({ name: d.name, p: 0, m: 0, h: 0 })),
+);
+const totalText = computed(() => {
+  const p = counts.pN + counts.pT;
+  const m = counts.mN + counts.mT;
+  const h = counts.hN + counts.hD + counts.hM;
+  return `已标注 ${p + m + h} 所：小学 ${p} · 初中 ${m} · 高中 ${h}`;
+});
+function computeStats() {
+  for (const k of Object.keys(counts) as ClsKey[]) counts[k] = 0;
+  for (const d of distStats) { d.p = 0; d.m = 0; d.h = 0; }
+  for (const pt of allPoints) {
+    counts[pt.cls]++;
+    const row = distStats.find((d) => d.name === districtByAdcode[pt.adcode]);
+    if (!row) continue;
+    if (pt.stage === 'primary') row.p++;
+    else if (pt.stage === 'middle') row.m++;
+    else row.h++;
+  }
+}
+
+/* ========== 筛选状态 ========== */
+const filters = reactive<Record<ClsKey, boolean>>({ pN: true, pT: true, mN: true, mT: true, hN: true, hD: true, hM: true });
+const classList = Object.entries(CLASS_CFG) as Array<[ClsKey, { stage: string; color: string; label: string }]>;
+function setAll(v: boolean) {
+  for (const k of Object.keys(filters) as ClsKey[]) filters[k] = v;
+  applyFilters();
+}
+function applyFilters() {
+  if (!map) return;
+  for (const k of Object.keys(filters) as ClsKey[]) {
+    const g = groups[k];
+    if (!g) continue;
+    if (filters[k]) { if (!map.hasLayer(g)) g.addTo(map); }
+    else if (map.hasLayer(g)) map.removeLayer(g);
+  }
+}
+
+/* ========== 地图 ========== */
+const mapEl = ref<HTMLDivElement | null>(null);
+let map: L.Map | null = null;
+const groups: Partial<Record<ClsKey, L.LayerGroup>> = {};
+const markers: L.CircleMarker[] = [];
+let unionSW: { lat: number; lng: number } | null = null;
+let unionNE: { lat: number; lng: number } | null = null;
+
+function radiusForZoom(z: number): number {
+  z = Math.round(z);
+  if (z >= 15) return 10;
+  if (z >= 14) return 9;
+  if (z >= 13) return 8;
+  if (z >= 12) return 7;
+  if (z >= 11) return 6;
+  return 5;
+}
+function markerStyle(cls: ClsKey, tier?: Tier1School | null) {
+  const cfg = CLASS_CFG[cls];
+  const s: L.CircleMarkerOptions = {
+    radius: radiusForZoom(map?.getZoom() ?? 13),
+    color: 'rgba(255,255,255,0.85)',
+    weight: 1.2,
+    fillColor: cfg.color,
+    fillOpacity: 1,
+    bubblingMouseEvents: false,
+  };
+  if (!cfg.stage || (cls !== 'pT' && cls !== 'mT' && cls !== 'hD' && cls !== 'hM')) {
+    s.fillOpacity = 0.7;
+  } else if (tier) {
+    s.weight = tier.conclusion === '有支撑' ? 2.8 : 2.2;
+  }
+  if (tier && tier.tier1_eligible === false) {
+    s.dashArray = '4 3';
+    s.fillOpacity = 0.85;
+  }
+  return s;
+}
+function isTierCls(cls: ClsKey): boolean {
+  return cls === 'pT' || cls === 'mT' || cls === 'hD' || cls === 'hM';
+}
+function renderPoints() {
+  for (const k of Object.keys(CLASS_CFG) as ClsKey[]) groups[k] = L.layerGroup();
+  for (const pt of allPoints) {
+    const g = groups[pt.cls]!;
+    const m = L.circleMarker([pt.lat, pt.lng], markerStyle(pt.cls, pt.tier)).addTo(g);
+    const tier = pt.tier;
+    if (tier && tier.conclusion === '有支撑' && tier.tier1_eligible !== false) {
+      L.circleMarker([pt.lat, pt.lng], {
+        radius: radiusForZoom(map?.getZoom() ?? 13) + 4,
+        color: GLOW_COLOR[pt.stage],
+        weight: 2,
+        fill: false,
+        interactive: false,
+      }).addTo(g);
+    }
+    m.bindTooltip(
+      `${pt.name}${tier && tier.tier1_eligible === false ? ' · 挂牌校' : ''}`,
+      { direction: 'top', offset: L.point(0, -8), opacity: 0.95, className: 'poi-tip' },
+    );
+    m.on('click', (e) => {
+      if (e.originalEvent && 'stopPropagation' in e.originalEvent) e.originalEvent.stopPropagation();
+      showInfo(pt);
+    });
+    markers.push(m);
+  }
+}
+function renderBoundaries() {
+  for (const dd of primarySchools.districts || []) {
+    const d = DISTRICTS.find((x) => x.adcode === dd.adcode);
+    if (!d) continue;
+    for (const path of dd.boundary || []) {
+      const latlngs: Array<[number, number]> = [];
+      for (const raw of path) {
+        const [lng, lat] = raw as [number, number];
+        latlngs.push([lat, lng]);
+        if (!unionSW) { unionSW = { lat, lng }; unionNE = { lat, lng }; }
+        else if (unionSW && unionNE) {
+          unionSW.lat = Math.min(unionSW.lat, lat);
+          unionSW.lng = Math.min(unionSW.lng, lng);
+          unionNE.lat = Math.max(unionNE.lat, lat);
+          unionNE.lng = Math.max(unionNE.lng, lng);
+        }
+      }
+      L.polygon(latlngs, {
+        color: d.color, weight: 1.2, opacity: 0.75,
+        fillColor: d.color, fillOpacity: 0.05, interactive: false,
+      }).addTo(map!);
+    }
+  }
+}
+const CORE_ADCODES: Record<string, boolean> = { '440103': true, '440104': true, '440105': true, '440106': true };
+function coreCenter(): [number, number] | null {
+  let sw: { lat: number; lng: number } | null = null;
+  let ne: { lat: number; lng: number } | null = null;
+  for (const dd of primarySchools.districts || []) {
+    if (!CORE_ADCODES[dd.adcode]) continue;
+    for (const path of dd.boundary || []) {
+      for (const raw of path) {
+        const [lng, lat] = raw as [number, number];
+        if (!sw) { sw = { lat, lng }; ne = { lat, lng }; }
+        else if (sw && ne) {
+          sw.lat = Math.min(sw.lat, lat); sw.lng = Math.min(sw.lng, lng);
+          ne.lat = Math.max(ne.lat, lat); ne.lng = Math.max(ne.lng, lng);
+        }
+      }
+    }
+  }
+  return sw ? [(sw.lat + ne!.lat) / 2, (sw.lng + ne!.lng) / 2] : null;
 }
 
 onMounted(() => {
   if (!mapEl.value) return;
-  map = L.map(mapEl.value, { center: [23.13, 113.3], zoom: 11 });
+  buildPoints();
+  computeStats();
+  const cc = coreCenter();
+  map = L.map(mapEl.value, {
+    center: cc ?? [23.16, 113.35],
+    zoom: cc ? 13 : 10,
+    minZoom: 9,
+    maxZoom: 18,
+    zoomSnap: 0.5,
+    zoomControl: false,
+    preferCanvas: true,
+  });
+  L.control.zoom({ position: 'bottomright' }).addTo(map);
   L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
     subdomains: ['1', '2', '3', '4'],
-    attribution: '&copy; 高德地图',
     maxZoom: 18,
+    attribution: '&copy; 高德地图',
   }).addTo(map);
-  layer = L.layerGroup().addTo(map);
-  render();
+  renderBoundaries();
+  renderPoints();
+  if (unionSW && unionNE) {
+    map.setMaxBounds(L.latLngBounds([unionSW.lat, unionSW.lng], [unionNE.lat, unionNE.lng]).pad(0.5));
+  }
+  applyFilters();
+  map.on('zoomend', () => {
+    const r = radiusForZoom(map!.getZoom());
+    for (const m of markers) m.setRadius(r);
+  });
+  map.on('click', () => closeInfo());
 });
 
 onBeforeUnmount(() => {
   map?.remove();
   map = null;
 });
+
+/* ========== 信息卡 ========== */
+const active = ref<Pt | null>(null);
+function showInfo(pt: Pt) { active.value = pt; }
+function closeInfo() { active.value = null; }
+
+interface InfoRow { label: string; value: string; strong?: boolean }
+interface InfoModel {
+  name: string;
+  badge: { text: string; cls: string } | null;
+  head: string | null;
+  rows: InfoRow[];
+  note: string | null;
+  link: { text: string; to: string } | null;
+}
+
+const infoModel = computed<InfoModel | null>(() => {
+  const pt = active.value;
+  if (!pt) return null;
+  const districtName = districtByAdcode[pt.adcode] || '';
+  const name = pt.name;
+  if (pt.stage === 'high') {
+    const rec = pt.rec;
+    if (!rec) {
+      return {
+        name,
+        badge: null,
+        head: null,
+        rows: [
+          { label: '学段', value: '高中' },
+          { label: '所在区', value: districtName || '—' },
+        ],
+        note: '该点位暂未匹配到高中分类（可能为未收录学校）。',
+        link: null,
+      };
+    }
+    const ind = rec.indicators || {};
+    const rows: Array<{ label: string; value: string; strong?: boolean }> = [];
+    const put = (k: string, label: string, strong = false) => {
+      const v = ind[k];
+      if (v !== undefined && v !== null && v !== '') rows.push({ label, value: String(v), strong });
+    };
+    put('tekong_2026', '特控线上线率 2026', true);
+    put('tekong_2025', '特控线上线率 2025', true);
+    put('tekong', '特控率（网传）', true);
+    put('gaofen_2026', '高分段 2026');
+    put('gaofen_2025', '高分段 2025');
+    put('benke_2026', '本科率 2026', true);
+    put('benke_2025', '本科率 2025', true);
+    put('score_2025', '2025 中考录取线（户籍生）', true);
+    put('note', '备注');
+    return {
+      name,
+      badge: { text: rec.category, cls: rec.category === '省市属示范' ? 'h-city' : rec.category === '区属示范' ? 'h-dist' : 'h-normal' },
+      head: `${rec.demo || ''} · ${rec.affiliation || ''}`,
+      rows,
+      note: '口径：特控线=特殊类型招生控制线（高优线）；率为各校喜报/网传数据，非官方统一发布。分类依据：2026 名额分配名单 + 2025 录取线表。',
+      link: null,
+    };
+  }
+  const tier = pt.tier;
+  if (tier) {
+    const rows = pt.stage === 'primary' ? formatPrimarySignals(tier) : formatMiddleSignals(tier);
+    if (tier.tier1_eligible === false) {
+      return {
+        name,
+        badge: { text: '独立法人挂牌校', cls: 'license' },
+        head: '网传"口碑学校" · 独立法人，未计入口碑学校',
+        rows: tier.exclude_reason ? [{ label: '未计入原因', value: tier.exclude_reason }] : [],
+        note: null,
+        link: { text: '查看"支撑度"说明页 →', to: '/support' },
+      };
+    }
+    const head =
+      '网传"口碑学校" · 民间口径非官方' +
+      (tier.entity_relation === '同法人校区' ? ' · 与本部同一法人' : '');
+    const allRows = [
+      ...rows,
+      ...(tier.conclusion_basis ? [{ label: '判定依据', value: tier.conclusion_basis }] : []),
+    ];
+    return {
+      name,
+      badge: {
+        text: tier.conclusion,
+        cls: tier.conclusion === '有支撑' ? 'tier-full' : tier.conclusion === '部分支撑' ? 'tier-part' : 'tier-none',
+      },
+      head,
+      rows: allRows,
+      note: null,
+      link: { text: '查看"支撑度"说明页 →', to: '/support' },
+    };
+  }
+  return {
+    name,
+    badge: null,
+    head: null,
+    rows: [
+      { label: '学段', value: pt.stage === 'primary' ? '小学' : pt.stage === 'middle' ? '初中' : '高中' },
+      { label: '所在区', value: districtName || '—' },
+    ],
+    note: null,
+    link: null,
+  };
+});
 </script>
 
 <template>
   <section>
     <div class="toolbar">
-      <button
-        v-for="d in districts"
-        :key="d.adcode"
-        class="chip"
-        :class="{ active: selected.includes(d.adcode) }"
-        @click="toggle(d.adcode)"
-      >
-        {{ d.name }} <span class="chip-count">{{ d.count }}</span>
-      </button>
+      <label v-for="[k, c] in classList" :key="k" class="f-row">
+        <input type="checkbox" v-model="filters[k]" @change="applyFilters" />
+        <i class="dot" :style="{ background: c.color }"></i>
+        <span>{{ c.label }}</span>
+        <span class="f-count">{{ counts[k] }}</span>
+      </label>
+      <div class="f-btns">
+        <button @click="setAll(true)">全选</button>
+        <button @click="setAll(false)">全不选</button>
+      </div>
     </div>
-    <div class="legend">
-      <span><i class="dot" style="background:#2f7d1f"></i>有支撑</span>
-      <span><i class="dot" style="background:#e8a33d"></i>部分支撑</span>
-      <span><i class="dot" style="background:#c9534f"></i>不支撑</span>
-      <span><i class="dot" style="background:#98a1ac"></i>普通</span>
-      <span class="legend-count">{{ info }}</span>
+
+    <div class="dist-stats">
+      <div class="block-title">各区学校 · 小学 / 初中 / 高中</div>
+      <div class="d-heads"><span></span><span>小学</span><span>初中</span><span>高中</span></div>
+      <div v-for="d in distStats" :key="d.name" class="d-row">
+        <span class="d-name">{{ d.name.replace('区', '') }}</span>
+        <span class="d-p">{{ d.p }}</span><span class="d-m">{{ d.m }}</span><span class="d-h">{{ d.h }}</span>
+      </div>
     </div>
+
+    <div class="status">{{ totalText }}</div>
     <div ref="mapEl" class="map"></div>
-    <p class="hint">点位：广州 7 区小学 {{ primarySchools.schools.length }} 所（GCJ-02 / 高德瓦片）；梯队标注为民间口径核验，非官方评价。</p>
+
+    <aside v-if="infoModel" class="school-info">
+      <button class="si-close" aria-label="关闭" @click="closeInfo">×</button>
+      <div class="si-name">{{ infoModel.name }}</div>
+      <div v-if="infoModel.badge" class="si-tier">
+        <span class="badge" :class="infoModel.badge.cls">{{ infoModel.badge.text }}</span>
+        <span>{{ infoModel.head }}</span>
+      </div>
+      <div v-else-if="infoModel.head" class="si-tier"><span>{{ infoModel.head }}</span></div>
+      <div v-for="r in infoModel.rows" :key="r.label" class="si-row">
+        <span>{{ r.label }}</span>
+        <b v-if="r.strong">{{ r.value }}</b>
+        <p v-else>{{ r.value }}</p>
+      </div>
+      <div v-if="infoModel.note" class="si-src">{{ infoModel.note }}</div>
+      <RouterLink v-if="infoModel.link" :to="infoModel.link.to" class="si-link">{{ infoModel.link.text }}</RouterLink>
+    </aside>
+
+    <p class="hint">拖动 / 滚轮 / 双指缩放查看。悬停显示校名，点击点位显示信息卡。独立法人挂牌校（虚线点）不计入口碑学校。高中分类口径：省市属示范 / 区属示范 / 普通（详见卡片内"口径"）。</p>
   </section>
 </template>
 
 <style scoped>
-.toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
-.chip {
-  border: 1px solid #d6d4cc; background: #fff; color: #1a1b1c;
-  border-radius: 999px; padding: 6px 14px; font-size: 13px; cursor: pointer;
+.toolbar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px;
+  background: rgba(255,255,255,0.94); border: 1px solid #e4e3dd;
+  border-radius: 14px; padding: 10px 14px; margin-bottom: 10px;
 }
-.chip.active { background: #3a5396; border-color: #3a5396; color: #fff; }
-.chip-count { font-size: 11px; opacity: 0.75; }
-.legend {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
-  font-size: 12px; color: #444; margin-bottom: 8px;
+.f-row { display: flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer; user-select: none; }
+.f-row input { width: 13px; height: 13px; accent-color: #2563eb; cursor: pointer; }
+.dot { width: 9px; height: 9px; border-radius: 50%; box-shadow: 0 0 0 1.5px rgba(255,255,255,0.9), 0 1px 2px rgba(0,0,0,0.25); }
+.f-count { margin-left: auto; color: #6b7280; font-variant-numeric: tabular-nums; }
+.f-btns { display: flex; gap: 6px; margin-left: auto; }
+.f-btns button {
+  font-size: 11.5px; padding: 3px 12px; border: 1px solid #d6d4cc; background: #fff;
+  border-radius: 7px; color: #1a1b1c; cursor: pointer;
 }
-.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 4px; }
-.legend-count { margin-left: auto; color: #6b7280; }
-.map { height: 560px; border-radius: 14px; border: 1px solid #e4e3dd; z-index: 1; }
+.f-btns button:hover { background: #f2f7ff; border-color: #9bbbf4; }
+
+.dist-stats {
+  background: rgba(255,255,255,0.94); border: 1px solid #e4e3dd;
+  border-radius: 14px; padding: 10px 14px; margin-bottom: 10px;
+}
+.block-title { font-size: 11px; color: #6b7280; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 6px; }
+.d-heads, .d-row {
+  display: grid; grid-template-columns: 1fr 46px 46px 46px;
+  column-gap: 6px; font-size: 12px; align-items: center;
+}
+.d-heads { color: #6b7280; font-size: 10.5px; font-weight: 600; text-align: right; }
+.d-row { padding: 1px 0; }
+.d-name { color: #6b7280; }
+.d-p, .d-m, .d-h { text-align: right; font-variant-numeric: tabular-nums; }
+.d-p { color: #2563eb; } .d-m { color: #dc2626; } .d-h { color: #f59e0b; }
+
+.status { font-size: 13px; color: #444; margin-bottom: 8px; }
+.map { height: 620px; border-radius: 14px; border: 1px solid #e4e3dd; z-index: 1; }
 .hint { font-size: 12px; color: #6b7280; margin-top: 10px; line-height: 1.6; }
+
+.school-info {
+  position: fixed; right: 14px; bottom: 14px;
+  width: 360px; max-width: calc(100vw - 28px); max-height: 62vh; overflow-y: auto;
+  background: rgba(255,255,255,0.97); border: 1px solid #e4e3dd; border-radius: 14px;
+  box-shadow: 0 6px 28px rgba(20,30,50,0.16); padding: 14px 16px 12px; z-index: 1100;
+  font-size: 12.5px;
+}
+.si-close {
+  position: absolute; top: 8px; right: 10px; border: none; background: none;
+  font-size: 18px; line-height: 1; color: #8a93a3; cursor: pointer; padding: 4px 6px;
+}
+.si-close:hover { color: #1a1b1c; }
+.si-name { font-size: 15px; font-weight: 700; padding-right: 26px; line-height: 1.4; }
+.si-tier { margin-top: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 12px; color: #6b7280; }
+.badge { font-size: 12px; font-weight: 700; color: #fff; border-radius: 6px; padding: 2px 9px; }
+.badge.tier-full { background: #e11d48; }
+.badge.tier-part { background: #f59e0b; }
+.badge.tier-none { background: #8a94a6; }
+.badge.license { background: #4b5563; }
+.badge.h-city { background: #b45309; }
+.badge.h-dist { background: #0f766e; }
+.badge.h-normal { background: #57534e; }
+.si-row { margin-top: 8px; display: flex; gap: 8px; }
+.si-row > span:first-child { flex: none; width: 88px; color: #6b7280; font-size: 11.5px; padding-top: 1px; }
+.si-row > b { font-weight: 600; }
+.si-row p { margin: 0; line-height: 1.65; }
+.si-src { margin-top: 10px; padding-top: 8px; border-top: 1px dashed #d6d4cc; font-size: 10.5px; color: #9aa0a6; line-height: 1.6; }
+.si-link {
+  display: inline-block; margin-top: 10px; color: #1a6bd6; text-decoration: none;
+  font-size: 12.5px; font-weight: 600; border-bottom: 1px dashed #b9cdea;
+}
+.si-link:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .school-info { right: 10px; bottom: 10px; left: 10px; width: auto; max-height: 55vh; }
+  .map { height: 480px; }
+}
 </style>
 
 <style>

@@ -7,16 +7,11 @@
 ```
 .
 ├── apps/                    # 各端应用
-│   ├── web/                 # Web 应用
-│   │   ├── index.html       # 新版入口（Vue3 + Vite，npm run dev/build）
+│   ├── web/                 # Web 应用（Vue3 + Vite，npm run dev/build）
+│   │   ├── index.html       # 应用入口
 │   │   ├── src/             # Vue3 工程：pages（入口/地图/支撑度）、data 加载层
-│   │   ├── map/             # 【旧版·file:// 直开】Leaflet 地图页
-│   │   ├── support.html     # 【旧版】“支撑度”说明页
-│   │   ├── legacy/          # 旧版页面目录
-│   │   │   ├── index.html   # 旧版入口（过渡）
-│   │   │   └── _generated/  # 浏览器兼容产物（window.GZ_* .js，由 scripts/ 生成，勿手改）
 │   │   └── package.json     # @gz/web
-│   ├── miniprogram/         # 微信小程序（原生，骨架已就绪）
+│   ├── miniprogram/         # 微信小程序（原生，根目录 = apps/miniprogram）
 │   │   ├── app.json / app.js / app.wxss
 │   │   ├── pages/           # index（入口）/ map（内置 <map>）/ support（支撑度）
 │   │   ├── utils/data.js    # 数据加载（shared + data 构建产物）
@@ -32,16 +27,12 @@
 │   ├── high/                # 高中阶段数据（schools-gz.json 清洗版 / levels.json / 剔除留痕）
 │   └── README.md            # 数据治理约定与更新方式
 ├── scripts/                 # 共享脚本（数据采集/构建 + 小程序构建）
-│   ├── fetch_schools.py     # 小学点位采集（json 真源 + legacy js 产物）
+│   ├── fetch_schools.py     # 小学点位采集（写 json 真源）
 │   ├── fetch_middle_schools.py  # 初中点位采集
 │   ├── fetch_high_schools.py    # 高中原始采集
-│   ├── build_tier1_js.py    # 小学梯队数据 → legacy js 产物
-│   ├── build_middle_tier1_js.py  # 初中梯队数据 → legacy js 产物
-│   ├── build_high_levels_js.py   # 高中清洗点位（写回 json 真源）+ levels.js
+│   ├── build_high_levels_js.py  # 高中清洗点位（按 levels.json 清洗并写回 json 真源）
 │   ├── build_district_enrollment.py  # 五区小学招生数据
 │   ├── backfill_schools.py  # 小学缺校补位
-│   ├── sync_tier1_aliases.py # 产物匹配别名/坐标回写 JSON 真源（幂等）
-│   ├── build_combined_data.py  # 旧地图页单文件产物（legacy/_generated/combined.js）
 │   └── miniprogram/build.mjs  # 小程序构建（shared cjs + data json → 小程序包）
 ├── docs/                    # 调研报告、分析文档
 ├── .env                     # 本地密钥（git 忽略，不入库）
@@ -59,22 +50,18 @@ npm run build:mp              # 生成小程序 shared/data 构建产物
 npm run check                 # 全部 workspace 类型检查
 ```
 
-数据真源约定：`data/` 下 JSON 为唯一数据真源；`apps/web/legacy/_generated/` 的
-`window.GZ_*` js 仅供旧版页面（file:// 直接打开）使用，由 `scripts/` 生成，勿手改，
-Vue3 重构完成后随旧页面下线；小程序包内 `shared/`、`data/` 为构建产物（git 忽略）。
+数据真源约定：`data/` 下 JSON 为唯一数据真源，Web 与小程序均从该层构建加载，勿手改产物；
+小程序包内 `shared/`、`data/` 为构建产物（git 忽略，由 `npm run build:mp` 生成）。
 
 
 ## Web 应用（apps/web）
 
 新版（Vue3 + Vite）：`npm run dev:web` 开发，`npm run build:web` 构建；入口 `apps/web/index.html`，
 路由 `#/`（入口）/ `#/map`（地图）/ `#/support`（支撑度），数据经 `src/data/` 从 `data/*.json`（真源）加载，
-逻辑复用 `@gz/shared`。
+逻辑复用 `@gz/shared`。构建产物 `apps/web/dist` 可由静态服务器 / GitHub Pages 直接部署（hash 路由，file:// 亦可打开）。
 
-旧版（file:// 直接打开，过渡期保留，Vue3 重构完成后下线）：`apps/web/legacy/index.html` 为旧入口，
-`apps/web/map/index.html`（地图）、`apps/web/support.html`（支撑度）引用 `legacy/_generated/` 下的 js 兼容产物。
-
-### 中小学·高中合并地图（新版 apps/web#/map；旧版 apps/web/map/index.html）
-- 同时展示广州 7 区（荔湾 / 越秀 / 海珠 / 天河 / 白云 / 黄埔 / 番禺）三学段点位：915 小学 + 3 补点、296 初中 + 14 补点、126 高中点位（90 所学校，含多校区）
+### 中小学·高中合并地图（apps/web#/map）
+- 同时展示广州 7 区（荔湾 / 越秀 / 海珠 / 天河 / 白云 / 黄埔 / 番禺）三学段点位：915 小学 + 3 补点、296 初中 + 14 补点（1 所与 POI 重合去重）、126 高中点位（90 所学校，含多校区）
 - 七类配色：小学·普通（浅灰蓝）/ 小学·口碑（蓝）/ 初中·普通（暖浅灰）/ 初中·口碑（红）/ 高中普通（灰蓝）/ 高中区属示范（绿）/ 高中省市属示范（琥珀），口碑校按支撑度加粗、有支撑加晕光
 - 左侧筛选区：7 个 checkbox + 全选 / 全不选，实时控制点位显示并同步图例统计
 - 点击点位展示信息卡：小学（招生数据 + 梯队信号）、初中（中考信号 + 梯队徽标），并链接“支撑度”说明页；高中（分类徽标 + 示范性等级·隶属 + 特控线上线率 / 高分段 / 本科率 + 2025 中考录取线 + 口径说明）
@@ -112,7 +99,7 @@ Vue3 重构完成后随旧页面下线；小程序包内 `shared/`、`data/` 为
 - 客观指标（levels.json，逐校）：特控线上线率 2026 / 2025（含网传口径）、600 分以上高分段占比、本科率、2025 中考户籍生录取最低分、隶属与示范性等级；无公开数据的学校如实标注"高考出口数据未公开"
   - 特控率来源：2026 高考喜报（广州日报报道）+ 2025 年 51 校成绩汇总，均为喜报 / 网传口径，非官方统一发布（页面卡片已注明）
 - 点位统计：126 个（含 15 个高德补点），荔湾 17 / 越秀 18 / 海珠 14 / 天河 19 / 白云 25 / 黄埔 14 / 番禺 19
-- 更新：`python3 scripts/fetch_high_schools.py`（原始 POI）→ `python3 scripts/build_high_levels_js.py`（按 levels.json 清洗点位并生成 levels.js）→ `python3 scripts/build_combined_data.py`（重建合并数据）
+- 更新：`python3 scripts/fetch_high_schools.py`（原始 POI）→ `python3 scripts/build_high_levels_js.py`（按 levels.json 清洗点位并写回 json 真源）
 
 ### 招生数据（data/primary/enrollments/）
 
@@ -131,13 +118,14 @@ Vue3 重构完成后随旧页面下线；小程序包内 `shared/`、`data/` 为
 ## 状态
 
 ### 工程化（本轮完成）
-- [x] 数据治理：data/ 收敛为 JSON 唯一真源；js 兼容产物迁至 apps/web/legacy/_generated/；生成器全部改路径并回填真源（小学 971→915、高中 329→126 对齐，tier1 aliases/coords 回写）
+- [x] 数据治理：data/ 收敛为 JSON 唯一真源（小学 971→915、高中 329→126 对齐，tier1 aliases/coords/district 已回写）
 - [x] monorepo：npm workspaces（packages/shared + apps/web + apps/miniprogram）
 - [x] @gz/shared 共享核心包：类型 + 常量 + geo/stats/support 纯函数（esm + cjs 双产物）
-- [x] Web Vue3 重构骨架：Vite + vue-router，入口/地图（Leaflet+高德瓦片+区筛选+梯队配色）/支撑度三页，数据全部来自 data/*.json + shared
+- [x] Web Vue3 重构：Vite + vue-router（hash），入口/地图（Leaflet+高德瓦片+区筛选+梯队配色）/支撑度三页，数据全部来自 data/*.json + shared
 - [x] 微信小程序原生骨架：pages/index + map（内置 <map>，GCJ-02）+ support；构建脚本生成 shared/data 产物
+- [x] 旧版页面下线：apps/web/map、support.html、legacy/ 及纯产物脚本已删除（git 历史保留）；数据脚本只写 json 真源
+- [x] GitHub Pages 部署：pages.yml 仅构建新版 SPA + img/，部署为站点根
 - [ ] 小程序打开体验完善：marker 聚类 / 梯队配色 icon / 详情页
-- [ ] 旧版页面下线（Vue3 页面功能对齐后）
 
 ### 小学阶段
 - [x] 确定调研范围与目标（7 区）

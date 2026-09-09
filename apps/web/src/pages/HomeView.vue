@@ -56,11 +56,6 @@ const districtTotal = (schools: typeof primarySchools.schools) => {
         <div class="feature-desc">小学 {{ tier1Schools.length }} 所 + 初中 {{ middleTier1Schools.length }} 所网传名校核验</div>
         <span class="tag tag-new">新版</span>
       </RouterLink>
-      <a href="legacy/index.html" class="feature">
-        <div class="feature-name">旧版页面（过渡）</div>
-        <div class="feature-desc">file:// 直接打开的地图与支撑度页，Vue3 重构完成后下线</div>
-        <span class="tag tag-old">旧版</span>
-      </a>
     </div>
   </section>
 </template>

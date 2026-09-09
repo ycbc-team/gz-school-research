@@ -39,23 +39,15 @@ jobs:
           npm run build:shared
           npm run build:web
 
-      # 组装站点：新版 SPA 在站点根目录；旧版页面（map / support / legacy，相对路径
-      # 引用 legacy/_generated/ 与 ../../img/）整体保留到 _site/apps/web/ 下过渡；
-      # img/ 随站点根目录提供（旧页面 favicon 相对引用）；data/ 无需拷贝（旧页面已内置数据产物）。
+      # 组装站点：新版 SPA 在站点根目录；img/ 提供 favicon。
       - name: Prepare site
         run: |
           set -euo pipefail
           mkdir -p _site/apps/web
           cp -r apps/web/dist/. _site/
-          cp -r apps/web/map _site/apps/web/map
-          cp -r apps/web/legacy _site/apps/web/legacy
-          cp apps/web/support.html _site/apps/web/support.html
           cp -r img _site/img
           # 校验关键产物存在，缺失则构建失败，避免静默产出打不开的站点
           test -f _site/index.html
-          test -f _site/apps/web/legacy/_generated/combined.js
-          test -f _site/apps/web/map/index.html
-          test -f _site/apps/web/support.html
           test -f _site/img/guangzhou-xuetu-144.png
 
       - name: Setup Pages

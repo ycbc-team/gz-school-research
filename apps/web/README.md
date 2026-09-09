@@ -1,37 +1,42 @@
-# Web 应用
+# Web 应用（Vue3 + Vite）
 
-广州学校升学调研的 web 端应用。
+广州学校升学调研的 web 端应用。数据全部来自项目根 `data/*.json`（唯一真源），
+逻辑复用 `@gz/shared`，构建产物 `apps/web/dist` 可部署至任意静态托管（含 GitHub Pages，hash 路由）。
 
 ## 结构
 
 ```
 apps/web/
-├── index.html          # 应用入口（旧版功能列表页，Vue3 重构后下线）
-├── map/                # 【功能·旧版】七区中小学分布地图（Leaflet，file:// 直接打开）
-│   ├── index.html      # 地图页，引用 legacy/_generated/combined.js
-│   └── assets/         # Leaflet 库（本地化，不依赖 CDN）
-├── support.html        # 【功能·旧版】“支撑度”说明页（小学+初中口径）
-├── legacy/             # 旧版页面专用目录
-│   └── _generated/     # 浏览器兼容产物（window.GZ_* 的 .js），由 scripts/ 从 data/*.json 生成，勿手改
-└── README.md
+├── index.html          # 应用入口（挂载 #app）
+├── src/
+│   ├── main.ts         # Vue 入口
+│   ├── router.ts       # hash 路由：#/（入口）/ #/map（地图）/ #/support（支撑度）
+│   ├── App.vue         # 应用壳（导航）
+│   ├── pages/          # HomeView / MapView / SupportView
+│   ├── data/           # 数据加载层：data/*.json 真源 → 类型化模块
+│   └── styles.css      # 全局样式
+└── vite.config.ts      # base './'，相对路径部署
 ```
 
-## 当前功能（旧版，file:// 直接打开）
+## 功能
 
-| 功能 | 路径 | 说明 |
+| 路由 | 功能 | 说明 |
 | --- | --- | --- |
-| 七区中小学分布地图 | `map/index.html` | 广州 7 区小学 918 点位 + 初中 310 点位，四类配色 + 筛选 + 支撑度核验，纯本地数据 |
-| 口碑学校 · 支撑度说明 | `support.html` | 小学 59 所 + 初中 53 所网传名校核验：按学段给出判定规则与信号维度 |
-
-## 数据引用约定
-
-- **数据真源：项目根 `data/` 下的 JSON**（`data/primary/schools-gz.json` 等）。
-- 旧版页面因 file:// 直开无法 fetch，引用 `legacy/_generated/` 下的 js 兼容产物
-  （如 `map/index.html` → `../legacy/_generated/combined.js`；`support.html` →
-  `legacy/_generated/primary/tier1.js`）。产物由 `scripts/*.py` 从 JSON 生成，勿手改。
-- 新增页面一律从 `data/*.json` 读取，不再引入 `window.GZ_*` 全局变量。
+| `#/` | 入口 | 功能卡片跳转 |
+| `#/map` | 七区中小学·高中合并地图 | 小学 918 点 + 初中 309 点 + 高中 126 点，七类配色 + 区筛选 + 信息卡 |
+| `#/support` | 口碑学校 · 支撑度核验 | 小学 59 所 + 初中 53 所网传名校：判定逻辑 + 有支撑/部分支撑明细表 |
 
 ## 运行
 
-浏览器直接打开 `apps/web/index.html`（入口）或 `apps/web/map/index.html`（地图）即可，无需构建与服务。
-（Vue3 重构进行中，新工程将使用 Vite dev server 与构建产物，见根 README。）
+```bash
+npm run dev:web     # Vite dev server（热更新）
+npm run build:web   # 构建到 apps/web/dist
+```
+
+构建产物可直接打开 `apps/web/dist/index.html`（file:// 可用），或部署到任意静态路径。
+
+## 数据引用约定
+
+- 数据真源：项目根 `data/` 下 JSON（`data/primary/schools-gz.json` 等），新增页面一律从
+  `src/data/` 加载层读取，禁止引入 `window.GZ_*` 全局变量。
+- 旧版页面（`apps/web/map`、`support.html`、`legacy/`）及 js 兼容产物已删除，历史见 git。
