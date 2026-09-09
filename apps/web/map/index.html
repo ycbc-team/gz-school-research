@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>广州七区中小学分布 · 升学调研</title>
 <link rel="icon" href="data:,">
+<link rel="preconnect" href="https://webrd0s.is.autonavi.com">
 <link rel="stylesheet" href="assets/leaflet.css">
 <style>
   :root {
@@ -65,6 +66,7 @@
     width: 9px; height: 9px; border-radius: 50%; flex: none;
     box-shadow: 0 0 0 1.5px rgba(255,255,255,0.9), 0 1px 2px rgba(0,0,0,0.25);
   }
+  .f-row .f-count { margin-left: auto; color: var(--text-sub); font-variant-numeric: tabular-nums; }
   .f-btns { display: flex; gap: 6px; margin-top: 6px; }
   .f-btns button {
     flex: 1; font-size: 11.5px; padding: 3px 0;
@@ -73,18 +75,14 @@
   }
   .f-btns button:hover { background: #F2F7FF; border-color: #9BBBF4; }
 
-  #legend { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 9px; }
-  #legend .row {
-    display: flex; align-items: center; gap: 8px;
-    font-size: 12.5px; padding: 3.5px 0;
-  }
-  #legend .dot {
-    width: 10px; height: 10px; border-radius: 50%; flex: none;
-    box-shadow: 0 0 0 1.5px rgba(255,255,255,0.9), 0 1px 2px rgba(0,0,0,0.25);
-  }
-  #legend .count { margin-left: auto; color: var(--text-sub); font-variant-numeric: tabular-nums; }
-  #legend .sum { margin-top: 8px; border-top: 1px dashed var(--line); padding-top: 7px; font-weight: 600; font-size: 12.5px; }
-  #legend .sum .count { color: var(--text); }
+  /* 各区学校数量（小学 / 初中两栏） */
+  #dist-stats { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 9px; }
+  #dist-rows { display: grid; grid-template-columns: 1fr 46px 46px; column-gap: 6px; row-gap: 2px; font-size: 12px; }
+  #dist-rows .d-name { color: var(--text-sub); }
+  #dist-rows .d-head { color: var(--text-sub); font-size: 10.5px; font-weight: 600; text-align: right; }
+  #dist-rows .d-p, #dist-rows .d-m { text-align: right; font-variant-numeric: tabular-nums; }
+  #dist-rows .d-p { color: #2563EB; }
+  #dist-rows .d-m { color: #DC2626; }
 
   #footnote {
     margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--line);
@@ -166,31 +164,30 @@
 
   @media (max-width: 600px) {
     #panel { top: 10px; left: 10px; width: 218px; padding: 12px 14px; border-radius: 12px; }
-    #filters, #legend { max-height: 30vh; overflow-y: auto; }
+    #filters, #dist-stats { max-height: 30vh; overflow-y: auto; }
   }
 </style>
 </head>
 <body>
   <div id="map"></div>
 
-  <aside id="panel" aria-label="统计与图例">
+  <aside id="panel" aria-label="筛选与统计">
     <h1>广州七区中小学分布</h1>
     <div class="subtitle">升学调研 · 数据源：高德地图 POI</div>
     <div id="status"><span id="status-text">正在加载地图…</span></div>
     <div id="filters">
-      <div class="block-title">显示点位</div>
-      <label class="f-row"><input type="checkbox" id="f-p-normal" checked><span class="dot" style="background:#94A3B8"></span>小学普通</label>
-      <label class="f-row"><input type="checkbox" id="f-p-tier" checked><span class="dot" style="background:#2563EB"></span>小学第一梯队</label>
-      <label class="f-row"><input type="checkbox" id="f-m-normal" checked><span class="dot" style="background:#A8A29E"></span>初中普通</label>
-      <label class="f-row"><input type="checkbox" id="f-m-tier" checked><span class="dot" style="background:#DC2626"></span>初中第一梯队</label>
+      <div class="block-title">显示点位（数量随勾选实时统计）</div>
+      <label class="f-row"><input type="checkbox" id="f-p-normal" checked><span class="dot" style="background:#94A3B8"></span><span>小学普通</span><span class="f-count" id="c-pN">0</span></label>
+      <label class="f-row"><input type="checkbox" id="f-p-tier" checked><span class="dot" style="background:#2563EB"></span><span>小学第一梯队</span><span class="f-count" id="c-pT">0</span></label>
+      <label class="f-row"><input type="checkbox" id="f-m-normal" checked><span class="dot" style="background:#A8A29E"></span><span>初中普通</span><span class="f-count" id="c-mN">0</span></label>
+      <label class="f-row"><input type="checkbox" id="f-m-tier" checked><span class="dot" style="background:#DC2626"></span><span>初中第一梯队</span><span class="f-count" id="c-mT">0</span></label>
       <div class="f-btns"><button id="f-all" type="button">全选</button><button id="f-none" type="button">全不选</button></div>
     </div>
-    <div id="legend">
-      <div class="block-title">点位颜色 · 学段与梯队</div>
-      <div id="legend-rows"></div>
-      <div class="sum" id="legend-sum" hidden></div>
+    <div id="dist-stats">
+      <div class="block-title">各区学校 · 小学 / 初中</div>
+      <div id="dist-rows"></div>
     </div>
-    <div id="footnote">拖动 / 滚轮 / 双指缩放查看。悬停显示校名，点击点位显示信息卡：网传梯队校会给出支撑信号与判定依据，并链接到“支撑度”说明页。<br>数据源：高德地图 POI（小学 141203 + 初中 141201/141200 分类，翻页采集无 100 条限制）· 梯队标签核验：各区教育局 2026 年官方文件与公开信息（口径见支撑度说明页）。</div>
+    <div id="footnote">拖动 / 滚轮 / 双指缩放查看。悬停显示校名，点击点位显示信息卡：网传梯队校会给出支撑信号与判定依据，并链接到“支撑度”说明页。</div>
   </aside>
 
   <!-- 学校招生信息卡片（点击点位显示） -->
@@ -199,20 +196,13 @@
     <div id="si-body"></div>
   </div>
 
-  <!-- 本地数据：由项目 scripts/ 采集生成 -->
-  <script src="../../../data/primary/schools.js"></script>
-  <script src="../../../data/primary/tier1.js"></script>
-  <script src="../../../data/primary/enrollments/2026-panyu.js"></script>
-  <script src="../../../data/primary/enrollments/2026-liwan.js"></script>
-  <script src="../../../data/primary/enrollments/2026-yuexiu.js"></script>
-  <script src="../../../data/primary/enrollments/2026-haizhu.js"></script>
-  <script src="../../../data/primary/enrollments/2026-tianhe.js"></script>
-  <script src="../../../data/middle/schools.js"></script>
-  <script src="../../../data/middle/tier1.js"></script>
+  <!-- 本地数据：由 scripts/build_combined_data.py 合并生成（9 个源文件 -> 单个 compact 文件，提速首屏） -->
+  <script src="../../../data/combined.js"></script>
   <script src="assets/leaflet.js"></script>
   <script>
   (function () {
     'use strict';
+    var __t0 = performance.now();   // 性能测量起点（boot 完成后写 window.__bootMs）
 
     /* ========== 配置 ========== */
     var DISTRICTS = [
@@ -309,8 +299,6 @@
     }
     function showError(text) {
       setStatus(text, 'error');
-      var sum = document.getElementById('legend-sum');
-      if (sum) sum.hidden = true;
     }
     function districtNameOf(adcode) {
       var d = districtByAdcode[adcode];
@@ -340,7 +328,8 @@
         maxZoom: 18,
         zoomSnap: 0.5,
         zoomControl: false,
-        scrollWheelZoom: true
+        scrollWheelZoom: true,
+        preferCanvas: true   // 大量点位用 Canvas 渲染（SVG DOM 元素开销大，首屏慢的主因）
       });
       L.control.zoom({ position: 'bottomright' }).addTo(map);
       // 高德瓦片（GCJ-02 坐标，与本地数据坐标系一致）
@@ -360,8 +349,35 @@
       watchResize();
       watchGesture();
       map.on('zoomend', updateMarkerRadius);
+      // 性能与调试钩子（只读，供控制台与验证脚本使用）
+      window.__bootMs = Math.round(performance.now() - __t0);
+      window.__mapStats = function () {
+        var vis = 0;
+        Object.keys(CLASS_CFG).forEach(function (k) {
+          var g = groups[k];
+          if (!g || !map.hasLayer(g)) return;
+          g.getLayers().forEach(function (l) {
+            if (l.options && l.options.interactive === false) return;  // 晕圈不计
+            vis++;
+          });
+        });
+        return { all: allPoints.length, visible: vis };
+      };
+      window.__hitTest = function (cls) {
+        // 返回该类全部点位在容器内的像素坐标（跳过晕圈，供自动化点击验证）
+        var g = groups[cls];
+        if (!g) return [];
+        var out = [];
+        g.getLayers().forEach(function (l) {
+          if (l.options && l.options.interactive === false) return;
+          var p = map.latLngToContainerPoint(l.getLatLng());
+          out.push({ x: Math.round(p.x), y: Math.round(p.y) });
+        });
+        return out;
+      };
       map.on('click', function (e) {
         // 点在学校点位（path）上时由点位 handler 展示信息，不关闭卡片
+        // （Canvas 模式下点位命中由点位 handler 的 stopPropagation 阻止冒泡到此）
         var t = e.originalEvent && e.originalEvent.target;
         if (t && t.classList && t.classList.contains('leaflet-interactive')) return;
         hideSchoolInfo();
@@ -422,7 +438,8 @@
         color: 'rgba(255,255,255,0.85)',
         weight: 1.2,
         fillColor: cfg.color,
-        fillOpacity: 1
+        fillOpacity: 1,
+        bubblingMouseEvents: false   // 点位事件不冒泡到 map（避免点开信息卡后立即被 map click 关闭）
       };
       if (!cfg.tier) {
         s.fillOpacity = 0.7;   // 普通点位半透明
@@ -473,7 +490,11 @@
         opacity: 0.95,
         className: 'school-label'
       });
-      m.on('click', function () { showSchoolInfo(pt); });
+      m.on('click', function (e) {
+        // Canvas 模式下阻止 DOM 冒泡，避免 map click 把刚打开的信息卡关掉
+        if (e && e.originalEvent && e.originalEvent.stopPropagation) e.originalEvent.stopPropagation();
+        showSchoolInfo(pt);
+      });
       markers.push(m);
       allPoints.push(pt);
     }
@@ -511,7 +532,6 @@
         if (on) { if (!map.hasLayer(g)) g.addTo(map); }
         else { if (map.hasLayer(g)) map.removeLayer(g); }
       });
-      updateLegend();
     }
     function initFilters() {
       Object.keys(FILTER_ID).forEach(function (cls) {
@@ -629,36 +649,35 @@
 
     /* ========== 图例与统计（随筛选实时更新） ========== */
     function updateLegend() {
-      var rows = document.getElementById('legend-rows');
+      // 数量为全量总览，不随勾选变化；勾选只控制地图点位显隐
       var counts = { pN: 0, pT: 0, mN: 0, mT: 0 };
-      var distCount = {};
+      var pDist = {}, mDist = {};
       allPoints.forEach(function (pt) {
-        if (!filterOn(pt.cls)) return;  // 隐藏的分类不计入
         counts[pt.cls]++;
         var d = districtByAdcode[pt.adcode];
-        if (d) distCount[d.name] = (distCount[d.name] || 0) + 1;
+        if (!d) return;
+        if (pt.stage === 'primary') pDist[d.name] = (pDist[d.name] || 0) + 1;
+        else mDist[d.name] = (mDist[d.name] || 0) + 1;
       });
-      var html = '';
+      // 筛选器行内数量（全量）
       ['pN', 'pT', 'mN', 'mT'].forEach(function (cls) {
-        var cfg = CLASS_CFG[cls];
-        html += '<div class="row"><span class="dot" style="background:' + cfg.color + '"></span>' +
-                '<span>' + cfg.label + '</span><span class="count">' + counts[cls] + ' 点位</span></div>';
+        var el = document.getElementById('c-' + cls);
+        if (el) el.textContent = counts[cls];
       });
+      // 各区学校：小学 / 初中 两栏（全量）
+      var dr = document.getElementById('dist-rows');
+      if (dr) {
+        var html = '<div class="d-head"></div><div class="d-head">小学</div><div class="d-head">初中</div>';
+        DISTRICTS.forEach(function (d) {
+          html += '<div class="d-name">' + esc(d.name.replace('区', '')) + '</div>' +
+                  '<div class="d-p">' + (pDist[d.name] || 0) + '</div>' +
+                  '<div class="d-m">' + (mDist[d.name] || 0) + '</div>';
+        });
+        dr.innerHTML = html;
+      }
+      // 状态栏：全量标注数量
       var total = counts.pN + counts.pT + counts.mN + counts.mT;
-      var pTotal = counts.pN + counts.pT;
-      var mTotal = counts.mN + counts.mT;
-      html += '<div class="row"><span class="dot" style="background:transparent;box-shadow:none;"></span>' +
-              '<span>合计点位</span><span class="count">' + total + ' 所</span></div>';
-      // 各区数量（仅统计当前可见点位，纯文本不再用颜色区分）
-      var distLine = DISTRICTS.map(function (d) {
-        return d.name.replace('区', '') + ' ' + (distCount[d.name] || 0);
-      }).join(' · ');
-      html += '<div style="font-size:11px;color:var(--text-sub);line-height:1.6;margin-top:8px;padding-top:7px;border-top:1px dashed var(--line);">' +
-              esc(distLine) + '</div>';
-      rows.innerHTML = html;
-      var sum = document.getElementById('legend-sum');
-      sum.hidden = false;
-      sum.innerHTML = '<span>合计</span><span class="count">' + total + ' 所 · 小学 ' + pTotal + ' · 初中 ' + mTotal + '</span>';
+      setStatus('已标注 ' + total + ' 所：小学 ' + (counts.pN + counts.pT) + ' · 初中 ' + (counts.mN + counts.mT));
     }
 
     /* ========== 收尾：视野与限制 ========== */
