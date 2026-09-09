@@ -109,7 +109,28 @@
           "data_gaps": [
             "2026年官方未单独公布分组表文件（以2023年官网分组表为基线）",
             "学位预警：越秀区近年未发布学位预警名单，无法核验"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市越秀区东风东路小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "越秀区政府-教育集团化办学情况",
+              "url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
+              "note": "东风东教育集团核心校，名称即品牌源头，传统公办，无他校品牌挂靠；统一社会信用代码待核"
+            },
+            {
+              "source": "越秀区政府-2023年公办小学招生分组表",
+              "url": "https://www.yuexiu.gov.cn/attachment/7/7294/7294622/8977329.xlsx",
+              "note": "区属公办小学招生分组名单在列"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市越秀区文德路小学",
@@ -176,7 +197,28 @@
           "data_gaps": [
             "2026年官方未单独公布分组表文件",
             "学位预警：越秀区近年未发布学位预警名单"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市越秀区文德路小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "越秀区政府-教育集团化办学情况",
+              "url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
+              "note": "第二学区学区长学校，传统公办，自身即品牌；统一社会信用代码待核"
+            },
+            {
+              "source": "越秀区政府-2023年公办小学招生分组表",
+              "url": "https://www.yuexiu.gov.cn/attachment/7/7294/7294622/8977329.xlsx",
+              "note": "区属公办小学招生分组名单在列"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市越秀区东山培正小学",
@@ -243,7 +285,28 @@
           "data_gaps": [
             "2026年官方未单独公布分组表文件",
             "学位预警：越秀区近年未发布学位预警名单"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市越秀区东山培正小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "越秀区政府-教育集团化办学情况",
+              "url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
+              "note": "东山培正教育集团核心校/培正教育集团成员校，百年品牌源头即自身；统一社会信用代码待核"
+            },
+            {
+              "source": "越秀区政府-2023年公办小学招生分组表",
+              "url": "https://www.yuexiu.gov.cn/attachment/7/7294/7294622/8977329.xlsx",
+              "note": "区属公办小学招生分组名单在列"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市越秀区小北路小学",
@@ -311,7 +374,28 @@
             "2026年官方未单独公布分组表文件",
             "学位预警：越秀区近年未发布学位预警名单",
             "小北校区2026年计划班数未单独列（本地数据仅天秀校区13班）"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市越秀区小北路小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "越秀区政府-教育集团化办学情况",
+              "url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
+              "note": "第五学区学区长学校，传统公办，自身即品牌；统一社会信用代码待核"
+            },
+            {
+              "source": "越秀区政府-2023年公办小学招生分组表",
+              "url": "https://www.yuexiu.gov.cn/attachment/7/7294/7294622/8977329.xlsx",
+              "note": "区属公办小学招生分组名单在列"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市越秀区农林下路小学",
@@ -378,7 +462,28 @@
           "data_gaps": [
             "2026年官方未单独公布分组表文件",
             "学位预警：越秀区近年未发布学位预警名单"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市越秀区农林下路小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "越秀区政府-教育集团化办学情况",
+              "url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
+              "note": "第三学区副学区长学校，传统公办，自身即品牌；统一社会信用代码待核"
+            },
+            {
+              "source": "越秀区政府-2023年公办小学招生分组表",
+              "url": "https://www.yuexiu.gov.cn/attachment/7/7294/7294622/8977329.xlsx",
+              "note": "区属公办小学招生分组名单在列"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市越秀区铁一小学",
@@ -440,7 +545,28 @@
           "data_gaps": [
             "2026年官方未单独公布分组表文件",
             "学位预警：越秀区近年未发布学位预警名单"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市越秀区铁一小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "越秀区政府-教育集团化办学情况",
+              "url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
+              "note": "铁一小学教育集团核心校，越秀区属公办小学（校名源自铁路系统，非铁一中学附属/挂牌），自身即品牌；统一社会信用代码待核"
+            },
+            {
+              "source": "越秀区政府-2023年公办小学招生分组表",
+              "url": "https://www.yuexiu.gov.cn/attachment/7/7294/7294622/8977329.xlsx",
+              "note": "区属公办小学招生分组名单在列"
+            }
+          ],
+          "opened_year": null
         }
       ]
     },
@@ -512,7 +638,23 @@
           "data_gaps": [
             "荔湾区官方未公布8个授权制小学教育集团完整名单，集团核心身份为依据公开报道与学校更名推断",
             "2024-2026年学位预警名单未包含乐贤坊，预警仅为2023年历史记录"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市荔湾区乐贤坊小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "今日头条-2023年11月荔湾区集团化办学方案转载",
+              "url": "http://m.toutiao.com/group/7304613843852886582/",
+              "note": "授权制小学教育集团核心校，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州协和学校（小学部，原广州市协和小学）",
@@ -570,7 +712,28 @@
           "data_gaps": [
             "协和学校为市直属学校，其小升初安排由市统筹、区方案仅作原则性表述",
             "学位预警名单未包含协和学校"
-          ]
+          ],
+          "entity_relation": "同法人校区",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州协和学校",
+            "credit_code": null,
+            "type": "市属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "广州协和学校官网-学校简介",
+              "url": "https://www.gzxhhs.edu.cn/Category_99/Index.aspx",
+              "note": "2022年广州市协和小学整体并入市协和中学，成立广州协和学校（广州市教育局直属十二年一体化公办学校），小学部与中学部同属一个法人；信用代码待核"
+            },
+            {
+              "source": "南方+",
+              "url": "http://static.nfapp.southcn.com/content/202208/31/c6845401.html",
+              "note": "2022年8月31日广州协和学校揭牌，协和小学整体并入协和中学，合并后为新法人（市直属）"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市荔湾区沙面小学",
@@ -636,7 +799,23 @@
           "data_gaps": [
             "2026年招生计划校本部/岭南校区未单列班数，仅柏悦湾校区3班",
             "学位预警名单未包含沙面小学"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市荔湾区沙面小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "今日头条-2023年11月荔湾区集团化办学方案转载",
+              "url": "http://m.toutiao.com/group/7304613843852886582/",
+              "note": "沙面小学教育集团核心校，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市荔湾区康有为纪念小学",
@@ -692,7 +871,23 @@
             "荔湾区官方未公布8个授权制小学教育集团完整名单，集团核心身份为依据公开报道与学校更名推断",
             "“第一梯队”网传来源不足（仅1个明确来源）",
             "学位预警名单未包含康有为纪念小学"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市荔湾区康有为纪念小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "今日头条-2023年11月荔湾区集团化办学方案转载",
+              "url": "http://m.toutiao.com/group/7304613843852886582/",
+              "note": "授权制小学教育集团核心校，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         }
       ]
     },
@@ -752,7 +947,33 @@
           "conclusion_basis": "官方数据多维印证：海珠区实验小学教育集团核心校、省一级历史称号（1996）、2026年第四派位组内含五中/六中珠江（万胜围）/南武/省实琶洲等区内优质初中、穗花+富基两校区共10个班为区内大规模校。网传“海珠第一梯队”有较强官方客观数据支撑。",
           "data_gaps": [
             "无（班数已从2026年海珠区公办小学招生计划表核得）"
-          ]
+          ],
+          "entity_relation": "同法人校区",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市海珠区实验小学",
+            "credit_code": "12440105455369568T",
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "360地图-海珠区实验小学工商信息",
+              "url": "https://m.map.360.cn/m/search/detail/pid=1af65024e37663c7",
+              "note": "统一社会信用代码12440105455369568T，同一事业单位法人名下穗花、富基两校区"
+            },
+            {
+              "source": "信息时报",
+              "url": "http://m.toutiao.com/group/6592453772352422413/",
+              "note": "富基校区2018年9月开学（原富基广场配套小学烂尾14年后续建），穗花校区即原穗花小学（本部）"
+            },
+            {
+              "source": "海珠区政府-公办小学地址电话一览表",
+              "url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10238/mpost_10238488.html",
+              "note": "穗花校区、富基校区均以'广州市海珠区实验小学'名义招生"
+            }
+          ],
+          "opened_year": 2018
         },
         {
           "name": "广州市海珠区同福中路第一小学",
@@ -803,7 +1024,23 @@
           "conclusion_basis": "官方数据多维印证：同福中路第一小学教育集团核心校、省一级历史称号（1994，海珠区最早一批）、2026年第二派位组内含五中/六中珠江（万胜围）/南武/省实琶洲等优质初中。网传“第一梯队”有较强官方客观数据支撑。",
           "data_gaps": [
             "无"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市海珠区同福中路第一小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "海珠区政府-集团化办学报道",
+              "url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10167355.html",
+              "note": "同福中路第一小学教育集团核心校，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市海珠区宝玉直小学",
@@ -859,7 +1096,23 @@
           "conclusion_basis": "官方数据部分印证：省一级历史称号（1998）、2026年第二派位组初中构成优质；但主流网传梯队版本列第二梯队，“第一梯队”标签来源不足，未查到集团身份。",
           "data_gaps": [
             "教育集团身份（老宝玉直小学）"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市海珠区宝玉直小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "广州日报-2024年海珠区教育集团化办学报道",
+              "url": "http://m.toutiao.com/group/7359548544342278695/",
+              "note": "宝玉直小学与宝玉直实验小学为两所不同学校（后者为宝实教育集团核心校）；本条目为宝玉直小学本体，传统公办；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市海珠区昌岗中路小学",
@@ -914,7 +1167,23 @@
           "conclusion_basis": "官方数据部分印证：昌岗中路小学教育集团核心校（2025年成立）、省一级历史称号（2003）、对口直升五中附中+第四派位组初中构成优质、2026年8个班为区内大校；但主流网传梯队版本列第二梯队，“第一梯队”标签来源不足（官方媒体称“口碑名校”）。",
           "data_gaps": [
             "无"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市海珠区昌岗中路小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "广州日报大洋网-2025年昌岗中路小学教育集团成立",
+              "url": "http://news.dayoo.com/gzrbrmt/202511/13/170614_54893958.htm",
+              "note": "昌岗中路小学教育集团核心校，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         }
       ]
     },
@@ -972,7 +1241,28 @@
           "data_gaps": [
             "2026年班数（省属，不在天河区公办小学招生计划表）",
             "集团身份（省属不适用）"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "华南师范大学附属小学",
+            "credit_code": "12440000G184654781",
+            "type": "省属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "华师附小官网-校史回顾",
+              "url": "http://hnsdfx.scnu.edu.cn/xuexiaogaikuang/xiaoshihuigu/",
+              "note": "广东省唯一省直属小学，由省教育厅与华南师范大学双重领导，省属高校直属附属，品牌源头即自身（本部）"
+            },
+            {
+              "source": "企查查",
+              "url": "https://m.qcc.com/firm/g570904b56e48e5ff358a859d90aeab9.html",
+              "note": "统一社会信用代码12440000G184654781，广东省事业单位登记管理局登记"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市天河区华阳小学",
@@ -1034,7 +1324,23 @@
           "conclusion_basis": "官方数据多维印证：2026年对口直升广州中学（区属最优质公办初中之一）、华阳教育集团核心校（2018年成立）、省一级历史称号（2003）、2027年学位预警（热度高）。网传“第一梯队”有较强官方客观数据支撑。",
           "data_gaps": [
             "天河南校区2026年计划班数未单列（招生计划表中仅华成校区7班）"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市天河区华阳小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "南方+",
+              "url": "http://static.nfapp.southcn.com/content/201809/08/c1471451.html",
+              "note": "广州华阳教育集团核心校，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市天河区华景小学",
@@ -1086,7 +1392,23 @@
           "conclusion_basis": "官方数据部分印证：对口113中（区属优质公办初中）、省一级历史称号（2006）、2027年学位预警（热度高）；但未查到集团身份，对口初中非全区最顶尖梯队，官方客观数据不足以完全支撑“第一梯队”定位。",
           "data_gaps": [
             "教育集团身份"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市天河区华景小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "无忧考网-2016年天河区小学排名",
+              "url": "https://m.51test.net/show/8034450.html",
+              "note": "天河区传统公办名校，自身即品牌，未见他校品牌挂靠；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市天河区龙口西小学",
@@ -1140,7 +1462,23 @@
             "省一级历史称号",
             "教育集团身份",
             "各校区细分班数"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市天河区龙口西小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "搜狐网-2016年广州小学梯队",
+              "url": "https://m.sohu.com/n/457616886/",
+              "note": "天河区传统公办名校，自身即品牌，未见他校品牌挂靠；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市天河区天府路小学",
@@ -1188,7 +1526,23 @@
           "data_gaps": [
             "省一级历史称号",
             "教育集团身份"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市天河区天府路小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "网易-2020年天河区'超级小学'",
+              "url": "https://c.m.163.com/news/a/FFV62B1R0530MA7O.html",
+              "note": "天河区传统公办名校，自身即品牌，未见他校品牌挂靠；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市天河区体育东路小学（含兴国学校、海明学校）",
@@ -1235,7 +1589,28 @@
           "conclusion_basis": "官方数据部分印证：对口天河中学、体育东教育集团核心校（2018年成立）、省一级历史称号（2001）、兴国学校2027年预警；但多数网传梯队版本将其列第二梯队，“第一梯队”标签来源集中且版本差异大，客观数据与“第一梯队”定位之间的支撑强度弱于华阳/龙口西。",
           "data_gaps": [
             "本部/兴国/海明各校区2026年细分班数（合计15班）"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市天河区体育东路小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "云上岭南（羊城晚报）",
+              "url": "https://ysln.ycwb.com/content/2024-10/28/content_53014437.html",
+              "note": "体育东路小学本体1990年创办；2018年体育东教育集团成立后，兴国校区、海明校区独立办学为'体育东路小学兴国学校''体育东路小学海明学校'，与本体分属不同办学主体，本条目为体育东路小学本体→本部；兴国/海明学校法人性质待核"
+            },
+            {
+              "source": "南方+",
+              "url": "https://www.nfnews.com/content/j3kjkPqdyA.html",
+              "note": "兴国学校、海明学校、均和小学均为体育东'手把手'创办的新校，灵秀小学为参与筹建独立开办；均属集团化办学下新设学校"
+            }
+          ],
+          "opened_year": null
         }
       ]
     },
@@ -1291,7 +1666,23 @@
           },
           "conclusion": "有支撑",
           "conclusion_basis": "省一级历史称号(1994)+区属小学教育集团核心校+2026学位预警+2026年17班（永平片最大规模之一），官方客观信号多项支撑网传名校标签。",
-          "data_gaps": []
+          "data_gaps": [],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市白云区京溪小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "白云区政府-2026年学位预警通告",
+              "url": "https://www.by.gov.cn/gzbyjy/gkmlpt/content/10/10611/mpost_10611121.html",
+              "note": "白云区教育局公布的区属公办学校；京溪小学教育集团核心校，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市白云区景泰小学",
@@ -1342,7 +1733,23 @@
           },
           "conclusion": "有支撑",
           "conclusion_basis": "省一级历史称号(2005)+教育集团核心校+2026学位预警+多来源列为第一梯队。",
-          "data_gaps": []
+          "data_gaps": [],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市白云区景泰小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "工人日报-2024年景泰小学教育集团",
+              "url": "https://www.workercn.cn/c/2024-03-08/8177646.shtml",
+              "note": "景泰小学教育集团核心校，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市白云区广园小学",
@@ -1392,7 +1799,23 @@
           },
           "conclusion": "有支撑",
           "conclusion_basis": "省一级历史称号(1994)+教育集团核心校（集团涵盖11个校区）+2026学位预警，多来源列为白云头部。",
-          "data_gaps": []
+          "data_gaps": [],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市白云区广园小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "广州日报大洋网-2024年白云区教育集团",
+              "url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
+              "note": "广园小学教育集团核心校，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市白云区黄边小学",
@@ -1439,7 +1862,23 @@
           "conclusion_basis": "仅省一级历史称号(2005)与民间口碑支撑，未查到教育集团身份，2026未列入学位预警。",
           "data_gaps": [
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市白云区黄边小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "白云区政府-2024年学位预警通告",
+              "url": "https://www.by.gov.cn/gzbyjy/gkmlpt/content/9/9472/mpost_9472287.html",
+              "note": "白云区教育局公布的区属公办学校；传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市白云区三元里小学",
@@ -1485,7 +1924,23 @@
           },
           "conclusion": "有支撑",
           "conclusion_basis": "省一级历史称号(1995)+教育集团核心校；官方客观信号支持'老牌名校'标签，但2026未预警、网传未明确第一梯队。",
-          "data_gaps": []
+          "data_gaps": [],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市白云区三元里小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "今日头条-三元里小学教育集团",
+              "url": "http://m.toutiao.com/group/7329489222564676131/",
+              "note": "三元里小学教育集团核心校，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市白云区华师附中实验小学",
@@ -1524,7 +1979,33 @@
           "conclusion_basis": "教育集团核心校+2026学位预警+14班大班额体现需求热度，但非省一级历史名校，网传'名校'标签主要来自楼盘/自媒体口碑。",
           "data_gaps": [
             "省一级历史称号：无"
-          ]
+          ],
+          "entity_relation": "独立法人挂牌校",
+          "tier1_eligible": false,
+          "legal_entity": {
+            "name": "广州市白云区华师附中实验小学",
+            "credit_code": "12440111550572636K",
+            "type": "区属公办"
+          },
+          "exclude_reason": "白云区属公办小学，借用华南师范大学附属中学名校品牌（华师附中教育集团成员、华师附中承办），独立事业单位法人，本质为合作办学挂牌校",
+          "evidence": [
+            {
+              "source": "白云区政府-2026年部门预算",
+              "url": "https://www.by.gov.cn/attachment/8/8008/8008982/10779110.pdf",
+              "note": "白云区教育局下属公办小学，全额拨款事业单位"
+            },
+            {
+              "source": "上哪学",
+              "url": "https://www.shangnaxue.net/school/1174882464294817794.html?cid=105",
+              "note": "2009年7月由白云区政府、白云区教育局、华师附中教育集团、新世界中国地产联合开办，华师附中承办"
+            },
+            {
+              "source": "企查查",
+              "url": "https://m.qcc.com/firm/g837c9fddcbdc841794b719673ce0912.html",
+              "note": "统一社会信用代码12440111550572636K，独立事业单位法人（不同于华师附中本体）"
+            }
+          ],
+          "opened_year": 2009
         },
         {
           "name": "广州市白云区同和小学",
@@ -1567,7 +2048,23 @@
           "conclusion_basis": "省一级历史称号(2004)+2026学位预警；网传来源较单一（同源系列盘点），未查到集团身份。",
           "data_gaps": [
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市白云区同和小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "白云区政府-2026年学位预警通告",
+              "url": "https://www.by.gov.cn/gzbyjy/gkmlpt/content/10/10611/mpost_10611121.html",
+              "note": "白云区教育局公布的区属公办学校；传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市白云区握山小学",
@@ -1606,7 +2103,23 @@
           "data_gaps": [
             "教育集团身份未查到",
             "网传来源不足"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市白云区握山小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "白云区政府-2026年学位预警通告",
+              "url": "https://www.by.gov.cn/gzbyjy/gkmlpt/content/10/10611/mpost_10611121.html",
+              "note": "白云区教育局公布的区属公办学校；传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市白云区明德小学",
@@ -1650,7 +2163,23 @@
           "data_gaps": [
             "教育集团身份未查到",
             "2026学位预警未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市白云区明德小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "搜狐-2019幼升小名校解读（白云区）",
+              "url": "https://m.sohu.com/a/245192768_349684",
+              "note": "白云区传统公办小学，自身即品牌，未见他校品牌挂靠；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市白云区人和镇第二小学",
@@ -1693,7 +2222,23 @@
           "conclusion_basis": "省一级历史称号(2006)+2026学位预警；网传来源不足、未查到集团身份。",
           "data_gaps": [
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市白云区人和镇第二小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "搜狐-2019幼升小名校解读（白云区）",
+              "url": "https://m.sohu.com/a/245192768_349684",
+              "note": "白云区传统公办小学，自身即品牌，未见他校品牌挂靠；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市白云区江村小学",
@@ -1736,7 +2281,23 @@
           "conclusion_basis": "省一级历史称号(2005)+2026学位预警；网传来源不足、未查到集团身份。",
           "data_gaps": [
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市白云区江村小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "搜狐-2019幼升小名校解读（白云区）",
+              "url": "https://m.sohu.com/a/245192768_349684",
+              "note": "白云区传统公办小学，自身即品牌，未见他校品牌挂靠；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市白云区太和第一小学",
@@ -1780,7 +2341,28 @@
           "data_gaps": [
             "教育集团身份未查到",
             "2026学位预警未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市白云区太和第一小学",
+            "credit_code": "12440111G34038388Y",
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "启信宝",
+              "url": "https://www.qixin.com/company/01cf8460-f177-11e9-8ce2-00163e0d7703",
+              "note": "统一社会信用代码12440111G34038388Y，举办单位为白云区教育局，单一事业单位法人"
+            },
+            {
+              "source": "白云区政府-义务教育学校基本信息一览表",
+              "url": "https://www.by.gov.cn/gzbyjy/gkmlpt/content/8/8787/post_8787737.html",
+              "note": "官方一览表显示和龙校区属于'太和第二小学'（米龙/白山/和龙校区）而非太和第一小学；太和第一小学为1994年开办的单校区镇属中心小学，判为本部"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市白云区民航学校（校本部·小学部）",
@@ -1816,7 +2398,28 @@
             "网传来源不足",
             "省一级历史称号：无",
             "集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市白云区民航学校",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "白云区政府-2025年部门预算",
+              "url": "https://www.by.gov.cn/attachment/7/7853/7853809/10373821.pdf",
+              "note": "白云区教育局属下公办九年一贯制学校，含小学教育（2050202）"
+            },
+            {
+              "source": "广州白云发布",
+              "url": "http://m.toutiao.com/group/7542884961125138986/",
+              "note": "原名民航广州子弟学校（1984年成立），2019年7月移交白云区人民政府转为九年一贯制公办；民航系统背景，自身即品牌，无他校品牌挂靠。注：源调研conclusion为'不支撑'（第一梯队传闻），entity层面判本部"
+            }
+          ],
+          "opened_year": null
         }
       ]
     },
@@ -1888,7 +2491,28 @@
           "conclusion_basis": "省一级历史称号(1994首批)+2026学位预警(东校区)+2026年12班+派位1组（组内含86中、广大附中黄埔实验东校区等）+多来源（6个）一致列为第一梯队。",
           "data_gaps": [
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "同法人校区",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市黄埔区怡园小学",
+            "credit_code": "12440112G34045190C",
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "360地图/比地招标网-怡园小学工商信息",
+              "url": "https://m.map.360.cn/m/search/detail/pid=f01a185eca47c3f3",
+              "note": "统一社会信用代码12440112G34045190C，'怡园小学'单一事业单位法人（1989年创办）"
+            },
+            {
+              "source": "黄埔区政府-2022年小学招生政策指引",
+              "url": "https://www.hp.gov.cn/gzhpjy/gkmlpt/content/8/8220/mpost_8220896.html",
+              "note": "东、西、北三个校区均以'怡园小学'名义招生，同法人多校区办学"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市黄埔区荔园小学",
@@ -1940,7 +2564,23 @@
           "conclusion_basis": "省一级历史称号(2000)+多来源（3个）列为第一梯队/省一级第一类。",
           "data_gaps": [
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市黄埔区荔园小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "黄埔区政府-2021年小学招生政策指引",
+              "url": "http://www.hp.gov.cn/hpqgzkfqzdlyzl/jyxx/gzdt/content/post_7264745.html",
+              "note": "黄埔区公办小学；传统公办，自身即品牌，未见他校品牌挂靠；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市黄埔区港湾小学",
@@ -1992,7 +2632,23 @@
           "conclusion_basis": "省一级历史称号(1994)+多来源（3个）列为第一梯队/省一级第一类。",
           "data_gaps": [
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市黄埔区港湾小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "搜狐-黄埔区热门公办小学",
+              "url": "https://m.sohu.com/a/356749053_679233/",
+              "note": "黄埔区传统公办小学，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市黄埔区下沙小学",
@@ -2044,7 +2700,23 @@
           "conclusion_basis": "省一级历史称号(2002)+多来源列为省一级/第二梯队；未查到集团身份与学位预警。",
           "data_gaps": [
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市黄埔区下沙小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "凤凰网房产广州-省一级学区房盘点",
+              "url": "https://gz.ihouse.ifeng.com/news/2019_07_01-52156256_0.shtml",
+              "note": "老黄埔传统公办省一级小学，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市黄埔区文冲小学",
@@ -2096,7 +2768,23 @@
           "conclusion_basis": "省一级历史称号(2005)+多来源列为省一级/第二梯队；未查到集团身份与学位预警。",
           "data_gaps": [
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市黄埔区文冲小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "黄埔区政府-2021年小学招生政策指引",
+              "url": "http://www.hp.gov.cn/hpqgzkfqzdlyzl/jyxx/gzdt/content/post_7264745.html",
+              "note": "黄埔区公办小学；传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市黄埔区沙步小学",
@@ -2144,7 +2832,23 @@
           "data_gaps": [
             "2026年计划班数未查到（计划表未见单列）",
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市黄埔区沙步小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "今日头条-黄埔37所知名小学盘点",
+              "url": "http://m.toutiao.com/group/7173958017585594884/",
+              "note": "黄埔区传统公办小学，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州石化小学（东、西校区）",
@@ -2192,7 +2896,28 @@
           "data_gaps": [
             "教育集团身份未查到",
             "网传来源较少"
-          ]
+          ],
+          "entity_relation": "同法人校区",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州石化小学",
+            "credit_code": "124401127812403809",
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "启信宝/天眼查",
+              "url": "https://m.qixin.com/company/89a1e152-1e84-48ed-b348-13aa8f5fb8a5",
+              "note": "统一社会信用代码124401127812403809，举办单位为黄埔区教育局，单一事业单位法人"
+            },
+            {
+              "source": "黄埔区政府-2021年小学招生政策指引",
+              "url": "http://www.hp.gov.cn/hpqgzkfqzdlyzl/jyxx/gzdt/content/post_7264745.html",
+              "note": "广州石化小学公办小学，东、西校区同法人办学"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市黄埔区东荟花园小学（东、南、北校区）",
@@ -2243,7 +2968,28 @@
           "data_gaps": [
             "教育集团身份未查到",
             "省一级历史称号：无"
-          ]
+          ],
+          "entity_relation": "同法人校区",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市黄埔区东荟花园小学",
+            "credit_code": "12440112078437915D",
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "启信宝/企查查",
+              "url": "https://m.qixin.com/company/f2859228-fd16-11e9-9b97-00163e08d0d2",
+              "note": "统一社会信用代码12440112078437915D（曾用名广州市萝岗区东荟花园小学），单一事业单位法人"
+            },
+            {
+              "source": "本地宝-2023年黄埔区公办小学名单",
+              "url": "http://gz.bendibao.com/life/202329/334770.shtml",
+              "note": "东、南、北三个校区均以'东荟花园小学'名义招生，同法人多校区办学"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市黄埔区玉泉学校（小学部）",
@@ -2283,7 +3029,33 @@
           "data_gaps": [
             "教育集团身份未查到",
             "省一级历史称号：无"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市黄埔区玉泉学校",
+            "credit_code": "12440112MB2C09042H",
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "黄埔区政府-2023年部门预算",
+              "url": "http://www.hp.gov.cn/attachment/7/7431/7431878/8963542.pdf",
+              "note": "黄埔区教育局属下公办九年一贯制学校"
+            },
+            {
+              "source": "天眼查",
+              "url": "https://m.tianyancha.com/company/3096966758",
+              "note": "统一社会信用代码12440112MB2C09042H，举办单位黄埔区教育局"
+            },
+            {
+              "source": "今日头条-黄埔镜像",
+              "url": "http://m.toutiao.com/group/7655667017337111092/",
+              "note": "隶属玉岩教育集团（集团成员身份），但校名无'玉岩'等名校品牌挂靠，2016年建校自有品牌，判为本部"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市黄埔区香雪小学",
@@ -2324,7 +3096,23 @@
             "网传来源不足",
             "省一级历史称号：无",
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市黄埔区香雪小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "今日头条-黄埔37所知名小学盘点",
+              "url": "http://m.toutiao.com/group/7173958017585594884/",
+              "note": "黄埔区传统公办小学，自身即品牌；统一社会信用代码待核。注：源调研conclusion为'不支撑'"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市黄埔区黄埔军校小学",
@@ -2360,7 +3148,28 @@
           "data_gaps": [
             "省一级历史称号：无",
             "2026学位预警未查到"
-          ]
+          ],
+          "entity_relation": "独立法人挂牌校",
+          "tier1_eligible": false,
+          "legal_entity": {
+            "name": "广州市黄埔区黄埔军校小学",
+            "credit_code": "12440112MB2D378101",
+            "type": "区属公办"
+          },
+          "exclude_reason": "黄埔区属公办小学，由广州大学附属中学委托管理（黄埔广附教育集团核心校），独立事业单位法人，借用广大附中办学品牌",
+          "evidence": [
+            {
+              "source": "南方+-黄埔广附教育集团授牌",
+              "url": "https://m.sohu.com/a/395645195_272871/",
+              "note": "黄埔广附教育集团核心校，广大附中委托管理"
+            },
+            {
+              "source": "企查查/天眼查",
+              "url": "https://m.qcc.com/firm/gb7f4f132b2469f83b279e530e40f8ac.html",
+              "note": "统一社会信用代码12440112MB2D378101，黄埔区事业单位登记管理局登记，独立法人（不同于广大附中）"
+            }
+          ],
+          "opened_year": null
         }
       ]
     },
@@ -2420,7 +3229,23 @@
           "conclusion_basis": "省一级历史称号(1994首批)+多来源（3个）一致列为番禺第一梯队/公认第一；2026年7班。",
           "data_gaps": [
             "教育集团身份未查到（官方）"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市番禺区市桥中心小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "番禺区政府-2026年招生信息预告",
+              "url": "https://www.panyu.gov.cn/ztzx/qmtjzwgkh/ywjylj/content/post_10681097.html",
+              "note": "番禺区公办小学；传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市番禺区市桥东城小学",
@@ -2475,7 +3300,23 @@
           "conclusion_basis": "省一级历史称号(2000)+多来源（3个）列为第一梯队/省级小学。",
           "data_gaps": [
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市番禺区市桥东城小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "搜狐-番禺11所省级小学盘点",
+              "url": "https://m.sohu.com/a/163641170_689549/",
+              "note": "番禺区传统公办小学，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市番禺区市桥南阳里小学",
@@ -2525,7 +3366,23 @@
           "conclusion_basis": "省一级历史称号(2003)支撑老牌校标签；网传为第二梯队，未查到集团身份与学位预警。",
           "data_gaps": [
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市番禺区市桥南阳里小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "搜狐-番禺11所省级小学盘点",
+              "url": "https://m.sohu.com/a/163641170_689549/",
+              "note": "番禺区传统公办小学，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市番禺区市桥德兴小学",
@@ -2578,7 +3435,23 @@
           },
           "conclusion": "有支撑",
           "conclusion_basis": "省一级历史称号(2003)+教育集团核心校（2024年官方授牌）+多来源列为第二梯队。",
-          "data_gaps": []
+          "data_gaps": [],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市番禺区市桥德兴小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "番禺区政府-德兴小学教育集团",
+              "url": "http://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10033795.html",
+              "note": "德兴小学教育集团核心校，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市番禺区市桥北城小学",
@@ -2628,7 +3501,23 @@
           "conclusion_basis": "省一级历史称号(2004)+2026学位供给紧张（需求热度）；网传为第二梯队，未查到集团身份。",
           "data_gaps": [
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市番禺区市桥北城小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "番禺区政府-2026年招生信息预告",
+              "url": "https://www.panyu.gov.cn/ztzx/qmtjzwgkh/ywjylj/content/post_10681097.html",
+              "note": "番禺区公办小学；传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市番禺区市桥实验小学",
@@ -2675,7 +3564,23 @@
           "conclusion_basis": "教育集团核心校（2023官方）+桥南板块口碑；但非省一级历史名校，2026未预警，网传'第一梯队'表述少见（多为板块热门校）。",
           "data_gaps": [
             "省一级历史称号：无"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市番禺区市桥实验小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "番禺区政府-2023年新成立教育集团",
+              "url": "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_9157738.html",
+              "note": "市桥实验小学教育集团核心校，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广东番禺中学附属学校（小学部）",
@@ -2717,7 +3622,33 @@
           "conclusion_basis": "教育集团核心成员（官方2019年成立）+2026学位供给紧张（小学部）+8班；但非省一级历史名校，网传标签主要依托集团品牌。",
           "data_gaps": [
             "省一级历史称号：无"
-          ]
+          ],
+          "entity_relation": "独立法人挂牌校",
+          "tier1_eligible": false,
+          "legal_entity": {
+            "name": "广东番禺中学附属学校",
+            "credit_code": "12440113MB2C79294W",
+            "type": "区属公办"
+          },
+          "exclude_reason": "番禺区属九年一贯制公办学校（独立法人），借用广东番禺中学品牌（广东番禺中学教育集团成员），小学部非番禺中学本部",
+          "evidence": [
+            {
+              "source": "启信宝/企查查",
+              "url": "https://www.qixin.com/company/8e775174-f094-11e9-a33c-00163f00240b",
+              "note": "统一社会信用代码12440113MB2C79294W，举办单位为番禺区教育局，2022年6月登记成立"
+            },
+            {
+              "source": "广州市生态环境局-环评文件",
+              "url": "https://sthjj.gz.gov.cn/attachment/7/7279/7279468/8920355.pdf",
+              "note": "广东番禺中学自身统一社会信用代码为12440113455410604B，与附属学校不同→独立法人挂牌校"
+            },
+            {
+              "source": "羊城晚报-广东番禺中学教育集团",
+              "url": "http://m.toutiao.com/group/7100340799665078819/",
+              "note": "集团2019年成立，附属学校为集团成员，借用番禺中学品牌"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广东仲元中学附属学校（小学部）",
@@ -2755,7 +3686,33 @@
           "conclusion_basis": "教育集团核心校（2024官方）+2026学位供给紧张（初中部）；但非省一级历史名校，小学部班额较小（4班），网传标签主要依托仲元品牌。",
           "data_gaps": [
             "省一级历史称号：无"
-          ]
+          ],
+          "entity_relation": "独立法人挂牌校",
+          "tier1_eligible": false,
+          "legal_entity": {
+            "name": "广东仲元中学附属学校",
+            "credit_code": "12440113MB2D67737Q",
+            "type": "区属公办"
+          },
+          "exclude_reason": "番禺区属九年一贯制公办学校（独立法人），借用广东仲元中学品牌（仲元附属学校教育集团核心校），小学部非仲元中学本部",
+          "evidence": [
+            {
+              "source": "企查查/番禺区事业单位登记信息",
+              "url": "https://m.qcc.com/firm/gbac5fbfbb64670ec7a941f2291330cf.html",
+              "note": "统一社会信用代码12440113MB2D67737Q，番禺区事业单位登记管理局登记"
+            },
+            {
+              "source": "启信宝-广东仲元中学",
+              "url": "https://www.qixin.com/company/5204f8a6-63b7-11e8-be23-00163e104bc8",
+              "note": "广东仲元中学自身统一社会信用代码为12440113455409144C，与附属学校不同→独立法人挂牌校"
+            },
+            {
+              "source": "番禺区政府-仲元附属学校教育集团",
+              "url": "http://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10033795.html",
+              "note": "仲元附属学校教育集团核心校"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市番禺区石碁镇中心小学",
@@ -2794,7 +3751,23 @@
           "conclusion_basis": "省一级历史称号(2004)+2026学位供给紧张+9班；网传'第一梯队'表述弱（来源单一），以镇街中心校形式被关注。",
           "data_gaps": [
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市番禺区石碁镇中心小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "搜狐-番禺11所省级小学盘点",
+              "url": "https://m.sohu.com/a/163641170_689549/",
+              "note": "番禺区镇属中心小学，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市番禺区石楼镇中心小学",
@@ -2837,7 +3810,23 @@
           "conclusion_basis": "省一级历史称号(1996)+多来源（2个）列为省级小学/口碑校；2026年未预警。",
           "data_gaps": [
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市番禺区石楼镇中心小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "搜狐-番禺11所省级小学盘点",
+              "url": "https://m.sohu.com/a/163641170_689549/",
+              "note": "番禺区镇属中心小学，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市番禺区南村镇中心小学",
@@ -2880,7 +3869,23 @@
           "data_gaps": [
             "教育集团身份未查到",
             "南村学区对口初中名单未在官方预告单列"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市番禺区南村镇中心小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "搜狐-番禺11所省级小学盘点",
+              "url": "https://m.sohu.com/a/163641170_689549/",
+              "note": "番禺区镇属中心小学，传统公办，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市番禺区洛溪新城小学",
@@ -2919,7 +3924,23 @@
           "data_gaps": [
             "省一级历史称号：无",
             "教育集团身份未查到"
-          ]
+          ],
+          "entity_relation": "本部",
+          "tier1_eligible": true,
+          "legal_entity": {
+            "name": "广州市番禺区洛溪新城小学",
+            "credit_code": null,
+            "type": "区属公办"
+          },
+          "exclude_reason": null,
+          "evidence": [
+            {
+              "source": "今日头条-丽丽在广州（广州11区小学排名汇总）",
+              "url": "http://m.toutiao.com/group/7488552224281346579/",
+              "note": "番禺区传统公办小学，自身即品牌；统一社会信用代码待核"
+            }
+          ],
+          "opened_year": null
         },
         {
           "name": "广州市番禺区华师附中番禺小学",
@@ -2955,7 +3976,33 @@
             "省一级历史称号：无",
             "教育集团身份未查到",
             "网传来源较少"
-          ]
+          ],
+          "entity_relation": "独立法人挂牌校",
+          "tier1_eligible": false,
+          "legal_entity": {
+            "name": "华师附中番禺小学",
+            "credit_code": "12440113MB2E14839T",
+            "type": "区属公办"
+          },
+          "exclude_reason": "番禺区属公办小区配套小学（2021年开办、2023年更名），纳入华师附中教育集团，独立事业单位法人，借用华师附中品牌",
+          "evidence": [
+            {
+              "source": "广州本地宝-2026年教师招聘公告",
+              "url": "https://m.gz.bendibao.com/job/364610.html",
+              "note": "小区配套公办小学，2021年9月1日开办，2023年4月28日正式更名为华师附中番禺小学并纳入华师附中教育集团"
+            },
+            {
+              "source": "爱企查/企查查",
+              "url": "https://www.aiqicha.com/company_detail_87503662747695",
+              "note": "统一社会信用代码12440113MB2E14839T，独立事业单位法人"
+            },
+            {
+              "source": "华南师范大学附属中学官网",
+              "url": "https://www.hsfz.net.cn/list_6/5652.html",
+              "note": "华师附中教育集团成员校，集团化办学。注：另有一所2003年创办的民办'华师附中番禺小学'（华南新城内，现名广州南方学院番禺附属小学），与本条公办校为不同主体，本条目指公办校"
+            }
+          ],
+          "opened_year": 2021
         },
         {
           "name": "广州大学附属小学",
@@ -2991,7 +4038,33 @@
             "省一级历史称号：无",
             "教育集团身份未查到",
             "网传来源不足"
-          ]
+          ],
+          "entity_relation": "独立法人挂牌校",
+          "tier1_eligible": false,
+          "legal_entity": {
+            "name": "广州大学附属小学",
+            "credit_code": "1244011307461868XG",
+            "type": "区属公办"
+          },
+          "exclude_reason": "番禺区属公办小学（番禺区教育局、广州大学附属中学、小谷围街道三方合作办学），由广大附中负责全面管理，独立事业单位法人，借用广大附中品牌",
+          "evidence": [
+            {
+              "source": "番禺区政府-2026年部门预算",
+              "url": "http://www.panyu.gov.cn/attachment/7/7982/7982360/10713893.pdf",
+              "note": "2013年8月成立，大学城地区配套公办小学"
+            },
+            {
+              "source": "广州大学就业网",
+              "url": "https://jy.gzhu.edu.cn/web/Index/company-info?id=67973",
+              "note": "番禺区教育局、小谷围街道办和广州大学附属中学合作办学，为广大附中教育集团成员单位，由广大附中负责实施教育教学全面管理"
+            },
+            {
+              "source": "天眼查",
+              "url": "https://m.tianyancha.com/company/3096983979",
+              "note": "统一社会信用代码1244011307461868XG，番禺区事业单位登记管理局登记"
+            }
+          ],
+          "opened_year": 2013
         },
         {
           "name": "华南师范大学附属广州大学城小学",
@@ -3027,7 +4100,38 @@
             "省一级历史称号：无",
             "教育集团身份未查到",
             "网传来源不足"
-          ]
+          ],
+          "entity_relation": "独立法人挂牌校",
+          "tier1_eligible": false,
+          "legal_entity": {
+            "name": "华南师范大学附属广州大学城小学",
+            "credit_code": "12440113MB2C97994M",
+            "type": "区属公办"
+          },
+          "exclude_reason": "番禺区属公办小学（番禺区教育局、华南师范大学、小谷围街道三方合作创办），由华师附小全面管理（垂直管理），独立事业单位法人，借用华师附小品牌",
+          "evidence": [
+            {
+              "source": "番禺区政府-2026年部门预算",
+              "url": "http://www.panyu.gov.cn/attachment/7/7981/7981020/10709056.pdf",
+              "note": "番禺区教育局、华南师范大学、小谷围街道办事处三方合作创办的全日制公办小学"
+            },
+            {
+              "source": "高校人才网-2025年招聘公告",
+              "url": "https://www.gaoxiaojob.com/announcement/detail/322068.html",
+              "note": "华南师范大学附属小学垂直管理学校，由华师附小负责全面管理"
+            },
+            {
+              "source": "启信宝",
+              "url": "https://www.qixin.com/company/18d23e84-f18e-11e9-8253-00163f00240b",
+              "note": "统一社会信用代码12440113MB2C97994M，独立事业单位法人"
+            },
+            {
+              "source": "羊城晚报·羊城派",
+              "url": "http://m.toutiao.com/group/7387766445645546036/",
+              "note": "2018年6月创办，2018年秋季招生"
+            }
+          ],
+          "opened_year": 2018
         }
       ]
     }

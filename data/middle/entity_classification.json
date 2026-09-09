@@ -1,0 +1,1360 @@
+{
+  "meta": {
+    "task": "广州7区53所网传第一梯队初中法人实体分类调研",
+    "generated_date": "2026-09-09",
+    "classification_criteria": "本部/同法人校区/独立法人挂牌校/待核；决定性判据为统一社会信用代码（公办看事业单位法人登记、民办看民办非企业单位登记）",
+    "data_source": "data/middle/tier1_schools_all.json",
+    "coverage": 53,
+    "note": "统一社会信用代码查不到的置null并标注“信用代码待核”，未编造任何代码/年份"
+  },
+  "schools": [
+    {
+      "name": "广东实验中学（初中部）",
+      "district": "越秀区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广东实验中学",
+        "credit_code": "12440000455859276C",
+        "type": "省属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "启信宝·广东实验中学",
+          "url": "https://www.qixin.com/financing/d365a49f-bc93-4f7f-9847-e5e2809bec58",
+          "note": "统一社会信用代码12440000455859276C，省直属事业单位法人"
+        },
+        {
+          "source": "广州日报·省/国家级示范性名单",
+          "url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm",
+          "note": "省直属国家级示范性，省实教育集团核心校，品牌源头即自身"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市执信中学（执信路校区）",
+      "district": "越秀区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市执信中学",
+        "credit_code": null,
+        "type": "市属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "市招考办·教育集团名额分配",
+          "url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html",
+          "note": "执信教育集团核心校，市直属；信用代码待核"
+        },
+        {
+          "source": "广州日报·示范性名单",
+          "url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm",
+          "note": "市直属国家级示范性，品牌源头即自身"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市第二中学（初中部）",
+      "district": "越秀区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市第二中学",
+        "credit_code": "12440100455344264H",
+        "type": "市属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "启信宝·广州市第二中学",
+          "url": "https://www.qixin.com/financing/fb7b810a-f166-11e9-af0f-00163e0d7703",
+          "note": "统一社会信用代码12440100455344264H，市属事业单位法人"
+        },
+        {
+          "source": "市招考办·教育集团名额分配",
+          "url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html",
+          "note": "二中教育集团核心校，品牌源头即自身"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州大学附属中学（黄华路校区）",
+      "district": "越秀区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州大学附属中学",
+        "credit_code": "12440100455349276W",
+        "type": "市属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "企查查·广州大学附属中学",
+          "url": "https://m.qcc.com/firm/g3ffa756ec4df7779232878584dff165.html",
+          "note": "统一社会信用代码12440100455349276W，市属事业单位法人"
+        },
+        {
+          "source": "市招考办·教育集团名额分配",
+          "url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html",
+          "note": "广附教育集团核心校，品牌源头即自身"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市铁一中学（越秀校区）",
+      "district": "越秀区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市铁一中学",
+        "credit_code": null,
+        "type": "市属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州市铁一中学官网",
+          "url": "http://www.gtyz.edu.cn/ArticleSingle-10.html",
+          "note": "铁一教育集团核心校（越秀、番禺、白云三个市直属公办校区）；信用代码待核"
+        },
+        {
+          "source": "广州日报·示范性名单",
+          "url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm",
+          "note": "市直属国家级示范性，品牌源头即自身"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市第七中学（本部）",
+      "district": "越秀区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市第七中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州妈妈网·中考数据汇总",
+          "url": "https://m.gzmama.com/thread-5528871-1-1.html",
+          "note": "区属国家级示范性，七中教育集团核心校，品牌源头即自身；信用代码待核"
+        },
+        {
+          "source": "金羊网·2025中考录取",
+          "url": "http://news.ycwb.com/ikinvkltii/content_53552761.htm",
+          "note": "2025年高中录取710分"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市第十六中学（本部）",
+      "district": "越秀区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市第十六中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州妈妈网·中考数据汇总",
+          "url": "https://m.gzmama.com/thread-5528871-1-1.html",
+          "note": "区属国家级示范性，十六中教育集团核心校，品牌源头即自身；信用代码待核"
+        },
+        {
+          "source": "金羊网·2025中考录取",
+          "url": "http://news.ycwb.com/ikinvkltii/content_53552761.htm",
+          "note": "2025年高中录取707分"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市越秀区育才实验学校",
+      "district": "越秀区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市越秀区育才实验学校",
+        "credit_code": "12440104MB2E10838R",
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "企查查·育才实验",
+          "url": "https://m.qcc.com/firm/g4d6661c796f06dee6e4403a5b840cbd.html",
+          "note": "统一社会信用代码12440104MB2E10838R，越秀区属事业单位法人（民转公后）"
+        },
+        {
+          "source": "越秀区人民政府·教育专栏",
+          "url": "https://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/jg/xxjs/zx/content/post_9409930.html",
+          "note": "2022年8月改制为区属公办寄宿制初级中学并沿袭原校名；品牌自身即源头，非挂牌"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市培正中学（初中部）",
+      "district": "越秀区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市培正中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "南方+·2025越秀初中招生",
+          "url": "https://www.nfnews.com/content/A6ErvnBWoK.html",
+          "note": "培正集团核心校+培正小学对口直升；信用代码待核"
+        },
+        {
+          "source": "广州妈妈网·中考数据汇总",
+          "url": "https://m.gzmama.com/thread-5528871-1-1.html",
+          "note": "区属国家级示范性，品牌源头即自身"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广东广雅中学（初中部）",
+      "district": "荔湾区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广东广雅中学",
+        "credit_code": null,
+        "type": "省属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州日报·示范性名单",
+          "url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm",
+          "note": "省直属国家级示范性，广雅教育集团核心校，品牌源头即自身；信用代码待核"
+        },
+        {
+          "source": "抖音·2025广雅中考",
+          "url": "https://www.iesdouyin.com/share/video/7543860875091741962",
+          "note": "2021年初中部复办，首届即冲上豪门梯队"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市荔湾区西关广雅实验学校（西雅）",
+      "district": "荔湾区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "广州市荔湾区西关广雅实验学校",
+        "credit_code": "12440103MB2C20225H",
+        "type": "区属公办"
+      },
+      "exclude_reason": "独立法人（荔湾区属事业单位法人，信用代码与广雅本部不同），由广雅中学委托管理，借用广雅品牌办学，属挂牌校。",
+      "evidence": [
+        {
+          "source": "爱企查·西关广雅",
+          "url": "https://www.aiqicha.com/company_detail_28107411355514",
+          "note": "统一社会信用代码12440103MB2C20225H，成立2016-11-29，事业单位法人"
+        },
+        {
+          "source": "荔湾区事业单位登记管理局公示",
+          "url": "https://nfty-gpu.cn/crm/7349.html",
+          "note": "事业单位法人信息：12440103MB2C20225H"
+        },
+        {
+          "source": "源JSON·education_group",
+          "url": "https://www.iesdouyin.com/share/video/7582485842069949731",
+          "note": "广雅教育集团成员校（委托广雅管理），一校三区"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广东实验中学荔湾学校（省实荔湾）",
+      "district": "荔湾区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "广东实验中学荔湾学校",
+        "credit_code": "12440103MB2C8638XH",
+        "type": "区属公办"
+      },
+      "exclude_reason": "独立法人（荔湾区属事业单位法人12440103MB2C8638XH，与省实本部12440000455859276C不同），荔湾区教育局与省实合作创办（2019），借用省实品牌，属挂牌校。",
+      "evidence": [
+        {
+          "source": "启信宝·省实荔湾",
+          "url": "https://m.qixin.com/company/47cc5fc0-0508-11ea-b8bc-00163e0f05e7",
+          "note": "统一社会信用代码12440103MB2C8638XH，事业单位法人"
+        },
+        {
+          "source": "广州大学就业网·企业信息",
+          "url": "https://jy.gzhu.edu.cn/web/index/company-info?id=62410",
+          "note": "荔湾区教育局、广东实验中学2019年9月合作创办的公办九年制学校"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市真光中学（校本部）",
+      "district": "荔湾区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市真光中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "市招考办·教育集团名额分配",
+          "url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html",
+          "note": "真光教育集团核心校，区属国家级示范性；信用代码待核"
+        },
+        {
+          "source": "金羊网·2025中考录取",
+          "url": "http://news.ycwb.com/ikinvkltii/content_53552761.htm",
+          "note": "2025年高中录取689分"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市第一中学",
+      "district": "荔湾区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市第一中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "市招考办·教育集团名额分配",
+          "url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html",
+          "note": "一中教育集团核心校，区属国家级示范性，品牌源头即自身；信用代码待核"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市第四中学",
+      "district": "荔湾区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市第四中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "市招考办·教育集团名额分配",
+          "url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html",
+          "note": "四中教育集团核心校，区属国家级示范性，品牌源头即自身；信用代码待核"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市西关外国语学校",
+      "district": "荔湾区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市西关外国语学校",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "市招考办·教育集团名额分配",
+          "url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html",
+          "note": "西外集团核心校，市示范性，品牌源头即自身；信用代码待核"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市第六中学（本部）",
+      "district": "海珠区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市第六中学",
+        "credit_code": null,
+        "type": "市属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州日报·示范性名单",
+          "url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm",
+          "note": "市直属国家级示范性，六中教育集团核心校，品牌源头即自身；信用代码待核"
+        },
+        {
+          "source": "金羊网·2025中考录取",
+          "url": "http://news.ycwb.com/ikinvkltii/content_53552761.htm",
+          "note": "2025年高中录取710分"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "中山大学附属中学",
+      "district": "海珠区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "中山大学附属中学",
+        "credit_code": null,
+        "type": "省属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "南方+·中大附中转公",
+          "url": "http://static.nfapp.southcn.com/content/202207/06/c6659233.html",
+          "note": "2022学年起由中山大学举办为公办性质学校（企事业单位办学），不再按民办收费"
+        },
+        {
+          "source": "中山大学附属中学官网",
+          "url": "https://fz.sysu.edu.cn/basic/83",
+          "note": "1993年复名重开，2022年转公有公办体制；品牌源头即自身，非挂牌；转公后新事业单位代码待核（原民办登记52440100C150394666）"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市第五中学（本部）",
+      "district": "海珠区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市第五中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "市招考办·教育集团名额分配",
+          "url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html",
+          "note": "五中教育集团核心校，区属国家级示范性，品牌源头即自身；信用代码待核"
+        },
+        {
+          "source": "金羊网·2025中考录取",
+          "url": "http://news.ycwb.com/ikinvkltii/content_53552761.htm",
+          "note": "2025年高中录取711分区属第一"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市南武中学（本部）",
+      "district": "海珠区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市南武中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州日报·示范性名单",
+          "url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm",
+          "note": "区属国家级示范性，南武集团核心校，品牌源头即自身；信用代码待核"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市海珠外国语实验中学",
+      "district": "海珠区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市海珠外国语实验中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州日报·示范性名单",
+          "url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm",
+          "note": "市示范性，区属公办，品牌源头即自身；信用代码待核"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "华南师范大学附属中学（初中部）",
+      "district": "天河区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "华南师范大学附属中学",
+        "credit_code": null,
+        "type": "省属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州日报·示范性名单",
+          "url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm",
+          "note": "省直属国家级示范性，华附教育集团核心校，品牌源头即自身；信用代码待核"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市天河外国语学校（珠江新城校区）",
+      "district": "天河区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市天河外国语学校",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "市招考办·教育集团名额分配",
+          "url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html",
+          "note": "天外集团核心校，区属公办，品牌源头即自身；信用代码待核"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州中学",
+      "district": "天河区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "市招考办·教育集团名额分配",
+          "url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html",
+          "note": "广州中学集团核心校，区属国家级示范性，品牌源头即自身（2017年天河区属名校整合组建）；信用代码待核"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市执信中学（天河校区）",
+      "district": "天河区",
+      "entity_relation": "同法人校区",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市执信中学",
+        "credit_code": null,
+        "type": "市属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "南方+·执信2022招生说明会",
+          "url": "http://static.nfapp.southcn.com/content/202205/07/c6469335.html",
+          "note": "官方明确两校区“属于同一法人”，所有学生具广州市执信中学学籍"
+        },
+        {
+          "source": "执信官网·媒体视角",
+          "url": "https://www.zhixinhs.cn/articledqhd.html?articleId=9770",
+          "note": "天河校区2021年投入使用招收初一新生，2022年招收高一"
+        }
+      ],
+      "opened_year": 2021,
+      "note": null
+    },
+    {
+      "name": "清华附中湾区学校",
+      "district": "天河区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "清华附中湾区学校",
+        "credit_code": "12440100MB2D680357",
+        "type": "市属公办"
+      },
+      "exclude_reason": "广州市属公办独立法人（事业单位12440100MB2D680357），由广州市教育局、天河区政府、清华附中三方共建，借用清华附中品牌，属挂牌校。",
+      "evidence": [
+        {
+          "source": "企查查·清华附中湾区学校",
+          "url": "https://m.qcc.com/firm/g283ed2d9edfe65433ed8f9d307c8eb2.html",
+          "note": "统一社会信用代码12440100MB2D680357，事业单位法人，开办资金2000万"
+        },
+        {
+          "source": "新快报·清湾学校简介",
+          "url": "https://ep.ycwb.com/epaper/xkb/h5/html5/2026-05/20/content_2584_752267.htm",
+          "note": "广州市教育局、天河区政府、清华附中三方共建的广州市属公办十二年制学校，智谷校区2021年投入"
+        }
+      ],
+      "opened_year": 2021,
+      "note": null
+    },
+    {
+      "name": "广州市第一一三中学",
+      "district": "天河区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市第一一三中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州日报·示范性名单",
+          "url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm",
+          "note": "市示范性，区属公办，品牌源头即自身；信用代码待核"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市天河中学",
+      "district": "天河区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市天河中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州日报·示范性名单",
+          "url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm",
+          "note": "区属国家级示范性，天河中学集团核心校，品牌源头即自身；信用代码待核"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市天河区汇景实验学校",
+      "district": "天河区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市天河区汇景实验学校",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "源JSON·汇景实验",
+          "url": "https://www.toutiao.com/article/7524746744744730624/",
+          "note": "九年一贯制公办，原四十七中汇景实验学校，现独立校名，品牌源头即自身；信用代码待核"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州天省实验学校（民办）",
+      "district": "天河区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "广州天省实验学校",
+        "credit_code": "524401007756746258",
+        "type": "民办非企业单位"
+      },
+      "exclude_reason": "民办非企业单位独立法人（524401007756746258），原“广东实验中学附属天河学校”（省实与昊源集团联合创办），借用省实品牌，属挂牌校。",
+      "evidence": [
+        {
+          "source": "企查查·天省实验",
+          "url": "https://m.qcc.com/firm/sd29fef349d43cc5ac86fd4c44e1b2ce.html",
+          "note": "统一社会信用代码524401007756746258，民办非企业单位，登记机关广州市教育局"
+        },
+        {
+          "source": "天省实验学校官网",
+          "url": "http://www.gdemsch.cn/list/12.html",
+          "note": "原广东实验中学附属天河学校，2004年由广东实验中学与广州昊源集团联合创办"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市白云区金广实验学校（金广附/广大附中实验中学）",
+      "district": "白云区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "广州市白云区金广实验学校",
+        "credit_code": "12440111MB2E43090T",
+        "type": "区属公办"
+      },
+      "exclude_reason": "2022年民转公后为白云区属独立事业单位法人（12440111MB2E43090T，与广附本部12440100455349276W不同），原民办广附实验学校品牌借自广大附中，属挂牌校。",
+      "evidence": [
+        {
+          "source": "企查查·金广实验",
+          "url": "https://m.qcc.com/firm/gbb39559123cfa2065d4262d4863ec8a.html",
+          "note": "统一社会信用代码12440111MB2E43090T，事业单位法人，开办资金14254万"
+        },
+        {
+          "source": "白云区政府·社会组织公示",
+          "url": "https://www.by.gov.cn/shzz/Pubbase/xxgsShzzPage/kj0b100427",
+          "note": "民办登记524401115895255970于2023-12-26注销（民转公），原白云广附实验学校"
+        },
+        {
+          "source": "腾讯·2022民转公报道",
+          "url": "http://news.qq.com/rain/a/20220812A0B9PY00",
+          "note": "2011年创办民办、2022年民转公，广附集团白云核心校"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广东实验中学永平校区（省实永平）",
+      "district": "白云区",
+      "entity_relation": "同法人校区",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广东实验中学",
+        "credit_code": null,
+        "type": "省属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州市教育局·委员看教育调研",
+          "url": "https://jyj.gz.gov.cn/yw2/jyfw/gzjy/content/post_9755375.html",
+          "note": "官方称“广东实验中学（永平校区）”，为省实直属校区（一校四区），市普通高中学位攻坚项目"
+        },
+        {
+          "source": "金羊网·省实两大校区落子白云",
+          "url": "https://news.ycwb.com/2021-04/16/content_1601765.htm",
+          "note": "白云区政府与广东实验中学签订合作办学协议，设永平校区（初高中部）"
+        },
+        {
+          "source": "抖音百科·广东实验中学",
+          "url": "https://m.baike.com/wiki/%E5%B9%BF%E4%B8%9C%E5%AE%9E%E9%AA%8C%E4%B8%AD%E5%AD%A6/842221",
+          "note": "省实一校四区核心直属校区之一，与越秀/荔湾校区一体化办学"
+        }
+      ],
+      "opened_year": 2023,
+      "note": null
+    },
+    {
+      "name": "广州市培英中学（云城校区）",
+      "district": "白云区",
+      "entity_relation": "同法人校区",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市培英中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州市人民政府·培英白云新城校区启用",
+          "url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_7842254.html",
+          "note": "2021年10月18日培英中学白云新城校区正式启用（高中部首批）；培英中学为白云区属学校"
+        },
+        {
+          "source": "广州日报新花城·培英启用",
+          "url": "https://huacheng.gz-cmc.com/pages/2021/10/18/2aab1c57397f44f693c26fd25680470b.html",
+          "note": "官方明确该校区为培英中学（白云区属）的校区，同法人"
+        },
+        {
+          "source": "抖音·2025中考出口",
+          "url": "https://www.iesdouyin.com/share/video/7554220393700166927",
+          "note": "2022年首招初一新生"
+        }
+      ],
+      "opened_year": 2022,
+      "note": "高中部2021年10月启用，初中部2022年首招初一；源JSON“云城校区2023年启用”说法与此有出入，待核"
+    },
+    {
+      "name": "广州市白云区华赋学校（民办）",
+      "district": "白云区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "广州市白云区华赋学校",
+        "credit_code": "52440111MJK9982087",
+        "type": "民办非企业单位"
+      },
+      "exclude_reason": "民办非企业单位独立法人（52440111MJK9982087），原“广州市白云区华南师范大学附属太和实验学校”（华附系公参民），2022年更名华赋，品牌渊源借自华南师大/华附，属挂牌校。",
+      "evidence": [
+        {
+          "source": "白云区政府·社会组织信息公示",
+          "url": "https://www.by.gov.cn/shzz/pubbase/xxgsAllShzzDjxxList/2?cp=39&sort=D_djxxBgq&sortType=1",
+          "note": "统一社会信用代码52440111MJK9982087，2022-01-17由华南师范大学附属太和实验学校更名为华赋学校"
+        },
+        {
+          "source": "澎湃·白云12所学校更名",
+          "url": "https://m.thepaper.cn/newsDetail_forward_15201036",
+          "note": "原“华南师范大学附属太和实验学校”更名“华赋学校”，公参民脱钩更名"
+        },
+        {
+          "source": "南都·民校更名",
+          "url": "https://ipaper.oeeee.com/ipaper/G/html/2021-12/07/content_26311.htm",
+          "note": "“华赋”即“华附”谐音，保留华附系元素"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市白云实验学校（白云省实，民办）",
+      "district": "白云区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "广州市白云区白云实验学校",
+        "credit_code": "52440111MJK998726F",
+        "type": "民办非企业单位"
+      },
+      "exclude_reason": "民办非企业单位独立法人（52440111MJK998726F），省实系合作办学，借用省实品牌，属挂牌校。",
+      "evidence": [
+        {
+          "source": "企查查·白云实验学校",
+          "url": "https://m.qcc.com/firm/s7f6e852a8d4f9b0995c4c77bb355656.html",
+          "note": "统一社会信用代码52440111MJK998726F，民办非企业单位，2018-08-14成立"
+        },
+        {
+          "source": "源JSON·education_group",
+          "url": null,
+          "note": "广东实验中学教育集团（合作办学）成员校（民办）"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市白云区云雅实验学校（云雅/白云广雅，民办）",
+      "district": "白云区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "广州市白云区云雅实验学校",
+        "credit_code": "524401115818734903",
+        "type": "民办非企业单位"
+      },
+      "exclude_reason": "民办非企业单位独立法人（524401115818734903），原“广州白云广雅实验学校”（广雅系），借用广雅品牌，属挂牌校。",
+      "evidence": [
+        {
+          "source": "白云区政府·社会组织公示",
+          "url": "https://www.by.gov.cn/shzz/Pubbase/xxgsShzzPage/kj0b100412",
+          "note": "统一社会信用代码524401115818734903，民办学校，2011-08-26成立"
+        },
+        {
+          "source": "企查查·云雅实验",
+          "url": "https://m.qcc.com/firm/sd53ff6a75089c45f419a64f6573271c.html",
+          "note": "曾用名“广州白云广雅实验学校”，民办非企业单位"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市白云区铁一学校（白云铁一）",
+      "district": "白云区",
+      "entity_relation": "同法人校区",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市铁一中学",
+        "credit_code": null,
+        "type": "市属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州市铁一中学官网·集团模式",
+          "url": "http://www.gtyz.edu.cn/ArticleSingle-10.html",
+          "note": "铁一教育集团“1+3”：核心校广州市铁一中学包括越秀、番禺、白云三个市直属公办完全中学校区"
+        },
+        {
+          "source": "广州市教育局·铁一中学2026部门预算",
+          "url": "https://jyj.gz.gov.cn/attachment/7/7971/7971468/10683649.pdf",
+          "note": "“广州市铁一中学为市处级事业单位，属广州市教育局直属完全中学……目前拥有越秀、番禺、白云三个校区”"
+        },
+        {
+          "source": "白云区政府·2025年公办初中招生计划",
+          "url": "https://www.by.gov.cn/attachment/7/7806/7806792/10241063.pdf",
+          "note": "招生名单为“广州市铁一中学(白云校区)”（公办，均禾街），未出现独立的区属铁一学校"
+        },
+        {
+          "source": "羊城晚报·铁一白云校区启用",
+          "url": "https://ep.ycwb.com/epaper/ywdf/h5/html5/2019-09/04/content_36070_182655.htm",
+          "note": "2019年9月初中部启用，沿用广州市铁一中学管理模式"
+        }
+      ],
+      "opened_year": 2019,
+      "note": "核验修正：任务线索称“区属不同法人”，但官方（铁一官网/市教育局预算/白云区招生计划）均表明白云铁一即市属广州市铁一中学白云校区，同法人；2019年初中部启用"
+    },
+    {
+      "name": "华南师范大学附属中学（知识城校区）",
+      "district": "黄埔区",
+      "entity_relation": "同法人校区",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "华南师范大学附属中学",
+        "credit_code": null,
+        "type": "省属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "黄埔区政府·华附知识城校区启用",
+          "url": "https://www.hp.gov.cn/gzjg/ggnyqgljg/zxgzzschzswbgs/xxgk/content/post_9194323.html",
+          "note": "2023年9月启用，省属华附集团直属校区"
+        },
+        {
+          "source": "源JSON·education_group",
+          "url": "https://www.hp.gov.cn/gzjg/ggnyqgljg/zxgzzschzswbgs/xxgk/content/post_9194323.html",
+          "note": "华南师范大学附属中学教育集团成员校（知识城校区）"
+        }
+      ],
+      "opened_year": 2023,
+      "note": null
+    },
+    {
+      "name": "广州大学附属中学黄埔实验学校（黄埔广附）",
+      "district": "黄埔区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "广大附中黄埔实验学校",
+        "credit_code": "12440112MB2E0688X6",
+        "type": "区属公办"
+      },
+      "exclude_reason": "2022年民转公后为黄埔区属独立事业单位法人（12440112MB2E0688X6，与广附本部12440100455349276W不同），原民办黄埔广附品牌借自广大附中，属挂牌校。",
+      "evidence": [
+        {
+          "source": "黄埔区事业单位登记管理局公示",
+          "url": "https://m.nfty-gpu.cn/crm/43377.html",
+          "note": "统一社会信用代码12440112MB2E0688X6，广大附中黄埔实验学校，事业单位法人"
+        },
+        {
+          "source": "职友集·黄埔广附原民办",
+          "url": "https://www.jobui.com/company/13417778/",
+          "note": "原广州市黄埔广附实验学校（民办52440112070165222Q），由广州大学附属中学和黄埔区教育局合作承办"
+        },
+        {
+          "source": "广附官网·集团成员校",
+          "url": "https://www.gdfz.edu.cn/jtcyxx/gdfzhpsyxx",
+          "note": "广大附中黄埔实验学校为广附集团成员校"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市黄埔区苏元学校（二中苏元）",
+      "district": "黄埔区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "广州市黄埔区苏元学校",
+        "credit_code": "12440112MB2E22353Q",
+        "type": "区属公办"
+      },
+      "exclude_reason": "2022年转公办后为黄埔区属独立事业单位法人（12440112MB2E22353Q，与二中本部12440100455344264H不同），原民办二中苏元实验学校品牌借自广州市第二中学，属挂牌校。",
+      "evidence": [
+        {
+          "source": "启信宝·苏元学校",
+          "url": "https://www.qixin.com/company/5b34fb70-d814-11ed-a4e2-8e55ebdeaee8",
+          "note": "统一社会信用代码12440112MB2E22353Q，事业单位法人，2023-04-04成立（转公后登记）"
+        },
+        {
+          "source": "黄埔区社会组织平台",
+          "url": "https://shzz.hp.gov.cn/home/Pubbase/xxgsShzzPage/lg0fr0084",
+          "note": "原民办“广州市二中苏元实验学校”（524401125697825297），2021-12-01更名苏元学校"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市第二中学（科学城校区）",
+      "district": "黄埔区",
+      "entity_relation": "同法人校区",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市第二中学",
+        "credit_code": "12440100455344264H",
+        "type": "市属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州市第二中学官网·联系我们",
+          "url": "https://www.gdgzez.com.cn/xxgk/lxwm",
+          "note": "二中官网：初中部应元路21号、高中部科学城（黄埔区水西路11号），科学城校区为二中校区"
+        },
+        {
+          "source": "启信宝·广州市第二中学",
+          "url": "https://www.qixin.com/financing/fb7b810a-f166-11e9-af0f-00163e0d7703",
+          "note": "统一社会信用代码12440100455344264H，二中本部与科学城校区同一法人"
+        }
+      ],
+      "opened_year": 2017,
+      "note": "源数据“科学城校区2017年启用”；另有资料显示科学城校区（高中部）2005年启用，2017年口径待核"
+    },
+    {
+      "name": "广州市玉岩中学",
+      "district": "黄埔区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市玉岩中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "市招考办·教育集团名额分配",
+          "url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html",
+          "note": "玉岩集团核心校，区属国家级示范性，品牌源头即自身；信用代码待核"
+        },
+        {
+          "source": "金羊网·2025中考录取",
+          "url": "http://news.ycwb.com/ikinvkltii/content_53552761.htm",
+          "note": "2025年高中录取712分"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市第八十六中学",
+      "district": "黄埔区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市第八十六中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "市招考办·教育集团名额分配",
+          "url": "https://gzzk.gz.gov.cn/zwgk/xxgk/xxgkml/xxgkml/gzdt/content/post_10261864.html",
+          "note": "86中集团核心校，区属国家级示范性，品牌源头即自身；信用代码待核"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市黄埔区铁英学校（黄埔铁英）",
+      "district": "黄埔区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "广州市黄埔区铁英中学",
+        "credit_code": "12440112MB2D376937",
+        "type": "区属公办"
+      },
+      "exclude_reason": "黄埔区属独立事业单位法人（铁英中学12440112MB2D376937，举办单位黄埔区教育局，与市属铁一中学不同法人），铁一集团区属委托校，借用铁一品牌，属挂牌校。",
+      "evidence": [
+        {
+          "source": "天眼查·黄埔区铁英中学",
+          "url": "https://m.tianyancha.com/company/10001064173",
+          "note": "统一社会信用代码12440112MB2D376937，举办单位广州市黄埔区教育局"
+        },
+        {
+          "source": "黄埔区政府·学校卫生双随机抽查",
+          "url": "http://www.hp.gov.cn/qmtjjczwgk/26sdly/wsjkly/content/post_10033643.html",
+          "note": "主体名称“广州市黄埔区铁英中学”，社会统一信用码12440112MB2D376937"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "北京师范大学广州实验学校",
+      "district": "黄埔区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "北京师范大学广州实验学校",
+        "credit_code": "12440112MB2C09026U",
+        "type": "区属公办"
+      },
+      "exclude_reason": "黄埔区属独立事业单位法人（12440112MB2C09026U），北师大合作办学（2016年开办），借用北师大品牌，属挂牌校。",
+      "evidence": [
+        {
+          "source": "启信宝·北师大广州实验",
+          "url": "https://www.qixin.com/operation/4a10d9aa-b32a-11e7-bb41-00163e0f05e7",
+          "note": "统一社会信用代码12440112MB2C09026U，事业单位法人"
+        },
+        {
+          "source": "源JSON·education_group",
+          "url": null,
+          "note": "北京师范大学基础教育合作（黄埔区属）"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州大学附属中学（大学城校区）",
+      "district": "番禺区",
+      "entity_relation": "同法人校区",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州大学附属中学",
+        "credit_code": "12440100455349276W",
+        "type": "市属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "企查查·广州大学附属中学",
+          "url": "https://m.qcc.com/firm/g3ffa756ec4df7779232878584dff165.html",
+          "note": "统一社会信用代码12440100455349276W，广附本部与大学城校区同一法人"
+        },
+        {
+          "source": "源JSON·founded",
+          "url": null,
+          "note": "大学城校区2009年启用"
+        }
+      ],
+      "opened_year": 2009,
+      "note": null
+    },
+    {
+      "name": "广州市铁一中学（番禺校区/亚运城）",
+      "district": "番禺区",
+      "entity_relation": "同法人校区",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市铁一中学",
+        "credit_code": null,
+        "type": "市属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州市铁一中学官网",
+          "url": "http://www.gtyz.edu.cn/ArticleSingle-10.html",
+          "note": "铁一教育集团核心校包括越秀、番禺、白云三个市直属公办校区，番禺校区同法人"
+        },
+        {
+          "source": "源JSON·founded",
+          "url": null,
+          "note": "番禺校区2012年启用"
+        }
+      ],
+      "opened_year": 2012,
+      "note": null
+    },
+    {
+      "name": "广州市番禺区桥城中学",
+      "district": "番禺区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市番禺区桥城中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州妈妈网·中考数据汇总",
+          "url": "https://m.gzmama.com/thread-5528871-1-1.html",
+          "note": "区属公办老牌强校，品牌源头即自身；信用代码待核"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广东仲元中学（初中部）",
+      "district": "番禺区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广东仲元中学",
+        "credit_code": null,
+        "type": "区属公办"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "广州日报·示范性名单",
+          "url": "https://news.dayoo.com/guangzhou/202405/11/139995_54666983.htm",
+          "note": "区属国家级示范性（1934年创办），仲元集团核心校，品牌源头即自身；信用代码待核"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市番禺区祈福新邨学校（小金龙，民办）",
+      "district": "番禺区",
+      "entity_relation": "本部",
+      "tier1_eligible": true,
+      "legal_entity": {
+        "name": "广州市番禺区祈福新邨学校",
+        "credit_code": "524401137237969388",
+        "type": "民办非企业单位"
+      },
+      "exclude_reason": null,
+      "evidence": [
+        {
+          "source": "天眼查·祈福新邨学校",
+          "url": "https://m.tianyancha.com/company/3078981216",
+          "note": "统一社会信用代码524401137237969388，民办非企业单位，2001-05-22成立，主管单位番禺区教育局"
+        },
+        {
+          "source": "番禺区社会组织公示平台",
+          "url": "http://shzz.panyu.gd.cn/home/pubbase/xxgsAllShzz?sort=MainZs&sortType=1&cp=2",
+          "note": "祈福集团民办九年一贯制，品牌源头即自身（祈福），非挂牌"
+        }
+      ],
+      "opened_year": null,
+      "note": "民办独立法人但品牌源头即自身（祈福集团），不属于挂牌校"
+    },
+    {
+      "name": "广州市番禺区恒润实验学校（民办）",
+      "district": "番禺区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "广州市番禺区恒润实验学校",
+        "credit_code": "52440113MJL048669C",
+        "type": "民办非企业单位"
+      },
+      "exclude_reason": "民办非企业单位独立法人（52440113MJL048669C），中大附中托管背景（2017年开办），借用中大附中品牌，属挂牌校。",
+      "evidence": [
+        {
+          "source": "企查查·恒润实验",
+          "url": "https://www.qcc.com/creport/s255fdd200917d4d7f33d755f465d223.html",
+          "note": "统一社会信用代码52440113MJL048669C，民办非企业单位，2017-05-11成立"
+        },
+        {
+          "source": "番禺区社会组织年报",
+          "url": "http://py.pynpo.org.cn/UpFile/gdgzpy2105201570003/BF52BD44B81ADAF89AF55F777B7D807A.pdf",
+          "note": "民办非企业单位登记，信用代码52440113MJL048669C"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市番禺区番外外国语学校（番外，民办）",
+      "district": "番禺区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "广州市番禺区番外外国语学校",
+        "credit_code": "52440113MJL049071R",
+        "type": "民办非企业单位"
+      },
+      "exclude_reason": "民办非企业单位独立法人（52440113MJL049071R），原广东外语外贸大学附设番禺外国语学校，借用广外品牌，属挂牌校。",
+      "evidence": [
+        {
+          "source": "企查查·番外",
+          "url": "https://m.qcc.com/firm/sdcd2756be909dfa1b7fb6a060826796.html",
+          "note": "统一社会信用代码52440113MJL049071R，民办非企业单位，2018-08-28成立"
+        },
+        {
+          "source": "育路网·番外招生",
+          "url": "http://gd.yuloo.com/slxx/gwpyfls/news/68469.shtml",
+          "note": "原广东外语外贸大学附设番禺外国语学校"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    },
+    {
+      "name": "广州市番禺执信中学（星执学校，民办）",
+      "district": "番禺区",
+      "entity_relation": "独立法人挂牌校",
+      "tier1_eligible": false,
+      "legal_entity": {
+        "name": "广州市星执学校",
+        "credit_code": "52440100741888238N",
+        "type": "民办非企业单位"
+      },
+      "exclude_reason": "民办非企业单位独立法人（52440100741888238N），原广州市番禺执信中学（执信中学指导办学），借用执信品牌，属挂牌校。",
+      "evidence": [
+        {
+          "source": "企查查·广州市星执学校",
+          "url": "https://m.qcc.com/firm/sbfda88efaa323be3c05de3d70ffbdd8.html",
+          "note": "统一社会信用代码52440100741888238N，民办非企业单位，2005-02-17成立"
+        },
+        {
+          "source": "顺企网·番禺执信中学",
+          "url": "https://m.11467.com/guangzhou/co/55401.htm",
+          "note": "星执（原番禺执信）创办于2002年，广州市执信中学指导办学"
+        }
+      ],
+      "opened_year": null,
+      "note": null
+    }
+  ]
+}

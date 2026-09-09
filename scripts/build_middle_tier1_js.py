@@ -314,6 +314,10 @@ def main() -> None:
                 "rumor_tier": s.get("rumor_tier", "第一梯队"),
                 "rumor_notes": (s.get("rumor_notes") or "")[:120],
                 "conclusion_basis": s.get("conclusion_basis", ""),
+                "entity_relation": s.get("entity_relation", "待核"),
+                "tier1_eligible": s.get("tier1_eligible", True),
+                "exclude_reason": s.get("exclude_reason"),
+                "opened_year": s.get("opened_year"),
                 "signals": {
                     "zhongkao": zhongkao_str(s),
                     "demonstration_high": demonstration_high_str(s),
