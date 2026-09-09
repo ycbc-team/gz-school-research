@@ -4,7 +4,7 @@
 
 ## 与共享数据的关系
 
-- 小程序无法直接 `<script>` 加载 `data/schools.js`，需要把 `data/schools-gz.json` 复制或打包进小程序代码包（如 `miniprogram/data/`），或后续通过后端/云函数提供
+- 小程序无法直接 `<script>` 加载 `data/primary/schools.js`，需要把 `data/primary/schools-gz.json` 复制或打包进小程序代码包（如 `miniprogram/data/`），或后续通过后端/云函数提供
 - 数据字段与口径见 [`../../data/README.md`](../../data/README.md)
 - 坐标系为 GCJ-02，可直接用于微信小程序内置地图组件（`<map>`）或第三方地图库
 

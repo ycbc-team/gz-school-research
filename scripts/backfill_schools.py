@@ -4,10 +4,10 @@
 用法: python3 scripts/backfill_schools.py
 依赖: 项目根 .env 的 AMAP_WEB_KEY
 数据流:
-  1. 读取 data/enrollments/2026-panyu.json 的 unmatched（官方有、高德无）
+  1. 读取 data/primary/enrollments/2026-panyu.json 的 unmatched（官方有、高德无）
   2. 逐校调高德 place/text 检索（city=440113，不限分类）
-  3. 高置信命中 → 合并进 data/schools.js + schools-gz.json（追加，src=backfill 标记）
-     并存 data/schools-backfill.json 留痕
+  3. 高置信命中 → 合并进 data/primary/schools.js + schools-gz.json（追加，src=backfill 标记）
+     并存 data/primary/schools-backfill.json 留痕
   4. 之后重跑 scripts/build_district_enrollment.py panyu 完成绑定
 """
 import json
@@ -20,7 +20,7 @@ import urllib.parse
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA = os.path.join(ROOT, "data")
+DATA = os.path.join(ROOT, "data", "primary")
 
 VARIANTS = {"穂": "穗", "敎": "教", "學": "学", "朮": "术", "甦": "苏"}
 PREFIXES = ["市桥", "钟村", "石壁", "大石", "洛浦", "南村镇", "化龙镇", "新造镇",
@@ -181,7 +181,7 @@ def main():
         with open(os.path.join(DATA, "schools-backfill.json"), "w", encoding="utf-8") as f:
             json.dump({"updated": time.strftime("%Y-%m-%d"), "added": added, "items": found},
                       f, ensure_ascii=False, indent=1)
-        print(f"\n已追加 {added} 个补充点位 → data/schools.js")
+        print(f"\n已追加 {added} 个补充点位 → data/primary/schools.js")
 
     print(f"命中: {len(found)} / 存疑: {len(uncertain)} / 未找到: {len(notfound)}")
     print("\n== 命中 ==")

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""从 data/tier1_schools_all.json 生成浏览器可加载的 data/tier1.js（window.GZ_TIER1）。
+"""从 data/primary/tier1_schools_all.json 生成浏览器可加载的 data/primary/tier1.js（window.GZ_TIER1）。
 
 为每所学校生成：
   - 支撑信号摘要（出口机制、教育集团、2026班数、学位预警、省一级称号）
@@ -13,8 +13,8 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / "data" / "tier1_schools_all.json"
-OUT = ROOT / "data" / "tier1.js"
+SRC = ROOT / "data" / "primary" / "tier1_schools_all.json"
+OUT = ROOT / "data" / "primary" / "tier1.js"
 
 # 手工补充的匹配别名（tier1 规范名 -> 额外别名，用于校区/旧称/惯用简称）
 ALIAS_EXTRA = {
@@ -198,7 +198,7 @@ def main() -> None:
     print(f"written: {OUT}  ({len(schools)} schools)")
 
     # ---- 匹配模拟验证：与地图页同算法（仅用 tier1.js 中预生成别名，无二次短化） ----
-    src = (ROOT / "data" / "schools.js").read_text(encoding="utf-8")
+    src = (ROOT / "data" / "primary" / "schools.js").read_text(encoding="utf-8")
     m = re.search(r"window\.GZ_SCHOOLS\s*=\s*(\{.*?\});?\s*$", src, re.S)
     poi_data = json.loads(m.group(1))
     poi_names = [x["name"] for x in poi_data["schools"]]

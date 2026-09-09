@@ -4,13 +4,13 @@
 数据源:
   越秀: 新生登记范围 txt（招生简章附件5 doc 转文本）
   荔湾: 官方附件1招生计划 docx + 附件4服务地段划分表 docx
-  海珠: data/enrollments/_raw/haizhu_2026.json（官网图片 OCR 转录）
-  天河: data/enrollments/_raw/tianhe_2026.json（官方 PDF 附件5 OCR 转录）
+  海珠: data/primary/enrollments/_raw/haizhu_2026.json（官网图片 OCR 转录）
+  天河: data/primary/enrollments/_raw/tianhe_2026.json（官方 PDF 附件5 OCR 转录）
   番禺: 番禺区教育局 2026 招生计划 xls（公办+民办两个 sheet）
 
 用法: python3 scripts/build_district_enrollment.py <区名:yuexiu|liwan|haizhu|tianhe|panyu> [越秀txt路径]
       或 python3 scripts/build_district_enrollment.py all
-输出: data/enrollments/2026-<区>.json + .js
+输出: data/primary/enrollments/2026-<区>.json + .js
 """
 import json
 import os
@@ -21,7 +21,7 @@ import zipfile
 from xml.etree import ElementTree as ET
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA = os.path.join(ROOT, "data")
+DATA = os.path.join(ROOT, "data", "primary")
 OUT_DIR = os.path.join(DATA, "enrollments")
 TMP = "/tmp/gzsrc"
 

@@ -9,57 +9,79 @@
 ├── apps/                    # 各端应用
 │   ├── web/                 # Web 应用（当前实现）
 │   │   ├── index.html       # 应用入口（功能列表，新功能在此登记）
-│   │   └── map/             # 【功能】七区小学分布地图（Leaflet）
-│   │       ├── index.html   # 地图页，浏览器直接打开
-│   │       └── assets/      # Leaflet 库（本地化，不依赖 CDN）
+│   │   ├── map/             # 【功能】七区小学分布地图（Leaflet）
+│   │   │   ├── index.html   # 地图页，浏览器直接打开
+│   │   │   └── assets/      # Leaflet 库（本地化，不依赖 CDN）
+│   │   └── map-middle/      # 【功能】八区初中分布地图（Leaflet）
+│   │       └── index.html   # 初中地图页
 │   └── miniprogram/         # 预留：微信小程序
 ├── data/                    # 共享数据层（多端共用，勿各自复制）
-│   ├── schools.js           # 浏览器端点位快照（window.GZ_SCHOOLS，915 所）
-│   ├── schools-gz.json      # 原始数据快照（可复核）
-│   ├── enrollments/         # 各区 2026 年公办小学招生数据（window.GZ_ENROLL_*）
-│   │   ├── 2026-panyu.js/.json   # 番禺（试点，182 条）
-│   │   ├── 2026-liwan.js/.json   # 荔湾
-│   │   ├── 2026-yuexiu.js/.json  # 越秀
-│   │   ├── 2026-haizhu.js/.json  # 海珠
-│   │   ├── 2026-tianhe.js/.json  # 天河
-│   │   └── _raw/            # 官方文件转录中间件（OCR 等）
-│   └── README.md            # 数据字段、口径与更新方式
+│   ├── primary/             # 小学阶段数据
+│   │   ├── schools.js       # 浏览器端点位快照（window.GZ_SCHOOLS，915 所）
+│   │   ├── schools-gz.json  # 原始数据快照（可复核）
+│   │   ├── tier1.js         # 小学第一梯队核验（window.GZ_TIER1）
+│   │   ├── tier1_schools_all.json  # 梯队核验源数据
+│   │   ├── schools-backfill.json    # 缺校补位留痕
+│   │   ├── enrollments/     # 各区 2026 年公办小学招生数据
+│   │   └── README.md        # 小学数据字段、口径与更新方式
+│   └── middle/              # 初中阶段数据
+│       ├── schools.js       # 浏览器端初中点位快照（window.GZ_MIDDLE_SCHOOLS）
+│       ├── schools-gz.json  # 初中原始数据快照
+│       ├── tier1.js         # 初中第一梯队核验（window.GZ_MIDDLE_TIER1）
+│       ├── tier1_schools_all.json  # 初中梯队核验源数据
+│       └── README.md        # 初中数据字段、口径与更新方式
 ├── scripts/                 # 共享脚本
-│   ├── fetch_schools.py     # 点位采集脚本（输出到 data/）
-│   ├── build_district_enrollment.py  # 五区招生数据构建（番禺/荔湾/越秀/海珠/天河，含 NAME_MAP 映射表）
-│   └── backfill_schools.py  # 官方名单有、高德 POI 无的学校逐校补点
-├── docs/                    # 调研报告、分析文档（数据源调研、缺口清单等）
-├── notes/                   # 调研笔记、访谈记录（待建）
+│   ├── fetch_schools.py     # 小学点位采集脚本（输出到 data/primary/）
+│   ├── fetch_middle_schools.py  # 初中点位采集脚本（输出到 data/middle/）
+│   ├── build_tier1_js.py    # 小学梯队数据构建（data/primary/tier1_schools_all.json → tier1.js）
+│   ├── build_middle_tier1_js.py  # 初中梯队数据构建
+│   ├── build_district_enrollment.py  # 五区小学招生数据构建
+│   └── backfill_schools.py  # 小学缺校补位
+├── docs/                    # 调研报告、分析文档
 ├── .env                     # 本地密钥（git 忽略，不入库）
 └── README.md
 ```
 
 ## Web 应用（apps/web）
 
-浏览器打开 `apps/web/index.html`（应用入口），或直接打开 `apps/web/map/index.html`（地图功能页）：
+浏览器打开 `apps/web/index.html`（应用入口），或直接打开各功能页：
 
+### 小学地图（apps/web/map/index.html）
 - 展示广州 7 区（荔湾 / 越秀 / 海珠 / 天河 / 白云 / 黄埔 / 番禺）915 所小学点位
 - 区边界色块 + 各区数量图例统计
 - 拖动 / 滚轮 / 双指缩放查看，悬停点位显示校名，点击点位展示招生信息卡
+- 网传"第一梯队"名校按支撑度三色标注：有支撑（深红）/ 部分支撑（琥珀）/ 普通（灰蓝）
 - 视野锁定七区范围
-- 纯本地数据渲染，不做实时请求；学校信息固定长期不变
+- 纯本地数据渲染，不做实时请求
 
-地图是 web 应用当前首个功能，后续按子功能目录（如 `apps/web/map/`）扩展学校详情、对比、路线规划等。
+### 初中地图（apps/web/map-middle/index.html）
+- 展示广州 8 区（荔湾 / 越秀 / 海珠 / 天河 / 白云 / 黄埔 / 番禺 / 增城）初中点位
+- 网传"第一梯队"初中按支撑度三色标注
+- 纯本地数据渲染
+
+地图是 web 应用当前首个功能，后续按子功能目录扩展学校详情、对比、路线规划等。
 
 ## 数据
 
-### 点位数据（data/schools.js）
+### 小学点位数据（data/primary/schools.js）
 
 - 来源：高德地图 Web 服务 API，2026-09-08 快照（GCJ-02 坐标系）
 - 共 915 所：荔湾 75 / 越秀 78 / 海珠 120 / 天河 115 / 白云 227 / 黄埔 101 / 番禺 199
-- 已合并同校重复 POI（楼栋/门/机构附属点 56 个，如西塱小学(东北门)→西塱小学）；番禺 199 中含 backfill 补充点
-- 通过翻页采集突破单区 100 条上限；白云区仍有未覆盖风险
+- 已合并同校重复 POI；番禺含 backfill 补充点
+- 通过翻页采集突破单区 100 条上限
 - 更新：`python3 scripts/fetch_schools.py`（需 `.env` 中的 `AMAP_WEB_KEY`）
 
-### 招生数据（data/enrollments/）
+### 初中点位数据（data/middle/schools.js）
 
-- 番禺（试点闭环）：2026 官方名单 189 条 → 182 条绑定点位、7 条高德缺失，含地段/班数/性质，见 `docs/番禺试点数据缺口清单.md`
-- 荔湾 / 越秀 / 海珠 / 天河：2026 官方文件 252 条 → 211 条绑定点位、41 条高德缺失，构建与口径见 `docs/四区招生数据说明.md`
+- 来源：高德地图 Web 服务 API，2026-09-09 快照（GCJ-02 坐标系）
+- 范围：8 区（荔湾 / 越秀 / 海珠 / 天河 / 白云 / 黄埔 / 番禺 / 增城），排除远郊南沙 / 花都 / 从化
+- 采集：types=141201（初中分类）翻页 + keywords「初中」兜底，保留完全中学
+- 更新：`python3 scripts/fetch_middle_schools.py`
+
+### 招生数据（data/primary/enrollments/）
+
+- 番禺（试点闭环）：2026 官方名单 189 条 → 182 条绑定点位、7 条高德缺失
+- 荔湾 / 越秀 / 海珠 / 天河：2026 官方文件 252 条 → 211 条绑定点位、41 条高德缺失
 - 海珠为官网图片 OCR、天河为扫描 PDF OCR，个别字可能有误差，均以官方原文件为准
 
 ## 调研维度（建议）
@@ -72,16 +94,22 @@
 
 ## 状态
 
+### 小学阶段
 - [x] 确定调研范围与目标（7 区）
 - [x] 收集候选学校清单（915 所小学，2026-09-08 快照，已去重）
 - [x] 搭建 Web 应用（apps/web，地图为当前功能）
 - [x] 番禺招生数据试点闭环（2026，182/189 绑定）
 - [x] 荔湾 / 越秀 / 海珠 / 天河 + 番禺统一构建（2026，400/441 绑定，含 NAME_MAP 映射表）
+- [x] 网传"第一梯队"名校核验（59 所，有支撑 21 / 部分支撑 36）
 - [ ] 白云、黄埔招生数据（低优先级）
 - [ ] 未匹配 42 所逐校核实（新建校/更名）
-- [ ] 逐校调研与数据整理
-- [ ] 综合对比分析
-- [ ] 形成升学路线建议
+
+### 初中阶段
+- [x] 目录结构分离（data/primary/ + data/middle/）
+- [x] 8 区初中点位采集（含增城边界，2026-09-09 快照）
+- [x] 各区网传第一梯队初中名单 + 客观数据核验
+- [x] 初中地图页（三色标注）
+- [ ] 高中阶段（后续）
 
 ## 安全约定
 

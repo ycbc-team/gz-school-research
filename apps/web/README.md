@@ -22,7 +22,7 @@ apps/web/
 ## 约定
 
 - 每个功能一个独立子目录（如 `map/`），后续功能（学校详情、对比、路线规划等）按同方式扩展，并在 `index.html` 入口登记
-- 共享数据统一从 `../../data/` 读取（`<script src="../../data/schools.js">`），不在应用内复制数据
+- 共享数据统一从 `../../data/primary/`（小学）或 `../../data/middle/`（初中）读取（`<script src="../../data/primary/schools.js">`），不在应用内复制数据
 - 本地资源放功能自己的 `assets/` 下，用相对路径引用
 - 公共 Key / token 一律放项目根 `.env`，不写入代码
 

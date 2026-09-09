@@ -227,7 +227,7 @@
   </footer>
 </div>
 
-<script src="../../data/tier1.js"></script>
+<script src="../../data/primary/tier1.js"></script>
 <script>
 (function () {
   'use strict';
@@ -258,7 +258,7 @@
     var secF = document.getElementById('sec-full');
     var secP = document.getElementById('sec-part');
     if (!TIER1 || !TIER1.schools || !TIER1.schools.length) {
-      var msg = '本地数据未加载：请确认 ../../data/tier1.js 与本页在同一项目目录下（需由 scripts/build_tier1_js.py 生成）。';
+      var msg = '本地数据未加载：请确认 ../../data/primary/tier1.js 与本页在同一项目目录下（需由 scripts/build_tier1_js.py 生成）。';
       tbF.innerHTML = '<tr><td colspan="7">' + esc(msg) + '</td></tr>';
       tbP.innerHTML = '';
       secF.querySelector('.sec-desc').textContent = msg;

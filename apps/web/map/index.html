@@ -178,13 +178,13 @@
   </div>
 
   <!-- 本地数据：由项目 scripts/ 采集生成 -->
-  <script src="../../../data/schools.js"></script>
-  <script src="../../../data/tier1.js"></script>
-  <script src="../../../data/enrollments/2026-panyu.js"></script>
-  <script src="../../../data/enrollments/2026-liwan.js"></script>
-  <script src="../../../data/enrollments/2026-yuexiu.js"></script>
-  <script src="../../../data/enrollments/2026-haizhu.js"></script>
-  <script src="../../../data/enrollments/2026-tianhe.js"></script>
+  <script src="../../../data/primary/schools.js"></script>
+  <script src="../../../data/primary/tier1.js"></script>
+  <script src="../../../data/primary/enrollments/2026-panyu.js"></script>
+  <script src="../../../data/primary/enrollments/2026-liwan.js"></script>
+  <script src="../../../data/primary/enrollments/2026-yuexiu.js"></script>
+  <script src="../../../data/primary/enrollments/2026-haizhu.js"></script>
+  <script src="../../../data/primary/enrollments/2026-tianhe.js"></script>
   <script src="assets/leaflet.js"></script>
   <script>
   (function () {
@@ -290,7 +290,7 @@
         return;
       }
       if (!DATA) {
-        showError('本地数据未加载：请确认 ../../../data/schools.js 与页面在同一目录');
+        showError('本地数据未加载：请确认 ../../../data/primary/schools.js 与页面在同一目录');
         return;
       }
       var cc0 = coreCenter();

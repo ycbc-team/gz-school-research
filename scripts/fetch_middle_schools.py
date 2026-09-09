@@ -1,12 +1,23 @@
 #!/usr/bin/env python3
-"""采集广州七区小学 POI 与区边界，输出项目共享数据目录 data/primary/。
+"""采集广州八区初中 POI 与区边界，输出项目共享数据目录 data/middle/。
 
-用法: python3 scripts/fetch_schools.py
+用法: python3 scripts/fetch_middle_schools.py
 依赖: 项目根 .env 中的 AMAP_WEB_KEY（Web 服务类型 Key）
 数据源: 高德地图 Web 服务 API（place/text 与 config/district）
 输出:
-  data/primary/schools.js   页面加载用（window.GZ_SCHOOLS，多端共用）
-  data/primary/schools-gz.json  可读复核用
+  data/middle/schools.js       页面加载用（window.GZ_MIDDLE_SCHOOLS）
+  data/middle/schools-gz.json  可读复核用
+
+初中采集特殊点（相对小学）：
+- 广州大量初中名为「XX中学」或为完全中学（初高中一体），仅查 types=141201 会漏。
+- 三路查询合并去重：
+  1. types=141201（初中分类）——最准
+  2. keywords=初中——兜底名称含「初中」的
+  3. types=141200（中学分类）——捕获「XX中学」命名的初中和完全中学
+- 过滤：保留名称含「初中」的；保留名称含「中学」但不含「高中/高级中学」的
+  （即完全中学和纯初中命名为中学的）；剔除名称含「高中/高级中学」且不含
+  「初中」的纯高中；剔除培训机构/辅导/托管/国际课程中心等非学历教育 POI。
+- 去重：按 (name, round(lng,5), round(lat,5))，同校多门点合并。
 """
 import json
 import os
@@ -27,6 +38,16 @@ DISTRICTS = [
     ("白云区", "440111"),
     ("黄埔区", "440112"),
     ("番禺区", "440113"),
+    ("增城区", "440118"),
+]
+
+# 非学历教育 / 非初中 POI 特征词（名称命中即剔除）
+NON_SCHOOL = [
+    "培训", "辅导", "托辅", "托管", "自习", "成长中心", "学习中心",
+    "学习规划", "国际教育", "国际课程", "教育咨询", "教育科技", "教育文化",
+    "复读", "补习", "家教", "艺术", "奥数", "研学", "留学", "出国", "考研",
+    "成人", "电大", "函授", "夜校", "驾校", "幼儿园", "早教", "文具", "书店",
+    "少年宫", "活动中心", "体育馆",
 ]
 
 
@@ -54,13 +75,7 @@ def api(url):
 
 
 def fetch_pois(key, adcode):
-    """翻页采集某区小学 POI。
-
-    查询方式（合并去重）：
-      1. types=141203（高德「小学」分类）——分类最准，含「XX学校(小学部)」等
-      2. keywords=小学 —— 兜底补充名称含「小学」但未归入该分类的
-    无 100 条上限：高德单次搜索可按 offset/page 翻页，实际返回数远超 100。
-    """
+    """翻页采集某区初中 POI（三路查询合并）。"""
     out = []
 
     def collect(params):
@@ -89,23 +104,32 @@ def fetch_pois(key, adcode):
             page += 1
             time.sleep(0.4)
 
-    collect({"key": key, "types": "141203", "city": adcode, "citylimit": "true"})
+    # 三路合并：初中分类 / 关键词「初中」/ 中学分类
+    collect({"key": key, "types": "141201", "city": adcode, "citylimit": "true"})
     time.sleep(0.4)
-    collect({"key": key, "keywords": "小学", "city": adcode, "citylimit": "true"})
+    collect({"key": key, "keywords": "初中", "city": adcode, "citylimit": "true"})
+    time.sleep(0.4)
+    collect({"key": key, "types": "141200", "city": adcode, "citylimit": "true"})
 
-    # 只保留小学/学校类 POI：名称含「小学/学校/附小/小学部」且非培训机构
-    NON_SCHOOL = ["培训", "托辅", "托管", "辅导", "自习", "成长中心", "学习中心",
-                  "学习规划", "国际教育", "教育咨询", "文具", "书店", "幼儿园",
-                  "工地", "城门楼", "教师楼", "智云书房", "博通教育", "知了托管",
-                  "玩具店", "童趣园", "感统", "口才"]
+    # 过滤：初中 + 完全中学（初高中一体），剔除纯高中与培训机构
+    def is_middle(n):
+        if not n:
+            return False
+        if any(b in n for b in NON_SCHOOL):
+            return False
+        if "初中" in n:
+            return True
+        if "中学" in n:
+            # 名称含「高中/高级中学」且不含「初中」→ 纯高中（或高中校区），剔除
+            if "高中" in n or "高级中学" in n:
+                return False
+            return True  # 「XX中学」命名的初中 / 完全中学
+        return False
+
     keep, seen = [], set()
     for s in out:
         n = s["name"]
-        if not n:
-            continue
-        if not ("小学" in n or "学校" in n or "附小" in n or "小学部" in n):
-            continue
-        if any(b in n for b in NON_SCHOOL):
+        if not is_middle(n):
             continue
         k = (n, round(s["lng"], 5), round(s["lat"], 5))
         if k in seen:
@@ -142,13 +166,14 @@ def fetch_boundary(key, name):
 
 def main():
     key = load_key()
-    # 可选参数：只采集指定区（如 python3 fetch_schools.py 440113）
+    # 可选参数：只采集指定区（如 python3 fetch_middle_schools.py 440118）
     only = {a for a in sys.argv[1:] if re.fullmatch(r"\d{6}", a)}
     districts = [d for d in DISTRICTS if not only or d[1] in only]
     result = {
-        "updated": time.strftime("%Y-%m-%d"),
+        "updated": "2026-09-09",
         "source": "高德地图 Web 服务 API (place/text + config/district)",
-        "note": "小学分类(types=141203)翻页采集 + 关键词补充，无 100 条限制",
+        "note": "初中分类(types=141201)+关键词「初中」+中学分类(types=141200)三路翻页采集合并，"
+                "保留初中与完全中学，剔除纯高中/培训机构，无 100 条限制",
         "districts": [],
         "schools": [],
     }
@@ -162,18 +187,18 @@ def main():
         result["schools"].extend(schools)
         time.sleep(0.4)
 
-    data_dir = os.path.join(BASE, "data", "primary")
+    data_dir = os.path.join(BASE, "data", "middle")
     os.makedirs(data_dir, exist_ok=True)
     with open(os.path.join(data_dir, "schools-gz.json"), "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, separators=(",", ":"))
     with open(os.path.join(data_dir, "schools.js"), "w", encoding="utf-8") as f:
-        f.write("window.GZ_SCHOOLS = ")
+        f.write("window.GZ_MIDDLE_SCHOOLS = ")
         json.dump(result, f, ensure_ascii=False)
         f.write(";\n")
 
     total = len(result["schools"])
     per = {name: sum(1 for s in result["schools"] if s["adcode"] == adcode) for name, adcode in districts}
-    print(f"\n完成: 共 {total} 所小学")
+    print(f"\n完成: 共 {total} 所初中/完全中学")
     print("各区: " + ", ".join(f"{n} {per[n]}" for n, _ in districts))
     print(f"输出: {os.path.join(data_dir, 'schools.js')} / schools-gz.json")
 
