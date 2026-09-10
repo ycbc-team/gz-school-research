@@ -1,0 +1,3249 @@
+{
+  "summary": {
+    "精确命中": 49,
+    "变体命中": 35,
+    "未命中": 12,
+    "远郊不在范围": 65
+  },
+  "groups": [
+    {
+      "core": {
+        "name": "华南师范大学附属中学（知识城校区）",
+        "norm_name": "华南师范大学附属中学知识城校区",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "华南师范大学附属中学(知识城校区)"
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "华南师范大学附属中学(知识城校区)"
+          }
+        },
+        "status": "精确命中",
+        "district": "黄埔区",
+        "role": "核心校"
+      },
+      "level": "省市属",
+      "members": [
+        {
+          "name": "华南师范大学附属中学增城学校",
+          "norm_name": "华南师范大学附属中学增城学校",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广东广雅中学（花都校区）",
+        "norm_name": "广东广雅中学花都校区",
+        "layers": {},
+        "status": "远郊不在POI范围",
+        "district": "花都区",
+        "role": "核心校"
+      },
+      "level": "省市属",
+      "members": [
+        {
+          "name": "广州市花都区雅瑶中学",
+          "norm_name": "花都区雅瑶中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市第二中学",
+        "norm_name": "第二中学",
+        "layers": {
+          "初中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州市第二中学(应元路校区)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州市第二中学(应元路校区)"
+              ],
+              [
+                "POI带校区",
+                "广州市第二中学(科学城校区)"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州市第二中学(应元路校区)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州市第二中学(应元路校区)"
+              ],
+              [
+                "POI带校区",
+                "广州市第二中学(科学城校区)"
+              ]
+            ]
+          }
+        },
+        "status": "变体命中",
+        "district": "越秀区",
+        "role": "核心校"
+      },
+      "level": "省市属",
+      "members": [
+        {
+          "name": "广州市黄埔区会元学校",
+          "norm_name": "黄埔区会元学校",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市黄埔区会元学校"
+            },
+            "小学": {
+              "match_type": "精确",
+              "poi_name": "广州市黄埔区会元学校"
+            }
+          },
+          "status": "精确命中",
+          "district": "黄埔区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市第六中学（从化校区）",
+        "norm_name": "第六中学从化校区",
+        "layers": {
+          "初中": {
+            "match_type": "集团带校区",
+            "poi_name": "广州市第六中学",
+            "all_variants": [
+              [
+                "集团带校区",
+                "广州市第六中学"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "集团带校区",
+            "poi_name": "广州市第六中学",
+            "all_variants": [
+              [
+                "集团带校区",
+                "广州市第六中学"
+              ]
+            ]
+          }
+        },
+        "status": "变体命中",
+        "district": "从化区",
+        "role": "核心校"
+      },
+      "level": "省市属",
+      "members": [
+        {
+          "name": "广州市从化区第五中学",
+          "norm_name": "从化区第五中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "广州市第五中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "广州市第五中学"
+                ]
+              ]
+            },
+            "高中": {
+              "match_type": "集团带区名",
+              "poi_name": "广州市第五中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "广州市第五中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "从化区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广东华侨中学",
+        "norm_name": "广东华侨中学",
+        "layers": {
+          "初中": {
+            "match_type": "POI带校区",
+            "poi_name": "广东华侨中学起义路校区初中部",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广东华侨中学起义路校区初中部"
+              ],
+              [
+                "POI带校区",
+                "广东华侨中学(起义路校区)"
+              ],
+              [
+                "POI带校区",
+                "广东华侨中学(金沙洲校区)"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "POI带校区",
+            "poi_name": "广东华侨中学(起义路校区)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广东华侨中学(起义路校区)"
+              ],
+              [
+                "POI带校区",
+                "广东华侨中学(金沙洲校区)"
+              ]
+            ]
+          }
+        },
+        "status": "变体命中",
+        "district": "越秀区",
+        "role": "核心校"
+      },
+      "level": "省市属",
+      "members": [
+        {
+          "name": "广东华侨中学（越秀校区）",
+          "norm_name": "广东华侨中学越秀校区",
+          "layers": {},
+          "status": "未命中",
+          "district": "越秀区",
+          "role": "成员校"
+        },
+        {
+          "name": "广东华侨中学（白云校区）",
+          "norm_name": "广东华侨中学白云校区",
+          "layers": {},
+          "status": "未命中",
+          "district": "越秀区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市番禺区南村镇侨联中学",
+          "norm_name": "番禺区南村镇侨联中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "侨联中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "侨联中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "番禺区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区花山镇华侨初级中学",
+          "norm_name": "花都区花山镇华侨初级中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州大学附属中学",
+        "norm_name": "广州大学附属中学",
+        "layers": {
+          "初中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州大学附属中学(黄华路校区)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州大学附属中学(黄华路校区)"
+              ],
+              [
+                "POI带校区",
+                "广州大学附属中学(大学城校区)"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州大学附属中学(黄华路校区)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州大学附属中学(黄华路校区)"
+              ],
+              [
+                "POI带校区",
+                "广州大学附属中学(大学城校区)"
+              ]
+            ]
+          }
+        },
+        "status": "变体命中",
+        "district": "越秀区",
+        "role": "核心校"
+      },
+      "level": "省市属",
+      "members": [
+        {
+          "name": "广州大学附属中学从化实验学校",
+          "norm_name": "广州大学附属中学从化实验学校",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "从化区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州外国语学校",
+        "norm_name": "广州外国语学校",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "广州外国语学校"
+          }
+        },
+        "status": "精确命中",
+        "district": "南沙区",
+        "role": "核心校"
+      },
+      "level": "省市属",
+      "members": [
+        {
+          "name": "广州增城外国语实验中学",
+          "norm_name": "广州增城外国语实验中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市第一中学",
+        "norm_name": "第一中学",
+        "layers": {
+          "初中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州市第一中学(初中部)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州市第一中学(初中部)"
+              ],
+              [
+                "POI带校区",
+                "广州市第一中学双桥学校"
+              ],
+              [
+                "POI带校区",
+                "广州市第一中学十甫学校"
+              ],
+              [
+                "POI带校区",
+                "广州市第一中学红岩学校"
+              ],
+              [
+                "POI带校区",
+                "广州市第一中学(姜中宏校区)"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州市第一中学(高中部)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州市第一中学(高中部)"
+              ]
+            ]
+          }
+        },
+        "status": "变体命中",
+        "district": "荔湾区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市第一中学十甫学校",
+          "norm_name": "第一中学十甫学校",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市第一中学十甫学校"
+            }
+          },
+          "status": "精确命中",
+          "district": "荔湾区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市美华中学",
+          "norm_name": "美华中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市美华中学"
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        },
+        {
+          "name": "广州市第一中学红岩学校",
+          "norm_name": "第一中学红岩学校",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市第一中学红岩学校"
+            }
+          },
+          "status": "精确命中",
+          "district": "荔湾区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市第四中学",
+        "norm_name": "第四中学",
+        "layers": {
+          "初中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州市第四中学(津园校区)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州市第四中学(津园校区)"
+              ],
+              [
+                "POI带校区",
+                "广州市第四中学花地学校"
+              ],
+              [
+                "POI带校区",
+                "广州市第四中学(逸园校区)"
+              ],
+              [
+                "POI带校区",
+                "广州市第四中学(康园校区)"
+              ],
+              [
+                "POI带校区",
+                "广州市第四中学丰宁学校"
+              ]
+            ]
+          },
+          "小学": {
+            "match_type": "POI带校区",
+            "poi_name": "广州市第四中学附属芦荻西小学",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州市第四中学附属芦荻西小学"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州市第四中学(高中部锐园校区)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州市第四中学(高中部锐园校区)"
+              ]
+            ]
+          }
+        },
+        "status": "变体命中",
+        "district": "荔湾区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市第四中学丰宁学校",
+          "norm_name": "第四中学丰宁学校",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市第四中学丰宁学校"
+            }
+          },
+          "status": "精确命中",
+          "district": "荔湾区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市第四中学花地学校",
+          "norm_name": "第四中学花地学校",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市第四中学花地学校"
+            }
+          },
+          "status": "精确命中",
+          "district": "荔湾区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市西关外国语学校",
+        "norm_name": "西关外国语学校",
+        "layers": {
+          "初中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州市西关外国语学校(初中部)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州市西关外国语学校(初中部)"
+              ],
+              [
+                "POI带校区",
+                "西关外国语学校初中部(彩虹桥校区)"
+              ],
+              [
+                "POI带校区",
+                "广州市西关外国语学校中学部"
+              ]
+            ]
+          },
+          "小学": {
+            "match_type": "POI带校区",
+            "poi_name": "广州市西关外国语学校(初中部)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州市西关外国语学校(初中部)"
+              ],
+              [
+                "POI带校区",
+                "广州市西关外国语学校泮溪校区"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州市西关外国语学校(高中部)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州市西关外国语学校(高中部)"
+              ]
+            ]
+          }
+        },
+        "status": "变体命中",
+        "district": "荔湾区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市陈嘉庚纪念中学",
+          "norm_name": "陈嘉庚纪念中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市陈嘉庚纪念中学"
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        },
+        {
+          "name": "广州市西关外国语流花学校",
+          "norm_name": "西关外国语流花学校",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市西关外国语流花学校"
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市真光中学（汾水校区）",
+        "norm_name": "真光中学汾水校区",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "广州市真光中学(汾水校区)"
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "广州市真光中学(汾水校区)"
+          }
+        },
+        "status": "精确命中",
+        "district": "荔湾区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市真光中学东漖学校",
+          "norm_name": "真光中学东漖学校",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市真光中学东漖学校"
+            }
+          },
+          "status": "精确命中",
+          "district": "荔湾区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市真光中学文伟学校",
+          "norm_name": "真光中学文伟学校",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市真光中学文伟学校"
+            }
+          },
+          "status": "精确命中",
+          "district": "荔湾区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市真光中学金道学校",
+          "norm_name": "真光中学金道学校",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市真光中学金道学校"
+            }
+          },
+          "status": "精确命中",
+          "district": "荔湾区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市第三中学",
+        "norm_name": "第三中学",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "广州市第三中学"
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "广州市第三中学"
+          }
+        },
+        "status": "精确命中",
+        "district": "越秀区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市真光学校",
+          "norm_name": "真光学校",
+          "layers": {
+            "初中": {
+              "match_type": "POI带校区",
+              "poi_name": "广州市真光学校(长堤校区)",
+              "all_variants": [
+                [
+                  "POI带校区",
+                  "广州市真光学校(长堤校区)"
+                ]
+              ]
+            },
+            "小学": {
+              "match_type": "POI带校区",
+              "poi_name": "广州市真光学校(一德西校区)",
+              "all_variants": [
+                [
+                  "POI带校区",
+                  "广州市真光学校(一德西校区)"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": null,
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市培正中学",
+        "norm_name": "培正中学",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "培正中学"
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "培正中学"
+          }
+        },
+        "status": "精确命中",
+        "district": "越秀区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市培正中学矿泉学校",
+          "norm_name": "培正中学矿泉学校",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市培正中学矿泉学校"
+            },
+            "高中": {
+              "match_type": "集团带校区",
+              "poi_name": "培正中学",
+              "all_variants": [
+                [
+                  "集团带校区",
+                  "培正中学"
+                ]
+              ]
+            }
+          },
+          "status": "精确命中",
+          "district": "越秀区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市第五中学（金碧校区）",
+        "norm_name": "第五中学金碧校区",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "广州市第五中学(金碧校区)"
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "广州市第五中学(金碧校区)"
+          }
+        },
+        "status": "精确命中",
+        "district": "海珠区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市第二十六中学",
+          "norm_name": "第二十六中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市第二十六中学"
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        },
+        {
+          "name": "广州市五中滨江学校",
+          "norm_name": "五中滨江学校",
+          "layers": {
+            "初中": {
+              "match_type": "POI带校区",
+              "poi_name": "广州市五中滨江学校(远安校区)",
+              "all_variants": [
+                [
+                  "POI带校区",
+                  "广州市五中滨江学校(远安校区)"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": null,
+          "role": "成员校"
+        },
+        {
+          "name": "广州市海珠外国语实验中学附属学校",
+          "norm_name": "海珠外国语实验中学附属学校",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市海珠外国语实验中学附属学校"
+            },
+            "高中": {
+              "match_type": "集团带校区",
+              "poi_name": "广州市海珠外国语实验中学",
+              "all_variants": [
+                [
+                  "集团带校区",
+                  "广州市海珠外国语实验中学"
+                ]
+              ]
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市第九十七中学（校本部）",
+        "norm_name": "第九十七中学校本部",
+        "layers": {
+          "初中": {
+            "match_type": "集团带校区",
+            "poi_name": "广州市第九十七中学",
+            "all_variants": [
+              [
+                "集团带校区",
+                "广州市第九十七中学"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "集团带校区",
+            "poi_name": "广州市第九十七中学",
+            "all_variants": [
+              [
+                "集团带校区",
+                "广州市第九十七中学"
+              ]
+            ]
+          }
+        },
+        "status": "变体命中",
+        "district": "海珠区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市九十七中晓园学校",
+          "norm_name": "九十七中晓园学校",
+          "layers": {},
+          "status": "未命中",
+          "district": null,
+          "role": "成员校"
+        },
+        {
+          "name": "广州市新滘中学",
+          "norm_name": "新滘中学",
+          "layers": {
+            "初中": {
+              "match_type": "POI带校区",
+              "poi_name": "广州市新滘中学(贵荣校区)",
+              "all_variants": [
+                [
+                  "POI带校区",
+                  "广州市新滘中学(贵荣校区)"
+                ],
+                [
+                  "POI带校区",
+                  "广州市新滘中学(土华校区)"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": null,
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市第四十一中学",
+        "norm_name": "第四十一中学",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "广州市第四十一中学"
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "广州市第四十一中学"
+          }
+        },
+        "status": "精确命中",
+        "district": "海珠区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市海珠区劬劳中学",
+          "norm_name": "海珠区劬劳中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "广州市劬劳中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "广州市劬劳中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "海珠区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市海珠区黄埔中学",
+          "norm_name": "海珠区黄埔中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "黄埔中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "黄埔中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "海珠区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州中学",
+        "norm_name": "广州中学",
+        "layers": {
+          "初中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州中学(五山校区)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州中学(五山校区)"
+              ],
+              [
+                "POI带校区",
+                "广州中学(凤凰校区)"
+              ],
+              [
+                "POI带校区",
+                "广州中学(名雅校区)"
+              ],
+              [
+                "POI带校区",
+                "广州中学教育集团(天润校区)"
+              ],
+              [
+                "POI带校区",
+                "广州中学天河燕园学校"
+              ]
+            ]
+          },
+          "小学": {
+            "match_type": "POI带校区",
+            "poi_name": "广州中学天河燕园学校",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州中学天河燕园学校"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州中学(凤凰校区)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州中学(凤凰校区)"
+              ]
+            ]
+          }
+        },
+        "status": "变体命中",
+        "district": "天河区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市长兴中学",
+          "norm_name": "长兴中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市长兴中学"
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州奥林匹克中学",
+        "norm_name": "广州奥林匹克中学",
+        "layers": {
+          "初中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州奥林匹克中学(智谷校区)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州奥林匹克中学(智谷校区)"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州奥林匹克中学(高中部)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州奥林匹克中学(高中部)"
+              ],
+              [
+                "POI带校区",
+                "广州奥林匹克中学(智谷校区)"
+              ]
+            ]
+          }
+        },
+        "status": "变体命中",
+        "district": "天河区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市第十八中学",
+          "norm_name": "第十八中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市第十八中学"
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        },
+        {
+          "name": "广州市泰安中学",
+          "norm_name": "泰安中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市泰安中学"
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市培英中学（鹤洞校区）",
+        "norm_name": "培英中学鹤洞校区",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "广州市培英中学(鹤洞校区)"
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "广州市培英中学(鹤洞校区)"
+          }
+        },
+        "status": "精确命中",
+        "district": "荔湾区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市白云区嘉禾中学",
+          "norm_name": "白云区嘉禾中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "嘉禾中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "嘉禾中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "白云区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市白云区黄石学校",
+          "norm_name": "白云区黄石学校",
+          "layers": {},
+          "status": "未命中",
+          "district": "白云区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市白云区石井中学",
+          "norm_name": "白云区石井中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "石井中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "石井中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "白云区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市第六十五中学（江高校区）",
+        "norm_name": "第六十五中学江高校区",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "广州市第六十五中学(江高校区)"
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "广州市第六十五中学(江高校区)"
+          }
+        },
+        "status": "精确命中",
+        "district": "白云区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市白云区神山中学",
+          "norm_name": "白云区神山中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市白云区神山中学"
+            }
+          },
+          "status": "精确命中",
+          "district": "白云区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市白云区石龙中学",
+          "norm_name": "白云区石龙中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "石龙中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "石龙中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "白云区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市白云区江高镇第三初级中学",
+          "norm_name": "白云区江高镇第三初级中学",
+          "layers": {},
+          "status": "未命中",
+          "district": "白云区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市白云区江村中学",
+          "norm_name": "白云区江村中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "江村中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "江村中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "白云区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州大同中学",
+        "norm_name": "广州大同中学",
+        "layers": {
+          "初中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州大同中学(初中部)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州大同中学(初中部)"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "POI带校区",
+            "poi_name": "广州大同中学(高中部)",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州大同中学(高中部)"
+              ]
+            ]
+          }
+        },
+        "status": "变体命中",
+        "district": "白云区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市白云区龙岗学校",
+          "norm_name": "白云区龙岗学校",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市白云区龙岗学校"
+            }
+          },
+          "status": "精确命中",
+          "district": "白云区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市白云区新和学校",
+          "norm_name": "白云区新和学校",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "新和学校",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "新和学校"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "白云区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市白云区竹料第一中学",
+          "norm_name": "白云区竹料第一中学",
+          "layers": {
+            "初中": {
+              "match_type": "POI带校区",
+              "poi_name": "广州市白云区竹料第一中学北校区",
+              "all_variants": [
+                [
+                  "POI带校区",
+                  "广州市白云区竹料第一中学北校区"
+                ],
+                [
+                  "集团带区名",
+                  "竹料第一中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "白云区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市白云区竹料第三中学",
+          "norm_name": "白云区竹料第三中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "竹料第三中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "竹料第三中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "白云区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州大同中学",
+          "norm_name": "广州大同中学",
+          "layers": {
+            "初中": {
+              "match_type": "POI带校区",
+              "poi_name": "广州大同中学(初中部)",
+              "all_variants": [
+                [
+                  "POI带校区",
+                  "广州大同中学(初中部)"
+                ]
+              ]
+            },
+            "高中": {
+              "match_type": "POI带校区",
+              "poi_name": "广州大同中学(高中部)",
+              "all_variants": [
+                [
+                  "POI带校区",
+                  "广州大同中学(高中部)"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "白云区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市白云区南悦中学",
+          "norm_name": "白云区南悦中学",
+          "layers": {},
+          "status": "未命中",
+          "district": "白云区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市白云中学",
+        "norm_name": "白云中学",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "广州市白云中学"
+          },
+          "小学": {
+            "match_type": "POI带校区",
+            "poi_name": "广州市白云中学附属小学",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广州市白云中学附属小学"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "广州市白云中学"
+          }
+        },
+        "status": "精确命中",
+        "district": "白云区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市白云区新市中学",
+          "norm_name": "白云区新市中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市白云区新市中学"
+            }
+          },
+          "status": "精确命中",
+          "district": "白云区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市白云区三元里中学",
+          "norm_name": "白云区三元里中学",
+          "layers": {},
+          "status": "未命中",
+          "district": "白云区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市第六十七中学",
+          "norm_name": "第六十七中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市第六十七中学"
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广东外语外贸大学实验中学",
+        "norm_name": "广东外语外贸大学实验中学",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "广东外语外贸大学实验中学"
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "广东外语外贸大学实验中学"
+          }
+        },
+        "status": "精确命中",
+        "district": "白云区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市白云区太和中学",
+          "norm_name": "白云区太和中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市白云区太和中学"
+            }
+          },
+          "status": "精确命中",
+          "district": "白云区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市第一一五中学",
+          "norm_name": "第一一五中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市第一一五中学"
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        },
+        {
+          "name": "广州市第七十中学",
+          "norm_name": "第七十中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市第七十中学"
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        },
+        {
+          "name": "广州市白云区龙归学校",
+          "norm_name": "白云区龙归学校",
+          "layers": {},
+          "status": "未命中",
+          "district": "白云区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市白云区穗丰学校",
+          "norm_name": "白云区穗丰学校",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市白云区穗丰学校"
+            },
+            "小学": {
+              "match_type": "精确",
+              "poi_name": "广州市白云区穗丰学校"
+            }
+          },
+          "status": "精确命中",
+          "district": "白云区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市白云区广州空港实验中学",
+        "norm_name": "白云区广州空港实验中学",
+        "layers": {},
+        "status": "未命中",
+        "district": "白云区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市第七十三中学",
+          "norm_name": "第七十三中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市第七十三中学"
+            },
+            "小学": {
+              "match_type": "POI带校区",
+              "poi_name": "广州市第七十三中学·小学部",
+              "all_variants": [
+                [
+                  "POI带校区",
+                  "广州市第七十三中学·小学部"
+                ]
+              ]
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        },
+        {
+          "name": "广州市白云区广州空港实验中学",
+          "norm_name": "白云区广州空港实验中学",
+          "layers": {},
+          "status": "未命中",
+          "district": "白云区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市第八十六中学",
+        "norm_name": "第八十六中学",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "广州市第八十六中学"
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "广州市第八十六中学"
+          }
+        },
+        "status": "精确命中",
+        "district": "黄埔区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市第一二三中学",
+          "norm_name": "第一二三中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市第一二三中学"
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        },
+        {
+          "name": "广州石化中学",
+          "norm_name": "广州石化中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州石化中学"
+            },
+            "高中": {
+              "match_type": "精确",
+              "poi_name": "广州石化中学"
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        },
+        {
+          "name": "广州市黄埔区港湾中学",
+          "norm_name": "黄埔区港湾中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "港湾中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "港湾中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "黄埔区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市黄埔区新港中学",
+          "norm_name": "黄埔区新港中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市黄埔区新港中学"
+            }
+          },
+          "status": "精确命中",
+          "district": "黄埔区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市玉岩中学",
+        "norm_name": "玉岩中学",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "玉岩中学"
+          },
+          "小学": {
+            "match_type": "POI带校区",
+            "poi_name": "玉岩中学附属开发区实验学校",
+            "all_variants": [
+              [
+                "POI带校区",
+                "玉岩中学附属开发区实验学校"
+              ],
+              [
+                "POI带校区",
+                "广州市玉岩中学附属科学城实验学校"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "玉岩中学"
+          }
+        },
+        "status": "精确命中",
+        "district": "黄埔区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市黄埔区玉岩实验学校",
+          "norm_name": "黄埔区玉岩实验学校",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市黄埔区玉岩实验学校"
+            }
+          },
+          "status": "精确命中",
+          "district": "黄埔区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市黄埔区华峰学校",
+          "norm_name": "黄埔区华峰学校",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "华峰学校",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "华峰学校"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "黄埔区",
+          "role": "成员校"
+        },
+        {
+          "name": "广东省教育研究院黄埔实验学校",
+          "norm_name": "广东省教育研究院黄埔实验学校",
+          "layers": {
+            "初中": {
+              "match_type": "POI带校区",
+              "poi_name": "广东省教育研究院黄埔实验学校初中部",
+              "all_variants": [
+                [
+                  "POI带校区",
+                  "广东省教育研究院黄埔实验学校初中部"
+                ],
+                [
+                  "POI带校区",
+                  "广东省教育研究院黄埔实验学校（北校区）"
+                ]
+              ]
+            },
+            "小学": {
+              "match_type": "精确",
+              "poi_name": "广东省教育研究院黄埔实验学校"
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州科学城中学",
+        "norm_name": "广州科学城中学",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "广州科学城中学"
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "广州科学城中学"
+          }
+        },
+        "status": "精确命中",
+        "district": "黄埔区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市第一一七中学",
+          "norm_name": "第一一七中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "广州市第一一七中学"
+            }
+          },
+          "status": "精确命中",
+          "district": null,
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广东仲元中学",
+        "norm_name": "广东仲元中学",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "广东仲元中学"
+          },
+          "小学": {
+            "match_type": "POI带校区",
+            "poi_name": "广东仲元中学莲花湾学校",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广东仲元中学莲花湾学校"
+              ],
+              [
+                "POI带校区",
+                "广东仲元中学附属学校"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "广东仲元中学"
+          }
+        },
+        "status": "精确命中",
+        "district": "番禺区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市番禺区石碁第四中学",
+          "norm_name": "番禺区石碁第四中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "石碁第四中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "石碁第四中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "番禺区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广东番禺中学",
+        "norm_name": "广东番禺中学",
+        "layers": {
+          "初中": {
+            "match_type": "精确",
+            "poi_name": "广东番禺中学"
+          },
+          "小学": {
+            "match_type": "POI带校区",
+            "poi_name": "广东番禺中学附属学校",
+            "all_variants": [
+              [
+                "POI带校区",
+                "广东番禺中学附属学校"
+              ],
+              [
+                "POI带校区",
+                "广东番禺中学附属学校-番中附小"
+              ],
+              [
+                "POI带校区",
+                "广东番禺中学教育集团兴南学校"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "精确",
+            "poi_name": "广东番禺中学"
+          }
+        },
+        "status": "精确命中",
+        "district": "番禺区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市番禺区南村中学",
+          "norm_name": "番禺区南村中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "南村中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "南村中学"
+                ]
+              ]
+            },
+            "高中": {
+              "match_type": "集团带区名",
+              "poi_name": "南村中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "南村中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "番禺区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市番禺区实验中学",
+        "norm_name": "番禺区实验中学",
+        "layers": {},
+        "status": "未命中",
+        "district": "番禺区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市番禺区实验中学",
+          "norm_name": "番禺区实验中学",
+          "layers": {},
+          "status": "未命中",
+          "district": "番禺区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市番禺区化龙中学",
+          "norm_name": "番禺区化龙中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "化龙中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "化龙中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "番禺区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市番禺区石楼中学",
+          "norm_name": "番禺区石楼中学",
+          "layers": {
+            "初中": {
+              "match_type": "精确",
+              "poi_name": "番禺区石楼中学"
+            },
+            "高中": {
+              "match_type": "精确",
+              "poi_name": "番禺区石楼中学"
+            }
+          },
+          "status": "精确命中",
+          "district": "番禺区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市番禺区石碁中学",
+          "norm_name": "番禺区石碁中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "石碁中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "石碁中学"
+                ]
+              ]
+            },
+            "高中": {
+              "match_type": "集团带区名",
+              "poi_name": "石碁中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "石碁中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "番禺区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市花都区秀全中学",
+        "norm_name": "花都区秀全中学",
+        "layers": {},
+        "status": "远郊不在POI范围",
+        "district": "花都区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市花都区狮岭镇狮峰初级中学",
+          "norm_name": "花都区狮岭镇狮峰初级中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区花城街长岗初级中学",
+          "norm_name": "花都区花城街长岗初级中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区秀全中学附属赤坭中学（巴江校区）",
+          "norm_name": "花都区秀全中学附属赤坭中学巴江校区",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区秀全中学附属赤坭中学（三和庄校区）",
+          "norm_name": "花都区秀全中学附属赤坭中学三和庄校区",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区秀雅学校",
+          "norm_name": "花都区秀雅学校",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市花都区邝维煜纪念中学（校本部）",
+        "norm_name": "花都区邝维煜纪念中学校本部",
+        "layers": {},
+        "status": "远郊不在POI范围",
+        "district": "花都区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市花都区邝维煜纪念中学",
+          "norm_name": "花都区邝维煜纪念中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区新雅街清埔初级中学",
+          "norm_name": "花都区新雅街清埔初级中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区邝维煜纪念中学附属北兴中学（榴花校区）",
+          "norm_name": "花都区邝维煜纪念中学附属北兴中学榴花校区",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区邝维煜纪念中学附属北兴中学（北兴校区）",
+          "norm_name": "花都区邝维煜纪念中学附属北兴中学北兴校区",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区邝维煜纪念中学附属大塘中学",
+          "norm_name": "花都区邝维煜纪念中学附属大塘中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区圆玄中学",
+          "norm_name": "花都区圆玄中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区邝维煜纪念中学附属雅正学校",
+          "norm_name": "花都区邝维煜纪念中学附属雅正学校",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市花都区新华中学",
+        "norm_name": "花都区新华中学",
+        "layers": {},
+        "status": "远郊不在POI范围",
+        "district": "花都区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市花都区育才学校",
+          "norm_name": "花都区育才学校",
+          "layers": {
+            "小学": {
+              "match_type": "集团带区名",
+              "poi_name": "广州市育才学校",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "广州市育才学校"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "花都区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区秀全街九潭初级中学",
+          "norm_name": "花都区秀全街九潭初级中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区狮岭中学",
+          "norm_name": "花都区狮岭中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区炭步镇炭步初级中学",
+          "norm_name": "花都区炭步镇炭步初级中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市花都区炭步镇第二初级中学",
+          "norm_name": "花都区炭步镇第二初级中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "花都区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市南沙第一中学",
+        "norm_name": "南沙第一中学",
+        "layers": {},
+        "status": "远郊不在POI范围",
+        "district": "南沙区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市南沙黄阁中学",
+          "norm_name": "南沙黄阁中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "南沙区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市南沙麒麟中学",
+          "norm_name": "南沙麒麟中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "南沙区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市南沙东涌中学",
+        "norm_name": "南沙东涌中学",
+        "layers": {},
+        "status": "远郊不在POI范围",
+        "district": "南沙区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市南沙东涌中学",
+          "norm_name": "南沙东涌中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "南沙区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市南沙鱼窝头中学",
+          "norm_name": "南沙鱼窝头中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "南沙区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市南沙鱼窝头第二中学",
+          "norm_name": "南沙鱼窝头第二中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "南沙区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "华南师范大学附属南沙中学",
+        "norm_name": "华南师范大学附属南沙中学",
+        "layers": {},
+        "status": "远郊不在POI范围",
+        "district": "南沙区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市南沙区新垦学校",
+          "norm_name": "南沙区新垦学校",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "南沙区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市南沙区金沙学校",
+          "norm_name": "南沙区金沙学校",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "南沙区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市增城区增城中学",
+        "norm_name": "增城区增城中学",
+        "layers": {},
+        "status": "远郊不在POI范围",
+        "district": "增城区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市增城区华侨中学",
+          "norm_name": "增城区华侨中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市增城区荔城街第二中学",
+          "norm_name": "增城区荔城街第二中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市增城区荔城街第三中学",
+          "norm_name": "增城区荔城街第三中学",
+          "layers": {
+            "初中": {
+              "match_type": "集团带区名",
+              "poi_name": "广州市第三中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "广州市第三中学"
+                ]
+              ]
+            },
+            "高中": {
+              "match_type": "集团带区名",
+              "poi_name": "广州市第三中学",
+              "all_variants": [
+                [
+                  "集团带区名",
+                  "广州市第三中学"
+                ]
+              ]
+            }
+          },
+          "status": "变体命中",
+          "district": "增城区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市增城区荔城街荔景中学",
+          "norm_name": "增城区荔城街荔景中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市增城区挂绿实验学校",
+          "norm_name": "增城区挂绿实验学校",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市增城区郑中钧中学",
+        "norm_name": "增城区郑中钧中学",
+        "layers": {},
+        "status": "远郊不在POI范围",
+        "district": "增城区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市增城区正果中学",
+          "norm_name": "增城区正果中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市增城区小楼中学",
+          "norm_name": "增城区小楼中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市增城区第一中学",
+        "norm_name": "增城区第一中学",
+        "layers": {},
+        "status": "远郊不在POI范围",
+        "district": "增城区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市增城区石滩镇港侨中学",
+          "norm_name": "增城区石滩镇港侨中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市增城区三江中学",
+          "norm_name": "增城区三江中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市增城区中新镇福和中学",
+          "norm_name": "增城区中新镇福和中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市增城区第二中学",
+          "norm_name": "增城区第二中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市增城区新塘中学",
+        "norm_name": "增城区新塘中学",
+        "layers": {},
+        "status": "远郊不在POI范围",
+        "district": "增城区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市增城区新塘镇第二中学",
+          "norm_name": "增城区新塘镇第二中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市增城区新塘镇菊泉中学",
+          "norm_name": "增城区新塘镇菊泉中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市增城区水电二局学校",
+          "norm_name": "增城区水电二局学校",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市增城区新塘镇天伦学校",
+          "norm_name": "增城区新塘镇天伦学校",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市增城区新塘镇大敦中学",
+          "norm_name": "增城区新塘镇大敦中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "增城区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市从化区从化中学",
+        "norm_name": "从化区从化中学",
+        "layers": {},
+        "status": "远郊不在POI范围",
+        "district": "从化区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市从化区城郊中学",
+          "norm_name": "从化区城郊中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "从化区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市从化区鳌头中学",
+          "norm_name": "从化区鳌头中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "从化区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市从化区龙潭中学",
+          "norm_name": "从化区龙潭中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "从化区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市从化区从化中学",
+          "norm_name": "从化区从化中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "从化区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市从化区第五中学",
+        "norm_name": "从化区第五中学",
+        "layers": {
+          "初中": {
+            "match_type": "集团带区名",
+            "poi_name": "广州市第五中学",
+            "all_variants": [
+              [
+                "集团带区名",
+                "广州市第五中学"
+              ]
+            ]
+          },
+          "高中": {
+            "match_type": "集团带区名",
+            "poi_name": "广州市第五中学",
+            "all_variants": [
+              [
+                "集团带区名",
+                "广州市第五中学"
+              ]
+            ]
+          }
+        },
+        "status": "变体命中",
+        "district": "从化区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市从化区太平中学",
+          "norm_name": "从化区太平中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "从化区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市从化区棋杆中学",
+          "norm_name": "从化区棋杆中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "从化区",
+          "role": "成员校"
+        }
+      ]
+    },
+    {
+      "core": {
+        "name": "广州市从化区流溪中学",
+        "norm_name": "从化区流溪中学",
+        "layers": {},
+        "status": "远郊不在POI范围",
+        "district": "从化区",
+        "role": "核心校"
+      },
+      "level": "区属",
+      "members": [
+        {
+          "name": "广州市从化区桃园中学",
+          "norm_name": "从化区桃园中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "从化区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市从化区河东中学",
+          "norm_name": "从化区河东中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "从化区",
+          "role": "成员校"
+        },
+        {
+          "name": "广州市从化区神岗中学",
+          "norm_name": "从化区神岗中学",
+          "layers": {},
+          "status": "远郊不在POI范围",
+          "district": "从化区",
+          "role": "成员校"
+        }
+      ]
+    }
+  ],
+  "miss_seven": [
+    {
+      "name": "广东华侨中学（越秀校区）",
+      "norm_name": "广东华侨中学越秀校区",
+      "layers": {},
+      "status": "未命中",
+      "district": "越秀区",
+      "role": "成员校"
+    },
+    {
+      "name": "广东华侨中学（白云校区）",
+      "norm_name": "广东华侨中学白云校区",
+      "layers": {},
+      "status": "未命中",
+      "district": "越秀区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市九十七中晓园学校",
+      "norm_name": "九十七中晓园学校",
+      "layers": {},
+      "status": "未命中",
+      "district": null,
+      "role": "成员校"
+    },
+    {
+      "name": "广州市白云区黄石学校",
+      "norm_name": "白云区黄石学校",
+      "layers": {},
+      "status": "未命中",
+      "district": "白云区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市白云区江高镇第三初级中学",
+      "norm_name": "白云区江高镇第三初级中学",
+      "layers": {},
+      "status": "未命中",
+      "district": "白云区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市白云区南悦中学",
+      "norm_name": "白云区南悦中学",
+      "layers": {},
+      "status": "未命中",
+      "district": "白云区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市白云区三元里中学",
+      "norm_name": "白云区三元里中学",
+      "layers": {},
+      "status": "未命中",
+      "district": "白云区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市白云区龙归学校",
+      "norm_name": "白云区龙归学校",
+      "layers": {},
+      "status": "未命中",
+      "district": "白云区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市白云区广州空港实验中学",
+      "norm_name": "白云区广州空港实验中学",
+      "layers": {},
+      "status": "未命中",
+      "district": "白云区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市白云区广州空港实验中学",
+      "norm_name": "白云区广州空港实验中学",
+      "layers": {},
+      "status": "未命中",
+      "district": "白云区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市番禺区实验中学",
+      "norm_name": "番禺区实验中学",
+      "layers": {},
+      "status": "未命中",
+      "district": "番禺区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市番禺区实验中学",
+      "norm_name": "番禺区实验中学",
+      "layers": {},
+      "status": "未命中",
+      "district": "番禺区",
+      "role": "成员校"
+    }
+  ],
+  "miss_outer": [
+    {
+      "name": "华南师范大学附属中学增城学校",
+      "norm_name": "华南师范大学附属中学增城学校",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广东广雅中学（花都校区）",
+      "norm_name": "广东广雅中学花都校区",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市花都区雅瑶中学",
+      "norm_name": "花都区雅瑶中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区花山镇华侨初级中学",
+      "norm_name": "花都区花山镇华侨初级中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州大学附属中学从化实验学校",
+      "norm_name": "广州大学附属中学从化实验学校",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "从化区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州增城外国语实验中学",
+      "norm_name": "广州增城外国语实验中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区秀全中学",
+      "norm_name": "花都区秀全中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市花都区狮岭镇狮峰初级中学",
+      "norm_name": "花都区狮岭镇狮峰初级中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区花城街长岗初级中学",
+      "norm_name": "花都区花城街长岗初级中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区秀全中学附属赤坭中学（巴江校区）",
+      "norm_name": "花都区秀全中学附属赤坭中学巴江校区",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区秀全中学附属赤坭中学（三和庄校区）",
+      "norm_name": "花都区秀全中学附属赤坭中学三和庄校区",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区秀雅学校",
+      "norm_name": "花都区秀雅学校",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区邝维煜纪念中学（校本部）",
+      "norm_name": "花都区邝维煜纪念中学校本部",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市花都区邝维煜纪念中学",
+      "norm_name": "花都区邝维煜纪念中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区新雅街清埔初级中学",
+      "norm_name": "花都区新雅街清埔初级中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区邝维煜纪念中学附属北兴中学（榴花校区）",
+      "norm_name": "花都区邝维煜纪念中学附属北兴中学榴花校区",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区邝维煜纪念中学附属北兴中学（北兴校区）",
+      "norm_name": "花都区邝维煜纪念中学附属北兴中学北兴校区",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区邝维煜纪念中学附属大塘中学",
+      "norm_name": "花都区邝维煜纪念中学附属大塘中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区圆玄中学",
+      "norm_name": "花都区圆玄中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区邝维煜纪念中学附属雅正学校",
+      "norm_name": "花都区邝维煜纪念中学附属雅正学校",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区新华中学",
+      "norm_name": "花都区新华中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市花都区秀全街九潭初级中学",
+      "norm_name": "花都区秀全街九潭初级中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区狮岭中学",
+      "norm_name": "花都区狮岭中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区炭步镇炭步初级中学",
+      "norm_name": "花都区炭步镇炭步初级中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市花都区炭步镇第二初级中学",
+      "norm_name": "花都区炭步镇第二初级中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "花都区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市南沙第一中学",
+      "norm_name": "南沙第一中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "南沙区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市南沙黄阁中学",
+      "norm_name": "南沙黄阁中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "南沙区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市南沙麒麟中学",
+      "norm_name": "南沙麒麟中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "南沙区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市南沙东涌中学",
+      "norm_name": "南沙东涌中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "南沙区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市南沙东涌中学",
+      "norm_name": "南沙东涌中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "南沙区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市南沙鱼窝头中学",
+      "norm_name": "南沙鱼窝头中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "南沙区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市南沙鱼窝头第二中学",
+      "norm_name": "南沙鱼窝头第二中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "南沙区",
+      "role": "成员校"
+    },
+    {
+      "name": "华南师范大学附属南沙中学",
+      "norm_name": "华南师范大学附属南沙中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "南沙区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市南沙区新垦学校",
+      "norm_name": "南沙区新垦学校",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "南沙区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市南沙区金沙学校",
+      "norm_name": "南沙区金沙学校",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "南沙区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区增城中学",
+      "norm_name": "增城区增城中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市增城区华侨中学",
+      "norm_name": "增城区华侨中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区荔城街第二中学",
+      "norm_name": "增城区荔城街第二中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区荔城街荔景中学",
+      "norm_name": "增城区荔城街荔景中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区挂绿实验学校",
+      "norm_name": "增城区挂绿实验学校",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区郑中钧中学",
+      "norm_name": "增城区郑中钧中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市增城区正果中学",
+      "norm_name": "增城区正果中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区小楼中学",
+      "norm_name": "增城区小楼中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区第一中学",
+      "norm_name": "增城区第一中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市增城区石滩镇港侨中学",
+      "norm_name": "增城区石滩镇港侨中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区三江中学",
+      "norm_name": "增城区三江中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区中新镇福和中学",
+      "norm_name": "增城区中新镇福和中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区第二中学",
+      "norm_name": "增城区第二中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区新塘中学",
+      "norm_name": "增城区新塘中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市增城区新塘镇第二中学",
+      "norm_name": "增城区新塘镇第二中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区新塘镇菊泉中学",
+      "norm_name": "增城区新塘镇菊泉中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区水电二局学校",
+      "norm_name": "增城区水电二局学校",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区新塘镇天伦学校",
+      "norm_name": "增城区新塘镇天伦学校",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市增城区新塘镇大敦中学",
+      "norm_name": "增城区新塘镇大敦中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "增城区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市从化区从化中学",
+      "norm_name": "从化区从化中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "从化区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市从化区城郊中学",
+      "norm_name": "从化区城郊中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "从化区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市从化区鳌头中学",
+      "norm_name": "从化区鳌头中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "从化区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市从化区龙潭中学",
+      "norm_name": "从化区龙潭中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "从化区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市从化区从化中学",
+      "norm_name": "从化区从化中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "从化区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市从化区太平中学",
+      "norm_name": "从化区太平中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "从化区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市从化区棋杆中学",
+      "norm_name": "从化区棋杆中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "从化区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市从化区流溪中学",
+      "norm_name": "从化区流溪中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "从化区",
+      "role": "核心校"
+    },
+    {
+      "name": "广州市从化区桃园中学",
+      "norm_name": "从化区桃园中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "从化区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市从化区河东中学",
+      "norm_name": "从化区河东中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "从化区",
+      "role": "成员校"
+    },
+    {
+      "name": "广州市从化区神岗中学",
+      "norm_name": "从化区神岗中学",
+      "layers": {},
+      "status": "远郊不在POI范围",
+      "district": "从化区",
+      "role": "成员校"
+    }
+  ]
+}
