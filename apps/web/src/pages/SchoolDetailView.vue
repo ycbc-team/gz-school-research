@@ -26,21 +26,9 @@ import {
   highLevels,
   tier1Schools,
   middleTier1Schools,
-  enrollments,
   matchEnrollment,
-  quotaMatrix,
-  specialMatrix,
-  batch2Scores,
-  CAMPUS_SHORT,
-  CAMPUS_SCHOOL,
-  CAMPUS_TO_SPECIAL,
-  CAMPUS_TO_BATCH2,
-  linkageOf,
-  specialOf,
-  batch2Of,
-  quotaCoverage,
-  specialCoverage,
 } from '../data';
+import LinkagePanel from '../components/LinkagePanel.vue';
 
 const props = defineProps<{ stage: SchoolStage; name: string }>();
 const schoolName = computed(() => decodeURIComponent(props.name || ''));
@@ -105,47 +93,7 @@ const primaryMechanism = computed(() => {
   return null;
 });
 
-/* ========== 初中：升学通道（linkage 2026） ========== */
-const quota = computed(() => (props.stage === 'middle' ? linkageOf(schoolName.value) : undefined));
-const quotaRows = computed(() => {
-  const q = quota.value;
-  if (!q) return [];
-  return CAMPUS_SHORT.filter((c) => (q.sz[c] ?? 0) > 0)
-    .map((c) => ({ campus: c, n: q.sz[c] as number }))
-    .sort((a, b) => b.n - a.n);
-});
-/** special 全称 → quota 简称（反向映射） */
-const specialKeyToShort = (spKey: string) => {
-  for (const [short, full] of Object.entries(CAMPUS_TO_SPECIAL)) if (full === spKey) return short;
-  return spKey;
-};
-const batchKeyToShort = (bk: string) => {
-  for (const [short, full] of Object.entries(CAMPUS_TO_BATCH2)) if (full === bk) return short;
-  return bk;
-};
-const specialRows = computed(() => {
-  const m = specialOf(schoolName.value);
-  if (!m) return [];
-  return Object.entries(m).map(([k, v]) => ({
-    campus: specialKeyToShort(k),
-    autonomy: v.autonomy ?? 0,
-    sports: v.sports ?? 0,
-    arts: v.arts ?? 0,
-  }));
-});
-const specialTotal = computed(() =>
-  specialRows.value.reduce((s, r) => s + r.autonomy + r.sports + r.arts, 0),
-);
-const batchRows = computed(() => {
-  const m = batch2Of(schoolName.value);
-  return Object.entries(m).map(([k, v]) => ({
-    campus: batchKeyToShort(k),
-    min: v.min_score,
-    last: v.last_score,
-  }));
-});
-
-/* ========== 高中：出口数据 + 名额分配覆盖（反查） ========== */
+/* ========== 高中：出口数据（升学路径覆盖由 LinkagePanel 承载） ========== */
 const indRows = computed(() => {
   const r = rec.value;
   if (!r) return [];
@@ -163,48 +111,8 @@ const indRows = computed(() => {
   put('note', '备注');
   return rows;
 });
-/** 该校各校区名额分配覆盖初中（n_ji 合并） */
-const highCoverage = computed(() => {
-  const r = rec.value;
-  if (!r) return [];
-  const shorts = CAMPUS_SHORT.filter((c) => CAMPUS_SCHOOL[c] === r.name);
-  const merged = new Map<string, { n: number; districts: Set<string> }>();
-  for (const c of shorts) {
-    for (const { school, n, district } of quotaCoverage(c)) {
-      const m = merged.get(school) || { n: 0, districts: new Set<string>() };
-      m.n += n;
-      if (district) m.districts.add(district);
-      merged.set(school, m);
-    }
-  }
-  return [...merged.entries()]
-    .map(([school, v]) => ({ school, n: v.n, districts: [...v.districts] }))
-    .sort((a, b) => b.n - a.n)
-    .slice(0, 30);
-});
-/** 该校各校区特殊通道覆盖（自招/体育/艺术） */
-const highSpecialCoverage = computed(() => {
-  const r = rec.value;
-  if (!r) return [];
-  const shorts = CAMPUS_SHORT.filter((c) => CAMPUS_SCHOOL[c] === r.name);
-  const merged = new Map<string, { autonomy: number; sports: number; arts: number }>();
-  for (const c of shorts) {
-    for (const s of specialCoverage(c)) {
-      const m = merged.get(s.school) || { autonomy: 0, sports: 0, arts: 0 };
-      m.autonomy += s.autonomy;
-      m.sports += s.sports;
-      m.arts += s.arts;
-      merged.set(s.school, m);
-    }
-  }
-  return [...merged.entries()]
-    .map(([school, v]) => ({ school, ...v }))
-    .sort((a, b) => b.autonomy + b.sports + b.arts - (a.autonomy + a.sports + a.arts))
-    .slice(0, 30);
-});
 
 /* ========== 其他 ========== */
-const hasLinkage = computed(() => !!quota.value || specialTotal.value > 0 || batchRows.value.length > 0);
 const badgeCls = computed(() => {
   if (props.stage === 'high') {
     const c = rec.value?.category;
@@ -300,53 +208,12 @@ const legalEntityText = computed(() => {
       <p class="note-text">{{ primaryMechanism }}</p>
     </div>
 
-    <!-- 初中：升学通道（核心） -->
+    <!-- 初中：升学通道（LinkagePanel 公共组件） -->
     <template v-if="stage === 'middle'">
-      <div class="card" v-if="quota">
-        <div class="card-title">名额分配 · 2026（官方）</div>
-        <div class="kv">
-          <div class="kv-row"><span>名额考生数</span><b>{{ quota.kaosheng ?? '—' }} 人</b></div>
-          <div class="kv-row"><span>省市属名额</span><b>{{ quota.sheng_quota ?? '—' }} 个</b></div>
-          <div class="kv-row"><span>区属名额</span><b>{{ quota.qu_quota ?? '—' }} 个</b></div>
-        </div>
-        <div v-if="quotaRows.length" class="bars">
-          <div v-for="r in quotaRows" :key="r.campus" class="bar-row">
-            <span class="bar-name">{{ r.campus }}</span>
-            <span class="bar-track"><i class="bar-fill" :style="{ width: Math.round((r.n / quotaRows[0]!.n) * 100) + '%' }"></i></span>
-            <span class="bar-val">{{ r.n }}</span>
-          </div>
-        </div>
-        <p v-else class="empty">该初中未获得省市属示范高中名额分配。</p>
-      </div>
-
-      <div class="card" v-if="specialRows.length">
-        <div class="card-title">特殊通道 · 2026（自招 / 体育 / 艺术）</div>
-        <p class="sub-note">自招=综合能力考核资格名单（考核前名单，非最终预录取）；体育/艺术=专业测试通过名单。</p>
-        <div class="tbl">
-          <div class="tbl-row tbl-head"><span>校区</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
-          <div v-for="r in specialRows" :key="r.campus" class="tbl-row">
-            <span>{{ r.campus }}</span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" v-if="batchRows.length">
-        <div class="card-title">第二批次录取分数 · 2026（按初中学校排序）</div>
-        <div class="tbl">
-          <div class="tbl-row tbl-head"><span>校区</span><span>录取最低分</span><span>末位考生分</span></div>
-          <div v-for="r in batchRows" :key="r.campus" class="tbl-row">
-            <span>{{ r.campus }}</span><span>{{ r.min ?? '—' }}</span><span>{{ r.last ?? '—' }}</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" v-if="!hasLinkage">
-        <div class="card-title">升学通道</div>
-        <p class="empty">该初中暂未匹配到省市属高中升学通道数据（可能为未收录或非名额分配学校）。</p>
-      </div>
+      <LinkagePanel :stage="'middle'" :school="schoolName" />
     </template>
 
-    <!-- 高中：出口数据 + 覆盖 -->
+    <!-- 高中：出口数据 + 升学路径覆盖（LinkagePanel 公共组件） -->
     <template v-if="stage === 'high'">
       <div class="card" v-if="indRows.length">
         <div class="card-title">出口数据</div>
@@ -358,26 +225,7 @@ const legalEntityText = computed(() => {
         <p class="sub-note">口径：录取线为官方发布；高分段/特控率为各校喜报或网传数据，非官方统一发布，仅供参考。</p>
       </div>
 
-      <div class="card" v-if="highCoverage.length">
-        <div class="card-title">名额分配覆盖初中 · 2026（Top 30）</div>
-        <p class="sub-note">按该高中各校区合计名额数（n_ji）降序，合并展示。</p>
-        <div class="tbl">
-          <div class="tbl-row tbl-head"><span>初中</span><span>所在区</span><span>名额</span></div>
-          <div v-for="r in highCoverage" :key="r.school" class="tbl-row">
-            <span>{{ r.school }}</span><span>{{ r.districts.join('、') || '—' }}</span><span class="strong">{{ r.n }}</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" v-if="highSpecialCoverage.length">
-        <div class="card-title">特殊通道覆盖初中 · 2026（Top 30）</div>
-        <div class="tbl">
-          <div class="tbl-row tbl-head"><span>初中</span><span>自招</span><span>体育</span><span>艺术</span></div>
-          <div v-for="r in highSpecialCoverage" :key="r.school" class="tbl-row">
-            <span>{{ r.school }}</span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span>
-          </div>
-        </div>
-      </div>
+      <LinkagePanel :stage="'high'" :school="schoolName" />
 
       <div class="card" v-if="rec?.campuses?.length">
         <div class="card-title">校区</div>

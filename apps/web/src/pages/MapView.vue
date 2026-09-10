@@ -29,6 +29,7 @@ import {
   highLevels,
   tier1Schools,
   middleTier1Schools,
+  matchEnrollment,
 } from '../data';
 
 /* ========== 配置（与旧版 map/index.html 一致） ========== */
@@ -350,6 +351,15 @@ onBeforeUnmount(() => {
 const active = ref<Pt | null>(null);
 function showInfo(pt: Pt) { active.value = pt; }
 function closeInfo() { active.value = null; }
+/** 小学招生条件行（2026 招生计划：班数 + 对口地段） */
+function primaryEnrollRows(name: string): InfoRow[] {
+  const en = matchEnrollment(name);
+  if (!en) return [];
+  const rows: InfoRow[] = [];
+  if (en.plan_classes != null) rows.push({ label: '2026班数', value: `${en.plan_classes} 个班`, strong: true });
+  if (en.zone) rows.push({ label: '招生地段', value: en.zone });
+  return rows;
+}
 
 interface InfoRow { label: string; value: string; strong?: boolean }
 interface InfoModel {
@@ -404,6 +414,8 @@ const infoModel = computed<InfoModel | null>(() => {
   const tier = pt.tier;
   if (tier) {
     const rows = pt.stage === 'primary' ? formatPrimarySignals(tier) : formatMiddleSignals(tier);
+    // 小学缩略面板优先展示招生条件（班数 + 对口地段）
+    const enrollRows = pt.stage === 'primary' ? primaryEnrollRows(name) : [];
     if (tier.tier1_eligible === false) {
       return {
         name,
@@ -424,7 +436,7 @@ const infoModel = computed<InfoModel | null>(() => {
         cls: tier.conclusion === '有支撑' ? 'tier-full' : tier.conclusion === '部分支撑' ? 'tier-part' : 'tier-none',
       },
       head,
-      rows: rows.slice(0, 2),
+      rows: [...enrollRows, ...rows.slice(0, 1)],
       note: '完整口碑信号与升学通道见详情页。',
       link: detailLink,
     };
@@ -436,6 +448,7 @@ const infoModel = computed<InfoModel | null>(() => {
     rows: [
       { label: '学段', value: pt.stage === 'primary' ? '小学' : pt.stage === 'middle' ? '初中' : '高中' },
       { label: '所在区', value: districtName || '—' },
+      ...(pt.stage === 'primary' ? primaryEnrollRows(name) : []),
     ],
     note: null,
     link: detailLink,
