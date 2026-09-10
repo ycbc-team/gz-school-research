@@ -18,6 +18,8 @@ export interface SchoolPoi {
   school?: string;
   /** high：levels 清单补点 */
   supplement?: boolean;
+  /** 新校核对补录标记（如「新开办（2026）·待首届成绩」）；无成绩新校不入口碑名单但数据可见 */
+  note?: string;
 }
 
 export interface DistrictBoundary {

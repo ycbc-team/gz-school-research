@@ -1,6 +1,7 @@
 /**
- * 学校名归一化与 tier1 梯队匹配 —— 与 scripts/build_tier1_js.py 的匹配验证算法保持一致：
- * 长别名优先；poi_norm == alias 或（alias 长度 >= 4 且 poi_norm 以 alias 开头）视为命中。
+ * 学校名归一化与 tier1 梯队匹配。
+ * 匹配策略：仅全等匹配（归一化后 === 记录名/别名），不做前缀/包含/模糊匹配；
+ * 校区与名称变体一律显式写入 aliases（数据驱动、可审计、可单测）。
  */
 import type { Tier1School } from './types.js';
 
@@ -33,7 +34,12 @@ export function buildAliasTable(
   return table;
 }
 
-/** 用点位名匹配梯队学校；未命中返回 undefined */
+/**
+ * 用点位名匹配梯队学校；未命中返回 undefined。
+ * 匹配策略：**仅全等匹配**（归一化后的点位名 === 记录名/别名），不做任何前缀/包含/模糊匹配。
+ * 校区与名称变体一律显式写入记录的 aliases（数据驱动、可审计、可单测），
+ * 避免「广东实验中学越秀学校」被「广东实验中学」前缀误配为本部口碑等历史 bug。
+ */
 export function matchTier1ByPoiName(
   poiName: string,
   schools: ReadonlyArray<Tier1School>,
@@ -42,7 +48,7 @@ export function matchTier1ByPoiName(
   const pn = normName(poiName);
   if (!pn) return undefined;
   for (const { alias, school } of table) {
-    if (pn === alias || (alias.length >= 4 && pn.startsWith(alias))) return school;
+    if (pn === alias) return school;
   }
   return undefined;
 }
@@ -59,4 +65,38 @@ export function attachTier1ToPois(
     if (hit) hits.set(p.name, hit);
   }
   return hits;
+}
+
+/** 品牌单位的最小形状（与 apps/web brandGroups 的 BrandUnit 兼容） */
+export interface BrandUnitLite {
+  name: string;
+  poi_names?: string[];
+}
+
+/** 品牌组的最小形状 */
+export interface BrandGroupLite {
+  brand: string;
+  units: BrandUnitLite[];
+}
+
+/**
+ * 按 POI 名全等匹配所属品牌组；未收录返回 undefined。
+ * 匹配策略：**仅全等匹配** —— POI 归一化名 === 单位 name 或单位 poi_names 之一，
+ * 不做前缀/包含匹配，避免「一中双桥学校」被「第一中学」前缀误配进一中品牌组。
+ */
+export function matchBrandByPoiName(
+  poiName: string,
+  brands: ReadonlyArray<BrandGroupLite>,
+): string | undefined {
+  const pn = normName(poiName);
+  if (!pn) return undefined;
+  for (const g of brands) {
+    for (const u of g.units) {
+      if (normName(u.name) === pn) return g.brand;
+      for (const p of u.poi_names || []) {
+        if (normName(p) === pn) return g.brand;
+      }
+    }
+  }
+  return undefined;
 }

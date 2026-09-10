@@ -8,6 +8,7 @@ import type {
   HighLevelsSnapshot,
   EnrollmentSnapshot,
 } from '@gz/shared';
+import { matchBrandByPoiName, normName, type BrandGroupLite } from '@gz/shared';
 import primarySchoolsJson from '../../../../data/primary/schools-gz.json';
 import primaryTier1Json from '../../../../data/primary/tier1_schools_all.json';
 import middleSchoolsJson from '../../../../data/middle/schools-gz.json';
@@ -25,6 +26,7 @@ import quotaMatrixJson from '../../../../data/linkage/quota_matrix.json';
 import specialMatrixJson from '../../../../data/linkage/special_matrix.json';
 import batch2ScoresJson from '../../../../data/linkage/batch2_scores.json';
 import sitesRegistryJson from '../../../../data/registry/sites.json';
+import brandGroupsJson from '../../../../data/registry/brand_groups.json';
 
 /** JSON 推断类型与共享类型不一致处统一断言（字段为数据真源，结构由 scripts/ 保证） */
 const cast = <T>(v: unknown): T => v as T;
@@ -168,7 +170,13 @@ for (const s of quotaMatrix.schools) {
   const nk = normSchoolName(s.school);
   if (nk && !middleByNorm.has(nk)) middleByNorm.set(nk, s.school);
 }
+/** 新开办待成绩初中（note 含「新开办」）：无成绩亦无升学通道数据，禁止模糊匹配到本部链路数据 */
+const newOpeningMiddles = new Set<string>();
+for (const s of middleSchools.schools) {
+  if (s.note && s.note.includes('新开办')) newOpeningMiddles.add(s.name);
+}
 function resolveMiddle(poiName: string): string | null {
+  if (newOpeningMiddles.has(poiName)) return null;
   if (quotaMatrix.schools.some((s) => s.school === poiName)) return poiName;
   const nk = normSchoolName(poiName);
   if (nk && middleByNorm.has(nk)) return middleByNorm.get(nk)!;
@@ -381,4 +389,33 @@ export function resolveSite(anyName: string): Site | null {
     if ((s.aliases || []).includes(anyName)) return s;
   }
   return null;
+}
+
+/* ========== 品牌关联表（同品牌多校区/多法人，详情页「品牌关联」板块） ========== */
+export interface BrandUnit {
+  name: string;
+  role: string;
+  /** same=与品牌核心同法人（计入口碑）；independent=独立法人（借用品牌→挂牌） */
+  legal: 'same' | 'independent';
+  /** 该单位的 POI 名覆盖（tier1 aliases 未覆盖其点位名时使用，如白云铁一=铁一中学白云校区） */
+  poi_names?: string[];
+}
+export interface BrandGroup {
+  brand: string;
+  brand_note?: string;
+  units: BrandUnit[];
+}
+export const brandGroups = cast<{
+  title: string;
+  verified_date: string;
+  scope?: string;
+  brands: BrandGroup[];
+}>(brandGroupsJson);
+
+/** 按任意校名（详情页当前学校名）匹配所属品牌组；未收录返回 null（仅全等匹配，POI 变体见 unit.poi_names） */
+export function brandGroupOf(name: string): BrandGroup | null {
+  if (!name) return null;
+  const brand = matchBrandByPoiName(name, brandGroups.brands as unknown as BrandGroupLite[]);
+  if (!brand) return null;
+  return brandGroups.brands.find((g) => g.brand === brand) || null;
 }
