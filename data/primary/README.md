@@ -39,7 +39,7 @@
 ## 更新方式
 
 ```bash
-python3 scripts/fetch_schools.py          # 基础点位，需项目根 .env 中的 AMAP_WEB_KEY
+python3 scripts/primary/fetch_schools.py          # 基础点位，需项目根 .env 中的 AMAP_WEB_KEY
 python3 scripts/build_panyu_enrollment.py # 番禺招生数据，解析官方 xls 附件
 ```
 
@@ -58,8 +58,8 @@ python3 scripts/build_panyu_enrollment.py # 番禺招生数据，解析官方 xl
 ### 更新顺序（注意）
 
 ```bash
-python3 scripts/fetch_schools.py           # 全量基础点位（会覆盖 schools.js，丢失 backfill 补充）
-python3 scripts/backfill_schools.py        # 缺校补位（重新执行以保留补充点位）
+python3 scripts/primary/fetch_schools.py           # 全量基础点位（会覆盖 schools.js，丢失 backfill 补充）
+python3 scripts/primary/backfill_schools.py        # 缺校补位（重新执行以保留补充点位）
 python3 scripts/build_panyu_enrollment.py  # 番禺招生数据绑定
 ```
 

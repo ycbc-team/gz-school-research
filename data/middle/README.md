@@ -42,6 +42,6 @@
 ## 更新方式
 
 ```bash
-python3 scripts/fetch_middle_schools.py    # 初中点位采集
+python3 scripts/middle/fetch_middle_schools.py    # 初中点位采集
 python3 scripts/build_middle_tier1_js.py   # 梯队数据构建
 ```

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """将 entity_classification.json 的法人分类字段合并到 tier1_schools_all.json。
 仅新增字段，不删改现有字段。
-用法：python3 scripts/merge_entity_classification.py
+用法：python3 scripts/primary/merge_entity_classification.py
 """
 import json
 from pathlib import Path

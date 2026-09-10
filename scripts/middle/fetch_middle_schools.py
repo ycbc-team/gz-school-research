@@ -3,7 +3,7 @@
 
 范围：7 区（荔湾/越秀/海珠/天河/白云/黄埔/番禺），与小学同口径，排除远郊南沙/花都/从化/增城。
 
-用法: python3 scripts/fetch_middle_schools.py
+用法: python3 scripts/middle/fetch_middle_schools.py
 依赖: 项目根 .env 中的 AMAP_WEB_KEY（Web 服务类型 Key）
 数据源: 高德地图 Web 服务 API（place/text 与 config/district）
 输出:
@@ -28,7 +28,7 @@ import time
 import urllib.parse
 import urllib.request
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # 项目根（scripts/ 的上层）
+BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # 项目根（scripts/middle/ 的上三层）
 ROOT = BASE
 
 DISTRICTS = [

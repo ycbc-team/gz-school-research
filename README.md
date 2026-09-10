@@ -78,14 +78,14 @@ npm run check                 # 全部 workspace 类型检查
 - 共 915 所：荔湾 75 / 越秀 78 / 海珠 120 / 天河 115 / 白云 227 / 黄埔 101 / 番禺 199
 - 已合并同校重复 POI；番禺含 backfill 补充点
 - 通过翻页采集突破单区 100 条上限
-- 更新：`python3 scripts/fetch_schools.py`（需 `.env` 中的 `AMAP_WEB_KEY`）
+- 更新：`python3 scripts/primary/fetch_schools.py`（需 `.env` 中的 `AMAP_WEB_KEY`）
 
 ### 初中点位数据（data/middle/schools-gz.json）
 
 - 来源：高德地图 Web 服务 API，2026-09-09 快照（GCJ-02 坐标系）
 - 范围：7 区（荔湾 / 越秀 / 海珠 / 天河 / 白云 / 黄埔 / 番禺），排除远郊南沙 / 花都 / 从化 / 增城
 - 采集：types=141201（初中分类）+ types=141200（中学分类）+ 关键词「初中」三路翻页合并，保留初中与完全中学
-- 更新：`python3 scripts/fetch_middle_schools.py`
+- 更新：`python3 scripts/middle/fetch_middle_schools.py`
 
 ### 高中点位与分类指标（data/high/）
 
@@ -99,7 +99,7 @@ npm run check                 # 全部 workspace 类型检查
 - 客观指标（levels.json，逐校）：特控线上线率 2026 / 2025（含网传口径）、600 分以上高分段占比、本科率、2025 中考户籍生录取最低分、隶属与示范性等级；无公开数据的学校如实标注"高考出口数据未公开"
   - 特控率来源：2026 高考喜报（广州日报报道）+ 2025 年 51 校成绩汇总，均为喜报 / 网传口径，非官方统一发布（页面卡片已注明）
 - 点位统计：126 个（含 15 个高德补点），荔湾 17 / 越秀 18 / 海珠 14 / 天河 19 / 白云 25 / 黄埔 14 / 番禺 19
-- 更新：`python3 scripts/fetch_high_schools.py`（原始 POI）→ `python3 scripts/build_high_levels_js.py`（按 levels.json 清洗点位并写回 json 真源）
+- 更新：`python3 scripts/high/fetch_high_schools.py`（原始 POI）→ `python3 scripts/high/build_high_levels_js.py`（按 levels.json 清洗点位并写回 json 真源）
 
 ### 招生数据（data/primary/enrollments/）
 

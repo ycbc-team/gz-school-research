@@ -8,8 +8,8 @@
   天河: data/primary/enrollments/_raw/tianhe_2026.json（官方 PDF 附件5 OCR 转录）
   番禺: 番禺区教育局 2026 招生计划 xls（公办+民办两个 sheet）
 
-用法: python3 scripts/build_district_enrollment.py <区名:yuexiu|liwan|haizhu|tianhe|panyu> [越秀txt路径]
-      或 python3 scripts/build_district_enrollment.py all
+用法: python3 scripts/primary/build_district_enrollment.py <区名:yuexiu|liwan|haizhu|tianhe|panyu> [越秀txt路径]
+      或 python3 scripts/primary/build_district_enrollment.py all
 输出: data/primary/enrollments/2026-<区>.json（唯一真源）
 """
 import json

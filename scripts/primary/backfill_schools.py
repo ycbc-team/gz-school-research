@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """补位搜索：对官方名单中有、但高德 POI 未收录的学校逐校检索，尽量补点。
 
-用法: python3 scripts/backfill_schools.py
+用法: python3 scripts/primary/backfill_schools.py
 依赖: 项目根 .env 的 AMAP_WEB_KEY
 数据流:
   1. 读取 data/primary/enrollments/2026-panyu.json 的 unmatched（官方有、高德无）
   2. 逐校调高德 place/text 检索（city=440113，不限分类）
   3. 高置信命中 → 合并进 data/primary/schools-gz.json（唯一真源，追加，src=backfill 标记）
      并存 data/primary/schools-backfill.json 留痕
-  4. 之后重跑 scripts/build_district_enrollment.py panyu 完成绑定
+  4. 之后重跑 scripts/primary/build_district_enrollment.py panyu 完成绑定
 """
 import json
 import os

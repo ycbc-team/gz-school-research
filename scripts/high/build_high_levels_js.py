@@ -3,7 +3,7 @@
 """构建高中数据真源：
 按 levels.json（学校清单+分类+指标）清洗高德 POI → data/high/schools-gz.json（清洗版真源）。
 
-用法: python3 scripts/build_high_levels_js.py
+用法: python3 scripts/high/build_high_levels_js.py
 依赖: data/high/schools-gz.json（fetch_high_schools.py 产物）、data/high/levels.json（人工调研产物）
 """
 import json

@@ -16,8 +16,8 @@
 | `raw/quota_detail.pdf` | 2026 名额分配结果（全市 31 页，每区 2-5 页） | ✅ 已攻克（见下） |
 | **`quota_matrix.json`** | **2026 名额分配完整矩阵：498 所初中 ×（名额考生/省市属/区属 + 21 省市属校区 n_ji）** | ✅ **校验 0 不一致（col1=Σ21 全过）** |
 | `raw/quota_grid_final.json` | 全量网格原始数据（每页 rows/cols/data） | ✅ 留痕 |
-| `scripts/assemble_quota.py` | grid → matrix 组装脚本 | ✅ 可复现 |
-| `scripts/parse_batch2.py` / `build_linkage_batch2.py` | 第二批次解析与省市属过滤脚本 | ✅ 可复现 |
+| `scripts/linkage/assemble_quota.py` | grid → matrix 组装脚本 | ✅ 可复现 |
+| `scripts/linkage/parse_batch2.py` / `scripts/linkage/build_linkage_batch2.py` | 第二批次解析与省市属过滤脚本 | ✅ 可复现 |
 | `raw/headers/header_ocr.json` + 各页表头图 | 7 区第 1 页表头列序（Read 视觉确认） | ✅ 列序可信 |
 
 ## 二、核心障碍（已攻克）：名额分配明细 PDF 的 CID 字体

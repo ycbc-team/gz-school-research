@@ -30,18 +30,18 @@
 
 ```bash
 # 小学
-python3 scripts/fetch_schools.py          # 小学点位采集（写 data/primary/schools-gz.json）
-python3 scripts/backfill_schools.py       # 番禺招生未匹配点位回填（写 json 真源 + 留痕）
+python3 scripts/primary/fetch_schools.py          # 小学点位采集（写 data/primary/schools-gz.json）
+python3 scripts/primary/backfill_schools.py       # 番禺招生未匹配点位回填（写 json 真源 + 留痕）
 
 # 初中
-python3 scripts/fetch_middle_schools.py   # 初中点位采集（写 data/middle/schools-gz.json）
+python3 scripts/middle/fetch_middle_schools.py   # 初中点位采集（写 data/middle/schools-gz.json）
 
 # 高中
-python3 scripts/fetch_high_schools.py     # 高中原始采集
-python3 scripts/build_high_levels_js.py   # 高中清洗点位（写回 data/high/schools-gz.json 真源）
+python3 scripts/high/fetch_high_schools.py     # 高中原始采集
+python3 scripts/high/build_high_levels_js.py   # 高中清洗点位（写回 data/high/schools-gz.json 真源）
 
 # 招生
-python3 scripts/build_district_enrollment.py   # 2026 招生（写 data/primary/enrollments/*.json 真源）
+python3 scripts/primary/build_district_enrollment.py   # 2026 招生（写 data/primary/enrollments/*.json 真源）
 ```
 
 密钥仅存于项目根 `.env`（`AMAP_WEB_KEY`），代码与页面不出现明文凭据。
