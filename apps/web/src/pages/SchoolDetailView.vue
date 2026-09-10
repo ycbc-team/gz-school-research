@@ -27,6 +27,7 @@ import {
   tier1Schools,
   middleTier1Schools,
   enrollments,
+  matchEnrollment,
   quotaMatrix,
   specialMatrix,
   batch2Scores,
@@ -90,14 +91,10 @@ const districtOf = computed(() => {
   return tier.value?.district || '—';
 });
 
-/* ========== 小学：2026 招生计划匹配 ========== */
+/* ========== 小学：2026 招生计划匹配（含对口地段 zone） ========== */
 const enrollment = computed(() => {
   if (props.stage !== 'primary') return null;
-  for (const e of enrollments) {
-    const r = e.records.find((x: { school: string; school_id?: string }) => x.school === schoolName.value || x.school_id === schoolName.value);
-    if (r) return { ...r, district: e.district, source: e.source };
-  }
-  return null;
+  return matchEnrollment(schoolName.value);
 });
 const primaryMechanism = computed(() => {
   if (props.stage !== 'primary' || !poi.value) return null;
@@ -282,16 +279,19 @@ const legalEntityText = computed(() => {
       </div>
     </div>
 
-    <!-- 小学：招生计划 + 小升初机制 -->
+    <!-- 小学：招生计划 + 对口地段 -->
     <div v-if="stage === 'primary'" class="card">
       <div class="card-title">2026 小学招生计划</div>
       <div v-if="enrollment" class="kv">
         <div class="kv-row"><span>计划班数</span><b>{{ enrollment.plan_classes ?? '—' }} 个班</b></div>
         <div class="kv-row" v-if="enrollment.nature"><span>办学性质</span><b>{{ enrollment.nature }}</b></div>
-        <div class="kv-row" v-if="enrollment.zone"><span>服务地段</span><b>{{ enrollment.zone }}</b></div>
-        <div class="kv-row"><span>数据来源</span><b>{{ enrollment.source }}</b></div>
+        <div class="kv-row" v-if="enrollment.source"><span>数据来源</span><b>{{ enrollment.source }}</b></div>
+        <div v-if="enrollment.zone" class="zone-block">
+          <div class="zone-label">招生地段（对口）</div>
+          <p>{{ enrollment.zone }}</p>
+        </div>
       </div>
-      <p v-else class="empty">未在 2026 五区招生计划中匹配到（可能为未收录学校）。</p>
+      <p v-else class="empty">未在 2026 招生计划中匹配到招生地段（数据暂覆盖越秀/荔湾/海珠/天河/番禺五区；白云/黄埔及部分校名变体暂缺，后续补录）。</p>
     </div>
 
     <!-- 小学：小升初机制 -->
@@ -438,6 +438,13 @@ const legalEntityText = computed(() => {
 .kv-row > span { flex: none; width: 100px; color: #6b7280; font-size: 11.5px; }
 .kv-row > b { font-weight: 600; line-height: 1.6; }
 .kv-row > b.strong { color: #1a6bd6; }
+
+.zone-block { margin-top: 10px; }
+.zone-label { font-size: 11px; color: #6b7280; font-weight: 600; margin-bottom: 4px; }
+.zone-block p {
+  margin: 0; background: #f7f6f2; border-radius: 8px; padding: 8px 10px;
+  font-size: 12px; color: #444; line-height: 1.7;
+}
 
 .bars { display: flex; flex-direction: column; gap: 5px; margin-top: 10px; }
 .bar-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
