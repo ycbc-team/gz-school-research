@@ -19,6 +19,8 @@ import enrollYuexiuJson from '../../../../data/primary/enrollments/2026-yuexiu.j
 import enrollHaizhuJson from '../../../../data/primary/enrollments/2026-haizhu.json';
 import enrollLiwanJson from '../../../../data/primary/enrollments/2026-liwan.json';
 import enrollPanyuJson from '../../../../data/primary/enrollments/2026-panyu.json';
+import enrollBaiyunJson from '../../../../data/primary/enrollments/2026-baiyun.json';
+import enrollHuangpuJson from '../../../../data/primary/enrollments/2026-huangpu.json';
 import quotaMatrixJson from '../../../../data/linkage/quota_matrix.json';
 import specialMatrixJson from '../../../../data/linkage/special_matrix.json';
 import batch2ScoresJson from '../../../../data/linkage/batch2_scores.json';
@@ -193,6 +195,8 @@ export const enrollments: EnrollmentSnapshot[] = [
   cast<EnrollmentSnapshot>(enrollHaizhuJson),
   cast<EnrollmentSnapshot>(enrollLiwanJson),
   cast<EnrollmentSnapshot>(enrollPanyuJson),
+  cast<EnrollmentSnapshot>(enrollBaiyunJson),
+  cast<EnrollmentSnapshot>(enrollHuangpuJson),
 ];
 
 /* ========== 小学 2026 招生计划匹配（含校名变体归一） ========== */
