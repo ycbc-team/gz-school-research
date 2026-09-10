@@ -77,9 +77,15 @@ const batchMerged = computed(() => {
 });
 
 /* ========== 高中：覆盖反查（按学校聚合校区） ========== */
-const highShorts = computed(() =>
-  props.stage === 'high' ? CAMPUS_SHORT.filter((c) => CAMPUS_SCHOOL[c] === schoolName.value) : [],
-);
+/** POI 分校区名归一（去括号校区），与 CAMPUS_SCHOOL 标准名对齐 */
+function normCampus(s: string): string {
+  return s.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').trim();
+}
+const highShorts = computed(() => {
+  if (props.stage !== 'high') return [];
+  const target = normCampus(schoolName.value);
+  return CAMPUS_SHORT.filter((c) => normCampus(CAMPUS_SCHOOL[c] ?? '') === target || CAMPUS_SCHOOL[c] === schoolName.value);
+});
 const highCoverage = computed(() => {
   const merged = new Map<string, { n: number; districts: Set<string> }>();
   for (const c of highShorts.value) {

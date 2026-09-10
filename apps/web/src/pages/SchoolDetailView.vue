@@ -7,6 +7,7 @@
  * 数据真源：data/ 各 JSON（apps/web/src/data 加载），链路数据为 2026 官方发布。
  */
 import { computed } from 'vue';
+import { useRouter } from 'vue-router';
 import type { SchoolStage } from '@gz/shared';
 import {
   buildAliasTable,
@@ -36,6 +37,16 @@ import LinkagePanel from '../components/LinkagePanel.vue';
 
 const props = defineProps<{ stage: SchoolStage; name: string }>();
 const schoolName = computed(() => decodeURIComponent(props.name || ''));
+const router = useRouter();
+/** 返回上一级（无历史则回地图） */
+function goBack() {
+  if (window.history.length > 1) router.back();
+  else router.push('/map');
+}
+/** 在地图中查看：跳转地图并定位到本校 */
+function viewOnMap() {
+  router.push({ path: '/map', query: { focus: schoolName.value } });
+}
 
 /* ========== 校名匹配（与 MapView 同套逻辑） ========== */
 const tierTables = {
@@ -176,7 +187,8 @@ const legalEntityText = computed(() => {
 
 <template>
   <section class="detail">
-    <RouterLink to="/map" class="back">← 返回地图</RouterLink>
+    <button class="back" @click="goBack">← 返回</button>
+    <button class="back" style="margin-left:12px;" @click="viewOnMap">在地图中查看</button>
 
     <header class="d-head">
       <h1>{{ schoolName }}</h1>
@@ -289,7 +301,8 @@ const legalEntityText = computed(() => {
     </template>
 
     <footer class="d-foot">
-      <RouterLink to="/map" class="back">← 返回地图</RouterLink>
+      <button class="back" @click="goBack">← 返回</button>
+    <button class="back" style="margin-left:12px;" @click="viewOnMap">在地图中查看</button>
       <RouterLink v-if="stage === 'middle'" to="/linkage" class="back">升学路径总览 →</RouterLink>
     </footer>
   </section>
@@ -297,7 +310,7 @@ const legalEntityText = computed(() => {
 
 <style scoped>
 .detail { max-width: 720px; margin: 0 auto; }
-.back { display: inline-block; color: #1a6bd6; text-decoration: none; font-size: 13px; margin-bottom: 10px; }
+.back { display: inline-block; color: #1a6bd6; text-decoration: none; font-size: 13px; margin-bottom: 10px; background: none; border: none; cursor: pointer; font-family: inherit; padding: 0; }
 .back:hover { text-decoration: underline; }
 .d-head { margin-bottom: 14px; }
 .d-head h1 { font-size: 20px; font-weight: 700; margin: 0 0 8px; line-height: 1.4; }

@@ -8,6 +8,7 @@
  * - 高德瓦片 GCJ-02 同坐标系；区边界 + 核心四区初始视野 + 半径随缩放
  */
 import { computed, onBeforeUnmount, onMounted, reactive, ref, watch, type Ref } from 'vue';
+import { useRoute } from 'vue-router';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {
@@ -387,6 +388,8 @@ onMounted(() => {
     map.setMaxBounds(L.latLngBounds([unionSW.lat, unionSW.lng], [unionNE.lat, unionNE.lng]).pad(0.5));
   }
   applyFilters();
+  const focus = route.query.focus;
+  if (typeof focus === 'string' && focus) focusSchool(focus);
   map.on('zoomend', () => {
     const r = radiusForZoom(map!.getZoom());
     for (const m of markers) m.setRadius(r);
@@ -401,8 +404,18 @@ onBeforeUnmount(() => {
 
 /* ========== 信息卡 ========== */
 const active = ref<Pt | null>(null);
+const route = useRoute();
 function showInfo(pt: Pt) { active.value = pt; }
 function closeInfo() { active.value = null; }
+
+/** 详情页"在地图中查看"：按校名定位并弹出信息卡 */
+function focusSchool(name: string) {
+  const pt = allPoints.find((p) => p.name === name) || allPoints.find((p) => p.name.includes(name));
+  if (!pt || !map) return;
+  map.flyTo([pt.lat, pt.lng], 15, { duration: 0.8 });
+  showInfo(pt);
+}
+watch(() => route.query.focus, (v) => { if (typeof v === 'string' && v) focusSchool(v); });
 /** 小学招生条件行（2026 招生计划：班数 + 对口地段） */
 function primaryEnrollRows(name: string): InfoRow[] {
   const en = matchEnrollment(name);
