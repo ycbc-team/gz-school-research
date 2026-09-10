@@ -7,7 +7,7 @@
  * - 点击点位信息卡：高中（分类/指标/口径）、小学初中（梯队信号/判定依据）、普通（学段/区）
  * - 高德瓦片 GCJ-02 同坐标系；区边界 + 核心四区初始视野 + 半径随缩放
  */
-import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue';
+import { computed, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {
@@ -157,51 +157,94 @@ function buildPoints() {
   addExtra(middleTier1, 'middle');
 }
 
-/* ========== 统计（全量，不随筛选变化） ========== */
-const counts = reactive<Record<ClsKey, number>>({ pN: 0, pT: 0, mN: 0, mT: 0, hN: 0, hD: 0, hM: 0 });
-const distStats = reactive<Array<{ name: string; p: number; m: number; h: number }>>(
-  DISTRICTS.map((d) => ({ name: d.name, p: 0, m: 0, h: 0 })),
-);
-const totalText = computed(() => {
-  const p = counts.pN + counts.pT;
-  const m = counts.mN + counts.mT;
-  const h = counts.hN + counts.hD + counts.hM;
-  return `已标注 ${p + m + h} 所：小学 ${p} · 初中 ${m} · 高中 ${h}`;
-});
-function computeStats() {
-  for (const k of Object.keys(counts) as ClsKey[]) counts[k] = 0;
-  for (const d of distStats) { d.p = 0; d.m = 0; d.h = 0; }
-  for (const pt of allPoints) {
-    counts[pt.cls]++;
-    const row = distStats.find((d) => d.name === districtByAdcode[pt.adcode]);
-    if (!row) continue;
-    if (pt.stage === 'primary') row.p++;
-    else if (pt.stage === 'middle') row.m++;
-    else row.h++;
-  }
-}
+/* ========== 筛选状态（贝壳式：顶部搜索 + 区域多选 / 学段 / 分级联动） ========== */
+type StageFilter = 'all' | 'primary' | 'middle' | 'high';
+type GradeFilter = 'all' | 'tier1' | 'normal' | 'city' | 'district';
+const stageFilter = ref<StageFilter>('all');
+const gradeFilter = ref<GradeFilter>('all');
+const selectedDistricts = ref<Set<string>>(new Set(DISTRICTS.map((d) => d.adcode)));
+const openMenu = ref<null | 'district' | 'stage' | 'grade'>(null);
 
-/* ========== 筛选状态 ========== */
-const filters = reactive<Record<ClsKey, boolean>>({ pN: true, pT: true, mN: true, mT: true, hN: true, hD: true, hM: true });
-const classList = Object.entries(CLASS_CFG) as Array<[ClsKey, { stage: string; color: string; label: string }]>;
-function setAll(v: boolean) {
-  for (const k of Object.keys(filters) as ClsKey[]) filters[k] = v;
-  applyFilters();
+const STAGE_LABEL: Record<SchoolStage, string> = { primary: '小学', middle: '初中', high: '高中' };
+const STAGE_OPTIONS: Array<{ v: StageFilter; l: string }> = [
+  { v: 'all', l: '全部学段' },
+  { v: 'primary', l: '小学' },
+  { v: 'middle', l: '初中' },
+  { v: 'high', l: '高中' },
+];
+function gradeOptions(): Array<{ v: GradeFilter; l: string }> {
+  if (stageFilter.value === 'high') return [
+    { v: 'all', l: '全部分级' },
+    { v: 'city', l: '市重点（省市属示范）' },
+    { v: 'district', l: '区重点（区属示范）' },
+    { v: 'normal', l: '普通高中' },
+  ];
+  if (stageFilter.value === 'primary' || stageFilter.value === 'middle') return [
+    { v: 'all', l: '全部分级' },
+    { v: 'tier1', l: '口碑学校' },
+    { v: 'normal', l: '普通学校' },
+  ];
+  return [{ v: 'all', l: '全部分级' }];
 }
-function applyFilters() {
-  if (!map) return;
-  for (const k of Object.keys(filters) as ClsKey[]) {
-    const g = groups[k];
-    if (!g) continue;
-    if (filters[k]) { if (!map.hasLayer(g)) g.addTo(map); }
-    else if (map.hasLayer(g)) map.removeLayer(g);
+const gradeLabel = computed(() => gradeOptions().find((o) => o.v === gradeFilter.value)?.l ?? '分级');
+const stageLabel = computed(() => STAGE_OPTIONS.find((o) => o.v === stageFilter.value)?.l ?? '学段');
+
+function toggleDistrict(ad: string) {
+  const s = new Set(selectedDistricts.value);
+  if (s.has(ad)) s.delete(ad); else s.add(ad);
+  selectedDistricts.value = s;
+}
+function allDistricts() { selectedDistricts.value = new Set(DISTRICTS.map((d) => d.adcode)); }
+function selectStage(v: StageFilter) {
+  stageFilter.value = v;
+  gradeFilter.value = 'all';
+  openMenu.value = null;
+}
+function selectGrade(v: GradeFilter) {
+  gradeFilter.value = v;
+  openMenu.value = null;
+}
+function isVisible(pt: Pt): boolean {
+  if (stageFilter.value !== 'all' && pt.stage !== stageFilter.value) return false;
+  if (!selectedDistricts.value.has(pt.adcode)) return false;
+  const g = gradeFilter.value;
+  if (g === 'all') return true;
+  if (pt.stage === 'high') {
+    if (g === 'city') return pt.cls === 'hM';
+    if (g === 'district') return pt.cls === 'hD';
+    if (g === 'normal') return pt.cls === 'hN';
+  } else {
+    const isTier = pt.cls === 'pT' || pt.cls === 'mT';
+    if (g === 'tier1') return isTier;
+    if (g === 'normal') return !isTier;
   }
+  return true;
+}
+const builtAt = ref(0);
+const visibleCount = computed(() => { void builtAt.value; return allPoints.filter(isVisible).length; });
+
+/* ========== 学校搜索 ========== */
+const kw = ref('');
+const searchOpen = ref(false);
+const searchResults = computed(() => {
+  const k = kw.value.trim();
+  if (!k) return [];
+  return allPoints.filter((p) => p.name.includes(k)).slice(0, 12);
+});
+function pickResult(pt: Pt) {
+  if (!map) return;
+  map.flyTo([pt.lat, pt.lng], 15, { duration: 0.8 });
+  showInfo(pt);
+  kw.value = '';
+  searchOpen.value = false;
 }
 
 /* ========== 地图 ========== */
 const mapEl = ref<HTMLDivElement | null>(null);
 let map: L.Map | null = null;
-const groups: Partial<Record<ClsKey, L.LayerGroup>> = {};
+/** 渲染条目：点位 marker + 可选晕光，按筛选显隐 */
+interface RenderedItem { pt: Pt; marker: L.CircleMarker; glow?: L.CircleMarker }
+const rendered: RenderedItem[] = [];
 const markers: L.CircleMarker[] = [];
 let unionSW: { lat: number; lng: number } | null = null;
 let unionNE: { lat: number; lng: number } | null = null;
@@ -240,19 +283,18 @@ function isTierCls(cls: ClsKey): boolean {
   return cls === 'pT' || cls === 'mT' || cls === 'hD' || cls === 'hM';
 }
 function renderPoints() {
-  for (const k of Object.keys(CLASS_CFG) as ClsKey[]) groups[k] = L.layerGroup();
   for (const pt of allPoints) {
-    const g = groups[pt.cls]!;
-    const m = L.circleMarker([pt.lat, pt.lng], markerStyle(pt.cls, pt.tier)).addTo(g);
+    const m = L.circleMarker([pt.lat, pt.lng], markerStyle(pt.cls, pt.tier));
+    const item: RenderedItem = { pt, marker: m };
     const tier = pt.tier;
     if (tier && tier.conclusion === '有支撑' && tier.tier1_eligible !== false) {
-      L.circleMarker([pt.lat, pt.lng], {
+      item.glow = L.circleMarker([pt.lat, pt.lng], {
         radius: radiusForZoom(map?.getZoom() ?? 13) + 4,
         color: GLOW_COLOR[pt.stage],
         weight: 2,
         fill: false,
         interactive: false,
-      }).addTo(g);
+      });
     }
     m.bindTooltip(
       `${pt.name}${tier && tier.tier1_eligible === false ? ' · 挂牌校' : ''}`,
@@ -262,9 +304,25 @@ function renderPoints() {
       if (e.originalEvent && 'stopPropagation' in e.originalEvent) e.originalEvent.stopPropagation();
       showInfo(pt);
     });
+    rendered.push(item);
     markers.push(m);
   }
 }
+function applyFilters() {
+  if (!map) return;
+  for (const it of rendered) {
+    const vis = isVisible(it.pt);
+    const inMap = map.hasLayer(it.marker);
+    if (vis && !inMap) {
+      it.marker.addTo(map);
+      if (it.glow) it.glow.addTo(map);
+    } else if (!vis && inMap) {
+      map.removeLayer(it.marker);
+      if (it.glow && map.hasLayer(it.glow)) map.removeLayer(it.glow);
+    }
+  }
+}
+watch([stageFilter, gradeFilter, selectedDistricts], applyFilters);
 function renderBoundaries() {
   for (const dd of primarySchools.districts || []) {
     const d = DISTRICTS.find((x) => x.adcode === dd.adcode);
@@ -312,7 +370,6 @@ function coreCenter(): [number, number] | null {
 onMounted(() => {
   if (!mapEl.value) return;
   buildPoints();
-  computeStats();
   const cc = coreCenter();
   map = L.map(mapEl.value, {
     center: cc ?? [23.16, 113.35],
@@ -331,6 +388,7 @@ onMounted(() => {
   }).addTo(map);
   renderBoundaries();
   renderPoints();
+  builtAt.value++;
   if (unionSW && unionNE) {
     map.setMaxBounds(L.latLngBounds([unionSW.lat, unionSW.lng], [unionNE.lat, unionNE.lng]).pad(0.5));
   }
@@ -458,30 +516,50 @@ const infoModel = computed<InfoModel | null>(() => {
 
 <template>
   <section>
-    <div class="toolbar">
-      <label v-for="[k, c] in classList" :key="k" class="f-row">
-        <input type="checkbox" v-model="filters[k]" @change="applyFilters" />
-        <i class="dot" :style="{ background: c.color }"></i>
-        <span>{{ c.label }}</span>
-        <span class="f-count">{{ counts[k] }}</span>
-      </label>
-      <div class="f-btns">
-        <button @click="setAll(true)">全选</button>
-        <button @click="setAll(false)">全不选</button>
+  <div class="search-bar">
+    <input v-model="kw" class="search-input" placeholder="搜索学校名，如：华南师范大学附属中学" @focus="searchOpen = true" />
+    <ul v-if="searchOpen && kw.trim()" class="search-drop">
+      <li v-for="r in searchResults" :key="r.name + r.adcode" @mousedown.prevent="pickResult(r)">
+        <b>{{ r.name }}</b><span>{{ STAGE_LABEL[r.stage] }} · {{ districtByAdcode[r.adcode] || '—' }}</span>
+      </li>
+      <li v-if="!searchResults.length" class="search-empty">无匹配学校</li>
+    </ul>
+  </div>
+  <div class="filter-bar">
+    <div class="fb-col">
+      <button class="fb-btn" :class="{ on: openMenu === 'district' }" @click="openMenu = openMenu === 'district' ? null : 'district'">
+        区域<em v-if="selectedDistricts.size < DISTRICTS.length" class="fb-badge">{{ selectedDistricts.size }}</em><span class="arr">▾</span>
+      </button>
+      <div v-if="openMenu === 'district'" class="fb-pop">
+        <div class="pop-chips">
+          <button v-for="d in DISTRICTS" :key="d.adcode" class="pop-chip" :class="{ on: selectedDistricts.has(d.adcode) }" @click="toggleDistrict(d.adcode)">{{ d.name.replace('区', '') }}</button>
+        </div>
+        <div class="pop-foot">
+          <button class="pop-link" @click="allDistricts()">全选</button>
+          <button class="pop-link" @click="openMenu = null">完成</button>
+        </div>
       </div>
     </div>
-
-    <div class="dist-stats">
-      <div class="block-title">各区学校 · 小学 / 初中 / 高中</div>
-      <div class="d-heads"><span></span><span>小学</span><span>初中</span><span>高中</span></div>
-      <div v-for="d in distStats" :key="d.name" class="d-row">
-        <span class="d-name">{{ d.name.replace('区', '') }}</span>
-        <span class="d-p">{{ d.p }}</span><span class="d-m">{{ d.m }}</span><span class="d-h">{{ d.h }}</span>
+    <div class="fb-col">
+      <button class="fb-btn" :class="{ on: openMenu === 'stage' }" @click="openMenu = openMenu === 'stage' ? null : 'stage'">
+        {{ stageLabel }}<span class="arr">▾</span>
+      </button>
+      <div v-if="openMenu === 'stage'" class="fb-pop">
+        <button v-for="o in STAGE_OPTIONS" :key="o.v" class="pop-opt" :class="{ on: stageFilter === o.v }" @click="selectStage(o.v as StageFilter)">{{ o.l }}</button>
       </div>
     </div>
-
-    <div class="status">{{ totalText }}</div>
-    <div ref="mapEl" class="map"></div>
+    <div class="fb-col">
+      <button class="fb-btn" :class="{ on: openMenu === 'grade' }" @click="openMenu = openMenu === 'grade' ? null : 'grade'">
+        {{ gradeLabel }}<span class="arr">▾</span>
+      </button>
+      <div v-if="openMenu === 'grade'" class="fb-pop">
+        <button v-for="o in gradeOptions()" :key="o.v" class="pop-opt" :class="{ on: gradeFilter === o.v }" @click="selectGrade(o.v)">{{ o.l }}</button>
+      </div>
+    </div>
+  </div>
+  <div v-if="openMenu || searchOpen" class="pop-mask" @click="openMenu = null; searchOpen = false"></div>
+  <div class="status">当前显示 {{ visibleCount }} 所学校</div>
+  <div ref="mapEl" class="map"></div>
 
     <aside v-if="infoModel" class="school-info">
       <button class="si-close" aria-label="关闭" @click="closeInfo">×</button>
@@ -505,38 +583,71 @@ const infoModel = computed<InfoModel | null>(() => {
 </template>
 
 <style scoped>
-.toolbar {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px;
-  background: rgba(255,255,255,0.94); border: 1px solid #e4e3dd;
-  border-radius: 14px; padding: 10px 14px; margin-bottom: 10px;
+/* 顶部搜索 */
+.search-bar { position: relative; margin-bottom: 8px; z-index: 1400; }
+.search-input {
+  width: 100%; box-sizing: border-box; border: 1px solid #e4e3dd; border-radius: 14px;
+  background: rgba(255,255,255,0.96); padding: 11px 14px; font-size: 13.5px; outline: none;
+  box-shadow: 0 1px 4px rgba(20,30,50,0.05);
 }
-.f-row { display: flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer; user-select: none; }
-.f-row input { width: 13px; height: 13px; accent-color: #2563eb; cursor: pointer; }
-.dot { width: 9px; height: 9px; border-radius: 50%; box-shadow: 0 0 0 1.5px rgba(255,255,255,0.9), 0 1px 2px rgba(0,0,0,0.25); }
-.f-count { margin-left: auto; color: #6b7280; font-variant-numeric: tabular-nums; }
-.f-btns { display: flex; gap: 6px; margin-left: auto; }
-.f-btns button {
-  font-size: 11.5px; padding: 3px 12px; border: 1px solid #d6d4cc; background: #fff;
-  border-radius: 7px; color: #1a1b1c; cursor: pointer;
+.search-input:focus { border-color: #9bbbf4; }
+.search-drop {
+  position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 1300;
+  list-style: none; margin: 0; padding: 4px; background: #fff;
+  border: 1px solid #e4e3dd; border-radius: 12px; box-shadow: 0 8px 28px rgba(20,30,50,0.16);
+  max-height: 320px; overflow-y: auto;
 }
-.f-btns button:hover { background: #f2f7ff; border-color: #9bbbf4; }
+.search-drop li {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  padding: 9px 10px; font-size: 13px; cursor: pointer; border-radius: 8px;
+}
+.search-drop li:hover { background: #f2f7ff; }
+.search-drop li b { font-weight: 600; color: #1a1b1c; }
+.search-drop li span { color: #6b7280; font-size: 11.5px; white-space: nowrap; }
+.search-empty { color: #6b7280; font-size: 12.5px; text-align: center; }
+.search-empty:hover { background: none !important; }
 
-.dist-stats {
-  background: rgba(255,255,255,0.94); border: 1px solid #e4e3dd;
-  border-radius: 14px; padding: 10px 14px; margin-bottom: 10px;
+/* 筛选器行（贝壳式） */
+.filter-bar {
+  position: relative; display: flex; gap: 8px;
+  background: rgba(255,255,255,0.96); border: 1px solid #e4e3dd;
+  border-radius: 14px; padding: 8px; margin-bottom: 8px; z-index: 1400;
 }
-.block-title { font-size: 11px; color: #6b7280; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 6px; }
-.d-heads, .d-row {
-  display: grid; grid-template-columns: 1fr 46px 46px 46px;
-  column-gap: 6px; font-size: 12px; align-items: center;
+.fb-col { position: relative; flex: 1 1 0; min-width: 0; }
+.fb-btn {
+  width: 100%; border: none; background: transparent; cursor: pointer;
+  font-size: 13px; color: #1a1b1c; padding: 8px 6px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;
 }
-.d-heads { color: #6b7280; font-size: 10.5px; font-weight: 600; text-align: right; }
-.d-row { padding: 1px 0; }
-.d-name { color: #6b7280; }
-.d-p, .d-m, .d-h { text-align: right; font-variant-numeric: tabular-nums; }
-.d-p { color: #2563eb; } .d-m { color: #dc2626; } .d-h { color: #f59e0b; }
+.fb-btn:hover { background: #f2f7ff; }
+.fb-btn.on { background: #eaf1fe; color: #1a6bd6; font-weight: 600; }
+.fb-btn .arr { font-size: 10px; color: #8a93a3; }
+.fb-badge {
+  background: #1a6bd6; color: #fff; font-style: normal; font-size: 10.5px;
+  border-radius: 9px; padding: 0 6px; line-height: 15px;
+}
+.fb-pop {
+  position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 1300;
+  background: #fff; border: 1px solid #e4e3dd; border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(20,30,50,0.16); padding: 10px;
+}
+.pop-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.pop-chip {
+  border: 1px solid #d6d4cc; background: #fff; border-radius: 16px;
+  padding: 5px 12px; font-size: 12.5px; cursor: pointer; color: #1a1b1c;
+}
+.pop-chip.on { background: #1a6bd6; border-color: #1a6bd6; color: #fff; }
+.pop-foot { display: flex; justify-content: space-between; margin-top: 10px; }
+.pop-link { border: none; background: none; color: #1a6bd6; font-size: 12.5px; cursor: pointer; padding: 4px 8px; }
+.pop-opt {
+  display: block; width: 100%; text-align: left; border: none; background: transparent;
+  padding: 9px 10px; font-size: 13px; cursor: pointer; border-radius: 8px; color: #1a1b1c;
+}
+.pop-opt:hover { background: #f2f7ff; }
+.pop-opt.on { background: #eaf1fe; color: #1a6bd6; font-weight: 600; }
+.pop-mask { position: fixed; inset: 0; z-index: 1200; background: transparent; }
 
-.status { font-size: 13px; color: #444; margin-bottom: 8px; }
+.status { font-size: 12.5px; color: #6b7280; margin-bottom: 8px; }
 .map { height: 620px; border-radius: 14px; border: 1px solid #e4e3dd; z-index: 1; }
 .hint { font-size: 12px; color: #6b7280; margin-top: 10px; line-height: 1.6; }
 
