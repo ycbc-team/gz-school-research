@@ -98,7 +98,7 @@ const feedJuniors = computed(() => {
   if (props.stage !== 'primary') return null;
   const xs = tier.value?.xiaoshengchu;
   if (!xs) return null;
-  return { group: xs.group, feed_junior_highs: xs.feed_junior_highs || [], direct_feed: xs.direct_feed };
+  return { group: xs.group, feed_junior_highs: xs.feed_junior_highs || [], direct_feed: xs.direct_feed, source_note: xs.source_note };
 });
 const feedRows = computed(() => {
   const f = feedJuniors.value;
@@ -220,7 +220,7 @@ const legalEntityText = computed(() => {
 
     <!-- 小学：升学路线（对口初中 · 派位/直升） -->
     <div v-if="stage === 'primary' && feedRows.length" class="card">
-      <div class="card-title">升学路线 · 对口初中（{{ feedJuniors?.group }}派位）</div>
+      <div class="card-title">升学路线 · 对口初中{{ feedJuniors?.group ? `（${feedJuniors.group}派位）` : '（对口直升）' }}</div>
       <p v-if="feedJuniors?.direct_feed" class="sub-note">直升：{{ feedJuniors.direct_feed }}</p>
       <div class="feed-list">
         <div v-for="r in feedRows" :key="r.name" class="feed-item">
@@ -229,7 +229,8 @@ const legalEntityText = computed(() => {
           <span v-else class="tag tag-dim">区属初中</span>
         </div>
       </div>
-      <p class="sub-note" style="margin-top:8px;">派位组来源：区教育局分组表；点击初中可查看该校升学通道详情。</p>
+      <p v-if="feedJuniors?.source_note" class="sub-note" style="margin-top:8px;">{{ feedJuniors.source_note }}</p>
+      <p class="sub-note" style="margin-top:4px;">点击初中可查看该校升学通道详情。</p>
     </div>
 
     <!-- 小学：小升初机制 -->
