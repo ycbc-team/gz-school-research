@@ -834,20 +834,19 @@
       "sites": [
         {
           "id": "tieying-east",
-          "poi_name": "广铁一中铁英中学",
+          "poi_name": "广州市番禺区广铁一中铁英学校(东校区)",
           "district": "番禺区",
           "stage": "middle",
           "aliases": [
             "铁英",
             "铁英学校",
             "铁英东校区",
-            "天成",
-            "广州市番禺区广铁一中铁英学校"
+            "天成"
           ]
         },
         {
           "id": "tieying-west",
-          "poi_name": "广铁一中天峰中学",
+          "poi_name": "广州市番禺区广铁一中铁英学校(西校区)",
           "district": "番禺区",
           "stage": "middle",
           "aliases": [

@@ -447,7 +447,7 @@ const infoModel = computed<InfoModel | null>(() => {
     if (!rec) {
       return {
         name,
-        badges: schoolBadges('high', { district: districtName }),
+        badges: schoolBadges('high', { district: districtName, name }),
         head: null,
         rows: [
           { label: '学段', value: '高中' },
@@ -469,8 +469,8 @@ const infoModel = computed<InfoModel | null>(() => {
     put('gaofen_2026', '高分段 2026');
     return {
       name,
-      badges: schoolBadges('high', { district: districtName, rec }),
-      head: `${rec.demo || ''} · ${rec.affiliation || ''}`,
+      badges: schoolBadges('high', { district: districtName, rec, name }),
+      head: null,
       rows,
       note: '口径：录取线为官方发布；特控率/高分段为喜报或网传数据。完整出口数据见详情页。',
       link: detailLink,
