@@ -327,11 +327,8 @@ export function schoolBadges(
   if (stage === 'high' && opts.rec) {
     if (opts.rec.category === '省市属示范') out.push({ text: '省示范', cls: 'b-hcity' });
     else if (opts.rec.category === '区属示范') out.push({ text: '市示范', cls: 'b-hdist' });
-  } else if (t?.demonstration_high?.level) {
-    const lv = t.demonstration_high.level;
-    if (/国家级|省级/.test(lv)) out.push({ text: '省示范', cls: 'b-hcity' });
-    else if (/市级/.test(lv)) out.push({ text: '市示范', cls: 'b-hdist' });
   }
+  // 注：demonstration_high 是高中示范级别，初中/小学不展示该 badge（避免把完中高中部级别误标成初中"省示范"）
   return out;
 }
 /** 口碑支撑度 badge（仅口碑信号卡内使用）：有支撑/部分支撑/无支撑 */
