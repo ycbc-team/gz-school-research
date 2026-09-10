@@ -500,11 +500,15 @@ const infoModel = computed<InfoModel | null>(() => {
     const head =
       '网传"口碑学校" · 民间口径非官方' +
       (tier.entity_relation === '同法人校区' ? ' · 与本部同一法人' : '');
+    // 浮层内将「出口机制」改称「升学路线」（共享格式化函数保持原标签，供详情页/支撑度页使用）
+    const signalRows = rows.slice(0, 1).map((r) =>
+      r.label === '出口机制' ? { ...r, label: '升学路线' } : r,
+    );
     return {
       name,
       badges: schoolBadges(pt.stage, { district: districtName, tier, name }),
       head,
-      rows: [...enrollRows, ...rows.slice(0, 1)],
+      rows: [...enrollRows, ...signalRows],
       note: '完整口碑信号与升学通道见详情页。',
       link: detailLink,
     };
@@ -606,7 +610,7 @@ const infoModel = computed<InfoModel | null>(() => {
       <div v-for="r in infoModel.rows" :key="r.label" class="si-row">
         <span>{{ r.label }}</span>
         <b v-if="r.strong">{{ r.value }}</b>
-        <p v-else :class="{ 'si-zone': r.label === '招生地段' }">{{ r.value }}</p>
+        <p v-else :class="{ 'si-clamp': r.label === '招生地段' || r.label === '升学路线' }">{{ r.value }}</p>
       </div>
       <div v-if="infoModel.note" class="si-src">{{ infoModel.note }}</div>
       <RouterLink v-if="infoModel.link" :to="infoModel.link.to" class="si-link">{{ infoModel.link.text }}</RouterLink>
@@ -726,8 +730,8 @@ section { position: relative; }
 .si-row > span:first-child { flex: none; width: 88px; color: #6b7280; font-size: 11.5px; padding-top: 1px; }
 .si-row > b { font-weight: 600; }
 .si-row p { margin: 0; line-height: 1.65; }
-/* 招生地段：浮层最多展示 4 行，超出省略；完整地段在详情页查看 */
-.si-row p.si-zone {
+/* 浮层长文本（招生地段 / 升学路线）：最多展示 4 行，超出省略；完整内容见详情页 */
+.si-row p.si-clamp {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
