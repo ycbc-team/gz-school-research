@@ -366,6 +366,7 @@ const infoModel = computed<InfoModel | null>(() => {
   if (!pt) return null;
   const districtName = districtByAdcode[pt.adcode] || '';
   const name = pt.name;
+  const detailLink = { text: '查看学校详情 →', to: `/school/${pt.stage}/${encodeURIComponent(name)}` };
   if (pt.stage === 'high') {
     const rec = pt.rec;
     if (!rec) {
@@ -378,7 +379,7 @@ const infoModel = computed<InfoModel | null>(() => {
           { label: '所在区', value: districtName || '—' },
         ],
         note: '该点位暂未匹配到高中分类（可能为未收录学校）。',
-        link: null,
+        link: detailLink,
       };
     }
     const ind = rec.indicators || {};
@@ -387,22 +388,17 @@ const infoModel = computed<InfoModel | null>(() => {
       const v = ind[k];
       if (v !== undefined && v !== null && v !== '') rows.push({ label, value: String(v), strong });
     };
-    put('tekong_2026', '特控线上线率 2026', true);
-    put('tekong_2025', '特控线上线率 2025', true);
-    put('tekong', '特控率（网传）', true);
-    put('gaofen_2026', '高分段 2026');
-    put('gaofen_2025', '高分段 2025');
-    put('benke_2026', '本科率 2026', true);
-    put('benke_2025', '本科率 2025', true);
+    // 侧边只展示概要，完整指标见学校详情页
     put('score_2025', '2025 中考录取线（户籍生）', true);
-    put('note', '备注');
+    put('tekong_2026', '特控线上线率 2026');
+    put('gaofen_2026', '高分段 2026');
     return {
       name,
       badge: { text: rec.category, cls: rec.category === '省市属示范' ? 'h-city' : rec.category === '区属示范' ? 'h-dist' : 'h-normal' },
       head: `${rec.demo || ''} · ${rec.affiliation || ''}`,
       rows,
-      note: '口径：特控线=特殊类型招生控制线（高优线）；率为各校喜报/网传数据，非官方统一发布。分类依据：2026 名额分配名单 + 2025 录取线表。',
-      link: null,
+      note: '口径：录取线为官方发布；特控率/高分段为喜报或网传数据。完整出口数据见详情页。',
+      link: detailLink,
     };
   }
   const tier = pt.tier;
@@ -415,16 +411,12 @@ const infoModel = computed<InfoModel | null>(() => {
         head: '网传"口碑学校" · 独立法人，未计入口碑学校',
         rows: tier.exclude_reason ? [{ label: '未计入原因', value: tier.exclude_reason }] : [],
         note: null,
-        link: { text: '查看"支撑度"说明页 →', to: '/support' },
+        link: detailLink,
       };
     }
     const head =
       '网传"口碑学校" · 民间口径非官方' +
       (tier.entity_relation === '同法人校区' ? ' · 与本部同一法人' : '');
-    const allRows = [
-      ...rows,
-      ...(tier.conclusion_basis ? [{ label: '判定依据', value: tier.conclusion_basis }] : []),
-    ];
     return {
       name,
       badge: {
@@ -432,9 +424,9 @@ const infoModel = computed<InfoModel | null>(() => {
         cls: tier.conclusion === '有支撑' ? 'tier-full' : tier.conclusion === '部分支撑' ? 'tier-part' : 'tier-none',
       },
       head,
-      rows: allRows,
-      note: null,
-      link: { text: '查看"支撑度"说明页 →', to: '/support' },
+      rows: rows.slice(0, 2),
+      note: '完整口碑信号与升学通道见详情页。',
+      link: detailLink,
     };
   }
   return {
@@ -446,7 +438,7 @@ const infoModel = computed<InfoModel | null>(() => {
       { label: '所在区', value: districtName || '—' },
     ],
     note: null,
-    link: null,
+    link: detailLink,
   };
 });
 </script>

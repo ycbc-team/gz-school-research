@@ -7,6 +7,7 @@ import { RouterLink, RouterView } from 'vue-router';
     <RouterLink to="/" class="brand">广州学校升学调研</RouterLink>
     <nav class="app-nav">
       <RouterLink to="/map">地图</RouterLink>
+      <RouterLink to="/linkage">升学路径</RouterLink>
       <RouterLink to="/support">支撑度</RouterLink>
       <RouterLink to="/policy">政策说明</RouterLink>
     </nav>

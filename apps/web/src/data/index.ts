@@ -19,6 +19,9 @@ import enrollYuexiuJson from '../../../../data/primary/enrollments/2026-yuexiu.j
 import enrollHaizhuJson from '../../../../data/primary/enrollments/2026-haizhu.json';
 import enrollLiwanJson from '../../../../data/primary/enrollments/2026-liwan.json';
 import enrollPanyuJson from '../../../../data/primary/enrollments/2026-panyu.json';
+import quotaMatrixJson from '../../../../data/linkage/quota_matrix.json';
+import specialMatrixJson from '../../../../data/linkage/special_matrix.json';
+import batch2ScoresJson from '../../../../data/linkage/batch2_scores.json';
 
 /** JSON 推断类型与共享类型不一致处统一断言（字段为数据真源，结构由 scripts/ 保证） */
 const cast = <T>(v: unknown): T => v as T;
@@ -29,6 +32,160 @@ export const middleSchools = cast<SchoolsSnapshot>(middleSchoolsJson);
 export const middleTier1 = cast<Tier1Snapshot>(middleTier1Json);
 export const highSchools = cast<SchoolsSnapshot>(highSchoolsJson);
 export const highLevels = cast<HighLevelsSnapshot>(highLevelsJson);
+
+/** linkage 升学通道数据（2026 官方） */
+export interface QuotaSchool {
+  page: number;
+  row: number;
+  school: string;
+  kaosheng: number | null; // 名额考生数 m_j
+  sheng_quota: number | null; // 省市属名额
+  qu_quota: number | null; // 区属名额
+  sz: Record<string, number | null>; // 21 省市属校区指标数 n_ji
+  sz_sum: number;
+  district: string | null;
+}
+export interface QuotaMatrix {
+  schools: QuotaSchool[];
+  districts: string[];
+}
+export interface SpecialMatrix {
+  high_schools: string[];
+  matrix: Record<string, Record<string, { sports?: number; arts?: number; autonomy?: number }>>;
+}
+export interface Batch2Record {
+  admitted?: boolean;
+  min_score?: number | null;
+  last_score?: number | null;
+}
+export interface Batch2Scores {
+  data: Record<string, Record<string, Batch2Record>>;
+}
+export const quotaMatrix = cast<QuotaMatrix>(quotaMatrixJson);
+export const specialMatrix = cast<SpecialMatrix>(specialMatrixJson);
+export const batch2Scores = cast<Batch2Scores>(batch2ScoresJson);
+
+/** 21 省市属校区简称（quota_matrix.sz 键序） */
+export const CAMPUS_SHORT = [
+  '华附石牌', '华附知识城', '省实荔湾', '省实白云', '广雅荔湾', '广雅花都',
+  '执信越秀', '执信天河', '二中', '六中海珠', '六中从化', '六中花都', '侨中',
+  '协和', '广附', '铁一越秀', '铁一番禺', '铁一白云', '广州外国语', '清湾智谷', '清湾智慧城',
+] as const;
+
+/** 校区简称 → 归属高中（用于高中详情聚合） */
+export const CAMPUS_SCHOOL: Record<string, string> = {
+  华附石牌: '华南师范大学附属中学',
+  华附知识城: '华南师范大学附属中学',
+  省实荔湾: '广东实验中学',
+  省实白云: '广东实验中学',
+  广雅荔湾: '广东广雅中学',
+  广雅花都: '广东广雅中学',
+  执信越秀: '广州市执信中学',
+  执信天河: '广州市执信中学',
+  二中: '广州市第二中学',
+  六中海珠: '广州市第六中学',
+  六中从化: '广州市第六中学',
+  六中花都: '广州市第六中学',
+  侨中: '广东华侨中学',
+  协和: '广州协和学校',
+  广附: '广州大学附属中学',
+  铁一越秀: '广州市铁一中学',
+  铁一番禺: '广州市铁一中学',
+  铁一白云: '广州市铁一中学',
+  广州外国语: '广州市外国语学校',
+  清湾智谷: '清华附中湾区学校',
+  清湾智慧城: '清华附中湾区学校',
+};
+
+/** 校区简称 → special_matrix 键（全称） */
+export const CAMPUS_TO_SPECIAL: Record<string, string> = {
+  华附石牌: '华南师范大学附属中学（石牌）',
+  华附知识城: '华南师范大学附属中学（知识城）',
+  省实荔湾: '广东实验中学（荔湾）',
+  省实白云: '广东实验中学（白云）',
+  广雅荔湾: '广东广雅中学（荔湾）',
+  广雅花都: '广东广雅中学（花都）',
+  执信越秀: '广州市执信中学（执信路）',
+  执信天河: '广州市执信中学（天河）',
+  二中: '广州市第二中学',
+  六中海珠: '广州市第六中学（海珠）',
+  六中从化: '广州市第六中学（从化）',
+  六中花都: '广州市第六中学（花都）',
+  侨中: '广东华侨中学',
+  协和: '',
+  广附: '广州大学附属中学',
+  铁一越秀: '广州市铁一中学（越秀）',
+  铁一番禺: '广州市铁一中学（番禺）',
+  铁一白云: '广州市铁一中学（白云）',
+  广州外国语: '',
+  清湾智谷: '清华附中湾区学校（智谷）',
+  清湾智慧城: '清华附中湾区学校（智慧城）',
+};
+
+/** 校区简称 → batch2_scores 键（全称） */
+export const CAMPUS_TO_BATCH2: Record<string, string> = {
+  华附石牌: '华南师范大学附属中学（石牌校区）',
+  华附知识城: '华南师范大学附属中学（知识城校区）',
+  省实荔湾: '广东实验中学（荔湾校区）',
+  省实白云: '广东实验中学（白云校区）',
+  广雅荔湾: '广东广雅中学（荔湾校区）',
+  广雅花都: '广东广雅中学（花都校区）',
+  执信越秀: '广州市执信中学（执信路校区）',
+  执信天河: '广州市执信中学（天河校区）',
+  二中: '广州市第二中学',
+  六中海珠: '广州市第六中学（海珠校区）',
+  六中从化: '广州市第六中学（从化校区）',
+  六中花都: '广州市第六中学（花都校区）',
+  侨中: '广东华侨中学',
+  协和: '广州协和学校',
+  广附: '广州大学附属中学',
+  铁一越秀: '广州市铁一中学（越秀校区）',
+  铁一番禺: '广州市铁一中学（番禺校区）',
+  铁一白云: '广州市铁一中学（白云校区）',
+  广州外国语: '',
+  清湾智谷: '清华附中湾区学校（智谷校区）',
+  清湾智慧城: '清华附中湾区学校（智慧城校区）',
+};
+
+/** 按初中名查升学通道汇总 */
+export function linkageOf(schoolName: string): QuotaSchool | undefined {
+  return quotaMatrix.schools.find((s) => s.school === schoolName);
+}
+
+/** 按初中名查特殊通道（special_matrix 键 = 初中名） */
+export function specialOf(schoolName: string): Record<string, { sports?: number; arts?: number; autonomy?: number }> | undefined {
+  return specialMatrix.matrix[schoolName];
+}
+
+/** 按初中名查第二批次录取分数（值 = 校区 → 记录） */
+export function batch2Of(schoolName: string): Record<string, Batch2Record> {
+  const out: Record<string, Batch2Record> = {};
+  for (const [campus, rows] of Object.entries(batch2Scores.data)) {
+    if (rows[schoolName]) out[campus] = rows[schoolName];
+  }
+  return out;
+}
+
+/** 反查：某校区 n_ji>0 的初中（名额分配覆盖，按 n_ji 降序） */
+export function quotaCoverage(campusShort: string, top?: number): { school: string; n: number; district: string | null }[] {
+  const arr = quotaMatrix.schools
+    .filter((s) => (s.sz[campusShort] ?? 0) > 0)
+    .map((s) => ({ school: s.school, n: s.sz[campusShort] as number, district: s.district }))
+    .sort((a, b) => b.n - a.n);
+  return top ? arr.slice(0, top) : arr;
+}
+
+/** 反查：某校区在 special_matrix 有记录的初中（自招/体育/艺术） */
+export function specialCoverage(campusShort: string): { school: string; sports: number; arts: number; autonomy: number }[] {
+  const spKey = CAMPUS_TO_SPECIAL[campusShort];
+  if (!spKey) return [];
+  const arr: { school: string; sports: number; arts: number; autonomy: number }[] = [];
+  for (const [school, hs] of Object.entries(specialMatrix.matrix)) {
+    const rec = hs[spKey];
+    if (rec) arr.push({ school, sports: rec.sports ?? 0, arts: rec.arts ?? 0, autonomy: rec.autonomy ?? 0 });
+  }
+  return arr.sort((a, b) => b.autonomy + b.sports + b.arts - (a.autonomy + a.sports + a.arts));
+}
 
 export const enrollments: EnrollmentSnapshot[] = [
   cast<EnrollmentSnapshot>(enrollTianheJson),
