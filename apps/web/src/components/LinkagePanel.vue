@@ -104,6 +104,7 @@ const highSpecialCoverage = computed(() => {
   <template v-if="stage === 'middle'">
     <div class="card" v-if="quota">
       <div class="card-title">名额分配 · 2026（官方）</div>
+      <p class="sub-note">本校（{{ schoolName }}）的名额考生按政策分配到各高中；下方数字 = 对应高中分给本校的名额数。</p>
       <div class="kv">
         <div class="kv-row"><span>名额考生数</span><b>{{ quota.kaosheng ?? '—' }} 人</b></div>
         <div class="kv-row"><span>省市属名额</span><b>{{ quota.sheng_quota ?? '—' }} 个</b></div>
@@ -121,9 +122,9 @@ const highSpecialCoverage = computed(() => {
 
     <div class="card" v-if="specialRows.length">
       <div class="card-title">特殊通道 · 2026（自招 / 体育 / 艺术）</div>
-      <p class="sub-note">自招=综合能力考核资格名单（考核前名单，非最终预录取）；体育/艺术=专业测试通过名单。</p>
+      <p class="sub-note">本校学生 2026 年通过自招/体育/艺术被以下高中录取（资格名单人数，非最终预录取）。</p>
       <div class="tbl">
-        <div class="tbl-row tbl-head"><span>校区</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
+        <div class="tbl-row tbl-head"><span>升入高中</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
         <div v-for="r in specialRows" :key="r.campus" class="tbl-row">
           <span>{{ r.campus }}</span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
         </div>
@@ -131,9 +132,10 @@ const highSpecialCoverage = computed(() => {
     </div>
 
     <div class="card" v-if="batchRows.length">
-      <div class="card-title">第二批次录取分数 · 2026（按初中学校排序）</div>
+      <div class="card-title">第二批次录取分数 · 2026</div>
+      <p class="sub-note">本校学生 2026 年被以下高中第二批次录取的最低分与末位考生分。</p>
       <div class="tbl">
-        <div class="tbl-row tbl-head"><span>校区</span><span>录取最低分</span><span>末位考生分</span></div>
+        <div class="tbl-row tbl-head"><span>升入高中</span><span>录取最低分</span><span>末位考生分</span></div>
         <div v-for="r in batchRows" :key="r.campus" class="tbl-row">
           <span>{{ r.campus }}</span><span>{{ r.min ?? '—' }}</span><span>{{ r.last ?? '—' }}</span>
         </div>
@@ -202,7 +204,7 @@ const highSpecialCoverage = computed(() => {
 .tbl-row { display: flex; align-items: center; gap: 8px; font-size: 12px; padding: 4px 6px; border-radius: 6px; }
 .tbl-row > span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tbl-row > span:nth-child(n+2) { flex: none; width: 52px; text-align: right; font-variant-numeric: tabular-nums; }
-.tbl-row .strong { color: #1a6bd6; font-weight: 700; }
+.tbl-row .strong { color: #1a1b1c; font-weight: 700; }
 .tbl-head { background: #f7f6f2; font-size: 11px; color: #6b7280; font-weight: 600; }
 .tbl-head > span { color: #6b7280; }
 .sch-link { color: #1a6bd6; text-decoration: none; }

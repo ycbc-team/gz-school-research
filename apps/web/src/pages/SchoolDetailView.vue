@@ -203,6 +203,18 @@ const legalEntityText = computed(() => {
       </div>
     </div>
 
+    <!-- 口碑信号（民间口径，非官方评价） -->
+    <div v-if="signalRows.length" class="card">
+      <div class="card-title">口碑信号</div>
+      <p class="sub-note">民间口径，非官方评价，仅供参考。</p>
+      <div class="kv">
+        <div class="kv-row" v-for="r in signalRows" :key="r.label">
+          <span>{{ r.label }}</span><b>{{ r.value }}</b>
+        </div>
+      </div>
+      <p v-if="tierNote" class="sub-note">{{ tierNote }}</p>
+    </div>
+
     <!-- 小学：招生计划 + 对口地段 -->
     <div v-if="stage === 'primary'" class="card">
       <div class="card-title">2026 小学招生计划</div>
@@ -266,17 +278,6 @@ const legalEntityText = computed(() => {
       </div>
     </template>
 
-    <!-- 口碑信号（小学/初中） -->
-    <div v-if="signalRows.length" class="card">
-      <div class="card-title">口碑信号（民间口径，非官方评价）</div>
-      <div class="kv">
-        <div class="kv-row" v-for="r in signalRows" :key="r.label">
-          <span>{{ r.label }}</span><b :class="{ strong: r.strong }">{{ r.value }}</b>
-        </div>
-      </div>
-      <p v-if="tierNote" class="sub-note">{{ tierNote }}</p>
-    </div>
-
     <footer class="d-foot">
       <RouterLink to="/map" class="back">← 返回地图</RouterLink>
       <RouterLink v-if="stage === 'middle'" to="/linkage" class="back">升学路径总览 →</RouterLink>
@@ -316,7 +317,7 @@ const legalEntityText = computed(() => {
 .kv-row { display: flex; gap: 10px; font-size: 12.5px; align-items: baseline; }
 .kv-row > span { flex: none; width: 100px; color: #6b7280; font-size: 11.5px; }
 .kv-row > b { font-weight: 600; line-height: 1.6; }
-.kv-row > b.strong { color: #1a6bd6; }
+.kv-row > b.strong { color: #1a1b1c; }
 
 .zone-block { margin-top: 10px; }
 .zone-label { font-size: 11px; color: #6b7280; font-weight: 600; margin-bottom: 4px; }
