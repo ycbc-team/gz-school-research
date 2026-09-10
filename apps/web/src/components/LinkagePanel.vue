@@ -135,7 +135,7 @@ const highSpecialCoverage = computed(() => {
         <div class="kv-row"><span>省市属名额</span><b>{{ quota.sheng_quota ?? '—' }} 个</b></div>
         <div class="kv-row"><span>区属名额</span><b>{{ quota.qu_quota ?? '—' }} 个</b></div>
       </div>
-      <div v-if="batchMerged.length" class="tbl" style="margin-top:10px;">
+      <div v-if="batchMerged.length" class="tbl tbl-merged" style="margin-top:10px;">
         <div class="tbl-row tbl-head"><span>高中</span><span>名额</span><span>录取最低分</span></div>
         <div v-for="r in batchMerged" :key="r.campus" class="tbl-row">
           <span><RouterLink :to="`/school/high/${encodeURIComponent(r.school)}`" class="sch-link">{{ r.campus }}</RouterLink></span><span>{{ r.n ?? '—' }}</span><span>{{ r.min ?? '—' }}</span>
@@ -206,6 +206,8 @@ const highSpecialCoverage = computed(() => {
 .tbl-row { display: flex; align-items: center; gap: 8px; font-size: 12px; padding: 4px 6px; border-radius: 6px; }
 .tbl-row > span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tbl-row > span:nth-child(n+2) { flex: none; width: 52px; text-align: right; font-variant-numeric: tabular-nums; }
+.tbl-merged .tbl-row > span:nth-child(2) { width: 40px; }
+.tbl-merged .tbl-row > span:nth-child(3) { width: 78px; }
 .tbl-row .strong { color: #1a1b1c; font-weight: 700; }
 .tbl-head { background: #f7f6f2; font-size: 11px; color: #6b7280; font-weight: 600; }
 .tbl-head > span { color: #6b7280; }
