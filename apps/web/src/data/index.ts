@@ -235,6 +235,22 @@ export function matchEnrollment(schoolName: string): { school: string; plan_clas
   return null;
 }
 
+/** 初中名 → 名额分配摘要（模糊匹配 quota_matrix，用于小学出口列表轻量展示） */
+export function middleQuotaSummary(name: string): { kaosheng: number | null; sheng_quota: number | null; qu_quota: number | null } | null {
+  const find = (s: QuotaSchool) => ({ kaosheng: s.kaosheng, sheng_quota: s.sheng_quota, qu_quota: s.qu_quota });
+  const exact = quotaMatrix.schools.find((s) => s.school === name);
+  if (exact) return find(exact);
+  const nk = normSchoolName(name);
+  const normHit = quotaMatrix.schools.find((s) => normSchoolName(s.school) === nk);
+  if (normHit) return find(normHit);
+  const core = nk || name;
+  for (const s of quotaMatrix.schools) {
+    const sk = normSchoolName(s.school);
+    if (sk.length >= 4 && (sk.includes(core) || core.includes(sk))) return find(s);
+  }
+  return null;
+}
+
 /** tier1 学校数组（跨区拍平） */
 export const tier1Schools = Object.values(primaryTier1.districts).flatMap((d) => d.schools);
 export const middleTier1Schools = Object.values(middleTier1.districts).flatMap((d) => d.schools);

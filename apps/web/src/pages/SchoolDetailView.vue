@@ -27,6 +27,7 @@ import {
   tier1Schools,
   middleTier1Schools,
   matchEnrollment,
+  middleQuotaSummary,
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
@@ -91,6 +92,21 @@ const primaryMechanism = computed(() => {
     if (schoolName.value.includes(k) && d[k]) return d[k].xiaoshengchu_mechanism || null;
   }
   return null;
+});
+/* ========== 小学：升学路线（对口初中 · 派位/直升） ========== */
+const feedJuniors = computed(() => {
+  if (props.stage !== 'primary') return null;
+  const xs = tier.value?.xiaoshengchu;
+  if (!xs) return null;
+  return { group: xs.group, feed_junior_highs: xs.feed_junior_highs || [], direct_feed: xs.direct_feed };
+});
+const feedRows = computed(() => {
+  const f = feedJuniors.value;
+  if (!f) return [];
+  return f.feed_junior_highs.map((name) => {
+    const q = middleQuotaSummary(name);
+    return { name, summary: q ? `省市属 ${q.sheng_quota ?? 0} · 名额考生 ${q.kaosheng ?? '—'}` : null, hasQuota: !!q };
+  });
 });
 
 /* ========== 高中：出口数据（升学路径覆盖由 LinkagePanel 承载） ========== */
@@ -202,6 +218,20 @@ const legalEntityText = computed(() => {
       <p v-else class="empty">未在 2026 招生计划中匹配到招生地段（数据暂覆盖越秀/荔湾/海珠/天河/番禺五区；白云/黄埔及部分校名变体暂缺，后续补录）。</p>
     </div>
 
+    <!-- 小学：升学路线（对口初中 · 派位/直升） -->
+    <div v-if="stage === 'primary' && feedRows.length" class="card">
+      <div class="card-title">升学路线 · 对口初中（{{ feedJuniors?.group }}派位）</div>
+      <p v-if="feedJuniors?.direct_feed" class="sub-note">直升：{{ feedJuniors.direct_feed }}</p>
+      <div class="feed-list">
+        <div v-for="r in feedRows" :key="r.name" class="feed-item">
+          <RouterLink :to="`/school/middle/${encodeURIComponent(r.name)}`" class="feed-name">{{ r.name }}</RouterLink>
+          <span v-if="r.summary" class="tag">{{ r.summary }}</span>
+          <span v-else class="tag tag-dim">区属初中</span>
+        </div>
+      </div>
+      <p class="sub-note" style="margin-top:8px;">派位组来源：区教育局分组表；点击初中可查看该校升学通道详情。</p>
+    </div>
+
     <!-- 小学：小升初机制 -->
     <div v-if="stage === 'primary' && primaryMechanism" class="card">
       <div class="card-title">所在区小升初机制</div>
@@ -293,6 +323,13 @@ const legalEntityText = computed(() => {
   margin: 0; background: #f7f6f2; border-radius: 8px; padding: 8px 10px;
   font-size: 12px; color: #444; line-height: 1.7;
 }
+
+.feed-list { display: flex; flex-direction: column; gap: 6px; }
+.feed-item { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 12.5px; }
+.feed-name { color: #1a6bd6; text-decoration: none; font-weight: 500; }
+.feed-name:hover { text-decoration: underline; }
+.tag { font-size: 11px; color: #6b7280; background: #f1f0ec; border-radius: 5px; padding: 2px 8px; font-variant-numeric: tabular-nums; }
+.tag-dim { color: #9aa0a6; }
 
 .bars { display: flex; flex-direction: column; gap: 5px; margin-top: 10px; }
 .bar-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
