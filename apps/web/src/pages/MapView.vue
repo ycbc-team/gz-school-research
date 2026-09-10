@@ -7,7 +7,7 @@
  * - 点击点位信息卡：高中（分类/指标/口径）、小学初中（梯队信号/判定依据）、普通（学段/区）
  * - 高德瓦片 GCJ-02 同坐标系；区边界 + 核心四区初始视野 + 半径随缩放
  */
-import { computed, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue';
+import { computed, onBeforeUnmount, onMounted, reactive, ref, watch, type Ref } from 'vue';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {
@@ -157,67 +157,57 @@ function buildPoints() {
   addExtra(middleTier1, 'middle');
 }
 
-/* ========== 筛选状态（贝壳式：顶部搜索 + 区域多选 / 学段 / 分级联动） ========== */
-type StageFilter = 'all' | 'primary' | 'middle' | 'high';
-type GradeFilter = 'all' | 'tier1' | 'normal' | 'city' | 'district';
-const stageFilter = ref<StageFilter>('all');
-const gradeFilter = ref<GradeFilter>('all');
+/* ========== 筛选状态（贝壳式浮层：区域/学段/分级 均多选） ========== */
 const selectedDistricts = ref<Set<string>>(new Set(DISTRICTS.map((d) => d.adcode)));
+const selectedStages = ref<Set<SchoolStage>>(new Set<SchoolStage>(['primary', 'middle', 'high']));
+const selectedGrades = ref<Set<ClsKey>>(new Set(Object.keys(CLASS_CFG) as ClsKey[]));
 const openMenu = ref<null | 'district' | 'stage' | 'grade'>(null);
 
 const STAGE_LABEL: Record<SchoolStage, string> = { primary: '小学', middle: '初中', high: '高中' };
-const STAGE_OPTIONS: Array<{ v: StageFilter; l: string }> = [
-  { v: 'all', l: '全部学段' },
+const STAGE_TABS: Array<{ v: SchoolStage; l: string }> = [
   { v: 'primary', l: '小学' },
   { v: 'middle', l: '初中' },
   { v: 'high', l: '高中' },
 ];
-function gradeOptions(): Array<{ v: GradeFilter; l: string }> {
-  if (stageFilter.value === 'high') return [
-    { v: 'all', l: '全部分级' },
-    { v: 'city', l: '市重点（省市属示范）' },
-    { v: 'district', l: '区重点（区属示范）' },
-    { v: 'normal', l: '普通高中' },
-  ];
-  if (stageFilter.value === 'primary' || stageFilter.value === 'middle') return [
-    { v: 'all', l: '全部分级' },
-    { v: 'tier1', l: '口碑学校' },
-    { v: 'normal', l: '普通学校' },
-  ];
-  return [{ v: 'all', l: '全部分级' }];
-}
-const gradeLabel = computed(() => gradeOptions().find((o) => o.v === gradeFilter.value)?.l ?? '分级');
-const stageLabel = computed(() => STAGE_OPTIONS.find((o) => o.v === stageFilter.value)?.l ?? '学段');
+const GRADE_GROUPS: Array<{ title: string; items: Array<{ v: ClsKey; l: string }> }> = [
+  { title: '小学', items: [{ v: 'pT', l: '口碑学校' }, { v: 'pN', l: '普通学校' }] },
+  { title: '初中', items: [{ v: 'mT', l: '口碑学校' }, { v: 'mN', l: '普通学校' }] },
+  { title: '高中', items: [
+    { v: 'hM', l: '市重点（省市属示范）' },
+    { v: 'hD', l: '区重点（区属示范）' },
+    { v: 'hN', l: '普通高中' },
+  ]},
+];
+const ALL_DISTRICT_ADCODES = DISTRICTS.map((d) => d.adcode);
+const ALL_STAGES: SchoolStage[] = ['primary', 'middle', 'high'];
+const ALL_GRADES = Object.keys(CLASS_CFG) as ClsKey[];
 
-function toggleDistrict(ad: string) {
-  const s = new Set(selectedDistricts.value);
-  if (s.has(ad)) s.delete(ad); else s.add(ad);
-  selectedDistricts.value = s;
+function toggleIn<T>(setRef: { value: Set<T> }, v: T) {
+  const s = new Set(setRef.value);
+  if (s.has(v)) s.delete(v); else s.add(v);
+  setRef.value = s;
 }
-function allDistricts() { selectedDistricts.value = new Set(DISTRICTS.map((d) => d.adcode)); }
-function selectStage(v: StageFilter) {
-  stageFilter.value = v;
-  gradeFilter.value = 'all';
-  openMenu.value = null;
+function flipSet<T>(setRef: { value: Set<T> }, all: T[]) {
+  setRef.value = setRef.value.size === all.length ? new Set<T>() : new Set(all);
 }
-function selectGrade(v: GradeFilter) {
-  gradeFilter.value = v;
-  openMenu.value = null;
-}
+const districtAll = computed(() => selectedDistricts.value.size === ALL_DISTRICT_ADCODES.length);
+const stageAll = computed(() => selectedStages.value.size === ALL_STAGES.length);
+const gradeAll = computed(() => selectedGrades.value.size === ALL_GRADES.length);
+const flipDistrictLabel = computed(() => (districtAll.value ? '全不选' : '全选'));
+const flipStageLabel = computed(() => (stageAll.value ? '全不选' : '全选'));
+const flipGradeLabel = computed(() => (gradeAll.value ? '全不选' : '全选'));
+
+function toggleDistrictAd(ad: string) { toggleIn(selectedDistricts, ad); }
+function toggleStageTab(v: SchoolStage) { toggleIn(selectedStages, v); }
+function toggleGradeCls(v: ClsKey) { toggleIn(selectedGrades, v); }
+function flipDistricts() { flipSet(selectedDistricts, ALL_DISTRICT_ADCODES); }
+function flipStages() { flipSet(selectedStages, ALL_STAGES); }
+function flipGrades() { flipSet(selectedGrades, ALL_GRADES); }
+
 function isVisible(pt: Pt): boolean {
-  if (stageFilter.value !== 'all' && pt.stage !== stageFilter.value) return false;
   if (!selectedDistricts.value.has(pt.adcode)) return false;
-  const g = gradeFilter.value;
-  if (g === 'all') return true;
-  if (pt.stage === 'high') {
-    if (g === 'city') return pt.cls === 'hM';
-    if (g === 'district') return pt.cls === 'hD';
-    if (g === 'normal') return pt.cls === 'hN';
-  } else {
-    const isTier = pt.cls === 'pT' || pt.cls === 'mT';
-    if (g === 'tier1') return isTier;
-    if (g === 'normal') return !isTier;
-  }
+  if (!selectedStages.value.has(pt.stage)) return false;
+  if (!selectedGrades.value.has(pt.cls)) return false;
   return true;
 }
 const builtAt = ref(0);
@@ -322,7 +312,7 @@ function applyFilters() {
     }
   }
 }
-watch([stageFilter, gradeFilter, selectedDistricts], applyFilters);
+watch([selectedDistricts, selectedStages, selectedGrades], applyFilters);
 function renderBoundaries() {
   for (const dd of primarySchools.districts || []) {
     const d = DISTRICTS.find((x) => x.adcode === dd.adcode);
@@ -516,50 +506,74 @@ const infoModel = computed<InfoModel | null>(() => {
 
 <template>
   <section>
-  <div class="search-bar">
-    <input v-model="kw" class="search-input" placeholder="搜索学校名，如：华南师范大学附属中学" @focus="searchOpen = true" />
-    <ul v-if="searchOpen && kw.trim()" class="search-drop">
-      <li v-for="r in searchResults" :key="r.name + r.adcode" @mousedown.prevent="pickResult(r)">
-        <b>{{ r.name }}</b><span>{{ STAGE_LABEL[r.stage] }} · {{ districtByAdcode[r.adcode] || '—' }}</span>
-      </li>
-      <li v-if="!searchResults.length" class="search-empty">无匹配学校</li>
-    </ul>
-  </div>
-  <div class="filter-bar">
-    <div class="fb-col">
-      <button class="fb-btn" :class="{ on: openMenu === 'district' }" @click="openMenu = openMenu === 'district' ? null : 'district'">
-        区域<em v-if="selectedDistricts.size < DISTRICTS.length" class="fb-badge">{{ selectedDistricts.size }}</em><span class="arr">▾</span>
-      </button>
+  <!-- 浮层：搜索 + 筛选（压在地图上方） -->
+  <div class="float-panel">
+    <div class="search-bar">
+      <input v-model="kw" class="search-input" placeholder="搜索学校名，如：华南师范大学附属中学" @focus="searchOpen = true" />
+      <ul v-if="searchOpen && kw.trim()" class="search-drop">
+        <li v-for="r in searchResults" :key="r.name + r.adcode" @mousedown.prevent="pickResult(r)">
+          <b>{{ r.name }}</b><span>{{ STAGE_LABEL[r.stage] }} · {{ districtByAdcode[r.adcode] || '—' }}</span>
+        </li>
+        <li v-if="!searchResults.length" class="search-empty">无匹配学校</li>
+      </ul>
+    </div>
+
+    <div class="filter-bar">
+      <div class="fb-col">
+        <button class="fb-btn" :class="{ on: openMenu === 'district' }" @click="openMenu = openMenu === 'district' ? null : 'district'">
+          区域<em v-if="!districtAll" class="fb-badge">{{ selectedDistricts.size }}</em><span class="arr">▾</span>
+        </button>
+      </div>
+      <div class="fb-col">
+        <button class="fb-btn" :class="{ on: openMenu === 'stage' }" @click="openMenu = openMenu === 'stage' ? null : 'stage'">
+          学段<em v-if="!stageAll" class="fb-badge">{{ selectedStages.size }}</em><span class="arr">▾</span>
+        </button>
+      </div>
+      <div class="fb-col">
+        <button class="fb-btn" :class="{ on: openMenu === 'grade' }" @click="openMenu = openMenu === 'grade' ? null : 'grade'">
+          分级<em v-if="!gradeAll" class="fb-badge">{{ selectedGrades.size }}</em><span class="arr">▾</span>
+        </button>
+      </div>
+
+      <!-- 区域多选 -->
       <div v-if="openMenu === 'district'" class="fb-pop">
         <div class="pop-chips">
-          <button v-for="d in DISTRICTS" :key="d.adcode" class="pop-chip" :class="{ on: selectedDistricts.has(d.adcode) }" @click="toggleDistrict(d.adcode)">{{ d.name.replace('区', '') }}</button>
+          <button v-for="d in DISTRICTS" :key="d.adcode" class="pop-chip" :class="{ on: selectedDistricts.has(d.adcode) }" @click="toggleDistrictAd(d.adcode)">{{ d.name.replace('区', '') }}</button>
         </div>
         <div class="pop-foot">
-          <button class="pop-link" @click="allDistricts()">全选</button>
+          <button class="pop-link" @click="flipDistricts()">{{ flipDistrictLabel }}</button>
+          <button class="pop-link" @click="openMenu = null">完成</button>
+        </div>
+      </div>
+      <!-- 学段多选 -->
+      <div v-if="openMenu === 'stage'" class="fb-pop">
+        <div class="pop-chips">
+          <button v-for="o in STAGE_TABS" :key="o.v" class="pop-chip" :class="{ on: selectedStages.has(o.v) }" @click="toggleStageTab(o.v)">{{ o.l }}</button>
+        </div>
+        <div class="pop-foot">
+          <button class="pop-link" @click="flipStages()">{{ flipStageLabel }}</button>
+          <button class="pop-link" @click="openMenu = null">完成</button>
+        </div>
+      </div>
+      <!-- 分级多选（分组列表） -->
+      <div v-if="openMenu === 'grade'" class="fb-pop">
+        <div v-for="g in GRADE_GROUPS" :key="g.title" class="pop-group">
+          <div class="pop-group-title">{{ g.title }}</div>
+          <div class="pop-chips">
+            <button v-for="o in g.items" :key="o.v" class="pop-chip" :class="{ on: selectedGrades.has(o.v) }" @click="toggleGradeCls(o.v)">{{ o.l }}</button>
+          </div>
+        </div>
+        <div class="pop-foot">
+          <button class="pop-link" @click="flipGrades()">{{ flipGradeLabel }}</button>
           <button class="pop-link" @click="openMenu = null">完成</button>
         </div>
       </div>
     </div>
-    <div class="fb-col">
-      <button class="fb-btn" :class="{ on: openMenu === 'stage' }" @click="openMenu = openMenu === 'stage' ? null : 'stage'">
-        {{ stageLabel }}<span class="arr">▾</span>
-      </button>
-      <div v-if="openMenu === 'stage'" class="fb-pop">
-        <button v-for="o in STAGE_OPTIONS" :key="o.v" class="pop-opt" :class="{ on: stageFilter === o.v }" @click="selectStage(o.v as StageFilter)">{{ o.l }}</button>
-      </div>
-    </div>
-    <div class="fb-col">
-      <button class="fb-btn" :class="{ on: openMenu === 'grade' }" @click="openMenu = openMenu === 'grade' ? null : 'grade'">
-        {{ gradeLabel }}<span class="arr">▾</span>
-      </button>
-      <div v-if="openMenu === 'grade'" class="fb-pop">
-        <button v-for="o in gradeOptions()" :key="o.v" class="pop-opt" :class="{ on: gradeFilter === o.v }" @click="selectGrade(o.v)">{{ o.l }}</button>
-      </div>
-    </div>
   </div>
-  <div v-if="openMenu || searchOpen" class="pop-mask" @click="openMenu = null; searchOpen = false"></div>
-  <div class="status">当前显示 {{ visibleCount }} 所学校</div>
+
+  <div v-if="openMenu || searchOpen" class="pop-mask" @click="openMenu = null; searchOpen = false;"></div>
   <div ref="mapEl" class="map"></div>
+  <div class="map-count">当前显示 {{ visibleCount }} 所学校</div>
 
     <aside v-if="infoModel" class="school-info">
       <button class="si-close" aria-label="关闭" @click="closeInfo">×</button>
@@ -583,12 +597,14 @@ const infoModel = computed<InfoModel | null>(() => {
 </template>
 
 <style scoped>
-/* 顶部搜索 */
-.search-bar { position: relative; margin-bottom: 8px; z-index: 1400; }
+/* 浮层：搜索 + 筛选压在地图上方 */
+section { position: relative; }
+.float-panel { position: absolute; top: 10px; left: 10px; right: 10px; z-index: 1000; }
+.search-bar { position: relative; margin-bottom: 8px; }
 .search-input {
   width: 100%; box-sizing: border-box; border: 1px solid #e4e3dd; border-radius: 14px;
-  background: rgba(255,255,255,0.96); padding: 11px 14px; font-size: 13.5px; outline: none;
-  box-shadow: 0 1px 4px rgba(20,30,50,0.05);
+  background: rgba(255,255,255,0.97); padding: 11px 14px; font-size: 13.5px; outline: none;
+  box-shadow: 0 2px 10px rgba(20,30,50,0.12);
 }
 .search-input:focus { border-color: #9bbbf4; }
 .search-drop {
@@ -607,13 +623,14 @@ const infoModel = computed<InfoModel | null>(() => {
 .search-empty { color: #6b7280; font-size: 12.5px; text-align: center; }
 .search-empty:hover { background: none !important; }
 
-/* 筛选器行（贝壳式） */
+/* 筛选器行（贝壳式，弹层横跨整行） */
 .filter-bar {
   position: relative; display: flex; gap: 8px;
-  background: rgba(255,255,255,0.96); border: 1px solid #e4e3dd;
-  border-radius: 14px; padding: 8px; margin-bottom: 8px; z-index: 1400;
+  background: rgba(255,255,255,0.97); border: 1px solid #e4e3dd;
+  border-radius: 14px; padding: 8px;
+  box-shadow: 0 2px 10px rgba(20,30,50,0.12);
 }
-.fb-col { position: relative; flex: 1 1 0; min-width: 0; }
+.fb-col { flex: 1 1 0; min-width: 0; }
 .fb-btn {
   width: 100%; border: none; background: transparent; cursor: pointer;
   font-size: 13px; color: #1a1b1c; padding: 8px 6px; border-radius: 9px;
@@ -629,26 +646,27 @@ const infoModel = computed<InfoModel | null>(() => {
 .fb-pop {
   position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 1300;
   background: #fff; border: 1px solid #e4e3dd; border-radius: 12px;
-  box-shadow: 0 8px 28px rgba(20,30,50,0.16); padding: 10px;
+  box-shadow: 0 8px 28px rgba(20,30,50,0.16); padding: 12px;
 }
+.pop-group { margin-bottom: 10px; }
+.pop-group:last-of-type { margin-bottom: 0; }
+.pop-group-title { font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 6px; }
 .pop-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .pop-chip {
   border: 1px solid #d6d4cc; background: #fff; border-radius: 16px;
-  padding: 5px 12px; font-size: 12.5px; cursor: pointer; color: #1a1b1c;
+  padding: 5px 14px; font-size: 12.5px; cursor: pointer; color: #1a1b1c;
 }
 .pop-chip.on { background: #1a6bd6; border-color: #1a6bd6; color: #fff; }
-.pop-foot { display: flex; justify-content: space-between; margin-top: 10px; }
+.pop-foot { display: flex; justify-content: space-between; margin-top: 10px; padding-top: 8px; border-top: 1px dashed #e4e3dd; }
 .pop-link { border: none; background: none; color: #1a6bd6; font-size: 12.5px; cursor: pointer; padding: 4px 8px; }
-.pop-opt {
-  display: block; width: 100%; text-align: left; border: none; background: transparent;
-  padding: 9px 10px; font-size: 13px; cursor: pointer; border-radius: 8px; color: #1a1b1c;
-}
-.pop-opt:hover { background: #f2f7ff; }
-.pop-opt.on { background: #eaf1fe; color: #1a6bd6; font-weight: 600; }
-.pop-mask { position: fixed; inset: 0; z-index: 1200; background: transparent; }
+.pop-mask { position: fixed; inset: 0; z-index: 900; background: rgba(0,0,0,0.02); }
 
-.status { font-size: 12.5px; color: #6b7280; margin-bottom: 8px; }
-.map { height: 620px; border-radius: 14px; border: 1px solid #e4e3dd; z-index: 1; }
+.map-count {
+  position: absolute; left: 10px; bottom: 12px; z-index: 50;
+  background: rgba(255,255,255,0.94); border: 1px solid #e4e3dd; border-radius: 10px;
+  padding: 5px 12px; font-size: 12px; color: #444; box-shadow: 0 1px 4px rgba(20,30,50,0.08);
+}
+.map { height: calc(100vh - 140px); min-height: 560px; border-radius: 14px; border: 1px solid #e4e3dd; z-index: 1; }
 .hint { font-size: 12px; color: #6b7280; margin-top: 10px; line-height: 1.6; }
 
 .school-info {
