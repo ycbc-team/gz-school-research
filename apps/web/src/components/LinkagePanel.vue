@@ -61,6 +61,20 @@ const batchRows = computed(() => {
   }));
 });
 const hasMiddleData = computed(() => !!quota.value || specialTotal.value > 0 || batchRows.value.length > 0);
+/** 校区简称 → 高中全名（路由用） */
+function schoolOf(campus: string): string {
+  return (CAMPUS_SCHOOL as Record<string, string>)[campus] ?? campus;
+}
+
+/** 第二批次合并表：名额（quota）+ 录取最低分（batch2）按校区对齐 */
+const batchMerged = computed(() => {
+  const qmap = new Map<string, number>(quotaRows.value.map((r) => [r.campus, r.n]));
+  const bmap = new Map(batchRows.value.map((r) => [r.campus, r.min]));
+  const all = [...new Set([...qmap.keys(), ...bmap.keys()])];
+  return all
+    .map((c) => ({ campus: c, school: schoolOf(c), n: qmap.get(c) ?? null, min: bmap.get(c) ?? null }))
+    .sort((a, b) => (b.n ?? 0) - (a.n ?? 0));
+});
 
 /* ========== 高中：覆盖反查（按学校聚合校区） ========== */
 const highShorts = computed(() =>
@@ -108,33 +122,23 @@ const highSpecialCoverage = computed(() => {
       <div class="tbl">
         <div class="tbl-row tbl-head"><span>升入高中</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
         <div v-for="r in specialRows" :key="r.campus" class="tbl-row">
-          <span>{{ r.campus }}</span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
+          <span><RouterLink :to="`/school/high/${encodeURIComponent(schoolOf(r.campus))}`" class="sch-link">{{ r.campus }}</RouterLink></span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
         </div>
       </div>
     </div>
 
     <div class="card" v-if="quota">
       <div class="card-title">第二批次 · 名额分配（指标到校）· 2026（官方）</div>
-      <p class="sub-note">本校名额考生按政策获得以下高中的名额；下方数字 = 对应高中分给本校的名额数。省市属名额已全列；区属名额分配到本区区属高中，明细未收录。</p>
+      <p class="sub-note">本校名额考生按政策获得以下高中的名额；名额 = 该高中分给本校的名额数，录取最低分为本校考生被该校第二批次录取的最低分。省市属名额已全列；区属名额分配到本区区属高中，明细未收录。</p>
       <div class="kv">
         <div class="kv-row"><span>名额考生数</span><b>{{ quota.kaosheng ?? '—' }} 人</b></div>
         <div class="kv-row"><span>省市属名额</span><b>{{ quota.sheng_quota ?? '—' }} 个</b></div>
         <div class="kv-row"><span>区属名额</span><b>{{ quota.qu_quota ?? '—' }} 个</b></div>
       </div>
-      <div v-if="quotaRows.length" class="bars">
-        <div v-for="r in quotaRows" :key="r.campus" class="bar-row">
-          <span class="bar-name">{{ r.campus }}</span>
-          <span class="bar-track"><i class="bar-fill" :style="{ width: Math.round((r.n / quotaRows[0]!.n) * 100) + '%' }"></i></span>
-          <span class="bar-val">{{ r.n }}</span>
-        </div>
-      </div>
-      <div v-if="batchRows.length" style="margin-top:12px;">
-        <div class="zone-label">第二批次录取分数（按初中学校排序）</div>
-        <div class="tbl">
-          <div class="tbl-row tbl-head"><span>升入高中</span><span>录取最低分</span><span>末位考生分</span></div>
-          <div v-for="r in batchRows" :key="r.campus" class="tbl-row">
-            <span>{{ r.campus }}</span><span>{{ r.min ?? '—' }}</span><span>{{ r.last ?? '—' }}</span>
-          </div>
+      <div v-if="batchMerged.length" class="tbl" style="margin-top:10px;">
+        <div class="tbl-row tbl-head"><span>高中</span><span>名额</span><span>录取最低分</span></div>
+        <div v-for="r in batchMerged" :key="r.campus" class="tbl-row">
+          <span><RouterLink :to="`/school/high/${encodeURIComponent(r.school)}`" class="sch-link">{{ r.campus }}</RouterLink></span><span>{{ r.n ?? '—' }}</span><span>{{ r.min ?? '—' }}</span>
         </div>
       </div>
       <p class="sub-note" style="margin-top:8px;">第三批（省市属统招）、第四批（区属统招）按全市统一投档划线，官方不公布按初中学校的录取名单与分数，故不展示。</p>
