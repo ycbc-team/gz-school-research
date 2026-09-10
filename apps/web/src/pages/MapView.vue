@@ -606,7 +606,7 @@ const infoModel = computed<InfoModel | null>(() => {
       <div v-for="r in infoModel.rows" :key="r.label" class="si-row">
         <span>{{ r.label }}</span>
         <b v-if="r.strong">{{ r.value }}</b>
-        <p v-else>{{ r.value }}</p>
+        <p v-else :class="{ 'si-zone': r.label === '招生地段' }">{{ r.value }}</p>
       </div>
       <div v-if="infoModel.note" class="si-src">{{ infoModel.note }}</div>
       <RouterLink v-if="infoModel.link" :to="infoModel.link.to" class="si-link">{{ infoModel.link.text }}</RouterLink>
@@ -726,6 +726,14 @@ section { position: relative; }
 .si-row > span:first-child { flex: none; width: 88px; color: #6b7280; font-size: 11.5px; padding-top: 1px; }
 .si-row > b { font-weight: 600; }
 .si-row p { margin: 0; line-height: 1.65; }
+/* 招生地段：浮层最多展示 4 行，超出省略；完整地段在详情页查看 */
+.si-row p.si-zone {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+}
 .si-src { margin-top: 10px; padding-top: 8px; border-top: 1px dashed #d6d4cc; font-size: 10.5px; color: #9aa0a6; line-height: 1.6; }
 .si-link {
   display: inline-block; margin-top: 10px; color: #1a6bd6; text-decoration: none;
