@@ -149,21 +149,42 @@ export const CAMPUS_TO_BATCH2: Record<string, string> = {
   清湾智慧城: '清华附中湾区学校（智慧城校区）',
 };
 
+/** 初中名归一查找：POI 简称/变体 → quota_matrix 标准全称（精确→归一→包含兜底） */
+const middleByNorm = new Map<string, string>();
+for (const s of quotaMatrix.schools) {
+  const nk = normSchoolName(s.school);
+  if (nk && !middleByNorm.has(nk)) middleByNorm.set(nk, s.school);
+}
+function resolveMiddle(poiName: string): string | null {
+  if (quotaMatrix.schools.some((s) => s.school === poiName)) return poiName;
+  const nk = normSchoolName(poiName);
+  if (nk && middleByNorm.has(nk)) return middleByNorm.get(nk)!;
+  for (const s of quotaMatrix.schools) {
+    const sk = normSchoolName(s.school);
+    if (sk.length >= 3 && (sk.includes(nk) || nk.includes(sk))) return s.school;
+  }
+  return null;
+}
+
 /** 按初中名查升学通道汇总 */
 export function linkageOf(schoolName: string): QuotaSchool | undefined {
-  return quotaMatrix.schools.find((s) => s.school === schoolName);
+  const canon = resolveMiddle(schoolName);
+  return canon ? quotaMatrix.schools.find((s) => s.school === canon) : undefined;
 }
 
 /** 按初中名查特殊通道（special_matrix 键 = 初中名） */
 export function specialOf(schoolName: string): Record<string, { sports?: number; arts?: number; autonomy?: number }> | undefined {
-  return specialMatrix.matrix[schoolName];
+  const canon = resolveMiddle(schoolName);
+  return canon ? specialMatrix.matrix[canon] : undefined;
 }
 
 /** 按初中名查第二批次录取分数（值 = 校区 → 记录） */
 export function batch2Of(schoolName: string): Record<string, Batch2Record> {
   const out: Record<string, Batch2Record> = {};
+  const canon = resolveMiddle(schoolName);
+  if (!canon) return out;
   for (const [campus, rows] of Object.entries(batch2Scores.data)) {
-    if (rows[schoolName]) out[campus] = rows[schoolName];
+    if (rows[canon]) out[campus] = rows[canon];
   }
   return out;
 }
