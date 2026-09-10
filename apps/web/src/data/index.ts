@@ -345,7 +345,7 @@ export function schoolBadges(
     if (t.tier1_eligible === false) out.push({ text: '挂牌', cls: 'b-license' });
     else out.push({ text: '口碑', cls: 'b-tier' });
   }
-  if (stage === 'high' && opts.rec) {
+  if ((stage === 'high' || comprehensive) && opts.rec) {
     if (opts.rec.category === '省市属示范') out.push({ text: '省示范', cls: 'b-hcity' });
     else if (opts.rec.category === '区属示范') out.push({ text: '市示范', cls: 'b-hdist' });
   }

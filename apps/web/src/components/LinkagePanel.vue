@@ -47,7 +47,7 @@ const specialRows = computed(() => {
     autonomy: v.autonomy ?? 0,
     sports: v.sports ?? 0,
     arts: v.arts ?? 0,
-  }));
+  })).sort((a, b) => (b.autonomy + b.sports + b.arts) - (a.autonomy + a.sports + a.arts));
 });
 const specialTotal = computed(() =>
   specialRows.value.reduce((s, r) => s + r.autonomy + r.sports + r.arts, 0),

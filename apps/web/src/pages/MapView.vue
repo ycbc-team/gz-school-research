@@ -8,7 +8,7 @@
  * - 高德瓦片 GCJ-02 同坐标系；区边界 + 核心四区初始视野 + 半径随缩放
  */
 import { computed, onBeforeUnmount, onMounted, reactive, ref, watch, type Ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {
@@ -405,6 +405,7 @@ onBeforeUnmount(() => {
 /* ========== 信息卡 ========== */
 const active = ref<Pt | null>(null);
 const route = useRoute();
+const router = useRouter();
 function showInfo(pt: Pt) { active.value = pt; }
 function closeInfo() { active.value = null; }
 
@@ -414,6 +415,8 @@ function focusSchool(name: string) {
   if (!pt || !map) return;
   map.flyTo([pt.lat, pt.lng], 15, { duration: 0.8 });
   showInfo(pt);
+  // 定位后清掉 focus 参数：用户再点其他学校→详情→返回时，回到当前地图视图而非重新 flyTo 旧 focus
+  router.replace({ query: {} });
 }
 watch(() => route.query.focus, (v) => { if (typeof v === 'string' && v) focusSchool(v); });
 /** 小学招生条件行（2026 招生计划：班数 + 对口地段） */
@@ -700,7 +703,7 @@ section { position: relative; }
 .badge { font-size: 12px; font-weight: 700; color: #fff; border-radius: 6px; padding: 2px 9px; }
 .badge.sm { font-size: 10.5px; padding: 1px 7px; }
 .s-badges { display: inline-flex; gap: 4px; margin-left: 6px; }
-.badge.b-district { background: #e5e7eb; color: #374151; }
+.badge.b-district { background: #e5e7eb; color: #111827; }
 .badge.b-stage { background: #dbeafe; color: #1e40af; }
 .badge.b-tier { background: #e11d48; }
 .badge.b-license { background: #4b5563; }

@@ -32,6 +32,7 @@ import {
   middlePrimaryFeed,
   schoolBadges,
   supportBadge,
+  isComprehensive,
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
@@ -70,8 +71,12 @@ for (const sc of highLevels.schools) {
   }
 }
 const rec = computed<HighLevelSchool | undefined>(() => {
-  if (props.stage !== 'high') return undefined;
-  return highTable.get(normName(schoolName.value));
+  if (props.stage === 'high') return highTable.get(normName(schoolName.value));
+  // 完中初中也展示其高中部省/市示范 badge
+  if (props.stage === 'middle' && isComprehensive(schoolName.value)) {
+    return highTable.get(normName(schoolName.value));
+  }
+  return undefined;
 });
 
 /* ========== 基本信息 ========== */
@@ -212,8 +217,8 @@ const legalEntityText = computed(() => {
 
     <!-- 口碑信号（民间口径，非官方评价） -->
     <div v-if="signalRows.length" class="card">
-      <div class="card-title">
-        口碑信号
+      <div class="card-title">口碑信号</div>
+      <div class="title-note-row">
         <span v-if="support" class="badge sm" :class="support.cls">{{ support.text }}</span>
         <span class="title-note">民间口径，非官方评价，仅供参考。</span>
       </div>
@@ -319,7 +324,8 @@ const legalEntityText = computed(() => {
 .stage { font-size: 12px; color: #6b7280; }
 
 .badge.sm { font-size: 10.5px; padding: 1px 7px; vertical-align: middle; margin-left: 6px; }
-.title-note { font-size: 11px; color: #9aa0a6; font-weight: 400; margin-left: 8px; }
+.title-note-row { margin: -4px 0 10px; display: flex; align-items: center; gap: 6px; }
+.title-note { font-size: 11px; color: #9aa0a6; font-weight: 400; }
 
 .badge.b-district { background: #e5e7eb; color: #374151; }
 .badge.b-stage { background: #dbeafe; color: #1e40af; }
