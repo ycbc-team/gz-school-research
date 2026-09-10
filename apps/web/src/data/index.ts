@@ -305,3 +305,40 @@ export function middlePrimaryFeed(middleName: string): { primary: string; group:
   }
   return [];
 }
+
+/**
+ * 学校徽章组（详情页/地图搜索/地图点选浮层三处共用）：
+ * 区域 · 学段 · 口碑 · 省/市示范。
+ */
+export interface SchoolBadge { text: string; cls: string }
+export function schoolBadges(
+  stage: 'primary' | 'middle' | 'high',
+  opts: { district?: string; tier?: any; rec?: any },
+): SchoolBadge[] {
+  const out: SchoolBadge[] = [];
+  if (opts.district) out.push({ text: opts.district, cls: 'b-district' });
+  out.push({ text: stage === 'primary' ? '小学' : stage === 'middle' ? '初中' : '高中', cls: 'b-stage' });
+  const t = opts.tier;
+  if (t) {
+    if (t.tier1_eligible === false) out.push({ text: '挂牌', cls: 'b-license' });
+    else out.push({ text: '口碑', cls: 'b-tier' });
+  }
+  if (stage === 'high' && opts.rec) {
+    if (opts.rec.category === '省市属示范') out.push({ text: '省示范', cls: 'b-hcity' });
+    else if (opts.rec.category === '区属示范') out.push({ text: '市示范', cls: 'b-hdist' });
+  } else if (t?.demonstration_high?.level) {
+    const lv = t.demonstration_high.level;
+    if (/国家级|省级/.test(lv)) out.push({ text: '省示范', cls: 'b-hcity' });
+    else if (/市级/.test(lv)) out.push({ text: '市示范', cls: 'b-hdist' });
+  }
+  return out;
+}
+/** 口碑支撑度 badge（仅口碑信号卡内使用）：有支撑/部分支撑/无支撑 */
+export function supportBadge(tier?: any): SchoolBadge | null {
+  if (!tier) return null;
+  if (tier.tier1_eligible === false) return { text: '未计入口碑校', cls: 'b-license' };
+  const c = tier.conclusion;
+  if (c === '有支撑') return { text: '有支撑', cls: 'b-full' };
+  if (c === '部分支撑') return { text: '部分支撑', cls: 'b-part' };
+  return { text: '无支撑', cls: 'b-none' };
+}

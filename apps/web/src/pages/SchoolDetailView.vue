@@ -29,6 +29,8 @@ import {
   matchEnrollment,
   middleQuotaSummary,
   middlePrimaryFeed,
+  schoolBadges,
+  supportBadge,
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
@@ -135,22 +137,10 @@ const indRows = computed(() => {
 });
 
 /* ========== 其他 ========== */
-const badgeCls = computed(() => {
-  if (props.stage === 'high') {
-    const c = rec.value?.category;
-    return c === '省市属示范' ? 'h-city' : c === '区属示范' ? 'h-dist' : 'h-normal';
-  }
-  const t = tier.value;
-  if (t?.tier1_eligible === false) return 'license';
-  const c = t?.conclusion;
-  return c === '有支撑' ? 'tier-full' : c === '部分支撑' ? 'tier-part' : 'tier-none';
-});
-const badgeText = computed(() => {
-  if (props.stage === 'high') return rec.value?.category || '普通高中';
-  const t = tier.value;
-  if (t?.tier1_eligible === false) return '独立法人挂牌校';
-  return t?.conclusion || '普通学校';
-});
+const badges = computed<{ text: string; cls: string }[]>(() =>
+  schoolBadges(props.stage, { district: districtOf.value, tier: tier.value, rec: rec.value }),
+);
+const support = computed(() => supportBadge(tier.value));
 const headText = computed(() => {
   if (props.stage === 'high') {
     const r = rec.value;
@@ -190,9 +180,8 @@ const legalEntityText = computed(() => {
 
     <header class="d-head">
       <h1>{{ schoolName }}</h1>
-      <div v-if="badgeText" class="badges">
-        <span class="badge" :class="badgeCls">{{ badgeText }}</span>
-        <span class="stage">{{ stageLabel }}</span>
+      <div class="badges">
+        <span v-for="b in badges" :key="b.cls + b.text" class="badge" :class="b.cls">{{ b.text }}</span>
       </div>
       <p v-if="headText" class="d-sub">{{ headText }}</p>
     </header>
@@ -211,8 +200,11 @@ const legalEntityText = computed(() => {
 
     <!-- 口碑信号（民间口径，非官方评价） -->
     <div v-if="signalRows.length" class="card">
-      <div class="card-title">口碑信号</div>
-      <p class="sub-note">民间口径，非官方评价，仅供参考。</p>
+      <div class="card-title">
+        口碑信号
+        <span v-if="support" class="badge sm" :class="support.cls">{{ support.text }}</span>
+        <span class="title-note">民间口径，非官方评价，仅供参考。</span>
+      </div>
       <div class="kv">
         <div class="kv-row" v-for="r in signalRows" :key="r.label">
           <span>{{ r.label }}</span><b>{{ r.value }}</b>
@@ -312,6 +304,20 @@ const legalEntityText = computed(() => {
 .badges { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .badge { font-size: 12px; font-weight: 700; color: #fff; border-radius: 6px; padding: 2px 9px; }
 .stage { font-size: 12px; color: #6b7280; }
+
+.badge.sm { font-size: 10.5px; padding: 1px 7px; vertical-align: middle; margin-left: 6px; }
+.title-note { font-size: 11px; color: #9aa0a6; font-weight: 400; margin-left: 8px; }
+
+.badge.b-district { background: #e5e7eb; color: #374151; }
+.badge.b-stage { background: #dbeafe; color: #1e40af; }
+.badge.b-tier { background: #e11d48; }
+.badge.b-license { background: #4b5563; }
+.badge.b-hcity { background: #b45309; }
+.badge.b-hdist { background: #0f766e; }
+.badge.b-full { background: #e11d48; }
+.badge.b-part { background: #f59e0b; }
+.badge.b-none { background: #8a94a6; }
+
 .d-sub { font-size: 12.5px; color: #6b7280; margin: 8px 0 0; line-height: 1.6; }
 
 .badge.tier-full { background: #e11d48; }

@@ -30,6 +30,7 @@ import {
   tier1Schools,
   middleTier1Schools,
   matchEnrollment,
+  schoolBadges,
 } from '../data';
 
 /* ========== 配置（与旧版 map/index.html 一致） ========== */
@@ -221,6 +222,9 @@ const searchResults = computed(() => {
   if (!k) return [];
   return allPoints.filter((p) => p.name.includes(k)).slice(0, 12);
 });
+function badgesOf(pt: Pt) {
+  return schoolBadges(pt.stage, { district: districtByAdcode[pt.adcode] || '', tier: pt.tier, rec: pt.rec });
+}
 function pickResult(pt: Pt) {
   if (!map) return;
   map.flyTo([pt.lat, pt.lng], 15, { duration: 0.8 });
@@ -412,7 +416,7 @@ function primaryEnrollRows(name: string): InfoRow[] {
 interface InfoRow { label: string; value: string; strong?: boolean }
 interface InfoModel {
   name: string;
-  badge: { text: string; cls: string } | null;
+  badges: { text: string; cls: string }[];
   head: string | null;
   rows: InfoRow[];
   note: string | null;
@@ -430,7 +434,7 @@ const infoModel = computed<InfoModel | null>(() => {
     if (!rec) {
       return {
         name,
-        badge: null,
+        badges: schoolBadges('high', { district: districtName }),
         head: null,
         rows: [
           { label: '学段', value: '高中' },
@@ -452,7 +456,7 @@ const infoModel = computed<InfoModel | null>(() => {
     put('gaofen_2026', '高分段 2026');
     return {
       name,
-      badge: { text: rec.category, cls: rec.category === '省市属示范' ? 'h-city' : rec.category === '区属示范' ? 'h-dist' : 'h-normal' },
+      badges: schoolBadges('high', { district: districtName, rec }),
       head: `${rec.demo || ''} · ${rec.affiliation || ''}`,
       rows,
       note: '口径：录取线为官方发布；特控率/高分段为喜报或网传数据。完整出口数据见详情页。',
@@ -467,7 +471,7 @@ const infoModel = computed<InfoModel | null>(() => {
     if (tier.tier1_eligible === false) {
       return {
         name,
-        badge: { text: '独立法人挂牌校', cls: 'license' },
+        badges: schoolBadges(pt.stage, { district: districtName, tier }),
         head: '网传"口碑学校" · 独立法人，未计入口碑学校',
         rows: tier.exclude_reason ? [{ label: '未计入原因', value: tier.exclude_reason }] : [],
         note: null,
@@ -479,10 +483,7 @@ const infoModel = computed<InfoModel | null>(() => {
       (tier.entity_relation === '同法人校区' ? ' · 与本部同一法人' : '');
     return {
       name,
-      badge: {
-        text: tier.conclusion,
-        cls: tier.conclusion === '有支撑' ? 'tier-full' : tier.conclusion === '部分支撑' ? 'tier-part' : 'tier-none',
-      },
+      badges: schoolBadges(pt.stage, { district: districtName, tier }),
       head,
       rows: [...enrollRows, ...rows.slice(0, 1)],
       note: '完整口碑信号与升学通道见详情页。',
@@ -491,7 +492,7 @@ const infoModel = computed<InfoModel | null>(() => {
   }
   return {
     name,
-    badge: null,
+    badges: schoolBadges(pt.stage, { district: districtName }),
     head: null,
     rows: [
       { label: '学段', value: pt.stage === 'primary' ? '小学' : pt.stage === 'middle' ? '初中' : '高中' },
@@ -512,7 +513,8 @@ const infoModel = computed<InfoModel | null>(() => {
       <input v-model="kw" class="search-input" placeholder="搜索学校名，如：华南师范大学附属中学" @focus="searchOpen = true" />
       <ul v-if="searchOpen && kw.trim()" class="search-drop">
         <li v-for="r in searchResults" :key="r.name + r.adcode" @mousedown.prevent="pickResult(r)">
-          <b>{{ r.name }}</b><span>{{ STAGE_LABEL[r.stage] }} · {{ districtByAdcode[r.adcode] || '—' }}</span>
+          <b>{{ r.name }}</b>
+          <span class="s-badges"><span v-for="b in badgesOf(r)" :key="b.cls + b.text" class="badge sm" :class="b.cls">{{ b.text }}</span></span>
         </li>
         <li v-if="!searchResults.length" class="search-empty">无匹配学校</li>
       </ul>
@@ -578,11 +580,10 @@ const infoModel = computed<InfoModel | null>(() => {
     <aside v-if="infoModel" class="school-info">
       <button class="si-close" aria-label="关闭" @click="closeInfo">×</button>
       <div class="si-name">{{ infoModel.name }}</div>
-      <div v-if="infoModel.badge" class="si-tier">
-        <span class="badge" :class="infoModel.badge.cls">{{ infoModel.badge.text }}</span>
-        <span>{{ infoModel.head }}</span>
+      <div class="si-tier">
+        <span v-for="b in infoModel.badges" :key="b.cls + b.text" class="badge" :class="b.cls">{{ b.text }}</span>
+        <span v-if="infoModel.head">{{ infoModel.head }}</span>
       </div>
-      <div v-else-if="infoModel.head" class="si-tier"><span>{{ infoModel.head }}</span></div>
       <div v-for="r in infoModel.rows" :key="r.label" class="si-row">
         <span>{{ r.label }}</span>
         <b v-if="r.strong">{{ r.value }}</b>
@@ -684,6 +685,17 @@ section { position: relative; }
 .si-name { font-size: 15px; font-weight: 700; padding-right: 26px; line-height: 1.4; }
 .si-tier { margin-top: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 12px; color: #6b7280; }
 .badge { font-size: 12px; font-weight: 700; color: #fff; border-radius: 6px; padding: 2px 9px; }
+.badge.sm { font-size: 10.5px; padding: 1px 7px; }
+.s-badges { display: inline-flex; gap: 4px; margin-left: 6px; }
+.badge.b-district { background: #e5e7eb; color: #374151; }
+.badge.b-stage { background: #dbeafe; color: #1e40af; }
+.badge.b-tier { background: #e11d48; }
+.badge.b-license { background: #4b5563; }
+.badge.b-hcity { background: #b45309; }
+.badge.b-hdist { background: #0f766e; }
+.badge.b-full { background: #e11d48; }
+.badge.b-part { background: #f59e0b; }
+.badge.b-none { background: #8a94a6; }
 .badge.tier-full { background: #e11d48; }
 .badge.tier-part { background: #f59e0b; }
 .badge.tier-none { background: #8a94a6; }
