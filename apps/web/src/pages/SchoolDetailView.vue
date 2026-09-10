@@ -149,7 +149,7 @@ const indRows = computed(() => {
 
 /* ========== 其他 ========== */
 const badges = computed<{ text: string; cls: string }[]>(() =>
-  schoolBadges(props.stage, { district: districtOf.value, tier: tier.value, rec: rec.value }),
+  schoolBadges(props.stage, { district: districtOf.value, tier: tier.value, rec: rec.value, name: schoolName.value }),
 );
 const support = computed(() => supportBadge(tier.value));
 const headText = computed(() => {

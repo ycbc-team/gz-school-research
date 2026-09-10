@@ -36,6 +36,18 @@ export const middleTier1 = cast<Tier1Snapshot>(middleTier1Json);
 export const highSchools = cast<SchoolsSnapshot>(highSchoolsJson);
 export const highLevels = cast<HighLevelsSnapshot>(highLevelsJson);
 
+/** 完中判定：去括号 base 名同时出现在 middle 与 high POI 列表 → 初高中一体 */
+function baseName(n: string): string {
+  return n.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').replace(/(初中部|高中部|小学部)$/, '').trim();
+}
+const middleBases = new Set(middleSchools.schools.map((s) => baseName(s.name)));
+const highBases = new Set(highSchools.schools.map((s) => baseName(s.name)));
+/** 判断某 POI 名是否为完全中学（初高中同法人同校区） */
+export function isComprehensive(name: string): boolean {
+  const b = baseName(name);
+  return middleBases.has(b) && highBases.has(b);
+}
+
 /** linkage 升学通道数据（2026 官方） */
 export interface QuotaSchool {
   page: number;
@@ -314,11 +326,20 @@ export function middlePrimaryFeed(middleName: string): { primary: string; group:
 export interface SchoolBadge { text: string; cls: string }
 export function schoolBadges(
   stage: 'primary' | 'middle' | 'high',
-  opts: { district?: string; tier?: any; rec?: any },
+  opts: { district?: string; tier?: any; rec?: any; name?: string },
 ): SchoolBadge[] {
   const out: SchoolBadge[] = [];
   if (opts.district) out.push({ text: opts.district, cls: 'b-district' });
-  out.push({ text: stage === 'primary' ? '小学' : stage === 'middle' ? '初中' : '高中', cls: 'b-stage' });
+  // 学段 badge：完中同时标初中+高中
+  const comprehensive = !!opts.name && isComprehensive(opts.name);
+  if (stage === 'primary') out.push({ text: '小学', cls: 'b-stage' });
+  else if (stage === 'middle') {
+    out.push({ text: '初中', cls: 'b-stage' });
+    if (comprehensive) out.push({ text: '高中', cls: 'b-stage' });
+  } else {
+    out.push({ text: '高中', cls: 'b-stage' });
+    if (comprehensive) out.push({ text: '初中', cls: 'b-stage' });
+  }
   const t = opts.tier;
   if (t) {
     if (t.tier1_eligible === false) out.push({ text: '挂牌', cls: 'b-license' });

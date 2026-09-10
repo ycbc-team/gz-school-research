@@ -224,7 +224,7 @@ const searchResults = computed(() => {
   return allPoints.filter((p) => p.name.includes(k)).slice(0, 12);
 });
 function badgesOf(pt: Pt) {
-  return schoolBadges(pt.stage, { district: districtByAdcode[pt.adcode] || '', tier: pt.tier, rec: pt.rec });
+  return schoolBadges(pt.stage, { district: districtByAdcode[pt.adcode] || '', tier: pt.tier, rec: pt.rec, name: pt.name });
 }
 function pickResult(pt: Pt) {
   if (!map) return;
@@ -484,7 +484,7 @@ const infoModel = computed<InfoModel | null>(() => {
     if (tier.tier1_eligible === false) {
       return {
         name,
-        badges: schoolBadges(pt.stage, { district: districtName, tier }),
+        badges: schoolBadges(pt.stage, { district: districtName, tier, name }),
         head: '网传"口碑学校" · 独立法人，未计入口碑学校',
         rows: tier.exclude_reason ? [{ label: '未计入原因', value: tier.exclude_reason }] : [],
         note: null,
@@ -496,7 +496,7 @@ const infoModel = computed<InfoModel | null>(() => {
       (tier.entity_relation === '同法人校区' ? ' · 与本部同一法人' : '');
     return {
       name,
-      badges: schoolBadges(pt.stage, { district: districtName, tier }),
+      badges: schoolBadges(pt.stage, { district: districtName, tier, name }),
       head,
       rows: [...enrollRows, ...rows.slice(0, 1)],
       note: '完整口碑信号与升学通道见详情页。',
@@ -505,7 +505,7 @@ const infoModel = computed<InfoModel | null>(() => {
   }
   return {
     name,
-    badges: schoolBadges(pt.stage, { district: districtName }),
+    badges: schoolBadges(pt.stage, { district: districtName, name }),
     head: null,
     rows: [
       { label: '学段', value: pt.stage === 'primary' ? '小学' : pt.stage === 'middle' ? '初中' : '高中' },
