@@ -100,11 +100,22 @@ const highSpecialCoverage = computed(() => {
 </script>
 
 <template>
-  <!-- ===== 初中视角：四通道 ===== -->
+  <!-- ===== 初中视角：按录取批次组织 ===== -->
   <template v-if="stage === 'middle'">
+    <div class="card" v-if="specialRows.length">
+      <div class="card-title">第一批次 · 特殊通道（自招 / 体育 / 艺术）· 2026</div>
+      <p class="sub-note">本校学生通过自招/体育/艺术被以下高中录取（资格名单人数，非最终预录取）。</p>
+      <div class="tbl">
+        <div class="tbl-row tbl-head"><span>升入高中</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
+        <div v-for="r in specialRows" :key="r.campus" class="tbl-row">
+          <span>{{ r.campus }}</span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
+        </div>
+      </div>
+    </div>
+
     <div class="card" v-if="quota">
-      <div class="card-title">名额分配 · 2026（官方）</div>
-      <p class="sub-note">本校（{{ schoolName }}）的名额考生按政策分配到各高中；下方数字 = 对应高中分给本校的名额数。</p>
+      <div class="card-title">第二批次 · 名额分配（指标到校）· 2026（官方）</div>
+      <p class="sub-note">本校名额考生按政策获得以下高中的名额；下方数字 = 对应高中分给本校的名额数。省市属名额已全列；区属名额分配到本区区属高中，明细未收录。</p>
       <div class="kv">
         <div class="kv-row"><span>名额考生数</span><b>{{ quota.kaosheng ?? '—' }} 人</b></div>
         <div class="kv-row"><span>省市属名额</span><b>{{ quota.sheng_quota ?? '—' }} 个</b></div>
@@ -117,29 +128,16 @@ const highSpecialCoverage = computed(() => {
           <span class="bar-val">{{ r.n }}</span>
         </div>
       </div>
-      <p v-else class="empty">该初中未获得省市属示范高中名额分配。</p>
-    </div>
-
-    <div class="card" v-if="specialRows.length">
-      <div class="card-title">特殊通道 · 2026（自招 / 体育 / 艺术）</div>
-      <p class="sub-note">本校学生 2026 年通过自招/体育/艺术被以下高中录取（资格名单人数，非最终预录取）。</p>
-      <div class="tbl">
-        <div class="tbl-row tbl-head"><span>升入高中</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
-        <div v-for="r in specialRows" :key="r.campus" class="tbl-row">
-          <span>{{ r.campus }}</span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
+      <div v-if="batchRows.length" style="margin-top:12px;">
+        <div class="zone-label">第二批次录取分数（按初中学校排序）</div>
+        <div class="tbl">
+          <div class="tbl-row tbl-head"><span>升入高中</span><span>录取最低分</span><span>末位考生分</span></div>
+          <div v-for="r in batchRows" :key="r.campus" class="tbl-row">
+            <span>{{ r.campus }}</span><span>{{ r.min ?? '—' }}</span><span>{{ r.last ?? '—' }}</span>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="card" v-if="batchRows.length">
-      <div class="card-title">第二批次录取分数 · 2026</div>
-      <p class="sub-note">本校学生 2026 年被以下高中第二批次录取的最低分与末位考生分。</p>
-      <div class="tbl">
-        <div class="tbl-row tbl-head"><span>升入高中</span><span>录取最低分</span><span>末位考生分</span></div>
-        <div v-for="r in batchRows" :key="r.campus" class="tbl-row">
-          <span>{{ r.campus }}</span><span>{{ r.min ?? '—' }}</span><span>{{ r.last ?? '—' }}</span>
-        </div>
-      </div>
+      <p class="sub-note" style="margin-top:8px;">第三批（省市属统招）、第四批（区属统招）按全市统一投档划线，官方不公布按初中学校的录取名单与分数，故不展示。</p>
     </div>
 
     <div class="card" v-if="!hasMiddleData">

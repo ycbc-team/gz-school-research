@@ -28,6 +28,7 @@ import {
   middleTier1Schools,
   matchEnrollment,
   middleQuotaSummary,
+  middlePrimaryFeed,
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
@@ -102,11 +103,16 @@ const feedJuniors = computed(() => {
 });
 const feedRows = computed(() => {
   const f = feedJuniors.value;
-  if (!f) return [];
-  return f.feed_junior_highs.map((name) => {
+  if (!f) return [];  return f.feed_junior_highs.map((name) => {
     const q = middleQuotaSummary(name);
     return { name, summary: q ? `省市属 ${q.sheng_quota ?? 0} · 名额考生 ${q.kaosheng ?? '—'}` : null, hasQuota: !!q };
   });
+});
+
+/* ========== 初中：生源小学反查 ========== */
+const feedPrimarys = computed(() => {
+  if (props.stage !== 'middle') return [];
+  return middlePrimaryFeed(schoolName.value);
 });
 
 /* ========== 高中：出口数据（升学路径覆盖由 LinkagePanel 承载） ========== */
@@ -249,6 +255,18 @@ const legalEntityText = computed(() => {
     <div v-if="stage === 'primary' && primaryMechanism" class="card">
       <div class="card-title">所在区小升初机制</div>
       <p class="note-text">{{ primaryMechanism }}</p>
+    </div>
+
+    <!-- 初中：招生 · 生源小学 -->
+    <div v-if="stage === 'middle' && feedPrimarys.length" class="card">
+      <div class="card-title">招生 · 生源小学</div>
+      <p class="sub-note">以下口碑小学的对口初中包含本校（按小学划片/直升关系反查，非全量招生地段）。</p>
+      <div class="feed-list">
+        <div v-for="r in feedPrimarys" :key="r.primary" class="feed-item">
+          <RouterLink :to="`/school/primary/${encodeURIComponent(r.primary)}`" class="feed-name">{{ r.primary }}</RouterLink>
+          <span class="tag tag-dim">{{ r.direct_feed ? '对口直升' : (r.group ? r.group + '派位' : '对口') }}</span>
+        </div>
+      </div>
     </div>
 
     <!-- 初中：升学通道（LinkagePanel 公共组件） -->

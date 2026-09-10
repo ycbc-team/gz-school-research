@@ -279,3 +279,29 @@ export function middleQuotaSummary(name: string): { kaosheng: number | null; she
 /** tier1 学校数组（跨区拍平） */
 export const tier1Schools = Object.values(primaryTier1.districts).flatMap((d) => d.schools);
 export const middleTier1Schools = Object.values(middleTier1.districts).flatMap((d) => d.schools);
+
+/**
+ * 反查：某初中的生源小学（哪些口碑小学的对口初中包含本校）。
+ * 数据来自口碑小学的 xiaoshengchu.feed_junior_highs，仅覆盖口碑小学口径，非全量招生地段。
+ */
+const primaryFeedByMiddleNorm = new Map<string, { primary: string; group: string | null; direct_feed: string | null }[]>();
+for (const p of tier1Schools) {
+  const xs = (p as { xiaoshengchu?: { feed_junior_highs?: string[]; group?: string | null; direct_feed?: string | null } }).xiaoshengchu;
+  if (!xs?.feed_junior_highs) continue;
+  for (const mid of xs.feed_junior_highs) {
+    const nk = normSchoolName(mid);
+    if (!nk) continue;
+    if (!primaryFeedByMiddleNorm.has(nk)) primaryFeedByMiddleNorm.set(nk, []);
+    primaryFeedByMiddleNorm.get(nk)!.push({ primary: p.name, group: xs.group ?? null, direct_feed: xs.direct_feed ?? null });
+  }
+}
+export function middlePrimaryFeed(middleName: string): { primary: string; group: string | null; direct_feed: string | null }[] {
+  const nk = normSchoolName(middleName);
+  if (!nk) return [];
+  const exact = primaryFeedByMiddleNorm.get(nk);
+  if (exact) return exact;
+  for (const [k, list] of primaryFeedByMiddleNorm) {
+    if (k.length >= 3 && (k.includes(nk) || nk.includes(k))) return list;
+  }
+  return [];
+}
