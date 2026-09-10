@@ -67,10 +67,13 @@ const tierTables = {
   primary: buildAliasTable(tier1Schools),
   middle: buildAliasTable(middleTier1Schools),
 };
-function tierOf(stage: 'primary' | 'middle', name: string): Tier1School | undefined {
+function tierOf(stage: 'primary' | 'middle', name: string, note?: string): Tier1School | undefined {
+  // 新开办学校无成绩：不参与口碑/挂牌判定（数据层 note 标记「新开办（年份）·待首届成绩」，
+  // 避免「广东实验中学天河学校」等独立法人新校因前缀匹配被误判为本部口碑校）
+  if (note && note.includes('新开办')) return undefined;
   return matchTier1ByPoiName(name, stage === 'primary' ? tier1Schools : middleTier1Schools, tierTables[stage]);
 }
-/** 独立法人挂牌校（tier1_eligible=false）不计入口碑学校 */
+/** 独立法人挂牌校（tier1_eligible=false，成绩未达标/无证据）不计入口碑学校 */
 function isTierRecord(t?: Tier1School): boolean {
   return !!t && t.tier1_eligible !== false && (t.conclusion === '有支撑' || t.conclusion === '部分支撑');
 }
@@ -115,7 +118,7 @@ const tierByName: Record<string, true> = {};
 function buildPoints() {
   for (const s of primarySchools.schools) {
     if (!districtByAdcode[s.adcode]) continue;
-    const t = tierOf('primary', s.name);
+    const t = tierOf('primary', s.name, s.note);
     allPoints.push({
       name: s.name, lat: s.lat, lng: s.lng, adcode: s.adcode,
       stage: 'primary', cls: isTierRecord(t) ? 'pT' : 'pN', tier: t ?? null,
@@ -124,7 +127,7 @@ function buildPoints() {
   }
   for (const s of middleSchools.schools) {
     if (!districtByAdcode[s.adcode]) continue;
-    const t = tierOf('middle', s.name);
+    const t = tierOf('middle', s.name, s.note);
     allPoints.push({
       name: s.name, lat: s.lat, lng: s.lng, adcode: s.adcode,
       stage: 'middle', cls: isTierRecord(t) ? 'mT' : 'mN', tier: t ?? null,
@@ -636,7 +639,7 @@ section { position: relative; }
 }
 .search-drop li:hover { background: #f2f7ff; }
 .search-drop li b { font-weight: 600; color: #1a1b1c; }
-.search-drop li span { color: #6b7280; font-size: 11.5px; white-space: nowrap; }
+.search-drop li .s-badges { color: #6b7280; font-size: 11.5px; white-space: nowrap; }
 .search-empty { color: #6b7280; font-size: 12.5px; text-align: center; }
 .search-empty:hover { background: none !important; }
 
@@ -703,7 +706,7 @@ section { position: relative; }
 .badge { font-size: 12px; font-weight: 700; color: #fff; border-radius: 6px; padding: 2px 9px; }
 .badge.sm { font-size: 10.5px; padding: 1px 7px; }
 .s-badges { display: inline-flex; gap: 4px; margin-left: 6px; }
-.badge.b-district { background: #e5e7eb; color: #111827; }
+.badge.b-district { background: #e5e7eb; color: #374151; }
 .badge.b-stage { background: #dbeafe; color: #1e40af; }
 .badge.b-tier { background: #e11d48; }
 .badge.b-license { background: #4b5563; }

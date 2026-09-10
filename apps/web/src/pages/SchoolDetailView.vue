@@ -8,7 +8,7 @@
  */
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
-import type { SchoolStage } from '@gz/shared';
+import type { SchoolStage, SchoolPoi } from '@gz/shared';
 import {
   buildAliasTable,
   matchTier1ByPoiName,
@@ -33,6 +33,8 @@ import {
   schoolBadges,
   supportBadge,
   isComprehensive,
+  brandGroupOf,
+  type BrandUnit,
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
@@ -56,6 +58,11 @@ const tierTables = {
 };
 const tier = computed<Tier1School | undefined>(() => {
   if (props.stage === 'high') return undefined;
+  // 新开办学校无成绩：不参与口碑/挂牌判定（数据层 note 标记「新开办（年份）·待首届成绩」，
+  // 避免「广东实验中学天河学校」等独立法人新校因前缀匹配被误判为本部口碑校）
+  const poiList = props.stage === 'primary' ? primarySchools.schools : middleSchools.schools;
+  const poi = poiList.find((s) => normName(s.name) === normName(schoolName.value));
+  if (poi?.note && poi.note.includes('新开办')) return undefined;
   return matchTier1ByPoiName(
     schoolName.value,
     props.stage === 'primary' ? tier1Schools : middleTier1Schools,
@@ -188,6 +195,100 @@ const legalEntityText = computed(() => {
   const type = leObj.type ? String(leObj.type) : '';
   return type ? `${name}（${type}）` : name;
 });
+
+/* ========== 品牌关联（同品牌多校区/多法人，解释挂牌口径） ========== */
+interface BrandRow {
+  name: string;
+  role: string;
+  legal: 'same' | 'independent';
+  district: string;
+  stages: string[]; // 小学/初中/高中
+  badge: { text: string; cls: string } | null;
+  reason: string | null;
+  isCurrent: boolean;
+  link: string | null;
+}
+const brandCard = computed<{ brand: string; note?: string; groups: { key: string; title: string; rows: BrandRow[] }[] } | null>(() => {
+  const g = brandGroupOf(schoolName.value);
+  if (!g) return null;
+  /** unit 核心名：先去「（别名）」内容再归一，用于与 POI 名精确匹配（如「广东实验中学天河学校（省实天河）」→「广东实验中学天河学校」；注意 normName 已去括号字符，须先剥别名） */
+  const unitCoreNorm = (n: string): string => normName(n.replace(/[（(][^）)]*[）)]/g, ''));
+  /** 该 unit 对应 POI 是否为新开办待成绩（note 含「新开办」），是则跳过口碑/挂牌判定 */
+  const newOpeningOf = (stage: 'primary' | 'middle', un: string): boolean => {
+    const list = stage === 'primary' ? primarySchools.schools : middleSchools.schools;
+    return list.some((s) => normName(s.name) === un && !!s.note && s.note.includes('新开办'));
+  };
+  const rows: BrandRow[] = [];
+  for (const u of g.units as BrandUnit[]) {
+    const unitNorm = unitCoreNorm(u.name);
+    const newM = newOpeningOf('middle', unitNorm);
+    const newP = newOpeningOf('primary', unitNorm);
+    const tierM = newM
+      ? undefined
+      : middleTier1Schools.find((s) => s.name === u.name) ||
+        matchTier1ByPoiName(u.name, middleTier1Schools, tierTables.middle);
+    const tierP = newP
+      ? undefined
+      : tier1Schools.find((s) => s.name === u.name) ||
+        matchTier1ByPoiName(u.name, tier1Schools, tierTables.primary);
+    const rec = highTable.get(normName(u.name));
+    const poiNormExtras = (u.poi_names || []).map(normName).filter(Boolean);
+    /** 学段命中：POI 名与单位核心名精确归一相等；或 poi_names 覆盖；或该学段的 tier1 别名命中（同法人校区/挂牌校点位） */
+    const hasPoiFor = (list: SchoolPoi[], aliasSrc: Tier1School | undefined): boolean =>
+      list.some((s) => {
+        const pn = normName(s.name);
+        if (pn === unitNorm || poiNormExtras.includes(pn)) return true;
+        if (!aliasSrc) return false;
+        if (normName(aliasSrc.name) === pn) return true;
+        return (aliasSrc.aliases || []).some((a) => normName(a) === pn);
+      });
+    const stages: string[] = [];
+    if (hasPoiFor(primarySchools.schools, tierP)) stages.push('小学');
+    if (hasPoiFor(middleSchools.schools, tierM)) stages.push('初中');
+    if (hasPoiFor(highSchools.schools, tierM || tierP)) stages.push('高中');
+    if (!stages.length) {
+      if (tierM) stages.push('初中');
+      else if (tierP) stages.push('小学');
+    }
+    // 区：优先 POI adcode，其次 tier1 口径
+    let district = '';
+    const poiHit = [primarySchools, middleSchools, highSchools]
+      .map((snap) => snap.schools.find((s) => normName(s.name) === unitNorm))
+      .find(Boolean);
+    if (poiHit?.adcode) district = ADCODE_TO_DISTRICT[poiHit.adcode] || '';
+    if (!district) district = tierM?.district || tierP?.district || rec?.district || '';
+    // 口碑/挂牌徽章（来自 tier1 口径）
+    const tier = tierM || tierP;
+    const badge = tier
+      ? tier.tier1_eligible === false
+        ? { text: '挂牌', cls: 'b-license' }
+        : { text: '口碑', cls: 'b-tier' }
+      : null;
+    const reason = tierM?.exclude_reason || tierP?.exclude_reason || null;
+    // 详情链接：优先当前学段 → 初中 → 高中 → 小学
+    const stageToKey: Record<string, SchoolStage> = { 小学: 'primary', 初中: 'middle', 高中: 'high' };
+    const order = [props.stage, ...(['primary', 'middle', 'high'] as SchoolStage[]).filter((s) => s !== props.stage)];
+    const stageKey = order.find((k) => stages.includes(k === 'primary' ? '小学' : k === 'middle' ? '初中' : '高中')) || null;
+    const link = stageKey ? `/school/${stageKey}/${encodeURIComponent(u.name)}` : null;
+    rows.push({
+      name: u.name,
+      role: u.role,
+      legal: u.legal,
+      district,
+      stages,
+      badge,
+      reason,
+      isCurrent: unitNorm === normName(schoolName.value),
+      link,
+    });
+  }
+  const groups: { key: string; title: string; rows: BrandRow[] }[] = [];
+  const sameRows = rows.filter((r) => r.legal === 'same');
+  const indepRows = rows.filter((r) => r.legal === 'independent');
+  if (sameRows.length) groups.push({ key: 'same', title: '同一法人单位（品牌本体/分校区 · 计入口碑）', rows: sameRows });
+  if (indepRows.length) groups.push({ key: 'independent', title: '独立法人单位（品牌合作 · 口碑/挂牌按成绩判定）', rows: indepRows });
+  return { brand: g.brand, note: g.brand_note, groups };
+});
 </script>
 
 <template>
@@ -212,6 +313,31 @@ const legalEntityText = computed(() => {
         <div class="kv-row" v-if="tier?.district"><span>口碑归属</span><b>{{ tier.district }}</b></div>
         <div class="kv-row" v-if="poi?.lng"><span>坐标</span><b>{{ poi.lng.toFixed(5) }}, {{ poi.lat.toFixed(5) }}</b></div>
         <div class="kv-row" v-if="tier?.legal_entity"><span>法人实体</span><b>{{ legalEntityText }}</b></div>
+      </div>
+    </div>
+
+    <!-- 品牌关联（同品牌多校区/多法人，解释挂牌口径） -->
+    <div v-if="brandCard" class="card">
+      <div class="card-title">品牌关联</div>
+      <p class="sub-note">同一品牌下的校区与学校，按法人关系分组；独立法人合作校按成绩判定口碑——成绩达第一梯队计入口碑（托管/共建关系见分组），与本部有差距或无成绩证据则维持挂牌。</p>
+      <div class="brand-head">品牌 · {{ brandCard.brand }}</div>
+      <p v-if="brandCard.note" class="brand-note">{{ brandCard.note }}</p>
+      <div v-for="g in brandCard.groups" :key="g.key" class="brand-group">
+        <div class="brand-group-title" :class="g.key">{{ g.title }}</div>
+        <div v-for="r in g.rows" :key="r.name" class="brand-row" :class="{ current: r.isCurrent }">
+          <div class="brand-row-main">
+            <RouterLink v-if="r.link" :to="r.link" class="brand-name-link">{{ r.name }}</RouterLink>
+            <span v-else class="brand-name-plain">{{ r.name }}</span>
+            <span v-if="r.isCurrent" class="tag tag-now">当前查看</span>
+            <span class="tag">{{ r.role }}</span>
+          </div>
+          <div class="brand-row-badges">
+            <span v-if="r.district" class="badge b-district">{{ r.district }}</span>
+            <span v-for="s in r.stages" :key="s" class="badge b-stage">{{ s }}</span>
+            <span v-if="r.badge" class="badge" :class="r.badge.cls">{{ r.badge.text }}</span>
+          </div>
+          <p v-if="r.reason" class="brand-reason">{{ r.reason }}</p>
+        </div>
       </div>
     </div>
 
@@ -393,6 +519,25 @@ const legalEntityText = computed(() => {
 
 .campus-list { margin: 0; padding-left: 18px; font-size: 12.5px; color: #444; line-height: 1.8; }
 .d-foot { display: flex; justify-content: space-between; margin-top: 6px; }
+
+/* 品牌关联板块 */
+.brand-head { font-size: 12.5px; font-weight: 700; color: #1a1b1c; margin-bottom: 4px; }
+.brand-note { font-size: 12px; color: #444; line-height: 1.7; margin: 0 0 10px; background: #f7f6f2; border-radius: 8px; padding: 8px 10px; }
+.brand-group { margin-bottom: 10px; }
+.brand-group:last-child { margin-bottom: 0; }
+.brand-group-title { font-size: 11.5px; font-weight: 700; color: #6b7280; margin-bottom: 6px; }
+.brand-group-title.same { color: #1e40af; }
+.brand-group-title.independent { color: #b45309; }
+.brand-row { border: 1px solid #eee; border-radius: 10px; padding: 8px 10px; margin-bottom: 6px; }
+.brand-row:last-child { margin-bottom: 0; }
+.brand-row.current { border-color: #9bbbf4; background: rgba(155, 187, 244, 0.08); }
+.brand-row-main { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 12.5px; }
+.brand-name-link { color: #1a6bd6; text-decoration: none; font-weight: 600; }
+.brand-name-link:hover { text-decoration: underline; }
+.brand-name-plain { font-weight: 600; }
+.tag-now { background: #9bbbf4; color: #fff; }
+.brand-row-badges { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
+.brand-reason { font-size: 11px; color: #6b7280; line-height: 1.6; margin: 6px 0 0; }
 
 @media (max-width: 600px) {
   .kv-row > span { width: 84px; }
