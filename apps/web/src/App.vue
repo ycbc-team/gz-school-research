@@ -14,8 +14,8 @@ import { RouterLink, RouterView } from 'vue-router';
   </header>
   <main class="app-main">
     <RouterView v-slot="{ Component }">
-      <!-- keep-alive：地图等页面在进入详情页后不销毁，返回时原路恢复筛选/视图状态 -->
-      <KeepAlive>
+      <!-- keep-alive 仅缓存地图页：进入详情页后返回时原路恢复筛选/视图状态，其他页面不缓存以控制内存 -->
+      <KeepAlive :include="['MapView']">
         <component :is="Component" />
       </KeepAlive>
     </RouterView>

@@ -11,6 +11,9 @@ import { computed, onActivated, onBeforeUnmount, onMounted, reactive, ref, watch
 import { useRoute, useRouter } from 'vue-router';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+
+/** 组件名：App.vue 的 KeepAlive 按此名只缓存本页 */
+defineOptions({ name: 'MapView' });
 import {
   buildAliasTable,
   matchTier1ByPoiName,
