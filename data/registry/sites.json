@@ -1,79 +1,860 @@
 {
   "updated": "2026-09-10",
-  "purpose": "学校身份注册表（site 粒度）。同一法人多校区是不同 site：坐标、招生地段、升学数据均不同，禁止合并。所有来源名（高德POI/政府文件/坊间简称/校区/学部）统一映射到 site。",
+  "purpose": "自动生成：法人→多校区两层。poi_name 即地图点位；aliases 待手工补坊间/政府别名。",
   "schools": [
     {
-      "id": "tieyi",
-      "name": "广州市铁一中学",
-      "stages": ["middle", "high"],
+      "id": "广州市天河外国语学校",
+      "name": "广州市天河外国语学校",
+      "stages": [
+        "high"
+      ],
       "sites": [
-        { "id": "tieyi-yuexiu", "poi_name": "广州市铁一中学(越秀校区)", "district": "越秀区", "stage": "high", "gov_names": ["广州市铁一中学（越秀校区）"], "aliases": ["铁一越秀"] },
-        { "id": "tieyi-panyu", "poi_name": "广州市铁一中学(番禺校区)", "district": "番禺区", "stage": "high", "gov_names": ["广州市铁一中学（番禺校区）"], "aliases": ["铁一番禺", "亚运城", "广铁一中番禺校区"] },
-        { "id": "tieyi-baiyun", "poi_name": "广州市铁一中学(白云校区)", "district": "白云区", "stage": "high", "gov_names": ["广州市铁一中学（白云校区）"], "aliases": ["铁一白云"] }
+        {
+          "id": "广州市天河外国语学校-1",
+          "poi_name": "广州市天河外国语学校（智慧城校区）",
+          "district": "",
+          "stage": "high",
+          "aliases": []
+        },
+        {
+          "id": "广州市天河外国语学校-2",
+          "poi_name": "广州市天河外国语学校（珠江新城校区）",
+          "district": "",
+          "stage": "high",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "清华附中湾区学校",
+      "name": "清华附中湾区学校",
+      "stages": [
+        "high"
+      ],
+      "sites": [
+        {
+          "id": "清华附中湾区学校-1",
+          "poi_name": "清华附中湾区学校（智慧城校区）",
+          "district": "",
+          "stage": "high",
+          "aliases": []
+        },
+        {
+          "id": "清华附中湾区学校-2",
+          "poi_name": "清华附中湾区学校（智谷校区）",
+          "district": "",
+          "stage": "high",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "华南师范大学附属中学",
+      "name": "华南师范大学附属中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "华南师范大学附属中学-1",
+          "poi_name": "华南师范大学附属中学(知识城校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "华南师范大学附属中学-2",
+          "poi_name": "华南师范大学附属中学(石牌校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广东华侨中学",
+      "name": "广东华侨中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广东华侨中学-1",
+          "poi_name": "广东华侨中学(起义路校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广东华侨中学-2",
+          "poi_name": "广东华侨中学(金沙洲校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广东实验中学",
+      "name": "广东实验中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广东实验中学-1",
+          "poi_name": "广东实验中学(云城校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广东实验中学-2",
+          "poi_name": "广东实验中学(白云校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广东实验中学-3",
+          "poi_name": "广东实验中学(越秀校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广东实验中学荔湾学校",
+      "name": "广东实验中学荔湾学校",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广东实验中学荔湾学校-1",
+          "poi_name": "广东实验中学荔湾学校(初中部)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广东实验中学荔湾学校-2",
+          "poi_name": "广东实验中学荔湾学校(初中部一期)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广东实验中学越秀学校",
+      "name": "广东实验中学越秀学校",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广东实验中学越秀学校-1",
+          "poi_name": "广东实验中学越秀学校(天胜校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广东实验中学越秀学校-2",
+          "poi_name": "广东实验中学越秀学校(盘福校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广大附中实验中学",
+      "name": "广大附中实验中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广大附中实验中学-1",
+          "poi_name": "广大附中实验中学(南校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广大附中实验中学-2",
+          "poi_name": "广大附中实验中学(星汇金沙校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州中学",
+      "name": "广州中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州中学-1",
+          "poi_name": "广州中学(五山校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州中学-2",
+          "poi_name": "广州中学(凤凰校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州中学-3",
+          "poi_name": "广州中学(名雅校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州大学附属中学",
+      "name": "广州大学附属中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州大学附属中学-1",
+          "poi_name": "广州大学附属中学(大学城校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州大学附属中学-2",
+          "poi_name": "广州大学附属中学(黄华路校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市培英中学",
+      "name": "广州市培英中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市培英中学-1",
+          "poi_name": "广州市培英中学(云城校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市培英中学-2",
+          "poi_name": "广州市培英中学(岭南校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市培英中学-3",
+          "poi_name": "广州市培英中学(鹤洞校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市天河中学",
+      "name": "广州市天河中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市天河中学-1",
+          "poi_name": "广州市天河中学(天河东路校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市天河中学-2",
+          "poi_name": "广州市天河中学(珠江新城校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市天河中学-3",
+          "poi_name": "广州市天河中学(花城校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市执信中学",
+      "name": "广州市执信中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市执信中学-1",
+          "poi_name": "广州市执信中学(二沙岛国际校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市执信中学-2",
+          "poi_name": "广州市执信中学(执信路校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市执信中学-3",
+          "poi_name": "广州市执信中学(水荫路校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市新滘中学",
+      "name": "广州市新滘中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市新滘中学-1",
+          "poi_name": "广州市新滘中学(土华校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市新滘中学-2",
+          "poi_name": "广州市新滘中学(贵荣校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市白云中学",
+      "name": "广州市白云中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市白云中学-1",
+          "poi_name": "广州市白云中学(北区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市白云中学-2",
+          "poi_name": "广州市白云中学(南区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市白云中学-3",
+          "poi_name": "广州市白云中学(棠景校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市白云中学-4",
+          "poi_name": "广州市白云中学(汇侨校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市真光中学",
+      "name": "广州市真光中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市真光中学-1",
+          "poi_name": "广州市真光中学(岭南校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市真光中学-2",
+          "poi_name": "广州市真光中学(广钢校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市真光中学-3",
+          "poi_name": "广州市真光中学(本部校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市真光中学-4",
+          "poi_name": "广州市真光中学(汾水校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市真光中学-5",
+          "poi_name": "广州市真光中学(芳花校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市第一一三中学",
+      "name": "广州市第一一三中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市第一一三中学-1",
+          "poi_name": "广州市第一一三中学(东方校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第一一三中学-2",
+          "poi_name": "广州市第一一三中学(乐学校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第一一三中学-3",
+          "poi_name": "广州市第一一三中学(元岗校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第一一三中学-4",
+          "poi_name": "广州市第一一三中学(金融城校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市第一中学",
+      "name": "广州市第一中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市第一中学-1",
+          "poi_name": "广州市第一中学(初中部)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第一中学-2",
+          "poi_name": "广州市第一中学(姜中宏校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市第七中学",
+      "name": "广州市第七中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市第七中学-1",
+          "poi_name": "广州市第七中学(初中部)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第七中学-2",
+          "poi_name": "广州市第七中学(桂花校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第七中学-3",
+          "poi_name": "广州市第七中学(麓湖校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市第七十五中学",
+      "name": "广州市第七十五中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市第七十五中学-1",
+          "poi_name": "广州市第七十五中学(天平架校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第七十五中学-2",
+          "poi_name": "广州市第七十五中学(燕塘东校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第七十五中学-3",
+          "poi_name": "广州市第七十五中学(燕塘西校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市第二中学",
+      "name": "广州市第二中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市第二中学-1",
+          "poi_name": "广州市第二中学(应元路校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第二中学-2",
+          "poi_name": "广州市第二中学(科学城校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市第六十五中学",
+      "name": "广州市第六十五中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市第六十五中学-1",
+          "poi_name": "广州市第六十五中学(同德校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第六十五中学-2",
+          "poi_name": "广州市第六十五中学(江府校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第六十五中学-3",
+          "poi_name": "广州市第六十五中学(江高校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市第十三中学",
+      "name": "广州市第十三中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市第十三中学-1",
+          "poi_name": "广州市第十三中学(文德校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第十三中学-2",
+          "poi_name": "广州市第十三中学(禺山校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市第十六中学",
+      "name": "广州市第十六中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市第十六中学-1",
+          "poi_name": "广州市第十六中学(东湖校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第十六中学-2",
+          "poi_name": "广州市第十六中学(水荫校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市第四中学",
+      "name": "广州市第四中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市第四中学-1",
+          "poi_name": "广州市第四中学(康园校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第四中学-2",
+          "poi_name": "广州市第四中学(津园校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第四中学-3",
+          "poi_name": "广州市第四中学(逸园校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市第四十一中学",
+      "name": "广州市第四十一中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市第四十一中学-1",
+          "poi_name": "广州市第四十一中学(东校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市第四十一中学-2",
+          "poi_name": "广州市第四十一中学(南校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市育才中学",
+      "name": "广州市育才中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市育才中学-1",
+          "poi_name": "广州市育才中学(西校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市育才中学-2",
+          "poi_name": "广州市育才中学(高三教学区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州市铁一中学",
+      "name": "广州市铁一中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州市铁一中学-1",
+          "poi_name": "广州市铁一中学(番禺校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市铁一中学-2",
+          "poi_name": "广州市铁一中学(白云校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州市铁一中学-3",
+          "poi_name": "广州市铁一中学(越秀校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州知识城中学",
+      "name": "广州知识城中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州知识城中学-1",
+          "poi_name": "广州知识城中学(东校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州知识城中学-2",
+          "poi_name": "广州知识城中学(北校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州知识城中学-3",
+          "poi_name": "广州知识城中学(南校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "广州空港实验中学",
+      "name": "广州空港实验中学",
+      "stages": [
+        "middle"
+      ],
+      "sites": [
+        {
+          "id": "广州空港实验中学-1",
+          "poi_name": "广州空港实验中学(东校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州空港实验中学-2",
+          "poi_name": "广州空港实验中学(建南校区)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        },
+        {
+          "id": "广州空港实验中学-3",
+          "poi_name": "广州空港实验中学(校本部)",
+          "district": "",
+          "stage": "middle",
+          "aliases": []
+        }
       ]
     },
     {
       "id": "tieying",
       "name": "广铁一中铁英学校",
-      "stages": ["middle"],
+      "stages": [
+        "middle"
+      ],
       "sites": [
-        { "id": "tieying-east", "poi_name": "广铁一中铁英中学", "district": "番禺区", "stage": "middle", "gov_names": ["广州市番禺区广铁一中铁英学校"], "aliases": ["铁英", "铁英学校", "铁英东校区", "天成"] },
-        { "id": "tieying-west", "poi_name": "广铁一中铁英中学(西校区)", "district": "番禺区", "stage": "middle", "gov_names": ["广州市番禺区广铁一中铁英学校(西校区)"], "aliases": ["铁英西校区", "天峰"], "todo": "POI 待补点" }
-      ]
-    },
-    {
-      "id": "huafu",
-      "name": "华南师范大学附属中学",
-      "stages": ["high"],
-      "sites": [
-        { "id": "huafu-shipa", "poi_name": "华南师范大学附属中学(石牌校区)", "district": "天河区", "stage": "high", "aliases": ["华附石牌"] },
-        { "id": "huafu-zhishicheng", "poi_name": "华南师范大学附属中学(知识城校区)", "district": "黄埔区", "stage": "high", "aliases": ["华附知识城"] }
-      ]
-    },
-    {
-      "id": "shenshi",
-      "name": "广东实验中学",
-      "stages": ["high"],
-      "sites": [
-        { "id": "shenshi-liwan", "poi_name": "广东实验中学(荔湾校区)", "district": "荔湾区", "stage": "high", "aliases": ["省实荔湾"] },
-        { "id": "shenshi-baiyun", "poi_name": "广东实验中学(白云校区)", "district": "白云区", "stage": "high", "aliases": ["省实白云"] }
-      ]
-    },
-    {
-      "id": "guangya",
-      "name": "广东广雅中学",
-      "stages": ["high"],
-      "sites": [
-        { "id": "guangya-liwan", "poi_name": "广东广雅中学(荔湾校区)", "district": "荔湾区", "stage": "high", "aliases": ["广雅荔湾"] },
-        { "id": "guangya-huadu", "poi_name": "广东广雅中学(花都校区)", "district": "花都区", "stage": "high", "aliases": ["广雅花都"] }
-      ]
-    },
-    {
-      "id": "zhixing",
-      "name": "广州市执信中学",
-      "stages": ["high"],
-      "sites": [
-        { "id": "zhixing-yuexiu", "poi_name": "广州市执信中学(越秀校区)", "district": "越秀区", "stage": "high", "aliases": ["执信越秀"] },
-        { "id": "zhixing-tianhe", "poi_name": "广州市执信中学(天河校区)", "district": "天河区", "stage": "high", "aliases": ["执信天河"] }
-      ]
-    },
-    {
-      "id": "liu",
-      "name": "广州市第六中学",
-      "stages": ["high"],
-      "sites": [
-        { "id": "liu-haizhu", "poi_name": "广州市第六中学(海珠校区)", "district": "海珠区", "stage": "high", "aliases": ["六中海珠"] },
-        { "id": "liu-conghua", "poi_name": "广州市第六中学(从化校区)", "district": "从化区", "stage": "high", "aliases": ["六中从化"] },
-        { "id": "liu-huadu", "poi_name": "广州市第六中学(花都校区)", "district": "花都区", "stage": "high", "aliases": ["六中花都"] }
-      ]
-    },
-    {
-      "id": "qingwan",
-      "name": "清华附中湾区学校",
-      "stages": ["high"],
-      "sites": [
-        { "id": "qingwan-zhigu", "poi_name": "清华附中湾区学校(智谷校区)", "district": "天河区", "stage": "high", "aliases": ["清湾智谷"] },
-        { "id": "qingwan-zhihuicheng", "poi_name": "清华附中湾区学校(智慧城校区)", "district": "天河区", "stage": "high", "aliases": ["清湾智慧城"] }
+        {
+          "id": "tieying-east",
+          "poi_name": "广铁一中铁英中学",
+          "district": "番禺区",
+          "stage": "middle",
+          "aliases": [
+            "铁英",
+            "铁英学校",
+            "铁英东校区",
+            "天成"
+          ]
+        },
+        {
+          "id": "tieying-west",
+          "poi_name": "广铁一中铁英中学(西校区)",
+          "district": "番禺区",
+          "stage": "middle",
+          "aliases": [
+            "铁英西校区",
+            "天峰"
+          ],
+          "todo": "POI 待补点"
+        }
       ]
     }
   ]
