@@ -16,7 +16,8 @@
   "files": ["dist"],
   "scripts": {
     "build": "node build.mjs",
-    "typecheck": "tsc -p tsconfig.json"
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "node build.mjs && node --test tests/support.test.cjs"
   },
   "devDependencies": {
     "typescript": "^5.5.0"
