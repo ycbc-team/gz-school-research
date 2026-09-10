@@ -31,7 +31,10 @@ apps/miniprogram/shared/
 apps/miniprogram/data/
 apps/miniprogram/miniprogram_npm/
 
-data/linkage
-
 # 微信开发者工具个人配置
 project.private.config.json
+
+# linkage OCR/诊断中间图（数据保留在磁盘，不进 git）
+data/linkage/raw/headers/*.png
+data/linkage/raw/*.png
+data/linkage/raw/*.preview
