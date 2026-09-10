@@ -24,6 +24,7 @@ import enrollHuangpuJson from '../../../../data/primary/enrollments/2026-huangpu
 import quotaMatrixJson from '../../../../data/linkage/quota_matrix.json';
 import specialMatrixJson from '../../../../data/linkage/special_matrix.json';
 import batch2ScoresJson from '../../../../data/linkage/batch2_scores.json';
+import sitesRegistryJson from '../../../../data/registry/sites.json';
 
 /** JSON 推断类型与共享类型不一致处统一断言（字段为数据真源，结构由 scripts/ 保证） */
 const cast = <T>(v: unknown): T => v as T;
@@ -341,4 +342,25 @@ export function supportBadge(tier?: any): SchoolBadge | null {
   if (c === '有支撑') return { text: '有支撑', cls: 'b-full' };
   if (c === '部分支撑') return { text: '部分支撑', cls: 'b-part' };
   return { text: '无支撑', cls: 'b-none' };
+}
+
+/* ========== 学校身份注册表（site 粒度，统一匹配入口） ========== */
+export interface Site {
+  id: string;
+  poi_name: string;
+  district: string;
+  stage: string;
+  gov_names?: string[];
+  aliases?: string[];
+}
+const registrySites: Site[] = (sitesRegistryJson as { schools: { sites: Site[] }[] }).schools.flatMap((s) => s.sites);
+/** 任意来源名 → site（poi_name / gov_names / aliases 全量精确匹配） */
+export function resolveSite(anyName: string): Site | null {
+  if (!anyName) return null;
+  for (const s of registrySites) {
+    if (s.poi_name === anyName) return s;
+    if ((s.gov_names || []).includes(anyName)) return s;
+    if ((s.aliases || []).includes(anyName)) return s;
+  }
+  return null;
 }

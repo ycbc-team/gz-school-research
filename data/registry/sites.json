@@ -1,0 +1,80 @@
+{
+  "updated": "2026-09-10",
+  "purpose": "学校身份注册表（site 粒度）。同一法人多校区是不同 site：坐标、招生地段、升学数据均不同，禁止合并。所有来源名（高德POI/政府文件/坊间简称/校区/学部）统一映射到 site。",
+  "schools": [
+    {
+      "id": "tieyi",
+      "name": "广州市铁一中学",
+      "stages": ["middle", "high"],
+      "sites": [
+        { "id": "tieyi-yuexiu", "poi_name": "广州市铁一中学(越秀校区)", "district": "越秀区", "stage": "high", "gov_names": ["广州市铁一中学（越秀校区）"], "aliases": ["铁一越秀"] },
+        { "id": "tieyi-panyu", "poi_name": "广州市铁一中学(番禺校区)", "district": "番禺区", "stage": "high", "gov_names": ["广州市铁一中学（番禺校区）"], "aliases": ["铁一番禺", "亚运城", "广铁一中番禺校区"] },
+        { "id": "tieyi-baiyun", "poi_name": "广州市铁一中学(白云校区)", "district": "白云区", "stage": "high", "gov_names": ["广州市铁一中学（白云校区）"], "aliases": ["铁一白云"] }
+      ]
+    },
+    {
+      "id": "tieying",
+      "name": "广铁一中铁英学校",
+      "stages": ["middle"],
+      "sites": [
+        { "id": "tieying-east", "poi_name": "广铁一中铁英中学", "district": "番禺区", "stage": "middle", "gov_names": ["广州市番禺区广铁一中铁英学校"], "aliases": ["铁英", "铁英学校", "铁英东校区", "天成"] },
+        { "id": "tieying-west", "poi_name": "广铁一中铁英中学(西校区)", "district": "番禺区", "stage": "middle", "gov_names": ["广州市番禺区广铁一中铁英学校(西校区)"], "aliases": ["铁英西校区", "天峰"], "todo": "POI 待补点" }
+      ]
+    },
+    {
+      "id": "huafu",
+      "name": "华南师范大学附属中学",
+      "stages": ["high"],
+      "sites": [
+        { "id": "huafu-shipa", "poi_name": "华南师范大学附属中学(石牌校区)", "district": "天河区", "stage": "high", "aliases": ["华附石牌"] },
+        { "id": "huafu-zhishicheng", "poi_name": "华南师范大学附属中学(知识城校区)", "district": "黄埔区", "stage": "high", "aliases": ["华附知识城"] }
+      ]
+    },
+    {
+      "id": "shenshi",
+      "name": "广东实验中学",
+      "stages": ["high"],
+      "sites": [
+        { "id": "shenshi-liwan", "poi_name": "广东实验中学(荔湾校区)", "district": "荔湾区", "stage": "high", "aliases": ["省实荔湾"] },
+        { "id": "shenshi-baiyun", "poi_name": "广东实验中学(白云校区)", "district": "白云区", "stage": "high", "aliases": ["省实白云"] }
+      ]
+    },
+    {
+      "id": "guangya",
+      "name": "广东广雅中学",
+      "stages": ["high"],
+      "sites": [
+        { "id": "guangya-liwan", "poi_name": "广东广雅中学(荔湾校区)", "district": "荔湾区", "stage": "high", "aliases": ["广雅荔湾"] },
+        { "id": "guangya-huadu", "poi_name": "广东广雅中学(花都校区)", "district": "花都区", "stage": "high", "aliases": ["广雅花都"] }
+      ]
+    },
+    {
+      "id": "zhixing",
+      "name": "广州市执信中学",
+      "stages": ["high"],
+      "sites": [
+        { "id": "zhixing-yuexiu", "poi_name": "广州市执信中学(越秀校区)", "district": "越秀区", "stage": "high", "aliases": ["执信越秀"] },
+        { "id": "zhixing-tianhe", "poi_name": "广州市执信中学(天河校区)", "district": "天河区", "stage": "high", "aliases": ["执信天河"] }
+      ]
+    },
+    {
+      "id": "liu",
+      "name": "广州市第六中学",
+      "stages": ["high"],
+      "sites": [
+        { "id": "liu-haizhu", "poi_name": "广州市第六中学(海珠校区)", "district": "海珠区", "stage": "high", "aliases": ["六中海珠"] },
+        { "id": "liu-conghua", "poi_name": "广州市第六中学(从化校区)", "district": "从化区", "stage": "high", "aliases": ["六中从化"] },
+        { "id": "liu-huadu", "poi_name": "广州市第六中学(花都校区)", "district": "花都区", "stage": "high", "aliases": ["六中花都"] }
+      ]
+    },
+    {
+      "id": "qingwan",
+      "name": "清华附中湾区学校",
+      "stages": ["high"],
+      "sites": [
+        { "id": "qingwan-zhigu", "poi_name": "清华附中湾区学校(智谷校区)", "district": "天河区", "stage": "high", "aliases": ["清湾智谷"] },
+        { "id": "qingwan-zhihuicheng", "poi_name": "清华附中湾区学校(智慧城校区)", "district": "天河区", "stage": "high", "aliases": ["清湾智慧城"] }
+      ]
+    }
+  ]
+}
