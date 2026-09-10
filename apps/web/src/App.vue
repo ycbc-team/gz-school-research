@@ -13,7 +13,12 @@ import { RouterLink, RouterView } from 'vue-router';
     </nav>
   </header>
   <main class="app-main">
-    <RouterView />
+    <RouterView v-slot="{ Component }">
+      <!-- keep-alive：地图等页面在进入详情页后不销毁，返回时原路恢复筛选/视图状态 -->
+      <KeepAlive>
+        <component :is="Component" />
+      </KeepAlive>
+    </RouterView>
   </main>
 </template>
 

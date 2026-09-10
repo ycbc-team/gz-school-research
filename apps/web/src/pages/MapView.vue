@@ -7,7 +7,7 @@
  * - 点击点位信息卡：高中（分类/指标/口径）、小学初中（梯队信号/判定依据）、普通（学段/区）
  * - 高德瓦片 GCJ-02 同坐标系；区边界 + 核心四区初始视野 + 半径随缩放
  */
-import { computed, onBeforeUnmount, onMounted, reactive, ref, watch, type Ref } from 'vue';
+import { computed, onActivated, onBeforeUnmount, onMounted, reactive, ref, watch, type Ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -403,6 +403,11 @@ onMounted(() => {
 onBeforeUnmount(() => {
   map?.remove();
   map = null;
+});
+
+// keep-alive 缓存下从详情页返回时重新显示：容器尺寸恢复后重算地图，避免瓦片/点位错位
+onActivated(() => {
+  if (map) map.invalidateSize();
 });
 
 /* ========== 信息卡 ========== */
