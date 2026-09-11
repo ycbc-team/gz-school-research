@@ -66,7 +66,7 @@ function isVisiblePt(pt: MapPointFull): boolean { return isVisible(state(), pt);
 /* ========== 学校搜索 ========== */
 const kw = ref('');
 const searchOpen = ref(false);
-const searchResults = computed(() => searchSchools(mapPoints, kw.value));
+const searchResults = computed(() => searchSchools(mapPoints, kw.value, repository.entities));
 function badgesOf(pt: MapPointFull) {
   return repository.schoolBadges(pt.mainStage, { district: districtByAdcode[pt.adcode] || '', tier: pt.tier, rec: pt.rec, name: pt.name });
 }

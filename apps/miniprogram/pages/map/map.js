@@ -133,7 +133,7 @@ Page({
   /* ---------- 搜索 ---------- */
   onSearchInput(e) {
     const kw = e.detail.value;
-    this.setData({ kw, searchResults: searchSchools(mapPoints, kw), searchOpen: true });
+    this.setData({ kw, searchResults: searchSchools(mapPoints, kw, repository.entities), searchOpen: true });
   },
   pickResult(e) {
     const pt = this.data.searchResults[e.currentTarget.dataset.idx];

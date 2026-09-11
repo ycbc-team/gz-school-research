@@ -111,6 +111,14 @@ const OFFICIAL_MIDDLE_ALIAS = {
   '广东第二师范学院番禺附属初中': '广东第二师范学院番禺附属初级中学',
 };
 
+// 被删点位名（来源叫法）→ stage|base POI 名；点位删除后保留叫法映射到完中实体（防搜索/来源文件失配）
+const REMOVED_POI_ALIAS = {
+  'middle|南村中学(初中部)': '南村中学',
+  'middle|广州市铁一中学白云校区(初中部)': '广州市铁一中学(白云校区)',
+  'middle|广东华侨中学起义路校区初中部': '广东华侨中学(起义路校区)',
+  'high|广州市南海中学(高中部)': '广州市南海中学',
+};
+
 // ---- 1) 每个 POI 建一个实体；school_id 即 POI 主键 ----
 const entities = [];           // {school_id, name, stage, aliases:Set(norm)}
 const poiIdByKey = new Map();   // "stage|poiName" -> school_id
@@ -176,6 +184,11 @@ let aliasHit = 0;
 for (const [official, poi] of Object.entries(OFFICIAL_MIDDLE_ALIAS)) {
   if (attachAlias('middle', poi, official)) aliasHit++;
   else console.log('  [别名未命中POI]', official, '->', poi);
+}
+for (const [k, poi] of Object.entries(REMOVED_POI_ALIAS)) {
+  const [stage, official] = k.split('|');
+  if (attachAlias(stage, poi, official)) aliasHit++;
+  else console.log('  [被删点位别名未命中POI]', official, '->', poi);
 }
 
 // ---- 3) 落盘实体（排序、aliases 去重排序）----
