@@ -411,15 +411,22 @@ export function schoolBadges(
 ): SchoolBadge[] {
   const out: SchoolBadge[] = [];
   if (opts.district) out.push({ text: opts.district, cls: 'b-district' });
-  // 学段 badge：singleStage（详情页 tab）只标当前学部；否则完中标初中+高中
-  const comprehensive = !!opts.name && isComprehensive(opts.name);
-  if (stage === 'primary') out.push({ text: '小学', cls: 'b-stage' });
-  else if (stage === 'middle') {
-    out.push({ text: '初中', cls: 'b-stage' });
-    if (comprehensive && !opts.singleStage) out.push({ text: '高中', cls: 'b-stage' });
+  // 该校名实际出现在哪些学段（POI 全等）：覆盖完中(middle+high)与九年一贯(primary+middle)
+  const name = opts.name || '';
+  const stagesHere: ('primary' | 'middle' | 'high')[] = [];
+  if (name) {
+    if (primarySchools.schools.some((s) => normName(s.name) === normName(name))) stagesHere.push('primary');
+    if (middleSchools.schools.some((s) => normName(s.name) === normName(name))) stagesHere.push('middle');
+    if (highSchools.schools.some((s) => normName(s.name) === normName(name))) stagesHere.push('high');
+  }
+  const has = (s: 'primary' | 'middle' | 'high') => stagesHere.includes(s);
+  if (!opts.singleStage) {
+    // 地图浮层：该点位所属学段全标
+    if (has('primary')) out.push({ text: '小学', cls: 'b-stage' });
+    if (has('middle')) out.push({ text: '初中', cls: 'b-stage' });
+    if (has('high')) out.push({ text: '高中', cls: 'b-stage' });
   } else {
-    out.push({ text: '高中', cls: 'b-stage' });
-    if (comprehensive && !opts.singleStage) out.push({ text: '初中', cls: 'b-stage' });
+    out.push({ text: stage === 'primary' ? '小学' : stage === 'middle' ? '初中' : '高中', cls: 'b-stage' });
   }
   const t = opts.tier;
   if (t) {

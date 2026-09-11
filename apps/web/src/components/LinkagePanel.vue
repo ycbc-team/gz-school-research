@@ -133,7 +133,7 @@ const highSpecialCoverage = computed(() => {
       </div>
     </div>
 
-    <div class="card" v-if="quota">
+    <div class="card" v-if="quota && batchMerged.length">
       <div class="card-title">中考-第二批</div>
       <p class="sub-note">名额分配（指标到校）：本校名额考生按政策获得以下高中的名额；名额 = 该高中分给本校的名额数，录取最低分为本校考生被该校第二批录取的最低分。省市属名额已全列；区属名额分配到本区区属高中，明细未收录。</p>
       <div class="kv">
