@@ -68,14 +68,29 @@ const availableStages = computed<SchoolStage[]>(() => {
   return out;
 });
 /** 当前激活学部 tab；默认 query.stage 或第一个可用学部 */
-const activeStage = ref<SchoolStage>(
-  (['primary', 'middle', 'high'].includes(route.query.stage as string) ? route.query.stage : undefined) as SchoolStage
-    || availableStages.value[0] || 'primary',
-);
-// 切换学校时重置 tab 到可用学部
+const activeStage = ref<SchoolStage>('primary');
+/** 解析初始/切换学校后的 tab：URL query.stage 优先，否则第一个可用学部 */
+function resolveStage(): SchoolStage {
+  const q = route.query.stage as string | undefined;
+  const preferred = (['primary', 'middle', 'high'].includes(q as string) ? q : undefined) as SchoolStage | undefined;
+  return preferred || availableStages.value[0] || 'primary';
+}
+// 切换学校时：优先 URL 指定 stage，否则重置到第一个可用学部
 watch(schoolName, () => {
-  activeStage.value = availableStages.value[0] || 'primary';
-});
+  activeStage.value = resolveStage();
+}, { immediate: true });
+// URL query.stage 变化（同 name 跨学部跳转，如小学 tab 点升学初中）→ 切换对应 tab
+watch(
+  () => route.query.stage,
+  (s) => {
+    if (['primary', 'middle', 'high'].includes(s as string)) activeStage.value = s as SchoolStage;
+  },
+);
+// 手动切 tab：同步 URL（replace，不堆历史），保证跳转/后退一致
+function switchStage(s: SchoolStage) {
+  activeStage.value = s;
+  router.replace({ path: `/school/${encodeURIComponent(schoolName.value)}`, query: { stage: s } });
+}
 const stage = computed(() => activeStage.value);
 
 /* ========== 校名匹配（与 MapView 同套逻辑） ========== */
@@ -366,7 +381,7 @@ const brandCardUseful = computed(() =>
         :key="s"
         class="stage-tab"
         :class="{ on: stage === s }"
-        @click="activeStage = s"
+        @click="switchStage(s)"
       >{{ STAGE_LABEL[s] }}</button>
     </nav>
 
