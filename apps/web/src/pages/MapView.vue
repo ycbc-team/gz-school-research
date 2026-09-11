@@ -1,9 +1,9 @@
 <script setup lang="ts">
 /**
  * 七区中小学·高中分布地图（Vue3 + Leaflet，功能对齐旧版 map/index.html）：
- * - 三类点位配色：小学蓝 / 初中红 / 高中绿；多学部学校（同 school_id）圆点垂直分色
+ * - 三类点位配色：小学紫 / 初中红 / 高中绿；多学部学校（同 school_id）圆点垂直分色
  * - 有支撑加粗+晕光、部分支撑加粗、独立法人挂牌校虚线点
- * - 7 类筛选 + 全选/全不选；学段筛选器带对应颜色标记
+ * - 7 类筛选 + 全选/全不选；学段筛选器带对应颜色标记；点击点位有选中态（浮层关闭后消失）
  * - 点击点位信息卡：高中（分类/指标/口径）、小学初中（梯队信号/判定依据）、普通（学段/区）
  * - 高德瓦片 GCJ-02 同坐标系；区边界 + 核心四区初始视野 + 半径随缩放
  */
@@ -63,14 +63,14 @@ const CLASS_CFG = {
   hM: { stage: 'high', color: '#F59E0B', label: '高中·省市属示范' },
 } as const;
 type ClsKey = keyof typeof CLASS_CFG;
-/** 学段点色（用户要求：小学一种颜色、初中一种颜色、高中一种颜色） */
+/** 学段点色（用户要求：小学一种颜色、初中一种颜色、高中一种颜色；小学紫避免与品牌蓝撞色） */
 const STAGE_COLOR: Record<SchoolStage, string> = {
-  primary: '#2563EB', // 小学 · 蓝
+  primary: '#8B5CF6', // 小学 · 紫
   middle: '#DC2626', // 初中 · 红
   high: '#10B981', // 高中 · 绿
 };
 const STAGE_GLOW: Record<SchoolStage, string> = {
-  primary: 'rgba(37,99,235,0.35)',
+  primary: 'rgba(139,92,246,0.35)',
   middle: 'rgba(220,38,38,0.35)',
   high: 'rgba(16,185,129,0.35)',
 };
@@ -329,8 +329,10 @@ function segOpacity(cls: ClsKey): number {
   return isTierCls(cls) ? 1 : 0.7;
 }
 let iconUid = 0;
+/** 选中态描边（品牌蓝，浮层打开时高亮当前点位） */
+const SELECTED_COLOR = '#1a6bd6';
 /** 多学部点：SVG 圆内垂直分色（2 段=上/下，3 段=上/中/下），白描边，主学部决定晕光/虚线/粗细 */
-function buildMultiIcon(pt: Pt, r: number): L.DivIcon {
+function buildMultiIcon(pt: Pt, r: number, selected = false): L.DivIcon {
   const tier = pt.tier;
   const glow = !!tier && tier.conclusion === '有支撑' && tier.tier1_eligible !== false;
   const dash = !!tier && tier.tier1_eligible === false;
@@ -340,7 +342,8 @@ function buildMultiIcon(pt: Pt, r: number): L.DivIcon {
   const rr = r - 0.6;
   const n = pt.stages.length;
   const uid = 'poiClip' + (++iconUid);
-  const weight = tier ? (tier.conclusion === '有支撑' ? 2.8 : 2.2) : 1.2;
+  const weight = selected ? 3.5 : (tier ? (tier.conclusion === '有支撑' ? 2.8 : 2.2) : 1.2);
+  const stroke = selected ? SELECTED_COLOR : 'rgba(255,255,255,0.85)';
   const segs = pt.stages
     .map((st, i) => {
       const y = center - rr + (i * (rr * 2)) / n;
@@ -355,7 +358,7 @@ function buildMultiIcon(pt: Pt, r: number): L.DivIcon {
     `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">` +
     `<defs><clipPath id="${uid}"><circle cx="${center}" cy="${center}" r="${rr}"/></clipPath></defs>` +
     glowSvg +
-    `<circle cx="${center}" cy="${center}" r="${rr}" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="${weight}"${dashSvg}/>` +
+    `<circle cx="${center}" cy="${center}" r="${rr}" fill="none" stroke="${stroke}" stroke-width="${weight}"${dashSvg}/>` +
     `<g clip-path="url(#${uid})">${segs}</g>` +
     `</svg>`;
   return L.divIcon({
@@ -403,6 +406,11 @@ function applyFilters() {
     } else if (!vis && inMap) {
       map.removeLayer(it.marker);
       if (it.glow && map.hasLayer(it.glow)) map.removeLayer(it.glow);
+      // 选中的点被筛掉：清除选中态并关闭浮层，避免浮层指向地图上看不到的点
+      if (it === activeItem) {
+        clearSelection();
+        active.value = null;
+      }
     }
   }
 }
@@ -483,7 +491,7 @@ onMounted(() => {
     const r = radiusForZoom(map!.getZoom());
     for (const it of rendered) {
       if (it.pt.stages.length === 1) (it.marker as unknown as L.CircleMarker).setRadius(r);
-      else it.marker.setIcon(buildMultiIcon(it.pt, r));
+      else it.marker.setIcon(buildMultiIcon(it.pt, r, it === activeItem));
     }
   });
   map.on('click', () => closeInfo());
@@ -503,8 +511,32 @@ onActivated(() => {
 const active = ref<Pt | null>(null);
 const route = useRoute();
 const router = useRouter();
-function showInfo(pt: Pt) { active.value = pt; }
-function closeInfo() { active.value = null; }
+
+/** 当前选中点位（浮层联动）：浮层打开时点位高亮，关闭/切换时清除 */
+let activeItem: RenderedItem | null = null;
+function setSelected(item: RenderedItem, on: boolean) {
+  if (item.pt.stages.length === 1) {
+    const m = item.marker as unknown as L.CircleMarker;
+    if (on) m.setStyle({ weight: 3.5, color: SELECTED_COLOR });
+    else m.setStyle(markerStyle(item.pt));
+  } else {
+    item.marker.setIcon(buildMultiIcon(item.pt, radiusForZoom(map?.getZoom() ?? 13), on));
+  }
+}
+function clearSelection() {
+  if (activeItem) setSelected(activeItem, false);
+  activeItem = null;
+}
+function showInfo(pt: Pt) {
+  clearSelection();
+  activeItem = rendered.find((it) => it.pt === pt) ?? null;
+  if (activeItem) setSelected(activeItem, true);
+  active.value = pt;
+}
+function closeInfo() {
+  clearSelection();
+  active.value = null;
+}
 
 /** 详情页"在地图中查看"：按校名定位并弹出信息卡 */
 function focusSchool(name: string) {
@@ -744,7 +776,7 @@ const infoModel = computed<InfoModel | null>(() => {
       <RouterLink v-for="l in infoModel.links" :key="l.to" :to="l.to" class="si-link" style="display:block;margin-top:6px;">{{ l.text }}</RouterLink>
     </aside>
 
-    <p class="hint">拖动 / 滚轮 / 双指缩放查看。点色 = 学部：蓝 = 小学、红 = 初中、绿 = 高中；多学部学校圆点垂直分色展示（如初高中一体为红绿上下分色）。悬停显示校名，点击点位显示信息卡。独立法人挂牌校（虚线点）不计入口碑学校。高中分类口径：省市属示范 / 区属示范 / 普通（详见卡片内"口径"）。</p>
+    <p class="hint">拖动 / 滚轮 / 双指缩放查看。点色 = 学部：紫 = 小学、红 = 初中、绿 = 高中；多学部学校圆点垂直分色展示（如初高中一体为红绿上下分色）。悬停显示校名，点击点位显示信息卡（选中态高亮，关闭后消失）。描边粗细 = 口碑支撑度：口碑校加粗、普通校细边；独立法人挂牌校（虚线点）不计入口碑学校。高中分类口径：省市属示范 / 区属示范 / 普通（详见卡片内"口径"）。</p>
   </section>
 </template>
 
