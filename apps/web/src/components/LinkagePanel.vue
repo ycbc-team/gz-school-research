@@ -170,6 +170,7 @@ const highSpecialCoverage = computed(() => {
 
       <div v-if="districtRows.length" class="qblock">
         <div class="qblock-title">区属高中（面向本区）</div>
+        <p class="sub-note" style="margin-top:4px;color:#999;font-size:12px;">数据从官方 PDF 视觉提取，个别个位数可能存在 1~6 个误差，具体名额以官方公布为准。</p>
         <div class="tbl tbl-merged" style="margin-top:6px;">
           <div class="tbl-row tbl-head"><span>高中</span><span>名额</span></div>
           <div v-for="r in districtRows" :key="r.name" class="tbl-row">
