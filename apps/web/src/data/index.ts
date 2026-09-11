@@ -27,6 +27,7 @@ import enrollHuangpuJson from '../../../../data/primary/enrollments/2026-huangpu
 import quotaMatrixJson from '../../../../data/linkage/quota_matrix.json';
 import specialMatrixJson from '../../../../data/linkage/special_matrix.json';
 import batch2ScoresJson from '../../../../data/linkage/batch2_scores.json';
+import districtQuotaJson from '../../../../data/linkage/district_quota.json';
 import sitesRegistryJson from '../../../../data/registry/sites.json';
 import brandGroupsJson from '../../../../data/registry/brand_groups.json';
 
@@ -210,6 +211,23 @@ export function batch2Of(schoolName: string): Record<string, Batch2Record> {
     if (rows[canon]) out[campus] = rows[canon];
   }
   return out;
+}
+
+/** 按初中名查区属高中名额：{区属高中POI名: 名额} */
+export function districtQuotaOf(schoolName: string): Record<string, number> {
+  const canon = resolveMiddle(schoolName);
+  if (!canon) return {};
+  return (districtQuotaJson.data as Record<string, Record<string, number>>)[canon] ?? {};
+}
+
+/** 反查：某区属高中名额分配覆盖的初中（按名额降序） */
+export function districtCoverage(highName: string): { school: string; n: number }[] {
+  const out: { school: string; n: number }[] = [];
+  for (const [school, row] of Object.entries(districtQuotaJson.data as Record<string, Record<string, number>>)) {
+    const n = row[highName];
+    if (n) out.push({ school, n });
+  }
+  return out.sort((a, b) => b.n - a.n);
 }
 
 /** 反查：某校区 n_ji>0 的初中（名额分配覆盖，按 n_ji 降序） */

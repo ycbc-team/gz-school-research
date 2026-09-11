@@ -17,6 +17,8 @@ import {
   batch2Of,
   quotaCoverage,
   specialCoverage,
+  districtQuotaOf,
+  districtCoverage,
 } from '../data';
 
 const props = defineProps<{ stage: 'middle' | 'high'; school: string }>();
@@ -76,11 +78,25 @@ const batchMerged = computed(() => {
     .sort((a, b) => (b.n ?? 0) - (a.n ?? 0));
 });
 
+/** 初中视角：区属高中名额逐校表 */
+const districtRows = computed(() => {
+  if (props.stage !== 'middle') return [];
+  return Object.entries(districtQuotaOf(schoolName.value))
+    .map(([name, n]) => ({ name, n }))
+    .sort((a, b) => b.n - a.n);
+});
+
 /* ========== 高中：覆盖反查（按学校聚合校区） ========== */
 /** POI 分校区名归一（去括号校区），与 CAMPUS_SCHOOL 标准名对齐 */
 function normCampus(s: string): string {
   return s.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').trim();
 }
+/** 高中视角：区属高中名额分配覆盖的初中 */
+const highDistrictCoverage = computed(() => {
+  if (props.stage !== 'high') return [];
+  return districtCoverage(schoolName.value).slice(0, 50);
+});
+
 const highShorts = computed(() => {
   if (props.stage !== 'high') return [];
   const target = normCampus(schoolName.value);
@@ -152,9 +168,18 @@ const highSpecialCoverage = computed(() => {
         </div>
       </div>
 
-      <div v-if="quota.qu_quota != null" class="qblock">
+      <div v-if="districtRows.length" class="qblock">
         <div class="qblock-title">区属高中（面向本区）</div>
-        <p class="sub-note" style="margin-top:6px;">区属名额分配到本区区属高中，共 {{ quota.qu_quota }} 个。逐校（哪所区属高中分几个名额）明细整理中，暂未展示。</p>
+        <div class="tbl tbl-merged" style="margin-top:6px;">
+          <div class="tbl-row tbl-head"><span>高中</span><span>名额</span></div>
+          <div v-for="r in districtRows" :key="r.name" class="tbl-row">
+            <span><RouterLink :to="`/school/${encodeURIComponent(r.name)}?stage=high`" class="sch-link">{{ r.name }}</RouterLink></span><span class="strong">{{ r.n }}</span>
+          </div>
+        </div>
+      </div>
+      <div v-else-if="quota.qu_quota != null" class="qblock">
+        <div class="qblock-title">区属高中（面向本区）</div>
+        <p class="sub-note" style="margin-top:6px;">区属名额分配到本区区属高中，共 {{ quota.qu_quota }} 个。逐校明细未收录。</p>
       </div>
 
       <p class="sub-note" style="margin-top:8px;">第三批（省市属统招）、第四批（区属统招）按全市统一投档划线，官方不公布按初中学校的录取名单与分数，故不展示。</p>
@@ -179,19 +204,31 @@ const highSpecialCoverage = computed(() => {
       </div>
     </div>
 
-    <div class="card" v-if="highCoverage.length">
+    <div class="card" v-if="highCoverage.length || highDistrictCoverage.length">
       <div class="card-title">第二批招生（2026）</div>
-      <p class="sub-note">名额分配（指标到校）覆盖初中，按该高中各校区合计名额数（n<sub>ji</sub>）降序。</p>
-      <div class="tbl">
-        <div class="tbl-row tbl-head"><span>初中</span><span>所在区</span><span>名额</span></div>
-        <div v-for="r in highCoverage" :key="r.school" class="tbl-row">
-          <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink></span>
-          <span>{{ r.districts.join('、') || '—' }}</span><span class="strong">{{ r.n }}</span>
+      <div v-if="highCoverage.length" class="qblock">
+        <div class="qblock-title">省市属高中（面向全市）覆盖初中</div>
+        <div class="tbl" style="margin-top:6px;">
+          <div class="tbl-row tbl-head"><span>初中</span><span>所在区</span><span>名额</span></div>
+          <div v-for="r in highCoverage" :key="r.school" class="tbl-row">
+            <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink></span>
+            <span>{{ r.districts.join('、') || '—' }}</span><span class="strong">{{ r.n }}</span>
+          </div>
+        </div>
+      </div>
+      <div v-if="highDistrictCoverage.length" class="qblock">
+        <div class="qblock-title">区属高中（面向本区）覆盖初中</div>
+        <div class="tbl" style="margin-top:6px;">
+          <div class="tbl-row tbl-head"><span>初中</span><span>名额</span></div>
+          <div v-for="r in highDistrictCoverage" :key="r.school" class="tbl-row">
+            <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink></span>
+            <span class="strong">{{ r.n }}</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="card" v-if="!highCoverage.length && !highSpecialCoverage.length">
+    <div class="card" v-if="!highCoverage.length && !highSpecialCoverage.length && !highDistrictCoverage.length">
       <div class="card-title">升学通道</div>
       <p class="empty">该校为区属高中：名额分配面向本区初中、官方未公布逐初中明细；省市属自招/特长等特殊通道暂未覆盖到本校。</p>
     </div>
