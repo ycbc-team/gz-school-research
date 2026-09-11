@@ -579,6 +579,14 @@ section { position: relative; }
 .lg-multi { display: inline-flex; flex-direction: column; overflow: hidden; border: 1px solid rgba(0,0,0,0.15); }
 .lg-multi i { flex: 1; }
 .map { height: calc(100vh - 140px); min-height: 560px; border-radius: 14px; border: 1px solid #e4e3dd; z-index: 1; }
+/* Safari/iOS：显式禁止浏览器接管地图容器手势（Leaflet 仅在识别为触摸设备时加 leaflet-touch-drag），
+   否则 Safari 会把拖拽当成页面滚动/返回手势，地图无法拖动 */
+.map { touch-action: none; overscroll-behavior: none; }
+:deep(.leaflet-container) {
+  touch-action: none !important;
+  -webkit-touch-callout: none;
+  overscroll-behavior: none;
+}
 /* 缩小 Leaflet 右下角缩放控件（默认 30px 按钮） */
 :deep(.leaflet-control-zoom) {
   border: none !important;
