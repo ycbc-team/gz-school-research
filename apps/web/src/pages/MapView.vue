@@ -423,13 +423,13 @@ onMounted(() => {
     maxZoom: 18,
     zoomSnap: 0.5,
     zoomControl: false,
+    attributionControl: false,
     preferCanvas: true,
   });
   L.control.zoom({ position: 'bottomright' }).addTo(map);
   L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
     subdomains: ['1', '2', '3', '4'],
     maxZoom: 18,
-    attribution: '&copy; 高德地图',
   }).addTo(map);
   renderBoundaries();
   renderPoints();
@@ -818,6 +818,23 @@ section { position: relative; }
 .lg-multi { display: inline-flex; flex-direction: column; overflow: hidden; border: 1px solid rgba(0,0,0,0.15); }
 .lg-multi i { flex: 1; }
 .map { height: calc(100vh - 140px); min-height: 560px; border-radius: 14px; border: 1px solid #e4e3dd; z-index: 1; }
+/* 缩小 Leaflet 右下角缩放控件（默认 30px 按钮） */
+:deep(.leaflet-control-zoom) {
+  border: none !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(20,30,50,0.12);
+}
+:deep(.leaflet-control-zoom a) {
+  width: 24px !important;
+  height: 24px !important;
+  line-height: 24px !important;
+  font-size: 15px !important;
+  border: 1px solid #e4e3dd !important;
+  color: #1a1b1c !important;
+  background: rgba(255,255,255,0.95) !important;
+}
+:deep(.leaflet-control-zoom a:hover) { background: #f2f7ff !important; }
 
 .school-info {
   position: fixed; right: 14px; bottom: 14px;
