@@ -10,12 +10,13 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 HIGH = ROOT / "data" / "high"
 
 DISTRICT_ADCODE = {
     "荔湾区": "440103", "越秀区": "440104", "海珠区": "440105",
     "天河区": "440106", "白云区": "440111", "黄埔区": "440112", "番禺区": "440113",
+    "南沙区": "440115",  # 补点：广州外国语学校（市属示范，南沙）
 }
 ADCODE_DISTRICT = {v: k for k, v in DISTRICT_ADCODE.items()}
 
