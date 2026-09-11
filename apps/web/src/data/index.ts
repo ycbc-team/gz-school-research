@@ -311,9 +311,18 @@ function districtOfGroup(group: string | null): string | null {
   return m ? `${m[1]}区` : null;
 }
 // ---- 实体注册表索引：norm(alias) -> entity 列表（跨区同名时按 district 精确消歧）----
-interface SchoolEntityLite { school_id: string; canonical_name: string; stage: string; district: string; aliases: string[] }
+interface SchoolEntityLite { school_id: string; name: string; stage: string; aliases: string[] }
 const entities = (entitiesJson as any).entities as SchoolEntityLite[];
 const entityById = new Map(entities.map((e) => [e.school_id, e]));
+// POI 表：school_id -> adcode（district 从点位 join，entity 不存）
+const poiAdcodeBySchool = new Map<string, string>();
+for (const p of [...primarySchools.schools, ...middleSchools.schools, ...(highSchools.schools || [])]) {
+  if (p.school_id) poiAdcodeBySchool.set(p.school_id, p.adcode as string);
+}
+function districtOfSchool(schoolId: string): string {
+  const ad = poiAdcodeBySchool.get(schoolId);
+  return ad ? (ADCODE_TO_DISTRICT[ad] || '') : '';
+}
 function buildAliasIndex(stage: string): Map<string, SchoolEntityLite[]> {
   const m = new Map<string, SchoolEntityLite[]>();
   for (const e of entities) {
@@ -333,14 +342,14 @@ function resolveEntity(idx: Map<string, SchoolEntityLite[]>, name: string, distr
   if (!list || !list.length) return null;
   if (list.length === 1) return list[0]!;
   const want = district && /^\d{6}$/.test(district) ? ADCODE_TO_DISTRICT[district] : district;
-  return (want && list.find((e) => e.district === want)) || list[0]!;
+  return (want && list.find((e) => districtOfSchool(e.school_id) === want)) || list[0]!;
 }
 
-// ---- 2026 事实表：school_id -> record ----
+// ---- 2026 事实表：school_id -> record（feed 纯外键，未解析名单列 unresolved）----
 type FactRec = {
-  school_id: string; district: string | null; group: string | null;
-  feed: { official_name: string; school_id: string | null }[];
-  direct_feed: { official_name: string; school_id: string | null } | null;
+  school_id: string; group: string | null;
+  feed_school_ids: string[]; feed_unresolved: string[];
+  direct_feed_school_id: string | null;
   source_url?: string; source_note?: string; data_gaps?: string | null;
 };
 const facts = (xiaoshengchu2026Json as any).records as FactRec[];
@@ -349,11 +358,12 @@ for (const r of facts) if (r.school_id) factByPrimaryId.set(r.school_id, r);
 
 /** 把事实 record 适配成页面在用的旧形状（feed_junior_highs: 字符串数组） */
 function shapeRecord(r: FactRec, displayName: string): XiaoshengchuRecord {
+  const feedNames = (r.feed_school_ids || []).map((id) => entityById.get(id)?.name).filter(Boolean) as string[];
   return {
     name: displayName,
     group: r.group,
-    feed_junior_highs: (r.feed || []).map((f) => f.official_name),
-    direct_feed: r.direct_feed ? r.direct_feed.official_name : null,
+    feed_junior_highs: [...feedNames, ...(r.feed_unresolved || [])],
+    direct_feed: r.direct_feed_school_id ? entityById.get(r.direct_feed_school_id)?.name ?? null : null,
     source_url: r.source_url, source_note: r.source_note, data_gaps: r.data_gaps ?? null,
   } as XiaoshengchuRecord;
 }
@@ -365,7 +375,7 @@ export function xiaoshengchuOf(poiName: string, district?: string | null): Xiaos
   const ent = resolveEntity(primaryAlias, poiName, district);
   if (!ent) return null;
   const r = factByPrimaryId.get(ent.school_id);
-  return r ? shapeRecord(r, ent.canonical_name) : null;
+  return r ? shapeRecord(r, ent.name) : null;
 }
 
 /**
@@ -377,11 +387,14 @@ export function middlePrimaryFeed(middleName: string): { primary: string; group:
   if (!ent) return [];
   const out: { primary: string; group: string | null; direct_feed: string | null }[] = [];
   for (const r of facts) {
-    const hit = (r.feed || []).some((f) => f.school_id === ent.school_id) ||
-      (!!(r.direct_feed && r.direct_feed.school_id === ent.school_id));
+    const hit = (r.feed_school_ids || []).includes(ent.school_id) ||
+      r.direct_feed_school_id === ent.school_id;
     if (hit) {
       const pe = r.school_id ? entityById.get(r.school_id) : null;
-      out.push({ primary: pe ? pe.canonical_name : '(未知)', group: r.group, direct_feed: r.direct_feed ? r.direct_feed.official_name : null });
+      out.push({
+        primary: pe ? pe.name : '(未知)', group: r.group,
+        direct_feed: r.direct_feed_school_id ? entityById.get(r.direct_feed_school_id)?.name ?? null : null,
+      });
     }
   }
   return out;

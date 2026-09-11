@@ -9,6 +9,8 @@ export interface SchoolPoi {
   lng: number;
   lat: number;
   adcode: string;
+  /** 实体外键（= entities.json 的 school_id，POI 与实体 1:1） */
+  school_id?: string;
   /** backfill 来源标记 */
   src?: string;
   /** backfill 匹配到的招生学校 */
