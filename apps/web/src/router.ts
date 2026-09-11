@@ -19,4 +19,9 @@ export const router = createRouter({
     // 旧路径 /school/:stage/:name 重定向到合并路由（stage 作初始 tab）
     { path: '/school/:stage/:name', redirect: (to) => ({ path: `/school/${to.params.name}`, query: { stage: to.params.stage } }) },
   ],
+  // 详情页跳转后回到顶部；浏览器后退/前进恢复原滚动位置
+  scrollBehavior(_to, _from, savedPosition) {
+    if (savedPosition) return savedPosition;
+    return { top: 0 };
+  },
 });
