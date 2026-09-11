@@ -133,20 +133,30 @@ const highSpecialCoverage = computed(() => {
       </div>
     </div>
 
-    <div class="card" v-if="quota && batchMerged.length">
+    <div class="card" v-if="quota && (batchMerged.length || quota.qu_quota != null)">
       <div class="card-title">中考-第二批</div>
-      <p class="sub-note">名额分配（指标到校）：本校名额考生按政策获得以下高中的名额；名额 = 该高中分给本校的名额数，录取最低分为本校考生被该校第二批录取的最低分。省市属名额已全列；区属名额分配到本区区属高中，明细未收录。</p>
+      <p class="sub-note">名额分配（指标到校）：本校名额考生按政策获得以下高中的名额。按高中隶属分省市属、区属两块。</p>
       <div class="kv">
         <div class="kv-row"><span>名额考生数</span><b>{{ quota.kaosheng ?? '—' }} 人</b></div>
-        <div class="kv-row"><span>省市属名额</span><b>{{ quota.sheng_quota ?? '—' }} 个</b></div>
-        <div class="kv-row"><span>区属名额</span><b>{{ quota.qu_quota ?? '—' }} 个</b></div>
+        <div class="kv-row"><span>省市属名额合计</span><b>{{ quota.sheng_quota ?? '—' }} 个</b></div>
+        <div class="kv-row"><span>区属名额合计</span><b>{{ quota.qu_quota ?? '—' }} 个</b></div>
       </div>
-      <div v-if="batchMerged.length" class="tbl tbl-merged" style="margin-top:10px;">
-        <div class="tbl-row tbl-head"><span>高中</span><span>名额</span><span>录取最低分</span></div>
-        <div v-for="r in batchMerged" :key="r.campus" class="tbl-row">
-          <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=high`" class="sch-link">{{ r.campus }}</RouterLink></span><span>{{ r.n ?? '—' }}</span><span>{{ r.min ?? '—' }}</span>
+
+      <div v-if="batchMerged.length" class="qblock">
+        <div class="qblock-title">省市属高中（面向全市）</div>
+        <div class="tbl tbl-merged" style="margin-top:6px;">
+          <div class="tbl-row tbl-head"><span>高中</span><span>名额</span><span>录取最低分</span></div>
+          <div v-for="r in batchMerged" :key="r.campus" class="tbl-row">
+            <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=high`" class="sch-link">{{ r.campus }}</RouterLink></span><span>{{ r.n ?? '—' }}</span><span>{{ r.min ?? '—' }}</span>
+          </div>
         </div>
       </div>
+
+      <div v-if="quota.qu_quota != null" class="qblock">
+        <div class="qblock-title">区属高中（面向本区）</div>
+        <p class="sub-note" style="margin-top:6px;">区属名额分配到本区区属高中，共 {{ quota.qu_quota }} 个。逐校（哪所区属高中分几个名额）明细整理中，暂未展示。</p>
+      </div>
+
       <p class="sub-note" style="margin-top:8px;">第三批（省市属统招）、第四批（区属统招）按全市统一投档划线，官方不公布按初中学校的录取名单与分数，故不展示。</p>
     </div>
 
@@ -194,6 +204,9 @@ const highSpecialCoverage = computed(() => {
   padding: 14px 16px; margin-bottom: 12px;
 }
 .card-title { font-size: 13px; font-weight: 700; color: #1a1b1c; margin-bottom: 10px; }
+.qblock { margin-top: 12px; padding-top: 10px; border-top: 1px dashed #e4e3dd; }
+.qblock:first-of-type { margin-top: 4px; }
+.qblock-title { font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 6px; }
 .sub-note { font-size: 11px; color: #9aa0a6; line-height: 1.6; margin: 0 0 10px; }
 .empty { font-size: 12.5px; color: #9aa0a6; margin: 4px 0; line-height: 1.6; }
 
