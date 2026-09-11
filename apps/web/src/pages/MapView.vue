@@ -252,7 +252,6 @@ function isVisible(pt: Pt): boolean {
   return pt.stages.some((s) => selectedStages.value.has(s) && selectedGrades.value.has(pt.clsOf[s]));
 }
 const builtAt = ref(0);
-const visibleCount = computed(() => { void builtAt.value; return allPoints.filter(isVisible).length; });
 
 /* ========== 学校搜索 ========== */
 const kw = ref('');
@@ -486,6 +485,10 @@ function showInfo(pt: Pt) {
   activeItem = rendered.find((it) => it.pt === pt) ?? null;
   if (activeItem) setSelected(activeItem, true);
   active.value = pt;
+  // 点击点位：放大并居中到屏幕中央（多学部垂直分色在小缩放下看不清）
+  if (map) {
+    map.flyTo([pt.lat, pt.lng], Math.max(map.getZoom(), 16), { duration: 0.6 });
+  }
 }
 function closeInfo() {
   clearSelection();
@@ -496,7 +499,6 @@ function closeInfo() {
 function focusSchool(name: string) {
   const pt = allPoints.find((p) => p.name === name) || allPoints.find((p) => p.name.includes(name));
   if (!pt || !map) return;
-  map.flyTo([pt.lat, pt.lng], 15, { duration: 0.8 });
   showInfo(pt);
   // 定位后清掉 focus 参数：用户再点其他学校→详情→返回时，回到当前地图视图而非重新 flyTo 旧 focus
   router.replace({ query: {} });
@@ -709,16 +711,15 @@ const infoModel = computed<InfoModel | null>(() => {
 
   <div v-if="openMenu || searchOpen" class="pop-mask" @click="openMenu = null; searchOpen = false;"></div>
   <div ref="mapEl" class="map"></div>
-  <div class="map-count">当前显示 {{ visibleCount }} 所学校</div>
 
-  <!-- 图例：点位颜色/样式含义 -->
+  <!-- 图例：点位颜色含义 -->
   <div class="map-legend">
     <div class="lg-row"><span class="lg-dot" :style="{ background: STAGE_COLOR.primary }"></span>小学</div>
     <div class="lg-row"><span class="lg-dot" :style="{ background: STAGE_COLOR.middle }"></span>初中</div>
     <div class="lg-row"><span class="lg-dot" :style="{ background: STAGE_COLOR.high }"></span>高中</div>
     <div class="lg-row">
       <span class="lg-dot lg-multi"><i :style="{ background: STAGE_COLOR.middle }"></i><i :style="{ background: STAGE_COLOR.high }"></i></span>
-      多学部（上下分色）
+      多学部
     </div>
   </div>
 
@@ -805,14 +806,9 @@ section { position: relative; }
 .pop-link { border: none; background: none; color: #1a6bd6; font-size: 12.5px; cursor: pointer; padding: 4px 8px; }
 .pop-mask { position: fixed; inset: 0; z-index: 900; background: rgba(0,0,0,0.02); }
 
-.map-count {
-  position: absolute; left: 10px; bottom: 12px; z-index: 50;
-  background: rgba(255,255,255,0.94); border: 1px solid #e4e3dd; border-radius: 10px;
-  padding: 5px 12px; font-size: 12px; color: #444; box-shadow: 0 1px 4px rgba(20,30,50,0.08);
-}
-/* 图例：学段颜色 + 样式含义 */
+/* 图例：学段颜色 */
 .map-legend {
-  position: absolute; left: 10px; bottom: 56px; z-index: 60;
+  position: absolute; left: 10px; bottom: 12px; z-index: 60;
   background: rgba(255,255,255,0.95); border: 1px solid #e4e3dd; border-radius: 10px;
   padding: 8px 12px; font-size: 11.5px; color: #444;
   box-shadow: 0 1px 4px rgba(20,30,50,0.08);
