@@ -41,3 +41,6 @@ data/linkage/raw/*.preview
 
 # Web 紧凑数据产物（由 scripts/data/compact.mjs 从 data/ JSON 编译，加载后 hydrate 还原）
 apps/web/src/data/compact/
+
+# 小程序分包紧凑数据产物（同主包，由 build:mp 生成）
+apps/miniprogram/pages/school-detail/data/

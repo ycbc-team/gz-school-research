@@ -20,8 +20,9 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DATA_SRC = join(ROOT, 'data');
-const OUT_CJS = process.argv[2] || join(ROOT, 'apps', 'miniprogram', 'data');
-const OUT_ESM = process.argv[3] || join(ROOT, 'apps', 'web', 'src', 'data', 'compact');
+const OUT_CJS_MAIN = process.argv[2] || join(ROOT, 'apps', 'miniprogram', 'data');
+const OUT_CJS_SUB = process.argv[3] || join(ROOT, 'apps', 'miniprogram', 'pages', 'school-detail', 'data');
+const OUT_ESM = process.argv[4] || join(ROOT, 'apps', 'web', 'src', 'data', 'compact');
 
 /** 高重复值字段 → 字典化（值唯一数少才启用） */
 const DICT_SPEC = {
@@ -46,13 +47,33 @@ function walkJson(dir) {
 const WEB_TARGETS = walkJson(DATA_SRC)
   .filter((p) => !p.split(sep).some((seg) => seg === 'raw' || seg === '_raw'))
   .map((p) => relative(ROOT, p));
-const MP_TARGETS = [
+// 小程序主包数据（地图页 + 首页/支撑度消费）：POI/tier1/levels/招生/实体/升学路线
+const MP_MAIN_TARGETS = [
   'data/primary/schools-gz.json',
   'data/primary/tier1_schools_all.json',
+  'data/primary/xiaoshengchu_2026.json',
   'data/middle/schools-gz.json',
   'data/middle/tier1_schools_all.json',
   'data/high/schools-gz.json',
   'data/high/levels.json',
+  'data/primary/enrollments/2026-tianhe.json',
+  'data/primary/enrollments/2026-yuexiu.json',
+  'data/primary/enrollments/2026-haizhu.json',
+  'data/primary/enrollments/2026-liwan.json',
+  'data/primary/enrollments/2026-panyu.json',
+  'data/primary/enrollments/2026-baiyun.json',
+  'data/primary/enrollments/2026-huangpu.json',
+  'data/registry/entities.json',
+];
+// 小程序分包数据（school-detail 详情页专用）：升学通道/身份/品牌/教育集团
+const MP_SUB_TARGETS = [
+  'data/linkage/quota_matrix.json',
+  'data/linkage/special_matrix.json',
+  'data/linkage/batch2_scores.json',
+  'data/linkage/district_quota.json',
+  'data/registry/sites.json',
+  'data/registry/brand_groups.json',
+  'data/registry/education_groups_2026.json',
 ];
 
 /* ---------- JS 字面量序列化（保留 undefined 稀疏空位） ---------- */
@@ -126,7 +147,7 @@ function compileValue(v, dictFields = []) {
 }
 
 /* ---------- 主流程 ---------- */
-for (const dir of [OUT_CJS, OUT_ESM]) {
+for (const dir of [OUT_CJS_MAIN, OUT_CJS_SUB, OUT_ESM]) {
   rmSync(dir, { recursive: true, force: true });
   mkdirSync(dir, { recursive: true });
 }
@@ -151,13 +172,14 @@ function emit(file, outDir, fmt) {
 }
 
 const stats = [];
-for (const file of MP_TARGETS) stats.push(emit(file, OUT_CJS, 'cjs'));
+for (const file of MP_MAIN_TARGETS) stats.push(emit(file, OUT_CJS_MAIN, 'cjs'));
+for (const file of MP_SUB_TARGETS) stats.push(emit(file, OUT_CJS_SUB, 'cjs'));
 for (const file of WEB_TARGETS) stats.push(emit(file, OUT_ESM, 'esm'));
 
 stats.sort((a, b) => b.jsKB - a.jsKB);
 let sumJ = 0;
 let sumC = 0;
-console.log(`[compact] ${stats.length} 个文件 → ${relative(ROOT, OUT_CJS)} + ${relative(ROOT, OUT_ESM)}`);
+console.log(`[compact] ${stats.length} 个文件 → ${relative(ROOT, OUT_CJS_MAIN)}(主包) + ${relative(ROOT, OUT_CJS_SUB)}(分包) + ${relative(ROOT, OUT_ESM)}(web)`);
 for (const s of stats) {
   sumJ += s.jsonKB;
   sumC += s.jsKB;

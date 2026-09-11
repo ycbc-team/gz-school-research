@@ -42,6 +42,7 @@ function exists(p) {
 }
 
 const MP = join(ROOT, 'apps', 'miniprogram', 'data');
+const MP_SUB = join(ROOT, 'apps', 'miniprogram', 'pages', 'school-detail', 'data');
 const WEB = join(ROOT, 'apps', 'web', 'src', 'data', 'compact');
 const DATA = join(ROOT, 'data');
 let fail = 0;
@@ -58,10 +59,12 @@ function checkOne(rel, restored) {
   }
 }
 
-// CJS 产物（小程序）
-for (const js of walk(MP)) {
-  if (!js.endsWith('.js')) continue;
-  checkOne(relative(MP, js).replace(/\.js$/, ''), hydrate(require(js)));
+// CJS 产物（小程序主包 + 分包）
+for (const dir of [MP, MP_SUB]) {
+  for (const js of walk(dir)) {
+    if (!js.endsWith('.js')) continue;
+    checkOne(relative(dir, js).replace(/\.js$/, ''), hydrate(require(js)));
+  }
 }
 // ESM 产物（Web）
 for (const js of walk(WEB)) {

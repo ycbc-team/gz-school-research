@@ -35,6 +35,11 @@ export function createRepository(loaders: DataLoaders) {
       middle: loaders.middleSchools,
       high: loaders.highSchools,
     },
+    /** 高中分类/出口数据（高中详情、高中学段判定用） */
+    highLevels: loaders.highLevels,
+    /** tier1 快照（小学小升初机制等场景用） */
+    primaryTier1: loaders.primaryTier1,
+    middleTier1: loaders.middleTier1,
 
     ...schools,
     ...enrollment,

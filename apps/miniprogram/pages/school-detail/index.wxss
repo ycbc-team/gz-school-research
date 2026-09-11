@@ -1,0 +1,89 @@
+/* 学校详情页（三学段统一，移动端卡片布局） */
+.page { max-width: 720px; margin: 0 auto; padding: 20rpx 24rpx 60rpx; background: #f4f3ee; min-height: 100vh; box-sizing: border-box; }
+.topbar { display: flex; gap: 24rpx; margin-bottom: 20rpx; }
+.tb-btn { color: #1a6bd6; font-size: 26rpx; }
+.d-head { margin-bottom: 24rpx; }
+.d-name { font-size: 38rpx; font-weight: 700; line-height: 1.4; }
+.d-badges { display: flex; align-items: center; gap: 10rpx; flex-wrap: wrap; margin-top: 14rpx; }
+.badge { font-size: 22rpx; font-weight: 700; color: #fff; border-radius: 10rpx; padding: 4rpx 16rpx; }
+.badge.sm { font-size: 21rpx; padding: 2rpx 12rpx; }
+.badge.b-district { background: #e5e7eb; color: #374151; }
+.badge.b-stage { background: #dbeafe; color: #1e40af; }
+.badge.b-tier { background: #e11d48; }
+.badge.b-license { background: #4b5563; }
+.badge.b-hcity { background: #b45309; }
+.badge.b-hdist { background: #0f766e; }
+.badge.b-full { background: #e11d48; }
+.badge.b-part { background: #f59e0b; }
+.badge.b-none { background: #8a94a6; }
+.d-sub { font-size: 24rpx; color: #6b7280; margin-top: 12rpx; line-height: 1.6; }
+
+.stage-tabs { display: flex; gap: 14rpx; margin-bottom: 20rpx; }
+.stage-tab {
+  padding: 10rpx 28rpx; border: 1rpx solid #d9d9d9; border-radius: 999rpx;
+  background: #fff; font-size: 26rpx; color: #1a1b1c;
+}
+.stage-tab.on { background: #1a73e8; color: #fff; border-color: #1a73e8; }
+
+.card {
+  background: #fff; border: 1rpx solid #e4e3dd; border-radius: 22rpx;
+  padding: 24rpx 28rpx; margin-bottom: 20rpx;
+}
+.card-title { font-size: 27rpx; font-weight: 700; color: #1a1b1c; margin-bottom: 16rpx; }
+.sub-note { font-size: 21rpx; color: #9aa0a6; line-height: 1.6; margin-bottom: 14rpx; }
+.empty { font-size: 24rpx; color: #9aa0a6; line-height: 1.6; }
+.title-note-row { display: flex; align-items: center; gap: 10rpx; margin-bottom: 14rpx; }
+.title-note { font-size: 21rpx; color: #9aa0a6; }
+
+.kv { display: flex; flex-direction: column; gap: 12rpx; }
+.kv-row { display: flex; gap: 16rpx; font-size: 25rpx; align-items: baseline; }
+.kv-row text:first-child { flex: none; width: 190rpx; color: #6b7280; font-size: 23rpx; }
+.kv-row text:last-child { font-weight: 500; line-height: 1.6; }
+
+.zone-block { margin-top: 16rpx; }
+.zone-label { font-size: 22rpx; color: #6b7280; font-weight: 600; margin-bottom: 8rpx; }
+.zone-text {
+  background: #f7f6f2; border-radius: 12rpx; padding: 14rpx 18rpx;
+  font-size: 24rpx; color: #444; line-height: 1.7;
+}
+
+.feed-list { display: flex; flex-direction: column; gap: 12rpx; }
+.feed-item { display: flex; align-items: center; gap: 14rpx; flex-wrap: wrap; font-size: 25rpx; }
+.feed-name { color: #1a6bd6; font-weight: 500; }
+.tag { font-size: 21rpx; color: #6b7280; background: #f1f0ec; border-radius: 8rpx; padding: 3rpx 14rpx; }
+.tag-dim { color: #9aa0a6; }
+.tag-now { background: #9bbbf4; color: #fff; }
+
+.tbl { display: flex; flex-direction: column; gap: 8rpx; }
+.tbl-row { display: flex; align-items: center; gap: 14rpx; font-size: 24rpx; padding: 8rpx 10rpx; border-radius: 8rpx; }
+.tbl-row text:first-child { flex: 1; min-width: 0; }
+.tbl-row text:nth-child(n+2) { flex: none; width: 88rpx; text-align: right; }
+.tbl-row .strong { color: #1a1b1c; font-weight: 700; }
+.tbl-head { background: #f7f6f2; font-size: 22rpx; color: #6b7280; font-weight: 600; }
+.sch-link { color: #1a6bd6; }
+
+.qblock { margin-top: 18rpx; padding-top: 16rpx; border-top: 1rpx dashed #e4e3dd; }
+.qblock:first-of-type { margin-top: 6rpx; }
+.qblock-title { font-size: 24rpx; font-weight: 700; color: #374151; margin-bottom: 10rpx; }
+
+.d-foot { display: flex; justify-content: space-between; margin-top: 10rpx; }
+
+/* 品牌关联 */
+.brand-head { font-size: 25rpx; font-weight: 700; color: #1a1b1c; margin-bottom: 8rpx; }
+.brand-note {
+  font-size: 23rpx; color: #444; line-height: 1.7; margin-bottom: 16rpx;
+  background: #f7f6f2; border-radius: 12rpx; padding: 14rpx 18rpx;
+}
+.brand-group { margin-bottom: 16rpx; }
+.brand-group-title { font-size: 22rpx; font-weight: 700; color: #6b7280; margin-bottom: 10rpx; }
+.brand-group-title.same { color: #1e40af; }
+.brand-group-title.independent { color: #b45309; }
+.brand-row {
+  border: 1rpx solid #eee; border-radius: 14rpx; padding: 14rpx 16rpx; margin-bottom: 10rpx;
+}
+.brand-row.current { border-color: #9bbbf4; background: rgba(155,187,244,0.08); }
+.brand-row-main { display: flex; align-items: center; gap: 10rpx; flex-wrap: wrap; font-size: 25rpx; }
+.brand-name-link { color: #1a6bd6; font-weight: 600; }
+.brand-name-plain { font-weight: 600; }
+.brand-row-badges { display: flex; gap: 8rpx; flex-wrap: wrap; margin-top: 10rpx; }
+.brand-reason { font-size: 21rpx; color: #6b7280; line-height: 1.6; margin-top: 10rpx; }

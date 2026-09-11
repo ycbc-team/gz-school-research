@@ -1,9 +1,113 @@
-.page { padding: 24rpx; }
-.toolbar { display: flex; flex-wrap: wrap; gap: 16rpx; margin-bottom: 16rpx; }
-.chip {
-  border: 1rpx solid #d6d4cc; background: #fff; color: #1a1b1c;
-  border-radius: 999rpx; padding: 10rpx 24rpx; font-size: 26rpx;
+/* 地图页：三学段点位 + 三级筛选 + 搜索 + 底部抽屉信息卡 */
+.page { position: relative; width: 100vw; height: 100vh; background: #f4f3ee; }
+.map { width: 100%; height: 100vh; }
+
+/* ---------- 顶部控件（cover-view 浮层） ---------- */
+.top {
+  position: absolute; top: 16rpx; left: 16rpx; right: 16rpx; z-index: 20;
+  display: flex; flex-direction: column; gap: 12rpx;
 }
-.chip.active { background: #3a5396; border-color: #3a5396; color: #fff; }
-.info { font-size: 24rpx; color: #6b7280; margin-bottom: 16rpx; }
-.map { width: 100%; height: 800rpx; border-radius: 20rpx; overflow: hidden; }
+.search-bar { position: relative; }
+.search-input {
+  width: 100%; height: 72rpx; box-sizing: border-box;
+  background: rgba(255,255,255,0.97); border-radius: 30rpx;
+  padding: 0 28rpx; font-size: 27rpx; color: #1a1b1c;
+  box-shadow: 0 2rpx 10rpx rgba(20,30,50,0.12);
+}
+.ph { color: #9aa0a6; }
+.search-drop {
+  position: absolute; top: 78rpx; left: 0; right: 0; z-index: 30;
+  background: #fff; border-radius: 20rpx; box-shadow: 0 8rpx 28rpx rgba(20,30,50,0.16);
+  padding: 8rpx 0; max-height: 480rpx; overflow-y: auto;
+}
+.s-item { padding: 18rpx 28rpx; font-size: 27rpx; color: #1a1b1c; border-bottom: 1rpx solid #f0efea; }
+.s-item:last-child { border-bottom: none; }
+.s-item:active { background: #f2f7ff; }
+.s-empty { padding: 18rpx 28rpx; font-size: 25rpx; color: #8a93a3; text-align: center; }
+
+.filter-bar {
+  display: flex; gap: 12rpx;
+  background: rgba(255,255,255,0.97); border-radius: 24rpx;
+  padding: 10rpx; box-shadow: 0 2rpx 10rpx rgba(20,30,50,0.12);
+}
+.fb-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 6rpx;
+  font-size: 27rpx; color: #1a1b1c; padding: 14rpx 0; border-radius: 18rpx;
+}
+.fb-btn.on { background: #eaf1fe; color: #1a6bd6; font-weight: 600; }
+.fb-badge {
+  background: #1a6bd6; color: #fff; font-size: 21rpx; line-height: 30rpx;
+  border-radius: 18rpx; padding: 0 12rpx; min-width: 30rpx; text-align: center;
+}
+.fb-pop {
+  background: #fff; border-radius: 20rpx; box-shadow: 0 8rpx 28rpx rgba(20,30,50,0.16);
+  padding: 20rpx;
+}
+.pop-group { margin-bottom: 16rpx; }
+.pop-group:last-child { margin-bottom: 0; }
+.pop-group-title { font-size: 23rpx; color: #6b7280; font-weight: 600; margin-bottom: 10rpx; }
+.chips { display: flex; flex-wrap: wrap; gap: 12rpx; }
+.chip {
+  border: 1rpx solid #d6d4cc; background: #fff; border-radius: 30rpx;
+  padding: 8rpx 26rpx; font-size: 25rpx; color: #1a1b1c;
+}
+.chip.on { background: #1a6bd6; border-color: #1a6bd6; color: #fff; }
+.pop-foot {
+  display: flex; justify-content: space-between; margin-top: 16rpx; padding-top: 14rpx;
+  border-top: 1rpx dashed #e4e3dd;
+}
+.pop-link { font-size: 25rpx; color: #1a6bd6; padding: 6rpx 12rpx; }
+
+/* ---------- 右下角计数 ---------- */
+.count {
+  position: absolute; right: 16rpx; bottom: 24rpx; z-index: 15;
+  background: rgba(255,255,255,0.95); border-radius: 26rpx;
+  padding: 6rpx 22rpx; font-size: 22rpx; color: #444;
+  box-shadow: 0 1rpx 6rpx rgba(20,30,50,0.1);
+}
+
+/* ---------- 底部抽屉信息卡 ---------- */
+.mask {
+  position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 40;
+  background: rgba(15,23,42,0.25);
+}
+.drawer {
+  position: absolute; left: 12rpx; right: 12rpx; bottom: 12rpx; z-index: 50;
+  background: rgba(255,255,255,0.98); border-radius: 28rpx 28rpx 20rpx 20rpx;
+  box-shadow: 0 -6rpx 28rpx rgba(20,30,50,0.18);
+  padding: 10rpx 28rpx 28rpx; max-height: 62vh; overflow-y: auto;
+  font-size: 25rpx;
+}
+.handle {
+  width: 88rpx; height: 8rpx; border-radius: 4rpx; background: #d6d4cc;
+  margin: 0 auto 14rpx;
+}
+.d-head { display: flex; align-items: flex-start; justify-content: space-between; }
+.d-name { font-size: 30rpx; font-weight: 700; line-height: 1.4; padding-right: 40rpx; }
+.d-close { font-size: 36rpx; color: #8a93a3; padding: 0 8rpx; line-height: 1.2; }
+.d-badges { display: flex; flex-wrap: wrap; gap: 10rpx; margin-top: 14rpx; }
+.badge {
+  font-size: 22rpx; font-weight: 600; color: #fff; border-radius: 10rpx;
+  padding: 4rpx 16rpx;
+}
+.badge.b-district { background: #e5e7eb; color: #374151; }
+.badge.b-stage { background: #dbeafe; color: #1e40af; }
+.badge.b-tier { background: #e11d48; }
+.badge.b-license { background: #4b5563; }
+.badge.b-hcity { background: #b45309; }
+.badge.b-hdist { background: #0f766e; }
+.badge.b-full { background: #e11d48; }
+.badge.b-part { background: #f59e0b; }
+.badge.b-none { background: #8a94a6; }
+.d-subhead { margin-top: 10rpx; font-size: 23rpx; color: #6b7280; line-height: 1.5; }
+.d-row { display: flex; gap: 14rpx; margin-top: 12rpx; }
+.d-label { flex: none; width: 150rpx; color: #6b7280; font-size: 23rpx; padding-top: 2rpx; }
+.d-value { flex: 1; line-height: 1.6; }
+.d-note {
+  margin-top: 16rpx; padding-top: 14rpx; border-top: 1rpx dashed #d6d4cc;
+  font-size: 21rpx; color: #9aa0a6; line-height: 1.6;
+}
+.d-link {
+  margin-top: 18rpx; color: #1a6bd6; font-size: 25rpx; font-weight: 600;
+  border-bottom: 1rpx dashed #b9cdea; display: inline-block;
+}

@@ -1,20 +1,126 @@
 <view class="page">
-  <view class="toolbar">
-    <view
-      class="chip {{item.active ? 'active' : ''}}"
-      wx:for="{{districts}}"
-      wx:key="adcode"
-      data-adcode="{{item.adcode}}"
-      bindtap="toggle"
-    >{{item.name}} {{item.count}}</view>
-  </view>
-  <view class="info">{{info}}</view>
   <map
+    id="gzmap"
     class="map"
-    latitude="23.13"
-    longitude="113.3"
-    scale="11"
+    latitude="{{centerLat}}"
+    longitude="{{centerLng}}"
+    scale="{{scale}}"
     markers="{{markers}}"
-    enable-rotate="{{false}}"
+    bindmarkertap="onMarkerTap"
+    bindtap="onMapTap"
   ></map>
+
+  <!-- 顶部控件：搜索 + 三级筛选（cover-view 浮层） -->
+  <cover-view class="top">
+    <cover-view class="search-bar">
+      <input
+        class="search-input"
+        placeholder="搜索学校名"
+        placeholder-class="ph"
+        value="{{kw}}"
+        confirm-type="search"
+        bindinput="onSearchInput"
+      />
+      <cover-view wx:if="{{searchOpen && searchResults.length}}" class="search-drop">
+        <cover-view
+          wx:for="{{searchResults}}"
+          wx:key="name"
+          class="s-item"
+          data-idx="{{index}}"
+          bindtap="pickResult"
+        >{{item.name}}</cover-view>
+        <cover-view wx:if="{{searchOpen && kw && !searchResults.length}}" class="s-empty">无匹配学校</cover-view>
+      </cover-view>
+    </cover-view>
+
+    <cover-view class="filter-bar">
+      <cover-view class="fb-btn {{menu === 'district' ? 'on' : ''}}" data-menu="district" bindtap="toggleMenu">
+        区域<cover-view wx:if="{{!districtAll}}" class="fb-badge">{{selectedDistricts.length}}</cover-view>
+      </cover-view>
+      <cover-view class="fb-btn {{menu === 'stage' ? 'on' : ''}}" data-menu="stage" bindtap="toggleMenu">
+        学段<cover-view wx:if="{{!stageAll}}" class="fb-badge">{{selectedStages.length}}</cover-view>
+      </cover-view>
+      <cover-view class="fb-btn {{menu === 'grade' ? 'on' : ''}}" data-menu="grade" bindtap="toggleMenu">
+        分级<cover-view wx:if="{{!gradeAll}}" class="fb-badge">{{selectedGrades.length}}</cover-view>
+      </cover-view>
+    </cover-view>
+
+    <!-- 区域多选 -->
+    <cover-view wx:if="{{menu === 'district'}}" class="fb-pop">
+      <cover-view class="chips">
+        <cover-view
+          wx:for="{{districts}}"
+          wx:key="adcode"
+          class="chip {{item.checked ? 'on' : ''}}"
+          data-adcode="{{item.adcode}}"
+          bindtap="toggleDistrictAd"
+        >{{item.short}}</cover-view>
+      </cover-view>
+      <cover-view class="pop-foot">
+        <cover-view class="pop-link" bindtap="flipAllDistricts">{{districtAll ? '全不选' : '全选'}}</cover-view>
+        <cover-view class="pop-link" bindtap="closeMenu">完成</cover-view>
+      </cover-view>
+    </cover-view>
+
+    <!-- 学段多选 -->
+    <cover-view wx:if="{{menu === 'stage'}}" class="fb-pop">
+      <cover-view class="chips">
+        <cover-view
+          wx:for="{{STAGE_TABS}}"
+          wx:key="v"
+          class="chip {{item.checked ? 'on' : ''}}"
+          data-stage="{{item.v}}"
+          bindtap="toggleStageTab"
+        >{{item.l}}</cover-view>
+      </cover-view>
+      <cover-view class="pop-foot">
+        <cover-view class="pop-link" bindtap="flipAllStages">{{stageAll ? '全不选' : '全选'}}</cover-view>
+        <cover-view class="pop-link" bindtap="closeMenu">完成</cover-view>
+      </cover-view>
+    </cover-view>
+
+    <!-- 分级多选（分组） -->
+    <cover-view wx:if="{{menu === 'grade'}}" class="fb-pop">
+      <cover-view wx:for="{{GRADE_GROUPS}}" wx:key="title" class="pop-group">
+        <cover-view class="pop-group-title">{{item.title}}</cover-view>
+        <cover-view class="chips">
+          <cover-view
+            wx:for="{{item.items}}"
+            wx:for-item="o"
+            wx:key="v"
+            class="chip {{o.checked ? 'on' : ''}}"
+            data-cls="{{o.v}}"
+            bindtap="toggleGradeCls"
+          >{{o.l}}</cover-view>
+        </cover-view>
+      </cover-view>
+      <cover-view class="pop-foot">
+        <cover-view class="pop-link" bindtap="flipAllGrades">{{gradeAll ? '全不选' : '全选'}}</cover-view>
+        <cover-view class="pop-link" bindtap="closeMenu">完成</cover-view>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+
+  <!-- 右下角计数 -->
+  <cover-view class="count">{{visibleCount}} 所</cover-view>
+
+  <!-- 底部抽屉信息卡（对齐 Web，cover-view 覆盖原生 map） -->
+  <cover-view wx:if="{{info}}" class="mask" bindtap="closeInfo"></cover-view>
+  <cover-view wx:if="{{info}}" class="drawer">
+    <cover-view class="handle"></cover-view>
+    <cover-view class="d-head">
+      <cover-view class="d-name">{{info.name}}</cover-view>
+      <cover-view class="d-close" bindtap="closeInfo">×</cover-view>
+    </cover-view>
+    <cover-view class="d-badges">
+      <cover-view wx:for="{{info.badges}}" wx:key="cls" class="badge {{item.cls}}">{{item.text}}</cover-view>
+    </cover-view>
+    <cover-view wx:if="{{info.head}}" class="d-subhead">{{info.head}}</cover-view>
+    <cover-view wx:for="{{info.rows}}" wx:key="label" class="d-row">
+      <cover-view class="d-label">{{item.label}}</cover-view>
+      <cover-view class="d-value">{{item.value}}</cover-view>
+    </cover-view>
+    <cover-view wx:if="{{info.note}}" class="d-note">{{info.note}}</cover-view>
+    <cover-view wx:for="{{info.links}}" wx:key="to" class="d-link" data-to="{{item.to}}" bindtap="goDetail">{{item.text}}</cover-view>
+  </cover-view>
 </view>

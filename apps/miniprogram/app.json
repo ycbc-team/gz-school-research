@@ -4,6 +4,14 @@
     "pages/map/map",
     "pages/support/support"
   ],
+  "subpackages": [
+    {
+      "root": "pages/school-detail",
+      "pages": [
+        "index"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTitleText": "广州学校升学调研",
     "navigationBarBackgroundColor": "#F4F3EE",
