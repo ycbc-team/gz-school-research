@@ -4,6 +4,8 @@
  * 与旧版页面展示口径保持一致（民间口径，非官方评价）。
  */
 import type { Tier1School, XiaoshengchuRecord } from './types.js';
+import type { HighScoreRecord } from './data/types.js';
+import type { SchoolScore } from './data/scores.js';
 
 export interface SignalRow {
   label: string;
@@ -85,6 +87,58 @@ export function formatMiddleSignals(s: Tier1School): SignalRow[] {
   }
   if (s.quota_allocation) {
     rows.push({ label: '指标到校', value: s.quota_allocation.data });
+  }
+  return rows;
+}
+
+/* ---------- 高中中考录取线（官方分数） ---------- */
+
+/** 校区官方招生单位名 → 短名（括号内容去「校区」；无括号返回空 = 不显示校区前缀） */
+function campusShort(officialName: string): string {
+  const m = officialName.match(/（([^）]+)）/);
+  if (!m) return '';
+  return (m[1] || '').replace(/校区$/, '');
+}
+
+/** 民办/中外合作记录 → 「最低分547（公费班628）」；仅公费班时只显示公费班 */
+function privateScoreText(records: HighScoreRecord[]): string | null {
+  const main = records.find((r) => r.kind === 'private' && !r.gongfei);
+  const gongfei = records.find((r) => r.kind === 'private' && r.gongfei);
+  let t: string | null = main?.min_score != null ? `最低分${main.min_score}` : null;
+  if (gongfei?.min_score != null) t = t ? `${t}（公费班${gongfei.min_score}）` : `公费班${gongfei.min_score}`;
+  return t;
+}
+
+/** 单校区某年全部记录 → 展示文本（公办户籍生优先；民办最低分+公费班；艺术类末位分数兜底） */
+function formatYearRecords(records: HighScoreRecord[]): string | null {
+  const pub = records.find((r) => r.kind === 'public');
+  if (pub) return pub.huji != null ? `户籍生${pub.huji}` : null;
+  const privs = records.filter((r) => r.kind === 'private');
+  if (privs.length) return privateScoreText(privs);
+  const art = records.find((r) => r.kind === 'lang_art');
+  if (art) return art.huji_last != null ? `艺术类${art.huji_last}` : null;
+  return null;
+}
+
+/**
+ * 学校（多校区）两年录取线 → 信息行。
+ * 行=年份（2025/2026，有分数才出），值=各校区拼接（`石牌 户籍生740 · 知识城 户籍生727`）。
+ * 口径：公办=户籍生最低分；民办=最低分（含公费班）；外语艺术类=艺术类末位考生分数。
+ */
+export function highScoreRows(scores: SchoolScore[]): SignalRow[] {
+  if (!scores.length) return [];
+  const rows: SignalRow[] = [];
+  for (const year of [2025, 2026]) {
+    const parts: string[] = [];
+    for (const s of scores) {
+      const yr = s.years.find((v) => v.year === year);
+      if (!yr) continue;
+      const text = formatYearRecords(yr.records);
+      if (!text) continue;
+      const short = campusShort(s.officialName);
+      parts.push(short ? `${short} ${text}` : text);
+    }
+    if (parts.length) rows.push({ label: `中考录取线 ${year}`, value: parts.join(' · '), strong: true });
   }
   return rows;
 }

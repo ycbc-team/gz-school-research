@@ -10,7 +10,7 @@ import type {
   HighLevelsSnapshot,
   EnrollmentSnapshot,
 } from '../types.js';
-import type { QuotaMatrix, SpecialMatrix, Batch2Scores, Site, BrandGroups } from './types.js';
+import type { QuotaMatrix, SpecialMatrix, Batch2Scores, HighScores, Site, BrandGroups } from './types.js';
 
 export interface DataLoaders {
   primarySchools: SchoolsSnapshot;
@@ -24,6 +24,9 @@ export interface DataLoaders {
   quotaMatrix: QuotaMatrix;
   specialMatrix: SpecialMatrix;
   batch2Scores: Batch2Scores;
+  /** 高中统招录取分数（官方招考办，2025/2026 两年；按 school_id 引用实体表） */
+  highScores2025: HighScores;
+  highScores2026: HighScores;
   /** 区属指标到校（另一 agent 数据） */
   districtQuota: { data: Record<string, Record<string, number>> };
   /** 实体注册表（school_id 外键 → 名称/别名） */

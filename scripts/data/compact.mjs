@@ -60,7 +60,7 @@ function walkJson(dir) {
 const WEB_TARGETS = walkJson(DATA_SRC)
   .filter((p) => !p.split(sep).some((seg) => seg === 'raw' || seg === '_raw'))
   .map((p) => relative(ROOT, p));
-// 小程序主包数据（地图页 + 首页/支撑度消费）：POI/tier1/levels/招生/实体/升学路线
+// 小程序主包数据（地图页 + 首页/支撑度消费）：POI/tier1/levels/招生/实体/升学路线/官方录取分
 const MP_MAIN_TARGETS = [
   'data/primary/schools-gz.json',
   'data/primary/tier1_schools_all.json',
@@ -69,6 +69,8 @@ const MP_MAIN_TARGETS = [
   'data/middle/tier1_schools_all.json',
   'data/high/schools-gz.json',
   'data/high/levels.json',
+  'data/high/scores_2025.json',
+  'data/high/scores_2026.json',
   'data/primary/enrollments/2026-tianhe.json',
   'data/primary/enrollments/2026-yuexiu.json',
   'data/primary/enrollments/2026-haizhu.json',
@@ -79,6 +81,7 @@ const MP_MAIN_TARGETS = [
   'data/registry/entities.json',
 ];
 // 小程序分包数据（school-detail 详情页专用）：升学通道/身份/品牌/教育集团
+// （官方录取分 scores 已在主包加载，详情页经 baseLoaders 继承，无需重复编译）
 const MP_SUB_TARGETS = [
   'data/linkage/quota_matrix.json',
   'data/linkage/special_matrix.json',

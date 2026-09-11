@@ -15,6 +15,7 @@ import {
   normName,
   formatPrimarySignals,
   formatMiddleSignals,
+  highScoreRows,
   type Tier1School,
   type HighLevelSchool,
 } from '@gz/shared';
@@ -34,6 +35,7 @@ import {
   xiaoshengchuOf,
   schoolBadges,
   supportBadge,
+  scoresOfSchool,
   isComprehensive,
   brandGroupOf,
   type BrandUnit,
@@ -216,9 +218,9 @@ function pickRows(keys: [string, string, boolean?][]) {
   }
   return rows;
 }
-/** 高中招生：中考录取线（官方） */
+/** 高中招生：中考录取线（官方，2025/2026 两年；公办户籍生 / 民办最低分口径） */
 const admissionRows = computed(() =>
-  pickRows([['score_2025', '2025 中考录取线（户籍生）', true]]),
+  highScoreRows(scoresOfSchool(schoolName.value, rec.value?.campuses || [])),
 );
 /** 高考信息：高分段/特控率（网传喜报） */
 const gaokaoRows = computed(() =>
@@ -485,7 +487,7 @@ const brandCardUseful = computed(() =>
             <span>{{ r.label }}</span><b :class="{ strong: r.strong }">{{ r.value }}</b>
           </div>
         </div>
-        <p class="sub-note">录取线为官方发布（户籍生）。</p>
+        <p class="sub-note">录取线为官方发布：公办为户籍生最低分，民办为最低分（含公费班），外语艺术类为末位考生分数；2025/2026 两年同屏展示。</p>
       </div>
       <LinkagePanel :stage="'high'" :school="schoolName" />
     </template>

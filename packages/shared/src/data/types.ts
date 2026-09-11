@@ -38,6 +38,43 @@ export interface Batch2Scores {
   data: Record<string, Record<string, Batch2Record>>;
 }
 
+/** 高中统招录取分数记录（data/high/scores_{year}.json，官方招考办发布；按 school_id 引用实体表） */
+export interface HighScoreRecord {
+  /** 官方招生单位原文名（含校区/班型，如「华南师范大学附属中学（石牌校区）」「广州市为明学校（盛景校区）」） */
+  official_name: string;
+  /** 学校性质：公办 / 民办 / 中外合作（官方「学校性质」列） */
+  nature: string;
+  /** 批次：1=第一批次（外语艺术类） 3=第三批次 4=第四批次 */
+  batch: number;
+  /** 记录类型：public=公办（户籍/非户籍/外区生三口径） private=民办/中外合作（最低分数口径） lang_art=外语艺术类（末位考生分数口径） */
+  kind: 'public' | 'private' | 'lang_art';
+  scope?: string;
+  /** 公办：户籍生最低分数 */
+  huji?: number | null;
+  /** 公办：非户籍生最低分数 */
+  feihuji?: number | null;
+  /** 公办：外区生最低分数（仅第三批） */
+  waiqu?: number | null;
+  /** 民办/中外合作：最低分数 */
+  min_score?: number | null;
+  /** 外语艺术类：户籍生末位考生分数 */
+  huji_last?: number | null;
+  /** 外语艺术类：非户籍生末位考生分数 */
+  feihuji_last?: number | null;
+  /** 民办公费班条目（官方独立条目，名含「（公费班）」） */
+  gongfei?: boolean;
+}
+export interface HighScores {
+  year: number;
+  title: string;
+  updated: string;
+  source: Array<{ batch: number; title: string; url: string }>;
+  /** 校区实体（school_id）→ 该校区录取记录（可多批次/多条目） */
+  by_school_id: Record<string, HighScoreRecord[]>;
+  /** 未收录实体（远郊 7 区外 / 中外合作办学项目 / 新校）的官方原文，保留数据供扩展 */
+  unmapped: Array<Record<string, unknown>>;
+}
+
 /** 学校身份注册表（site 粒度） */
 export interface Site {
   id: string;

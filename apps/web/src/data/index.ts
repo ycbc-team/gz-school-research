@@ -26,6 +26,8 @@ import batch2ScoresCompact from './compact/linkage/batch2_scores.js';
 import districtQuotaCompact from './compact/linkage/district_quota.js';
 import sitesRegistryCompact from './compact/registry/sites.js';
 import brandGroupsCompact from './compact/registry/brand_groups.js';
+import highScores2025Compact from './compact/high/scores_2025.js';
+import highScores2026Compact from './compact/high/scores_2026.js';
 
 /** 紧凑结构经 hydrate 还原后的类型断言（字段为数据真源，结构由 scripts/ 保证） */
 const cast = <T>(v: unknown): T => v as T;
@@ -50,6 +52,8 @@ const loaders: DataLoaders = {
   quotaMatrix: cast(hydrate(quotaMatrixCompact)),
   specialMatrix: cast(hydrate(specialMatrixCompact)),
   batch2Scores: cast(hydrate(batch2ScoresCompact)),
+  highScores2025: cast(hydrate(highScores2025Compact)),
+  highScores2026: cast(hydrate(highScores2026Compact)),
   districtQuota: cast(hydrate(districtQuotaCompact)),
   entities: cast(hydrate(entitiesCompact)),
   xiaoshengchu: cast(hydrate(xiaoshengchu2026Compact)),
@@ -71,6 +75,8 @@ export const middleSchools = loaders.middleSchools;
 export const middleTier1 = loaders.middleTier1;
 export const highSchools = loaders.highSchools;
 export const highLevels = loaders.highLevels;
+export const highScores2025 = loaders.highScores2025;
+export const highScores2026 = loaders.highScores2026;
 export const quotaMatrix = loaders.quotaMatrix;
 export const specialMatrix = loaders.specialMatrix;
 export const batch2Scores = loaders.batch2Scores;
@@ -94,6 +100,9 @@ export const {
   middlePrimaryFeed,
   schoolBadges,
   supportBadge,
+  scoresOfSchool,
+  scoresBySchoolId,
+  resolveSchoolId,
   resolveSite,
   brandGroupOf,
   tier1Schools,
@@ -109,6 +118,8 @@ export type {
   SpecialMatrix,
   Batch2Record,
   Batch2Scores,
+  HighScoreRecord,
+  HighScores,
   Site,
   BrandUnit,
   BrandGroup,

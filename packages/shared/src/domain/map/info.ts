@@ -3,7 +3,7 @@
  * Web 底部抽屉与小程序 cover-view 抽屉共用同一模型。
  */
 import { normName } from '../../support.js';
-import { formatPrimarySignals, formatMiddleSignals, formatXiaoshengchuBrief } from '../../format.js';
+import { formatPrimarySignals, formatMiddleSignals, formatXiaoshengchuBrief, highScoreRows } from '../../format.js';
 import type { Repository } from '../../data/repository.js';
 import { districtByAdcode, STAGE_LABEL } from './constants.js';
 import type { MapPointFull } from './points.js';
@@ -85,7 +85,8 @@ export function buildInfoModel(pt: MapPointFull, repo: Repository): InfoModel {
       const v = ind[k];
       if (v !== undefined && v !== null && v !== '') rows.push({ label, value: String(v), strong });
     };
-    put('score_2025', '2025 中考录取线（户籍生）', true);
+    // 中考录取线：官方分数（2025/2026 两年，按校区实体 school_id 引用）；公办=户籍生最低分，民办=最低分（含公费班）
+    rows.push(...highScoreRows(repo.scoresOfSchool(name, rec.campuses || [])));
     put('tekong_2026', '特控线上线率 2026');
     put('gaofen_2026', '高分段 2026');
     return {
@@ -93,7 +94,7 @@ export function buildInfoModel(pt: MapPointFull, repo: Repository): InfoModel {
       badges: repo.schoolBadges('high', { district: districtName, rec, name }),
       head: null,
       rows,
-      note: '口径：录取线为官方发布；特控率/高分段为喜报或网传数据。完整出口数据见详情页。',
+      note: '口径：录取线为官方发布（公办户籍生 / 民办最低分）；特控率/高分段为喜报或网传数据。完整出口数据见详情页。',
       links: detailLinks,
     };
   }

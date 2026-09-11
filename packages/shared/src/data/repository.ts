@@ -11,6 +11,7 @@ import { createEnrollmentApi } from './enrollment.js';
 import { createQuotaApi } from './quota.js';
 import { createRegistryApi } from './registry.js';
 import { createBadgesApi } from './badges.js';
+import { createScoresApi } from './scores.js';
 import {
   CAMPUS_NAMES, CAMPUS_INFO,
 } from './campuses.js';
@@ -23,6 +24,7 @@ export function createRepository(loaders: DataLoaders) {
   const quota = createQuotaApi(loaders);
   const registry = createRegistryApi(loaders);
   const badges = createBadgesApi(loaders);
+  const scores = createScoresApi(loaders);
 
   return {
     /** tier1 学校数组（跨区拍平） */
@@ -48,6 +50,7 @@ export function createRepository(loaders: DataLoaders) {
     ...quota,
     ...registry,
     ...badges,
+    ...scores,
 
     /** 校区常量（21 省市属校区，官方名额分配原文名；键序=官方汇总表顺序） */
     CAMPUS_NAMES,

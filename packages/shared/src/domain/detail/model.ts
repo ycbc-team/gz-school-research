@@ -4,7 +4,7 @@
  * Web 详情页与小程序详情页共用；本模块零平台依赖。
  */
 import { buildAliasTable, matchTier1ByPoiName, normName } from '../../support.js';
-import { formatPrimarySignals, formatMiddleSignals } from '../../format.js';
+import { formatPrimarySignals, formatMiddleSignals, highScoreRows } from '../../format.js';
 import { ADCODE_TO_DISTRICT } from '../../const.js';
 import type { Tier1School, HighLevelSchool, SchoolStage, SchoolPoi, SchoolsSnapshot } from '../../types.js';
 import type { Repository } from '../../data/repository.js';
@@ -175,7 +175,9 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     }
     return rows;
   };
-  const admissionRows = pickRows([['score_2025', '2025 中考录取线（户籍生）', true]]);
+  const admissionRows: DetailRow[] = highScoreRows(
+    repo.scoresOfSchool(schoolName, rec?.campuses || []),
+  );
   const gaokaoRows = pickRows([
     ['gaofen_2026', '高分段 2026'], ['gaofen_2025', '高分段 2025'],
     ['tekong_2026', '特控线上线率 2026'], ['tekong_2025', '特控线上线率 2025'], ['note', '备注'],

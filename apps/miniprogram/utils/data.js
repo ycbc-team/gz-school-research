@@ -23,6 +23,8 @@ const baseLoaders = {
   middleTier1: cast(hydrate(require('../data/middle/tier1_schools_all.js'))),
   highSchools: cast(hydrate(require('../data/high/schools-gz.js'))),
   highLevels: cast(hydrate(require('../data/high/levels.js'))),
+  highScores2025: cast(hydrate(require('../data/high/scores_2025.js'))),
+  highScores2026: cast(hydrate(require('../data/high/scores_2026.js'))),
   enrollments: [
     cast(hydrate(require('../data/primary/enrollments/2026-tianhe.js'))),
     cast(hydrate(require('../data/primary/enrollments/2026-yuexiu.js'))),
