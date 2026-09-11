@@ -5,7 +5,7 @@
  * - 本组件只保留：地图渲染（Leaflet）、选中态高亮、底部抽屉交互、筛选浮层 UI
  * - 信息卡为底部抽屉（与小程序 cover-view 抽屉对齐，2026-09-11 决策）
  */
-import { computed, onActivated, onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { computed, nextTick, onActivated, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -320,6 +320,71 @@ function closeInfo() {
   active.value = null;
 }
 
+/* ========== 底部抽屉手势：下拉收起（对齐小程序 cover-view 抽屉交互） ========== */
+const sheetEl = ref<HTMLElement | null>(null);
+let sheetStartY = 0;
+let sheetDy = 0;
+let sheetMoved = false;
+let sheetTracking = false;
+let detachSheetGesture: (() => void) | null = null;
+
+function attachSheetGesture() {
+  const el = sheetEl.value;
+  if (!el || detachSheetGesture) return;
+  const onStart = (e: TouchEvent) => {
+    const t = e.touches[0];
+    if (!t || e.touches.length !== 1) return;
+    sheetStartY = t.clientY;
+    sheetDy = 0;
+    sheetMoved = false;
+    sheetTracking = true;
+  };
+  const onMove = (e: TouchEvent) => {
+    if (!sheetTracking) return;
+    const t = e.touches[0];
+    if (!t) return;
+    const dy = t.clientY - sheetStartY;
+    // 上滑、或内容未滚到顶部：交给原生滚动，不抢手势
+    if (dy <= 0 || el.scrollTop > 0) { sheetDy = 0; return; }
+    e.preventDefault(); // 阻止浏览器下拉刷新/返回手势接管
+    sheetDy = dy;
+    sheetMoved = true;
+    // 保留 CSS 的 translateX(-50%) 居中，叠加下拉位移
+    el.style.transform = `translateX(-50%) translateY(${Math.min(dy * 0.5, 200)}px)`;
+    el.classList.add('si-dragging');
+  };
+  const onEnd = () => {
+    if (!sheetTracking) return;
+    sheetTracking = false;
+    el.classList.remove('si-dragging');
+    const threshold = Math.max(90, el.offsetHeight * 0.22);
+    if (sheetDy > threshold) closeInfo();
+    else el.style.transform = '';
+    sheetDy = 0;
+  };
+  // 拖拽后吞掉本次点击，避免误触抽屉内链接/按钮
+  const onClickCapture = (e: Event) => {
+    if (sheetMoved) { e.preventDefault(); e.stopPropagation(); }
+  };
+  el.addEventListener('touchstart', onStart, { passive: true });
+  el.addEventListener('touchmove', onMove, { passive: false });
+  el.addEventListener('touchend', onEnd);
+  el.addEventListener('touchcancel', onEnd);
+  el.addEventListener('click', onClickCapture, true);
+  detachSheetGesture = () => {
+    el.removeEventListener('touchstart', onStart);
+    el.removeEventListener('touchmove', onMove);
+    el.removeEventListener('touchend', onEnd);
+    el.removeEventListener('touchcancel', onEnd);
+    el.removeEventListener('click', onClickCapture, true);
+    detachSheetGesture = null;
+  };
+}
+watch(active, (v) => {
+  if (v) nextTick(attachSheetGesture);
+  else detachSheetGesture?.();
+});
+
 /** 详情页"在地图中查看"：按校名定位并弹出信息卡 */
 function focusSchool(name: string) {
   const pt = mapPoints.find((p) => p.name === name) || mapPoints.find((p) => p.name.includes(name));
@@ -418,7 +483,7 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
   </div>
 
   <!-- 底部抽屉信息卡（对齐小程序 cover-view 抽屉；点地图空白处关闭，无变暗蒙层） -->
-  <aside v-if="infoModel" class="school-info">
+  <aside v-if="infoModel" ref="sheetEl" class="school-info">
     <div class="si-handle"></div>
     <button class="si-close" aria-label="关闭" @click="closeInfo">×</button>
     <div class="si-name">{{ infoModel.name }}</div>
@@ -540,10 +605,17 @@ section { position: relative; }
   border-radius: 16px 16px 14px 14px; box-shadow: 0 -6px 28px rgba(20,30,50,0.18);
   padding: 8px 16px 12px; z-index: 1100;
   font-size: 12.5px;
+  /* 手势下拉收起：pan-y 保留内容原生纵向滚动；下拉时由 JS preventDefault 接管 */
+  touch-action: pan-y;
+  overscroll-behavior: contain;
+  transition: transform 0.22s ease;
+  will-change: transform;
 }
+.school-info.si-dragging { transition: none; }
 .si-handle {
   width: 44px; height: 4px; border-radius: 2px; background: #d6d4cc;
   margin: 0 auto 8px;
+  touch-action: none; /* 把手区域拖动始终由手势逻辑接管，不与浏览器滚动冲突 */
 }
 .si-close {
   position: absolute; top: 8px; right: 10px; border: none; background: none;
