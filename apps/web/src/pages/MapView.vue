@@ -80,7 +80,24 @@ function pickResult(pt: MapPointFull) {
 
 /* ========== 地图 ========== */
 const mapEl = ref<HTMLDivElement | null>(null);
+const mapPageEl = ref<HTMLElement | null>(null);
 let map: L.Map | null = null;
+
+/**
+ * 手机端全屏适配：顶部导航在窄屏可能换行（高度不固定），
+ * 用实测头部高度精确铺满视口，避免底部留白/超出被截断。
+ * PC 端由容器布局（.map 的 calc(100vh - 140px)）控制，不在此干预。
+ */
+function fitMapPage() {
+  const sec = mapPageEl.value;
+  const header = document.querySelector<HTMLElement>('.app-header');
+  if (!sec || !header) return;
+  if (window.matchMedia('(min-width: 601px)').matches) {
+    sec.style.height = '';
+    return;
+  }
+  sec.style.height = `${window.innerHeight - header.getBoundingClientRect().height}px`;
+}
 /** 渲染条目：点位 marker + 可选晕光，按筛选显隐 */
 interface RenderedItem { pt: MapPointFull; marker: L.Marker }
 const rendered: RenderedItem[] = [];
@@ -215,6 +232,11 @@ function coreCenter(): [number, number] | null {
 }
 
 onMounted(() => {
+  fitMapPage();
+  window.addEventListener('resize', fitMapPage);
+  window.visualViewport?.addEventListener('resize', fitMapPage);
+  // 字体加载完成会改变头部高度（窄屏换行），字体就绪后重新精确测量一次
+  document.fonts?.ready.then(fitMapPage).catch(() => {});
   if (!mapEl.value) return;
   const cc = coreCenter();
   map = L.map(mapEl.value, {
@@ -251,12 +273,15 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
+  window.removeEventListener('resize', fitMapPage);
+  window.visualViewport?.removeEventListener('resize', fitMapPage);
   map?.remove();
   map = null;
 });
 
 // keep-alive 缓存下从详情页返回时重新显示：容器尺寸恢复后重算地图，避免瓦片/点位错位
 onActivated(() => {
+  fitMapPage();
   if (map) map.invalidateSize();
 });
 
@@ -310,7 +335,7 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
 </script>
 
 <template>
-  <section>
+  <section ref="mapPageEl" class="map-page">
   <!-- 浮层：搜索 + 筛选（压在地图上方） -->
   <div class="float-panel">
     <div class="search-bar">
@@ -563,8 +588,14 @@ section { position: relative; }
 .si-link:hover { text-decoration: underline; }
 
 @media (max-width: 600px) {
+  /* 手机端：地图铺满整个屏幕（取消卡片圆角/边框，抵消 app-main 的 20px/16px/48px 内边距） */
+  .map-page {
+    margin: -20px -16px -48px;
+    height: calc(100vh - 52px); /* 顶部导航高度兜底 */
+    height: calc(100dvh - 52px); /* iOS Safari 地址栏收起/展开时动态高度 */
+  }
+  .map { height: 100%; min-height: 0; border-radius: 0; border: none; }
   .school-info { width: calc(100vw - 12px); bottom: 6px; max-height: 58vh; }
-  .map { height: 480px; }
 }
 </style>
 
