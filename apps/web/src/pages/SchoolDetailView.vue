@@ -120,18 +120,32 @@ const primaryMechanism = computed(() => {
   return null;
 });
 /* ========== 小学：升学路线（对口初中 · 派位/直升） ========== */
+const GAP_MARKERS = ['待查', '未在', '缺口', '暂缺'];
 const feedJuniors = computed(() => {
   if (props.stage !== 'primary') return null;
   const xs = tier.value?.xiaoshengchu;
   if (!xs) return null;
   return { group: xs.group, feed_junior_highs: xs.feed_junior_highs || [], direct_feed: xs.direct_feed, source_note: xs.source_note };
 });
+const feedGap = computed(() => {
+  if (props.stage !== 'primary') return null;
+  const xs = tier.value?.xiaoshengchu;
+  if (!xs) return '升学路线数据暂未收录（当前仅覆盖口碑校，全量小学补录中）。';
+  const f = xs.feed_junior_highs || [];
+  if (!f.length) return '升学路线数据缺口：官方未公布该校对口/派位初中，待补录。';
+  const placeholder = f.filter((n) => GAP_MARKERS.some((m) => n.includes(m)));
+  if (placeholder.length) return `升学路线数据缺口：${placeholder.join('；')}`;
+  return null;
+});
 const feedRows = computed(() => {
   const f = feedJuniors.value;
-  if (!f) return [];  return f.feed_junior_highs.map((name) => {
-    const q = middleQuotaSummary(name);
-    return { name, summary: q ? `省市属 ${q.sheng_quota ?? 0} · 名额考生 ${q.kaosheng ?? '—'}` : null, hasQuota: !!q };
-  });
+  if (!f) return [];
+  return f.feed_junior_highs
+    .filter((name) => !GAP_MARKERS.some((m) => name.includes(m)))
+    .map((name) => {
+      const q = middleQuotaSummary(name);
+      return { name, summary: q ? `省市属 ${q.sheng_quota ?? 0} · 名额考生 ${q.kaosheng ?? '—'}` : null, hasQuota: !!q };
+    });
 });
 
 /* ========== 初中：生源小学反查 ========== */
@@ -372,18 +386,19 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
     </div>
 
     <!-- 小学：升学路线（对口初中 · 派位/直升） -->
-    <div v-if="stage === 'primary' && feedRows.length" class="card">
+    <div v-if="stage === 'primary' && (feedRows.length || feedGap)" class="card">
       <div class="card-title">升学路线 · 对口初中{{ feedJuniors?.group ? `（${feedJuniors.group}派位）` : '（对口直升）' }}</div>
       <p v-if="feedJuniors?.direct_feed" class="sub-note">直升：{{ feedJuniors.direct_feed }}</p>
-      <div class="feed-list">
+      <div v-if="feedRows.length" class="feed-list">
         <div v-for="r in feedRows" :key="r.name" class="feed-item">
           <RouterLink :to="`/school/middle/${encodeURIComponent(r.name)}`" class="feed-name">{{ r.name }}</RouterLink>
           <span v-if="r.summary" class="tag">{{ r.summary }}</span>
           <span v-else class="tag tag-dim">区属初中</span>
         </div>
       </div>
+      <p v-if="feedGap" class="empty" :style="feedRows.length ? 'margin-top:8px;text-align:left;' : ''">{{ feedGap }}</p>
       <p v-if="feedJuniors?.source_note" class="sub-note" style="margin-top:8px;">{{ feedJuniors.source_note }}</p>
-      <p class="sub-note" style="margin-top:4px;">点击初中可查看该校升学通道详情。</p>
+      <p v-if="feedRows.length" class="sub-note" style="margin-top:4px;">点击初中可查看该校升学通道详情。</p>
     </div>
 
     <!-- 小学：小升初机制 -->

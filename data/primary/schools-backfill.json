@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-08",
+ "updated": "2026-09-10",
  "added": 32,
  "items": [
   {
@@ -449,6 +449,383 @@
    },
    "score": 1000,
    "note": ""
+  },
+  {
+   "school": "八一实验学校（小学部）",
+   "poi": {
+    "name": "广州市八一实验学校(南校区)",
+    "lng": 113.301562,
+    "lat": 23.117478,
+    "adcode": "440104",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:广州市八一实验学校(南校区)"
+  },
+  {
+   "school": "知用学校（小学部）",
+   "poi": {
+    "name": "广州市知用学校",
+    "lng": 113.259618,
+    "lat": 23.129739,
+    "adcode": "440104",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:广州市知用学校"
+  },
+  {
+   "school": "第七中学实验学校（小学部）",
+   "poi": {
+    "name": "广州市第七中学实验学校",
+    "lng": 113.247304,
+    "lat": 23.153288,
+    "adcode": "440104",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:广州市第七中学实验学校"
+  },
+  {
+   "school": "广州市第一中学双桥学校（小学部）",
+   "poi": {
+    "name": "广州市第一中学双桥学校",
+    "lng": 113.220088,
+    "lat": 23.127253,
+    "adcode": "440103",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:广州市第一中学双桥学校"
+  },
+  {
+   "school": "广东外语外贸大学实验中学（陈田西校区小学部）",
+   "poi": {
+    "name": "广东外语外贸大学实验中学",
+    "lng": 113.356654,
+    "lat": 23.296202,
+    "adcode": "440111",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:广东外语外贸大学实验中学"
+  },
+  {
+   "school": "庆丰实验学校",
+   "poi": {
+    "name": "广州市庆丰实验学校",
+    "lng": 113.221268,
+    "lat": 23.210723,
+    "adcode": "440111",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:广州市庆丰实验学校"
+  },
+  {
+   "school": "平沙培英学校",
+   "poi": {
+    "name": "平沙培英学校",
+    "lng": 113.263047,
+    "lat": 23.248368,
+    "adcode": "440111",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:平沙培英学校"
+  },
+  {
+   "school": "广铁八小",
+   "poi": {
+    "name": "广铁八小",
+    "lng": 113.223303,
+    "lat": 23.297911,
+    "adcode": "440111",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:广铁八小"
+  },
+  {
+   "school": "执信中学琶洲实验学校（小学部）",
+   "poi": {
+    "name": "广州市执信中学琶洲实验学校",
+    "lng": 113.379439,
+    "lat": 23.098814,
+    "adcode": "440105",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:广州市执信中学琶洲实验学校"
+  },
+  {
+   "school": "华颖外国语学校（小学部）",
+   "poi": {
+    "name": "广州市华颖外国语学校",
+    "lng": 113.356246,
+    "lat": 23.121626,
+    "adcode": "440106",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:广州市华颖外国语学校"
+  },
+  {
+   "school": "天河中学猎德实验学校（小学部）",
+   "poi": {
+    "name": "广州市天河中学猎德实验学校",
+    "lng": 113.337457,
+    "lat": 23.115805,
+    "adcode": "440106",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:广州市天河中学猎德实验学校"
+  },
+  {
+   "school": "华峰学校",
+   "poi": {
+    "name": "华峰学校",
+    "lng": 113.563407,
+    "lat": 23.196579,
+    "adcode": "440112",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:华峰学校"
+  },
+  {
+   "school": "华南师范大学附属黄埔实验学校",
+   "poi": {
+    "name": "华南师范大学附属黄埔实验学校(南校区)",
+    "lng": 113.46302,
+    "lat": 23.166421,
+    "adcode": "440112",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:华南师范大学附属黄埔实验学校(南校区)"
+  },
+  {
+   "school": "广大附中黄埔实验学校（西校区）",
+   "poi": {
+    "name": "广大附中黄埔实验学校(西校区)",
+    "lng": 113.432426,
+    "lat": 23.118424,
+    "adcode": "440112",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:广大附中黄埔实验学校(西校区)"
+  },
+  {
+   "school": "广东外语外贸大学附属科学城实验学校",
+   "poi": {
+    "name": "广东外语外贸大学附属科学城实验学校",
+    "lng": 113.50627,
+    "lat": 23.163607,
+    "adcode": "440112",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:广东外语外贸大学附属科学城实验学校"
+  },
+  {
+   "school": "广东外语外贸大学附属黄埔实验学校",
+   "poi": {
+    "name": "广东外语外贸大学附属黄埔实验学校",
+    "lng": 113.529151,
+    "lat": 23.109562,
+    "adcode": "440112",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:广东外语外贸大学附属黄埔实验学校"
+  },
+  {
+   "school": "广大附中高新区实验学校（南校区）",
+   "poi": {
+    "name": "广大附中高新区实验学校(南校区)",
+    "lng": 113.540228,
+    "lat": 23.16585,
+    "adcode": "440112",
+    "src": "backfill"
+   },
+   "score": 1000,
+   "match_rule": "exact",
+   "note": "高德POI:广大附中高新区实验学校(南校区)"
+  },
+  {
+   "school": "广州市协和学校（小学部）",
+   "poi": {
+    "name": "广州市协和学校（小学部）",
+    "lng": 113.241217,
+    "lat": 23.144465,
+    "adcode": "440103",
+    "src": "from_middle"
+   },
+   "score": 900,
+   "match_rule": "middle_entity",
+   "note": "复用中学层POI:广州协和学校"
+  },
+  {
+   "school": "广东实验中学荔湾学校花地湾校区（小学部）",
+   "poi": {
+    "name": "广东实验中学荔湾学校花地湾校区（小学部）",
+    "lng": 113.243214,
+    "lat": 23.070503,
+    "adcode": "440103",
+    "src": "from_middle"
+   },
+   "score": 900,
+   "match_rule": "middle_entity",
+   "note": "复用中学层POI:广东实验中学荔湾学校(初中部)"
+  },
+  {
+   "school": "广州市白云中学棠景校区小学部",
+   "poi": {
+    "name": "广州市白云中学棠景校区小学部",
+    "lng": 113.260647,
+    "lat": 23.196584,
+    "adcode": "440111",
+    "src": "from_middle"
+   },
+   "score": 900,
+   "match_rule": "middle_entity",
+   "note": "复用中学层POI:广州市白云中学(汇侨校区)"
+  },
+  {
+   "school": "广州市白云区白云广附云湖实验学校小学部",
+   "poi": {
+    "name": "广州市白云区白云广附云湖实验学校小学部",
+    "lng": 113.213825,
+    "lat": 23.224404,
+    "adcode": "440111",
+    "src": "from_middle"
+   },
+   "score": 900,
+   "match_rule": "middle_entity",
+   "note": "复用中学层POI:白云广附云湖实验学校"
+  },
+  {
+   "school": "颐和实验小学",
+   "poi": {
+    "name": "颐和实验小学",
+    "lng": 113.315125,
+    "lat": 23.217375,
+    "adcode": "440111",
+    "src": "from_middle"
+   },
+   "score": 900,
+   "match_rule": "middle_entity",
+   "note": "复用中学层POI:应元颐和实验学校初中部"
+  },
+  {
+   "school": "广东外语外贸大学实验中学小学部",
+   "poi": {
+    "name": "广东外语外贸大学实验中学小学部",
+    "lng": 113.356654,
+    "lat": 23.296202,
+    "adcode": "440111",
+    "src": "from_middle"
+   },
+   "score": 900,
+   "match_rule": "middle_entity",
+   "note": "复用中学层POI:广东外语外贸大学实验中学"
+  },
+  {
+   "school": "新和学校小学部",
+   "poi": {
+    "name": "新和学校小学部",
+    "lng": 113.466251,
+    "lat": 23.414344,
+    "adcode": "440111",
+    "src": "from_middle"
+   },
+   "score": 900,
+   "match_rule": "middle_entity",
+   "note": "复用中学层POI:新和学校"
+  },
+  {
+   "school": "广东番禺中学实验学校",
+   "poi": {
+    "name": "广东番禺中学实验学校(小学部)",
+    "lng": 113.312583,
+    "lat": 22.996941,
+    "adcode": "440113",
+    "src": "from_middle"
+   },
+   "score": 900,
+   "match_rule": "middle_entity",
+   "note": "复用中学层POI:番禺中学实验学校"
+  },
+  {
+   "school": "绿翠现代实验学校（小学部）",
+   "poi": {
+    "name": "绿翠现代实验学校（小学部）",
+    "lng": 113.310793,
+    "lat": 23.101574,
+    "adcode": "440105",
+    "src": "from_middle"
+   },
+   "score": 900,
+   "match_rule": "middle_entity",
+   "note": "复用中学层POI:广州市绿翠现代实验学校滨江校区"
+  },
+  {
+   "school": "汇景实验学校（小学部）",
+   "poi": {
+    "name": "汇景实验学校（小学部）",
+    "lng": 113.362806,
+    "lat": 23.149555,
+    "adcode": "440106",
+    "src": "from_middle"
+   },
+   "score": 900,
+   "match_rule": "middle_entity",
+   "note": "复用中学层POI:广州市第四十七中汇景实验学校(中学部)"
+  },
+  {
+   "school": "广州奥林匹克中学（智谷校区）小学部",
+   "poi": {
+    "name": "广州奥林匹克中学（智谷校区）小学部",
+    "lng": 113.40448,
+    "lat": 23.123395,
+    "adcode": "440106",
+    "src": "from_middle"
+   },
+   "score": 900,
+   "match_rule": "middle_entity",
+   "note": "复用中学层POI:广州市奥林匹克中学(黄村西路校区)"
+  },
+  {
+   "school": "开元学校（东校区）",
+   "poi": {
+    "name": "开元学校（东校区）(小学部)",
+    "lng": 113.555917,
+    "lat": 23.213666,
+    "adcode": "440112",
+    "src": "from_middle"
+   },
+   "score": 900,
+   "match_rule": "middle_entity",
+   "note": "复用中学层POI:广州开元学校"
   }
  ]
 }
