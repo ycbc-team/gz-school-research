@@ -211,7 +211,7 @@ const indRows = computed(() => {
 
 /* ========== 其他 ========== */
 const badges = computed<{ text: string; cls: string }[]>(() =>
-  schoolBadges(stage.value, { district: districtOf.value, tier: tier.value, rec: rec.value, name: schoolName.value }),
+  schoolBadges(stage.value, { district: districtOf.value, tier: tier.value, rec: rec.value, name: schoolName.value, singleStage: true }),
 );
 const support = computed(() => supportBadge(tier.value));
 const headText = computed(() => {
@@ -478,7 +478,7 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
     <!-- 高中：出口数据 + 升学路径覆盖（LinkagePanel 公共组件） -->
     <template v-if="stage === 'high'">
       <div class="card" v-if="indRows.length">
-        <div class="card-title">出口数据</div>
+        <div class="card-title">高中招生 · 中考录取线</div>
         <div class="kv">
           <div class="kv-row" v-for="r in indRows" :key="r.label">
             <span>{{ r.label }}</span><b :class="{ strong: r.strong }">{{ r.value }}</b>

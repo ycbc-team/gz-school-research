@@ -407,30 +407,30 @@ export function middlePrimaryFeed(middleName: string): { primary: string; group:
 export interface SchoolBadge { text: string; cls: string }
 export function schoolBadges(
   stage: 'primary' | 'middle' | 'high',
-  opts: { district?: string; tier?: any; rec?: any; name?: string },
+  opts: { district?: string; tier?: any; rec?: any; name?: string; singleStage?: boolean },
 ): SchoolBadge[] {
   const out: SchoolBadge[] = [];
   if (opts.district) out.push({ text: opts.district, cls: 'b-district' });
-  // 学段 badge：完中同时标初中+高中
+  // 学段 badge：singleStage（详情页 tab）只标当前学部；否则完中标初中+高中
   const comprehensive = !!opts.name && isComprehensive(opts.name);
   if (stage === 'primary') out.push({ text: '小学', cls: 'b-stage' });
   else if (stage === 'middle') {
     out.push({ text: '初中', cls: 'b-stage' });
-    if (comprehensive) out.push({ text: '高中', cls: 'b-stage' });
+    if (comprehensive && !opts.singleStage) out.push({ text: '高中', cls: 'b-stage' });
   } else {
     out.push({ text: '高中', cls: 'b-stage' });
-    if (comprehensive) out.push({ text: '初中', cls: 'b-stage' });
+    if (comprehensive && !opts.singleStage) out.push({ text: '初中', cls: 'b-stage' });
   }
   const t = opts.tier;
   if (t) {
     if (t.tier1_eligible === false) out.push({ text: '挂牌', cls: 'b-license' });
     else out.push({ text: '口碑', cls: 'b-tier' });
   }
-  if ((stage === 'high' || comprehensive) && opts.rec) {
+  // 省/市示范是高中部级别，只在高中 tab 显示（初中 tab 不显示高中 badge）
+  if (stage === 'high' && opts.rec) {
     if (opts.rec.category === '省市属示范') out.push({ text: '省示范', cls: 'b-hcity' });
     else if (opts.rec.category === '区属示范') out.push({ text: '市示范', cls: 'b-hdist' });
   }
-  // 注：demonstration_high 是高中示范级别，初中/小学不展示该 badge（避免把完中高中部级别误标成初中"省示范"）
   return out;
 }
 /** 口碑支撑度 badge（仅口碑信号卡内使用）：有支撑/部分支撑/无支撑 */
