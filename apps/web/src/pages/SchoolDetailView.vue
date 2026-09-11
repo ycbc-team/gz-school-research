@@ -339,6 +339,10 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
   if (indepRows.length) groups.push({ key: 'independent', title: '独立法人单位（品牌合作 · 口碑/挂牌按成绩判定）', rows: indepRows });
   return { brand: g.brand, note: g.brand_note, groups };
 });
+/** 品牌关联有兄弟校区才展示（只剩自己则不显示该模块） */
+const brandCardUseful = computed(() =>
+  !!brandCard.value && brandCard.value.groups.some((g) => g.rows.some((r) => !r.isCurrent)),
+);
 </script>
 
 <template>
@@ -459,7 +463,7 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
         <p class="sub-note">高分段/特控率为各校喜报或网传，非官方统一发布，仅供参考。</p>
       </div>
       <div class="card" v-if="admissionRows.length">
-        <div class="card-title">招生计划（2026）</div>
+        <div class="card-title">招生计划</div>
         <div class="kv">
           <div class="kv-row" v-for="r in admissionRows" :key="r.label">
             <span>{{ r.label }}</span><b :class="{ strong: r.strong }">{{ r.value }}</b>
@@ -471,7 +475,7 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
     </template>
 
     <!-- 品牌关联 + 校区（合并） -->
-    <div v-if="brandCard || rec?.campuses?.length" class="card">
+    <div v-if="brandCardUseful" class="card">
       <div class="card-title">品牌关联</div>
       <template v-if="brandCard">
         <p class="sub-note">同一品牌下的校区与学校，按法人关系分组。</p>
@@ -496,7 +500,7 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
         </div>
       </template>
       <!-- 无品牌集团卡片时，校区列表用 brand-row 风格（可点击 + 学部 badge） -->
-      <div v-if="!brandCard && rec?.campuses?.length" class="brand-group">
+      <div v-if="!brandCardUseful && rec?.campuses && rec.campuses.length > 1" class="brand-group">
         <div v-for="c in rec.campuses" :key="c" class="brand-row">
           <div class="brand-row-main">
             <RouterLink :to="`/school/${encodeURIComponent(c)}?stage=high`" class="brand-name-link">{{ c }}</RouterLink>

@@ -123,7 +123,7 @@ const highSpecialCoverage = computed(() => {
   <!-- ===== 初中视角：按录取批次组织 ===== -->
   <template v-if="stage === 'middle'">
     <div class="card" v-if="specialRows.length">
-      <div class="card-title">第一批招生（2026）</div>
+      <div class="card-title">中考-第一批</div>
       <p class="sub-note">特殊通道：自主招生 / 体育 / 艺术特长生。本校学生通过特殊通道被以下高中录取（资格名单人数，非最终预录取）。</p>
       <div class="tbl">
         <div class="tbl-row tbl-head"><span>升入高中</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
@@ -134,7 +134,7 @@ const highSpecialCoverage = computed(() => {
     </div>
 
     <div class="card" v-if="quota">
-      <div class="card-title">第二批招生（2026）</div>
+      <div class="card-title">中考-第二批</div>
       <p class="sub-note">名额分配（指标到校）：本校名额考生按政策获得以下高中的名额；名额 = 该高中分给本校的名额数，录取最低分为本校考生被该校第二批录取的最低分。省市属名额已全列；区属名额分配到本区区属高中，明细未收录。</p>
       <div class="kv">
         <div class="kv-row"><span>名额考生数</span><b>{{ quota.kaosheng ?? '—' }} 人</b></div>
