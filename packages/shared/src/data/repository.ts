@@ -29,6 +29,13 @@ export function createRepository(loaders: DataLoaders) {
     tier1Schools: Object.values(loaders.primaryTier1.districts).flatMap((d) => d.schools),
     middleTier1Schools: Object.values(loaders.middleTier1.districts).flatMap((d) => d.schools),
 
+    /** 学段 POI 快照（学段判定/徽章等场景用） */
+    schools: {
+      primary: loaders.primarySchools,
+      middle: loaders.middleSchools,
+      high: loaders.highSchools,
+    },
+
     ...schools,
     ...enrollment,
     ...quota,

@@ -13,3 +13,8 @@ export * from './data/types.js';
 export * from './data/campuses.js';
 export * from './data/loader.js';
 export * from './data/repository.js';
+export * from './domain/map/constants.js';
+export * from './domain/map/filters.js';
+export * from './domain/map/points.js';
+export * from './domain/map/search.js';
+export * from './domain/map/info.js';

@@ -4,7 +4,7 @@
  * 业务逻辑（查询/判定/匹配）已下沉 @gz/shared/src/data，本文件仅保留加载与导出。
  * 小程序端对应实现见 apps/miniprogram/utils/data.js（同一紧凑编译，CJS 产物）。
  */
-import { hydrate, createRepository, type DataLoaders } from '@gz/shared';
+import { hydrate, createRepository, buildPoints, type DataLoaders, type MapPointFull } from '@gz/shared';
 import primarySchoolsCompact from './compact/primary/schools-gz.js';
 import primaryTier1Compact from './compact/primary/tier1_schools_all.js';
 import entitiesCompact from './compact/registry/entities.js';
@@ -59,6 +59,10 @@ const loaders: DataLoaders = {
 
 /** 共享数据仓库（查询/判定/匹配业务逻辑全部来自 @gz/shared，双端单点维护） */
 export const repository = createRepository(loaders);
+
+/** 地图点位集（三学段合并/去重/分类，构建一次；小程序同构导出） */
+export const mapPoints: MapPointFull[] = buildPoints(loaders);
+export type { MapPointFull };
 
 /* ================= 数据快照导出（页面/组件直接消费，名称保持迁移前一致） ================= */
 export const primarySchools = loaders.primarySchools;
