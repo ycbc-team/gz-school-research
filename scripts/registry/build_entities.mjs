@@ -44,12 +44,16 @@ const AD_DISTRICT = {
   '440103': '荔湾区', '440104': '越秀区', '440105': '海珠区',
   '440106': '天河区', '440111': '白云区', '440112': '黄埔区', '440113': '番禺区',
 };
-// POI 名 → 别名变体：自身 norm 名 + 「<区名> + norm名」（查询常带区名前缀，如「越秀区东风东路小学(东风广场校区)」）
+// POI 名 → 别名变体：自身 norm 名 + 带区名前缀 + 去区名前缀（官方文件常不带区名，如「石楼中学」对应 POI「番禺区石楼中学」）
+const DIST = /^(荔湾|越秀|海珠|天河|白云|黄埔|番禺)区/;
 function poiNameAliases(poiName, adcode) {
   const base = normName(poiName);
   const out = [base];
   const dist = AD_DISTRICT[adcode];
-  if (dist && !base.startsWith(dist)) out.push(dist + base);
+  if (dist) {
+    if (DIST.test(base)) out.push(base.replace(DIST, ''));        // 去区名
+    else out.push(dist + base);                                    // 加区名
+  }
   return out;
 }
 const stageFiles = {

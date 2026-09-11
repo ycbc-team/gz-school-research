@@ -6224,7 +6224,7 @@
       "data_gaps": "民办学校，不参与公办派位"
     },
     {
-      "school_id": "gz-440111-fd1c0f9d",
+      "school_id": "gz-440103-53fbb2c8",
       "group": "不参与公办派位/待核",
       "feed_school_ids": [],
       "feed_unresolved": [],
@@ -6977,10 +6977,10 @@
     {
       "school_id": "gz-440113-1f3378c2",
       "group": "番禺区小升初对口（单校（小区配建））",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "隽新学校"
+      "feed_school_ids": [
+        "gz-440113-1f3378c2"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 城隽和府/城隽玥府/星寰小区业主子女",
@@ -6989,10 +6989,10 @@
     {
       "school_id": "gz-440113-ad96c291",
       "group": "番禺区小升初对口（单校（小区配建））",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "番雅实验学校"
+      "feed_school_ids": [
+        "gz-440113-a5f31e18"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 华润长隆万博悦府/越秀万博和樾府/信基城业主子女（与初中范围完全一致）",
@@ -7368,10 +7368,10 @@
     {
       "school_id": "gz-440113-8a0b2cb9",
       "group": "番禺区小升初对口（单校（小区配建））",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "锦绣香江学校"
+      "feed_school_ids": [
+        "gz-440113-8a0b2cb9"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 锦绣香江业主子女",
@@ -7512,10 +7512,10 @@
     {
       "school_id": "gz-440113-c51f439d",
       "group": "番禺区小升初对口（单校（小区配建））",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "番广附创新城学校"
+      "feed_school_ids": [
+        "gz-440113-c51f439d"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 大学城和樾府等业主+锦溪苑曾边村户籍",
@@ -7584,9 +7584,10 @@
     {
       "school_id": "gz-440113-8f09e6a7",
       "group": "番禺区小升初对口（多校（50%/50%））",
-      "feed_school_ids": [],
+      "feed_school_ids": [
+        "gz-440113-443448d2"
+      ],
       "feed_unresolved": [
-        "石楼中学",
         "石楼镇第二中学"
       ],
       "direct_feed_school_id": null,
@@ -7597,10 +7598,10 @@
     {
       "school_id": "gz-440113-2e77bfa4",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "石楼中学"
+      "feed_school_ids": [
+        "gz-440113-443448d2"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 官桥村、大岭村、岳溪村户籍（与初中范围一致）",
@@ -7609,10 +7610,10 @@
     {
       "school_id": "gz-440105-24c1be5c",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "石楼中学"
+      "feed_school_ids": [
+        "gz-440113-443448d2"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 赤岗村、赤山东村户籍",
@@ -7751,10 +7752,11 @@
     {
       "school_id": "gz-440113-f7af0f1c",
       "group": "番禺区小升初对口（多校（按小区分片））",
-      "feed_school_ids": [],
+      "feed_school_ids": [
+        "gz-440113-443448d2"
+      ],
       "feed_unresolved": [
-        "石楼镇第二中学",
-        "石楼中学"
+        "石楼镇第二中学"
       ],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
@@ -7812,10 +7814,10 @@
     {
       "school_id": "gz-440113-1a2ff58e",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "育龙中学"
+      "feed_school_ids": [
+        "gz-440113-db61be15"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 小龙村户籍",
@@ -7824,10 +7826,10 @@
     {
       "school_id": "gz-440113-d9e44af9",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "育龙中学"
+      "feed_school_ids": [
+        "gz-440113-db61be15"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 沙涌村户籍",
@@ -7837,11 +7839,10 @@
       "school_id": "gz-440113-fe7b542b",
       "group": "番禺区小升初对口（多校（股民/非股民））",
       "feed_school_ids": [
-        "gz-440113-6dbdc462"
+        "gz-440113-6dbdc462",
+        "gz-440113-2570c29b"
       ],
-      "feed_unresolved": [
-        "大龙中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 傍江东村股民及股民子女→仲元二校区优先；余下→大龙中学",
@@ -7851,11 +7852,10 @@
       "school_id": "gz-440113-84194f66",
       "group": "番禺区小升初对口（多校（股民/非股民））",
       "feed_school_ids": [
-        "gz-440113-6dbdc462"
+        "gz-440113-6dbdc462",
+        "gz-440113-2570c29b"
       ],
-      "feed_unresolved": [
-        "大龙中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 傍江东村股民及股民子女→仲元二校区优先；余下→大龙中学",
@@ -7864,10 +7864,10 @@
     {
       "school_id": "gz-440113-6925d386",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "育龙中学"
+      "feed_school_ids": [
+        "gz-440113-db61be15"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 金山村户籍",
@@ -7876,10 +7876,10 @@
     {
       "school_id": "gz-440113-5be7e084",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "育龙中学"
+      "feed_school_ids": [
+        "gz-440113-db61be15"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 凌边村户籍",
@@ -7888,10 +7888,10 @@
     {
       "school_id": "gz-440113-17cbbc12",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "育龙中学"
+      "feed_school_ids": [
+        "gz-440113-db61be15"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 桥山村户籍",
@@ -7900,10 +7900,10 @@
     {
       "school_id": "gz-440113-d5329ed5",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "育龙中学"
+      "feed_school_ids": [
+        "gz-440113-db61be15"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 文边村户籍",
@@ -7912,10 +7912,10 @@
     {
       "school_id": "gz-440113-08016deb",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "大龙中学"
+      "feed_school_ids": [
+        "gz-440113-2570c29b"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 茶东村户籍",
@@ -7924,10 +7924,10 @@
     {
       "school_id": "gz-440113-9147b86e",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "大龙中学"
+      "feed_school_ids": [
+        "gz-440113-2570c29b"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 新水坑村户籍",
@@ -7936,10 +7936,10 @@
     {
       "school_id": "gz-440113-256a7199",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "大龙中学"
+      "feed_school_ids": [
+        "gz-440113-2570c29b"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 旧水坑村户籍",
@@ -7972,10 +7972,10 @@
     {
       "school_id": "gz-440113-27fbce5f",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "大龙中学"
+      "feed_school_ids": [
+        "gz-440113-2570c29b"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 罗家村、竹山村户籍",
@@ -7984,10 +7984,10 @@
     {
       "school_id": "gz-440113-2ba113ff",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "大龙中学"
+      "feed_school_ids": [
+        "gz-440113-2570c29b"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 石岗东村、石岗西村户籍",
@@ -7996,10 +7996,10 @@
     {
       "school_id": "gz-440113-137f5825",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "大龙中学"
+      "feed_school_ids": [
+        "gz-440113-2570c29b"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 傍江西村户籍（非股民）",
@@ -8008,10 +8008,10 @@
     {
       "school_id": "gz-440113-9aebded2",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "大龙中学"
+      "feed_school_ids": [
+        "gz-440113-2570c29b"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 东怡新区等业主（初中范围含）",
@@ -8034,12 +8034,11 @@
       "school_id": "gz-440113-94550bcb",
       "group": "番禺区小升初对口（多校（按户籍分片））",
       "feed_school_ids": [
+        "gz-440113-2570c29b",
         "gz-440113-9fa97423",
         "gz-440113-527391ff"
       ],
-      "feed_unresolved": [
-        "大龙中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 大龙村→大龙中学；金龙居委（不含富庭雅园）/加富花园二期→石碁第四中学；瀚御轩→石碁中学",
@@ -8072,10 +8071,10 @@
     {
       "school_id": "gz-440113-1bb2f980",
       "group": "番禺区小升初对口（单校）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "大龙中学"
+      "feed_school_ids": [
+        "gz-440113-2570c29b"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 丰耀华庭（龙湖金地天峯）/朗誉花园业主（初中范围含）",
@@ -12409,11 +12408,10 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12427,12 +12425,11 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-5b78d24b",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。 另按地段可直升：丰乐初级中学（黄埔花园住宅小区地段毕业生直升（怡园小学东校区地段），直升则放弃电脑派位）。",
       "data_gaps": null
@@ -12445,12 +12442,11 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-5b78d24b",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。 另按地段可直升：丰乐初级中学（黄埔花园住宅小区地段毕业生直升（怡园小学东校区地段），直升则放弃电脑派位）。",
       "data_gaps": null
@@ -12463,12 +12459,11 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-5b78d24b",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。 另按地段可直升：丰乐初级中学（黄埔花园住宅小区地段毕业生直升（怡园小学东校区地段），直升则放弃电脑派位）。",
       "data_gaps": null
@@ -12481,11 +12476,10 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12499,11 +12493,10 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12517,11 +12510,10 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12535,11 +12527,10 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12553,11 +12544,10 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12571,11 +12561,10 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12589,11 +12578,10 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12607,11 +12595,10 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12625,11 +12612,10 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12643,12 +12629,11 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-5b78d24b",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。 另按地段可直升：丰乐初级中学（怡港花园住宅小区地段毕业生直升，直升则放弃电脑派位）。",
       "data_gaps": null
@@ -12661,11 +12646,10 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": "gz-440112-12747882",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。 另按地段可直升：广州市黄埔军校纪念中学（北校区）（横沙城中村改造项目范围内毕业生直升，直升则放弃电脑派位）。",
@@ -12679,11 +12663,10 @@
         "gz-440112-c7cfbe14",
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
-        "gz-440112-705c66e3"
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
       ],
-      "feed_unresolved": [
-        "丰乐初级中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12693,12 +12676,11 @@
       "school_id": "gz-440112-880cd8fa",
       "group": "黄埔区公办初中电脑派位第2组（多校划片）",
       "feed_school_ids": [
-        "gz-440112-9d315f50"
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
       ],
-      "feed_unresolved": [
-        "新港中学",
-        "东区中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第2组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12708,12 +12690,11 @@
       "school_id": "gz-440112-3953d88c",
       "group": "黄埔区公办初中电脑派位第2组（多校划片）",
       "feed_school_ids": [
-        "gz-440112-9d315f50"
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
       ],
-      "feed_unresolved": [
-        "新港中学",
-        "东区中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第2组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12723,12 +12704,11 @@
       "school_id": "gz-440112-70be890a",
       "group": "黄埔区公办初中电脑派位第2组（多校划片）",
       "feed_school_ids": [
-        "gz-440112-9d315f50"
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
       ],
-      "feed_unresolved": [
-        "新港中学",
-        "东区中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第2组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12738,12 +12718,11 @@
       "school_id": "gz-440112-9445b99c",
       "group": "黄埔区公办初中电脑派位第2组（多校划片）",
       "feed_school_ids": [
-        "gz-440112-9d315f50"
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
       ],
-      "feed_unresolved": [
-        "新港中学",
-        "东区中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第2组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12753,12 +12732,11 @@
       "school_id": "gz-440112-78dfcf58",
       "group": "黄埔区公办初中电脑派位第2组（多校划片）",
       "feed_school_ids": [
-        "gz-440112-9d315f50"
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
       ],
-      "feed_unresolved": [
-        "新港中学",
-        "东区中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第2组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12768,12 +12746,11 @@
       "school_id": "gz-440112-286bfe80",
       "group": "黄埔区公办初中电脑派位第2组（多校划片）",
       "feed_school_ids": [
-        "gz-440112-9d315f50"
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
       ],
-      "feed_unresolved": [
-        "新港中学",
-        "东区中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第2组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12783,12 +12760,11 @@
       "school_id": "gz-440112-082d09e3",
       "group": "黄埔区公办初中电脑派位第2组（多校划片）",
       "feed_school_ids": [
-        "gz-440112-9d315f50"
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
       ],
-      "feed_unresolved": [
-        "新港中学",
-        "东区中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第2组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12798,12 +12774,11 @@
       "school_id": "gz-440112-2fd7c889",
       "group": "黄埔区公办初中电脑派位第2组（多校划片）",
       "feed_school_ids": [
-        "gz-440112-9d315f50"
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
       ],
-      "feed_unresolved": [
-        "新港中学",
-        "东区中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第2组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12813,12 +12788,11 @@
       "school_id": "gz-440112-f36ddf7d",
       "group": "黄埔区公办初中电脑派位第2组（多校划片）",
       "feed_school_ids": [
-        "gz-440112-9d315f50"
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
       ],
-      "feed_unresolved": [
-        "新港中学",
-        "东区中学"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第2组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -12922,11 +12896,11 @@
         "gz-440112-8b4292d7",
         "gz-440112-96610f39",
         "gz-440112-ef267ef4",
+        "gz-440112-a0244635",
         "gz-440112-ff5acfd5"
       ],
       "feed_unresolved": [
-        "铁英中学",
-        "苏元学校（西校区）"
+        "铁英中学"
       ],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
@@ -12940,11 +12914,11 @@
         "gz-440112-8b4292d7",
         "gz-440112-96610f39",
         "gz-440112-ef267ef4",
+        "gz-440112-a0244635",
         "gz-440112-ff5acfd5"
       ],
       "feed_unresolved": [
-        "铁英中学",
-        "苏元学校（西校区）"
+        "铁英中学"
       ],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
@@ -12958,11 +12932,11 @@
         "gz-440112-8b4292d7",
         "gz-440112-96610f39",
         "gz-440112-ef267ef4",
+        "gz-440112-a0244635",
         "gz-440112-ff5acfd5"
       ],
       "feed_unresolved": [
-        "铁英中学",
-        "苏元学校（西校区）"
+        "铁英中学"
       ],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
@@ -12976,11 +12950,11 @@
         "gz-440112-8b4292d7",
         "gz-440112-96610f39",
         "gz-440112-ef267ef4",
+        "gz-440112-a0244635",
         "gz-440112-ff5acfd5"
       ],
       "feed_unresolved": [
-        "铁英中学",
-        "苏元学校（西校区）"
+        "铁英中学"
       ],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
@@ -12994,11 +12968,11 @@
         "gz-440112-8b4292d7",
         "gz-440112-96610f39",
         "gz-440112-ef267ef4",
+        "gz-440112-a0244635",
         "gz-440112-ff5acfd5"
       ],
       "feed_unresolved": [
-        "铁英中学",
-        "苏元学校（西校区）"
+        "铁英中学"
       ],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
@@ -13012,11 +12986,11 @@
         "gz-440112-8b4292d7",
         "gz-440112-96610f39",
         "gz-440112-ef267ef4",
+        "gz-440112-a0244635",
         "gz-440112-ff5acfd5"
       ],
       "feed_unresolved": [
-        "铁英中学",
-        "苏元学校（西校区）"
+        "铁英中学"
       ],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
@@ -13030,11 +13004,11 @@
         "gz-440112-8b4292d7",
         "gz-440112-96610f39",
         "gz-440112-ef267ef4",
+        "gz-440112-a0244635",
         "gz-440112-ff5acfd5"
       ],
       "feed_unresolved": [
-        "铁英中学",
-        "苏元学校（西校区）"
+        "铁英中学"
       ],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
@@ -13045,11 +13019,11 @@
       "school_id": "gz-440112-70e86492",
       "group": "黄埔区公办初中电脑派位第5组（多校划片）",
       "feed_school_ids": [
-        "gz-440112-ef267ef4"
+        "gz-440112-ef267ef4",
+        "gz-440112-a0244635"
       ],
       "feed_unresolved": [
         "铁英中学",
-        "苏元学校（西校区）",
         "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）"
       ],
       "direct_feed_school_id": null,
@@ -13061,11 +13035,11 @@
       "school_id": "gz-440112-80a45eec",
       "group": "黄埔区公办初中电脑派位第5组（多校划片）",
       "feed_school_ids": [
-        "gz-440112-ef267ef4"
+        "gz-440112-ef267ef4",
+        "gz-440112-a0244635"
       ],
       "feed_unresolved": [
         "铁英中学",
-        "苏元学校（西校区）",
         "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）"
       ],
       "direct_feed_school_id": null,
@@ -13077,11 +13051,11 @@
       "school_id": "gz-440112-adb9c303",
       "group": "黄埔区公办初中电脑派位第5组（多校划片）",
       "feed_school_ids": [
-        "gz-440112-ef267ef4"
+        "gz-440112-ef267ef4",
+        "gz-440112-a0244635"
       ],
       "feed_unresolved": [
         "铁英中学",
-        "苏元学校（西校区）",
         "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）"
       ],
       "direct_feed_school_id": null,
@@ -13093,11 +13067,11 @@
       "school_id": "gz-440112-bd4af6d0",
       "group": "黄埔区公办初中电脑派位第5组（多校划片）",
       "feed_school_ids": [
-        "gz-440112-ef267ef4"
+        "gz-440112-ef267ef4",
+        "gz-440112-a0244635"
       ],
       "feed_unresolved": [
         "铁英中学",
-        "苏元学校（西校区）",
         "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）"
       ],
       "direct_feed_school_id": null,
@@ -13184,12 +13158,11 @@
       "school_id": "gz-440112-6a9aa43c",
       "group": "黄埔区公办初中电脑派位第7组（多校划片）",
       "feed_school_ids": [
+        "gz-440112-e3190fa2",
         "gz-440112-87f27cf4",
         "gz-440112-3847727f"
       ],
-      "feed_unresolved": [
-        "会元学校"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第7组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -13199,12 +13172,11 @@
       "school_id": "gz-440112-4991e638",
       "group": "黄埔区公办初中电脑派位第7组（多校划片）",
       "feed_school_ids": [
+        "gz-440112-e3190fa2",
         "gz-440112-87f27cf4",
         "gz-440112-3847727f"
       ],
-      "feed_unresolved": [
-        "会元学校"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第7组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -13214,12 +13186,11 @@
       "school_id": "gz-440112-e39ab646",
       "group": "黄埔区公办初中电脑派位第7组（多校划片）",
       "feed_school_ids": [
+        "gz-440112-e3190fa2",
         "gz-440112-87f27cf4",
         "gz-440112-3847727f"
       ],
-      "feed_unresolved": [
-        "会元学校"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第7组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -13229,12 +13200,11 @@
       "school_id": "gz-440112-86465605",
       "group": "黄埔区公办初中电脑派位第7组（多校划片）",
       "feed_school_ids": [
+        "gz-440112-e3190fa2",
         "gz-440112-87f27cf4",
         "gz-440112-3847727f"
       ],
-      "feed_unresolved": [
-        "会元学校"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第7组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -13244,12 +13214,11 @@
       "school_id": "gz-440112-284e5309",
       "group": "黄埔区公办初中电脑派位第7组（多校划片）",
       "feed_school_ids": [
+        "gz-440112-e3190fa2",
         "gz-440112-87f27cf4",
         "gz-440112-3847727f"
       ],
-      "feed_unresolved": [
-        "会元学校"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第7组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -13259,12 +13228,11 @@
       "school_id": "gz-440112-86b1d024",
       "group": "黄埔区公办初中电脑派位第7组（多校划片）",
       "feed_school_ids": [
+        "gz-440112-e3190fa2",
         "gz-440112-87f27cf4",
         "gz-440112-3847727f"
       ],
-      "feed_unresolved": [
-        "会元学校"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第7组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -13274,12 +13242,11 @@
       "school_id": "gz-440112-75989411",
       "group": "黄埔区公办初中电脑派位第7组（多校划片）",
       "feed_school_ids": [
+        "gz-440112-e3190fa2",
         "gz-440112-87f27cf4",
         "gz-440112-3847727f"
       ],
-      "feed_unresolved": [
-        "会元学校"
-      ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第7组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
@@ -13396,11 +13363,11 @@
     {
       "school_id": "gz-440112-3f33e75c",
       "group": "对口直升（不参加电脑派位）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "玉岩实验学校"
+      "feed_school_ids": [
+        "gz-440112-f3817fbe"
       ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-f3817fbe",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：玉岩实验学校（对口直升）。",
       "data_gaps": null
@@ -13408,11 +13375,11 @@
     {
       "school_id": "gz-440112-59ba7b57",
       "group": "对口直升（不参加电脑派位）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "玉岩实验学校"
+      "feed_school_ids": [
+        "gz-440112-f3817fbe"
       ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-f3817fbe",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：玉岩实验学校（对口直升）。",
       "data_gaps": null
@@ -13420,11 +13387,11 @@
     {
       "school_id": "gz-440112-0484c45e",
       "group": "对口直升（不参加电脑派位）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "玉岩实验学校"
+      "feed_school_ids": [
+        "gz-440112-f3817fbe"
       ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-f3817fbe",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：玉岩实验学校（对口直升）。",
       "data_gaps": null
@@ -13432,11 +13399,11 @@
     {
       "school_id": "gz-440112-753aa0d3",
       "group": "对口直升（不参加电脑派位）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "玉岩实验学校"
+      "feed_school_ids": [
+        "gz-440112-f3817fbe"
       ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-f3817fbe",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：玉岩实验学校（对口直升）。",
       "data_gaps": null
@@ -13444,11 +13411,11 @@
     {
       "school_id": "gz-440112-43e15e18",
       "group": "对口直升（不参加电脑派位）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "玉岩实验学校"
+      "feed_school_ids": [
+        "gz-440112-f3817fbe"
       ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-f3817fbe",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：玉岩实验学校（对口直升）。",
       "data_gaps": null
@@ -13456,11 +13423,11 @@
     {
       "school_id": "gz-440112-2a13a6a9",
       "group": "对口直升（不参加电脑派位）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "玉岩实验学校"
+      "feed_school_ids": [
+        "gz-440112-f3817fbe"
       ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-f3817fbe",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：玉岩实验学校（对口直升）。",
       "data_gaps": null
@@ -13468,11 +13435,11 @@
     {
       "school_id": "gz-440112-8f016a0c",
       "group": "对口直升（不参加电脑派位）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "玉岩实验学校"
+      "feed_school_ids": [
+        "gz-440112-f3817fbe"
       ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-f3817fbe",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：玉岩实验学校（对口直升）。",
       "data_gaps": null
@@ -13480,11 +13447,11 @@
     {
       "school_id": "gz-440112-abe35401",
       "group": "对口直升（不参加电脑派位）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "玉岩实验学校"
+      "feed_school_ids": [
+        "gz-440112-f3817fbe"
       ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-f3817fbe",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：玉岩实验学校（对口直升）。",
       "data_gaps": null
@@ -13492,11 +13459,11 @@
     {
       "school_id": "gz-440112-dc7228f1",
       "group": "对口直升（不参加电脑派位）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "玉岩实验学校"
+      "feed_school_ids": [
+        "gz-440112-f3817fbe"
       ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-f3817fbe",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：玉岩实验学校（对口直升）。",
       "data_gaps": null
@@ -13504,11 +13471,11 @@
     {
       "school_id": "gz-440112-0db47a7c",
       "group": "对口直升（不参加电脑派位）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "玉岩实验学校"
+      "feed_school_ids": [
+        "gz-440112-f3817fbe"
       ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-f3817fbe",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：玉岩实验学校（对口直升）。",
       "data_gaps": null
@@ -13564,11 +13531,11 @@
     {
       "school_id": "gz-440112-e3190fa2",
       "group": "对口直升（不参加电脑派位）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "会元学校"
+      "feed_school_ids": [
+        "gz-440112-e3190fa2"
       ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-e3190fa2",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：会元学校（九年制学校内部直升）。",
       "data_gaps": null
@@ -13576,11 +13543,11 @@
     {
       "school_id": "gz-440112-48db116a",
       "group": "对口直升（不参加电脑派位）",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "会元学校"
+      "feed_school_ids": [
+        "gz-440112-e3190fa2"
       ],
-      "direct_feed_school_id": null,
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440112-e3190fa2",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：会元学校（九年制学校内部直升）。",
       "data_gaps": null
