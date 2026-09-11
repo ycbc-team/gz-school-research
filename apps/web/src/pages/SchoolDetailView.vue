@@ -140,7 +140,7 @@ const feedJuniors = computed(() => {
 const feedGap = computed(() => {
   if (props.stage !== 'primary') return null;
   const xs = xsRecord.value;
-  if (!xs) return '升学路线数据暂未收录（2026 年七区官方招生名单中未检索到该校，可能为新建校/民办/补点）。';
+  if (!xs) return '本校未进入 2026 公办小学对口/派位名单。民办校无公办对口名单，以官方摇号 / 直升政策为准；公办新建校或未收录点位以最新官方公告为准。';
   if (xs.direct_feed) return null;
   const f = xs.feed_junior_highs || [];
   if (!f.length) return `升学路线数据缺口：${xs.data_gaps || '官方未公布该校对口/派位初中'}。`;
@@ -420,15 +420,18 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
     </div>
 
     <!-- 初中：招生 · 生源小学 -->
-    <div v-if="stage === 'middle' && feedPrimarys.length" class="card">
+    <div v-if="stage === 'middle'" class="card">
       <div class="card-title">招生 · 生源小学</div>
-      <p class="sub-note">以下小学的 2026 对口/派位名单包含本校（由七区全量小学升学路线反查，校名全等匹配）。</p>
-      <div class="feed-list">
-        <div v-for="r in feedPrimarys" :key="r.primary" class="feed-item">
-          <RouterLink :to="`/school/primary/${encodeURIComponent(r.primary)}`" class="feed-name">{{ r.primary }}</RouterLink>
-          <span class="tag tag-dim">{{ r.direct_feed ? '对口直升' : (r.group || '对口') }}</span>
+      <template v-if="feedPrimarys.length">
+        <p class="sub-note">以下小学的 2026 对口/派位名单包含本校（由七区全量小学升学路线反查，校名全等匹配）。</p>
+        <div class="feed-list">
+          <div v-for="r in feedPrimarys" :key="r.primary" class="feed-item">
+            <RouterLink :to="`/school/primary/${encodeURIComponent(r.primary)}`" class="feed-name">{{ r.primary }}</RouterLink>
+            <span class="tag tag-dim">{{ r.direct_feed ? '对口直升' : (r.group || '对口') }}</span>
+          </div>
         </div>
-      </div>
+      </template>
+      <p v-else class="empty">本校未进入 2026 公办小学对口/派位名单。民办校无公办对口名单，以官方摇号 / 直升政策为准；公办新建校或未收录点位以最新官方公告为准。</p>
     </div>
 
     <!-- 初中：升学通道（LinkagePanel 公共组件） -->

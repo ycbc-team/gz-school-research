@@ -36,6 +36,7 @@ import {
   middleTier1Schools,
   matchEnrollment,
   xiaoshengchuOf,
+  middlePrimaryFeed,
   schoolBadges,
 } from '../data';
 
@@ -448,6 +449,14 @@ function primaryLinkageRows(name: string, adcode?: string): InfoRow[] {
   if (!xs || (!xs.direct_feed && !(xs.feed_junior_highs || []).length)) return [];
   return [{ label: '升学路线', value: formatXiaoshengchuBrief(xs) }];
 }
+/** 初中生源小学摘要行（全量反查；无公办对口时给提示） */
+function middleFeedRows(name: string): InfoRow[] {
+  const list = middlePrimaryFeed(name);
+  if (!list.length) return [{ label: '生源小学', value: '无公办对口名单（民办校以摇号/直升为准）', strong: false }];
+  const preview = list.slice(0, 3).map((r) => r.primary).join('、');
+  const more = list.length > 3 ? ` 等 ${list.length} 所` : '';
+  return [{ label: '生源小学', value: preview + more, strong: true }];
+}
 
 interface InfoRow { label: string; value: string; strong?: boolean }
 interface InfoModel {
@@ -522,10 +531,10 @@ const infoModel = computed<InfoModel | null>(() => {
     const head =
       '网传"口碑学校" · 民间口径非官方' +
       (tier.entity_relation === '同法人校区' ? ' · 与本部同一法人' : '');
-    // 小学：升学路线（全量）+ 一条口碑信号（教育集团等）；初中：中考信号缩略一条
+    // 小学：升学路线（全量）+ 一条口碑信号；初中：生源小学摘要 + 一条中考信号
     const signalRows = pt.stage === 'primary'
       ? [...linkageRows, ...formatPrimarySignals(tier).slice(0, 1)]
-      : formatMiddleSignals(tier).slice(0, 1);
+      : [...middleFeedRows(name), ...formatMiddleSignals(tier).slice(0, 1)];
     return {
       name,
       badges: schoolBadges(pt.stage, { district: districtName, tier, name }),
@@ -544,6 +553,7 @@ const infoModel = computed<InfoModel | null>(() => {
       { label: '所在区', value: districtName || '—' },
       ...(pt.stage === 'primary' ? primaryEnrollRows(name) : []),
       ...(pt.stage === 'primary' ? primaryLinkageRows(name, pt.adcode) : []),
+      ...(pt.stage === 'middle' ? middleFeedRows(name) : []),
     ],
     note: null,
     link: detailLink,
