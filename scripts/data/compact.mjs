@@ -24,9 +24,21 @@ const OUT_CJS_MAIN = process.argv[2] || join(ROOT, 'apps', 'miniprogram', 'data'
 const OUT_CJS_SUB = process.argv[3] || join(ROOT, 'apps', 'miniprogram', 'pages', 'school-detail', 'data');
 const OUT_ESM = process.argv[4] || join(ROOT, 'apps', 'web', 'src', 'data', 'compact');
 
-/** 高重复值字段 → 字典化（值唯一数少才启用） */
+/** 高重复值字段 → 字典化（值唯一数少才启用）；listDicts 为数组元素字典（如 feed_school_ids 实体 id 列表） */
 const DICT_SPEC = {
-  'data/primary/xiaoshengchu_2026.json': { dicts: ['group', 'source_url'] },
+  'data/primary/xiaoshengchu_2026.json': {
+    dicts: ['group', 'source_url'],
+    listDicts: ['feed_school_ids'],
+  },
+};
+
+/**
+ * 小程序主包专用列裁剪：地图信息卡不消费的字段不编译进主包产物
+ * （详情页在分包，用 Web 全量产物；shapeRecord/formatXiaoshengchuBrief 不读被裁字段）。
+ * 收益：source_note ~90KB（信息卡不用）、source_url 已字典化（省 ~2KB）。
+ */
+const MP_TRIM = {
+  'data/primary/xiaoshengchu_2026.json': ['source_note', 'source_url'],
 };
 
 /**
@@ -89,12 +101,13 @@ function jsLiteral(v) {
 }
 
 /* ---------- 编译 ---------- */
-function compileRows(rows, dictFields) {
-  // 键并集（首次出现顺序）
+function compileRows(rows, dictFields, listDictFields = [], trim = []) {
+  // 键并集（首次出现顺序；trim 列不编译）
   const cols = [];
   const seen = new Set();
   for (const r of rows) {
     for (const k of Object.keys(r)) {
+      if (trim.includes(k)) continue;
       if (!seen.has(k)) { seen.add(k); cols.push(k); }
     }
   }
@@ -111,6 +124,25 @@ function compileRows(rows, dictFields) {
     }
     if (uniq.length * 3 < rows.length) { dicts[df] = uniq; dictMaps[df] = um; }
   }
+  // 列表元素字典：数组元素（如实体 id）唯一值少时索引化
+  const listDicts = {};
+  const listMaps = {};
+  for (const lf of listDictFields) {
+    if (!seen.has(lf)) continue;
+    const uniq = [];
+    const um = new Map();
+    let refs = 0;
+    for (const r of rows) {
+      const arr = r[lf];
+      if (!Array.isArray(arr)) continue;
+      for (const e of arr) {
+        if (typeof e !== 'string') continue;
+        refs += 1;
+        if (!um.has(e)) { um.set(e, uniq.length); uniq.push(e); }
+      }
+    }
+    if (uniq.length * 2 < refs) { listDicts[lf] = uniq; listMaps[lf] = um; }
+  }
   const outRows = rows.map((r) => {
     const row = new Array(cols.length);
     for (let i = 0; i < cols.length; i += 1) {
@@ -120,28 +152,32 @@ function compileRows(rows, dictFields) {
       if (v === null) { row[i] = null; continue; }
       const um = dictMaps[c];
       if (um) { row[i] = um.get(v); continue; }
+      const lm = listMaps[c];
+      if (lm && Array.isArray(v)) { row[i] = v.map((e) => (typeof e === 'string' ? lm.get(e) : e)); continue; }
       row[i] = compileValue(v);
     }
     return row;
   });
   const out = { $cols: cols, $rows: outRows };
   if (Object.keys(dicts).length) out.$dicts = dicts;
+  if (Object.keys(listDicts).length) out.$listDicts = listDicts;
   return out;
 }
 
-function compileValue(v, dictFields = []) {
+function compileValue(v, opts = {}) {
+  const { dictFields = [], listDictFields = [], trim = [] } = opts;
   if (v === null || typeof v !== 'object') return v;
   if (Array.isArray(v)) {
     // 记录数组（元素全为对象）→ 列式化；否则逐元素递归
     if (v.length > 0 && v.every((e) => typeof e === 'object' && e !== null && !Array.isArray(e))) {
-      return compileRows(v, dictFields);
+      return compileRows(v, dictFields, listDictFields, trim);
     }
     return v.map((e) => compileValue(e));
   }
   const out = {};
   for (const [k, val] of Object.entries(v)) {
     // 字典字段仅作用于顶层 records 数组
-    out[k] = compileValue(val, k === 'records' ? dictFields : []);
+    out[k] = compileValue(val, k === 'records' ? opts : {});
   }
   return out;
 }
@@ -152,13 +188,17 @@ for (const dir of [OUT_CJS_MAIN, OUT_CJS_SUB, OUT_ESM]) {
   mkdirSync(dir, { recursive: true });
 }
 
-/** 编译单个真源文件到目标目录，fmt: 'cjs' | 'esm' */
-function emit(file, outDir, fmt) {
+/** 编译单个真源文件到目标目录，fmt: 'cjs' | 'esm'；opts.trim 仅主包列裁剪 */
+function emit(file, outDir, fmt, opts = {}) {
   const abs = join(ROOT, file);
   const relPath = relative(DATA_SRC, abs);
   const json = JSON.parse(readFileSync(abs, 'utf8'));
-  const dictFields = DICT_SPEC[file]?.dicts || [];
-  const compact = compileValue(json, dictFields);
+  const spec = DICT_SPEC[file] || {};
+  const compact = compileValue(json, {
+    dictFields: spec.dicts || [],
+    listDictFields: spec.listDicts || [],
+    trim: opts.trim || [],
+  });
   const literal = jsLiteral(compact);
   const out = join(outDir, relPath.replace(/\.json$/, '.js'));
   mkdirSync(dirname(out), { recursive: true });
@@ -172,7 +212,7 @@ function emit(file, outDir, fmt) {
 }
 
 const stats = [];
-for (const file of MP_MAIN_TARGETS) stats.push(emit(file, OUT_CJS_MAIN, 'cjs'));
+for (const file of MP_MAIN_TARGETS) stats.push(emit(file, OUT_CJS_MAIN, 'cjs', { trim: MP_TRIM[file] }));
 for (const file of MP_SUB_TARGETS) stats.push(emit(file, OUT_CJS_SUB, 'cjs'));
 for (const file of WEB_TARGETS) stats.push(emit(file, OUT_ESM, 'esm'));
 

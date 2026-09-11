@@ -11,12 +11,15 @@
  *     （行长度 < $cols 长度即缺键，还原时不设该键）；显式 null 保留。
  *   - 可选字段字典：{ $cols, $rows, $dicts: { 字段: 唯一值数组 } }
  *     字典字段行内存索引（null 不索引，行内直接存 null）。
+ *   - 可选列表元素字典：{ $cols, $rows, $listDicts: { 字段: 唯一元素数组 } }
+ *     列表字段（如 feed_school_ids 实体 id 数组）行内存元素索引。
  * - 其余结构原样保留，递归水合。
  */
 export interface CompactArray {
   $cols: string[];
   $rows: unknown[][];
   $dicts?: Record<string, unknown[]>;
+  $listDicts?: Record<string, unknown[]>;
 }
 
 function isCompactArray(x: unknown): x is CompactArray {
@@ -34,7 +37,7 @@ export function hydrate<T>(x: T): T {
   if (typeof x !== 'object' || x === null) return x;
   const obj = x as Record<string, unknown>;
   if (isCompactArray(obj)) {
-    const { $cols, $rows, $dicts } = obj;
+    const { $cols, $rows, $dicts, $listDicts } = obj;
     return $rows.map((row) => {
       const out: Record<string, unknown> = {};
       for (let i = 0; i < $cols.length; i += 1) {
@@ -43,8 +46,10 @@ export function hydrate<T>(x: T): T {
         const v = row[i];
         if (v === undefined) continue; // 稀疏空位：不设键
         const dict = $dicts?.[col];
+        const listDict = $listDicts?.[col];
         if (v === null) out[col] = null;
         else if (dict) out[col] = dict[v as number];
+        else if (listDict && Array.isArray(v)) out[col] = v.map((e) => (typeof e === 'number' ? listDict[e] : hydrate(e)));
         else out[col] = hydrate(v);
       }
       return out;
