@@ -708,7 +708,6 @@ const infoModel = computed<InfoModel | null>(() => {
       </div>
       <div class="fb-col">
         <button class="fb-btn" :class="{ on: openMenu === 'stage' }" @click="openMenu = openMenu === 'stage' ? null : 'stage'">
-          <span class="fb-dots"><i v-for="st in ALL_STAGES" :key="st" class="fb-dot" :style="{ background: STAGE_COLOR[st] }"></i></span>
           学段<em v-if="!stageAll" class="fb-badge">{{ selectedStages.size }}</em><span class="arr">▾</span>
         </button>
       </div>
@@ -728,22 +727,20 @@ const infoModel = computed<InfoModel | null>(() => {
           <button class="pop-link" @click="openMenu = null">完成</button>
         </div>
       </div>
-      <!-- 学段多选（带学段色标记） -->
+      <!-- 学段多选 -->
       <div v-if="openMenu === 'stage'" class="fb-pop">
         <div class="pop-chips">
-          <button v-for="o in STAGE_TABS" :key="o.v" class="pop-chip" :class="{ on: selectedStages.has(o.v) }" @click="toggleStageTab(o.v)">
-            <i class="chip-dot" :style="{ background: STAGE_COLOR[o.v] }"></i>{{ o.l }}
-          </button>
+          <button v-for="o in STAGE_TABS" :key="o.v" class="pop-chip" :class="{ on: selectedStages.has(o.v) }" @click="toggleStageTab(o.v)">{{ o.l }}</button>
         </div>
         <div class="pop-foot">
           <button class="pop-link" @click="flipStages()">{{ flipStageLabel }}</button>
           <button class="pop-link" @click="openMenu = null">完成</button>
         </div>
       </div>
-      <!-- 分级多选（分组列表，组标题带学段色） -->
+      <!-- 分级多选（分组列表） -->
       <div v-if="openMenu === 'grade'" class="fb-pop">
         <div v-for="g in GRADE_GROUPS" :key="g.title" class="pop-group">
-          <div class="pop-group-title"><i class="chip-dot" :style="{ background: STAGE_COLOR[g.stage] }"></i>{{ g.title }}</div>
+          <div class="pop-group-title">{{ g.title }}</div>
           <div class="pop-chips">
             <button v-for="o in g.items" :key="o.v" class="pop-chip" :class="{ on: selectedGrades.has(o.v) }" @click="toggleGradeCls(o.v)">{{ o.l }}</button>
           </div>
@@ -760,6 +757,20 @@ const infoModel = computed<InfoModel | null>(() => {
   <div ref="mapEl" class="map"></div>
   <div class="map-count">当前显示 {{ visibleCount }} 所学校</div>
 
+  <!-- 图例：点位颜色/样式含义 -->
+  <div class="map-legend">
+    <div class="lg-row"><span class="lg-dot" :style="{ background: STAGE_COLOR.primary }"></span>小学</div>
+    <div class="lg-row"><span class="lg-dot" :style="{ background: STAGE_COLOR.middle }"></span>初中</div>
+    <div class="lg-row"><span class="lg-dot" :style="{ background: STAGE_COLOR.high }"></span>高中</div>
+    <div class="lg-row">
+      <span class="lg-dot lg-multi"><i :style="{ background: STAGE_COLOR.middle }"></i><i :style="{ background: STAGE_COLOR.high }"></i></span>
+      多学部（上下分色）
+    </div>
+    <div class="lg-sep"></div>
+    <div class="lg-note">实心 = 口碑/示范 · 半透明 = 普通</div>
+    <div class="lg-note">粗边 + 晕光 = 口碑有支撑 · 虚线 = 挂牌校</div>
+  </div>
+
     <aside v-if="infoModel" class="school-info">
       <button class="si-close" aria-label="关闭" @click="closeInfo">×</button>
       <div class="si-name">{{ infoModel.name }}</div>
@@ -775,8 +786,6 @@ const infoModel = computed<InfoModel | null>(() => {
       <div v-if="infoModel.note" class="si-src">{{ infoModel.note }}</div>
       <RouterLink v-for="l in infoModel.links" :key="l.to" :to="l.to" class="si-link" style="display:block;margin-top:6px;">{{ l.text }}</RouterLink>
     </aside>
-
-    <p class="hint">拖动 / 滚轮 / 双指缩放查看。点色 = 学部：紫 = 小学、红 = 初中、绿 = 高中；多学部学校圆点垂直分色展示（如初高中一体为红绿上下分色）。悬停显示校名，点击点位显示信息卡（选中态高亮，关闭后消失）。描边粗细 = 口碑支撑度：口碑校加粗、普通校细边；独立法人挂牌校（虚线点）不计入口碑学校。高中分类口径：省市属示范 / 区属示范 / 普通（详见卡片内"口径"）。</p>
   </section>
 </template>
 
@@ -823,8 +832,6 @@ section { position: relative; }
 .fb-btn:hover { background: #f2f7ff; }
 .fb-btn.on { background: #eaf1fe; color: #1a6bd6; font-weight: 600; }
 .fb-btn .arr { font-size: 10px; color: #8a93a3; }
-.fb-dots { display: inline-flex; gap: 2px; margin-right: 3px; align-items: center; }
-.fb-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; }
 .fb-badge {
   background: #1a6bd6; color: #fff; font-style: normal; font-size: 10.5px;
   border-radius: 9px; padding: 0 6px; line-height: 15px;
@@ -838,11 +845,9 @@ section { position: relative; }
 .pop-group:last-of-type { margin-bottom: 0; }
 .pop-group-title { font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 6px; }
 .pop-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; flex: none; }
 .pop-chip {
   border: 1px solid #d6d4cc; background: #fff; border-radius: 16px;
   padding: 5px 14px; font-size: 12.5px; cursor: pointer; color: #1a1b1c;
-  display: inline-flex; align-items: center;
 }
 .pop-chip.on { background: #1a6bd6; border-color: #1a6bd6; color: #fff; }
 .pop-foot { display: flex; justify-content: space-between; margin-top: 10px; padding-top: 8px; border-top: 1px dashed #e4e3dd; }
@@ -854,8 +859,20 @@ section { position: relative; }
   background: rgba(255,255,255,0.94); border: 1px solid #e4e3dd; border-radius: 10px;
   padding: 5px 12px; font-size: 12px; color: #444; box-shadow: 0 1px 4px rgba(20,30,50,0.08);
 }
+/* 图例：学段颜色 + 样式含义 */
+.map-legend {
+  position: absolute; left: 10px; bottom: 56px; z-index: 60;
+  background: rgba(255,255,255,0.95); border: 1px solid #e4e3dd; border-radius: 10px;
+  padding: 8px 12px; font-size: 11.5px; color: #444;
+  box-shadow: 0 1px 4px rgba(20,30,50,0.08);
+}
+.lg-row { display: flex; align-items: center; gap: 7px; line-height: 1.7; }
+.lg-dot { width: 12px; height: 12px; border-radius: 50%; flex: none; display: inline-block; }
+.lg-multi { display: inline-flex; flex-direction: column; overflow: hidden; border: 1px solid rgba(0,0,0,0.15); }
+.lg-multi i { flex: 1; }
+.lg-sep { border-top: 1px dashed #d6d4cc; margin: 5px 0 4px; }
+.lg-note { color: #6b7280; font-size: 10.5px; line-height: 1.55; }
 .map { height: calc(100vh - 140px); min-height: 560px; border-radius: 14px; border: 1px solid #e4e3dd; z-index: 1; }
-.hint { font-size: 12px; color: #6b7280; margin-top: 10px; line-height: 1.6; }
 
 .school-info {
   position: fixed; right: 14px; bottom: 14px;
