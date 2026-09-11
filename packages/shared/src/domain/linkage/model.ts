@@ -48,32 +48,28 @@ export interface LinkageModel {
   hasHighData: boolean;
 }
 
-/** POI 分校区名归一（去括号校区），与 CAMPUS_SCHOOL 标准名对齐 */
+/** POI 分校区名归一（去括号校区） */
 function normCampus(s: string): string {
   return s.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').trim();
 }
 
-export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, repo: Repository): LinkageModel {
-  const { CAMPUS_SHORT, CAMPUS_SCHOOL, CAMPUS_TO_SPECIAL, CAMPUS_TO_BATCH2 } = repo;
+/** special 名单原文 → 名额分配原文校名（跨源键对齐） */
+function specialToCampus(specialKey: string, repo: Repository): string {
+  const { CAMPUS_INFO } = repo;
+  for (const [campus, info] of Object.entries(CAMPUS_INFO)) {
+    if (info.special === specialKey) return campus;
+  }
+  return specialKey;
+}
 
-  const specialKeyToShort = (spKey: string): string => {
-    for (const [short, full] of Object.entries(CAMPUS_TO_SPECIAL)) if (full === spKey) return short;
-    return spKey;
-  };
-  const batchKeyToShort = (bk: string): string => {
-    for (const [short, full] of Object.entries(CAMPUS_TO_BATCH2)) if (full === bk) return short;
-    return bk;
-  };
-  const schoolOf = (campus: string): string => (CAMPUS_SCHOOL as Record<string, string>)[campus] ?? campus;
-  /** 简称 → 官方全称（优先第二批次名单原文，回退特殊通道名单，再回退归属高中全名） */
-  const shortToFull = (c: string): string =>
-    (CAMPUS_TO_BATCH2 as Record<string, string>)[c] || (CAMPUS_TO_SPECIAL as Record<string, string>)[c] || schoolOf(c);
+export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, repo: Repository): LinkageModel {
+  const { CAMPUS_NAMES, CAMPUS_INFO } = repo;
 
   if (stage === 'middle') {
     const quota = repo.linkageOf(schoolName);
     const quotaRows = quota
-      ? CAMPUS_SHORT.filter((c) => (quota.sz[c] ?? 0) > 0)
-          .map((c) => ({ campus: c, campusFull: shortToFull(c), school: schoolOf(c), n: quota.sz[c] as number }))
+      ? CAMPUS_NAMES.filter((c) => (quota.sz[c] ?? 0) > 0)
+          .map((c) => ({ campus: c, campusFull: c, school: CAMPUS_INFO[c]!.school, n: quota.sz[c] as number }))
           .sort((a, b) => b.n - a.n)
       : [];
     const specialRows = (() => {
@@ -81,16 +77,19 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
       if (!m) return [];
       return Object.entries(m)
         .map(([k, v]) => {
-          const short = specialKeyToShort(k);
-          return { campus: short, campusFull: k, school: schoolOf(short), autonomy: v.autonomy ?? 0, sports: v.sports ?? 0, arts: v.arts ?? 0 };
+          const campus = specialToCampus(k, repo);
+          return { campus, campusFull: k, school: CAMPUS_INFO[campus]?.school ?? normCampus(k), autonomy: v.autonomy ?? 0, sports: v.sports ?? 0, arts: v.arts ?? 0 };
         })
         .sort((a, b) => (b.autonomy + b.sports + b.arts) - (a.autonomy + a.sports + a.arts));
     })();
     const specialTotal = specialRows.reduce((s, r) => s + r.autonomy + r.sports + r.arts, 0);
-    const batchRows = Object.entries(repo.batch2Of(schoolName)).map(([k, v]) => {
-      const short = batchKeyToShort(k);
-      return { campus: short, campusFull: k, school: schoolOf(short), min: v.min_score, last: v.last_score };
-    });
+    const batchRows = Object.entries(repo.batch2Of(schoolName)).map(([k, v]) => ({
+      campus: k,
+      campusFull: k,
+      school: CAMPUS_INFO[k]?.school ?? normCampus(k),
+      min: v.min_score,
+      last: v.last_score,
+    }));
     const qmap = new Map<string, { campus: string; campusFull: string; school: string; n: number }>(quotaRows.map((r) => [r.campus, r]));
     const bmap = new Map<string, { campus: string; campusFull: string; school: string; min: number | null }>(
       batchRows.map((r) => [r.campus, { campus: r.campus, campusFull: r.campusFull, school: r.school, min: r.min ?? null }]),
@@ -101,8 +100,8 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
         const b = bmap.get(c);
         return {
           campus: c,
-          campusFull: b?.campusFull || q?.campusFull || shortToFull(c),
-          school: b?.school || q?.school || schoolOf(c),
+          campusFull: b?.campusFull || q?.campusFull || c,
+          school: b?.school || q?.school || normCampus(c),
           n: q?.n ?? null,
           min: b?.min ?? null,
         };
@@ -127,11 +126,11 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
 
   // high：按学校聚合全部校区
   const target = normCampus(schoolName);
-  const highShorts = CAMPUS_SHORT.filter(
-    (c) => normCampus(CAMPUS_SCHOOL[c] ?? '') === target || CAMPUS_SCHOOL[c] === schoolName,
+  const highCampuses = CAMPUS_NAMES.filter(
+    (c) => normCampus(CAMPUS_INFO[c]!.school) === target || CAMPUS_INFO[c]!.school === schoolName,
   );
   const mergedCover = new Map<string, { n: number; districts: Set<string> }>();
-  for (const c of highShorts) {
+  for (const c of highCampuses) {
     for (const { school, n, district } of repo.quotaCoverage(c)) {
       const m = mergedCover.get(school) || { n: 0, districts: new Set<string>() };
       m.n += n;
@@ -144,7 +143,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     .sort((a, b) => b.n - a.n)
     .slice(0, 30);
   const mergedSpecial = new Map<string, { autonomy: number; sports: number; arts: number }>();
-  for (const c of highShorts) {
+  for (const c of highCampuses) {
     for (const s of repo.specialCoverage(c)) {
       const m = mergedSpecial.get(s.school) || { autonomy: 0, sports: 0, arts: 0 };
       m.autonomy += s.autonomy;

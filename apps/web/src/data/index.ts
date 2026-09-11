@@ -98,10 +98,8 @@ export const {
   brandGroupOf,
   tier1Schools,
   middleTier1Schools,
-  CAMPUS_SHORT,
-  CAMPUS_SCHOOL,
-  CAMPUS_TO_SPECIAL,
-  CAMPUS_TO_BATCH2,
+  CAMPUS_NAMES,
+  CAMPUS_INFO,
 } = repository;
 
 /* ================= 类型重导出（页面 import 来源不变） ================= */

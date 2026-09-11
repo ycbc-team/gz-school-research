@@ -8,7 +8,7 @@
  * 合规口径：对外以"名额分配/录取分数/招生计划"官方数据为主，梯队与特控率为内部权重。
  */
 import { computed, ref } from 'vue';
-import { quotaMatrix, CAMPUS_SHORT, CAMPUS_SCHOOL } from '../data';
+import { quotaMatrix, CAMPUS_NAMES, CAMPUS_INFO } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
 const ALL_SCHOOLS = [...quotaMatrix.schools].sort((a, b) => a.school.localeCompare(b.school, 'zh'));
@@ -24,8 +24,8 @@ const filteredSchools = computed(() => {
 const selectedSchool = computed(() => ALL_SCHOOLS.find((s) => s.school === middleSel.value));
 
 /* ========== 高中视角 ========== */
-const highSel = ref<string>(CAMPUS_SHORT[0]);
-const highSchoolName = computed(() => CAMPUS_SCHOOL[highSel.value] || highSel.value);
+const highSel = ref<string>(CAMPUS_NAMES[0]!);
+const highSchoolName = computed(() => CAMPUS_INFO[highSel.value]!.school);
 
 /* ========== 通用 ========== */
 const pickSchool = (name: string) => {
@@ -73,14 +73,14 @@ const pickSchool = (name: string) => {
       <div class="card-title">② 选省市属学校 → 看名额覆盖</div>
       <div class="chips">
         <button
-          v-for="c in CAMPUS_SHORT"
+          v-for="c in CAMPUS_NAMES"
           :key="c"
           class="chip"
           :class="{ on: c === highSel }"
           @click="highSel = c"
         >{{ c }}</button>
       </div>
-      <p class="sub-note">当前：{{ highSchoolName }} · {{ highSel }}校区（按学校聚合全部校区展示）</p>
+      <p class="sub-note">当前：{{ highSchoolName }} · {{ highSel }}（按学校聚合全部校区展示）</p>
 
       <LinkagePanel :stage="'high'" :school="highSchoolName" />
     </div>

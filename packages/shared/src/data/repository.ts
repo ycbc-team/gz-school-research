@@ -12,7 +12,7 @@ import { createQuotaApi } from './quota.js';
 import { createRegistryApi } from './registry.js';
 import { createBadgesApi } from './badges.js';
 import {
-  CAMPUS_SHORT, CAMPUS_SCHOOL, CAMPUS_TO_SPECIAL, CAMPUS_TO_BATCH2,
+  CAMPUS_NAMES, CAMPUS_INFO,
 } from './campuses.js';
 
 export type { DataLoaders };
@@ -49,11 +49,9 @@ export function createRepository(loaders: DataLoaders) {
     ...registry,
     ...badges,
 
-    /** 校区常量（21 省市属，quota_matrix.sz 键序） */
-    CAMPUS_SHORT,
-    CAMPUS_SCHOOL,
-    CAMPUS_TO_SPECIAL,
-    CAMPUS_TO_BATCH2,
+    /** 校区常量（21 省市属校区，官方名额分配原文名；键序=官方汇总表顺序） */
+    CAMPUS_NAMES,
+    CAMPUS_INFO,
   };
 }
 

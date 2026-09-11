@@ -7,7 +7,7 @@ import { normName } from '../support.js';
 import type { XiaoshengchuRecord } from '../types.js';
 import type { DataLoaders } from './loader.js';
 import { normSchoolName } from './enrollment.js';
-import { CAMPUS_TO_SPECIAL } from './campuses.js';
+import { CAMPUS_INFO } from './campuses.js';
 import type { QuotaSchool } from './types.js';
 
 export function createQuotaApi(loaders: DataLoaders) {
@@ -76,18 +76,18 @@ export function createQuotaApi(loaders: DataLoaders) {
     return out.sort((a, b) => b.n - a.n);
   }
 
-  /** 反查：某校区 n_ji>0 的初中（名额分配覆盖，按 n_ji 降序） */
-  function quotaCoverage(campusShort: string, top?: number): { school: string; n: number; district: string | null }[] {
+  /** 反查：某校区 n_ji>0 的初中（名额分配覆盖，按 n_ji 降序）；campus = 官方原文校名 */
+  function quotaCoverage(campus: string, top?: number): { school: string; n: number; district: string | null }[] {
     const arr = quotaMatrix.schools
-      .filter((s) => (s.sz[campusShort] ?? 0) > 0)
-      .map((s) => ({ school: s.school, n: s.sz[campusShort] as number, district: s.district }))
+      .filter((s) => (s.sz[campus] ?? 0) > 0)
+      .map((s) => ({ school: s.school, n: s.sz[campus] as number, district: s.district }))
       .sort((a, b) => b.n - a.n);
     return top ? arr.slice(0, top) : arr;
   }
 
-  /** 反查：某校区在 special_matrix 有记录的初中（自招/体育/艺术） */
-  function specialCoverage(campusShort: string): { school: string; sports: number; arts: number; autonomy: number }[] {
-    const spKey = CAMPUS_TO_SPECIAL[campusShort];
+  /** 反查：某校区在 special_matrix 有记录的初中（自招/体育/艺术）；campus = 官方原文校名 */
+  function specialCoverage(campus: string): { school: string; sports: number; arts: number; autonomy: number }[] {
+    const spKey = CAMPUS_INFO[campus]?.special;
     if (!spKey) return [];
     const arr: { school: string; sports: number; arts: number; autonomy: number }[] = [];
     for (const [school, hs] of Object.entries(specialMatrix.matrix)) {
