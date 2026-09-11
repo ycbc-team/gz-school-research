@@ -182,7 +182,7 @@ const highSpecialCoverage = computed(() => {
 
     <div class="card" v-if="!highCoverage.length && !highSpecialCoverage.length">
       <div class="card-title">升学通道</div>
-      <p class="empty">暂未匹配到该校名额分配/特殊通道覆盖数据。</p>
+      <p class="empty">该校为区属高中：名额分配面向本区初中、官方未公布逐初中明细；省市属自招/特长等特殊通道暂未覆盖到本校。</p>
     </div>
   </template>
 </template>
