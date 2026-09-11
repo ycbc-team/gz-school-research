@@ -62,7 +62,7 @@ const pickSchool = (name: string) => {
         <b>{{ selectedSchool.school }}</b>
         <span v-if="selectedSchool.district" class="tag">{{ selectedSchool.district }}</span>
         <span class="tag">名额考生 {{ selectedSchool.kaosheng ?? '—' }}</span>
-        <RouterLink :to="`/school/middle/${encodeURIComponent(selectedSchool.school)}`" class="detail-link">学校详情 →</RouterLink>
+        <RouterLink :to="`/school/${encodeURIComponent(selectedSchool.school)}?stage=middle`" class="detail-link">学校详情 →</RouterLink>
       </div>
 
       <LinkagePanel v-if="selectedSchool" :stage="'middle'" :school="selectedSchool.school" />

@@ -6,8 +6,8 @@
  * - 高中：分类/校区/出口数据（录取线·高分段·特控率，网传口径标注）+ 名额分配覆盖初中
  * 数据真源：data/ 各 JSON（apps/web/src/data 加载），链路数据为 2026 官方发布。
  */
-import { computed } from 'vue';
-import { useRouter } from 'vue-router';
+import { computed, ref, watch } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 import type { SchoolStage, SchoolPoi } from '@gz/shared';
 import {
   buildAliasTable,
@@ -39,7 +39,8 @@ import {
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
-const props = defineProps<{ stage: SchoolStage; name: string }>();
+const props = defineProps<{ name: string; stage?: string }>();
+const route = useRoute();
 const schoolName = computed(() => decodeURIComponent(props.name || ''));
 const router = useRouter();
 /** 返回上一级（无历史则回地图） */
@@ -52,22 +53,46 @@ function viewOnMap() {
   router.push({ path: '/map', query: { focus: schoolName.value } });
 }
 
+/* ========== 学部 tab：同一学校名可能跨多个学部（完中），内部 tab 切换 ========== */
+const POI_LISTS: Record<SchoolStage, any[]> = {
+  primary: primarySchools.schools, middle: middleSchools.schools, high: highSchools.schools,
+};
+const STAGE_LABEL: Record<SchoolStage, string> = { primary: '小学', middle: '初中', high: '高中' };
+/** 该校名在哪些学部有 POI 点位（同名即视为该学部实体） */
+const availableStages = computed<SchoolStage[]>(() => {
+  const out: SchoolStage[] = [];
+  for (const s of ['primary', 'middle', 'high'] as SchoolStage[]) {
+    if (POI_LISTS[s].some((p) => normName(p.name) === normName(schoolName.value))) out.push(s);
+  }
+  return out;
+});
+/** 当前激活学部 tab；默认 query.stage 或第一个可用学部 */
+const activeStage = ref<SchoolStage>(
+  (['primary', 'middle', 'high'].includes(route.query.stage as string) ? route.query.stage : undefined) as SchoolStage
+    || availableStages.value[0] || 'primary',
+);
+// 切换学校时重置 tab 到可用学部
+watch(schoolName, () => {
+  activeStage.value = availableStages.value[0] || 'primary';
+});
+const stage = computed(() => activeStage.value);
+
 /* ========== 校名匹配（与 MapView 同套逻辑） ========== */
 const tierTables = {
   primary: buildAliasTable(tier1Schools),
   middle: buildAliasTable(middleTier1Schools),
 };
 const tier = computed<Tier1School | undefined>(() => {
-  if (props.stage === 'high') return undefined;
+  if (stage.value === 'high') return undefined;
   // 新开办学校无成绩：不参与口碑/挂牌判定（数据层 note 标记「新开办（年份）·待首届成绩」，
   // 避免「广东实验中学天河学校」等独立法人新校因前缀匹配被误判为本部口碑校）
-  const poiList = props.stage === 'primary' ? primarySchools.schools : middleSchools.schools;
+  const poiList = stage.value === 'primary' ? primarySchools.schools : middleSchools.schools;
   const poi = poiList.find((s) => normName(s.name) === normName(schoolName.value));
   if (poi?.note && poi.note.includes('新开办')) return undefined;
   return matchTier1ByPoiName(
     schoolName.value,
-    props.stage === 'primary' ? tier1Schools : middleTier1Schools,
-    tierTables[props.stage],
+    stage.value === 'primary' ? tier1Schools : middleTier1Schools,
+    tierTables[stage.value],
   );
 });
 
@@ -79,9 +104,9 @@ for (const sc of highLevels.schools) {
   }
 }
 const rec = computed<HighLevelSchool | undefined>(() => {
-  if (props.stage === 'high') return highTable.get(normName(schoolName.value));
+  if (stage.value === 'high') return highTable.get(normName(schoolName.value));
   // 完中初中也展示其高中部省/市示范 badge
-  if (props.stage === 'middle' && isComprehensive(schoolName.value)) {
+  if (stage.value === 'middle' && isComprehensive(schoolName.value)) {
     return highTable.get(normName(schoolName.value));
   }
   return undefined;
@@ -89,10 +114,10 @@ const rec = computed<HighLevelSchool | undefined>(() => {
 
 /* ========== 基本信息 ========== */
 const poi = computed(() => {
-  const list = props.stage === 'primary' ? primarySchools.schools : props.stage === 'middle' ? middleSchools.schools : highSchools.schools;
+  const list = stage.value === 'primary' ? primarySchools.schools : stage.value === 'middle' ? middleSchools.schools : highSchools.schools;
   return list.find((s) => s.name === schoolName.value) || null;
 });
-const stageLabel = computed(() => (props.stage === 'primary' ? '小学' : props.stage === 'middle' ? '初中' : '高中'));
+const stageLabel = computed(() => (stage.value === 'primary' ? '小学' : stage.value === 'middle' ? '初中' : '高中'));
 
 const ADCODE_TO_DISTRICT: Record<string, string> = {
   '440103': '荔湾区', '440104': '越秀区', '440105': '海珠区', '440106': '天河区',
@@ -103,17 +128,17 @@ const districtOf = computed(() => {
     const d = ADCODE_TO_DISTRICT[poi.value.adcode];
     if (d) return d;
   }
-  if (props.stage === 'high' && rec.value?.district) return rec.value.district;
+  if (stage.value === 'high' && rec.value?.district) return rec.value.district;
   return tier.value?.district || '—';
 });
 
 /* ========== 小学：2026 招生计划匹配（含对口地段 zone） ========== */
 const enrollment = computed(() => {
-  if (props.stage !== 'primary') return null;
+  if (stage.value !== 'primary') return null;
   return matchEnrollment(schoolName.value);
 });
 const primaryMechanism = computed(() => {
-  if (props.stage !== 'primary' || !poi.value) return null;
+  if (stage.value !== 'primary' || !poi.value) return null;
   const d = primaryTier1.districts;
   for (const k of Object.keys(d)) {
     if (schoolName.value.includes(k) && d[k]) return d[k].xiaoshengchu_mechanism || null;
@@ -124,10 +149,10 @@ const primaryMechanism = computed(() => {
 const GAP_MARKERS = ['待查', '未在', '缺口', '暂缺'];
 /** 本校升学路线记录（全等匹配；跨区同名按 adcode 精确消歧） */
 const xsRecord = computed(() =>
-  props.stage === 'primary' ? xiaoshengchuOf(schoolName.value, poi.value?.adcode) : null,
+  stage.value === 'primary' ? xiaoshengchuOf(schoolName.value, poi.value?.adcode) : null,
 );
 const feedJuniors = computed(() => {
-  if (props.stage !== 'primary') return null;
+  if (stage.value !== 'primary') return null;
   const xs = xsRecord.value;
   if (!xs) return null;
   return {
@@ -138,7 +163,7 @@ const feedJuniors = computed(() => {
   };
 });
 const feedGap = computed(() => {
-  if (props.stage !== 'primary') return null;
+  if (stage.value !== 'primary') return null;
   const xs = xsRecord.value;
   if (!xs) return '本校未进入 2026 公办小学对口/派位名单。民办校无公办对口名单，以官方摇号 / 直升政策为准；公办新建校或未收录点位以最新官方公告为准。';
   if (xs.direct_feed) return null;
@@ -161,7 +186,7 @@ const feedRows = computed(() => {
 
 /* ========== 初中：生源小学反查 ========== */
 const feedPrimarys = computed(() => {
-  if (props.stage !== 'middle') return [];
+  if (stage.value !== 'middle') return [];
   return middlePrimaryFeed(schoolName.value);
 });
 
@@ -186,11 +211,11 @@ const indRows = computed(() => {
 
 /* ========== 其他 ========== */
 const badges = computed<{ text: string; cls: string }[]>(() =>
-  schoolBadges(props.stage, { district: districtOf.value, tier: tier.value, rec: rec.value, name: schoolName.value }),
+  schoolBadges(stage.value, { district: districtOf.value, tier: tier.value, rec: rec.value, name: schoolName.value }),
 );
 const support = computed(() => supportBadge(tier.value));
 const headText = computed(() => {
-  if (props.stage === 'high') {
+  if (stage.value === 'high') {
     const r = rec.value;
     return r ? `${r.demo || ''}${r.demo && r.affiliation ? ' · ' : ''}${r.affiliation || ''}${r.campuses?.length ? ` · ${r.campuses.length} 校区` : ''}`.trim() : '';
   }
@@ -202,8 +227,8 @@ const headText = computed(() => {
   return parts.join(' · ');
 });
 const signalRows = computed(() => {
-  if (props.stage === 'primary') return tier.value ? formatPrimarySignals(tier.value) : [];
-  if (props.stage === 'middle') return tier.value ? formatMiddleSignals(tier.value) : [];
+  if (stage.value === 'primary') return tier.value ? formatPrimarySignals(tier.value) : [];
+  if (stage.value === 'middle') return tier.value ? formatMiddleSignals(tier.value) : [];
   return [];
 });
 const tierNote = computed(() => {
@@ -292,9 +317,9 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
     const reason = tierM?.exclude_reason || tierP?.exclude_reason || null;
     // 详情链接：优先当前学段 → 初中 → 高中 → 小学
     const stageToKey: Record<string, SchoolStage> = { 小学: 'primary', 初中: 'middle', 高中: 'high' };
-    const order = [props.stage, ...(['primary', 'middle', 'high'] as SchoolStage[]).filter((s) => s !== props.stage)];
+    const order = [stage.value, ...(['primary', 'middle', 'high'] as SchoolStage[]).filter((s) => s !== stage.value)];
     const stageKey = order.find((k) => stages.includes(k === 'primary' ? '小学' : k === 'middle' ? '初中' : '高中')) || null;
-    const link = stageKey ? `/school/${stageKey}/${encodeURIComponent(u.name)}` : null;
+    const link = stageKey ? `/school/${encodeURIComponent(u.name)}?stage=${stageKey}` : null;
     rows.push({
       name: u.name,
       role: u.role,
@@ -328,6 +353,17 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
       </div>
       <p v-if="headText" class="d-sub">{{ headText }}</p>
     </header>
+
+    <!-- 学部切换 tab（完中/多学部学校才显示） -->
+    <nav v-if="availableStages.length > 1" class="stage-tabs">
+      <button
+        v-for="s in availableStages"
+        :key="s"
+        class="stage-tab"
+        :class="{ on: stage === s }"
+        @click="activeStage = s"
+      >{{ STAGE_LABEL[s] }}</button>
+    </nav>
 
     <!-- 基本信息 -->
     <div class="card">
@@ -403,7 +439,7 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
       <p v-if="feedJuniors?.direct_feed" class="sub-note">直升：{{ feedJuniors.direct_feed }}</p>
       <div v-if="feedRows.length" class="feed-list">
         <div v-for="r in feedRows" :key="r.name" class="feed-item">
-          <RouterLink :to="`/school/middle/${encodeURIComponent(r.name)}`" class="feed-name">{{ r.name }}</RouterLink>
+          <RouterLink :to="`/school/${encodeURIComponent(r.name)}?stage=middle`" class="feed-name">{{ r.name }}</RouterLink>
           <span v-if="r.summary" class="tag">{{ r.summary }}</span>
           <span v-else class="tag tag-dim">区属初中</span>
         </div>
@@ -426,7 +462,7 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
         <p class="sub-note">以下小学的 2026 对口/派位名单包含本校（由七区全量小学升学路线反查，校名全等匹配）。</p>
         <div class="feed-list">
           <div v-for="r in feedPrimarys" :key="r.primary" class="feed-item">
-            <RouterLink :to="`/school/primary/${encodeURIComponent(r.primary)}`" class="feed-name">{{ r.primary }}</RouterLink>
+            <RouterLink :to="`/school/${encodeURIComponent(r.primary)}?stage=primary`" class="feed-name">{{ r.primary }}</RouterLink>
             <span class="tag tag-dim">{{ r.direct_feed ? '对口直升' : (r.group || '对口') }}</span>
           </div>
         </div>
@@ -474,6 +510,9 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
 .back { display: inline-block; color: #1a6bd6; text-decoration: none; font-size: 13px; margin-bottom: 10px; background: none; border: none; cursor: pointer; font-family: inherit; padding: 0; }
 .back:hover { text-decoration: underline; }
 .d-head { margin-bottom: 14px; }
+.stage-tabs { display: flex; gap: 8px; margin: 0 0 14px; }
+.stage-tab { padding: 6px 16px; border: 1px solid #d9d9d9; border-radius: 999px; background: #fff; cursor: pointer; font-size: 14px; }
+.stage-tab.on { background: #1a73e8; color: #fff; border-color: #1a73e8; }
 .d-head h1 { font-size: 20px; font-weight: 700; margin: 0 0 8px; line-height: 1.4; }
 .badges { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .badge { font-size: 12px; font-weight: 700; color: #fff; border-radius: 6px; padding: 2px 9px; }

@@ -473,7 +473,7 @@ const infoModel = computed<InfoModel | null>(() => {
   if (!pt) return null;
   const districtName = districtByAdcode[pt.adcode] || '';
   const name = pt.name;
-  const detailLink = { text: '查看学校详情 →', to: `/school/${pt.stage}/${encodeURIComponent(name)}` };
+  const detailLink = { text: '查看学校详情 →', to: `/school/${encodeURIComponent(name)}` };
   if (pt.stage === 'high') {
     const rec = pt.rec;
     if (!rec) {

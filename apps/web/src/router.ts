@@ -15,6 +15,8 @@ export const router = createRouter({
     { path: '/support', name: 'support', component: SupportView },
     { path: '/policy', name: 'policy', component: PolicyView },
     { path: '/linkage', name: 'linkage', component: LinkageView },
-    { path: '/school/:stage/:name', name: 'school-detail', component: SchoolDetailView, props: true },
+    { path: '/school/:name', name: 'school-detail', component: SchoolDetailView, props: true },
+    // 旧路径 /school/:stage/:name 重定向到合并路由（stage 作初始 tab）
+    { path: '/school/:stage/:name', redirect: (to) => ({ path: `/school/${to.params.name}`, query: { stage: to.params.stage } }) },
   ],
 });

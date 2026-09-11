@@ -128,7 +128,7 @@ const highSpecialCoverage = computed(() => {
       <div class="tbl">
         <div class="tbl-row tbl-head"><span>升入高中</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
         <div v-for="r in specialRows" :key="r.campus" class="tbl-row">
-          <span><RouterLink :to="`/school/high/${encodeURIComponent(schoolOf(r.campus))}`" class="sch-link">{{ r.campus }}</RouterLink></span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
+          <span><RouterLink :to="`/school/${encodeURIComponent(schoolOf(r.campus))}?stage=high`" class="sch-link">{{ r.campus }}</RouterLink></span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
         </div>
       </div>
     </div>
@@ -144,7 +144,7 @@ const highSpecialCoverage = computed(() => {
       <div v-if="batchMerged.length" class="tbl tbl-merged" style="margin-top:10px;">
         <div class="tbl-row tbl-head"><span>高中</span><span>名额</span><span>录取最低分</span></div>
         <div v-for="r in batchMerged" :key="r.campus" class="tbl-row">
-          <span><RouterLink :to="`/school/high/${encodeURIComponent(r.school)}`" class="sch-link">{{ r.campus }}</RouterLink></span><span>{{ r.n ?? '—' }}</span><span>{{ r.min ?? '—' }}</span>
+          <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=high`" class="sch-link">{{ r.campus }}</RouterLink></span><span>{{ r.n ?? '—' }}</span><span>{{ r.min ?? '—' }}</span>
         </div>
       </div>
       <p class="sub-note" style="margin-top:8px;">第三批（省市属统招）、第四批（区属统招）按全市统一投档划线，官方不公布按初中学校的录取名单与分数，故不展示。</p>
@@ -164,7 +164,7 @@ const highSpecialCoverage = computed(() => {
       <div class="tbl">
         <div class="tbl-row tbl-head"><span>初中</span><span>所在区</span><span>名额</span></div>
         <div v-for="r in highCoverage" :key="r.school" class="tbl-row">
-          <span><RouterLink :to="`/school/middle/${encodeURIComponent(r.school)}`" class="sch-link">{{ r.school }}</RouterLink></span>
+          <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink></span>
           <span>{{ r.districts.join('、') || '—' }}</span><span class="strong">{{ r.n }}</span>
         </div>
       </div>
