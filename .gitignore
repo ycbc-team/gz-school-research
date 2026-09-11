@@ -38,3 +38,6 @@ project.private.config.json
 data/linkage/raw/headers/*.png
 data/linkage/raw/*.png
 data/linkage/raw/*.preview
+
+# Web 紧凑数据产物（由 scripts/data/compact.mjs 从 data/ JSON 编译，加载后 hydrate 还原）
+apps/web/src/data/compact/

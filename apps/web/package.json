@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "data:compact": "node ../../scripts/data/compact.mjs",
+    "dev": "npm run data:compact && vite",
+    "build": "npm run data:compact && vite build",
     "preview": "vite preview",
     "typecheck": "vue-tsc --noEmit"
   },

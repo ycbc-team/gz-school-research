@@ -1,6 +1,7 @@
 /**
- * 数据加载层：Web 端统一从 data/（JSON 唯一真源）加载数据，类型由 @gz/shared 提供。
- * 小程序端对应实现见 apps/miniprogram/utils/data.js（构建时拷贝同一份 JSON）。
+ * 数据加载层：Web 端统一加载紧凑数据模块（由 scripts/data/compact.mjs 从 data/ JSON 真源编译，
+ * 经 @gz/shared hydrate 还原为原 JSON 结构），类型由 @gz/shared 提供。
+ * 小程序端对应实现见 apps/miniprogram/utils/data.js（同一紧凑编译，CJS 产物）。
  */
 import type {
   SchoolsSnapshot,
@@ -8,38 +9,45 @@ import type {
   HighLevelsSnapshot,
   EnrollmentSnapshot,
 } from '@gz/shared';
-import { matchBrandByPoiName, normName, ADCODE_TO_DISTRICT, type BrandGroupLite, type XiaoshengchuRecord, type XiaoshengchuSnapshot } from '@gz/shared';
-import primarySchoolsJson from '../../../../data/primary/schools-gz.json';
-import primaryTier1Json from '../../../../data/primary/tier1_schools_all.json';
-import entitiesJson from '../../../../data/registry/entities.json';
-import xiaoshengchu2026Json from '../../../../data/primary/xiaoshengchu_2026.json';
-import middleSchoolsJson from '../../../../data/middle/schools-gz.json';
-import middleTier1Json from '../../../../data/middle/tier1_schools_all.json';
-import highSchoolsJson from '../../../../data/high/schools-gz.json';
-import highLevelsJson from '../../../../data/high/levels.json';
-import enrollTianheJson from '../../../../data/primary/enrollments/2026-tianhe.json';
-import enrollYuexiuJson from '../../../../data/primary/enrollments/2026-yuexiu.json';
-import enrollHaizhuJson from '../../../../data/primary/enrollments/2026-haizhu.json';
-import enrollLiwanJson from '../../../../data/primary/enrollments/2026-liwan.json';
-import enrollPanyuJson from '../../../../data/primary/enrollments/2026-panyu.json';
-import enrollBaiyunJson from '../../../../data/primary/enrollments/2026-baiyun.json';
-import enrollHuangpuJson from '../../../../data/primary/enrollments/2026-huangpu.json';
-import quotaMatrixJson from '../../../../data/linkage/quota_matrix.json';
-import specialMatrixJson from '../../../../data/linkage/special_matrix.json';
-import batch2ScoresJson from '../../../../data/linkage/batch2_scores.json';
-import districtQuotaJson from '../../../../data/linkage/district_quota.json';
-import sitesRegistryJson from '../../../../data/registry/sites.json';
-import brandGroupsJson from '../../../../data/registry/brand_groups.json';
+import { hydrate, matchBrandByPoiName, normName, ADCODE_TO_DISTRICT, type BrandGroupLite, type XiaoshengchuRecord, type XiaoshengchuSnapshot } from '@gz/shared';
+import primarySchoolsCompact from './compact/primary/schools-gz.js';
+import primaryTier1Compact from './compact/primary/tier1_schools_all.js';
+import entitiesCompact from './compact/registry/entities.js';
+import xiaoshengchu2026Compact from './compact/primary/xiaoshengchu_2026.js';
+import middleSchoolsCompact from './compact/middle/schools-gz.js';
+import middleTier1Compact from './compact/middle/tier1_schools_all.js';
+import highSchoolsCompact from './compact/high/schools-gz.js';
+import highLevelsCompact from './compact/high/levels.js';
+import enrollTianheCompact from './compact/primary/enrollments/2026-tianhe.js';
+import enrollYuexiuCompact from './compact/primary/enrollments/2026-yuexiu.js';
+import enrollHaizhuCompact from './compact/primary/enrollments/2026-haizhu.js';
+import enrollLiwanCompact from './compact/primary/enrollments/2026-liwan.js';
+import enrollPanyuCompact from './compact/primary/enrollments/2026-panyu.js';
+import enrollBaiyunCompact from './compact/primary/enrollments/2026-baiyun.js';
+import enrollHuangpuCompact from './compact/primary/enrollments/2026-huangpu.js';
+import quotaMatrixCompact from './compact/linkage/quota_matrix.js';
+import specialMatrixCompact from './compact/linkage/special_matrix.js';
+import batch2ScoresCompact from './compact/linkage/batch2_scores.js';
+import districtQuotaCompact from './compact/linkage/district_quota.js';
+import sitesRegistryCompact from './compact/registry/sites.js';
+import brandGroupsCompact from './compact/registry/brand_groups.js';
 
-/** JSON 推断类型与共享类型不一致处统一断言（字段为数据真源，结构由 scripts/ 保证） */
+/** 紧凑结构经 hydrate 还原后的类型断言（字段为数据真源，结构由 scripts/ 保证） */
 const cast = <T>(v: unknown): T => v as T;
 
-export const primarySchools = cast<SchoolsSnapshot>(primarySchoolsJson);
-export const primaryTier1 = cast<Tier1Snapshot>(primaryTier1Json);
-export const middleSchools = cast<SchoolsSnapshot>(middleSchoolsJson);
-export const middleTier1 = cast<Tier1Snapshot>(middleTier1Json);
-export const highSchools = cast<SchoolsSnapshot>(highSchoolsJson);
-export const highLevels = cast<HighLevelsSnapshot>(highLevelsJson);
+/** 仅供内部按名访问的注册表/事实表数据（还原后结构与真源一致） */
+const entitiesJson: any = hydrate(entitiesCompact);
+const xiaoshengchu2026Json: any = hydrate(xiaoshengchu2026Compact);
+const districtQuotaJson: any = hydrate(districtQuotaCompact);
+const sitesRegistryJson: any = hydrate(sitesRegistryCompact);
+const brandGroupsJson: any = hydrate(brandGroupsCompact);
+
+export const primarySchools = cast<SchoolsSnapshot>(hydrate(primarySchoolsCompact));
+export const primaryTier1 = cast<Tier1Snapshot>(hydrate(primaryTier1Compact));
+export const middleSchools = cast<SchoolsSnapshot>(hydrate(middleSchoolsCompact));
+export const middleTier1 = cast<Tier1Snapshot>(hydrate(middleTier1Compact));
+export const highSchools = cast<SchoolsSnapshot>(hydrate(highSchoolsCompact));
+export const highLevels = cast<HighLevelsSnapshot>(hydrate(highLevelsCompact));
 
 /** 完中判定：去括号 base 名同时出现在 middle 与 high POI 列表 → 初高中一体 */
 function baseName(n: string): string {
@@ -81,9 +89,9 @@ export interface Batch2Record {
 export interface Batch2Scores {
   data: Record<string, Record<string, Batch2Record>>;
 }
-export const quotaMatrix = cast<QuotaMatrix>(quotaMatrixJson);
-export const specialMatrix = cast<SpecialMatrix>(specialMatrixJson);
-export const batch2Scores = cast<Batch2Scores>(batch2ScoresJson);
+export const quotaMatrix = cast<QuotaMatrix>(hydrate(quotaMatrixCompact));
+export const specialMatrix = cast<SpecialMatrix>(hydrate(specialMatrixCompact));
+export const batch2Scores = cast<Batch2Scores>(hydrate(batch2ScoresCompact));
 
 /** 21 省市属校区简称（quota_matrix.sz 键序） */
 export const CAMPUS_SHORT = [
@@ -252,13 +260,13 @@ export function specialCoverage(campusShort: string): { school: string; sports: 
 }
 
 export const enrollments: EnrollmentSnapshot[] = [
-  cast<EnrollmentSnapshot>(enrollTianheJson),
-  cast<EnrollmentSnapshot>(enrollYuexiuJson),
-  cast<EnrollmentSnapshot>(enrollHaizhuJson),
-  cast<EnrollmentSnapshot>(enrollLiwanJson),
-  cast<EnrollmentSnapshot>(enrollPanyuJson),
-  cast<EnrollmentSnapshot>(enrollBaiyunJson),
-  cast<EnrollmentSnapshot>(enrollHuangpuJson),
+  cast<EnrollmentSnapshot>(hydrate(enrollTianheCompact)),
+  cast<EnrollmentSnapshot>(hydrate(enrollYuexiuCompact)),
+  cast<EnrollmentSnapshot>(hydrate(enrollHaizhuCompact)),
+  cast<EnrollmentSnapshot>(hydrate(enrollLiwanCompact)),
+  cast<EnrollmentSnapshot>(hydrate(enrollPanyuCompact)),
+  cast<EnrollmentSnapshot>(hydrate(enrollBaiyunCompact)),
+  cast<EnrollmentSnapshot>(hydrate(enrollHuangpuCompact)),
 ];
 
 /* ========== 小学 2026 招生计划匹配（含校名变体归一） ========== */

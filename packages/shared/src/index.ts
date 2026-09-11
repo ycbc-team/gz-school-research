@@ -8,3 +8,4 @@ export * from './geo.js';
 export * from './stats.js';
 export * from './support.js';
 export * from './format.js';
+export * from './compact.js';
