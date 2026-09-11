@@ -190,24 +190,24 @@ const feedPrimarys = computed(() => {
   return middlePrimaryFeed(schoolName.value);
 });
 
-/* ========== 高中：出口数据（升学路径覆盖由 LinkagePanel 承载） ========== */
-const indRows = computed(() => {
-  const r = rec.value;
-  if (!r) return [];
-  const ind = r.indicators || {};
+/* ========== 高中：招生（中考录取线）与高考（网传成绩）分卡片 ========== */
+function pickRows(keys: [string, string, boolean?][]) {
+  const ind = rec.value?.indicators || {};
   const rows: { label: string; value: string; strong?: boolean }[] = [];
-  const put = (k: string, label: string, strong = false) => {
+  for (const [k, label, strong] of keys) {
     const v = ind[k];
     if (v !== undefined && v !== null && v !== '') rows.push({ label, value: String(v), strong });
-  };
-  put('score_2025', '2025 中考录取线（户籍生）', true);
-  put('gaofen_2026', '高分段 2026');
-  put('gaofen_2025', '高分段 2025');
-  put('tekong_2026', '特控线上线率 2026');
-  put('tekong_2025', '特控线上线率 2025');
-  put('note', '备注');
+  }
   return rows;
-});
+}
+/** 高中招生：中考录取线（官方） */
+const admissionRows = computed(() =>
+  pickRows([['score_2025', '2025 中考录取线（户籍生）', true]]),
+);
+/** 高考信息：高分段/特控率（网传喜报） */
+const gaokaoRows = computed(() =>
+  pickRows([['gaofen_2026', '高分段 2026'], ['gaofen_2025', '高分段 2025'], ['tekong_2026', '特控线上线率 2026'], ['tekong_2025', '特控线上线率 2025'], ['note', '备注']]),
+);
 
 /* ========== 其他 ========== */
 const badges = computed<{ text: string; cls: string }[]>(() =>
@@ -377,31 +377,6 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
       </div>
     </div>
 
-    <!-- 品牌关联（同品牌多校区/多法人，解释挂牌口径） -->
-    <div v-if="brandCard" class="card">
-      <div class="card-title">品牌关联</div>
-      <p class="sub-note">同一品牌下的校区与学校，按法人关系分组；独立法人合作校按成绩判定口碑——成绩达第一梯队计入口碑（托管/共建关系见分组），与本部有差距或无成绩证据则维持挂牌。</p>
-      <div class="brand-head">品牌 · {{ brandCard.brand }}</div>
-      <p v-if="brandCard.note" class="brand-note">{{ brandCard.note }}</p>
-      <div v-for="g in brandCard.groups" :key="g.key" class="brand-group">
-        <div class="brand-group-title" :class="g.key">{{ g.title }}</div>
-        <div v-for="r in g.rows" :key="r.name" class="brand-row" :class="{ current: r.isCurrent }">
-          <div class="brand-row-main">
-            <RouterLink v-if="r.link" :to="r.link" class="brand-name-link">{{ r.name }}</RouterLink>
-            <span v-else class="brand-name-plain">{{ r.name }}</span>
-            <span v-if="r.isCurrent" class="tag tag-now">当前查看</span>
-            <span class="tag">{{ r.role }}</span>
-          </div>
-          <div class="brand-row-badges">
-            <span v-if="r.district" class="badge b-district">{{ r.district }}</span>
-            <span v-for="s in r.stages" :key="s" class="badge b-stage">{{ s }}</span>
-            <span v-if="r.badge" class="badge" :class="r.badge.cls">{{ r.badge.text }}</span>
-          </div>
-          <p v-if="r.reason" class="brand-reason">{{ r.reason }}</p>
-        </div>
-      </div>
-    </div>
-
     <!-- 口碑信号（民间口径，非官方评价） -->
     <div v-if="signalRows.length" class="card">
       <div class="card-title">口碑信号</div>
@@ -417,9 +392,9 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
       <p v-if="tierNote" class="sub-note">{{ tierNote }}</p>
     </div>
 
-    <!-- 小学：招生计划 + 对口地段 -->
+    <!-- 小学 tab：招生计划 + 所在区小升初机制 -->
     <div v-if="stage === 'primary'" class="card">
-      <div class="card-title">2026 小学招生计划</div>
+      <div class="card-title">2026 招生计划</div>
       <div v-if="enrollment" class="kv">
         <div class="kv-row"><span>计划班数</span><b>{{ enrollment.plan_classes ?? '—' }} 个班</b></div>
         <div class="kv-row" v-if="enrollment.nature"><span>办学性质</span><b>{{ enrollment.nature }}</b></div>
@@ -429,10 +404,13 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
           <p>{{ enrollment.zone }}</p>
         </div>
       </div>
-      <p v-else class="empty">未在 2026 招生计划中匹配到招生地段（数据覆盖越秀/荔湾/海珠/天河/番禺/白云/黄埔七区；部分校名变体如分校区、新建校暂缺，后续补录）。</p>
+      <p v-else class="empty">未在 2026 招生计划中匹配到招生地段（数据覆盖七区；分校区、新建校暂缺，后续补录）。</p>
+      <div v-if="primaryMechanism" class="kv" style="margin-top:10px;">
+        <div class="kv-row"><span>所在区小升初机制</span><b style="font-weight:400;">{{ primaryMechanism }}</b></div>
+      </div>
     </div>
 
-    <!-- 小学：升学路线（对口初中 · 派位/直升） -->
+    <!-- 小学 tab：升学路线（对口初中 · 派位/直升） -->
     <div v-if="stage === 'primary' && (feedRows.length || feedGap || feedJuniors?.direct_feed)" class="card">
       <div class="card-title">升学路线 · {{ feedJuniors?.direct_feed ? '对口直升' : '对口/派位初中' }}</div>
       <p v-if="feedJuniors?.group" class="sub-note">分组：{{ feedJuniors.group }}</p>
@@ -449,15 +427,9 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
       <p v-if="feedRows.length" class="sub-note" style="margin-top:4px;">点击初中可查看该校升学通道详情。</p>
     </div>
 
-    <!-- 小学：小升初机制 -->
-    <div v-if="stage === 'primary' && primaryMechanism" class="card">
-      <div class="card-title">所在区小升初机制</div>
-      <p class="note-text">{{ primaryMechanism }}</p>
-    </div>
-
-    <!-- 初中：招生 · 生源小学 -->
+    <!-- 初中 tab：招生 · 生源小学 -->
     <div v-if="stage === 'middle'" class="card">
-      <div class="card-title">招生 · 生源小学</div>
+      <div class="card-title">2026 招生 · 生源小学</div>
       <template v-if="feedPrimarys.length">
         <p class="sub-note">以下小学的 2026 对口/派位名单包含本校（由七区全量小学升学路线反查，校名全等匹配）。</p>
         <div class="feed-list">
@@ -470,32 +442,64 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
       <p v-else class="empty">本校未进入 2026 公办小学对口/派位名单。民办校无公办对口名单，以官方摇号 / 直升政策为准；公办新建校或未收录点位以最新官方公告为准。</p>
     </div>
 
-    <!-- 初中：升学通道（LinkagePanel 公共组件） -->
+    <!-- 初中 tab：升学通道（名额分配/自招，LinkagePanel） -->
     <template v-if="stage === 'middle'">
       <LinkagePanel :stage="'middle'" :school="schoolName" />
     </template>
 
-    <!-- 高中：出口数据 + 升学路径覆盖（LinkagePanel 公共组件） -->
+    <!-- 高中 tab：招生计划（中考录取线 + 名额分配到初中覆盖，合并） -->
     <template v-if="stage === 'high'">
-      <div class="card" v-if="indRows.length">
-        <div class="card-title">高中招生 · 中考录取线</div>
+      <div class="card" v-if="admissionRows.length">
+        <div class="card-title">2026 招生 · 中考录取线</div>
         <div class="kv">
-          <div class="kv-row" v-for="r in indRows" :key="r.label">
+          <div class="kv-row" v-for="r in admissionRows" :key="r.label">
             <span>{{ r.label }}</span><b :class="{ strong: r.strong }">{{ r.value }}</b>
           </div>
         </div>
-        <p class="sub-note">口径：录取线为官方发布；高分段/特控率为各校喜报或网传数据，非官方统一发布，仅供参考。</p>
+        <p class="sub-note">录取线为官方发布（户籍生）。</p>
       </div>
-
       <LinkagePanel :stage="'high'" :school="schoolName" />
-
-      <div class="card" v-if="rec?.campuses?.length">
-        <div class="card-title">校区</div>
-        <ul class="campus-list">
-          <li v-for="c in rec.campuses" :key="c">{{ c }}</li>
-        </ul>
+      <!-- 高考信息：网传成绩 -->
+      <div class="card" v-if="gaokaoRows.length">
+        <div class="card-title">高考信息（网传喜报）</div>
+        <div class="kv">
+          <div class="kv-row" v-for="r in gaokaoRows" :key="r.label">
+            <span>{{ r.label }}</span><b>{{ r.value }}</b>
+          </div>
+        </div>
+        <p class="sub-note">高分段/特控率为各校喜报或网传，非官方统一发布，仅供参考。</p>
       </div>
     </template>
+
+    <!-- 品牌关联 + 校区（合并） -->
+    <div v-if="brandCard || rec?.campuses?.length" class="card">
+      <div class="card-title">品牌关联 · 校区</div>
+      <template v-if="brandCard">
+        <p class="sub-note">同一品牌下的校区与学校，按法人关系分组。</p>
+        <div class="brand-head">品牌 · {{ brandCard.brand }}</div>
+        <p v-if="brandCard.note" class="brand-note">{{ brandCard.note }}</p>
+        <div v-for="g in brandCard.groups" :key="g.key" class="brand-group">
+          <div class="brand-group-title" :class="g.key">{{ g.title }}</div>
+          <div v-for="r in g.rows" :key="r.name" class="brand-row" :class="{ current: r.isCurrent }">
+            <div class="brand-row-main">
+              <RouterLink v-if="r.link" :to="r.link" class="brand-name-link">{{ r.name }}</RouterLink>
+              <span v-else class="brand-name-plain">{{ r.name }}</span>
+              <span v-if="r.isCurrent" class="tag tag-now">当前查看</span>
+              <span class="tag">{{ r.role }}</span>
+            </div>
+            <div class="brand-row-badges">
+              <span v-if="r.district" class="badge b-district">{{ r.district }}</span>
+              <span v-for="s in r.stages" :key="s" class="badge b-stage">{{ s }}</span>
+              <span v-if="r.badge" class="badge" :class="r.badge.cls">{{ r.badge.text }}</span>
+            </div>
+            <p v-if="r.reason" class="brand-reason">{{ r.reason }}</p>
+          </div>
+        </div>
+      </template>
+      <ul v-if="rec?.campuses?.length" class="campus-list" style="margin-top:8px;">
+        <li v-for="c in rec.campuses" :key="c">{{ c }}</li>
+      </ul>
+    </div>
 
     <footer class="d-foot">
       <button class="back" @click="goBack">← 返回</button>
