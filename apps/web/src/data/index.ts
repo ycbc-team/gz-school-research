@@ -8,9 +8,10 @@ import type {
   HighLevelsSnapshot,
   EnrollmentSnapshot,
 } from '@gz/shared';
-import { matchBrandByPoiName, normName, type BrandGroupLite } from '@gz/shared';
+import { matchBrandByPoiName, normName, ADCODE_TO_DISTRICT, type BrandGroupLite, type XiaoshengchuRecord, type XiaoshengchuSnapshot } from '@gz/shared';
 import primarySchoolsJson from '../../../../data/primary/schools-gz.json';
 import primaryTier1Json from '../../../../data/primary/tier1_schools_all.json';
+import xiaoshengchuAllJson from '../../../../data/primary/xiaoshengchu_all.json';
 import middleSchoolsJson from '../../../../data/middle/schools-gz.json';
 import middleTier1Json from '../../../../data/middle/tier1_schools_all.json';
 import highSchoolsJson from '../../../../data/high/schools-gz.json';
@@ -33,6 +34,8 @@ const cast = <T>(v: unknown): T => v as T;
 
 export const primarySchools = cast<SchoolsSnapshot>(primarySchoolsJson);
 export const primaryTier1 = cast<Tier1Snapshot>(primaryTier1Json);
+/** 小学小升初升学路线全量真源（7 区，2026） */
+export const xiaoshengchuAll = cast<XiaoshengchuSnapshot>(xiaoshengchuAllJson);
 export const middleSchools = cast<SchoolsSnapshot>(middleSchoolsJson);
 export const middleTier1 = cast<Tier1Snapshot>(middleTier1Json);
 export const highSchools = cast<SchoolsSnapshot>(highSchoolsJson);
@@ -301,30 +304,60 @@ export function middleQuotaSummary(name: string): { kaosheng: number | null; she
 export const tier1Schools = Object.values(primaryTier1.districts).flatMap((d) => d.schools);
 export const middleTier1Schools = Object.values(middleTier1.districts).flatMap((d) => d.schools);
 
+/* ========== 小学升学路线（xiaoshengchu_all 全量真源，仅归一化全等，不做包含/前缀匹配） ========== */
+/** 从 group 文本解析区名（如「番禺区小升初对口（单校）」→「番禺区」），无区前缀返回 null */
+function districtOfGroup(group: string | null): string | null {
+  if (!group) return null;
+  const m = /(荔湾|越秀|海珠|天河|白云|黄埔|番禺)区/.exec(group);
+  return m ? `${m[1]}区` : null;
+}
+type XsRecord = XiaoshengchuRecord & { district: string | null };
+const xsRecords: XsRecord[] = xiaoshengchuAll.records.map((r) => ({ ...r, district: districtOfGroup(r.group) }));
+/** 归一化校名 → 记录列表（全等；跨区同名学校如「赤岗小学」保留多条，查询时按区消歧） */
+const xsByNorm = new Map<string, XsRecord[]>();
+for (const r of xsRecords) {
+  const nk = normName(r.name);
+  if (!nk) continue;
+  if (!xsByNorm.has(nk)) xsByNorm.set(nk, []);
+  xsByNorm.get(nk)!.push(r);
+}
 /**
- * 反查：某初中的生源小学（哪些口碑小学的对口初中包含本校）。
- * 数据来自口碑小学的 xiaoshengchu.feed_junior_highs，仅覆盖口碑小学口径，非全量招生地段。
+ * 按 POI 名查小学升学路线：仅做 normName 归一化全等，不做任何部分/包含匹配。
+ * district 可选（传「番禺区」区名或 6 位 adcode 均可），仅在跨区同名时精确消歧；
+ * 不传或消歧不中时回退首条（确定性，不猜测）。
+ */
+export function xiaoshengchuOf(poiName: string, district?: string | null): XiaoshengchuRecord | null {
+  const nk = normName(poiName);
+  if (!nk) return null;
+  const list = xsByNorm.get(nk);
+  if (!list || !list.length) return null;
+  if (list.length === 1) return list[0]!;
+  const want = district && /^\d{6}$/.test(district) ? ADCODE_TO_DISTRICT[district] : district;
+  if (want) {
+    const hit = list.find((r) => r.district === want);
+    if (hit) return hit;
+  }
+  return list[0]!;
+}
+
+/**
+ * 反查：某初中的生源小学（全量小学的对口/派位名单包含本校）。
+ * 键为对口初中名的 normName 归一化全等，不做包含匹配。
  */
 const primaryFeedByMiddleNorm = new Map<string, { primary: string; group: string | null; direct_feed: string | null }[]>();
-for (const p of tier1Schools) {
-  const xs = (p as { xiaoshengchu?: { feed_junior_highs?: string[]; group?: string | null; direct_feed?: string | null } }).xiaoshengchu;
-  if (!xs?.feed_junior_highs) continue;
-  for (const mid of xs.feed_junior_highs) {
-    const nk = normSchoolName(mid);
+for (const p of xsRecords) {
+  if (!p.feed_junior_highs?.length) continue;
+  for (const mid of p.feed_junior_highs) {
+    const nk = normName(mid);
     if (!nk) continue;
     if (!primaryFeedByMiddleNorm.has(nk)) primaryFeedByMiddleNorm.set(nk, []);
-    primaryFeedByMiddleNorm.get(nk)!.push({ primary: p.name, group: xs.group ?? null, direct_feed: xs.direct_feed ?? null });
+    primaryFeedByMiddleNorm.get(nk)!.push({ primary: p.name, group: p.group, direct_feed: p.direct_feed });
   }
 }
 export function middlePrimaryFeed(middleName: string): { primary: string; group: string | null; direct_feed: string | null }[] {
-  const nk = normSchoolName(middleName);
+  const nk = normName(middleName);
   if (!nk) return [];
-  const exact = primaryFeedByMiddleNorm.get(nk);
-  if (exact) return exact;
-  for (const [k, list] of primaryFeedByMiddleNorm) {
-    if (k.length >= 3 && (k.includes(nk) || nk.includes(k))) return list;
-  }
-  return [];
+  return primaryFeedByMiddleNorm.get(nk) ?? [];
 }
 
 /**

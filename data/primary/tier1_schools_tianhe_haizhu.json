@@ -8,151 +8,263 @@
           "name": "华南师范大学附属小学",
           "rumor_tier": "第一梯队（民间标签，非官方）",
           "rumor_sources": [
-            {"source": "无忧考网（2016年天河区小学排名）", "url": "https://m.51test.net/show/8034450.html", "label": "第1名/第一梯队"},
-            {"source": "搜狐网（2018年广州小学排名盘点）", "url": "https://m.sohu.com/a/219256085_696117/", "label": "第一梯队"},
-            {"source": "今日头条·丽丽在广州（2025年天河区小学梯队）", "url": "http://m.toutiao.com/group/7488552224281346579/", "label": "第一梯队"},
-            {"source": "今日头条·老邝教买房（2021年“三华一龙”）", "url": "http://m.toutiao.com/group/6942795829002420749/", "label": "第一梯队（华附/华阳/华景/龙口西）"}
+            {
+              "source": "无忧考网（2016年天河区小学排名）",
+              "url": "https://m.51test.net/show/8034450.html",
+              "label": "第1名/第一梯队"
+            },
+            {
+              "source": "搜狐网（2018年广州小学排名盘点）",
+              "url": "https://m.sohu.com/a/219256085_696117/",
+              "label": "第一梯队"
+            },
+            {
+              "source": "今日头条·丽丽在广州（2025年天河区小学梯队）",
+              "url": "http://m.toutiao.com/group/7488552224281346579/",
+              "label": "第一梯队"
+            },
+            {
+              "source": "今日头条·老邝教买房（2021年“三华一龙”）",
+              "url": "http://m.toutiao.com/group/6942795829002420749/",
+              "label": "第一梯队（华附/华阳/华景/龙口西）"
+            }
           ],
           "rumor_notes": "几乎所有版本均列第一梯队；但该校为华南师大直属省属公办小学，不划招生地段、不面向普通地段家庭招生（主要招华师教职工子女），2026年不在天河区公办小学地段招生计划内。2021年“三华一龙”版本（华附、华阳、华景、龙口西）将其列首。",
-          "xiaoshengchu": {
-            "direct_feed": "广州中学（原47中）",
-            "group": null,
-            "feed_junior_highs": ["广州市广州中学"],
-            "source_url": "https://m.gz.bendibao.com/edu/349915.html",
-            "source_note": "2026天河区细则（单校划片对口直升为主，直升毕业小学对口中学）；对口对应关系见本地宝整理2024年天河区公办初中划片范围表（广州中学对口小学含华师附小），机制稳定"
+          "education_group": {
+            "name": "不适用（省属高校附属小学）",
+            "role": "未查到",
+            "source_url": null
           },
-          "education_group": {"name": "不适用（省属高校附属小学）", "role": "未查到", "source_url": null},
           "plan_classes_2026": null,
           "degree_warning": "未预警（不在2027年天河13校预警名单）",
-          "provincial_level_title": {"year": 1996, "note": "历史称号，非现行区分维度。本地宝《广州省级小学一览表》记1996年7月；另有自媒体称1995年晋升，以官方口径1996年为准"},
+          "provincial_level_title": {
+            "year": 1996,
+            "note": "历史称号，非现行区分维度。本地宝《广州省级小学一览表》记1996年7月；另有自媒体称1995年晋升，以官方口径1996年为准"
+          },
           "conclusion": "部分支撑",
           "conclusion_basis": "官方数据支持其优质（省一级历史称号1996年、对口广州中学），但“第一梯队”为民间标签且无官方升学率佐证；该校不划地段、普通家庭无法入读，标签对家长择校的实际参考意义有限。",
-          "data_gaps": ["2026年班数（省属，不在天河区公办小学招生计划表）", "集团身份（省属不适用）"]
+          "data_gaps": [
+            "2026年班数（省属，不在天河区公办小学招生计划表）",
+            "集团身份（省属不适用）"
+          ]
         },
         {
           "name": "广州市天河区华阳小学",
           "rumor_tier": "第一梯队（民间标签，非官方）",
           "rumor_sources": [
-            {"source": "无忧考网（2016）", "url": "https://m.51test.net/show/8034450.html", "label": "第一梯队"},
-            {"source": "搜狐网（2016年广州小学梯队）", "url": "https://m.sohu.com/n/457616886/", "label": "第一梯队"},
-            {"source": "今日头条·丽丽在广州（2025）", "url": "http://m.toutiao.com/group/7488552224281346579/", "label": "第一梯队"},
-            {"source": "今日头条·老邝教买房（2021“三华一龙”）", "url": "http://m.toutiao.com/group/6942795829002420749/", "label": "第一梯队"},
-            {"source": "幸福里房产（2023天河第一梯队学区房）", "url": "https://m.xflapp.com/blog/i7002099966952899105", "label": "第一梯队"},
-            {"source": "网易（2021年天河顶尖省一级小学）", "url": "https://www.163.com/dy/article/GCDMS8CN0535AXR2.html", "label": "顶尖"}
+            {
+              "source": "无忧考网（2016）",
+              "url": "https://m.51test.net/show/8034450.html",
+              "label": "第一梯队"
+            },
+            {
+              "source": "搜狐网（2016年广州小学梯队）",
+              "url": "https://m.sohu.com/n/457616886/",
+              "label": "第一梯队"
+            },
+            {
+              "source": "今日头条·丽丽在广州（2025）",
+              "url": "http://m.toutiao.com/group/7488552224281346579/",
+              "label": "第一梯队"
+            },
+            {
+              "source": "今日头条·老邝教买房（2021“三华一龙”）",
+              "url": "http://m.toutiao.com/group/6942795829002420749/",
+              "label": "第一梯队"
+            },
+            {
+              "source": "幸福里房产（2023天河第一梯队学区房）",
+              "url": "https://m.xflapp.com/blog/i7002099966952899105",
+              "label": "第一梯队"
+            },
+            {
+              "source": "网易（2021年天河顶尖省一级小学）",
+              "url": "https://www.163.com/dy/article/GCDMS8CN0535AXR2.html",
+              "label": "顶尖"
+            }
           ],
           "rumor_notes": "多版本第一梯队核心成员（“三华一龙”版本之一）。华成校区与天河南校区为两个校区。2021年网易版本称“华阳小学、华阳小学（华成校区）、华景小学、龙口西小学以及体育东路小学三大校区”为天河最顶尖。",
-          "xiaoshengchu": {
-            "direct_feed": "广州中学（原47中）",
-            "group": null,
-            "feed_junior_highs": ["广州市广州中学"],
-            "source_url": "https://m.gz.bendibao.com/edu/349915.html",
-            "source_note": "2026天河区细则：单校划片对口直升为主；广州中学对口小学含华阳小学（本地宝2024划片表，机制稳定）。另可自愿报名华附初中部（3公里派位名单含华阳小学）等电脑派位，未派中回对口"
+          "education_group": {
+            "name": "广州华阳教育集团",
+            "role": "核心校",
+            "source_url": "http://static.nfapp.southcn.com/content/201809/08/c1471451.html"
           },
-          "education_group": {"name": "广州华阳教育集团", "role": "核心校", "source_url": "http://static.nfapp.southcn.com/content/201809/08/c1471451.html"},
           "plan_classes_2026": 7,
           "degree_warning": "2027年预警（13校之一：2021-08-31后拥有地段房产按房产时间先后排序入学）",
-          "provincial_level_title": {"year": 2003, "note": "历史称号（2003年11月），非现行区分维度"},
+          "provincial_level_title": {
+            "year": 2003,
+            "note": "历史称号（2003年11月），非现行区分维度"
+          },
           "conclusion": "有支撑",
           "conclusion_basis": "官方数据多维印证：2026年对口直升广州中学（区属最优质公办初中之一）、华阳教育集团核心校（2018年成立）、省一级历史称号（2003）、2027年学位预警（热度高）。网传“第一梯队”有较强官方客观数据支撑。",
-          "data_gaps": ["天河南校区2026年计划班数未单列（招生计划表中仅华成校区7班）"]
+          "data_gaps": [
+            "天河南校区2026年计划班数未单列（招生计划表中仅华成校区7班）"
+          ]
         },
         {
           "name": "广州市天河区华景小学",
           "rumor_tier": "第一梯队（民间标签，非官方）",
           "rumor_sources": [
-            {"source": "无忧考网（2016）", "url": "https://m.51test.net/show/8034450.html", "label": "第一梯队"},
-            {"source": "今日头条·丽丽在广州（2025）", "url": "http://m.toutiao.com/group/7488552224281346579/", "label": "第一梯队"},
-            {"source": "今日头条·老邝教买房（2021“三华一龙”）", "url": "http://m.toutiao.com/group/6942795829002420749/", "label": "第一梯队"},
-            {"source": "幸福里房产（2023）", "url": "https://m.xflapp.com/blog/i7002099966952899105", "label": "第一梯队"}
+            {
+              "source": "无忧考网（2016）",
+              "url": "https://m.51test.net/show/8034450.html",
+              "label": "第一梯队"
+            },
+            {
+              "source": "今日头条·丽丽在广州（2025）",
+              "url": "http://m.toutiao.com/group/7488552224281346579/",
+              "label": "第一梯队"
+            },
+            {
+              "source": "今日头条·老邝教买房（2021“三华一龙”）",
+              "url": "http://m.toutiao.com/group/6942795829002420749/",
+              "label": "第一梯队"
+            },
+            {
+              "source": "幸福里房产（2023）",
+              "url": "https://m.xflapp.com/blog/i7002099966952899105",
+              "label": "第一梯队"
+            }
           ],
           "rumor_notes": "“三华一龙”版本成员；多数版本列第一梯队。北校区为2026年计划班数载体。",
-          "xiaoshengchu": {
-            "direct_feed": "广州市第113中学（东方校区）",
-            "group": null,
-            "feed_junior_highs": ["广州市第一一三中学"],
-            "source_url": "https://m.gz.bendibao.com/edu/349915.html",
-            "source_note": "2026天河区细则：单校划片对口直升；113中对口小学含华景小学（本地宝2024划片表）。另可自愿报名华附初中部（3公里名单含华景小学）、省实天河（3公里）、华颖（5公里）电脑派位"
+          "education_group": {
+            "name": "未查到（未见纳入市/区教育集团公开名单）",
+            "role": "未查到",
+            "source_url": null
           },
-          "education_group": {"name": "未查到（未见纳入市/区教育集团公开名单）", "role": "未查到", "source_url": null},
           "plan_classes_2026": 12,
           "degree_warning": "2027年预警（13校之一：2022-08-31后房产按时间排序）",
-          "provincial_level_title": {"year": 2006, "note": "历史称号（2006年1月，位于1994-2005评定批次边缘），非现行区分维度"},
+          "provincial_level_title": {
+            "year": 2006,
+            "note": "历史称号（2006年1月，位于1994-2005评定批次边缘），非现行区分维度"
+          },
           "conclusion": "部分支撑",
           "conclusion_basis": "官方数据部分印证：对口113中（区属优质公办初中）、省一级历史称号（2006）、2027年学位预警（热度高）；但未查到集团身份，对口初中非全区最顶尖梯队，官方客观数据不足以完全支撑“第一梯队”定位。",
-          "data_gaps": ["教育集团身份"]
+          "data_gaps": [
+            "教育集团身份"
+          ]
         },
         {
           "name": "广州市天河区龙口西小学",
           "rumor_tier": "第一梯队（民间标签，非官方）",
           "rumor_sources": [
-            {"source": "搜狐网（2016年广州小学梯队）", "url": "https://m.sohu.com/n/457616886/", "label": "第一梯队"},
-            {"source": "今日头条·丽丽在广州（2025）", "url": "http://m.toutiao.com/group/7488552224281346579/", "label": "第一梯队"},
-            {"source": "今日头条·老邝教买房（2021“三华一龙”）", "url": "http://m.toutiao.com/group/6942795829002420749/", "label": "第一梯队"},
-            {"source": "幸福里房产（2023）", "url": "https://m.xflapp.com/blog/i7002099966952899105", "label": "第一梯队"}
+            {
+              "source": "搜狐网（2016年广州小学梯队）",
+              "url": "https://m.sohu.com/n/457616886/",
+              "label": "第一梯队"
+            },
+            {
+              "source": "今日头条·丽丽在广州（2025）",
+              "url": "http://m.toutiao.com/group/7488552224281346579/",
+              "label": "第一梯队"
+            },
+            {
+              "source": "今日头条·老邝教买房（2021“三华一龙”）",
+              "url": "http://m.toutiao.com/group/6942795829002420749/",
+              "label": "第一梯队"
+            },
+            {
+              "source": "幸福里房产（2023）",
+              "url": "https://m.xflapp.com/blog/i7002099966952899105",
+              "label": "第一梯队"
+            }
           ],
           "rumor_notes": "“三华一龙”版本中的“一龙”；2025年版本仍列第一梯队。多校区办学（龙口、帝景、天阳、瑞安、穗园等）。",
-          "xiaoshengchu": {
-            "direct_feed": "广州中学（原47中）",
-            "group": null,
-            "feed_junior_highs": ["广州市广州中学"],
-            "source_url": "https://m.gz.bendibao.com/edu/349915.html",
-            "source_note": "2026天河区细则：单校划片对口直升；广州中学对口小学含龙口西小学（本地宝2024划片表）。另可自愿报名华附初中部（3公里名单含龙口西小学）电脑派位"
+          "education_group": {
+            "name": "未查到（未见纳入市/区教育集团公开名单）",
+            "role": "未查到",
+            "source_url": null
           },
-          "education_group": {"name": "未查到（未见纳入市/区教育集团公开名单）", "role": "未查到", "source_url": null},
           "plan_classes_2026": 22,
           "degree_warning": "2027年预警（13校之一：2021-08-31后房产按时间排序）",
-          "provincial_level_title": {"year": null, "note": "未查到省一级历史称号（民间称市一级）"},
+          "provincial_level_title": {
+            "year": null,
+            "note": "未查到省一级历史称号（民间称市一级）"
+          },
           "conclusion": "有支撑",
           "conclusion_basis": "官方数据强支撑：对口广州中学（区属最优质公办初中）、2026年计划22个班（天河最大规模公办小学之一）、2027年学位预警（热度最高校之一）；但无省一级历史称号、未查到集团身份，两项为缺口。",
-          "data_gaps": ["省一级历史称号", "教育集团身份", "各校区细分班数"]
+          "data_gaps": [
+            "省一级历史称号",
+            "教育集团身份",
+            "各校区细分班数"
+          ]
         },
         {
           "name": "广州市天河区天府路小学",
           "rumor_tier": "第一梯队（民间标签，非官方；版本差异）",
           "rumor_sources": [
-            {"source": "今日头条·丽丽在广州（2025年天河区小学梯队）", "url": "http://m.toutiao.com/group/7488552224281346579/", "label": "第一梯队"},
-            {"source": "网易（2020年天河区“超级小学”）", "url": "https://c.m.163.com/news/a/FFV62B1R0530MA7O.html", "label": "天河区超级小学"},
-            {"source": "野先生侃房（2023年天河学区房）", "url": "http://m.toutiao.com/group/7200593123691463203/", "label": "天河公园板块配套名校（直升113中）"}
+            {
+              "source": "今日头条·丽丽在广州（2025年天河区小学梯队）",
+              "url": "http://m.toutiao.com/group/7488552224281346579/",
+              "label": "第一梯队"
+            },
+            {
+              "source": "网易（2020年天河区“超级小学”）",
+              "url": "https://c.m.163.com/news/a/FFV62B1R0530MA7O.html",
+              "label": "天河区超级小学"
+            },
+            {
+              "source": "野先生侃房（2023年天河学区房）",
+              "url": "http://m.toutiao.com/group/7200593123691463203/",
+              "label": "天河公园板块配套名校（直升113中）"
+            }
           ],
           "rumor_notes": "2025年版本将天府路小学列入第一梯队（天河第一梯队扩至5-6校）；更早版本多列第二梯队。建业校区+东方翠湖校区。",
-          "xiaoshengchu": {
-            "direct_feed": "广州市第113中学",
-            "group": null,
-            "feed_junior_highs": ["广州市第一一三中学"],
-            "source_url": "https://m.gz.bendibao.com/edu/349915.html",
-            "source_note": "2026天河区细则：单校划片对口直升；113中对口小学含天府路小学（本地宝2024划片表）。另可自愿报名华附初中部（3公里名单含天府路小学）电脑派位"
+          "education_group": {
+            "name": "未查到（未见纳入市/区教育集团公开名单）",
+            "role": "未查到",
+            "source_url": null
           },
-          "education_group": {"name": "未查到（未见纳入市/区教育集团公开名单）", "role": "未查到", "source_url": null},
           "plan_classes_2026": 16,
           "degree_warning": "2027年预警（13校之一：2021-08-31后房产按时间排序）",
-          "provincial_level_title": {"year": null, "note": "未查到省一级历史称号"},
+          "provincial_level_title": {
+            "year": null,
+            "note": "未查到省一级历史称号"
+          },
           "conclusion": "部分支撑",
           "conclusion_basis": "官方数据部分印证：对口113中、2026年16个班（大校）、2027年学位预警（热度高）；但无省一级历史称号、未查到集团身份，且仅2025年起版本将其列入第一梯队（更早版本多为第二梯队），梯队标签版本差异大。",
-          "data_gaps": ["省一级历史称号", "教育集团身份"]
+          "data_gaps": [
+            "省一级历史称号",
+            "教育集团身份"
+          ]
         },
         {
           "name": "广州市天河区体育东路小学（含兴国学校、海明学校）",
           "rumor_tier": "第一梯队/顶尖（民间标签，非官方；版本差异）",
           "rumor_sources": [
-            {"source": "网易（2021年天河最顶尖省一级小学）", "url": "https://www.163.com/dy/article/GCDMS8CN0535AXR2.html", "label": "最顶尖省一级（体育东三大校区）"},
-            {"source": "信息时报/搜狐（2020年体育东路小学盘点）", "url": "https://c.m.163.com/news/a/FFV62B1R0530MA7O.html", "label": "天河热门小学"},
-            {"source": "房产号·珠江花城（体育东教育集团核心校推广）", "url": "http://news.leju.com/guangzhou/2019-03-22/11136215113187316217941.shtml", "label": "体育东教育集团核心校（第一梯队集团）"}
+            {
+              "source": "网易（2021年天河最顶尖省一级小学）",
+              "url": "https://www.163.com/dy/article/GCDMS8CN0535AXR2.html",
+              "label": "最顶尖省一级（体育东三大校区）"
+            },
+            {
+              "source": "信息时报/搜狐（2020年体育东路小学盘点）",
+              "url": "https://c.m.163.com/news/a/FFV62B1R0530MA7O.html",
+              "label": "天河热门小学"
+            },
+            {
+              "source": "房产号·珠江花城（体育东教育集团核心校推广）",
+              "url": "http://news.leju.com/guangzhou/2019-03-22/11136215113187316217941.shtml",
+              "label": "体育东教育集团核心校（第一梯队集团）"
+            }
           ],
           "rumor_notes": "版本差异大：多数梯队版本将体育东路小学列第二梯队（如2016搜狐版、2025丽丽版），但网易2021版将其与华阳、华景、龙口西并称“天河最顶尖”；体育东教育集团被房产号广泛宣传为天河第一梯队教育集团（含均和、灵秀等新校）。兴国学校为2027年天河13校预警校之一。",
-          "xiaoshengchu": {
-            "direct_feed": "广州市天河中学",
-            "group": null,
-            "feed_junior_highs": ["广州市天河中学"],
-            "source_url": "https://m.gz.bendibao.com/edu/349915.html",
-            "source_note": "2026天河区细则：单校划片对口直升；天河中学对口小学含体育东路小学、兴国学校、海明学校（本地宝2024划片表）。另可自愿报名华附初中部（3公里名单含体育东系）电脑派位"
+          "education_group": {
+            "name": "广州体育东教育集团",
+            "role": "核心校",
+            "source_url": "http://static.nfapp.southcn.com/content/201809/08/c1471451.html"
           },
-          "education_group": {"name": "广州体育东教育集团", "role": "核心校", "source_url": "http://static.nfapp.southcn.com/content/201809/08/c1471451.html"},
           "plan_classes_2026": 15,
           "degree_warning": "兴国学校：2027年预警（13校之一，2021-08-31后房产按时间排序）；本部/海明学校未预警",
-          "provincial_level_title": {"year": 2001, "note": "历史称号（2001年1月），非现行区分维度"},
+          "provincial_level_title": {
+            "year": 2001,
+            "note": "历史称号（2001年1月），非现行区分维度"
+          },
           "conclusion": "部分支撑",
           "conclusion_basis": "官方数据部分印证：对口天河中学、体育东教育集团核心校（2018年成立）、省一级历史称号（2001）、兴国学校2027年预警；但多数网传梯队版本将其列第二梯队，“第一梯队”标签来源集中且版本差异大，客观数据与“第一梯队”定位之间的支撑强度弱于华阳/龙口西。",
-          "data_gaps": ["本部/兴国/海明各校区2026年细分班数（合计15班）"]
+          "data_gaps": [
+            "本部/兴国/海明各校区2026年细分班数（合计15班）"
+          ]
         }
       ]
     },
@@ -163,96 +275,148 @@
           "name": "广州市海珠区实验小学（穗花校区/富基校区）",
           "rumor_tier": "第一梯队（民间标签，非官方）",
           "rumor_sources": [
-            {"source": "今日头条·丽丽在广州（2025年海珠区小学梯队）", "url": "http://m.toutiao.com/group/7488552224281346579/", "label": "第一梯队（第1名）"},
-            {"source": "搜狐网（2016年广州小学梯队）", "url": "https://m.sohu.com/n/457616886/", "label": "第一梯队"},
-            {"source": "无忧考网（2023年海珠区小学排名）", "url": "https://m.51test.net/show/10753921.html", "label": "第一梯队（原穗花小学，第1名）"}
+            {
+              "source": "今日头条·丽丽在广州（2025年海珠区小学梯队）",
+              "url": "http://m.toutiao.com/group/7488552224281346579/",
+              "label": "第一梯队（第1名）"
+            },
+            {
+              "source": "搜狐网（2016年广州小学梯队）",
+              "url": "https://m.sohu.com/n/457616886/",
+              "label": "第一梯队"
+            },
+            {
+              "source": "无忧考网（2023年海珠区小学排名）",
+              "url": "https://m.51test.net/show/10753921.html",
+              "label": "第一梯队（原穗花小学，第1名）"
+            }
           ],
           "rumor_notes": "原“穗花小学”，2018年更名海珠区实验小学。几乎所有版本均列海珠第一梯队首位；富基校区为2019年启用新校区。",
-          "xiaoshengchu": {
-            "direct_feed": null,
-            "group": "第四派位组",
-            "feed_junior_highs": ["广州市第五中学", "广州市海珠外国语实验中学", "广州市江南外国语学校", "广州市海珠区六中珠江中学（万胜围校区）", "广州市南武中学", "广州市第九十七中学晓园学校", "广州市第五十六中学", "广州市南武中学附属学校", "广东实验中学琶洲学校"],
-            "source_url": "https://www.haizhu.gov.cn/gzjg/qzf/hzqjyj/zsgz/content/mpost_10799294.html",
-            "source_note": "2026海珠区初中招生问答·普通电脑派位分组表（附件1）：第四组小学含海珠区实验小学、江南新村第一小学、汇源大街小学、昌岗中路小学、江南新村第二小学"
+          "education_group": {
+            "name": "广州市海珠区实验小学教育集团",
+            "role": "核心校",
+            "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549719.html"
           },
-          "education_group": {"name": "广州市海珠区实验小学教育集团", "role": "核心校", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549719.html"},
           "plan_classes_2026": 10,
           "degree_warning": "未预警（不在2026年海珠区9校预警名单）",
-          "provincial_level_title": {"year": 1996, "note": "历史称号（1996年7月），非现行区分维度"},
+          "provincial_level_title": {
+            "year": 1996,
+            "note": "历史称号（1996年7月），非现行区分维度"
+          },
           "conclusion": "有支撑",
           "conclusion_basis": "官方数据多维印证：海珠区实验小学教育集团核心校、省一级历史称号（1996）、2026年第四派位组内含五中/六中珠江（万胜围）/南武/省实琶洲等区内优质初中、穗花+富基两校区共10个班为区内大规模校。网传“海珠第一梯队”有较强官方客观数据支撑。",
-          "data_gaps": ["无（班数已从2026年海珠区公办小学招生计划表核得）"]
+          "data_gaps": [
+            "无（班数已从2026年海珠区公办小学招生计划表核得）"
+          ]
         },
         {
           "name": "广州市海珠区同福中路第一小学",
           "rumor_tier": "第一梯队（民间标签，非官方）",
           "rumor_sources": [
-            {"source": "今日头条·丽丽在广州（2025年海珠区小学梯队）", "url": "http://m.toutiao.com/group/7488552224281346579/", "label": "第一梯队（第2名）"},
-            {"source": "搜狐网（2016年广州小学梯队）", "url": "https://m.sohu.com/n/457616886/", "label": "第一梯队"}
+            {
+              "source": "今日头条·丽丽在广州（2025年海珠区小学梯队）",
+              "url": "http://m.toutiao.com/group/7488552224281346579/",
+              "label": "第一梯队（第2名）"
+            },
+            {
+              "source": "搜狐网（2016年广州小学梯队）",
+              "url": "https://m.sohu.com/n/457616886/",
+              "label": "第一梯队"
+            }
           ],
           "rumor_notes": "老牌公办（1920年代办学），2017年海珠区首批成立的教育集团核心校之一；多版本列海珠第一梯队第二席。",
-          "xiaoshengchu": {
-            "direct_feed": null,
-            "group": "第二派位组",
-            "feed_junior_highs": ["广州市第五中学", "广州市第五十六中学", "广州市南武实验学校", "广州市第四十一中学", "广州市江南外国语学校", "广州市海珠区六中珠江中学（万胜围校区）", "广州市南武中学", "广州市南武中学附属学校", "广州市第九十七中学", "广东实验中学琶洲学校"],
-            "source_url": "https://www.haizhu.gov.cn/gzjg/qzf/hzqjyj/zsgz/content/mpost_10799294.html",
-            "source_note": "2026海珠区初中招生问答·普通电脑派位分组表（附件1）：第二组小学含同福中路第一小学、海珠镇泰实验小学、邓世昌纪念小学、宝玉直小学、同福西路小学、鹤鸣五巷小学"
+          "education_group": {
+            "name": "广州市海珠区同福中路第一小学教育集团",
+            "role": "核心校",
+            "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10167355.html"
           },
-          "education_group": {"name": "广州市海珠区同福中路第一小学教育集团", "role": "核心校", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10167355.html"},
           "plan_classes_2026": 5,
           "degree_warning": "未预警（不在2026年海珠区9校预警名单）",
-          "provincial_level_title": {"year": 1994, "note": "历史称号（1994年6月，海珠首批省一级），非现行区分维度"},
+          "provincial_level_title": {
+            "year": 1994,
+            "note": "历史称号（1994年6月，海珠首批省一级），非现行区分维度"
+          },
           "conclusion": "有支撑",
           "conclusion_basis": "官方数据多维印证：同福中路第一小学教育集团核心校、省一级历史称号（1994，海珠区最早一批）、2026年第二派位组内含五中/六中珠江（万胜围）/南武/省实琶洲等优质初中。网传“第一梯队”有较强官方客观数据支撑。",
-          "data_gaps": ["无"]
+          "data_gaps": [
+            "无"
+          ]
         },
         {
           "name": "广州市海珠区宝玉直小学",
           "rumor_tier": "第二梯队~名校（民间标签，非官方；版本差异）",
           "rumor_sources": [
-            {"source": "今日头条·丽丽在广州（2025年海珠区小学梯队）", "url": "http://m.toutiao.com/group/7488552224281346579/", "label": "第二梯队（“宝玉直街小学”）"},
-            {"source": "上学帮（2015年海珠区不错的省一级小学）", "url": "https://www.shangxuebang.com/zx/1444.html", "label": "海珠区不错的省一级小学"},
-            {"source": "广州日报（2024年海珠区教育集团化办学报道，宝实系）", "url": "http://m.toutiao.com/group/7359548544342278695/", "label": "宝玉直实验小学教育集团成立（同源老牌品牌）"}
+            {
+              "source": "今日头条·丽丽在广州（2025年海珠区小学梯队）",
+              "url": "http://m.toutiao.com/group/7488552224281346579/",
+              "label": "第二梯队（“宝玉直街小学”）"
+            },
+            {
+              "source": "上学帮（2015年海珠区不错的省一级小学）",
+              "url": "https://www.shangxuebang.com/zx/1444.html",
+              "label": "海珠区不错的省一级小学"
+            },
+            {
+              "source": "广州日报（2024年海珠区教育集团化办学报道，宝实系）",
+              "url": "http://m.toutiao.com/group/7359548544342278695/",
+              "label": "宝玉直实验小学教育集团成立（同源老牌品牌）"
+            }
           ],
           "rumor_notes": "老牌省一级公办，多数梯队版本列第二梯队，未普遍列入“第一梯队”；注意与2019年后新建的“宝玉直实验小学（光大校区）”区分——后者为宝玉直实验小学教育集团核心校，民间常与海实并称“名校”，但梯队版本不一。",
-          "xiaoshengchu": {
-            "direct_feed": null,
-            "group": "第二派位组",
-            "feed_junior_highs": ["广州市第五中学", "广州市第五十六中学", "广州市南武实验学校", "广州市第四十一中学", "广州市江南外国语学校", "广州市海珠区六中珠江中学（万胜围校区）", "广州市南武中学", "广州市南武中学附属学校", "广州市第九十七中学", "广东实验中学琶洲学校"],
-            "source_url": "https://www.haizhu.gov.cn/gzjg/qzf/hzqjyj/zsgz/content/mpost_10799294.html",
-            "source_note": "2026海珠区初中招生问答·普通电脑派位分组表（附件1）：第二组小学含宝玉直小学"
+          "education_group": {
+            "name": "未查到（宝玉直小学≠宝玉直实验小学，后者为宝实教育集团核心校）",
+            "role": "未查到",
+            "source_url": null
           },
-          "education_group": {"name": "未查到（宝玉直小学≠宝玉直实验小学，后者为宝实教育集团核心校）", "role": "未查到", "source_url": null},
           "plan_classes_2026": 5,
           "degree_warning": "未预警（不在2026年海珠区9校预警名单）",
-          "provincial_level_title": {"year": 1998, "note": "历史称号（1998年3月），非现行区分维度"},
+          "provincial_level_title": {
+            "year": 1998,
+            "note": "历史称号（1998年3月），非现行区分维度"
+          },
           "conclusion": "部分支撑",
           "conclusion_basis": "官方数据部分印证：省一级历史称号（1998）、2026年第二派位组初中构成优质；但主流网传梯队版本列第二梯队，“第一梯队”标签来源不足，未查到集团身份。",
-          "data_gaps": ["教育集团身份（老宝玉直小学）"]
+          "data_gaps": [
+            "教育集团身份（老宝玉直小学）"
+          ]
         },
         {
           "name": "广州市海珠区昌岗中路小学",
           "rumor_tier": "名校/第二梯队（民间标签，非官方；版本差异）",
           "rumor_sources": [
-            {"source": "广州日报大洋网（2025年昌岗中路小学教育集团成立）", "url": "http://news.dayoo.com/gzrbrmt/202511/13/170614_54893958.htm", "label": "口碑名校、实力名校（官方媒体）"},
-            {"source": "今日头条·丽丽在广州（2025年海珠区小学梯队）", "url": "http://m.toutiao.com/group/7488552224281346579/", "label": "第二梯队"},
-            {"source": "无忧考网（2023年海珠区小学排名）", "url": "https://m.51test.net/show/10753921.html", "label": "第二梯队"}
+            {
+              "source": "广州日报大洋网（2025年昌岗中路小学教育集团成立）",
+              "url": "http://news.dayoo.com/gzrbrmt/202511/13/170614_54893958.htm",
+              "label": "口碑名校、实力名校（官方媒体）"
+            },
+            {
+              "source": "今日头条·丽丽在广州（2025年海珠区小学梯队）",
+              "url": "http://m.toutiao.com/group/7488552224281346579/",
+              "label": "第二梯队"
+            },
+            {
+              "source": "无忧考网（2023年海珠区小学排名）",
+              "url": "https://m.51test.net/show/10753921.html",
+              "label": "第二梯队"
+            }
           ],
           "rumor_notes": "官方媒体（广州日报）2025年11月报道称其为“实力名校/口碑名校”并成立昌岗中路小学教育集团；网传梯队版本多列第二梯队，未被普遍列为“第一梯队”。2026年招生为对口直升五中附属初级中学试点校之一（可选择直升或参加派位）。",
-          "xiaoshengchu": {
-            "direct_feed": "广州市第五中学附属初级中学（对口直升试点，可选）",
-            "group": "第四派位组（不选直升则参加派位）",
-            "feed_junior_highs": ["广州市第五中学", "广州市海珠外国语实验中学", "广州市江南外国语学校", "广州市海珠区六中珠江中学（万胜围校区）", "广州市南武中学", "广州市第九十七中学晓园学校", "广州市第五十六中学", "广州市南武中学附属学校", "广东实验中学琶洲学校"],
-            "source_url": "https://www.haizhu.gov.cn/gzjg/qzf/hzqjyj/zsgz/content/mpost_10799294.html",
-            "source_note": "2026海珠区初中招生问答：对口直升试点含昌岗中路小学→五中附属初级中学；普通电脑派位分组表（附件1）第四组小学含昌岗中路小学"
+          "education_group": {
+            "name": "广州市海珠区昌岗中路小学教育集团",
+            "role": "核心校",
+            "source_url": "http://news.dayoo.com/gzrbrmt/202511/13/170614_54893958.htm"
           },
-          "education_group": {"name": "广州市海珠区昌岗中路小学教育集团", "role": "核心校", "source_url": "http://news.dayoo.com/gzrbrmt/202511/13/170614_54893958.htm"},
           "plan_classes_2026": 8,
           "degree_warning": "未预警（不在2026年海珠区9校预警名单）",
-          "provincial_level_title": {"year": 2003, "note": "历史称号（2003年11月），非现行区分维度"},
+          "provincial_level_title": {
+            "year": 2003,
+            "note": "历史称号（2003年11月），非现行区分维度"
+          },
           "conclusion": "部分支撑",
           "conclusion_basis": "官方数据部分印证：昌岗中路小学教育集团核心校（2025年成立）、省一级历史称号（2003）、对口直升五中附中+第四派位组初中构成优质、2026年8个班为区内大校；但主流网传梯队版本列第二梯队，“第一梯队”标签来源不足（官方媒体称“口碑名校”）。",
-          "data_gaps": ["无"]
+          "data_gaps": [
+            "无"
+          ]
         }
       ]
     }

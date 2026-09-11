@@ -30,17 +30,6 @@
       }
      ],
      "rumor_notes": "搜狐11所省级小学盘点、2019名校解读、丽丽2025（称部分家长誉为白云区最好公办之一）、羊城晚报2019均提及；版本差异：多数版本将其列为白云头部校，无其他版本将其降档。",
-     "xiaoshengchu": {
-      "group": "白云区小升初对口（单校划片；多校（部分地段/统筹））",
-      "feed_junior_highs": [
-       "广州市白云区同和中学",
-       "广州市白云区培英实验学校（同和校区）"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-      "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 中黄外国语小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生)；中黄外国语小学（地段生）",
-      "data_gaps": null
-     },
      "education_group": {
       "name": "京溪小学教育集团",
       "role": "核心校",
@@ -82,17 +71,6 @@
       }
      ],
      "rumor_notes": "丽丽2025列白云第一梯队；搜狐系列列入11所省级小学；南都2026归入'文化积淀深厚'学校。",
-     "xiaoshengchu": {
-      "group": "白云区小升初对口（单校划片）",
-      "feed_junior_highs": [
-       "广州市广园中学",
-       "广州市白云区景泰中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-      "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 培英附小部分户籍生（摇号产生）；景泰小学（柯子岭地段人户一致地段生）；培英附小部分户籍生（摇号产生）",
-      "data_gaps": null
-     },
      "education_group": {
       "name": "景泰小学教育集团",
       "role": "核心校",
@@ -134,17 +112,6 @@
       }
      ],
      "rumor_notes": "搜狐系列列入11所省级小学；丽丽2025称'部队子弟学校，师资力量较强'；南都2026归入文化积淀深厚学校。",
-     "xiaoshengchu": {
-      "name": "广园小学",
-      "group": "白云区小升初对口（单校划片）",
-      "feed_junior_highs": [
-       "广州市广园中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-      "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 培英附小部分户籍生（摇号产生）",
-      "data_gaps": null
-     },
      "education_group": {
       "name": "广园小学教育集团",
       "role": "核心校",
@@ -181,16 +148,6 @@
       }
      ],
      "rumor_notes": "搜狐系列列入11所省级小学；丽丽2025列白云第一梯队（含黄边小学）。",
-     "xiaoshengchu": {
-      "group": "白云区小升初对口（单校划片）",
-      "feed_junior_highs": [
-       "广州市白云区嘉禾中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-      "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 颐和实验小学(地段生和符合条件的统筹生）",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -229,17 +186,6 @@
       }
      ],
      "rumor_notes": "搜狐系列列入11所省级小学；南都2026归入文化积淀深厚学校；未见明确'第一梯队'表述，多为'热门/老牌'标签。",
-     "xiaoshengchu": {
-      "name": "三元里小学",
-      "group": "白云区小升初对口（单校划片）",
-      "feed_junior_highs": [
-       "广州市三元里中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-      "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排",
-      "data_gaps": null
-     },
      "education_group": {
       "name": "三元里小学教育集团",
       "role": "核心校",
@@ -271,16 +217,6 @@
       }
      ],
      "rumor_notes": "口碑集中于岭南新世界楼盘业主与自媒体；2026年学位预警使其需求热度进一步上升；官方口径为'华师附中实验小学'。",
-     "xiaoshengchu": {
-      "group": "白云区小升初对口（单校划片）",
-      "feed_junior_highs": [
-       "广州市培英中学（岭南校区）"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-      "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 华师附小(地段生和符合条件的统筹生）",
-      "data_gaps": null
-     },
      "education_group": {
       "name": "华师附中实验小学教育集团",
       "role": "核心校",
@@ -311,18 +247,6 @@
       }
      ],
      "rumor_notes": "列入搜狐系列11所省级小学盘点；未见独立第一梯队表述，网传热度相对集中。",
-     "xiaoshengchu": {
-      "name": "同和小学",
-      "group": "白云区小升初对口（单校划片；多校（部分地段/统筹））",
-      "feed_junior_highs": [
-       "广州市白云区同和中学",
-       "广州市白云区培英实验学校（同和校区）"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-      "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 中黄外国语小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生)；中黄外国语小学（地段生）",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -351,18 +275,6 @@
       }
      ],
      "rumor_notes": "列入搜狐系列11所省级小学盘点；来源不足（仅单源系列）。",
-     "xiaoshengchu": {
-      "name": "握山小学",
-      "group": "白云区小升初对口（单校划片；多校（部分地段/统筹））",
-      "feed_junior_highs": [
-       "广州市白云区同和中学",
-       "广州市白云区培英实验学校（同和校区）"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-      "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 中黄外国语小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生)；中黄外国语小学（地段生）",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -397,16 +309,6 @@
       }
      ],
      "rumor_notes": "列入搜狐系列11所省级小学盘点；来源不足。",
-     "xiaoshengchu": {
-      "group": "白云区小升初对口（单校划片）",
-      "feed_junior_highs": [
-       "广州市第六十五中学（明德校区、同德校区）"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-      "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 明德校区：明德小学（本部）、同德小学、岭南花园小学（地段生）、65附小分校区（地段生）；同德校区：明德小学富康校区",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -441,17 +343,6 @@
       }
      ],
      "rumor_notes": "列入搜狐系列11所省级小学盘点；网传来源不足。",
-     "xiaoshengchu": {
-      "name": "人和镇第二小学",
-      "group": "白云区小升初对口（多校（按村分片））",
-      "feed_junior_highs": [
-       "广州市白云区六中实验中学（空港校区）"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-      "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 六中实验小学北校区（除汉塘村、民强村、新兴村、明星村、福和雅苑安置区外）",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -485,18 +376,6 @@
       }
      ],
      "rumor_notes": "列入搜狐系列11所省级小学盘点；网传来源不足。",
-     "xiaoshengchu": {
-      "name": "江村小学",
-      "group": "白云区小升初对口（单校划片）",
-      "feed_junior_highs": [
-       "广州市白云区江村中学",
-       "广州市六十五中学（江府校区）"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-      "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 江村小学（塘贝户籍）",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -530,18 +409,6 @@
       }
      ],
      "rumor_notes": "列入搜狐系列11所省级小学盘点；网传来源不足。",
-     "xiaoshengchu": {
-      "name": "太和第一小学",
-      "group": "白云区小升初对口（部分毕业生（多校））",
-      "feed_junior_highs": [
-       "广州市第一一五中学",
-       "广州市白云区太和中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-      "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 （太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）；（太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -571,17 +438,6 @@
       }
      ],
      "rumor_notes": "丽丽2025将'民航子弟学校'列白云第一梯队；其他来源未将其列入头部，来源不足。",
-     "xiaoshengchu": {
-      "name": "白云区民航学校小学部",
-      "group": "白云区小升初对口（单校划片）",
-      "feed_junior_highs": [
-       "广州市白云区民航学校"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-      "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 培英附小部分户籍生（摇号产生）",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -639,21 +495,6 @@
       }
      ],
      "rumor_notes": "房王2022列省一级第一类；丽丽2025列黄埔第一梯队；凤凰2019称'整个黄埔区第一梯队好学校'；多来源一致，无降档版本。",
-     "xiaoshengchu": {
-      "group": "黄埔区公办初中电脑派位第1组（多校划片）",
-      "feed_junior_highs": [
-       "广州市第八十六中学",
-       "广州市第一二三中学",
-       "港湾中学",
-       "石化中学",
-       "广大附中黄埔实验学校（东校区）",
-       "丰乐初级中学"
-      ],
-      "direct_feed": "丰乐初级中学",
-      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-      "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。 另按地段可直升：丰乐初级中学（黄埔花园住宅小区地段毕业生直升（怡园小学东校区地段），直升则放弃电脑派位）。",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到（媒体提及获'优质教育集团'称号但未查到区属集团名单）",
@@ -692,22 +533,6 @@
       }
      ],
      "rumor_notes": "房王2022列省一级；丽丽2025列黄埔第一梯队；凤凰2019称与怡园等省一级小学同一电脑派位组。",
-     "xiaoshengchu": {
-      "name": "荔园小学",
-      "group": "黄埔区公办初中电脑派位第1组（多校划片）",
-      "feed_junior_highs": [
-       "广州市第八十六中学",
-       "广州市第一二三中学",
-       "港湾中学",
-       "石化中学",
-       "广大附中黄埔实验学校（东校区）",
-       "丰乐初级中学"
-      ],
-      "direct_feed": null,
-      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-      "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -746,22 +571,6 @@
       }
      ],
      "rumor_notes": "房王2022列省一级；丽丽2025列黄埔第一梯队；搜狐2019列热门公办。",
-     "xiaoshengchu": {
-      "name": "港湾小学",
-      "group": "黄埔区公办初中电脑派位第1组（多校划片）",
-      "feed_junior_highs": [
-       "广州市第八十六中学",
-       "广州市第一二三中学",
-       "港湾中学",
-       "石化中学",
-       "广大附中黄埔实验学校（东校区）",
-       "丰乐初级中学"
-      ],
-      "direct_feed": null,
-      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-      "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -800,22 +609,6 @@
       }
      ],
      "rumor_notes": "房王2022列省一级；丽丽2025列黄埔第二梯队；凤凰2019称与怡园等同组派位。",
-     "xiaoshengchu": {
-      "name": "下沙小学",
-      "group": "黄埔区公办初中电脑派位第1组（多校划片）",
-      "feed_junior_highs": [
-       "广州市第八十六中学",
-       "广州市第一二三中学",
-       "港湾中学",
-       "石化中学",
-       "广大附中黄埔实验学校（东校区）",
-       "丰乐初级中学"
-      ],
-      "direct_feed": null,
-      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-      "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -854,22 +647,6 @@
       }
      ],
      "rumor_notes": "房王2022列省一级；丽丽2025列黄埔第二梯队；凤凰2019称与怡园等同组派位。",
-     "xiaoshengchu": {
-      "name": "文冲小学",
-      "group": "黄埔区公办初中电脑派位第1组（多校划片）",
-      "feed_junior_highs": [
-       "广州市第八十六中学",
-       "广州市第一二三中学",
-       "港湾中学",
-       "石化中学",
-       "广大附中黄埔实验学校（东校区）",
-       "丰乐初级中学"
-      ],
-      "direct_feed": null,
-      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-      "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -903,14 +680,6 @@
       }
      ],
      "rumor_notes": "房王2022列省一级；丽丽2025列黄埔第二梯队；2026年区属公办小学招生计划表未见该校单列（沙步旧改，学位安排待查）。",
-     "xiaoshengchu": {
-      "group": "2026年并入铁铮学校（原沙步小学招生范围由铁铮学校承接）",
-      "feed_junior_highs": [],
-      "direct_feed": null,
-      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-      "source_note": "2026年黄埔区义务教育学校招生工作实施细则附件4 #27：铁铮学校招收原沙步小学招生服务范围内人户一致适龄儿童（沙步旧改九年制，小学部→铁铮学校初中部直升）；2026分组表已无沙步小学。",
-      "data_gaps": "官方2026年文件无沙步小学（并入铁铮学校），POI 亦无此校。"
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -945,22 +714,6 @@
       }
      ],
      "rumor_notes": "房王2022列省一级第一类；凤凰2019称与怡园等同组派位；未见于丽丽2025梯队（来源较少）。",
-     "xiaoshengchu": {
-      "name": "广州石化小学",
-      "group": "黄埔区公办初中电脑派位第1组（多校划片）",
-      "feed_junior_highs": [
-       "广州市第八十六中学",
-       "广州市第一二三中学",
-       "港湾中学",
-       "石化中学",
-       "广大附中黄埔实验学校（东校区）",
-       "丰乐初级中学"
-      ],
-      "direct_feed": null,
-      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-      "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第1组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -1000,22 +753,6 @@
       }
      ],
      "rumor_notes": "腾讯2022称其'稳坐第一梯队'；丽丽2025列入黄埔口碑校；房王2022列入评级取消后靠生源崛起的'热门学校'类；为新校（2015年开办），非省一级历史名校。",
-     "xiaoshengchu": {
-      "group": "对口直升（不参加电脑派位）；黄埔区公办初中电脑派位第4组（多校划片）",
-      "feed_junior_highs": [
-       "玉泉学校",
-       "广州科学城中学",
-       "广东省教育研究院黄埔实验学校",
-       "北京师范大学广州实验学校",
-       "铁英中学",
-       "苏元学校（西校区）",
-       "广州市玉岩中学"
-      ],
-      "direct_feed": "玉泉学校",
-      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-      "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：玉泉学校（对口直升）。 2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第4组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -1047,17 +784,6 @@
       }
      ],
      "rumor_notes": "丽丽2025列入黄埔口碑校；腾讯2022提及其与东荟花园联动（直升）；九年一贯制公办。",
-     "xiaoshengchu": {
-      "name": "玉泉学校",
-      "group": "对口直升（不参加电脑派位）",
-      "feed_junior_highs": [
-       "玉泉学校"
-      ],
-      "direct_feed": "玉泉学校",
-      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-      "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：玉泉学校（九年制学校内部直升）。",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -1084,22 +810,6 @@
       }
      ],
      "rumor_notes": "仅丽丽2025列入黄埔口碑校；来源不足。",
-     "xiaoshengchu": {
-      "name": "香雪小学",
-      "group": "黄埔区公办初中电脑派位第4组（多校划片）",
-      "feed_junior_highs": [
-       "广州科学城中学",
-       "广东省教育研究院黄埔实验学校",
-       "北京师范大学广州实验学校",
-       "铁英中学",
-       "苏元学校（西校区）",
-       "广州市玉岩中学"
-      ],
-      "direct_feed": null,
-      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-      "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第4组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -1127,18 +837,6 @@
       }
      ],
      "rumor_notes": "2020年黄埔广附教育集团授牌，黄埔军校小学（及黄埔军校中学）为集团核心校、由广大附中委托管理；媒体与楼盘以'广附系名校'宣传。",
-     "xiaoshengchu": {
-      "name": "黄埔军校小学",
-      "group": "黄埔区公办初中电脑派位第3组（多校划片）",
-      "feed_junior_highs": [
-       "广州市第一一七中学",
-       "广州市黄埔军校中学"
-      ],
-      "direct_feed": null,
-      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-      "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第3组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
-      "data_gaps": null
-     },
      "education_group": {
       "name": "黄埔广附教育集团",
       "role": "核心校（广大附中委托管理）",
@@ -1180,23 +878,6 @@
       }
      ],
      "rumor_notes": "搜狐2017称'教学质量番禺公认第一'；丽丽2025列番禺第一梯队首位；房天下2013列省一级名校；多来源一致。",
-     "xiaoshengchu": {
-      "name": "市桥中心小学",
-      "group": "番禺区小升初对口（市桥城区电脑派位（多校））",
-      "feed_junior_highs": [
-       "广东仲元中学一校区（初中部）",
-       "番禺区实验中学",
-       "市桥东风中学",
-       "市桥侨联中学",
-       "市桥星海中学",
-       "市桥桥城中学",
-       "市桥桥兴中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 市桥街户籍",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到（楼盘软文提及'市桥中心小学教育集团领办'，未见官方文件证实）",
@@ -1235,23 +916,6 @@
       }
      ],
      "rumor_notes": "丽丽2025列番禺第一梯队；搜狐2017列入11所省级小学盘点；辣妈探校称'东城幼儿园-东城小学-东风中学省级一条龙'。",
-     "xiaoshengchu": {
-      "name": "东城小学",
-      "group": "番禺区小升初对口（市桥城区电脑派位（多校））",
-      "feed_junior_highs": [
-       "广东仲元中学一校区（初中部）",
-       "番禺区实验中学",
-       "市桥东风中学",
-       "市桥侨联中学",
-       "市桥星海中学",
-       "市桥桥城中学",
-       "市桥桥兴中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 市桥街户籍",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -1285,23 +949,6 @@
       }
      ],
      "rumor_notes": "丽丽2025列番禺第二梯队；搜狐2017列入11所省级小学盘点。",
-     "xiaoshengchu": {
-      "name": "南阳里小学(西校区)",
-      "group": "番禺区小升初对口（市桥城区电脑派位（多校））",
-      "feed_junior_highs": [
-       "广东仲元中学一校区（初中部）",
-       "番禺区实验中学",
-       "市桥东风中学",
-       "市桥侨联中学",
-       "市桥星海中学",
-       "市桥桥城中学",
-       "市桥桥兴中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 市桥街户籍",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -1340,23 +987,6 @@
       }
      ],
      "rumor_notes": "丽丽2025列番禺第二梯队；搜狐2017列入11所省级小学盘点；房天下2025报道其集团收编东兴小学（官方授牌）。",
-     "xiaoshengchu": {
-      "name": "德兴小学",
-      "group": "番禺区小升初对口（市桥城区电脑派位（多校））",
-      "feed_junior_highs": [
-       "广东仲元中学一校区（初中部）",
-       "番禺区实验中学",
-       "市桥东风中学",
-       "市桥侨联中学",
-       "市桥星海中学",
-       "市桥桥城中学",
-       "市桥桥兴中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 市桥街户籍",
-      "data_gaps": null
-     },
      "education_group": {
       "name": "德兴小学教育集团",
       "role": "核心校",
@@ -1388,23 +1018,6 @@
       }
      ],
      "rumor_notes": "丽丽2025列番禺第二梯队；搜狐2017列入11所省级小学盘点（称'北城小学'）。",
-     "xiaoshengchu": {
-      "name": "市桥北城小学",
-      "group": "番禺区小升初对口（市桥城区电脑派位（多校））",
-      "feed_junior_highs": [
-       "广东仲元中学一校区（初中部）",
-       "番禺区实验中学",
-       "市桥东风中学",
-       "市桥侨联中学",
-       "市桥星海中学",
-       "市桥桥城中学",
-       "市桥桥兴中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 市桥街户籍（派位资格见当年公办初中招生计划\"市桥城区电脑派位部分\"）",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -1438,23 +1051,6 @@
       }
      ],
      "rumor_notes": "民间多称'市一级学校/桥南热门校'（创办2002年，未入省一级历史名单）；2023年官方组建市桥实验小学教育集团（核心校）。",
-     "xiaoshengchu": {
-      "name": "市桥实验小学",
-      "group": "番禺区小升初对口（市桥城区电脑派位（多校））",
-      "feed_junior_highs": [
-       "广东仲元中学一校区（初中部）",
-       "番禺区实验中学",
-       "市桥东风中学",
-       "市桥侨联中学",
-       "市桥星海中学",
-       "市桥桥城中学",
-       "市桥桥兴中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 市桥街户籍",
-      "data_gaps": null
-     },
      "education_group": {
       "name": "市桥实验小学教育集团",
       "role": "核心校",
@@ -1480,17 +1076,6 @@
       }
      ],
      "rumor_notes": "广东番禺中学教育集团2019年成立，番禺中学附属学校为集团核心成员；楼盘与媒体以'番中系名校'宣传。",
-     "xiaoshengchu": {
-      "name": "广东番禺中学附属学校",
-      "group": "番禺区小升初对口（单校（小区配建））",
-      "feed_junior_highs": [
-       "广东番禺中学附属学校"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 桥南街保利香逸等8小区业主子女",
-      "data_gaps": null
-     },
      "education_group": {
       "name": "广东番禺中学教育集团",
       "role": "核心成员（集团2019年成立，含初中与小学）",
@@ -1516,17 +1101,6 @@
       }
      ],
      "rumor_notes": "2024年官方组建仲元附属学校教育集团（核心校：广东仲元中学附属学校）；楼盘以'仲元系'宣传。",
-     "xiaoshengchu": {
-      "name": "广东仲元中学附属学校",
-      "group": "番禺区小升初对口（单校（九年制））",
-      "feed_junior_highs": [
-       "广东仲元中学附属学校"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 南天名苑/吉祥北园C区D区等业主+洛溪村村民子女",
-      "data_gaps": null
-     },
      "education_group": {
       "name": "仲元附属学校教育集团",
       "role": "核心校",
@@ -1552,18 +1126,6 @@
       }
      ],
      "rumor_notes": "搜狐2017列入番禺11所省级小学盘点；网传'第一梯队'表述少见，更多以镇街中心校、学位紧张形式出现。",
-     "xiaoshengchu": {
-      "name": "石碁镇中心小学",
-      "group": "番禺区小升初对口（多校（按户籍分片））",
-      "feed_junior_highs": [
-       "石碁中学",
-       "石碁第四中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 莲塘村/塱边村→石碁中学；大龙居委/岐山居委（不含盛恒家园等）/富庭雅园→石碁第四中学",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -1597,18 +1159,6 @@
       }
      ],
      "rumor_notes": "搜狐2017列入11所省级小学盘点；丽丽2025列入'口碑不错'学校。",
-     "xiaoshengchu": {
-      "name": "石楼镇中心小学",
-      "group": "番禺区小升初对口（多校（50%/50%））",
-      "feed_junior_highs": [
-       "石楼中学",
-       "石楼镇第二中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 石楼世居（原居民）、石一村、石二村户籍50%→石楼中学、50%→石楼二中",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -1642,18 +1192,6 @@
       }
      ],
      "rumor_notes": "搜狐2017列入11所省级小学盘点；丽丽2025列入'口碑不错'学校；网传来源相对单一。",
-     "xiaoshengchu": {
-      "name": "南村镇中心小学",
-      "group": "番禺区小升初对口（多校（按户籍分片））",
-      "feed_junior_highs": [
-       "南村中学",
-       "南村侨联中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 南村社区（不含时代倾城）/板桥村→南村中学；草堂村、陈边村→南村侨联中学",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -1683,17 +1221,6 @@
       }
      ],
      "rumor_notes": "丽丽2025列入'口碑不错'学校；2026年官方列入学位供给紧张名单（北片学区）。",
-     "xiaoshengchu": {
-      "name": "洛溪新城小学",
-      "group": "番禺区小升初对口（单校）",
-      "feed_junior_highs": [
-       "洛溪新城中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 吉祥北园/洛涛居等洛溪新城片区业主",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -1720,17 +1247,6 @@
       }
      ],
      "rumor_notes": "2019年自媒体称其番禺热门民办小学（合生创展创办）；2026年官方计划表列公办（南村学区，铂世湾小区配套）；'华附系'品牌为网传卖点。",
-     "xiaoshengchu": {
-      "name": "华师附中番禺小学",
-      "group": "番禺区小升初对口（单校）",
-      "feed_junior_highs": [
-       "南村侨联中学"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 铂世湾业主子女（初中范围含）",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",
@@ -1758,17 +1274,6 @@
       }
      ],
      "rumor_notes": "广大附中系品牌（广大附中为市属名校）；2026年官方列入学位供给紧张（化龙片学区）；网传'第一梯队'表述少见。",
-     "xiaoshengchu": {
-      "name": "广州大学附属小学",
-      "group": "番禺区小升初对口（电脑抽签）",
-      "feed_junior_highs": [
-       "广州大学附属中学大学城校区"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 小谷围街辖区内小区/高校人员子女",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到（依托广州大学附属中学品牌，未查到区属集团身份）",
@@ -1796,17 +1301,6 @@
       }
      ],
      "rumor_notes": "华师附系品牌（华南师大附小输出管理）；2026年官方列入学位供给紧张（化龙片学区）；网传'第一梯队'表述少见。",
-     "xiaoshengchu": {
-      "name": "华南师范大学附属广州大学城小学",
-      "group": "番禺区小升初对口（电脑抽签）",
-      "feed_junior_highs": [
-       "广州大学附属中学大学城校区"
-      ],
-      "direct_feed": null,
-      "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 大学城小区业主/高校人员子女",
-      "data_gaps": null
-     },
      "education_group": {
       "name": null,
       "role": "未查到",

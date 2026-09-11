@@ -20,6 +20,7 @@ import {
   normName,
   formatPrimarySignals,
   formatMiddleSignals,
+  formatXiaoshengchuBrief,
   type SchoolStage,
   type Tier1School,
   type HighLevelSchool,
@@ -34,6 +35,7 @@ import {
   tier1Schools,
   middleTier1Schools,
   matchEnrollment,
+  xiaoshengchuOf,
   schoolBadges,
 } from '../data';
 
@@ -440,6 +442,13 @@ function primaryEnrollRows(name: string): InfoRow[] {
   return rows;
 }
 
+/** 小学升学路线行（全量 xiaoshengchu 真源，校名全等匹配，跨区同名按 adcode 消歧） */
+function primaryLinkageRows(name: string, adcode?: string): InfoRow[] {
+  const xs = xiaoshengchuOf(name, adcode);
+  if (!xs || (!xs.direct_feed && !(xs.feed_junior_highs || []).length)) return [];
+  return [{ label: '升学路线', value: formatXiaoshengchuBrief(xs) }];
+}
+
 interface InfoRow { label: string; value: string; strong?: boolean }
 interface InfoModel {
   name: string;
@@ -492,15 +501,20 @@ const infoModel = computed<InfoModel | null>(() => {
   }
   const tier = pt.tier;
   if (tier) {
-    const rows = pt.stage === 'primary' ? formatPrimarySignals(tier) : formatMiddleSignals(tier);
     // 小学缩略面板优先展示招生条件（班数 + 对口地段）
     const enrollRows = pt.stage === 'primary' ? primaryEnrollRows(name) : [];
+    // 小学升学路线取全量 xiaoshengchu（全等匹配）；口碑信号另缩略一条
+    const linkageRows = pt.stage === 'primary' ? primaryLinkageRows(name, pt.adcode) : [];
     if (tier.tier1_eligible === false) {
       return {
         name,
         badges: schoolBadges(pt.stage, { district: districtName, tier, name }),
         head: '网传"口碑学校" · 独立法人，未计入口碑学校',
-        rows: tier.exclude_reason ? [{ label: '未计入原因', value: tier.exclude_reason }] : [],
+        rows: [
+          ...enrollRows,
+          ...linkageRows,
+          ...(tier.exclude_reason ? [{ label: '未计入原因', value: tier.exclude_reason }] : []),
+        ],
         note: null,
         link: detailLink,
       };
@@ -508,10 +522,10 @@ const infoModel = computed<InfoModel | null>(() => {
     const head =
       '网传"口碑学校" · 民间口径非官方' +
       (tier.entity_relation === '同法人校区' ? ' · 与本部同一法人' : '');
-    // 浮层内将「出口机制」改称「升学路线」（共享格式化函数保持原标签，供详情页/支撑度页使用）
-    const signalRows = rows.slice(0, 1).map((r) =>
-      r.label === '出口机制' ? { ...r, label: '升学路线' } : r,
-    );
+    // 小学：升学路线（全量）+ 一条口碑信号（教育集团等）；初中：中考信号缩略一条
+    const signalRows = pt.stage === 'primary'
+      ? [...linkageRows, ...formatPrimarySignals(tier).slice(0, 1)]
+      : formatMiddleSignals(tier).slice(0, 1);
     return {
       name,
       badges: schoolBadges(pt.stage, { district: districtName, tier, name }),
@@ -529,6 +543,7 @@ const infoModel = computed<InfoModel | null>(() => {
       { label: '学段', value: pt.stage === 'primary' ? '小学' : pt.stage === 'middle' ? '初中' : '高中' },
       { label: '所在区', value: districtName || '—' },
       ...(pt.stage === 'primary' ? primaryEnrollRows(name) : []),
+      ...(pt.stage === 'primary' ? primaryLinkageRows(name, pt.adcode) : []),
     ],
     note: null,
     link: detailLink,

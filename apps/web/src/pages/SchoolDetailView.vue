@@ -30,6 +30,7 @@ import {
   matchEnrollment,
   middleQuotaSummary,
   middlePrimaryFeed,
+  xiaoshengchuOf,
   schoolBadges,
   supportBadge,
   isComprehensive,
@@ -119,20 +120,30 @@ const primaryMechanism = computed(() => {
   }
   return null;
 });
-/* ========== 小学：升学路线（对口初中 · 派位/直升） ========== */
+/* ========== 小学：升学路线（对口初中 · 派位/直升，全量 xiaoshengchu_all 真源） ========== */
 const GAP_MARKERS = ['待查', '未在', '缺口', '暂缺'];
+/** 本校升学路线记录（全等匹配；跨区同名按 adcode 精确消歧） */
+const xsRecord = computed(() =>
+  props.stage === 'primary' ? xiaoshengchuOf(schoolName.value, poi.value?.adcode) : null,
+);
 const feedJuniors = computed(() => {
   if (props.stage !== 'primary') return null;
-  const xs = tier.value?.xiaoshengchu;
+  const xs = xsRecord.value;
   if (!xs) return null;
-  return { group: xs.group, feed_junior_highs: xs.feed_junior_highs || [], direct_feed: xs.direct_feed, source_note: xs.source_note };
+  return {
+    group: xs.group,
+    feed_junior_highs: xs.feed_junior_highs || [],
+    direct_feed: xs.direct_feed,
+    source_note: xs.source_note,
+  };
 });
 const feedGap = computed(() => {
   if (props.stage !== 'primary') return null;
-  const xs = tier.value?.xiaoshengchu;
-  if (!xs) return '升学路线数据暂未收录（当前仅覆盖口碑校，全量小学补录中）。';
+  const xs = xsRecord.value;
+  if (!xs) return '升学路线数据暂未收录（2026 年七区官方招生名单中未检索到该校，可能为新建校/民办/补点）。';
+  if (xs.direct_feed) return null;
   const f = xs.feed_junior_highs || [];
-  if (!f.length) return '升学路线数据缺口：官方未公布该校对口/派位初中，待补录。';
+  if (!f.length) return `升学路线数据缺口：${xs.data_gaps || '官方未公布该校对口/派位初中'}。`;
   const placeholder = f.filter((n) => GAP_MARKERS.some((m) => n.includes(m)));
   if (placeholder.length) return `升学路线数据缺口：${placeholder.join('；')}`;
   return null;
@@ -386,8 +397,9 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
     </div>
 
     <!-- 小学：升学路线（对口初中 · 派位/直升） -->
-    <div v-if="stage === 'primary' && (feedRows.length || feedGap)" class="card">
-      <div class="card-title">升学路线 · 对口初中{{ feedJuniors?.group ? `（${feedJuniors.group}派位）` : '（对口直升）' }}</div>
+    <div v-if="stage === 'primary' && (feedRows.length || feedGap || feedJuniors?.direct_feed)" class="card">
+      <div class="card-title">升学路线 · {{ feedJuniors?.direct_feed ? '对口直升' : '对口/派位初中' }}</div>
+      <p v-if="feedJuniors?.group" class="sub-note">分组：{{ feedJuniors.group }}</p>
       <p v-if="feedJuniors?.direct_feed" class="sub-note">直升：{{ feedJuniors.direct_feed }}</p>
       <div v-if="feedRows.length" class="feed-list">
         <div v-for="r in feedRows" :key="r.name" class="feed-item">
@@ -410,11 +422,11 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
     <!-- 初中：招生 · 生源小学 -->
     <div v-if="stage === 'middle' && feedPrimarys.length" class="card">
       <div class="card-title">招生 · 生源小学</div>
-      <p class="sub-note">以下口碑小学的对口初中包含本校（按小学划片/直升关系反查，非全量招生地段）。</p>
+      <p class="sub-note">以下小学的 2026 对口/派位名单包含本校（由七区全量小学升学路线反查，校名全等匹配）。</p>
       <div class="feed-list">
         <div v-for="r in feedPrimarys" :key="r.primary" class="feed-item">
           <RouterLink :to="`/school/primary/${encodeURIComponent(r.primary)}`" class="feed-name">{{ r.primary }}</RouterLink>
-          <span class="tag tag-dim">{{ r.direct_feed ? '对口直升' : (r.group ? r.group + '派位' : '对口') }}</span>
+          <span class="tag tag-dim">{{ r.direct_feed ? '对口直升' : (r.group || '对口') }}</span>
         </div>
       </div>
     </div>

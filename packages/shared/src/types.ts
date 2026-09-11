@@ -53,14 +53,6 @@ export interface Tier1School {
   rumor_tier: string;
   rumor_sources: RumorSource[];
   rumor_notes?: string;
-  /** 小学：小升初出口信号 */
-  xiaoshengchu?: {
-    group: string;
-    feed_junior_highs: string[];
-    direct_feed?: string | null;
-    source_url?: string;
-    source_note?: string;
-  };
   /** 初中：中考成绩信号（网传口径，非官方） */
   zhongkao?: {
     year: number;
@@ -136,6 +128,31 @@ export interface Tier1Snapshot {
   };
   districts: Record<string, Tier1District>;
   source_urls: string[];
+}
+
+/**
+ * 小学小升初升学路线单条记录（data/primary/xiaoshengchu_all.json，全量 7 区唯一真源）。
+ * 匹配只做归一化全等（normName），不做前缀/包含匹配；跨区同名校以 group 中的区名消歧。
+ */
+export interface XiaoshengchuRecord {
+  /** 学校名（与 POI 全称对齐） */
+  name: string;
+  /** 派位/对口分组描述（官方口径） */
+  group: string | null;
+  /** 对口/派位初中名单 */
+  feed_junior_highs: string[];
+  /** 对口直升本校初中（直升场景，与派位名单互斥为主） */
+  direct_feed: string | null;
+  source_url: string;
+  source_note: string;
+  /** 数据缺口说明（feed 为空时必填原因，如民办不参与公办派位） */
+  data_gaps: string | null;
+}
+
+/** data/primary/xiaoshengchu_all.json */
+export interface XiaoshengchuSnapshot {
+  year: number;
+  records: XiaoshengchuRecord[];
 }
 
 /** 高中分类（levels.json 口径） */
