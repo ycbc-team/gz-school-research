@@ -1,9 +1,8 @@
 <script setup lang="ts">
 /**
  * 七区中小学·高中分布地图（Vue3 + Leaflet，功能对齐旧版 map/index.html）：
- * - 三类点位配色：小学紫 / 初中红 / 高中绿；多学部学校（同 school_id）圆点垂直分色
- * - 有支撑加粗+晕光、部分支撑加粗、独立法人挂牌校虚线点
- * - 7 类筛选 + 全选/全不选；学段筛选器带对应颜色标记；点击点位有选中态（浮层关闭后消失）
+ * - 三类点位配色：小学紫 / 初中红 / 高中绿；多学部学校（同 school_id）圆点垂直分色；点位统一样式
+ * - 7 类筛选 + 全选/全不选；点击点位有选中态（浮层关闭后消失）
  * - 点击点位信息卡：高中（分类/指标/口径）、小学初中（梯队信号/判定依据）、普通（学段/区）
  * - 高德瓦片 GCJ-02 同坐标系；区边界 + 核心四区初始视野 + 半径随缩放
  */
@@ -69,12 +68,7 @@ const STAGE_COLOR: Record<SchoolStage, string> = {
   middle: '#DC2626', // 初中 · 红
   high: '#10B981', // 高中 · 绿
 };
-const STAGE_GLOW: Record<SchoolStage, string> = {
-  primary: 'rgba(139,92,246,0.35)',
-  middle: 'rgba(220,38,38,0.35)',
-  high: 'rgba(16,185,129,0.35)',
-};
-/** 学段优先级：多学部点主学部取最高（信息卡/描边/晕光用主学部） */
+/** 学段优先级：多学部点主学部取最高（信息卡用主学部） */
 const STAGE_PRIORITY: Record<SchoolStage, number> = { primary: 0, middle: 1, high: 2 };
 
 /* ========== 梯队/高中匹配表（构建一次，性能复用） ========== */
@@ -283,7 +277,7 @@ function pickResult(pt: Pt) {
 const mapEl = ref<HTMLDivElement | null>(null);
 let map: L.Map | null = null;
 /** 渲染条目：点位 marker + 可选晕光，按筛选显隐 */
-interface RenderedItem { pt: Pt; marker: L.Marker; glow?: L.CircleMarker }
+interface RenderedItem { pt: Pt; marker: L.Marker }
 const rendered: RenderedItem[] = [];
 let unionSW: { lat: number; lng: number } | null = null;
 let unionNE: { lat: number; lng: number } | null = null;
@@ -297,68 +291,39 @@ function radiusForZoom(z: number): number {
   if (z >= 11) return 6;
   return 5;
 }
-/** 单学部点：学段单色圆点（口碑实心、普通半透明；有支撑加粗、挂牌虚线） */
+/** 单学部点：学段单色圆点，统一样式（不再区分口碑/普通/挂牌） */
 function markerStyle(pt: Pt): L.CircleMarkerOptions {
-  const stage = pt.mainStage;
-  const cls = pt.clsOf[stage];
-  const tier = pt.tier;
-  const s: L.CircleMarkerOptions = {
+  return {
     radius: radiusForZoom(map?.getZoom() ?? 13),
     color: 'rgba(255,255,255,0.85)',
     weight: 1.2,
-    fillColor: STAGE_COLOR[stage],
-    fillOpacity: 1,
+    fillColor: STAGE_COLOR[pt.mainStage],
+    fillOpacity: 0.9,
     bubblingMouseEvents: false,
   };
-  if (cls !== 'pT' && cls !== 'mT' && cls !== 'hD' && cls !== 'hM') {
-    s.fillOpacity = 0.7;
-  } else if (tier) {
-    s.weight = tier.conclusion === '有支撑' ? 2.8 : 2.2;
-  }
-  if (tier && tier.tier1_eligible === false) {
-    s.dashArray = '4 3';
-    s.fillOpacity = 0.85;
-  }
-  return s;
-}
-function isTierCls(cls: ClsKey): boolean {
-  return cls === 'pT' || cls === 'mT' || cls === 'hD' || cls === 'hM';
-}
-/** 分级透明度：口碑/示范实心（1），普通半透明（0.7） */
-function segOpacity(cls: ClsKey): number {
-  return isTierCls(cls) ? 1 : 0.7;
 }
 let iconUid = 0;
 /** 选中态描边（品牌蓝，浮层打开时高亮当前点位） */
 const SELECTED_COLOR = '#1a6bd6';
-/** 多学部点：SVG 圆内垂直分色（2 段=上/下，3 段=上/中/下），白描边，主学部决定晕光/虚线/粗细 */
+/** 多学部点：SVG 圆内垂直分色（2 段=上/下，3 段=上/中/下），白描边，统一样式 */
 function buildMultiIcon(pt: Pt, r: number, selected = false): L.DivIcon {
-  const tier = pt.tier;
-  const glow = !!tier && tier.conclusion === '有支撑' && tier.tier1_eligible !== false;
-  const dash = !!tier && tier.tier1_eligible === false;
-  const pad = glow ? 4 : 0;
-  const size = r * 2 + pad * 2;
+  const size = r * 2;
   const center = size / 2;
   const rr = r - 0.6;
   const n = pt.stages.length;
   const uid = 'poiClip' + (++iconUid);
-  const weight = selected ? 3.5 : (tier ? (tier.conclusion === '有支撑' ? 2.8 : 2.2) : 1.2);
+  const weight = selected ? 3.5 : 1.2;
   const stroke = selected ? SELECTED_COLOR : 'rgba(255,255,255,0.85)';
   const segs = pt.stages
     .map((st, i) => {
       const y = center - rr + (i * (rr * 2)) / n;
-      return `<rect x="${center - rr}" y="${y}" width="${rr * 2}" height="${(rr * 2) / n}" fill="${STAGE_COLOR[st]}" opacity="${segOpacity(pt.clsOf[st])}"/>`;
+      return `<rect x="${center - rr}" y="${y}" width="${rr * 2}" height="${(rr * 2) / n}" fill="${STAGE_COLOR[st]}" opacity="0.9"/>`;
     })
     .join('');
-  const glowSvg = glow
-    ? `<circle cx="${center}" cy="${center}" r="${rr + 4}" fill="none" stroke="${STAGE_GLOW[pt.mainStage]}" stroke-width="2"/>`
-    : '';
-  const dashSvg = dash ? ' stroke-dasharray="4 3"' : '';
   const html =
     `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">` +
     `<defs><clipPath id="${uid}"><circle cx="${center}" cy="${center}" r="${rr}"/></clipPath></defs>` +
-    glowSvg +
-    `<circle cx="${center}" cy="${center}" r="${rr}" fill="none" stroke="${stroke}" stroke-width="${weight}"${dashSvg}/>` +
+    `<circle cx="${center}" cy="${center}" r="${rr}" fill="none" stroke="${stroke}" stroke-width="${weight}"/>` +
     `<g clip-path="url(#${uid})">${segs}</g>` +
     `</svg>`;
   return L.divIcon({
@@ -375,15 +340,6 @@ function renderPoints() {
       : L.marker([pt.lat, pt.lng], { icon: buildMultiIcon(pt, radiusForZoom(map?.getZoom() ?? 13)) })) as unknown as L.Marker;
     const item: RenderedItem = { pt, marker: m };
     const tier = pt.tier;
-    if (tier && tier.conclusion === '有支撑' && tier.tier1_eligible !== false) {
-      item.glow = L.circleMarker([pt.lat, pt.lng], {
-        radius: radiusForZoom(map?.getZoom() ?? 13) + 4,
-        color: STAGE_GLOW[pt.mainStage],
-        weight: 2,
-        fill: false,
-        interactive: false,
-      });
-    }
     m.bindTooltip(
       `${pt.name}${tier && tier.tier1_eligible === false ? ' · 挂牌校' : ''}`,
       { direction: 'top', offset: L.point(0, -8), opacity: 0.95, className: 'poi-tip' },
@@ -402,10 +358,8 @@ function applyFilters() {
     const inMap = map.hasLayer(it.marker);
     if (vis && !inMap) {
       it.marker.addTo(map);
-      if (it.glow) it.glow.addTo(map);
     } else if (!vis && inMap) {
       map.removeLayer(it.marker);
-      if (it.glow && map.hasLayer(it.glow)) map.removeLayer(it.glow);
       // 选中的点被筛掉：清除选中态并关闭浮层，避免浮层指向地图上看不到的点
       if (it === activeItem) {
         clearSelection();
@@ -766,9 +720,6 @@ const infoModel = computed<InfoModel | null>(() => {
       <span class="lg-dot lg-multi"><i :style="{ background: STAGE_COLOR.middle }"></i><i :style="{ background: STAGE_COLOR.high }"></i></span>
       多学部（上下分色）
     </div>
-    <div class="lg-sep"></div>
-    <div class="lg-note">实心 = 口碑/示范 · 半透明 = 普通</div>
-    <div class="lg-note">粗边 + 晕光 = 口碑有支撑 · 虚线 = 挂牌校</div>
   </div>
 
     <aside v-if="infoModel" class="school-info">
@@ -870,8 +821,6 @@ section { position: relative; }
 .lg-dot { width: 12px; height: 12px; border-radius: 50%; flex: none; display: inline-block; }
 .lg-multi { display: inline-flex; flex-direction: column; overflow: hidden; border: 1px solid rgba(0,0,0,0.15); }
 .lg-multi i { flex: 1; }
-.lg-sep { border-top: 1px dashed #d6d4cc; margin: 5px 0 4px; }
-.lg-note { color: #6b7280; font-size: 10.5px; line-height: 1.55; }
 .map { height: calc(100vh - 140px); min-height: 560px; border-radius: 14px; border: 1px solid #e4e3dd; z-index: 1; }
 
 .school-info {
