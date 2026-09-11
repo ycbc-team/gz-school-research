@@ -123,8 +123,8 @@ const highSpecialCoverage = computed(() => {
   <!-- ===== 初中视角：按录取批次组织 ===== -->
   <template v-if="stage === 'middle'">
     <div class="card" v-if="specialRows.length">
-      <div class="card-title">第一批次 · 特殊通道（自招 / 体育 / 艺术）· 2026</div>
-      <p class="sub-note">本校学生通过自招/体育/艺术被以下高中录取（资格名单人数，非最终预录取）。</p>
+      <div class="card-title">第一批招生（2026）</div>
+      <p class="sub-note">特殊通道：自主招生 / 体育 / 艺术特长生。本校学生通过特殊通道被以下高中录取（资格名单人数，非最终预录取）。</p>
       <div class="tbl">
         <div class="tbl-row tbl-head"><span>升入高中</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
         <div v-for="r in specialRows" :key="r.campus" class="tbl-row">
@@ -134,8 +134,8 @@ const highSpecialCoverage = computed(() => {
     </div>
 
     <div class="card" v-if="quota">
-      <div class="card-title">第二批次 · 名额分配（指标到校）· 2026（官方）</div>
-      <p class="sub-note">本校名额考生按政策获得以下高中的名额；名额 = 该高中分给本校的名额数，录取最低分为本校考生被该校第二批次录取的最低分。省市属名额已全列；区属名额分配到本区区属高中，明细未收录。</p>
+      <div class="card-title">第二批招生（2026）</div>
+      <p class="sub-note">名额分配（指标到校）：本校名额考生按政策获得以下高中的名额；名额 = 该高中分给本校的名额数，录取最低分为本校考生被该校第二批录取的最低分。省市属名额已全列；区属名额分配到本区区属高中，明细未收录。</p>
       <div class="kv">
         <div class="kv-row"><span>名额考生数</span><b>{{ quota.kaosheng ?? '—' }} 人</b></div>
         <div class="kv-row"><span>省市属名额</span><b>{{ quota.sheng_quota ?? '—' }} 个</b></div>
@@ -156,26 +156,27 @@ const highSpecialCoverage = computed(() => {
     </div>
   </template>
 
-  <!-- ===== 高中视角：覆盖反查 ===== -->
+  <!-- ===== 高中视角：覆盖反查（第一批特殊通道 → 第二批次额分配） ===== -->
   <template v-else>
+    <div class="card" v-if="highSpecialCoverage.length">
+      <div class="card-title">第一批招生（2026）</div>
+      <p class="sub-note">特殊通道（自主招生 / 体育 / 艺术特长生）覆盖初中，按合计人数降序。</p>
+      <div class="tbl">
+        <div class="tbl-row tbl-head"><span>初中</span><span>自招</span><span>体育</span><span>艺术</span></div>
+        <div v-for="r in highSpecialCoverage" :key="r.school" class="tbl-row">
+          <span>{{ r.school }}</span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span>
+        </div>
+      </div>
+    </div>
+
     <div class="card" v-if="highCoverage.length">
-      <div class="card-title">名额分配覆盖初中 · 2026（Top 30）</div>
-      <p class="sub-note">按该高中各校区合计名额数（n<sub>ji</sub>）降序，合并展示。</p>
+      <div class="card-title">第二批招生（2026）</div>
+      <p class="sub-note">名额分配（指标到校）覆盖初中，按该高中各校区合计名额数（n<sub>ji</sub>）降序。</p>
       <div class="tbl">
         <div class="tbl-row tbl-head"><span>初中</span><span>所在区</span><span>名额</span></div>
         <div v-for="r in highCoverage" :key="r.school" class="tbl-row">
           <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink></span>
           <span>{{ r.districts.join('、') || '—' }}</span><span class="strong">{{ r.n }}</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" v-if="highSpecialCoverage.length">
-      <div class="card-title">特殊通道覆盖初中 · 2026（Top 30）</div>
-      <div class="tbl">
-        <div class="tbl-row tbl-head"><span>初中</span><span>自招</span><span>体育</span><span>艺术</span></div>
-        <div v-for="r in highSpecialCoverage" :key="r.school" class="tbl-row">
-          <span>{{ r.school }}</span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span>
         </div>
       </div>
     </div>

@@ -57,7 +57,7 @@ function viewOnMap() {
 const POI_LISTS: Record<SchoolStage, any[]> = {
   primary: primarySchools.schools, middle: middleSchools.schools, high: highSchools.schools,
 };
-const STAGE_LABEL: Record<SchoolStage, string> = { primary: '小学', middle: '初中', high: '高中' };
+const STAGE_LABEL: Record<SchoolStage, string> = { primary: '小学部', middle: '初中部', high: '高中部' };
 /** 该校名在哪些学部有 POI 点位（同名即视为该学部实体） */
 const availableStages = computed<SchoolStage[]>(() => {
   const out: SchoolStage[] = [];
@@ -394,7 +394,7 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
 
     <!-- 小学 tab：招生计划 + 所在区小升初机制 -->
     <div v-if="stage === 'primary'" class="card">
-      <div class="card-title">2026 招生计划</div>
+      <div class="card-title">招生计划（2026）</div>
       <div v-if="enrollment" class="kv">
         <div class="kv-row"><span>计划班数</span><b>{{ enrollment.plan_classes ?? '—' }} 个班</b></div>
         <div class="kv-row" v-if="enrollment.nature"><span>办学性质</span><b>{{ enrollment.nature }}</b></div>
@@ -412,7 +412,7 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
 
     <!-- 小学 tab：升学路线（对口初中 · 派位/直升） -->
     <div v-if="stage === 'primary' && (feedRows.length || feedGap || feedJuniors?.direct_feed)" class="card">
-      <div class="card-title">升学路线 · {{ feedJuniors?.direct_feed ? '对口直升' : '对口/派位初中' }}</div>
+      <div class="card-title">升学路线（2026）</div>
       <p v-if="feedJuniors?.group" class="sub-note">分组：{{ feedJuniors.group }}</p>
       <p v-if="feedJuniors?.direct_feed" class="sub-note">直升：{{ feedJuniors.direct_feed }}</p>
       <div v-if="feedRows.length" class="feed-list">
@@ -429,7 +429,7 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
 
     <!-- 初中 tab：招生 · 生源小学 -->
     <div v-if="stage === 'middle'" class="card">
-      <div class="card-title">2026 招生 · 生源小学</div>
+      <div class="card-title">招生计划（2026）</div>
       <template v-if="feedPrimarys.length">
         <p class="sub-note">以下小学的 2026 对口/派位名单包含本校（由七区全量小学升学路线反查，校名全等匹配）。</p>
         <div class="feed-list">
@@ -447,10 +447,19 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
       <LinkagePanel :stage="'middle'" :school="schoolName" />
     </template>
 
-    <!-- 高中 tab：招生计划（中考录取线 + 名额分配到初中覆盖，合并） -->
+    <!-- 高中 tab：高考信息在上，招生计划（中考线+名额覆盖）在下 -->
     <template v-if="stage === 'high'">
+      <div class="card" v-if="gaokaoRows.length">
+        <div class="card-title">高考信息</div>
+        <div class="kv">
+          <div class="kv-row" v-for="r in gaokaoRows" :key="r.label">
+            <span>{{ r.label }}</span><b>{{ r.value }}</b>
+          </div>
+        </div>
+        <p class="sub-note">高分段/特控率为各校喜报或网传，非官方统一发布，仅供参考。</p>
+      </div>
       <div class="card" v-if="admissionRows.length">
-        <div class="card-title">2026 招生 · 中考录取线</div>
+        <div class="card-title">招生计划（2026）</div>
         <div class="kv">
           <div class="kv-row" v-for="r in admissionRows" :key="r.label">
             <span>{{ r.label }}</span><b :class="{ strong: r.strong }">{{ r.value }}</b>
@@ -459,21 +468,11 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
         <p class="sub-note">录取线为官方发布（户籍生）。</p>
       </div>
       <LinkagePanel :stage="'high'" :school="schoolName" />
-      <!-- 高考信息：网传成绩 -->
-      <div class="card" v-if="gaokaoRows.length">
-        <div class="card-title">高考信息（网传喜报）</div>
-        <div class="kv">
-          <div class="kv-row" v-for="r in gaokaoRows" :key="r.label">
-            <span>{{ r.label }}</span><b>{{ r.value }}</b>
-          </div>
-        </div>
-        <p class="sub-note">高分段/特控率为各校喜报或网传，非官方统一发布，仅供参考。</p>
-      </div>
     </template>
 
     <!-- 品牌关联 + 校区（合并） -->
     <div v-if="brandCard || rec?.campuses?.length" class="card">
-      <div class="card-title">品牌关联 · 校区</div>
+      <div class="card-title">品牌关联</div>
       <template v-if="brandCard">
         <p class="sub-note">同一品牌下的校区与学校，按法人关系分组。</p>
         <div class="brand-head">品牌 · {{ brandCard.brand }}</div>
@@ -496,9 +495,15 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
           </div>
         </div>
       </template>
-      <ul v-if="rec?.campuses?.length" class="campus-list" style="margin-top:8px;">
-        <li v-for="c in rec.campuses" :key="c">{{ c }}</li>
-      </ul>
+      <!-- 无品牌集团卡片时，校区列表用 brand-row 风格（可点击 + 学部 badge） -->
+      <div v-if="!brandCard && rec?.campuses?.length" class="brand-group">
+        <div v-for="c in rec.campuses" :key="c" class="brand-row">
+          <div class="brand-row-main">
+            <RouterLink :to="`/school/${encodeURIComponent(c)}?stage=high`" class="brand-name-link">{{ c }}</RouterLink>
+            <span class="tag">校区</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <footer class="d-foot">

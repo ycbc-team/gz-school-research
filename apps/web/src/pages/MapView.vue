@@ -465,7 +465,7 @@ interface InfoModel {
   head: string | null;
   rows: InfoRow[];
   note: string | null;
-  link: { text: string; to: string } | null;
+  links: { text: string; to: string }[];
 }
 
 const infoModel = computed<InfoModel | null>(() => {
@@ -473,7 +473,16 @@ const infoModel = computed<InfoModel | null>(() => {
   if (!pt) return null;
   const districtName = districtByAdcode[pt.adcode] || '';
   const name = pt.name;
-  const detailLink = { text: '查看学校详情 →', to: `/school/${encodeURIComponent(name)}` };
+  // 详情跳转：单学部一个按钮；多学部（完中）按学部分别跳对应 tab
+  const nameStages = [
+    ...(primarySchools.schools.some((s) => normName(s.name) === normName(name)) ? ['primary'] : []),
+    ...(middleSchools.schools.some((s) => normName(s.name) === normName(name)) ? ['middle'] : []),
+    ...(highSchools.schools.some((s) => normName(s.name) === normName(name)) ? ['high'] : []),
+  ];
+  const STAGE_SHORT: Record<string, string> = { primary: '小学部', middle: '初中部', high: '高中部' };
+  const detailLinks = nameStages.length > 1
+    ? nameStages.map((s) => ({ text: `查看${STAGE_SHORT[s]}详情 →`, to: `/school/${encodeURIComponent(name)}?stage=${s}` }))
+    : [{ text: '查看学校详情 →', to: `/school/${encodeURIComponent(name)}` }];
   if (pt.stage === 'high') {
     const rec = pt.rec;
     if (!rec) {
@@ -486,7 +495,7 @@ const infoModel = computed<InfoModel | null>(() => {
           { label: '所在区', value: districtName || '—' },
         ],
         note: '该点位暂未匹配到高中分类（可能为未收录学校）。',
-        link: detailLink,
+        links: detailLinks,
       };
     }
     const ind = rec.indicators || {};
@@ -505,7 +514,7 @@ const infoModel = computed<InfoModel | null>(() => {
       head: null,
       rows,
       note: '口径：录取线为官方发布；特控率/高分段为喜报或网传数据。完整出口数据见详情页。',
-      link: detailLink,
+      links: detailLinks,
     };
   }
   const tier = pt.tier;
@@ -525,7 +534,7 @@ const infoModel = computed<InfoModel | null>(() => {
           ...(tier.exclude_reason ? [{ label: '未计入原因', value: tier.exclude_reason }] : []),
         ],
         note: null,
-        link: detailLink,
+        links: detailLinks,
       };
     }
     const head =
@@ -541,7 +550,7 @@ const infoModel = computed<InfoModel | null>(() => {
       head,
       rows: [...enrollRows, ...signalRows],
       note: '完整口碑信号与升学通道见详情页。',
-      link: detailLink,
+      links: detailLinks,
     };
   }
   return {
@@ -556,7 +565,7 @@ const infoModel = computed<InfoModel | null>(() => {
       ...(pt.stage === 'middle' ? middleFeedRows(name) : []),
     ],
     note: null,
-    link: detailLink,
+    links: detailLinks,
   };
 });
 </script>
@@ -646,7 +655,7 @@ const infoModel = computed<InfoModel | null>(() => {
         <p v-else :class="{ 'si-clamp': r.label === '招生地段' || r.label === '升学路线' }">{{ r.value }}</p>
       </div>
       <div v-if="infoModel.note" class="si-src">{{ infoModel.note }}</div>
-      <RouterLink v-if="infoModel.link" :to="infoModel.link.to" class="si-link">{{ infoModel.link.text }}</RouterLink>
+      <RouterLink v-for="l in infoModel.links" :key="l.to" :to="l.to" class="si-link" style="display:block;margin-top:6px;">{{ l.text }}</RouterLink>
     </aside>
 
     <p class="hint">拖动 / 滚轮 / 双指缩放查看。悬停显示校名，点击点位显示信息卡。独立法人挂牌校（虚线点）不计入口碑学校。高中分类口径：省市属示范 / 区属示范 / 普通（详见卡片内"口径"）。</p>
