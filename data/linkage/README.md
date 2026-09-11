@@ -1,75 +1,57 @@
-# 升学通道数据（data/linkage）— 采集进度与技术复盘
+# 升学通道数据（data/linkage）
 
-> 目标：为"高中→初中→小学"升学链路模型（Q_j 升学通道指数）收集官方数据。
-> 范围：特控率高的省市属学校（levels.json 11 所，21 个校区）。
-> 冲突规避：本目录全部为新建，未触碰 `data/primary|middle|high/`、`apps/`（另一 agent 在做 vue 重构）、`data/combined.js`。
+高中→初中升学链路的 2026 官方数据。为模型 `Q_j = Σ_i (n_ji/m_j × H_i × α) + 自招/特长归一化` 提供输入。
 
----
+## 最终数据
 
-## 一、已完成并落盘
-
-| 文件 | 内容 | 状态 |
+| 文件 | 内容 | 规模 |
 |---|---|---|
-| `batch2_scores.json` | 2026 第二批次（名额分配）录取分数：**省市属 20 校区 × 463 所初中**，字段 admitted / min_score / last_score | ✅ 官方文本层正常，可靠 |
-| `raw/batch2_scores.pdf` | 第二批次录取分数原表（304 页） | ✅ 留痕 |
-| `raw/batch2_scores_all.json` | 7280 行全量解析（含区属/民办） | ✅ 留痕 |
-| `raw/quota_detail.pdf` | 2026 名额分配结果（全市 31 页，每区 2-5 页） | ✅ 已攻克（见下） |
-| **`quota_matrix.json`** | **2026 名额分配完整矩阵：498 所初中 ×（名额考生/省市属/区属 + 21 省市属校区 n_ji）** | ✅ **校验 0 不一致（col1=Σ21 全过，仅限 sheng_quota 非空行；另有 10 所民办学校 sheng_quota=None，表示不参与省市属名额分配，非缺失）** |
-| `special_matrix.json` | 2026 自招/体育/艺术特长名单：**288 所初中 × 19 高中校区**（各类别人数） | ✅ 已采集（原状态表标记"未采集"已过时） |
-| `raw/quota_grid_final.json` | 全量网格原始数据（每页 rows/cols/data） | ✅ 留痕 |
-| `scripts/linkage/assemble_quota.py` | grid → matrix 组装脚本 | ✅ 可复现 |
-| `scripts/linkage/parse_batch2.py` / `scripts/linkage/build_linkage_batch2.py` | 第二批次解析与省市属过滤脚本 | ✅ 可复现 |
-| `raw/headers/header_ocr.json` + 各页表头图 | 7 区第 1 页表头列序（Read 视觉确认） | ✅ 列序可信 |
+| `quota_matrix.json` | 2026 名额分配完整矩阵：每所初中的名额考生数 m_j、省市属/区属名额，及 21 个省市属高中校区的指标数 n_ji | 498 所初中 × 21 校区 |
+| `batch2_scores.json` | 2026 第二批次（名额分配）录取分数：每所初中被各高中校区录取的最低/末位分 | 省市属 20 校区 × 463 所初中 |
+| `special_matrix.json` | 2026 自招/体育/艺术特长名单：每所初中升入各高中校区的各类别人数 | 288 所初中 × 19 校区 |
 
-## 二、核心障碍（已攻克）：名额分配明细 PDF 的 CID 字体
+校验：`quota_matrix.json` 列和已强校验 0 不一致（col1 省市属名额 = Σ21 校区列）；10 所民办 `sheng_quota=None` 为不参与省市属名额分配，非缺失。
 
-`quota_detail.pdf`（31 页，含每所初中的"名额考生 / 省市属名额 / 区属名额 / 各高中指标数 n_ji"矩阵）：
-- 文本层：**CID 无 ToUnicode 映射**，pdfplumber / pdfminer / pymupdf `get_text` 均返回乱码。
-- 渲染层：**pymupdf、pypdfium2（Chrome 同款引擎）、macOS PDFKit 渲染的字形全部错乱**（数字"595"渲染成"6417"类错误字形）。
-- **攻克路径**：`pdftoppm -r 300`（poppler）渲染 300dpi 位图 → cv2 检测列线/行界 → 单格裁剪 → tesseract 逐格 OCR（psm10 + 数字白名单）→ 以 **col1（省市属名额）= Σ21 校区列** 强校验，不一致行用"渲染拼图 + Read 视觉 OCR 读真值 + 硬编码回写"逐轮收敛：377 → 65 → 48 → 5 → 1 → **0 不一致（498 校全过）**。
-- 关键陷阱：页 25 存在前导列线多检（cols 偏移 +1）、col1 列窄易串列（视觉读真值更可靠）、区头行 21 列跨页不闭合（仅参考不参与校验）。
+## 政府源文档（raw/）
 
-## 三、现有数据对模型的支持
-
-用户模型：Q_j = Σ(名额分配 n_ji/m_j × H_i × α) + 自招通道 + 体育特长 + 艺术特长
-
-| 模型输入 | 现状 |
+| 文件 | 官方来源 |
 |---|---|
-| H_i（高中特控率） | ✅ 已有（KEY_FACTS，11 所 2025/2026 网传+官方口径） |
-| 上岸分数（初中×高中） | ✅ `batch2_scores.json` 完整（20 校区×463 初中） |
-| m_j（名额考生数） | ✅ `quota_matrix.json`（498 校全量） |
-| n_ji（指标数） | ✅ `quota_matrix.json`（21 省市属校区 × 498 校） |
-| 自招/特长名单 | ✅ `special_matrix.json`（288 所初中 × 19 校区，2026-09-09 落盘） |
+| `raw/quota_detail.pdf` + `quota_detail.html` / `quota_summary.html` / `quota_result_notice.html` | 2026 名额分配结果（全市 31 页） |
+| `raw/batch2_scores.pdf` | 2026 第二批次录取分数原表（304 页） |
+| `raw/haizhu_quota.pdf` | 海珠区名额分配 |
+| `raw/autonomy/附件1.…自主招生…pdf`、`附件2.…申诉…docx`、`autonomy_qualify_2026.json`、`notice.html` | 2026 普通高中自主招生资格名单 |
+| `raw/special/附件1.…体育…pdf`、`附件2.…艺术…pdf`、`附件3.…申诉…docx`、`sports_2026.json`、`arts_2026.json`、`notice.html` | 2026 体育/艺术特长生通过名单 |
+| `raw/quota_grid_final.json`、`raw/schoolnames.json`、`raw/headers/header_ocr*.json` | 名额分配网格解析中间结果与人工确认的列序证据 |
 
-### Q_j 建模方案评估（2026-09-10 复盘）
+## 复现管线（scripts/linkage/）
 
-方案 C（Q_j = Σ_i [I(j→i 上岸) × f(min_score) × H_i]）**不再推荐**，原因：
-1. I 是 0/1 指示，丢失录取强度（1 人 vs 10 人上岸同分）；而 `n_ji/m_j`（录取率）已有 `quota_matrix` 全量支撑，绕行前提不成立。
-2. f(min_score) 未定义，且 min_score 含高中热度信息，与 H_i 相乘双重计入、跨高中无标准化。
-3. 无 m_j 分母，大校小校不可比；batch2 只含 463 所（quota_matrix 498 所），35 所零上岸初中在 C 中系统性得 0 分。
-4. 只覆盖名额分配一条通道，自招/特长数据（special_matrix）未用。
-5. H_i 为 2025/2026 网传+官方混用，α 未定义；绝对分无输出标准化，无法跨校排序。
+```bash
+# 名额分配矩阵：渲染 PDF → 列网格 OCR → 校名 → 组装
+python3 scripts/linkage/parse_quota_grid5b.py    # quota_detail.pdf → quota_grid_final.json
+python3 scripts/linkage/ocr_schoolnames.py        # → schoolnames.json
+python3 scripts/linkage/assemble_quota.py        # grid + schoolnames → quota_matrix.json
 
-**正式口径建议**：Q_j = Σ_i (n_ji/m_j × H_i × α) + 自招/特长归一化（人数/m_j）；α 定义为名额分配完成率（admitted/n_ji，可用 batch2_scores）；H_i 锁定 2026 官方口径单一来源；输出做百分位标准化。
+# 第二批次上岸分数
+python3 scripts/linkage/parse_batch2.py          # batch2_scores.pdf → batch2_scores_all.json
+python3 scripts/linkage/build_linkage_batch2.py   # 过滤省市属 → batch2_scores.json
 
-## 四、可选路径（状态更新：2026-09-10）
+# 自招/体育/艺术特长
+python3 scripts/linkage/build_special_matrix.py  # autonomy/special 源 → special_matrix.json
+```
 
-1. **A. 官方 Excel/CSV 版**：❌ **已过时**。官方仍只发 PDF，且 PDF 管线已攻克（498 校 0 不一致），等待无收益。
-2. **B. 逐页 Read 转录**：❌ **已过时**。已被 OCR+强校验管线取代，重复劳动。
-3. **C. 先用上岸分数构建 Q_j v0**：⚠️ **不推荐**（见上"Q_j 建模方案评估"）；正式版直接用 `quota_matrix` 的 n_ji/m_j。
-4. **D. 只补 m_j 与"省市属名额"两列**：❌ **已过时**。`quota_matrix.json` 已含完整 21 校区 n_ji 与 m_j，缺口已不存在。
+历史迭代脚本（v2–v12、各 fix 轮、早期 OCR 实验）归档在 `scripts/linkage/_archive/`，仅作留痕，不再维护。
 
-## 五、xiaoshengchu（小学升学路线）数据约束规则
+## 年度刷新流程
 
-> 适用于 `data/primary/tier1_schools_*.json` 及未来全量小学的 `xiaoshengchu` 字段构建。**本规则替代"每年跑一次审计脚本"的做法，靠源头约束防复发。**
+每年 4–7 月官方发布新一年文件后：
+1. 将新一年 PDF/DOCX/HTML 原件放入 `raw/`（沿用现有文件名，或加年份区分）。
+2. 按上述管线重跑脚本；名额分配 PDF 若为 CID 字体无文本层，沿用"300dpi 渲染 → 列线检测 → 逐格 OCR → col1=Σ21 强校验"，不一致行用视觉 OCR 读真值后回写。
+3. 更新本 README 的年度与数据规模；跨年对比只新增当年文件，不覆盖历史年。
 
-1. **预警名单禁作派位/对口数据源**：官方《学位供给紧张信息预告》等"预警/学位紧张"文件**只能用于学位预警展示，严禁写入 `feed_junior_highs`**。教训：番禺区 15 所曾把 2026-02-06 预警名单当派位分组表，导致漏列石碁中学等未预警初中、错列亚运城配建初中（广铁一中番禺校区/铁英学校），2026-09-10 已按官方表修正。
-2. **只认年度正式文件**：以当年官方《招生计划、招生地段及条件》（或区教育局公布的初中招生计划/分组表/对口直升表）为准；`source_url` 必须指向具体官方文件页，`source_note` 写明文件名称与口径（如"市桥城区 8 所初中电脑派位"）。
-3. **配建校/特殊通道单独标注**：小区配建公办初中（如亚运城铁一/铁英）招生范围仅限小区业主子女（人户一致优先），**不得混入普通学区派位池**；区属初中自愿报名/电脑抽签通道（如仲元一校区 80% 面向市桥城区派位资格生）在 source_note 注明。
-4. **数据缺口显式化**：无法确认对口时，`feed_junior_highs` 置 `[]` 并在 `data_gaps`（或 source_note）记录原因；**禁止把"（待查）"等占位文本写入 feed**（UI 会把它渲染成学校条目）。
-5. **年度刷新**：每年 4 月底官方发布新表后重核一次本区字段；发现派位/地段调整的学校只改目标字段，保留其他内容。
+## 数据约束规则（适用于 xiaoshengchu 小学升学路线）
 
-## 六、冲突红线（延续）
-
-- 原红线（采集期约束）：不写 `data/primary/`、`data/middle/`、`data/high/`、`apps/`、`data/combined.js`；新产出只进 `data/linkage/` 与 `scripts/`。
-- **2026-09-10 起经用户确认变更**：升学路线（xiaoshengchu）的修复与全量构建属本项目主任务，允许写 `data/primary/`、`apps/` 与对应 `scripts/`，数据源遵循第五节约束规则；本目录（linkage）其余产出仍按原红线执行。
+1. **预警名单禁作派位/对口数据源**：官方《学位供给紧张信息预告》只用于学位预警展示，严禁写入 `feed_junior_highs`。
+2. **只认年度正式文件**：以当年官方《招生计划、招生地段及条件》或区教育局公布的初中招生计划/分组表/对口直升表为准；`source_url` 必须指向具体官方文件页。
+3. **配建校/特殊通道单独标注**：小区配建公办初中招生范围仅限小区业主子女，不得混入普通学区派位池；自愿报名/电脑抽签通道在 `source_note` 注明。
+4. **数据缺口显式化**：无法确认对口时 `feed_junior_highs` 置 `[]` 并在 `data_gaps`/`source_note` 记原因，禁止把"（待查）"占位文本写入 feed。
+5. **年度刷新**：每年官方发布新表后重核；派位/地段调整的学校只改目标字段，其他保留。

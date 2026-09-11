@@ -11,7 +11,8 @@ import type {
 import { matchBrandByPoiName, normName, ADCODE_TO_DISTRICT, type BrandGroupLite, type XiaoshengchuRecord, type XiaoshengchuSnapshot } from '@gz/shared';
 import primarySchoolsJson from '../../../../data/primary/schools-gz.json';
 import primaryTier1Json from '../../../../data/primary/tier1_schools_all.json';
-import xiaoshengchuAllJson from '../../../../data/primary/xiaoshengchu_all.json';
+import entitiesJson from '../../../../data/registry/entities.json';
+import xiaoshengchu2026Json from '../../../../data/primary/xiaoshengchu_2026.json';
 import middleSchoolsJson from '../../../../data/middle/schools-gz.json';
 import middleTier1Json from '../../../../data/middle/tier1_schools_all.json';
 import highSchoolsJson from '../../../../data/high/schools-gz.json';
@@ -34,8 +35,6 @@ const cast = <T>(v: unknown): T => v as T;
 
 export const primarySchools = cast<SchoolsSnapshot>(primarySchoolsJson);
 export const primaryTier1 = cast<Tier1Snapshot>(primaryTier1Json);
-/** 小学小升初升学路线全量真源（7 区，2026） */
-export const xiaoshengchuAll = cast<XiaoshengchuSnapshot>(xiaoshengchuAllJson);
 export const middleSchools = cast<SchoolsSnapshot>(middleSchoolsJson);
 export const middleTier1 = cast<Tier1Snapshot>(middleTier1Json);
 export const highSchools = cast<SchoolsSnapshot>(highSchoolsJson);
@@ -304,60 +303,88 @@ export function middleQuotaSummary(name: string): { kaosheng: number | null; she
 export const tier1Schools = Object.values(primaryTier1.districts).flatMap((d) => d.schools);
 export const middleTier1Schools = Object.values(middleTier1.districts).flatMap((d) => d.schools);
 
-/* ========== 小学升学路线（xiaoshengchu_all 全量真源，仅归一化全等，不做包含/前缀匹配） ========== */
+/* ========== 小学升学路线（2026 事实表 + 实体注册表，school_id 外键，全等别名） ========== */
 /** 从 group 文本解析区名（如「番禺区小升初对口（单校）」→「番禺区」），无区前缀返回 null */
 function districtOfGroup(group: string | null): string | null {
   if (!group) return null;
   const m = /(荔湾|越秀|海珠|天河|白云|黄埔|番禺)区/.exec(group);
   return m ? `${m[1]}区` : null;
 }
-type XsRecord = XiaoshengchuRecord & { district: string | null };
-const xsRecords: XsRecord[] = xiaoshengchuAll.records.map((r) => ({ ...r, district: districtOfGroup(r.group) }));
-/** 归一化校名 → 记录列表（全等；跨区同名学校如「赤岗小学」保留多条，查询时按区消歧） */
-const xsByNorm = new Map<string, XsRecord[]>();
-for (const r of xsRecords) {
-  const nk = normName(r.name);
-  if (!nk) continue;
-  if (!xsByNorm.has(nk)) xsByNorm.set(nk, []);
-  xsByNorm.get(nk)!.push(r);
+// ---- 实体注册表索引：norm(alias) -> entity 列表（跨区同名时按 district 精确消歧）----
+interface SchoolEntityLite { school_id: string; canonical_name: string; stage: string; district: string; aliases: string[] }
+const entities = (entitiesJson as any).entities as SchoolEntityLite[];
+const entityById = new Map(entities.map((e) => [e.school_id, e]));
+function buildAliasIndex(stage: string): Map<string, SchoolEntityLite[]> {
+  const m = new Map<string, SchoolEntityLite[]>();
+  for (const e of entities) {
+    if (e.stage !== stage) continue;
+    for (const a of e.aliases) {
+      const k = normName(a); if (!k) continue;
+      if (!m.has(k)) m.set(k, []);
+      m.get(k)!.push(e);
+    }
+  }
+  return m;
 }
-/**
- * 按 POI 名查小学升学路线：仅做 normName 归一化全等，不做任何部分/包含匹配。
- * district 可选（传「番禺区」区名或 6 位 adcode 均可），仅在跨区同名时精确消歧；
- * 不传或消歧不中时回退首条（确定性，不猜测）。
- */
-export function xiaoshengchuOf(poiName: string, district?: string | null): XiaoshengchuRecord | null {
-  const nk = normName(poiName);
-  if (!nk) return null;
-  const list = xsByNorm.get(nk);
+const primaryAlias = buildAliasIndex('primary');
+const middleAlias = buildAliasIndex('middle');
+function resolveEntity(idx: Map<string, SchoolEntityLite[]>, name: string, district?: string | null): SchoolEntityLite | null {
+  const list = idx.get(normName(name));
   if (!list || !list.length) return null;
   if (list.length === 1) return list[0]!;
   const want = district && /^\d{6}$/.test(district) ? ADCODE_TO_DISTRICT[district] : district;
-  if (want) {
-    const hit = list.find((r) => r.district === want);
-    if (hit) return hit;
-  }
-  return list[0]!;
+  return (want && list.find((e) => e.district === want)) || list[0]!;
+}
+
+// ---- 2026 事实表：school_id -> record ----
+type FactRec = {
+  school_id: string; district: string | null; group: string | null;
+  feed: { official_name: string; school_id: string | null }[];
+  direct_feed: { official_name: string; school_id: string | null } | null;
+  source_url?: string; source_note?: string; data_gaps?: string | null;
+};
+const facts = (xiaoshengchu2026Json as any).records as FactRec[];
+const factByPrimaryId = new Map<string, FactRec>();
+for (const r of facts) if (r.school_id) factByPrimaryId.set(r.school_id, r);
+
+/** 把事实 record 适配成页面在用的旧形状（feed_junior_highs: 字符串数组） */
+function shapeRecord(r: FactRec, displayName: string): XiaoshengchuRecord {
+  return {
+    name: displayName,
+    group: r.group,
+    feed_junior_highs: (r.feed || []).map((f) => f.official_name),
+    direct_feed: r.direct_feed ? r.direct_feed.official_name : null,
+    source_url: r.source_url, source_note: r.source_note, data_gaps: r.data_gaps ?? null,
+  } as XiaoshengchuRecord;
+}
+/**
+ * 按 POI 名查小学升学路线：POI 名经实体注册表别名全等解析为 school_id，再查事实表。
+ * district 仅在跨区同名时精确消歧，不传/不中回退首条（确定性，不猜测）。
+ */
+export function xiaoshengchuOf(poiName: string, district?: string | null): XiaoshengchuRecord | null {
+  const ent = resolveEntity(primaryAlias, poiName, district);
+  if (!ent) return null;
+  const r = factByPrimaryId.get(ent.school_id);
+  return r ? shapeRecord(r, ent.canonical_name) : null;
 }
 
 /**
- * 反查：某初中的生源小学（全量小学的对口/派位名单包含本校）。
- * 键为对口初中名的 normName 归一化全等，不做包含匹配。
+ * 反查：某初中 POI 的生源小学。POI 名→初中实体 school_id→遍历事实表 feed 命中。
+ * 全等别名，不做包含匹配。
  */
-const primaryFeedByMiddleNorm = new Map<string, { primary: string; group: string | null; direct_feed: string | null }[]>();
-for (const p of xsRecords) {
-  if (!p.feed_junior_highs?.length) continue;
-  for (const mid of p.feed_junior_highs) {
-    const nk = normName(mid);
-    if (!nk) continue;
-    if (!primaryFeedByMiddleNorm.has(nk)) primaryFeedByMiddleNorm.set(nk, []);
-    primaryFeedByMiddleNorm.get(nk)!.push({ primary: p.name, group: p.group, direct_feed: p.direct_feed });
-  }
-}
 export function middlePrimaryFeed(middleName: string): { primary: string; group: string | null; direct_feed: string | null }[] {
-  const nk = normName(middleName);
-  if (!nk) return [];
-  return primaryFeedByMiddleNorm.get(nk) ?? [];
+  const ent = resolveEntity(middleAlias, middleName);
+  if (!ent) return [];
+  const out: { primary: string; group: string | null; direct_feed: string | null }[] = [];
+  for (const r of facts) {
+    const hit = (r.feed || []).some((f) => f.school_id === ent.school_id) ||
+      (!!(r.direct_feed && r.direct_feed.school_id === ent.school_id));
+    if (hit) {
+      const pe = r.school_id ? entityById.get(r.school_id) : null;
+      out.push({ primary: pe ? pe.canonical_name : '(未知)', group: r.group, direct_feed: r.direct_feed ? r.direct_feed.official_name : null });
+    }
+  }
+  return out;
 }
 
 /**
