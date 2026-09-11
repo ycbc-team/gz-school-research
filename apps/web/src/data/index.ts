@@ -76,6 +76,7 @@ export const specialMatrix = loaders.specialMatrix;
 export const batch2Scores = loaders.batch2Scores;
 export const enrollments = loaders.enrollments;
 export const brandGroups = loaders.brandGroups;
+export const entities = loaders.entities;
 
 /* ================= 查询/常量（来自 repository，名称保持迁移前一致） ================= */
 export const {

@@ -50,7 +50,11 @@ export interface RumorSource {
 
 export interface Tier1School {
   name: string;
-  /** 所在区（由 sync_tier1_aliases.py 从产物回填，真源字段） */
+  /** 关联 POI 实体 id 列表（多校区 1:N；由 aliases 匹配 POI 回填；孤儿记录无此字段） */
+  school_ids?: string[];
+  /** 孤儿标记：aliases 未匹配到任何 POI（地图/详情不生效，口碑页仍展示） */
+  orphan?: boolean;
+  /** 所在区（孤儿记录保留自包含；匹配上的由 POI.adcode join，不存） */
   district?: string;
   rumor_tier: string;
   rumor_sources: RumorSource[];
@@ -99,7 +103,7 @@ export interface Tier1School {
   exclude_reason?: string | null;
   evidence?: string[];
   opened_year?: number | null;
-  /** 点位匹配别名（由 sync_tier1_aliases.py 从产物回填，真源字段） */
+  /** 候选名变体（仅孤儿记录保留；匹配上的别名已收敛进 entities.json，本表不再冗余） */
   aliases?: string[];
   /** 手工坐标（无 POI 的学校补点） */
   coords?: { lng: number; lat: number };
@@ -132,14 +136,33 @@ export interface Tier1Snapshot {
   source_urls: string[];
 }
 
-/**
- * 小学小升初升学路线单条记录（data/primary/xiaoshengchu_all.json，全量 7 区唯一真源）。
- * 匹配只做归一化全等（normName），不做前缀/包含匹配；跨区同名校以 group 中的区名消歧。
- */
+/** 派位/对口分组表（xiaoshengchu 顶层 groups，避免逐记录重复组名/source_url） */
+export interface XiaoshengchuGroup {
+  id: number;
+  name: string;
+  /** 组级来源（组内 85/88 一致；多区汇聚组含多个 url） */
+  source_urls: string[];
+  /** 组级数据缺口说明（记录级覆盖见 XiaoshengchuFactRecord.data_gaps） */
+  data_gaps: string | null;
+}
+
+/** 真源事实记录（data/primary/xiaoshengchu_2026.json 的 records，school_id 引用实体） */
+export interface XiaoshengchuFactRecord {
+  school_id: string;
+  group_id: number;
+  feed_school_ids: string[];
+  feed_unresolved: string[];
+  direct_feed_school_id: string | null;
+  source_note?: string;
+  /** 仅当与组级 data_gaps 不同时存在（记录级覆盖） */
+  data_gaps?: string | null;
+}
+
+/** 运行时展示形状（quota.ts shapeRecord 适配输出） */
 export interface XiaoshengchuRecord {
   /** 学校名（与 POI 全称对齐） */
   name: string;
-  /** 派位/对口分组描述（官方口径） */
+  /** 派位/对口分组描述（官方口径，由组表解析） */
   group: string | null;
   /** 对口/派位初中名单 */
   feed_junior_highs: string[];
@@ -151,10 +174,12 @@ export interface XiaoshengchuRecord {
   data_gaps: string | null;
 }
 
-/** data/primary/xiaoshengchu_all.json */
+/** data/primary/xiaoshengchu_2026.json */
 export interface XiaoshengchuSnapshot {
   year: number;
-  records: XiaoshengchuRecord[];
+  note: string;
+  groups: XiaoshengchuGroup[];
+  records: XiaoshengchuFactRecord[];
 }
 
 /** 高中分类（levels.json 口径） */
@@ -182,17 +207,18 @@ export interface HighLevelsSnapshot {
 }
 
 export interface EnrollmentRecord {
+  /** 官方招生原文名（含区名/校区括号，作为匹配锚点与审计原文） */
   school: string;
-  district: string;
+  /** 真实体 id（= entities.json 主键，由 poi_name 匹配 POI 回填，1:1） */
+  school_id: string;
+  /** 匹配用 POI 名变体（norm 后与 POI name 全等；原字段名曾误作 school_id） */
+  poi_name: string;
   nature: string;
   plan_classes?: number | null;
   zone?: string;
   note?: string;
   phone?: string;
   source: string;
-  school_id?: string;
-  lng?: number;
-  lat?: number;
 }
 
 export interface EnrollmentAmbiguous {

@@ -15,15 +15,27 @@ export function normName(s: string): string {
     .replace(/\s+/g, '');
 }
 
-/** 构建 (归一化别名, 学校) 表，长别名优先 */
+/**
+ * 构建 (归一化别名, 口碑记录) 表，长别名优先。
+ * 别名唯一宿主为实体注册表 entities（POI name + aliases）；
+ * 口碑记录通过 school_ids 关联实体，不再自存别名（孤儿记录除外，但不参与匹配）。
+ */
 export function buildAliasTable(
   schools: ReadonlyArray<Tier1School>,
+  entities: ReadonlyArray<{ school_id: string; name: string; aliases?: string[] }>,
 ): Array<{ alias: string; school: Tier1School }> {
+  const tierBySchoolId = new Map<string, Tier1School>();
+  for (const sc of schools) {
+    for (const sid of sc.school_ids || []) {
+      if (!tierBySchoolId.has(sid)) tierBySchoolId.set(sid, sc);
+    }
+  }
   const table: Array<{ alias: string; school: Tier1School }> = [];
   const seen = new Set<string>();
-  for (const sc of schools) {
-    const aliases = sc.aliases && sc.aliases.length > 0 ? sc.aliases : [sc.name];
-    for (const a of aliases) {
+  for (const e of entities) {
+    const sc = tierBySchoolId.get(e.school_id);
+    if (!sc) continue;
+    for (const a of [e.name, ...(e.aliases || [])]) {
       const na = normName(a);
       if (!na || seen.has(na)) continue;
       seen.add(na);
@@ -43,11 +55,13 @@ export function buildAliasTable(
 export function matchTier1ByPoiName(
   poiName: string,
   schools: ReadonlyArray<Tier1School>,
-  table: ReadonlyArray<{ alias: string; school: Tier1School }> = buildAliasTable(schools),
+  table?: ReadonlyArray<{ alias: string; school: Tier1School }>,
+  entities?: ReadonlyArray<{ school_id: string; name: string; aliases?: string[] }>,
 ): Tier1School | undefined {
+  const t = table ?? buildAliasTable(schools, entities ?? []);
   const pn = normName(poiName);
   if (!pn) return undefined;
-  for (const { alias, school } of table) {
+  for (const { alias, school } of t) {
     if (pn === alias) return school;
   }
   return undefined;
@@ -57,8 +71,9 @@ export function matchTier1ByPoiName(
 export function attachTier1ToPois(
   pois: ReadonlyArray<{ name: string }>,
   tier1Schools: ReadonlyArray<Tier1School>,
+  entities: ReadonlyArray<{ school_id: string; name: string; aliases?: string[] }>,
 ): Map<string, Tier1School> {
-  const table = buildAliasTable(tier1Schools);
+  const table = buildAliasTable(tier1Schools, entities);
   const hits = new Map<string, Tier1School>();
   for (const p of pois) {
     const hit = matchTier1ByPoiName(p.name, tier1Schools, table);

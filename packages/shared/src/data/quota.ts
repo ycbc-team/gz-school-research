@@ -155,11 +155,13 @@ export function createQuotaApi(loaders: DataLoaders) {
   }
 
   type FactRec = {
-    school_id: string; group: string | null;
+    school_id: string; group_id: number;
     feed_school_ids: string[]; feed_unresolved: string[];
     direct_feed_school_id: string | null;
-    source_url?: string; source_note?: string; data_gaps?: string | null;
+    source_note?: string; data_gaps?: string | null;
   };
+  const xsGroups = loaders.xiaoshengchu.groups;
+  const groupsById = new Map(xsGroups.map((g) => [g.id, g]));
   const facts = loaders.xiaoshengchu.records as FactRec[];
   const factByPrimaryId = new Map<string, FactRec>();
   for (const r of facts) if (r.school_id) factByPrimaryId.set(r.school_id, r);
@@ -167,12 +169,15 @@ export function createQuotaApi(loaders: DataLoaders) {
   /** 把事实 record 适配成页面在用的旧形状（feed_junior_highs: 字符串数组） */
   function shapeRecord(r: FactRec, displayName: string): XiaoshengchuRecord {
     const feedNames = (r.feed_school_ids || []).map((id) => entityById.get(id)?.name).filter(Boolean) as string[];
+    const g = groupsById.get(r.group_id);
     return {
       name: displayName,
-      group: r.group,
+      group: g?.name ?? null,
       feed_junior_highs: [...feedNames, ...(r.feed_unresolved || [])],
       direct_feed: r.direct_feed_school_id ? entityById.get(r.direct_feed_school_id)?.name ?? null : null,
-      source_url: r.source_url, source_note: r.source_note, data_gaps: r.data_gaps ?? null,
+      source_url: g?.source_urls.join('; ') ?? '',
+      source_note: r.source_note ?? '',
+      data_gaps: r.data_gaps ?? g?.data_gaps ?? null,
     } as XiaoshengchuRecord;
   }
   /**
@@ -200,7 +205,7 @@ export function createQuotaApi(loaders: DataLoaders) {
       if (hit) {
         const pe = r.school_id ? entityById.get(r.school_id) : null;
         out.push({
-          primary: pe ? pe.name : '(未知)', group: r.group,
+          primary: pe ? pe.name : '(未知)', group: groupsById.get(r.group_id)?.name ?? null,
           direct_feed: r.direct_feed_school_id ? entityById.get(r.direct_feed_school_id)?.name ?? null : null,
         });
       }

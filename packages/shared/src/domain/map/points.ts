@@ -27,8 +27,8 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
   const { primarySchools, middleSchools, highSchools, highLevels } = loaders;
 
   const tierTables = {
-    primary: buildAliasTable(Object.values(loaders.primaryTier1.districts).flatMap((d) => d.schools)),
-    middle: buildAliasTable(Object.values(loaders.middleTier1.districts).flatMap((d) => d.schools)),
+    primary: buildAliasTable(Object.values(loaders.primaryTier1.districts).flatMap((d) => d.schools), loaders.entities.entities),
+    middle: buildAliasTable(Object.values(loaders.middleTier1.districts).flatMap((d) => d.schools), loaders.entities.entities),
   };
   function tierOf(stage: 'primary' | 'middle', name: string, note?: string): Tier1School | undefined {
     if (isNewOpening(note)) return undefined;

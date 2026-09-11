@@ -16,11 +16,12 @@ export function normSchoolName(s: string): string {
 
 export interface EnrollmentMatch {
   school: string;
+  school_id: string;
+  poi_name: string;
   plan_classes?: number | null;
   nature?: string;
   zone?: string;
   note?: string;
-  district?: string;
   source?: string;
   matchedBy: string;
 }
@@ -32,13 +33,12 @@ export function createEnrollmentApi(loaders: DataLoaders) {
   const enrollByNorm = new Map<string, (typeof ENROLL_FLAT)[number]>();
   for (const r of ENROLL_FLAT) {
     if (!enrollByExact.has(r.school)) enrollByExact.set(r.school, r);
+    if (r.poi_name && !enrollByExact.has(r.poi_name)) enrollByExact.set(r.poi_name, r);
     if (r.school_id && !enrollByExact.has(r.school_id)) enrollByExact.set(r.school_id, r);
     const nk = normSchoolName(r.school);
     if (nk && !enrollByNorm.has(nk)) enrollByNorm.set(nk, r);
-    if (r.school_id) {
-      const nk2 = normSchoolName(r.school_id);
-      if (nk2 && !enrollByNorm.has(nk2)) enrollByNorm.set(nk2, r);
-    }
+    const nk2 = normSchoolName(r.poi_name);
+    if (nk2 && !enrollByNorm.has(nk2)) enrollByNorm.set(nk2, r);
   }
 
   /** 按小学名（POI 名）匹配 2026 招生计划：精确 → 归一 → 包含兜底 */

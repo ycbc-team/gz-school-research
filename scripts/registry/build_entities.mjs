@@ -136,16 +136,26 @@ function attachAlias(stage, poiName, aliasName) {
   for (const v of withDistrictVariants(normName(aliasName))) ent.aliases.add(v);
   return true;
 }
-// tier1：本部通用名挂到其名下各 POI 实体；具体校区 POI 名只属它自己（不互相串）
+// tier1：本部通用名挂到其名下各 POI 实体（school_ids 直接关联；孤儿记录按 aliases 兜底）
 for (const [stage, file] of [['primary', 'data/primary/tier1_schools_all.json'], ['middle', 'data/middle/tier1_schools_all.json']]) {
   const j = read(file);
   for (const blk of Object.values(j.districts || {}))
     for (const s of blk.schools || []) {
       const common = normName(s.name); // 官方通用名/本部名
-      for (const poi of (s.aliases || [])) {
-        const ent = entByStagePoiName.get(stage + '|' + normName(poi));
+      const attached = new Set();
+      for (const sid of (s.school_ids || [])) {
+        const ent = entities.find((e) => e.school_id === sid);
         if (!ent) continue;
         for (const v of withDistrictVariants(common)) ent.aliases.add(v);
+        attached.add(sid);
+      }
+      // 孤儿记录：保留的 aliases 仍尝试挂载（防漏）
+      if (attached.size === 0) {
+        for (const poi of (s.aliases || [])) {
+          const ent = entByStagePoiName.get(stage + '|' + normName(poi));
+          if (!ent) continue;
+          for (const v of withDistrictVariants(common)) ent.aliases.add(v);
+        }
       }
     }
 }

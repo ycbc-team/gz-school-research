@@ -28,6 +28,8 @@ export function createRepository(loaders: DataLoaders) {
     /** tier1 学校数组（跨区拍平） */
     tier1Schools: Object.values(loaders.primaryTier1.districts).flatMap((d) => d.schools),
     middleTier1Schools: Object.values(loaders.middleTier1.districts).flatMap((d) => d.schools),
+    /** 实体注册表（口碑匹配别名唯一宿主） */
+    entities: loaders.entities.entities,
 
     /** 学段 POI 快照（学段判定/徽章等场景用） */
     schools: {

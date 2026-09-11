@@ -77,8 +77,8 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
 
   /* ---------- 校名匹配（与地图同套逻辑） ---------- */
   const tierTables = {
-    primary: buildAliasTable(repo.tier1Schools),
-    middle: buildAliasTable(repo.middleTier1Schools),
+    primary: buildAliasTable(repo.tier1Schools, repo.entities),
+    middle: buildAliasTable(repo.middleTier1Schools, repo.entities),
   };
   const tier: Tier1School | undefined = (() => {
     if (stage === 'high') return undefined;
@@ -113,7 +113,12 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
       if (d) return d;
     }
     if (stage === 'high' && rec?.district) return rec.district;
-    return tier?.district || '—';
+    // 孤儿口碑记录保留 district；匹配上的从 school_id 前缀 adcode 兜底（gz-440104-xxx）
+    return (
+      tier?.district ||
+      (tier?.school_ids?.[0] ? ADCODE_TO_DISTRICT[tier.school_ids[0].slice(3, 9)] : null) ||
+      '—'
+    );
   })();
 
   /* ---------- 小学 ---------- */

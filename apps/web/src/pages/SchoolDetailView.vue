@@ -27,6 +27,7 @@ import {
   highLevels,
   tier1Schools,
   middleTier1Schools,
+  entities,
   matchEnrollment,
   middleQuotaSummary,
   middlePrimaryFeed,
@@ -79,8 +80,8 @@ const stage = computed(() => activeStage.value);
 
 /* ========== 校名匹配（与 MapView 同套逻辑） ========== */
 const tierTables = {
-  primary: buildAliasTable(tier1Schools),
-  middle: buildAliasTable(middleTier1Schools),
+  primary: buildAliasTable(tier1Schools, entities.entities),
+  middle: buildAliasTable(middleTier1Schools, entities.entities),
 };
 const tier = computed<Tier1School | undefined>(() => {
   if (stage.value === 'high') return undefined;

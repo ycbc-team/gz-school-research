@@ -28,13 +28,16 @@ export interface DataLoaders {
   districtQuota: { data: Record<string, Record<string, number>> };
   /** 实体注册表（school_id 外键 → 名称/别名） */
   entities: { entities: Array<{ school_id: string; name: string; stage: string; aliases: string[] }> };
-  /** 小学 2026 升学路线事实表 */
-  xiaoshengchu: { records: Array<{
-    school_id: string; group: string | null;
-    feed_school_ids: string[]; feed_unresolved: string[];
-    direct_feed_school_id: string | null;
-    source_url?: string; source_note?: string; data_gaps?: string | null;
-  }> };
+  /** 小学 2026 升学路线事实表（group 提为顶层 groups，记录按 group_id 引用） */
+  xiaoshengchu: {
+    groups: Array<{ id: number; name: string; source_urls: string[]; data_gaps: string | null }>;
+    records: Array<{
+      school_id: string; group_id: number;
+      feed_school_ids: string[]; feed_unresolved: string[];
+      direct_feed_school_id: string | null;
+      source_note?: string; data_gaps?: string | null;
+    }>;
+  };
   /** 学校身份注册表（site 粒度） */
   sites: { schools: Array<{ sites: Site[] }> };
   brandGroups: BrandGroups;
