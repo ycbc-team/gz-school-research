@@ -402,7 +402,8 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
     </div>
   </div>
 
-  <div v-if="openMenu || searchOpen" class="pop-mask" @click="openMenu = null; searchOpen = false;"></div>
+  <!-- 搜索/筛选遮罩：touchstart 即收起，避免触摸被吞导致地图无法拖动（click 兼容桌面） -->
+  <div v-if="openMenu || searchOpen" class="pop-mask" @touchstart="openMenu = null; searchOpen = false;" @click="openMenu = null; searchOpen = false;"></div>
   <div ref="mapEl" class="map"></div>
 
   <!-- 图例：点位颜色含义 -->
@@ -416,8 +417,7 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
     </div>
   </div>
 
-  <!-- 底部抽屉信息卡（对齐小程序 cover-view 抽屉） -->
-  <div v-if="infoModel" class="si-mask" @click="closeInfo"></div>
+  <!-- 底部抽屉信息卡（对齐小程序 cover-view 抽屉；点地图空白处关闭，无变暗蒙层） -->
   <aside v-if="infoModel" class="school-info">
     <div class="si-handle"></div>
     <button class="si-close" aria-label="关闭" @click="closeInfo">×</button>
@@ -532,11 +532,7 @@ section { position: relative; }
 }
 :deep(.leaflet-control-zoom a:hover) { background: #f2f7ff !important; }
 
-/* 底部抽屉信息卡（对齐小程序 cover-view 抽屉） */
-.si-mask {
-  position: fixed; inset: 0; z-index: 1050;
-  background: rgba(15,23,42,0.25);
-}
+/* 底部抽屉信息卡（对齐小程序 cover-view 抽屉；无全屏蒙层，地图保持可见可操作） */
 .school-info {
   position: fixed; left: 50%; transform: translateX(-50%); bottom: 12px;
   width: min(720px, calc(100vw - 24px)); max-height: 62vh; overflow-y: auto;
