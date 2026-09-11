@@ -53,31 +53,43 @@ for (const e of entities) {
   const poi = (poiByStageName[e.stage]||[]).find(p => p.school_id === e.school_id);
   if (poi) entDistrict.set(e.school_id, AD[poi.adcode] || '');
 }
-function resolve2(idx, name, district) {
+// 小学 record 定位：跨区同名时按 district 取唯一实体（fact 主表外键必须唯一）
+function resolveOne(idx, name, district) {
   const list = idx.get(normName(name));
   if (!list || !list.length) return null;
   if (list.length === 1) return list[0].school_id;
   const hit = list.find((e) => entDistrict.get(e.school_id) === district);
   return (hit || list[0]).school_id;
 }
+// feed 初中解析：同区多校区全收（如「广铁一中铁英学校」→ 东/西两校区），跨区同名按 district 过滤
+function resolveMany(idx, name, district) {
+  const list = idx.get(normName(name));
+  if (!list || !list.length) return [];
+  let picked = list;
+  if (district) {
+    const f = list.filter((e) => entDistrict.get(e.school_id) === district);
+    if (f.length) picked = f;
+  }
+  return [...new Set(picked.map((e) => e.school_id))];
+}
 
 const src = read('data/primary/xiaoshengchu_all.json');
 let primaryHit = 0, feedHit = 0, feedMiss = 0;
 const outRecords = src.records.map((r) => {
   const district = districtOfGroup(r.group);
-  const primaryId = resolve2(primaryAlias, r.name, district);
+  const primaryId = resolveOne(primaryAlias, r.name, district);
   if (primaryId) primaryHit++;
   const feed_ids = [], feed_unresolved = [];
   for (const name of (r.feed_junior_highs || [])) {
-    const sid = resolve2(middleAlias, name, district);
-    if (sid) { feed_ids.push(sid); feedHit++; } else feed_unresolved.push(name);
+    const ids = resolveMany(middleAlias, name, district);
+    if (ids.length) feed_ids.push(...ids); else feed_unresolved.push(name);
   }
   return {
     school_id: primaryId,
     group: r.group,
     feed_school_ids: feed_ids,
     feed_unresolved,
-    direct_feed_school_id: r.direct_feed ? resolve2(middleAlias, r.direct_feed, district) : null,
+    direct_feed_school_id: r.direct_feed ? resolveOne(middleAlias, r.direct_feed, district) : null,
     source_url: r.source_url, source_note: r.source_note, data_gaps: r.data_gaps,
   };
 });
