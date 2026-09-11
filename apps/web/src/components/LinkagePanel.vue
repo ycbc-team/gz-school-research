@@ -12,11 +12,6 @@ import { repository } from '../data';
 const props = defineProps<{ stage: 'middle' | 'high'; school: string }>();
 const schoolName = computed(() => decodeURIComponent(props.school || ''));
 const model = computed(() => buildLinkageModel(props.stage, schoolName.value, repository));
-
-/** 校区简称 → 高中全名（路由用） */
-function schoolOf(campus: string): string {
-  return (repository.CAMPUS_SCHOOL as Record<string, string>)[campus] ?? campus;
-}
 </script>
 
 <template>
@@ -28,7 +23,7 @@ function schoolOf(campus: string): string {
       <div class="tbl">
         <div class="tbl-row tbl-head"><span>升入高中</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
         <div v-for="r in model.specialRows" :key="r.campus" class="tbl-row">
-          <span><RouterLink :to="`/school/${encodeURIComponent(schoolOf(r.campus))}?stage=high`" class="sch-link">{{ r.campus }}</RouterLink></span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
+          <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=high`" class="sch-link">{{ r.campusFull || r.campus }}</RouterLink></span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
         </div>
       </div>
     </div>
@@ -47,7 +42,7 @@ function schoolOf(campus: string): string {
         <div class="tbl tbl-merged" style="margin-top:6px;">
           <div class="tbl-row tbl-head"><span>高中</span><span>名额</span><span>录取最低分</span></div>
           <div v-for="r in model.batchMerged" :key="r.campus" class="tbl-row">
-            <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=high`" class="sch-link">{{ r.campus }}</RouterLink></span><span>{{ r.n ?? '—' }}</span><span>{{ r.min ?? '—' }}</span>
+            <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=high`" class="sch-link">{{ r.campusFull || r.campus }}</RouterLink></span><span>{{ r.n ?? '—' }}</span><span>{{ r.min ?? '—' }}</span>
           </div>
         </div>
       </div>

@@ -107,7 +107,7 @@
       <view class="tbl">
         <view class="tbl-row tbl-head"><text>升入高中</text><text>自招</text><text>体育</text><text>艺术</text></view>
         <view wx:for="{{linkage.specialRows}}" wx:key="campus" class="tbl-row">
-          <text class="sch-link" data-to="/school/{{item.campus}}?stage=high" bindtap="goSchool">{{item.campus}}</text>
+          <text class="sch-link" data-to="/school/{{item.school}}?stage=high" bindtap="goSchool">{{item.campusFull || item.campus}}</text>
           <text>{{item.autonomy}}</text><text>{{item.sports}}</text><text>{{item.arts}}</text>
         </view>
       </view>
@@ -126,7 +126,7 @@
         <view class="tbl">
           <view class="tbl-row tbl-head"><text>高中</text><text>名额</text><text>录取最低分</text></view>
           <view wx:for="{{linkage.batchMerged}}" wx:key="campus" class="tbl-row">
-            <text class="sch-link" data-to="/school/{{item.school}}?stage=high" bindtap="goSchool">{{item.campus}}</text>
+            <text class="sch-link" data-to="/school/{{item.school}}?stage=high" bindtap="goSchool">{{item.campusFull || item.campus}}</text>
             <text>{{item.n || '—'}}</text><text>{{item.min || '—'}}</text>
           </view>
         </view>

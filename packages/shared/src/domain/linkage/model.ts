@@ -6,8 +6,24 @@
  */
 import type { Repository } from '../../data/repository.js';
 
-export interface SpecialRow { campus: string; autonomy: number; sports: number; arts: number }
-export interface BatchMergedRow { campus: string; school: string; n: number | null; min: number | null }
+export interface SpecialRow {
+  /** 简称（内部 key，如「侨中」） */
+  campus: string;
+  /** 官方全称（特殊通道名单原文，如「华南师范大学附属中学（石牌）」） */
+  campusFull: string;
+  /** 归属高中全名（跳转用） */
+  school: string;
+  autonomy: number; sports: number; arts: number;
+}
+export interface BatchMergedRow {
+  /** 简称（内部 key，如「侨中」） */
+  campus: string;
+  /** 官方全称（第二批次名单原文，如「华南师范大学附属中学（石牌校区）」） */
+  campusFull: string;
+  /** 归属高中全名（跳转用） */
+  school: string;
+  n: number | null; min: number | null;
+}
 export interface DistrictRow { name: string; n: number }
 export interface HighCoverRow { school: string; n: number; districts: string[] }
 export interface HighSpecialRow { school: string; autonomy: number; sports: number; arts: number }
@@ -49,36 +65,48 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     return bk;
   };
   const schoolOf = (campus: string): string => (CAMPUS_SCHOOL as Record<string, string>)[campus] ?? campus;
+  /** 简称 → 官方全称（优先第二批次名单原文，回退特殊通道名单，再回退归属高中全名） */
+  const shortToFull = (c: string): string =>
+    (CAMPUS_TO_BATCH2 as Record<string, string>)[c] || (CAMPUS_TO_SPECIAL as Record<string, string>)[c] || schoolOf(c);
 
   if (stage === 'middle') {
     const quota = repo.linkageOf(schoolName);
     const quotaRows = quota
       ? CAMPUS_SHORT.filter((c) => (quota.sz[c] ?? 0) > 0)
-          .map((c) => ({ campus: c, n: quota.sz[c] as number }))
+          .map((c) => ({ campus: c, campusFull: shortToFull(c), school: schoolOf(c), n: quota.sz[c] as number }))
           .sort((a, b) => b.n - a.n)
       : [];
     const specialRows = (() => {
       const m = repo.specialOf(schoolName);
       if (!m) return [];
       return Object.entries(m)
-        .map(([k, v]) => ({
-          campus: specialKeyToShort(k),
-          autonomy: v.autonomy ?? 0,
-          sports: v.sports ?? 0,
-          arts: v.arts ?? 0,
-        }))
+        .map(([k, v]) => {
+          const short = specialKeyToShort(k);
+          return { campus: short, campusFull: k, school: schoolOf(short), autonomy: v.autonomy ?? 0, sports: v.sports ?? 0, arts: v.arts ?? 0 };
+        })
         .sort((a, b) => (b.autonomy + b.sports + b.arts) - (a.autonomy + a.sports + a.arts));
     })();
     const specialTotal = specialRows.reduce((s, r) => s + r.autonomy + r.sports + r.arts, 0);
-    const batchRows = Object.entries(repo.batch2Of(schoolName)).map(([k, v]) => ({
-      campus: batchKeyToShort(k),
-      min: v.min_score,
-      last: v.last_score,
-    }));
-    const qmap = new Map<string, number>(quotaRows.map((r) => [r.campus, r.n]));
-    const bmap = new Map(batchRows.map((r) => [r.campus, r.min]));
+    const batchRows = Object.entries(repo.batch2Of(schoolName)).map(([k, v]) => {
+      const short = batchKeyToShort(k);
+      return { campus: short, campusFull: k, school: schoolOf(short), min: v.min_score, last: v.last_score };
+    });
+    const qmap = new Map<string, { campus: string; campusFull: string; school: string; n: number }>(quotaRows.map((r) => [r.campus, r]));
+    const bmap = new Map<string, { campus: string; campusFull: string; school: string; min: number | null }>(
+      batchRows.map((r) => [r.campus, { campus: r.campus, campusFull: r.campusFull, school: r.school, min: r.min ?? null }]),
+    );
     const batchMerged: BatchMergedRow[] = [...new Set([...qmap.keys(), ...bmap.keys()])]
-      .map((c) => ({ campus: c, school: schoolOf(c), n: qmap.get(c) ?? null, min: bmap.get(c) ?? null }))
+      .map((c) => {
+        const q = qmap.get(c);
+        const b = bmap.get(c);
+        return {
+          campus: c,
+          campusFull: b?.campusFull || q?.campusFull || shortToFull(c),
+          school: b?.school || q?.school || schoolOf(c),
+          n: q?.n ?? null,
+          min: b?.min ?? null,
+        };
+      })
       .sort((a, b) => (b.n ?? 0) - (a.n ?? 0));
     const districtRows: DistrictRow[] = Object.entries(repo.districtQuotaOf(schoolName))
       .map(([name, n]) => ({ name, n }))
