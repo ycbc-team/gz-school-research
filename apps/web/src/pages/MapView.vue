@@ -1,9 +1,9 @@
 <script setup lang="ts">
 /**
  * 七区中小学·高中分布地图（Vue3 + Leaflet，功能对齐旧版 map/index.html）：
- * - 七类点位配色：小学普通/口碑、初中普通/口碑、高中普通/区属示范/省市属示范
+ * - 三类点位配色：小学蓝 / 初中红 / 高中绿；多学部学校（同 school_id）圆点垂直分色
  * - 有支撑加粗+晕光、部分支撑加粗、独立法人挂牌校虚线点
- * - 7 类筛选 + 全选/全不选；各区小学/初中/高中三栏统计（全量，不随勾选变化）
+ * - 7 类筛选 + 全选/全不选；学段筛选器带对应颜色标记
  * - 点击点位信息卡：高中（分类/指标/口径）、小学初中（梯队信号/判定依据）、普通（学段/区）
  * - 高德瓦片 GCJ-02 同坐标系；区边界 + 核心四区初始视野 + 半径随缩放
  */
@@ -63,10 +63,19 @@ const CLASS_CFG = {
   hM: { stage: 'high', color: '#F59E0B', label: '高中·省市属示范' },
 } as const;
 type ClsKey = keyof typeof CLASS_CFG;
-const GLOW_COLOR: Record<string, string> = {
+/** 学段点色（用户要求：小学一种颜色、初中一种颜色、高中一种颜色） */
+const STAGE_COLOR: Record<SchoolStage, string> = {
+  primary: '#2563EB', // 小学 · 蓝
+  middle: '#DC2626', // 初中 · 红
+  high: '#10B981', // 高中 · 绿
+};
+const STAGE_GLOW: Record<SchoolStage, string> = {
   primary: 'rgba(37,99,235,0.35)',
   middle: 'rgba(220,38,38,0.35)',
+  high: 'rgba(16,185,129,0.35)',
 };
+/** 学段优先级：多学部点主学部取最高（信息卡/描边/晕光用主学部） */
+const STAGE_PRIORITY: Record<SchoolStage, number> = { primary: 0, middle: 1, high: 2 };
 
 /* ========== 梯队/高中匹配表（构建一次，性能复用） ========== */
 const tierTables = {
@@ -107,65 +116,93 @@ function highCls(rec?: HighLevelSchool): ClsKey {
   return 'hN';
 }
 
-/* ========== 点位聚合 ========== */
+/* ========== 点位聚合（多学部学校按 school_id 合并为一个点） ========== */
 interface Pt {
   name: string;
   lat: number;
   lng: number;
   adcode: string;
-  stage: SchoolStage;
-  cls: ClsKey;
-  tier?: Tier1School | null; // 小学/初中梯队记录
-  rec?: HighLevelSchool | null; // 高中分类记录
+  /** 该点位覆盖的学部（升序：小学→初中→高中，决定垂直分色顺序） */
+  stages: SchoolStage[];
+  /** 各学部自己的分级类（口碑/普通、示范/普通） */
+  clsOf: Record<SchoolStage, ClsKey>;
+  /** 各学部梯队记录（小学/初中口碑校） */
+  tierOf: Partial<Record<SchoolStage, Tier1School | null>>;
+  /** 高中分类记录（高中学部） */
+  rec: HighLevelSchool | null;
+  /** 主学部：stages 中优先级最高的（信息卡/描边/晕光判定用） */
+  mainStage: SchoolStage;
+  /** 主学部梯队记录（= tierOf[mainStage]） */
+  tier: Tier1School | null;
 }
 
 const allPoints: Pt[] = [];
+const ptByKey = new Map<string, Pt>();
 const tierByName: Record<string, true> = {};
+function addSchool(
+  s: { name: string; lat: number; lng: number; adcode: string; school_id?: string; note?: string },
+  stage: SchoolStage,
+  cls: ClsKey,
+  tier: Tier1School | null,
+  rec: HighLevelSchool | null,
+) {
+  if (!districtByAdcode[s.adcode]) return;
+  // 同 school_id = 同校区多学部；补点无 school_id 时按名合并
+  const key = s.school_id || `name:${s.name}`;
+  let pt = ptByKey.get(key);
+  if (!pt) {
+    pt = {
+      name: s.name, lat: s.lat, lng: s.lng, adcode: s.adcode,
+      stages: [], clsOf: {} as Record<SchoolStage, ClsKey>,
+      tierOf: {}, rec: null, mainStage: stage, tier: null,
+    };
+    ptByKey.set(key, pt);
+    allPoints.push(pt);
+  }
+  if (!pt.stages.includes(stage)) {
+    pt.stages.push(stage);
+    pt.clsOf[stage] = cls;
+    pt.tierOf[stage] = tier;
+  }
+  if (stage === 'high' && rec) pt.rec = rec;
+}
 function buildPoints() {
   for (const s of primarySchools.schools) {
-    if (!districtByAdcode[s.adcode]) continue;
     const t = tierOf('primary', s.name, s.note);
-    allPoints.push({
-      name: s.name, lat: s.lat, lng: s.lng, adcode: s.adcode,
-      stage: 'primary', cls: isTierRecord(t) ? 'pT' : 'pN', tier: t ?? null,
-    });
+    addSchool(s, 'primary', isTierRecord(t) ? 'pT' : 'pN', t ?? null, null);
     if (t) tierByName[t.name] = true;
   }
   for (const s of middleSchools.schools) {
-    if (!districtByAdcode[s.adcode]) continue;
     const t = tierOf('middle', s.name, s.note);
-    allPoints.push({
-      name: s.name, lat: s.lat, lng: s.lng, adcode: s.adcode,
-      stage: 'middle', cls: isTierRecord(t) ? 'mT' : 'mN', tier: t ?? null,
-    });
+    addSchool(s, 'middle', isTierRecord(t) ? 'mT' : 'mN', t ?? null, null);
     if (t) tierByName[t.name] = true;
   }
   for (const s of highSchools.schools) {
-    if (!districtByAdcode[s.adcode]) continue;
     const rec = highRecord(s);
-    allPoints.push({
-      name: s.name, lat: s.lat, lng: s.lng, adcode: s.adcode,
-      stage: 'high', cls: highCls(rec), rec: rec ?? null,
-    });
+    addSchool(s, 'high', highCls(rec), null, rec ?? null);
   }
   // 补点：tier1 内手工坐标（小学 3 所 + 初中 14 所），按名去重
   const addExtra = (snapshot: { districts: Record<string, { schools: Tier1School[] }> }, stage: 'primary' | 'middle') => {
     for (const sc of Object.values(snapshot.districts).flatMap((d) => d.schools)) {
       if (!sc.coords || tierByName[sc.name]) continue;
-      allPoints.push({
-        name: sc.name,
-        lat: sc.coords.lat,
-        lng: sc.coords.lng,
-        adcode: adcodeByDistrict[sc.district ?? ''] || '',
+      addSchool(
+        { name: sc.name, lat: sc.coords.lat, lng: sc.coords.lng, adcode: adcodeByDistrict[sc.district ?? ''] || '' },
         stage,
-        cls: isTierRecord(sc) ? (stage === 'primary' ? 'pT' : 'mT') : (stage === 'primary' ? 'pN' : 'mN'),
-        tier: sc,
-      });
+        isTierRecord(sc) ? (stage === 'primary' ? 'pT' : 'mT') : (stage === 'primary' ? 'pN' : 'mN'),
+        sc,
+        null,
+      );
       tierByName[sc.name] = true;
     }
   };
   addExtra(primaryTier1, 'primary');
   addExtra(middleTier1, 'middle');
+  // 统一：stages 升序、主学部取最高优先级、主学部 tier
+  for (const pt of allPoints) {
+    pt.stages.sort((a, b) => STAGE_PRIORITY[a] - STAGE_PRIORITY[b]);
+    pt.mainStage = pt.stages[pt.stages.length - 1]!;
+    pt.tier = pt.tierOf[pt.mainStage] ?? null;
+  }
 }
 
 /* ========== 筛选状态（贝壳式浮层：区域/学段/分级 均多选） ========== */
@@ -180,10 +217,10 @@ const STAGE_TABS: Array<{ v: SchoolStage; l: string }> = [
   { v: 'middle', l: '初中' },
   { v: 'high', l: '高中' },
 ];
-const GRADE_GROUPS: Array<{ title: string; items: Array<{ v: ClsKey; l: string }> }> = [
-  { title: '小学', items: [{ v: 'pT', l: '口碑学校' }, { v: 'pN', l: '普通学校' }] },
-  { title: '初中', items: [{ v: 'mT', l: '口碑学校' }, { v: 'mN', l: '普通学校' }] },
-  { title: '高中', items: [
+const GRADE_GROUPS: Array<{ title: string; stage: SchoolStage; items: Array<{ v: ClsKey; l: string }> }> = [
+  { title: '小学', stage: 'primary', items: [{ v: 'pT', l: '口碑学校' }, { v: 'pN', l: '普通学校' }] },
+  { title: '初中', stage: 'middle', items: [{ v: 'mT', l: '口碑学校' }, { v: 'mN', l: '普通学校' }] },
+  { title: '高中', stage: 'high', items: [
     { v: 'hM', l: '市重点（省市属示范）' },
     { v: 'hD', l: '区重点（区属示范）' },
     { v: 'hN', l: '普通高中' },
@@ -217,9 +254,8 @@ function flipGrades() { flipSet(selectedGrades, ALL_GRADES); }
 
 function isVisible(pt: Pt): boolean {
   if (!selectedDistricts.value.has(pt.adcode)) return false;
-  if (!selectedStages.value.has(pt.stage)) return false;
-  if (!selectedGrades.value.has(pt.cls)) return false;
-  return true;
+  // 多学部点：任一学部在学段+分级筛选中可见即显示（色段固定展示全部学部）
+  return pt.stages.some((s) => selectedStages.value.has(s) && selectedGrades.value.has(pt.clsOf[s]));
 }
 const builtAt = ref(0);
 const visibleCount = computed(() => { void builtAt.value; return allPoints.filter(isVisible).length; });
@@ -233,7 +269,7 @@ const searchResults = computed(() => {
   return allPoints.filter((p) => p.name.includes(k)).slice(0, 12);
 });
 function badgesOf(pt: Pt) {
-  return schoolBadges(pt.stage, { district: districtByAdcode[pt.adcode] || '', tier: pt.tier, rec: pt.rec, name: pt.name });
+  return schoolBadges(pt.mainStage, { district: districtByAdcode[pt.adcode] || '', tier: pt.tier, rec: pt.rec, name: pt.name });
 }
 function pickResult(pt: Pt) {
   if (!map) return;
@@ -247,9 +283,8 @@ function pickResult(pt: Pt) {
 const mapEl = ref<HTMLDivElement | null>(null);
 let map: L.Map | null = null;
 /** 渲染条目：点位 marker + 可选晕光，按筛选显隐 */
-interface RenderedItem { pt: Pt; marker: L.CircleMarker; glow?: L.CircleMarker }
+interface RenderedItem { pt: Pt; marker: L.Marker; glow?: L.CircleMarker }
 const rendered: RenderedItem[] = [];
-const markers: L.CircleMarker[] = [];
 let unionSW: { lat: number; lng: number } | null = null;
 let unionNE: { lat: number; lng: number } | null = null;
 
@@ -262,17 +297,20 @@ function radiusForZoom(z: number): number {
   if (z >= 11) return 6;
   return 5;
 }
-function markerStyle(cls: ClsKey, tier?: Tier1School | null) {
-  const cfg = CLASS_CFG[cls];
+/** 单学部点：学段单色圆点（口碑实心、普通半透明；有支撑加粗、挂牌虚线） */
+function markerStyle(pt: Pt): L.CircleMarkerOptions {
+  const stage = pt.mainStage;
+  const cls = pt.clsOf[stage];
+  const tier = pt.tier;
   const s: L.CircleMarkerOptions = {
     radius: radiusForZoom(map?.getZoom() ?? 13),
     color: 'rgba(255,255,255,0.85)',
     weight: 1.2,
-    fillColor: cfg.color,
+    fillColor: STAGE_COLOR[stage],
     fillOpacity: 1,
     bubblingMouseEvents: false,
   };
-  if (!cfg.stage || (cls !== 'pT' && cls !== 'mT' && cls !== 'hD' && cls !== 'hM')) {
+  if (cls !== 'pT' && cls !== 'mT' && cls !== 'hD' && cls !== 'hM') {
     s.fillOpacity = 0.7;
   } else if (tier) {
     s.weight = tier.conclusion === '有支撑' ? 2.8 : 2.2;
@@ -286,15 +324,58 @@ function markerStyle(cls: ClsKey, tier?: Tier1School | null) {
 function isTierCls(cls: ClsKey): boolean {
   return cls === 'pT' || cls === 'mT' || cls === 'hD' || cls === 'hM';
 }
+/** 分级透明度：口碑/示范实心（1），普通半透明（0.7） */
+function segOpacity(cls: ClsKey): number {
+  return isTierCls(cls) ? 1 : 0.7;
+}
+let iconUid = 0;
+/** 多学部点：SVG 圆内垂直分色（2 段=上/下，3 段=上/中/下），白描边，主学部决定晕光/虚线/粗细 */
+function buildMultiIcon(pt: Pt, r: number): L.DivIcon {
+  const tier = pt.tier;
+  const glow = !!tier && tier.conclusion === '有支撑' && tier.tier1_eligible !== false;
+  const dash = !!tier && tier.tier1_eligible === false;
+  const pad = glow ? 4 : 0;
+  const size = r * 2 + pad * 2;
+  const center = size / 2;
+  const rr = r - 0.6;
+  const n = pt.stages.length;
+  const uid = 'poiClip' + (++iconUid);
+  const weight = tier ? (tier.conclusion === '有支撑' ? 2.8 : 2.2) : 1.2;
+  const segs = pt.stages
+    .map((st, i) => {
+      const y = center - rr + (i * (rr * 2)) / n;
+      return `<rect x="${center - rr}" y="${y}" width="${rr * 2}" height="${(rr * 2) / n}" fill="${STAGE_COLOR[st]}" opacity="${segOpacity(pt.clsOf[st])}"/>`;
+    })
+    .join('');
+  const glowSvg = glow
+    ? `<circle cx="${center}" cy="${center}" r="${rr + 4}" fill="none" stroke="${STAGE_GLOW[pt.mainStage]}" stroke-width="2"/>`
+    : '';
+  const dashSvg = dash ? ' stroke-dasharray="4 3"' : '';
+  const html =
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">` +
+    `<defs><clipPath id="${uid}"><circle cx="${center}" cy="${center}" r="${rr}"/></clipPath></defs>` +
+    glowSvg +
+    `<circle cx="${center}" cy="${center}" r="${rr}" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="${weight}"${dashSvg}/>` +
+    `<g clip-path="url(#${uid})">${segs}</g>` +
+    `</svg>`;
+  return L.divIcon({
+    className: 'poi-multi',
+    html,
+    iconSize: L.point(size, size),
+    iconAnchor: L.point(center, center),
+  });
+}
 function renderPoints() {
   for (const pt of allPoints) {
-    const m = L.circleMarker([pt.lat, pt.lng], markerStyle(pt.cls, pt.tier));
+    const m: L.Marker = (pt.stages.length === 1
+      ? L.circleMarker([pt.lat, pt.lng], markerStyle(pt))
+      : L.marker([pt.lat, pt.lng], { icon: buildMultiIcon(pt, radiusForZoom(map?.getZoom() ?? 13)) })) as unknown as L.Marker;
     const item: RenderedItem = { pt, marker: m };
     const tier = pt.tier;
     if (tier && tier.conclusion === '有支撑' && tier.tier1_eligible !== false) {
       item.glow = L.circleMarker([pt.lat, pt.lng], {
         radius: radiusForZoom(map?.getZoom() ?? 13) + 4,
-        color: GLOW_COLOR[pt.stage],
+        color: STAGE_GLOW[pt.mainStage],
         weight: 2,
         fill: false,
         interactive: false,
@@ -309,7 +390,6 @@ function renderPoints() {
       showInfo(pt);
     });
     rendered.push(item);
-    markers.push(m);
   }
 }
 function applyFilters() {
@@ -401,7 +481,10 @@ onMounted(() => {
   if (typeof focus === 'string' && focus) focusSchool(focus);
   map.on('zoomend', () => {
     const r = radiusForZoom(map!.getZoom());
-    for (const m of markers) m.setRadius(r);
+    for (const it of rendered) {
+      if (it.pt.stages.length === 1) (it.marker as unknown as L.CircleMarker).setRadius(r);
+      else it.marker.setIcon(buildMultiIcon(it.pt, r));
+    }
   });
   map.on('click', () => closeInfo());
 });
@@ -483,7 +566,7 @@ const infoModel = computed<InfoModel | null>(() => {
   const detailLinks = nameStages.length > 1
     ? nameStages.map((s) => ({ text: `查看${STAGE_SHORT[s]}详情 →`, to: `/school/${encodeURIComponent(name)}?stage=${s}` }))
     : [{ text: '查看学校详情 →', to: `/school/${encodeURIComponent(name)}` }];
-  if (pt.stage === 'high') {
+  if (pt.mainStage === 'high') {
     const rec = pt.rec;
     if (!rec) {
       return {
@@ -491,7 +574,7 @@ const infoModel = computed<InfoModel | null>(() => {
         badges: schoolBadges('high', { district: districtName, name }),
         head: null,
         rows: [
-          { label: '学段', value: '高中' },
+          { label: '学部', value: pt.stages.map((s) => STAGE_LABEL[s]).join('、') },
           { label: '所在区', value: districtName || '—' },
         ],
         note: '该点位暂未匹配到高中分类（可能为未收录学校）。',
@@ -520,13 +603,13 @@ const infoModel = computed<InfoModel | null>(() => {
   const tier = pt.tier;
   if (tier) {
     // 小学缩略面板优先展示招生条件（班数 + 对口地段）
-    const enrollRows = pt.stage === 'primary' ? primaryEnrollRows(name) : [];
+    const enrollRows = pt.mainStage === 'primary' ? primaryEnrollRows(name) : [];
     // 小学升学路线取全量 xiaoshengchu（全等匹配）；口碑信号另缩略一条
-    const linkageRows = pt.stage === 'primary' ? primaryLinkageRows(name, pt.adcode) : [];
+    const linkageRows = pt.mainStage === 'primary' ? primaryLinkageRows(name, pt.adcode) : [];
     if (tier.tier1_eligible === false) {
       return {
         name,
-        badges: schoolBadges(pt.stage, { district: districtName, tier, name }),
+        badges: schoolBadges(pt.mainStage, { district: districtName, tier, name }),
         head: '网传"口碑学校" · 独立法人，未计入口碑学校',
         rows: [
           ...enrollRows,
@@ -541,12 +624,12 @@ const infoModel = computed<InfoModel | null>(() => {
       '网传"口碑学校" · 民间口径非官方' +
       (tier.entity_relation === '同法人校区' ? ' · 与本部同一法人' : '');
     // 小学：升学路线（全量）+ 一条口碑信号；初中：生源小学摘要 + 一条中考信号
-    const signalRows = pt.stage === 'primary'
+    const signalRows = pt.mainStage === 'primary'
       ? [...linkageRows, ...formatPrimarySignals(tier).slice(0, 1)]
       : [...middleFeedRows(name), ...formatMiddleSignals(tier).slice(0, 1)];
     return {
       name,
-      badges: schoolBadges(pt.stage, { district: districtName, tier, name }),
+      badges: schoolBadges(pt.mainStage, { district: districtName, tier, name }),
       head,
       rows: [...enrollRows, ...signalRows],
       note: '完整口碑信号与升学通道见详情页。',
@@ -555,14 +638,14 @@ const infoModel = computed<InfoModel | null>(() => {
   }
   return {
     name,
-    badges: schoolBadges(pt.stage, { district: districtName, name }),
+    badges: schoolBadges(pt.mainStage, { district: districtName, name }),
     head: null,
     rows: [
-      { label: '学段', value: pt.stage === 'primary' ? '小学' : pt.stage === 'middle' ? '初中' : '高中' },
+      { label: '学部', value: pt.stages.map((s) => STAGE_LABEL[s]).join('、') },
       { label: '所在区', value: districtName || '—' },
-      ...(pt.stage === 'primary' ? primaryEnrollRows(name) : []),
-      ...(pt.stage === 'primary' ? primaryLinkageRows(name, pt.adcode) : []),
-      ...(pt.stage === 'middle' ? middleFeedRows(name) : []),
+      ...(pt.mainStage === 'primary' ? primaryEnrollRows(name) : []),
+      ...(pt.mainStage === 'primary' ? primaryLinkageRows(name, pt.adcode) : []),
+      ...(pt.mainStage === 'middle' ? middleFeedRows(name) : []),
     ],
     note: null,
     links: detailLinks,
@@ -593,6 +676,7 @@ const infoModel = computed<InfoModel | null>(() => {
       </div>
       <div class="fb-col">
         <button class="fb-btn" :class="{ on: openMenu === 'stage' }" @click="openMenu = openMenu === 'stage' ? null : 'stage'">
+          <span class="fb-dots"><i v-for="st in ALL_STAGES" :key="st" class="fb-dot" :style="{ background: STAGE_COLOR[st] }"></i></span>
           学段<em v-if="!stageAll" class="fb-badge">{{ selectedStages.size }}</em><span class="arr">▾</span>
         </button>
       </div>
@@ -612,20 +696,22 @@ const infoModel = computed<InfoModel | null>(() => {
           <button class="pop-link" @click="openMenu = null">完成</button>
         </div>
       </div>
-      <!-- 学段多选 -->
+      <!-- 学段多选（带学段色标记） -->
       <div v-if="openMenu === 'stage'" class="fb-pop">
         <div class="pop-chips">
-          <button v-for="o in STAGE_TABS" :key="o.v" class="pop-chip" :class="{ on: selectedStages.has(o.v) }" @click="toggleStageTab(o.v)">{{ o.l }}</button>
+          <button v-for="o in STAGE_TABS" :key="o.v" class="pop-chip" :class="{ on: selectedStages.has(o.v) }" @click="toggleStageTab(o.v)">
+            <i class="chip-dot" :style="{ background: STAGE_COLOR[o.v] }"></i>{{ o.l }}
+          </button>
         </div>
         <div class="pop-foot">
           <button class="pop-link" @click="flipStages()">{{ flipStageLabel }}</button>
           <button class="pop-link" @click="openMenu = null">完成</button>
         </div>
       </div>
-      <!-- 分级多选（分组列表） -->
+      <!-- 分级多选（分组列表，组标题带学段色） -->
       <div v-if="openMenu === 'grade'" class="fb-pop">
         <div v-for="g in GRADE_GROUPS" :key="g.title" class="pop-group">
-          <div class="pop-group-title">{{ g.title }}</div>
+          <div class="pop-group-title"><i class="chip-dot" :style="{ background: STAGE_COLOR[g.stage] }"></i>{{ g.title }}</div>
           <div class="pop-chips">
             <button v-for="o in g.items" :key="o.v" class="pop-chip" :class="{ on: selectedGrades.has(o.v) }" @click="toggleGradeCls(o.v)">{{ o.l }}</button>
           </div>
@@ -658,7 +744,7 @@ const infoModel = computed<InfoModel | null>(() => {
       <RouterLink v-for="l in infoModel.links" :key="l.to" :to="l.to" class="si-link" style="display:block;margin-top:6px;">{{ l.text }}</RouterLink>
     </aside>
 
-    <p class="hint">拖动 / 滚轮 / 双指缩放查看。悬停显示校名，点击点位显示信息卡。独立法人挂牌校（虚线点）不计入口碑学校。高中分类口径：省市属示范 / 区属示范 / 普通（详见卡片内"口径"）。</p>
+    <p class="hint">拖动 / 滚轮 / 双指缩放查看。点色 = 学部：蓝 = 小学、红 = 初中、绿 = 高中；多学部学校圆点垂直分色展示（如初高中一体为红绿上下分色）。悬停显示校名，点击点位显示信息卡。独立法人挂牌校（虚线点）不计入口碑学校。高中分类口径：省市属示范 / 区属示范 / 普通（详见卡片内"口径"）。</p>
   </section>
 </template>
 
@@ -705,6 +791,8 @@ section { position: relative; }
 .fb-btn:hover { background: #f2f7ff; }
 .fb-btn.on { background: #eaf1fe; color: #1a6bd6; font-weight: 600; }
 .fb-btn .arr { font-size: 10px; color: #8a93a3; }
+.fb-dots { display: inline-flex; gap: 2px; margin-right: 3px; align-items: center; }
+.fb-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; }
 .fb-badge {
   background: #1a6bd6; color: #fff; font-style: normal; font-size: 10.5px;
   border-radius: 9px; padding: 0 6px; line-height: 15px;
@@ -718,9 +806,11 @@ section { position: relative; }
 .pop-group:last-of-type { margin-bottom: 0; }
 .pop-group-title { font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 6px; }
 .pop-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; flex: none; }
 .pop-chip {
   border: 1px solid #d6d4cc; background: #fff; border-radius: 16px;
   padding: 5px 14px; font-size: 12.5px; cursor: pointer; color: #1a1b1c;
+  display: inline-flex; align-items: center;
 }
 .pop-chip.on { background: #1a6bd6; border-color: #1a6bd6; color: #fff; }
 .pop-foot { display: flex; justify-content: space-between; margin-top: 10px; padding-top: 8px; border-top: 1px dashed #e4e3dd; }
@@ -795,4 +885,6 @@ section { position: relative; }
 
 <style>
 .poi-tip { font-size: 12px; }
+/* 多学部 divIcon：去除 Leaflet 默认白底边框 */
+.poi-multi { background: transparent !important; border: none !important; }
 </style>
