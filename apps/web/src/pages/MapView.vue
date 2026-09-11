@@ -338,11 +338,7 @@ function renderPoints() {
       ? L.circleMarker([pt.lat, pt.lng], markerStyle(pt))
       : L.marker([pt.lat, pt.lng], { icon: buildMultiIcon(pt, radiusForZoom(map?.getZoom() ?? 13)) })) as unknown as L.Marker;
     const item: RenderedItem = { pt, marker: m };
-    const tier = pt.tier;
-    m.bindTooltip(
-      `${pt.name}${tier && tier.tier1_eligible === false ? ' · 挂牌校' : ''}`,
-      { direction: 'top', offset: L.point(0, -8), opacity: 0.95, className: 'poi-tip' },
-    );
+    m.bindTooltip(pt.name, { direction: 'top', offset: L.point(0, -8), opacity: 0.95, className: 'poi-tip' });
     m.on('click', (e) => {
       if (e.originalEvent && 'stopPropagation' in e.originalEvent) e.originalEvent.stopPropagation();
       showInfo(pt);
