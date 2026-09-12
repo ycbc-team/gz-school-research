@@ -23,7 +23,10 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
       <div class="tbl">
         <div class="tbl-row tbl-head"><span>升入高中</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
         <div v-for="r in model.specialRows" :key="r.campus" class="tbl-row">
-          <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=high`" class="sch-link">{{ r.campusFull || r.campus }}</RouterLink></span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
+          <span>
+            <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=high`" class="sch-link">{{ r.campusFull || r.campus }}</RouterLink>
+            <template v-else>{{ r.campusFull || r.campus }}</template>
+          </span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
         </div>
       </div>
     </div>
@@ -42,7 +45,10 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
         <div class="tbl tbl-merged" style="margin-top:6px;">
           <div class="tbl-row tbl-head"><span>高中</span><span>名额</span><span>录取最低分</span></div>
           <div v-for="r in model.batchMerged" :key="r.campus" class="tbl-row">
-            <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=high`" class="sch-link">{{ r.campusFull || r.campus }}</RouterLink></span><span>{{ r.n ?? '—' }}</span><span>{{ r.min ?? '—' }}</span>
+            <span>
+              <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=high`" class="sch-link">{{ r.campusFull || r.campus }}</RouterLink>
+              <template v-else>{{ r.campusFull || r.campus }}</template>
+            </span><span>{{ r.n ?? '—' }}</span><span>{{ r.min ?? '—' }}</span>
           </div>
         </div>
       </div>
@@ -53,7 +59,10 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
         <div class="tbl tbl-merged" style="margin-top:6px;">
           <div class="tbl-row tbl-head"><span>高中</span><span>名额</span></div>
           <div v-for="r in model.districtRows" :key="r.name" class="tbl-row">
-            <span><RouterLink :to="`/school/${encodeURIComponent(r.name)}?stage=high`" class="sch-link">{{ r.name }}</RouterLink></span><span class="strong">{{ r.n }}</span>
+            <span>
+              <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=high`" class="sch-link">{{ r.name }}</RouterLink>
+              <template v-else>{{ r.name }}</template>
+            </span><span class="strong">{{ r.n }}</span>
           </div>
         </div>
       </div>
@@ -79,7 +88,10 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
       <div class="tbl">
         <div class="tbl-row tbl-head"><span>初中</span><span>自招</span><span>体育</span><span>艺术</span></div>
         <div v-for="r in model.highSpecialCoverage" :key="r.school" class="tbl-row">
-          <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink></span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span>
+          <span>
+            <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink>
+            <template v-else>{{ r.school }}</template>
+          </span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span>
         </div>
       </div>
     </div>
@@ -91,7 +103,10 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
         <div class="tbl" style="margin-top:6px;">
           <div class="tbl-row tbl-head"><span>初中</span><span>所在区</span><span>名额</span></div>
           <div v-for="r in model.highCoverage" :key="r.school" class="tbl-row">
-            <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink></span>
+            <span>
+              <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink>
+              <template v-else>{{ r.school }}</template>
+            </span>
             <span>{{ r.districts.join('、') || '—' }}</span><span class="strong">{{ r.n }}</span>
           </div>
         </div>
@@ -101,7 +116,10 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
         <div class="tbl" style="margin-top:6px;">
           <div class="tbl-row tbl-head"><span>初中</span><span>名额</span></div>
           <div v-for="r in model.highDistrictCoverage" :key="r.school" class="tbl-row">
-            <span><RouterLink :to="`/school/${encodeURIComponent(r.school)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink></span>
+            <span>
+              <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink>
+              <template v-else>{{ r.school }}</template>
+            </span>
             <span class="strong">{{ r.n }}</span>
           </div>
         </div>

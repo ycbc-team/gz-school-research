@@ -9,6 +9,8 @@ export interface QuotaSchool {
   page: number;
   row: number;
   school: string;
+  /** 实体表外键（backfill_school_ids.py 回填；未命中实体则无此字段） */
+  school_id?: string;
   kaosheng: number | null; // 名额考生数 m_j
   sheng_quota: number | null; // 省市属名额
   qu_quota: number | null; // 区属名额
@@ -26,6 +28,8 @@ export interface QuotaMatrix {
 export interface SpecialMatrix {
   high_schools: string[];
   matrix: Record<string, Record<string, { sports?: number; arts?: number; autonomy?: number }>>;
+  /** 初中名 → 实体 school_id（backfill 回填；官方名唯一外键） */
+  middle_school_ids?: Record<string, string>;
 }
 
 /** 第二批次录取分数记录（值 = 校区 → 记录；无分数的 false 记录已在数据治理中删除） */
@@ -36,6 +40,8 @@ export interface Batch2Record {
 }
 export interface Batch2Scores {
   data: Record<string, Record<string, Batch2Record>>;
+  /** 初中名 → 实体 school_id（backfill 回填；官方名唯一外键） */
+  middle_school_ids?: Record<string, string>;
 }
 
 /** 高中统招录取分数记录（data/high/scores_{year}.json，官方招考办发布；按 school_id 引用实体表） */

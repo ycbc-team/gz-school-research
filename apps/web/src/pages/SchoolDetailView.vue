@@ -38,6 +38,7 @@ import {
   scoresOfSchool,
   isComprehensive,
   brandGroupOf,
+  resolvePoiName,
   type BrandUnit,
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
@@ -198,7 +199,7 @@ const feedRows = computed(() => {
     .filter((name) => !GAP_MARKERS.some((m) => name.includes(m)))
     .map((name) => {
       const q = middleQuotaSummary(name);
-      return { name, summary: q ? `省市属 ${q.sheng_quota ?? 0} · 名额考生 ${q.kaosheng ?? '—'}` : null, hasQuota: !!q };
+      return { name, poiName: resolvePoiName(name), summary: q ? `省市属 ${q.sheng_quota ?? 0} · 名额考生 ${q.kaosheng ?? '—'}` : null, hasQuota: !!q };
     });
 });
 
@@ -337,7 +338,9 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
     const stageToKey: Record<string, SchoolStage> = { 小学: 'primary', 初中: 'middle', 高中: 'high' };
     const order = [stage.value, ...(['primary', 'middle', 'high'] as SchoolStage[]).filter((s) => s !== stage.value)];
     const stageKey = order.find((k) => stages.includes(k === 'primary' ? '小学' : k === 'middle' ? '初中' : '高中')) || null;
-    const link = stageKey ? `/school/${encodeURIComponent(u.name)}?stage=${stageKey}` : null;
+    // 跳转目标归一：可解析到实体（POI 名）才渲染链接，避免官方名/品牌名跳详情页异常
+    const poiTarget = resolvePoiName(u.name);
+    const link = stageKey && poiTarget ? `/school/${encodeURIComponent(poiTarget)}?stage=${stageKey}` : null;
     rows.push({
       name: u.name,
       role: u.role,
@@ -375,6 +378,9 @@ const brandCardUseful = computed(() =>
       </div>
       <p v-if="headText" class="d-sub">{{ headText }}</p>
     </header>
+
+    <!-- 未收录点位：名字直达但无 POI 实体（如官方名单中的 7 区外学校），信息不可跳转、仅展示 -->
+    <p v-if="!poi" class="not-included-card">该名称暂未收录到地图点位，以下信息来自口碑 / 官方名单，可能对应多个校区或位于七区之外，详情仅供展示、不可跳转。</p>
 
     <!-- 学部切换 tab（完中/多学部学校才显示） -->
     <nav v-if="availableStages.length > 1" class="stage-tabs">
@@ -439,7 +445,8 @@ const brandCardUseful = computed(() =>
       <p v-if="feedJuniors?.direct_feed" class="sub-note">直升：{{ feedJuniors.direct_feed }}</p>
       <div v-if="feedRows.length" class="feed-list">
         <div v-for="r in feedRows" :key="r.name" class="feed-item">
-          <RouterLink :to="`/school/${encodeURIComponent(r.name)}?stage=middle`" class="feed-name">{{ r.name }}</RouterLink>
+          <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="feed-name">{{ r.name }}</RouterLink>
+          <span v-else class="feed-name" style="color:#6b7280;">{{ r.name }}</span>
           <span v-if="r.summary" class="tag">{{ r.summary }}</span>
           <span v-else class="tag tag-dim">区属初中</span>
         </div>
@@ -461,7 +468,7 @@ const brandCardUseful = computed(() =>
           </div>
         </div>
       </template>
-      <p v-else class="empty">本校未进入 2026 公办小学对口/派位名单。民办校无公办对口名单，以官方摇号 / 直升政策为准；公办新建校或未收录点位以最新官方公告为准。</p>
+      <p v-else class="empty">暂无生源小学数据：2026 公办小学对口/派位名单中未匹配到包含本校的记录。民办校以官方摇号 / 直升政策为准，公办新建校或未收录点位以最新官方公告为准。</p>
     </div>
 
     <!-- 初中 tab：升学通道（名额分配/自招，LinkagePanel） -->
@@ -521,7 +528,8 @@ const brandCardUseful = computed(() =>
       <div v-if="!brandCardUseful && rec?.campuses && rec.campuses.length > 1" class="brand-group">
         <div v-for="c in rec.campuses" :key="c" class="brand-row">
           <div class="brand-row-main">
-            <RouterLink :to="`/school/${encodeURIComponent(c)}?stage=high`" class="brand-name-link">{{ c }}</RouterLink>
+            <RouterLink v-if="resolvePoiName(c)" :to="`/school/${encodeURIComponent(resolvePoiName(c)!)}?stage=high`" class="brand-name-link">{{ c }}</RouterLink>
+            <template v-else>{{ c }}</template>
             <span class="tag">校区</span>
           </div>
         </div>
@@ -564,6 +572,7 @@ const brandCardUseful = computed(() =>
 .badge.b-none { background: #8a94a6; }
 
 .d-sub { font-size: 12.5px; color: #6b7280; margin: 8px 0 0; line-height: 1.6; }
+.not-included-card { margin: 10px 0 0; padding: 8px 12px; border-radius: 8px; background: #fff7e6; border: 1px solid #ffe1a8; font-size: 12px; color: #9a6700; line-height: 1.6; }
 
 .badge.tier-full { background: #e11d48; }
 .badge.tier-part { background: #f59e0b; }

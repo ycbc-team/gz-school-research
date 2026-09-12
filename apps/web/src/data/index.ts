@@ -104,6 +104,7 @@ export const {
   scoresBySchoolId,
   resolveSchoolId,
   resolveSite,
+  resolvePoiName,
   brandGroupOf,
   tier1Schools,
   middleTier1Schools,

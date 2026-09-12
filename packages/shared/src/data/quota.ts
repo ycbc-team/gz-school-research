@@ -3,7 +3,7 @@
  * 区属指标到校（district_quota）/ 小学升学路线（xiaoshengchu）+ 生源反查。
  */
 import { ADCODE_TO_DISTRICT } from '../const.js';
-import { normName } from '../support.js';
+import { normName, looseNorm } from '../support.js';
 import type { XiaoshengchuRecord } from '../types.js';
 import type { DataLoaders } from './loader.js';
 import { normSchoolName } from './enrollment.js';
@@ -12,6 +12,26 @@ import type { QuotaSchool } from './types.js';
 
 export function createQuotaApi(loaders: DataLoaders) {
   const { quotaMatrix, specialMatrix, batch2Scores, districtQuota, middleSchools } = loaders;
+
+  /** 任意名 → 实体 school_id（registry 同规则；local 实现避免循环依赖） */
+  function resolveSchoolIdOf(name: string): string | null {
+    if (!name) return null;
+    const n = normName(name);
+    const ln = looseNorm(name);
+    for (const e of loaders.entities.entities) {
+      if (normName(e.name) === n) return e.school_id;
+      for (const a of e.aliases || []) {
+        if (normName(a) === n) return e.school_id;
+      }
+    }
+    for (const e of loaders.entities.entities) {
+      if (looseNorm(e.name) === ln) return e.school_id;
+      for (const a of e.aliases || []) {
+        if (looseNorm(a) === ln) return e.school_id;
+      }
+    }
+    return null;
+  }
 
   /** 初中名归一查找：POI 简称/变体 → quota_matrix 标准全称（精确→归一→包含兜底） */
   const middleByNorm = new Map<string, string>();
@@ -27,6 +47,12 @@ export function createQuotaApi(loaders: DataLoaders) {
   function resolveMiddle(poiName: string): string | null {
     if (newOpeningMiddles.has(poiName)) return null;
     if (quotaMatrix.schools.some((s) => s.school === poiName)) return poiName;
+    // 优先 school_id 外键（backfill 已回填；POI 名 → 实体 school_id → quota 行）
+    const sid = resolveSchoolIdOf(poiName);
+    if (sid) {
+      const byId = quotaMatrix.schools.find((s) => s.school_id === sid);
+      if (byId) return byId.school;
+    }
     const nk = normSchoolName(poiName);
     if (nk && middleByNorm.has(nk)) return middleByNorm.get(nk)!;
     for (const s of quotaMatrix.schools) {
@@ -67,32 +93,32 @@ export function createQuotaApi(loaders: DataLoaders) {
   }
 
   /** 反查：某区属高中名额分配覆盖的初中（按名额降序） */
-  function districtCoverage(highName: string): { school: string; n: number }[] {
-    const out: { school: string; n: number }[] = [];
+  function districtCoverage(highName: string): { school: string; school_id: string | null; n: number }[] {
+    const out: { school: string; school_id: string | null; n: number }[] = [];
     for (const [school, row] of Object.entries(districtQuota.data)) {
       const n = row[highName];
-      if (n) out.push({ school, n });
+      if (n) out.push({ school, school_id: districtQuota.middle_school_ids?.[school] ?? null, n });
     }
     return out.sort((a, b) => b.n - a.n);
   }
 
   /** 反查：某校区 n_ji>0 的初中（名额分配覆盖，按 n_ji 降序）；campus = 官方原文校名 */
-  function quotaCoverage(campus: string, top?: number): { school: string; n: number; district: string | null }[] {
+  function quotaCoverage(campus: string, top?: number): { school: string; school_id: string | null; n: number; district: string | null }[] {
     const arr = quotaMatrix.schools
       .filter((s) => (s.sz[campus] ?? 0) > 0)
-      .map((s) => ({ school: s.school, n: s.sz[campus] as number, district: s.district }))
+      .map((s) => ({ school: s.school, school_id: s.school_id ?? null, n: s.sz[campus] as number, district: s.district }))
       .sort((a, b) => b.n - a.n);
     return top ? arr.slice(0, top) : arr;
   }
 
   /** 反查：某校区在 special_matrix 有记录的初中（自招/体育/艺术）；campus = 官方原文校名 */
-  function specialCoverage(campus: string): { school: string; sports: number; arts: number; autonomy: number }[] {
+  function specialCoverage(campus: string): { school: string; school_id: string | null; sports: number; arts: number; autonomy: number }[] {
     const spKey = CAMPUS_INFO[campus]?.special;
     if (!spKey) return [];
-    const arr: { school: string; sports: number; arts: number; autonomy: number }[] = [];
+    const arr: { school: string; school_id: string | null; sports: number; arts: number; autonomy: number }[] = [];
     for (const [school, hs] of Object.entries(specialMatrix.matrix)) {
       const rec = hs[spKey];
-      if (rec) arr.push({ school, sports: rec.sports ?? 0, arts: rec.arts ?? 0, autonomy: rec.autonomy ?? 0 });
+      if (rec) arr.push({ school, school_id: specialMatrix.middle_school_ids?.[school] ?? null, sports: rec.sports ?? 0, arts: rec.arts ?? 0, autonomy: rec.autonomy ?? 0 });
     }
     return arr.sort((a, b) => b.autonomy + b.sports + b.arts - (a.autonomy + a.sports + a.arts));
   }

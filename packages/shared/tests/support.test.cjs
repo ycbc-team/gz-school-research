@@ -29,9 +29,10 @@ const middlePois = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/middle/schoo
 const primaryPois = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/primary/schools-gz.json'), 'utf8')).schools;
 const highPois = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/high/schools-gz.json'), 'utf8')).schools;
 const brandGroups = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/registry/brand_groups.json'), 'utf8')).brands;
+const entities = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/registry/entities.json'), 'utf8')).entities;
 
-const mTable = buildAliasTable(middleTier1);
-const pTable = buildAliasTable(primaryTier1);
+const mTable = buildAliasTable(middleTier1, entities);
+const pTable = buildAliasTable(primaryTier1, entities);
 
 /* ========== 一、normName ========== */
 test('normName：去广州市前缀、统一并删除括号、去空白', () => {
@@ -41,11 +42,16 @@ test('normName：去广州市前缀、统一并删除括号、去空白', () => 
 });
 
 /* ========== 二、matchTier1ByPoiName：命中场景 ========== */
-test('精确名命中：执信本部、黄埔铁英', () => {
+test('精确名命中：执信本部、番禺铁英（别名表来自实体注册表）', () => {
   const h1 = matchTier1ByPoiName('广州市执信中学（执信路校区）', middleTier1, mTable);
   assert.ok(h1 && h1.name.includes('执信中学（执信路校区）'));
-  const h2 = matchTier1ByPoiName('广州市黄埔区铁英学校（黄埔铁英）', middleTier1, mTable);
+  const h2 = matchTier1ByPoiName('广州市番禺区广铁一中铁英学校（番禺铁英）', middleTier1, mTable);
   assert.ok(h2 && h2.tier1_eligible === true);
+});
+
+test('黄埔铁英口碑记录无实体（POI 未收录）→ 别名表不命中，属正确行为', () => {
+  const h = matchTier1ByPoiName('广州市黄埔区铁英学校（黄埔铁英）', middleTier1, mTable);
+  assert.equal(h, undefined);
 });
 
 test('别名命中：星执（POI 短名 → 星执挂牌记录）', () => {

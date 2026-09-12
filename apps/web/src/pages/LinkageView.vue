@@ -8,7 +8,7 @@
  * 合规口径：对外以"名额分配/录取分数/招生计划"官方数据为主，梯队与特控率为内部权重。
  */
 import { computed, ref } from 'vue';
-import { quotaMatrix, CAMPUS_NAMES, CAMPUS_INFO } from '../data';
+import { quotaMatrix, CAMPUS_NAMES, CAMPUS_INFO, resolvePoiName } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
 const ALL_SCHOOLS = [...quotaMatrix.schools].sort((a, b) => a.school.localeCompare(b.school, 'zh'));
@@ -22,6 +22,8 @@ const filteredSchools = computed(() => {
   return ALL_SCHOOLS.filter((s) => s.school.includes(k)).slice(0, 12);
 });
 const selectedSchool = computed(() => ALL_SCHOOLS.find((s) => s.school === middleSel.value));
+/** 详情跳转目标：官方名 → 实体 POI 名（解析不到不渲染链接，避免跳转异常页） */
+const selectedSchoolPoi = computed(() => (selectedSchool.value ? resolvePoiName(selectedSchool.value.school) : null));
 
 /* ========== 高中视角 ========== */
 const highSel = ref<string>(CAMPUS_NAMES[0]!);
@@ -62,7 +64,7 @@ const pickSchool = (name: string) => {
         <b>{{ selectedSchool.school }}</b>
         <span v-if="selectedSchool.district" class="tag">{{ selectedSchool.district }}</span>
         <span class="tag">名额考生 {{ selectedSchool.kaosheng ?? '—' }}</span>
-        <RouterLink :to="`/school/${encodeURIComponent(selectedSchool.school)}?stage=middle`" class="detail-link">学校详情 →</RouterLink>
+        <RouterLink v-if="selectedSchoolPoi" :to="`/school/${encodeURIComponent(selectedSchoolPoi)}?stage=middle`" class="detail-link">学校详情 →</RouterLink>
       </div>
 
       <LinkagePanel v-if="selectedSchool" :stage="'middle'" :school="selectedSchool.school" />

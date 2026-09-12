@@ -13,6 +13,8 @@ export interface SpecialRow {
   campusFull: string;
   /** 归属高中全名（跳转用） */
   school: string;
+  /** 实体 POI 名（school_id → entities.name；无实体为 null = 不可跳转） */
+  poiName: string | null;
   autonomy: number; sports: number; arts: number;
 }
 export interface BatchMergedRow {
@@ -22,11 +24,13 @@ export interface BatchMergedRow {
   campusFull: string;
   /** 归属高中全名（跳转用） */
   school: string;
+  /** 实体 POI 名（无实体为 null = 不可跳转） */
+  poiName: string | null;
   n: number | null; min: number | null;
 }
-export interface DistrictRow { name: string; n: number }
-export interface HighCoverRow { school: string; n: number; districts: string[] }
-export interface HighSpecialRow { school: string; autonomy: number; sports: number; arts: number }
+export interface DistrictRow { name: string; poiName: string | null; n: number }
+export interface HighCoverRow { school: string; poiName: string | null; n: number; districts: string[] }
+export interface HighSpecialRow { school: string; poiName: string | null; autonomy: number; sports: number; arts: number }
 
 export interface LinkageModel {
   /** 初中：第一批特殊通道（自招/体育/艺术） */
@@ -43,8 +47,8 @@ export interface LinkageModel {
   highSpecialCoverage: HighSpecialRow[];
   /** 高中：第二批省市属覆盖初中 */
   highCoverage: HighCoverRow[];
-  /** 高中：区属覆盖初中 */
-  highDistrictCoverage: { school: string; n: number }[];
+  /** 高中：区属覆盖初中（poiName 无实体为 null = 不可跳转） */
+  highDistrictCoverage: { school: string; poiName: string | null; n: number }[];
   hasHighData: boolean;
 }
 
@@ -64,12 +68,21 @@ function specialToCampus(specialKey: string, repo: Repository): string {
 
 export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, repo: Repository): LinkageModel {
   const { CAMPUS_NAMES, CAMPUS_INFO } = repo;
+  /** school_id → 实体 POI 名（跳转目标归一：有实体才可跳详情页） */
+  const poiNameOf = (schoolId: string | null | undefined): string | null => {
+    if (!schoolId) return null;
+    return repo.entities.find((e) => e.school_id === schoolId)?.name ?? null;
+  };
+  /** 任意名 → 实体 POI 名（CAMPUS_INFO 学校名等未回填场景，loose 容错） */
+  const resolvePoi = (name: string): string | null => repo.resolvePoiName?.(name) ?? null;
+  /** 行跳转目标：优先用校区官方原文名（精确到校区实体），学校名兜底（多校区歧义时取第一个实体） */
+  const poiOfRow = (campusFull: string, school: string): string | null => resolvePoi(campusFull) ?? resolvePoi(school);
 
   if (stage === 'middle') {
     const quota = repo.linkageOf(schoolName);
     const quotaRows = quota
       ? CAMPUS_NAMES.filter((c) => (quota.sz[c] ?? 0) > 0)
-          .map((c) => ({ campus: c, campusFull: c, school: CAMPUS_INFO[c]!.school, n: quota.sz[c] as number }))
+          .map((c) => ({ campus: c, campusFull: c, school: CAMPUS_INFO[c]!.school, poiName: poiOfRow(c, CAMPUS_INFO[c]!.school), n: quota.sz[c] as number }))
           .sort((a, b) => b.n - a.n)
       : [];
     const specialRows = (() => {
@@ -78,7 +91,8 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
       return Object.entries(m)
         .map(([k, v]) => {
           const campus = specialToCampus(k, repo);
-          return { campus, campusFull: k, school: CAMPUS_INFO[campus]?.school ?? normCampus(k), autonomy: v.autonomy ?? 0, sports: v.sports ?? 0, arts: v.arts ?? 0 };
+          const school = CAMPUS_INFO[campus]?.school ?? normCampus(k);
+          return { campus, campusFull: k, school, poiName: poiOfRow(k, school), autonomy: v.autonomy ?? 0, sports: v.sports ?? 0, arts: v.arts ?? 0 };
         })
         .sort((a, b) => (b.autonomy + b.sports + b.arts) - (a.autonomy + a.sports + a.arts));
     })();
@@ -87,12 +101,13 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
       campus: k,
       campusFull: k,
       school: CAMPUS_INFO[k]?.school ?? normCampus(k),
+      poiName: CAMPUS_INFO[k] ? poiOfRow(k, CAMPUS_INFO[k]!.school) : resolvePoi(k),
       min: v.min_score,
       last: v.last_score,
     }));
-    const qmap = new Map<string, { campus: string; campusFull: string; school: string; n: number }>(quotaRows.map((r) => [r.campus, r]));
-    const bmap = new Map<string, { campus: string; campusFull: string; school: string; min: number | null }>(
-      batchRows.map((r) => [r.campus, { campus: r.campus, campusFull: r.campusFull, school: r.school, min: r.min ?? null }]),
+    const qmap = new Map<string, { campus: string; campusFull: string; school: string; poiName: string | null; n: number }>(quotaRows.map((r) => [r.campus, r]));
+    const bmap = new Map<string, { campus: string; campusFull: string; school: string; poiName: string | null; min: number | null }>(
+      batchRows.map((r) => [r.campus, { campus: r.campus, campusFull: r.campusFull, school: r.school, poiName: r.poiName, min: r.min ?? null }]),
     );
     const batchMerged: BatchMergedRow[] = [...new Set([...qmap.keys(), ...bmap.keys()])]
       .map((c) => {
@@ -102,13 +117,14 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
           campus: c,
           campusFull: b?.campusFull || q?.campusFull || c,
           school: b?.school || q?.school || normCampus(c),
+          poiName: b?.poiName || q?.poiName || null,
           n: q?.n ?? null,
           min: b?.min ?? null,
         };
       })
       .sort((a, b) => (b.n ?? 0) - (a.n ?? 0));
     const districtRows: DistrictRow[] = Object.entries(repo.districtQuotaOf(schoolName))
-      .map(([name, n]) => ({ name, n }))
+      .map(([name, n]) => ({ name, poiName: resolvePoi(name), n }))
       .sort((a, b) => b.n - a.n);
     return {
       specialRows,
@@ -129,34 +145,39 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
   const highCampuses = CAMPUS_NAMES.filter(
     (c) => normCampus(CAMPUS_INFO[c]!.school) === target || CAMPUS_INFO[c]!.school === schoolName,
   );
-  const mergedCover = new Map<string, { n: number; districts: Set<string> }>();
+  const mergedCover = new Map<string, { n: number; districts: Set<string>; schoolId: string | null }>();
   for (const c of highCampuses) {
-    for (const { school, n, district } of repo.quotaCoverage(c)) {
-      const m = mergedCover.get(school) || { n: 0, districts: new Set<string>() };
+    for (const { school, school_id, n, district } of repo.quotaCoverage(c)) {
+      const m = mergedCover.get(school) || { n: 0, districts: new Set<string>(), schoolId: null };
       m.n += n;
       if (district) m.districts.add(district);
+      if (!m.schoolId && school_id) m.schoolId = school_id;
       mergedCover.set(school, m);
     }
   }
   const highCoverage: HighCoverRow[] = [...mergedCover.entries()]
-    .map(([school, v]) => ({ school, n: v.n, districts: [...v.districts] }))
+    .map(([school, v]) => ({ school, poiName: poiNameOf(v.schoolId), n: v.n, districts: [...v.districts] }))
     .sort((a, b) => b.n - a.n)
     .slice(0, 30);
-  const mergedSpecial = new Map<string, { autonomy: number; sports: number; arts: number }>();
+  const mergedSpecial = new Map<string, { autonomy: number; sports: number; arts: number; schoolId: string | null }>();
   for (const c of highCampuses) {
     for (const s of repo.specialCoverage(c)) {
-      const m = mergedSpecial.get(s.school) || { autonomy: 0, sports: 0, arts: 0 };
+      const m = mergedSpecial.get(s.school) || { autonomy: 0, sports: 0, arts: 0, schoolId: null };
       m.autonomy += s.autonomy;
       m.sports += s.sports;
       m.arts += s.arts;
+      if (!m.schoolId && s.school_id) m.schoolId = s.school_id;
       mergedSpecial.set(s.school, m);
     }
   }
   const highSpecialCoverage: HighSpecialRow[] = [...mergedSpecial.entries()]
-    .map(([school, v]) => ({ school, ...v }))
+    .map(([school, v]) => ({ school, poiName: poiNameOf(v.schoolId), autonomy: v.autonomy, sports: v.sports, arts: v.arts }))
     .sort((a, b) => b.autonomy + b.sports + b.arts - (a.autonomy + a.sports + a.arts))
     .slice(0, 30);
-  const highDistrictCoverage: { school: string; n: number }[] = repo.districtCoverage(schoolName).slice(0, 50);
+  const highDistrictCoverage: { school: string; poiName: string | null; n: number }[] = repo
+    .districtCoverage(schoolName)
+    .slice(0, 50)
+    .map((r) => ({ school: r.school, poiName: poiNameOf(r.school_id), n: r.n }));
 
   return {
     specialRows: [],

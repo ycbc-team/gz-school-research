@@ -16,7 +16,7 @@ const STAGE_SHORT: Record<SchoolStage, string> = { primary: '小学', middle: '�
 
 export interface DetailRow { label: string; value: string; strong?: boolean }
 export interface DetailBadge { text: string; cls: string }
-export interface FeedRow { name: string; summary: string | null; hasQuota: boolean }
+export interface FeedRow { name: string; poiName: string | null; summary: string | null; hasQuota: boolean }
 export interface FeedPrimaryRow { primary: string; group: string | null; direct_feed: string | null }
 export interface BrandRow {
   name: string;
@@ -158,7 +158,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
       .filter((n) => !GAP_MARKERS.some((m) => n.includes(m)))
       .map((n) => {
         const q = repo.middleQuotaSummary(n);
-        return { name: n, summary: q ? `省市属 ${q.sheng_quota ?? 0} · 名额考生 ${q.kaosheng ?? '—'}` : null, hasQuota: !!q };
+        return { name: n, poiName: repo.resolvePoiName(n), summary: q ? `省市属 ${q.sheng_quota ?? 0} · 名额考生 ${q.kaosheng ?? '—'}` : null, hasQuota: !!q };
       });
   })();
 
