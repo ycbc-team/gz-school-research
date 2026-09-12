@@ -248,6 +248,8 @@ onMounted(() => {
     zoomControl: false,
     attributionControl: false,
     preferCanvas: true,
+    // 缩放动画期间隐藏点位，避免点位图形跟着地图被拉伸变形（动画结束按当前尺寸重显）
+    markerZoomAnimation: false,
   });
   L.control.zoom({ position: 'bottomright' }).addTo(map);
   L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
@@ -679,4 +681,15 @@ section { position: relative; }
 .poi-tip { font-size: 12px; }
 /* 多学部 divIcon：去除 Leaflet 默认白底边框 */
 .poi-multi { background: transparent !important; border: none !important; }
+
+/* 点位缩放动画平滑过渡（配合 markerZoomAnimation:false）：
+   缩放动画期间点位淡出，动画结束淡入，替代 Leaflet 默认的瞬时显隐 */
+.leaflet-zoom-anim .leaflet-marker-pane.leaflet-zoom-hide {
+  visibility: visible !important;
+  opacity: 0;
+}
+.leaflet-marker-pane,
+.leaflet-shadow-pane {
+  transition: opacity 0.2s ease;
+}
 </style>
