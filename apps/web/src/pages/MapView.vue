@@ -104,14 +104,9 @@ const rendered: RenderedItem[] = [];
 let unionSW: { lat: number; lng: number } | null = null;
 let unionNE: { lat: number; lng: number } | null = null;
 
-function radiusForZoom(z: number): number {
-  z = Math.round(z);
-  if (z >= 15) return 10;
-  if (z >= 14) return 9;
-  if (z >= 13) return 8;
-  if (z >= 12) return 7;
-  if (z >= 11) return 6;
-  return 5;
+/** 点位半径：固定像素大小，不随缩放级别变化（如需恢复分级可回滚此提交） */
+function radiusForZoom(_z: number): number {
+  return 8;
 }
 /** 单学部点：学段单色圆点，统一样式（不再区分口碑/普通/挂牌） */
 function markerStyle(pt: MapPointFull): L.CircleMarkerOptions {
