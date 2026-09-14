@@ -2,7 +2,6 @@
  * 升学通道查询域：名额分配（quota_matrix）/ 特招（special_matrix）/ 第二批次（batch2_scores）/
  * 区属指标到校（district_quota）/ 小学升学路线（xiaoshengchu）+ 生源反查。
  */
-import { ADCODE_TO_DISTRICT } from '../const.js';
 import { normName, looseNorm } from '../support.js';
 import type { XiaoshengchuRecord } from '../types.js';
 import type { DataLoaders } from './loader.js';
@@ -143,43 +142,12 @@ export function createQuotaApi(loaders: DataLoaders) {
   interface SchoolEntityLite { school_id: string; name: string; stage: string; aliases: string[] }
   const entities = loaders.entities.entities as SchoolEntityLite[];
   const entityById = new Map(entities.map((e) => [e.school_id, e]));
-  // POI 表：school_id -> adcode（district 从点位 join，entity 不存）
-  const poiAdcodeBySchool = new Map<string, string>();
-  for (const p of [...loaders.primarySchools.schools, ...loaders.middleSchools.schools, ...(loaders.highSchools.schools || [])]) {
-    if (p.school_id) poiAdcodeBySchool.set(p.school_id, p.adcode as string);
-  }
-  function districtOfSchool(schoolId: string): string {
-    const ad = poiAdcodeBySchool.get(schoolId);
-    return ad ? (ADCODE_TO_DISTRICT[ad] || '') : '';
-  }
   /** 从 group 文本解析区名（如「番禺区小升初对口（单校）」→「番禺区」），无区前缀返回 null */
   function districtOfGroup(group: string | null): string | null {
     if (!group) return null;
     const m = /(荔湾|越秀|海珠|天河|白云|黄埔|番禺)区/.exec(group);
     return m ? `${m[1]}区` : null;
   }
-  function buildAliasIndex(stage: string): Map<string, SchoolEntityLite[]> {
-    const m = new Map<string, SchoolEntityLite[]>();
-    for (const e of entities) {
-      if (e.stage !== stage) continue;
-      for (const a of e.aliases) {
-        const k = normName(a); if (!k) continue;
-        if (!m.has(k)) m.set(k, []);
-        m.get(k)!.push(e);
-      }
-    }
-    return m;
-  }
-  const primaryAlias = buildAliasIndex('primary');
-  const middleAlias = buildAliasIndex('middle');
-  function resolveEntity(idx: Map<string, SchoolEntityLite[]>, name: string, district?: string | null): SchoolEntityLite | null {
-    const list = idx.get(normName(name));
-    if (!list || !list.length) return null;
-    if (list.length === 1) return list[0]!;
-    const want = district && /^\d{6}$/.test(district) ? ADCODE_TO_DISTRICT[district] : district;
-    return (want && list.find((e) => districtOfSchool(e.school_id) === want)) || list[0]!;
-  }
-
   type FactRec = {
     school_id: string; group_id: number;
     feed_school_ids: string[]; feed_unresolved: string[];
@@ -207,36 +175,28 @@ export function createQuotaApi(loaders: DataLoaders) {
     } as XiaoshengchuRecord;
   }
   /**
-   * 按小学实体 id 查升学路线：数据匹配只用 school_id（事实表按 school_id 键控）。
-   * 优先 schoolId；无 id 的旧链接（/school/名 不带 ?id=）才用 POI 名经实体注册表别名兜底。
-   * district 仅在跨区同名时精确消歧，不传/不中回退首条（确定性，不猜测）。
+   * 按小学实体 id 查升学路线。事实表按 school_id 键控，零名字匹配；
+   * 名字→id 的解析只存在于数据生产脚本（build_xiaoshengchu_all.py）。
+   * 无 id（如旧链接不带 ?id=）返回 null，不做猜测。
    */
-  function xiaoshengchuOf(poiName: string, district?: string | null, schoolId?: string | null): XiaoshengchuRecord | null {
-    if (schoolId) {
-      const r = factByPrimaryId.get(schoolId);
-      if (r) return shapeRecord(r, entityById.get(schoolId)?.name ?? poiName);
-    }
-    const ent = resolveEntity(primaryAlias, poiName, district);
-    if (!ent) return null;
-    const r = factByPrimaryId.get(ent.school_id);
-    return r ? shapeRecord(r, ent.name) : null;
+  function xiaoshengchuOf(schoolId: string | null | undefined): XiaoshengchuRecord | null {
+    if (!schoolId) return null;
+    const r = factByPrimaryId.get(schoolId);
+    return r ? shapeRecord(r, entityById.get(schoolId)?.name ?? '(未知)') : null;
   }
 
   /**
    * 反查：某初中实体的生源小学。数据匹配只用 school_id（事实表 feed_school_ids /
-   * direct_feed_school_id 均为 id）：优先 middleId，无 id 的旧链接才用名字解析兜底。
+   * direct_feed_school_id 均为 id），零名字匹配。
    * direct_feed 语义：仅当该小学的对口直升目标就是「当前查询的初中」时非空（值为该初中名），
    * 否则一律为 null——避免把「小学直升其它初中」误标成「直升本校」（派位组内可填报 ≠ 对口直升）。
    */
-  function middlePrimaryFeed(middleName: string, middleId?: string | null): { primary: string; group: string | null; direct_feed: string | null }[] {
-    let ent = middleId ? (entityById.get(middleId) ?? null) : null;
-    if (!ent) ent = resolveEntity(middleAlias, middleName);
-    if (!ent) return [];
-    const mid = ent.school_id;
+  function middlePrimaryFeed(middleId: string | null | undefined): { primary: string; group: string | null; direct_feed: string | null }[] {
+    if (!middleId) return [];
     const out: { primary: string; group: string | null; direct_feed: string | null }[] = [];
     for (const r of facts) {
-      const inGroup = (r.feed_school_ids || []).includes(mid);
-      const directHere = r.direct_feed_school_id === mid;
+      const inGroup = (r.feed_school_ids || []).includes(middleId);
+      const directHere = r.direct_feed_school_id === middleId;
       if (!inGroup && !directHere) continue;
       const pe = r.school_id ? entityById.get(r.school_id) : null;
       out.push({

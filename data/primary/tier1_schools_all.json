@@ -643,7 +643,10 @@
           "coord_addr": "荔湾区西村街道西湾路93号",
           "coord_source": "高德POI：广州协和学校（typecode 141200）",
           "district": "荔湾区",
-          "orphan": true
+          "orphan": true,
+          "school_ids": [
+            "gz-440103-33b32c4c"
+          ]
         },
         {
           "name": "广州市荔湾区沙面小学",
@@ -2937,7 +2940,10 @@
           "coord_addr": "番禺区市桥街德祥路21号",
           "coord_source": "高德POI：东城小学（typecode 141203）",
           "district": "番禺区",
-          "orphan": true
+          "orphan": true,
+          "school_ids": [
+            "gz-440113-42642242"
+          ]
         },
         {
           "name": "广州市番禺区市桥南阳里小学",

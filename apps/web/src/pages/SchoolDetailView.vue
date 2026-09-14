@@ -175,7 +175,7 @@ const primaryMechanism = computed(() => {
 const GAP_MARKERS = ['待查', '未在', '缺口', '暂缺'];
 /** 本校升学路线记录（全等匹配；跨区同名按 adcode 精确消歧） */
 const xsRecord = computed(() =>
-  stage.value === 'primary' ? xiaoshengchuOf(schoolName.value, poi.value?.adcode, poi.value?.school_id) : null,
+  stage.value === 'primary' ? xiaoshengchuOf(poi.value?.school_id ?? null) : null,
 );
 const feedJuniors = computed(() => {
   if (stage.value !== 'primary') return null;
@@ -213,7 +213,7 @@ const feedRows = computed(() => {
 /* ========== 初中：生源小学反查 ========== */
 const feedPrimarys = computed(() => {
   if (stage.value !== 'middle') return [];
-  return middlePrimaryFeed(schoolName.value, poi.value?.school_id);
+  return middlePrimaryFeed(poi.value?.school_id ?? null);
 });
 
 /* ========== 高中：招生（中考录取线）与高考（网传成绩）分卡片 ========== */

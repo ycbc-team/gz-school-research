@@ -141,7 +141,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     }
     return null;
   })();
-  const xsRecord = stage === 'primary' ? repo.xiaoshengchuOf(schoolName, poi?.adcode, poi?.school_id) : null;
+  const xsRecord = stage === 'primary' ? repo.xiaoshengchuOf(poi?.school_id ?? null) : null;
   const feedJuniors = (() => {
     if (stage !== 'primary' || !xsRecord) return null;
     return {
@@ -173,7 +173,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
   })();
 
   /* ---------- 初中：生源小学反查 ---------- */
-  const feedPrimarys = stage === 'middle' ? repo.middlePrimaryFeed(schoolName, poi?.school_id) : [];
+  const feedPrimarys = stage === 'middle' ? repo.middlePrimaryFeed(poi?.school_id ?? null) : [];
 
   /* ---------- 高中 ---------- */
   const pickRows = (keys: [string, string, boolean?][]): DetailRow[] => {
