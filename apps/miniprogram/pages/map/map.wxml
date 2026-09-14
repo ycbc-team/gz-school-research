@@ -35,13 +35,13 @@
 
     <cover-view class="filter-bar">
       <cover-view class="fb-btn {{menu === 'district' ? 'on' : ''}}" data-menu="district" bindtap="toggleMenu">
-        区域<cover-view wx:if="{{!districtAll}}" class="fb-badge">{{selectedDistricts.length}}</cover-view>
+        区域<cover-view wx:if="{{!districtAll}}" class="fb-badge">{{selectedDistricts.length}}</cover-view><cover-view class="arr">▾</cover-view>
       </cover-view>
       <cover-view class="fb-btn {{menu === 'stage' ? 'on' : ''}}" data-menu="stage" bindtap="toggleMenu">
-        学段<cover-view wx:if="{{!stageAll}}" class="fb-badge">{{selectedStages.length}}</cover-view>
+        学段<cover-view wx:if="{{!stageAll}}" class="fb-badge">{{selectedStages.length}}</cover-view><cover-view class="arr">▾</cover-view>
       </cover-view>
       <cover-view class="fb-btn {{menu === 'grade' ? 'on' : ''}}" data-menu="grade" bindtap="toggleMenu">
-        分级<cover-view wx:if="{{!gradeAll}}" class="fb-badge">{{selectedGrades.length}}</cover-view>
+        分级<cover-view wx:if="{{!gradeAll}}" class="fb-badge">{{selectedGrades.length}}</cover-view><cover-view class="arr">▾</cover-view>
       </cover-view>
     </cover-view>
 
