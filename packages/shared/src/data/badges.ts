@@ -40,6 +40,11 @@ export function createBadgesApi(loaders: DataLoaders) {
       if (t.tier1_eligible === false) out.push({ text: '挂牌', cls: 'b-license' });
       else out.push({ text: '口碑', cls: 'b-tier' });
     }
+    // 民办：高中按 levels.nature；小学/初中按口碑校法人登记类型（民办非企业单位等）
+    const isMinban =
+      (opts.rec && opts.rec.nature === '民办') ||
+      (t && typeof t.legal_entity?.type === 'string' && t.legal_entity.type.includes('民办'));
+    if (isMinban) out.push({ text: '民办', cls: 'b-minban' });
     // 省/市示范是高中部级别，只在高中 tab 显示（初中 tab 不显示高中 badge）
     if (stage === 'high' && opts.rec) {
       if (opts.rec.category === '省市属示范') out.push({ text: '省示范', cls: 'b-hcity' });

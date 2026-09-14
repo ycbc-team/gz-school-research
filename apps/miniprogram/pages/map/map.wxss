@@ -89,6 +89,7 @@
 .badge.b-license { background: #4b5563; }
 .badge.b-hcity { background: #b45309; }
 .badge.b-hdist { background: #0f766e; }
+.badge.b-minban { background: #9333ea; }
 .badge.b-full { background: #e11d48; }
 .badge.b-part { background: #f59e0b; }
 .badge.b-none { background: #8a94a6; }
