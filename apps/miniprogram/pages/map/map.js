@@ -24,9 +24,12 @@ const {
   buildInfoModel,
 } = shared;
 
+/** stages 枚举 → PNG 文件名缩写（p/m/h） */
+const STAGE_KEY = { primary: 'p', middle: 'm', high: 'h' };
 /** marker 图标：stages 升序（p/m/h）→ 14 张 PNG（普通 + -sel 选中态，构建脚本按 shared 颜色生成，对齐 Web） */
 function markerIcon(stages, selected) {
-  return `/assets/markers/marker-${stages.join('')}${selected ? '-sel' : ''}.png`;
+  const key = stages.map((s) => STAGE_KEY[s]).join('');
+  return `/assets/markers/marker-${key}${selected ? '-sel' : ''}.png`;
 }
 
 Page({

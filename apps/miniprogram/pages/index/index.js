@@ -1,4 +1,8 @@
-const { primarySchools, middleSchools, highSchools, tier1Schools, middleTier1Schools, shared } = require('../../utils/data.js');
+const { primarySchools, middleSchools, highSchools, primaryTier1, middleTier1, shared } = require('../../utils/data.js');
+/** tier1 数据为 { districts: { 区: { schools: [...] } } }，拍平各区口碑校总数 */
+function tier1Count(t) {
+  return Object.values((t && t.districts) || {}).reduce((n, d) => n + ((d && d.schools) ? d.schools.length : 0), 0);
+}
 
 Page({
   data: {
@@ -9,12 +13,14 @@ Page({
     const primarySum = summarizeSchools(primarySchools.schools);
     const middleSum = summarizeSchools(middleSchools.schools);
     const highSum = summarizeSchools(highSchools.schools);
+    const pT = tier1Count(primaryTier1);
+    const mT = tier1Count(middleTier1);
     this.setData({
       stats: [
         { label: '小学点位', value: primarySum.total, sub: this.top3(primarySum.byDistrict) },
         { label: '初中点位', value: middleSum.total, sub: this.top3(middleSum.byDistrict) },
         { label: '高中点位', value: highSum.total, sub: this.top3(highSum.byDistrict) },
-        { label: '口碑核验', value: tier1Schools.length + middleTier1Schools.length, sub: `小学 ${tier1Schools.length} · 初中 ${middleTier1Schools.length}` },
+        { label: '口碑核验', value: pT + mT, sub: `小学 ${pT} · 初中 ${mT}` },
       ],
     });
   },
