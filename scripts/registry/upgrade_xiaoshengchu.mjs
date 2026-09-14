@@ -93,12 +93,29 @@ const outRecords = src.records.map((r) => {
     source_url: r.source_url, source_note: r.source_note, data_gaps: r.data_gaps,
   };
 });
+// 重复的分组元数据提为维表，事实记录仅保留 group_id，保持与 DataLoaders 契约一致。
+const groups = [];
+const groupIdByKey = new Map();
+const records = outRecords.map(({ group, source_url, data_gaps, ...fact }) => {
+  const name = group || '';
+  const sourceUrl = source_url || '';
+  const dataGaps = data_gaps ?? null;
+  const key = `${name}\u0000${sourceUrl}\u0000${dataGaps || ''}`;
+  let groupId = groupIdByKey.get(key);
+  if (groupId === undefined) {
+    groupId = groups.length;
+    groupIdByKey.set(key, groupId);
+    groups.push({ id: groupId, name, source_urls: sourceUrl ? [sourceUrl] : [], data_gaps: dataGaps });
+  }
+  return { ...fact, group_id: groupId, data_gaps: dataGaps };
+});
 write('data/primary/xiaoshengchu_2026.json', {
   year: 2026,
   note: '2026 小学→初中升学事实表。学校一律用 school_id 引用（见 entities.json）；feed_school_ids 为对口初中实体 id，feed_unresolved 为 POI 未收录的官方名（显式缺口，不模糊）。district 由 POI join。',
-  records: outRecords,
+  groups,
+  records,
 });
-console.log(`records: ${outRecords.length}`);
-console.log(`小学 record 解析 school_id: ${primaryHit}/${outRecords.length}`);
-console.log(`feed 初中名 解析: ${feedHit}（未解析 ${feedMiss + 0}）；未解析唯一名: ${new Set(outRecords.flatMap(r=>r.feed_unresolved)).size}`);
-console.log('天誉:', JSON.stringify(outRecords.find(r=>r.group.includes('亚运城配建'))?.feed_school_ids));
+console.log(`records: ${records.length} | groups: ${groups.length}`);
+console.log(`小学 record 解析 school_id: ${primaryHit}/${records.length}`);
+console.log(`feed 初中名 解析: ${feedHit}（未解析 ${feedMiss + 0}）；未解析唯一名: ${new Set(records.flatMap(r=>r.feed_unresolved)).size}`);
+console.log('天誉:', JSON.stringify(records.find(r => groups[r.group_id]?.name.includes('亚运城配建'))?.feed_school_ids));

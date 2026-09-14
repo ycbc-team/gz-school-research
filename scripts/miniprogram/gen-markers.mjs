@@ -6,8 +6,8 @@
  * 纯 Node 实现 PNG 编码（zlib deflate），无 canvas 依赖。
  * 产物：apps/miniprogram/assets/markers/marker-{p|m|h|pm|ph|mh|pmh}.png（普通）+ 同名 -sel.png（选中）
  */
-import { deflateSync } from 'node:zlib';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { deflateSync, inflateSync } from 'node:zlib';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -66,6 +66,22 @@ function encodePng(size, rgba) {
     chunk('IDAT', deflateSync(raw)),
     chunk('IEND', Buffer.alloc(0)),
   ]);
+}
+/** PNG 的压缩参数会随 Node/zlib 版本变化；比较解压后的像素，避免无意义地重写图标。 */
+function pngPixels(png) {
+  let offset = 8;
+  const idat = [];
+  while (offset < png.length) {
+    const size = png.readUInt32BE(offset);
+    const type = png.subarray(offset + 4, offset + 8).toString('ascii');
+    if (type === 'IDAT') idat.push(png.subarray(offset + 8, offset + 8 + size));
+    offset += size + 12;
+  }
+  return inflateSync(Buffer.concat(idat));
+}
+function hasSamePixels(file, next) {
+  try { return pngPixels(readFileSync(file)).equals(pngPixels(next)); }
+  catch { return false; }
 }
 
 /* ---------- 圆点绘制（平滑边缘） ---------- */
@@ -128,7 +144,7 @@ for (const [key, stages] of Object.entries(COMBO)) {
   for (const selected of [false, true]) {
     const png = encodePng(SIZE, draw(stages, selected));
     const file = join(outDir, `marker-${key}${selected ? '-sel' : ''}.png`);
-    writeFileSync(file, png);
+    if (!hasSamePixels(file, png)) writeFileSync(file, png);
     console.log(`[markers] ${key}${selected ? '-sel' : ''} (${stages.join('+')}) → ${file} ${png.length}B`);
   }
 }
