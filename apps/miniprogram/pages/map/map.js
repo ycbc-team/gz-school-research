@@ -65,7 +65,7 @@ Page({
     // 详情页"在地图中查看"：定位并弹出信息卡（放大居中 + 选中态，对齐 Web）
     if (query && query.focus) {
       const name = decodeURIComponent(query.focus);
-      const pt = mapPoints.find((p) => p.name === name) || mapPoints.find((p) => p.name.includes(name));
+      const pt = mapPoints.find((p) => p.school_id === name) || mapPoints.find((p) => p.name === name) || mapPoints.find((p) => p.name.includes(name));
       if (pt) {
         this.showInfo(pt);
         const idx = this.visible.findIndex((p) => p === pt);
@@ -195,10 +195,15 @@ Page({
   /* ---------- 详情跳转（Web 路由风格 to → 小程序页面参数） ---------- */
   goDetail(e) {
     const to = e.currentTarget.dataset.to;
-    const m = /^\/school\/([^?]+)(?:\?stage=(\w+))?$/.exec(to || '');
+    const m = /^\/school\/([^?]+)(?:\?(.+))?$/.exec(to || '');
     if (!m) return;
+    const query = {};
+    (m[2] || '').split('&').forEach((part) => {
+      const [key, value = ''] = part.split('=');
+      if (key) query[key] = decodeURIComponent(value);
+    });
     wx.navigateTo({
-      url: `/pages/school-detail/index?name=${decodeURIComponent(m[1])}&stage=${m[2] || ''}`,
+      url: `/pages/school-detail/index?name=${decodeURIComponent(m[1])}&stage=${query.stage || ''}&id=${encodeURIComponent(query.id || '')}`,
     });
   },
 });

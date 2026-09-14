@@ -24,11 +24,16 @@ const repository = createRepository(loaders);
 const STAGE_SHORT = { primary: '小学', middle: '初中', high: '高中' };
 /** Web 路由风格 to（/school/xxx?stage=yy）→ 小程序页面参数 */
 function parseSchoolTo(to) {
-  const m = /^\/school\/([^?]+)(?:\?stage=(\w+))?$/.exec(to || '');
+  const m = /^\/school\/([^?]+)(?:\?(.+))?$/.exec(to || '');
   if (!m) return null;
   let name = m[1];
   try { name = decodeURIComponent(name); } catch (e) { /* 未编码中文原样 */ }
-  return { name, stage: m[2] || '' };
+  const query = {};
+  (m[2] || '').split('&').forEach((part) => {
+    const [key, value = ''] = part.split('=');
+    if (key) query[key] = decodeURIComponent(value);
+  });
+  return { name, stage: query.stage || '', id: query.id || '' };
 }
 
 Page({
@@ -42,8 +47,9 @@ Page({
   onLoad(query) {
     this.name = decodeURIComponent(query.name || '');
     this.stageParam = query.stage || '';
+    this.schoolId = query.id || '';
     // 先以 primary 构建拿 availableStages（完中多学部），再按 query.stage 或首个可用学部激活
-    const probe = buildDetailModel('primary', this.name, repository);
+    const probe = buildDetailModel('primary', this.name, repository, this.schoolId);
     const stages = probe.availableStages;
     let active = 'primary';
     if (stages.length) {
@@ -54,7 +60,7 @@ Page({
   },
 
   applyStage(stage) {
-    const model = buildDetailModel(stage, this.name, repository);
+    const model = buildDetailModel(stage, this.name, repository, this.schoolId);
     const rawLinkage = stage === 'middle' || stage === 'high'
       ? buildLinkageModel(stage, this.name, repository)
       : null;
@@ -75,7 +81,7 @@ Page({
   switchStage(e) { this.applyStage(e.currentTarget.dataset.stage); },
 
   viewOnMap() {
-    wx.navigateTo({ url: `/pages/map/map?focus=${encodeURIComponent(this.name)}` });
+    wx.navigateTo({ url: `/pages/map/map?focus=${encodeURIComponent(this.schoolId || this.name)}` });
   },
   goBack() {
     wx.navigateBack({ delta: 1, fail: () => wx.reLaunch({ url: '/pages/map/map' }) });
@@ -85,6 +91,6 @@ Page({
   goSchool(e) {
     const hit = parseSchoolTo(e.currentTarget.dataset.to);
     if (!hit) return;
-    wx.navigateTo({ url: `/pages/school-detail/index?name=${encodeURIComponent(hit.name)}&stage=${hit.stage}` });
+    wx.navigateTo({ url: `/pages/school-detail/index?name=${encodeURIComponent(hit.name)}&stage=${hit.stage}&id=${encodeURIComponent(hit.id)}` });
   },
 });

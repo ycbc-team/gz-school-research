@@ -265,7 +265,7 @@ const OFFICIAL_HIGH_ALIAS = {
 
 // ---- 1) 每个 POI 建一个实体；school_id 即 POI 主键 ----
 const entities = [];           // {school_id, name, stage, aliases:Set(norm)}
-const poiIdByKey = new Map();   // "stage|poiName" -> school_id
+const poiIdByKey = new Map();   // "stage|adcode|poiName" -> school_id（同名跨区必须独立）
 const entByStagePoiName = new Map(); // "stage|norm(poiName)" -> entity
 
 for (const [stage, file] of Object.entries(stageFiles)) {
@@ -276,7 +276,7 @@ for (const [stage, file] of Object.entries(stageFiles)) {
     const schoolId = idKey(p.adcode, sn);
     const ent = { school_id: schoolId, name: p.name, stage, aliases: new Set(poiNameAliases(p.name, p.adcode)) };
     entities.push(ent);
-    poiIdByKey.set(stage + '|' + p.name, schoolId);
+    poiIdByKey.set(stage + '|' + p.adcode + '|' + p.name, schoolId);
     entByStagePoiName.set(stage + '|' + sn, ent);
   }
 }
@@ -354,7 +354,7 @@ write('data/registry/entities.json', {
 // ---- 4) 回写 POI school_id ----
 for (const [stage, file] of Object.entries(stageFiles)) {
   const j = read(file);
-  for (const p of (j.schools || j)) p.school_id = poiIdByKey.get(stage + '|' + p.name) || null;
+  for (const p of (j.schools || j)) p.school_id = poiIdByKey.get(stage + '|' + p.adcode + '|' + p.name) || null;
   write(file, j);
 }
 

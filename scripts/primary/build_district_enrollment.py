@@ -364,7 +364,9 @@ def match_and_write(district_key, records, source, source_url):
             continue
         used[poi["name"]] = records[idx]["school"]
         rec = dict(records[idx])
-        rec["school_id"] = poi["name"]
+        # 事实表直接引用实体主键；不能以同名 POI 作临时键，否则跨区同名学校会在后续回填时错配。
+        rec["school_id"] = poi.get("school_id")
+        rec["poi_name"] = poi["name"]
         rec["lng"], rec["lat"] = poi["lng"], poi["lat"]
         matched.append(rec)
 

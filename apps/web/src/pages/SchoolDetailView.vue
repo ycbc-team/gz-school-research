@@ -46,6 +46,8 @@ import LinkagePanel from '../components/LinkagePanel.vue';
 const props = defineProps<{ name: string; stage?: string }>();
 const route = useRoute();
 const schoolName = computed(() => decodeURIComponent(props.name || ''));
+/** 同名学校由地图点位传入实体主键；旧链接仍按校名兼容。 */
+const schoolId = computed(() => typeof route.query.id === 'string' ? route.query.id : '');
 const router = useRouter();
 /** 返回上一级（无历史则回地图） */
 function goBack() {
@@ -54,7 +56,7 @@ function goBack() {
 }
 /** 在地图中查看：跳转地图并定位到本校 */
 function viewOnMap() {
-  router.push({ path: '/map', query: { focus: schoolName.value } });
+  router.push({ path: '/map', query: { focus: poi.value?.school_id || schoolName.value } });
 }
 
 /* ========== 学部 tab：同一学校名可能跨多个学部（完中），内部 tab 切换 ========== */
@@ -66,7 +68,7 @@ const STAGE_LABEL: Record<SchoolStage, string> = { primary: '小学部', middle:
 const availableStages = computed<SchoolStage[]>(() => {
   const out: SchoolStage[] = [];
   for (const s of ['primary', 'middle', 'high'] as SchoolStage[]) {
-    if (POI_LISTS[s].some((p) => normName(p.name) === normName(schoolName.value))) out.push(s);
+    if (POI_LISTS[s].some((p) => schoolId.value ? p.school_id === schoolId.value : normName(p.name) === normName(schoolName.value))) out.push(s);
   }
   return out;
 });
@@ -92,7 +94,7 @@ watch(
 // 手动切 tab：同步 URL（replace，不堆历史），保证跳转/后退一致
 function switchStage(s: SchoolStage) {
   activeStage.value = s;
-  router.replace({ path: `/school/${encodeURIComponent(schoolName.value)}`, query: { stage: s } });
+  router.replace({ path: `/school/${encodeURIComponent(schoolName.value)}`, query: { stage: s, ...(schoolId.value ? { id: schoolId.value } : {}) } });
 }
 const stage = computed(() => activeStage.value);
 
@@ -105,9 +107,7 @@ const tier = computed<Tier1School | undefined>(() => {
   if (stage.value === 'high') return undefined;
   // 新开办学校无成绩：不参与口碑/挂牌判定（数据层 note 标记「新开办（年份）·待首届成绩」，
   // 避免「广东实验中学天河学校」等独立法人新校因前缀匹配被误判为本部口碑校）
-  const poiList = stage.value === 'primary' ? primarySchools.schools : middleSchools.schools;
-  const poi = poiList.find((s) => normName(s.name) === normName(schoolName.value));
-  if (poi?.note && poi.note.includes('新开办')) return undefined;
+  if (poi.value?.note && poi.value.note.includes('新开办')) return undefined;
   return matchTier1ByPoiName(
     schoolName.value,
     stage.value === 'primary' ? tier1Schools : middleTier1Schools,
@@ -134,7 +134,7 @@ const rec = computed<HighLevelSchool | undefined>(() => {
 /* ========== 基本信息 ========== */
 const poi = computed(() => {
   const list = stage.value === 'primary' ? primarySchools.schools : stage.value === 'middle' ? middleSchools.schools : highSchools.schools;
-  return list.find((s) => s.name === schoolName.value) || null;
+  return (schoolId.value ? list.find((s) => s.school_id === schoolId.value) : list.find((s) => s.name === schoolName.value)) || null;
 });
 const stageLabel = computed(() => (stage.value === 'primary' ? '小学' : stage.value === 'middle' ? '初中' : '高中'));
 
@@ -154,7 +154,7 @@ const districtOf = computed(() => {
 /* ========== 小学：2026 招生计划匹配（含对口地段 zone） ========== */
 const enrollment = computed(() => {
   if (stage.value !== 'primary') return null;
-  return matchEnrollment(schoolName.value);
+  return matchEnrollment(poi.value?.school_id || schoolName.value);
 });
 const primaryMechanism = computed(() => {
   if (stage.value !== 'primary' || !poi.value) return null;

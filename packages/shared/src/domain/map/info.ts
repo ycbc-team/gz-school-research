@@ -31,8 +31,8 @@ function nameStagesOf(repo: Repository, name: string): ('primary' | 'middle' | '
 }
 
 /** 小学招生条件行（2026 招生计划：班数 + 对口地段） */
-function primaryEnrollRows(repo: Repository, name: string): InfoRow[] {
-  const en = repo.matchEnrollment(name);
+function primaryEnrollRows(repo: Repository, pt: MapPointFull): InfoRow[] {
+  const en = repo.matchEnrollment(pt.school_id || pt.name);
   if (!en) return [];
   const rows: InfoRow[] = [];
   if (en.plan_classes != null) rows.push({ label: '2026班数', value: `${en.plan_classes} 个班`, strong: true });
@@ -60,9 +60,15 @@ export function buildInfoModel(pt: MapPointFull, repo: Repository): InfoModel {
   // 详情跳转：单学部一个按钮；多学部（完中）按学部分别跳对应 tab
   const nameStages = nameStagesOf(repo, name);
   const STAGE_SHORT: Record<string, string> = { primary: '小学部', middle: '初中部', high: '高中部' };
+  const detailUrl = (stage?: string) => {
+    const q: string[] = [];
+    if (stage) q.push(`stage=${stage}`);
+    if (pt.school_id) q.push(`id=${encodeURIComponent(pt.school_id)}`);
+    return `/school/${encodeURIComponent(name)}${q.length ? `?${q.join('&')}` : ''}`;
+  };
   const detailLinks = nameStages.length > 1
-    ? nameStages.map((s) => ({ text: `查看${STAGE_SHORT[s]}详情 →`, to: `/school/${encodeURIComponent(name)}?stage=${s}` }))
-    : [{ text: '查看学校详情 →', to: `/school/${encodeURIComponent(name)}` }];
+    ? nameStages.map((s) => ({ text: `查看${STAGE_SHORT[s]}详情 →`, to: detailUrl(s) }))
+    : [{ text: '查看学校详情 →', to: detailUrl(pt.mainStage) }];
 
   if (pt.mainStage === 'high') {
     const rec = pt.rec;
@@ -102,7 +108,7 @@ export function buildInfoModel(pt: MapPointFull, repo: Repository): InfoModel {
   const tier = pt.tier;
   if (tier) {
     // 小学缩略面板优先展示招生条件（班数 + 对口地段）
-    const enrollRows = pt.mainStage === 'primary' ? primaryEnrollRows(repo, name) : [];
+    const enrollRows = pt.mainStage === 'primary' ? primaryEnrollRows(repo, pt) : [];
     // 小学升学路线取全量 xiaoshengchu（全等匹配）；口碑信号另缩略一条
     const linkageRows = pt.mainStage === 'primary' ? primaryLinkageRows(repo, name, pt.adcode) : [];
     if (tier.tier1_eligible === false) {
@@ -142,7 +148,7 @@ export function buildInfoModel(pt: MapPointFull, repo: Repository): InfoModel {
     rows: [
       { label: '学部', value: pt.stages.map((s) => STAGE_LABEL[s]).join('、') },
       { label: '所在区', value: districtName || '—' },
-      ...(pt.mainStage === 'primary' ? primaryEnrollRows(repo, name) : []),
+      ...(pt.mainStage === 'primary' ? primaryEnrollRows(repo, pt) : []),
       ...(pt.mainStage === 'primary' ? primaryLinkageRows(repo, name, pt.adcode) : []),
       ...(pt.mainStage === 'middle' ? middleFeedRows(repo, name) : []),
     ],

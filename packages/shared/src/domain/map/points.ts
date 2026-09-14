@@ -80,7 +80,7 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
     let pt = ptByKey.get(key);
     if (!pt) {
       pt = {
-        name: s.name, lat: s.lat, lng: s.lng, adcode: s.adcode,
+        name: s.name, school_id: s.school_id, lat: s.lat, lng: s.lng, adcode: s.adcode,
         stages: [], clsOf: {} as Record<SchoolStage, ClsKey>,
         tierOf: {}, rec: null, mainStage: stage, tier: null,
       };

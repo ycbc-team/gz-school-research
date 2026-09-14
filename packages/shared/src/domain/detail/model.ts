@@ -63,7 +63,7 @@ export interface DetailModel {
   campuses: string[] | null;
 }
 
-export function buildDetailModel(stage: SchoolStage, name: string, repo: Repository): DetailModel {
+export function buildDetailModel(stage: SchoolStage, name: string, repo: Repository, schoolId?: string): DetailModel {
   const schoolName = name;
   const { primary: primarySchools, middle: middleSchools, high: highSchools } = repo.schools;
 
@@ -71,9 +71,11 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
   const POI_LISTS: Record<SchoolStage, SchoolPoi[]> = {
     primary: primarySchools.schools, middle: middleSchools.schools, high: highSchools.schools,
   };
-  const availableStages = (['primary', 'middle', 'high'] as SchoolStage[]).filter((s: SchoolStage) =>
-    POI_LISTS[s].some((p: SchoolPoi) => normName(p.name) === normName(schoolName)),
-  );
+  const findPoi = (s: SchoolStage) => schoolId
+    ? POI_LISTS[s].find((p) => p.school_id === schoolId)
+    : POI_LISTS[s].find((p) => normName(p.name) === normName(schoolName));
+  const availableStages = (['primary', 'middle', 'high'] as SchoolStage[]).filter((s: SchoolStage) => !!findPoi(s));
+  const poi = findPoi(stage) || null;
 
   /* ---------- 校名匹配（与地图同套逻辑） ---------- */
   const tierTables = {
@@ -82,8 +84,6 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
   };
   const tier: Tier1School | undefined = (() => {
     if (stage === 'high') return undefined;
-    const poiList = stage === 'primary' ? primarySchools.schools : middleSchools.schools;
-    const poi = poiList.find((s: SchoolPoi) => normName(s.name) === normName(schoolName));
     if (poi?.note && poi.note.includes('新开办')) return undefined;
     return matchTier1ByPoiName(
       schoolName,
@@ -106,7 +106,6 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
   })();
 
   /* ---------- 基本信息 ---------- */
-  const poi = POI_LISTS[stage].find((s) => s.name === schoolName) || null;
   const districtOf = (() => {
     if (poi?.adcode) {
       const d = ADCODE_TO_DISTRICT[poi.adcode];
@@ -122,7 +121,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
   })();
 
   /* ---------- 小学 ---------- */
-  const enrollment = stage === 'primary' ? repo.matchEnrollment(schoolName) : null;
+  const enrollment = stage === 'primary' ? repo.matchEnrollment(poi?.school_id || schoolName) : null;
   const primaryMechanism = (() => {
     if (stage !== 'primary' || !poi) return null;
     const d = repo.primaryTier1.districts;

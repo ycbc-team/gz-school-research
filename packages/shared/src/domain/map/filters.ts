@@ -64,6 +64,8 @@ export function gradeAll(state: MapFilterState): boolean {
 
 export interface MapPoint {
   name: string;
+  /** 实体主键；同名学校的详情跳转与回图定位必须以此消歧。 */
+  school_id?: string;
   lat: number;
   lng: number;
   adcode: string;

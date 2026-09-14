@@ -395,7 +395,7 @@ watch(active, (v) => {
 
 /** 详情页"在地图中查看"：按校名定位并弹出信息卡 */
 function focusSchool(name: string) {
-  const pt = mapPoints.find((p) => p.name === name) || mapPoints.find((p) => p.name.includes(name));
+  const pt = mapPoints.find((p) => p.school_id === name) || mapPoints.find((p) => p.name === name) || mapPoints.find((p) => p.name.includes(name));
   if (!pt || !map) return;
   showInfo(pt);
   // 定位后清掉 focus 参数：用户再点其他学校→详情→返回时，回到当前地图视图而非重新 flyTo 旧 focus
