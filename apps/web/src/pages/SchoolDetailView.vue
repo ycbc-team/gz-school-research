@@ -64,14 +64,23 @@ const POI_LISTS: Record<SchoolStage, any[]> = {
   primary: primarySchools.schools, middle: middleSchools.schools, high: highSchools.schools,
 };
 const STAGE_LABEL: Record<SchoolStage, string> = { primary: '小学部', middle: '初中部', high: '高中部' };
-/** 该校名在哪些学部有 POI 点位（同名即视为该学部实体） */
-const availableStages = computed<SchoolStage[]>(() => {
-  const out: SchoolStage[] = [];
-  for (const s of ['primary', 'middle', 'high'] as SchoolStage[]) {
-    if (POI_LISTS[s].some((p) => schoolId.value ? p.school_id === schoolId.value : normName(p.name) === normName(schoolName.value))) out.push(s);
-  }
-  return out;
-});
+/** 精确匹配：URL 带 id 按实体 id，否则按校名全等 */
+function poiExact(s: SchoolStage) {
+  return schoolId.value
+    ? POI_LISTS[s].find((p) => p.school_id === schoolId.value)
+    : POI_LISTS[s].find((p) => normName(p.name) === normName(schoolName.value));
+}
+/** 同址集合：任一部命中 POI 的坐标，把同区同坐标的其它学部 POI 一并纳入（九年制小学部/初中部两个 POI） */
+const hitPoi = computed(() => (['primary', 'middle', 'high'] as SchoolStage[]).map(poiExact).find((p) => !!p) ?? null);
+function sameSitePoi(s: SchoolStage) {
+  const h = hitPoi.value;
+  if (!h) return poiExact(s);
+  return POI_LISTS[s].find((p) => p.adcode === h.adcode && p.lat === h.lat && p.lng === h.lng) ?? poiExact(s);
+}
+/** 该校名在哪些学部有 POI 点位（含同址多学部，如九年制小学部/初中部） */
+const availableStages = computed<SchoolStage[]>(() =>
+  (['primary', 'middle', 'high'] as SchoolStage[]).filter((s) => !!sameSitePoi(s)),
+);
 /** 当前激活学部 tab；默认 query.stage 或第一个可用学部 */
 const activeStage = ref<SchoolStage>('primary');
 /** 解析初始/切换学校后的 tab：URL query.stage 优先，否则第一个可用学部 */
@@ -91,10 +100,11 @@ watch(
     if (['primary', 'middle', 'high'].includes(s as string)) activeStage.value = s as SchoolStage;
   },
 );
-// 手动切 tab：同步 URL（replace，不堆历史），保证跳转/后退一致
+// 手动切 tab：同步 URL（replace，不堆历史），id 换为目标学部的 POI 实体 id，保证跳转/后退一致
 function switchStage(s: SchoolStage) {
   activeStage.value = s;
-  router.replace({ path: `/school/${encodeURIComponent(schoolName.value)}`, query: { stage: s, ...(schoolId.value ? { id: schoolId.value } : {}) } });
+  const pid = sameSitePoi(s)?.school_id;
+  router.replace({ path: `/school/${encodeURIComponent(schoolName.value)}`, query: { stage: s, ...(pid ? { id: pid } : {}) } });
 }
 const stage = computed(() => activeStage.value);
 
@@ -132,10 +142,7 @@ const rec = computed<HighLevelSchool | undefined>(() => {
 });
 
 /* ========== 基本信息 ========== */
-const poi = computed(() => {
-  const list = stage.value === 'primary' ? primarySchools.schools : stage.value === 'middle' ? middleSchools.schools : highSchools.schools;
-  return (schoolId.value ? list.find((s) => s.school_id === schoolId.value) : list.find((s) => s.name === schoolName.value)) || null;
-});
+const poi = computed(() => sameSitePoi(stage.value) || null);
 const stageLabel = computed(() => (stage.value === 'primary' ? '小学' : stage.value === 'middle' ? '初中' : '高中'));
 
 const ADCODE_TO_DISTRICT: Record<string, string> = {

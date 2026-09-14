@@ -79,7 +79,7 @@ const kw = ref('');
 const searchOpen = ref(false);
 const searchResults = computed(() => searchSchools(mapPoints, kw.value, repository.entities));
 function badgesOf(pt: MapPointFull) {
-  return repository.schoolBadges(pt.mainStage, { district: districtByAdcode[pt.adcode] || '', tier: pt.tier, rec: pt.rec, name: pt.name });
+  return repository.schoolBadges(pt.mainStage, { district: districtByAdcode[pt.adcode] || '', tier: pt.tier, rec: pt.rec, name: pt.name, stages: pt.stages });
 }
 function pickResult(pt: MapPointFull) {
   if (!map) return;
@@ -412,9 +412,11 @@ watch(active, (v) => {
   else detachSheetGesture?.();
 });
 
-/** 详情页"在地图中查看"：按校名定位并弹出信息卡 */
+/** 详情页"在地图中查看"：按校名/实体 id 定位并弹出信息卡（同址合并点按各学部 id/名匹配） */
 function focusSchool(name: string) {
-  const pt = mapPoints.find((p) => p.school_id === name) || mapPoints.find((p) => p.name === name) || mapPoints.find((p) => p.name.includes(name));
+  const pt = mapPoints.find((p) => p.school_id === name || (p.ids && Object.values(p.ids).includes(name)))
+    || mapPoints.find((p) => p.name === name || (p.names || []).includes(name))
+    || mapPoints.find((p) => p.name.includes(name));
   if (!pt || !map) return;
   showInfo(pt);
   // 定位后清掉 focus 参数：用户再点其他学校→详情→返回时，回到当前地图视图而非重新 flyTo 旧 focus

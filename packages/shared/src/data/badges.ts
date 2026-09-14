@@ -14,17 +14,23 @@ export function createBadgesApi(loaders: DataLoaders) {
    */
   function schoolBadges(
     stage: 'primary' | 'middle' | 'high',
-    opts: { district?: string; tier?: any; rec?: any; name?: string; singleStage?: boolean },
+    opts: { district?: string; tier?: any; rec?: any; name?: string; singleStage?: boolean; stages?: ('primary' | 'middle' | 'high')[] },
   ): SchoolBadge[] {
     const out: SchoolBadge[] = [];
     if (opts.district) out.push({ text: opts.district, cls: 'b-district' });
-    // 该校名实际出现在哪些学段（POI 全等）：覆盖完中(middle+high)与九年一贯(primary+middle)
-    const name = opts.name || '';
-    const stagesHere: ('primary' | 'middle' | 'high')[] = [];
-    if (name) {
-      if (primarySchools.schools.some((s) => normName(s.name) === normName(name))) stagesHere.push('primary');
-      if (middleSchools.schools.some((s) => normName(s.name) === normName(name))) stagesHere.push('middle');
-      if (highSchools.schools.some((s) => normName(s.name) === normName(name))) stagesHere.push('high');
+    // 该校名实际出现在哪些学段（POI 全等）：覆盖完中(middle+high)与九年一贯(primary+middle)。
+    // 优先用点位实际 stages（同址多学部合并点主名只等于主学部 POI 名，按名全等会漏非主学部）；
+    // 无 stages（详情页等按 name 推断）时回退校名全等。
+    let stagesHere: ('primary' | 'middle' | 'high')[] = [];
+    if (opts.stages && opts.stages.length) {
+      stagesHere = [...opts.stages];
+    } else {
+      const name = opts.name || '';
+      if (name) {
+        if (primarySchools.schools.some((s) => normName(s.name) === normName(name))) stagesHere.push('primary');
+        if (middleSchools.schools.some((s) => normName(s.name) === normName(name))) stagesHere.push('middle');
+        if (highSchools.schools.some((s) => normName(s.name) === normName(name))) stagesHere.push('high');
+      }
     }
     const has = (s: 'primary' | 'middle' | 'high') => stagesHere.includes(s);
     if (!opts.singleStage) {

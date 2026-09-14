@@ -12,7 +12,8 @@ export function searchSchools(
 ): MapPointFull[] {
   const k = (kw || '').trim();
   if (!k) return [];
-  const direct = points.filter((p) => p.name.includes(k)).slice(0, 12);
+  // 同址多学部合并点的 names 记录各学部 POI 名（如「南武文润学校(小学部)」），任一名命中即返回
+  const direct = points.filter((p) => p.names?.some((n) => n.includes(k)) || p.name.includes(k)).slice(0, 12);
   if (direct.length) return direct;
   if (entities && entities.length) {
     const kn = normName(k);

@@ -71,11 +71,22 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
   const POI_LISTS: Record<SchoolStage, SchoolPoi[]> = {
     primary: primarySchools.schools, middle: middleSchools.schools, high: highSchools.schools,
   };
-  const findPoi = (s: SchoolStage) => schoolId
+  // 精确匹配：URL 带 id 按实体 id，否则按校名全等
+  const findExact = (s: SchoolStage): SchoolPoi | undefined => schoolId
     ? POI_LISTS[s].find((p) => p.school_id === schoolId)
     : POI_LISTS[s].find((p) => normName(p.name) === normName(schoolName));
-  const availableStages = (['primary', 'middle', 'high'] as SchoolStage[]).filter((s: SchoolStage) => !!findPoi(s));
-  const poi = findPoi(stage) || null;
+  // 同址集合：先取任一部命中 POI，再按同区同坐标把其它学部 POI 一并纳入（九年制小学部/初中部两个 POI，
+  // 保证详情页学部 tab 完整；切 tab 时用对应学部 POI 的信息渲染）
+  const hitPoi = (['primary', 'middle', 'high'] as SchoolStage[]).map(findExact).find((p) => !!p) ?? null;
+  const sameSiteOf = (s: SchoolStage): SchoolPoi | undefined => {
+    if (!hitPoi) return findExact(s);
+    return (
+      POI_LISTS[s].find((p) => p.adcode === hitPoi.adcode && p.lat === hitPoi.lat && p.lng === hitPoi.lng) ??
+      findExact(s)
+    );
+  };
+  const availableStages = (['primary', 'middle', 'high'] as SchoolStage[]).filter((s: SchoolStage) => !!sameSiteOf(s));
+  const poi = sameSiteOf(stage) || null;
 
   /* ---------- 校名匹配（与地图同套逻辑） ---------- */
   const tierTables = {

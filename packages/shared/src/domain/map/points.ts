@@ -16,6 +16,12 @@ export interface MapPointFull extends MapPoint {
   rec: HighLevelSchool | null;
   /** 主学部梯队记录（= tierOf[mainStage]） */
   tier: Tier1School | null;
+  /** 各学部点位实体 id（同址多 POI 合并为多学部点位时分别记录；单学部 = { [mainStage]: school_id }） */
+  ids: Partial<Record<SchoolStage, string>>;
+  /** 参与合并的各学部 POI 名（搜索/定位按任意学部名命中） */
+  names: string[];
+  /** 各学部 POI 名（内部：合并点主名取主学部 POI 名，如九年制小学部/初中部两 POI 同址合并） */
+  stageNames: Partial<Record<SchoolStage, string>>;
 }
 
 /** 新开办学校无成绩：不参与口碑/挂牌判定（数据层 note 标记，避免独立法人新校被前缀误判） */
@@ -86,14 +92,17 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
     rec: HighLevelSchool | null,
   ) {
     if (!districtByAdcode[s.adcode]) return;
-    // 同 school_id = 同校区多学部；补点无 school_id 时按名合并
+    // 同 school_id = 同校区多学部；补点无 school_id 时按名合并；再按同区同坐标合并（同址多 POI 学部，
+    // 如九年制学校小学部/初中部两个独立 POI 共用坐标 → 一个多学部点位，避免地图上互相遮挡只点到其一）
     const key = s.school_id || `name:${s.name}`;
     let pt = ptByKey.get(key);
+    if (!pt) pt = allPoints.find((q) => q.adcode === s.adcode && q.lat === s.lat && q.lng === s.lng);
     if (!pt) {
       pt = {
         name: s.name, school_id: s.school_id, lat: s.lat, lng: s.lng, adcode: s.adcode,
         stages: [], clsOf: {} as Record<SchoolStage, ClsKey>, natureOf: {} as Record<SchoolStage, SchoolNature>,
         tierOf: {}, rec: null, mainStage: stage, tier: null,
+        ids: {}, names: [], stageNames: {},
       };
       ptByKey.set(key, pt);
       allPoints.push(pt);
@@ -104,6 +113,9 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
       pt.natureOf[stage] = schoolNature(stage, s.school_id, tier, rec);
       pt.tierOf[stage] = tier;
     }
+    if (s.school_id) pt.ids[stage] = s.school_id;
+    if (!pt.names.includes(s.name)) pt.names.push(s.name);
+    pt.stageNames[stage] = s.name;
     if (stage === 'high' && rec) pt.rec = rec;
   }
 
@@ -139,11 +151,13 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
   addExtra(loaders.primaryTier1, 'primary');
   addExtra(loaders.middleTier1, 'middle');
 
-  // 统一：stages 升序、主学部取最高优先级、主学部 tier
+  // 统一：stages 升序、主学部取最高优先级、主学部 tier；合并点主名取主学部 POI 名
   for (const pt of allPoints) {
     pt.stages.sort((a, b) => STAGE_PRIORITY[a] - STAGE_PRIORITY[b]);
     pt.mainStage = pt.stages[pt.stages.length - 1]!;
     pt.tier = pt.tierOf[pt.mainStage] ?? null;
+    if (pt.stageNames[pt.mainStage]) pt.name = pt.stageNames[pt.mainStage]!;
+    if (!pt.ids[pt.mainStage] && pt.school_id) pt.ids[pt.mainStage] = pt.school_id;
   }
   return allPoints;
 }
