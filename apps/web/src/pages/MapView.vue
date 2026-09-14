@@ -246,6 +246,17 @@ onMounted(() => {
     // 缩放动画期间隐藏点位，避免点位图形跟着地图被拉伸变形（动画结束按当前尺寸重显）
     markerZoomAnimation: false,
   });
+  // 缩放动画期间隐藏点位，避免点位图形跟着地图被拉伸变形（动画结束按当前尺寸重显）
+  // 注意：markerZoomAnimation:false 只覆盖"动画缩放"（控件/滚轮/双击）；
+  // 手机双指捏合是实时 transform，不走动画类，需用 zoomstart/zoomend 显式隐藏
+  map!.on('zoomstart', () => {
+    const pane = map!.getPane('markerPane');
+    if (pane) pane.style.opacity = '0';
+  });
+  map!.on('zoomend', () => {
+    const pane = map!.getPane('markerPane');
+    if (pane) pane.style.opacity = '';
+  });
   L.control.zoom({ position: 'bottomright' }).addTo(map);
   L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
     subdomains: ['1', '2', '3', '4'],
