@@ -112,6 +112,35 @@ export interface BrandGroups {
   brands: BrandGroup[];
 }
 
+/** 全量教育集团（区教育局官方口径，data/registry/education_groups.json） */
+export interface EducationGroupMember {
+  name: string;
+  stage: string;
+  source_url?: string;
+  verified?: string;
+  poi_match?: string;
+  poi_name?: string;
+  school_id?: string;
+}
+export interface EducationGroup {
+  brand: string;
+  district: string;
+  core: string[];
+  core_poi?: Array<{ name: string; poi_match?: string; poi_name?: string; school_id?: string }>;
+  level?: string;
+  type?: string;
+  members: EducationGroupMember[];
+  source_urls: string[];
+  note?: string;
+}
+export interface EducationGroups {
+  title: string;
+  updated: string;
+  source_scope?: string;
+  note?: string;
+  groups: EducationGroup[];
+}
+
 /** 学校徽章 */
 export interface SchoolBadge {
   text: string;

@@ -89,7 +89,7 @@ const MP_SUB_TARGETS = [
   'data/linkage/district_quota.json',
   'data/registry/sites.json',
   'data/registry/brand_groups.json',
-  'data/registry/education_groups_2026.json',
+  'data/registry/education_groups.json',
 ];
 
 /* ---------- JS 字面量序列化（保留 undefined 稀疏空位） ---------- */

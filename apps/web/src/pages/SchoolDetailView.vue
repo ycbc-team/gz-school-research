@@ -38,6 +38,7 @@ import {
   scoresOfSchool,
   isComprehensive,
   brandGroupOf,
+  groupOfSchool,
   resolvePoiName,
   type BrandUnit,
 } from '../data';
@@ -284,7 +285,43 @@ interface BrandRow {
   isCurrent: boolean;
   link: string | null;
 }
-const brandCard = computed<{ brand: string; note?: string; groups: { key: string; title: string; rows: BrandRow[] }[] } | null>(() => {
+const brandCard = computed<{ brand: string; note?: string; sourceUrls: string[]; groups: { key: string; title: string; rows: BrandRow[] }[] } | null>(() => {
+  const grp = groupOfSchool(schoolName.value, schoolId.value);
+  if (!grp) return null;
+
+  /* ---- source=education：区属官方集团（core+members 结构，无法人关系标注） ---- */
+  if (grp.source === 'education') {
+    const rows: BrandRow[] = grp.members.map((m) => {
+      // 优先用 poi_name 解析详情链接（多校区 POI），fallback 用官方名
+      const poiTarget = resolvePoiName(m.poi_name || m.name);
+      const stageKey = m.stage === '小学' ? 'primary' : m.stage === '初中' ? 'middle' : m.stage === '高中' ? 'high' : null;
+      // 核心校行的 stage 从 POI 推断（当前详情页 stage）
+      const finalStage = stageKey || (m.role === '核心校' ? stage.value : null);
+      const link = finalStage && poiTarget ? `/school/${encodeURIComponent(poiTarget)}?stage=${finalStage}` : null;
+      return {
+        name: m.name,
+        role: m.role,
+        legal: 'same',
+        district: '',
+        stages: m.stage ? [m.stage] : (m.role === '核心校' && stage.value ? [stage.value === 'primary' ? '小学' : stage.value === 'middle' ? '初中' : '高中'] : []),
+        badge: null,
+        reason: null,
+        isCurrent:
+          !!(m.school_id && m.school_id === schoolId.value) ||
+          normName(m.name) === normName(schoolName.value) ||
+          !!(m.poi_name && normName(m.poi_name) === normName(schoolName.value)),
+        link,
+      };
+    });
+    const groups: { key: string; title: string; rows: BrandRow[] }[] = [];
+    const coreRows = rows.filter((r) => r.role === '核心校');
+    const memberRows = rows.filter((r) => r.role !== '核心校');
+    if (coreRows.length) groups.push({ key: 'core', title: '集团核心校', rows: coreRows });
+    if (memberRows.length) groups.push({ key: 'members', title: '集团成员校（区教育局官方口径）', rows: memberRows });
+    return { brand: grp.brand, note: grp.note, sourceUrls: grp.source_urls || [], groups };
+  }
+
+  /* ---- source=brand：8 个重点品牌（带法人关系/口碑标注，现有逻辑） ---- */
   const g = brandGroupOf(schoolName.value);
   if (!g) return null;
   /** unit 核心名：先去「（别名）」内容再归一，用于与 POI 名精确匹配（如「广东实验中学天河学校（省实天河）」→「广东实验中学天河学校」；注意 normName 已去括号字符，须先剥别名） */
@@ -365,7 +402,7 @@ const brandCard = computed<{ brand: string; note?: string; groups: { key: string
   const indepRows = rows.filter((r) => r.legal === 'independent');
   if (sameRows.length) groups.push({ key: 'same', title: '同一法人单位（品牌本体/分校区 · 计入口碑）', rows: sameRows });
   if (indepRows.length) groups.push({ key: 'independent', title: '独立法人单位（品牌合作 · 口碑/挂牌按成绩判定）', rows: indepRows });
-  return { brand: g.brand, note: g.brand_note, groups };
+  return { brand: g.brand, note: g.brand_note, sourceUrls: [], groups };
 });
 /** 品牌关联有兄弟校区才展示（只剩自己则不显示该模块） */
 const brandCardUseful = computed(() =>
@@ -512,7 +549,19 @@ const brandCardUseful = computed(() =>
       <template v-if="brandCard">
         <p class="sub-note">同一品牌下的校区与学校，按法人关系分组。</p>
         <div class="brand-head">品牌 · {{ brandCard.brand }}</div>
-        <p v-if="brandCard.note" class="brand-note">{{ brandCard.note }}</p>
+        <p v-if="brandCard.note" class="brand-note">
+          {{ brandCard.note }}
+          <span v-if="brandCard.sourceUrls?.length" class="brand-sources">
+            <a
+              v-for="(url, i) in brandCard.sourceUrls"
+              :key="i"
+              :href="url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="brand-source-link"
+            >[官方文件{{ brandCard.sourceUrls.length > 1 ? ' ' + (i + 1) : '' }}]</a>
+          </span>
+        </p>
         <div v-for="g in brandCard.groups" :key="g.key" class="brand-group">
           <div class="brand-group-title" :class="g.key">{{ g.title }}</div>
           <div v-for="r in g.rows" :key="r.name" class="brand-row" :class="{ current: r.isCurrent }">
@@ -640,6 +689,9 @@ const brandCardUseful = computed(() =>
 /* 品牌关联板块 */
 .brand-head { font-size: 12.5px; font-weight: 700; color: #1a1b1c; margin-bottom: 4px; }
 .brand-note { font-size: 12px; color: #444; line-height: 1.7; margin: 0 0 10px; background: #f7f6f2; border-radius: 8px; padding: 8px 10px; }
+.brand-sources { margin-left: 6px; }
+.brand-source-link { color: #2563eb; text-decoration: none; margin-right: 4px; }
+.brand-source-link:hover { text-decoration: underline; }
 .brand-group { margin-bottom: 10px; }
 .brand-group:last-child { margin-bottom: 0; }
 .brand-group-title { font-size: 11.5px; font-weight: 700; color: #6b7280; margin-bottom: 6px; }

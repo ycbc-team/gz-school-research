@@ -26,6 +26,7 @@ import batch2ScoresCompact from './compact/linkage/batch2_scores.js';
 import districtQuotaCompact from './compact/linkage/district_quota.js';
 import sitesRegistryCompact from './compact/registry/sites.js';
 import brandGroupsCompact from './compact/registry/brand_groups.js';
+import educationGroupsCompact from './compact/registry/education_groups.js';
 import highScores2025Compact from './compact/high/scores_2025.js';
 import highScores2026Compact from './compact/high/scores_2026.js';
 
@@ -59,6 +60,7 @@ const loaders: DataLoaders = {
   xiaoshengchu: cast(hydrate(xiaoshengchu2026Compact)),
   sites: cast(hydrate(sitesRegistryCompact)),
   brandGroups: cast(hydrate(brandGroupsCompact)),
+  educationGroups: cast(hydrate(educationGroupsCompact)),
 };
 
 /** 共享数据仓库（查询/判定/匹配业务逻辑全部来自 @gz/shared，双端单点维护） */
@@ -106,6 +108,7 @@ export const {
   resolveSite,
   resolvePoiName,
   brandGroupOf,
+  groupOfSchool,
   tier1Schools,
   middleTier1Schools,
   CAMPUS_NAMES,

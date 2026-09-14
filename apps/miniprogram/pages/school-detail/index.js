@@ -17,7 +17,7 @@ const loaders = {
   districtQuota: cast(hydrate(require('./data/linkage/district_quota.js'))),
   sites: cast(hydrate(require('./data/registry/sites.js'))),
   brandGroups: cast(hydrate(require('./data/registry/brand_groups.js'))),
-  educationGroups: cast(hydrate(require('./data/registry/education_groups_2026.js'))),
+  educationGroups: cast(hydrate(require('./data/registry/education_groups.js'))),
 };
 const repository = createRepository(loaders);
 

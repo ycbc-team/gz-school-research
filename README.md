@@ -167,7 +167,7 @@ npm run check                 # 全部 workspace 类型检查
 - [x] **P0** 招考办 2026 集团名额分配表落盘（`data/registry/education_groups_2026.json`，43 核心校 / 118 成员关系，官方源 http://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html ）
 - [x] **P1** 集团成员覆盖比对（`docs/education-groups-coverage/集团成员覆盖清单_P1.md`，161 校逐一比对 POI 三层：精确命中 49 / 变体命中 45 / 7 区内真实缺失 2 / 远郊不在范围 65）
 - [x] **P2** 8 品牌组官方来源交叉核实（`data/registry/brand_groups.json`，新增 25 个成员单位，全部附来源 URL + 法人关系标注；单测 12/12 通过，快照已更新）
-- [ ] **P3** 区属非示范集团 + 小学集团全量（华阳、体育东、天府、东风东等）按各区文件补录
+- [x] **P3** 区属非示范集团 + 小学集团全量（7区85个教育集团/334所成员校，`data/registry/education_groups.json`，覆盖清单见 `docs/education-groups-coverage/集团成员覆盖清单_P3.md`；POI精确命中152/变体命中141/7区内缺失33/远郊8）
 - [ ] **P4** 年度更新机制（每年 5 月招考办新表发布后跑更新脚本）
 
 ## 安全约定

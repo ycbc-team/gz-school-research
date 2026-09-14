@@ -4,7 +4,7 @@
 import { matchBrandByPoiName, normName, looseNorm } from '../support.js';
 import type { BrandGroupLite } from '../support.js';
 import type { DataLoaders } from './loader.js';
-import type { BrandGroup, Site } from './types.js';
+import type { BrandGroup, Site, EducationGroup } from './types.js';
 
 export function createRegistryApi(loaders: DataLoaders) {
   const registrySites: Site[] = loaders.sites.schools.flatMap((s) => s.sites);
@@ -74,5 +74,174 @@ export function createRegistryApi(loaders: DataLoaders) {
     return loaders.brandGroups.brands.find((g) => g.brand === brand) || null;
   }
 
-  return { resolveSite, resolvePoiName, resolveSchoolIdOf, brandGroupOf, brandGroups: loaders.brandGroups };
+  /** 根据 source_urls 域名自动推断来源说明文案 */
+  function inferSourceNote(urls: string[]): string {
+    if (!urls.length) return '区教育局官方教育集团化办学文件口径';
+    const u = urls[0]!;
+    if (u.includes('yuexiu.gov.cn') && u.includes('xqhjthbx')) return '越秀区教育局"669"学区化集团化办学一览表';
+    if (u.includes('haizhu.gov.cn')) return '海珠区教育局集团化办学通知';
+    if (u.includes('lw.gov.cn') && u.includes('gzlwjy')) return '荔湾区教育局公开文件';
+    if (u.includes('hp.gov.cn')) return '黄埔区教育局官方发布';
+    if (u.includes('thnet.gov.cn')) return '天河区政府官网（含成员校名单）';
+    if (u.includes('panyu.gov.cn')) return '番禺区教育局官方发布';
+    if (u.includes('baiyun')) return '白云区教育局官方发布';
+    return '区教育局官方教育集团化办学文件口径';
+  }
+
+  /**
+   * school_id → 所属集团索引（离线构建，运行时 O(1) 精确查）。
+   * 覆盖 education_groups.json 里 core_poi.school_id + members[].school_id。
+   * brandGroups 的 unit 无 school_id（按 POI 名匹配），不在此索引。
+   */
+  const schoolIdToGroup = new Map<string, EducationGroup>();
+  {
+    const eg = loaders.educationGroups;
+    if (eg?.groups?.length) {
+      for (const g of eg.groups) {
+        for (const p of g.core_poi || []) {
+          if (p.school_id) schoolIdToGroup.set(p.school_id, g);
+        }
+        for (const m of g.members || []) {
+          if (m.school_id) schoolIdToGroup.set(m.school_id, g);
+        }
+      }
+    }
+  }
+
+  /**
+   * 按 school_id（首选）或校名匹配所属教育集团（详情页"品牌关联"板块统一入口）。
+   * - 优先 school_id 查离线索引（精确，O(1)）
+   * - 其次 brandGroups（8 个重点品牌，带法人关系/口碑标注）
+   * - 最后校名模糊匹配 educationGroups（fallback，处理 school_id 缺失的远郊/新校）
+   * 返回统一形状，调用方按 source 决定渲染分组口径。
+   */
+  function groupOfSchool(name: string, schoolId?: string | null): {
+    source: 'brand' | 'education';
+    brand: string;
+    note?: string;
+    core: string[];
+    members: Array<{ name: string; stage?: string; role: string; poi_names?: string[]; poi_name?: string; school_id?: string; legal?: 'same' | 'independent' }>;
+    source_urls: string[];
+  } | null {
+    if (!name && !schoolId) return null;
+    // 0. 首选 school_id 精确查离线索引
+    if (schoolId && schoolIdToGroup.has(schoolId)) {
+      const g = schoolIdToGroup.get(schoolId)!;
+      // 核心校：优先展开 core_poi 的多校区 POI（如东风东 4 个校区），fallback 到 core 官方名
+      const corePoiRows = (g.core_poi || []).map((p) => ({
+        name: p.poi_name || p.name,
+        role: '核心校',
+        poi_name: p.poi_name,
+        school_id: p.school_id,
+      }));
+      const coreRows = corePoiRows.length
+        ? corePoiRows
+        : g.core.map((c) => ({ name: c, role: '核心校' }));
+      return {
+        source: 'education',
+        brand: g.brand,
+        note: g.note || inferSourceNote(g.source_urls || []),
+        core: g.core,
+        members: [
+          ...coreRows,
+          ...g.members.map((m) => ({
+            name: m.name,
+            stage: m.stage,
+            role: '成员校',
+            poi_names: m.poi_name ? [m.poi_name] : undefined,
+            poi_name: m.poi_name,
+            school_id: m.school_id,
+          })),
+        ],
+        source_urls: g.source_urls || [],
+      };
+    }
+    // 1. 其次 brandGroups（信息更丰富：法人关系/口碑/挂牌）
+    const bg = brandGroupOf(name || '');
+    if (bg) {
+      return {
+        source: 'brand',
+        brand: bg.brand,
+        note: bg.brand_note,
+        core: bg.units.filter((u) => u.legal === 'same').map((u) => u.name),
+        members: bg.units.map((u) => ({
+          name: u.name,
+          role: u.role,
+          legal: u.legal,
+          poi_names: u.poi_names,
+        })),
+        source_urls: [],
+      };
+    }
+    // 2. fallback：校名模糊匹配 educationGroups（处理 school_id 缺失的远郊/新校）
+    const eg = loaders.educationGroups;
+    if (!eg || !eg.groups?.length || !name) return null;
+    const DISTRICT_PREFIX = ['越秀区','荔湾区','海珠区','天河区','白云区','黄埔区','番禺区','花都区','南沙区','增城区','从化区'];
+    const stripDistrict = (s: string): string => {
+      let r = normName(s);
+      for (const d of DISTRICT_PREFIX) {
+        if (r.startsWith(d)) { r = r.slice(d.length); break; }
+      }
+      return r;
+    };
+    const inputVariants = new Set<string>();
+    inputVariants.add(normName(name));
+    inputVariants.add(looseNorm(name));
+    inputVariants.add(stripDistrict(name));
+    const normInput = normName(name);
+    const looseInput = looseNorm(name);
+    for (const e of entities) {
+      if (normName(e.name) === normInput || looseNorm(e.name) === looseInput) {
+        inputVariants.add(normName(e.name));
+        inputVariants.add(looseNorm(e.name));
+        inputVariants.add(stripDistrict(e.name));
+        for (const a of e.aliases || []) {
+          inputVariants.add(normName(a));
+          inputVariants.add(looseNorm(a));
+          inputVariants.add(stripDistrict(a));
+        }
+        break;
+      }
+    }
+    const matchName = (target: string): boolean =>
+      inputVariants.has(normName(target)) ||
+      inputVariants.has(looseNorm(target)) ||
+      inputVariants.has(stripDistrict(target));
+    for (const g of eg.groups) {
+      const inCore = g.core.some(matchName);
+      const inMembers = g.members.some((m) => matchName(m.name));
+      if (inCore || inMembers) {
+        const corePoiRows = (g.core_poi || []).map((p) => ({
+          name: p.poi_name || p.name,
+          role: '核心校' as const,
+          poi_name: p.poi_name,
+          school_id: p.school_id,
+        }));
+        const coreRows = corePoiRows.length
+          ? corePoiRows
+          : g.core.map((c) => ({ name: c, role: '核心校' as const }));
+        return {
+          source: 'education',
+          brand: g.brand,
+          note: g.note || inferSourceNote(g.source_urls || []),
+          core: g.core,
+          members: [
+            ...coreRows,
+            ...g.members.map((m) => ({
+              name: m.name,
+              stage: m.stage,
+              role: '成员校',
+              poi_names: m.poi_name ? [m.poi_name] : undefined,
+              poi_name: m.poi_name,
+              school_id: m.school_id,
+            })),
+          ],
+          source_urls: g.source_urls || [],
+        };
+      }
+    }
+    return null;
+  }
+
+  return { resolveSite, resolvePoiName, resolveSchoolIdOf, brandGroupOf, groupOfSchool, brandGroups: loaders.brandGroups };
 }

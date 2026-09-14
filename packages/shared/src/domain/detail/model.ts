@@ -58,7 +58,7 @@ export interface DetailModel {
   admissionRows: DetailRow[];
   gaokaoRows: DetailRow[];
   /* 品牌/校区 */
-  brandCard: { brand: string; note?: string; groups: { key: string; title: string; rows: BrandRow[] }[] } | null;
+  brandCard: { brand: string; note?: string; sourceUrls: string[]; groups: { key: string; title: string; rows: BrandRow[] }[] } | null;
   brandCardUseful: boolean;
   campuses: string[] | null;
 }
@@ -225,6 +225,39 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
 
   /* ---------- 品牌关联 ---------- */
   const brandCard = (() => {
+    // 统一入口：优先 school_id 查离线索引，再查 brandGroups，最后校名匹配
+    const grp = repo.groupOfSchool(schoolName, schoolId);
+    if (!grp) return null;
+
+    // education 来源：区属官方集团（核心校多校区展开 + 成员校，简化渲染）
+    if (grp.source === 'education') {
+      const rows: BrandRow[] = grp.members.map((m) => {
+        const stages: string[] = m.stage ? [m.stage] : (m.role === '核心校' && stage ? [STAGE_SHORT[stage]] : []);
+        const link = m.name ? `/school/${encodeURIComponent(m.poi_name || m.name)}?stage=${stage || 'primary'}` : null;
+        return {
+          name: m.name,
+          role: m.role,
+          legal: 'same' as const,
+          district: '',
+          stages,
+          badge: null,
+          reason: null,
+          isCurrent:
+            !!(m.school_id && m.school_id === schoolId) ||
+            normName(m.name) === normName(schoolName) ||
+            !!(m.poi_name && normName(m.poi_name) === normName(schoolName)),
+          link,
+        };
+      });
+      const groups: { key: string; title: string; rows: BrandRow[] }[] = [];
+      const coreRows = rows.filter((r) => r.role === '核心校');
+      const memberRows = rows.filter((r) => r.role !== '核心校');
+      if (coreRows.length) groups.push({ key: 'core', title: '集团核心校', rows: coreRows });
+      if (memberRows.length) groups.push({ key: 'members', title: '集团成员校（区教育局官方口径）', rows: memberRows });
+      return { brand: grp.brand, note: grp.note, sourceUrls: grp.source_urls || [], groups };
+    }
+
+    // brand 来源：8 个重点品牌（法人关系/口碑标注）
     const g = repo.brandGroupOf(schoolName);
     if (!g) return null;
     const unitCoreNorm = (n: string): string => normName(n.replace(/[（(][^）)]*[）)]/g, ''));
@@ -290,7 +323,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     const indepRows = rows.filter((r) => r.legal === 'independent');
     if (sameRows.length) groups.push({ key: 'same', title: '同一法人单位（品牌本体/分校区 · 计入口碑）', rows: sameRows });
     if (indepRows.length) groups.push({ key: 'independent', title: '独立法人单位（品牌合作 · 口碑/挂牌按成绩判定）', rows: indepRows });
-    return { brand: g.brand, note: g.brand_note, groups };
+    return { brand: g.brand, note: g.brand_note, sourceUrls: [], groups };
   })();
   const brandCardUseful = !!brandCard && brandCard.groups.some((g) => g.rows.some((r) => !r.isCurrent));
 

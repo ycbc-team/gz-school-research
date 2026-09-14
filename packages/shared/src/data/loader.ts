@@ -10,7 +10,7 @@ import type {
   HighLevelsSnapshot,
   EnrollmentSnapshot,
 } from '../types.js';
-import type { QuotaMatrix, SpecialMatrix, Batch2Scores, HighScores, Site, BrandGroups } from './types.js';
+import type { QuotaMatrix, SpecialMatrix, Batch2Scores, HighScores, Site, BrandGroups, EducationGroups } from './types.js';
 
 export interface DataLoaders {
   primarySchools: SchoolsSnapshot;
@@ -44,4 +44,6 @@ export interface DataLoaders {
   /** 学校身份注册表（site 粒度） */
   sites: { schools: Array<{ sites: Site[] }> };
   brandGroups: BrandGroups;
+  /** 全量教育集团（区教育局官方口径，85 集团/334 成员；brandGroups 未命中时回退查询） */
+  educationGroups?: EducationGroups;
 }
