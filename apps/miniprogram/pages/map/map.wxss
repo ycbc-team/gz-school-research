@@ -1,6 +1,6 @@
-/* 地图页：三学段点位 + 三级筛选 + 搜索 + 底部抽屉信息卡 */
+/* 地图页：三学段点位 + 三级筛选 + 搜索 + 底部抽屉信息卡（map 同层渲染，浮层用普通 view） */
 .page { position: relative; width: 100vw; height: 100vh; background: #f4f3ee; }
-.map { width: 100%; height: 100vh; }
+.map { width: 100%; height: 100vh; z-index: 0; }
 
 /* ---------- 顶部控件（cover-view 浮层） ---------- */
 .top {
@@ -63,19 +63,7 @@
 }
 .pop-link { font-size: 25rpx; color: #1a6bd6; padding: 6rpx 12rpx; }
 
-/* ---------- 右下角计数 ---------- */
-.count {
-  position: absolute; right: 16rpx; bottom: 24rpx; z-index: 15;
-  background: rgba(255,255,255,0.95); border-radius: 26rpx;
-  padding: 6rpx 22rpx; font-size: 22rpx; color: #444;
-  box-shadow: 0 1rpx 6rpx rgba(20,30,50,0.1);
-}
-
-/* ---------- 底部抽屉信息卡 ---------- */
-.mask {
-  position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 40;
-  background: rgba(15,23,42,0.25);
-}
+/* ---------- 底部抽屉信息卡（无黑蒙层，点地图空白关闭） ---------- */
 .drawer {
   position: absolute; left: 12rpx; right: 12rpx; bottom: 12rpx; z-index: 50;
   background: rgba(255,255,255,0.98); border-radius: 28rpx 28rpx 20rpx 20rpx;
