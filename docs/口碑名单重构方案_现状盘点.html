@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>口碑学校名单重构方案 · 现状盘点</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+  :root{
+    --ink:#1f2937; --mut:#6b7280; --line:#e5e7eb; --bg:#f8fafc;
+    --blue:#2563eb; --green:#059669; --orange:#d97706; --red:#dc2626; --gray:#9ca3af;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--bg); line-height:1.6;}
+  .wrap{max-width:1200px; margin:0 auto; padding:32px 20px 80px;}
+  header{border-bottom:2px solid var(--ink); padding-bottom:16px; margin-bottom:24px;}
+  h1{font-size:26px;}
+  header .sub{color:var(--mut); margin-top:6px; font-size:14px;}
+  h2{font-size:19px; margin:36px 0 14px; padding-left:10px; border-left:4px solid var(--blue);}
+  h3{font-size:15px; margin:18px 0 8px; color:#374151;}
+  .cards{display:flex; gap:12px; flex-wrap:wrap;}
+  .card{flex:1 1 200px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 16px;}
+  .card .num{font-size:28px; font-weight:700;}
+  .card .lbl{font-size:13px; color:var(--mut); margin-top:2px;}
+  .chart{background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px; margin:12px 0;}
+  table{width:100%; border-collapse:collapse; background:#fff; font-size:12.5px; margin-top:10px;}
+  th,td{border:1px solid var(--line); padding:6px 8px; text-align:left; white-space:nowrap;}
+  th{background:#f1f5f9; position:sticky; top:0;}
+  tr:nth-child(even){background:#fafafa;}
+  .tag{display:inline-block; padding:1px 7px; border-radius:10px; font-size:11.5px; color:#fff;}
+  .t-red{background:var(--red);} .t-orange{background:var(--orange);} .t-green{background:var(--green);} .t-gray{background:var(--gray);}
+  .filters{margin:10px 0; display:flex; gap:10px; flex-wrap:wrap;}
+  .filters select{padding:5px 8px; border:1px solid var(--line); border-radius:6px; font-size:13px;}
+  .tblbox{max-height:520px; overflow:auto; border:1px solid var(--line); border-radius:10px;}
+  .note{font-size:12.5px; color:var(--mut); margin-top:6px;}
+  .callout{background:#fffbeb; border:1px solid #fcd34d; border-radius:10px; padding:12px 16px; margin:12px 0; font-size:14px;}
+  .callout b{color:var(--orange);}
+  ul,ol{margin:6px 0 6px 22px;}
+  li{margin:3px 0;}
+  .kv{display:grid; grid-template-columns:auto 1fr; gap:4px 16px; font-size:14px;}
+  .kv b{color:#374151;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:800px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body><div class="wrap">
+
+<header>
+  <h1>口碑学校名单重构方案 · 现状盘点</h1>
+  <div class="sub">小学 / 初中口碑名单（tier1_schools_all）· 2026-09-14 · 数据真源：data/primary/tier1_schools_all.json、data/middle/tier1_schools_all.json</div>
+</header>
+
+<div class="cards">
+  <div class="card"><div class="num">59 所</div><div class="lbl">小学口碑名单（7 区）</div></div>
+  <div class="card"><div class="num">54 所</div><div class="lbl">初中口碑名单（7 区）</div></div>
+  <div class="card"><div class="num">29 种</div><div class="lbl">小学梯队文本口径（初中仅 1 种）</div></div>
+  <div class="card"><div class="num">47 所</div><div class="lbl">“部分支撑 / 不支撑”仍入列（39 小 + 11 初，去重口径见下）</div></div>
+</div>
+
+<div class="callout"><b>核心判断：</b>口碑名单当前是“网传来源原样收录”口径，缺统一分级门槛——小学梯队文本碎片化（29 种）、初中 54 所全部标“第一梯队”；来源以房产号/自媒体榜单为主，把“口碑不错”“热门”级学校也当口碑校收录（石楼镇中心小学即典型案例）。<b>重构口径：来源时效（2023+）× 官方客观事实（省一级/绩效/集团）× 出口实证（直升/自招/名额分配/中考）三层门槛。</b></div>
+
+<h2>01 · 现状：两份名单的关键指标</h2>
+<div class="grid2">
+  <div class="chart" id="c1" style="height:360px;"></div>
+  <div class="chart" id="c2" style="height:360px;"></div>
+</div>
+
+<h2>02 · 问题模式归类（5 类）</h2>
+<div class="chart" id="c3" style="height:320px;"></div>
+<table>
+  <tr><th style="width:26%">问题模式</th><th>表现</th><th style="width:34%">代表案例</th></tr>
+  <tr><td><span class="tag t-red">口径</span> 梯队文本碎片化 / 一梯队泛化</td><td>小学 29 种梯队文本；初中 54 所全部“第一梯队”，一梯队=口碑初中同义词</td><td>初中全名单；小学“口碑校（网传）”“热门（网传，省级小学盘点）”等</td></tr>
+  <tr><td><span class="tag t-red">口径</span> 收录无“梯队共识”门槛</td><td>来源里“口碑不错/热门”级学校即收为口碑校（tier1_eligible=true）</td><td>石楼镇中心小学、南村镇中心小学、洛溪新城小学、太和第一小学等</td></tr>
+  <tr><td><span class="tag t-orange">证据</span> 房产号/自媒体来源占比高</td><td>搜狐楼盘盘点、今日头条房产号、抖音房产号，楼盘导向明显</td><td>华师附中实验小学（“楼盘导向”自注）、握山小学（单源）等</td></tr>
+  <tr><td><span class="tag t-orange">证据</span> 历史称号当现行证据</td><td>1996 年前后省一级历史称号被计为“有支撑”，等级制 2005 停评/2007 取消</td><td>石楼（1996）、沙步（2003）、市桥东城（2000）等 11 所</td></tr>
+  <tr><td><span class="tag t-gray">主体</span> 停办/自相矛盾未清理</td><td>停办学校未剔（沙步）；tier1_eligible=false 仍标第一梯队；无 POI/无 id 孤儿记录</td><td>沙步小学（停办并入铁铮）；北师大广州实验、番禺执信（排除却标一梯队）；初中 orphan 4 所、noId 4 所</td></tr>
+</table>
+
+<h2>03 · 案例验证：石楼镇中心小学</h2>
+<p style="font-size:14px;">名单判定：<span class="tag t-red">口碑校（网传）</span> tier1_eligible=true · conclusion=有支撑。外部共识核验：</p>
+<table>
+  <tr><th>来源</th><th>类型</th><th>口径</th><th>结论</th></tr>
+  <tr><td>丽丽在广州（2025）——名单自引来源</td><td>房产号</td><td>番禺第一梯队=市桥中心/市桥东城；第二梯队=南阳里/德兴/北城；石楼仅列“口碑不错”</td><td><span class="tag t-orange">不在梯队内</span></td></tr>
+  <tr><td>搜狐（2017）省级小学盘点——名单自引来源</td><td>旧榜单</td><td>列为“省级小学盘点/热门”</td><td><span class="tag t-gray">时效作废（2017 &lt; 2023 门槛）</span></td></tr>
+  <tr><td>南方+（2018）番禺办学绩效</td><td>官方</td><td>石楼镇中心小学 = 二等奖（一等奖：石碁镇中心、市桥南阳里、德兴等 7 所）</td><td><span class="tag t-orange">区级中游</span></td></tr>
+  <tr><td>抖音房产号（2022）</td><td>自媒体</td><td>番禺 10 阶梯排第 9 阶梯</td><td><span class="tag t-red">靠后</span></td></tr>
+  <tr><td>无忧考网（2022）</td><td>聚合站</td><td>番禺前十边缘（第 8）</td><td><span class="tag t-orange">边缘</span></td></tr>
+  <tr><td>南方+（2021）百年老校报道</td><td>官方媒体</td><td>1996 省一级历史称号、镇街老牌，无梯队定位</td><td><span class="tag t-gray">历史事实</span></td></tr>
+</table>
+<p class="note">结论：石楼镇中心小学是番禺镇街老牌省一级（历史称号 + 绩效二等奖），属“地段口碑强校”，<b>不应作为口碑学校（更非梯队校）入列</b>——建议降级为第三梯队或移出名单（另立“地段热门/镇街强校”标注）。</p>
+
+<h2>04 · 重构方案</h2>
+<h3>4.1 重构原则</h3>
+<ol>
+  <li><b>来源时效门槛</b>：仅认 <b>2023 年及以后</b>的榜单（2025 可参考）；2017 搜狐“省级小学盘点”等旧榜单作废，仅作历史备注，不计梯队证据。</li>
+  <li><b>来源共识门槛</b>：仅“多个独立来源一致列梯队/口碑”才入列；单源、房产号独家、楼盘导向不计梯队证据。</li>
+  <li><b>官方客观事实门槛</b>：省一级/示范性称号（按授牌年份客观记录）、区教育局办学绩效、教育集团归属（核心/成员）、学位预警（官方发布）——优先于一切自媒体。</li>
+  <li><b>出口实证门槛（升学反推）</b>：小学看直升出口（直升一梯队初中=升学确定性）；初中看自主招生录取数、第二批次/名额分配表现、中考成绩——出口数据比口碑更硬。</li>
+  <li><b>现行主体门槛</b>：停办/搬迁/并入他校的一律移出（如沙步→铁铮）；民办单独口径（摇号/自招，按出口成绩定梯队并显式标注民办）。</li>
+  <li><b>分级标准化</b>：rumor_tier 统一为 第一梯队 / 第二梯队 / 第三梯队 三档 + 非梯队（地段热门）标注，废除自由文本。</li>
+</ol>
+
+<h3>4.2 客观数据源清单（可计算、可审计）</h3>
+<table>
+  <tr><th>类别</th><th>数据源</th><th>可靠性</th><th>项目数据资产</th><th>说明</th></tr>
+  <tr><td rowspan="5"><b>A 官方客观事实</b></td><td>省一级 / 示范性称号</td><td>高（政府授牌）</td><td>tier1.provincial_level_title</td><td>按授牌年份客观记录；2005 停评/2007 取消等级制后仅作历史事实，2022 起新一轮评估如适用则计入</td></tr>
+  <tr><td>区教育局办学绩效</td><td>高（官方评奖）</td><td>需核验补充（南方+ 可查）</td><td>一/二/三等奖为区分度强的客观分层（石楼=二等奖）</td></tr>
+  <tr><td>教育集团归属</td><td>高（官方组建）</td><td>data/registry/brand_groups.json、education_groups（在途）</td><td>区分核心校/直营校区（强）与挂名成员校（弱）；铁一/广附/华附/执信等集团即强信号</td></tr>
+  <tr><td>学位预警</td><td>中（官方发布，热度≠质量）</td><td>tier1.degree_warning</td><td>官方学位紧张名单，作热度佐证，不作梯队主证据</td></tr>
+  <tr><td>市级以上荣誉</td><td>中高（官方授牌）</td><td>需核验补充</td><td>文明校园、书香校园、示范校、特色校等</td></tr>
+  <tr><td rowspan="5"><b>B 出口实证（升学反推）</b></td><td>小学直升出口</td><td>高（招生方案）</td><td>data/primary/xiaoshengchu_2026.json（74 条直升）</td><td>直升一梯队初中=升学确定性信号（协和小学部→协和初中等）</td></tr>
+  <tr><td>初中自主招生录取</td><td>高（官方名单）</td><td>data/linkage/raw/autonomy/autonomy_qualify_2026.json（13866 条）</td><td>各初中考进省市属名校自招人数——强出口指标，可直接统计</td></tr>
+  <tr><td>第二批次/名额分配</td><td>高（官方）</td><td>data/linkage/batch2_scores.json、district_quota.json、quota_matrix.json</td><td>名额分配录取与到校名额数</td></tr>
+  <tr><td>中考成绩</td><td>高（喜报/官方）</td><td>data/high/scores_2025.json、scores_2026.json</td><td>整体出口水平（喜报口径需标注）</td></tr>
+  <tr><td>派位组位次</td><td>中（官方分组）</td><td>xiaoshengchu group_id</td><td>派位组内初中整体质量（次级信号）</td></tr>
+</table>
+
+<h3>4.3 分级判定矩阵（按学段实证加权）</h3>
+<table>
+  <tr><th>层级</th><th>来源共识（2023+）</th><th>官方客观事实</th><th>出口实证（升学反推）</th></tr>
+  <tr><td><span class="tag t-green">第一梯队</span></td><td>≥3 独立来源一致列第一梯队</td><td>省一级(现行)/绩效一等奖/集团核心校 任 ≥1</td><td>小学：直升一梯队初中；初中：自招录取 ≥10 人 或 名额分配/中考头部</td></tr>
+  <tr><td><span class="tag t-green">第二梯队</span></td><td>≥2 来源一致列梯队</td><td>绩效二/三等奖/集团成员校/历史省一级</td><td>初中：自招 3-9 人 或 中游偏上；小学：派位组含头部初中</td></tr>
+  <tr><td><span class="tag t-orange">第三梯队</span></td><td>≥2 来源“口碑不错/热门”（2023+）</td><td>弱客观事实或无</td><td>出口数据缺失或一般</td></tr>
+  <tr><td><span class="tag t-gray">非梯队（地段热门）</span></td><td>单源 / 房产号独家 / 仅旧榜单（2017 等）</td><td>无</td><td>无出口实证</td></tr>
+</table>
+
+<h3>4.4 处置规则与执行流程</h3>
+<div class="grid2">
+  <div>
+    <h3>处置动作</h3>
+    <ul>
+      <li><b>保留一梯队</b>：越秀/荔湾/海珠头部 + 市级名校系（约 15-20 所小学、20-25 所初中）</li>
+      <li><b>降级</b>：来源仅列“口碑不错”或 2 梯队 → 二/三梯队（石楼、南村、太和一等大量镇街校）</li>
+      <li><b>剔除</b>：停办（沙步）、单源无共识（民航/香雪/握山等）、tier1_eligible=false 却标一梯队（北师大广州实验、番禺执信）</li>
+      <li><b>补录</b>：官方实证强但漏收（如石碁镇中心小学——2018 绩效一等奖，现仅标“网传弱”）</li>
+      <li><b>初中分档</b>：用 scores_2025/2026 + batch2 出口数据把 54 所“全一梯队”拆成三档</li>
+      <li><b>民办标注</b>：9 所民办单独口径 + 显式标注</li>
+    </ul>
+  </div>
+  <div>
+    <h3>执行阶段</h3>
+    <ol>
+      <li><b>口径统一</b>：rumor_tier 标准化三档 + 来源时效（2023+）与 tier1_eligible 语义确认</li>
+      <li><b>逐校核验</b>：113 所按“来源时效→共识→官方客观事实→出口实证→现行主体”五关核验；出口数据用项目已有资产直接计算（自招数/直升/名额分配/中考）</li>
+      <li><b>分档定稿</b>：输出新版名单（含分级依据记录、school_ids 全量补齐、移出/降级清单）</li>
+      <li><b>前端适配（UI 展示口径）</b>：UI 永不展示"第一/二/三梯队"文字；口碑 Badge 仅授予 tier_rank===1（第一梯队）；tier_rank 2/3 学校仍在 SupportView/信息卡展示口碑信息，依据列显示 conclusion_basis 客观说明（如"绩效二等奖·集团成员""2023+ 口碑·无实证"）；tier_rank null（剔除，含停办）移出口碑列表</li>
+    </ol>
+  </div>
+</div>
+
+<h2>05 · 全量名单明细（113 所，可筛选）</h2>
+<div class="filters">
+  <select id="fStage"><option value="">全部学段</option><option value="小学">小学</option><option value="初中">初中</option></select>
+  <select id="fConcl"><option value="">全部结论</option><option value="有支撑">有支撑</option><option value="部分支撑">部分支撑</option><option value="不支撑">不支撑</option></select>
+  <select id="fFlag"><option value="">全部标记</option><option value="剔除">建议剔除</option><option value="降级">建议降级</option><option value="补录">建议补录</option><option value="核验">需核验</option><option value="保留">建议保留</option></select>
+</div>
+<div class="tblbox"><table id="tbl">
+  <thead><tr><th>学段</th><th>区</th><th>学校</th><th>现行梯队标注</th><th>结论</th><th>来源数</th><th>证据数</th><th>建议处置</th><th>依据摘要</th></tr></thead>
+  <tbody></tbody>
+</table></div>
+
+<script>
+const DATA = {"primary":[{"district":"越秀区","name":"广州市越秀区东风东路小学","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":5,"nEv":2,"group":1,"provYear":1996,"stop":false},{"district":"越秀区","name":"广州市越秀区文德路小学","tier":"第一梯队","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":5,"nEv":2,"group":1,"provYear":1994,"stop":false},{"district":"越秀区","name":"广州市越秀区东山培正小学","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":5,"nEv":2,"group":1,"provYear":1994,"stop":false},{"district":"越秀区","name":"广州市越秀区小北路小学","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":5,"nEv":2,"group":1,"provYear":1996,"stop":false},{"district":"越秀区","name":"广州市越秀区农林下路小学","tier":"第一梯队","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":5,"nEv":2,"group":1,"provYear":2006,"stop":false},{"district":"越秀区","name":"广州市越秀区铁一小学","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":4,"nEv":2,"group":1,"provYear":2005,"stop":false},{"district":"荔湾区","name":"广州市荔湾区乐贤坊小学","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":5,"nEv":1,"group":1,"provYear":1994,"stop":false},{"district":"荔湾区","name":"广州协和学校（小学部，原广州市协和小学）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":true,"hasId":true,"nSrc":5,"nEv":2,"group":1,"provYear":1996,"stop":false},{"district":"荔湾区","name":"广州市荔湾区沙面小学","tier":"第一梯队","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":5,"nEv":1,"group":1,"provYear":1994,"stop":false},{"district":"荔湾区","name":"广州市荔湾区康有为纪念小学","tier":"第一梯队（仅个别版本）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":1,"provYear":2005,"stop":false},{"district":"海珠区","name":"广州市海珠区实验小学（穗花校区/富基校区）","tier":"第一梯队（民间标签，非官方）","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":3,"group":1,"provYear":1996,"stop":false},{"district":"海珠区","name":"广州市海珠区同福中路第一小学","tier":"第一梯队（民间标签，非官方）","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":1,"provYear":1994,"stop":false},{"district":"海珠区","name":"广州市海珠区宝玉直小学","tier":"第二梯队~名校（民间标签，非官方；版本差异）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":1,"provYear":1998,"stop":false},{"district":"海珠区","name":"广州市海珠区昌岗中路小学","tier":"名校/第二梯队（民间标签，非官方；版本差异）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":1,"provYear":2003,"stop":false},{"district":"天河区","name":"华南师范大学附属小学","tier":"第一梯队（民间标签，非官方）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":4,"nEv":2,"group":1,"provYear":1996,"stop":false},{"district":"天河区","name":"广州市天河区华阳小学","tier":"第一梯队（民间标签，非官方）","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":6,"nEv":1,"group":1,"provYear":2003,"stop":false},{"district":"天河区","name":"广州市天河区华景小学","tier":"第一梯队（民间标签，非官方）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":4,"nEv":1,"group":1,"provYear":2006,"stop":false},{"district":"天河区","name":"广州市天河区龙口西小学","tier":"第一梯队（民间标签，非官方）","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":4,"nEv":1,"group":1,"provYear":null,"stop":false},{"district":"天河区","name":"广州市天河区天府路小学","tier":"第一梯队（民间标签，非官方；版本差异）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":1,"provYear":null,"stop":false},{"district":"天河区","name":"广州市天河区体育东路小学（含兴国学校、海明学校）","tier":"第一梯队/顶尖（民间标签，非官方；版本差异）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":2001,"stop":false},{"district":"白云区","name":"广州市白云区京溪小学","tier":"第一梯队/口碑名校（网传）","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":4,"nEv":1,"group":1,"provYear":1994,"stop":false},{"district":"白云区","name":"广州市白云区景泰小学","tier":"第一梯队（网传）","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":4,"nEv":1,"group":1,"provYear":2005,"stop":false},{"district":"白云区","name":"广州市白云区广园小学","tier":"第一梯队/老牌名校（网传）","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":4,"nEv":1,"group":1,"provYear":1994,"stop":false},{"district":"白云区","name":"广州市白云区黄边小学","tier":"第一梯队（网传）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":0,"provYear":2005,"stop":false},{"district":"白云区","name":"广州市白云区三元里小学","tier":"热门/老牌名校（网传）","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":1,"provYear":1995,"stop":false},{"district":"白云区","name":"广州市白云区华师附中实验小学","tier":"口碑名校/热门（网传，楼盘导向）","conclusion":"部分支撑","eligible":false,"orphan":false,"hasId":true,"nSrc":2,"nEv":3,"group":1,"provYear":null,"stop":false},{"district":"白云区","name":"广州市白云区同和小学","tier":"热门（网传，省级小学盘点）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":0,"provYear":2004,"stop":false},{"district":"白云区","name":"广州市白云区握山小学","tier":"热门（网传，省级小学盘点）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":1,"nEv":1,"group":0,"provYear":2004,"stop":false},{"district":"白云区","name":"广州市白云区明德小学","tier":"热门（网传，省级小学盘点）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":0,"provYear":2006,"stop":false},{"district":"白云区","name":"广州市白云区人和镇第二小学","tier":"热门（网传，省级小学盘点）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":0,"provYear":2006,"stop":false},{"district":"白云区","name":"广州市白云区江村小学","tier":"热门（网传，省级小学盘点）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":0,"provYear":2005,"stop":false},{"district":"白云区","name":"广州市白云区太和第一小学","tier":"热门（网传，省级小学盘点）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":2,"group":0,"provYear":2006,"stop":false},{"district":"白云区","name":"广州市白云区民航学校（校本部·小学部）","tier":"第一梯队（网传，仅单源）","conclusion":"不支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":1,"nEv":2,"group":0,"provYear":null,"stop":false},{"district":"黄埔区","name":"广州市黄埔区怡园小学（东、西、北校区）","tier":"第一梯队（网传，多来源）","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":6,"nEv":2,"group":0,"provYear":1994,"stop":false},{"district":"黄埔区","name":"广州市黄埔区荔园小学","tier":"第一梯队（网传）","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":0,"provYear":2000,"stop":false},{"district":"黄埔区","name":"广州市黄埔区港湾小学","tier":"第一梯队（网传）","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":0,"provYear":1994,"stop":false},{"district":"黄埔区","name":"广州市黄埔区下沙小学","tier":"第二梯队（网传）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":0,"provYear":2002,"stop":false},{"district":"黄埔区","name":"广州市黄埔区文冲小学","tier":"第二梯队（网传）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":0,"provYear":2005,"stop":false},{"district":"黄埔区","name":"广州市黄埔区沙步小学","tier":"第二梯队（网传）","conclusion":"部分支撑","eligible":true,"orphan":true,"hasId":false,"nSrc":2,"nEv":1,"group":0,"provYear":2003,"stop":true},{"district":"黄埔区","name":"广州石化小学（东、西校区）","tier":"省一级/热门（网传）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":2,"group":0,"provYear":1994,"stop":false},{"district":"黄埔区","name":"广州市黄埔区东荟花园小学（东、南、北校区）","tier":"第一梯队（网传，新校口碑）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":0,"provYear":null,"stop":false},{"district":"黄埔区","name":"广州市黄埔区玉泉学校（小学部）","tier":"口碑名校（网传）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":3,"group":0,"provYear":null,"stop":false},{"district":"黄埔区","name":"广州市黄埔区香雪小学","tier":"口碑校（网传，仅单源）","conclusion":"不支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":1,"nEv":1,"group":0,"provYear":null,"stop":false},{"district":"黄埔区","name":"广州市黄埔区黄埔军校小学","tier":"集团名校（网传，依托广附系）","conclusion":"部分支撑","eligible":false,"orphan":false,"hasId":true,"nSrc":1,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"番禺区","name":"广州市番禺区市桥中心小学","tier":"第一梯队（网传，番禺公认第一梯队）","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":0,"provYear":1994,"stop":false},{"district":"番禺区","name":"广州市番禺区市桥东城小学","tier":"第一梯队（网传）","conclusion":"有支撑","eligible":true,"orphan":true,"hasId":true,"nSrc":3,"nEv":1,"group":0,"provYear":2000,"stop":false},{"district":"番禺区","name":"广州市番禺区市桥南阳里小学","tier":"第二梯队（网传）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":0,"provYear":2003,"stop":false},{"district":"番禺区","name":"广州市番禺区市桥德兴小学","tier":"第二梯队（网传）","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":1,"provYear":2003,"stop":false},{"district":"番禺区","name":"广州市番禺区市桥北城小学","tier":"第二梯队（网传）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":0,"provYear":2004,"stop":false},{"district":"番禺区","name":"广州市番禺区市桥实验小学","tier":"热门/优质校（网传，桥南板块）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":1,"provYear":null,"stop":false},{"district":"番禺区","name":"广东番禺中学附属学校（小学部）","tier":"集团名校（网传）","conclusion":"部分支撑","eligible":false,"orphan":false,"hasId":true,"nSrc":1,"nEv":3,"group":1,"provYear":null,"stop":false},{"district":"番禺区","name":"广东仲元中学附属学校（小学部）","tier":"集团名校（网传）","conclusion":"部分支撑","eligible":false,"orphan":false,"hasId":true,"nSrc":1,"nEv":3,"group":1,"provYear":null,"stop":false},{"district":"番禺区","name":"广州市番禺区石碁镇中心小学","tier":"镇街中心校/区属重点（网传弱）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":1,"nEv":1,"group":0,"provYear":2004,"stop":false},{"district":"番禺区","name":"广州市番禺区石楼镇中心小学","tier":"口碑校（网传）","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":0,"provYear":1996,"stop":false},{"district":"番禺区","name":"广州市番禺区南村镇中心小学","tier":"口碑校（网传）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":0,"provYear":2006,"stop":false},{"district":"番禺区","name":"广州市番禺区洛溪新城小学","tier":"口碑校/学位紧张（网传）","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":1,"nEv":1,"group":0,"provYear":null,"stop":false},{"district":"番禺区","name":"广州市番禺区华师附中番禺小学","tier":"热门（网传，原民办现公办）","conclusion":"部分支撑","eligible":false,"orphan":false,"hasId":true,"nSrc":1,"nEv":3,"group":0,"provYear":null,"stop":false},{"district":"番禺区","name":"广州大学附属小学","tier":"高校附校/口碑校（网传）","conclusion":"部分支撑","eligible":false,"orphan":false,"hasId":true,"nSrc":1,"nEv":3,"group":0,"provYear":null,"stop":false},{"district":"番禺区","name":"华南师范大学附属广州大学城小学","tier":"高校附校/口碑校（网传）","conclusion":"部分支撑","eligible":false,"orphan":false,"hasId":true,"nSrc":1,"nEv":4,"group":0,"provYear":null,"stop":false}],"middle":[{"district":"越秀区","name":"广东实验中学（初中部）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"越秀区","name":"广州市执信中学（执信路校区）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"越秀区","name":"广州市第二中学（初中部）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"越秀区","name":"广州大学附属中学（黄华路校区）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"越秀区","name":"广州市铁一中学（越秀校区）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"越秀区","name":"广州市第七中学（本部）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"越秀区","name":"广州市第十六中学（本部）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"越秀区","name":"广州市越秀区育才实验学校","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":0,"provYear":null,"stop":false},{"district":"越秀区","name":"广州市培正中学（初中部）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"荔湾区","name":"广东广雅中学（初中部）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"荔湾区","name":"广州市荔湾区西关广雅实验学校（西雅）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":4,"group":1,"provYear":null,"stop":false},{"district":"荔湾区","name":"广东实验中学荔湾学校（省实荔湾）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":3,"group":1,"provYear":null,"stop":false},{"district":"荔湾区","name":"广州市真光中学（校本部）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"荔湾区","name":"广州市第一中学","tier":"第一梯队","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":1,"provYear":null,"stop":false},{"district":"荔湾区","name":"广州市第四中学","tier":"第一梯队","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":1,"provYear":null,"stop":false},{"district":"荔湾区","name":"广州市西关外国语学校","tier":"第一梯队","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":1,"provYear":null,"stop":false},{"district":"海珠区","name":"广州市第六中学（本部）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"海珠区","name":"中山大学附属中学","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"海珠区","name":"广州市第五中学（本部）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"海珠区","name":"广州市南武中学（本部）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":1,"provYear":null,"stop":false},{"district":"海珠区","name":"广州市海珠外国语实验中学","tier":"第一梯队","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":0,"provYear":null,"stop":false},{"district":"天河区","name":"华南师范大学附属中学（初中部）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":1,"provYear":null,"stop":false},{"district":"天河区","name":"广州市天河外国语学校（珠江新城校区）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":1,"provYear":null,"stop":false},{"district":"天河区","name":"广州中学","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":1,"provYear":null,"stop":false},{"district":"天河区","name":"广州市执信中学（天河校区）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"天河区","name":"清华附中湾区学校","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":3,"group":1,"provYear":null,"stop":false},{"district":"天河区","name":"广州市第一一三中学","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":0,"provYear":null,"stop":false},{"district":"天河区","name":"广州市天河中学","tier":"第一梯队","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":1,"group":1,"provYear":null,"stop":false},{"district":"天河区","name":"广州市天河区汇景实验学校","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":0,"provYear":null,"stop":false},{"district":"天河区","name":"广州天省实验学校（民办）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":3,"group":1,"provYear":null,"stop":false},{"district":"白云区","name":"广州市白云区金广实验学校（金广附/广大附中实验中学）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":4,"group":1,"provYear":null,"stop":false},{"district":"白云区","name":"广东实验中学永平校区（省实永平）","tier":"第一梯队","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":3,"group":1,"provYear":null,"stop":false},{"district":"白云区","name":"广州市培英中学（云城校区）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":3,"group":1,"provYear":null,"stop":false},{"district":"白云区","name":"广州市白云区华赋学校（民办）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":4,"group":0,"provYear":null,"stop":false},{"district":"白云区","name":"广州市白云实验学校（白云省实，民办）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":true,"hasId":false,"nSrc":2,"nEv":3,"group":1,"provYear":null,"stop":false},{"district":"白云区","name":"广州市白云区云雅实验学校（云雅/白云广雅，民办）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":3,"group":1,"provYear":null,"stop":false},{"district":"白云区","name":"广州市白云区铁一学校（白云铁一）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":4,"group":1,"provYear":null,"stop":false},{"district":"黄埔区","name":"华南师范大学附属中学（知识城校区）","tier":"第一梯队","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"黄埔区","name":"广州大学附属中学黄埔实验学校（黄埔广附）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":4,"group":1,"provYear":null,"stop":false},{"district":"黄埔区","name":"广州市黄埔区苏元学校（二中苏元）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":3,"group":1,"provYear":null,"stop":false},{"district":"黄埔区","name":"广州市第二中学（科学城校区）","tier":"第一梯队","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"黄埔区","name":"广州市玉岩中学","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"黄埔区","name":"广州市第八十六中学","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":1,"provYear":null,"stop":false},{"district":"黄埔区","name":"广州市黄埔区铁英学校（黄埔铁英）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":true,"hasId":false,"nSrc":2,"nEv":5,"group":1,"provYear":null,"stop":false},{"district":"黄埔区","name":"北京师范大学广州实验学校","tier":"第一梯队","conclusion":"部分支撑","eligible":false,"orphan":false,"hasId":true,"nSrc":2,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"番禺区","name":"广州大学附属中学（大学城校区）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"番禺区","name":"广州市铁一中学（番禺校区/亚运城）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":2,"group":1,"provYear":null,"stop":false},{"district":"番禺区","name":"广州市番禺区广铁一中铁英学校（番禺铁英）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":4,"group":1,"provYear":null,"stop":false},{"district":"番禺区","name":"广州市番禺区桥城中学","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":0,"provYear":null,"stop":false},{"district":"番禺区","name":"广东仲元中学（初中部）","tier":"第一梯队","conclusion":"部分支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":3,"nEv":1,"group":1,"provYear":null,"stop":false},{"district":"番禺区","name":"广州市番禺区祈福新邨学校（小金龙，民办）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":true,"hasId":false,"nSrc":3,"nEv":2,"group":0,"provYear":null,"stop":false},{"district":"番禺区","name":"广州市番禺区恒润实验学校（民办）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":false,"hasId":true,"nSrc":2,"nEv":3,"group":0,"provYear":null,"stop":false},{"district":"番禺区","name":"广州市番禺区番外外国语学校（番外，民办）","tier":"第一梯队","conclusion":"有支撑","eligible":true,"orphan":true,"hasId":false,"nSrc":3,"nEv":3,"group":1,"provYear":null,"stop":false},{"district":"番禺区","name":"广州市番禺执信中学（星执学校，民办）","tier":"第一梯队","conclusion":"部分支撑","eligible":false,"orphan":false,"hasId":true,"nSrc":2,"nEv":2,"group":1,"provYear":null,"stop":false}]};
+const flag = (s, stage) => {
+  if (stage === '小学') {
+    if (s.stop) return ['剔除', '停办并入铁铮学校', 't-red'];
+    if (s.conclusion === '不支撑') return ['剔除', '单源无共识', 't-red'];
+    if (!s.eligible) return ['剔除', 'tier1_eligible=false', 't-red'];
+    if (s.nSrc === 1) return ['核验', '单来源，需补共识', 't-orange'];
+    if (/口碑|热门|镇街|区属重点|单源|楼盘|弱/.test(s.tier)) return ['降级', '来源仅口碑/热门级', 't-orange'];
+    if (/第一梯队/.test(s.tier) && s.conclusion === '部分支撑') return ['核验', '一梯队但仅部分支撑', 't-orange'];
+    return ['保留', '一梯队+实证', 't-green'];
+  }
+  if (stage === '初中') {
+    if (!s.eligible) return ['剔除', 'tier1_eligible=false 却标一梯队', 't-red'];
+    if (s.orphan) return ['核验', '无 POI 孤儿记录', 't-orange'];
+    if (s.conclusion === '部分支撑') return ['降级', '一梯队但仅部分支撑', 't-orange'];
+    if (/民办/.test(s.name)) return ['核验', '民办需单独口径', 't-orange'];
+    return ['保留', '一梯队+有支撑', 't-green'];
+  }
+  return ['', '', ''];
+};
+const rows = [];
+for (const s of DATA.primary) rows.push({...s, stage:'小学'});
+for (const s of DATA.middle) rows.push({...s, stage:'初中'});
+const tbody = document.querySelector('#tbl tbody');
+const render = () => {
+  const st = document.getElementById('fStage').value;
+  const cc = document.getElementById('fConcl').value;
+  const fl = document.getElementById('fFlag').value;
+  tbody.innerHTML = '';
+  for (const s of rows) {
+    if (st && s.stage !== st) continue;
+    if (cc && s.conclusion !== cc) continue;
+    const [act, why, cls] = flag(s, s.stage);
+    if (fl && act !== fl) continue;
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td>'+s.stage+'</td><td>'+s.district+'</td><td>'+s.name+'</td><td>'+s.tier+'</td><td>'+s.conclusion+'</td><td>'+s.nSrc+'</td><td>'+s.nEv+'</td><td>'+(act?'<span class="tag '+cls+'">'+act+'</span>':'')+'</td><td>'+why+'</td>';
+    tbody.appendChild(tr);
+  }
+};
+document.getElementById('fStage').onchange = render;
+document.getElementById('fConcl').onchange = render;
+document.getElementById('fFlag').onchange = render;
+render();
+
+function mk(id, opt){ const el=document.getElementById(id); if(window.echarts) return echarts.init(el, null, {renderer:'canvas'}); return null; }
+// 图1：小学梯队文本 Top 分布
+{
+  const c = mk('c1'); if (c) {
+    const cnt = {};
+    for (const s of DATA.primary) cnt[s.tier] = (cnt[s.tier]||0)+1;
+    const arr = Object.entries(cnt).sort((a,b)=>b[1]-a[1]);
+    const top = arr.slice(0,12); const rest = arr.slice(12).reduce((a,b)=>a+b[1],0);
+    if (rest) top.push(['其它 '+ (arr.length-12) +' 种', rest]);
+    c.setOption({
+      title:{text:'小学梯队文本口径（共 '+arr.length+' 种）', left:'center', textStyle:{fontSize:14}},
+      tooltip:{}, grid:{left:8,right:20,top:44,bottom:8,containLabel:true},
+      xAxis:{type:'value'}, yAxis:{type:'category', data:top.map(t=>t[0].length>18?t[0].slice(0,18)+'…':t[0]), inverse:true},
+      series:[{type:'bar', data:top.map(t=>t[1]), itemStyle:{color:'#2563eb'}, label:{show:true,position:'right'}}]
+    });
+  }
+}
+// 图2：支撑度对比
+{
+  const c = mk('c2'); if (c) {
+    const P = {a:DATA.primary.filter(s=>s.conclusion==='有支撑').length, b:DATA.primary.filter(s=>s.conclusion==='部分支撑').length, c:DATA.primary.filter(s=>s.conclusion==='不支撑').length};
+    const M = {a:DATA.middle.filter(s=>s.conclusion==='有支撑').length, b:DATA.middle.filter(s=>s.conclusion==='部分支撑').length, c:DATA.middle.filter(s=>s.conclusion==='不支撑').length};
+    c.setOption({
+      title:{text:'证据支撑度：小学 vs 初中', left:'center', textStyle:{fontSize:14}},
+      tooltip:{}, legend:{top:30}, grid:{left:8,right:20,top:70,bottom:8,containLabel:true},
+      xAxis:{type:'category', data:['小学(59)','初中(54)']},
+      yAxis:{type:'value'},
+      series:[
+        {name:'有支撑', type:'bar', stack:'t', data:[P.a, M.a], itemStyle:{color:'#059669'}},
+        {name:'部分支撑', type:'bar', stack:'t', data:[P.b, M.b], itemStyle:{color:'#d97706'}},
+        {name:'不支撑', type:'bar', stack:'t', data:[P.c, M.c], itemStyle:{color:'#dc2626'}},
+      ]
+    });
+  }
+}
+// 图3：问题模式计数
+{
+  const c = mk('c3'); if (c) {
+    const p1 = DATA.primary.filter(s=>/口碑|热门|镇街|区属重点|单源|楼盘|弱/.test(s.tier) && s.eligible && s.conclusion!=='不支撑' && !s.stop).length;
+    const p2 = DATA.primary.filter(s=>s.nSrc===1).length;
+    const p3 = DATA.primary.filter(s=>s.conclusion==='不支撑').length + 1; // +沙步
+    const m1 = DATA.middle.filter(s=>s.conclusion==='部分支撑').length;
+    const m2 = DATA.middle.filter(s=>!s.eligible).length;
+    const m3 = DATA.middle.filter(s=>/民办/.test(s.name)).length;
+    c.setOption({
+      title:{text:'问题模式计数（小学 / 初中）', left:'center', textStyle:{fontSize:14}},
+      tooltip:{}, legend:{top:28}, grid:{left:8,right:20,top:70,bottom:8,containLabel:true},
+      xAxis:{type:'category', data:['口碑/热门级入列','单源收录','不支撑/停办未剔','一梯队仅部分支撑','排除却标一梯队','民办全标一梯队']},
+      yAxis:{type:'value'},
+      series:[
+        {name:'小学', type:'bar', data:[p1,p2,p3,0,0,0], itemStyle:{color:'#2563eb'}},
+        {name:'初中', type:'bar', data:[0,0,0,m1,m2,m3], itemStyle:{color:'#7c3aed'}},
+      ]
+    });
+  }
+}
+</script>
+</div></body></html>

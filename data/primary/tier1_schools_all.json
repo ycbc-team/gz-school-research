@@ -118,7 +118,9 @@
             "gz-440104-7425dd47",
             "gz-440104-ec171256",
             "gz-440104-f815e0be"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市越秀区文德路小学",
@@ -192,7 +194,9 @@
           "school_ids": [
             "gz-440104-00e3fd36",
             "gz-440104-284b2f82"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市越秀区东山培正小学",
@@ -266,7 +270,9 @@
           "school_ids": [
             "gz-440104-08dedf9a",
             "gz-440104-a41d6d8d"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市越秀区小北路小学",
@@ -344,7 +350,9 @@
             "gz-440104-98359a64",
             "gz-440104-a9d74b68",
             "gz-440104-d5497b4b"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市越秀区农林下路小学",
@@ -417,7 +425,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440104-d353f467"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市越秀区铁一小学",
@@ -485,7 +495,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440104-755a5101"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         }
       ]
     },
@@ -560,7 +572,9 @@
           "school_ids": [
             "gz-440103-4e0aa3d7",
             "gz-440103-a15d3a11"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州协和学校（小学部，原广州市协和小学）",
@@ -646,7 +660,9 @@
           "orphan": true,
           "school_ids": [
             "gz-440103-33b32c4c"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市荔湾区沙面小学",
@@ -718,7 +734,9 @@
             "gz-440103-ecc193c7",
             "gz-440103-eeee1923",
             "gz-440103-faabf468"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市荔湾区康有为纪念小学",
@@ -778,7 +796,9 @@
           "school_ids": [
             "gz-440103-26cf2268",
             "gz-440103-3fb4fd56"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         }
       ]
     },
@@ -851,7 +871,9 @@
           "school_ids": [
             "gz-440105-2fd44dc2",
             "gz-440105-6299c301"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市海珠区同福中路第一小学",
@@ -905,7 +927,9 @@
             "gz-440105-6d928e8e",
             "gz-440105-a72d7648",
             "gz-440105-ec3a9a47"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市海珠区宝玉直小学",
@@ -963,7 +987,9 @@
           "school_ids": [
             "gz-440105-b623a7e1",
             "gz-440105-e3769b19"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市海珠区昌岗中路小学",
@@ -1020,7 +1046,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440105-98d6d585"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         }
       ]
     },
@@ -1093,7 +1121,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440106-f11f4361"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市天河区华阳小学",
@@ -1168,7 +1198,9 @@
             "gz-440106-155698db",
             "gz-440106-182b1ae3",
             "gz-440106-e591e421"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市天河区华景小学",
@@ -1232,7 +1264,9 @@
             "gz-440106-1e46483c",
             "gz-440106-2cd346f1",
             "gz-440106-3f600b79"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市天河区龙口西小学",
@@ -1300,7 +1334,9 @@
             "gz-440106-5e40124c",
             "gz-440106-e66204ca",
             "gz-440106-ee85c675"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市天河区天府路小学",
@@ -1360,7 +1396,9 @@
             "gz-440106-4dbb5b90",
             "gz-440106-6dc5833a",
             "gz-440106-ecfc1a19"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市天河区体育东路小学（含兴国学校、海明学校）",
@@ -1424,7 +1462,9 @@
             "gz-440106-bd76b30f",
             "gz-440106-cdfda274",
             "gz-440106-fafdbff4"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         }
       ]
     },
@@ -1492,7 +1532,9 @@
             "gz-440111-88b4ce7e",
             "gz-440111-ae3faca7",
             "gz-440111-aec60b7c"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区景泰小学",
@@ -1554,7 +1596,9 @@
             "gz-440111-8d42bf12",
             "gz-440111-97e26d68",
             "gz-440111-9e34191e"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区广园小学",
@@ -1614,7 +1658,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440111-53549fe6"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区黄边小学",
@@ -1674,7 +1720,9 @@
             "gz-440111-aac310d1",
             "gz-440111-d4cad06c",
             "gz-440111-e0eac26d"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区三元里小学",
@@ -1731,7 +1779,9 @@
             "gz-440111-714c07ba",
             "gz-440111-b1484250",
             "gz-440111-db593ac1"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区华师附中实验小学",
@@ -1792,7 +1842,9 @@
             "gz-440111-07bdec5f",
             "gz-440111-1d697e07",
             "gz-440111-db31a4f7"
-          ]
+          ],
+          "tier_rank": null,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区同和小学",
@@ -1844,7 +1896,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440111-5a19f704"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区握山小学",
@@ -1892,7 +1946,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440111-dace2460"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区明德小学",
@@ -1946,7 +2002,9 @@
           "school_ids": [
             "gz-440111-6da8abe9",
             "gz-440111-c5b02b25"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区人和镇第二小学",
@@ -1998,7 +2056,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440111-e8d9a6bd"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区江村小学",
@@ -2050,7 +2110,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440111-4a15a4dc"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区太和第一小学",
@@ -2108,7 +2170,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440111-28563d8a"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区民航学校（校本部·小学部）",
@@ -2159,7 +2223,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440111-a8395a4d"
-          ]
+          ],
+          "tier_rank": null,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         }
       ]
     },
@@ -2243,7 +2309,9 @@
             "gz-440112-23b184e9",
             "gz-440112-49401733",
             "gz-440112-6fdd05af"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市黄埔区荔园小学",
@@ -2300,7 +2368,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440112-7b923f7c"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市黄埔区港湾小学",
@@ -2357,7 +2427,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440112-2898c9fa"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市黄埔区下沙小学",
@@ -2414,7 +2486,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440112-68170d72"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市黄埔区文冲小学",
@@ -2471,7 +2545,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440112-6ce2c3db"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市黄埔区沙步小学",
@@ -2533,7 +2609,9 @@
           "coord_addr": "黄埔区南岗街道沙步社区（校门西南门点位）",
           "coord_source": "高德POI：广东省广州市黄埔区沙步小学(西南门)（无主POI，取校门点位）",
           "district": "黄埔区",
-          "orphan": true
+          "orphan": true,
+          "tier_rank": null,
+          "tier_rank_note": "停办（2023年9月并入铁铮学校西校区，铁英教育集团接管），移出口碑名单"
         },
         {
           "name": "广州石化小学（东、西校区）",
@@ -2592,7 +2670,9 @@
           "school_ids": [
             "gz-440112-0f409071",
             "gz-440112-64ab063c"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市黄埔区东荟花园小学（东、南、北校区）",
@@ -2654,7 +2734,9 @@
             "gz-440112-4c58f86c",
             "gz-440112-84a205c9",
             "gz-440112-ce5e4e7d"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市黄埔区玉泉学校（小学部）",
@@ -2716,7 +2798,9 @@
             "gz-440112-04db6ee7",
             "gz-440112-12b0184b",
             "gz-440112-78b9dcdf"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市黄埔区香雪小学",
@@ -2762,7 +2846,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440112-7f51c626"
-          ]
+          ],
+          "tier_rank": null,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市黄埔区黄埔军校小学",
@@ -2812,7 +2898,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440112-49e1eaad"
-          ]
+          ],
+          "tier_rank": null,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         }
       ]
     },
@@ -2874,7 +2962,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440113-7e40fb3a"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区市桥东城小学",
@@ -2943,7 +3033,9 @@
           "orphan": true,
           "school_ids": [
             "gz-440113-42642242"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区市桥南阳里小学",
@@ -2996,7 +3088,9 @@
           "school_ids": [
             "gz-440113-3139c20f",
             "gz-440113-93b814f8"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区市桥德兴小学",
@@ -3051,7 +3145,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440113-dccc5e5f"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区市桥北城小学",
@@ -3103,7 +3199,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440113-9c76c8fa"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区市桥实验小学",
@@ -3152,7 +3250,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440113-2ad239a0"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广东番禺中学附属学校（小学部）",
@@ -3206,7 +3306,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440113-53650c78"
-          ]
+          ],
+          "tier_rank": null,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广东仲元中学附属学校（小学部）",
@@ -3260,7 +3362,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440113-b5ff857b"
-          ]
+          ],
+          "tier_rank": null,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区石碁镇中心小学",
@@ -3307,7 +3411,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440113-aeeeff61"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区石楼镇中心小学",
@@ -3359,7 +3465,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440113-8f09e6a7"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区南村镇中心小学",
@@ -3412,7 +3520,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440113-f7272e24"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区洛溪新城小学",
@@ -3458,7 +3568,9 @@
           "school_ids": [
             "gz-440113-4b14fdda",
             "gz-440113-b03e50f3"
-          ]
+          ],
+          "tier_rank": 3,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区华师附中番禺小学",
@@ -3514,7 +3626,9 @@
           "opened_year": 2021,
           "school_ids": [
             "gz-440113-de874f8a"
-          ]
+          ],
+          "tier_rank": null,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州大学附属小学",
@@ -3571,7 +3685,9 @@
           "school_ids": [
             "gz-440113-4a147600",
             "gz-440113-d3d3956a"
-          ]
+          ],
+          "tier_rank": null,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "华南师范大学附属广州大学城小学",
@@ -3632,7 +3748,9 @@
           "opened_year": 2018,
           "school_ids": [
             "gz-440113-674bdf7c"
-          ]
+          ],
+          "tier_rank": null,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         }
       ]
     }

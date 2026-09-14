@@ -99,7 +99,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440104-7c4a905f"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市执信中学（执信路校区）",
@@ -174,7 +176,9 @@
             "gz-440104-1e9bdce3",
             "gz-440104-63c59c98",
             "gz-440104-f3ca07ff"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市第二中学（初中部）",
@@ -247,7 +251,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440104-7f3031fc"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州大学附属中学（黄华路校区）",
@@ -320,7 +326,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440104-b22c4eca"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市铁一中学（越秀校区）",
@@ -393,7 +401,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440104-09652aa5"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市第七中学（本部）",
@@ -468,7 +478,9 @@
             "gz-440104-2a1f2eaf",
             "gz-440104-74121d17",
             "gz-440111-82856abf"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市第十六中学（本部）",
@@ -543,7 +555,9 @@
             "gz-440104-8964385d",
             "gz-440104-8a1a7b3d",
             "gz-440106-52f7f4b7"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市越秀区育才实验学校",
@@ -617,7 +631,9 @@
           "coord_source": "高德POI：广州市育才实验学校求索楼（typecode 141200）",
           "school_ids": [
             "gz-440104-ff8d7e05"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市培正中学（初中部）",
@@ -690,7 +706,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440104-99aef0e5"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         }
       ]
     },
@@ -768,7 +786,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440103-bb7f78f0"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市荔湾区西关广雅实验学校（西雅）",
@@ -852,7 +872,9 @@
           "coord_source": "高德POI：西关广雅实验学校(南岸路校区)（typecode 141200）",
           "school_ids": [
             "gz-440103-c5d5de44"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广东实验中学荔湾学校（省实荔湾）",
@@ -921,7 +943,9 @@
           "school_ids": [
             "gz-440103-1d99218d",
             "gz-440103-53cac770"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市真光中学（校本部）",
@@ -1000,7 +1024,9 @@
             "gz-440103-4bb96190",
             "gz-440103-882931a0",
             "gz-440103-9b3ba6d8"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市第一中学",
@@ -1064,7 +1090,9 @@
           "school_ids": [
             "gz-440103-2653da64",
             "gz-440103-2dc142ec"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市第四中学",
@@ -1129,7 +1157,9 @@
             "gz-440103-3862ee98",
             "gz-440103-4cda3f9e",
             "gz-440103-c0d6f9a0"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市西关外国语学校",
@@ -1194,7 +1224,9 @@
             "gz-440103-1df8fc85",
             "gz-440103-b41a3512",
             "gz-440103-dfff68f2"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         }
       ]
     },
@@ -1272,7 +1304,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440105-12b49e3f"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "中山大学附属中学",
@@ -1345,7 +1379,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440105-e363a214"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市第五中学（本部）",
@@ -1419,7 +1455,9 @@
           "school_ids": [
             "gz-440105-0ffca7e3",
             "gz-440105-aec34da3"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市南武中学（本部）",
@@ -1488,7 +1526,9 @@
           "school_ids": [
             "gz-440105-dd2723fc",
             "gz-440105-eaf414df"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市海珠外国语实验中学",
@@ -1551,7 +1591,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440105-e76b659d"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         }
       ]
     },
@@ -1625,7 +1667,9 @@
           "school_ids": [
             "gz-440106-a565a93c",
             "gz-440106-d5983217"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市天河外国语学校（珠江新城校区）",
@@ -1699,7 +1743,9 @@
           "coord_source": "高德POI：广州市天河外国语学校(珠江新城校区)（typecode 141202）",
           "school_ids": [
             "gz-440106-b711d94a"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州中学",
@@ -1769,7 +1815,9 @@
             "gz-440106-3c8afb6a",
             "gz-440106-867e6c05",
             "gz-440106-a989804b"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市执信中学（天河校区）",
@@ -1842,7 +1890,9 @@
           "opened_year": 2021,
           "school_ids": [
             "gz-440106-22fcbcd6"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "清华附中湾区学校",
@@ -1926,7 +1976,9 @@
           "coord_source": "高德POI：清华附中湾区学校（typecode 141200）",
           "school_ids": [
             "gz-440106-e32237e4"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市第一一三中学",
@@ -1996,7 +2048,9 @@
             "gz-440106-5f78f6a9",
             "gz-440106-b049d65a",
             "gz-440106-ced6bbff"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市天河中学",
@@ -2061,7 +2115,9 @@
             "gz-440106-2f8a4424",
             "gz-440106-93897236",
             "gz-440106-dd16c13e"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市天河区汇景实验学校",
@@ -2125,7 +2181,9 @@
           "school_ids": [
             "gz-440106-0d1e149e",
             "gz-440106-28049c58"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州天省实验学校（民办）",
@@ -2209,7 +2267,9 @@
           "coord_source": "高德POI：广州天省实验学校（typecode 141200）",
           "school_ids": [
             "gz-440106-01fd3a87"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         }
       ]
     },
@@ -2298,7 +2358,9 @@
           "school_ids": [
             "gz-440111-0078267c",
             "gz-440111-b95f2597"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广东实验中学永平校区（省实永平）",
@@ -2372,7 +2434,9 @@
           "coord_source": "高德POI：广东实验中学(白云校区)（即省实永平校区，typecode 141202）",
           "school_ids": [
             "gz-440111-a3cf5a4f"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市培英中学（云城校区）",
@@ -2452,7 +2516,9 @@
             "gz-440103-a3ee807c",
             "gz-440111-6271c94b",
             "gz-440111-730c7404"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区华赋学校（民办）",
@@ -2526,7 +2592,9 @@
           "school_ids": [
             "gz-440111-43437f78",
             "gz-440111-81f3c313"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云实验学校（白云省实，民办）",
@@ -2604,7 +2672,9 @@
           "coord_addr": "夏茅沙园坊十字大街58号",
           "coord_source": "高德POI：省实白云实验学校（typecode 141202）",
           "district": "白云区",
-          "orphan": true
+          "orphan": true,
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区云雅实验学校（云雅/白云广雅，民办）",
@@ -2673,7 +2743,9 @@
           "school_ids": [
             "gz-440111-6782d2c7",
             "gz-440111-7d12a21e"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市白云区铁一学校（白云铁一）",
@@ -2762,7 +2834,9 @@
           "coord_source": "高德POI：广州市铁一中学白云校区(初中部)（白云铁一无独立POI，取同址点位）",
           "school_ids": [
             "gz-440111-28c16cca"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         }
       ]
     },
@@ -2835,7 +2909,9 @@
           "opened_year": 2023,
           "school_ids": [
             "gz-440112-3847727f"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州大学附属中学黄埔实验学校（黄埔广附）",
@@ -2919,7 +2995,9 @@
           "coord_source": "高德POI：广大附中黄埔实验学校(东校区)（typecode 141202）",
           "school_ids": [
             "gz-440112-705c66e3"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市黄埔区苏元学校（二中苏元）",
@@ -2998,7 +3076,9 @@
           "coord_source": "高德POI：广州市黄埔区苏元学校(西校区)（typecode 141202）",
           "school_ids": [
             "gz-440112-a0244635"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市第二中学（科学城校区）",
@@ -3061,7 +3141,9 @@
           "opened_year": 2017,
           "school_ids": [
             "gz-440112-b56cfdce"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市玉岩中学",
@@ -3134,7 +3216,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440112-ff5acfd5"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市第八十六中学",
@@ -3203,7 +3287,9 @@
           "school_ids": [
             "gz-440112-0cb5a402",
             "gz-440112-43108516"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市黄埔区铁英学校（黄埔铁英）",
@@ -3293,7 +3379,9 @@
           },
           "coord_addr": "广州市黄埔区岭福南七路6号（永顺大道万科樾山花园旁）",
           "coord_source": "高德POI：广铁一中铁英中学（typecode 141200）",
-          "orphan": true
+          "orphan": true,
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "北京师范大学广州实验学校",
@@ -3362,7 +3450,9 @@
           "school_ids": [
             "gz-440112-8bbf8f06",
             "gz-440112-ef267ef4"
-          ]
+          ],
+          "tier_rank": null,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         }
       ]
     },
@@ -3440,7 +3530,9 @@
           "opened_year": 2009,
           "school_ids": [
             "gz-440113-8f5e4721"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市铁一中学（番禺校区/亚运城）",
@@ -3513,7 +3605,9 @@
           "opened_year": 2012,
           "school_ids": [
             "gz-440113-97e0acaa"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区广铁一中铁英学校（番禺铁英）",
@@ -3593,7 +3687,9 @@
           "school_ids": [
             "gz-440113-43d027a5",
             "gz-440113-94c76638"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区桥城中学",
@@ -3656,7 +3752,9 @@
           "opened_year": null,
           "school_ids": [
             "gz-440113-7f18cc62"
-          ]
+          ],
+          "tier_rank": 1,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广东仲元中学（初中部）",
@@ -3725,7 +3823,9 @@
           "school_ids": [
             "gz-440113-6dbdc462",
             "gz-440113-acf92324"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区祈福新邨学校（小金龙，民办）",
@@ -3805,7 +3905,9 @@
           "coord_addr": "祈福新邨福荫路（中学部）",
           "coord_source": "高德POI：广州市祈福新邨学校中学部（typecode 141202）",
           "district": "番禺区",
-          "orphan": true
+          "orphan": true,
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区恒润实验学校（民办）",
@@ -3879,7 +3981,9 @@
           "coord_source": "高德POI：恒润实验学校（typecode 141200）",
           "school_ids": [
             "gz-440113-c9f8740e"
-          ]
+          ],
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺区番外外国语学校（番外，民办）",
@@ -3963,7 +4067,9 @@
           "coord_addr": "东环街莲花大道中202号",
           "coord_source": "高德POI：广州番外外国语学校（typecode 141200）",
           "district": "番禺区",
-          "orphan": true
+          "orphan": true,
+          "tier_rank": 2,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         },
         {
           "name": "广州市番禺执信中学（星执学校，民办）",
@@ -4032,7 +4138,9 @@
           "coord_source": "高德POI：广州市星执学校（typecode 141202）",
           "school_ids": [
             "gz-440113-999fb9c0"
-          ]
+          ],
+          "tier_rank": null,
+          "tier_rank_note": "初评（保守），待五关复核定档"
         }
       ]
     }

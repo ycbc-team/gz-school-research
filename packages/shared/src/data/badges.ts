@@ -44,7 +44,9 @@ export function createBadgesApi(loaders: DataLoaders) {
     const t = opts.tier;
     if (t) {
       if (t.tier1_eligible === false) out.push({ text: '挂牌', cls: 'b-license' });
-      else out.push({ text: '口碑', cls: 'b-tier' });
+      // UI 口径：口碑 Badge 仅标记第一梯队（tier_rank===1）；第二/三梯队（rank 2/3）不拿
+      // 口碑 Badge，但在口碑信息（SupportView/信息卡）中展示客观依据说明
+      else if (t.tier_rank === 1) out.push({ text: '口碑', cls: 'b-tier' });
     }
     // 民办：高中按 levels.nature；小学/初中按口碑校法人登记类型（民办非企业单位等）
     const isMinban =
