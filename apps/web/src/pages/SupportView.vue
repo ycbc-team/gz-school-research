@@ -28,8 +28,8 @@ function fmtCells(s: Tier1School, stage: 'primary' | 'middle'): string[] {
   const rows = stage === 'primary' ? formatPrimarySignals(s) : formatMiddleSignals(s);
   const pick = (label: string) => rows.find((r) => r.label === label)?.value ?? '未查到';
   if (stage === 'primary') {
-    // 出口机制列改由全量 xiaoshengchu 真源提供（全等匹配，跨区同名按 s.district 消歧）
-    const chulu = formatXiaoshengchuBrief(xiaoshengchuOf(s.name, s.district));
+    // 出口机制列由全量 xiaoshengchu 真源提供（实体 id 优先，名字仅旧链接兜底）
+    const chulu = formatXiaoshengchuBrief(xiaoshengchuOf(s.name, s.district, s.school_ids?.[0]));
     return [chulu, pick('教育集团'), pick('2026班数'), pick('学位预警'), pick('省一级')];
   }
   return [pick('中考成绩'), pick('示范性高中'), pick('教育集团'), pick('建校年份'), pick('指标到校')];

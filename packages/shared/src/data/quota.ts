@@ -207,10 +207,15 @@ export function createQuotaApi(loaders: DataLoaders) {
     } as XiaoshengchuRecord;
   }
   /**
-   * 按 POI 名查小学升学路线：POI 名经实体注册表别名全等解析为 school_id，再查事实表。
+   * 按小学实体 id 查升学路线：数据匹配只用 school_id（事实表按 school_id 键控）。
+   * 优先 schoolId；无 id 的旧链接（/school/名 不带 ?id=）才用 POI 名经实体注册表别名兜底。
    * district 仅在跨区同名时精确消歧，不传/不中回退首条（确定性，不猜测）。
    */
-  function xiaoshengchuOf(poiName: string, district?: string | null): XiaoshengchuRecord | null {
+  function xiaoshengchuOf(poiName: string, district?: string | null, schoolId?: string | null): XiaoshengchuRecord | null {
+    if (schoolId) {
+      const r = factByPrimaryId.get(schoolId);
+      if (r) return shapeRecord(r, entityById.get(schoolId)?.name ?? poiName);
+    }
     const ent = resolveEntity(primaryAlias, poiName, district);
     if (!ent) return null;
     const r = factByPrimaryId.get(ent.school_id);
@@ -218,18 +223,20 @@ export function createQuotaApi(loaders: DataLoaders) {
   }
 
   /**
-   * 反查：某初中 POI 的生源小学。POI 名→初中实体 school_id→遍历事实表 feed 命中。
-   * 全等别名，不做包含匹配。
+   * 反查：某初中实体的生源小学。数据匹配只用 school_id（事实表 feed_school_ids /
+   * direct_feed_school_id 均为 id）：优先 middleId，无 id 的旧链接才用名字解析兜底。
    * direct_feed 语义：仅当该小学的对口直升目标就是「当前查询的初中」时非空（值为该初中名），
    * 否则一律为 null——避免把「小学直升其它初中」误标成「直升本校」（派位组内可填报 ≠ 对口直升）。
    */
-  function middlePrimaryFeed(middleName: string): { primary: string; group: string | null; direct_feed: string | null }[] {
-    const ent = resolveEntity(middleAlias, middleName);
+  function middlePrimaryFeed(middleName: string, middleId?: string | null): { primary: string; group: string | null; direct_feed: string | null }[] {
+    let ent = middleId ? (entityById.get(middleId) ?? null) : null;
+    if (!ent) ent = resolveEntity(middleAlias, middleName);
     if (!ent) return [];
+    const mid = ent.school_id;
     const out: { primary: string; group: string | null; direct_feed: string | null }[] = [];
     for (const r of facts) {
-      const inGroup = (r.feed_school_ids || []).includes(ent.school_id);
-      const directHere = r.direct_feed_school_id === ent.school_id;
+      const inGroup = (r.feed_school_ids || []).includes(mid);
+      const directHere = r.direct_feed_school_id === mid;
       if (!inGroup && !directHere) continue;
       const pe = r.school_id ? entityById.get(r.school_id) : null;
       out.push({

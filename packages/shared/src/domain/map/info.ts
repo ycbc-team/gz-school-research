@@ -42,15 +42,15 @@ function primaryEnrollRows(repo: Repository, pt: MapPointFull): InfoRow[] {
   if (en.zone) rows.push({ label: '招生地段', value: en.zone });
   return rows;
 }
-/** 小学升学路线行（全量 xiaoshengchu 真源，校名全等匹配，跨区同名按 adcode 消歧） */
-function primaryLinkageRows(repo: Repository, name: string, adcode?: string): InfoRow[] {
-  const xs = repo.xiaoshengchuOf(name, adcode);
+/** 小学升学路线行（全量 xiaoshengchu 真源，实体 id 优先，校名全等兜底；跨区同名按 adcode 消歧） */
+function primaryLinkageRows(repo: Repository, name: string, adcode?: string, schoolId?: string | null): InfoRow[] {
+  const xs = repo.xiaoshengchuOf(name, adcode, schoolId);
   if (!xs || (!xs.direct_feed && !(xs.feed_junior_highs || []).length)) return [];
   return [{ label: '升学路线', value: formatXiaoshengchuBrief(xs) }];
 }
-/** 初中生源小学摘要行（全量反查；无公办对口时给提示） */
-function middleFeedRows(repo: Repository, name: string): InfoRow[] {
-  const list = repo.middlePrimaryFeed(name);
+/** 初中生源小学摘要行（全量反查，实体 id 优先；无公办对口时给提示） */
+function middleFeedRows(repo: Repository, name: string, schoolId?: string | null): InfoRow[] {
+  const list = repo.middlePrimaryFeed(name, schoolId);
   if (!list.length) return [{ label: '生源小学', value: '无公办对口名单（民办校以摇号/直升为准）', strong: false }];
   const preview = list.slice(0, 3).map((r) => r.primary).join('、');
   const more = list.length > 3 ? ` 等 ${list.length} 所` : '';
@@ -99,10 +99,10 @@ export function buildInfoModel(pt: MapPointFull, repo: Repository): InfoModel {
 
   const tier = pt.tier;
   if (tier) {
-    // 小学缩略面板优先展示招生条件（班数 + 对口地段）
-    const enrollRows = pt.mainStage === 'primary' ? primaryEnrollRows(repo, pt) : [];
-    // 小学升学路线取全量 xiaoshengchu（全等匹配）；口碑信号另缩略一条
-    const linkageRows = pt.mainStage === 'primary' ? primaryLinkageRows(repo, name, pt.adcode) : [];
+    // 小学缩略面板优先展示招生条件（班数 + 对口地段）；多学部合并点按实际学部全展示
+    const enrollRows = pt.stages.includes('primary') ? primaryEnrollRows(repo, pt) : [];
+    // 小学升学路线取全量 xiaoshengchu（实体 id 优先）；口碑信号另缩略一条
+    const linkageRows = pt.stages.includes('primary') ? primaryLinkageRows(repo, name, pt.adcode, pt.ids.primary) : [];
     if (tier.tier1_eligible === false) {
       return {
         name,
@@ -122,7 +122,7 @@ export function buildInfoModel(pt: MapPointFull, repo: Repository): InfoModel {
       (tier.entity_relation === '同法人校区' ? ' · 与本部同一法人' : '');
     const signalRows = pt.mainStage === 'primary'
       ? [...linkageRows, ...formatPrimarySignals(tier).slice(0, 1)]
-      : [...middleFeedRows(repo, name), ...formatMiddleSignals(tier).slice(0, 1)];
+      : [...(pt.stages.includes('middle') ? middleFeedRows(repo, name, pt.ids.middle) : []), ...formatMiddleSignals(tier).slice(0, 1)];
     return {
       name,
       badges: repo.schoolBadges(pt.mainStage, { district: districtName, tier, name, stages: pt.stages }),
@@ -140,9 +140,9 @@ export function buildInfoModel(pt: MapPointFull, repo: Repository): InfoModel {
     rows: [
       { label: '学部', value: pt.stages.map((s) => STAGE_LABEL[s]).join('、') },
       { label: '所在区', value: districtName || '—' },
-      ...(pt.mainStage === 'primary' ? primaryEnrollRows(repo, pt) : []),
-      ...(pt.mainStage === 'primary' ? primaryLinkageRows(repo, name, pt.adcode) : []),
-      ...(pt.mainStage === 'middle' ? middleFeedRows(repo, name) : []),
+      ...(pt.stages.includes('primary') ? primaryEnrollRows(repo, pt) : []),
+      ...(pt.stages.includes('primary') ? primaryLinkageRows(repo, name, pt.adcode, pt.ids.primary) : []),
+      ...(pt.stages.includes('middle') ? middleFeedRows(repo, name, pt.ids.middle) : []),
     ],
     note: null,
     links: detailLinks,
