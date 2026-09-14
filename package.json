@@ -13,6 +13,6 @@
     "build:web": "npm run build -w @gz/web",
     "preview:web": "npm run preview -w @gz/web",
     "build:mp": "node scripts/miniprogram/build.mjs",
-    "check": "npm run typecheck -ws --if-present"
+    "check": "npm run typecheck -ws --if-present && python3 scripts/data_quality_test.py"
   }
 }

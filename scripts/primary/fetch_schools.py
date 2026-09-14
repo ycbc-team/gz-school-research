@@ -97,6 +97,9 @@ def fetch_pois(key, adcode):
                   "学习规划", "国际教育", "教育咨询", "文具", "书店", "幼儿园",
                   "工地", "城门楼", "教师楼", "智云书房", "博通教育", "知了托管",
                   "玩具店", "童趣园", "感统", "口才"]
+    # 状态词 POI（高德对在建/装修/停业点位会加后缀），原样入库会污染校名匹配，一律剔除
+    STATUS_NOISE = ["建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办",
+                    "装修", "装修中", "暂停营业", "停业", "选址"]
     keep, seen = [], set()
     for s in out:
         n = s["name"]
@@ -105,6 +108,9 @@ def fetch_pois(key, adcode):
         if not ("小学" in n or "学校" in n or "附小" in n or "小学部" in n):
             continue
         if any(b in n for b in NON_SCHOOL):
+            continue
+        if any(b in n for b in STATUS_NOISE):
+            print(f"  [filter] 状态词POI剔除: {n}")
             continue
         k = (n, round(s["lng"], 5), round(s["lat"], 5))
         if k in seen:
