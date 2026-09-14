@@ -1,0 +1,205 @@
+{
+  "district": "黄埔",
+  "source_urls": [
+    "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html",
+    "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html",
+    "http://www.hp.gov.cn/attachment/7/7496/7496634/7813631.pdf"
+  ],
+  "_note": "官方口径：13个基础教育集团覆盖74所学校（2026-07，post_10882461）。成员名册未在官网逐条公开的集团，members按已核实官方文件填写，其余在 note/缺失清单标注'待官方文件补全'。",
+  "groups": [
+    {
+      "brand": "黄埔铁英教育集团",
+      "district": "黄埔",
+      "core": ["广州市铁英中学"],
+      "level": "区属",
+      "type": "混合学段集团",
+      "members": [
+        {"name": "铁英小学", "stage": "小学", "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html", "verified": "2026-09-14", "poi_match": "7区内真实缺失", "poi_name": "", "school_id": ""},
+        {"name": "铁铮学校", "stage": "九年一贯", "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html", "verified": "2026-09-14", "poi_match": "7区内真实缺失", "poi_name": "", "school_id": ""}
+      ],
+      "source_urls": [
+        "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html",
+        "http://www.hp.gov.cn/2021gb/zz/mtxx/content/post_8533349.html"
+      ]
+    },
+    {
+      "brand": "黄埔广实教育集团",
+      "district": "黄埔",
+      "core": ["广州实验中学"],
+      "level": "区属",
+      "type": "完中集团",
+      "members": [
+        {"name": "知识城中学", "stage": "初中", "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广州知识城中学(南校区)", "school_id": "gz-440112-87f27cf4_alt"},
+        {"name": "九佛中学", "stage": "初中", "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html", "verified": "2026-09-14", "poi_match": "7区内真实缺失", "poi_name": "", "school_id": ""},
+        {"name": "九佛第二中学", "stage": "初中", "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html", "verified": "2026-09-14", "poi_match": "7区内真实缺失", "poi_name": "", "school_id": ""}
+      ],
+      "source_urls": [
+        "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html",
+        "https://www.hp.gov.cn/hprd/2025msss/202603/af7d83ace6d7465ea4b2b1db3681e186.shtml"
+      ]
+    },
+    {
+      "brand": "黄埔东荟教育集团",
+      "district": "黄埔",
+      "core": ["广州市黄埔区东荟花园小学"],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {"name": "玉鸣小学", "stage": "小学", "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "玉鸣小学", "school_id": "gz-440112-21dc3ebd"},
+        {"name": "沧联小学", "stage": "小学", "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "沧联小学", "school_id": "gz-440112-082d09e3"},
+        {"name": "光远小学", "stage": "小学", "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "光远小学", "school_id": "gz-440112-1fb45e21"}
+      ],
+      "source_urls": [
+        "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html",
+        "http://www.hp.gov.cn/2021gb/zz/mtxx/content/post_8533349.html"
+      ]
+    },
+    {
+      "brand": "黄埔广附教育集团",
+      "district": "黄埔",
+      "core": ["广大附中黄埔实验学校"],
+      "level": "区属",
+      "type": "九年一贯集团",
+      "members": [
+        {"name": "广州市黄埔军校中学", "stage": "初中", "source_url": "https://www.hp.gov.cn/qmtjjczwgk/26sdly/ywjyly/content/post_8329776.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市黄埔军校中学", "school_id": "gz-440112-b5b864ba"},
+        {"name": "黄埔军校小学", "stage": "小学", "source_url": "https://www.hp.gov.cn/qmtjjczwgk/26sdly/ywjyly/content/post_8329776.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "黄埔军校小学", "school_id": "gz-440112-49e1eaad"}
+      ],
+      "source_urls": [
+        "https://www.hp.gov.cn/qmtjjczwgk/26sdly/ywjyly/content/post_8329776.html",
+        "http://www.hp.gov.cn/2021gb/zz/rdgz/content/post_7738858.html"
+      ]
+    },
+    {
+      "brand": "广州市第八十六中学教育集团",
+      "district": "黄埔",
+      "core": ["广州市第八十六中学"],
+      "level": "区属",
+      "type": "完中集团",
+      "members": [
+        {"name": "广州石化中学", "stage": "初中", "source_url": "https://www.hp.gov.cn/hprd/2025msss/202603/af7d83ace6d7465ea4b2b1db3681e186.shtml", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州石化中学", "school_id": "gz-440112-8edaa2d8"},
+        {"name": "广州市黄埔区港湾中学", "stage": "初中", "source_url": "https://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "港湾中学", "school_id": "gz-440112-83167af8"},
+        {"name": "广州市黄埔区新港中学", "stage": "初中", "source_url": "http://www.hp.gov.cn/attachment/7/7581/7581222/7158346.pdf", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市黄埔区新港中学", "school_id": "gz-440112-632bcdb7"}
+      ],
+      "source_urls": [
+        "https://www.hp.gov.cn/hprd/2025msss/202603/af7d83ace6d7465ea4b2b1db3681e186.shtml",
+        "http://www.hp.gov.cn/attachment/7/7581/7581222/7158346.pdf",
+        "https://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html"
+      ]
+    },
+    {
+      "brand": "广州市玉岩教育集团",
+      "district": "黄埔",
+      "core": ["广州市玉岩中学"],
+      "level": "区属",
+      "type": "完中集团",
+      "members": [
+        {"name": "广州市玉岩中学附属开发区实验学校", "stage": "九年一贯", "source_url": "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10998727.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "玉岩中学附属开发区实验学校", "school_id": "gz-440112-15d63ae7"},
+        {"name": "广州市玉岩中学附属科学城实验学校", "stage": "九年一贯", "source_url": "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10998727.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市玉岩中学附属科学城实验学校", "school_id": "gz-440112-e8878bf7"},
+        {"name": "广州市黄埔区玉岩实验学校", "stage": "初中", "source_url": "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广州市黄埔区玉岩实验学校", "school_id": "gz-440112-f3817fbe"}
+      ],
+      "source_urls": [
+        "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10998727.html",
+        "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html"
+      ]
+    },
+    {
+      "brand": "广州科学城教育集团",
+      "district": "黄埔",
+      "core": ["广州科学城中学"],
+      "level": "区属",
+      "type": "完中集团",
+      "members": [
+        {"name": "广州市第一一七中学", "stage": "初中", "source_url": "https://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市第一一七中学", "school_id": "gz-440112-4d96554f"}
+      ],
+      "source_urls": [
+        "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html",
+        "https://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html"
+      ]
+    },
+    {
+      "brand": "广州市黄埔区怡园教育集团",
+      "district": "黄埔",
+      "core": ["广州市黄埔区怡园小学"],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [],
+      "_note": "怡园小学实行一校三区（西/东/北校区）一体化管理，校区不单独列为成员校；独立成员校名册待官方文件补全。",
+      "source_urls": [
+        "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html",
+        "http://www.hp.gov.cn/attachment/7/7496/7496634/7813631.pdf"
+      ]
+    },
+    {
+      "brand": "广州开发区外国语学校教育集团",
+      "district": "黄埔",
+      "core": ["广州开发区外国语学校"],
+      "level": "区属",
+      "type": "初中集团",
+      "members": [],
+      "_note": "成员名册待官方文件补全。",
+      "source_urls": [
+        "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html",
+        "http://www.hp.gov.cn/attachment/7/7496/7496634/7813631.pdf"
+      ]
+    },
+    {
+      "brand": "广州开发区第二小学教育集团",
+      "district": "黄埔",
+      "core": ["广州开发区第二小学(南校区)"],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {"name": "广州开发区第二小学(北校区)", "stage": "小学", "source_url": "http://www.hp.gov.cn/attachment/7/7581/7581207/7158347.pdf", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广州开发区第二小学", "school_id": "gz-440112-e1ec9724"},
+        {"name": "广州开发区第二小学(东校区)", "stage": "小学", "source_url": "http://www.hp.gov.cn/attachment/7/7581/7581207/7158347.pdf", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广州开发区第二小学", "school_id": "gz-440112-e1ec9724"}
+      ],
+      "source_urls": [
+        "http://www.hp.gov.cn/attachment/7/7581/7581207/7158347.pdf",
+        "https://www.hp.gov.cn/gzjg/qzfgwhgzbm/qjyj/xxgk/content/post_10301767.html"
+      ]
+    },
+    {
+      "brand": "广州开发区中学教育集团",
+      "district": "黄埔",
+      "core": ["广州开发区中学"],
+      "level": "区属",
+      "type": "完中集团",
+      "members": [],
+      "_note": "成员名册待官方文件补全。",
+      "source_urls": [
+        "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html",
+        "http://www.hp.gov.cn/attachment/7/7496/7496634/7813631.pdf"
+      ]
+    },
+    {
+      "brand": "黄埔长洲教育集团",
+      "district": "黄埔",
+      "core": ["广州市黄埔区长洲岛小学"],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {"name": "广州市黄埔区深井小学", "stage": "小学", "source_url": "http://www.hp.gov.cn/attachment/6/6809/6809629/7315432.pdf", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "深井小学", "school_id": "gz-440112-2995943b"},
+        {"name": "广州市黄埔区黄船小学", "stage": "小学", "source_url": "http://www.hp.gov.cn/attachment/6/6809/6809629/7315432.pdf", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "黄船小学", "school_id": "gz-440112-1c720ed0"}
+      ],
+      "_note": "核心与成员依长洲片学校+媒体线索暂列，成员名册待官方文件补全。",
+      "source_urls": [
+        "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html",
+        "http://www.hp.gov.cn/attachment/7/7496/7496634/7813631.pdf"
+      ]
+    },
+    {
+      "brand": "黄埔广外教育集团",
+      "district": "黄埔",
+      "core": ["广东外语外贸大学附属科学城实验学校"],
+      "level": "区属",
+      "type": "九年一贯集团",
+      "members": [
+        {"name": "广东外语外贸大学附属黄埔实验学校", "stage": "九年一贯", "source_url": "http://www.hp.gov.cn/attachment/7/7811/7811511/10255016.pdf", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广东外语外贸大学附属黄埔实验学校", "school_id": "gz-440112-cf50e275"}
+      ],
+      "_note": "2022-09黄埔区教育局与广外合作办学暨授牌；两校均为公办九年一贯制。",
+      "source_urls": [
+        "http://www.hp.gov.cn/attachment/7/7811/7811511/10255016.pdf",
+        "https://www.hp.gov.cn/qmtjjczwgk/26sdly/ywjyly/content/post_8170293.html"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "district": "海珠",
+  "source_urls": [
+    "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/mpost_10549712.html",
+    "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549716.html",
+    "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549710.html",
+    "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549729.html",
+    "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549718.html",
+    "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549721.html",
+    "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549725.html",
+    "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9617995.html",
+    "https://www.haizhu.gov.cn/hzdt/ztlm/zzyyzq/gg/content/mpost_9409172.html",
+    "https://www.haizhu.gov.cn/zwgk/wgk/zxgk/content/mpost_9423190.html"
+  ],
+  "groups": [
+    {
+      "brand": "广州市海珠区昌岗中路小学教育集团",
+      "district": "海珠",
+      "core": ["广州市海珠区昌岗中路小学"],
+      "core_poi": [
+        {"name": "广州市海珠区昌岗中路小学", "poi_match": "变体命中", "poi_name": "昌岗中路小学(本校区)", "school_id": "gz-440105-98d6d585"}
+      ],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {"name": "广州市海珠区江南新村第一小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/mpost_10549712.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "江南新村第一小学", "school_id": "gz-440105-5f57ea62"},
+        {"name": "广州市海珠区江南新村第二小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/mpost_10549712.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "海珠区江南新村第二小学", "school_id": "gz-440105-c78f12b3"},
+        {"name": "广州市海珠区海富小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/mpost_10549712.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "海富小学", "school_id": "gz-440105-c0ae765e"},
+        {"name": "广州市海珠区南燕小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/mpost_10549712.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "南燕小学", "school_id": "gz-440105-9c176b75"},
+        {"name": "广州市海珠区海联路小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/mpost_10549712.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "海联路小学", "school_id": "gz-440105-73ec69fd"}
+      ],
+      "source_urls": ["https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/mpost_10549712.html"]
+    },
+    {
+      "brand": "广州市海珠区万松园小学教育集团",
+      "district": "海珠",
+      "core": ["广州市海珠区万松园小学"],
+      "core_poi": [
+        {"name": "广州市海珠区万松园小学", "poi_match": "变体命中", "poi_name": "万松园小学(云桂校区)", "school_id": "gz-440105-9aac697e"}
+      ],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {"name": "广州市海珠区前进路小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549716.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "前进路小学", "school_id": "gz-440105-7c21f1f5"},
+        {"name": "广州市海珠区基立道小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549716.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "基立道小学", "school_id": "gz-440105-9c99afdb"},
+        {"name": "广州市海珠区大元帅府小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549716.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "大元帅府小学", "school_id": "gz-440105-79eb6dd3"}
+      ],
+      "source_urls": ["https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549716.html"]
+    },
+    {
+      "brand": "广州市海珠区逸景第一小学教育集团",
+      "district": "海珠",
+      "core": ["广州市海珠区逸景第一小学"],
+      "core_poi": [
+        {"name": "广州市海珠区逸景第一小学", "poi_match": "变体命中", "poi_name": "逸景第一小学(本校区)", "school_id": "gz-440105-ec2b47c2"}
+      ],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {"name": "广州市海珠区瑞宝小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549710.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "海珠区瑞宝小学(北校区)", "school_id": "gz-440105-9f84928b"},
+        {"name": "广州市海珠区晓港湾小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549710.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "晓港湾小学(晓港湾校区)", "school_id": "gz-440105-8e18d77c"},
+        {"name": "广州市海珠区金碧第一小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549710.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "金碧第一小学(西校区)", "school_id": "gz-440105-b6333034"},
+        {"name": "广州市海珠区石溪劬劳小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549710.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "石溪劬劳小学", "school_id": "gz-440105-67352caa"},
+        {"name": "广州市海珠区五凤小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549710.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "五凤小学", "school_id": "gz-440105-e4ec8bee"},
+        {"name": "广州市海珠区聚德东小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549710.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "聚德东小学", "school_id": "gz-440105-a01790aa"},
+        {"name": "广州市海珠区聚德西路小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549710.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "聚德西路小学", "school_id": "gz-440105-a0156453"}
+      ],
+      "source_urls": ["https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549710.html"]
+    },
+    {
+      "brand": "广州市第四十一中学教育集团",
+      "district": "海珠",
+      "core": ["广州市第四十一中学"],
+      "core_poi": [
+        {"name": "广州市第四十一中学", "poi_match": "精确命中", "poi_name": "广州市第四十一中学(东校区)", "school_id": "gz-440105-b210556b"}
+      ],
+      "level": "区属",
+      "type": "混合学段集团",
+      "members": [
+        {"name": "广州市海珠区劬劳中学", "stage": "初中", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549729.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广州市劬劳中学", "school_id": "gz-440105-b53da186"},
+        {"name": "广州市海珠区黄埔中学", "stage": "初中", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549729.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "黄埔中学", "school_id": "gz-440105-53bc2299"},
+        {"name": "广州市海珠区红棉小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549729.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "红棉小学(顺意校区)", "school_id": "gz-440105-33326ac8"},
+        {"name": "广州市海珠区卫国尧纪念小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549729.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "卫国尧纪念小学", "school_id": "gz-440105-120ea859"},
+        {"name": "广州市海珠区邓世昌纪念小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549729.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "邓世昌纪念小学", "school_id": "gz-440105-e1b9fdfe"},
+        {"name": "广州市海珠区菩提路小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549729.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "菩提路小学", "school_id": "gz-440105-f55ff85b"},
+        {"name": "广州市海珠区宝玉直小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549729.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "宝玉直小学宝贤校区", "school_id": "gz-440105-b623a7e1"}
+      ],
+      "source_urls": ["https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549729.html"]
+    },
+    {
+      "brand": "广州市海珠区实验小学教育集团",
+      "district": "海珠",
+      "core": ["广州市海珠区实验小学"],
+      "core_poi": [
+        {"name": "广州市海珠区实验小学", "poi_match": "精确命中", "poi_name": "广州市海珠区实验小学(富基校区)", "school_id": "gz-440105-6299c301"}
+      ],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {"name": "广州市海珠区怡乐路小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549718.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "怡乐路小学(嘉仕校区)", "school_id": "gz-440105-feb37b34"},
+        {"name": "广州市海珠区第四实验小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549718.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市海珠区第四实验小学", "school_id": "gz-440105-9fe1488c"},
+        {"name": "广州市海珠区三滘小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549718.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "三滘小学", "school_id": "gz-440105-1d12ba8a"},
+        {"name": "广州市海珠外国语实验中学附属小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549718.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市海珠外国语实验中学附属小学", "school_id": "gz-440105-119a0fc4"},
+        {"name": "广州市海珠区土华小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549718.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "土华小学", "school_id": "gz-440105-bf453ac9"},
+        {"name": "广州市海珠区江南大道中小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549718.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "江南大道中小学", "school_id": "gz-440105-ff91e551"}
+      ],
+      "source_urls": ["https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549718.html"]
+    },
+    {
+      "brand": "广州市海珠区第二实验小学教育集团",
+      "district": "海珠",
+      "core": ["广州市海珠区第二实验小学"],
+      "core_poi": [
+        {"name": "广州市海珠区第二实验小学", "poi_match": "精确命中", "poi_name": "海珠区第二实验小学", "school_id": "gz-440105-94dfa7d6"}
+      ],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {"name": "广州市海珠区知信小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549721.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "知信小学", "school_id": "gz-440105-75e59f1d"},
+        {"name": "广州市海珠区金影小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549721.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "金影小学", "school_id": "gz-440105-16c497f1"},
+        {"name": "广州市海珠区凤江小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549721.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "凤江小学", "school_id": "gz-440105-fb52e367"},
+        {"name": "广州市海珠区绿翠小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549721.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市海珠区绿翠小学", "school_id": "gz-440105-f34fb561"},
+        {"name": "广州市海珠区大江苑小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549721.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "大江苑小学", "school_id": "gz-440105-0e063d81"},
+        {"name": "广州市海珠区滨江东路小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549721.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "滨江东路小学", "school_id": "gz-440105-f4c3c3cc"}
+      ],
+      "source_urls": ["https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/post_10549721.html"]
+    },
+    {
+      "brand": "广州市海珠区教育发展研究院教育集团",
+      "district": "海珠",
+      "core": ["广州市海珠区教育发展研究院"],
+      "core_poi": [],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {"name": "广州市海珠区赤岗小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549725.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "赤岗小学", "school_id": "gz-440105-24c1be5c"},
+        {"name": "广州市海珠区客村小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549725.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "客村小学", "school_id": "gz-440105-b97dbd3f"},
+        {"name": "广州市海珠区新港中路小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549725.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "新港中路小学", "school_id": "gz-440105-a1b73980"},
+        {"name": "广州市海珠区赤岗东小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549725.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "赤岗东小学", "school_id": "gz-440105-8f7381ac"},
+        {"name": "广州市海珠区赤沙小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549725.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市海珠区赤沙小学", "school_id": "gz-440105-e2de50d2"},
+        {"name": "广州市海珠区龙潭小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549725.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "龙潭小学(龙潭立交)", "school_id": "gz-440105-729ba61d"},
+        {"name": "广州市海珠区东风小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549725.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "东风小学", "school_id": "gz-440105-3225e37f"},
+        {"name": "广州市海珠区汇源大街小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549725.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "汇源大街小学", "school_id": "gz-440105-1115e834"},
+        {"name": "广州市海珠区瀛洲小学", "stage": "小学", "source_url": "https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549725.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市海珠区瀛洲小学", "school_id": "gz-440105-6670c35d"}
+      ],
+      "source_urls": ["https://www.haizhu.gov.cn/hzdt/hzyw/hzzc/content/mpost_10549725.html"]
+    },
+    {
+      "brand": "广州市海珠区宝玉直实验小学教育集团",
+      "district": "海珠",
+      "core": ["广州市海珠区宝玉直实验小学"],
+      "core_poi": [
+        {"name": "广州市海珠区宝玉直实验小学", "poi_match": "精确命中", "poi_name": "广州市海珠区宝玉直实验小学(光大校区)", "school_id": "gz-440105-ed9be985"}
+      ],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {"name": "广州市海珠区新民六街小学", "stage": "小学", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9617995.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "新民六街小学(北校区)", "school_id": "gz-440105-620e4a9a"},
+        {"name": "广州市海珠区培红小学", "stage": "小学", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9617995.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "培红小学", "school_id": "gz-440105-546af63c"},
+        {"name": "广州市海珠外国语实验中学附属第二小学", "stage": "小学", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9617995.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市海珠外国语实验中学附属第二小学", "school_id": "gz-440105-4325dad0"},
+        {"name": "广州市海珠区晓园小学", "stage": "小学", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9617995.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市海珠区晓园小学", "school_id": "gz-440105-92aebdbb"}
+      ],
+      "source_urls": ["https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9617995.html"]
+    },
+    {
+      "brand": "广州五中教育集团",
+      "district": "海珠",
+      "core": ["广州市第五中学"],
+      "core_poi": [
+        {"name": "广州市第五中学", "poi_match": "精确命中", "poi_name": "广州市第五中学", "school_id": "gz-440105-0ffca7e3"}
+      ],
+      "level": "区属",
+      "type": "完中集团",
+      "members": [
+        {"name": "广州市海珠外国语实验中学", "stage": "初中", "source_url": "https://www.haizhu.gov.cn/hzdt/ztlm/zzyyzq/gg/content/mpost_9409172.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市海珠外国语实验中学", "school_id": "gz-440105-e76b659d"},
+        {"name": "广州市绿翠现代实验学校", "stage": "九年一贯", "source_url": "https://www.haizhu.gov.cn/hzdt/ztlm/zzyyzq/gg/content/mpost_9409172.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "绿翠现代实验学校（小学部）", "school_id": "gz-440105-156b7542"},
+        {"name": "广州市五中滨江学校", "stage": "初中", "source_url": "https://www.haizhu.gov.cn/hzdt/ztlm/zzyyzq/gg/content/mpost_9409172.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市五中滨江学校(远安校区)", "school_id": "gz-440105-06994d39"},
+        {"name": "广州市第二十六中学", "stage": "初中", "source_url": "https://www.haizhu.gov.cn/hzdt/ztlm/zzyyzq/gg/content/mpost_9409172.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市第二十六中学", "school_id": "gz-440105-352e2fc7"},
+        {"name": "广州市五中附属初级中学", "stage": "初中", "source_url": "https://www.haizhu.gov.cn/hzdt/ztlm/zzyyzq/gg/content/mpost_9409172.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市五中附属初级中学", "school_id": "gz-440105-747245e1"},
+        {"name": "广州市海珠外国语实验中学附属学校", "stage": "初中", "source_url": "https://www.haizhu.gov.cn/hzdt/ztlm/zzyyzq/gg/content/mpost_9409172.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市海珠外国语实验中学附属学校", "school_id": "gz-440105-06e6439a"},
+        {"name": "广州市五中东晓学校", "stage": "初中", "source_url": "https://www.haizhu.gov.cn/hzdt/ztlm/zzyyzq/gg/content/mpost_9409172.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市五中东晓学校", "school_id": "gz-440105-dc2408b3"},
+        {"name": "广州市景中实验中学", "stage": "初中", "source_url": "https://www.haizhu.gov.cn/hzdt/ztlm/zzyyzq/gg/content/mpost_9409172.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市景中实验中学", "school_id": "gz-440105-fbd67149"},
+        {"name": "广州市聚德中学", "stage": "初中", "source_url": "https://www.haizhu.gov.cn/hzdt/ztlm/zzyyzq/gg/content/mpost_9409172.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市聚德中学", "school_id": "gz-440105-a34bf4d7"}
+      ],
+      "source_urls": ["https://www.haizhu.gov.cn/hzdt/ztlm/zzyyzq/gg/content/mpost_9409172.html"]
+    },
+    {
+      "brand": "广州市第九十七中学教育集团",
+      "district": "海珠",
+      "core": ["广州市第九十七中学"],
+      "core_poi": [
+        {"name": "广州市第九十七中学", "poi_match": "精确命中", "poi_name": "广州市第九十七中学(江南新苑校区)", "school_id": "gz-440105-ed868139"}
+      ],
+      "level": "区属",
+      "type": "完中集团",
+      "members": [
+        {"name": "广州市九十七中晓园学校", "stage": "初中", "source_url": "https://www.haizhu.gov.cn/zwgk/wgk/zxgk/content/mpost_9423190.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广州市第九十七中学晓园学校", "school_id": "gz-440105-83f38819"},
+        {"name": "广州市九十七中蓝天学校", "stage": "初中", "source_url": "https://www.haizhu.gov.cn/zwgk/wgk/zxgk/content/mpost_9423190.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市九十七中蓝天学校", "school_id": "gz-440105-256ba9d6"},
+        {"name": "广州市新滘中学", "stage": "初中", "source_url": "https://www.haizhu.gov.cn/zwgk/wgk/zxgk/content/mpost_9423190.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市新滘中学(贵荣校区)", "school_id": "gz-440105-003f2037"}
+      ],
+      "source_urls": ["https://www.haizhu.gov.cn/zwgk/wgk/zxgk/content/mpost_9423190.html"]
+    }
+  ]
+}

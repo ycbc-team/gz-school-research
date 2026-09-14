@@ -1,0 +1,1070 @@
+{
+  "district": "白云",
+  "source_urls": [
+    "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+    "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
+  ],
+  "groups": [
+    {
+      "brand": "广州培英教育集团",
+      "district": "白云",
+      "core": [
+        "广州市培英中学"
+      ],
+      "level": "区属",
+      "type": "完中集团",
+      "members": [
+        {
+          "name": "广州市培英中学",
+          "stage": "完中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市培英中学(鹤洞校区)",
+          "school_id": "gz-440103-a3ee807c"
+        },
+        {
+          "name": "广州市白云艺术中学",
+          "stage": "高中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云艺术中学",
+          "school_id": "gz-440111-c08e69db"
+        },
+        {
+          "name": "广州市白云区平沙培英学校",
+          "stage": "九年一贯",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "平沙培英学校",
+          "school_id": "gz-440111-175bd68f"
+        },
+        {
+          "name": "广州市白云区嘉禾中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "嘉禾中学",
+          "school_id": "gz-440111-d2a4a882"
+        },
+        {
+          "name": "广州市白云区石井中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "石井中学",
+          "school_id": "gz-440111-297970b9"
+        },
+        {
+          "name": "广州市白云区云英实验学校",
+          "stage": "九年一贯",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "7区内真实缺失",
+          "poi_name": "",
+          "school_id": ""
+        },
+        {
+          "name": "广州市培英中学附属小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市培英中学附属小学",
+          "school_id": "gz-440111-d909827a"
+        },
+        {
+          "name": "广州市白云区培英中学附属第二小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云区培英中学附属第二小学",
+          "school_id": "gz-440111-fa619bb6"
+        },
+        {
+          "name": "广州市白云区凤凰小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "7区内真实缺失",
+          "poi_name": "",
+          "school_id": ""
+        },
+        {
+          "name": "白云湖数字科技城八方物流地块配建学校",
+          "stage": "待开办",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "7区内真实缺失",
+          "poi_name": "",
+          "school_id": ""
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
+      ]
+    },
+    {
+      "brand": "广州市第六十五中学教育集团",
+      "district": "白云",
+      "core": [
+        "广州市第六十五中学"
+      ],
+      "level": "区属",
+      "type": "完中集团",
+      "members": [
+        {
+          "name": "广州市第六十五中学",
+          "stage": "完中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市第六十五中学(江高校区)",
+          "school_id": "gz-440111-218475ea"
+        },
+        {
+          "name": "广州市第六十六中学",
+          "stage": "完中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市第六十六中学",
+          "school_id": "gz-440111-b50dea4b"
+        },
+        {
+          "name": "广州市白云区神山中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云区神山中学",
+          "school_id": "gz-440111-6becf87b"
+        },
+        {
+          "name": "广州市白云区梓元岗中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云区梓元岗中学",
+          "school_id": "gz-440111-a072aeb7"
+        },
+        {
+          "name": "广州市白云区江村中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "江村中学",
+          "school_id": "gz-440111-609bfcf4"
+        },
+        {
+          "name": "广州市白云区石龙中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "石龙中学",
+          "school_id": "gz-440100-7564c13b"
+        },
+        {
+          "name": "广州市白云区江高镇第三初级中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "广州市江高三中",
+          "school_id": "gz-440111-fce36a58"
+        },
+        {
+          "name": "广州市白云区金桂园小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "金桂园小学",
+          "school_id": "gz-440111-1155d875"
+        },
+        {
+          "name": "广州市第六十五中学附属小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市第六十五中学附属小学",
+          "school_id": "gz-440111-1fcfbfb4"
+        },
+        {
+          "name": "广州市颜乐天纪念中学",
+          "stage": "初中",
+          "source_url": "https://guangzhoubaiyun.gz-cmc.com/pages/2026/06/02/39201b17a1004e1188ea795f1fff1b61.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "颜乐天纪念中学",
+          "school_id": "gz-440111-35536ebb"
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+        "https://guangzhoubaiyun.gz-cmc.com/pages/2026/06/02/39201b17a1004e1188ea795f1fff1b61.html"
+      ]
+    },
+    {
+      "brand": "广州大同教育集团",
+      "district": "白云",
+      "core": [
+        "广州大同中学"
+      ],
+      "level": "区属",
+      "type": "完中集团",
+      "members": [
+        {
+          "name": "广州大同中学",
+          "stage": "完中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州大同中学(初中部)",
+          "school_id": "gz-440111-63a7bd1d"
+        },
+        {
+          "name": "广州市白云区景泰中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "广州市白云区景泰中学白云湖校区",
+          "school_id": "gz-440111-2186a02a"
+        },
+        {
+          "name": "广州市白云区竹料第一中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "竹料第一中学",
+          "school_id": "gz-440111-fd1c1c12"
+        },
+        {
+          "name": "广州市白云区新和学校",
+          "stage": "九年一贯",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "新和学校",
+          "school_id": "gz-440111-525f949a"
+        },
+        {
+          "name": "广州市白云区竹料第三中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "竹料第三中学",
+          "school_id": "gz-440111-b2b78162"
+        },
+        {
+          "name": "广州市白云区龙岗学校",
+          "stage": "九年一贯",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云区龙岗学校",
+          "school_id": "gz-440111-effbfa28"
+        },
+        {
+          "name": "广州市白云区集贤小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "集贤小学",
+          "school_id": "gz-440111-f8cbbcfe"
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
+      ]
+    },
+    {
+      "brand": "广州市白云中学教育集团",
+      "district": "白云",
+      "core": [
+        "广州市白云中学"
+      ],
+      "level": "区属",
+      "type": "完中集团",
+      "members": [
+        {
+          "name": "广州市白云中学",
+          "stage": "完中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云中学(汇侨校区)",
+          "school_id": "gz-440111-1b7d3f87"
+        },
+        {
+          "name": "广州市白云区三元里中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "7区内真实缺失",
+          "poi_name": "",
+          "school_id": ""
+        },
+        {
+          "name": "广州市白云区新市中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云区新市中学",
+          "school_id": "gz-440111-f3edc7ba"
+        },
+        {
+          "name": "广州市白云区新新中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "7区内真实缺失",
+          "poi_name": "",
+          "school_id": ""
+        },
+        {
+          "name": "广州市白云区黄石学校",
+          "stage": "九年一贯",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "黄石学校(祥景校区)",
+          "school_id": "gz-440111-76eef049"
+        },
+        {
+          "name": "广州市第六十七中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市第六十七中学",
+          "school_id": "gz-440111-e337711a"
+        },
+        {
+          "name": "广州市白云中学附属小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云中学附属小学",
+          "school_id": "gz-440111-cb67f3e8"
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
+      ]
+    },
+    {
+      "brand": "广州空港实验教育集团",
+      "district": "白云",
+      "core": [
+        "广州市白云区广州空港实验中学"
+      ],
+      "level": "区属",
+      "type": "完中集团",
+      "members": [
+        {
+          "name": "广州市白云区广州空港实验中学",
+          "stage": "高中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "广州空港实验中学(东校区)",
+          "school_id": "gz-440111-0cf700fb"
+        },
+        {
+          "name": "广州市第七十三中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市第七十三中学",
+          "school_id": "gz-440111-96d35d17"
+        },
+        {
+          "name": "广州市白云区广州空港实验小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "7区内真实缺失",
+          "poi_name": "",
+          "school_id": ""
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
+      ]
+    },
+    {
+      "brand": "广外实验中学教育集团",
+      "district": "白云",
+      "core": [
+        "广东外语外贸大学实验中学"
+      ],
+      "level": "区属",
+      "type": "完中集团",
+      "members": [
+        {
+          "name": "广东外语外贸大学实验中学",
+          "stage": "完中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广东外语外贸大学实验中学",
+          "school_id": "gz-440111-7e484346"
+        },
+        {
+          "name": "广州市白云区龙归学校",
+          "stage": "九年一贯",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "龙归学校(小学部)",
+          "school_id": "gz-440111-27e6c92d"
+        },
+        {
+          "name": "广州市第一一五中学",
+          "stage": "完中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市第一一五中学",
+          "school_id": "gz-440111-b5668c2e"
+        },
+        {
+          "name": "广州市第七十中学",
+          "stage": "完中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市第七十中学",
+          "school_id": "gz-440111-20c36515"
+        },
+        {
+          "name": "广州市白云区穗丰学校",
+          "stage": "九年一贯",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云区穗丰学校",
+          "school_id": "gz-440111-853a71dd"
+        },
+        {
+          "name": "广州市白云区太和中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云区太和中学",
+          "school_id": "gz-440111-06bfc806"
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+        "https://www.by.gov.cn/ywdt/zwyw/content/post_10982129.html"
+      ]
+    },
+    {
+      "brand": "广州白云广附教育集团",
+      "district": "白云",
+      "core": [
+        "广州市白云区金广实验学校"
+      ],
+      "level": "区属",
+      "type": "混合学段集团",
+      "members": [
+        {
+          "name": "广州市白云区金广实验学校",
+          "stage": "九年一贯",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "7区内真实缺失",
+          "poi_name": "",
+          "school_id": ""
+        },
+        {
+          "name": "广州市白云广大附中实验中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "7区内真实缺失",
+          "poi_name": "",
+          "school_id": ""
+        },
+        {
+          "name": "广州市广园中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广园中学",
+          "school_id": "gz-440111-ea6a6495"
+        },
+        {
+          "name": "广州市白云区同和中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "同和中学",
+          "school_id": "gz-440111-0ba9a45f"
+        },
+        {
+          "name": "广州市白云区广大附中实验小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云区广大附中实验小学",
+          "school_id": "gz-440111-2b633ed9"
+        },
+        {
+          "name": "广州市白云区广附同悦实验小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "7区内真实缺失",
+          "poi_name": "",
+          "school_id": ""
+        },
+        {
+          "name": "广州市白云区白云广附云湖实验学校",
+          "stage": "九年一贯",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "白云广附云湖实验学校",
+          "school_id": "gz-440111-92e78967"
+        },
+        {
+          "name": "越秀天悦金沙配建小学",
+          "stage": "待开办",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "7区内真实缺失",
+          "poi_name": "",
+          "school_id": ""
+        },
+        {
+          "name": "广龙地块配建学校",
+          "stage": "待开办",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "7区内真实缺失",
+          "poi_name": "",
+          "school_id": ""
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
+      ]
+    },
+    {
+      "brand": "广州白云六中教育集团",
+      "district": "白云",
+      "core": [
+        "广州市白云区六中实验中学"
+      ],
+      "level": "区属",
+      "type": "混合学段集团",
+      "members": [
+        {
+          "name": "广州市白云区六中实验中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "白云区六中实验中学(福和校区)",
+          "school_id": "gz-440111-6b0e6f77"
+        },
+        {
+          "name": "广州市白云区珠江实验学校",
+          "stage": "九年一贯",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云区珠江实验学校",
+          "school_id": "gz-440111-f08e9c24"
+        },
+        {
+          "name": "广州市白云区六中实验小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "白云区六中实验小学(南校区)",
+          "school_id": "gz-440111-c6ba2aa0"
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
+      ]
+    },
+    {
+      "brand": "广州云雅教育集团",
+      "district": "白云",
+      "core": [
+        "广州市白云区云雅实验学校"
+      ],
+      "level": "区属",
+      "type": "混合学段集团",
+      "members": [
+        {
+          "name": "广州市白云区云雅实验学校",
+          "stage": "九年一贯",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "广州云雅实验学校",
+          "school_id": "gz-440111-7d12a21e"
+        },
+        {
+          "name": "广州市源雅学校",
+          "stage": "九年一贯",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市源雅学校",
+          "school_id": "gz-440111-c8ae0a7c"
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
+      ]
+    },
+    {
+      "brand": "广州市白云区白云实验教育集团",
+      "district": "白云",
+      "core": [
+        "广州市白云区白云实验学校"
+      ],
+      "level": "区属",
+      "type": "混合学段集团",
+      "members": [
+        {
+          "name": "广州市白云区白云实验学校",
+          "stage": "九年一贯",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "省实白云实验学校",
+          "school_id": "gz-440111-0d08ab54"
+        },
+        {
+          "name": "广州市白云区大朗中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云区大朗中学",
+          "school_id": "gz-440111-cc803935"
+        },
+        {
+          "name": "广州市第一一四中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市第一一四中学(亭石南路)",
+          "school_id": "gz-440111-0f9c1ce8"
+        },
+        {
+          "name": "广州市白云区鸦岗小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "鸦岗小学",
+          "school_id": "gz-440111-cbfe874d"
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+        "https://www.by.gov.cn/ywdt/zwyw/content/mpost_7762154.html"
+      ]
+    },
+    {
+      "brand": "广东第二师范学院实验教育集团",
+      "district": "白云",
+      "core": [
+        "广州市白云区广东第二师范学院实验中学"
+      ],
+      "level": "区属",
+      "type": "混合学段集团",
+      "members": [
+        {
+          "name": "广州市白云区广东第二师范学院实验中学",
+          "stage": "完中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "广东第二师范学院实验中学(初中部)",
+          "school_id": "gz-440111-014a9fb2"
+        },
+        {
+          "name": "广州市白云区广东第二师范学院实验小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "广东第二师范学院实验小学",
+          "school_id": "gz-440111-127e76be"
+        },
+        {
+          "name": "广州市白云区蟠龙小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云区蟠龙小学",
+          "school_id": "gz-440111-63866efa"
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
+      ]
+    },
+    {
+      "brand": "广东技术师范大学实验教育集团",
+      "district": "白云",
+      "core": [
+        "广州市白云区江高镇第二初级中学"
+      ],
+      "level": "区属",
+      "type": "混合学段集团",
+      "members": [
+        {
+          "name": "广州市白云区江高镇第二初级中学",
+          "stage": "初中",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "广东技术师范大学白云实验中学",
+          "school_id": "gz-440111-d3ffec78"
+        },
+        {
+          "name": "广州市白云区江高镇中心小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "7区内真实缺失",
+          "poi_name": "",
+          "school_id": ""
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
+      ]
+    },
+    {
+      "brand": "三元里小学教育集团",
+      "district": "白云",
+      "core": [
+        "广州市白云区三元里小学"
+      ],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {
+          "name": "广州市白云区三元里小学",
+          "stage": "小学",
+          "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "三元里小学南校区",
+          "school_id": "gz-440111-db593ac1"
+        },
+        {
+          "name": "羊城铁路总公司广州铁路第五小学",
+          "stage": "小学",
+          "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "广州铁路第五小学",
+          "school_id": "gz-440111-23d6fbf3"
+        },
+        {
+          "name": "广州市白云区机场西小学",
+          "stage": "小学",
+          "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "机场西小学",
+          "school_id": "gz-440111-1ae7091a"
+        },
+        {
+          "name": "广州市白云区萧岗小学",
+          "stage": "小学",
+          "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "萧岗小学",
+          "school_id": "gz-440111-9edba702"
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+        "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm"
+      ]
+    },
+    {
+      "brand": "广园小学教育集团",
+      "district": "白云",
+      "core": [
+        "广州市白云区广园小学"
+      ],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {
+          "name": "广州市白云区广园小学",
+          "stage": "小学",
+          "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "广园小学",
+          "school_id": "gz-440111-53549fe6"
+        },
+        {
+          "name": "广州市白云区汇侨第一小学",
+          "stage": "小学",
+          "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
+          "verified": "2026-09-14",
+          "poi_match": "7区内真实缺失",
+          "poi_name": "",
+          "school_id": ""
+        },
+        {
+          "name": "广州市白云区棠涌小学",
+          "stage": "小学",
+          "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "棠涌小学",
+          "school_id": "gz-440111-bc3ea2c7"
+        },
+        {
+          "name": "广州市白云区远景小学",
+          "stage": "小学",
+          "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "远景小学",
+          "school_id": "gz-440111-52237906"
+        },
+        {
+          "name": "广州市白云区棠溪小学",
+          "stage": "小学",
+          "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "白云区棠溪小学(棠溪校区)",
+          "school_id": "gz-440111-61672bda"
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+        "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm"
+      ]
+    },
+    {
+      "brand": "景泰小学教育集团",
+      "district": "白云",
+      "core": [
+        "广州市白云区景泰小学"
+      ],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {
+          "name": "广州市白云区景泰小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "景泰小学柯子岭校区43号A座",
+          "school_id": "gz-440111-8d42bf12"
+        },
+        {
+          "name": "广州市白云区江夏小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "江夏小学",
+          "school_id": "gz-440111-59f40d14"
+        },
+        {
+          "name": "广州市白云区马务小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "马务小学",
+          "school_id": "gz-440111-e9a84742"
+        },
+        {
+          "name": "广州市白云区陈田小学",
+          "stage": "小学",
+          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "陈田小学",
+          "school_id": "gz-440111-7080b3ad"
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
+      ]
+    },
+    {
+      "brand": "京溪小学教育集团",
+      "district": "白云",
+      "core": [
+        "广州市白云区京溪小学"
+      ],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {
+          "name": "广州市白云区京溪小学",
+          "stage": "小学",
+          "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云区京溪小学(白天鹅校区)",
+          "school_id": "gz-440111-ae3faca7"
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+        "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm"
+      ]
+    },
+    {
+      "brand": "华师附中实验小学教育集团",
+      "district": "白云",
+      "core": [
+        "广州市白云区华师附中实验小学"
+      ],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {
+          "name": "广州市白云区华师附中实验小学",
+          "stage": "小学",
+          "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "华师附中实验小学(东校区)",
+          "school_id": "gz-440111-db31a4f7"
+        },
+        {
+          "name": "广州市白云区新兴白云小学",
+          "stage": "小学",
+          "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "新兴白云小学",
+          "school_id": "gz-440111-d64313ba"
+        },
+        {
+          "name": "广州市白云区永泰小学",
+          "stage": "小学",
+          "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "永泰小学",
+          "school_id": "gz-440111-77c67c22"
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+        "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm"
+      ]
+    },
+    {
+      "brand": "金沙第二小学教育集团",
+      "district": "白云",
+      "core": [
+        "广州市白云区金沙第二小学"
+      ],
+      "level": "区属",
+      "type": "小学集团",
+      "members": [
+        {
+          "name": "广州市白云区金沙第二小学",
+          "stage": "小学",
+          "source_url": "https://static.nfnews.com/content/202404/11/c8776592.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云区金沙第二小学",
+          "school_id": "gz-440111-3dab2af7"
+        },
+        {
+          "name": "广州市白云区金沙小学",
+          "stage": "小学",
+          "source_url": "https://static.nfnews.com/content/202404/11/c8776592.html",
+          "verified": "2026-09-14",
+          "poi_match": "精确命中",
+          "poi_name": "广州市白云区金沙小学(东校区)",
+          "school_id": "gz-440111-c780791c"
+        },
+        {
+          "name": "广州市白云区沙凤小学",
+          "stage": "小学",
+          "source_url": "https://static.nfnews.com/content/202404/11/c8776592.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "沙凤小学",
+          "school_id": "gz-440111-b0e4d621"
+        },
+        {
+          "name": "广州市白云区横沙小学",
+          "stage": "小学",
+          "source_url": "https://static.nfnews.com/content/202404/11/c8776592.html",
+          "verified": "2026-09-14",
+          "poi_match": "变体命中",
+          "poi_name": "横沙小学",
+          "school_id": "gz-440112-6e178b7a"
+        }
+      ],
+      "source_urls": [
+        "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
+        "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
+        "https://static.nfnews.com/content/202404/11/c8776592.html"
+      ]
+    }
+  ]
+}

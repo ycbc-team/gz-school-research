@@ -15,7 +15,7 @@
  * 输出：apps/miniprogram/data/**（git 忽略，由 build.mjs 的构建链路生成）
  */
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, rmSync } from 'node:fs';
-import { dirname, join, relative, sep } from 'node:path';
+import { dirname, join, relative, sep, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -59,7 +59,8 @@ function walkJson(dir) {
 }
 const WEB_TARGETS = walkJson(DATA_SRC)
   .filter((p) => !p.split(sep).some((seg) => seg === 'raw' || seg === '_raw'))
-  .map((p) => relative(ROOT, p));
+  .map((p) => relative(ROOT, p))
+  .filter((rel) => !basename(rel).startsWith('_partial_'));
 // 小程序主包数据（地图页 + 首页/支撑度消费）：POI/tier1/levels/招生/实体/升学路线/官方录取分
 const MP_MAIN_TARGETS = [
   'data/primary/schools-gz.json',
