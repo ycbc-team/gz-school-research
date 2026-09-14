@@ -8,6 +8,7 @@
     markers="{{markers}}"
     bindmarkertap="onMarkerTap"
     bindtap="onMapTap"
+    bindregionchange="onRegionChange"
   ></map>
 
   <!-- 顶部控件：搜索 + 三级筛选（cover-view 浮层） -->

@@ -69,11 +69,8 @@ Page({
       if (pt) {
         this.showInfo(pt);
         const idx = this.visible.findIndex((p) => p === pt);
-        this.setData({ activeMarkerId: idx >= 0 ? idx : null });
+        this.setData({ activeMarkerId: idx >= 0 ? idx : null, centerLat: pt.lat, centerLng: pt.lng, scale: 16 });
         this.renderMarkers();
-        this.setData({ scale: 16 }, () => {
-          wx.createMapContext('gzmap', this).moveToLocation({ latitude: pt.lat, longitude: pt.lng });
-        });
       }
     }
   },
@@ -158,23 +155,26 @@ Page({
     this.setData({ activeMarkerId: idx >= 0 ? idx : null, kw: '', searchResults: [], searchOpen: false });
     this.renderMarkers();
     this.showInfo(pt);
-    // 放大居中 + 选中态（对齐 Web focusSchool）
-    this.setData({ scale: 16 }, () => {
-      wx.createMapContext('gzmap', this).moveToLocation({ latitude: pt.lat, longitude: pt.lng });
-    });
+    // 放大居中（受控经纬度，对齐 Web focusSchool）
+    this.setData({ centerLat: pt.lat, centerLng: pt.lng, scale: 16 });
   },
 
   /* ---------- 信息卡（底部抽屉，对齐 Web） ---------- */
   onMarkerTap(e) {
     const pt = this.visible[e.detail.markerId];
     if (!pt) return;
-    this.setData({ activeMarkerId: e.detail.markerId });
+    this.setData({ activeMarkerId: e.detail.markerId, centerLat: pt.lat, centerLng: pt.lng, scale: 16 });
     this.renderMarkers();
     this.showInfo(pt);
-    // 对齐 Web：点击点位放大（scale 16）并居中
-    this.setData({ scale: 16 }, () => {
-      wx.createMapContext('gzmap', this).moveToLocation({ latitude: pt.lat, longitude: pt.lng });
-    });
+  },
+  /** 用户拖动/缩放地图后同步中心（受控经纬度必须回写，否则下次 setData 会跳回旧中心） */
+  onRegionChange(e) {
+    if (e.type === 'end' && e.detail && e.detail.centerLocation) {
+      this.setData({
+        centerLat: e.detail.centerLocation.latitude,
+        centerLng: e.detail.centerLocation.longitude,
+      });
+    }
   },
   onMapTap(e) {
     // marker 上的 tap 由 onMarkerTap 处理（部分基础库 detail 含 markerId）
