@@ -48,6 +48,14 @@ export const STAGE_TABS: Array<{ v: SchoolStage; l: string }> = [
 ];
 export const ALL_STAGES: SchoolStage[] = ['primary', 'middle', 'high'];
 
+/** 办学性质筛选：中外合作办学按非公办归入「民办」一侧。 */
+export const SCHOOL_NATURE_TABS = [
+  { v: 'public', l: '公办' },
+  { v: 'private', l: '民办' },
+] as const;
+export type SchoolNature = (typeof SCHOOL_NATURE_TABS)[number]['v'];
+export const ALL_SCHOOL_NATURES: SchoolNature[] = ['public', 'private'];
+
 /** 分级筛选分组（贝壳式浮层） */
 export const GRADE_GROUPS: Array<{ title: string; stage: SchoolStage; items: Array<{ v: ClsKey; l: string }> }> = [
   { title: '小学', stage: 'primary', items: [{ v: 'pT', l: '口碑学校' }, { v: 'pN', l: '普通学校' }] },

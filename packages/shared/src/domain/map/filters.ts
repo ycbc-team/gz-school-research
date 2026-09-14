@@ -4,12 +4,13 @@
  * 转换与判定逻辑单点维护，避免双端行为漂移。
  */
 import type { SchoolStage } from '../../types.js';
-import { CLASS_CFG, ALL_DISTRICT_ADCODES, ALL_STAGES, ALL_GRADES, type ClsKey } from './constants.js';
+import { CLASS_CFG, ALL_DISTRICT_ADCODES, ALL_STAGES, ALL_GRADES, ALL_SCHOOL_NATURES, type ClsKey, type SchoolNature } from './constants.js';
 
 export interface MapFilterState {
   selectedDistricts: Set<string>;
   selectedStages: Set<SchoolStage>;
   selectedGrades: Set<ClsKey>;
+  selectedNatures: Set<SchoolNature>;
 }
 
 export function initialFilterState(): MapFilterState {
@@ -17,6 +18,7 @@ export function initialFilterState(): MapFilterState {
     selectedDistricts: new Set(ALL_DISTRICT_ADCODES),
     selectedStages: new Set<SchoolStage>(ALL_STAGES),
     selectedGrades: new Set<ClsKey>(ALL_GRADES),
+    selectedNatures: new Set<SchoolNature>(ALL_SCHOOL_NATURES),
   };
 }
 
@@ -36,6 +38,9 @@ export function toggleStage(state: MapFilterState, v: SchoolStage): MapFilterSta
 export function toggleGrade(state: MapFilterState, v: ClsKey): MapFilterState {
   return { ...state, selectedGrades: toggleSet(state.selectedGrades, v) };
 }
+export function toggleNature(state: MapFilterState, v: SchoolNature): MapFilterState {
+  return { ...state, selectedNatures: toggleSet(state.selectedNatures, v) };
+}
 
 /** 全选/全不选翻转 */
 export function flipAll<T>(set: Set<T>, all: readonly T[]): Set<T> {
@@ -50,6 +55,9 @@ export function flipStages(state: MapFilterState): MapFilterState {
 export function flipGrades(state: MapFilterState): MapFilterState {
   return { ...state, selectedGrades: flipAll(state.selectedGrades, ALL_GRADES) };
 }
+export function flipNatures(state: MapFilterState): MapFilterState {
+  return { ...state, selectedNatures: flipAll(state.selectedNatures, ALL_SCHOOL_NATURES) };
+}
 
 /** 全选判定 */
 export function districtAll(state: MapFilterState): boolean {
@@ -60,6 +68,9 @@ export function stageAll(state: MapFilterState): boolean {
 }
 export function gradeAll(state: MapFilterState): boolean {
   return state.selectedGrades.size === ALL_GRADES.length;
+}
+export function natureAll(state: MapFilterState): boolean {
+  return state.selectedNatures.size === ALL_SCHOOL_NATURES.length;
 }
 
 export interface MapPoint {
@@ -73,6 +84,8 @@ export interface MapPoint {
   stages: SchoolStage[];
   /** 各学部自己的分级类（口碑/普通、示范/普通） */
   clsOf: Record<SchoolStage, ClsKey>;
+  /** 各学部的办学性质；无明确非公办记录时按公办 POI 处理。 */
+  natureOf: Record<SchoolStage, SchoolNature>;
   /** 主学部：stages 中优先级最高的（信息卡/描边/晕光判定用） */
   mainStage: SchoolStage;
 }
@@ -80,5 +93,5 @@ export interface MapPoint {
 /** 点位可见性：区域必选 + 多学部任一学段满足「学段×分级」双选 */
 export function isVisible(state: MapFilterState, pt: MapPoint): boolean {
   if (!state.selectedDistricts.has(pt.adcode)) return false;
-  return pt.stages.some((s) => state.selectedStages.has(s) && state.selectedGrades.has(pt.clsOf[s]));
+  return pt.stages.some((s) => state.selectedStages.has(s) && state.selectedGrades.has(pt.clsOf[s]) && state.selectedNatures.has(pt.natureOf[s]));
 }

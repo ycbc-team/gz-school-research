@@ -6,6 +6,7 @@ const { shared, repository, mapPoints } = require('../../utils/data.js');
 const {
   DISTRICTS,
   STAGE_TABS,
+  SCHOOL_NATURE_TABS,
   GRADE_GROUPS,
   CLASS_CFG,
   STAGE_LABEL,
@@ -13,12 +14,15 @@ const {
   toggleDistrict,
   toggleStage,
   toggleGrade,
+  toggleNature,
   flipDistricts,
   flipStages,
   flipGrades,
+  flipNatures,
   districtAll,
   stageAll,
   gradeAll,
+  natureAll,
   isVisible,
   searchSchools,
   buildInfoModel,
@@ -38,9 +42,11 @@ Page({
     selectedDistricts: [],
     selectedStages: [],
     selectedGrades: [],
+    selectedNatures: [],
     districtAll: true,
     stageAll: true,
     gradeAll: true,
+    natureAll: true,
     markers: [],
     visibleCount: 0,
     activeMarkerId: null,
@@ -48,6 +54,7 @@ Page({
     searchResults: [],
     searchOpen: false,
     menu: '',
+    topHidden: false,
     info: null,
     // 底部抽屉下拉时的视觉位移（px）。手势状态留在实例上，避免每次触摸都触发无关渲染。
     drawerOffset: 0,
@@ -61,6 +68,7 @@ Page({
     this.setData({
       districts: DISTRICTS.map((d) => ({ name: d.name, short: d.name.replace('区', ''), adcode: d.adcode })),
       STAGE_TABS,
+      SCHOOL_NATURE_TABS,
       GRADE_GROUPS,
     });
     this.syncState(initialFilterState());
@@ -88,13 +96,16 @@ Page({
     const selD = st.selectedDistricts;
     const selS = st.selectedStages;
     const selG = st.selectedGrades;
+    const selN = st.selectedNatures;
     this.setData({
       selectedDistricts: [...selD],
       selectedStages: [...selS],
       selectedGrades: [...selG],
+      selectedNatures: [...selN],
       districtAll: districtAll(st),
       stageAll: stageAll(st),
       gradeAll: gradeAll(st),
+      natureAll: natureAll(st),
       // 预计算 chips 选中态（WXML 表达式不支持方法调用）
       districts: this.data.districts.map((d) => ({ ...d, checked: selD.has(d.adcode) })),
       STAGE_TABS: this.data.STAGE_TABS.map((t) => ({ ...t, checked: selS.has(t.v) })),
@@ -103,6 +114,7 @@ Page({
         checked: selG.has(g.v),
         items: (g.items || []).map((o) => ({ ...o, checked: selG.has(o.v) })),
       })),
+      SCHOOL_NATURE_TABS: this.data.SCHOOL_NATURE_TABS.map((o) => ({ ...o, checked: selN.has(o.v) })),
     });
   },
   currentState() {
@@ -111,6 +123,7 @@ Page({
       selectedDistricts: new Set(d.selectedDistricts),
       selectedStages: new Set(d.selectedStages),
       selectedGrades: new Set(d.selectedGrades),
+      selectedNatures: new Set(d.selectedNatures),
     };
   },
 
@@ -140,19 +153,23 @@ Page({
 
   /* ---------- 三级筛选 ---------- */
   toggleMenu(e) {
+    this.closeInfo();
     const m = e.currentTarget.dataset.menu;
     this.setData({ menu: this.data.menu === m ? '' : m });
   },
   closeMenu() { this.setData({ menu: '' }); },
-  toggleDistrictAd(e) { this.syncState(toggleDistrict(this.currentState(), e.currentTarget.dataset.adcode)); this.renderMarkers(); },
-  toggleStageTab(e) { this.syncState(toggleStage(this.currentState(), e.currentTarget.dataset.stage)); this.renderMarkers(); },
-  toggleGradeCls(e) { this.syncState(toggleGrade(this.currentState(), e.currentTarget.dataset.cls)); this.renderMarkers(); },
-  flipAllDistricts() { this.syncState(flipDistricts(this.currentState())); this.renderMarkers(); },
-  flipAllStages() { this.syncState(flipStages(this.currentState())); this.renderMarkers(); },
-  flipAllGrades() { this.syncState(flipGrades(this.currentState())); this.renderMarkers(); },
+  toggleDistrictAd(e) { this.closeInfo(); this.syncState(toggleDistrict(this.currentState(), e.currentTarget.dataset.adcode)); this.renderMarkers(); },
+  toggleStageTab(e) { this.closeInfo(); this.syncState(toggleStage(this.currentState(), e.currentTarget.dataset.stage)); this.renderMarkers(); },
+  toggleNatureTab(e) { this.closeInfo(); this.syncState(toggleNature(this.currentState(), e.currentTarget.dataset.nature)); this.renderMarkers(); },
+  toggleGradeCls(e) { this.closeInfo(); this.syncState(toggleGrade(this.currentState(), e.currentTarget.dataset.cls)); this.renderMarkers(); },
+  flipAllDistricts() { this.closeInfo(); this.syncState(flipDistricts(this.currentState())); this.renderMarkers(); },
+  flipAllStages() { this.closeInfo(); this.syncState(flipStages(this.currentState())); this.renderMarkers(); },
+  flipAllNatures() { this.closeInfo(); this.syncState(flipNatures(this.currentState())); this.renderMarkers(); },
+  flipAllGrades() { this.closeInfo(); this.syncState(flipGrades(this.currentState())); this.renderMarkers(); },
 
   /* ---------- 搜索 ---------- */
   onSearchInput(e) {
+    this.closeInfo();
     const kw = e.detail.value;
     this.setData({ kw, searchResults: searchSchools(mapPoints, kw, repository.entities), searchOpen: true });
   },
@@ -168,6 +185,11 @@ Page({
   onMarkerTap(e) {
     const pt = this.visible[e.detail.markerId];
     if (!pt) return;
+    // 部分基础库会在同一次 marker tap 后继续派发 map tap（且 detail 不含 markerId）。
+    // 吞掉这一帧的后续 tap，避免抽屉刚打开就被 onMapTap 关闭。
+    this.ignoreNextMapTap = true;
+    clearTimeout(this.ignoreMapTapTimer);
+    this.ignoreMapTapTimer = setTimeout(() => { this.ignoreNextMapTap = false; }, 300);
     this.focusPoint(pt, e.detail.markerId);
   },
   /**
@@ -180,6 +202,10 @@ Page({
     this.renderMarkers();
     this.showInfo(pt);
 
+    this.isFocusing = true;
+    clearTimeout(this.focusTimer);
+    // 个别基础库在目标已居中时不会发 regionchange end，超时兜底后仍能响应用户拖图关闭抽屉。
+    this.focusTimer = setTimeout(() => { this.isFocusing = false; }, 1000);
     const target = { latitude: pt.lat, longitude: pt.lng };
     const token = (this.cameraToken || 0) + 1;
     this.cameraToken = token;
@@ -215,27 +241,33 @@ Page({
   },
   /** 用户拖动/缩放地图后同步中心（受控经纬度必须回写，否则下次 setData 会跳回旧中心） */
   onRegionChange(e) {
+    if (e.type === 'begin' && !this.isFocusing) this.closeInfo();
     if (e.type === 'end' && e.detail && e.detail.centerLocation) {
       this.setData({
         centerLat: e.detail.centerLocation.latitude,
         centerLng: e.detail.centerLocation.longitude,
       });
+      this.isFocusing = false;
+      clearTimeout(this.focusTimer);
     }
   },
   onMapTap(e) {
     // marker 上的 tap 由 onMarkerTap 处理（部分基础库 detail 含 markerId）
-    if (e && e.detail && e.detail.markerId !== undefined) return;
+    if (this.ignoreNextMapTap || (e && e.detail && e.detail.markerId !== undefined)) {
+      this.ignoreNextMapTap = false;
+      clearTimeout(this.ignoreMapTapTimer);
+      return;
+    }
     if (this.data.info || this.data.activeMarkerId !== null) {
-      this.setData({ info: null, activeMarkerId: null });
-      this.renderMarkers();
+      this.closeInfo();
     }
   },
   showInfo(pt) {
     this.drawerScrollTop = 0;
-    this.setData({ info: buildInfoModel(pt, repository), drawerOffset: 0, drawerDragging: false });
+    this.setData({ info: buildInfoModel(pt, repository), drawerOffset: 0, drawerDragging: false, topHidden: true, menu: '', searchOpen: false });
   },
   closeInfo() {
-    this.setData({ info: null, activeMarkerId: null, drawerOffset: 0, drawerDragging: false });
+    this.setData({ info: null, activeMarkerId: null, drawerOffset: 0, drawerDragging: false, topHidden: false });
     this.renderMarkers();
   },
 

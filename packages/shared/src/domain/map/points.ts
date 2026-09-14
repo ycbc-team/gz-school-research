@@ -6,7 +6,7 @@ import { buildAliasTable, matchTier1ByPoiName, normName } from '../../support.js
 import type { Tier1School, HighLevelSchool, SchoolStage, SchoolsSnapshot } from '../../types.js';
 import type { DataLoaders } from '../../data/loader.js';
 import type { MapPoint } from './filters.js';
-import { adcodeByDistrict, districtByAdcode, STAGE_PRIORITY, type ClsKey } from './constants.js';
+import { adcodeByDistrict, districtByAdcode, STAGE_PRIORITY, type ClsKey, type SchoolNature } from './constants.js';
 
 /** 完整点位（含信息卡所需字段） */
 export interface MapPointFull extends MapPoint {
@@ -67,6 +67,17 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
   const allPoints: MapPointFull[] = [];
   const ptByKey = new Map<string, MapPointFull>();
   const tierByName: Record<string, true> = {};
+  const enrollmentNatureById = new Map(loaders.enrollments.flatMap((x) => x.records).map((r) => [r.school_id, r.nature]));
+  const highNatureById = new Map(Object.entries(loaders.highScores2026.by_school_id).map(([id, rows]) => [id, rows[0]?.nature || '']));
+  const schoolNature = (stage: SchoolStage, schoolId: string | undefined, tier: Tier1School | null, rec: HighLevelSchool | null): SchoolNature => {
+    const raw = stage === 'primary'
+      ? enrollmentNatureById.get(schoolId || '')
+      : stage === 'high'
+        ? (rec?.nature || highNatureById.get(schoolId || ''))
+        : undefined;
+    const entityType = tier?.legal_entity?.type;
+    return [raw, entityType].some((v) => typeof v === 'string' && v && !v.includes('公办')) ? 'private' : 'public';
+  };
   function addSchool(
     s: { name: string; lat: number; lng: number; adcode: string; school_id?: string; note?: string },
     stage: SchoolStage,
@@ -81,7 +92,7 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
     if (!pt) {
       pt = {
         name: s.name, school_id: s.school_id, lat: s.lat, lng: s.lng, adcode: s.adcode,
-        stages: [], clsOf: {} as Record<SchoolStage, ClsKey>,
+        stages: [], clsOf: {} as Record<SchoolStage, ClsKey>, natureOf: {} as Record<SchoolStage, SchoolNature>,
         tierOf: {}, rec: null, mainStage: stage, tier: null,
       };
       ptByKey.set(key, pt);
@@ -90,6 +101,7 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
     if (!pt.stages.includes(stage)) {
       pt.stages.push(stage);
       pt.clsOf[stage] = cls;
+      pt.natureOf[stage] = schoolNature(stage, s.school_id, tier, rec);
       pt.tierOf[stage] = tier;
     }
     if (stage === 'high' && rec) pt.rec = rec;

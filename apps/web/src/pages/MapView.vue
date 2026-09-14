@@ -17,23 +17,28 @@ import {
   STAGE_COLOR,
   STAGE_LABEL,
   STAGE_TABS,
+  SCHOOL_NATURE_TABS,
   GRADE_GROUPS,
   districtByAdcode,
   initialFilterState,
   toggleDistrict,
   toggleStage,
   toggleGrade,
+  toggleNature,
   flipDistricts,
   flipStages,
   flipGrades,
+  flipNatures,
   districtAll,
   stageAll,
   gradeAll,
+  natureAll,
   isVisible,
   searchSchools,
   buildInfoModel,
   type SchoolStage,
   type ClsKey,
+  type SchoolNature,
   type MapPointFull,
 } from '@gz/shared';
 import { mapPoints, repository } from '../data';
@@ -43,24 +48,30 @@ const filterState = initialFilterState();
 const selectedDistricts = ref(filterState.selectedDistricts);
 const selectedStages = ref(filterState.selectedStages);
 const selectedGrades = ref(filterState.selectedGrades);
-const openMenu = ref<null | 'district' | 'stage' | 'grade'>(null);
+const selectedNatures = ref(filterState.selectedNatures);
+const openMenu = ref<null | 'district' | 'stage' | 'nature' | 'grade'>(null);
 const state = () => ({
   selectedDistricts: selectedDistricts.value,
   selectedStages: selectedStages.value,
   selectedGrades: selectedGrades.value,
+  selectedNatures: selectedNatures.value,
 });
-function toggleDistrictAd(ad: string) { selectedDistricts.value = toggleDistrict(state(), ad).selectedDistricts; }
-function toggleStageTab(v: SchoolStage) { selectedStages.value = toggleStage(state(), v).selectedStages; }
-function toggleGradeCls(v: ClsKey) { selectedGrades.value = toggleGrade(state(), v).selectedGrades; }
-function flipDistrictSet() { selectedDistricts.value = flipDistricts(state()).selectedDistricts; }
-function flipStageSet() { selectedStages.value = flipStages(state()).selectedStages; }
-function flipGradeSet() { selectedGrades.value = flipGrades(state()).selectedGrades; }
+function toggleDistrictAd(ad: string) { closeInfo(); selectedDistricts.value = toggleDistrict(state(), ad).selectedDistricts; }
+function toggleStageTab(v: SchoolStage) { closeInfo(); selectedStages.value = toggleStage(state(), v).selectedStages; }
+function toggleGradeCls(v: ClsKey) { closeInfo(); selectedGrades.value = toggleGrade(state(), v).selectedGrades; }
+function toggleNatureTab(v: SchoolNature) { closeInfo(); selectedNatures.value = toggleNature(state(), v).selectedNatures; }
+function flipDistrictSet() { closeInfo(); selectedDistricts.value = flipDistricts(state()).selectedDistricts; }
+function flipStageSet() { closeInfo(); selectedStages.value = flipStages(state()).selectedStages; }
+function flipGradeSet() { closeInfo(); selectedGrades.value = flipGrades(state()).selectedGrades; }
+function flipNatureSet() { closeInfo(); selectedNatures.value = flipNatures(state()).selectedNatures; }
 const districtAllOn = computed(() => districtAll(state()));
 const stageAllOn = computed(() => stageAll(state()));
 const gradeAllOn = computed(() => gradeAll(state()));
+const natureAllOn = computed(() => natureAll(state()));
 const flipDistrictLabel = computed(() => (districtAllOn.value ? '全不选' : '全选'));
 const flipStageLabel = computed(() => (stageAllOn.value ? '全不选' : '全选'));
 const flipGradeLabel = computed(() => (gradeAllOn.value ? '全不选' : '全选'));
+const flipNatureLabel = computed(() => (natureAllOn.value ? '全不选' : '全选'));
 function isVisiblePt(pt: MapPointFull): boolean { return isVisible(state(), pt); }
 
 /* ========== 学校搜索 ========== */
@@ -82,6 +93,7 @@ function pickResult(pt: MapPointFull) {
 const mapEl = ref<HTMLDivElement | null>(null);
 const mapPageEl = ref<HTMLElement | null>(null);
 let map: L.Map | null = null;
+let focusingPoint = false;
 
 /**
  * 手机端全屏适配：顶部导航在窄屏可能换行（高度不固定），
@@ -181,7 +193,7 @@ function applyFilters() {
     }
   }
 }
-watch([selectedDistricts, selectedStages, selectedGrades], applyFilters);
+watch([selectedDistricts, selectedStages, selectedNatures, selectedGrades], applyFilters);
 function renderBoundaries() {
   for (const dd of repository.schools.primary.districts || []) {
     const d = DISTRICTS.find((x) => x.adcode === dd.adcode);
@@ -250,6 +262,7 @@ onMounted(() => {
   // 注意：markerZoomAnimation:false 只覆盖"动画缩放"（控件/滚轮/双击）；
   // 手机双指捏合是实时 transform，不走动画类，需用 zoomstart/zoomend 显式隐藏
   map!.on('zoomstart', () => {
+    if (!focusingPoint) closeInfo();
     const pane = map!.getPane('markerPane');
     if (pane) pane.style.opacity = '0';
   });
@@ -278,6 +291,8 @@ onMounted(() => {
     }
   });
   map.on('click', () => closeInfo());
+  map.on('dragstart', () => closeInfo());
+  map.on('movestart', () => { if (!focusingPoint) closeInfo(); });
 });
 
 onBeforeUnmount(() => {
@@ -318,8 +333,12 @@ function showInfo(pt: MapPointFull) {
   activeItem = rendered.find((it) => it.pt === pt) ?? null;
   if (activeItem) setSelected(activeItem, true);
   active.value = pt;
+  openMenu.value = null;
+  searchOpen.value = false;
   // 点击点位：放大并居中到屏幕中央（多学部垂直分色在小缩放下看不清）
   if (map) {
+    focusingPoint = true;
+    map.once('moveend', () => { focusingPoint = false; });
     map.flyTo([pt.lat, pt.lng], Math.max(map.getZoom(), 16), { duration: 0.6 });
   }
 }
@@ -410,9 +429,9 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
 <template>
   <section ref="mapPageEl" class="map-page">
   <!-- 浮层：搜索 + 筛选（压在地图上方） -->
-  <div class="float-panel">
+  <div class="float-panel" :class="{ 'float-panel-hidden': !!infoModel }">
     <div class="search-bar">
-      <input v-model="kw" class="search-input" placeholder="搜索学校名，如：华南师范大学附属中学" @focus="searchOpen = true" />
+      <input v-model="kw" class="search-input" placeholder="搜索学校名，如：华南师范大学附属中学" @focus="closeInfo(); searchOpen = true" />
       <ul v-if="searchOpen && kw.trim()" class="search-drop">
         <li v-for="r in searchResults" :key="r.name + r.adcode" @mousedown.prevent="pickResult(r)">
           <b>{{ r.name }}</b>
@@ -422,21 +441,38 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
       </ul>
     </div>
 
+    <div class="panel-divider"></div>
     <div class="filter-bar">
       <div class="fb-col">
-        <button class="fb-btn" :class="{ on: openMenu === 'district' }" @click="openMenu = openMenu === 'district' ? null : 'district'">
+        <button class="fb-btn" :class="{ on: openMenu === 'district' }" @click="closeInfo(); openMenu = openMenu === 'district' ? null : 'district'">
           区域<em v-if="!districtAllOn" class="fb-badge">{{ selectedDistricts.size }}</em><span class="arr">▾</span>
         </button>
       </div>
       <div class="fb-col">
-        <button class="fb-btn" :class="{ on: openMenu === 'stage' }" @click="openMenu = openMenu === 'stage' ? null : 'stage'">
+        <button class="fb-btn" :class="{ on: openMenu === 'stage' }" @click="closeInfo(); openMenu = openMenu === 'stage' ? null : 'stage'">
           学段<em v-if="!stageAllOn" class="fb-badge">{{ selectedStages.size }}</em><span class="arr">▾</span>
         </button>
       </div>
       <div class="fb-col">
-        <button class="fb-btn" :class="{ on: openMenu === 'grade' }" @click="openMenu = openMenu === 'grade' ? null : 'grade'">
+        <button class="fb-btn" :class="{ on: openMenu === 'nature' }" @click="closeInfo(); openMenu = openMenu === 'nature' ? null : 'nature'">
+          性质<em v-if="!natureAllOn" class="fb-badge">{{ selectedNatures.size }}</em><span class="arr">▾</span>
+        </button>
+      </div>
+      <div class="fb-col">
+        <button class="fb-btn" :class="{ on: openMenu === 'grade' }" @click="closeInfo(); openMenu = openMenu === 'grade' ? null : 'grade'">
           分级<em v-if="!gradeAllOn" class="fb-badge">{{ selectedGrades.size }}</em><span class="arr">▾</span>
         </button>
+      </div>
+
+      <!-- 办学性质多选 -->
+      <div v-if="openMenu === 'nature'" class="fb-pop">
+        <div class="pop-chips">
+          <button v-for="o in SCHOOL_NATURE_TABS" :key="o.v" class="pop-chip" :class="{ on: selectedNatures.has(o.v) }" @click="toggleNatureTab(o.v)">{{ o.l }}</button>
+        </div>
+        <div class="pop-foot">
+          <button class="pop-link" @click="flipNatureSet()">{{ flipNatureLabel }}</button>
+          <button class="pop-link" @click="openMenu = null">完成</button>
+        </div>
       </div>
 
       <!-- 区域多选 -->
@@ -513,12 +549,16 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
 <style scoped>
 /* 浮层：搜索 + 筛选压在地图上方 */
 section { position: relative; }
-.float-panel { position: absolute; top: 10px; left: 10px; right: 10px; z-index: 1000; }
-.search-bar { position: relative; margin-bottom: 8px; }
+.float-panel {
+  position: absolute; top: 10px; left: 10px; right: 10px; z-index: 1000;
+  background: rgba(255,255,255,0.97); border: 1px solid #e4e3dd; border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(20,30,50,0.12); transition: transform .22s ease, opacity .18s ease;
+}
+.float-panel.float-panel-hidden { transform: translateY(-130%); opacity: 0; pointer-events: none; }
+.search-bar { position: relative; }
 .search-input {
-  width: 100%; box-sizing: border-box; border: 1px solid #e4e3dd; border-radius: 14px;
-  background: rgba(255,255,255,0.97); padding: 11px 14px; font-size: 13.5px; outline: none;
-  box-shadow: 0 2px 10px rgba(20,30,50,0.12);
+  width: 100%; box-sizing: border-box; border: none; border-radius: 14px 14px 0 0;
+  background: transparent; padding: 11px 14px; font-size: 13.5px; outline: none;
 }
 .search-input:focus { border-color: #9bbbf4; }
 .search-drop {
@@ -537,12 +577,11 @@ section { position: relative; }
 .search-empty { color: #6b7280; font-size: 12.5px; text-align: center; }
 .search-empty:hover { background: none !important; }
 
-/* 筛选器行（贝壳式，弹层横跨整行） */
+/* 搜索与筛选在同一气泡中，上下排列并以细线分隔。 */
+.panel-divider { height: 1px; margin: 0 12px; background: #e4e3dd; }
 .filter-bar {
   position: relative; display: flex; gap: 8px;
-  background: rgba(255,255,255,0.97); border: 1px solid #e4e3dd;
-  border-radius: 14px; padding: 8px;
-  box-shadow: 0 2px 10px rgba(20,30,50,0.12);
+  border-radius: 0 0 14px 14px; padding: 8px;
 }
 .fb-col { flex: 1 1 0; min-width: 0; }
 .fb-btn {

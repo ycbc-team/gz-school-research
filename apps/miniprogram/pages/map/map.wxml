@@ -13,8 +13,9 @@
   ></map>
 
   <!-- 顶部控件：搜索 + 三级筛选 -->
-  <view class="top">
-    <view class="search-bar">
+  <view class="top {{topHidden ? 'top-hidden' : ''}}">
+    <view class="top-bubble">
+      <view class="search-bar">
       <input
         class="search-input"
         placeholder="搜索学校名，如：华南师范大学附属中学"
@@ -33,19 +34,23 @@
         >{{item.name}}</view>
         <view wx:if="{{searchOpen && kw && !searchResults.length}}" class="s-empty">无匹配学校</view>
       </view>
-    </view>
+      </view>
 
-    <view class="filter-bar">
+      <view class="top-divider"></view>
+      <view class="filter-bar">
       <view class="fb-btn {{menu === 'district' ? 'on' : ''}}" data-menu="district" bindtap="toggleMenu">
         区域<view wx:if="{{!districtAll}}" class="fb-badge">{{selectedDistricts.length}}</view><view class="arr">▾</view>
       </view>
       <view class="fb-btn {{menu === 'stage' ? 'on' : ''}}" data-menu="stage" bindtap="toggleMenu">
         学段<view wx:if="{{!stageAll}}" class="fb-badge">{{selectedStages.length}}</view><view class="arr">▾</view>
       </view>
+      <view class="fb-btn {{menu === 'nature' ? 'on' : ''}}" data-menu="nature" bindtap="toggleMenu">
+        性质<view wx:if="{{!natureAll}}" class="fb-badge">{{selectedNatures.length}}</view><view class="arr">▾</view>
+      </view>
       <view class="fb-btn {{menu === 'grade' ? 'on' : ''}}" data-menu="grade" bindtap="toggleMenu">
         分级<view wx:if="{{!gradeAll}}" class="fb-badge">{{selectedGrades.length}}</view><view class="arr">▾</view>
       </view>
-    </view>
+      </view>
 
     <!-- 区域多选 -->
     <view wx:if="{{menu === 'district'}}" class="fb-pop">
@@ -81,6 +86,17 @@
       </view>
     </view>
 
+    <!-- 办学性质多选 -->
+    <view wx:if="{{menu === 'nature'}}" class="fb-pop">
+      <view class="chips">
+        <view wx:for="{{SCHOOL_NATURE_TABS}}" wx:key="v" class="chip {{item.checked ? 'on' : ''}}" data-nature="{{item.v}}" bindtap="toggleNatureTab">{{item.l}}</view>
+      </view>
+      <view class="pop-foot">
+        <view class="pop-link" bindtap="flipAllNatures">{{natureAll ? '全不选' : '全选'}}</view>
+        <view class="pop-link" bindtap="closeMenu">完成</view>
+      </view>
+    </view>
+
     <!-- 分级多选（分组） -->
     <view wx:if="{{menu === 'grade'}}" class="fb-pop">
       <view wx:for="{{GRADE_GROUPS}}" wx:key="title" class="pop-group">
@@ -100,6 +116,7 @@
         <view class="pop-link" bindtap="flipAllGrades">{{gradeAll ? '全不选' : '全选'}}</view>
         <view class="pop-link" bindtap="closeMenu">完成</view>
       </view>
+    </view>
     </view>
   </view>
 

@@ -6,13 +6,18 @@
 .top {
   position: absolute; top: 16rpx; left: 16rpx; right: 16rpx; z-index: 20;
   display: flex; flex-direction: column;
+  transition: transform 0.22s ease, opacity 0.18s ease;
 }
-.search-bar { position: relative; margin-bottom: 22rpx; }
+.top.top-hidden { transform: translateY(-130%); opacity: 0; pointer-events: none; }
+.top-bubble {
+  background: rgba(255,255,255,0.97); border-radius: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(20,30,50,0.12); overflow: visible;
+}
+.search-bar { position: relative; }
 .search-input {
   width: 100%; height: 72rpx; box-sizing: border-box;
-  background: rgba(255,255,255,0.97); border-radius: 30rpx;
+  background: transparent; border-radius: 30rpx;
   padding: 0 28rpx; font-size: 27rpx; color: #1a1b1c;
-  box-shadow: 0 2rpx 10rpx rgba(20,30,50,0.12);
 }
 .ph { color: #9aa0a6; }
 .search-drop {
@@ -27,9 +32,10 @@
 
 .filter-bar {
   display: flex;
-  background: rgba(255,255,255,0.97); border-radius: 24rpx;
-  padding: 10rpx; box-shadow: 0 2rpx 10rpx rgba(20,30,50,0.12);
+  border-radius: 0 0 24rpx 24rpx;
+  padding: 10rpx;
 }
+.top-divider { height: 1rpx; background: #e4e3dd; margin: 0 24rpx; }
 .fb-btn {
   flex: 1; display: flex; align-items: center; justify-content: center;
   font-size: 27rpx; color: #1a1b1c; padding: 14rpx 0; border-radius: 18rpx;
@@ -45,6 +51,7 @@
   margin-left: 6rpx;
 }
 .fb-pop {
+  position: absolute; top: calc(100% + 12rpx); left: 0; right: 0;
   background: #fff; border-radius: 20rpx; box-shadow: 0 8rpx 28rpx rgba(20,30,50,0.16);
   padding: 20rpx;
 }

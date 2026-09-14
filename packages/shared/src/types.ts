@@ -190,6 +190,8 @@ export interface HighLevelSchool {
   district: string;
   category: HighSchoolCategory;
   affiliation: string;
+  /** 办学性质：公办 / 民办 / 中外合作办学等。 */
+  nature?: string;
   demo?: string;
   /** 校区名（字符串，与旧版产物一致） */
   campuses: string[];
