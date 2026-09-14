@@ -220,21 +220,23 @@ export function createQuotaApi(loaders: DataLoaders) {
   /**
    * 反查：某初中 POI 的生源小学。POI 名→初中实体 school_id→遍历事实表 feed 命中。
    * 全等别名，不做包含匹配。
+   * direct_feed 语义：仅当该小学的对口直升目标就是「当前查询的初中」时非空（值为该初中名），
+   * 否则一律为 null——避免把「小学直升其它初中」误标成「直升本校」（派位组内可填报 ≠ 对口直升）。
    */
   function middlePrimaryFeed(middleName: string): { primary: string; group: string | null; direct_feed: string | null }[] {
     const ent = resolveEntity(middleAlias, middleName);
     if (!ent) return [];
     const out: { primary: string; group: string | null; direct_feed: string | null }[] = [];
     for (const r of facts) {
-      const hit = (r.feed_school_ids || []).includes(ent.school_id) ||
-        r.direct_feed_school_id === ent.school_id;
-      if (hit) {
-        const pe = r.school_id ? entityById.get(r.school_id) : null;
-        out.push({
-          primary: pe ? pe.name : '(未知)', group: groupsById.get(r.group_id)?.name ?? null,
-          direct_feed: r.direct_feed_school_id ? entityById.get(r.direct_feed_school_id)?.name ?? null : null,
-        });
-      }
+      const inGroup = (r.feed_school_ids || []).includes(ent.school_id);
+      const directHere = r.direct_feed_school_id === ent.school_id;
+      if (!inGroup && !directHere) continue;
+      const pe = r.school_id ? entityById.get(r.school_id) : null;
+      out.push({
+        primary: pe ? pe.name : '(未知)',
+        group: groupsById.get(r.group_id)?.name ?? null,
+        direct_feed: directHere ? (entityById.get(r.direct_feed_school_id!)?.name ?? null) : null,
+      });
     }
     return out;
   }

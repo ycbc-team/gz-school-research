@@ -188,6 +188,7 @@ Page({
     // 部分基础库会在同一次 marker tap 后继续派发 map tap（且 detail 不含 markerId）。
     // 吞掉这一帧的后续 tap，避免抽屉刚打开就被 onMapTap 关闭。
     this.ignoreNextMapTap = true;
+    this.lastMarkerTapAt = Date.now();
     clearTimeout(this.ignoreMapTapTimer);
     this.ignoreMapTapTimer = setTimeout(() => { this.ignoreNextMapTap = false; }, 300);
     this.focusPoint(pt, e.detail.markerId);
@@ -202,10 +203,6 @@ Page({
     this.renderMarkers();
     this.showInfo(pt);
 
-    this.isFocusing = true;
-    clearTimeout(this.focusTimer);
-    // 个别基础库在目标已居中时不会发 regionchange end，超时兜底后仍能响应用户拖图关闭抽屉。
-    this.focusTimer = setTimeout(() => { this.isFocusing = false; }, 1000);
     const target = { latitude: pt.lat, longitude: pt.lng };
     const token = (this.cameraToken || 0) + 1;
     this.cameraToken = token;
@@ -241,19 +238,21 @@ Page({
   },
   /** 用户拖动/缩放地图后同步中心（受控经纬度必须回写，否则下次 setData 会跳回旧中心） */
   onRegionChange(e) {
-    if (e.type === 'begin' && !this.isFocusing) this.closeInfo();
+    // 原生 map 还会为 includePoints / center 等程序性更新派发 regionchange（causedBy: update）。
+    // 只有真实的用户拖动、双指缩放才收起抽屉；不能以事件发生时机猜测，否则定位动画结束后会误关。
+    const causedBy = e.detail && e.detail.causedBy;
+    if (e.type === 'begin' && (causedBy === 'drag' || causedBy === 'scale')) this.closeInfo();
     if (e.type === 'end' && e.detail && e.detail.centerLocation) {
       this.setData({
         centerLat: e.detail.centerLocation.latitude,
         centerLng: e.detail.centerLocation.longitude,
       });
-      this.isFocusing = false;
-      clearTimeout(this.focusTimer);
     }
   },
   onMapTap(e) {
     // marker 上的 tap 由 onMarkerTap 处理（部分基础库 detail 含 markerId）
-    if (this.ignoreNextMapTap || (e && e.detail && e.detail.markerId !== undefined)) {
+    const justPickedMarker = Date.now() - (this.lastMarkerTapAt || 0) < 800;
+    if (this.ignoreNextMapTap || justPickedMarker || (e && e.detail && e.detail.markerId !== undefined)) {
       this.ignoreNextMapTap = false;
       clearTimeout(this.ignoreMapTapTimer);
       return;
