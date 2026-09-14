@@ -116,7 +116,6 @@ export interface BrandGroups {
 export interface EducationGroupMember {
   name: string;
   stage: string;
-  source_url?: string;
   verified?: string;
   poi_match?: string;
   poi_name?: string;
