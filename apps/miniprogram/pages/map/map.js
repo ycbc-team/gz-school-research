@@ -75,6 +75,11 @@ Page({
     }
   },
 
+  onReady() {
+    // 原生 map 的视野动画必须通过 MapContext 发起；仅更新 latitude/longitude 通常会直接跳转。
+    this.mapCtx = wx.createMapContext('gzmap', this);
+  },
+
   /** 共享状态机 → 页面 data（Set → 数组 + 预计算 checked 标志，WXML 不支持 indexOf） */
   syncState(st) {
     const selD = st.selectedDistricts;
@@ -152,20 +157,58 @@ Page({
     const pt = this.data.searchResults[e.currentTarget.dataset.idx];
     if (!pt) return;
     const idx = this.visible.findIndex((p) => p === pt);
-    this.setData({ activeMarkerId: idx >= 0 ? idx : null, kw: '', searchResults: [], searchOpen: false });
-    this.renderMarkers();
-    this.showInfo(pt);
-    // 放大居中（受控经纬度，对齐 Web focusSchool）
-    this.setData({ centerLat: pt.lat, centerLng: pt.lng, scale: 16 });
+    this.setData({ kw: '', searchResults: [], searchOpen: false });
+    this.focusPoint(pt, idx >= 0 ? idx : null);
   },
 
   /* ---------- 信息卡（底部抽屉，对齐 Web） ---------- */
   onMarkerTap(e) {
     const pt = this.visible[e.detail.markerId];
     if (!pt) return;
-    this.setData({ activeMarkerId: e.detail.markerId, centerLat: pt.lat, centerLng: pt.lng, scale: 16 });
+    this.focusPoint(pt, e.detail.markerId);
+  },
+  /**
+   * 一次原生镜头动画完成“平移 + 放大”。
+   * 用目标点周围不可见的一对对角参考点确定最终视野，避免 includePoints 结束后再 setData 收束，
+   * 造成两段动画之间的画面跳变。
+   */
+  focusPoint(pt, markerId) {
+    this.setData({ activeMarkerId: markerId });
     this.renderMarkers();
     this.showInfo(pt);
+
+    const target = { latitude: pt.lat, longitude: pt.lng };
+    const token = (this.cameraToken || 0) + 1;
+    this.cameraToken = token;
+    const isCurrent = (center) => Math.abs(center.latitude - target.latitude) < 0.00005 &&
+      Math.abs(center.longitude - target.longitude) < 0.00005;
+    const fallback = () => {
+      if (this.cameraToken !== token) return;
+      // 不支持 includePoints 时保留单次属性更新，避免人为拆成两段而闪跳。
+      this.setData({ centerLat: target.latitude, centerLng: target.longitude, scale: 16 });
+    };
+    if (!this.mapCtx) return fallback();
+    this.mapCtx.getCenterLocation({
+      success: (center) => {
+        if (this.cameraToken !== token) return;
+        if (isCurrent(center)) return this.setData({ scale: 16 });
+        // 约 16 级视野的半径；经度按纬度校正，四点的包围盒中心即目标点。
+        const latDelta = 0.0018;
+        const lngDelta = latDelta / Math.cos(target.latitude * Math.PI / 180);
+        const targetFrame = [
+          { latitude: target.latitude - latDelta, longitude: target.longitude - lngDelta },
+          { latitude: target.latitude + latDelta, longitude: target.longitude + lngDelta },
+        ];
+        this.mapCtx.includePoints({
+          // includePoints 自身会从当前视野过渡到此最终视野；targetFrame 决定目标中心与缩放级别。
+          points: targetFrame,
+          // 底部抽屉会遮住下半屏，留出更大的下边距。
+          padding: [80, 40, 360, 40],
+          fail: fallback,
+        });
+      },
+      fail: fallback,
+    });
   },
   /** 用户拖动/缩放地图后同步中心（受控经纬度必须回写，否则下次 setData 会跳回旧中心） */
   onRegionChange(e) {

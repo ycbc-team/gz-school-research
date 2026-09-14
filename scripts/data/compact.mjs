@@ -38,8 +38,8 @@ const DICT_SPEC = {
  * 收益：source_note ~90KB（信息卡不用）、source_url 已字典化（省 ~2KB）。
  */
 const MP_TRIM = {
-  // source_url 已提为组级（groups[].source_urls），records 无此字段，裁剪仅剩 source_note
-  'data/primary/xiaoshengchu_2026.json': ['source_note'],
+  // 主包地图页/信息卡不消费 source_note（~90KB）与 source_url（详情页分包用全量产物）
+  'data/primary/xiaoshengchu_2026.json': ['source_note', 'source_url'],
 };
 
 /**

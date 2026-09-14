@@ -42,6 +42,11 @@ data/linkage/raw/*.preview
 # 高中录取分官方页原始 HTML（scripts/high/build_scores.py --fetch 可重新抓取；真源只存 JSON）
 data/high/raw/
 
+# 小升初升学事实表中间产物（build_xiaoshengchu_all.py 按区重建后 merge_all 汇总；
+# 真源只存升级后的 data/primary/xiaoshengchu_2026.json，见 2060d6c）
+data/primary/enrollments/xiaoshengchu_*.json
+data/primary/xiaoshengchu_all.json
+
 # Web 紧凑数据产物（由 scripts/data/compact.mjs 从 data/ JSON 编译，加载后 hydrate 还原）
 apps/web/src/data/compact/
 
