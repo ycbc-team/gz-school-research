@@ -319,7 +319,8 @@
           "verified": "2026-09-14",
           "poi_match": "7区内真实缺失",
           "poi_name": "",
-          "school_id": ""
+          "school_id": "",
+          "note": "官方文件确认在办（2019集团成立/2026名额分配表），高德未收录POI"
         },
         {
           "name": "广州市白云区新市中学",
@@ -331,13 +332,14 @@
           "school_id": "gz-440111-f3edc7ba"
         },
         {
-          "name": "广州市白云区新新中学",
+          "name": "广州市白云区新市中学",
           "stage": "初中",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
           "poi_match": "7区内真实缺失",
           "poi_name": "",
-          "school_id": ""
+          "school_id": "",
+          "note": "原录'新新中学'经核为笔误：2019/2026官方文件均为'新市中学'（白云中学教育集团成员）"
         },
         {
           "name": "广州市白云区黄石学校",
@@ -572,7 +574,8 @@
           "verified": "2026-09-14",
           "poi_match": "7区内真实缺失",
           "poi_name": "",
-          "school_id": ""
+          "school_id": "",
+          "note": "建设中：广龙地块配建校，尚未开办，高德无POI"
         }
       ],
       "source_urls": [

@@ -48,7 +48,12 @@ def match_school(name, poi_all, alias_map):
     # 2. alias match
     if n in alias_map:
         ent = alias_map[n]
-        # try to find POI by entity name
+        # 2a. 先精确匹配实体完整名（含校区括号，避免多校区 norm 歧义）
+        for p in poi_all:
+            if p["name"] == ent["name"]:
+                district = SEVEN_DISTRICTS.get(p["adcode"], FAR_DISTRICTS.get(p["adcode"],"未知"))
+                return {"poi_match":"变体命中","matched_name":p["name"],"stage":p["stage"],"district":district,"school_id":p["school_id"]}
+        # 2b. 再按 norm 匹配
         en = norm(ent["name"])
         for p in poi_all:
             if p["norm"] == en:
