@@ -40,6 +40,7 @@ import {
   brandGroupOf,
   groupOfSchool,
   resolvePoiName,
+  resolveSchoolIdOf,
   type BrandUnit,
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
@@ -47,8 +48,11 @@ import LinkagePanel from '../components/LinkagePanel.vue';
 const props = defineProps<{ name: string; stage?: string }>();
 const route = useRoute();
 const schoolName = computed(() => decodeURIComponent(props.name || ''));
-/** 同名学校由地图点位传入实体主键；旧链接仍按校名兼容。 */
-const schoolId = computed(() => typeof route.query.id === 'string' ? route.query.id : '');
+/** 学校实体主键：URL 有 id 直接用；否则用校名在 entities 表反查（含别名桥接），所有模块统一受益 */
+const schoolId = computed(() => {
+  if (typeof route.query.id === 'string' && route.query.id) return route.query.id;
+  return resolveSchoolIdOf(schoolName.value) || '';
+});
 const router = useRouter();
 /** 返回上一级（无历史则回地图） */
 function goBack() {
@@ -67,9 +71,7 @@ const POI_LISTS: Record<SchoolStage, any[]> = {
 const STAGE_LABEL: Record<SchoolStage, string> = { primary: '小学部', middle: '初中部', high: '高中部' };
 /** 精确匹配：URL 带 id 按实体 id，否则按校名全等 */
 function poiExact(s: SchoolStage) {
-  return schoolId.value
-    ? POI_LISTS[s].find((p) => p.school_id === schoolId.value)
-    : POI_LISTS[s].find((p) => normName(p.name) === normName(schoolName.value));
+  return POI_LISTS[s].find((p) => p.school_id === schoolId.value);
 }
 /** 同址集合：任一部命中 POI 的坐标，把同区同坐标的其它学部 POI 一并纳入（九年制小学部/初中部两个 POI） */
 const hitPoi = computed(() => (['primary', 'middle', 'high'] as SchoolStage[]).map(poiExact).find((p) => !!p) ?? null);
@@ -162,7 +164,7 @@ const districtOf = computed(() => {
 /* ========== 小学：2026 招生计划匹配（含对口地段 zone） ========== */
 const enrollment = computed(() => {
   if (stage.value !== 'primary') return null;
-  return matchEnrollment(poi.value?.school_id || schoolName.value);
+  return matchEnrollment(schoolId.value);
 });
 const primaryMechanism = computed(() => {
   if (stage.value !== 'primary' || !poi.value) return null;
@@ -291,27 +293,28 @@ const brandCard = computed<{ brand: string; note?: string; sourceUrls: string[];
 
   /* ---- source=education：区属官方集团（core+members 结构，无法人关系标注） ---- */
   if (grp.source === 'education') {
-    const rows: BrandRow[] = grp.members.map((m) => {
-      // 优先用 poi_name 解析详情链接（多校区 POI），fallback 用官方名
-      const poiTarget = resolvePoiName(m.poi_name || m.name);
+    const rows: BrandRow[] = grp.members.flatMap((m) => {
       const stageKey = m.stage === '小学' ? 'primary' : m.stage === '初中' ? 'middle' : m.stage === '高中' ? 'high' : null;
-      // 核心校行的 stage 从 POI 推断（当前详情页 stage）
       const finalStage = stageKey || (m.role === '核心校' ? stage.value : null);
-      const link = finalStage && poiTarget ? `/school/${encodeURIComponent(poiTarget)}?stage=${finalStage}` : null;
-      return {
-        name: m.name,
-        role: m.role,
-        legal: 'same',
-        district: '',
-        stages: m.stage ? [m.stage] : (m.role === '核心校' && stage.value ? [stage.value === 'primary' ? '小学' : stage.value === 'middle' ? '初中' : '高中'] : []),
-        badge: null,
-        reason: null,
-        isCurrent:
-          !!(m.school_id && m.school_id === schoolId.value) ||
-          normName(m.name) === normName(schoolName.value) ||
-          !!(m.poi_name && normName(m.poi_name) === normName(schoolName.value)),
-        link,
-      };
+      // 多校区：每个校区展开一行；单校区：一行
+      const campusNames = (m.poi_names && m.poi_names.length > 1) ? m.poi_names : [m.poi_name || m.name];
+      return campusNames.map((cn) => {
+        const poiTarget = resolvePoiName(cn);
+        const link = finalStage && poiTarget ? `/school/${encodeURIComponent(poiTarget)}?stage=${finalStage}` : null;
+        return {
+          name: m.name === cn ? m.name : cn,
+          role: m.role,
+          legal: 'same',
+          district: '',
+          stages: m.stage ? [m.stage] : (m.role === '核心校' && stage.value ? [stage.value === 'primary' ? '小学' : stage.value === 'middle' ? '初中' : '高中'] : []),
+          badge: null,
+          reason: null,
+          isCurrent:
+            normName(cn) === normName(schoolName.value) ||
+            normName(m.name) === normName(schoolName.value),
+          link,
+        };
+      });
     });
     const groups: { key: string; title: string; rows: BrandRow[] }[] = [];
     const coreRows = rows.filter((r) => r.role === '核心校');

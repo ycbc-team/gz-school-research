@@ -121,6 +121,8 @@ export interface EducationGroupMember {
   poi_match?: string;
   poi_name?: string;
   school_id?: string;
+  /** 多校区索引：成员校在 POI 里有多个校区时，列出所有校区（poi_match="多校区索引"时使用） */
+  campuses?: Array<{ poi_name: string; school_id: string }>;
 }
 export interface EducationGroup {
   brand: string;

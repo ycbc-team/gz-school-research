@@ -103,17 +103,20 @@ export function createRegistryApi(loaders: DataLoaders) {
         }
         for (const m of g.members || []) {
           if (m.school_id) schoolIdToGroup.set(m.school_id, g);
+          // 多校区索引：campuses 里所有校区 school_id 都能查到所属集团
+          for (const c of m.campuses || []) {
+            if (c.school_id) schoolIdToGroup.set(c.school_id, g);
+          }
         }
       }
     }
   }
 
   /**
-   * 按 school_id（首选）或校名匹配所属教育集团（详情页"品牌关联"板块统一入口）。
-   * - 优先 school_id 查离线索引（精确，O(1)）
-   * - 其次 brandGroups（8 个重点品牌，带法人关系/口碑标注）
-   * - 最后校名模糊匹配 educationGroups（fallback，处理 school_id 缺失的远郊/新校）
-   * 返回统一形状，调用方按 source 决定渲染分组口径。
+   * 按 school_id（首选）或校名（经 entities 表反查 school_id）匹配所属教育集团。
+   * - 没传 school_id 时，用校名在 entities 表反查 school_id（含别名桥接），查到了走同一条精确路径
+   * - 其次 brandGroups（8 个重点品牌，带法人关系/口碑标注，按 POI 名匹配）
+   * - 都未命中：返回 null（未关联任何集团，不当作正常分支）
    */
   function groupOfSchool(name: string, schoolId?: string | null): {
     source: 'brand' | 'education';
@@ -124,10 +127,16 @@ export function createRegistryApi(loaders: DataLoaders) {
     source_urls: string[];
   } | null {
     if (!name && !schoolId) return null;
-    // 0. 首选 school_id 精确查离线索引
+
+    // 0. 没传 school_id 时，用校名去 entities 表反查 school_id（别名桥接）
+    if (!schoolId && name) {
+      schoolId = resolveSchoolIdOf(name);
+    }
+
+    // 1. school_id 精确查离线索引
     if (schoolId && schoolIdToGroup.has(schoolId)) {
       const g = schoolIdToGroup.get(schoolId)!;
-      // 核心校：优先展开 core_poi 的多校区 POI（如东风东 4 个校区），fallback 到 core 官方名
+      // 核心校：优先展开 core_poi 的多校区 POI，fallback 到 core 官方名
       const corePoiRows = (g.core_poi || []).map((p) => ({
         name: p.poi_name || p.name,
         role: '核心校',
@@ -148,7 +157,7 @@ export function createRegistryApi(loaders: DataLoaders) {
             name: m.name,
             stage: m.stage,
             role: '成员校',
-            poi_names: m.poi_name ? [m.poi_name] : undefined,
+            poi_names: m.campuses?.length ? m.campuses.map((c: { poi_name: string }) => c.poi_name) : m.poi_name ? [m.poi_name] : undefined,
             poi_name: m.poi_name,
             school_id: m.school_id,
           })),
@@ -156,7 +165,8 @@ export function createRegistryApi(loaders: DataLoaders) {
         source_urls: g.source_urls || [],
       };
     }
-    // 1. 其次 brandGroups（信息更丰富：法人关系/口碑/挂牌）
+
+    // 2. 8 个重点品牌（brand_groups，无 school_id 概念，按 POI 名匹配）
     const bg = brandGroupOf(name || '');
     if (bg) {
       return {
@@ -173,73 +183,8 @@ export function createRegistryApi(loaders: DataLoaders) {
         source_urls: [],
       };
     }
-    // 2. fallback：校名模糊匹配 educationGroups（处理 school_id 缺失的远郊/新校）
-    const eg = loaders.educationGroups;
-    if (!eg || !eg.groups?.length || !name) return null;
-    const DISTRICT_PREFIX = ['越秀区','荔湾区','海珠区','天河区','白云区','黄埔区','番禺区','花都区','南沙区','增城区','从化区'];
-    const stripDistrict = (s: string): string => {
-      let r = normName(s);
-      for (const d of DISTRICT_PREFIX) {
-        if (r.startsWith(d)) { r = r.slice(d.length); break; }
-      }
-      return r;
-    };
-    const inputVariants = new Set<string>();
-    inputVariants.add(normName(name));
-    inputVariants.add(looseNorm(name));
-    inputVariants.add(stripDistrict(name));
-    const normInput = normName(name);
-    const looseInput = looseNorm(name);
-    for (const e of entities) {
-      if (normName(e.name) === normInput || looseNorm(e.name) === looseInput) {
-        inputVariants.add(normName(e.name));
-        inputVariants.add(looseNorm(e.name));
-        inputVariants.add(stripDistrict(e.name));
-        for (const a of e.aliases || []) {
-          inputVariants.add(normName(a));
-          inputVariants.add(looseNorm(a));
-          inputVariants.add(stripDistrict(a));
-        }
-        break;
-      }
-    }
-    const matchName = (target: string): boolean =>
-      inputVariants.has(normName(target)) ||
-      inputVariants.has(looseNorm(target)) ||
-      inputVariants.has(stripDistrict(target));
-    for (const g of eg.groups) {
-      const inCore = g.core.some(matchName);
-      const inMembers = g.members.some((m) => matchName(m.name));
-      if (inCore || inMembers) {
-        const corePoiRows = (g.core_poi || []).map((p) => ({
-          name: p.poi_name || p.name,
-          role: '核心校' as const,
-          poi_name: p.poi_name,
-          school_id: p.school_id,
-        }));
-        const coreRows = corePoiRows.length
-          ? corePoiRows
-          : g.core.map((c) => ({ name: c, role: '核心校' as const }));
-        return {
-          source: 'education',
-          brand: g.brand,
-          note: g.note || inferSourceNote(g.source_urls || []),
-          core: g.core,
-          members: [
-            ...coreRows,
-            ...g.members.map((m) => ({
-              name: m.name,
-              stage: m.stage,
-              role: '成员校',
-              poi_names: m.poi_name ? [m.poi_name] : undefined,
-              poi_name: m.poi_name,
-              school_id: m.school_id,
-            })),
-          ],
-          source_urls: g.source_urls || [],
-        };
-      }
-    }
+
+    // 3. 未关联任何集团：异常/未收录，返回 null
     return null;
   }
 

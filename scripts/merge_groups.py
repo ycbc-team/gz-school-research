@@ -203,9 +203,9 @@ all_names = []
 name_to_member = []
 for g in all_groups:
     for m in g.get("members", []):
-        if m.get("poi_match") == "待比对" or not m.get("poi_match"):
-            all_names.append(m.get("poi_match_name", m["name"]))
-            name_to_member.append(m)
+        # 全量重跑匹配（别名表更新后需要重新计算）
+        all_names.append(m.get("poi_match_name", m["name"]))
+        name_to_member.append(m)
 
 if all_names:
     # 对有poi_match_name的成员，用那个名称匹配

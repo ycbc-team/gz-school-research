@@ -6,9 +6,9 @@
   "stats": {
     "total_groups": 85,
     "total_members": 334,
-    "poi_exact": 152,
-    "poi_variant": 141,
-    "poi_missing_7dist": 33,
+    "poi_exact": 156,
+    "poi_variant": 158,
+    "poi_missing_7dist": 12,
     "poi_far": 8
   },
   "groups": [
@@ -52,9 +52,19 @@
           "stage": "九年一贯",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广州市真光学校(一德西校区)",
-          "school_id": "gz-440104-54a43537"
+          "school_id": "gz-440104-54a43537",
+          "campuses": [
+            {
+              "poi_name": "广州市真光学校(一德西校区)",
+              "school_id": "gz-440104-54a43537"
+            },
+            {
+              "poi_name": "广州市真光学校(长堤校区)",
+              "school_id": "gz-440104-c77c73b5"
+            }
+          ]
         }
       ],
       "source_urls": [
@@ -69,28 +79,10 @@
       ],
       "core_poi": [
         {
-          "name": "广州市第七中学(初中部)",
+          "name": "广州市第七中学",
           "poi_match": "精确命中",
           "poi_name": "广州市第七中学(初中部)",
           "school_id": "gz-440104-74121d17"
-        },
-        {
-          "name": "广州市第七中学(桂花校区)",
-          "school_id": "gz-440111-82856abf",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第七中学(桂花校区)"
-        },
-        {
-          "name": "广州市第七中学(麓湖校区)",
-          "school_id": "gz-440104-028e64d6",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第七中学(麓湖校区)"
-        },
-        {
-          "name": "广州市第七中学(高中部)",
-          "school_id": "gz-440104-2a1f2eaf",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第七中学(高中部)"
         }
       ],
       "level": "区属",
@@ -145,22 +137,10 @@
       ],
       "core_poi": [
         {
-          "name": "广州市第十六中学(东湖校区)",
+          "name": "广州市第十六中学",
           "poi_match": "精确命中",
           "poi_name": "广州市第十六中学(东湖校区)",
           "school_id": "gz-440104-8964385d"
-        },
-        {
-          "name": "广州市第十六中学(水荫校区)",
-          "school_id": "gz-440106-52f7f4b7",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第十六中学(水荫校区)"
-        },
-        {
-          "name": "广州市第十六中学",
-          "school_id": "gz-440104-8a1a7b3d",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第十六中学"
         }
       ],
       "level": "区属",
@@ -224,22 +204,10 @@
       ],
       "core_poi": [
         {
-          "name": "育才中学(东校区)",
+          "name": "广州市育才中学",
           "poi_match": "精确命中",
           "poi_name": "育才中学(东校区)",
           "school_id": "gz-440104-191aaa35"
-        },
-        {
-          "name": "广州市育才中学(西校区)",
-          "school_id": "gz-440104-7ec82efb",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市育才中学(西校区)"
-        },
-        {
-          "name": "广州市育才中学(高三教学区)",
-          "school_id": "gz-440104-1d76b711",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市育才中学(高三教学区)"
         }
       ],
       "level": "区属",
@@ -276,7 +244,7 @@
       ],
       "core_poi": [
         {
-          "name": "培正中学",
+          "name": "广州市培正中学",
           "poi_match": "精确命中",
           "poi_name": "培正中学",
           "school_id": "gz-440104-99aef0e5"
@@ -343,22 +311,10 @@
       ],
       "core_poi": [
         {
-          "name": "广东实验中学越秀学校(天胜校区)",
+          "name": "广东实验中学越秀学校",
           "poi_match": "精确命中",
           "poi_name": "广东实验中学越秀学校(天胜校区)",
           "school_id": "gz-440104-32444523"
-        },
-        {
-          "name": "广东实验中学越秀学校(盘福校区)",
-          "school_id": "gz-440104-089a2a5b",
-          "poi_match": "多校区索引",
-          "poi_name": "广东实验中学越秀学校(盘福校区)"
-        },
-        {
-          "name": "广东实验中学(越秀校区)",
-          "school_id": "gz-440104-7c4a905f",
-          "poi_match": "多校区索引",
-          "poi_name": "广东实验中学(越秀校区)"
         }
       ],
       "level": "区属",
@@ -386,28 +342,10 @@
       ],
       "core_poi": [
         {
-          "name": "广州市越秀区东风东路小学(建设中)",
+          "name": "广州市越秀区东风东路小学",
           "poi_match": "精确命中",
           "poi_name": "广州市越秀区东风东路小学(建设中)",
           "school_id": "gz-440104-402961f4"
-        },
-        {
-          "name": "东风东路小学天伦校区",
-          "school_id": "gz-440104-ec171256",
-          "poi_match": "多校区索引",
-          "poi_name": "东风东路小学天伦校区"
-        },
-        {
-          "name": "东风东路小学锦城花园校区",
-          "school_id": "gz-440104-7425dd47",
-          "poi_match": "多校区索引",
-          "poi_name": "东风东路小学锦城花园校区"
-        },
-        {
-          "name": "东风东路小学(东风广场校区)",
-          "school_id": "gz-440104-f815e0be",
-          "poi_match": "多校区索引",
-          "poi_name": "东风东路小学(东风广场校区)"
         }
       ],
       "level": "区属",
@@ -453,16 +391,10 @@
       ],
       "core_poi": [
         {
-          "name": "培正小学(海印苑校区)",
+          "name": "广州市越秀区东山培正小学",
           "poi_match": "变体命中",
           "poi_name": "培正小学(海印苑校区)",
           "school_id": "gz-440104-08dedf9a"
-        },
-        {
-          "name": "东山培正小学",
-          "school_id": "gz-440104-a41d6d8d",
-          "poi_match": "多校区索引",
-          "poi_name": "东山培正小学"
         }
       ],
       "level": "区属",
@@ -539,7 +471,7 @@
       ],
       "core_poi": [
         {
-          "name": "昌岗中路小学(本校区)",
+          "name": "广州市海珠区昌岗中路小学",
           "poi_match": "变体命中",
           "poi_name": "昌岗中路小学(本校区)",
           "school_id": "gz-440105-98d6d585"
@@ -606,7 +538,7 @@
       ],
       "core_poi": [
         {
-          "name": "万松园小学(云桂校区)",
+          "name": "广州市海珠区万松园小学",
           "poi_match": "变体命中",
           "poi_name": "万松园小学(云桂校区)",
           "school_id": "gz-440105-9aac697e"
@@ -655,7 +587,7 @@
       ],
       "core_poi": [
         {
-          "name": "逸景第一小学(本校区)",
+          "name": "广州市海珠区逸景第一小学",
           "poi_match": "变体命中",
           "poi_name": "逸景第一小学(本校区)",
           "school_id": "gz-440105-ec2b47c2"
@@ -740,22 +672,10 @@
       ],
       "core_poi": [
         {
-          "name": "广州市第四十一中学(东校区)",
+          "name": "广州市第四十一中学",
           "poi_match": "精确命中",
           "poi_name": "广州市第四十一中学(东校区)",
           "school_id": "gz-440105-b210556b"
-        },
-        {
-          "name": "广州市第四十一中学(南校区)",
-          "school_id": "gz-440105-13585057",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第四十一中学(南校区)"
-        },
-        {
-          "name": "广州市第四十一中学",
-          "school_id": "gz-440105-40a80ebb",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第四十一中学"
         }
       ],
       "level": "区属",
@@ -837,28 +757,10 @@
       ],
       "core_poi": [
         {
-          "name": "广州市海珠区实验小学(富基校区)",
+          "name": "广州市海珠区实验小学",
           "poi_match": "精确命中",
           "poi_name": "广州市海珠区实验小学(富基校区)",
           "school_id": "gz-440105-6299c301"
-        },
-        {
-          "name": "海珠区实验小学",
-          "school_id": "gz-440105-2fd44dc2",
-          "poi_match": "多校区索引",
-          "poi_name": "海珠区实验小学"
-        },
-        {
-          "name": "番禺区实验小学",
-          "school_id": "gz-440113-d099ba85",
-          "poi_match": "多校区索引",
-          "poi_name": "番禺区实验小学"
-        },
-        {
-          "name": "广州市黄埔区实验小学",
-          "school_id": "gz-440112-9e826efe",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市黄埔区实验小学"
         }
       ],
       "level": "区属",
@@ -931,7 +833,7 @@
       ],
       "core_poi": [
         {
-          "name": "海珠区第二实验小学",
+          "name": "广州市海珠区第二实验小学",
           "poi_match": "精确命中",
           "poi_name": "海珠区第二实验小学",
           "school_id": "gz-440105-94dfa7d6"
@@ -1103,7 +1005,7 @@
       ],
       "core_poi": [
         {
-          "name": "广州市海珠区宝玉直实验小学(光大校区)",
+          "name": "广州市海珠区宝玉直实验小学",
           "poi_match": "精确命中",
           "poi_name": "广州市海珠区宝玉直实验小学(光大校区)",
           "school_id": "gz-440105-ed9be985"
@@ -1264,16 +1166,10 @@
       ],
       "core_poi": [
         {
-          "name": "广州市第九十七中学(江南新苑校区)",
+          "name": "广州市第九十七中学",
           "poi_match": "精确命中",
           "poi_name": "广州市第九十七中学(江南新苑校区)",
           "school_id": "gz-440105-ed868139"
-        },
-        {
-          "name": "广州市第九十七中学",
-          "school_id": "gz-440105-f0712355",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第九十七中学"
         }
       ],
       "level": "区属",
@@ -1302,9 +1198,19 @@
           "stage": "初中",
           "source_url": "https://www.haizhu.gov.cn/zwgk/wgk/zxgk/content/mpost_9423190.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广州市新滘中学(贵荣校区)",
-          "school_id": "gz-440105-003f2037"
+          "school_id": "gz-440105-003f2037",
+          "campuses": [
+            {
+              "poi_name": "广州市新滘中学(贵荣校区)",
+              "school_id": "gz-440105-003f2037"
+            },
+            {
+              "poi_name": "广州市新滘中学(土华校区)",
+              "school_id": "gz-440105-2f31776e"
+            }
+          ]
         }
       ],
       "source_urls": [
@@ -1325,9 +1231,23 @@
           "stage": "小学",
           "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "华阳小学(华成校区)",
-          "school_id": "gz-440106-0b79aecf"
+          "school_id": "gz-440106-0b79aecf",
+          "campuses": [
+            {
+              "poi_name": "华阳小学(华成校区)",
+              "school_id": "gz-440106-0b79aecf"
+            },
+            {
+              "poi_name": "华阳小学(天河东校区)",
+              "school_id": "gz-440106-e591e421"
+            },
+            {
+              "poi_name": "华阳小学(林和东校区)",
+              "school_id": "gz-440106-155698db"
+            }
+          ]
         },
         {
           "name": "侨乐小学",
@@ -1388,32 +1308,6 @@
         "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
         "https://www.thnet.gov.cn/thdt/mtjj/content/post_10756725.html",
         "https://www.thnet.gov.cn/thdt/mtjj/content/post_9696501.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州市天河区华阳小学(天润校区)",
-          "school_id": "gz-440106-182b1ae3",
-          "poi_match": "别名命中",
-          "poi_name": "广州市天河区华阳小学(天润校区)"
-        },
-        {
-          "name": "华阳小学(林和东校区)",
-          "school_id": "gz-440106-155698db",
-          "poi_match": "多校区索引",
-          "poi_name": "华阳小学(林和东校区)"
-        },
-        {
-          "name": "华阳小学(华成校区)",
-          "school_id": "gz-440106-0b79aecf",
-          "poi_match": "多校区索引",
-          "poi_name": "华阳小学(华成校区)"
-        },
-        {
-          "name": "华阳小学(天河东校区)",
-          "school_id": "gz-440106-e591e421",
-          "poi_match": "多校区索引",
-          "poi_name": "华阳小学(天河东校区)"
-        }
       ]
     },
     {
@@ -1503,26 +1397,6 @@
       "source_urls": [
         "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
         "https://www.thnet.gov.cn/thdt/mtjj/content/post_7755898.html"
-      ],
-      "core_poi": [
-        {
-          "name": "体育东路小学",
-          "school_id": "gz-440106-fafdbff4",
-          "poi_match": "别名命中",
-          "poi_name": "体育东路小学"
-        },
-        {
-          "name": "体育东路小学兴国学校",
-          "school_id": "gz-440106-cdfda274",
-          "poi_match": "别名命中",
-          "poi_name": "体育东路小学兴国学校"
-        },
-        {
-          "name": "体育东路小学海明学校",
-          "school_id": "gz-440106-bd76b30f",
-          "poi_match": "别名命中",
-          "poi_name": "体育东路小学海明学校"
-        }
       ]
     },
     {
@@ -1600,26 +1474,6 @@
       ],
       "source_urls": [
         "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州市天河区天府路小学建业校区",
-          "school_id": "gz-440106-ecfc1a19",
-          "poi_match": "别名命中",
-          "poi_name": "广州市天河区天府路小学建业校区"
-        },
-        {
-          "name": "天府路小学翠湖校区",
-          "school_id": "gz-440106-4dbb5b90",
-          "poi_match": "多校区索引",
-          "poi_name": "天府路小学翠湖校区"
-        },
-        {
-          "name": "天府路小学",
-          "school_id": "gz-440106-6dc5833a",
-          "poi_match": "多校区索引",
-          "poi_name": "天府路小学"
-        }
       ]
     },
     {
@@ -1636,9 +1490,23 @@
           "stage": "完中",
           "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广州市奥林匹克中学(黄村西路校区)",
-          "school_id": "gz-440106-d40d0dbe"
+          "school_id": "gz-440106-d40d0dbe",
+          "campuses": [
+            {
+              "poi_name": "广州市奥林匹克中学(黄村西路校区)",
+              "school_id": "gz-440106-d40d0dbe"
+            },
+            {
+              "poi_name": "广州奥林匹克中学(智谷校区)",
+              "school_id": "gz-440106-fa9338a2"
+            },
+            {
+              "poi_name": "广州奥林匹克中学(高中部)",
+              "school_id": "gz-440106-d8e69757"
+            }
+          ]
         },
         {
           "name": "广州市第十八中学",
@@ -1670,20 +1538,6 @@
       ],
       "source_urls": [
         "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州奥林匹克中学(智谷校区)",
-          "school_id": "gz-440106-fa9338a2",
-          "poi_match": "别名命中",
-          "poi_name": "广州奥林匹克中学(智谷校区)"
-        },
-        {
-          "name": "广州奥林匹克中学(高中部)",
-          "school_id": "gz-440106-d8e69757",
-          "poi_match": "多校区索引",
-          "poi_name": "广州奥林匹克中学(高中部)"
-        }
       ]
     },
     {
@@ -1700,9 +1554,27 @@
           "stage": "小学",
           "source_url": "http://www.thnet.gov.cn/hdjl/zsk/jy/zs/content/post_9890860.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "龙口西小学(天阳校区)",
-          "school_id": "gz-440106-5e40124c"
+          "school_id": "gz-440106-5e40124c",
+          "campuses": [
+            {
+              "poi_name": "龙口西小学(天阳校区)",
+              "school_id": "gz-440106-5e40124c"
+            },
+            {
+              "poi_name": "龙口西小学(瑞安校区)",
+              "school_id": "gz-440106-ee85c675"
+            },
+            {
+              "poi_name": "龙口西小学(穗园校区)",
+              "school_id": "gz-440106-53bc251b"
+            },
+            {
+              "poi_name": "龙口西小学(龙口校区)",
+              "school_id": "gz-440106-e66204ca"
+            }
+          ]
         },
         {
           "name": "泰安小学",
@@ -1743,38 +1615,6 @@
       ],
       "source_urls": [
         "http://www.thnet.gov.cn/hdjl/zsk/jy/zs/content/post_9890860.html"
-      ],
-      "core_poi": [
-        {
-          "name": "龙口西小学(龙口校区)",
-          "school_id": "gz-440106-e66204ca",
-          "poi_match": "别名命中",
-          "poi_name": "龙口西小学(龙口校区)"
-        },
-        {
-          "name": "龙口西小学(穗园校区)",
-          "school_id": "gz-440106-53bc251b",
-          "poi_match": "多校区索引",
-          "poi_name": "龙口西小学(穗园校区)"
-        },
-        {
-          "name": "龙口西小学(天阳校区)",
-          "school_id": "gz-440106-5e40124c",
-          "poi_match": "多校区索引",
-          "poi_name": "龙口西小学(天阳校区)"
-        },
-        {
-          "name": "龙口西小学(瑞安校区)",
-          "school_id": "gz-440106-ee85c675",
-          "poi_match": "多校区索引",
-          "poi_name": "龙口西小学(瑞安校区)"
-        },
-        {
-          "name": "广州市天河区龙口西小学(帝景校区)",
-          "school_id": "gz-440106-24586ef1",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市天河区龙口西小学(帝景校区)"
-        }
       ]
     },
     {
@@ -1809,9 +1649,19 @@
           "stage": "小学",
           "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "银河小学",
-          "school_id": "gz-440106-96bdd212"
+          "school_id": "gz-440106-96bdd212",
+          "campuses": [
+            {
+              "poi_name": "银河小学",
+              "school_id": "gz-440106-96bdd212"
+            },
+            {
+              "poi_name": "银河小学(橡树园校区)",
+              "school_id": "gz-440106-952cd2e6"
+            }
+          ]
         },
         {
           "name": "四海小学",
@@ -1844,8 +1694,7 @@
       "source_urls": [
         "http://www.thnet.gov.cn/thdt/mtjj/content/post_8493652.html",
         "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html"
-      ],
-      "core_poi": []
+      ]
     },
     {
       "brand": "广州中学教育集团",
@@ -1861,9 +1710,23 @@
           "stage": "完中",
           "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9096906.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广州中学(五山校区)",
-          "school_id": "gz-440106-867e6c05"
+          "school_id": "gz-440106-867e6c05",
+          "campuses": [
+            {
+              "poi_name": "广州中学(五山校区)",
+              "school_id": "gz-440106-867e6c05"
+            },
+            {
+              "poi_name": "广州中学(凤凰校区)",
+              "school_id": "gz-440106-3c8afb6a"
+            },
+            {
+              "poi_name": "广州中学(名雅校区)",
+              "school_id": "gz-440106-a989804b"
+            }
+          ]
         },
         {
           "name": "汇景实验学校",
@@ -1905,26 +1768,6 @@
       "source_urls": [
         "https://www.thnet.gov.cn/thdt/mtjj/content/post_9096906.html",
         "http://www.thnet.gov.cn/hdjl/rdhy/content/post_6491603.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州中学(凤凰校区)",
-          "school_id": "gz-440106-3c8afb6a",
-          "poi_match": "别名命中",
-          "poi_name": "广州中学(凤凰校区)"
-        },
-        {
-          "name": "广州中学(名雅校区)",
-          "school_id": "gz-440106-a989804b",
-          "poi_match": "多校区索引",
-          "poi_name": "广州中学(名雅校区)"
-        },
-        {
-          "name": "广州中学(五山校区)",
-          "school_id": "gz-440106-867e6c05",
-          "poi_match": "多校区索引",
-          "poi_name": "广州中学(五山校区)"
-        }
       ]
     },
     {
@@ -1941,9 +1784,19 @@
           "stage": "完中",
           "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_8971104.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广州市天河外国语学校(珠江新城校区)",
-          "school_id": "gz-440106-b711d94a"
+          "school_id": "gz-440106-b711d94a",
+          "campuses": [
+            {
+              "poi_name": "广州市天河外国语学校（珠江新城校区）",
+              "school_id": "gz-440106-b711d94a"
+            },
+            {
+              "poi_name": "广州市天河外国语学校（智慧城校区）",
+              "school_id": "gz-440106-069ddb41"
+            }
+          ]
         },
         {
           "name": "华颖外国语学校",
@@ -1967,20 +1820,6 @@
       "source_urls": [
         "https://www.thnet.gov.cn/thdt/mtjj/content/post_8971104.html",
         "https://www.thnet.gov.cn/thdt/mtjj/content/post_10426840.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州市天河外国语学校（智慧城校区）",
-          "school_id": "gz-440106-069ddb41",
-          "poi_match": "别名命中",
-          "poi_name": "广州市天河外国语学校（智慧城校区）"
-        },
-        {
-          "name": "广州市天河外国语学校（珠江新城校区）",
-          "school_id": "gz-440106-b711d94a",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市天河外国语学校（珠江新城校区）"
-        }
       ]
     },
     {
@@ -1997,9 +1836,27 @@
           "stage": "完中",
           "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广州市第一一三中学(乐学校区)",
-          "school_id": "gz-440106-2e9f6f7b"
+          "school_id": "gz-440106-2e9f6f7b",
+          "campuses": [
+            {
+              "poi_name": "广州市第一一三中学(乐学校区)",
+              "school_id": "gz-440106-2e9f6f7b"
+            },
+            {
+              "poi_name": "广州市第一一三中学(金融城校区)",
+              "school_id": "gz-440106-5f78f6a9"
+            },
+            {
+              "poi_name": "广州市第一一三中学(东方校区)",
+              "school_id": "gz-440106-b049d65a"
+            },
+            {
+              "poi_name": "广州市第一一三中学(元岗校区)",
+              "school_id": "gz-440106-ced6bbff"
+            }
+          ]
         },
         {
           "name": "广州市第一一三中学陶育实验学校",
@@ -2014,32 +1871,6 @@
       "source_urls": [
         "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
         "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州市第一一三中学(元岗校区)",
-          "school_id": "gz-440106-ced6bbff",
-          "poi_match": "别名命中",
-          "poi_name": "广州市第一一三中学(元岗校区)"
-        },
-        {
-          "name": "广州市第一一三中学(东方校区)",
-          "school_id": "gz-440106-b049d65a",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第一一三中学(东方校区)"
-        },
-        {
-          "name": "广州市第一一三中学(乐学校区)",
-          "school_id": "gz-440106-2e9f6f7b",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第一一三中学(乐学校区)"
-        },
-        {
-          "name": "广州市第一一三中学(金融城校区)",
-          "school_id": "gz-440106-5f78f6a9",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第一一三中学(金融城校区)"
-        }
       ]
     },
     {
@@ -2050,34 +1881,10 @@
       ],
       "core_poi": [
         {
-          "name": "广州市真光中学(岭南校区)",
+          "name": "广州市真光中学",
           "poi_match": "精确命中",
           "poi_name": "广州市真光中学(岭南校区)",
           "school_id": "gz-440103-042e23a5"
-        },
-        {
-          "name": "广州市真光中学(芳花校区)",
-          "school_id": "gz-440103-4bb96190",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市真光中学(芳花校区)"
-        },
-        {
-          "name": "广州市真光中学(汾水校区)",
-          "school_id": "gz-440103-882931a0",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市真光中学(汾水校区)"
-        },
-        {
-          "name": "广州市真光中学(本部校区)",
-          "school_id": "gz-440103-2b8081bc",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市真光中学(本部校区)"
-        },
-        {
-          "name": "广州市真光中学(广钢校区)",
-          "school_id": "gz-440103-04c54db8",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市真光中学(广钢校区)"
         }
       ],
       "level": "区属",
@@ -2133,27 +1940,27 @@
           "stage": "小学",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "鹤洞小学",
+          "school_id": "gz-440103-81f7f7f2"
         },
         {
           "name": "广州市真光中学附属坑口小学",
           "stage": "小学",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "广州市坑口小学",
+          "school_id": "gz-440103-2bc230e3"
         },
         {
           "name": "广州市真光中学附属西塱小学",
           "stage": "小学",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "西塱小学",
+          "school_id": "gz-440103-9be8c818"
         }
       ],
       "source_urls": [
@@ -2169,22 +1976,10 @@
       ],
       "core_poi": [
         {
-          "name": "广州市第一中学(初中部)",
+          "name": "广州市第一中学",
           "poi_match": "精确命中",
           "poi_name": "广州市第一中学(初中部)",
           "school_id": "gz-440103-2dc142ec"
-        },
-        {
-          "name": "广州市第一中学(高中部)",
-          "school_id": "gz-440103-c62eab6a",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第一中学(高中部)"
-        },
-        {
-          "name": "广州市第一中学(姜中宏校区)",
-          "school_id": "gz-440103-2653da64",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第一中学(姜中宏校区)"
         }
       ],
       "level": "区属",
@@ -2231,18 +2026,18 @@
           "stage": "小学",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "环市西路小学",
+          "school_id": "gz-440103-65d7792a"
         },
         {
           "name": "广州市第一中学附属詹天佑小学",
           "stage": "小学",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "詹天佑小学",
+          "school_id": "gz-440103-2da965bd"
         }
       ],
       "source_urls": [
@@ -2258,28 +2053,10 @@
       ],
       "core_poi": [
         {
-          "name": "广州市第四中学(津园校区)",
+          "name": "广州市第四中学",
           "poi_match": "精确命中",
           "poi_name": "广州市第四中学(津园校区)",
           "school_id": "gz-440103-3862ee98"
-        },
-        {
-          "name": "广州市第四中学(高中部锐园校区)",
-          "school_id": "gz-440103-8920aa01",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第四中学(高中部锐园校区)"
-        },
-        {
-          "name": "广州市第四中学(逸园校区)",
-          "school_id": "gz-440103-c0d6f9a0",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第四中学(逸园校区)"
-        },
-        {
-          "name": "广州市第四中学(康园校区)",
-          "school_id": "gz-440103-4cda3f9e",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第四中学(康园校区)"
         }
       ],
       "level": "区属",
@@ -2317,9 +2094,9 @@
           "stage": "小学",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "耀华小学",
+          "school_id": "gz-440103-6ae1c1c0"
         }
       ],
       "source_urls": [
@@ -2335,28 +2112,10 @@
       ],
       "core_poi": [
         {
-          "name": "广州市西关外国语学校(初中部)",
+          "name": "广州市西关外国语学校",
           "poi_match": "精确命中",
           "poi_name": "广州市西关外国语学校(初中部)",
           "school_id": "gz-440103-b41a3512"
-        },
-        {
-          "name": "广州市西关外国语学校中学部",
-          "school_id": "gz-440103-1df8fc85",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市西关外国语学校中学部"
-        },
-        {
-          "name": "广州市西关外国语学校(高中部)",
-          "school_id": "gz-440103-6bd45d68",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市西关外国语学校(高中部)"
-        },
-        {
-          "name": "西关外国语学校初中部(彩虹桥校区)",
-          "school_id": "gz-440103-dfff68f2",
-          "poi_match": "多校区索引",
-          "poi_name": "西关外国语学校初中部(彩虹桥校区)"
         }
       ],
       "level": "区属",
@@ -2376,27 +2135,27 @@
           "stage": "初中",
           "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "广州市陈嘉庚纪念中学",
+          "school_id": "gz-440103-eb3cb5c6"
         },
         {
           "name": "广州市西关外国语学校附属流花小学",
           "stage": "小学",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "广州市流花路小学",
+          "school_id": "gz-440103-f51bffec"
         },
         {
           "name": "广州市西关外国语学校附属西华小学",
           "stage": "小学",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "西华路小学",
+          "school_id": "gz-440103-dfd5d6a8"
         }
       ],
       "source_urls": [
@@ -2412,28 +2171,10 @@
       ],
       "core_poi": [
         {
-          "name": "广东实验中学荔湾学校(第三小学部)",
+          "name": "广东实验中学荔湾学校",
           "poi_match": "精确命中",
           "poi_name": "广东实验中学荔湾学校(第三小学部)",
           "school_id": "gz-440103-9f5557ad"
-        },
-        {
-          "name": "广东实验中学荔湾学校(初中部)",
-          "school_id": "gz-440103-53cac770",
-          "poi_match": "多校区索引",
-          "poi_name": "广东实验中学荔湾学校(初中部)"
-        },
-        {
-          "name": "广东实验中学(高中部)",
-          "school_id": "gz-440103-3aca532e",
-          "poi_match": "多校区索引",
-          "poi_name": "广东实验中学(高中部)"
-        },
-        {
-          "name": "广东实验中学荔湾学校(初中部一期)",
-          "school_id": "gz-440103-1d99218d",
-          "poi_match": "多校区索引",
-          "poi_name": "广东实验中学荔湾学校(初中部一期)"
         }
       ],
       "level": "省市属",
@@ -2444,9 +2185,23 @@
           "stage": "九年一贯",
           "source_url": "https://www.lw.gov.cn/attachment/7/7739/7739520/10018863.pdf",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广东实验中学荔湾学校(第三小学部)",
-          "school_id": "gz-440103-9f5557ad"
+          "school_id": "gz-440103-9f5557ad",
+          "campuses": [
+            {
+              "poi_name": "广东实验中学荔湾学校(第三小学部)",
+              "school_id": "gz-440103-9f5557ad"
+            },
+            {
+              "poi_name": "广东实验中学荔湾学校(初中部)",
+              "school_id": "gz-440103-53cac770"
+            },
+            {
+              "poi_name": "广东实验中学荔湾学校(初中部一期)",
+              "school_id": "gz-440103-1d99218d"
+            }
+          ]
         }
       ],
       "source_urls": [
@@ -2462,7 +2217,7 @@
       ],
       "core_poi": [
         {
-          "name": "广东广雅中学(荔湾校区)",
+          "name": "广东广雅中学",
           "poi_match": "精确命中",
           "poi_name": "广东广雅中学(荔湾校区)",
           "school_id": "gz-440103-bb7f78f0"
@@ -2503,34 +2258,10 @@
       ],
       "core_poi": [
         {
-          "name": "沙面小学岭南校区",
+          "name": "广州市荔湾区沙面小学",
           "poi_match": "变体命中",
           "poi_name": "沙面小学岭南校区",
           "school_id": "gz-440103-554e0beb"
-        },
-        {
-          "name": "沙面小学(本校区)",
-          "school_id": "gz-440103-ecc193c7",
-          "poi_match": "多校区索引",
-          "poi_name": "沙面小学(本校区)"
-        },
-        {
-          "name": "沙面小学(柏悦湾校区)",
-          "school_id": "gz-440103-8d072726",
-          "poi_match": "多校区索引",
-          "poi_name": "沙面小学(柏悦湾校区)"
-        },
-        {
-          "name": "沙面小学(御景校区)",
-          "school_id": "gz-440103-faabf468",
-          "poi_match": "多校区索引",
-          "poi_name": "沙面小学(御景校区)"
-        },
-        {
-          "name": "沙面小学(大坦沙校区)",
-          "school_id": "gz-440103-eeee1923",
-          "poi_match": "多校区索引",
-          "poi_name": "沙面小学(大坦沙校区)"
         }
       ],
       "level": "区属",
@@ -2559,16 +2290,10 @@
       ],
       "core_poi": [
         {
-          "name": "乐贤坊小学",
+          "name": "广州市荔湾区乐贤坊小学",
           "poi_match": "变体命中",
           "poi_name": "乐贤坊小学",
           "school_id": "gz-440103-a15d3a11"
-        },
-        {
-          "name": "乐贤坊小学(荔枝湾校区)",
-          "school_id": "gz-440103-4e0aa3d7",
-          "poi_match": "多校区索引",
-          "poi_name": "乐贤坊小学(荔枝湾校区)"
         }
       ],
       "level": "区属",
@@ -2597,9 +2322,9 @@
           "stage": "小学",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "宝源小学",
+          "school_id": "gz-440103-e29cf46b"
         }
       ],
       "source_urls": [
@@ -2615,16 +2340,10 @@
       ],
       "core_poi": [
         {
-          "name": "广州市荔湾区康有为纪念小学(白鹅潭校区)",
+          "name": "广州市荔湾区康有为纪念小学",
           "poi_match": "精确命中",
           "poi_name": "广州市荔湾区康有为纪念小学(白鹅潭校区)",
           "school_id": "gz-440103-26cf2268"
-        },
-        {
-          "name": "康有为纪念小学东漖校区",
-          "school_id": "gz-440103-3fb4fd56",
-          "poi_match": "多校区索引",
-          "poi_name": "康有为纪念小学东漖校区"
         }
       ],
       "level": "区属",
@@ -2680,7 +2399,7 @@
       ],
       "core_poi": [
         {
-          "name": "荔湾区华侨小学(西校区)",
+          "name": "广州市荔湾区华侨小学",
           "poi_match": "精确命中",
           "poi_name": "荔湾区华侨小学(西校区)",
           "school_id": "gz-440103-6cb82f52"
@@ -2730,7 +2449,7 @@
       ],
       "core_poi": [
         {
-          "name": "蒋光鼐纪念小学",
+          "name": "广州市荔湾区蒋光鼐纪念小学",
           "poi_match": "变体命中",
           "poi_name": "蒋光鼐纪念小学",
           "school_id": "gz-440103-143903fe"
@@ -2753,18 +2472,18 @@
           "stage": "小学",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "三元坊小学",
+          "school_id": "gz-440103-a5b0f405"
         },
         {
           "name": "广州市荔湾区蒋光鼐纪念小学文昌学校",
           "stage": "小学",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "广州市荔湾区文昌小学",
+          "school_id": "gz-440103-11e27c02"
         }
       ],
       "source_urls": [
@@ -2780,7 +2499,7 @@
       ],
       "core_poi": [
         {
-          "name": "芳村小学",
+          "name": "广州市荔湾区芳村小学",
           "poi_match": "变体命中",
           "poi_name": "芳村小学",
           "school_id": "gz-440103-28507a63"
@@ -2848,7 +2567,7 @@
       ],
       "core_poi": [
         {
-          "name": "合兴苑小学",
+          "name": "广州市荔湾区合兴苑小学",
           "poi_match": "变体命中",
           "poi_name": "合兴苑小学",
           "school_id": "gz-440103-3aa658a6"
@@ -2898,7 +2617,7 @@
       ],
       "core_poi": [
         {
-          "name": "西关实验小学",
+          "name": "广州市荔湾区西关实验小学",
           "poi_match": "变体命中",
           "poi_name": "西关实验小学",
           "school_id": "gz-440103-60b47bca"
@@ -2930,18 +2649,18 @@
           "stage": "小学",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "荔湾区海北小学",
+          "school_id": "gz-440103-7a85adc9"
         },
         {
           "name": "广州市荔湾区西关实验小学龙溪学校",
           "stage": "小学",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "龙溪小学",
+          "school_id": "gz-440111-fd1c0f9d"
         }
       ],
       "source_urls": [
@@ -2957,16 +2676,10 @@
       ],
       "core_poi": [
         {
-          "name": "广州市荔湾区西关培正小学(芳信校区)(建设中)",
+          "name": "广州市荔湾区西关培正小学",
           "poi_match": "精确命中",
           "poi_name": "广州市荔湾区西关培正小学(芳信校区)(建设中)",
           "school_id": "gz-440103-6e10b35d"
-        },
-        {
-          "name": "西关培正小学",
-          "school_id": "gz-440103-702beeb4",
-          "poi_match": "多校区索引",
-          "poi_name": "西关培正小学"
         }
       ],
       "level": "区属",
@@ -3001,9 +2714,9 @@
           "stage": "小学",
           "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "广铁一中铁英小学",
+          "school_id": "gz-440112-adb9c303"
         },
         {
           "name": "铁铮学校",
@@ -3018,8 +2731,7 @@
       "source_urls": [
         "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html",
         "http://www.hp.gov.cn/2021gb/zz/mtxx/content/post_8533349.html"
-      ],
-      "core_poi": []
+      ]
     },
     {
       "brand": "黄埔广实教育集团",
@@ -3035,9 +2747,24 @@
           "stage": "初中",
           "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html",
           "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "广州知识城中学(南校区)",
-          "school_id": "gz-440112-87f27cf4_alt"
+          "poi_match": "多校区索引",
+          "poi_name": "广州知识城中学(北校区)",
+          "school_id": "gz-440112-3f877ace",
+          "note": "该校有南/北/东三个校区，此处关联北校区；官方集团名单仅写主名",
+          "campuses": [
+            {
+              "poi_name": "广州知识城中学(北校区)",
+              "school_id": "gz-440112-3f877ace"
+            },
+            {
+              "poi_name": "广州知识城中学(南校区)",
+              "school_id": "gz-440112-ec15555e"
+            },
+            {
+              "poi_name": "广州知识城中学(东校区)",
+              "school_id": "gz-440112-badbc2ab"
+            }
+          ]
         },
         {
           "name": "九佛中学",
@@ -3102,14 +2829,6 @@
         "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html",
         "https://www.hp.gov.cn/hprd/2025msss/202603/af7d83ace6d7465ea4b2b1db3681e186.shtml",
         "http://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州实验中学",
-          "school_id": "gz-440112-87f27cf4",
-          "poi_match": "别名命中",
-          "poi_name": "广州实验中学"
-        }
       ]
     },
     {
@@ -3126,7 +2845,7 @@
           "stage": "小学",
           "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html",
           "verified": "2026-09-14",
-          "poi_match": "变体命中",
+          "poi_match": "精确命中",
           "poi_name": "玉鸣小学",
           "school_id": "gz-440112-21dc3ebd"
         },
@@ -3135,7 +2854,7 @@
           "stage": "小学",
           "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html",
           "verified": "2026-09-14",
-          "poi_match": "变体命中",
+          "poi_match": "精确命中",
           "poi_name": "沧联小学",
           "school_id": "gz-440112-082d09e3"
         },
@@ -3144,7 +2863,7 @@
           "stage": "小学",
           "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html",
           "verified": "2026-09-14",
-          "poi_match": "变体命中",
+          "poi_match": "精确命中",
           "poi_name": "光远小学",
           "school_id": "gz-440112-1fb45e21"
         }
@@ -3152,8 +2871,7 @@
       "source_urls": [
         "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html",
         "http://www.hp.gov.cn/2021gb/zz/mtxx/content/post_8533349.html"
-      ],
-      "core_poi": []
+      ]
     },
     {
       "brand": "黄埔广附教育集团",
@@ -3186,14 +2904,6 @@
       "source_urls": [
         "https://www.hp.gov.cn/qmtjjczwgk/26sdly/ywjyly/content/post_8329776.html",
         "http://www.hp.gov.cn/2021gb/zz/rdgz/content/post_7738858.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广大附中黄埔实验学校(东校区)",
-          "school_id": "gz-440112-705c66e3",
-          "poi_match": "别名命中",
-          "poi_name": "广大附中黄埔实验学校(东校区)"
-        }
       ]
     },
     {
@@ -3248,26 +2958,6 @@
         "http://www.hp.gov.cn/attachment/7/7581/7581222/7158346.pdf",
         "https://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html",
         "http://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州市第八十六中学",
-          "school_id": "gz-440112-0cb5a402",
-          "poi_match": "别名命中",
-          "poi_name": "广州市第八十六中学"
-        },
-        {
-          "name": "广州市第八十六中学初中部",
-          "school_id": "gz-440112-43108516",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第八十六中学初中部"
-        },
-        {
-          "name": "广州市第八十六中学分校",
-          "school_id": "gz-440112-06029745",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第八十六中学分校"
-        }
       ]
     },
     {
@@ -3302,7 +2992,7 @@
           "stage": "初中",
           "source_url": "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html",
           "verified": "2026-09-14",
-          "poi_match": "变体命中",
+          "poi_match": "精确命中",
           "poi_name": "广州市黄埔区玉岩实验学校",
           "school_id": "gz-440112-f3817fbe"
         },
@@ -3321,24 +3011,26 @@
           "stage": "初中",
           "source_url": "http://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广东省教育研究院黄埔实验学校",
           "school_id": "gz-440112-68f9ff36",
-          "note": "招考办2026名额分配表"
+          "note": "招考办2026名额分配表",
+          "campuses": [
+            {
+              "poi_name": "广东省教育研究院黄埔实验学校",
+              "school_id": "gz-440112-68f9ff36"
+            },
+            {
+              "poi_name": "广东省教育研究院黄埔实验学校（北校区）",
+              "school_id": "gz-440112-22ec4fcc"
+            }
+          ]
         }
       ],
       "source_urls": [
         "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10998727.html",
         "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html",
         "http://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html"
-      ],
-      "core_poi": [
-        {
-          "name": "玉岩中学",
-          "school_id": "gz-440112-ff5acfd5",
-          "poi_match": "别名命中",
-          "poi_name": "玉岩中学"
-        }
       ]
     },
     {
@@ -3363,14 +3055,6 @@
       "source_urls": [
         "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html",
         "https://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州科学城中学",
-          "school_id": "gz-440112-8b4292d7",
-          "poi_match": "别名命中",
-          "poi_name": "广州科学城中学"
-        }
       ]
     },
     {
@@ -3386,8 +3070,7 @@
       "source_urls": [
         "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html",
         "http://www.hp.gov.cn/attachment/7/7496/7496634/7813631.pdf"
-      ],
-      "core_poi": []
+      ]
     },
     {
       "brand": "广州开发区外国语学校教育集团",
@@ -3402,14 +3085,6 @@
       "source_urls": [
         "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html",
         "http://www.hp.gov.cn/attachment/7/7496/7496634/7813631.pdf"
-      ],
-      "core_poi": [
-        {
-          "name": "广州开发区外国语学校",
-          "school_id": "gz-440112-9d315f50",
-          "poi_match": "别名命中",
-          "poi_name": "广州开发区外国语学校"
-        }
       ]
     },
     {
@@ -3426,7 +3101,7 @@
           "stage": "小学",
           "source_url": "http://www.hp.gov.cn/attachment/7/7581/7581207/7158347.pdf",
           "verified": "2026-09-14",
-          "poi_match": "变体命中",
+          "poi_match": "精确命中",
           "poi_name": "广州开发区第二小学",
           "school_id": "gz-440112-e1ec9724"
         },
@@ -3435,7 +3110,7 @@
           "stage": "小学",
           "source_url": "http://www.hp.gov.cn/attachment/7/7581/7581207/7158347.pdf",
           "verified": "2026-09-14",
-          "poi_match": "变体命中",
+          "poi_match": "精确命中",
           "poi_name": "广州开发区第二小学",
           "school_id": "gz-440112-e1ec9724"
         }
@@ -3443,8 +3118,7 @@
       "source_urls": [
         "http://www.hp.gov.cn/attachment/7/7581/7581207/7158347.pdf",
         "https://www.hp.gov.cn/gzjg/qzfgwhgzbm/qjyj/xxgk/content/post_10301767.html"
-      ],
-      "core_poi": []
+      ]
     },
     {
       "brand": "广州开发区中学教育集团",
@@ -3459,14 +3133,6 @@
       "source_urls": [
         "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html",
         "http://www.hp.gov.cn/attachment/7/7496/7496634/7813631.pdf"
-      ],
-      "core_poi": [
-        {
-          "name": "广州开发区中学",
-          "school_id": "gz-440112-cbfb4b61",
-          "poi_match": "别名命中",
-          "poi_name": "广州开发区中学"
-        }
       ]
     },
     {
@@ -3501,14 +3167,6 @@
       "source_urls": [
         "https://www.hp.gov.cn/2021gb/zz/zwyw/content/post_10882461.html",
         "http://www.hp.gov.cn/attachment/7/7496/7496634/7813631.pdf"
-      ],
-      "core_poi": [
-        {
-          "name": "长洲岛小学",
-          "school_id": "gz-440112-fd5af1d7",
-          "poi_match": "别名命中",
-          "poi_name": "长洲岛小学"
-        }
       ]
     },
     {
@@ -3534,14 +3192,6 @@
       "source_urls": [
         "http://www.hp.gov.cn/attachment/7/7811/7811511/10255016.pdf",
         "https://www.hp.gov.cn/qmtjjczwgk/26sdly/ywjyly/content/post_8170293.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广东外语外贸大学附属科学城实验学校",
-          "school_id": "gz-440112-e08700ea",
-          "poi_match": "别名命中",
-          "poi_name": "广东外语外贸大学附属科学城实验学校"
-        }
       ]
     },
     {
@@ -3558,9 +3208,23 @@
           "stage": "完中",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广州市培英中学(鹤洞校区)",
-          "school_id": "gz-440103-a3ee807c"
+          "school_id": "gz-440103-a3ee807c",
+          "campuses": [
+            {
+              "poi_name": "广州市培英中学(鹤洞校区)",
+              "school_id": "gz-440103-a3ee807c"
+            },
+            {
+              "poi_name": "广州市培英中学(岭南校区)",
+              "school_id": "gz-440111-6271c94b"
+            },
+            {
+              "poi_name": "广州市培英中学(云城校区)",
+              "school_id": "gz-440111-730c7404"
+            }
+          ]
         },
         {
           "name": "广州市白云艺术中学",
@@ -3603,9 +3267,9 @@
           "stage": "九年一贯",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "广州市白云区云英实验附属小学",
+          "school_id": "gz-440111-e66f2c52"
         },
         {
           "name": "广州市培英中学附属小学",
@@ -3658,26 +3322,6 @@
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
         "http://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州市培英中学(云城校区)",
-          "school_id": "gz-440111-730c7404",
-          "poi_match": "别名命中",
-          "poi_name": "广州市培英中学(云城校区)"
-        },
-        {
-          "name": "广州市培英中学(鹤洞校区)",
-          "school_id": "gz-440103-a3ee807c",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市培英中学(鹤洞校区)"
-        },
-        {
-          "name": "广州市培英中学(岭南校区)",
-          "school_id": "gz-440111-6271c94b",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市培英中学(岭南校区)"
-        }
       ]
     },
     {
@@ -3694,9 +3338,23 @@
           "stage": "完中",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广州市第六十五中学(江高校区)",
-          "school_id": "gz-440111-218475ea"
+          "school_id": "gz-440111-218475ea",
+          "campuses": [
+            {
+              "poi_name": "广州市第六十五中学(江高校区)",
+              "school_id": "gz-440111-218475ea"
+            },
+            {
+              "poi_name": "广州市第六十五中学(同德校区)",
+              "school_id": "gz-440111-c7b90869"
+            },
+            {
+              "poi_name": "广州市第六十五中学(江府校区)",
+              "school_id": "gz-440111-4ebb4316"
+            }
+          ]
         },
         {
           "name": "广州市第六十六中学",
@@ -3766,9 +3424,19 @@
           "stage": "小学",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广州市第六十五中学附属小学",
-          "school_id": "gz-440111-1fcfbfb4"
+          "school_id": "gz-440111-1fcfbfb4",
+          "campuses": [
+            {
+              "poi_name": "广州市第六十五中学附属小学",
+              "school_id": "gz-440111-1fcfbfb4"
+            },
+            {
+              "poi_name": "广州市第六十五中学附属小学(侨德校区)",
+              "school_id": "gz-440111-ee3748de"
+            }
+          ]
         },
         {
           "name": "广州市颜乐天纪念中学",
@@ -3784,26 +3452,6 @@
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
         "https://guangzhoubaiyun.gz-cmc.com/pages/2026/06/02/39201b17a1004e1188ea795f1fff1b61.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州市第六十五中学(江府校区)",
-          "school_id": "gz-440111-4ebb4316",
-          "poi_match": "别名命中",
-          "poi_name": "广州市第六十五中学(江府校区)"
-        },
-        {
-          "name": "广州市第六十五中学(同德校区)",
-          "school_id": "gz-440111-c7b90869",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第六十五中学(同德校区)"
-        },
-        {
-          "name": "广州市第六十五中学(江高校区)",
-          "school_id": "gz-440111-218475ea",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市第六十五中学(江高校区)"
-        }
       ]
     },
     {
@@ -3820,9 +3468,19 @@
           "stage": "完中",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广州大同中学(初中部)",
-          "school_id": "gz-440111-63a7bd1d"
+          "school_id": "gz-440111-63a7bd1d",
+          "campuses": [
+            {
+              "poi_name": "广州大同中学(初中部)",
+              "school_id": "gz-440111-63a7bd1d"
+            },
+            {
+              "poi_name": "广州大同中学(高中部)",
+              "school_id": "gz-440111-2b28ed6a"
+            }
+          ]
         },
         {
           "name": "广州市白云区景泰中学",
@@ -3893,20 +3551,6 @@
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
         "http://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州大同中学(高中部)",
-          "school_id": "gz-440111-2b28ed6a",
-          "poi_match": "别名命中",
-          "poi_name": "广州大同中学(高中部)"
-        },
-        {
-          "name": "广州大同中学(初中部)",
-          "school_id": "gz-440111-63a7bd1d",
-          "poi_match": "多校区索引",
-          "poi_name": "广州大同中学(初中部)"
-        }
       ]
     },
     {
@@ -3923,9 +3567,31 @@
           "stage": "完中",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广州市白云中学(汇侨校区)",
-          "school_id": "gz-440111-1b7d3f87"
+          "school_id": "gz-440111-1b7d3f87",
+          "campuses": [
+            {
+              "poi_name": "广州市白云中学(汇侨校区)",
+              "school_id": "gz-440111-1b7d3f87"
+            },
+            {
+              "poi_name": "广州市白云中学",
+              "school_id": "gz-440111-e74c2e1d"
+            },
+            {
+              "poi_name": "广州市白云中学(北区)",
+              "school_id": "gz-440111-5849b586"
+            },
+            {
+              "poi_name": "广州市白云中学(棠景校区)",
+              "school_id": "gz-440111-6782f041"
+            },
+            {
+              "poi_name": "广州市白云中学(南区)",
+              "school_id": "gz-440111-15fa03a9"
+            }
+          ]
         },
         {
           "name": "广州市白云区三元里中学",
@@ -3985,38 +3651,6 @@
       "source_urls": [
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州市白云中学",
-          "school_id": "gz-440111-e74c2e1d",
-          "poi_match": "别名命中",
-          "poi_name": "广州市白云中学"
-        },
-        {
-          "name": "广州市白云中学(北区)",
-          "school_id": "gz-440111-5849b586",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市白云中学(北区)"
-        },
-        {
-          "name": "广州市白云中学(汇侨校区)",
-          "school_id": "gz-440111-1b7d3f87",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市白云中学(汇侨校区)"
-        },
-        {
-          "name": "广州市白云中学(棠景校区)",
-          "school_id": "gz-440111-6782f041",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市白云中学(棠景校区)"
-        },
-        {
-          "name": "广州市白云中学(南区)",
-          "school_id": "gz-440111-15fa03a9",
-          "poi_match": "多校区索引",
-          "poi_name": "广州市白云中学(南区)"
-        }
       ]
     },
     {
@@ -4051,34 +3685,14 @@
           "stage": "小学",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "广州空港实验小学(北校区)",
+          "school_id": "gz-440111-8751e12d"
         }
       ],
       "source_urls": [
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州空港实验中学(东校区)",
-          "school_id": "gz-440111-0cf700fb",
-          "poi_match": "别名命中",
-          "poi_name": "广州空港实验中学(东校区)"
-        },
-        {
-          "name": "广州空港实验中学(校本部)",
-          "school_id": "gz-440111-d4c4285e",
-          "poi_match": "多校区索引",
-          "poi_name": "广州空港实验中学(校本部)"
-        },
-        {
-          "name": "广州空港实验中学(建南校区)",
-          "school_id": "gz-440111-150715c8",
-          "poi_match": "多校区索引",
-          "poi_name": "广州空港实验中学(建南校区)"
-        }
       ]
     },
     {
@@ -4095,9 +3709,23 @@
           "stage": "完中",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广东外语外贸大学实验中学",
-          "school_id": "gz-440111-7e484346"
+          "school_id": "gz-440111-7e484346",
+          "campuses": [
+            {
+              "poi_name": "广东外语外贸大学实验中学",
+              "school_id": "gz-440111-7e484346"
+            },
+            {
+              "poi_name": "广东外语外贸大学实验中学(北校区)",
+              "school_id": "gz-440111-f751344d"
+            },
+            {
+              "poi_name": "广东外语外贸大学实验中学（陈田西校区）",
+              "school_id": "gz-440111-f5da4352"
+            }
+          ]
         },
         {
           "name": "广州市白云区龙归学校",
@@ -4149,20 +3777,6 @@
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
         "https://www.by.gov.cn/ywdt/zwyw/content/post_10982129.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广东外语外贸大学实验中学",
-          "school_id": "gz-440111-7e484346",
-          "poi_match": "别名命中",
-          "poi_name": "广东外语外贸大学实验中学"
-        },
-        {
-          "name": "广东外语外贸大学实验中学小学部",
-          "school_id": "gz-440111-6e11e279",
-          "poi_match": "多校区索引",
-          "poi_name": "广东外语外贸大学实验中学小学部"
-        }
       ]
     },
     {
@@ -4179,18 +3793,18 @@
           "stage": "九年一贯",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "金广实验小学",
+          "school_id": "gz-440111-f501b6b5"
         },
         {
           "name": "广州市白云广大附中实验中学",
           "stage": "初中",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "广大附中实验中学(星汇金沙校区)",
+          "school_id": "gz-440111-b95f2597"
         },
         {
           "name": "广州市广园中学",
@@ -4224,9 +3838,9 @@
           "stage": "小学",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "白云广附同悦实验小学",
+          "school_id": "gz-440111-a17bfeb8"
         },
         {
           "name": "广州市白云区白云广附云湖实验学校",
@@ -4259,8 +3873,7 @@
       "source_urls": [
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
-      ],
-      "core_poi": []
+      ]
     },
     {
       "brand": "广州白云六中教育集团",
@@ -4302,8 +3915,7 @@
       "source_urls": [
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
-      ],
-      "core_poi": []
+      ]
     },
     {
       "brand": "广州云雅教育集团",
@@ -4336,14 +3948,6 @@
       "source_urls": [
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州云雅实验学校初中部",
-          "school_id": "gz-440111-6782d2c7",
-          "poi_match": "别名命中",
-          "poi_name": "广州云雅实验学校初中部"
-        }
       ]
     },
     {
@@ -4396,14 +4000,6 @@
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
         "https://www.by.gov.cn/ywdt/zwyw/content/mpost_7762154.html"
-      ],
-      "core_poi": [
-        {
-          "name": "省实白云实验学校",
-          "school_id": "gz-440111-0d08ab54",
-          "poi_match": "别名命中",
-          "poi_name": "省实白云实验学校"
-        }
       ]
     },
     {
@@ -4446,20 +4042,6 @@
       "source_urls": [
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广东第二师范学院实验中学(高中部)",
-          "school_id": "gz-440111-33d95662",
-          "poi_match": "别名命中",
-          "poi_name": "广东第二师范学院实验中学(高中部)"
-        },
-        {
-          "name": "广东第二师范学院实验中学(初中部)",
-          "school_id": "gz-440111-014a9fb2",
-          "poi_match": "多校区索引",
-          "poi_name": "广东第二师范学院实验中学(初中部)"
-        }
       ]
     },
     {
@@ -4493,14 +4075,6 @@
       "source_urls": [
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广东技术师范大学白云实验中学",
-          "school_id": "gz-440111-d3ffec78",
-          "poi_match": "别名命中",
-          "poi_name": "广东技术师范大学白云实验中学"
-        }
       ]
     },
     {
@@ -4553,26 +4127,6 @@
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
         "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm"
-      ],
-      "core_poi": [
-        {
-          "name": "三元里小学南校区",
-          "school_id": "gz-440111-db593ac1",
-          "poi_match": "别名命中",
-          "poi_name": "三元里小学南校区"
-        },
-        {
-          "name": "三元里小学(北校区)",
-          "school_id": "gz-440111-714c07ba",
-          "poi_match": "多校区索引",
-          "poi_name": "三元里小学(北校区)"
-        },
-        {
-          "name": "三元里小学",
-          "school_id": "gz-440111-b1484250",
-          "poi_match": "多校区索引",
-          "poi_name": "三元里小学"
-        }
       ]
     },
     {
@@ -4598,9 +4152,9 @@
           "stage": "小学",
           "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "变体命中",
+          "poi_name": "汇侨第一小学(汇侨校区)",
+          "school_id": "gz-440111-50352c96"
         },
         {
           "name": "广州市白云区棠涌小学",
@@ -4634,14 +4188,6 @@
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
         "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm"
-      ],
-      "core_poi": [
-        {
-          "name": "广园小学",
-          "school_id": "gz-440111-53549fe6",
-          "poi_match": "别名命中",
-          "poi_name": "广园小学"
-        }
       ]
     },
     {
@@ -4693,26 +4239,6 @@
       "source_urls": [
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
-      ],
-      "core_poi": [
-        {
-          "name": "景泰小学柯子岭校区43号A座",
-          "school_id": "gz-440111-8d42bf12",
-          "poi_match": "别名命中",
-          "poi_name": "景泰小学柯子岭校区43号A座"
-        },
-        {
-          "name": "景泰小学(柯子岭校区)",
-          "school_id": "gz-440111-9e34191e",
-          "poi_match": "多校区索引",
-          "poi_name": "景泰小学(柯子岭校区)"
-        },
-        {
-          "name": "景泰小学(景泰校区)",
-          "school_id": "gz-440111-97e26d68",
-          "poi_match": "多校区索引",
-          "poi_name": "景泰小学(景泰校区)"
-        }
       ]
     },
     {
@@ -4738,32 +4264,6 @@
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
         "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm"
-      ],
-      "core_poi": [
-        {
-          "name": "广州市白云区京溪小学(白天鹅校区)",
-          "school_id": "gz-440111-ae3faca7",
-          "poi_match": "别名命中",
-          "poi_name": "广州市白云区京溪小学(白天鹅校区)"
-        },
-        {
-          "name": "京溪小学(京溪校区)",
-          "school_id": "gz-440111-aec60b7c",
-          "poi_match": "多校区索引",
-          "poi_name": "京溪小学(京溪校区)"
-        },
-        {
-          "name": "京溪小学(恒大校区)",
-          "school_id": "gz-440111-162f6ce2",
-          "poi_match": "多校区索引",
-          "poi_name": "京溪小学(恒大校区)"
-        },
-        {
-          "name": "京溪小学(怡新校区)",
-          "school_id": "gz-440111-88b4ce7e",
-          "poi_match": "多校区索引",
-          "poi_name": "京溪小学(怡新校区)"
-        }
       ]
     },
     {
@@ -4807,26 +4307,6 @@
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
         "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm"
-      ],
-      "core_poi": [
-        {
-          "name": "华师附中实验小学(南校区)",
-          "school_id": "gz-440111-07bdec5f",
-          "poi_match": "别名命中",
-          "poi_name": "华师附中实验小学(南校区)"
-        },
-        {
-          "name": "华师附中实验小学(北校区)",
-          "school_id": "gz-440111-1d697e07",
-          "poi_match": "多校区索引",
-          "poi_name": "华师附中实验小学(北校区)"
-        },
-        {
-          "name": "华师附中实验小学(东校区)",
-          "school_id": "gz-440111-db31a4f7",
-          "poi_match": "多校区索引",
-          "poi_name": "华师附中实验小学(东校区)"
-        }
       ]
     },
     {
@@ -4879,14 +4359,6 @@
         "https://www.by.gov.cn/ywdt/mtxx/content/mpost_9567523.html",
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
         "https://static.nfnews.com/content/202404/11/c8776592.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广州市白云区金沙第二小学",
-          "school_id": "gz-440111-3dab2af7",
-          "poi_match": "别名命中",
-          "poi_name": "广州市白云区金沙第二小学"
-        }
       ]
     },
     {
@@ -4903,9 +4375,19 @@
           "stage": "完中",
           "source_url": "http://www.panyu.gov.cn/zwgk/yajytacl/2019/ta/content/post_6456455.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "广东仲元中学(第二校区)",
-          "school_id": "gz-440113-6dbdc462"
+          "school_id": "gz-440113-6dbdc462",
+          "campuses": [
+            {
+              "poi_name": "广东仲元中学(第二校区)",
+              "school_id": "gz-440113-6dbdc462"
+            },
+            {
+              "poi_name": "广东仲元中学",
+              "school_id": "gz-440113-acf92324"
+            }
+          ]
         },
         {
           "name": "广州市番禺区石北中学",
@@ -4947,20 +4429,6 @@
       "source_urls": [
         "http://www.panyu.gov.cn/zwgk/yajytacl/2019/ta/content/post_6456455.html",
         "https://www.panyu.gov.cn/zwgk/yajytacl/2025/ya/content/post_10628091.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广东仲元中学",
-          "school_id": "gz-440113-acf92324",
-          "poi_match": "别名命中",
-          "poi_name": "广东仲元中学"
-        },
-        {
-          "name": "广东仲元中学(第二校区)",
-          "school_id": "gz-440113-6dbdc462",
-          "poi_match": "多校区索引",
-          "poi_name": "广东仲元中学(第二校区)"
-        }
       ]
     },
     {
@@ -5004,7 +4472,7 @@
           "stage": "小学",
           "source_url": "http://www.panyu.gov.cn/zwgk/ggqsy/jy/content/post_9920371.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "变体命中",
           "poi_name": "培兰小学",
           "school_id": "gz-440113-08c8bc38"
         },
@@ -5022,14 +4490,6 @@
         "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10297/post_10297944.html",
         "http://www.panyu.gov.cn/zwgk/ggqsy/jy/content/post_9920371.html",
         "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/zjxx/nczzf/content/post_9645271.html"
-      ],
-      "core_poi": [
-        {
-          "name": "广东番禺中学",
-          "school_id": "gz-440113-5f62f75c",
-          "poi_match": "别名命中",
-          "poi_name": "广东番禺中学"
-        }
       ]
     },
     {
@@ -5054,15 +4514,7 @@
       "source_urls": [
         "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_9157738.html"
       ],
-      "note": "2023年8月授牌成立；官方公告仅列核心校，成员校名单未在panyu.gov.cn公开，待核实。",
-      "core_poi": [
-        {
-          "name": "桥城中学",
-          "school_id": "gz-440113-7f18cc62",
-          "poi_match": "别名命中",
-          "poi_name": "桥城中学"
-        }
-      ]
+      "note": "2023年8月授牌成立；官方公告仅列核心校，成员校名单未在panyu.gov.cn公开，待核实。"
     },
     {
       "brand": "市桥实验小学教育集团",
@@ -5086,15 +4538,7 @@
       "source_urls": [
         "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_9157738.html"
       ],
-      "note": "2023年8月授牌成立；成员校名单未在panyu.gov.cn公开，待核实。",
-      "core_poi": [
-        {
-          "name": "市桥实验小学",
-          "school_id": "gz-440113-2ad239a0",
-          "poi_match": "别名命中",
-          "poi_name": "市桥实验小学"
-        }
-      ]
+      "note": "2023年8月授牌成立；成员校名单未在panyu.gov.cn公开，待核实。"
     },
     {
       "brand": "沙头中心小学教育集团",
@@ -5118,15 +4562,7 @@
       "source_urls": [
         "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_9157738.html"
       ],
-      "note": "2023年8月授牌成立；成员校名单未在panyu.gov.cn公开，待核实。",
-      "core_poi": [
-        {
-          "name": "沙头中心小学",
-          "school_id": "gz-440113-52835776",
-          "poi_match": "别名命中",
-          "poi_name": "沙头中心小学"
-        }
-      ]
+      "note": "2023年8月授牌成立；成员校名单未在panyu.gov.cn公开，待核实。"
     },
     {
       "brand": "番广实验教育集团",
@@ -5142,7 +4578,7 @@
           "stage": "九年一贯",
           "source_url": "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_9157738.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "变体命中",
           "poi_name": "广大附中番禺实验学校",
           "school_id": "gz-440113-213843c2"
         },
@@ -5159,8 +4595,7 @@
       "source_urls": [
         "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_9157738.html",
         "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10425301.html"
-      ],
-      "core_poi": []
+      ]
     },
     {
       "brand": "仲元附属学校教育集团",
@@ -5185,7 +4620,7 @@
           "stage": "初中",
           "source_url": "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10438/mpost_10438800.html",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "变体命中",
           "poi_name": "沙滘中学",
           "school_id": "gz-440113-f744f14a"
         }
@@ -5195,15 +4630,7 @@
         "https://www.panyu.gov.cn/gkmlpt/content/10/10242/mpost_10242063.html",
         "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10438/mpost_10438800.html"
       ],
-      "note": "2024年12月成立；成员校沙滘中学2025年8月更名。用户线索提及植村地块小学为成员校，未在panyu.gov.cn检索到官方成立/批复文件，暂不录。",
-      "core_poi": [
-        {
-          "name": "广东仲元中学附属学校",
-          "school_id": "gz-440113-b5ff857b",
-          "poi_match": "别名命中",
-          "poi_name": "广东仲元中学附属学校"
-        }
-      ]
+      "note": "2024年12月成立；成员校沙滘中学2025年8月更名。用户线索提及植村地块小学为成员校，未在panyu.gov.cn检索到官方成立/批复文件，暂不录。"
     },
     {
       "brand": "德兴小学教育集团",
@@ -5235,14 +4662,6 @@
       ],
       "source_urls": [
         "http://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10033795.html"
-      ],
-      "core_poi": [
-        {
-          "name": "德兴小学",
-          "school_id": "gz-440113-dccc5e5f",
-          "poi_match": "别名命中",
-          "poi_name": "德兴小学"
-        }
       ]
     },
     {
@@ -5284,14 +4703,6 @@
       ],
       "source_urls": [
         "http://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10033795.html"
-      ],
-      "core_poi": [
-        {
-          "name": "钟村中心小学",
-          "school_id": "gz-440113-acbdd815",
-          "poi_match": "别名命中",
-          "poi_name": "钟村中心小学"
-        }
       ]
     },
     {
@@ -5308,11 +4719,25 @@
           "stage": "完中",
           "source_url": "",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
+          "poi_match": "多校区索引",
           "poi_name": "清华附中湾区学校",
           "school_id": "gz-440106-e32237e4",
           "legal": "independent",
-          "relation": "本部（智谷校区）"
+          "relation": "本部（智谷校区）",
+          "campuses": [
+            {
+              "poi_name": "清华附中湾区学校",
+              "school_id": "gz-440106-e32237e4"
+            },
+            {
+              "poi_name": "清华附中湾区学校（智慧城校区）",
+              "school_id": "gz-440106-31895452"
+            },
+            {
+              "poi_name": "清华附中湾区学校（智谷校区）",
+              "school_id": "gz-440106-8bc01096"
+            }
+          ]
         },
         {
           "name": "清华附中湾区学校（智谷校区）",
@@ -5337,30 +4762,8 @@
           "relation": "新校区（2026 启用）"
         }
       ],
-      "source_urls": [
-        "https://www.thnet.gov.cn/zwgk/zfxxgkml/content/post_10894356.html"
-      ],
-      "note": "市属公办十二年制，一校两址（智谷=首校区本部，智慧城=2026 新校区）。整校为独立事业单位法人（12440100MB2D680357），三方共建借用“清华附中”品牌；成绩达第一梯队（2024 网传最高 754、2025 一梯率约 35%）→ 计入口碑。经 P2 核实（市政府/天河区政府/广州日报），清湾无外部成员校/托管校，仅一校两址。 来源：天河区政府九大教育集团总览及P2品牌核实。",
-      "core_poi": [
-        {
-          "name": "清华附中湾区学校（智慧城校区）",
-          "school_id": "gz-440106-31895452",
-          "poi_match": "别名命中",
-          "poi_name": "清华附中湾区学校（智慧城校区）"
-        },
-        {
-          "name": "清华附中湾区学校（智谷校区）",
-          "school_id": "gz-440106-8bc01096",
-          "poi_match": "多校区索引",
-          "poi_name": "清华附中湾区学校（智谷校区）"
-        },
-        {
-          "name": "清华附中湾区学校",
-          "school_id": "gz-440106-e32237e4",
-          "poi_match": "多校区索引",
-          "poi_name": "清华附中湾区学校"
-        }
-      ]
+      "source_urls": [],
+      "note": "市属公办十二年制，一校两址（智谷=首校区本部，智慧城=2026 新校区）。整校为独立事业单位法人（12440100MB2D680357），三方共建借用“清华附中”品牌；成绩达第一梯队（2024 网传最高 754、2025 一梯率约 35%）→ 计入口碑。经 P2 核实（市政府/天河区政府/广州日报），清湾无外部成员校/托管校，仅一校两址。"
     },
     {
       "brand": "广铁一中教育集团",
@@ -5441,15 +4844,7 @@
       "source_urls": [
         "http://www.gtyz.edu.cn/ArticleSingle-10.html?id=10"
       ],
-      "note": "核心校为市属广州市铁一中学（越秀/番禺/白云校区同法人，计入口碑）；铁英学校为区属公办独立法人，铁一集团托管（五统一五同步、派驻团队）；成绩达第一梯队（黄埔铁英 2026 网传最高 781、番禺铁英集团联考前列）→ 计入口碑。P2 核实：铁一官网现行「1+3」口径，3 所托管成员校为番禺铁英、黄埔铁英、南沙铁英，原表漏南沙铁英，已补。",
-      "core_poi": [
-        {
-          "name": "广州市铁一中学(越秀校区)",
-          "school_id": "gz-440104-09652aa5",
-          "poi_match": "别名命中",
-          "poi_name": "广州市铁一中学(越秀校区)"
-        }
-      ]
+      "note": "核心校为市属广州市铁一中学（越秀/番禺/白云校区同法人，计入口碑）；铁英学校为区属公办独立法人，铁一集团托管（五统一五同步、派驻团队）；成绩达第一梯队（黄埔铁英 2026 网传最高 781、番禺铁英集团联考前列）→ 计入口碑。P2 核实：铁一官网现行「1+3」口径，3 所托管成员校为番禺铁英、黄埔铁英、南沙铁英，原表漏南沙铁英，已补。"
     }
   ]
 }

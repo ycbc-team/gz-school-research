@@ -105,6 +105,7 @@ export const {
   scoresOfSchool,
   scoresBySchoolId,
   resolveSchoolId,
+  resolveSchoolIdOf,
   resolveSite,
   resolvePoiName,
   brandGroupOf,
