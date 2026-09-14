@@ -27,7 +27,7 @@ execSync('node scripts/data/compact.mjs', { cwd: ROOT, stdio: 'inherit' });
 // 3) 水合一致性验证：紧凑产物还原 === 真源（键序无关深比较）
 execSync('node scripts/data/verify_compact.mjs', { cwd: ROOT, stdio: 'inherit' });
 
-// 4) marker 图标生成：shared STAGE_COLOR 唯一真源 → 7 张 PNG（单学部 3 + 多学部 4）
+// 4) marker 图标生成：shared STAGE_COLOR 唯一真源 → 14 张 PNG（普通 + 选中态两套，单学部 3 + 多学部 4）
 execSync('node scripts/miniprogram/gen-markers.mjs', { cwd: ROOT, stdio: 'inherit' });
 
 console.log(`[miniprogram] shared → ${relative(ROOT, sharedDest)}/`);

@@ -24,9 +24,9 @@ const {
   buildInfoModel,
 } = shared;
 
-/** marker 图标：stages 升序（p/m/h）→ 7 张 PNG（构建脚本按 shared 颜色生成） */
-function markerIcon(stages) {
-  return `/assets/markers/marker-${stages.join('')}.png`;
+/** marker 图标：stages 升序（p/m/h）→ 14 张 PNG（普通 + -sel 选中态，构建脚本按 shared 颜色生成，对齐 Web） */
+function markerIcon(stages, selected) {
+  return `/assets/markers/marker-${stages.join('')}${selected ? '-sel' : ''}.png`;
 }
 
 Page({
@@ -40,6 +40,7 @@ Page({
     gradeAll: true,
     markers: [],
     visibleCount: 0,
+    activeMarkerId: null,
     kw: '',
     searchResults: [],
     searchOpen: false,
@@ -58,13 +59,18 @@ Page({
     });
     this.syncState(initialFilterState());
     this.renderMarkers();
-    // 详情页"在地图中查看"：定位并弹出信息卡
+    // 详情页"在地图中查看"：定位并弹出信息卡（放大居中 + 选中态，对齐 Web）
     if (query && query.focus) {
       const name = decodeURIComponent(query.focus);
       const pt = mapPoints.find((p) => p.name === name) || mapPoints.find((p) => p.name.includes(name));
       if (pt) {
         this.showInfo(pt);
-        wx.createMapContext('gzmap', this).moveToLocation({ latitude: pt.lat, longitude: pt.lng });
+        const idx = this.visible.findIndex((p) => p === pt);
+        this.setData({ activeMarkerId: idx >= 0 ? idx : null });
+        this.renderMarkers();
+        this.setData({ scale: 16 }, () => {
+          wx.createMapContext('gzmap', this).moveToLocation({ latitude: pt.lat, longitude: pt.lng });
+        });
       }
     }
   },
@@ -100,21 +106,28 @@ Page({
     };
   },
 
-  /** 渲染可见集（共享 isVisible；全量 ~1300 点，P4 再上聚类/视野裁剪） */
+  /** 渲染可见集（共享 isVisible；全量 ~1300 点，P4 再上聚类/视野裁剪）；activeMarkerId 命中用选中态图标 */
   renderMarkers() {
     this.visible = mapPoints.filter((p) => isVisible(this.currentState(), p));
-    this.setData({
+    let active = this.data.activeMarkerId;
+    const patch = {
       markers: this.visible.map((pt, i) => ({
         id: i,
         latitude: pt.lat,
         longitude: pt.lng,
-        iconPath: markerIcon(pt.stages),
+        iconPath: markerIcon(pt.stages, active === i),
         width: 30,
         height: 30,
         anchor: { x: 0.5, y: 0.5 },
       })),
       visibleCount: this.visible.length,
-    });
+    };
+    // 选中的点被筛掉：清除选中态并关闭浮层（对齐 Web applyFilters）
+    if (active !== null && !this.visible[active]) {
+      patch.info = null;
+      patch.activeMarkerId = null;
+    }
+    this.setData(patch);
   },
 
   /* ---------- 三级筛选 ---------- */
@@ -138,21 +151,43 @@ Page({
   pickResult(e) {
     const pt = this.data.searchResults[e.currentTarget.dataset.idx];
     if (!pt) return;
+    const idx = this.visible.findIndex((p) => p === pt);
+    this.setData({ activeMarkerId: idx >= 0 ? idx : null, kw: '', searchResults: [], searchOpen: false });
+    this.renderMarkers();
     this.showInfo(pt);
-    wx.createMapContext('gzmap', this).moveToLocation({ latitude: pt.lat, longitude: pt.lng });
-    this.setData({ kw: '', searchResults: [], searchOpen: false });
+    // 放大居中 + 选中态（对齐 Web focusSchool）
+    this.setData({ scale: 16 }, () => {
+      wx.createMapContext('gzmap', this).moveToLocation({ latitude: pt.lat, longitude: pt.lng });
+    });
   },
 
   /* ---------- 信息卡（底部抽屉，对齐 Web） ---------- */
   onMarkerTap(e) {
     const pt = this.visible[e.detail.markerId];
-    if (pt) this.showInfo(pt);
+    if (!pt) return;
+    this.setData({ activeMarkerId: e.detail.markerId });
+    this.renderMarkers();
+    this.showInfo(pt);
+    // 对齐 Web：点击点位放大（scale 16）并居中
+    this.setData({ scale: 16 }, () => {
+      wx.createMapContext('gzmap', this).moveToLocation({ latitude: pt.lat, longitude: pt.lng });
+    });
   },
-  onMapTap() { this.setData({ info: null }); },
+  onMapTap(e) {
+    // marker 上的 tap 由 onMarkerTap 处理（部分基础库 detail 含 markerId）
+    if (e && e.detail && e.detail.markerId !== undefined) return;
+    if (this.data.info || this.data.activeMarkerId !== null) {
+      this.setData({ info: null, activeMarkerId: null });
+      this.renderMarkers();
+    }
+  },
   showInfo(pt) {
     this.setData({ info: buildInfoModel(pt, repository) });
   },
-  closeInfo() { this.setData({ info: null }); },
+  closeInfo() {
+    this.setData({ info: null, activeMarkerId: null });
+    this.renderMarkers();
+  },
 
   /* ---------- 详情跳转（Web 路由风格 to → 小程序页面参数） ---------- */
   goDetail(e) {

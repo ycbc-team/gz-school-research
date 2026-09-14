@@ -2,8 +2,9 @@
  * 小程序 marker 图标生成（构建期）：按 @gz/shared STAGE_COLOR 唯一真源生成 PNG。
  * - 单学部：学段色圆点（小学紫 / 初中红 / 高中绿）
  * - 多学部：同圆垂直分色（stages 升序 p→m→h 决定段序，与点位一致）
+ * - 两套图标：普通（填充 alpha 0.9 + 细白描边）与选中（品牌蓝粗描边），对齐 Web MapView
  * 纯 Node 实现 PNG 编码（zlib deflate），无 canvas 依赖。
- * 产物：apps/miniprogram/assets/markers/marker-{p|m|h|pm|ph|mh|pmh}.png（48×48）
+ * 产物：apps/miniprogram/assets/markers/marker-{p|m|h|pm|ph|mh|pmh}.png（普通）+ 同名 -sel.png（选中）
  */
 import { deflateSync } from 'node:zlib';
 import { mkdirSync, writeFileSync } from 'node:fs';
@@ -17,9 +18,15 @@ const require = createRequire(import.meta.url);
 // 颜色唯一真源：@gz/shared（build:mp 前置已构建 shared）
 const { STAGE_COLOR } = require(join(ROOT, 'packages', 'shared', 'dist', 'cjs', 'index.js'));
 
+// 选中态描边色：与 Web apps/web/src/pages/MapView.vue 的 SELECTED_COLOR 保持一致（品牌蓝）
+const SELECTED_COLOR = '#1a6bd6';
+
 const SIZE = 48;      // 图标画布
 const D = 30;         // 圆直径（留边距给触控）
 const STROKE = '#FFFFFF';
+const FILL_ALPHA = 0.9;   // 普通填充不透明度（对齐 Web fillOpacity 0.9）
+const STROKE_W = 1.4;     // 普通白描边宽度（画布 px）
+const SEL_STROKE_W = 3.4; // 选中品牌蓝描边宽度（画布 px，缩放后 ~2px，明显粗于普通）
 
 /* ---------- PNG 编码（最小实现） ---------- */
 const CRC_TABLE = (() => {
@@ -70,28 +77,33 @@ function inCircle(x, y, r) {
   if (dist <= r - aa) return 1;
   return (r - dist) / aa;
 }
-/** 多学部垂直分色：stages 升序（p→m→h），段内颜色采样 */
-function draw(stages) {
+/** 多学部垂直分色：stages 升序（p→m→h），段内颜色采样；selected=选中态（品牌蓝粗描边） */
+function draw(stages, selected) {
   const colors = stages.map((s) => hexToRgb(STAGE_COLOR[s]));
   const r = D / 2;
   const buf = Buffer.alloc(SIZE * SIZE * 4);
   const n = colors.length;
+  const strokeW = selected ? SEL_STROKE_W : STROKE_W;
+  const strokeRgb = selected ? hexToRgb(SELECTED_COLOR) : hexToRgb(STROKE);
   for (let y = 0; y < SIZE; y++) {
     for (let x = 0; x < SIZE; x++) {
       const a = inCircle(x, y, r);
       if (a <= 0) continue;
-      // 描边：距圆边缘 1px 内为白色
+      // 描边：距圆边缘 strokeW 内为描边色
       const dist = Math.hypot(x - CENTER, y - CENTER);
       let rgb;
-      if (dist > r - 1.4) {
-        rgb = [255, 255, 255];
+      let alpha;
+      if (dist > r - strokeW) {
+        rgb = strokeRgb;
+        alpha = 1;
       } else {
         const seg = Math.min(Math.floor((y - (CENTER - r)) / ((2 * r) / n)), n - 1);
         rgb = colors[seg];
+        alpha = FILL_ALPHA; // 对齐 Web fillOpacity 0.9
       }
       const i = (y * SIZE + x) * 4;
       buf[i] = rgb[0]; buf[i + 1] = rgb[1]; buf[i + 2] = rgb[2];
-      buf[i + 3] = Math.round(a * 255);
+      buf[i + 3] = Math.round(a * alpha * 255);
     }
   }
   return buf;
@@ -113,8 +125,10 @@ const COMBO = {
 const outDir = join(ROOT, 'apps', 'miniprogram', 'assets', 'markers');
 mkdirSync(outDir, { recursive: true });
 for (const [key, stages] of Object.entries(COMBO)) {
-  const png = encodePng(SIZE, draw(stages));
-  const file = join(outDir, `marker-${key}.png`);
-  writeFileSync(file, png);
-  console.log(`[markers] ${key} (${stages.join('+')}) → ${file} ${png.length}B`);
+  for (const selected of [false, true]) {
+    const png = encodePng(SIZE, draw(stages, selected));
+    const file = join(outDir, `marker-${key}${selected ? '-sel' : ''}.png`);
+    writeFileSync(file, png);
+    console.log(`[markers] ${key}${selected ? '-sel' : ''} (${stages.join('+')}) → ${file} ${png.length}B`);
+  }
 }
