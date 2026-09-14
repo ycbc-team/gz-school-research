@@ -135,6 +135,7 @@ const OFFICIAL_MIDDLE_ALIAS = {
   '广州市番禺区洛浦厦滘学校': '番禺区洛浦厦滘学校中学部',
   '广州市番禺区洛浦沙滘中学': '沙滘中学',
   '广州市番禺区番外外国语学校': '广州番外外国语学校',
+  '广州市番禺区祈福新邨学校': '祈福新邨',   // 九年制民办：小学 POI「祈福新邨学校」已独立，初中 POI「祈福新邨」补挂叫法
   '广州市番禺区石楼镇海鸥学校': '海鸥学校',
   '广州市番禺区石楼镇第二中学': '石楼第二中学',
   '广州市番禺区石楼镇莲花山中学': '莲花山中学',
@@ -292,13 +293,39 @@ for (const [stage, file] of Object.entries(stageFiles)) {
   const pois = j.schools || j;
   for (const p of pois) {
     const sn = normName(p.name);
-    const schoolId = idKey(p.adcode, sn);
+    // 幂等：POI 已有 school_id 时保留（历史算法产出，事实表已按此引用），无 id 才新算
+    const schoolId = p.school_id || idKey(p.adcode, sn);
     const ent = { school_id: schoolId, name: p.name, stage, aliases: new Set(poiNameAliases(p.name, p.adcode)) };
     entities.push(ent);
     poiIdByKey.set(stage + '|' + p.adcode + '|' + p.name, schoolId);
     entByStagePoiName.set(stage + '|' + sn, ent);
   }
 }
+
+// ---- 0) 民办学校实体名单（办学性质唯一真源，2026-09-14 统一） ----
+// 民办身份统一由此表生产到 entities.json（nature='民办'）；POI 点位表 / tier1 口碑表 /
+// levels 高中表 / 2026 招生文件不再各自携带民办标识。
+// 名单来源（按 school_id / 名称别名匹配实体并去重，共 62 个）：
+//   ① data/primary/enrollments/2026-panyu.json 民办招生计划 sheet（38 个）
+//   ② data/high/levels.json nature=民办（19 所，按名称/别名/校区匹配，含同址初高中两实体）
+//   ③ data/middle/tier1_schools_all.json 口碑校法人类型=民办非企业单位（8 条，含 3 个补点按别名解析）
+// 公办为默认性质，不写字段；新增民办学校时在此追加 school_id。
+const MINBAN_IDS = new Set([
+  'gz-440103-4935332a', 'gz-440105-0b52e48d', 'gz-440105-25137088', 'gz-440105-443b73e7', 'gz-440105-fde335b7',
+  'gz-440106-01fd3a87', 'gz-440106-42297c28', 'gz-440106-540006ea', 'gz-440106-7abd2786', 'gz-440106-a6394a7a',
+  'gz-440111-0901ed40', 'gz-440111-0d08ab54', 'gz-440111-3a82b572', 'gz-440111-43437f78', 'gz-440111-6782d2c7',
+  'gz-440111-7360ff6d', 'gz-440111-7b531bd6', 'gz-440111-7d12a21e', 'gz-440111-81f3c313', 'gz-440111-88e467ba',
+  'gz-440111-c8ae0a7c', 'gz-440112-705844f8',
+  'gz-440113-000bd12e', 'gz-440113-0b94ed9c', 'gz-440113-166b5b5c', 'gz-440113-1963cc5e', 'gz-440113-1b3be909',
+  'gz-440113-23835acf', 'gz-440113-28a853f8', 'gz-440113-2a299f65', 'gz-440113-2b7d85fc', 'gz-440113-2ca37b61',
+  'gz-440113-337c0524', 'gz-440113-39879bc6', 'gz-440113-3b338135', 'gz-440113-3b63e590', 'gz-440113-3cc636b8',
+  'gz-440113-3d006240', 'gz-440113-6bf19a4c', 'gz-440113-70ea7542', 'gz-440113-757ae826', 'gz-440113-7997c707',
+  'gz-440113-7b27f226', 'gz-440113-827f636b', 'gz-440113-82bf431a', 'gz-440113-86cfc8c7', 'gz-440113-89b309cd',
+  'gz-440113-8ef59a4c', 'gz-440113-8efab2cd', 'gz-440113-999fb9c0', 'gz-440113-a36980e5', 'gz-440113-a45e4a1a',
+  'gz-440113-a6aa9fb0', 'gz-440113-a6ae517b', 'gz-440113-a93513f2', 'gz-440113-ad8632f5', 'gz-440113-c181d193',
+  'gz-440113-c40a06e1', 'gz-440113-c5dec315', 'gz-440113-c9f8740e', 'gz-440113-d4aecd66', 'gz-440113-d7e3e576',
+  'gz-440113-e946f7f3',
+]);
 
 // ---- 2) 把 tier1 / sites 的别名挂到对应 POI 实体 ----
 function attachAlias(stage, poiName, aliasName) {
@@ -362,11 +389,13 @@ for (const [official, poi] of Object.entries(OFFICIAL_HIGH_ALIAS)) {
 }
 
 // ---- 3) 落盘实体（排序、aliases 去重排序）----
+// 办学性质唯一真源：仅民办写 nature='民办'（公办为默认不写字段），由 MINBAN_IDS 生产
+for (const e of entities) if (MINBAN_IDS.has(e.school_id)) e.nature = '民办';
 for (const e of entities) e.aliases = [...e.aliases].sort((a, b) => b.length - a.length);
 entities.sort((a, b) => (a.stage + a.name).localeCompare(a.stage + a.name, 'zh'));
 write('data/registry/entities.json', {
   year: 2026,
-  note: '学校实体表（维度表）。一个 POI 点位=一个实体（校区/学部独立）；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。',
+  note: '学校实体表（维度表）。一个 POI 点位=一个实体（校区/学部独立）；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由本脚本 MINBAN_IDS 生产。',
   entities,
 });
 

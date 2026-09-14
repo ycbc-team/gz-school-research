@@ -1,20 +1,38 @@
 /**
- * 徽章域：学校徽章（区域 · 学段 · 口碑 · 省/市示范）+ 口碑支撑度 badge。
+ * 徽章域：学校徽章（区域 · 学段 · 口碑 · 民办 · 省/市示范）+ 口碑支撑度 badge。
  * 详情页 / 地图搜索 / 地图点选浮层三处共用。
+ * 民办身份唯一真源：实体表（entities.nature='民办'，公办不写字段）；优先按 school_id 精确，
+ * 无 school_id（详情页按名打开等）时按 norm 校名/别名兜底。
  */
 import { normName } from '../support.js';
 import type { DataLoaders } from './loader.js';
 import type { SchoolBadge } from './types.js';
 
 export function createBadgesApi(loaders: DataLoaders) {
-  const { primarySchools, middleSchools, highSchools } = loaders;
+  const { primarySchools, middleSchools, highSchools, entities } = loaders;
+
+  /** 民办实体索引：school_id → true；norm(名称/别名) → true */
+  const minbanById = new Map<string, true>();
+  const minbanByName = new Map<string, true>();
+  for (const e of entities.entities) {
+    if (e.nature !== '民办') continue;
+    minbanById.set(e.school_id, true);
+    const put = (k: string) => { if (k) minbanByName.set(k, true); };
+    put(normName(e.name));
+    for (const a of e.aliases || []) put(normName(a));
+  }
+  function isMinban(opts: { schoolId?: string; name?: string }): boolean {
+    if (opts.schoolId && minbanById.has(opts.schoolId)) return true;
+    const name = opts.name || '';
+    return !!name && !!minbanByName.get(normName(name));
+  }
 
   /**
-   * 学校徽章组：区域 · 学段 · 口碑 · 省/市示范。
+   * 学校徽章组：区域 · 学段 · 口碑 · 民办 · 省/市示范。
    */
   function schoolBadges(
     stage: 'primary' | 'middle' | 'high',
-    opts: { district?: string; tier?: any; rec?: any; name?: string; singleStage?: boolean; stages?: ('primary' | 'middle' | 'high')[] },
+    opts: { district?: string; tier?: any; rec?: any; name?: string; schoolId?: string; singleStage?: boolean; stages?: ('primary' | 'middle' | 'high')[] },
   ): SchoolBadge[] {
     const out: SchoolBadge[] = [];
     if (opts.district) out.push({ text: opts.district, cls: 'b-district' });
@@ -43,16 +61,13 @@ export function createBadgesApi(loaders: DataLoaders) {
     }
     const t = opts.tier;
     if (t) {
-      if (t.tier1_eligible === false) out.push({ text: '挂牌', cls: 'b-license' });
-      // UI 口径：口碑 Badge 仅标记第一梯队（tier_rank===1）；第二/三梯队（rank 2/3）不拿
-      // 口碑 Badge，但在口碑信息（SupportView/信息卡）中展示客观依据说明
-      else if (t.tier_rank === 1) out.push({ text: '口碑', cls: 'b-tier' });
+      const lv = t.reputation?.level;
+      // 不支撑（仅民间口碑、无客观信号）沿用「挂牌」灰标；口碑（信号分≥2）标红「口碑」；待观察不拿学校徽章
+      if (lv === '不支撑') out.push({ text: '挂牌', cls: 'b-license' });
+      else if (lv === '口碑') out.push({ text: '口碑', cls: 'b-tier' });
     }
-    // 民办：高中按 levels.nature；小学/初中按口碑校法人登记类型（民办非企业单位等）
-    const isMinban =
-      (opts.rec && opts.rec.nature === '民办') ||
-      (t && typeof t.legal_entity?.type === 'string' && t.legal_entity.type.includes('民办'));
-    if (isMinban) out.push({ text: '民办', cls: 'b-minban' });
+    // 民办：办学性质唯一真源=实体表 nature（公办不写字段）；优先 school_id，按名兜底
+    if (isMinban(opts)) out.push({ text: '民办', cls: 'b-minban' });
     // 省/市示范是高中部级别，只在高中 tab 显示（初中 tab 不显示高中 badge）
     if (stage === 'high' && opts.rec) {
       if (opts.rec.category === '省市属示范') out.push({ text: '省示范', cls: 'b-hcity' });
@@ -61,14 +76,13 @@ export function createBadgesApi(loaders: DataLoaders) {
     return out;
   }
 
-  /** 口碑支撑度 badge（仅口碑信号卡内使用）：有支撑/部分支撑/无支撑 */
+  /** 口碑等级 badge（仅口碑信号卡内使用）：口碑/待观察/不支撑 */
   function supportBadge(tier?: any): SchoolBadge | null {
     if (!tier) return null;
-    if (tier.tier1_eligible === false) return { text: '未计入口碑校', cls: 'b-license' };
-    const c = tier.conclusion;
-    if (c === '有支撑') return { text: '有支撑', cls: 'b-full' };
-    if (c === '部分支撑') return { text: '部分支撑', cls: 'b-part' };
-    return { text: '无支撑', cls: 'b-none' };
+    const lv = tier.reputation?.level;
+    if (lv === '口碑') return { text: '口碑', cls: 'b-full' };
+    if (lv === '待观察') return { text: '待观察', cls: 'b-part' };
+    return { text: '不支撑', cls: 'b-none' };
   }
 
   return { schoolBadges, supportBadge };

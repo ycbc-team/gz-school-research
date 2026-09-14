@@ -67,7 +67,7 @@ export function buildInfoModel(pt: MapPointFull, repo: Repository): InfoModel {
     if (!rec) {
       return {
         name,
-        badges: repo.schoolBadges('high', { district: districtName, name, stages: pt.stages }),
+        badges: repo.schoolBadges('high', { district: districtName, name, schoolId: pt.ids[pt.mainStage] || pt.school_id, stages: pt.stages }),
         head: null,
         rows: [
           { label: '学部', value: pt.stages.map((s) => STAGE_LABEL[s]).join('、') },
@@ -89,7 +89,7 @@ export function buildInfoModel(pt: MapPointFull, repo: Repository): InfoModel {
     put('gaofen_2026', '高分段 2026');
     return {
       name,
-      badges: repo.schoolBadges('high', { district: districtName, rec, name, stages: pt.stages }),
+      badges: repo.schoolBadges('high', { district: districtName, rec, name, schoolId: pt.ids[pt.mainStage] || pt.school_id, stages: pt.stages }),
       head: null,
       rows,
       note: '口径：录取线为官方发布（公办户籍生 / 民办最低分）；特控率/高分段为喜报或网传数据。完整出口数据见详情页。',
@@ -103,29 +103,30 @@ export function buildInfoModel(pt: MapPointFull, repo: Repository): InfoModel {
     const enrollRows = pt.stages.includes('primary') ? primaryEnrollRows(repo, pt) : [];
     // 小学升学路线取全量 xiaoshengchu（实体 id）；口碑信号另缩略一条
     const linkageRows = pt.stages.includes('primary') ? primaryLinkageRows(repo, pt.ids.primary) : [];
-    if (tier.tier1_eligible === false) {
+    if (tier.reputation.level === '不支撑') {
+      const gaps = (tier.data_gaps || []).filter(Boolean);
       return {
         name,
-        badges: repo.schoolBadges(pt.mainStage, { district: districtName, tier, name, stages: pt.stages }),
-        head: '网传"口碑学校" · 独立法人，未计入口碑学校',
+        badges: repo.schoolBadges(pt.mainStage, { district: districtName, tier, name, schoolId: pt.ids[pt.mainStage] || pt.school_id, stages: pt.stages }),
+        head: '网传"口碑学校" · 无客观信号支撑',
         rows: [
           ...enrollRows,
           ...linkageRows,
-          ...(tier.exclude_reason ? [{ label: '未计入原因', value: tier.exclude_reason }] : []),
+          ...(gaps.length ? [{ label: '数据缺口', value: gaps.join('；') }] : (tier.reputation.basis ? [{ label: '判定依据', value: tier.reputation.basis }] : [])),
         ],
         note: null,
         links: detailLinks,
       };
     }
     const head =
-      '网传"口碑学校" · 民间口径非官方' +
+      '口碑学校 · 客观信号核验' +
       (tier.entity_relation === '同法人校区' ? ' · 与本部同一法人' : '');
     const signalRows = pt.mainStage === 'primary'
       ? [...linkageRows, ...formatPrimarySignals(tier).slice(0, 1)]
       : [...(pt.stages.includes('middle') ? middleFeedRows(repo, pt.ids.middle) : []), ...formatMiddleSignals(tier).slice(0, 1)];
     return {
       name,
-      badges: repo.schoolBadges(pt.mainStage, { district: districtName, tier, name, stages: pt.stages }),
+      badges: repo.schoolBadges(pt.mainStage, { district: districtName, tier, name, schoolId: pt.ids[pt.mainStage] || pt.school_id, stages: pt.stages }),
       head,
       rows: [...enrollRows, ...signalRows],
       note: '完整口碑信号与升学通道见详情页。',
@@ -135,7 +136,7 @@ export function buildInfoModel(pt: MapPointFull, repo: Repository): InfoModel {
 
   return {
     name,
-    badges: repo.schoolBadges(pt.mainStage, { district: districtName, name, stages: pt.stages }),
+    badges: repo.schoolBadges(pt.mainStage, { district: districtName, name, schoolId: pt.ids[pt.mainStage] || pt.school_id, stages: pt.stages }),
     head: null,
     rows: [
       { label: '学部', value: pt.stages.map((s) => STAGE_LABEL[s]).join('、') },

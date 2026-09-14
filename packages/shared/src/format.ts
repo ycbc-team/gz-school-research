@@ -31,9 +31,14 @@ export function formatXiaoshengchuBrief(xs?: XiaoshengchuRecord | null): string 
   return `${via} ${feed}`;
 }
 
-/** 小学信号行：教育集团 / 班数 / 学位预警 / 省一级（升学路线改由全量 xiaoshengchu 数据单独承载） */
+/** 小学信号行：历史称号 / 教育集团 / 班数 / 学位预警 / 对口直升（升学路线改由全量 xiaoshengchu 数据单独承载） */
 export function formatPrimarySignals(s: Tier1School): SignalRow[] {
   const rows: SignalRow[] = [];
+  if (s.historical_titles && s.historical_titles.length) {
+    const t = s.historical_titles[0]!;
+    const note = (t.note || '').replace(/[（(].*?[)）]/g, '').slice(0, 24);
+    rows.push({ label: t.level || '历史称号', value: `${t.year ?? '?'} 年评定${note ? `（${note}）` : ''}` });
+  }
   if (s.education_group) {
     rows.push({
       label: '教育集团',
@@ -41,22 +46,27 @@ export function formatPrimarySignals(s: Tier1School): SignalRow[] {
       strong: true,
     });
   }
-  if (s.plan_classes_2026 != null) {
-    rows.push({ label: '2026班数', value: `${s.plan_classes_2026} 个班`, strong: true });
+  if (s.plan_classes && s.plan_classes.count != null) {
+    rows.push({ label: '2026班数', value: `${s.plan_classes.count} 个班`, strong: true });
   }
-  if (s.degree_warning) rows.push({ label: '学位预警', value: val(s.degree_warning), strong: true });
-  if (s.provincial_level_title) {
-    const t = s.provincial_level_title;
-    const note = (t.note || '').replace(/[（(].*?[)）]/g, '').slice(0, 24);
-    rows.push({ label: '省一级', value: `${t.year} 年评定${note ? `（${note}）` : ''}` });
+  const dw = s.degree_warning;
+  if (dw && dw.status && !/未查到|无预警|无$/.test(dw.status)) {
+    rows.push({ label: '学位预警', value: dw.status, strong: true });
+  }
+  if (s.direct_feed) {
+    rows.push({
+      label: '对口直升',
+      value: `${s.direct_feed.middle_school}${s.direct_feed.is_reputable ? '（口碑初中）' : ''}`,
+      strong: true,
+    });
   }
   return rows;
 }
 
-/** 初中信号行：中考成绩 / 示范性高中 / 教育集团 / 建校年份 / 指标到校 */
+/** 初中信号行：中考口碑 / 官方录取线 / 自主招生 / 示范性高中 / 教育集团 / 建校年份 / 指标到校 */
 export function formatMiddleSignals(s: Tier1School): SignalRow[] {
   const rows: SignalRow[] = [];
-  const zk = s.zhongkao;
+  const zk = s.zhongkao_rumor;
   if (zk) {
     rows.push({
       label: '中考成绩',
@@ -64,6 +74,21 @@ export function formatMiddleSignals(s: Tier1School): SignalRow[] {
     });
   } else {
     rows.push({ label: '中考成绩', value: '未查到' });
+  }
+  const ads = (s.admission_scores || []).filter((a) => a && a.year != null && a.huji != null);
+  if (ads.length) {
+    const latest = ads[ads.length - 1]!;
+    rows.push({
+      label: '中考录取线',
+      value: `${latest.year} 年 户籍生 ${latest.huji} 分`,
+      strong: true,
+    });
+  }
+  if (s.autonomy_count && s.autonomy_count.count != null) {
+    rows.push({
+      label: '自主招生',
+      value: `${s.autonomy_count.year} 年 ${s.autonomy_count.count} 人`,
+    });
   }
   if (s.demonstration_high) {
     rows.push({

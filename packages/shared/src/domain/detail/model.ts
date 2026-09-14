@@ -133,6 +133,16 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
 
   /* ---------- 小学 ---------- */
   const enrollment = stage === 'primary' ? repo.matchEnrollment(poi?.school_id || schoolName) : null;
+  // 办学性质唯一真源：实体表 nature（公办不写字段）；招生记录不再携带 nature，公办为默认
+  const entityNature = (() => {
+    if (schoolId) {
+      const e = repo.entities.find((x) => x.school_id === schoolId);
+      if (e?.nature) return e.nature;
+    }
+    const byName = repo.entities.find((x) => normName(x.name) === normName(schoolName) && x.nature === '民办');
+    if (byName?.nature) return byName.nature;
+    return undefined;
+  })();
   const primaryMechanism = (() => {
     if (stage !== 'primary' || !poi) return null;
     const d = repo.primaryTier1.districts;
@@ -194,7 +204,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
   ]);
 
   /* ---------- 其他 ---------- */
-  const badges = repo.schoolBadges(stage, { district: districtOf, tier, rec, name: schoolName, singleStage: true });
+  const badges = repo.schoolBadges(stage, { district: districtOf, tier, rec, name: schoolName, schoolId, singleStage: true });
   const support = repo.supportBadge(tier);
   const headText = (() => {
     if (stage === 'high') {
@@ -211,8 +221,11 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
   const tierNote = (() => {
     const t = tier;
     if (!t) return null;
-    if (t.tier1_eligible === false) return t.exclude_reason || '网传口碑校，独立法人，未计入口碑学校';
-    return t.conclusion_basis || null;
+    if (t.reputation.level === '不支撑') {
+      const gaps = (t.data_gaps || []).filter(Boolean);
+      return gaps.join('；') || t.reputation.basis || '网传口碑校，无客观信号支撑';
+    }
+    return t.reputation.basis || null;
   })();
   const legalEntityText = (() => {
     const le = tier?.legal_entity;
@@ -304,11 +317,18 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
       if (!district) district = tierM?.district || tierP?.district || recH?.district || '';
       const tierX = tierM || tierP;
       const badge = tierX
-        ? tierX.tier1_eligible === false
+        ? tierX.reputation.level === '不支撑'
           ? { text: '挂牌', cls: 'b-license' }
-          : { text: '口碑', cls: 'b-tier' }
+          : tierX.reputation.level === '口碑'
+            ? { text: '口碑', cls: 'b-tier' }
+            : null
         : null;
-      const reason = tierM?.exclude_reason || tierP?.exclude_reason || null;
+      const reason = (() => {
+        const gx = tierM || tierP;
+        if (!gx) return null;
+        const gaps = (gx.data_gaps || []).filter(Boolean);
+        return gaps.join('；') || gx.reputation.basis || null;
+      })();
       const stageToKey: Record<string, SchoolStage> = { 小学: 'primary', 初中: 'middle', 高中: 'high' };
       const order = [stage, ...(['primary', 'middle', 'high'] as SchoolStage[]).filter((s) => s !== stage)];
       const stageKey = order.find((k: SchoolStage) => stages.includes(STAGE_SHORT[k])) || null;
@@ -346,7 +366,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     tierNote,
     legalEntityText,
     poi: poi ? { lng: poi.lng, lat: poi.lat } : null,
-    enrollment,
+    enrollment: enrollment ? { ...enrollment, nature: entityNature || '公办' } : null,
     primaryMechanism,
     feedJuniors,
     feedGap,

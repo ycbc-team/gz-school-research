@@ -29,8 +29,8 @@ export interface DataLoaders {
   highScores2026: HighScores;
   /** 区属指标到校（另一 agent 数据）；初中名 → 实体 school_id 由 backfill 回填 */
   districtQuota: { data: Record<string, Record<string, number>>; middle_school_ids?: Record<string, string> };
-  /** 实体注册表（school_id 外键 → 名称/别名） */
-  entities: { entities: Array<{ school_id: string; name: string; stage: string; aliases: string[] }> };
+  /** 实体注册表（school_id 外键 → 名称/别名/办学性质）；nature=民办 为办学性质唯一真源（公办不写字段） */
+  entities: { entities: Array<{ school_id: string; name: string; stage: string; aliases: string[]; nature?: string }> };
   /** 小学 2026 升学路线事实表（group 提为顶层 groups，记录按 group_id 引用） */
   xiaoshengchu: {
     groups: Array<{ id: number; name: string; source_urls: string[]; data_gaps: string | null }>;

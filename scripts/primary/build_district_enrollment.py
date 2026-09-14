@@ -217,7 +217,7 @@ def parse_yuexiu(txt_path):
     for school, v in merged.items():
         zone = "\n".join(p for p in v["parts"] if p.strip())
         records.append({
-            "school": school, "district": "越秀区", "nature": "公办",
+            "school": school, "district": "越秀区",
             "plan_classes": v["classes"],
             "zone": zone, "note": "", "source": "越秀区教育局2026",
         })
@@ -266,7 +266,7 @@ def parse_liwan():
     records = []
     for school in plan:
         records.append({
-            "school": school, "district": "荔湾区", "nature": "公办",
+            "school": school, "district": "荔湾区",
             "plan_classes": plan[school],
             "zone": "\n".join(zones.get(school, [])) or "",
             "note": "", "source": "荔湾区教育局2026",
@@ -280,7 +280,6 @@ def parse_raw(district_key):
     for s in raw["schools"]:
         records.append({
             "school": s["school"], "district": DISTRICTS[district_key]["name"],
-            "nature": "公办",
             "plan_classes": s.get("plan_classes"),
             "zone": s.get("zone", ""), "note": s.get("note", ""),
             "phone": s.get("phone", ""),
@@ -306,7 +305,7 @@ def parse_panyu(xls_path):
         zone = str(sh.cell_value(r, 3)).strip()
         note = str(sh.cell_value(r, 4)).strip()
         records.append({
-            "school": school, "district": district, "nature": "公办",
+            "school": school, "district": district,
             "plan_classes": int(plan) if isinstance(plan, float) and plan == int(plan) else (plan if isinstance(plan, (int, float)) else None),
             "zone": zone, "note": note, "source": "番禺区教育局2026",
         })
@@ -323,7 +322,7 @@ def parse_panyu(xls_path):
         persons = sh2.cell_value(r, 3)
         note = str(sh2.cell_value(r, 6)).strip()
         records.append({
-            "school": school, "district": district2, "nature": "民办",
+            "school": school, "district": district2,
             "plan_classes": int(classes) if isinstance(classes, float) and classes == int(classes) else (classes if isinstance(classes, (int, float)) else None),
             "plan_count": int(persons) if isinstance(persons, float) and persons == int(persons) else (persons if isinstance(persons, (int, float)) else None),
             "zone": "民办：无地段，报名人数超计划电脑派位（摇号）",
