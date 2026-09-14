@@ -104,21 +104,31 @@
   </view>
 
   <!-- 底部信息卡（无黑蒙层；点击地图空白处关闭） -->
-  <view wx:if="{{info}}" class="drawer">
+  <view
+    wx:if="{{info}}"
+    class="drawer {{drawerDragging ? 'drawer-dragging' : ''}}"
+    style="transform: translateY({{drawerOffset}}px);"
+    bindtouchstart="onDrawerTouchStart"
+    bindtouchmove="onDrawerTouchMove"
+    bindtouchend="onDrawerTouchEnd"
+    bindtouchcancel="onDrawerTouchEnd"
+  >
     <view class="handle"></view>
-    <view class="d-head">
-      <view class="d-name">{{info.name}}</view>
-      <view class="d-close" bindtap="closeInfo">×</view>
-    </view>
-    <view class="d-badges">
-      <view wx:for="{{info.badges}}" wx:key="cls" class="badge {{item.cls}}">{{item.text}}</view>
-    </view>
-    <view wx:if="{{info.head}}" class="d-subhead">{{info.head}}</view>
-    <view wx:for="{{info.rows}}" wx:key="label" class="d-row">
-      <view class="d-label">{{item.label}}</view>
-      <view class="d-value">{{item.value}}</view>
-    </view>
-    <view wx:if="{{info.note}}" class="d-note">{{info.note}}</view>
-    <view wx:for="{{info.links}}" wx:key="to" class="d-link" data-to="{{item.to}}" bindtap="goDetail">{{item.text}}</view>
+    <scroll-view class="drawer-content" scroll-y="true" bindscroll="onDrawerScroll">
+      <view class="d-head">
+        <view class="d-name">{{info.name}}</view>
+        <view class="d-close" bindtap="closeInfo">×</view>
+      </view>
+      <view class="d-badges">
+        <view wx:for="{{info.badges}}" wx:key="cls" class="badge {{item.cls}}">{{item.text}}</view>
+      </view>
+      <view wx:if="{{info.head}}" class="d-subhead">{{info.head}}</view>
+      <view wx:for="{{info.rows}}" wx:key="label" class="d-row">
+        <view class="d-label">{{item.label}}</view>
+        <view class="d-value {{item.label === '招生地段' || item.label === '升学路线' ? 'd-clamp' : ''}}">{{item.value}}</view>
+      </view>
+      <view wx:if="{{info.note}}" class="d-note">{{info.note}}</view>
+      <view wx:for="{{info.links}}" wx:key="to" class="d-link" data-to="{{item.to}}" bindtap="goDetail">{{item.text}}</view>
+    </scroll-view>
   </view>
 </view>

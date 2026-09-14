@@ -49,6 +49,9 @@ Page({
     searchOpen: false,
     menu: '',
     info: null,
+    // 底部抽屉下拉时的视觉位移（px）。手势状态留在实例上，避免每次触摸都触发无关渲染。
+    drawerOffset: 0,
+    drawerDragging: false,
     centerLat: 23.13,
     centerLng: 113.3,
     scale: 11,
@@ -228,11 +231,54 @@ Page({
     }
   },
   showInfo(pt) {
-    this.setData({ info: buildInfoModel(pt, repository) });
+    this.drawerScrollTop = 0;
+    this.setData({ info: buildInfoModel(pt, repository), drawerOffset: 0, drawerDragging: false });
   },
   closeInfo() {
-    this.setData({ info: null, activeMarkerId: null });
+    this.setData({ info: null, activeMarkerId: null, drawerOffset: 0, drawerDragging: false });
     this.renderMarkers();
+  },
+
+  /* ---------- 底部抽屉手势：内容回到顶部后向下拖动关闭（与 Web 一致） ---------- */
+  onDrawerScroll(e) {
+    this.drawerScrollTop = e.detail.scrollTop || 0;
+  },
+  onDrawerTouchStart(e) {
+    const touch = e.touches && e.touches[0];
+    if (!touch) return;
+    this.drawerStartY = touch.clientY;
+    this.drawerDy = 0;
+    this.drawerTracking = true;
+    this.drawerHeight = 0;
+    wx.createSelectorQuery().select('.drawer').boundingClientRect((rect) => {
+      this.drawerHeight = rect ? rect.height : 0;
+    }).exec();
+    this.setData({ drawerOffset: 0, drawerDragging: false });
+  },
+  onDrawerTouchMove(e) {
+    if (!this.drawerTracking) return;
+    const touch = e.touches && e.touches[0];
+    if (!touch) return;
+    const dy = touch.clientY - this.drawerStartY;
+    // 上滑和内容滚动时交给 scroll-view；只有位于顶部时下拉抽屉。
+    if (dy <= 0 || this.drawerScrollTop > 0) {
+      this.drawerDy = 0;
+      return;
+    }
+    this.drawerDy = dy;
+    this.setData({ drawerOffset: Math.min(dy * 0.5, 200), drawerDragging: true });
+  },
+  onDrawerTouchEnd() {
+    if (!this.drawerTracking) return;
+    this.drawerTracking = false;
+    // 与 Web 相同：至少下拉 90px，或超过抽屉高度的约 22% 时关闭。
+    const threshold = Math.max(90, (this.drawerHeight || 0) * 0.22);
+    if (this.drawerDy > threshold) {
+      this.closeInfo();
+      return;
+    }
+    this.drawerDy = 0;
+    this.setData({ drawerOffset: 0, drawerDragging: false });
   },
 
   /* ---------- 详情跳转（Web 路由风格 to → 小程序页面参数） ---------- */
