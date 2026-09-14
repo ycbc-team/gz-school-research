@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>广州 7 区民办学校标记分布</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; background: #f5f7fa; color: #333; padding: 24px; }
+  .container { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 6px; color: #1a1a2e; }
+  .subtitle { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .card { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .card h2 { font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #1a1a2e; }
+  .stats-row { display: flex; gap: 16px; margin-bottom: 20px; }
+  .stat-box { flex: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; padding: 18px; color: #fff; }
+  .stat-box.green { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+  .stat-box.orange { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+  .stat-num { font-size: 32px; font-weight: 700; line-height: 1.2; }
+  .stat-label { font-size: 12px; opacity: 0.9; margin-top: 4px; }
+  .chart-container { position: relative; height: 320px; }
+  .bar-group { display: flex; align-items: flex-end; height: 260px; gap: 0; padding: 0 8px; border-bottom: 2px solid #eee; }
+  .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+  .bar-pair { display: flex; gap: 3px; align-items: flex-end; height: 100%; }
+  .bar { width: 22px; border-radius: 4px 4px 0 0; transition: opacity 0.2s; position: relative; cursor: pointer; }
+  .bar.before { background: #ccc; }
+  .bar.after { background: #667eea; }
+  .bar:hover { opacity: 0.8; }
+  .bar-value { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 11px; font-weight: 600; color: #333; white-space: nowrap; }
+  .district-label { margin-top: 8px; font-size: 13px; font-weight: 500; color: #555; }
+  .legend { display: flex; gap: 20px; justify-content: center; margin-top: 12px; font-size: 12px; color: #666; }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: #f8f9fa; padding: 10px 12px; text-align: left; font-weight: 600; color: #555; border-bottom: 2px solid #eee; }
+  td { padding: 10px 12px; border-bottom: 1px solid #f0f0f0; }
+  tr:hover td { background: #fafbfc; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .delta { color: #11998e; font-weight: 600; }
+  .stage-chart { display: flex; gap: 12px; flex-wrap: wrap; }
+  .stage-bar-item { flex: 1; min-width: 100px; }
+  .stage-bar-label { font-size: 12px; color: #666; margin-bottom: 4px; }
+  .stage-bar-track { height: 20px; background: #f0f0f0; border-radius: 4px; overflow: hidden; position: relative; }
+  .stage-bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; font-size: 11px; color: #fff; font-weight: 600; }
+  .footer { text-align: center; font-size: 12px; color: #aaa; margin-top: 20px; padding: 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>广州 7 区民办学校标记分布</h1>
+  <div class="subtitle">数据基准：2026-09-14 ｜ 真源：data/registry/entities.json ｜ 来源：各区教育局年检名单/招生计划</div>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">217</div>
+      <div class="stat-label">民办学校（unique school_id）</div>
+    </div>
+    <div class="stat-box green">
+      <div class="stat-num">+154</div>
+      <div class="stat-label">本次新增标记</div>
+    </div>
+    <div class="stat-box orange">
+      <div class="stat-num">7/7</div>
+      <div class="stat-label">区覆盖（原 6/7，无越秀）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>各区民办学校数量对比（unique school_id）</h2>
+    <div class="chart-container">
+      <div class="bar-group" id="barGroup"></div>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#ccc"></div>扩充前（63）</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#667eea"></div>扩充后（217）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>各区明细</h2>
+    <table>
+      <thead>
+        <tr><th>区</th><th class="num">扩充前</th><th class="num">扩充后</th><th class="num">增量</th><th class="num">小学</th><th class="num">初中</th><th class="num">高中</th><th>主要官方来源</th></tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>学段分布（实体行，共 250 行）</h2>
+    <div class="stage-chart" id="stageChart"></div>
+  </div>
+
+  <div class="footer">
+    每所新增民办均有可追溯官方来源 ｜ 详见 scripts/registry/minban_*.md ｜ MINBAN_IDS 与 entities.json 完全一致
+  </div>
+</div>
+
+<script>
+const data = [
+  { dist: '越秀', before: 0, after: 4, p: 2, m: 2, h: 0, source: '2025/2026招生计划' },
+  { dist: '荔湾', before: 1, after: 11, p: 0, m: 10, h: 1, source: '2025民办联系方式一览表' },
+  { dist: '海珠', before: 4, after: 24, p: 16, m: 5, h: 4, source: '2024年度年检21所' },
+  { dist: '天河', before: 5, after: 36, p: 15, m: 19, h: 4, source: '2025招生计划34所' },
+  { dist: '白云', before: 11, after: 82, p: 59, m: 20, h: 6, source: '2023一览表+2025附表3/4' },
+  { dist: '黄埔', before: 1, after: 11, p: 3, m: 7, h: 1, source: '2025招生计划+2024年检' },
+  { dist: '番禺', before: 41, after: 49, p: 41, m: 31, h: 4, source: '2025年度年检36所' },
+];
+
+const maxVal = Math.max(...data.map(d => d.after));
+const barGroup = document.getElementById('barGroup');
+data.forEach(d => {
+  const col = document.createElement('div');
+  col.className = 'bar-col';
+  const beforeH = (d.before / maxVal) * 220;
+  const afterH = (d.after / maxVal) * 220;
+  col.innerHTML = `
+    <div class="bar-pair">
+      <div class="bar before" style="height:${beforeH}px" title="扩充前: ${d.before}">${d.before > 0 ? `<div class="bar-value">${d.before}</div>` : ''}</div>
+      <div class="bar after" style="height:${afterH}px" title="扩充后: ${d.after}"><div class="bar-value">${d.after}</div></div>
+    </div>
+    <div class="district-label">${d.dist}</div>
+  `;
+  barGroup.appendChild(col);
+});
+
+const tableBody = document.getElementById('tableBody');
+data.forEach(d => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td><strong>${d.dist}</strong></td><td class="num">${d.before}</td><td class="num">${d.after}</td><td class="num delta">+${d.after - d.before}</td><td class="num">${d.p}</td><td class="num">${d.m}</td><td class="num">${d.h}</td><td style="font-size:12px;color:#888">${d.source}</td>`;
+  tableBody.appendChild(tr);
+});
+
+const stageData = [
+  { label: '小学 (primary)', count: 136, color: '#667eea' },
+  { label: '初中 (middle)', count: 94, color: '#11998e' },
+  { label: '高中 (high)', count: 20, color: '#f5576c' },
+];
+const maxStage = Math.max(...stageData.map(s => s.count));
+const stageChart = document.getElementById('stageChart');
+stageData.forEach(s => {
+  const div = document.createElement('div');
+  div.className = 'stage-bar-item';
+  div.innerHTML = `
+    <div class="stage-bar-label">${s.label} · ${s.count}</div>
+    <div class="stage-bar-track"><div class="stage-bar-fill" style="width:${(s.count/maxStage)*100}%;background:${s.color}">${s.count}</div></div>
+  `;
+  stageChart.appendChild(div);
+});
+</script>
+</body>
+</html>

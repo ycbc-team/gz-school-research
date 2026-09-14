@@ -79,7 +79,7 @@ const kw = ref('');
 const searchOpen = ref(false);
 const searchResults = computed(() => searchSchools(mapPoints, kw.value, repository.entities));
 function badgesOf(pt: MapPointFull) {
-  return repository.schoolBadges(pt.mainStage, { district: districtByAdcode[pt.adcode] || '', tier: pt.tier, rec: pt.rec, name: pt.name, stages: pt.stages });
+  return repository.schoolBadges(pt.mainStage, { district: districtByAdcode[pt.adcode] || '', tier: pt.tier, rec: pt.rec, name: pt.name, schoolId: pt.ids[pt.mainStage] || pt.school_id, stages: pt.stages });
 }
 function pickResult(pt: MapPointFull) {
   if (!map) return;
