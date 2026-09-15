@@ -63,7 +63,9 @@ export function formatPrimarySignals(s: Tier1School): SignalRow[] {
   return rows;
 }
 
-/** 初中信号行：中考口碑 / 官方录取线 / 自主招生 / 示范性高中 / 教育集团 / 建校年份 / 指标到校 */
+/** 初中信号行：中考口碑 / 官方录取线 / 示范性高中 / 教育集团 / 建校年份 / 指标到校
+ * 注意：自主招生（升学数字）不在此输出——tier1 只做学校信号，升学信号统一由
+ * detail/model.ts 从 linkage/rankingMiddle（官方自招资格名单）取。 */
 export function formatMiddleSignals(s: Tier1School): SignalRow[] {
   const rows: SignalRow[] = [];
   const zk = s.zhongkao_rumor;
@@ -82,12 +84,6 @@ export function formatMiddleSignals(s: Tier1School): SignalRow[] {
       label: '中考录取线',
       value: `${latest.year} 年 户籍生 ${latest.huji} 分`,
       strong: true,
-    });
-  }
-  if (s.autonomy_count && s.autonomy_count.count != null) {
-    rows.push({
-      label: '自主招生',
-      value: `${s.autonomy_count.year} 年 ${s.autonomy_count.count} 人`,
     });
   }
   if (s.demonstration_high) {

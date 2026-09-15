@@ -639,7 +639,7 @@
     },
     {
       "name": "广州市西关培英中学",
-      "school_id": "gz-440104-3b870a8e",
+      "school_id": "gz-440103-d78c848a",
       "district": "荔湾区",
       "minban": false,
       "group": null,
@@ -1875,7 +1875,7 @@
     },
     {
       "name": "广州协和学校",
-      "school_id": "gz-440104-1b1d2659",
+      "school_id": "gz-440103-e281e7d0",
       "district": "荔湾区",
       "minban": false,
       "group": null,
@@ -7384,7 +7384,7 @@
     },
     {
       "name": "广州市为明学校",
-      "school_id": "gz-440105-fde335b7",
+      "school_id": "gz-440105-baa048f9",
       "district": "海珠区",
       "minban": true,
       "group": null,
@@ -8794,7 +8794,7 @@
     },
     {
       "name": "广州奥林匹克中学",
-      "school_id": "gz-440106-d8e69757",
+      "school_id": "gz-440106-d40d0dbe",
       "district": "天河区",
       "minban": false,
       "group": {
@@ -10456,7 +10456,7 @@
     },
     {
       "name": "广州市天河区华实学校",
-      "school_id": "gz-440106-8d124051",
+      "school_id": "gz-440106-bd07878c",
       "district": "天河区",
       "minban": true,
       "group": null,
@@ -10520,7 +10520,7 @@
     },
     {
       "name": "广州市华美英语实验学校",
-      "school_id": "gz-440106-a6394a7a",
+      "school_id": "gz-440106-7abd2786",
       "district": "天河区",
       "minban": true,
       "group": null,
@@ -12446,7 +12446,7 @@
     },
     {
       "name": "广州市白云区江高镇第二初级中学",
-      "school_id": "gz-440111-99232185",
+      "school_id": "gz-440111-d3ffec78",
       "district": "白云区",
       "minban": false,
       "group": {
@@ -13474,7 +13474,7 @@
     },
     {
       "name": "广州市白云区南悦中学",
-      "school_id": "gz-440111-60ffdb9e",
+      "school_id": "gz-440111-2186a02a",
       "district": "白云区",
       "minban": false,
       "group": {
@@ -17643,9 +17643,9 @@
     },
     {
       "name": "广州市天健学校",
-      "school_id": "gz-440111-f210a029",
+      "school_id": "gz-440112-e085f4fa",
       "district": "黄埔区",
-      "minban": false,
+      "minban": true,
       "group": null,
       "kaosheng": 298,
       "sheng_quota": 15,
@@ -18009,7 +18009,7 @@
     },
     {
       "name": "广州市黄埔区开元学校",
-      "school_id": "gz-440112-203c6d64",
+      "school_id": "gz-440112-d62f1348",
       "district": "黄埔区",
       "minban": false,
       "group": {
@@ -18193,7 +18193,7 @@
     },
     {
       "name": "广东省教育研究院黄埔实验学校",
-      "school_id": "gz-440112-68f9ff36",
+      "school_id": "gz-440112-96610f39",
       "district": "黄埔区",
       "minban": false,
       "group": {
@@ -19711,7 +19711,7 @@
     },
     {
       "name": "广州市黄埔区苏元学校",
-      "school_id": "gz-440112-8bf29a28",
+      "school_id": "gz-440112-a0244635",
       "district": "黄埔区",
       "minban": false,
       "group": {
@@ -23860,7 +23860,7 @@
       "kaosheng": 266,
       "sheng_quota": 14,
       "qu_quota": 73,
-      "autonomy_count": 0,
+      "autonomy_count": 109,
       "sz": [
         {
           "high": "华南师范大学附属中学（石牌校区）",
@@ -24612,7 +24612,7 @@
     },
     {
       "name": "广州市番禺区金华学校",
-      "school_id": "gz-440113-82bf431a",
+      "school_id": "gz-440113-0670cc0e",
       "district": "番禺区",
       "minban": true,
       "group": null,

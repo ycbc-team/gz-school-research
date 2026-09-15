@@ -72,7 +72,10 @@ def _core(s: str) -> str:
             return n[:-len(suf)]
     return n
 
-_STAGE_ORDER = {'middle': 0, '初中': 0, 'primary': 1, 'poi': 1.5, 'high': 2, '': 2}
+_STAGE_ORDER = {'middle': 0, '初中': 0, '九年一贯': 0, 'primary': 1, 'poi': 1.5, 'high': 2, '': 2}
+
+def _is_mid_stage(st: str) -> bool:
+    return st in ('middle', '初中', '九年一贯')
 
 class SidResolver:
     """quota 校名 -> 注册表实体 school_id 的通用解析器（实体表变更自动联动）。"""
@@ -95,6 +98,8 @@ class SidResolver:
 
     def _candidates(self, name: str):
         qn, qp, qc = _norm(name), _pynorm(name), _core(name)
+        q_is_mid = ('中学' in qn) and ('小学' not in qn)
+        q_is_pri = ('小学' in qn) and ('中学' not in qn)
         cands = []
         for e in self.ents:
             keys = [e.get('name')] + list(e.get('aliases') or [])
@@ -113,7 +118,14 @@ class SidResolver:
                         break
             if not hit:
                 for k in keys:
-                    if k and _core(k) == qc and _norm(k) != qn:
+                    if not k:
+                        continue
+                    # core 兜底禁止「中学」↔「小学」学部交叉（如三元里中学≠三元里小学）
+                    k_has_mid = ('中学' in k) and ('小学' not in k)
+                    k_has_pri = ('小学' in k) and ('中学' not in k)
+                    if (q_is_mid and k_has_pri) or (q_is_pri and k_has_mid):
+                        continue
+                    if _core(k) == qc and _norm(k) != qn:
                         hit = 1
                         break
             if not hit:
@@ -135,7 +147,7 @@ class SidResolver:
         code = DIST_CODE.get(dist, '')
         cands = self._candidates(name)
         # 学部分层：middle 候选存在则只看 middle；否则 primary；再 high
-        for layer in ('middle', '初中', 'primary', 'poi', 'high'):
+        for layer in ('middle', '初中', '九年一贯', 'primary', 'poi', 'high'):
             lay = [c for c in cands if c[2] == layer]
             if lay:
                 cands = lay
@@ -160,12 +172,12 @@ class SidResolver:
         # 决策：有效旧 id 且区一致且含 middle 学部 → 沿用（稳定锚点，防实体表矛盾回归）
         if old_id in self.known:
             ok_region = not code or old_id.startswith(f'gz-{code}-')
-            old_mid = any(e.get('school_id') == old_id and e.get('stage') == 'middle' for e in self.ents)
+            old_mid = any(e.get('school_id') == old_id and _is_mid_stage(e.get('stage') or '') for e in self.ents)
             if ok_region and old_mid:
                 return old_id
             if ok_region and old_id == new:
                 return old_id
-            new_mid = new and any(e.get('school_id') == new and e.get('stage') == 'middle' for e in self.ents)
+            new_mid = new and any(e.get('school_id') == new and _is_mid_stage(e.get('stage') or '') for e in self.ents)
             if ok_region:
                 if new_mid:
                     return new

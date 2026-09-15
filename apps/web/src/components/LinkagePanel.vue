@@ -84,7 +84,7 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
   <template v-else>
     <div class="card" v-if="model.highSpecialCoverage.length">
       <div class="card-title">第一批招生（2026）</div>
-      <p class="sub-note">特殊通道（自主招生 / 体育 / 艺术特长生）覆盖初中，按合计人数降序。</p>
+      <p class="sub-note">特殊通道（自主招生 / 体育 / 艺术特长生）覆盖初中，按合计人数降序。高中部招生计划按法人单位统一公布，多校区共用同一计划。</p>
       <div class="tbl">
         <div class="tbl-row tbl-head"><span>初中</span><span>自招</span><span>体育</span><span>艺术</span></div>
         <div v-for="r in model.highSpecialCoverage" :key="r.school" class="tbl-row">
