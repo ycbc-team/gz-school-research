@@ -17,8 +17,9 @@
 - kaosheng：名额分配符合资格考生数（政策按此比例分配指标，全网口径一致）
 - 特控率：特殊类型招生控制线（高优线/重本线）上线率，来自 levels.json 喜报/网传文本，
   非官方统一发布；解析为数值仅供横向参考，缺失为 null。
-- weighted_tekong：Σ(指标名额 × 该高中特控率) / Σ(有特控率数据的指标名额)，反映
-  "通过指标到校进入的高中，平均一本（特控）上线比例"。
+- tekong_quota_rate：Σ(区属高中给该校指标名额 × 该区属高中特控率) / 该校名额分配考生数（kaosheng），
+  反映"该校考生经区属指标到校路径、预计能上特控（一本）线的比例"；分子仅计有特控率数据的
+  区属高中名额（缺失不计，会低估，note 已说明）。区属高中明细来自 district_quota（data[初中名][高中名]）。
 """
 
 import json
@@ -98,18 +99,26 @@ middle_tier1 = load('middle/tier1_schools_all.json')
 quota = load('linkage/quota_matrix.json')
 autonomy = load('linkage/raw/autonomy/autonomy_qualify_2026.json')
 levels = load('high/levels.json')
+district_quota = load('linkage/district_quota.json')
 
 # ---------------- 自招按来源初中计数 ----------------
 aut_cnt = Counter(a['school_junior'] for a in autonomy)
 
 # ---------------- 特控率解析 ----------------
 def parse_tekong(text):
-    """文本 → 数值百分比：'超九成'→90、'98.7%'→98.7、'超95%'→95、无数字→None"""
+    """文本 → 数值百分比：'特控率60%'→60、'超75%'→75、'九成'→90、无数字→None。
+    排除'提升4%'/'同比增长'类误读（只认明确口径或裸百分比）。"""
     if not text:
         return None
-    m = re.search(r'(\d+(?:\.\d+)?)\s*%', text)
+    # 1. 明确"率"口径：特控/上线/重本/一本/高优/本科率 [间隔≤6字] 数字%
+    m = re.search(r'(?:特控|上线|重本|一本|高优|本科)率[^0-9]{0,6}?(\d+(?:\.\d+)?)\s*%', text)
     if m:
         return float(m.group(1))
+    # 2. 超/达/约/近 + 数字%
+    m = re.search(r'(?:超|达|约|近)\s*(\d+(?:\.\d+)?)\s*%', text)
+    if m:
+        return float(m.group(1))
+    # 3. 数字成（九成→90）
     m = re.search(r'([0-9一二三四五六七八九]+)\s*成', text)
     if m:
         cn = {'一': 1, '二': 2, '三': 3, '四': 4, '五': 5, '六': 6, '七': 7, '八': 8, '九': 9}
@@ -117,6 +126,10 @@ def parse_tekong(text):
         v = int(s) if s.isdigit() else cn.get(s, None)
         if v is not None:
             return v * 10.0
+    # 4. 兜底裸百分比（排除'提升/增长/降低/减少/同比/多'等前导的误读）
+    m = re.search(r'(?<![提升增长降低减少多同])(\d+(?:\.\d+)?)\s*%', text)
+    if m:
+        return float(m.group(1))
     return None
 
 # 建立 高中校区名(canon) / 官方名 → 特控率（优先 2026，兜底 2025）
@@ -269,12 +282,17 @@ for dist, dv in middle_tier1['districts'].items():
                 {'high': hn, 'count': int(c), 'tekong': tekong_of(hn)}
                 for hn, c in (qv.get('sz') or {}).items()
             ]
-        # 加权特控率：仅对能解析特控率的高中名额加权
-        w = [x for x in sz if x['tekong'] is not None]
+        # 指标×特控率：该校考生经"区属指标到校"预计上特控线的比例
+        #   = Σ(区属高中给该校指标名额 × 该区属高中特控率) ÷ 该校考生数
+        # 区属高中明细来自 district_quota（data[初中名][高中名]=名额）；sz 为省市属明细（不参与此指标）
+        # 分子仅计有特控率数据的区属高中名额；缺失低估，note 已说明
+        dq = (district_quota.get('data') or {}).get(qn or '') or {}
+        qw = [{'high': hn, 'count': int(c), 'tekong': tekong_of(hn)} for hn, c in dq.items()]
+        w = [x for x in qw if x['tekong'] is not None]
         if w and kaosheng:
-            weighted_tekong = round(sum(x['count'] * x['tekong'] for x in w) / sum(x['count'] for x in w), 1)
+            tekong_quota_rate = round(sum(x['count'] * x['tekong'] for x in w) / kaosheng, 1)
         else:
-            weighted_tekong = None
+            tekong_quota_rate = None
         out_schools.append({
             'name': name,
             'school_id': s.get('school_id'),
@@ -287,7 +305,7 @@ for dist, dv in middle_tier1['districts'].items():
             'qu_quota': qu_quota,
             'autonomy_count': aut_n,
             'sz': sz,
-            'weighted_tekong': weighted_tekong,
+            'tekong_quota_rate': tekong_quota_rate,
         })
 
 result = {
@@ -297,7 +315,8 @@ result = {
         'kaosheng=名额分配符合资格考生数（政策按此比例分配指标）；sheng_quota=省市属高中指标数；'
         'qu_quota=区属高中指标数；autonomy_count=2026 自主招生考核资格名单按来源初中计数；'
         'sz[].tekong=目标高中特控（高优/重本）上线率，喜报/网传口径解析为数值，null=无数据；'
-        'weighted_tekong=Σ(指标名额×高中特控率)/Σ(有特控率数据的指标名额)。'
+        'tekong_quota_rate=Σ(区属高中给该校指标名额×该高中特控率)/该校考生数，即该校考生经区属指标到校'
+        '预计上特控线的比例；分子仅计有特控率数据的区属高中名额，特控率缺失会低估。'
     ),
     'source': {
         'quota': '广州市招考办《2026年广州市名额分配招生学校招生总计划和名额分配计划汇总表》',
@@ -313,4 +332,4 @@ print(f'输出 {len(out_schools)} 所初中 → data/linkage/ranking_middle.json
 print('quota 未匹配:', missing_quota if missing_quota else '无')
 # 校验：抽查
 for s in out_schools[:6]:
-    print(f"  {s['name']} | 考生={s['kaosheng']} 省={s['sheng_quota']} 区={s['qu_quota']} 自招={s['autonomy_count']} 特控={s['weighted_tekong']}")
+    print(f"  {s['name']} | 考生={s['kaosheng']} 省={s['sheng_quota']} 区={s['qu_quota']} 自招={s['autonomy_count']} 特控={s['tekong_quota_rate']}")

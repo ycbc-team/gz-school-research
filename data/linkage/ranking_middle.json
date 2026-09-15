@@ -1,7 +1,7 @@
 {
   "title": "广州初中升学信号排行榜基础表（自招 / 指标到校 / 特控率）",
   "updated": "2026-09-14",
-  "note": "kaosheng=名额分配符合资格考生数（政策按此比例分配指标）；sheng_quota=省市属高中指标数；qu_quota=区属高中指标数；autonomy_count=2026 自主招生考核资格名单按来源初中计数；sz[].tekong=目标高中特控（高优/重本）上线率，喜报/网传口径解析为数值，null=无数据；weighted_tekong=Σ(指标名额×高中特控率)/Σ(有特控率数据的指标名额)。",
+  "note": "kaosheng=名额分配符合资格考生数（政策按此比例分配指标）；sheng_quota=省市属高中指标数；qu_quota=区属高中指标数；autonomy_count=2026 自主招生考核资格名单按来源初中计数；sz[].tekong=目标高中特控（高优/重本）上线率，喜报/网传口径解析为数值，null=无数据；tekong_quota_rate=Σ(区属高中给该校指标名额×该高中特控率)/该校考生数，即该校考生经区属指标到校预计上特控线的比例；分子仅计有特控率数据的区属高中名额，特控率缺失会低估。",
   "source": {
     "quota": "广州市招考办《2026年广州市名额分配招生学校招生总计划和名额分配计划汇总表》",
     "autonomy": "2026年广州市普通高中学校自主招生综合能力考核资格考生名单（13866条）",
@@ -81,7 +81,7 @@
         {
           "high": "广州协和学校",
           "count": 1,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -114,7 +114,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 86.3
+      "tekong_quota_rate": 12.9
     },
     {
       "name": "广州市执信中学（执信路校区）",
@@ -199,7 +199,7 @@
         {
           "high": "广州协和学校",
           "count": 3,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -237,7 +237,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 68.6
+      "tekong_quota_rate": 13.8
     },
     {
       "name": "广州市第二中学（初中部）",
@@ -312,7 +312,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -345,7 +345,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 78.7
+      "tekong_quota_rate": 12.0
     },
     {
       "name": "广州大学附属中学（黄华路校区）",
@@ -420,7 +420,7 @@
         {
           "high": "广州协和学校",
           "count": 1,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州市铁一中学（越秀校区）",
@@ -453,7 +453,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 85.2
+      "tekong_quota_rate": 10.4
     },
     {
       "name": "广州市铁一中学（越秀校区）",
@@ -523,7 +523,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -556,7 +556,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 72.7
+      "tekong_quota_rate": 13.9
     },
     {
       "name": "广州市第七中学（本部）",
@@ -631,7 +631,7 @@
         {
           "high": "广州协和学校",
           "count": 1,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -659,7 +659,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 86.6
+      "tekong_quota_rate": 13.1
     },
     {
       "name": "广州市第十六中学（本部）",
@@ -729,7 +729,7 @@
         {
           "high": "广州协和学校",
           "count": 3,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -767,7 +767,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 70.1
+      "tekong_quota_rate": 13.0
     },
     {
       "name": "广州市越秀区育才实验学校",
@@ -865,7 +865,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 93.2
+      "tekong_quota_rate": 13.7
     },
     {
       "name": "广州市培正中学（初中部）",
@@ -950,7 +950,7 @@
         {
           "high": "广州协和学校",
           "count": 0,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -988,7 +988,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 91.2
+      "tekong_quota_rate": 12.9
     },
     {
       "name": "广东广雅中学（初中部）",
@@ -1043,7 +1043,7 @@
         {
           "high": "广州协和学校",
           "count": 1,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -1061,7 +1061,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 81.3
+      "tekong_quota_rate": 12.9
     },
     {
       "name": "广州市荔湾区西关广雅实验学校（西雅）",
@@ -1136,7 +1136,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -1159,7 +1159,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 79.5
+      "tekong_quota_rate": 12.1
     },
     {
       "name": "广东实验中学荔湾学校（省实荔湾）",
@@ -1234,7 +1234,7 @@
         {
           "high": "广州协和学校",
           "count": 0,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -1267,7 +1267,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 87.8
+      "tekong_quota_rate": 11.4
     },
     {
       "name": "广州市真光中学（校本部）",
@@ -1347,7 +1347,7 @@
         {
           "high": "广州协和学校",
           "count": 3,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -1385,7 +1385,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 84.1
+      "tekong_quota_rate": 12.8
     },
     {
       "name": "广州市第一中学",
@@ -1460,7 +1460,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -1488,7 +1488,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 78.8
+      "tekong_quota_rate": 12.5
     },
     {
       "name": "广州市第四中学",
@@ -1568,7 +1568,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -1606,7 +1606,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 84.8
+      "tekong_quota_rate": 13.7
     },
     {
       "name": "广州市西关外国语学校",
@@ -1691,7 +1691,7 @@
         {
           "high": "广州协和学校",
           "count": 1,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -1724,7 +1724,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 83.3
+      "tekong_quota_rate": 13.6
     },
     {
       "name": "广州市第六中学（本部）",
@@ -1776,7 +1776,7 @@
         {
           "high": "广州协和学校",
           "count": 0,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州市铁一中学（越秀校区）",
@@ -1794,7 +1794,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 90.0
+      "tekong_quota_rate": 15.8
     },
     {
       "name": "中山大学附属中学",
@@ -1851,7 +1851,7 @@
         {
           "high": "广州协和学校",
           "count": 1,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -1884,7 +1884,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 80.7
+      "tekong_quota_rate": 14.5
     },
     {
       "name": "广州市第五中学（本部）",
@@ -1964,7 +1964,7 @@
         {
           "high": "广州协和学校",
           "count": 1,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州市铁一中学（番禺校区）",
@@ -1992,7 +1992,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 84.2
+      "tekong_quota_rate": 13.6
     },
     {
       "name": "广州市南武中学（本部）",
@@ -2074,7 +2074,7 @@
         {
           "high": "广州协和学校",
           "count": 0,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -2107,7 +2107,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 89.9
+      "tekong_quota_rate": 14.4
     },
     {
       "name": "广州市海珠外国语实验中学",
@@ -2172,7 +2172,7 @@
         {
           "high": "广州协和学校",
           "count": 1,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -2190,7 +2190,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 77.0
+      "tekong_quota_rate": 14.4
     },
     {
       "name": "华南师范大学附属中学（初中部）",
@@ -2260,7 +2260,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州市铁一中学（番禺校区）",
@@ -2283,7 +2283,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 72.3
+      "tekong_quota_rate": 6.2
     },
     {
       "name": "广州市天河外国语学校（珠江新城校区）",
@@ -2338,7 +2338,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -2371,7 +2371,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 63.0
+      "tekong_quota_rate": 6.8
     },
     {
       "name": "广州中学",
@@ -2456,7 +2456,7 @@
         {
           "high": "广州协和学校",
           "count": 1,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -2489,7 +2489,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 89.9
+      "tekong_quota_rate": 6.0
     },
     {
       "name": "广州市执信中学（天河校区）",
@@ -2597,7 +2597,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 91.3
+      "tekong_quota_rate": 5.8
     },
     {
       "name": "清华附中湾区学校",
@@ -2695,7 +2695,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 90.7
+      "tekong_quota_rate": 6.9
     },
     {
       "name": "广州市第一一三中学",
@@ -2780,7 +2780,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -2818,7 +2818,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 85.7
+      "tekong_quota_rate": 5.8
     },
     {
       "name": "广州市天河中学",
@@ -2885,7 +2885,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -2913,7 +2913,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 81.9
+      "tekong_quota_rate": 6.1
     },
     {
       "name": "广州市天河区汇景实验学校",
@@ -2995,7 +2995,7 @@
         {
           "high": "广州协和学校",
           "count": 3,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -3033,7 +3033,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 76.8
+      "tekong_quota_rate": 5.1
     },
     {
       "name": "广州天省实验学校（民办）",
@@ -3105,7 +3105,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -3128,7 +3128,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 79.3
+      "tekong_quota_rate": 5.4
     },
     {
       "name": "广州市白云区金广实验学校（金广附/广大附中实验中学）",
@@ -3208,7 +3208,7 @@
         {
           "high": "广州协和学校",
           "count": 1,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -3241,7 +3241,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 87.7
+      "tekong_quota_rate": 2.6
     },
     {
       "name": "广东实验中学永平校区（省实永平）",
@@ -3306,7 +3306,7 @@
         {
           "high": "广州协和学校",
           "count": 1,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -3339,7 +3339,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 85.4
+      "tekong_quota_rate": 2.4
     },
     {
       "name": "广州市培英中学（云城校区）",
@@ -3356,7 +3356,7 @@
       "qu_quota": null,
       "autonomy_count": 0,
       "sz": [],
-      "weighted_tekong": null
+      "tekong_quota_rate": null
     },
     {
       "name": "广州市白云区华赋学校（民办）",
@@ -3423,7 +3423,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州市铁一中学（番禺校区）",
@@ -3446,7 +3446,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 75.0
+      "tekong_quota_rate": 4.0
     },
     {
       "name": "广州市白云实验学校（白云省实，民办）",
@@ -3516,7 +3516,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -3549,7 +3549,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 81.3
+      "tekong_quota_rate": 3.1
     },
     {
       "name": "广州市白云区云雅实验学校（云雅/白云广雅，民办）",
@@ -3637,7 +3637,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 89.3
+      "tekong_quota_rate": 2.7
     },
     {
       "name": "广州市白云区铁一学校（白云铁一）",
@@ -3707,7 +3707,7 @@
         {
           "high": "广州协和学校",
           "count": 0,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -3730,7 +3730,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 93.2
+      "tekong_quota_rate": 3.4
     },
     {
       "name": "华南师范大学附属中学（知识城校区）",
@@ -3800,7 +3800,7 @@
         {
           "high": "广州协和学校",
           "count": 0,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -3818,7 +3818,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 88.8
+      "tekong_quota_rate": 2.9
     },
     {
       "name": "广州大学附属中学黄埔实验学校（黄埔广附）",
@@ -3903,7 +3903,7 @@
         {
           "high": "广州协和学校",
           "count": 3,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -3936,7 +3936,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 79.1
+      "tekong_quota_rate": 2.4
     },
     {
       "name": "广州市黄埔区苏元学校（二中苏元）",
@@ -4001,7 +4001,7 @@
         {
           "high": "广州协和学校",
           "count": 0,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -4029,7 +4029,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 91.9
+      "tekong_quota_rate": 3.2
     },
     {
       "name": "广州市第二中学（科学城校区）",
@@ -4104,7 +4104,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -4137,7 +4137,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 78.7
+      "tekong_quota_rate": 12.0
     },
     {
       "name": "广州市玉岩中学",
@@ -4151,7 +4151,7 @@
       "qu_quota": null,
       "autonomy_count": 0,
       "sz": [],
-      "weighted_tekong": null
+      "tekong_quota_rate": null
     },
     {
       "name": "广州市第八十六中学",
@@ -4223,7 +4223,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -4261,7 +4261,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 76.4
+      "tekong_quota_rate": 2.3
     },
     {
       "name": "广州市黄埔区铁英学校（黄埔铁英）",
@@ -4346,7 +4346,7 @@
         {
           "high": "广州协和学校",
           "count": 0,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -4384,7 +4384,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 89.4
+      "tekong_quota_rate": 2.3
     },
     {
       "name": "北京师范大学广州实验学校",
@@ -4466,7 +4466,7 @@
         {
           "high": "广州协和学校",
           "count": 1,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -4499,7 +4499,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 83.3
+      "tekong_quota_rate": 2.7
     },
     {
       "name": "广州大学附属中学（大学城校区）",
@@ -4574,7 +4574,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -4607,7 +4607,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 77.3
+      "tekong_quota_rate": 6.8
     },
     {
       "name": "广州市铁一中学（番禺校区/亚运城）",
@@ -4667,7 +4667,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -4700,7 +4700,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 70.4
+      "tekong_quota_rate": 5.0
     },
     {
       "name": "广州市番禺区广铁一中铁英学校（番禺铁英）",
@@ -4785,7 +4785,7 @@
         {
           "high": "广州协和学校",
           "count": 6,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -4818,7 +4818,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 72.7
+      "tekong_quota_rate": 4.1
     },
     {
       "name": "广州市番禺区桥城中学",
@@ -4895,7 +4895,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -4928,7 +4928,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 79.2
+      "tekong_quota_rate": 4.5
     },
     {
       "name": "广东仲元中学（初中部）",
@@ -4993,7 +4993,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -5026,7 +5026,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 78.8
+      "tekong_quota_rate": 4.5
     },
     {
       "name": "广州市番禺区祈福新邨学校（小金龙，民办）",
@@ -5078,7 +5078,7 @@
         {
           "high": "广州协和学校",
           "count": 0,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州大学附属中学",
@@ -5096,7 +5096,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 90.4
+      "tekong_quota_rate": 4.0
     },
     {
       "name": "广州市番禺区恒润实验学校（民办）",
@@ -5151,7 +5151,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 90.0
+      "tekong_quota_rate": 5.0
     },
     {
       "name": "广州市番禺区番外外国语学校（番外，民办）",
@@ -5208,7 +5208,7 @@
         {
           "high": "广州协和学校",
           "count": 0,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州市铁一中学（白云校区）",
@@ -5231,7 +5231,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 91.2
+      "tekong_quota_rate": 5.8
     },
     {
       "name": "广州市番禺执信中学（星执学校，民办）",
@@ -5296,7 +5296,7 @@
         {
           "high": "广州协和学校",
           "count": 2,
-          "tekong": 20.0
+          "tekong": 60.0
         },
         {
           "high": "广州市铁一中学（白云校区）",
@@ -5314,7 +5314,7 @@
           "tekong": null
         }
       ],
-      "weighted_tekong": 79.5
+      "tekong_quota_rate": 4.6
     }
   ]
 }

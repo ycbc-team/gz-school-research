@@ -22,7 +22,8 @@ interface Row {
   sheng_quota?: number | null;
   qu_quota?: number | null;
   autonomy_count: number;
-  weighted_tekong?: number | null;
+  sz: Array<{ high: string; count: number; tekong?: number | null }>;
+  tekong_quota_rate?: number | null;
 }
 
 const schools = rankingMiddle.schools as Row[];
@@ -60,7 +61,7 @@ const METRIC_META: Record<MetricKey, { label: string; note: string; unit: string
   qu_abs: { label: '区属指标数', note: '区属示范性高中名额分配指标数（如执信天河校区对天河区的指标）。', unit: '个', digits: 0 },
   qu_ratio: { label: '区属指标比例', note: '区属指标数 ÷ 考生数。反映本区学生获得本区区属指标的机会。', unit: '%', digits: 1 },
   sheng_ratio: { label: '省市属指标比例', note: '省市属高中名额分配指标数 ÷ 考生数。省市属指标按符合资格考生等比例分配，全区一致。', unit: '%', digits: 1 },
-  tekong: { label: '指标×特控率', note: 'Σ(区属指标数 × 目标高中特控率) ÷ Σ(有特控率数据的高中指标数)。反映经指标到校进入高中的特控（一本）上线比例；特控率为喜报/网传口径。', unit: '%', digits: 1 },
+  tekong: { label: '指标×特控率', note: 'Σ(区属高中给该校指标名额 × 该高中特控率) ÷ 该校考生数。反映该校考生经区属指标到校路径预计上特控（一本）线的比例；特控率为喜报/网传口径，缺失的高中名额不计。', unit: '%', digits: 1 },
 };
 
 const metricLabel = computed(() => METRIC_META[metric.value].label);
@@ -75,7 +76,7 @@ function metricValue(s: Row): number | null {
     case 'qu_abs': return s.qu_quota ?? null;
     case 'qu_ratio': return k && s.qu_quota != null ? (s.qu_quota / k) * 100 : null;
     case 'sheng_ratio': return k && s.sheng_quota != null ? (s.sheng_quota / k) * 100 : null;
-    case 'tekong': return s.weighted_tekong ?? null;
+    case 'tekong': return s.tekong_quota_rate ?? null;
     default: return null;
   }
 }
