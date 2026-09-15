@@ -103,6 +103,8 @@ quota = load('linkage/quota_matrix.json')
 autonomy = load('linkage/raw/autonomy/autonomy_qualify_2026.json')
 levels = load('high/levels.json')
 district_quota = load('linkage/district_quota.json')
+# 民办身份唯一真源：registry/entities.json（nature='民办'；公办不写字段）
+MINBAN_IDS = {e['school_id'] for e in load('registry/entities.json').get('entities', []) if e.get('nature') == '民办'}
 
 # ---------------- 自招按来源初中计数 ----------------
 aut_cnt = Counter(a['school_junior'] for a in autonomy)
@@ -311,6 +313,7 @@ def build_row(name: str, district: str, school_id=None):
         'name': name,
         'school_id': school_id,
         'district': district,
+        'minban': bool(school_id and school_id in MINBAN_IDS),
         'group': group_resolve(name),
         'kaosheng': kaosheng,
         'sheng_quota': sheng_quota,
@@ -344,6 +347,7 @@ result = {
         'sz[].tekong=目标高中特控（高优/重本）上线率，喜报/网传口径解析为数值，null=无数据；'
         'tekong_quota_rate=Σ(区属高中给该校指标名额×该高中特控率)/该校考生数，即该校考生经区属指标到校'
         '预计上特控线的比例；分子仅计有特控率数据的区属高中名额，特控率缺失会低估。'
+        'minban=民办办学性质标识（唯一真源 registry/entities.json nature，公办=false）。'
     ),
     'source': {
         'quota': '广州市招考办《2026年广州市名额分配招生学校招生总计划和名额分配计划汇总表》（7区全量初中）',

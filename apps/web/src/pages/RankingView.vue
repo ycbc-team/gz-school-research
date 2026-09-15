@@ -8,7 +8,7 @@
  * - 榜单口径：所有比例均以「名额分配符合资格考生数（kaosheng）」为分母，
  *   消除学校规模差异（学生多则名额自然多，须看比例）
  */
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { DISTRICTS } from '@gz/shared';
 import { rankingMiddle } from '../data';
 
@@ -16,6 +16,7 @@ interface Row {
   name: string;
   school_id?: string | null;
   district: string;
+  minban?: boolean;
   group?: { brand: string; source: 'brand' | 'education' } | null;
   kaosheng?: number | null;
   sheng_quota?: number | null;
@@ -29,7 +30,7 @@ const schools = rankingMiddle.schools as Row[];
 
 const openMenu = ref<'group' | 'metric' | null>(null);
 const groupBy = ref<'district' | 'group'>('district');
-type MetricKey = 'aut_abs' | 'aut_ratio' | 'qu_abs' | 'qu_ratio' | 'sheng_ratio' | 'tekong';
+type MetricKey = 'aut_abs' | 'aut_ratio' | 'qu_ratio' | 'sheng_ratio' | 'tekong';
 const metric = ref<MetricKey>('aut_ratio');
 
 const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: string }> }> = [
@@ -43,7 +44,6 @@ const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: stri
   {
     title: '指标到校',
     items: [
-      { v: 'qu_abs', l: '区属指标数' },
       { v: 'qu_ratio', l: '区属指标比例（÷考生数）' },
       { v: 'sheng_ratio', l: '省市属指标比例（÷考生数）' },
     ],
@@ -57,11 +57,24 @@ const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: stri
 const METRIC_META: Record<MetricKey, { label: string; note: string; unit: string; digits: number }> = {
   aut_abs: { label: '自招人数', note: '2026 年自主招生综合能力考核资格名单中，来源初中的考生人数（绝对值）。', unit: '人', digits: 0 },
   aut_ratio: { label: '自招比例', note: '自招资格人数 ÷ 名额分配符合资格考生数。比例口径消除学校规模差异（学生多则名额自然多）。', unit: '%', digits: 1 },
-  qu_abs: { label: '区属指标数', note: '区属示范性高中名额分配指标数（如执信天河校区对天河区的指标）。', unit: '个', digits: 0 },
   qu_ratio: { label: '区属指标比例', note: '区属指标数 ÷ 考生数。反映本区学生获得本区区属指标的机会。', unit: '%', digits: 1 },
   sheng_ratio: { label: '省市属指标比例', note: '省市属高中名额分配指标数 ÷ 考生数。省市属指标按符合资格考生等比例分配，全区一致。', unit: '%', digits: 1 },
   tekong: { label: '指标×特控率', note: 'Σ(区属高中给该校指标名额 × 该高中特控率) ÷ 该校考生数。反映该校考生经区属指标到校路径预计上特控（一本）线的比例；特控率为喜报/网传口径，缺失的高中名额不计。', unit: '%', digits: 1 },
 };
+
+/** 区属/省市属比例指标额外展示一列指标数绝对值 */
+const showAbs = computed(() => metric.value === 'qu_ratio' || metric.value === 'sheng_ratio');
+const absLabel = computed(() => (metric.value === 'qu_ratio' ? '区属指标数' : '省市属指标数'));
+function absValue(s: Row): number | null {
+  return metric.value === 'qu_ratio' ? (s.qu_quota ?? null) : (s.sheng_quota ?? null);
+}
+function fmtAbs(v: number | null): string {
+  return v == null ? '—' : String(v);
+}
+
+/** 指标说明问号 popup（PC hover / 触屏点击）；切换指标时自动收起 */
+const showHint = ref(false);
+watch(metric, () => { showHint.value = false; });
 
 const metricLabel = computed(() => METRIC_META[metric.value].label);
 const metricNote = computed(() => METRIC_META[metric.value].note);
@@ -72,7 +85,6 @@ function metricValue(s: Row): number | null {
   switch (metric.value) {
     case 'aut_abs': return s.autonomy_count;
     case 'aut_ratio': return k && s.autonomy_count != null ? (s.autonomy_count / k) * 100 : null;
-    case 'qu_abs': return s.qu_quota ?? null;
     case 'qu_ratio': return k && s.qu_quota != null ? (s.qu_quota / k) * 100 : null;
     case 'sheng_ratio': return k && s.sheng_quota != null ? (s.sheng_quota / k) * 100 : null;
     case 'tekong': return s.tekong_quota_rate ?? null;
@@ -86,11 +98,33 @@ function fmt(v: number | null): string {
   return `${v.toFixed(m.digits)}${m.unit}`;
 }
 
+/** 校名去行政区划前缀：广州市/广东/广州。去后 <3 字或以「大学」开头保留原名
+ *  （避免「广州中学」→「中学」、「广州大学附属中学」→「大学附属中学」）。 */
+function shortName(name: string): string {
+  const n = name.trim();
+  if (n.startsWith('广州市')) return n.slice(3);
+  if (n.startsWith('广东')) return n.slice(2);
+  if (n.startsWith('广州')) {
+    const rest = n.slice(2);
+    if (rest.length >= 3 && !rest.startsWith('大学')) return rest;
+  }
+  return n;
+}
+
+/** 组内排序：公办（false）在前、民办（true）在后；同类内按指标倒序（null 置后） */
+function rankSort(a: { v: number | null; minban?: boolean }, b: { v: number | null; minban?: boolean }): number {
+  if (!!a.minban !== !!b.minban) return a.minban ? 1 : -1;
+  if (a.v == null && b.v == null) return 0;
+  if (a.v == null) return 1;
+  if (b.v == null) return -1;
+  return b.v - a.v;
+}
+
 /** 分组顺序：按区 → DISTRICTS 顺序（未列出的区按出现顺序补尾）；按集团 → 组名拼音序 */
 const districtOrder = DISTRICTS.map((d) => d.name.replace('区', ''));
 
 const groups = computed(() => {
-  const rows = schools.map((s) => ({ s, v: metricValue(s) }));
+  const rows = schools.map((s) => ({ s, v: metricValue(s), minban: !!s.minban }));
   if (groupBy.value === 'district') {
     const map = new Map<string, typeof rows>();
     for (const r of rows) {
@@ -105,7 +139,7 @@ const groups = computed(() => {
     return keys.map((k) => ({
       key: `d-${k}`,
       title: k,
-      items: map.get(k)!.slice().sort((a, b) => rankSort(a.v, b.v)),
+      items: map.get(k)!.slice().sort((a, b) => rankSort(a, b)),
     }));
   }
   // 按集团
@@ -119,24 +153,16 @@ const groups = computed(() => {
   return keys.map((k) => ({
     key: `g-${k}`,
     title: k,
-    items: map.get(k)!.slice().sort((a, b) => rankSort(a.v, b.v)),
+    items: map.get(k)!.slice().sort((a, b) => rankSort(a, b)),
   }));
 });
-
-function rankSort(a: number | null, b: number | null): number {
-  if (a == null && b == null) return 0;
-  if (a == null) return 1;
-  if (b == null) return -1;
-  return b - a;
-}
 </script>
 
 <template>
   <div class="page">
     <header class="top">
       <RouterLink to="/" class="back">‹ 首页</RouterLink>
-      <h1 class="page-title">初中升学信号明细</h1>
-      <p class="page-sub">7 区全量初中（荔湾/越秀/海珠/天河/白云/黄埔/番禺）· 自招 / 指标到校 / 特控率 · 比例口径消除规模差异</p>
+      <h1 class="page-title">广州七区初中明细</h1>
     </header>
 
     <!-- 顶部过滤器（对齐地图页 filter-bar 交互） -->
@@ -176,25 +202,43 @@ function rankSort(a: number | null, b: number | null): number {
     </div>
     <div v-if="openMenu" class="pop-mask" @click="openMenu = null"></div>
 
-    <p class="metric-note">当前指标：<b>{{ metricLabel }}</b> — {{ metricNote }}</p>
-
     <main class="rank-body">
       <section v-for="g in groups" :key="g.key" class="rank-group">
-        <h3 class="rg-title">{{ g.title }}<em class="rg-count">{{ g.items.length }} 所</em></h3>
+        <h3 class="rg-title">{{ g.title }}<em class="rg-count">{{ g.items.length }} 所 · 排名不分先后</em></h3>
         <table class="rank-table">
           <thead>
             <tr>
-              <th class="c-rank">#</th>
               <th class="c-name">学校</th>
-              <th class="c-val">{{ metricLabel }}</th>
+              <th class="c-val">
+                {{ metricLabel }}
+                <span
+                  class="q-mark"
+                  aria-label="指标口径说明"
+                  @mouseenter="showHint = true"
+                  @mouseleave="showHint = false"
+                  @click.stop="showHint = !showHint"
+                >?</span>
+                <div v-if="showHint" class="hint-pop">
+                  <div class="hp-title">{{ metricLabel }}</div>
+                  <div class="hp-line">{{ metricNote }}</div>
+                  <div class="hp-line">考生数口径：名额分配符合资格考生数（kaosheng），即满足名额分配资格条件的应届考生；非全校应考人数。所有比例指标均以该考生数为分母。</div>
+                </div>
+              </th>
+              <th v-if="showAbs" class="c-sub">{{ absLabel }}</th>
               <th class="c-sub">考生数</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(row, i) in g.items" :key="row.s.name">
-              <td class="c-rank">{{ i + 1 }}</td>
-              <td class="c-name">{{ row.s.name }}</td>
+            <tr v-for="row in g.items" :key="row.s.name">
+              <td class="c-name">
+                <RouterLink
+                  class="school-link"
+                  :to="{ path: '/school/' + encodeURIComponent(row.s.name), query: row.s.school_id ? { id: row.s.school_id } : {} }"
+                >{{ shortName(row.s.name) }}</RouterLink>
+                <em v-if="row.s.minban" class="mb-tag">民办</em>
+              </td>
               <td class="c-val">{{ fmt(row.v) }}</td>
+              <td v-if="showAbs" class="c-sub">{{ fmtAbs(absValue(row.s)) }}</td>
               <td class="c-sub">{{ row.s.kaosheng ?? '—' }}</td>
             </tr>
           </tbody>
@@ -214,7 +258,6 @@ function rankSort(a: number | null, b: number | null): number {
 .back { font-size: 13px; color: #1a6bd6; text-decoration: none; }
 .back:hover { text-decoration: underline; }
 .page-title { font-size: 20px; font-weight: 700; margin: 0; }
-.page-sub { font-size: 12.5px; color: #6b7280; margin: 0; }
 
 /* ---- 顶部过滤器（对齐地图页） ---- */
 .filter-bar {
@@ -253,9 +296,6 @@ function rankSort(a: number | null, b: number | null): number {
 .pop-link { border: none; background: none; color: #1a6bd6; font-size: 13px; cursor: pointer; padding: 4px 8px; }
 .pop-mask { position: fixed; inset: 0; z-index: 1100; }
 
-.metric-note { font-size: 12.5px; color: #4b5563; background: #f7f8fa; border-radius: 10px; padding: 10px 12px; margin: 12px 0; line-height: 1.6; }
-.metric-note b { color: #1a6bd6; }
-
 /* ---- 排行主体 ---- */
 .rank-body { display: flex; flex-direction: column; gap: 16px; }
 .rank-group { background: #fff; border: 1px solid #e4e3dd; border-radius: 14px; overflow: hidden; }
@@ -268,13 +308,39 @@ function rankSort(a: number | null, b: number | null): number {
 .rank-table th {
   text-align: left; font-size: 11.5px; color: #8a93a3; font-weight: 600;
   padding: 6px 10px; border-bottom: 1px solid #ecebe6;
+  position: relative;
 }
 .rank-table td { padding: 7px 10px; border-bottom: 1px solid #f2f1ec; vertical-align: middle; }
 .rank-table tbody tr:last-child td { border-bottom: none; }
 .rank-table tbody tr:hover { background: #fafbfc; }
-.c-rank { width: 34px; color: #8a93a3; font-size: 12px; }
-.c-val { font-variant-numeric: tabular-nums; font-weight: 600; color: #1a6bd6; }
-.c-sub { color: #6b7280; font-size: 12px; font-variant-numeric: tabular-nums; }
-.c-name { max-width: 220px; }
+.c-val { font-variant-numeric: tabular-nums; font-weight: 600; color: #1a1b1c; white-space: nowrap; }
+.c-sub { color: #6b7280; font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.c-name { max-width: 240px; }
+
+/* 指标口径问号 + popup */
+.q-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 15px; height: 15px; margin-left: 4px; border-radius: 50%;
+  border: 1px solid #c3c9d4; color: #6b7280; font-size: 10.5px; line-height: 1;
+  cursor: help; vertical-align: 1px; user-select: none;
+}
+.q-mark:hover { border-color: #1a6bd6; color: #1a6bd6; }
+.hint-pop {
+  position: absolute; top: calc(100% + 6px); left: 0; z-index: 900;
+  width: 330px; max-width: 86vw; background: #fff;
+  border: 1px solid #e4e3dd; border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(20, 30, 50, 0.16); padding: 10px 12px;
+  font-size: 12px; color: #4b5563; line-height: 1.65; font-weight: 400; white-space: normal;
+}
+.hp-title { font-size: 12.5px; font-weight: 700; color: #1a1b1c; margin-bottom: 4px; }
+.hp-line { margin-bottom: 4px; }
+.hp-line:last-child { margin-bottom: 0; }
+
+.school-link { color: #1a6bd6; text-decoration: underline; text-underline-offset: 2px; }
+.school-link:hover { text-decoration-thickness: 2px; }
+.mb-tag {
+  margin-left: 6px; font-style: normal; font-size: 10.5px; color: #b45309;
+  background: #fef3c7; border: 1px solid #fde68a; border-radius: 8px; padding: 0 5px; line-height: 15px;
+}
 .foot-note { font-size: 11.5px; color: #8a93a3; margin: 18px 2px 30px; line-height: 1.7; }
 </style>
