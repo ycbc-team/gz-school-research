@@ -52,6 +52,8 @@ npm run build:mp              # 生成小程序 shared/data 构建产物
 npm run check                 # 全部 workspace 类型检查
 ```
 
+当前代码分层、数据流与构建边界见 [docs/architecture.md](docs/architecture.md)。历史改造方案仅作迁移留档，不应作为当前实现依据。
+
 数据真源约定：`data/` 下 JSON 为唯一数据真源，Web 与小程序均从该层构建加载，勿手改产物；
 小程序包内 `shared/`、`data/` 为构建产物（git 忽略，由 `npm run build:mp` 生成）。
 
