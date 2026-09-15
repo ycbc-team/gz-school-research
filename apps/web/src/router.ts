@@ -10,6 +10,7 @@ export const router = createRouter({
     { path: '/policy', name: 'policy', component: () => import('./pages/PolicyView.vue') },
     { path: '/linkage', name: 'linkage', component: () => import('./pages/LinkageView.vue') },
     { path: '/middle', name: 'ranking', component: () => import('./pages/RankingView.vue') },
+    { path: '/high', name: 'high-ranking', component: () => import('./pages/HighRankingView.vue') },
     { path: '/school/:name', name: 'school-detail', component: () => import('./pages/SchoolDetailView.vue'), props: true },
     // 旧路径 /school/:stage/:name 重定向到合并路由（stage 作初始 tab）
     { path: '/school/:stage/:name', redirect: (to) => ({ path: `/school/${to.params.name}`, query: { stage: to.params.stage } }) },

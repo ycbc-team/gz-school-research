@@ -8,6 +8,7 @@ import { RouterLink, RouterView } from 'vue-router';
     <nav class="app-nav">
       <RouterLink to="/map">地图</RouterLink>
       <RouterLink to="/middle">初中明细</RouterLink>
+      <RouterLink to="/high">高中明细</RouterLink>
       <RouterLink to="/linkage">升学路径</RouterLink>
       <RouterLink to="/policy">政策说明</RouterLink>
     </nav>

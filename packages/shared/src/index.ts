@@ -20,3 +20,4 @@ export * from './domain/map/search.js';
 export * from './domain/map/info.js';
 export * from './domain/detail/model.js';
 export * from './domain/linkage/model.js';
+export * from './domain/high-ranking/model.js';
