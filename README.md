@@ -72,7 +72,7 @@ npm run check                 # 全部 workspace 类型检查
 
 地图是 web 应用当前首个功能，后续按子功能目录扩展学校详情、对比、路线规划等。
 
-### 初中升学信号排行榜（apps/web#/ranking）
+### 初中升学信号明细（apps/web#/middle）
 - 54 所口碑候选初中升学信号排行：按区 / 按教育集团（brand 优先 + 85 集团名录 loose 匹配，脚本预计算）分组
 - 6 项指标可选：自招人数（绝对值）/ 自招比例（÷名额分配符合资格考生数）/ 区属指标数 / 区属指标比例 / 省市属指标比例 / 指标×特控率（Σ(区属高中给该校指标名额×该高中特控率)÷该校考生数，即该校考生经区属指标到校预计上特控线的比例）
 - 比例口径一律除以考生数，消除学校规模差异；真源 `data/linkage/ranking_middle.json`（`scripts/linkage/build_ranking_middle.py` 三源聚合：quota_matrix 指标到校 + autonomy 自招名单 + levels 特控率，只读不改源文件）；培英云城 / 玉岩 名额分配表无对应行，标「—」

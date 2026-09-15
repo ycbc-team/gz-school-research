@@ -51,8 +51,8 @@ const districtTotal = (schools: typeof primarySchools.schools) => {
         <div class="feature-desc">点位分布 · 区筛选 · 口碑梯队标注（Vue3 + Leaflet）</div>
         <span class="tag tag-new">新版</span>
       </RouterLink>
-      <RouterLink to="/ranking" class="feature">
-        <div class="feature-name">初中升学信号排行榜</div>
+      <RouterLink to="/middle" class="feature">
+        <div class="feature-name">初中升学信号明细</div>
         <div class="feature-desc">按区 / 按集团分组 · 自招人数与比例 · 指标到校 · 指标×高中特控率</div>
         <span class="tag tag-new">新版</span>
       </RouterLink>

@@ -262,54 +262,68 @@ def tekong_of(high_name: str):
 
 
 # ---------------- 聚合 ----------------
+def build_row(name: str, district: str, reputation_level, reputation_score, school_id=None):
+    """单校聚合：quota / 区属指标×特控率 / 自招 / 集团 / 口碑。quota 缺行 → 数值字段置 null。"""
+    qn, qv = find_quota(name)
+    aut_n = find_aut(name)
+    if qv is None:
+        missing_quota.append(name)
+        kaosheng = sheng_quota = qu_quota = None
+        sz = []
+    else:
+        kaosheng = qv.get('kaosheng') or 0
+        sheng_quota = qv.get('sheng_quota') or 0
+        qu_quota = qv.get('qu_quota') or 0
+        sz = [
+            {'high': hn, 'count': int(c), 'tekong': tekong_of(hn)}
+            for hn, c in (qv.get('sz') or {}).items()
+        ]
+    # 指标×特控率：该校考生经"区属指标到校"预计上特控线的比例
+    #   = Σ(区属高中给该校指标名额 × 该区属高中特控率) ÷ 该校考生数
+    # 区属高中明细来自 district_quota（data[初中名][高中名]=名额）；sz 为省市属明细（不参与此指标）
+    # 分子仅计有特控率数据的区属高中名额；缺失低估，note 已说明
+    dq = (district_quota.get('data') or {}).get(qn or '') or {}
+    qw = [{'high': hn, 'count': int(c), 'tekong': tekong_of(hn)} for hn, c in dq.items()]
+    w = [x for x in qw if x['tekong'] is not None]
+    if w and kaosheng:
+        tekong_quota_rate = round(sum(x['count'] * x['tekong'] for x in w) / kaosheng, 1)
+    else:
+        tekong_quota_rate = None
+    return {
+        'name': name,
+        'school_id': school_id,
+        'district': district,
+        'group': group_of(name),
+        'reputation': reputation_level,
+        'reputation_score': reputation_score,
+        'kaosheng': kaosheng,
+        'sheng_quota': sheng_quota,
+        'qu_quota': qu_quota,
+        'autonomy_count': aut_n,
+        'sz': sz,
+        'tekong_quota_rate': tekong_quota_rate,
+    }
+
+
 out_schools = []
 missing_quota, missing_aut = [], []
 for dist, dv in middle_tier1['districts'].items():
     for s in dv['schools']:
-        name = s['name']
         rep = s.get('reputation', {})
-        qn, qv = find_quota(name)
-        aut_n = find_aut(name)
-        if qv is None:
-            missing_quota.append(name)
-            kaosheng = sheng_quota = qu_quota = None
-            sz = []
-        else:
-            kaosheng = qv.get('kaosheng') or 0
-            sheng_quota = qv.get('sheng_quota') or 0
-            qu_quota = qv.get('qu_quota') or 0
-            sz = [
-                {'high': hn, 'count': int(c), 'tekong': tekong_of(hn)}
-                for hn, c in (qv.get('sz') or {}).items()
-            ]
-        # 指标×特控率：该校考生经"区属指标到校"预计上特控线的比例
-        #   = Σ(区属高中给该校指标名额 × 该区属高中特控率) ÷ 该校考生数
-        # 区属高中明细来自 district_quota（data[初中名][高中名]=名额）；sz 为省市属明细（不参与此指标）
-        # 分子仅计有特控率数据的区属高中名额；缺失低估，note 已说明
-        dq = (district_quota.get('data') or {}).get(qn or '') or {}
-        qw = [{'high': hn, 'count': int(c), 'tekong': tekong_of(hn)} for hn, c in dq.items()]
-        w = [x for x in qw if x['tekong'] is not None]
-        if w and kaosheng:
-            tekong_quota_rate = round(sum(x['count'] * x['tekong'] for x in w) / kaosheng, 1)
-        else:
-            tekong_quota_rate = None
-        out_schools.append({
-            'name': name,
-            'school_id': s.get('school_id'),
-            'district': dist,
-            'group': group_of(name),
-            'reputation': rep.get('level'),
-            'reputation_score': rep.get('score'),
-            'kaosheng': kaosheng,
-            'sheng_quota': sheng_quota,
-            'qu_quota': qu_quota,
-            'autonomy_count': aut_n,
-            'sz': sz,
-            'tekong_quota_rate': tekong_quota_rate,
-        })
+        out_schools.append(build_row(
+            s['name'], dist,
+            rep.get('level'), rep.get('score'), s.get('school_id'),
+        ))
+
+# 补充学校（口碑候选池之外、有升学信号数据的主要初中；reputation 缺省不标）
+EXTRA_SCHOOLS = [
+    {'name': '广州市华侨外国语学校', 'district': '越秀区'},
+]
+for e in EXTRA_SCHOOLS:
+    out_schools.append(build_row(e['name'], e['district'], None, None))
 
 result = {
-    'title': '广州初中升学信号排行榜基础表（自招 / 指标到校 / 特控率）',
+    'title': '广州初中升学信号明细基础表（自招 / 指标到校 / 特控率）',
     'updated': '2026-09-14',
     'note': (
         'kaosheng=名额分配符合资格考生数（政策按此比例分配指标）；sheng_quota=省市属高中指标数；'

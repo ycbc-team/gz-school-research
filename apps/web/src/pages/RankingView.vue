@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /**
- * 初中升学信号排行榜
- * - 数据真源：data/linkage/ranking_middle.json（scripts/linkage/build_ranking_middle.py 聚合，
+ * 初中升学信号明细
+ * - 数据真源：data/linkage/middle_middle.json（scripts/linkage/build_ranking_middle.py 聚合，
  *   含名额分配考生数/省市属·区属指标/2026 自招名单计数/指标到校高中明细+特控率）
  * - 分组：按区（区教育局口径）或按教育集团（@gz/shared groupOfSchool，brand 优先）
  * - 指标（6 选 1）：自招绝对值 / 自招比例 / 区属指标数 / 区属指标比例 / 省市属指标比例 / 指标×高中特控率
@@ -145,8 +145,8 @@ function rankSort(a: number | null, b: number | null): number {
   <div class="page">
     <header class="top">
       <RouterLink to="/" class="back">‹ 首页</RouterLink>
-      <h1 class="page-title">初中升学信号排行榜</h1>
-      <p class="page-sub">54 所口碑候选初中 · 自招 / 指标到校 / 特控率 · 比例口径消除规模差异</p>
+      <h1 class="page-title">初中升学信号明细</h1>
+      <p class="page-sub">55 所初中升学信号 · 自招 / 指标到校 / 特控率 · 比例口径消除规模差异</p>
     </header>
 
     <!-- 顶部过滤器（对齐地图页 filter-bar 交互） -->
