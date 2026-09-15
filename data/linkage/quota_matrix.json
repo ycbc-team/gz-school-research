@@ -634,7 +634,7 @@
     "清华附中湾区学校（智慧城校区）": 0
    },
    "sz_sum": 0,
-   "school_id": "gz-440103-18a86b0d",
+   "school_id": "gz-440103-957da59e",
    "is_district_head": false,
    "district": "荔湾区"
   },
@@ -840,7 +840,7 @@
     "清华附中湾区学校（智慧城校区）": 0
    },
    "sz_sum": 2,
-   "school_id": "gz-440103-56e6d2e3",
+   "school_id": "gz-440103-5143f5a1",
    "is_district_head": false,
    "district": "荔湾区"
   },
@@ -2618,7 +2618,7 @@
     "广州协和学校": 0
    },
    "sz_sum": 0,
-   "school_id": "gz-440105-2dd8d89d",
+   "school_id": "gz-440105-8371ce9c",
    "is_district_head": false,
    "district": "海珠区"
   },
@@ -3603,7 +3603,7 @@
     "广东广雅中学（荔湾校区）": 1
    },
    "sz_sum": 1,
-   "school_id": "gz-440106-969f3b59",
+   "school_id": "gz-440106-77787b4a",
    "is_district_head": false,
    "district": "天河区"
   },
@@ -3706,7 +3706,7 @@
     "清华附中湾区学校（智谷校区）": 1
    },
    "sz_sum": 1,
-   "school_id": "gz-440106-857586b5",
+   "school_id": "gz-440106-24ff78f9",
    "is_district_head": false,
    "district": "天河区"
   },
@@ -6297,7 +6297,7 @@
     "清华附中湾区学校（智慧城校区）": 3
    },
    "sz_sum": 34,
-   "school_id": "gz-440112-733a4cdd",
+   "school_id": "gz-440112-c80ac6ac",
    "is_district_head": false,
    "district": "黄埔区"
   },
@@ -7863,7 +7863,7 @@
     "清华附中湾区学校（智慧城校区）": 0
    },
    "sz_sum": 6,
-   "school_id": "gz-440113-980c0600",
+   "school_id": "gz-440113-2264148c",
    "is_district_head": false,
    "district": "番禺区"
   },
@@ -8101,7 +8101,7 @@
   {
    "page": 18,
    "row": 9,
-   "school": "广州市铁",
+   "school": "广州铁一中学（番禺校区）",
    "kaosheng": 266,
    "sheng_quota": 14,
    "qu_quota": 73,
@@ -8130,7 +8130,7 @@
   {
    "page": 18,
    "row": 10,
-   "school": "广州市铁一中学（番禺校区）",
+   "school": "广州大学附属中学（番禺校区）",
    "kaosheng": 557,
    "sheng_quota": 29,
    "qu_quota": 154,

@@ -8,7 +8,7 @@
  * - 榜单口径：所有比例均以「名额分配符合资格考生数（kaosheng）」为分母，
  *   消除学校规模差异（学生多则名额自然多，须看比例）
  */
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 import { DISTRICTS } from '@gz/shared';
 import { rankingMiddle } from '../data';
 
@@ -72,9 +72,43 @@ function fmtAbs(v: number | null): string {
   return v == null ? '—' : String(v);
 }
 
-/** 指标说明问号 popup（PC hover / 触屏点击）；切换指标时自动收起 */
-const showHint = ref(false);
-watch(metric, () => { showHint.value = false; });
+/** 指标口径 / 考生数口径问号 popup（PC hover / 触屏点击）。
+ *  Teleport 到 body + fixed 定位，避免被 .rank-group overflow 裁剪；
+ *  切换指标、页面滚动、窗口缩放时自动收起。 */
+const showHint = ref<'metric' | 'kaosheng' | null>(null);
+const hintPos = ref({ top: 0, left: 0 });
+let hintTimer: number | undefined;
+function openHint(kind: 'metric' | 'kaosheng', e: MouseEvent) {
+  clearTimeout(hintTimer);
+  const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
+  const w = 330;
+  let left = r.left;
+  if (left + w > window.innerWidth - 8) left = Math.max(8, window.innerWidth - w - 8);
+  hintPos.value = { top: r.bottom + 6, left };
+  showHint.value = kind;
+}
+function scheduleClose() {
+  clearTimeout(hintTimer);
+  hintTimer = window.setTimeout(() => { showHint.value = null; }, 160);
+}
+function keepHint() { clearTimeout(hintTimer); }
+function toggleHint(kind: 'metric' | 'kaosheng', e: MouseEvent) {
+  if (showHint.value === kind) showHint.value = null;
+  else openHint(kind, e);
+}
+function closeHint() { clearTimeout(hintTimer); showHint.value = null; }
+watch(metric, closeHint);
+onMounted(() => {
+  window.addEventListener('scroll', closeHint, true);
+  window.addEventListener('resize', closeHint);
+});
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', closeHint, true);
+  window.removeEventListener('resize', closeHint);
+});
+
+/** 考生数口径：广州市招考办名额分配资格考生定义（官方原文整理） */
+const KAOSHENG_NOTE = '初中应届毕业生，具有广州市户籍（含政策性照顾学生）；户籍迁入广州、申报政策性照顾学生资格截止时间为当年4月30日。学籍与就读要求（二选一）：情况A——在同一间广州初中拥有三年完整学籍，并且一直在该校实际读到毕业；情况B——从市外转入广州初中，在转入的这所学校读到毕业。';
 
 const metricLabel = computed(() => METRIC_META[metric.value].label);
 const metricNote = computed(() => METRIC_META[metric.value].note);
@@ -214,18 +248,22 @@ const groups = computed(() => {
                 <span
                   class="q-mark"
                   aria-label="指标口径说明"
-                  @mouseenter="showHint = true"
-                  @mouseleave="showHint = false"
-                  @click.stop="showHint = !showHint"
+                  @mouseenter="openHint('metric', $event)"
+                  @mouseleave="scheduleClose"
+                  @click.stop="toggleHint('metric', $event)"
                 >?</span>
-                <div v-if="showHint" class="hint-pop">
-                  <div class="hp-title">{{ metricLabel }}</div>
-                  <div class="hp-line">{{ metricNote }}</div>
-                  <div class="hp-line">考生数口径：名额分配符合资格考生数（kaosheng），即满足名额分配资格条件的应届考生；非全校应考人数。所有比例指标均以该考生数为分母。</div>
-                </div>
               </th>
               <th v-if="showAbs" class="c-sub">{{ absLabel }}</th>
-              <th class="c-sub">考生数</th>
+              <th class="c-sub">
+                考生数
+                <span
+                  class="q-mark"
+                  aria-label="考生数口径说明"
+                  @mouseenter="openHint('kaosheng', $event)"
+                  @mouseleave="scheduleClose"
+                  @click.stop="toggleHint('kaosheng', $event)"
+                >?</span>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -249,6 +287,25 @@ const groups = computed(() => {
     <footer class="foot-note">
       数据来源：广州市招考办 2026 名额分配计划汇总表（考生数/指标数）· 2026 自主招生资格名单（13866 条）· 高中特控率喜报/网传口径（data/high/levels.json）。比例均为「÷ 名额分配符合资格考生数」。
     </footer>
+
+    <Teleport to="body">
+      <div
+        v-if="showHint"
+        class="hint-pop"
+        :style="{ top: hintPos.top + 'px', left: hintPos.left + 'px' }"
+        @mouseenter="keepHint"
+        @mouseleave="scheduleClose"
+      >
+        <template v-if="showHint === 'metric'">
+          <div class="hp-title">{{ metricLabel }}</div>
+          <div class="hp-line">{{ metricNote }}</div>
+        </template>
+        <template v-else>
+          <div class="hp-title">考生数口径</div>
+          <div class="hp-line">{{ KAOSHENG_NOTE }}</div>
+        </template>
+      </div>
+    </Teleport>
   </div>
 </template>
 
@@ -317,7 +374,7 @@ const groups = computed(() => {
 .c-sub { color: #6b7280; font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .c-name { max-width: 240px; }
 
-/* 指标口径问号 + popup */
+/* 指标口径/考生数口径问号 + popup（Teleport 到 body，fixed 定位不受表格 overflow 裁剪） */
 .q-mark {
   display: inline-flex; align-items: center; justify-content: center;
   width: 15px; height: 15px; margin-left: 4px; border-radius: 50%;
@@ -326,7 +383,7 @@ const groups = computed(() => {
 }
 .q-mark:hover { border-color: #1a6bd6; color: #1a6bd6; }
 .hint-pop {
-  position: absolute; top: calc(100% + 6px); left: 0; z-index: 900;
+  position: fixed; z-index: 1300;
   width: 330px; max-width: 86vw; background: #fff;
   border: 1px solid #e4e3dd; border-radius: 12px;
   box-shadow: 0 10px 30px rgba(20, 30, 50, 0.16); padding: 10px 12px;

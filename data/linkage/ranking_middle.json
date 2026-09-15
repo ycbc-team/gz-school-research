@@ -1639,9 +1639,9 @@
     },
     {
       "name": "广州市荔湾区海龙博雅中英文学校",
-      "school_id": "gz-440103-18a86b0d",
+      "school_id": "gz-440103-957da59e",
       "district": "荔湾区",
-      "minban": false,
+      "minban": true,
       "group": null,
       "kaosheng": 0,
       "sheng_quota": 0,
@@ -2329,9 +2329,9 @@
     },
     {
       "name": "广州荔湾爱莎文华学校",
-      "school_id": "gz-440103-56e6d2e3",
+      "school_id": "gz-440103-5143f5a1",
       "district": "荔湾区",
-      "minban": false,
+      "minban": true,
       "group": null,
       "kaosheng": 45,
       "sheng_quota": 2,
@@ -7963,9 +7963,9 @@
     },
     {
       "name": "广州市海珠区华立学校",
-      "school_id": "gz-440105-2dd8d89d",
+      "school_id": "gz-440105-8371ce9c",
       "district": "海珠区",
-      "minban": false,
+      "minban": true,
       "group": null,
       "kaosheng": 2,
       "sheng_quota": 0,
@@ -10763,9 +10763,9 @@
     },
     {
       "name": "广州市天河区同仁实验学校",
-      "school_id": "gz-440106-969f3b59",
+      "school_id": "gz-440106-77787b4a",
       "district": "天河区",
-      "minban": false,
+      "minban": true,
       "group": null,
       "kaosheng": 7,
       "sheng_quota": 1,
@@ -10922,9 +10922,9 @@
     },
     {
       "name": "广州市天河区东风学校",
-      "school_id": "gz-440106-857586b5",
+      "school_id": "gz-440106-24ff78f9",
       "district": "天河区",
-      "minban": false,
+      "minban": true,
       "group": null,
       "kaosheng": 5,
       "sheng_quota": 1,
@@ -18374,7 +18374,7 @@
     },
     {
       "name": "广州市黄埔区铁英中学",
-      "school_id": "gz-440112-733a4cdd",
+      "school_id": "gz-440112-c80ac6ac",
       "district": "黄埔区",
       "minban": false,
       "group": {
@@ -23071,7 +23071,7 @@
     },
     {
       "name": "广州市番禺区丽江学校",
-      "school_id": "gz-440113-980c0600",
+      "school_id": "gz-440113-2264148c",
       "district": "番禺区",
       "minban": false,
       "group": null,
@@ -23852,7 +23852,7 @@
       "tekong_quota_rate": 5.2
     },
     {
-      "name": "广州市铁",
+      "name": "广州铁一中学（番禺校区）",
       "school_id": "gz-440113-97e0acaa",
       "district": "番禺区",
       "minban": false,
@@ -23941,18 +23941,18 @@
       "tekong_quota_rate": null
     },
     {
-      "name": "广州市铁一中学（番禺校区）",
+      "name": "广州大学附属中学（番禺校区）",
       "school_id": "gz-440113-8f5e4721",
       "district": "番禺区",
       "minban": false,
       "group": {
-        "brand": "广铁一中教育集团",
+        "brand": "广州大学附属中学教育集团",
         "source": "brand"
       },
       "kaosheng": 557,
       "sheng_quota": 29,
       "qu_quota": 154,
-      "autonomy_count": 109,
+      "autonomy_count": 131,
       "sz": [
         {
           "high": "华南师范大学附属中学（石牌校区）",
@@ -24045,7 +24045,7 @@
           "tekong": null
         }
       ],
-      "tekong_quota_rate": 2.4
+      "tekong_quota_rate": 6.8
     },
     {
       "name": "广州市番禺区嘉诚学校",
