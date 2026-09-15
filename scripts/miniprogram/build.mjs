@@ -15,7 +15,8 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const MP = join(ROOT, 'apps', 'miniprogram');
 const SHARED_SRC = join(ROOT, 'packages', 'shared', 'dist', 'cjs');
 
-// 1) shared cjs
+// 1) shared cjs：dist 是 gitignore 产物，构建自身必须保证前置条件，不能依赖调用者先手动执行。
+execSync('npm run build -w @gz/shared', { cwd: ROOT, stdio: 'inherit' });
 const sharedDest = join(MP, 'shared');
 rmSync(sharedDest, { recursive: true, force: true });
 mkdirSync(sharedDest, { recursive: true });

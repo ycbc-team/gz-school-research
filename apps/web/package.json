@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "data:compact": "node ../../scripts/data/compact.mjs",
+    "predev": "npm run build -w @gz/shared",
     "dev": "npm run data:compact && vite",
+    "prebuild": "npm run build -w @gz/shared",
     "build": "npm run data:compact && vite build",
     "preview": "vite preview",
     "typecheck": "vue-tsc --noEmit"
