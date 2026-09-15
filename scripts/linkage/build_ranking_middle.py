@@ -1,0 +1,316 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+排行榜数据聚合：初中升学信号三源合并 → data/linkage/ranking_middle.json
+
+输入（只读，不修改任何源文件）：
+- data/middle/tier1_schools_all.json        口碑判定/校区名（54 所候选）
+- data/linkage/quota_matrix.json            指标到校（kaosheng 考生数 / sheng_quota 省市属 / qu_quota 区属 / sz 高中名额明细）
+- data/linkage/raw/autonomy/autonomy_qualify_2026.json  自主招生资格名单（按来源初中计数）
+- data/high/levels.json                     高中特控率（indicators.tekong_2026/tekong_2025，文本口径，只读）
+
+输出：
+- data/linkage/ranking_middle.json          每所初中：考生数/省市属指标/区属指标/自招数/指标到校高中明细（含特控率）/口碑判定
+  该文件位于 data/ 下（非 raw），会被 scripts/data/compact.mjs 自动编译进 Web/小程序 compact 产物。
+
+口径说明：
+- kaosheng：名额分配符合资格考生数（政策按此比例分配指标，全网口径一致）
+- 特控率：特殊类型招生控制线（高优线/重本线）上线率，来自 levels.json 喜报/网传文本，
+  非官方统一发布；解析为数值仅供横向参考，缺失为 null。
+- weighted_tekong：Σ(指标名额 × 该高中特控率) / Σ(有特控率数据的指标名额)，反映
+  "通过指标到校进入的高中，平均一本（特控）上线比例"。
+"""
+
+import json
+import re
+from collections import Counter
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+DATA = ROOT / 'data'
+
+
+def load(name: str):
+    with open(DATA / name, encoding='utf-8') as f:
+        return json.load(f)
+
+
+def norm(name: str) -> str:
+    """去括号内容 + 去 市/省 前缀 → 核心名（用于无歧义匹配）"""
+    n = re.sub(r'[（(].*?[)）]', '', name)
+    return n.replace('广州市', '').replace('广东', '').replace('广州', '').strip()
+
+
+def canon_bracket(name: str) -> str:
+    """全角括号转半角，用于校区名匹配"""
+    return name.replace('（', '(').replace('）', ')').strip()
+
+
+# ---------------- 集团归属（brand 优先 + education 兜底，口径与 shared 一致） ----------------
+def py_norm(s: str) -> str:
+    """复刻 TS normName：去「广州市/广东」前缀、括号符号统一去除、去空白（保留括号内文字）"""
+    return re.sub(r'[（(]', '(', s).replace('）', ')').replace('(', '').replace(')', '')\
+        .replace('广州市', '').replace('广东', '').replace(' ', '').strip()
+
+
+def py_loose(s: str) -> str:
+    """复刻 TS looseNorm：norm 后再去尾部学部/校区后缀（注意：'（本部）' 会残留'本'）"""
+    return re.sub(r'(初中部|高中部|小学部|校区|分校|学校|部)$', '', py_norm(s))
+
+
+def py_loose2(s: str) -> str:
+    """更强 loose：去括号及内容 + 去尾部学部/校区后缀（education 兜底用）"""
+    n = re.sub(r'[（(].*?[)）]', '', s).replace('广州市', '').replace('广东', '').replace(' ', '')
+    return re.sub(r'(初中部|高中部|小学部|校区|分校|学校|部)$', '', n).strip()
+
+
+brand_groups = load('registry/brand_groups.json')['brands']
+# education: group brand + 全部成员名（core_poi/members/campuses 的 name/poi_name）
+education_groups = load('registry/education_groups.json')['groups']
+
+
+def group_of(school_name: str):
+    n = py_norm(school_name)
+    # 1. brand（8 大品牌，全等）
+    for g in brand_groups:
+        for u in g.get('units', []):
+            cands = [u.get('name')] + (u.get('poi_names') or [])
+            if any(py_norm(c) == n for c in cands if c):
+                return {'brand': g['brand'], 'source': 'brand'}
+    # 2. education（85 集团，loose 全等；'（本部）' 类括号残留需第二层去括号内容）
+    ln = py_loose(school_name)
+    ln2 = py_loose2(school_name)
+    for g in education_groups:
+        names = []
+        for p in g.get('core_poi') or []:
+            names += [p.get('name'), p.get('poi_name')]
+        for m in g.get('members') or []:
+            names += [m.get('name'), m.get('poi_name')]
+            for c in m.get('campuses') or []:
+                names += [c.get('name'), c.get('poi_name')]
+        if any(py_loose(x) == ln or (ln2 and py_loose2(x) == ln2) for x in names if x):
+            return {'brand': g['brand'], 'source': 'education'}
+    return None
+
+
+# ---------------- 载入 ----------------
+middle_tier1 = load('middle/tier1_schools_all.json')
+quota = load('linkage/quota_matrix.json')
+autonomy = load('linkage/raw/autonomy/autonomy_qualify_2026.json')
+levels = load('high/levels.json')
+
+# ---------------- 自招按来源初中计数 ----------------
+aut_cnt = Counter(a['school_junior'] for a in autonomy)
+
+# ---------------- 特控率解析 ----------------
+def parse_tekong(text):
+    """文本 → 数值百分比：'超九成'→90、'98.7%'→98.7、'超95%'→95、无数字→None"""
+    if not text:
+        return None
+    m = re.search(r'(\d+(?:\.\d+)?)\s*%', text)
+    if m:
+        return float(m.group(1))
+    m = re.search(r'([0-9一二三四五六七八九]+)\s*成', text)
+    if m:
+        cn = {'一': 1, '二': 2, '三': 3, '四': 4, '五': 5, '六': 6, '七': 7, '八': 8, '九': 9}
+        s = m.group(1)
+        v = int(s) if s.isdigit() else cn.get(s, None)
+        if v is not None:
+            return v * 10.0
+    return None
+
+# 建立 高中校区名(canon) / 官方名 → 特控率（优先 2026，兜底 2025）
+tekong_by_name = {}
+for sc in levels.get('schools', []):
+    ind = sc.get('indicators', {})
+    rate = parse_tekong(ind.get('tekong_2026')) or parse_tekong(ind.get('tekong_2025'))
+    if rate is None:
+        continue
+    for cn in [sc.get('name')] + sc.get('campuses', []):
+        if cn:
+            tekong_by_name[canon_bracket(cn)] = rate
+
+# ---------------- 初中名 → quota 条目（手工别名 + 唯一核心名） ----------------
+# tier1 校区名 → quota_matrix school 名（口径差异：招考办用越秀/荔湾校区名，口碑用初中部/本部名）
+QUOTA_ALIAS = {
+    '广东实验中学（初中部）': '广东实验中学（越秀校区）',
+    '广州市执信中学（执信路校区）': '广州市执信中学（越秀校区）',
+    '广州市第二中学（初中部）': '广州市第二中学（越秀校区）',
+    '广州市第七中学（本部）': '广州市第七中学',
+    '广州市第十六中学（本部）': '广州市第十六中学',
+    '广东广雅中学（初中部）': '广东广雅中学（荔湾校区）',
+    '广州市真光中学（校本部）': '广州市真光中学',
+    '广州市第六中学（本部）': '广州市第六中学（海珠校区）',
+    '广州市第五中学（本部）': '广州市第五中学',
+    '广州市南武中学（本部）': '广州市南武中学',
+    '华南师范大学附属中学（初中部）': '华南师范大学附属中学（五山校区）',
+    '广州市培正中学（初中部）': '广州市培正中学',
+    '广东仲元中学（初中部）': '广东仲元中学',
+    '广州市铁一中学（番禺校区/亚运城）': '广州市铁一中学（番禺校区）',
+    '广州市白云区铁一学校（白云铁一）': '广州市铁一中学（白云校区）',
+    '华南师范大学附属中学（知识城校区）': '华南师范大学附属中学（知识城校区）',
+    '广州市番禺区广铁一中铁英学校（番禺铁英）': '广州市番禺区广铁一中铁英学校',
+    '广州市番禺区桥城中学': '广州市番禺区市桥桥城中学',
+    '广州市番禺执信中学（星执学校，民办）': '广州市星执学校',
+    '广州市白云区金广实验学校（金广附/广大附中实验中学）': '广州市白云区广大附中实验中学',
+    '广州市白云实验学校（白云省实，民办）': '广州市白云区白云实验学校',
+    '广州市天河外国语学校（珠江新城校区）': '广州市天河外国语学校',
+    '广州大学附属中学（黄华路校区）': '广州大学附属中学（越秀校区）',
+    '广东实验中学永平校区（省实永平）': '广东实验中学（白云校区）',
+    '广州大学附属中学（大学城校区）': '广州大学附属中学（番禺校区）',
+    '广州市第一中学': '广州市第一中学',
+    '广州市第四中学': '广州市第四中学',
+    '广州市西关外国语学校': '广州市西关外国语学校',
+    '广州市天河中学': '广州市天河中学',
+    '广州市第一一三中学': '广州市第一一三中学',
+    '广州市第八十六中学': '广州市第八十六中学',
+    '清华附中湾区学校': '清华附中湾区学校',
+    '中山大学附属中学': '中山大学附属中学',
+    '广州中学': '广州中学',
+    '广州市越秀区育才实验学校': '广州市越秀区育才实验学校',
+    '广州市天河区汇景实验学校': '广州市天河区汇景实验学校',
+    '广州市海珠外国语实验中学': '广州市海珠外国语实验中学',
+    '北京师范大学广州实验学校': '北京师范大学广州实验学校',
+    '广东实验中学荔湾学校（省实荔湾）': '广东实验中学荔湾学校',
+    '广州市荔湾区西关广雅实验学校（西雅）': '广州市荔湾区西关广雅实验学校',
+    '广州市白云区华赋学校（民办）': '广州市白云区华赋学校',
+    '广州市白云区云雅实验学校（云雅/白云广雅，民办）': '广州市白云区云雅实验学校',
+    '广州天省实验学校（民办）': '广州天省实验学校',
+    '广州市第二中学（科学城校区）': '广州市第二中学（科学城校区）',
+    '广州市黄埔区苏元学校（二中苏元）': '广州市黄埔区苏元学校',
+    '广州市黄埔区铁英学校（黄埔铁英）': '广州市黄埔区铁英中学',
+    '广州市番禺区祈福新邨学校（小金龙，民办）': '广州市番禺区祈福新邨学校',
+    '广州市番禺区恒润实验学校（民办）': '广州市番禺区恒润实验学校',
+    '广州市番禺区番外外国语学校（番外，民办）': '广州市番禺区番外外国语学校',
+    '广州大学附属中学黄埔实验学校（黄埔广附）': '广大附中黄埔实验学校',
+}
+# 自招名单用校区名（与 quota 相同的招考办口径，多数同名；个别不同单独列出）
+AUT_ALIAS = {
+    '广东实验中学（初中部）': '广东实验中学（越秀校区）',
+    '广州市执信中学（执信路校区）': '广州市执信中学（越秀校区）',
+    '广州市第二中学（初中部）': '广州市第二中学（越秀校区）',
+    '广东广雅中学（初中部）': '广东广雅中学（荔湾校区）',
+    '广州市真光中学（校本部）': '广州市真光中学',
+    '广州市第六中学（本部）': '广州市第六中学（海珠校区）',
+    '广州市第五中学（本部）': '广州市第五中学',
+    '广州市南武中学（本部）': '广州市南武中学',
+    '华南师范大学附属中学（初中部）': '华南师范大学附属中学（五山校区）',
+    '广东仲元中学（初中部）': '广东仲元中学',
+    '广州市第七中学（本部）': '广州市第七中学',
+    '广州市第十六中学（本部）': '广州市第十六中学',
+    '广州市培正中学（初中部）': '广州市培正中学',
+    '广州市天河外国语学校（珠江新城校区）': '广州市天河外国语学校（珠江新城校区）',
+    '广州大学附属中学（黄华路校区）': '广州大学附属中学（越秀校区）',
+    '广东实验中学永平校区（省实永平）': '广东实验中学（白云校区）',
+    '广州大学附属中学（大学城校区）': '广州大学附属中学（番禺校区）',
+    '广州市白云区金广实验学校（金广附/广大附中实验中学）': '广州市白云区广大附中实验中学',
+    '广州市白云实验学校（白云省实，民办）': '广州市白云区白云实验学校',
+    '广州市铁一中学（番禺校区/亚运城）': '广州市铁一中学（番禺校区）',
+    '广州市番禺区桥城中学': '广州市番禺区市桥桥城中学',
+    '广州市番禺执信中学（星执学校，民办）': '广州市星执学校',
+    '广州市黄埔区铁英学校（黄埔铁英）': '广州市黄埔区铁英中学',
+    '广州大学附属中学黄埔实验学校（黄埔广附）': '广大附中黄埔实验学校',
+    '广州市白云区铁一学校（白云铁一）': '广州市铁一中学（白云校区）',
+    # 新校区：自招名单无独立条目（越秀校区≠科学城校区，强制 0 避免 norm 误配）
+    '广州市第二中学（科学城校区）': '',
+}
+
+quota_by_name = {s['school']: s for s in quota['schools']}
+
+
+def find_quota(name: str):
+    qn = QUOTA_ALIAS.get(name)
+    if qn and qn in quota_by_name:
+        return qn, quota_by_name[qn]
+    if name in quota_by_name:
+        return name, quota_by_name[name]
+    c = norm(name)
+    hits = [(qn, sv) for qn, sv in quota_by_name.items() if norm(qn) == c]
+    if len(hits) == 1:
+        return hits[0]
+    return None, None
+
+
+def find_aut(name: str) -> int:
+    an = AUT_ALIAS.get(name, name)
+    if an and an in aut_cnt:
+        return aut_cnt[an]
+    if name in aut_cnt:
+        return aut_cnt[name]
+    # 唯一核心名兜底（避免漏计；歧义校区已在 AUT_ALIAS 显式处理）
+    c = norm(name)
+    hits = [cnt for an2, cnt in aut_cnt.items() if norm(an2) == c]
+    return hits[0] if len(hits) == 1 else 0
+
+
+def tekong_of(high_name: str):
+    """按校区名（规范化括号）查特控率"""
+    return tekong_by_name.get(canon_bracket(high_name))
+
+
+# ---------------- 聚合 ----------------
+out_schools = []
+missing_quota, missing_aut = [], []
+for dist, dv in middle_tier1['districts'].items():
+    for s in dv['schools']:
+        name = s['name']
+        rep = s.get('reputation', {})
+        qn, qv = find_quota(name)
+        aut_n = find_aut(name)
+        if qv is None:
+            missing_quota.append(name)
+            kaosheng = sheng_quota = qu_quota = None
+            sz = []
+        else:
+            kaosheng = qv.get('kaosheng') or 0
+            sheng_quota = qv.get('sheng_quota') or 0
+            qu_quota = qv.get('qu_quota') or 0
+            sz = [
+                {'high': hn, 'count': int(c), 'tekong': tekong_of(hn)}
+                for hn, c in (qv.get('sz') or {}).items()
+            ]
+        # 加权特控率：仅对能解析特控率的高中名额加权
+        w = [x for x in sz if x['tekong'] is not None]
+        if w and kaosheng:
+            weighted_tekong = round(sum(x['count'] * x['tekong'] for x in w) / sum(x['count'] for x in w), 1)
+        else:
+            weighted_tekong = None
+        out_schools.append({
+            'name': name,
+            'school_id': s.get('school_id'),
+            'district': dist,
+            'group': group_of(name),
+            'reputation': rep.get('level'),
+            'reputation_score': rep.get('score'),
+            'kaosheng': kaosheng,
+            'sheng_quota': sheng_quota,
+            'qu_quota': qu_quota,
+            'autonomy_count': aut_n,
+            'sz': sz,
+            'weighted_tekong': weighted_tekong,
+        })
+
+result = {
+    'title': '广州初中升学信号排行榜基础表（自招 / 指标到校 / 特控率）',
+    'updated': '2026-09-14',
+    'note': (
+        'kaosheng=名额分配符合资格考生数（政策按此比例分配指标）；sheng_quota=省市属高中指标数；'
+        'qu_quota=区属高中指标数；autonomy_count=2026 自主招生考核资格名单按来源初中计数；'
+        'sz[].tekong=目标高中特控（高优/重本）上线率，喜报/网传口径解析为数值，null=无数据；'
+        'weighted_tekong=Σ(指标名额×高中特控率)/Σ(有特控率数据的指标名额)。'
+    ),
+    'source': {
+        'quota': '广州市招考办《2026年广州市名额分配招生学校招生总计划和名额分配计划汇总表》',
+        'autonomy': '2026年广州市普通高中学校自主招生综合能力考核资格考生名单（13866条）',
+        'tekong': 'data/high/levels.json indicators.tekong_2026/tekong_2025（喜报/网传口径）',
+    },
+    'schools': out_schools,
+}
+with open(DATA / 'linkage' / 'ranking_middle.json', 'w', encoding='utf-8') as f:
+    json.dump(result, f, ensure_ascii=False, indent=2)
+
+print(f'输出 {len(out_schools)} 所初中 → data/linkage/ranking_middle.json')
+print('quota 未匹配:', missing_quota if missing_quota else '无')
+# 校验：抽查
+for s in out_schools[:6]:
+    print(f"  {s['name']} | 考生={s['kaosheng']} 省={s['sheng_quota']} 区={s['qu_quota']} 自招={s['autonomy_count']} 特控={s['weighted_tekong']}")

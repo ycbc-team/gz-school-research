@@ -46,4 +46,14 @@ export interface DataLoaders {
   brandGroups: BrandGroups;
   /** 全量教育集团（区教育局官方口径，85 集团/334 成员；brandGroups 未命中时回退查询） */
   educationGroups?: EducationGroups;
+  /** 初中升学信号排行榜基础表（自招/指标到校/特控率聚合，见 scripts/linkage/build_ranking_middle.py） */
+  rankingMiddle: {
+    schools: Array<{
+      name: string; school_id?: string | null; district: string;
+      reputation?: string | null; reputation_score?: number | null;
+      kaosheng?: number | null; sheng_quota?: number | null; qu_quota?: number | null;
+      autonomy_count: number; sz: Array<{ high: string; count: number; tekong?: number | null }>;
+      weighted_tekong?: number | null;
+    }>;
+  };
 }

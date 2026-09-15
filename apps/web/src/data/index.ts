@@ -21,6 +21,7 @@ import enrollPanyuCompact from './compact/primary/enrollments/2026-panyu.js';
 import enrollBaiyunCompact from './compact/primary/enrollments/2026-baiyun.js';
 import enrollHuangpuCompact from './compact/primary/enrollments/2026-huangpu.js';
 import quotaMatrixCompact from './compact/linkage/quota_matrix.js';
+import rankingMiddleCompact from './compact/linkage/ranking_middle.js';
 import specialMatrixCompact from './compact/linkage/special_matrix.js';
 import batch2ScoresCompact from './compact/linkage/batch2_scores.js';
 import districtQuotaCompact from './compact/linkage/district_quota.js';
@@ -51,6 +52,7 @@ const loaders: DataLoaders = {
     cast(hydrate(enrollHuangpuCompact)),
   ],
   quotaMatrix: cast(hydrate(quotaMatrixCompact)),
+  rankingMiddle: cast(hydrate(rankingMiddleCompact)),
   specialMatrix: cast(hydrate(specialMatrixCompact)),
   batch2Scores: cast(hydrate(batch2ScoresCompact)),
   highScores2025: cast(hydrate(highScores2025Compact)),
@@ -80,6 +82,7 @@ export const highLevels = loaders.highLevels;
 export const highScores2025 = loaders.highScores2025;
 export const highScores2026 = loaders.highScores2026;
 export const quotaMatrix = loaders.quotaMatrix;
+export const rankingMiddle = loaders.rankingMiddle;
 export const specialMatrix = loaders.specialMatrix;
 export const batch2Scores = loaders.batch2Scores;
 export const enrollments = loaders.enrollments;

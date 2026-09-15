@@ -1,0 +1,5320 @@
+{
+  "title": "广州初中升学信号排行榜基础表（自招 / 指标到校 / 特控率）",
+  "updated": "2026-09-14",
+  "note": "kaosheng=名额分配符合资格考生数（政策按此比例分配指标）；sheng_quota=省市属高中指标数；qu_quota=区属高中指标数；autonomy_count=2026 自主招生考核资格名单按来源初中计数；sz[].tekong=目标高中特控（高优/重本）上线率，喜报/网传口径解析为数值，null=无数据；weighted_tekong=Σ(指标名额×高中特控率)/Σ(有特控率数据的指标名额)。",
+  "source": {
+    "quota": "广州市招考办《2026年广州市名额分配招生学校招生总计划和名额分配计划汇总表》",
+    "autonomy": "2026年广州市普通高中学校自主招生综合能力考核资格考生名单（13866条）",
+    "tekong": "data/high/levels.json indicators.tekong_2026/tekong_2025（喜报/网传口径）"
+  },
+  "schools": [
+    {
+      "name": "广东实验中学（初中部）",
+      "school_id": null,
+      "district": "越秀区",
+      "group": {
+        "brand": "广东实验中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "口碑",
+      "reputation_score": 3.0,
+      "kaosheng": 607,
+      "sheng_quota": 32,
+      "qu_quota": 159,
+      "autonomy_count": 155,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 2,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 3,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 1,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 4,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 6,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 3,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 86.3
+    },
+    {
+      "name": "广州市执信中学（执信路校区）",
+      "school_id": null,
+      "district": "越秀区",
+      "group": {
+        "brand": "广州市执信中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "口碑",
+      "reputation_score": 3.0,
+      "kaosheng": 526,
+      "sheng_quota": 27,
+      "qu_quota": 138,
+      "autonomy_count": 142,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 4,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 0,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 1,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 3,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 2,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 68.6
+    },
+    {
+      "name": "广州市第二中学（初中部）",
+      "school_id": null,
+      "district": "越秀区",
+      "group": {
+        "brand": "广州市第二中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "口碑",
+      "reputation_score": 3.0,
+      "kaosheng": 499,
+      "sheng_quota": 26,
+      "qu_quota": 131,
+      "autonomy_count": 89,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 3,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 4,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 0,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 0,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 78.7
+    },
+    {
+      "name": "广州大学附属中学（黄华路校区）",
+      "school_id": null,
+      "district": "越秀区",
+      "group": {
+        "brand": "广州大学附属中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "口碑",
+      "reputation_score": 3.0,
+      "kaosheng": 491,
+      "sheng_quota": 26,
+      "qu_quota": 129,
+      "autonomy_count": 80,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 2,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 1,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 85.2
+    },
+    {
+      "name": "广州市铁一中学（越秀校区）",
+      "school_id": null,
+      "district": "越秀区",
+      "group": {
+        "brand": "广铁一中教育集团",
+        "source": "brand"
+      },
+      "reputation": "口碑",
+      "reputation_score": 3.0,
+      "kaosheng": 389,
+      "sheng_quota": 20,
+      "qu_quota": 102,
+      "autonomy_count": 85,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 1,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 3,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 72.7
+    },
+    {
+      "name": "广州市第七中学（本部）",
+      "school_id": null,
+      "district": "越秀区",
+      "group": {
+        "brand": "广州市第七中学教育集团",
+        "source": "education"
+      },
+      "reputation": "口碑",
+      "reputation_score": 3.0,
+      "kaosheng": 508,
+      "sheng_quota": 26,
+      "qu_quota": 133,
+      "autonomy_count": 192,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 2,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 3,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 1,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 0,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 86.6
+    },
+    {
+      "name": "广州市第十六中学（本部）",
+      "school_id": null,
+      "district": "越秀区",
+      "group": {
+        "brand": "广州市第十六中学教育集团",
+        "source": "education"
+      },
+      "reputation": "口碑",
+      "reputation_score": 4.0,
+      "kaosheng": 467,
+      "sheng_quota": 24,
+      "qu_quota": 122,
+      "autonomy_count": 191,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 1,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 3,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 2,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 70.1
+    },
+    {
+      "name": "广州市越秀区育才实验学校",
+      "school_id": null,
+      "district": "越秀区",
+      "group": {
+        "brand": "广州市育才教育集团",
+        "source": "education"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.0,
+      "kaosheng": 290,
+      "sheng_quota": 15,
+      "qu_quota": 76,
+      "autonomy_count": 65,
+      "sz": [
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 0,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 0,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 93.2
+    },
+    {
+      "name": "广州市培正中学（初中部）",
+      "school_id": null,
+      "district": "越秀区",
+      "group": {
+        "brand": "广州市培正教育集团",
+        "source": "education"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.5,
+      "kaosheng": 470,
+      "sheng_quota": 24,
+      "qu_quota": 123,
+      "autonomy_count": 66,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 0,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 4,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 0,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 0,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 91.2
+    },
+    {
+      "name": "广东广雅中学（初中部）",
+      "school_id": null,
+      "district": "荔湾区",
+      "group": {
+        "brand": "广东广雅中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "口碑",
+      "reputation_score": 3.5,
+      "kaosheng": 148,
+      "sheng_quota": 8,
+      "qu_quota": 46,
+      "autonomy_count": 64,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 0,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 1,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 81.3
+    },
+    {
+      "name": "广州市荔湾区西关广雅实验学校（西雅）",
+      "school_id": null,
+      "district": "荔湾区",
+      "group": {
+        "brand": "广东广雅中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.5,
+      "kaosheng": 426,
+      "sheng_quota": 22,
+      "qu_quota": 134,
+      "autonomy_count": 144,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 3,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 79.5
+    },
+    {
+      "name": "广东实验中学荔湾学校（省实荔湾）",
+      "school_id": null,
+      "district": "荔湾区",
+      "group": {
+        "brand": "广东实验中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.5,
+      "kaosheng": 510,
+      "sheng_quota": 26,
+      "qu_quota": 160,
+      "autonomy_count": 81,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 4,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 0,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 4,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 0,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 87.8
+    },
+    {
+      "name": "广州市真光中学（校本部）",
+      "school_id": null,
+      "district": "荔湾区",
+      "group": {
+        "brand": "广州市真光中学教育集团",
+        "source": "education"
+      },
+      "reputation": "口碑",
+      "reputation_score": 4.0,
+      "kaosheng": 1066,
+      "sheng_quota": 55,
+      "qu_quota": 335,
+      "autonomy_count": 557,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 2,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 4,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 3,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 7,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 3,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 6,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 84.1
+    },
+    {
+      "name": "广州市第一中学",
+      "school_id": null,
+      "district": "荔湾区",
+      "group": {
+        "brand": "广州市第一中学教育集团",
+        "source": "education"
+      },
+      "reputation": "口碑",
+      "reputation_score": 3.0,
+      "kaosheng": 595,
+      "sheng_quota": 31,
+      "qu_quota": 187,
+      "autonomy_count": 171,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 3,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 0,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 78.8
+    },
+    {
+      "name": "广州市第四中学",
+      "school_id": null,
+      "district": "荔湾区",
+      "group": {
+        "brand": "广州市第四中学教育集团",
+        "source": "education"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.0,
+      "kaosheng": 835,
+      "sheng_quota": 43,
+      "qu_quota": 262,
+      "autonomy_count": 46,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 2,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 4,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 5,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 2,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 84.8
+    },
+    {
+      "name": "广州市西关外国语学校",
+      "school_id": null,
+      "district": "荔湾区",
+      "group": {
+        "brand": "广州市西关外国语学校教育集团",
+        "source": "education"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.0,
+      "kaosheng": 573,
+      "sheng_quota": 30,
+      "qu_quota": 180,
+      "autonomy_count": 31,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 3,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 0,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 1,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 83.3
+    },
+    {
+      "name": "广州市第六中学（本部）",
+      "school_id": null,
+      "district": "海珠区",
+      "group": null,
+      "reputation": "口碑",
+      "reputation_score": 3.0,
+      "kaosheng": 53,
+      "sheng_quota": 3,
+      "qu_quota": 13,
+      "autonomy_count": 22,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 0,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 0,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 0,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 90.0
+    },
+    {
+      "name": "中山大学附属中学",
+      "school_id": null,
+      "district": "海珠区",
+      "group": null,
+      "reputation": "待观察",
+      "reputation_score": 2.5,
+      "kaosheng": 345,
+      "sheng_quota": 18,
+      "qu_quota": 83,
+      "autonomy_count": 188,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 1,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 80.7
+    },
+    {
+      "name": "广州市第五中学（本部）",
+      "school_id": null,
+      "district": "海珠区",
+      "group": {
+        "brand": "广州五中教育集团",
+        "source": "education"
+      },
+      "reputation": "口碑",
+      "reputation_score": 4.0,
+      "kaosheng": 392,
+      "sheng_quota": 20,
+      "qu_quota": 94,
+      "autonomy_count": 120,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 1,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 0,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 84.2
+    },
+    {
+      "name": "广州市南武中学（本部）",
+      "school_id": null,
+      "district": "海珠区",
+      "group": null,
+      "reputation": "口碑",
+      "reputation_score": 4.0,
+      "kaosheng": 517,
+      "sheng_quota": 27,
+      "qu_quota": 124,
+      "autonomy_count": 155,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 3,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 2,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 3,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 0,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 89.9
+    },
+    {
+      "name": "广州市海珠外国语实验中学",
+      "school_id": null,
+      "district": "海珠区",
+      "group": {
+        "brand": "广州五中教育集团",
+        "source": "education"
+      },
+      "reputation": "不支撑",
+      "reputation_score": 1.25,
+      "kaosheng": 269,
+      "sheng_quota": 14,
+      "qu_quota": 64,
+      "autonomy_count": 67,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 0,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 1,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 77.0
+    },
+    {
+      "name": "华南师范大学附属中学（初中部）",
+      "school_id": null,
+      "district": "天河区",
+      "group": {
+        "brand": "华南师范大学附属中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "口碑",
+      "reputation_score": 4.0,
+      "kaosheng": 443,
+      "sheng_quota": 22,
+      "qu_quota": 108,
+      "autonomy_count": 81,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 0,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 2,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 1,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 3,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 72.3
+    },
+    {
+      "name": "广州市天河外国语学校（珠江新城校区）",
+      "school_id": null,
+      "district": "天河区",
+      "group": {
+        "brand": "天河外国语教育集团",
+        "source": "education"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.0,
+      "kaosheng": 208,
+      "sheng_quota": 10,
+      "qu_quota": 51,
+      "autonomy_count": 57,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 63.0
+    },
+    {
+      "name": "广州中学",
+      "school_id": null,
+      "district": "天河区",
+      "group": {
+        "brand": "广州中学教育集团",
+        "source": "education"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.5,
+      "kaosheng": 1482,
+      "sheng_quota": 76,
+      "qu_quota": 362,
+      "autonomy_count": 343,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 5,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 5,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 4,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 8,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 9,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 8,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 6,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 1,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 6,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 5,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 2,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 89.9
+    },
+    {
+      "name": "广州市执信中学（天河校区）",
+      "school_id": null,
+      "district": "天河区",
+      "group": {
+        "brand": "广州市执信中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.5,
+      "kaosheng": 484,
+      "sheng_quota": 25,
+      "qu_quota": 118,
+      "autonomy_count": 90,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 3,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 0,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 91.3
+    },
+    {
+      "name": "清华附中湾区学校",
+      "school_id": null,
+      "district": "天河区",
+      "group": {
+        "brand": "清华附中湾区学校",
+        "source": "brand"
+      },
+      "reputation": "口碑",
+      "reputation_score": 3.0,
+      "kaosheng": 372,
+      "sheng_quota": 19,
+      "qu_quota": 91,
+      "autonomy_count": 79,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 0,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 5,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 1,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 2,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 90.7
+    },
+    {
+      "name": "广州市第一一三中学",
+      "school_id": null,
+      "district": "天河区",
+      "group": {
+        "brand": "113中学教育集团",
+        "source": "education"
+      },
+      "reputation": "口碑",
+      "reputation_score": 3.0,
+      "kaosheng": 1057,
+      "sheng_quota": 54,
+      "qu_quota": 258,
+      "autonomy_count": 0,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 5,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 0,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 6,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 5,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 5,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 3,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 85.7
+    },
+    {
+      "name": "广州市天河中学",
+      "school_id": null,
+      "district": "天河区",
+      "group": null,
+      "reputation": "待观察",
+      "reputation_score": 2.0,
+      "kaosheng": 674,
+      "sheng_quota": 34,
+      "qu_quota": 165,
+      "autonomy_count": 32,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 2,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 4,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 2,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 4,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 2,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 81.9
+    },
+    {
+      "name": "广州市天河区汇景实验学校",
+      "school_id": null,
+      "district": "天河区",
+      "group": null,
+      "reputation": "待观察",
+      "reputation_score": 2.0,
+      "kaosheng": 671,
+      "sheng_quota": 34,
+      "qu_quota": 164,
+      "autonomy_count": 83,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 2,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 3,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 5,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 76.8
+    },
+    {
+      "name": "广州天省实验学校（民办）",
+      "school_id": null,
+      "district": "天河区",
+      "group": null,
+      "reputation": "待观察",
+      "reputation_score": 2.5,
+      "kaosheng": 582,
+      "sheng_quota": 30,
+      "qu_quota": 142,
+      "autonomy_count": 271,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 2,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 5,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 79.3
+    },
+    {
+      "name": "广州市白云区金广实验学校（金广附/广大附中实验中学）",
+      "school_id": null,
+      "district": "白云区",
+      "group": {
+        "brand": "广州大学附属中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 1.5,
+      "kaosheng": 859,
+      "sheng_quota": 44,
+      "qu_quota": 139,
+      "autonomy_count": 129,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 2,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 3,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 1,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 4,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 87.7
+    },
+    {
+      "name": "广东实验中学永平校区（省实永平）",
+      "school_id": null,
+      "district": "白云区",
+      "group": {
+        "brand": "广东实验中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.0,
+      "kaosheng": 400,
+      "sheng_quota": 21,
+      "qu_quota": 65,
+      "autonomy_count": 51,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 0,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 3,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 1,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 2,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 85.4
+    },
+    {
+      "name": "广州市培英中学（云城校区）",
+      "school_id": null,
+      "district": "白云区",
+      "group": {
+        "brand": "广州培英教育集团",
+        "source": "education"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.0,
+      "kaosheng": null,
+      "sheng_quota": null,
+      "qu_quota": null,
+      "autonomy_count": 0,
+      "sz": [],
+      "weighted_tekong": null
+    },
+    {
+      "name": "广州市白云区华赋学校（民办）",
+      "school_id": null,
+      "district": "白云区",
+      "group": null,
+      "reputation": "待观察",
+      "reputation_score": 2.0,
+      "kaosheng": 362,
+      "sheng_quota": 19,
+      "qu_quota": 58,
+      "autonomy_count": 190,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 2,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 2,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 75.0
+    },
+    {
+      "name": "广州市白云实验学校（白云省实，民办）",
+      "school_id": null,
+      "district": "白云区",
+      "group": {
+        "brand": "广东实验中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.5,
+      "kaosheng": 613,
+      "sheng_quota": 32,
+      "qu_quota": 99,
+      "autonomy_count": 481,
+      "sz": [
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 3,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 3,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 81.3
+    },
+    {
+      "name": "广州市白云区云雅实验学校（云雅/白云广雅，民办）",
+      "school_id": null,
+      "district": "白云区",
+      "group": {
+        "brand": "广东广雅中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.0,
+      "kaosheng": 478,
+      "sheng_quota": 25,
+      "qu_quota": 77,
+      "autonomy_count": 173,
+      "sz": [
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 2,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 0,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 89.3
+    },
+    {
+      "name": "广州市白云区铁一学校（白云铁一）",
+      "school_id": null,
+      "district": "白云区",
+      "group": {
+        "brand": "广铁一中教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.0,
+      "kaosheng": 493,
+      "sheng_quota": 25,
+      "qu_quota": 80,
+      "autonomy_count": 101,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 0,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 4,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 0,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 93.2
+    },
+    {
+      "name": "华南师范大学附属中学（知识城校区）",
+      "school_id": null,
+      "district": "黄埔区",
+      "group": {
+        "brand": "华南师范大学附属中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "不支撑",
+      "reputation_score": 0.5,
+      "kaosheng": 188,
+      "sheng_quota": 10,
+      "qu_quota": 34,
+      "autonomy_count": 37,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 0,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 0,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 2,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 88.8
+    },
+    {
+      "name": "广州大学附属中学黄埔实验学校（黄埔广附）",
+      "school_id": null,
+      "district": "黄埔区",
+      "group": {
+        "brand": "广州大学附属中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.5,
+      "kaosheng": 716,
+      "sheng_quota": 37,
+      "qu_quota": 128,
+      "autonomy_count": 176,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 2,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 3,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 3,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 3,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 0,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 79.1
+    },
+    {
+      "name": "广州市黄埔区苏元学校（二中苏元）",
+      "school_id": null,
+      "district": "黄埔区",
+      "group": {
+        "brand": "广州市第二中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.5,
+      "kaosheng": 499,
+      "sheng_quota": 26,
+      "qu_quota": 89,
+      "autonomy_count": 171,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 5,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 1,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 0,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 2,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 91.9
+    },
+    {
+      "name": "广州市第二中学（科学城校区）",
+      "school_id": null,
+      "district": "黄埔区",
+      "group": {
+        "brand": "广州市第二中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 1.5,
+      "kaosheng": 499,
+      "sheng_quota": 26,
+      "qu_quota": 131,
+      "autonomy_count": 89,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 3,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 4,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 0,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 0,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 78.7
+    },
+    {
+      "name": "广州市玉岩中学",
+      "school_id": null,
+      "district": "黄埔区",
+      "group": null,
+      "reputation": "口碑",
+      "reputation_score": 3.0,
+      "kaosheng": null,
+      "sheng_quota": null,
+      "qu_quota": null,
+      "autonomy_count": 0,
+      "sz": [],
+      "weighted_tekong": null
+    },
+    {
+      "name": "广州市第八十六中学",
+      "school_id": null,
+      "district": "黄埔区",
+      "group": null,
+      "reputation": "口碑",
+      "reputation_score": 4.0,
+      "kaosheng": 453,
+      "sheng_quota": 23,
+      "qu_quota": 81,
+      "autonomy_count": 127,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 2,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 76.4
+    },
+    {
+      "name": "广州市黄埔区铁英学校（黄埔铁英）",
+      "school_id": null,
+      "district": "黄埔区",
+      "group": {
+        "brand": "广铁一中教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.5,
+      "kaosheng": 655,
+      "sheng_quota": 34,
+      "qu_quota": 117,
+      "autonomy_count": 197,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 4,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 4,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 0,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 3,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 89.4
+    },
+    {
+      "name": "北京师范大学广州实验学校",
+      "school_id": null,
+      "district": "黄埔区",
+      "group": null,
+      "reputation": "不支撑",
+      "reputation_score": 0.5,
+      "kaosheng": 508,
+      "sheng_quota": 26,
+      "qu_quota": 91,
+      "autonomy_count": 42,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 0,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 1,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 3,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 83.3
+    },
+    {
+      "name": "广州大学附属中学（大学城校区）",
+      "school_id": null,
+      "district": "番禺区",
+      "group": {
+        "brand": "广州大学附属中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.5,
+      "kaosheng": 557,
+      "sheng_quota": 29,
+      "qu_quota": 154,
+      "autonomy_count": 131,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 2,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 77.3
+    },
+    {
+      "name": "广州市铁一中学（番禺校区/亚运城）",
+      "school_id": null,
+      "district": "番禺区",
+      "group": {
+        "brand": "广铁一中教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.5,
+      "kaosheng": 266,
+      "sheng_quota": 14,
+      "qu_quota": 73,
+      "autonomy_count": 109,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 2,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 70.4
+    },
+    {
+      "name": "广州市番禺区广铁一中铁英学校（番禺铁英）",
+      "school_id": null,
+      "district": "番禺区",
+      "group": {
+        "brand": "广铁一中教育集团",
+        "source": "education"
+      },
+      "reputation": "待观察",
+      "reputation_score": 2.5,
+      "kaosheng": 883,
+      "sheng_quota": 46,
+      "qu_quota": 243,
+      "autonomy_count": 172,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 3,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 2,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 1,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 6,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 5,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 3,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 4,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 72.7
+    },
+    {
+      "name": "广州市番禺区桥城中学",
+      "school_id": null,
+      "district": "番禺区",
+      "group": null,
+      "reputation": "待观察",
+      "reputation_score": 1.75,
+      "kaosheng": 700,
+      "sheng_quota": 36,
+      "qu_quota": 193,
+      "autonomy_count": 84,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 0,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 2,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 4,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 5,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 2,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 79.2
+    },
+    {
+      "name": "广东仲元中学（初中部）",
+      "school_id": null,
+      "district": "番禺区",
+      "group": {
+        "brand": "广东仲元中学教育集团",
+        "source": "education"
+      },
+      "reputation": "口碑",
+      "reputation_score": 3.0,
+      "kaosheng": 449,
+      "sheng_quota": 23,
+      "qu_quota": 124,
+      "autonomy_count": 134,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 2,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 1,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 5,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 78.8
+    },
+    {
+      "name": "广州市番禺区祈福新邨学校（小金龙，民办）",
+      "school_id": null,
+      "district": "番禺区",
+      "group": null,
+      "reputation": "待观察",
+      "reputation_score": 2.0,
+      "kaosheng": 189,
+      "sheng_quota": 10,
+      "qu_quota": 52,
+      "autonomy_count": 185,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 3,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 2,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 0,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 0,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 90.4
+    },
+    {
+      "name": "广州市番禺区恒润实验学校（民办）",
+      "school_id": null,
+      "district": "番禺区",
+      "group": null,
+      "reputation": "不支撑",
+      "reputation_score": 1.0,
+      "kaosheng": 129,
+      "sheng_quota": 7,
+      "qu_quota": 36,
+      "autonomy_count": 35,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 2,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 0,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 90.0
+    },
+    {
+      "name": "广州市番禺区番外外国语学校（番外，民办）",
+      "school_id": null,
+      "district": "番禺区",
+      "group": null,
+      "reputation": "不支撑",
+      "reputation_score": 1.0,
+      "kaosheng": 113,
+      "sheng_quota": 6,
+      "qu_quota": 31,
+      "autonomy_count": 34,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 0,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 0,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州协和学校",
+          "count": 0,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 1,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 91.2
+    },
+    {
+      "name": "广州市番禺执信中学（星执学校，民办）",
+      "school_id": null,
+      "district": "番禺区",
+      "group": {
+        "brand": "广州市执信中学教育集团",
+        "source": "brand"
+      },
+      "reputation": "待观察",
+      "reputation_score": 1.5,
+      "kaosheng": 283,
+      "sheng_quota": 14,
+      "qu_quota": 78,
+      "autonomy_count": 87,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 1,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 1,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 3,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 2,
+          "tekong": 20.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 2,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 0,
+          "tekong": null
+        }
+      ],
+      "weighted_tekong": 79.5
+    }
+  ]
+}
