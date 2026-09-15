@@ -4,16 +4,17 @@
 排行榜数据聚合：初中升学信号三源合并 → data/linkage/ranking_middle.json
 
 输入（只读，不修改任何源文件）：
-- data/middle/tier1_schools_all.json        口碑判定/校区名（54 所候选）
-- data/linkage/quota_matrix.json            指标到校（kaosheng 考生数 / sheng_quota 省市属 / qu_quota 区属 / sz 高中名额明细）
+- data/linkage/quota_matrix.json             指标到校（496 所；以 7 区学校为候选底：
+                                              kaosheng 考生数 / sheng_quota 省市属 / qu_quota 区属 / sz 高中名额明细 / district / school_id）
 - data/linkage/raw/autonomy/autonomy_qualify_2026.json  自主招生资格名单（按来源初中计数）
-- data/high/levels.json                     高中特控率（indicators.tekong_2026/tekong_2025，文本口径，只读）
+- data/high/levels.json                      高中特控率（indicators.tekong_2026/tekong_2025，文本口径，只读）
 
 输出：
-- data/linkage/ranking_middle.json          每所初中：考生数/省市属指标/区属指标/自招数/指标到校高中明细（含特控率）/口碑判定
+- data/linkage/ranking_middle.json          每所初中：考生数/省市属指标/区属指标/自招数/指标到校高中明细（含特控率）
   该文件位于 data/ 下（非 raw），会被 scripts/data/compact.mjs 自动编译进 Web/小程序 compact 产物。
 
 口径说明：
+- 候选底：quota_matrix 中 7 区（荔湾/越秀/海珠/天河/白云/黄埔/番禺）全量初中，口碑判定已移除。
 - kaosheng：名额分配符合资格考生数（政策按此比例分配指标，全网口径一致）
 - 特控率：特殊类型招生控制线（高优线/重本线）上线率，来自 levels.json 喜报/网传文本，
   非官方统一发布；解析为数值仅供横向参考，缺失为 null。
@@ -29,6 +30,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / 'data'
+
+# 候选底覆盖的 7 个区（与页面 DISTRICTS 顺序一致的区名全称）
+SEVEN_DISTRICTS = {'荔湾区', '越秀区', '海珠区', '天河区', '白云区', '黄埔区', '番禺区'}
 
 
 def load(name: str):
@@ -95,7 +99,6 @@ def group_of(school_name: str):
 
 
 # ---------------- 载入 ----------------
-middle_tier1 = load('middle/tier1_schools_all.json')
 quota = load('linkage/quota_matrix.json')
 autonomy = load('linkage/raw/autonomy/autonomy_qualify_2026.json')
 levels = load('high/levels.json')
@@ -143,8 +146,11 @@ for sc in levels.get('schools', []):
         if cn:
             tekong_by_name[canon_bracket(cn)] = rate
 
-# ---------------- 初中名 → quota 条目（手工别名 + 唯一核心名） ----------------
-# tier1 校区名 → quota_matrix school 名（口径差异：招考办用越秀/荔湾校区名，口碑用初中部/本部名）
+# ---------------- 别名表 ----------------
+# 历史口碑校区名 → quota_matrix school 名（招考办口径）。
+# 现候选底直接用 quota_matrix 的 school 名，此表主要用于：
+#   1) group_of 反查（quota 校区名未命中集团时，回退到口碑口径名再匹配）；
+#   2) EXTRA_SCHOOLS 补充学校解析。
 QUOTA_ALIAS = {
     '广东实验中学（初中部）': '广东实验中学（越秀校区）',
     '广州市执信中学（执信路校区）': '广州市执信中学（越秀校区）',
@@ -229,6 +235,8 @@ AUT_ALIAS = {
 }
 
 quota_by_name = {s['school']: s for s in quota['schools']}
+# 反查表：quota 名 → 历史口碑口径名（用于 group_of 回退匹配）
+QUOTA_REVERSE = {v: k for k, v in QUOTA_ALIAS.items()}
 
 
 def find_quota(name: str):
@@ -261,13 +269,23 @@ def tekong_of(high_name: str):
     return tekong_by_name.get(canon_bracket(high_name))
 
 
+def group_resolve(name: str):
+    """集团匹配：先按 quota 校区名直查；未命中则回退到历史口碑口径名（QUOTA_REVERSE）再查。"""
+    g = group_of(name)
+    if g:
+        return g
+    legacy = QUOTA_REVERSE.get(name)
+    if legacy:
+        return group_of(legacy)
+    return None
+
+
 # ---------------- 聚合 ----------------
-def build_row(name: str, district: str, reputation_level, reputation_score, school_id=None):
-    """单校聚合：quota / 区属指标×特控率 / 自招 / 集团 / 口碑。quota 缺行 → 数值字段置 null。"""
+def build_row(name: str, district: str, school_id=None):
+    """单校聚合：quota / 区属指标×特控率 / 自招 / 集团。quota 缺行 → 数值字段置 null。"""
     qn, qv = find_quota(name)
     aut_n = find_aut(name)
     if qv is None:
-        missing_quota.append(name)
         kaosheng = sheng_quota = qu_quota = None
         sz = []
     else:
@@ -293,9 +311,7 @@ def build_row(name: str, district: str, reputation_level, reputation_score, scho
         'name': name,
         'school_id': school_id,
         'district': district,
-        'group': group_of(name),
-        'reputation': reputation_level,
-        'reputation_score': reputation_score,
+        'group': group_resolve(name),
         'kaosheng': kaosheng,
         'sheng_quota': sheng_quota,
         'qu_quota': qu_quota,
@@ -305,27 +321,24 @@ def build_row(name: str, district: str, reputation_level, reputation_score, scho
     }
 
 
+# ---------------- 候选底：quota_matrix 7 区全量初中 ----------------
 out_schools = []
-missing_quota, missing_aut = [], []
-for dist, dv in middle_tier1['districts'].items():
-    for s in dv['schools']:
-        rep = s.get('reputation', {})
-        out_schools.append(build_row(
-            s['name'], dist,
-            rep.get('level'), rep.get('score'), s.get('school_id'),
-        ))
+missing_quota = []
+for qs in quota['schools']:
+    if qs.get('district') not in SEVEN_DISTRICTS:
+        continue
+    out_schools.append(build_row(qs['school'], qs['district'], qs.get('school_id')))
 
-# 补充学校（口碑候选池之外、有升学信号数据的主要初中；reputation 缺省不标）
-EXTRA_SCHOOLS = [
-    {'name': '广州市华侨外国语学校', 'district': '越秀区'},
-]
+# 补充学校机制保留（候选底已为全量，正常为空；仅用于个别未进名额分配表但有自招信号的学校）
+EXTRA_SCHOOLS = []
 for e in EXTRA_SCHOOLS:
-    out_schools.append(build_row(e['name'], e['district'], None, None))
+    out_schools.append(build_row(e['name'], e['district'], e.get('school_id')))
 
 result = {
     'title': '广州初中升学信号明细基础表（自招 / 指标到校 / 特控率）',
-    'updated': '2026-09-14',
+    'updated': '2026-09-15',
     'note': (
+        '7区全量初中（荔湾/越秀/海珠/天河/白云/黄埔/番禺，以名额分配 quota_matrix 为底），口碑判定已移除。'
         'kaosheng=名额分配符合资格考生数（政策按此比例分配指标）；sheng_quota=省市属高中指标数；'
         'qu_quota=区属高中指标数；autonomy_count=2026 自主招生考核资格名单按来源初中计数；'
         'sz[].tekong=目标高中特控（高优/重本）上线率，喜报/网传口径解析为数值，null=无数据；'
@@ -333,7 +346,7 @@ result = {
         '预计上特控线的比例；分子仅计有特控率数据的区属高中名额，特控率缺失会低估。'
     ),
     'source': {
-        'quota': '广州市招考办《2026年广州市名额分配招生学校招生总计划和名额分配计划汇总表》',
+        'quota': '广州市招考办《2026年广州市名额分配招生学校招生总计划和名额分配计划汇总表》（7区全量初中）',
         'autonomy': '2026年广州市普通高中学校自主招生综合能力考核资格考生名单（13866条）',
         'tekong': 'data/high/levels.json indicators.tekong_2026/tekong_2025（喜报/网传口径）',
     },
@@ -342,8 +355,11 @@ result = {
 with open(DATA / 'linkage' / 'ranking_middle.json', 'w', encoding='utf-8') as f:
     json.dump(result, f, ensure_ascii=False, indent=2)
 
+from collections import Counter as _C
+_dist = _C(s['district'] for s in out_schools)
 print(f'输出 {len(out_schools)} 所初中 → data/linkage/ranking_middle.json')
+print('7区分布:', {k: _dist[k] for k in ['荔湾区', '越秀区', '海珠区', '天河区', '白云区', '黄埔区', '番禺区']})
 print('quota 未匹配:', missing_quota if missing_quota else '无')
 # 校验：抽查
 for s in out_schools[:6]:
-    print(f"  {s['name']} | 考生={s['kaosheng']} 省={s['sheng_quota']} 区={s['qu_quota']} 自招={s['autonomy_count']} 特控={s['tekong_quota_rate']}")
+    print(f"  {s['name']} | 考生={s['kaosheng']} 省={s['sheng_quota']} 区={s['qu_quota']} 自招={s['autonomy_count']} 特控={s['tekong_quota_rate']} group={s['group']}")

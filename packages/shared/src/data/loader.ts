@@ -51,7 +51,6 @@ export interface DataLoaders {
     schools: Array<{
       name: string; school_id?: string | null; district: string;
       group?: { brand: string; source: 'brand' | 'education' } | null;
-      reputation?: string | null; reputation_score?: number | null;
       kaosheng?: number | null; sheng_quota?: number | null; qu_quota?: number | null;
       autonomy_count: number; sz: Array<{ high: string; count: number; tekong?: number | null }>;
       tekong_quota_rate?: number | null;

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 /**
  * 学校详情页（三学段统一）：
- * - 小学：口碑/法人核验 + 小升初机制 + 2026 招生计划
- * - 初中：口碑/法人核验 + 升学通道（名额分配 21 校区 + 自招/体育/艺术 + 第二批次录取分数）
+ * - 小学：法人核验 + 小升初机制 + 2026 招生计划
+ * - 初中：法人核验 + 升学通道（名额分配 21 校区 + 自招/体育/艺术 + 第二批次录取分数）
  * - 高中：分类/校区/出口数据（录取线·高分段·特控率，网传口径标注）+ 名额分配覆盖初中
  * 数据真源：data/ 各 JSON（apps/web/src/data 加载），链路数据为 2026 官方发布。
  */
@@ -34,7 +34,6 @@ import {
   middlePrimaryFeed,
   xiaoshengchuOf,
   schoolBadges,
-  supportBadge,
   scoresOfSchool,
   isComprehensive,
   brandGroupOf,
@@ -118,8 +117,8 @@ const tierTables = {
 };
 const tier = computed<Tier1School | undefined>(() => {
   if (stage.value === 'high') return undefined;
-  // 新开办学校无成绩：不参与口碑/挂牌判定（数据层 note 标记「新开办（年份）·待首届成绩」，
-  // 避免「广东实验中学天河学校」等独立法人新校因前缀匹配被误判为本部口碑校）
+  // 新开办学校无成绩：不进 tier1 名单（数据层 note 标记「新开办（年份）·待首届成绩」，
+  // 避免「广东实验中学天河学校」等独立法人新校因前缀匹配被误配为本部校）
   if (poi.value?.note && poi.value.note.includes('新开办')) return undefined;
   return matchTier1ByPoiName(
     schoolName.value,
@@ -240,9 +239,8 @@ const gaokaoRows = computed(() =>
 
 /* ========== 其他 ========== */
 const badges = computed<{ text: string; cls: string }[]>(() =>
-  schoolBadges(stage.value, { district: districtOf.value, tier: tier.value, rec: rec.value, name: schoolName.value, singleStage: true }),
+  schoolBadges(stage.value, { district: districtOf.value, tier: tier.value, rec: rec.value, name: schoolName.value, schoolId: schoolId.value, singleStage: true }),
 );
-const support = computed(() => supportBadge(tier.value));
 const headText = computed(() => {
   if (stage.value === 'high') {
     const r = rec.value;
@@ -259,12 +257,6 @@ const signalRows = computed(() => {
   if (stage.value === 'primary') return tier.value ? formatPrimarySignals(tier.value) : [];
   if (stage.value === 'middle') return tier.value ? formatMiddleSignals(tier.value) : [];
   return [];
-});
-const tierNote = computed(() => {
-  const t = tier.value;
-  if (!t) return null;
-  if (t.tier1_eligible === false) return t.exclude_reason || '网传口碑校，独立法人，未计入口碑学校';
-  return t.conclusion_basis || null;
 });
 const legalEntityText = computed(() => {
   const le = tier.value?.legal_entity;
@@ -329,7 +321,7 @@ const brandCard = computed<{ brand: string; note?: string; sourceUrls: string[];
   if (!g) return null;
   /** unit 核心名：先去「（别名）」内容再归一，用于与 POI 名精确匹配（如「广东实验中学天河学校（省实天河）」→「广东实验中学天河学校」；注意 normName 已去括号字符，须先剥别名） */
   const unitCoreNorm = (n: string): string => normName(n.replace(/[（(][^）)]*[）)]/g, ''));
-  /** 该 unit 对应 POI 是否为新开办待成绩（note 含「新开办」），是则跳过口碑/挂牌判定 */
+  /** 该 unit 对应 POI 是否为新开办待成绩（note 含「新开办」），是则不进 tier1 */
   const newOpeningOf = (stage: 'primary' | 'middle', un: string): boolean => {
     const list = stage === 'primary' ? primarySchools.schools : middleSchools.schools;
     return list.some((s) => normName(s.name) === un && !!s.note && s.note.includes('新开办'));
@@ -373,14 +365,12 @@ const brandCard = computed<{ brand: string; note?: string; sourceUrls: string[];
       .find(Boolean);
     if (poiHit?.adcode) district = ADCODE_TO_DISTRICT[poiHit.adcode] || '';
     if (!district) district = tierM?.district || tierP?.district || rec?.district || '';
-    // 口碑/挂牌徽章（来自 tier1 口径）
-    const tier = tierM || tierP;
-    const badge = tier
-      ? tier.tier1_eligible === false
-        ? { text: '挂牌', cls: 'b-license' }
-        : { text: '口碑', cls: 'b-tier' }
-      : null;
-    const reason = tierM?.exclude_reason || tierP?.exclude_reason || null;
+    const reason = (() => {
+      const gx = tierM || tierP;
+      if (!gx) return null;
+      const gaps = (gx.data_gaps || []).filter(Boolean);
+      return gaps.length ? gaps.join('；') : null;
+    })();
     // 详情链接：优先当前学段 → 初中 → 高中 → 小学
     const stageToKey: Record<string, SchoolStage> = { 小学: 'primary', 初中: 'middle', 高中: 'high' };
     const order = [stage.value, ...(['primary', 'middle', 'high'] as SchoolStage[]).filter((s) => s !== stage.value)];
@@ -394,7 +384,7 @@ const brandCard = computed<{ brand: string; note?: string; sourceUrls: string[];
       legal: u.legal,
       district,
       stages,
-      badge,
+      badge: null,
       reason,
       isCurrent: unitNorm === normName(schoolName.value),
       link,
@@ -403,8 +393,8 @@ const brandCard = computed<{ brand: string; note?: string; sourceUrls: string[];
   const groups: { key: string; title: string; rows: BrandRow[] }[] = [];
   const sameRows = rows.filter((r) => r.legal === 'same');
   const indepRows = rows.filter((r) => r.legal === 'independent');
-  if (sameRows.length) groups.push({ key: 'same', title: '同一法人单位（品牌本体/分校区 · 计入口碑）', rows: sameRows });
-  if (indepRows.length) groups.push({ key: 'independent', title: '独立法人单位（品牌合作 · 口碑/挂牌按成绩判定）', rows: indepRows });
+  if (sameRows.length) groups.push({ key: 'same', title: '同一法人单位（品牌本体/分校区）', rows: sameRows });
+  if (indepRows.length) groups.push({ key: 'independent', title: '独立法人单位（品牌合作）', rows: indepRows });
   return { brand: g.brand, note: g.brand_note, sourceUrls: [], groups };
 });
 /** 品牌关联有兄弟校区才展示（只剩自己则不显示该模块） */
@@ -427,7 +417,7 @@ const brandCardUseful = computed(() =>
     </header>
 
     <!-- 未收录点位：名字直达但无 POI 实体（如官方名单中的 7 区外学校），信息不可跳转、仅展示 -->
-    <p v-if="!poi" class="not-included-card">该名称暂未收录到地图点位，以下信息来自口碑 / 官方名单，可能对应多个校区或位于七区之外，详情仅供展示、不可跳转。</p>
+    <p v-if="!poi" class="not-included-card">该名称暂未收录到地图点位，以下信息来自官方名单 / 源数据，可能对应多个校区或位于七区之外，详情仅供展示、不可跳转。</p>
 
     <!-- 学部切换 tab（完中/多学部学校才显示） -->
     <nav v-if="availableStages.length > 1" class="stage-tabs">
@@ -446,17 +436,15 @@ const brandCardUseful = computed(() =>
       <div class="kv">
         <div class="kv-row"><span>学段</span><b>{{ stageLabel }}</b></div>
         <div class="kv-row"><span>所属区</span><b>{{ districtOf }}</b></div>
-        <div class="kv-row" v-if="tier?.district"><span>口碑归属</span><b>{{ tier.district }}</b></div>
         <div class="kv-row" v-if="poi?.lng"><span>坐标</span><b>{{ poi.lng.toFixed(5) }}, {{ poi.lat.toFixed(5) }}</b></div>
         <div class="kv-row" v-if="tier?.legal_entity"><span>法人实体</span><b>{{ legalEntityText }}</b></div>
       </div>
     </div>
 
-    <!-- 口碑信号（民间口径，非官方评价） -->
+    <!-- 学校信号（历史称号/集团/喜报/录取线等源数据，民间口径非官方评价） -->
     <div v-if="signalRows.length" class="card">
-      <div class="card-title">口碑信号</div>
+      <div class="card-title">学校信号</div>
       <div class="title-note-row">
-        <span v-if="support" class="badge sm" :class="support.cls">{{ support.text }}</span>
         <span class="title-note">民间口径，非官方评价，仅供参考。</span>
       </div>
       <div class="kv">
@@ -464,7 +452,6 @@ const brandCardUseful = computed(() =>
           <span>{{ r.label }}</span><b>{{ r.value }}</b>
         </div>
       </div>
-      <p v-if="tierNote" class="sub-note">{{ tierNote }}</p>
     </div>
 
     <!-- 小学 tab：招生计划 + 所在区小升初机制 -->

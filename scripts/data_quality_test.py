@@ -92,6 +92,58 @@ def main():
             continue
         check(g["brand"] in KNOWN_EMPTY, f"[5] 集团无成员: {g['brand']}（已知例外清单外）")
 
+    # ---- 6. tier1 数据质量回归 ----
+    OLD_FIELDS = {"rumor_tier", "rumor_sources", "rumor_notes", "conclusion",
+                  "conclusion_basis", "tier_rank", "tier_rank_note",
+                  "tier1_eligible", "exclude_reason", "provincial_level_title",
+                  "plan_classes_2026", "zhongkao", "reputation"}
+    entity_ids = {e["school_id"] for e in entities}
+
+    def check_tier1(path, stage):
+        d = json.load(open(os.path.join(ROOT, path)))
+        schools = []
+        for dname, dobj in d.get("districts", {}).items():
+            for s in dobj.get("schools", []):
+                s["_district"] = dname
+                schools.append(s)
+        label = f"[6/{stage}]"
+
+        # 6a. 旧字段不得出现
+        for s in schools:
+            leaked = set(s.keys()) & OLD_FIELDS
+            check(not leaked, f"{label} 旧字段残留: {s['name']} → {leaked}")
+
+        # 6b. summary 与实际一致
+        summary = d.get("summary", {})
+        check(summary.get("total_schools") == len(schools),
+              f"{label} summary.total_schools={summary.get('total_schools')} 实际={len(schools)}")
+        actual_by_dist = {}
+        for s in schools:
+            actual_by_dist[s["_district"]] = actual_by_dist.get(s["_district"], 0) + 1
+        check(summary.get("by_district") == actual_by_dist,
+              f"{label} summary.by_district 不一致: {summary.get('by_district')} vs {actual_by_dist}")
+
+        # 6c. 初中不得有增城残留
+        if stage == "middle":
+            check("增城区" not in d.get("districts", {}),
+                  f"{label} 初中数据含增城区（应为7区）")
+
+        # 6d. 必填字段
+        for s in schools:
+            check("name" in s and s["name"], f"{label} 缺 name")
+            check("historical_titles" in s, f"{label} {s['name']} 缺 historical_titles")
+            check("data_gaps" in s, f"{label} {s['name']} 缺 data_gaps")
+            check("evidence" in s, f"{label} {s['name']} 缺 evidence")
+
+        # 6e. school_id 可解析（有则必须存在于 entities）
+        for s in schools:
+            for sid in s.get("school_ids", []):
+                check(sid in entity_ids,
+                      f"{label} {s['name']} school_id 悬空: {sid}")
+
+    check_tier1("data/primary/tier1_schools_all.json", "primary")
+    check_tier1("data/middle/tier1_schools_all.json", "middle")
+
     # ---- 汇总 ----
     print(f"数据质量测试: {checks} 项检查, {len(failures)} 项失败")
     if failures:

@@ -46,7 +46,7 @@ test('精确名命中：执信本部、番禺铁英（别名表来自实体注�
   const h1 = matchTier1ByPoiName('广州市执信中学（执信路校区）', middleTier1, mTable);
   assert.ok(h1 && h1.name.includes('执信中学（执信路校区）'));
   const h2 = matchTier1ByPoiName('广州市番禺区广铁一中铁英学校（番禺铁英）', middleTier1, mTable);
-  assert.ok(h2 && h2.tier1_eligible === true);
+  assert.ok(h2 && h2.name.includes('番禺区广铁一中铁英学校'));
 });
 
 test('黄埔铁英口碑记录无实体（POI 未收录）→ 别名表不命中，属正确行为', () => {
@@ -54,18 +54,16 @@ test('黄埔铁英口碑记录无实体（POI 未收录）→ 别名表不命中
   assert.equal(h, undefined);
 });
 
-test('别名命中：星执（POI 短名 → 星执挂牌记录）', () => {
+test('别名命中：星执（POI 短名 → 星执记录）', () => {
   const h = matchTier1ByPoiName('广州市星执学校', middleTier1, mTable);
   assert.ok(h && h.name.includes('星执'));
-  assert.equal(h.tier1_eligible, false);
 });
 
-test('校区全名 alias 命中：番禺铁英东/西校区 → 番禺铁英（口碑）', () => {
+test('校区全名 alias 命中：番禺铁英东/西校区 → 番禺铁英', () => {
   for (const n of ['广州市番禺区广铁一中铁英学校(东校区)', '广州市番禺区广铁一中铁英学校(西校区)']) {
     const h = matchTier1ByPoiName(n, middleTier1, mTable);
     assert.ok(h, `应命中：${n}`);
     assert.ok(h.name.includes('番禺区广铁一中铁英学校'));
-    assert.equal(h.tier1_eligible, true);
   }
 });
 

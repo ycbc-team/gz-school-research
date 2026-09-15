@@ -1,8 +1,8 @@
 /**
- * 地图域信息卡模型：选中点位 → 信息卡四分支（高中指标 / 口碑 / 挂牌 / 普通）+ 招生条件 + 升学路线 + 详情跳转。
+ * 地图域信息卡模型：选中点位 → 信息卡（高中指标 / 普通学校）+ 招生条件 + 升学路线 + 详情跳转。
  * Web 底部抽屉与小程序 cover-view 抽屉共用同一模型。
  */
-import { formatPrimarySignals, formatMiddleSignals, formatXiaoshengchuBrief, highScoreRows } from '../../format.js';
+import { formatXiaoshengchuBrief, highScoreRows } from '../../format.js';
 import type { Repository } from '../../data/repository.js';
 import { districtByAdcode, STAGE_LABEL } from './constants.js';
 import type { MapPointFull } from './points.js';
@@ -93,43 +93,6 @@ export function buildInfoModel(pt: MapPointFull, repo: Repository): InfoModel {
       head: null,
       rows,
       note: '口径：录取线为官方发布（公办户籍生 / 民办最低分）；特控率/高分段为喜报或网传数据。完整出口数据见详情页。',
-      links: detailLinks,
-    };
-  }
-
-  const tier = pt.tier;
-  if (tier) {
-    // 小学缩略面板优先展示招生条件（班数 + 对口地段）；多学部合并点按实际学部全展示
-    const enrollRows = pt.stages.includes('primary') ? primaryEnrollRows(repo, pt) : [];
-    // 小学升学路线取全量 xiaoshengchu（实体 id）；口碑信号另缩略一条
-    const linkageRows = pt.stages.includes('primary') ? primaryLinkageRows(repo, pt.ids.primary) : [];
-    if (tier.reputation.level === '不支撑') {
-      const gaps = (tier.data_gaps || []).filter(Boolean);
-      return {
-        name,
-        badges: repo.schoolBadges(pt.mainStage, { district: districtName, tier, name, schoolId: pt.ids[pt.mainStage] || pt.school_id, stages: pt.stages }),
-        head: '网传"口碑学校" · 无客观信号支撑',
-        rows: [
-          ...enrollRows,
-          ...linkageRows,
-          ...(gaps.length ? [{ label: '数据缺口', value: gaps.join('；') }] : (tier.reputation.basis ? [{ label: '判定依据', value: tier.reputation.basis }] : [])),
-        ],
-        note: null,
-        links: detailLinks,
-      };
-    }
-    const head =
-      '口碑学校 · 客观信号核验' +
-      (tier.entity_relation === '同法人校区' ? ' · 与本部同一法人' : '');
-    const signalRows = pt.mainStage === 'primary'
-      ? [...linkageRows, ...formatPrimarySignals(tier).slice(0, 1)]
-      : [...(pt.stages.includes('middle') ? middleFeedRows(repo, pt.ids.middle) : []), ...formatMiddleSignals(tier).slice(0, 1)];
-    return {
-      name,
-      badges: repo.schoolBadges(pt.mainStage, { district: districtName, tier, name, schoolId: pt.ids[pt.mainStage] || pt.school_id, stages: pt.stages }),
-      head,
-      rows: [...enrollRows, ...signalRows],
-      note: '完整口碑信号与升学通道见详情页。',
       links: detailLinks,
     };
   }

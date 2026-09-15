@@ -95,7 +95,7 @@ export interface Site {
 export interface BrandUnit {
   name: string;
   role: string;
-  /** same=与品牌核心同法人（计入口碑）；independent=独立法人（借用品牌→挂牌） */
+  /** same=与品牌核心同法人；independent=独立法人（借用品牌） */
   legal: 'same' | 'independent';
   /** 该单位的 POI 名覆盖（tier1 aliases 未覆盖其点位名时使用） */
   poi_names?: string[];

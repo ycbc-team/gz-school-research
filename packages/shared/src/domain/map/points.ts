@@ -1,5 +1,5 @@
 /**
- * 地图域点位构建：三学段 POI → 合并多学部点（同 school_id）+ tier/高中分类 + 补点去重。
+ * 地图域点位构建：三学段 POI → 合并多学部点（同 school_id）+ 高中分类 + 补点去重。
  * 纯逻辑，零地图库依赖；Web Leaflet 与小程序 <map> 共用同一份点集。
  */
 import { buildAliasTable, matchTier1ByPoiName, normName } from '../../support.js';
@@ -10,7 +10,7 @@ import { adcodeByDistrict, districtByAdcode, STAGE_PRIORITY, type ClsKey, type S
 
 /** 完整点位（含信息卡所需字段） */
 export interface MapPointFull extends MapPoint {
-  /** 各学部梯队记录（小学/初中口碑校） */
+  /** 各学部梯队记录（小学/初中 tier1 校，含历史称号/集团等客观源数据） */
   tierOf: Partial<Record<SchoolStage, Tier1School | null>>;
   /** 高中分类记录（高中学部） */
   rec: HighLevelSchool | null;
@@ -24,7 +24,7 @@ export interface MapPointFull extends MapPoint {
   stageNames: Partial<Record<SchoolStage, string>>;
 }
 
-/** 新开办学校无成绩：不参与口碑/挂牌判定（数据层 note 标记，避免独立法人新校被前缀误判） */
+/** 新开办学校无成绩：不进 tier1 名单（数据层 note 标记，避免独立法人新校被前缀误判） */
 function isNewOpening(note?: string): boolean {
   return !!note && note.includes('新开办');
 }
@@ -42,10 +42,6 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
       ? Object.values(loaders.primaryTier1.districts).flatMap((d) => d.schools)
       : Object.values(loaders.middleTier1.districts).flatMap((d) => d.schools);
     return matchTier1ByPoiName(name, schools, tierTables[stage]);
-  }
-  /** 独立法人挂牌校（tier1_eligible=false，成绩未达标/无证据）不计入口碑学校 */
-  function isTierRecord(t?: Tier1School): boolean {
-    return !!t && t.tier1_eligible !== false && (t.conclusion === '有支撑' || t.conclusion === '部分支撑');
   }
 
   const highTable = new Map<string, HighLevelSchool>();
@@ -73,17 +69,39 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
   const allPoints: MapPointFull[] = [];
   const ptByKey = new Map<string, MapPointFull>();
   const tierByName: Record<string, true> = {};
-  const enrollmentNatureById = new Map(loaders.enrollments.flatMap((x) => x.records).map((r) => [r.school_id, r.nature]));
-  const highNatureById = new Map(Object.entries(loaders.highScores2026.by_school_id).map(([id, rows]) => [id, rows[0]?.nature || '']));
-  const schoolNature = (stage: SchoolStage, schoolId: string | undefined, tier: Tier1School | null, rec: HighLevelSchool | null): SchoolNature => {
-    const raw = stage === 'primary'
-      ? enrollmentNatureById.get(schoolId || '')
-      : stage === 'high'
-        ? (rec?.nature || highNatureById.get(schoolId || ''))
-        : undefined;
-    const entityType = tier?.legal_entity?.type;
-    return [raw, entityType].some((v) => typeof v === 'string' && v && !v.includes('公办')) ? 'private' : 'public';
-  };
+  // 办学性质唯一真源：实体表 nature（公办不写字段）；按 school_id 精确，无 id 时按 norm 名/别名兜底。
+  // 实体名/别名索引：供补点（tier1 手工坐标，无 school_id）解析实体 id 与性质。
+  const entityNatureById = new Map<string, string>();
+  const entityIdByName = new Map<string, string>();      // norm(名称/别名) → school_id（首个）
+  const entityIdByStageName = new Map<string, string>(); // "stage|norm(名称/别名)" → school_id
+  for (const e of loaders.entities.entities) {
+    if (e.nature) entityNatureById.set(e.school_id, e.nature);
+    const putName = (k: string) => {
+      if (!k) return;
+      if (!entityIdByName.has(k)) entityIdByName.set(k, e.school_id);
+      const sk = `${e.stage}|${k}`;
+      if (!entityIdByStageName.has(sk)) entityIdByStageName.set(sk, e.school_id);
+    };
+    putName(normName(e.name));
+    for (const a of e.aliases || []) putName(normName(a));
+  }
+  const schoolNature = (schoolId: string | undefined): SchoolNature =>
+    entityNatureById.get(schoolId || '') === '民办' ? 'private' : 'public';
+  /** tier1 补点实体解析：school_ids 优先；否则按名/别名匹配实体（优先同 stage） */
+  function resolveEntityId(sc: Tier1School, stage: 'primary' | 'middle'): string | undefined {
+    const ids = (sc.school_ids || []).filter(Boolean);
+    if (ids.length) return ids[0];
+    const cands = [sc.name, ...(sc.aliases || [])];
+    for (const c of cands) {
+      const e = entityIdByStageName.get(`${stage}|${normName(c)}`);
+      if (e) return e;
+    }
+    for (const c of cands) {
+      const e = entityIdByName.get(normName(c));
+      if (e) return e;
+    }
+    return undefined;
+  }
   function addSchool(
     s: { name: string; lat: number; lng: number; adcode: string; school_id?: string; note?: string },
     stage: SchoolStage,
@@ -110,7 +128,7 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
     if (!pt.stages.includes(stage)) {
       pt.stages.push(stage);
       pt.clsOf[stage] = cls;
-      pt.natureOf[stage] = schoolNature(stage, s.school_id, tier, rec);
+      pt.natureOf[stage] = schoolNature(s.school_id);
       pt.tierOf[stage] = tier;
     }
     if (s.school_id) pt.ids[stage] = s.school_id;
@@ -121,12 +139,12 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
 
   for (const s of primarySchools.schools) {
     const t = tierOf('primary', s.name, s.note);
-    addSchool(s, 'primary', isTierRecord(t) ? 'pT' : 'pN', t ?? null, null);
+    addSchool(s, 'primary', 'pN', t ?? null, null);
     if (t) tierByName[t.name] = true;
   }
   for (const s of middleSchools.schools) {
     const t = tierOf('middle', s.name, s.note);
-    addSchool(s, 'middle', isTierRecord(t) ? 'mT' : 'mN', t ?? null, null);
+    addSchool(s, 'middle', 'mN', t ?? null, null);
     if (t) tierByName[t.name] = true;
   }
   for (const s of highSchools.schools) {
@@ -134,14 +152,14 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
     addSchool(s, 'high', highCls(rec), null, rec ?? null);
   }
 
-  // 补点：tier1 内手工坐标（小学 3 所 + 初中 14 所），按名去重
+  // 补点：tier1 内手工坐标（小学 3 所 + 初中 14 所），按名去重；无 school_id 时按名/别名解析实体 id
   const addExtra = (snapshot: { districts: Record<string, { schools: Tier1School[] }> }, stage: 'primary' | 'middle') => {
     for (const sc of Object.values(snapshot.districts).flatMap((d) => d.schools)) {
       if (!sc.coords || tierByName[sc.name]) continue;
       addSchool(
-        { name: sc.name, lat: sc.coords.lat, lng: sc.coords.lng, adcode: adcodeByDistrict[sc.district ?? ''] || '' },
+        { name: sc.name, lat: sc.coords.lat, lng: sc.coords.lng, adcode: adcodeByDistrict[sc.district ?? ''] || '', school_id: resolveEntityId(sc, stage) },
         stage,
-        isTierRecord(sc) ? (stage === 'primary' ? 'pT' : 'mT') : (stage === 'primary' ? 'pN' : 'mN'),
+        stage === 'primary' ? 'pN' : 'mN',
         sc,
         null,
       );

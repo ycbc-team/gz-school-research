@@ -37,8 +37,6 @@ export interface DetailModel {
   district: string;
   badges: DetailBadge[];
   headText: string;
-  support: DetailBadge | null;
-  tierNote: string | null;
   legalEntityText: string;
   poi: { lng: number; lat: number } | null;
   /* 小学 */
@@ -52,7 +50,7 @@ export interface DetailModel {
   feedRows: FeedRow[];
   /* 初中 */
   feedPrimarys: FeedPrimaryRow[];
-  /* 口碑信号 */
+  /* 学校信号（历史称号/集团/喜报/录取线等源数据） */
   signalRows: DetailRow[];
   /* 高中 */
   admissionRows: DetailRow[];
@@ -123,7 +121,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
       if (d) return d;
     }
     if (stage === 'high' && rec?.district) return rec.district;
-    // 孤儿口碑记录保留 district；匹配上的从 school_id 前缀 adcode 兜底（gz-440104-xxx）
+    // 孤儿 tier1 记录保留 district；匹配上的从 school_id 前缀 adcode 兜底（gz-440104-xxx）
     return (
       tier?.district ||
       (tier?.school_ids?.[0] ? ADCODE_TO_DISTRICT[tier.school_ids[0].slice(3, 9)] : null) ||
@@ -205,7 +203,6 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
 
   /* ---------- 其他 ---------- */
   const badges = repo.schoolBadges(stage, { district: districtOf, tier, rec, name: schoolName, schoolId, singleStage: true });
-  const support = repo.supportBadge(tier);
   const headText = (() => {
     if (stage === 'high') {
       const r = rec;
@@ -217,15 +214,6 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     if (t.education_group) parts.push(`${t.education_group.name}（${t.education_group.role}）`);
     if (t.entity_relation) parts.push(t.entity_relation);
     return parts.join(' · ');
-  })();
-  const tierNote = (() => {
-    const t = tier;
-    if (!t) return null;
-    if (t.reputation.level === '不支撑') {
-      const gaps = (t.data_gaps || []).filter(Boolean);
-      return gaps.join('；') || t.reputation.basis || '网传口碑校，无客观信号支撑';
-    }
-    return t.reputation.basis || null;
   })();
   const legalEntityText = (() => {
     const le = tier?.legal_entity;
@@ -270,7 +258,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
       return { brand: grp.brand, note: grp.note, sourceUrls: grp.source_urls || [], groups };
     }
 
-    // brand 来源：8 个重点品牌（法人关系/口碑标注）
+    // brand 来源：8 个重点品牌（法人关系标注）
     const g = repo.brandGroupOf(schoolName);
     if (!g) return null;
     const unitCoreNorm = (n: string): string => normName(n.replace(/[（(][^）)]*[）)]/g, ''));
@@ -315,19 +303,11 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
         .find(Boolean);
       if (poiHit?.adcode) district = ADCODE_TO_DISTRICT[poiHit.adcode] || '';
       if (!district) district = tierM?.district || tierP?.district || recH?.district || '';
-      const tierX = tierM || tierP;
-      const badge = tierX
-        ? tierX.reputation.level === '不支撑'
-          ? { text: '挂牌', cls: 'b-license' }
-          : tierX.reputation.level === '口碑'
-            ? { text: '口碑', cls: 'b-tier' }
-            : null
-        : null;
       const reason = (() => {
         const gx = tierM || tierP;
         if (!gx) return null;
         const gaps = (gx.data_gaps || []).filter(Boolean);
-        return gaps.join('；') || gx.reputation.basis || null;
+        return gaps.length ? gaps.join('；') : null;
       })();
       const stageToKey: Record<string, SchoolStage> = { 小学: 'primary', 初中: 'middle', 高中: 'high' };
       const order = [stage, ...(['primary', 'middle', 'high'] as SchoolStage[]).filter((s) => s !== stage)];
@@ -335,19 +315,19 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
       const link = stageKey ? `/school/${encodeURIComponent(u.name)}?stage=${stageKey}` : null;
       rows.push({
         name: u.name, role: u.role, legal: u.legal, district, stages,
-        badge, reason, isCurrent: unitNorm === normName(schoolName), link,
+        badge: null, reason, isCurrent: unitNorm === normName(schoolName), link,
       });
     }
     const groups: { key: string; title: string; rows: BrandRow[] }[] = [];
     const sameRows = rows.filter((r) => r.legal === 'same');
     const indepRows = rows.filter((r) => r.legal === 'independent');
-    if (sameRows.length) groups.push({ key: 'same', title: '同一法人单位（品牌本体/分校区 · 计入口碑）', rows: sameRows });
-    if (indepRows.length) groups.push({ key: 'independent', title: '独立法人单位（品牌合作 · 口碑/挂牌按成绩判定）', rows: indepRows });
+    if (sameRows.length) groups.push({ key: 'same', title: '同一法人单位（品牌本体/分校区）', rows: sameRows });
+    if (indepRows.length) groups.push({ key: 'independent', title: '独立法人单位（品牌合作）', rows: indepRows });
     return { brand: g.brand, note: g.brand_note, sourceUrls: [], groups };
   })();
   const brandCardUseful = !!brandCard && brandCard.groups.some((g) => g.rows.some((r) => !r.isCurrent));
 
-  /* ---------- 口碑信号 ---------- */
+  /* ---------- 客观信号（历史称号/集团/喜报/录取线等源数据） ---------- */
   const signalRows: DetailRow[] = stage === 'primary'
     ? (tier ? formatPrimarySignals(tier) : [])
     : stage === 'middle'
@@ -362,8 +342,6 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     district: districtOf,
     badges,
     headText,
-    support,
-    tierNote,
     legalEntityText,
     poi: poi ? { lng: poi.lng, lat: poi.lat } : null,
     enrollment: enrollment ? { ...enrollment, nature: entityNature || '公办' } : null,

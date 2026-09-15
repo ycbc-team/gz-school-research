@@ -104,7 +104,6 @@ export const {
   xiaoshengchuOf,
   middlePrimaryFeed,
   schoolBadges,
-  supportBadge,
   scoresOfSchool,
   scoresBySchoolId,
   resolveSchoolId,

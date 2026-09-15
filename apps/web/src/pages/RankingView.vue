@@ -17,7 +17,6 @@ interface Row {
   school_id?: string | null;
   district: string;
   group?: { brand: string; source: 'brand' | 'education' } | null;
-  reputation?: string | null;
   kaosheng?: number | null;
   sheng_quota?: number | null;
   qu_quota?: number | null;
@@ -87,11 +86,7 @@ function fmt(v: number | null): string {
   return `${v.toFixed(m.digits)}${m.unit}`;
 }
 
-function repLabel(r?: string | null): string {
-  return r === '口碑' ? '口碑' : r === '待观察' ? '待观察' : r === '不支撑' ? '不支撑' : '';
-}
-
-/** 分组顺序：按区 → DISTRICTS 顺序（未列出的区按出现顺序补尾）；按集团 → 组内口碑校数降序、再按组名 */
+/** 分组顺序：按区 → DISTRICTS 顺序（未列出的区按出现顺序补尾）；按集团 → 组名拼音序 */
 const districtOrder = DISTRICTS.map((d) => d.name.replace('区', ''));
 
 const groups = computed(() => {
@@ -120,12 +115,7 @@ const groups = computed(() => {
     if (!map.has(key)) map.set(key, []);
     map.get(key)!.push(r);
   }
-  const keys = [...map.keys()].sort((a, b) => {
-    const ra = map.get(a)!.filter((x) => x.s.reputation === '口碑').length;
-    const rb = map.get(b)!.filter((x) => x.s.reputation === '口碑').length;
-    if (ra !== rb) return rb - ra;
-    return a.localeCompare(b, 'zh');
-  });
+  const keys = [...map.keys()].sort((a, b) => a.localeCompare(b, 'zh'));
   return keys.map((k) => ({
     key: `g-${k}`,
     title: k,
@@ -146,7 +136,7 @@ function rankSort(a: number | null, b: number | null): number {
     <header class="top">
       <RouterLink to="/" class="back">‹ 首页</RouterLink>
       <h1 class="page-title">初中升学信号明细</h1>
-      <p class="page-sub">55 所初中升学信号 · 自招 / 指标到校 / 特控率 · 比例口径消除规模差异</p>
+      <p class="page-sub">7 区全量初中（荔湾/越秀/海珠/天河/白云/黄埔/番禺）· 自招 / 指标到校 / 特控率 · 比例口径消除规模差异</p>
     </header>
 
     <!-- 顶部过滤器（对齐地图页 filter-bar 交互） -->
@@ -198,19 +188,14 @@ function rankSort(a: number | null, b: number | null): number {
               <th class="c-name">学校</th>
               <th class="c-val">{{ metricLabel }}</th>
               <th class="c-sub">考生数</th>
-              <th class="c-sub">口碑</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(row, i) in g.items" :key="row.s.name" :class="{ rep: row.s.reputation === '口碑' }">
+            <tr v-for="(row, i) in g.items" :key="row.s.name">
               <td class="c-rank">{{ i + 1 }}</td>
               <td class="c-name">{{ row.s.name }}</td>
               <td class="c-val">{{ fmt(row.v) }}</td>
               <td class="c-sub">{{ row.s.kaosheng ?? '—' }}</td>
-              <td class="c-sub">
-                <span v-if="row.s.reputation" class="rep-badge" :class="row.s.reputation">{{ repLabel(row.s.reputation) }}</span>
-                <span v-else class="rep-none">—</span>
-              </td>
             </tr>
           </tbody>
         </table>
@@ -286,18 +271,10 @@ function rankSort(a: number | null, b: number | null): number {
 }
 .rank-table td { padding: 7px 10px; border-bottom: 1px solid #f2f1ec; vertical-align: middle; }
 .rank-table tbody tr:last-child td { border-bottom: none; }
-.rank-table tbody tr.rep { background: #f4f8ff; }
 .rank-table tbody tr:hover { background: #fafbfc; }
 .c-rank { width: 34px; color: #8a93a3; font-size: 12px; }
 .c-val { font-variant-numeric: tabular-nums; font-weight: 600; color: #1a6bd6; }
 .c-sub { color: #6b7280; font-size: 12px; font-variant-numeric: tabular-nums; }
 .c-name { max-width: 220px; }
-.rep-badge {
-  display: inline-block; font-size: 10.5px; border-radius: 999px; padding: 1px 8px;
-}
-.rep-badge.口碑 { color: #b42318; background: #fef0ee; }
-.rep-badge.待观察 { color: #8a6d1c; background: #fbf4dd; }
-.rep-badge.不支撑 { color: #6b7280; background: #f0f0ee; }
-.rep-none { color: #c3c7cd; }
 .foot-note { font-size: 11.5px; color: #8a93a3; margin: 18px 2px 30px; line-height: 1.7; }
 </style>

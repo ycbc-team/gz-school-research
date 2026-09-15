@@ -56,7 +56,7 @@ export function formatPrimarySignals(s: Tier1School): SignalRow[] {
   if (s.direct_feed) {
     rows.push({
       label: '对口直升',
-      value: `${s.direct_feed.middle_school}${s.direct_feed.is_reputable ? '（口碑初中）' : ''}`,
+      value: s.direct_feed.middle_school,
       strong: true,
     });
   }

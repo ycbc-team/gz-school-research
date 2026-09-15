@@ -8,8 +8,6 @@ import {
   primarySchools,
   middleSchools,
   highSchools,
-  tier1Schools,
-  middleTier1Schools,
 } from '../data';
 
 const primarySum = summarizeSchools(primarySchools.schools);
@@ -20,7 +18,6 @@ const stats = computed(() => [
   { label: '小学点位', value: primarySum.total, sub: topDistricts(primarySum.byDistrict) },
   { label: '初中点位', value: middleSum.total, sub: topDistricts(middleSum.byDistrict) },
   { label: '高中点位', value: highSum.total, sub: topDistricts(highSum.byDistrict) },
-  { label: '口碑核验', value: tier1Schools.length + middleTier1Schools.length, sub: `小学 ${tier1Schools.length} · 初中 ${middleTier1Schools.length}` },
 ]);
 
 function topDistricts(by: Array<{ name: string; count: number }>): string {
@@ -48,17 +45,12 @@ const districtTotal = (schools: typeof primarySchools.schools) => {
     <div class="features">
       <RouterLink to="/map" class="feature">
         <div class="feature-name">七区中小学·高中分布地图</div>
-        <div class="feature-desc">点位分布 · 区筛选 · 口碑梯队标注（Vue3 + Leaflet）</div>
+        <div class="feature-desc">点位分布 · 区筛选 · 学段/办学性质筛选（Vue3 + Leaflet）</div>
         <span class="tag tag-new">新版</span>
       </RouterLink>
       <RouterLink to="/middle" class="feature">
         <div class="feature-name">初中升学信号明细</div>
         <div class="feature-desc">按区 / 按集团分组 · 自招人数与比例 · 指标到校 · 指标×高中特控率</div>
-        <span class="tag tag-new">新版</span>
-      </RouterLink>
-      <RouterLink to="/support" class="feature">
-        <div class="feature-name">口碑学校 · 支撑度核验</div>
-        <div class="feature-desc">小学 {{ tier1Schools.length }} 所 + 初中 {{ middleTier1Schools.length }} 所网传名校核验</div>
         <span class="tag tag-new">新版</span>
       </RouterLink>
       <RouterLink to="/policy" class="feature">

@@ -10,9 +10,9 @@ apps/web/
 ├── index.html          # 应用入口（挂载 #app）
 ├── src/
 │   ├── main.ts         # Vue 入口
-│   ├── router.ts       # hash 路由：#/（入口）/ #/map（地图）/ #/support（支撑度）
+│   ├── router.ts       # hash 路由：#/（入口）/ #/map（地图）/ #/middle（初中明细）
 │   ├── App.vue         # 应用壳（导航）
-│   ├── pages/          # HomeView / MapView / SupportView
+│   ├── pages/          # HomeView / MapView / SchoolDetailView / RankingView
 │   ├── data/           # 数据加载层：data/*.json 真源 → 类型化模块
 │   └── styles.css      # 全局样式
 └── vite.config.ts      # base './'，相对路径部署
@@ -24,7 +24,7 @@ apps/web/
 | --- | --- | --- |
 | `#/` | 入口 | 功能卡片跳转 |
 | `#/map` | 七区中小学·高中合并地图 | 小学 918 点 + 初中 309 点 + 高中 126 点，七类配色 + 区筛选 + 信息卡 |
-| `#/support` | 口碑学校 · 支撑度核验 | 小学 59 所 + 初中 53 所网传名校：判定逻辑 + 有支撑/部分支撑明细表 |
+| `#/middle` | 初中升学信号明细 | 按区/集团分组 · 自招/指标到校/特控率聚合 |
 
 ## 运行
 

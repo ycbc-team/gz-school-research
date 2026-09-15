@@ -20,10 +20,8 @@ export const ALL_DISTRICT_ADCODES = DISTRICTS.map((d) => d.adcode);
 
 /** 七类点位分类（配色 + 学段 + 展示名） */
 export const CLASS_CFG = {
-  pN: { stage: 'primary', color: '#94A3B8', label: '小学·普通' },
-  pT: { stage: 'primary', color: '#2563EB', label: '小学·口碑' },
-  mN: { stage: 'middle', color: '#A8A29E', label: '初中·普通' },
-  mT: { stage: 'middle', color: '#DC2626', label: '初中·口碑' },
+  pN: { stage: 'primary', color: '#94A3B8', label: '小学' },
+  mN: { stage: 'middle', color: '#A8A29E', label: '初中' },
   hN: { stage: 'high', color: '#64748B', label: '高中·普通' },
   hD: { stage: 'high', color: '#10B981', label: '高中·区属示范' },
   hM: { stage: 'high', color: '#F59E0B', label: '高中·省市属示范' },
@@ -58,8 +56,8 @@ export const ALL_SCHOOL_NATURES: SchoolNature[] = ['public', 'private'];
 
 /** 分级筛选分组（贝壳式浮层） */
 export const GRADE_GROUPS: Array<{ title: string; stage: SchoolStage; items: Array<{ v: ClsKey; l: string }> }> = [
-  { title: '小学', stage: 'primary', items: [{ v: 'pT', l: '口碑学校' }, { v: 'pN', l: '普通学校' }] },
-  { title: '初中', stage: 'middle', items: [{ v: 'mT', l: '口碑学校' }, { v: 'mN', l: '普通学校' }] },
+  { title: '小学', stage: 'primary', items: [{ v: 'pN', l: '小学' }] },
+  { title: '初中', stage: 'middle', items: [{ v: 'mN', l: '初中' }] },
   { title: '高中', stage: 'high', items: [
     { v: 'hM', l: '市重点（省市属示范）' },
     { v: 'hD', l: '区重点（区属示范）' },
