@@ -140,11 +140,17 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     };
   }
 
-  // high：按学校聚合全部校区
+  // high：按所选校区独立展示（名额分配/自招计划按高中校区独立发布，各校区互不复用）
+  // 1) 全半角统一后精确匹配校区键 → 只展示该校区；2) 传入归属学校名（无校区）时兼容聚合全部校区
+  const zq = (s: string) => s.replace(/（/g, '(').replace(/）/g, ')');
+  const exactCampuses = CAMPUS_NAMES.filter((c) => zq(c) === zq(schoolName));
   const target = normCampus(schoolName);
-  const highCampuses = CAMPUS_NAMES.filter(
-    (c) => normCampus(CAMPUS_INFO[c]!.school) === target || CAMPUS_INFO[c]!.school === schoolName,
-  );
+  const highCampuses =
+    exactCampuses.length > 0
+      ? exactCampuses
+      : CAMPUS_NAMES.filter(
+          (c) => normCampus(CAMPUS_INFO[c]!.school) === target || CAMPUS_INFO[c]!.school === schoolName,
+        );
   const mergedCover = new Map<string, { n: number; districts: Set<string>; schoolId: string | null }>();
   for (const c of highCampuses) {
     for (const { school, school_id, n, district } of repo.quotaCoverage(c)) {

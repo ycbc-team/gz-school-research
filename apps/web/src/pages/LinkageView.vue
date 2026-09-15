@@ -82,9 +82,9 @@ const pickSchool = (name: string) => {
           @click="highSel = c"
         >{{ c }}</button>
       </div>
-      <p class="sub-note">当前：{{ highSchoolName }} · {{ highSel }}（按学校聚合全部校区展示）</p>
+      <p class="sub-note">当前：{{ highSchoolName }} · {{ highSel }}（各高中校区名额分配 / 自招计划独立展示）</p>
 
-      <LinkagePanel :stage="'high'" :school="highSchoolName" />
+      <LinkagePanel :stage="'high'" :school="highSel" />
     </div>
 
     <!-- 口径 -->
