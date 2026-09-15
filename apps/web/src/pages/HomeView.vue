@@ -8,7 +8,7 @@ import {
   primarySchools,
   middleSchools,
   highSchools,
-} from '../data';
+} from '../data/home';
 
 const primarySum = summarizeSchools(primarySchools.schools);
 const middleSum = summarizeSchools(middleSchools.schools);
