@@ -8,38 +8,16 @@
  */
 import { computed, ref, watch } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import type { SchoolStage, SchoolPoi } from '@gz/shared';
 import {
-  buildAliasTable,
-  matchTier1ByPoiName,
-  normName,
-  formatPrimarySignals,
-  formatMiddleSignals,
-  highScoreRows,
-  type Tier1School,
-  type HighLevelSchool,
+  buildDetailModel, buildAliasTable, matchTier1ByPoiName, normName,
+  formatPrimarySignals, formatMiddleSignals, highScoreRows,
+  type SchoolStage, type SchoolPoi, type Tier1School, type HighLevelSchool,
 } from '@gz/shared';
 import {
-  primarySchools,
-  middleSchools,
-  highSchools,
-  primaryTier1,
-  middleTier1,
-  highLevels,
-  tier1Schools,
-  middleTier1Schools,
-  entities,
-  matchEnrollment,
-  middleQuotaSummary,
-  middlePrimaryFeed,
-  xiaoshengchuOf,
-  schoolBadges,
-  scoresOfSchool,
-  isComprehensive,
-  brandGroupOf,
-  groupOfSchool,
-  resolvePoiName,
-  resolveSchoolIdOf,
+  repository, primarySchools, middleSchools, highSchools, primaryTier1, middleTier1,
+  highLevels, tier1Schools, middleTier1Schools, entities, matchEnrollment,
+  middleQuotaSummary, middlePrimaryFeed, xiaoshengchuOf, schoolBadges, scoresOfSchool,
+  isComprehensive, brandGroupOf, groupOfSchool, resolvePoiName, resolveSchoolIdOf,
   type BrandUnit,
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
@@ -47,12 +25,53 @@ import LinkagePanel from '../components/LinkagePanel.vue';
 const props = defineProps<{ name: string; stage?: string }>();
 const route = useRoute();
 const schoolName = computed(() => decodeURIComponent(props.name || ''));
-/** 学校实体主键：URL 有 id 直接用；否则用校名在 entities 表反查（含别名桥接），所有模块统一受益 */
+/** URL 有 id 优先；无 id 时从实体表解析，保证深链与地图链接一致。 */
 const schoolId = computed(() => {
   if (typeof route.query.id === 'string' && route.query.id) return route.query.id;
-  return resolveSchoolIdOf(schoolName.value) || '';
+  return repository.resolveSchoolIdOf(schoolName.value) || '';
 });
 const router = useRouter();
+const STAGE_LABEL: Record<SchoolStage, string> = { primary: '小学部', middle: '初中部', high: '高中部' };
+
+/** Web 与小程序统一消费 shared 详情模型；本组件仅保留路由与渲染适配。 */
+const probe = computed(() => buildDetailModel('primary', schoolName.value, repository, schoolId.value));
+const availableStages = computed(() => probe.value.availableStages);
+const activeStage = ref<SchoolStage>('primary');
+function resolveStage(): SchoolStage {
+  const requested = route.query.stage as string | undefined;
+  return requested && availableStages.value.includes(requested as SchoolStage)
+    ? requested as SchoolStage : availableStages.value[0] || 'primary';
+}
+watch([schoolName, () => route.query.stage, schoolId], () => { activeStage.value = resolveStage(); }, { immediate: true });
+const model = computed(() => buildDetailModel(activeStage.value, schoolName.value, repository, schoolId.value));
+const stage = computed(() => model.value.stage);
+function switchStage(next: SchoolStage) {
+  router.replace({ path: `/school/${encodeURIComponent(schoolName.value)}`, query: { stage: next, ...(schoolId.value ? { id: schoolId.value } : {}) } });
+}
+function goBack() { window.history.length > 1 ? router.back() : router.push('/map'); }
+function viewOnMap() { router.push({ path: '/map', query: { focus: schoolId.value || schoolName.value } }); }
+
+const stageLabel = computed(() => model.value.stageLabel);
+const districtOf = computed(() => model.value.district);
+const poi = computed(() => model.value.poi);
+const badges = computed(() => model.value.badges);
+const headText = computed(() => model.value.headText);
+const legalEntityText = computed(() => model.value.legalEntityText);
+const enrollment = computed(() => model.value.enrollment);
+const primaryMechanism = computed(() => model.value.primaryMechanism);
+const feedJuniors = computed(() => model.value.feedJuniors);
+const feedGap = computed(() => model.value.feedGap);
+const feedRows = computed(() => model.value.feedRows);
+const feedPrimarys = computed(() => model.value.feedPrimarys);
+const signalRows = computed(() => model.value.signalRows);
+const admissionRows = computed(() => model.value.admissionRows);
+const gaokaoRows = computed(() => model.value.gaokaoRows);
+const brandCard = computed(() => model.value.brandCard);
+const brandCardUseful = computed(() => model.value.brandCardUseful);
+const campuses = computed(() => model.value.campuses);
+
+// Historical in-component implementation is inactive. Production values above use buildDetailModel.
+if (false) {
 /** 返回上一级（无历史则回地图） */
 function goBack() {
   if (window.history.length > 1) router.back();
@@ -401,6 +420,7 @@ const brandCard = computed<{ brand: string; note?: string; sourceUrls: string[];
 const brandCardUseful = computed(() =>
   !!brandCard.value && brandCard.value.groups.some((g) => g.rows.some((r) => !r.isCurrent)),
 );
+}
 </script>
 
 <template>
@@ -437,7 +457,7 @@ const brandCardUseful = computed(() =>
         <div class="kv-row"><span>学段</span><b>{{ stageLabel }}</b></div>
         <div class="kv-row"><span>所属区</span><b>{{ districtOf }}</b></div>
         <div class="kv-row" v-if="poi?.lng"><span>坐标</span><b>{{ poi.lng.toFixed(5) }}, {{ poi.lat.toFixed(5) }}</b></div>
-        <div class="kv-row" v-if="tier?.legal_entity"><span>法人实体</span><b>{{ legalEntityText }}</b></div>
+        <div class="kv-row" v-if="legalEntityText !== '—'"><span>法人实体</span><b>{{ legalEntityText }}</b></div>
       </div>
     </div>
 
@@ -571,10 +591,10 @@ const brandCardUseful = computed(() =>
         </div>
       </template>
       <!-- 无品牌集团卡片时，校区列表用 brand-row 风格（可点击 + 学部 badge） -->
-      <div v-if="!brandCardUseful && rec?.campuses && rec.campuses.length > 1" class="brand-group">
-        <div v-for="c in rec.campuses" :key="c" class="brand-row">
+      <div v-if="!brandCardUseful && campuses && campuses.length > 1" class="brand-group">
+        <div v-for="c in campuses" :key="c" class="brand-row">
           <div class="brand-row-main">
-            <RouterLink v-if="resolvePoiName(c)" :to="`/school/${encodeURIComponent(resolvePoiName(c)!)}?stage=high`" class="brand-name-link">{{ c }}</RouterLink>
+            <RouterLink v-if="repository.resolvePoiName(c)" :to="`/school/${encodeURIComponent(repository.resolvePoiName(c)!)}?stage=high`" class="brand-name-link">{{ c }}</RouterLink>
             <template v-else>{{ c }}</template>
             <span class="tag">校区</span>
           </div>
