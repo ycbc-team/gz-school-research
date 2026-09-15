@@ -518,10 +518,128 @@
         "brand": "广州市第四中学教育集团",
         "source": "education"
       },
+      "kaosheng": 55,
+      "sheng_quota": 3,
+      "qu_quota": 19,
+      "autonomy_count": 3,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 0,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 0,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 0,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 0,
+          "tekong": 60.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 1,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 1,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
+          "count": 0,
+          "tekong": null
+        }
+      ],
+      "tekong_quota_rate": 25.1
+    },
+    {
+      "name": "广州市西关培英中学",
+      "school_id": "gz-440104-3b870a8e",
+      "district": "荔湾区",
+      "group": null,
       "kaosheng": 142,
       "sheng_quota": 7,
       "qu_quota": 44,
-      "autonomy_count": 3,
+      "autonomy_count": 2,
       "sz": [
         {
           "high": "广东实验中学（荔湾校区）",
@@ -569,7 +687,7 @@
           "tekong": null
         }
       ],
-      "tekong_quota_rate": 9.7
+      "tekong_quota_rate": null
     },
     {
       "name": "广州市陈嘉庚纪念中学",
@@ -1021,7 +1139,7 @@
       "group": null,
       "kaosheng": 4,
       "sheng_quota": 1,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -1276,7 +1394,7 @@
       "group": null,
       "kaosheng": 155,
       "sheng_quota": 8,
-      "qu_quota": 249,
+      "qu_quota": 49,
       "autonomy_count": 48,
       "sz": [
         {
@@ -1387,7 +1505,7 @@
       "group": null,
       "kaosheng": 2,
       "sheng_quota": 0,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -1415,7 +1533,7 @@
       "group": null,
       "kaosheng": 1,
       "sheng_quota": 0,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -1488,6 +1606,124 @@
         },
         {
           "high": "广州大学附属中学",
+          "count": 0,
+          "tekong": null
+        }
+      ],
+      "tekong_quota_rate": null
+    },
+    {
+      "name": "广州市荔湾区海龙博雅中英文学校",
+      "school_id": "gz-440103-18a86b0d",
+      "district": "荔湾区",
+      "group": null,
+      "kaosheng": 0,
+      "sheng_quota": 0,
+      "qu_quota": 0,
+      "autonomy_count": 0,
+      "sz": [
+        {
+          "high": "华南师范大学附属中学（石牌校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "华南师范大学附属中学（知识城校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东实验中学（荔湾校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东实验中学（白云校区）",
+          "count": 0,
+          "tekong": 80.0
+        },
+        {
+          "high": "广东广雅中学（荔湾校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广东广雅中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市执信中学（执信路校区）",
+          "count": 0,
+          "tekong": 95.0
+        },
+        {
+          "high": "广州市执信中学（天河校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第二中学",
+          "count": 0,
+          "tekong": 96.3
+        },
+        {
+          "high": "广州市第六中学（海珠校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（从化校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市第六中学（花都校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广东华侨中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州协和学校",
+          "count": 0,
+          "tekong": 60.0
+        },
+        {
+          "high": "广州大学附属中学",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "广州市铁一中学（越秀校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（番禺校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州市铁一中学（白云校区）",
+          "count": 0,
+          "tekong": 90.0
+        },
+        {
+          "high": "广州外国语学校",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智谷校区）",
+          "count": 0,
+          "tekong": null
+        },
+        {
+          "high": "清华附中湾区学校（智慧城校区）",
           "count": 0,
           "tekong": null
         }
@@ -2061,7 +2297,7 @@
     },
     {
       "name": "广州荔湾爱莎文华学校",
-      "school_id": null,
+      "school_id": "gz-440103-56e6d2e3",
       "district": "荔湾区",
       "group": null,
       "kaosheng": 45,
@@ -3894,7 +4130,7 @@
       },
       "kaosheng": 97,
       "sheng_quota": 5,
-      "qu_quota": 128,
+      "qu_quota": 28,
       "autonomy_count": 7,
       "sz": [
         {
@@ -7634,12 +7870,12 @@
     },
     {
       "name": "广州市海珠区华立学校",
-      "school_id": null,
+      "school_id": "gz-440105-2dd8d89d",
       "district": "海珠区",
       "group": null,
       "kaosheng": 2,
       "sheng_quota": 0,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -7677,7 +7913,7 @@
       "group": null,
       "kaosheng": 5,
       "sheng_quota": 1,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -7710,7 +7946,7 @@
       "group": null,
       "kaosheng": 3,
       "sheng_quota": 0,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -7766,7 +8002,7 @@
     },
     {
       "name": "广州市海珠区南武文润学校",
-      "school_id": null,
+      "school_id": "gz-440105-44b3dc01",
       "district": "海珠区",
       "group": null,
       "kaosheng": 66,
@@ -8246,13 +8482,10 @@
       "tekong_quota_rate": 6.9
     },
     {
-      "name": "广州市第一一三中学",
+      "name": "广州市第—一三中学",
       "school_id": "gz-440106-2e9f6f7b",
       "district": "天河区",
-      "group": {
-        "brand": "113中学教育集团",
-        "source": "education"
-      },
+      "group": null,
       "kaosheng": 1057,
       "sheng_quota": 54,
       "qu_quota": 258,
@@ -8364,7 +8597,7 @@
           "tekong": null
         }
       ],
-      "tekong_quota_rate": 5.8
+      "tekong_quota_rate": null
     },
     {
       "name": "广州市天河外国语学校",
@@ -10349,7 +10582,7 @@
       "group": null,
       "kaosheng": 8,
       "sheng_quota": 1,
-      "qu_quota": 0,
+      "qu_quota": 2,
       "autonomy_count": 0,
       "sz": [
         {
@@ -10377,7 +10610,7 @@
       "group": null,
       "kaosheng": 4,
       "sheng_quota": 0,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -10395,7 +10628,7 @@
     },
     {
       "name": "广州市天河区同仁实验学校",
-      "school_id": null,
+      "school_id": "gz-440106-969f3b59",
       "district": "天河区",
       "group": null,
       "kaosheng": 7,
@@ -10418,7 +10651,7 @@
       "group": null,
       "kaosheng": 1,
       "sheng_quota": 0,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -10464,7 +10697,7 @@
       "group": null,
       "kaosheng": 10,
       "sheng_quota": 1,
-      "qu_quota": 0,
+      "qu_quota": 3,
       "autonomy_count": 0,
       "sz": [
         {
@@ -10548,12 +10781,12 @@
     },
     {
       "name": "广州市天河区东风学校",
-      "school_id": null,
+      "school_id": "gz-440106-857586b5",
       "district": "天河区",
       "group": null,
       "kaosheng": 5,
       "sheng_quota": 1,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -10590,13 +10823,13 @@
       "district": "天河区",
       "group": null,
       "kaosheng": 1,
-      "sheng_quota": 1,
+      "sheng_quota": 0,
       "qu_quota": 0,
       "autonomy_count": 0,
       "sz": [
         {
           "high": "广东广雅中学（花都校区）",
-          "count": 1,
+          "count": 0,
           "tekong": null
         }
       ],
@@ -10685,7 +10918,7 @@
       "group": null,
       "kaosheng": 5,
       "sheng_quota": 1,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -10703,7 +10936,7 @@
       "group": null,
       "kaosheng": 2,
       "sheng_quota": 0,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -11725,13 +11958,10 @@
       "tekong_quota_rate": 2.7
     },
     {
-      "name": "广州市第一一五中学",
+      "name": "广州市第—一五中学",
       "school_id": "gz-440111-b5668c2e",
       "district": "白云区",
-      "group": {
-        "brand": "广外实验中学教育集团",
-        "source": "education"
-      },
+      "group": null,
       "kaosheng": 259,
       "sheng_quota": 13,
       "qu_quota": 51,
@@ -11803,7 +12033,7 @@
           "tekong": null
         }
       ],
-      "tekong_quota_rate": 3.8
+      "tekong_quota_rate": null
     },
     {
       "name": "广州市第七十中学",
@@ -12051,7 +12281,7 @@
     },
     {
       "name": "广州市白云区江高镇第二初级中学",
-      "school_id": null,
+      "school_id": "gz-440111-99232185",
       "district": "白云区",
       "group": {
         "brand": "广东技术师范大学实验教育集团",
@@ -12225,13 +12455,10 @@
       "tekong_quota_rate": 2.7
     },
     {
-      "name": "广州市第一一四中学",
+      "name": "广州市第—一四中学",
       "school_id": "gz-440111-0f9c1ce8",
       "district": "白云区",
-      "group": {
-        "brand": "广州市白云区白云实验教育集团",
-        "source": "education"
-      },
+      "group": null,
       "kaosheng": 68,
       "sheng_quota": 3,
       "qu_quota": 11,
@@ -12268,7 +12495,7 @@
           "tekong": null
         }
       ],
-      "tekong_quota_rate": 1.9
+      "tekong_quota_rate": null
     },
     {
       "name": "广州市白云区大朗中学",
@@ -12465,7 +12692,7 @@
     },
     {
       "name": "广州市白云区三元里中学",
-      "school_id": null,
+      "school_id": "gz-440111-a20eb9b6",
       "district": "白云区",
       "group": {
         "brand": "广州市白云中学教育集团",
@@ -13066,7 +13293,7 @@
     },
     {
       "name": "广州市白云区南悦中学",
-      "school_id": null,
+      "school_id": "gz-440111-60ffdb9e",
       "district": "白云区",
       "group": {
         "brand": "广州大同教育集团",
@@ -13135,7 +13362,7 @@
       },
       "kaosheng": 29,
       "sheng_quota": 1,
-      "qu_quota": 5,
+      "qu_quota": 6,
       "autonomy_count": 0,
       "sz": [
         {
@@ -15664,7 +15891,7 @@
       "district": "白云区",
       "group": null,
       "kaosheng": 2,
-      "sheng_quota": 2,
+      "sheng_quota": 0,
       "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
@@ -15705,7 +15932,7 @@
         },
         {
           "high": "清华附中湾区学校（智谷校区）",
-          "count": 2,
+          "count": 0,
           "tekong": null
         },
         {
@@ -17906,7 +18133,7 @@
     },
     {
       "name": "广州市黄埔区铁英中学",
-      "school_id": null,
+      "school_id": "gz-440112-733a4cdd",
       "district": "黄埔区",
       "group": {
         "brand": "广铁一中教育集团",
@@ -19968,7 +20195,7 @@
       "group": null,
       "kaosheng": 4,
       "sheng_quota": 1,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -20240,6 +20467,18 @@
         }
       ],
       "tekong_quota_rate": 5.3
+    },
+    {
+      "name": "广东第二师范学院广州南站附属学校",
+      "school_id": "gz-440113-c6e3adf4",
+      "district": "番禺区",
+      "group": null,
+      "kaosheng": 261,
+      "sheng_quota": 13,
+      "qu_quota": 72,
+      "autonomy_count": 2,
+      "sz": [],
+      "tekong_quota_rate": null
     },
     {
       "name": "广州市番禺区钟村奥园学校",
@@ -20724,7 +20963,7 @@
       },
       "kaosheng": 363,
       "sheng_quota": 19,
-      "qu_quota": 12,
+      "qu_quota": 112,
       "autonomy_count": 15,
       "sz": [
         {
@@ -20993,6 +21232,18 @@
         }
       ],
       "tekong_quota_rate": 4.5
+    },
+    {
+      "name": "广东第二师范学院番禺附属初级中学",
+      "school_id": "gz-440113-6a13dc63",
+      "district": "番禺区",
+      "group": null,
+      "kaosheng": 279,
+      "sheng_quota": 14,
+      "qu_quota": 77,
+      "autonomy_count": 5,
+      "sz": [],
+      "tekong_quota_rate": null
     },
     {
       "name": "广东番禺中学实验学校",
@@ -22458,7 +22709,7 @@
       "group": null,
       "kaosheng": 3,
       "sheng_quota": 0,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -22521,7 +22772,7 @@
     },
     {
       "name": "广州市番禺区丽江学校",
-      "school_id": null,
+      "school_id": "gz-440113-980c0600",
       "district": "番禺区",
       "group": null,
       "kaosheng": 121,
@@ -22594,7 +22845,7 @@
       "group": null,
       "kaosheng": 53,
       "sheng_quota": 3,
-      "qu_quota": 0,
+      "qu_quota": 15,
       "autonomy_count": 6,
       "sz": [
         {
@@ -23293,17 +23544,14 @@
       "tekong_quota_rate": 5.2
     },
     {
-      "name": "广州市铁一中学（番禺校区）",
+      "name": "广州市铁",
       "school_id": "gz-440113-97e0acaa",
       "district": "番禺区",
-      "group": {
-        "brand": "广铁一中教育集团",
-        "source": "brand"
-      },
+      "group": null,
       "kaosheng": 266,
       "sheng_quota": 14,
       "qu_quota": 73,
-      "autonomy_count": 109,
+      "autonomy_count": 0,
       "sz": [
         {
           "high": "华南师范大学附属中学（石牌校区）",
@@ -23381,20 +23629,20 @@
           "tekong": null
         }
       ],
-      "tekong_quota_rate": 5.0
+      "tekong_quota_rate": null
     },
     {
-      "name": "广州大学附属中学（番禺校区）",
+      "name": "广州市铁一中学（番禺校区）",
       "school_id": "gz-440113-8f5e4721",
       "district": "番禺区",
       "group": {
-        "brand": "广州大学附属中学教育集团",
+        "brand": "广铁一中教育集团",
         "source": "brand"
       },
       "kaosheng": 557,
       "sheng_quota": 29,
       "qu_quota": 154,
-      "autonomy_count": 131,
+      "autonomy_count": 109,
       "sz": [
         {
           "high": "华南师范大学附属中学（石牌校区）",
@@ -23487,7 +23735,7 @@
           "tekong": null
         }
       ],
-      "tekong_quota_rate": 6.8
+      "tekong_quota_rate": 2.4
     },
     {
       "name": "广州市番禺区嘉诚学校",
@@ -23976,9 +24224,9 @@
       "school_id": "gz-440113-28a853f8",
       "district": "番禺区",
       "group": null,
-      "kaosheng": 41,
+      "kaosheng": 4,
       "sheng_quota": 1,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -24305,7 +24553,7 @@
       "group": null,
       "kaosheng": 5,
       "sheng_quota": 1,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -24423,7 +24671,7 @@
       "group": null,
       "kaosheng": 2,
       "sheng_quota": 0,
-      "qu_quota": 0,
+      "qu_quota": 1,
       "autonomy_count": 0,
       "sz": [
         {
@@ -24697,14 +24945,14 @@
       "tekong_quota_rate": null
     },
     {
-      "name": "广州市番禺区北新正华学校",
+      "name": "广州市番禺区北正华学校",
       "school_id": "gz-440113-a93513f2",
       "district": "番禺区",
       "group": null,
       "kaosheng": 69,
       "sheng_quota": 3,
       "qu_quota": 19,
-      "autonomy_count": 13,
+      "autonomy_count": 0,
       "sz": [
         {
           "high": "广东实验中学（白云校区）",
@@ -24727,7 +24975,7 @@
           "tekong": null
         }
       ],
-      "tekong_quota_rate": 3.2
+      "tekong_quota_rate": null
     },
     {
       "name": "广州市番禺区恒润实验学校",
