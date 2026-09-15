@@ -161,8 +161,14 @@ def main():
     out['schools'] = schools
     out['districts'] = districts
     out['updated'] = '2026-09-15'
-    out['note'] = (old.get('note', '') + ' 2026-09-15 重建：31页整页目视复核三列（考生/省市/区属），修正6↔9混淆、补回缺行'
-                   '（番禺二师南站附属/二师番禺附中、荔湾四中丰宁/海龙博雅、花都清埔初级），修复荔湾西关培英校名错位。')
+    # 幂等 note：先剥离历史追加段，再一次性写入（可重复重跑，不累积重复文本）
+    REBUILD_NOTE = (' 2026-09-15 重建：31页整页目视复核三列（考生/省市/区属），修正6↔9混淆、补回缺行'
+                    '（番禺二师南站附属/二师番禺附中、荔湾四中丰宁/海龙博雅、花都清埔初级），修复荔湾西关培英校名错位。')
+    SZ_GAP_NOTE = ' 二师南站附属/二师番禺附中为本次补行，sz 分额明细暂缺(sz_sum=0)。'
+    base = old.get('note', '')
+    for seg in (REBUILD_NOTE, SZ_GAP_NOTE):
+        base = base.replace(seg, '')
+    out['note'] = base.rstrip() + REBUILD_NOTE + SZ_GAP_NOTE
     json.dump(out, open(OUT, 'w'), ensure_ascii=False, indent=1)
     print('保存', OUT)
 
