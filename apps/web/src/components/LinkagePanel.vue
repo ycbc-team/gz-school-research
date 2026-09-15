@@ -19,7 +19,7 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
   <template v-if="stage === 'middle'">
     <div class="card" v-if="model.specialRows.length">
       <div class="card-title">中考-第一批</div>
-      <p class="sub-note">特殊通道：自主招生 / 体育 / 艺术特长生。本校学生通过特殊通道被以下高中录取（资格名单人数，非最终预录取）。</p>
+      <p class="sub-note">特殊通道：自主招生 / 体育 / 艺术特长生。本校学生通过特殊通道被以下高中录取（资格名单人数，非最终预录取）。升入高中为官方法人招生单位，个别学校（如广州大学附属中学）多校区共用同一计划，录取后校区由学校统筹。</p>
       <div class="tbl">
         <div class="tbl-row tbl-head"><span>升入高中</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
         <div v-for="r in model.specialRows" :key="r.campus" class="tbl-row">
@@ -84,7 +84,7 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
   <template v-else>
     <div class="card" v-if="model.highSpecialCoverage.length">
       <div class="card-title">第一批招生（2026）</div>
-      <p class="sub-note">特殊通道（自主招生 / 体育 / 艺术特长生）覆盖初中，按合计人数降序。高中部招生计划按法人单位统一公布，多校区共用同一计划。</p>
+      <p class="sub-note">特殊通道（自主招生 / 体育 / 艺术特长生）覆盖初中，按合计人数降序。高中部招生计划按官方法人单位统一公布，办学地点以校区页为准（如广州大学附属中学高中部设于大学城校区），录取后校区由学校统筹安排。</p>
       <div class="tbl">
         <div class="tbl-row tbl-head"><span>初中</span><span>自招</span><span>体育</span><span>艺术</span></div>
         <div v-for="r in model.highSpecialCoverage" :key="r.school" class="tbl-row">
