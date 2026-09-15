@@ -44,6 +44,8 @@ export function createRepository(loaders: DataLoaders) {
     /** tier1 快照（小学小升初机制等场景用） */
     primaryTier1: loaders.primaryTier1,
     middleTier1: loaders.middleTier1,
+    /** 初中升学信号基础表（全量 334 校自招/指标/特控率，tier1 未覆盖学校详情页补充用） */
+    rankingMiddle: loaders.rankingMiddle,
 
     ...schools,
     ...enrollment,

@@ -271,7 +271,7 @@ const groups = computed(() => {
               <td class="c-name">
                 <RouterLink
                   class="school-link"
-                  :to="{ path: '/school/' + encodeURIComponent(row.s.name), query: row.s.school_id ? { id: row.s.school_id } : {} }"
+                  :to="{ path: '/school/' + encodeURIComponent(row.s.name), query: { stage: 'middle', ...(row.s.school_id ? { id: row.s.school_id } : {}) } }"
                 >{{ shortName(row.s.name) }}</RouterLink>
                 <em v-if="row.s.minban" class="mb-tag">民办</em>
               </td>

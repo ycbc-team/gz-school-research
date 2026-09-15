@@ -328,11 +328,22 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
   const brandCardUseful = !!brandCard && brandCard.groups.some((g) => g.rows.some((r) => !r.isCurrent));
 
   /* ---------- 客观信号（历史称号/集团/喜报/录取线等源数据） ---------- */
-  const signalRows: DetailRow[] = stage === 'primary'
-    ? (tier ? formatPrimarySignals(tier) : [])
-    : stage === 'middle'
-      ? (tier ? formatMiddleSignals(tier) : [])
-      : [];
+  const signalRows: DetailRow[] = (() => {
+    if (stage === 'primary') return tier ? formatPrimarySignals(tier) : [];
+    if (stage !== 'middle') return [];
+    const rows = tier ? formatMiddleSignals(tier) : [];
+    // tier1（口碑校 54 所）未覆盖时，从全量 rankingMiddle（官方自招资格名单）补充自主招生行
+    const hasAut = rows.some((r) => r.label === '自主招生');
+    if (!hasAut && repo.rankingMiddle) {
+      const list = repo.rankingMiddle.schools;
+      const byId = schoolId ? list.find((x) => x.school_id === schoolId) : undefined;
+      const rec = byId ?? list.find((x) => normName(x.name) === normName(schoolName));
+      if (rec && (rec.autonomy_count ?? 0) > 0) {
+        rows.push({ label: '自主招生', value: `2026 年 ${rec.autonomy_count} 人（官方资格名单）` });
+      }
+    }
+    return rows;
+  })();
 
   return {
     stage,
