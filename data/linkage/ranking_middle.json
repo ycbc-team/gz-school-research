@@ -1019,7 +1019,7 @@
       "school_id": "gz-440103-e7a8679d",
       "district": "荔湾区",
       "group": null,
-      "kaosheng": 0,
+      "kaosheng": 4,
       "sheng_quota": 1,
       "qu_quota": 0,
       "autonomy_count": 0,
@@ -1055,7 +1055,7 @@
           "tekong": null
         }
       ],
-      "tekong_quota_rate": null
+      "tekong_quota_rate": 18.8
     },
     {
       "name": "广州市荔湾区新苗学校",
@@ -1090,7 +1090,7 @@
       "school_id": "gz-440103-4ab42b76",
       "district": "荔湾区",
       "group": null,
-      "kaosheng": 0,
+      "kaosheng": 1,
       "sheng_quota": 0,
       "qu_quota": 1,
       "autonomy_count": 0,
@@ -1241,7 +1241,7 @@
       "school_id": "gz-440103-cc2ff923",
       "district": "荔湾区",
       "group": null,
-      "kaosheng": 0,
+      "kaosheng": 6,
       "sheng_quota": 1,
       "qu_quota": 2,
       "autonomy_count": 0,
@@ -1267,7 +1267,7 @@
           "tekong": 90.0
         }
       ],
-      "tekong_quota_rate": null
+      "tekong_quota_rate": 12.5
     },
     {
       "name": "广州市荔湾区荔广实验学校",
@@ -1332,7 +1332,7 @@
       "school_id": "gz-440103-84d436cd",
       "district": "荔湾区",
       "group": null,
-      "kaosheng": 0,
+      "kaosheng": 1,
       "sheng_quota": 0,
       "qu_quota": 1,
       "autonomy_count": 0,
@@ -1378,7 +1378,7 @@
           "tekong": 90.0
         }
       ],
-      "tekong_quota_rate": null
+      "tekong_quota_rate": 75.0
     },
     {
       "name": "广州市荔湾区东沙博雅实验学校",
@@ -1413,7 +1413,7 @@
       "school_id": "gz-440103-815371aa",
       "district": "荔湾区",
       "group": null,
-      "kaosheng": 0,
+      "kaosheng": 1,
       "sheng_quota": 0,
       "qu_quota": 0,
       "autonomy_count": 0,
@@ -10416,7 +10416,7 @@
       "school_id": "gz-440106-b52cb528",
       "district": "天河区",
       "group": null,
-      "kaosheng": 0,
+      "kaosheng": 1,
       "sheng_quota": 0,
       "qu_quota": 0,
       "autonomy_count": 0,
@@ -10444,7 +10444,7 @@
       "school_id": "gz-440106-eda909f7",
       "district": "天河区",
       "group": null,
-      "kaosheng": 0,
+      "kaosheng": 2,
       "sheng_quota": 1,
       "qu_quota": 0,
       "autonomy_count": 0,
@@ -10462,7 +10462,7 @@
       "school_id": "gz-440106-4534dc1a",
       "district": "天河区",
       "group": null,
-      "kaosheng": 0,
+      "kaosheng": 10,
       "sheng_quota": 1,
       "qu_quota": 0,
       "autonomy_count": 0,
@@ -10483,7 +10483,7 @@
           "tekong": null
         }
       ],
-      "tekong_quota_rate": null
+      "tekong_quota_rate": 16.2
     },
     {
       "name": "广州市天河区大华学校",
@@ -10589,7 +10589,7 @@
       "school_id": "gz-440106-9abdc5fd",
       "district": "天河区",
       "group": null,
-      "kaosheng": 0,
+      "kaosheng": 1,
       "sheng_quota": 1,
       "qu_quota": 0,
       "autonomy_count": 0,
@@ -10683,7 +10683,7 @@
       "school_id": "gz-440106-0d03d513",
       "district": "天河区",
       "group": null,
-      "kaosheng": 0,
+      "kaosheng": 5,
       "sheng_quota": 1,
       "qu_quota": 0,
       "autonomy_count": 0,
@@ -10694,14 +10694,14 @@
           "tekong": 90.0
         }
       ],
-      "tekong_quota_rate": null
+      "tekong_quota_rate": 18.0
     },
     {
       "name": "广州市天河区新昌学校",
       "school_id": "gz-440106-1b9f7e62",
       "district": "天河区",
       "group": null,
-      "kaosheng": 0,
+      "kaosheng": 2,
       "sheng_quota": 0,
       "qu_quota": 0,
       "autonomy_count": 0,
@@ -14878,7 +14878,7 @@
       "school_id": "gz-440111-2667c5ae",
       "district": "白云区",
       "group": null,
-      "kaosheng": 1,
+      "kaosheng": 4,
       "sheng_quota": 1,
       "qu_quota": 0,
       "autonomy_count": 0,
@@ -17851,7 +17851,7 @@
       "school_id": "gz-440112-bffde68d",
       "district": "黄埔区",
       "group": null,
-      "kaosheng": 0,
+      "kaosheng": 1,
       "sheng_quota": 1,
       "qu_quota": 0,
       "autonomy_count": 0,
@@ -24303,7 +24303,7 @@
       "school_id": "gz-440113-6426397c",
       "district": "番禺区",
       "group": null,
-      "kaosheng": 0,
+      "kaosheng": 5,
       "sheng_quota": 1,
       "qu_quota": 0,
       "autonomy_count": 0,
@@ -24414,14 +24414,14 @@
           "tekong": null
         }
       ],
-      "tekong_quota_rate": null
+      "tekong_quota_rate": 2.6
     },
     {
       "name": "广州市番禺区化龙镇大博学校",
       "school_id": "gz-440113-62cbe194",
       "district": "番禺区",
       "group": null,
-      "kaosheng": 0,
+      "kaosheng": 2,
       "sheng_quota": 0,
       "qu_quota": 0,
       "autonomy_count": 0,
