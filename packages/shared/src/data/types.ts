@@ -28,6 +28,8 @@ export interface QuotaMatrix {
 export interface SpecialMatrix {
   high_schools: string[];
   matrix: Record<string, Record<string, { sports?: number; arts?: number; autonomy?: number }>>;
+  /** 官方第一批招生单位原文 → 高中实体外键；null=未收录实体，只保留原文展示，禁止名称兜底 */
+  high_school_ids?: Record<string, string | null>;
   /** 初中名 → 实体 school_id（backfill 回填；官方名唯一外键） */
   middle_school_ids?: Record<string, string>;
 }

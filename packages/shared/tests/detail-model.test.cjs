@@ -8,7 +8,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const { createRepository, buildDetailModel } = require('../dist/cjs/index.js');
+const { createRepository, buildDetailModel, buildLinkageModel } = require('../dist/cjs/index.js');
 const ROOT = path.resolve(__dirname, '../../..');
 const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', file), 'utf8'));
 const loaders = {
@@ -68,4 +68,22 @@ test('详情模型：高中校区详情不聚合同校其它校区的录取线',
   const model = buildDetailModel('high', poi.name, repo, poi.school_id);
   assert.equal(model.admissionRows.length, 2);
   assert.ok(model.admissionRows.every((row) => row.value.includes('广钢')));
+});
+
+test('第一批高中详情只按 school_id 反查，所有已映射招生单位均有覆盖数据', () => {
+  const special = loaders.specialMatrix;
+  const seen = new Set();
+  const missing = [];
+  for (const [rawName, schoolId] of Object.entries(special.high_school_ids || {})) {
+    if (!schoolId || seen.has(schoolId)) continue;
+    seen.add(schoolId);
+    const entity = repo.entities.find((e) => e.school_id === schoolId);
+    if (!entity) {
+      missing.push(`${rawName}: 实体不存在(${schoolId})`);
+      continue;
+    }
+    const model = buildLinkageModel('high', entity.name, repo, schoolId);
+    if (!model.highSpecialCoverage.length) missing.push(`${rawName}: ${schoolId} 无第一批覆盖`);
+  }
+  assert.deepEqual(missing, [], `第一批招生 ID 反查回归: ${missing.join('; ')}`);
 });

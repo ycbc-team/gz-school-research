@@ -9,9 +9,9 @@ import { computed } from 'vue';
 import { buildLinkageModel } from '@gz/shared';
 import { repository } from '../data';
 
-const props = defineProps<{ stage: 'middle' | 'high'; school: string }>();
+const props = defineProps<{ stage: 'middle' | 'high'; school: string; schoolId?: string }>();
 const schoolName = computed(() => decodeURIComponent(props.school || ''));
-const model = computed(() => buildLinkageModel(props.stage, schoolName.value, repository));
+const model = computed(() => buildLinkageModel(props.stage, schoolName.value, repository, props.schoolId));
 </script>
 
 <template>
@@ -24,7 +24,7 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
         <div class="tbl-row tbl-head"><span>升入高中</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
         <div v-for="r in model.specialRows" :key="r.campus" class="tbl-row">
           <span>
-            <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=high`" class="sch-link">{{ r.campusFull || r.campus }}</RouterLink>
+            <RouterLink v-if="r.poiName && r.schoolId" :to="{ path: `/school/${encodeURIComponent(r.poiName)}`, query: { stage: 'high', id: r.schoolId } }" class="sch-link">{{ r.campusFull || r.campus }}</RouterLink>
             <template v-else>{{ r.campusFull || r.campus }}</template>
           </span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
         </div>
@@ -89,7 +89,7 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
         <div class="tbl-row tbl-head"><span>初中</span><span>自招</span><span>体育</span><span>艺术</span></div>
         <div v-for="r in model.highSpecialCoverage" :key="r.school" class="tbl-row">
           <span>
-            <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink>
+            <RouterLink v-if="r.poiName && r.schoolId" :to="{ path: `/school/${encodeURIComponent(r.poiName)}`, query: { stage: 'middle', id: r.schoolId } }" class="sch-link">{{ r.school }}</RouterLink>
             <template v-else>{{ r.school }}</template>
           </span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span>
         </div>

@@ -27,6 +27,8 @@ const highPois = load('data/high/schools-gz.json').schools;
 const highLevels = load('data/high/levels.json').schools;
 const districtQuota = load('data/linkage/district_quota.json').data;
 const quotaMatrix = load('data/linkage/quota_matrix.json');
+const specialMatrix = load('data/linkage/special_matrix.json');
+const sourceNameMappings = load('data/registry/source_name_mappings.json').mappings;
 const schoolnames = load('data/linkage/raw/schoolnames.json');
 const brandGroups = load('data/registry/brand_groups.json').brands;
 
@@ -145,4 +147,32 @@ test('brand_groups 成员 school_id 在 entities 里存在', () => {
     }
   }
   assert.deepEqual(missing, [], `品牌成员引用了不存在的 entity: ${missing.join(', ')}`);
+});
+
+/* ========== 六、第一批招生 ID 关系 ========== */
+test('第一批来源名映射唯一，且全部指向高中实体', () => {
+  const highIds = new Set(entities.filter((e) => e.stage === 'high').map((e) => e.school_id));
+  const seen = new Set();
+  const bad = [];
+  for (const row of sourceNameMappings) {
+    if (!row.source || !row.raw_name || !row.school_id) bad.push(`字段不完整: ${JSON.stringify(row)}`);
+    const key = `${row.source}|${row.raw_name}`;
+    if (seen.has(key)) bad.push(`重复映射: ${key}`);
+    seen.add(key);
+    if (!highIds.has(row.school_id)) bad.push(`非高中实体: ${key} -> ${row.school_id}`);
+  }
+  assert.deepEqual(bad, [], `来源名映射不合法: ${bad.join('; ')}`);
+});
+
+test('第一批招生高中原文均有显式 ID 状态，已确认实体不得丢失 ID', () => {
+  const highIds = new Set(entities.filter((e) => e.stage === 'high').map((e) => e.school_id));
+  const ids = specialMatrix.high_school_ids || {};
+  const bad = [];
+  for (const rawName of specialMatrix.high_schools || []) {
+    if (!Object.prototype.hasOwnProperty.call(ids, rawName)) bad.push(`缺少 ID 状态: ${rawName}`);
+    const id = ids[rawName];
+    if (id && !highIds.has(id)) bad.push(`指向不存在/非高中实体: ${rawName} -> ${id}`);
+    if (specialMatrix.high_entities?.[rawName] && !id) bad.push(`已确认实体却缺少 ID: ${rawName}`);
+  }
+  assert.deepEqual(bad, [], `第一批招生 ID 外键异常: ${bad.join('; ')}`);
 });

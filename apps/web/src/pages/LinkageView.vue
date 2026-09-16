@@ -8,7 +8,7 @@
  * 合规口径：对外以"名额分配/录取分数/招生计划"官方数据为主，梯队与特控率为内部权重。
  */
 import { computed, ref } from 'vue';
-import { quotaMatrix, CAMPUS_NAMES, CAMPUS_INFO, resolvePoiName } from '../data';
+import { quotaMatrix, CAMPUS_NAMES, CAMPUS_INFO, resolvePoiName, specialHighSchoolId } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
 const ALL_SCHOOLS = [...quotaMatrix.schools].sort((a, b) => a.school.localeCompare(b.school, 'zh'));
@@ -28,6 +28,8 @@ const selectedSchoolPoi = computed(() => (selectedSchool.value ? resolvePoiName(
 /* ========== 高中视角 ========== */
 const highSel = ref<string>(CAMPUS_NAMES[0]!);
 const highSchoolName = computed(() => CAMPUS_INFO[highSel.value]!.school);
+/** 第一批特殊招生以官方招生单位→实体 ID 的构建期映射定位，不按校名反查。 */
+const highSchoolId = computed(() => specialHighSchoolId(highSel.value));
 
 /* ========== 通用 ========== */
 const pickSchool = (name: string) => {
@@ -84,7 +86,7 @@ const pickSchool = (name: string) => {
       </div>
       <p class="sub-note">当前：{{ highSchoolName }} · {{ highSel }}（各高中校区名额分配 / 自招计划独立展示）</p>
 
-      <LinkagePanel :stage="'high'" :school="highSel" />
+      <LinkagePanel :stage="'high'" :school="highSel" :school-id="highSchoolId || undefined" />
     </div>
 
     <!-- 口径 -->

@@ -8,12 +8,15 @@
 口径：全部有名单的高中（含区属/中职，不再限省市属 11 所）；
       自招为考核资格名单口径（非预录取）。
       体育/艺术 project 去掉末尾"（项目）"得到招生高中（校区）；自招标题去"2026年"前缀。
-      矩阵 key 使用名单原文（可溯源）；前端跳转通过实体表 resolvePoiName 归一。
+      矩阵 key 使用名单原文（可溯源）；业务关联同时产出 high_school_ids，
+      前端/共享层必须用该实体外键，不得再按高中名称二次匹配。
 """
 import json, re, collections
 
 BASE = 'data/linkage/raw'
 OUT = 'data/linkage/special_matrix.json'
+SOURCE_MAP = 'data/registry/source_name_mappings.json'
+SOURCE = 'gzzk-special-2026'
 
 
 def strip_2026(name: str) -> str:
@@ -41,19 +44,34 @@ def norm(s: str) -> str:
 
 # ---------------- 高中实体别名表（entities.json stage=high，名字匹配唯一宿主） ----------------
 entities = json.load(open('data/registry/entities.json'))['entities']
-high_aliases: dict[str, str] = {}  # 归一化别名 → 实体名
+entity_by_id = {e['school_id']: e for e in entities if e.get('stage') == 'high'}
+source_mappings = json.load(open(SOURCE_MAP)).get('mappings', [])
+source_id_by_raw_name = {
+    r['raw_name']: r['school_id']
+    for r in source_mappings
+    if r.get('source') == SOURCE and r.get('raw_name') and r.get('school_id')
+}
+high_aliases: dict[str, list[dict]] = collections.defaultdict(list)  # 归一化别名 → 高中实体候选
 for e in entities:
     if e.get('stage') != 'high':
         continue
     for a in [e['name']] + (e.get('aliases') or []):
         na = norm(a)
-        if na and na not in high_aliases:
-            high_aliases[na] = e['name']
+        if na:
+            high_aliases[na].append(e)
 
 
 def resolve_entity(name: str):
-    """名单高中原文 → 实体名（实体表别名全等匹配）；未命中返回 None（仅审计用，不阻塞收录）"""
-    return high_aliases.get(norm(name))
+    """名单高中原文 → 唯一高中实体。
+
+    这是唯一允许用名称解析第一批招生单位的构建期入口。候选必须收敛到唯一
+    school_id；未命中或歧义一律返回 None，留在审计输出，禁止取第一个候选。
+    """
+    mapped_id = source_id_by_raw_name.get(name)
+    if mapped_id:
+        return entity_by_id.get(mapped_id)
+    candidates = {e['school_id']: e for e in high_aliases.get(norm(name), [])}
+    return next(iter(candidates.values())) if len(candidates) == 1 else None
 
 
 # 已知截断/异常名单名 → 完整高中名（PDF 解析截断，显式修复、可审计）
@@ -111,14 +129,22 @@ for (j, h), v in m_auto.items():
     matrix[j][h]['autonomy'] = v
     all_hs.add(h)
 
-# 高中原文 → 实体名（审计：所有高中应能匹配到实体；未命中说明名单名与实体表有出入，需人工复核）
+# 高中原文 → 实体名/ID（审计：未命中说明名单名与实体表有出入，需人工复核）
 high_entities = {}
+high_school_ids = {}
 unresolved = []
 for h in sorted(all_hs):
     ent = resolve_entity(h)
-    high_entities[h] = ent
+    high_entities[h] = ent['name'] if ent else None
+    high_school_ids[h] = ent['school_id'] if ent else None
     if ent is None:
         unresolved.append(h)
+
+# 保留由 backfill_school_ids 生成的初中外键；本生成器只负责第一批事实和高中外键。
+try:
+    previous = json.load(open(OUT))
+except FileNotFoundError:
+    previous = {}
 
 out = {
     'updated': '2026-09-15',
@@ -126,12 +152,16 @@ out = {
     'note': (
         '体育/艺术=通过专业测试名单（官方发布）；自招=综合能力考核资格名单口径（考核前≤5倍计划，非预录取）。'
         '收录范围=官方名单出现的全部招生高中（不再限省市属 11 所）；矩阵键=名单原文（可溯源），'
-        'high_entities=名单原文→实体表高中名（未命中=名单名与实体表有出入，见审计输出）。'
+        'high_school_ids=名单原文→高中实体 school_id，是第一批招生关联唯一外键；'
+        '值为 null 表示未收录对应高中实体，仅保留原文展示，不得名称兜底。'
     ),
     'high_schools': sorted(all_hs),
     'high_entities': high_entities,
+    'high_school_ids': high_school_ids,
     'matrix': {j: dict(hs) for j, hs in matrix.items()},
 }
+if previous.get('middle_school_ids'):
+    out['middle_school_ids'] = previous['middle_school_ids']
 json.dump(out, open(OUT, 'w'), ensure_ascii=False, indent=1)
 print('高中招生单位数:', len(all_hs))
 print('初中学数:', len(matrix))

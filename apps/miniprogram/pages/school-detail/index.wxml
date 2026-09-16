@@ -107,7 +107,8 @@
       <view class="tbl">
         <view class="tbl-row tbl-head"><text>升入高中</text><text>自招</text><text>体育</text><text>艺术</text></view>
         <view wx:for="{{linkage.specialRows}}" wx:key="campus" class="tbl-row">
-          <text class="sch-link" data-to="/school/{{item.school}}?stage=high" bindtap="goSchool">{{item.campusFull || item.campus}}</text>
+          <text wx:if="{{item.schoolId}}" class="sch-link" data-to="/school/{{item.school}}?stage=high&id={{item.schoolId}}" bindtap="goSchool">{{item.campusFull || item.campus}}</text>
+          <text wx:else>{{item.campusFull || item.campus}}</text>
           <text>{{item.autonomy}}</text><text>{{item.sports}}</text><text>{{item.arts}}</text>
         </view>
       </view>

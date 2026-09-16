@@ -62,7 +62,7 @@ Page({
   applyStage(stage) {
     const model = buildDetailModel(stage, this.name, repository, this.schoolId);
     const rawLinkage = stage === 'middle' || stage === 'high'
-      ? buildLinkageModel(stage, this.name, repository)
+      ? buildLinkageModel(stage, this.name, repository, this.schoolId || null)
       : null;
     // WXML 表达式不支持 join，预计算覆盖行所在区文本
     const linkage = rawLinkage

@@ -588,7 +588,7 @@ const brandCardUseful = computed(() =>
         </div>
         <p class="sub-note">录取线为官方发布：公办为户籍生最低分，民办为最低分（含公费班），外语艺术类为末位考生分数；2025/2026 两年同屏展示。</p>
       </div>
-      <LinkagePanel :stage="'high'" :school="schoolName" />
+      <LinkagePanel :stage="'high'" :school="schoolName" :school-id="schoolId" />
     </template>
 
     <!-- 品牌关联 + 校区（合并） -->

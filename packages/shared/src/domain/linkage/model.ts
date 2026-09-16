@@ -15,6 +15,8 @@ export interface SpecialRow {
   school: string;
   /** 实体 POI 名（school_id → entities.name；无实体为 null = 不可跳转） */
   poiName: string | null;
+  /** 高中实体外键；第一批招生跳转必须使用该字段 */
+  schoolId: string | null;
   autonomy: number; sports: number; arts: number;
 }
 export interface BatchMergedRow {
@@ -30,7 +32,7 @@ export interface BatchMergedRow {
 }
 export interface DistrictRow { name: string; poiName: string | null; n: number }
 export interface HighCoverRow { school: string; poiName: string | null; n: number; districts: string[] }
-export interface HighSpecialRow { school: string; poiName: string | null; autonomy: number; sports: number; arts: number }
+export interface HighSpecialRow { school: string; poiName: string | null; schoolId: string | null; autonomy: number; sports: number; arts: number }
 
 export interface LinkageModel {
   /** 初中：第一批特殊通道（自招/体育/艺术） */
@@ -58,15 +60,7 @@ function normCampus(s: string): string {
 }
 
 /** special 名单原文 → 名额分配原文校名（跨源键对齐） */
-function specialToCampus(specialKey: string, repo: Repository): string {
-  const { CAMPUS_INFO } = repo;
-  for (const [campus, info] of Object.entries(CAMPUS_INFO)) {
-    if (info.special === specialKey) return campus;
-  }
-  return specialKey;
-}
-
-export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, repo: Repository): LinkageModel {
+export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, repo: Repository, schoolId?: string | null): LinkageModel {
   const { CAMPUS_NAMES, CAMPUS_INFO } = repo;
   /** school_id → 实体 POI 名（跳转目标归一：有实体才可跳详情页） */
   const poiNameOf = (schoolId: string | null | undefined): string | null => {
@@ -90,9 +84,10 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
       if (!m) return [];
       return Object.entries(m)
         .map(([k, v]) => {
-          const campus = specialToCampus(k, repo);
-          const school = CAMPUS_INFO[campus]?.school ?? normCampus(k);
-          return { campus, campusFull: k, school, poiName: poiOfRow(k, school), autonomy: v.autonomy ?? 0, sports: v.sports ?? 0, arts: v.arts ?? 0 };
+          const highId = repo.specialHighSchoolId(k);
+          const poiName = poiNameOf(highId);
+          // k 是官方名单原文，仅作展示；关联和跳转只使用 highId。
+          return { campus: k, campusFull: k, school: poiName || normCampus(k), poiName, schoolId: highId, autonomy: v.autonomy ?? 0, sports: v.sports ?? 0, arts: v.arts ?? 0 };
         })
         .sort((a, b) => (b.autonomy + b.sports + b.arts) - (a.autonomy + a.sports + a.arts));
     })();
@@ -140,7 +135,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     };
   }
 
-  // high：按所选校区独立展示（名额分配/自招计划按高中校区独立发布，各校区互不复用）
+  // high：第一批按 school_id 精确查询；名称仅用于第二批历史兼容查询。
   // 1) 全半角统一后精确匹配校区键 → 只展示该校区；2) 传入归属学校名（无校区）时兼容聚合全部校区
   const zq = (s: string) => s.replace(/（/g, '(').replace(/）/g, ')');
   const exactCampuses = CAMPUS_NAMES.filter((c) => zq(c) === zq(schoolName));
@@ -166,18 +161,16 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     .sort((a, b) => b.n - a.n)
     .slice(0, 30);
   const mergedSpecial = new Map<string, { autonomy: number; sports: number; arts: number; schoolId: string | null }>();
-  for (const c of highCampuses) {
-    for (const s of repo.specialCoverage(c)) {
-      const m = mergedSpecial.get(s.school) || { autonomy: 0, sports: 0, arts: 0, schoolId: null };
-      m.autonomy += s.autonomy;
-      m.sports += s.sports;
-      m.arts += s.arts;
-      if (!m.schoolId && s.school_id) m.schoolId = s.school_id;
-      mergedSpecial.set(s.school, m);
-    }
+  for (const s of repo.specialCoverageByHighSchoolId(schoolId)) {
+    const m = mergedSpecial.get(s.school) || { autonomy: 0, sports: 0, arts: 0, schoolId: null };
+    m.autonomy += s.autonomy;
+    m.sports += s.sports;
+    m.arts += s.arts;
+    if (!m.schoolId && s.school_id) m.schoolId = s.school_id;
+    mergedSpecial.set(s.school, m);
   }
   const highSpecialCoverage: HighSpecialRow[] = [...mergedSpecial.entries()]
-    .map(([school, v]) => ({ school, poiName: poiNameOf(v.schoolId), autonomy: v.autonomy, sports: v.sports, arts: v.arts }))
+    .map(([school, v]) => ({ school, poiName: poiNameOf(v.schoolId), schoolId: v.schoolId, autonomy: v.autonomy, sports: v.sports, arts: v.arts }))
     .sort((a, b) => b.autonomy + b.sports + b.arts - (a.autonomy + a.sports + a.arts))
     .slice(0, 30);
   const highDistrictCoverage: { school: string; poiName: string | null; n: number }[] = repo

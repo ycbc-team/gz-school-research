@@ -6,7 +6,6 @@ import { normName, looseNorm } from '../support.js';
 import type { XiaoshengchuRecord } from '../types.js';
 import type { DataLoaders } from './loader.js';
 import { normSchoolName } from './enrollment.js';
-import { CAMPUS_INFO } from './campuses.js';
 import type { QuotaSchool } from './types.js';
 
 export function createQuotaApi(loaders: DataLoaders) {
@@ -110,16 +109,35 @@ export function createQuotaApi(loaders: DataLoaders) {
     return top ? arr.slice(0, top) : arr;
   }
 
-  /** 反查：某校区在 special_matrix 有记录的初中（自招/体育/艺术）；campus = 官方原文校名 */
-  function specialCoverage(campus: string): { school: string; school_id: string | null; sports: number; arts: number; autonomy: number }[] {
-    const spKey = CAMPUS_INFO[campus]?.special;
-    if (!spKey) return [];
-    const arr: { school: string; school_id: string | null; sports: number; arts: number; autonomy: number }[] = [];
-    for (const [school, hs] of Object.entries(specialMatrix.matrix)) {
-      const rec = hs[spKey];
-      if (rec) arr.push({ school, school_id: specialMatrix.middle_school_ids?.[school] ?? null, sports: rec.sports ?? 0, arts: rec.arts ?? 0, autonomy: rec.autonomy ?? 0 });
+  type SpecialCoverage = { school: string; school_id: string | null; sports: number; arts: number; autonomy: number };
+  /**
+   * 第一批招生的唯一业务索引：高中实体 school_id → 覆盖初中。
+   * 原始官方名称只在构建 special_matrix 时解析一次；运行时绝不从名称猜测高中实体。
+   */
+  const specialByHighId = new Map<string, SpecialCoverage[]>();
+  for (const [school, hs] of Object.entries(specialMatrix.matrix)) {
+    for (const [rawHighName, rec] of Object.entries(hs)) {
+      const highId = specialMatrix.high_school_ids?.[rawHighName];
+      if (!highId) continue; // 未收录实体：保留原文，但不伪造详情关联
+      const arr = specialByHighId.get(highId) || [];
+      arr.push({
+        school,
+        school_id: specialMatrix.middle_school_ids?.[school] ?? null,
+        sports: rec.sports ?? 0,
+        arts: rec.arts ?? 0,
+        autonomy: rec.autonomy ?? 0,
+      });
+      specialByHighId.set(highId, arr);
     }
-    return arr.sort((a, b) => b.autonomy + b.sports + b.arts - (a.autonomy + a.sports + a.arts));
+  }
+  function specialHighSchoolId(rawHighName: string): string | null {
+    return specialMatrix.high_school_ids?.[rawHighName] ?? null;
+  }
+  function specialCoverageByHighSchoolId(highSchoolId: string | null | undefined): SpecialCoverage[] {
+    if (!highSchoolId) return [];
+    return (specialByHighId.get(highSchoolId) || [])
+      .slice()
+      .sort((a, b) => b.autonomy + b.sports + b.arts - (a.autonomy + a.sports + a.arts));
   }
 
   /** 初中名 → 名额分配摘要（模糊匹配 quota_matrix，用于小学出口列表轻量展示） */
@@ -210,7 +228,7 @@ export function createQuotaApi(loaders: DataLoaders) {
 
   return {
     linkageOf, specialOf, batch2Of, districtQuotaOf, districtCoverage,
-    quotaCoverage, specialCoverage, middleQuotaSummary,
+    quotaCoverage, specialHighSchoolId, specialCoverageByHighSchoolId, middleQuotaSummary,
     xiaoshengchuOf, middlePrimaryFeed,
   };
 }
