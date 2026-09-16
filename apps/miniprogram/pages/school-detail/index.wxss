@@ -62,6 +62,8 @@
 .tbl-row .strong { color: #1a1b1c; font-weight: 700; }
 .tbl-head { background: #f7f6f2; font-size: 22rpx; color: #6b7280; font-weight: 600; }
 .sch-link { color: #1a6bd6; }
+.sub-links { display: flex; flex-wrap: wrap; gap: 16rpx; margin-top: 6rpx; }
+.sub-links .sch-link { color: #4b8be0; font-size: 22rpx; }
 
 .qblock { margin-top: 18rpx; padding-top: 16rpx; border-top: 1rpx dashed #e4e3dd; }
 .qblock:first-of-type { margin-top: 6rpx; }

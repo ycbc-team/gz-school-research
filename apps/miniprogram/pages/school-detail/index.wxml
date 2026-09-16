@@ -122,6 +122,15 @@
         <view class="kv-row"><text>省市属名额合计</text><text>{{linkage.quota.sheng_quota || '—'}} 个</text></view>
         <view class="kv-row"><text>区属名额合计</text><text>{{linkage.quota.qu_quota || '—'}} 个</text></view>
       </view>
+      <view wx:if="{{linkage.campuses.length}}" class="qblock">
+        <view class="qblock-title">该初中校区（名额分配按官方法人单位统一公布，多校区共享同一计划，录取后校区由学校统筹）</view>
+        <view class="tbl">
+          <view class="tbl-row tbl-head"><text>校区</text></view>
+          <view wx:for="{{linkage.campuses}}" wx:key="schoolId" class="tbl-row">
+            <text class="sch-link" data-to="/school/{{item.poiName}}?stage=middle&id={{item.schoolId}}" bindtap="goSchool">{{item.campus}}</text>
+          </view>
+        </view>
+      </view>
       <view wx:if="{{linkage.batchMerged.length}}" class="qblock">
         <view class="qblock-title">省市属高中（面向全市）</view>
         <view class="tbl">
@@ -194,9 +203,14 @@
           <view class="tbl">
             <view class="tbl-row tbl-head"><text>初中</text><text>所在区</text><text>名额</text></view>
             <view wx:for="{{linkage.highCoverage}}" wx:key="school" class="tbl-row">
+            <view>
               <text class="sch-link" data-to="/school/{{item.school}}?stage=middle" bindtap="goSchool">{{item.school}}</text>
-              <text>{{item.districtsText}}</text><text class="strong">{{item.n}}</text>
+              <view wx:if="{{item.campuses.length > 1}}" class="sub-links">
+                <text wx:for="{{item.campuses}}" wx:for-item="c" wx:key="schoolId" class="sch-link" data-to="/school/{{c.poiName}}?stage=middle&id={{c.schoolId}}" bindtap="goSchool">{{c.campus}}</text>
+              </view>
             </view>
+            <text>{{item.districtsText}}</text><text class="strong">{{item.n}}</text>
+          </view>
           </view>
         </view>
         <view wx:if="{{linkage.highDistrictCoverage.length}}" class="qblock">
@@ -204,7 +218,12 @@
           <view class="tbl">
             <view class="tbl-row tbl-head"><text>初中</text><text>名额</text></view>
             <view wx:for="{{linkage.highDistrictCoverage}}" wx:key="school" class="tbl-row">
-              <text class="sch-link" data-to="/school/{{item.school}}?stage=middle" bindtap="goSchool">{{item.school}}</text>
+              <view>
+                <text class="sch-link" data-to="/school/{{item.school}}?stage=middle" bindtap="goSchool">{{item.school}}</text>
+                <view wx:if="{{item.campuses.length > 1}}" class="sub-links">
+                  <text wx:for="{{item.campuses}}" wx:for-item="c" wx:key="schoolId" class="sch-link" data-to="/school/{{c.poiName}}?stage=middle&id={{c.schoolId}}" bindtap="goSchool">{{c.campus}}</text>
+                </view>
+              </view>
               <text class="strong">{{item.n}}</text>
             </view>
           </view>

@@ -46,9 +46,10 @@ export function createQuotaApi(loaders: DataLoaders) {
     if (newOpeningMiddles.has(poiName)) return null;
     if (quotaMatrix.schools.some((s) => s.school === poiName)) return poiName;
     // 优先 school_id 外键（backfill 已回填；POI 名 → 实体 school_id → quota 行）
+    // 法人行 school_ids 数组：任一校区 POI 都归并到法人行（官方配额按法人单位公布）
     const sid = resolveSchoolIdOf(poiName);
     if (sid) {
-      const byId = quotaMatrix.schools.find((s) => s.school_id === sid);
+      const byId = quotaMatrix.schools.find((s) => s.school_id === sid || (s.school_ids || []).includes(sid));
       if (byId) return byId.school;
     }
     const nk = normSchoolName(poiName);

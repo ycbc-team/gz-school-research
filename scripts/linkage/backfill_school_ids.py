@@ -44,6 +44,18 @@ def main() -> int:
             idx_norm[norm(k)].append(e)
             idx_loose[loose(k)].append(e)
 
+    # 法人聚合：官方升学文件按法人单位公布（不分校区），一个法人名对应同 stage 全部校区实体。
+    # 由实体表 name 去括号校区后缀推导（如「广州市第一一三中学(乐学校区)」→ 法人「广州市第一一三中学」），
+    # 脚本生成不手改；quota 法人行写入 school_ids 数组，前端升学信息按法人聚合展示、各校区分别跳转。
+    def core_name(n: str) -> str:
+        return re.sub(r'[（(][^）)]*[）)]', '', n or '').strip()
+
+    by_core: dict[tuple, list] = defaultdict(list)
+    for e in entities['entities']:
+        by_core[(e['stage'], core_name(e['name']))].append(e['school_id'])
+    for k in by_core:
+        by_core[k] = sorted(set(by_core[k]))
+
     AD_MAP = {'荔湾区': '440103', '越秀区': '440104', '海珠区': '440105',
               '天河区': '440106', '白云区': '440111', '黄埔区': '440112', '番禺区': '440113'}
 
@@ -139,13 +151,20 @@ def main() -> int:
             for s in d['schools']:
                 if s['school'] in MATCH_OVERRIDES:
                     s['school_id'] = MATCH_OVERRIDES[s['school']]
-                    continue
-                ent = resolve(s['school'], 'middle', AD_MAP.get(s.get('district')))
-                if ent:
-                    s['school_id'] = ent['school_id']
                 else:
-                    s.pop('school_id', None)
-                    unmatched.append((tag, s['school'], s.get('district'), s.get('district') in CITY7))
+                    ent = resolve(s['school'], 'middle', AD_MAP.get(s.get('district')))
+                    if ent:
+                        s['school_id'] = ent['school_id']
+                    else:
+                        s.pop('school_id', None)
+                        unmatched.append((tag, s['school'], s.get('district'), s.get('district') in CITY7))
+                # 法人行（不带校区括号）：挂该法人同 stage 全部校区实体（school_ids 数组）
+                if s.get('school_id'):
+                    c = core_name(s['school'])
+                    if c == s['school']:
+                        ids = by_core.get(('middle', c)) or []
+                        if len(ids) > 1:
+                            s['school_ids'] = ids
         else:
             if tag == 'special_matrix':
                 keys = list(d['matrix'].keys())

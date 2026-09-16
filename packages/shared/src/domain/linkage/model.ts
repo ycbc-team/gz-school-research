@@ -5,6 +5,7 @@
  * 从 Web LinkagePanel.vue 平移，纯逻辑零平台依赖。
  */
 import type { Repository } from '../../data/repository.js';
+import type { QuotaSchool } from '../../data/types.js';
 
 export interface SpecialRow {
   /** 简称（内部 key，如「侨中」） */
@@ -31,8 +32,12 @@ export interface BatchMergedRow {
   n: number | null; min: number | null;
 }
 export interface DistrictRow { name: string; poiName: string | null; n: number }
-export interface HighCoverRow { school: string; poiName: string | null; n: number; districts: string[] }
-export interface HighSpecialRow { school: string; poiName: string | null; schoolId: string | null; autonomy: number; sports: number; arts: number }
+export interface HighCoverRow { school: string; poiName: string | null; n: number; districts: string[]; campuses: CampusLink[] }
+export interface HighSpecialRow { school: string; poiName: string | null; schoolId: string | null; autonomy: number; sports: number; arts: number; campuses: CampusLink[] }
+
+/** 法人多校区跳转链接：官方升学文件按法人单位公布，一个法人名对应同 stage 全部校区实体；
+ *  升学信息按法人聚合展示，各校区分别点击跳转各自详情页（1 id ↔ 1 详情页 ↔ 1 POI 不变）。 */
+export interface CampusLink { schoolId: string; poiName: string | null; campus: string }
 
 export interface LinkageModel {
   /** 初中：第一批特殊通道（自招/体育/艺术） */
@@ -44,13 +49,15 @@ export interface LinkageModel {
   batchMerged: BatchMergedRow[];
   /** 初中：区属高中逐校名额 */
   districtRows: DistrictRow[];
+  /** 初中：当前法人学校的全部校区（school_ids → 各校区详情跳转） */
+  campuses: CampusLink[];
   hasMiddleData: boolean;
   /** 高中：第一批特殊通道覆盖初中 */
   highSpecialCoverage: HighSpecialRow[];
   /** 高中：第二批省市属覆盖初中 */
   highCoverage: HighCoverRow[];
-  /** 高中：区属覆盖初中（poiName 无实体为 null = 不可跳转） */
-  highDistrictCoverage: { school: string; poiName: string | null; n: number }[];
+  /** 高中：区属覆盖初中（poiName 无实体为 null = 不可跳转；campuses 法人多校区分别跳转） */
+  highDistrictCoverage: { school: string; poiName: string | null; n: number; campuses: CampusLink[] }[];
   hasHighData: boolean;
 }
 
@@ -71,6 +78,13 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
   const resolvePoi = (name: string): string | null => repo.resolvePoiName?.(name) ?? null;
   /** 行跳转目标：优先用校区官方原文名（精确到校区实体），学校名兜底（多校区歧义时取第一个实体） */
   const poiOfRow = (campusFull: string, school: string): string | null => resolvePoi(campusFull) ?? resolvePoi(school);
+
+  /** 法人行 school_ids → 各校区跳转链接（升学信息按法人聚合展示，各校区分别跳转各自详情页） */
+  const campusesOf = (q: QuotaSchool | undefined): CampusLink[] =>
+    (q?.school_ids || []).map((sid) => {
+      const pn = poiNameOf(sid);
+      return { schoolId: sid, poiName: pn, campus: pn || sid };
+    });
 
   if (stage === 'middle') {
     const quota = repo.linkageOf(schoolName);
@@ -127,6 +141,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
       quota: quota ? { kaosheng: quota.kaosheng, sheng_quota: quota.sheng_quota, qu_quota: quota.qu_quota } : null,
       batchMerged,
       districtRows,
+      campuses: campusesOf(quota),
       hasMiddleData: !!quota || specialTotal > 0 || batchRows.length > 0,
       highSpecialCoverage: [],
       highCoverage: [],
@@ -157,7 +172,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     }
   }
   const highCoverage: HighCoverRow[] = [...mergedCover.entries()]
-    .map(([school, v]) => ({ school, poiName: poiNameOf(v.schoolId), n: v.n, districts: [...v.districts] }))
+    .map(([school, v]) => ({ school, poiName: poiNameOf(v.schoolId), n: v.n, districts: [...v.districts], campuses: campusesOf(repo.linkageOf(school)) }))
     .sort((a, b) => b.n - a.n)
     .slice(0, 30);
   const mergedSpecial = new Map<string, { autonomy: number; sports: number; arts: number; schoolId: string | null }>();
@@ -170,13 +185,13 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     mergedSpecial.set(s.school, m);
   }
   const highSpecialCoverage: HighSpecialRow[] = [...mergedSpecial.entries()]
-    .map(([school, v]) => ({ school, poiName: poiNameOf(v.schoolId), schoolId: v.schoolId, autonomy: v.autonomy, sports: v.sports, arts: v.arts }))
+    .map(([school, v]) => ({ school, poiName: poiNameOf(v.schoolId), schoolId: v.schoolId, autonomy: v.autonomy, sports: v.sports, arts: v.arts, campuses: campusesOf(repo.linkageOf(school)) }))
     .sort((a, b) => b.autonomy + b.sports + b.arts - (a.autonomy + a.sports + a.arts))
     .slice(0, 30);
-  const highDistrictCoverage: { school: string; poiName: string | null; n: number }[] = repo
+  const highDistrictCoverage: { school: string; poiName: string | null; n: number; campuses: CampusLink[] }[] = repo
     .districtCoverage(schoolName)
     .slice(0, 50)
-    .map((r) => ({ school: r.school, poiName: poiNameOf(r.school_id), n: r.n }));
+    .map((r) => ({ school: r.school, poiName: poiNameOf(r.school_id), n: r.n, campuses: campusesOf(repo.linkageOf(r.school)) }));
 
   return {
     specialRows: [],
@@ -184,6 +199,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     quota: null,
     batchMerged: [],
     districtRows: [],
+    campuses: [],
     hasMiddleData: false,
     highSpecialCoverage,
     highCoverage,

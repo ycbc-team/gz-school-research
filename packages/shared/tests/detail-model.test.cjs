@@ -156,3 +156,38 @@ test('品牌关联：全量品牌实体对比修复前后，品牌分支新增�
   }
   assert.deepEqual(failures, [], `品牌当前态全量回归: ${failures.join('; ')}`);
 });
+
+test('法人多校区：官方升学文件一个名称对应多个 school_id，聚合展示分别跳转', () => {
+  // 一一三中法人行：4 个 middle 校区（乐学/金融城/东方/元岗）
+  const row = loaders.quotaMatrix.schools.find((s) => s.school === '广州市第一一三中学');
+  assert.ok(row, 'quota 应有广州市第一一三中学法人行');
+  assert.equal(row.school_ids.length, 4, '法人行应挂 4 个校区 school_id');
+  const model = buildLinkageModel('middle', '广州市第一一三中学', repo, row.school_id);
+  assert.equal(model.quota?.sheng_quota != null, true, '法人级配额应可展示');
+  assert.equal(model.campuses.length, 4, '升学信息应聚合 4 个校区');
+  for (const c of model.campuses) {
+    assert.ok(c.poiName, '每个校区都应能跳转各自详情页');
+    const e = repo.entities.find((x) => x.school_id === c.schoolId);
+    assert.ok(e, '校区 school_id 必须存在实体');
+    assert.equal(c.campus, e.name, '校区跳转目标 = 实体 POI 名（1 id ↔ 1 详情页 ↔ 1 POI）');
+  }
+});
+
+test('法人多校区：从任一校区 POI 进入都能命中法人升学数据', () => {
+  const campusEntity = repo.entities.find((e) => e.school_id === 'gz-440106-5f78f6a9'); // 金融城校区
+  assert.ok(campusEntity, '应存在一一三中金融城校区实体');
+  const model = buildLinkageModel('middle', campusEntity.name, repo, campusEntity.school_id);
+  assert.ok(model.quota, '校区 POI 应归并到法人行展示升学数据');
+  assert.equal(model.campuses.length, 4, '聚合展示法人全部校区');
+  // 无 school_id 纯名进入（搜索/反查场景）也应命中
+  const byName = buildLinkageModel('middle', '广州市第一一三中学(金融城校区)', repo, null);
+  assert.ok(byName.quota, '纯名进入也应命中法人行');
+});
+
+test('法人多校区：高中覆盖反查行聚合法人全部校区', () => {
+  const model = buildLinkageModel('high', '华南师范大学附属中学（石牌校区）', repo, null);
+  const row = model.highCoverage.find((r) => r.school === '广州市第一一三中学');
+  assert.ok(row, '省市属高中覆盖反查应含一一三中法人行');
+  assert.equal(row.campuses.length, 4, '覆盖行应聚合法人 4 个校区');
+  assert.ok(row.campuses.every((c) => c.poiName), '覆盖行各校区均可跳转');
+});

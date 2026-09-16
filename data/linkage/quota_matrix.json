@@ -34,7 +34,11 @@
       "sz_sum": 31,
       "school_id": "gz-440103-2dc142ec",
       "is_district_head": false,
-      "district": "荔湾区"
+      "district": "荔湾区",
+      "school_ids": [
+        "gz-440103-2653da64",
+        "gz-440103-2dc142ec"
+      ]
     },
     {
       "page": 0,
@@ -68,7 +72,13 @@
       "sz_sum": 43,
       "school_id": "gz-440103-3862ee98",
       "is_district_head": false,
-      "district": "荔湾区"
+      "district": "荔湾区",
+      "school_ids": [
+        "gz-440103-3862ee98",
+        "gz-440103-4cda3f9e",
+        "gz-440103-816b22a3",
+        "gz-440103-c0d6f9a0"
+      ]
     },
     {
       "page": 0,
@@ -98,7 +108,11 @@
       "sz_sum": 12,
       "school_id": "gz-440103-c9f13fde",
       "is_district_head": false,
-      "district": "荔湾区"
+      "district": "荔湾区",
+      "school_ids": [
+        "gz-440103-8e11a7d3",
+        "gz-440103-c9f13fde"
+      ]
     },
     {
       "page": 0,
@@ -216,7 +230,11 @@
       "sz_sum": 7,
       "school_id": "gz-440103-d78c848a",
       "is_district_head": false,
-      "district": "荔湾区"
+      "district": "荔湾区",
+      "school_ids": [
+        "gz-440103-41cb6344",
+        "gz-440103-d78c848a"
+      ]
     },
     {
       "page": 0,
@@ -670,7 +688,14 @@
       "sz_sum": 55,
       "school_id": "gz-440103-042e23a5",
       "is_district_head": false,
-      "district": "荔湾区"
+      "district": "荔湾区",
+      "school_ids": [
+        "gz-440103-042e23a5",
+        "gz-440103-04c54db8",
+        "gz-440103-2b8081bc",
+        "gz-440103-4bb96190",
+        "gz-440103-882931a0"
+      ]
     },
     {
       "page": 1,
@@ -790,7 +815,11 @@
       "sz_sum": 26,
       "school_id": "gz-440103-53cac770",
       "is_district_head": false,
-      "district": "荔湾区"
+      "district": "荔湾区",
+      "school_ids": [
+        "gz-440103-1d99218d",
+        "gz-440103-53cac770"
+      ]
     },
     {
       "page": 1,
@@ -903,7 +932,12 @@
       "sz_sum": 26,
       "school_id": "gz-440104-74121d17",
       "is_district_head": false,
-      "district": "越秀区"
+      "district": "越秀区",
+      "school_ids": [
+        "gz-440104-028e64d6",
+        "gz-440104-74121d17",
+        "gz-440111-82856abf"
+      ]
     },
     {
       "page": 2,
@@ -963,7 +997,11 @@
       "sz_sum": 18,
       "school_id": "gz-440104-0a17f1eb",
       "is_district_head": false,
-      "district": "越秀区"
+      "district": "越秀区",
+      "school_ids": [
+        "gz-440104-0a17f1eb",
+        "gz-440104-9b88f912"
+      ]
     },
     {
       "page": 2,
@@ -995,7 +1033,12 @@
       "sz_sum": 24,
       "school_id": "gz-440104-8964385d",
       "is_district_head": false,
-      "district": "越秀区"
+      "district": "越秀区",
+      "school_ids": [
+        "gz-440104-8964385d",
+        "gz-440104-8a1a7b3d",
+        "gz-440106-52f7f4b7"
+      ]
     },
     {
       "page": 2,
@@ -1024,7 +1067,11 @@
       "sz_sum": 18,
       "school_id": "gz-440104-9c6632b1",
       "is_district_head": false,
-      "district": "越秀区"
+      "district": "越秀区",
+      "school_ids": [
+        "gz-440104-099a5868",
+        "gz-440104-9c6632b1"
+      ]
     },
     {
       "page": 2,
@@ -1054,7 +1101,11 @@
       "sz_sum": 24,
       "school_id": "gz-440104-32444523",
       "is_district_head": false,
-      "district": "越秀区"
+      "district": "越秀区",
+      "school_ids": [
+        "gz-440104-089a2a5b",
+        "gz-440104-32444523"
+      ]
     },
     {
       "page": 2,
@@ -1177,7 +1228,11 @@
       "sz_sum": 26,
       "school_id": "gz-440104-7ec82efb",
       "is_district_head": false,
-      "district": "越秀区"
+      "district": "越秀区",
+      "school_ids": [
+        "gz-440104-1d76b711",
+        "gz-440104-7ec82efb"
+      ]
     },
     {
       "page": 2,
@@ -1791,7 +1846,11 @@
       "sz_sum": 20,
       "school_id": "gz-440105-0ffca7e3",
       "is_district_head": false,
-      "district": "海珠区"
+      "district": "海珠区",
+      "school_ids": [
+        "gz-440105-0ffca7e3",
+        "gz-440105-aec34da3"
+      ]
     },
     {
       "page": 4,
@@ -1879,7 +1938,12 @@
       "sz_sum": 28,
       "school_id": "gz-440105-b210556b",
       "is_district_head": false,
-      "district": "海珠区"
+      "district": "海珠区",
+      "school_ids": [
+        "gz-440105-13585057",
+        "gz-440105-40a80ebb",
+        "gz-440105-b210556b"
+      ]
     },
     {
       "page": 4,
@@ -1940,7 +2004,11 @@
       "sz_sum": 27,
       "school_id": "gz-440105-eaf414df",
       "is_district_head": false,
-      "district": "海珠区"
+      "district": "海珠区",
+      "school_ids": [
+        "gz-440105-dd2723fc",
+        "gz-440105-eaf414df"
+      ]
     },
     {
       "page": 4,
@@ -2032,7 +2100,11 @@
       "sz_sum": 19,
       "school_id": "gz-440105-f0712355",
       "is_district_head": false,
-      "district": "海珠区"
+      "district": "海珠区",
+      "school_ids": [
+        "gz-440105-ed868139",
+        "gz-440105-f0712355"
+      ]
     },
     {
       "page": 4,
@@ -2294,7 +2366,11 @@
       "sz_sum": 8,
       "school_id": "gz-440105-003f2037",
       "is_district_head": false,
-      "district": "海珠区"
+      "district": "海珠区",
+      "school_ids": [
+        "gz-440105-003f2037",
+        "gz-440105-2f31776e"
+      ]
     },
     {
       "page": 4,
@@ -2759,7 +2835,12 @@
       "sz_sum": 76,
       "school_id": "gz-440106-867e6c05",
       "is_district_head": false,
-      "district": "天河区"
+      "district": "天河区",
+      "school_ids": [
+        "gz-440106-3c8afb6a",
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b"
+      ]
     },
     {
       "page": 6,
@@ -2792,7 +2873,12 @@
       "sz_sum": 32,
       "school_id": "gz-440106-5a7fbf3a",
       "is_district_head": false,
-      "district": "天河区"
+      "district": "天河区",
+      "school_ids": [
+        "gz-440106-5a7fbf3a",
+        "gz-440106-5b430017",
+        "gz-440106-621b20d3"
+      ]
     },
     {
       "page": 6,
@@ -2824,7 +2910,11 @@
       "sz_sum": 29,
       "school_id": "gz-440106-8f55ab34",
       "is_district_head": false,
-      "district": "天河区"
+      "district": "天河区",
+      "school_ids": [
+        "gz-440106-8f55ab34",
+        "gz-440106-f94ad54a"
+      ]
     },
     {
       "page": 6,
@@ -2859,7 +2949,13 @@
       "sz_sum": 54,
       "school_id": "gz-440106-2e9f6f7b",
       "is_district_head": false,
-      "district": "天河区"
+      "district": "天河区",
+      "school_ids": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-5f78f6a9",
+        "gz-440106-b049d65a",
+        "gz-440106-ced6bbff"
+      ]
     },
     {
       "page": 6,
@@ -2887,7 +2983,11 @@
       "sz_sum": 10,
       "school_id": "gz-440106-b711d94a",
       "is_district_head": false,
-      "district": "天河区"
+      "district": "天河区",
+      "school_ids": [
+        "gz-440106-069ddb41",
+        "gz-440106-b711d94a"
+      ]
     },
     {
       "page": 6,
@@ -2949,7 +3049,12 @@
       "sz_sum": 34,
       "school_id": "gz-440106-2f8a4424",
       "is_district_head": false,
-      "district": "天河区"
+      "district": "天河区",
+      "school_ids": [
+        "gz-440106-2f8a4424",
+        "gz-440106-93897236",
+        "gz-440106-dd16c13e"
+      ]
     },
     {
       "page": 6,
@@ -3242,7 +3347,11 @@
       "sz_sum": 19,
       "school_id": "gz-440106-e32237e4",
       "is_district_head": false,
-      "district": "天河区"
+      "district": "天河区",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-e32237e4"
+      ]
     },
     {
       "page": 6,
@@ -4320,7 +4429,11 @@
       "sz_sum": 6,
       "school_id": "gz-440111-d28d78f9",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-4e13c7d6",
+        "gz-440111-d28d78f9"
+      ]
     },
     {
       "page": 10,
@@ -4531,7 +4644,12 @@
       "sz_sum": 18,
       "school_id": "gz-440111-7e484346",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-7e484346",
+        "gz-440111-f5da4352",
+        "gz-440111-f751344d"
+      ]
     },
     {
       "page": 10,
@@ -5177,7 +5295,11 @@
       "sz_sum": 3,
       "school_id": "gz-440111-5c7a7c4a",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-5c7a7c4a",
+        "gz-440111-7a3148c4"
+      ]
     },
     {
       "page": 11,
@@ -6474,7 +6596,12 @@
       "sz_sum": 16,
       "school_id": "gz-440112-3f877ace",
       "is_district_head": false,
-      "district": "黄埔区"
+      "district": "黄埔区",
+      "school_ids": [
+        "gz-440112-3f877ace",
+        "gz-440112-badbc2ab",
+        "gz-440112-ec15555e"
+      ]
     },
     {
       "page": 14,
@@ -7294,7 +7421,11 @@
       "sz_sum": 23,
       "school_id": "gz-440113-acf92324",
       "is_district_head": false,
-      "district": "番禺区"
+      "district": "番禺区",
+      "school_ids": [
+        "gz-440113-6dbdc462",
+        "gz-440113-acf92324"
+      ]
     },
     {
       "page": 16,
@@ -7711,7 +7842,11 @@
       "sz_sum": 46,
       "school_id": "gz-440113-94c76638",
       "is_district_head": false,
-      "district": "番禺区"
+      "district": "番禺区",
+      "school_ids": [
+        "gz-440113-43d027a5",
+        "gz-440113-94c76638"
+      ]
     },
     {
       "page": 17,

@@ -11,6 +11,9 @@ export interface QuotaSchool {
   school: string;
   /** 实体表外键（backfill_school_ids.py 回填；未命中实体则无此字段） */
   school_id?: string;
+  /** 法人多校区（官方升学文件按法人单位公布，backfill 由实体表去括号校区推导生成）；
+   *  仅法人行（无校区括号）存在，含 school_id 本身；前端升学信息按法人聚合、各校区分别跳转 */
+  school_ids?: string[];
   kaosheng: number | null; // 名额考生数 m_j
   sheng_quota: number | null; // 省市属名额
   qu_quota: number | null; // 区属名额

@@ -40,6 +40,19 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
         <div class="kv-row"><span>区属名额合计</span><b>{{ model.quota.qu_quota ?? '—' }} 个</b></div>
       </div>
 
+      <div v-if="model.campuses.length" class="qblock">
+        <div class="qblock-title">该初中校区（名额分配按官方法人单位统一公布，多校区共享同一计划，录取后校区由学校统筹）</div>
+        <div class="tbl tbl-merged" style="margin-top:6px;">
+          <div class="tbl-row tbl-head"><span>校区</span></div>
+          <div v-for="c in model.campuses" :key="c.schoolId" class="tbl-row">
+            <span>
+              <RouterLink v-if="c.poiName" :to="{ path: `/school/${encodeURIComponent(c.poiName || c.campus)}`, query: { stage: 'middle', id: c.schoolId } }" class="sch-link">{{ c.campus }}</RouterLink>
+              <template v-else>{{ c.campus }}</template>
+            </span>
+          </div>
+        </div>
+      </div>
+
       <div v-if="model.batchMerged.length" class="qblock">
         <div class="qblock-title">省市属高中（面向全市）</div>
         <div class="tbl tbl-merged" style="margin-top:6px;">
@@ -91,6 +104,7 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
           <span>
             <RouterLink v-if="r.poiName && r.schoolId" :to="{ path: `/school/${encodeURIComponent(r.poiName)}`, query: { stage: 'middle', id: r.schoolId } }" class="sch-link">{{ r.school }}</RouterLink>
             <template v-else>{{ r.school }}</template>
+            <template v-if="r.campuses.length > 1"><br><span class="sub-links"><RouterLink v-for="c in r.campuses" :key="c.schoolId" :to="{ path: `/school/${encodeURIComponent(c.poiName || c.campus)}`, query: { stage: 'middle', id: c.schoolId } }" class="sch-link">{{ c.campus }}</RouterLink></span></template>
           </span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span>
         </div>
       </div>
@@ -106,6 +120,7 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
             <span>
               <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink>
               <template v-else>{{ r.school }}</template>
+              <template v-if="r.campuses.length > 1"><br><span class="sub-links"><RouterLink v-for="c in r.campuses" :key="c.schoolId" :to="{ path: `/school/${encodeURIComponent(c.poiName || c.campus)}`, query: { stage: 'middle', id: c.schoolId } }" class="sch-link">{{ c.campus }}</RouterLink></span></template>
             </span>
             <span>{{ r.districts.join('、') || '—' }}</span><span class="strong">{{ r.n }}</span>
           </div>
@@ -119,6 +134,7 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
             <span>
               <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink>
               <template v-else>{{ r.school }}</template>
+              <template v-if="r.campuses.length > 1"><br><span class="sub-links"><RouterLink v-for="c in r.campuses" :key="c.schoolId" :to="{ path: `/school/${encodeURIComponent(c.poiName || c.campus)}`, query: { stage: 'middle', id: c.schoolId } }" class="sch-link">{{ c.campus }}</RouterLink></span></template>
             </span>
             <span class="strong">{{ r.n }}</span>
           </div>
@@ -168,6 +184,8 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
 .tbl-head > span { color: #6b7280; }
 .sch-link { color: #1a6bd6; text-decoration: none; }
 .sch-link:hover { text-decoration: underline; }
+.sub-links { display: inline-flex; flex-wrap: wrap; gap: 8px; font-size: 11px; margin-top: 4px; }
+.sub-links .sch-link { color: #4b8be0; }
 
 @media (max-width: 600px) {
   .kv-row > span { width: 84px; }
