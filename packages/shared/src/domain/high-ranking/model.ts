@@ -81,14 +81,9 @@ function categoryGroupKey(category: string): string {
   return category === '未标注' ? '普通高中' : category;
 }
 
-function scoresForPoi(poi: SchoolPoi, yearScores: Record<string, HighScoreRecord[]>, allPois: SchoolPoi[]): HighRankingScore[] {
-  const direct = poi.school_id ? (yearScores[poi.school_id] || []) : [];
-  // 部分官方招生单位只挂在同校另一校区实体。例如广大附中官方分数挂黄华路校区，
-  // 详情页按学校聚合可显示，大学城校区行则需回退到同一规范校名的录取记录。
-  const records = direct.length ? direct : allPois
-    .filter((other) => other.school === poi.school && other.school_id)
-    .flatMap((other) => yearScores[other.school_id!] || []);
-  return records
+/** 一行严格对应一个校区实体；不得回退或聚合同校其它校区的录取线。 */
+function scoresForPoi(poi: SchoolPoi, yearScores: Record<string, HighScoreRecord[]>): HighRankingScore[] {
+  return (poi.school_id ? (yearScores[poi.school_id] || []) : [])
     .map(formatHighRankingScore)
     .filter((score) => score.value != null);
 }
@@ -101,8 +96,8 @@ export function buildHighRankingRows(loaders: Pick<DataLoaders, 'highSchools' | 
   return allPois.filter((poi) => poi.adcode in ADCODE_TO_DISTRICT).map((poi) => {
     const level = levelForPoi(poi, loaders.highLevels.schools);
     const schoolId = poi.school_id || null;
-    const score2025 = scoresForPoi(poi, loaders.highScores2025.by_school_id, allPois);
-    const score2026 = scoresForPoi(poi, loaders.highScores2026.by_school_id, allPois);
+    const score2025 = scoresForPoi(poi, loaders.highScores2025.by_school_id);
+    const score2026 = scoresForPoi(poi, loaders.highScores2026.by_school_id);
     const values = score2026.map((score) => score.value).filter((v): v is number => v != null);
     return {
       schoolId,

@@ -193,9 +193,14 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     }
     return rows;
   };
-  const admissionRows: DetailRow[] = highScoreRows(
-    repo.scoresOfSchool(schoolName, rec?.campuses || []),
-  );
+  /** URL 带校区实体时只展示该实体的录取线；学校聚合入口才展示各校区。 */
+  const admissionScores = (() => {
+    if (stage !== 'high' || !schoolId) return repo.scoresOfSchool(schoolName, rec?.campuses || []);
+    const years = repo.scoresBySchoolId(schoolId);
+    const first = years[0]?.records[0];
+    return first ? [{ officialName: first.official_name, schoolId, years }] : [];
+  })();
+  const admissionRows: DetailRow[] = highScoreRows(admissionScores);
   const gaokaoRows = pickRows([
     ['gaofen_2026', '高分段 2026'], ['gaofen_2025', '高分段 2025'],
     ['tekong_2026', '特控线上线率 2026'], ['tekong_2025', '特控线上线率 2025'], ['note', '备注'],

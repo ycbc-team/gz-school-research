@@ -61,3 +61,11 @@ test('详情模型：高中保留官方录取线', () => {
   assert.equal(model.stage, 'high');
   assert.ok(model.admissionRows.length > 0);
 });
+
+test('详情模型：高中校区详情不聚合同校其它校区的录取线', () => {
+  const poi = loaders.highSchools.schools.find((p) => p.name === '广州市真光中学(广钢校区)');
+  assert.ok(poi?.school_id, '需要真光广钢校区实体');
+  const model = buildDetailModel('high', poi.name, repo, poi.school_id);
+  assert.equal(model.admissionRows.length, 2);
+  assert.ok(model.admissionRows.every((row) => row.value.includes('广钢')));
+});

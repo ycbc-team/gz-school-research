@@ -26,11 +26,13 @@ test('高中明细 VM：仅七区、保留两年录取线，并按 2026 分数�
   }
 });
 
-test('高中明细 VM：只展示第三批户籍生，并回退同校区的官方招生记录', () => {
+test('高中明细 VM：只展示第三批户籍生，且绝不聚合同校其它校区', () => {
   const rows = buildHighRankingGroups(loaders, 'category').flatMap((group) => group.items);
   const universityTown = rows.find((row) => row.name === '广州大学附属中学(大学城校区)');
   assert.equal(universityTown?.score2026[0]?.text, '738');
   assert.equal(universityTown?.score2025[0]?.text, '732');
+  const fanghua = rows.find((row) => row.name === '广州市真光中学(芳花校区)');
+  assert.equal(fanghua?.score2026.length, 0);
   assert.ok(rows.some((row) => row.name === '广州市西关培英中学' && row.score2026.length === 0), '仅第四批的学校应展示为空');
   assert.ok(rows.some((row) => row.category === '普通高中'), '普通高中应单独分组，不并入省市属示范');
 });
