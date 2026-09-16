@@ -17,6 +17,10 @@ import os
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 ENTITIES_PATH = os.path.join(REPO, 'data/registry/entities.json')
 
+# 统一匹配库：norm 本体收敛至 school_match.normName（NFKC/繁简/去广州市/删括号/去空白）
+sys.path.insert(0, os.path.join(REPO, 'scripts/registry'))
+from school_match import normName as _normName
+
 # 区 adcode -> 区名
 ADCODE_DIST = {
     '440103': '荔湾区', '440104': '越秀区', '440105': '海珠区',
@@ -25,12 +29,8 @@ ADCODE_DIST = {
 }
 
 def normalize(name):
-    """规范化校名：去空白、全角转半角、去常见前缀。"""
-    s = name.strip()
-    s = s.replace('（', '(').replace('）', ')')
-    s = re.sub(r'\s+', '', s)
-    # 去市/区前缀
-    s = re.sub(r'^广州市?', '', s)
+    """规范化校名：统一 normName + 区名前缀剥离（检索辅助）。"""
+    s = _normName(name)
     for d in ADCODE_DIST.values():
         s = re.sub(r'^' + d, '', s)
     return s

@@ -8,10 +8,9 @@ import json, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-def norm_name(s: str) -> str:
-    return (s.replace('广州市', '').replace('（', '(').replace('）', ')')
-             .replace('(', '').replace(')', '')
-             .replace(' ', '').replace('\t', '').replace('\u3000', ''))
+# 统一匹配库：norm 本体收敛至 school_match.normName
+sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+from school_match import normName as norm_name
 
 def load_json(path):
     with open(os.path.join(ROOT, path), encoding='utf-8') as f:

@@ -18,7 +18,6 @@ import os
 import re
 import sys
 import time
-import unicodedata
 import urllib.parse
 import urllib.request
 import ast
@@ -36,15 +35,14 @@ SKIP = {  # 无需补 POI：官方撤并/2026 新校（暂定名）
     '知识城南安置区（二期）小学（暂定名）': '2026 新校（暂定名），首届招生，高德/官方均无稳定 POI',
 }
 
-VARIANTS = {"穂": "穗", "敎": "教", "學": "学", "朮": "术", "甦": "苏"}
+# 统一匹配库：norm 本体收敛至 school_match.normName；番禺采集输入清洗（去区名/镇/小学校）保留在本地
+sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+from school_match import normName as _normName, fold_unicode as _fold
 
 
 def norm(n):
-    n = unicodedata.normalize("NFKC", str(n))
-    n = n.replace("广州市", "").replace("番禺区", "").replace("番禺", "")
-    for a, b in VARIANTS.items():
-        n = n.replace(a, b)
-    n = re.sub(r"[（(].*?[)）]", "", n)
+    n = _normName(_fold(n))  # fold=NFKC+繁简（采集输入清洗），norm 本体统一
+    n = n.replace("番禺区", "").replace("番禺", "")
     n = n.replace("小学校", "小学").replace("镇", "").strip()
     return n
 

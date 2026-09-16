@@ -87,15 +87,9 @@ def search_amap(key, keywords, adcode, offset=10):
         })
     return results
 
-def norm(name):
-    if not name:
-        return ""
-    s = name.strip().replace("（", "(").replace("）", ")")
-    s = re.sub(r"\s+", "", s)
-    s = re.sub(r"^广州市?", "", s)
-    for d in ADCODE_MAP:
-        s = re.sub(r"^" + d + "区?", "", s)
-    return s
+# 统一匹配库：norm 收敛至 school_match.matchNorm（含前导区名剥/去广州市/保留校区括号，泛词保护）
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "scripts", "registry"))
+from school_match import matchNorm as norm
 
 def load_existing_poi():
     """加载所有学段现有 POI。"""

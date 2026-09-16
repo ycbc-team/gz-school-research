@@ -12,15 +12,14 @@
 import json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(ROOT, "scripts"))
-import match_poi
+sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+from school_match import SchoolMatcher
 
-POI_ALL = (
-    match_poi.load_poi(os.path.join(ROOT, "data/primary/schools-gz.json"), "小学")
-    + match_poi.load_poi(os.path.join(ROOT, "data/middle/schools-gz.json"), "初中")
-    + match_poi.load_poi(os.path.join(ROOT, "data/high/schools-gz.json"), "高中")
-)
-ALIAS_MAP = match_poi.load_aliases(os.path.join(ROOT, "data/registry/entities.json"))
+MATCHER = SchoolMatcher.load(
+    poi_paths=[(os.path.join(ROOT, "data/primary/schools-gz.json"), "小学"),
+               (os.path.join(ROOT, "data/middle/schools-gz.json"), "初中"),
+               (os.path.join(ROOT, "data/high/schools-gz.json"), "高中")],
+    entities_path=os.path.join(ROOT, "data/registry/entities.json"))
 
 # (name, adcode, stage, expected_school_id 或 "缺失" 或 "远郊")
 CASES = [
@@ -48,7 +47,7 @@ CASES = [
 def main():
     failures = []
     for name, adcode, stage, expect in CASES:
-        r = match_poi.match_school(name, POI_ALL, ALIAS_MAP, preferred_adcode=adcode, preferred_stage=stage)
+        r = MATCHER.resolve(name, preferred_adcode=adcode, preferred_stage=stage)
         got = r.get("school_id") or r.get("poi_match", "")
         if expect == "缺失":
             ok = r.get("poi_match") == "7区内真实缺失"

@@ -149,21 +149,21 @@ def main():
     check_tier1("data/primary/tier1_schools_all.json", "primary")
     check_tier1("data/middle/tier1_schools_all.json", "middle")
 
-    # ---- 7. 全量 POI 自我匹配：match_school 对每个 POI 用自身 adcode+学段必须解析回自身 school_id ----
+    # ---- 7. 全量 POI 自我匹配：统一匹配服务对每个 POI 用自身 adcode+学段必须解析回自身 school_id ----
     # 校名匹配规则的核心回归（防"修复A引入B"）：任何 POI 被别的 POI 抢名/被泛名吸走都会在此失败
-    sys.path.insert(0, os.path.join(ROOT, "scripts"))
-    import match_poi
-    _poi_all = (
-        match_poi.load_poi(POI_PATHS[0], "小学")
-        + match_poi.load_poi(POI_PATHS[1], "初中")
-        + match_poi.load_poi(POI_PATHS[2], "高中")
-    )
-    _am = match_poi.load_aliases(os.path.join(ROOT, "data/registry/entities.json"))
+    # 统一入口：scripts/registry/school_match.py（项目唯一匹配库，含行政区/学段收敛）
+    sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+    from school_match import SchoolMatcher
+    _matcher = SchoolMatcher.load(
+        poi_paths=[(os.path.join(ROOT, p), st) for p, st in
+                   zip(POI_PATHS, ("小学", "初中", "高中"))],
+        entities_path=os.path.join(ROOT, "data/registry/entities.json"))
+    _poi_all = _matcher.poi_all
     for lib, stage in (("data/primary/schools-gz.json", "小学"), ("data/middle/schools-gz.json", "初中"), ("data/high/schools-gz.json", "高中")):
         d = json.load(open(os.path.join(ROOT, lib)))
         for s in d.get("schools", []):
-            r = match_poi.match_school(s["name"], _poi_all, _am,
-                                       preferred_adcode=s.get("adcode"), preferred_stage=stage)
+            r = _matcher.resolve(s["name"],
+                                 preferred_adcode=s.get("adcode"), preferred_stage=stage)
             check(r.get("school_id") == s.get("school_id"),
                   f"[7/{stage}] 自我匹配失败: {s['name']} -> {r.get('school_id')}（应为 {s.get('school_id')}）")
 
@@ -204,7 +204,7 @@ def main():
         ("广州市白云区六中实验中学（空港校区）", "440111", "gz-440111-4ab20f44"),  # 六中实验空港校区
     ]
     for name, adcode, expect in KEY_CASES:
-        r = match_poi.match_school(name, _poi_all, _am, preferred_adcode=adcode, preferred_stage="初中")
+        r = _matcher.resolve(name, preferred_adcode=adcode, preferred_stage="初中")
         check((r.get("school_id") or None) == expect,
               f"[9] 关键案例失配: {name} -> {r.get('school_id')}（应为 {expect}）")
 

@@ -16,7 +16,6 @@ import json
 import os
 import re
 import sys
-import unicodedata
 import zipfile
 from xml.etree import ElementTree as ET
 
@@ -27,7 +26,6 @@ TMP = "/tmp/gzsrc"
 
 NS = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
 
-VARIANTS = {"穂": "穗", "敎": "教", "學": "学", "朮": "术", "甦": "苏"}
 CAMPUS_WORDS = ["东校区", "西校区", "南校区", "北校区", "大龙校区", "首开校区",
                 "新校区", "校区", "校本部"]
 GENERIC_TAILS = ("中心小学", "第二小学", "第一小学", "第三小学", "第四小学",
@@ -77,13 +75,16 @@ def strip_prefix(n):
             return n[len(p):]
     return n
 
+# 统一匹配库：norm 本体（NFKC/繁简/去广州市/删括号/去空白）收敛至 school_match.normName；
+# 区名/镇/小学校等输入清洗保留在本地（各区官方表特有前缀）
+sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+from school_match import normName as _normName, fold_unicode as _fold
+
+
 def norm_school(n):
-    n = unicodedata.normalize("NFKC", str(n))
-    n = n.replace("广州市", "")
+    n = _normName(_fold(n))  # fold=NFKC+繁简（采集输入清洗），norm 本体统一
     for d in ("越秀区", "荔湾区", "海珠区", "天河区", "番禺区", "黄埔区", "白云区"):
         n = n.replace(d, "")
-    for a, b in VARIANTS.items():
-        n = n.replace(a, b)
     n = n.replace("小学校", "小学")
     n = n.replace("镇", "")
     n = n.strip()

@@ -1,17 +1,13 @@
 #!/usr/bin/env python3
 """合并7区partial + 2026招考办表 + brand_groups → education_groups.json"""
-import json, re, os, sys
+import json, os, sys
 
 BASE = "/Users/bytedance/Developer/gz_school_research"
 TODAY = "2026-09-14"
 
-def norm(name):
-    if not name: return ""
-    s = name.strip().replace("（","(").replace("）",")").replace("【","[").replace("】","]")
-    s = re.sub(r"\(.*?\)|\[.*?\]", "", s)
-    s = s.replace("广州市","").replace("广州","")
-    s = re.sub(r"\s+","",s)
-    return s
+# 统一匹配库：brandNorm=品牌/集团名容错（原本文件 norm 定义已收敛至此，不再本地重复）
+sys.path.insert(0, os.path.join(BASE, "scripts/registry"))
+from school_match import brandNorm as norm
 
 def load_json(path):
     return json.load(open(os.path.join(BASE, path)))
@@ -232,11 +228,14 @@ print(f"brand_groups新增: {brand_added}个品牌集团")
 # 4. 锚点表统一应用（partial/2026 合并/2026 新建/brand 全部成员，幂等），再对未锚定成员跑POI匹配
 for g in all_groups:
     apply_member_anchors(g)
-import importlib.util
+from school_match import SchoolMatcher
+
 ADCODE_OF = {"荔湾":"440103","越秀":"440104","海珠":"440105","天河":"440106","白云":"440111","黄埔":"440112","番禺":"440113"}
-_spec = importlib.util.spec_from_file_location("match_poi", os.path.join(BASE, "scripts/match_poi.py"))
-mp = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(mp)
+_matcher = SchoolMatcher.load(
+    poi_paths=[(os.path.join(BASE, "data/primary/schools-gz.json"), "小学"),
+               (os.path.join(BASE, "data/middle/schools-gz.json"), "初中"),
+               (os.path.join(BASE, "data/high/schools-gz.json"), "高中")],
+    entities_path=os.path.join(BASE, "data/registry/entities.json"))
 
 pending = []  # (group, member)
 for g in all_groups:
@@ -246,11 +245,6 @@ for g in all_groups:
             pending.append((g, m))
 
 if pending:
-    poi_all = []
-    poi_all += mp.load_poi(os.path.join(BASE,"data/primary/schools-gz.json"),"小学")
-    poi_all += mp.load_poi(os.path.join(BASE,"data/middle/schools-gz.json"),"初中")
-    poi_all += mp.load_poi(os.path.join(BASE,"data/high/schools-gz.json"),"高中")
-    alias_map = mp.load_aliases(os.path.join(BASE,"data/registry/entities.json"))
     matched = 0
     for g, m in pending:
         mname = m.get("poi_match_name", m["name"])
@@ -261,7 +255,7 @@ if pending:
             if dist in mname:
                 adc = code
                 break
-        r = mp.match_school(mname, poi_all, alias_map, preferred_adcode=adc)
+        r = _matcher.resolve(mname, preferred_adcode=adc)
         m["poi_match"] = r.get("poi_match", "7区内真实缺失")
         m["poi_name"] = r.get("matched_name", "")
         m["school_id"] = r.get("school_id", "")

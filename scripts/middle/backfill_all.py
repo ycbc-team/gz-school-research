@@ -8,10 +8,14 @@ KEY=[l.split('=',1)[1].strip() for l in open(os.path.join(ROOT,'.env')) if l.sta
 SEVEN = ['荔湾','越秀','海珠','天河','白云','黄埔','番禺']
 FAR = ['花都','从化','增城','南沙']
 
+# 统一匹配库：norm 本体收敛至 looseNorm（normName+剥学部/校区后缀）；
+# 前导"广州/广东/广大附中"为采集输入清洗（别名对齐），保留在本地
+sys.path.insert(0, os.path.join(ROOT, 'scripts', 'registry'))
+from school_match import looseNorm as _looseNorm
+
 def norm(s):
-    s = re.sub(r'^(广州市|广州|广东|广大附中)','',s)
-    s = re.sub(r'（[^）]*）','',s); s=re.sub(r'\([^)]*\)','',s)
-    s = re.sub(r'(小学部|初中部|高中部|校本部|分校区)$','',s)
+    s = _looseNorm(s)
+    s = re.sub(r'^(广州|广东|广大附中)', '', s)
     return s.strip()
 
 qm = json.load(open(os.path.join(ROOT,'data/linkage/quota_matrix.json')))['schools']

@@ -29,14 +29,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 CITY7 = {'荔湾区', '越秀区', '海珠区', '天河区', '白云区', '黄埔区', '番禺区'}
 
-
-def norm(s: str) -> str:
-    t = (s or '').replace('（', '(').replace('）', ')').replace('广州市', '')
-    return re.sub(r'\s+', '', re.sub(r'[()]', '', t))
-
-
-def loose(s: str) -> str:
-    return re.sub(r'(初中部|高中部|小学部|校区|分校|学校|部)$', '', norm(s))
+# 统一匹配库：norm/loose 收敛至 school_match.normName/looseNorm（原本地定义已删，规则与 shared support.ts 一致）
+sys.path.insert(0, str(ROOT / 'scripts' / 'registry'))
+from school_match import normName as norm
+from school_match import looseNorm as loose
 
 
 def main() -> int:

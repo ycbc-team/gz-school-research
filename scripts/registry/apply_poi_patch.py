@@ -17,13 +17,9 @@ import copy
 
 ROOT = "/Users/bytedance/Developer/gz_school_research"
 
-def norm_name(s):
-    if not s: return ''
-    s = str(s).replace('（', '(').replace('）', ')')
-    s = re.sub(r'^广州市', '', s)
-    s = re.sub(r'[()]', '', s)
-    s = re.sub(r'\s+', '', s)
-    return s
+# 统一匹配库：norm 本体收敛至 school_match.normName（NFKC/繁简/去广州市/删括号/去空白）
+sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+from school_match import normName as norm_name
 
 def id_key(adcode, poi_name):
     norm = norm_name(poi_name)

@@ -41,12 +41,9 @@ MIDDLE_ONLY_CAMPUSES = {
 }
 
 
-def norm(s: str) -> str:
-    """统一名称用于匹配：去广州前缀、全半角括号统一后去括号、去空白。"""
-    s = s.replace("广州市", "").replace("广州", "")
-    s = s.replace("（", "(").replace("）", ")")
-    s = re.sub(r"[()]", "", s)
-    return re.sub(r"\s+", "", s)
+# 统一匹配库：norm 收敛至 school_match.normName（对称 key 比较，原本地定义已删）
+sys.path.insert(0, str(ROOT / "scripts" / "registry"))
+from school_match import normName as norm
 
 
 MIDDLE_ONLY_CAMPUS_KEYS = {norm(name) for name in MIDDLE_ONLY_CAMPUSES}

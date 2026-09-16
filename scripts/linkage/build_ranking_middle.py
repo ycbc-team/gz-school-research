@@ -24,12 +24,19 @@
 """
 
 import json
+import sys
 import re
 from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / 'data'
+
+# 统一匹配库：norm 本体收敛至 school_match（py_norm→normName、py_loose→looseNorm）；
+# py_loose2（去括号内容+剥后缀）为 education 兜底的本地增强，保留
+sys.path.insert(0, str(ROOT / 'scripts' / 'registry'))
+from school_match import normName as py_norm
+from school_match import looseNorm as py_loose
 
 # 候选底覆盖的 7 个区（与页面 DISTRICTS 顺序一致的区名全称）
 SEVEN_DISTRICTS = {'荔湾区', '越秀区', '海珠区', '天河区', '白云区', '黄埔区', '番禺区'}
@@ -41,7 +48,7 @@ def load(name: str):
 
 
 def norm(name: str) -> str:
-    """去括号内容 + 去 市/省 前缀 → 核心名（用于无歧义匹配）"""
+    """去括号内容 + 去 市/省 前缀 → 核心名（无歧义匹配的本地增强；norm 本体见 school_match）"""
     n = re.sub(r'[（(].*?[)）]', '', name)
     return n.replace('广州市', '').replace('广东', '').replace('广州', '').strip()
 
@@ -52,17 +59,6 @@ def canon_bracket(name: str) -> str:
 
 
 # ---------------- 集团归属（brand 优先 + education 兜底，口径与 shared 一致） ----------------
-def py_norm(s: str) -> str:
-    """复刻 TS normName：去「广州市/广东」前缀、括号符号统一去除、去空白（保留括号内文字）"""
-    return re.sub(r'[（(]', '(', s).replace('）', ')').replace('(', '').replace(')', '')\
-        .replace('广州市', '').replace('广东', '').replace(' ', '').strip()
-
-
-def py_loose(s: str) -> str:
-    """复刻 TS looseNorm：norm 后再去尾部学部/校区后缀（注意：'（本部）' 会残留'本'）"""
-    return re.sub(r'(初中部|高中部|小学部|校区|分校|学校|部)$', '', py_norm(s))
-
-
 def py_loose2(s: str) -> str:
     """更强 loose：去括号及内容 + 去尾部学部/校区后缀（education 兜底用）"""
     n = re.sub(r'[（(].*?[)）]', '', s).replace('广州市', '').replace('广东', '').replace(' ', '')

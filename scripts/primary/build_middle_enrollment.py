@@ -20,22 +20,21 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 RAW = os.path.join(ROOT, "data", "primary", "enrollments", "_raw")
 OUT = os.path.join(ROOT, "data", "primary", "enrollments")
 
-# 复用项目统一的 POI 匹配管道（实体表别名优先，不另起 norm 逻辑）
-sys.path.insert(0, os.path.join(ROOT, "scripts"))
-from match_poi import load_poi as _load_poi_all, load_aliases as _load_aliases, match_school as _match_school
+# 复用项目统一的 POI 匹配服务（scripts/registry/school_match.py，实体表别名优先 + 行政区/学段收敛，不另起 norm 逻辑）
+sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+from school_match import SchoolMatcher as _SchoolMatcher
 
-_POI_ALL = (
-    _load_poi_all(os.path.join(ROOT, "data/primary/schools-gz.json"), "小学")
-    + _load_poi_all(os.path.join(ROOT, "data/middle/schools-gz.json"), "初中")
-    + _load_poi_all(os.path.join(ROOT, "data/high/schools-gz.json"), "高中")
-)
-_ALIAS_MAP = _load_aliases(os.path.join(ROOT, "data/registry/entities.json"))
+_MATCHER = _SchoolMatcher.load(
+    poi_paths=[(os.path.join(ROOT, "data/primary/schools-gz.json"), "小学"),
+               (os.path.join(ROOT, "data/middle/schools-gz.json"), "初中"),
+               (os.path.join(ROOT, "data/high/schools-gz.json"), "高中")],
+    entities_path=os.path.join(ROOT, "data/registry/entities.json"))
 
 def match_school_id(name, adcode=None):
-    """官方名单校名 → POI school_id；未命中返回 None。统一走 match_poi 管道（实体表别名优先）。
+    """官方名单校名 → POI school_id；未命中返回 None。统一走 school_match 管道（实体表别名优先）。
     adcode=本区 adcode：优先命中本区 POI，避免跨区同名校（如铁英学校/广大附中）被错配到异区校区。"""
     if not name: return None
-    r = _match_school(name, _POI_ALL, _ALIAS_MAP, preferred_adcode=adcode, preferred_stage="初中")
+    r = _MATCHER.resolve(name, preferred_adcode=adcode, preferred_stage="初中")
     return r.get("school_id") or None
 
 # 区级枚举定义：UI 直接用 label / lose_text

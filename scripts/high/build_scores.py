@@ -34,6 +34,10 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 RAW = ROOT / "data" / "high" / "raw"
 OUT = ROOT / "data" / "high"
 
+# 统一匹配库：norm 本体收敛至 school_match.normName（原 norm_name 定义已删，规则与 build_entities/support 一致）
+sys.path.insert(0, str(ROOT / "scripts" / "registry"))
+from school_match import normName as norm_name
+
 # year -> [(batch, 页面文件, 官方标题, 官方URL)]
 PAGES = {
     2025: [
@@ -214,16 +218,6 @@ def parse_file(fname: str, batch: int):
             rec["raw_name"] = raw_name
             rows_out.append(rec)
     return rows_out
-
-
-def norm_name(s: str) -> str:
-    if not s:
-        return ""
-    s = re.sub(r"[（）]", "(", s)
-    s = s.replace(")", ")")
-    s = re.sub(r"^广州市", "", s)
-    s = re.sub(r"[()]", "", s)
-    return re.sub(r"\s+", "", s)
 
 
 def load_entity_index():

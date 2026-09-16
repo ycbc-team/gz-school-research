@@ -15,25 +15,25 @@ import os
 import re
 import sys
 import time
-import unicodedata
 import urllib.parse
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "primary")
 
-VARIANTS = {"穂": "穗", "敎": "教", "學": "学", "朮": "术", "甦": "苏"}
+# 统一匹配库：norm 本体（NFKC/繁简/去广州市/删括号/去空白）收敛至 school_match.normName；
+# 番禺采集特有的输入清洗（去区名/镇）保留在本地，不再重复定义 norm 逻辑
+sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+from school_match import normName as _normName, fold_unicode as _fold
+
 PREFIXES = ["市桥", "钟村", "石壁", "大石", "洛浦", "南村镇", "化龙镇", "新造镇",
             "小谷围街", "石楼镇", "石碁镇", "沙湾", "桥南", "东环", "沙头", "南村", "石碁"]
 GENERIC_TAILS = ("中心小学", "第二小学", "第一小学", "第三小学", "第四小学",
                  "第五小学", "实验小学", "实验学校")
 
 def norm(n):
-    n = unicodedata.normalize("NFKC", str(n))
-    n = n.replace("广州市", "").replace("番禺区", "").replace("番禺", "")
-    for a, b in VARIANTS.items():
-        n = n.replace(a, b)
-    n = re.sub(r"[（(].*?[)）]", "", n)
+    n = _normName(_fold(n))  # fold=NFKC+繁简（采集输入清洗），norm 本体统一
+    n = n.replace("番禺区", "").replace("番禺", "")
     n = n.replace("小学校", "小学").replace("镇", "").strip()
     return n
 

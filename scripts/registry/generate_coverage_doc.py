@@ -19,9 +19,9 @@ MANUAL_FIX = {
     '番禺区实验中学': ('变体命中', '高中', '番禺实验中学', '区字差异（集团表带"区"，高德POI不带）；levels.json已收录为市示范性高中'),
 }
 
-def norm_name(s):
-    return (s.replace('广州市','').replace('（','(').replace('）',')')
-             .replace('(','').replace(')','').replace(' ','').replace('\t',''))
+# 统一匹配库：norm 本体收敛至 school_match.normName
+sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+from school_match import normName as norm_name
 
 def get_final_status(item):
     """获取最终覆盖状态，优先人工复核"""

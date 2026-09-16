@@ -11,9 +11,14 @@
       矩阵 key 使用名单原文（可溯源）；业务关联同时产出 high_school_ids，
       前端/共享层必须用该实体外键，不得再按高中名称二次匹配。
 """
-import json, re, collections
+import json
+import sys, re, collections, os
 
 BASE = 'data/linkage/raw'
+
+# 统一匹配库：norm 本体收敛至 school_match.normName（原"复刻 shared normName"定义已删）
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "registry"))
+from school_match import normName as norm
 OUT = 'data/linkage/special_matrix.json'
 SOURCE_MAP = 'data/registry/source_name_mappings.json'
 SOURCE = 'gzzk-special-2026'
@@ -34,12 +39,6 @@ def strip_project(project: str) -> str:
         return re.sub(r'（[^（）]*）$', '', p)
     idx = p.rfind('（')
     return p[:idx] if idx > 0 else p
-
-
-def norm(s: str) -> str:
-    """复刻 shared normName：去「广州市」前缀、全半角括号统一去除、去空白（保留括号内文字）"""
-    return re.sub(r'[（(]', '(', s).replace('）', ')').replace('(', '').replace(')', '')\
-        .replace('广州市', '').replace(' ', '').strip()
 
 
 # ---------------- 高中实体别名表（entities.json stage=high，名字匹配唯一宿主） ----------------
