@@ -150,16 +150,32 @@ def match_and_write(records):
     BAD_POI = ("建设中", "在建", "工地", "装修", "筹备", "规划", "选址", "暂停营业", "鲸go")
     poi_pool = [s for s in poi_pool if len(s["name"]) > 2 and not any(b in s["name"] for b in BAD_POI)]
 
+    import build_district_enrollment as bde
+    _matcher = bde.load_unified_matcher()
+    _anchors = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "_anchors.json"), encoding="utf-8"))
+
     bindings = []
     map_fail = []
     for idx, rec in enumerate(records):
+        # 0. 历史锚定优先（1200）：HEAD 人工修正映射不可被规则覆盖
+        _anchor_sid = _anchors.get(rec["school"])
+        if _anchor_sid:
+            _apoi = next((p for p in poi_pool if p.get("school_id") == _anchor_sid), None)
+            if _apoi:
+                bindings.append((1200, idx, _apoi))
+                continue
         mapped = NAME_MAP.get(rec["school"])
         if mapped is None:
             cands = rank_candidates(rec["school"], poi_pool)
             if cands:
                 bindings.append((cands[0][0], idx, cands[0][2]))
             else:
-                map_fail.append(rec["school"])
+                # 统一匹配库兜底（区上下文 + 小学学段，三重防护）
+                poi = bde.resolve_fallback(_matcher, rec["school"], ADCODE, poi_pool)
+                if poi:
+                    bindings.append((1050, idx, poi))
+                else:
+                    map_fail.append(rec["school"])
             continue
         if mapped == "":
             # 显式标记：该官方校不分配 POI（同 POI 已被主校区占用 / 无 POI）
@@ -179,7 +195,10 @@ def match_and_write(records):
             continue
         used[poi["name"]] = records[idx]["school"]
         rec = dict(records[idx])
-        rec["school_id"] = poi["name"]
+        # 历史 bug：曾把 POI 名写入 school_id 字段（poi["name"]），重跑即丢真 id。
+        # POI 库自带 school_id（实体主键，与 _anchors.json 历史锚定 100% 一致）→ 写真 id。
+        rec["school_id"] = poi.get("school_id")
+        rec["poi_name"] = poi["name"]
         rec["lng"], rec["lat"] = poi["lng"], poi["lat"]
         matched.append(rec)
 
@@ -209,11 +228,16 @@ def match_and_write(records):
 
 def main():
     xlsx = sys.argv[1] if len(sys.argv) > 1 else "/tmp/baiyun2026/plan.xlsx"
-    records = extract_records(xlsx)
-    # 落 _raw 中间数据
-    os.makedirs(RAW_DIR, exist_ok=True)
-    with open(os.path.join(RAW_DIR, "baiyun_2026.json"), "w", encoding="utf-8") as f:
-        json.dump({"schools": records}, f, ensure_ascii=False, indent=1)
+    if os.path.exists(xlsx):
+        records = extract_records(xlsx)
+        # 落 _raw 中间数据
+        os.makedirs(RAW_DIR, exist_ok=True)
+        with open(os.path.join(RAW_DIR, "baiyun_2026.json"), "w", encoding="utf-8") as f:
+            json.dump({"schools": records}, f, ensure_ascii=False, indent=1)
+    else:
+        # xlsx 缺失时复用 _raw 解析产物（结构相同：schools 数组），保证本地可重跑
+        raw = json.load(open(os.path.join(RAW_DIR, "baiyun_2026.json"), encoding="utf-8"))
+        records = raw["schools"]
     match_and_write(records)
 
 

@@ -92,7 +92,9 @@ def brandNorm(s):
 
 
 def strip_generic(s):
-    """剥离学校名末尾的泛词后缀，返回核心词（如「白云广大附中实验中学」→「白云广大附中」；纯泛词→空）。"""
+    """剥离学校名末尾的泛词后缀，返回核心词（如「白云广大附中实验中学」→「白云广大附中」；纯泛词→空）。
+    支持带括号形式「XX(小学部)」：剥「(小学部)」整体（含括号），避免残留括号破坏 substring 吸附；
+    剥后若残留括号字符则继续剥（防御）。"""
     t = s
     changed = True
     while changed:
@@ -102,6 +104,17 @@ def strip_generic(s):
                 t = t[: -len(w)]
                 changed = True
                 break
+            for _open, _close in (("(", ")"), ("（", "）")):
+                _wrapped = _open + w + _close
+                if t.endswith(_wrapped) and len(t) > len(_wrapped):
+                    t = t[: -len(_wrapped)]
+                    changed = True
+                    break
+            if changed:
+                break
+        if not changed and t.endswith(("(", "（")):
+            t = t[:-1]
+            changed = True
     return t
 
 
@@ -191,6 +204,7 @@ class SchoolMatcher:
         preferred_adcode：行政区匹配（构建某区招生计划时传入该区 adcode，命中候选优先取同区 POI）；
         preferred_stage：学段匹配（初中计划优先初中部，避免选到高中部）。"""
         n = matchNorm(name)
+        alias_multiple = False  # alias 命中多候选且无法收敛 → substring 禁用泛词吸附（防核心校裸名吸附集团成员）
 
         def bare(s):
             return re.sub(r"[\(（][^()（）]*[\)）]", "", s)
@@ -280,14 +294,20 @@ class SchoolMatcher:
             ents = self.alias_map[n]
             # 2a. 先精确匹配实体完整名（含校区括号，避免多校区 norm 歧义）；身份映射显式确认，跨区不拦截
             ent_names = {e["name"] for e in ents}
-            r = _pick([p for p in self.poi_all if p["name"] in ent_names], "变体命中", district_guard=False)
+            c2a = [p for p in self.poi_all if p["name"] in ent_names]
+            r = _pick(c2a, "变体命中", district_guard=False)
             if r:
                 return r
+            if len(c2a) > 1:
+                alias_multiple = True
             # 2b. 再按 norm 匹配
             ent_norms = {matchNorm(e["name"]) for e in ents}
-            r = _pick([p for p in self.poi_all if p["norm"] in ent_norms], "变体命中", district_guard=False)
+            c2b = [p for p in self.poi_all if p["norm"] in ent_norms]
+            r = _pick(c2b, "变体命中", district_guard=False)
             if r:
                 return r
+            if len(c2b) > 1:
+                alias_multiple = True
             # 2b5. 实体主校 POI 缺失时，用实体核心名前缀在同区找分校区 POI（如「华阳小学」→「华阳小学(华成校区)」）
             for e in ents:
                 base = bare(matchNorm(e["name"]))
@@ -314,10 +334,15 @@ class SchoolMatcher:
         # 3. substring / contains match (variant)：剥离泛词后按核心词匹配，同区优先，防「实验中学」类泛词吸附
         if n:
             n_core = strip_generic(n)
+            # 去括号核心名（「第七中学实验学校(小学部)」→「第七中学实验学校」）：学部括号场景下
+            # 泛词剥离会剥过头（「第七」/「八一」丢核心名或错配「八一希望学校」），
+            # 故用完整去括号名优先精确包含，strip 泛词仅作弱兜底。
+            n_bare = bare(n)
             _WEAK_CORE = ("白云", "越秀", "海珠", "天河", "荔湾", "黄埔", "番禺", "萝岗",
                           "第一", "第二", "第三", "第四", "第五", "第六", "第七", "第八", "第九", "第十")
             _NON_SCHOOL = ("充电站", "停车场", "广场", "大厦", "中心", "公园", "小区", "花园", "银行", "医院", "超市", "餐厅", "酒店", "公司", "商厦")
             a_cands, b_cands = [], []  # A支=成员核心在POI（专属高）；B支=POI核心在成员（按位置收敛）
+            bare_cands = []            # 去括号核心精确包含（学部括号等场景），单独优先收敛
             for p in self.poi_all:
                 if not p["norm"]:
                     continue
@@ -327,15 +352,29 @@ class SchoolMatcher:
                 p_core = strip_generic(p_bare)
                 if p_core in _WEAK_CORE:
                     p_core = ""
-                if len(n_core) >= 2 and n_core not in _WEAK_CORE and (n_core in p_bare or n_core in p["norm"]):
+                # 「华阳教育集团高塘石小学」「华阳集团侨乐小学」类集团/集团化成员：
+                # 核心校裸名（如「华阳小学」）不得吸附集团名下成员（集团名 ≠ 核心校名；
+                # 成员应走 alias/显式映射命中）；仅当成员名以核心裸名为前缀（如「广州中学教育集团XX」）才放行
+                if "集团" in p_bare and not p["norm"].startswith(n_bare):
+                    continue
+                if len(n_bare) >= 4 and n_bare != n_core and n_bare in p_bare:
+                    bare_cands.append(p)  # 「第七中学实验学校(小学部)」→「第七中学实验学校」精确包含，
+                    # 与弱泛词候选（「八一实验学校」泛词剥离后可能吸附「八一希望学校」）隔离
+                elif (not alias_multiple or len(n_core) >= 4) and len(n_core) >= 2 and n_core not in _WEAK_CORE and (n_core in p_bare or n_core in p["norm"]):
                     a_cands.append((p, p_core))
-                elif len(p_core) >= 2 and p_core in n:
+                elif (not alias_multiple or len(n_core) >= 4) and len(p_core) >= 2 and p_core in n:
                     b_cands.append((p, p_core))
             suffix = ""
             for w in ("小学", "中学", "初中", "高中", "学校"):
                 if n.endswith(w):
                     suffix = w
                     break
+            if bare_cands:
+                # 去括号核心精确包含（学部括号场景）优先收敛：单独试，避免弱泛词候选
+                # （「八一实验学校」泛词剥离吸附「八一希望学校」）混入 by_main 错选无括号者
+                r = _pick(bare_cands, "变体命中")
+                if r:
+                    return r
             if a_cands:
                 if suffix:
                     suff = [c for c in a_cands if bare(c[0]["norm"]).endswith(suffix) or c[0]["norm"].endswith(suffix)]

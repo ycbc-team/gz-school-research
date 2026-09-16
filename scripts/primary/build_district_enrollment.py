@@ -39,6 +39,8 @@ PREFIXES = ["市桥", "钟村", "石壁", "大石", "洛浦", "南村", "化龙"
 # 依据：校名前缀关系（真光中学附属/第四中学附属/教育集团等托管更名）、用户确认（养正小学=王圣堂温浩根养正学校，均广园西路78号）、
 #       校区名一致（小北校区=小北路校区）、POI 为该校小学部/招生处（星执、智谷第一实验学校）
 NAME_MAP = {
+    # 转录差异：raw sheets 读作「番禺区中学」，官方 xls/实体为「番禺中学」——归一绑定防 rank 漂移
+    "广东番禺区中学教育集团兴南学校": "广东番禺中学教育集团兴南学校",
     "养正小学": "王圣堂温浩根养正学校",
     "华侨外国语学校（小学部）": "广州市华侨外国语学校-华侨小学",
     "回民小学": "广州市回民小学北校区",
@@ -56,6 +58,11 @@ NAME_MAP = {
     "广州市荔湾区蒋光鼐纪念小学三元坊学校": "三元坊小学",
     "广州市荔湾区华侨小学汇龙学校": "汇龙小学",
     "石碁镇茂生小学": "茂生纪念学校",
+    # 校区名差异（政府文件短名 vs 高德 POI 全名）——人工确认：
+    # 宝玉直实验小学（南边校区）地段=南石头街庄头/棣园社区 ↔ POI「南边路校区」同址；
+    # 逸景第一小学（逸景校区）地段=凤阳街逸景东/西社区 ↔ POI「本校区」= 逸景第一小学本部
+    "宝玉直实验小学（南边校区）": "广州市海珠区宝玉直实验小学(南边路校区)",
+    "逸景第一小学（逸景校区）": "逸景第一小学(本校区)",
 }
 
 DISTRICTS = {
@@ -302,38 +309,45 @@ def parse_raw(district_key):
 
 # ---------- 番禺 ----------
 def parse_panyu(xls_path):
-    import xlrd
-    wb = xlrd.open_workbook(xls_path)
+    if os.path.exists(xls_path):
+        import xlrd
+        wb = xlrd.open_workbook(xls_path)
+        sheets = {s.name: [[sh.cell_value(r, c) for c in range(sh.ncols)] for r in range(sh.nrows)]
+                  for sh in wb.sheets()}
+    else:
+        # xls 缺失时复用 _raw 解析产物（同构：sheets 二维数组），保证本地可重跑
+        raw = json.load(open(os.path.join(OUT_DIR, "_raw", "panyu_2026_official.json"), encoding="utf-8"))
+        sheets = raw["sheets"]
     records = []
-    sh = wb.sheet_by_name("公办小学招生地段、计划")
+    sh = sheets.get("公办小学招生地段、计划", [])
     district = ""
-    for r in range(3, sh.nrows):
-        d = str(sh.cell_value(r, 0)).strip()
+    for r in range(3, len(sh)):
+        d = str(sh[r][0]).strip()
         if d:
             district = d.replace("\n", "")
-        school = str(sh.cell_value(r, 1)).strip()
+        school = str(sh[r][1]).strip()
         if not school:
             continue
-        plan = sh.cell_value(r, 2)
-        zone = str(sh.cell_value(r, 3)).strip()
-        note = str(sh.cell_value(r, 4)).strip()
+        plan = sh[r][2]
+        zone = str(sh[r][3]).strip()
+        note = str(sh[r][4]).strip()
         records.append({
             "school": school, "district": district,
             "plan_classes": int(plan) if isinstance(plan, float) and plan == int(plan) else (plan if isinstance(plan, (int, float)) else None),
             "zone": zone, "note": note, "source": "番禺区教育局2026",
         })
-    sh2 = wb.sheet_by_name("民办招生计划")
+    sh2 = sheets.get("民办招生计划", [])
     district2 = ""
-    for r in range(5, sh2.nrows):
-        d = str(sh2.cell_value(r, 0)).strip()
+    for r in range(5, len(sh2)):
+        d = str(sh2[r][0]).strip()
         if d:
             district2 = d.replace("\n", "")
-        school = str(sh2.cell_value(r, 1)).strip()
+        school = str(sh2[r][1]).strip()
         if not school:
             continue
-        classes = sh2.cell_value(r, 2)
-        persons = sh2.cell_value(r, 3)
-        note = str(sh2.cell_value(r, 6)).strip()
+        classes = sh2[r][2]
+        persons = sh2[r][3]
+        note = str(sh2[r][6]).strip()
         records.append({
             "school": school, "district": district2,
             "plan_classes": int(classes) if isinstance(classes, float) and classes == int(classes) else (classes if isinstance(classes, (int, float)) else None),
@@ -342,6 +356,39 @@ def parse_panyu(xls_path):
             "note": note, "source": "番禺区教育局2026",
         })
     return records
+
+def load_unified_matcher():
+    """统一校名匹配库（school_match.SchoolMatcher）：POI 三学段 + 实体表。供各区 build 脚本复用。"""
+    sys.path.insert(0, os.path.join(ROOT, "scripts", "registry"))
+    from school_match import SchoolMatcher
+    return SchoolMatcher.load(
+        poi_paths=[(os.path.join(DATA, "schools-gz.json"), "小学"),
+                   (os.path.join(ROOT, "data", "middle", "schools-gz.json"), "初中"),
+                   (os.path.join(ROOT, "data", "high", "schools-gz.json"), "高中")],
+        entities_path=os.path.join(ROOT, "data", "registry", "entities.json"))
+
+
+def resolve_fallback(matcher, school, adcode, poi_pool, stage="小学"):
+    """统一匹配库兜底（自定义规则覆盖不到：小学部括号、校区短名 vs POI 全名等）。
+    三重防护 → 拒绝返回 None（宁可缺失、不跨区错配）：
+      ① 跨学段（非目标 stage，如星悦实验学校实体仅初中部）；
+      ② 跨区（sid 不在本区 POI 池，如桂花岗小学实体误标白云）；
+      ③ 校区名冲突（开元学校(西校区) 不可挂东校区实体）。"""
+    r = matcher.resolve(school, preferred_adcode=adcode, preferred_stage=stage)
+    sid = r.get("school_id") if r else None
+    if not sid:
+        return None
+    if r.get("stage") and r.get("stage") != stage:
+        return None
+    poi = next((p for p in poi_pool if p.get("school_id") == sid), None)
+    if not poi:
+        return None
+    oc = re.findall(r"[（(]([^）()]*?校区)[)）]", school)
+    mc = re.findall(r"[（(]([^）()]*?校区)[)）]", r.get("matched_name") or "")
+    if oc and mc and oc[0] != mc[0]:
+        return None
+    return poi
+
 
 def match_and_write(district_key, records, source, source_url):
     # 数据真源为 data/primary/schools-gz.json（JSON 唯一真源）
@@ -352,9 +399,23 @@ def match_and_write(district_key, records, source, source_url):
     BAD_POI = ("建设中", "在建", "工地", "装修", "筹备", "规划", "选址")
     poi_pool = [s for s in poi_pool if len(s["name"]) > 2 and not any(b in s["name"] for b in BAD_POI)]
 
+    _matcher = load_unified_matcher()
+
+    # 历史锚定基线（data/primary/enrollments/_anchors.json）：HEAD 各区 records 的
+    # 「政府文件校名 → 实体 school_id」人工修正映射。重跑时锚定优先于一切规则，
+    # 防止「省实荔湾第一小学部」「万松园小学」「康有为校本部」等历史修正被规则漂移覆盖。
+    _anchors = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "_anchors.json"), encoding="utf-8"))
+
     bindings = []  # (score, rec_idx, poi)
     map_fail = []
     for idx, rec in enumerate(records):
+        # 0. 历史锚定优先（1200，最高）：HEAD 人工修正映射不可被规则覆盖
+        _anchor_sid = _anchors.get(rec["school"])
+        if _anchor_sid:
+            _apoi = next((p for p in poi_pool if p.get("school_id") == _anchor_sid), None)
+            if _apoi:
+                bindings.append((1200, idx, _apoi))
+                continue
         mapped = NAME_MAP.get(rec["school"])
         if mapped:
             poi = next((p for p in poi_pool if p["name"] == mapped), None)
@@ -366,6 +427,12 @@ def match_and_write(district_key, records, source, source_url):
         cands = rank_candidates(rec["school"], poi_pool)
         if cands:
             bindings.append((cands[0][0], idx, cands[0][2]))
+            continue
+        # 自定义规则未命中 → 统一匹配库兜底（区上下文 + 小学学段）
+        poi = resolve_fallback(_matcher, rec["school"], DISTRICTS[district_key]["adcode"], poi_pool)
+        if poi:
+            bindings.append((1050, idx, poi))  # 统一匹配库兜底（低于 NAME_MAP/自定义规则）
+        # 拒绝（跨区/跨学段/校区冲突）→ 保持 unmatched，供报告与人工核查
     bindings.sort(key=lambda x: -x[0])
 
     matched, ambiguous, used = [], [], {}

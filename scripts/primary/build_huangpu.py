@@ -71,11 +71,20 @@ def main():
             "source": "黄埔区教育局2026",
         })
 
+    # 历史锚定基线（政府文件校名 → 实体 school_id 的人工修正映射），重跑时优先于规则
+    _anchors = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "_anchors.json"), encoding="utf-8"))
+    _matcher = bde.load_unified_matcher()
+
     bindings = []
     map_fail = []
     for idx, rec in enumerate(records):
-        # 显式映射：HP_NAME_MAP 优先，其次复用五区 NAME_MAP
-        if rec["school"] in HP_NAME_MAP:
+        # 0. 历史锚定优先（1200，最高）：HEAD 人工修正映射不可被规则覆盖
+        _anchor_sid = _anchors.get(rec["school"])
+        if _anchor_sid:
+            _apoi = next((p for p in pool if p.get("school_id") == _anchor_sid), None)
+            if _apoi:
+                bindings.append((1200, idx, _apoi))
+                continue
             mapped = HP_NAME_MAP[rec["school"]]
             if mapped is None:
                 # 值为 None：官方校在 POI 库中无对应（在建/新建/暂定名），跳过绑定
@@ -97,6 +106,11 @@ def main():
         cands = bde.rank_candidates(rec["school"], pool)
         if cands:
             bindings.append((cands[0][0], idx, cands[0][2]))
+            continue
+        # 自定义规则未命中 → 统一匹配库兜底（复用 build_district_enrollment.resolve_fallback）
+        poi = bde.resolve_fallback(_matcher, rec["school"], ADCODE, pool)
+        if poi:
+            bindings.append((1050, idx, poi))
 
     bindings.sort(key=lambda x: -x[0])
     matched, ambiguous, used = [], [], {}
@@ -107,7 +121,10 @@ def main():
             continue
         used[poi["name"]] = records[idx]["school"]
         rec = dict(records[idx])
-        rec["school_id"] = poi["name"]
+        # 历史 bug：曾把 POI 名写入 school_id 字段（poi["name"]），重跑即丢真 id。
+        # POI 库自带 school_id（实体主键，与 _anchors.json 历史锚定 100% 一致）→ 写真 id。
+        rec["school_id"] = poi.get("school_id")
+        rec["poi_name"] = poi["name"]
         rec["lng"], rec["lat"] = poi["lng"], poi["lat"]
         matched.append(rec)
 

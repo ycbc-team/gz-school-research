@@ -354,6 +354,33 @@ const entities = [];           // {school_id, name, stage, aliases:Set(norm)}
 const poiIdByKey = new Map();   // "stage|adcode|poiName" -> school_id（同名跨区必须独立）
 const entByStagePoiName = new Map(); // "stage|norm(poiName)" -> entity
 
+// 核心裸名归一：去括号、去「广州市」前缀；「广州奥林匹克中学」vs「广州市奥林匹克中学」这类
+// 「广州」/「广州市」混写也归一到同一核心（防计数/挂载分歧）。仅当去「广州」后剩余为泛词
+// （如「广州中学」→「中学」）时保留前缀，避免泛词毁名（历史多次踩坑）。
+const BARE_GENERIC = new Set(['中学', '小学', '学校', '幼儿园', '实验中学', '实验学校', '中心小学', '第一小学', '实验小学', '附属小学', '附属中学']);
+const BARE_DISTRICT = /^(荔湾|越秀|海珠|天河|白云|黄埔|番禺)区/;
+function bareCoreOf(rawNorm) {
+  let bc = rawNorm.replace(/\([^()]*\)/g, '').replace(/^广州市/, '').replace(BARE_DISTRICT, '');
+  if (bc.startsWith('广州') && !BARE_GENERIC.has(bc.slice(2))) bc = bc.slice(2);
+  return bc;
+}
+
+// 先统计「同区同学段核心裸名」出现次数：只有独苗才挂裸名别名
+// （多校区/多学部同区同段共用一个核心名 → resolve 无法收敛，宁缺毋滥，由锚定表/显式映射兜底）。
+const bareCoreCount = new Map();  // "stage|adcode|bareCore" -> count
+for (const [stage, file] of Object.entries(stageFiles)) {
+  const j = read(file);
+  const pois = j.schools || j;
+  for (const p of pois) {
+    const rawNorm = String(p.name).replace(/（/g, '(').replace(/）/g, ')').replace(/\s+/g, '');
+    const bareCore = bareCoreOf(rawNorm);
+    if (bareCore) {
+      const k = stage + '|' + p.adcode + '|' + bareCore;
+      bareCoreCount.set(k, (bareCoreCount.get(k) || 0) + 1);
+    }
+  }
+}
+
 for (const [stage, file] of Object.entries(stageFiles)) {
   const j = read(file);
   const pois = j.schools || j;
@@ -362,6 +389,14 @@ for (const [stage, file] of Object.entries(stageFiles)) {
     // 幂等：POI 已有 school_id 时保留（历史算法产出，事实表已按此引用），无 id 才新算
     const schoolId = p.school_id || idKey(p.adcode, sn);
     const ent = { school_id: schoolId, name: p.name, stage, aliases: new Set(poiNameAliases(p.name, p.adcode)) };
+    // 学部/校区括号 → 核心裸名别名（如「广东番禺中学实验学校(小学部)」→「广东番禺中学实验学校」）。
+    // 仅当同区同学段该核心名为独苗时挂载（如小学部唯一实体），保证 resolve「区+学段」可唯一收敛；
+    // 多校区共用核心名（万松园小学松园/云桂校区）不挂裸名 → resolve 宁缺毋滥，build 靠 _anchors 锚定。
+    const rawNorm = String(p.name).replace(/（/g, '(').replace(/）/g, ')').replace(/\s+/g, '');
+    const bareCore = bareCoreOf(rawNorm);
+    if (bareCore && bareCore !== sn && bareCoreCount.get(stage + '|' + p.adcode + '|' + bareCore) === 1) {
+      ent.aliases.add(bareCore);
+    }
     // 实体名自身 norm 的纯名变体先占位（「景泰中学」实体名 = 纯名，别名表不得再挂同区其他实体）
     for (const v of poiNameAliases(p.name, p.adcode)) {
       if (isPlainAlias(v)) {

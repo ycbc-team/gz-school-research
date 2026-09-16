@@ -22,7 +22,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 孤儿学校清单快照（sha256 前 16 位）：公办且「无招生或无升学」的异常学校清单。
 # 存量孤儿逐一排查修复（修复一所 → 重跑 → 显式更新此快照）；孤儿新增/变化立即失败。
 # 首次固化 2026-09-16：primary 256 + middle 166 + high 2（详见 outputs/orphan_schools_20260916.md）
-ORPHAN_SNAPSHOT = "92e9fb0249bb7487"
+ORPHAN_SNAPSHOT = "9d904f3725f31445"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
@@ -81,18 +81,24 @@ def main():
     # 跨区同名（不同学校）放行；同区多校区共用纯名 → 匹配不确定，报错。
     # 同区跨 stage（初中部 middle / 高中部 high 各自持裸名，如「广州中学」五山/凤凰）放行：
     # resolve 按 stage 过滤后唯一，匹配确定（初中表命中 middle、高中表命中 high）。
+    # 用户口径（2026-09）：别名非主键可重复；裸名「同区+学段+主校区」可唯一收敛
+    # （resolve by_main 优先无括号主 POI）→ 只要冲突实体中存在无括号主名即放行；
+    # 仅当冲突双方都带校区括号（无主 POI 可收敛，如「广钢校区」vs「岭南校区」裸名撞）才报错。
     entities = load_entities()
-    alias_owner = {}  # alias -> (school_id, adcode, stage)
+    alias_owner = {}  # alias -> (school_id, adcode, stage, 该实体名是否无括号)
     for ent in entities:
         # 纯名 = 无括号/无校区限定词的别名
         adcode = ent["school_id"].split("-")[1] if ent.get("school_id") else ""
         stage = ent.get("stage")
+        has_main = "(" not in ent.get("name", "") and "（" not in ent.get("name", "")
         for a in ent.get("aliases", []):
             if "(" not in a and "校区" not in a and "本部" not in a and "学校" not in a.split("（")[0] and "、" not in a \
                and "初中部" not in a and "高中部" not in a and "小学部" not in a and "年级" not in a and "教学" not in a and "楼" not in a:
                 if a in alias_owner and alias_owner[a][1] == adcode and alias_owner[a][2] == stage and alias_owner[a][0] != ent["school_id"]:
-                    check(False, f"[3] 同区同stage纯名别名被多实体共用: '{a}' → {alias_owner[a][0]} 与 {ent['school_id']}（{adcode}/{stage}）")
-                alias_owner.setdefault(a, (ent["school_id"], adcode, stage))
+                    # 冲突双方都带括号（无主 POI）→ 真歧义；任一方为无括号主名 → resolve by_main 可收敛，放行
+                    if not has_main and not alias_owner[a][3]:
+                        check(False, f"[3] 同区同stage纯名别名被多实体共用且无主POI可收敛: '{a}' → {alias_owner[a][0]} 与 {ent['school_id']}（{adcode}/{stage}）")
+                alias_owner.setdefault(a, (ent["school_id"], adcode, stage, has_main))
 
     # ---- 4. 集团必须有来源 ----
     for g in groups:
