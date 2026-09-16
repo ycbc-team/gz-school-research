@@ -1,6 +1,7 @@
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 const { buildHighRankingGroups, buildHighRankingRows } = require('../dist/cjs/index.js');
@@ -41,6 +42,14 @@ test('高中明细 VM：全量学校的政策标签与简称均不混淆', () =>
   const guangzhou = rows.find((row) => row.name === '广州实验中学');
   assert.equal(guangdong?.displayName, '广东实验中学(高中部)');
   assert.equal(guangzhou?.displayName, '广州实验中学');
+});
+
+test('高中明细 VM：全量校区展示快照必须显式更新', () => {
+  const snapshot = buildHighRankingRows(loaders)
+    .map(({ schoolId, name, displayName, category, affiliation }) => ({ schoolId, name, displayName, category, affiliation }))
+    .sort((a, b) => String(a.schoolId).localeCompare(String(b.schoolId), 'zh'));
+  const digest = crypto.createHash('sha256').update(JSON.stringify(snapshot)).digest('hex');
+  assert.equal(digest, 'eefe233aa78f529ab8d9b2ac352520a3575a8ccedb647ef511e63fc3583175ca', '任一高中校区的简称、分类或政策标签变更，都必须确认并更新全量快照');
 });
 
 test('高中明细 VM：支持不分组、七区位置筛选与多年份排序', () => {

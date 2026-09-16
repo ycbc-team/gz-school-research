@@ -168,7 +168,7 @@ function highRankingShortName(name: string): string {
   if (trimmed.startsWith('广东')) return trimmed.slice(2);
   if (trimmed.startsWith('广州')) {
     const rest = trimmed.slice(2);
-    if (rest.length >= 3 && !rest.startsWith('大学')) return rest;
+    if (rest.length >= 3 && !rest.startsWith('大学') && !rest.startsWith('中学')) return rest;
   }
   return trimmed;
 }
