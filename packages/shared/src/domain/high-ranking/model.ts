@@ -3,7 +3,7 @@
  *
  * 这个模型只做数据归并、展示文本和排序值，不含 Vue/微信小程序 API；两个端可以直接复用。
  * 一行对应一个高中校区点位，因此「按位置所在行政区」严格取 POI 的 adcode，而非学校的
- * 主管区。榜单录取线统一只取第三批公办户籍生分数；没有该口径即为空。
+ * 主管区。榜单录取线优先取第三批公办户籍生分数；缺失时回退第四批。
  */
 import { ADCODE_TO_DISTRICT, GZ_DISTRICTS } from '../../const.js';
 import type { DataLoaders } from '../../data/loader.js';
@@ -33,6 +33,8 @@ export interface HighRankingScore {
   text: string;
   /** 该条记录用于排序的主分数 */
   value: number | null;
+  /** 实际采用的招生批次，供产品在需要时说明口径。 */
+  batch: 3 | 4;
 }
 
 export interface HighRankingRow {
@@ -81,14 +83,14 @@ function levelForPoi(poi: SchoolPoi, levels: HighLevelSchool[]): HighLevelSchool
   }) || null;
 }
 
-/** 高中明细唯一录取线口径：第三批公办户籍生。 */
+/** 高中明细候选录取线：公办普通高中第三/四批户籍生。 */
 export function highRankingScoreValue(record: HighScoreRecord): number | null {
-  return record.batch === 3 && record.kind === 'public' ? record.huji ?? null : null;
+  return (record.batch === 3 || record.batch === 4) && record.kind === 'public' ? record.huji ?? null : null;
 }
 
 export function formatHighRankingScore(record: HighScoreRecord): HighRankingScore {
   const value = highRankingScoreValue(record);
-  return { name: record.official_name, text: value == null ? '—' : String(value), value };
+  return { name: record.official_name, text: value == null ? '—' : String(value), value, batch: record.batch as 3 | 4 };
 }
 
 function categoryOrder(value: string): number {
@@ -103,11 +105,14 @@ function categoryGroupKey(category: string): string {
   return category === '未标注' ? '普通高中' : category;
 }
 
-/** 一行严格对应一个校区实体；不得回退或聚合同校其它校区的录取线。 */
+/** 一行严格对应一个校区实体；不得回退或聚合同校其它校区的录取线。
+ * 同一校区内优先第三批；没有可用户籍生分数时才回退第四批。 */
 function scoresForPoi(poi: SchoolPoi, yearScores: Record<string, HighScoreRecord[]>): HighRankingScore[] {
-  return (poi.school_id ? (yearScores[poi.school_id] || []) : [])
+  const scores = (poi.school_id ? (yearScores[poi.school_id] || []) : [])
     .map(formatHighRankingScore)
     .filter((score) => score.value != null);
+  const third = scores.filter((score) => score.batch === 3);
+  return third.length ? third : scores.filter((score) => score.batch === 4);
 }
 
 /** 构建校区行；每组内按 2026 第三批户籍生分数降序，无分数置后。 */

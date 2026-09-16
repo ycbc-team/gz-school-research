@@ -46,10 +46,10 @@ test('高中明细 VM：全量学校的政策标签与简称均不混淆', () =>
 
 test('高中明细 VM：全量校区展示快照必须显式更新', () => {
   const snapshot = buildHighRankingRows(loaders)
-    .map(({ schoolId, name, displayName, category, affiliation }) => ({ schoolId, name, displayName, category, affiliation }))
+    .map(({ schoolId, name, displayName, category, affiliation, score2025, score2026 }) => ({ schoolId, name, displayName, category, affiliation, score2025, score2026 }))
     .sort((a, b) => String(a.schoolId).localeCompare(String(b.schoolId), 'zh'));
   const digest = crypto.createHash('sha256').update(JSON.stringify(snapshot)).digest('hex');
-  assert.equal(digest, 'eefe233aa78f529ab8d9b2ac352520a3575a8ccedb647ef511e63fc3583175ca', '任一高中校区的简称、分类或政策标签变更，都必须确认并更新全量快照');
+  assert.equal(digest, 'e7d1571d11a99e55b0d29bc1b08b6eeea73cd650f78242ae6a56e99181fe6a70', '任一高中校区的简称、分类、政策标签或录取线口径变更，都必须确认并更新全量快照');
 });
 
 test('高中明细 VM：支持不分组、七区位置筛选与多年份排序', () => {
@@ -81,13 +81,18 @@ test('高中明细 VM：支持按招生学校分类筛选，普通公办高中�
   assert.deepEqual(buildHighRankingGroups(loaders, { groupBy: 'none', filters: [] }), []);
 });
 
-test('高中明细 VM：只展示第三批户籍生，且绝不聚合同校其它校区', () => {
+test('高中明细 VM：优先第三批、缺失时回退第四批，且绝不聚合同校其它校区', () => {
   const rows = buildHighRankingGroups(loaders, 'category').flatMap((group) => group.items);
   const universityTown = rows.find((row) => row.name === '广州大学附属中学(大学城校区)');
   assert.equal(universityTown?.score2026[0]?.text, '738');
   assert.equal(universityTown?.score2025[0]?.text, '732');
+  assert.equal(universityTown?.score2026[0]?.batch, 3);
+  const shilou = rows.find((row) => row.name === '番禺区石楼中学');
+  assert.equal(shilou?.score2025[0]?.text, '520');
+  assert.equal(shilou?.score2026[0]?.text, '552');
+  assert.equal(shilou?.score2026[0]?.batch, 4);
   assert.equal(rows.some((row) => row.name === '广州市真光中学(芳花校区)'), false);
-  assert.ok(rows.some((row) => row.name === '广州市西关培英中学' && row.score2026.length === 0), '仅第四批的学校应展示为空');
+  assert.equal(rows.find((row) => row.name === '广州市西关培英中学')?.score2026[0]?.batch, 4);
   assert.ok(rows.some((row) => row.category === '普通高中'), '普通高中应单独分组，不并入省市属示范');
 });
 

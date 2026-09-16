@@ -43,7 +43,7 @@ function flipDistricts() {
 const showHint = ref(false);
 const hintPos = ref({ top: 0, left: 0 });
 let hintTimer: number | undefined;
-const SCORE_NOTE = '第三批公办普通高中户籍生录取分数；不含第一、第四批次，以及非户籍生、外区生、民办和中外合作办学项目分数。';
+const SCORE_NOTE = '公办普通高中户籍生最低录取分数：优先取第三批；该校区没有第三批户籍生分数时取第四批。不含第一批、非户籍生、外区生、民办及中外合作办学项目分数。';
 
 /** 与初中明细一致：PopupWindow 锚定问号；悬停可读、点击可固定，滚动时收起。 */
 function openHint(e: MouseEvent) {
