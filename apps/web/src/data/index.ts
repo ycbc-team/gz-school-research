@@ -20,6 +20,13 @@ import enrollLiwanCompact from './compact/primary/enrollments/2026-liwan.js';
 import enrollPanyuCompact from './compact/primary/enrollments/2026-panyu.js';
 import enrollBaiyunCompact from './compact/primary/enrollments/2026-baiyun.js';
 import enrollHuangpuCompact from './compact/primary/enrollments/2026-huangpu.js';
+import middleEnrollTianheCompact from './compact/primary/enrollments/middle_enrollment_2026_tianhe.js';
+import middleEnrollYuexiuCompact from './compact/primary/enrollments/middle_enrollment_2026_yuexiu.js';
+import middleEnrollHaizhuCompact from './compact/primary/enrollments/middle_enrollment_2026_haizhu.js';
+import middleEnrollLiwanCompact from './compact/primary/enrollments/middle_enrollment_2026_liwan.js';
+import middleEnrollPanyuCompact from './compact/primary/enrollments/middle_enrollment_2026_panyu.js';
+import middleEnrollBaiyunCompact from './compact/primary/enrollments/middle_enrollment_2026_baiyun.js';
+import middleEnrollHuangpuCompact from './compact/primary/enrollments/middle_enrollment_2026_huangpu.js';
 import quotaMatrixCompact from './compact/linkage/quota_matrix.js';
 import rankingMiddleCompact from './compact/linkage/ranking_middle.js';
 import specialMatrixCompact from './compact/linkage/special_matrix.js';
@@ -50,6 +57,15 @@ const loaders: DataLoaders = {
     cast(hydrate(enrollPanyuCompact)),
     cast(hydrate(enrollBaiyunCompact)),
     cast(hydrate(enrollHuangpuCompact)),
+  ],
+  middleEnrollments: [
+    cast(hydrate(middleEnrollTianheCompact)),
+    cast(hydrate(middleEnrollYuexiuCompact)),
+    cast(hydrate(middleEnrollHaizhuCompact)),
+    cast(hydrate(middleEnrollLiwanCompact)),
+    cast(hydrate(middleEnrollPanyuCompact)),
+    cast(hydrate(middleEnrollBaiyunCompact)),
+    cast(hydrate(middleEnrollHuangpuCompact)),
   ],
   quotaMatrix: cast(hydrate(quotaMatrixCompact)),
   rankingMiddle: cast(hydrate(rankingMiddleCompact)),
@@ -103,6 +119,7 @@ export const {
   specialCoverage,
   xiaoshengchuOf,
   middlePrimaryFeed,
+  middleEnrollmentOf,
   schoolBadges,
   scoresOfSchool,
   scoresBySchoolId,

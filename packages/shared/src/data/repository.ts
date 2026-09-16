@@ -7,7 +7,7 @@
  */
 import type { DataLoaders } from './loader.js';
 import { createSchoolsApi } from './schools.js';
-import { createEnrollmentApi } from './enrollment.js';
+import { createEnrollmentApi, createMiddleEnrollmentApi } from './enrollment.js';
 import { createQuotaApi } from './quota.js';
 import { createRegistryApi } from './registry.js';
 import { createBadgesApi } from './badges.js';
@@ -21,6 +21,7 @@ export type { DataLoaders };
 export function createRepository(loaders: DataLoaders) {
   const schools = createSchoolsApi(loaders);
   const enrollment = createEnrollmentApi(loaders);
+  const middleEnrollment = createMiddleEnrollmentApi(loaders);
   const quota = createQuotaApi(loaders);
   const registry = createRegistryApi(loaders);
   const badges = createBadgesApi(loaders);
@@ -49,6 +50,7 @@ export function createRepository(loaders: DataLoaders) {
 
     ...schools,
     ...enrollment,
+    ...middleEnrollment,
     ...quota,
     ...registry,
     ...badges,

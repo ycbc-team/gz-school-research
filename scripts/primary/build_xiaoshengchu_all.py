@@ -408,7 +408,8 @@ def build_liwan():
     def note_fn(official, pn):
         if official == '广州市协和学校（小学部）':
             # 市属十二年制：小学部直升本校初中部，不参加荔湾派位（2026荔湾方案未列入分组表）
-            return ['广州市协和学校'], '协和学校（市属十二年制，小学部直升本校初中部，不参加荔湾区公办初中派位）', '协和学校（小学部）'
+            # direct_feed 必须是初中实体名（upgrade 按初中别名解析 id），不能写小学部自称
+            return ['广州市协和学校'], '协和学校（市属十二年制，小学部直升本校初中部，不参加荔湾区公办初中派位）', '广州市协和学校'
         g = LW_OFFICIAL_GROUP[official]
         return LW_JUNIORS[g].copy(), f'荔湾区小升初第{g}组（电脑派位）', None
     return build_district('440103', '荔湾区', LW_MAP, None, LW_NO_FEED,

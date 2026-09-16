@@ -20,7 +20,7 @@ import unicodedata
 import zipfile
 from xml.etree import ElementTree as ET
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA = os.path.join(ROOT, "data", "primary")
 OUT_DIR = os.path.join(DATA, "enrollments")
 TMP = "/tmp/gzsrc"
@@ -257,12 +257,24 @@ def parse_liwan():
                 school = row[1]
                 cls = row[2]
                 plan[school] = int(cls) if cls.isdigit() else None
-    # 附件4 服务地段划分表: 学校/街道/社区/路名
+    # 附件4 服务地段划分表: 学校/街道/社区/路名（学校列空=上一所学校地段的延续行，街道列空则继承上一条）
     zones = {}
+    cur = None
+    last_street = ""
     for row in docx_tables(os.path.join(TMP, "liw_4_服务地段划分表.docx"))[0]:
-        if len(row) >= 4 and row[0] and row[0] != "学校":
-            school, street, comm, addr = row[0], row[1], row[2], row[3]
-            zones.setdefault(school, []).append(f"{street}·{comm}：{addr}" if comm else f"{street}：{addr}")
+        if len(row) < 4:
+            continue
+        school, street, comm, addr = row[0], row[1], row[2], row[3]
+        if school and school != "学校":
+            cur = school
+        if street:
+            last_street = street
+        if not cur:
+            continue
+        if not (street or comm or addr):
+            continue
+        line_street = street or last_street
+        zones.setdefault(cur, []).append(f"{line_street}·{comm}：{addr}" if comm else f"{line_street}：{addr}")
     records = []
     for school in plan:
         records.append({

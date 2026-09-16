@@ -16,7 +16,7 @@ import {
 import {
   repository, primarySchools, middleSchools, highSchools, primaryTier1, middleTier1,
   highLevels, tier1Schools, middleTier1Schools, entities, matchEnrollment,
-  middleQuotaSummary, middlePrimaryFeed, xiaoshengchuOf, schoolBadges, scoresOfSchool,
+  middleQuotaSummary, middlePrimaryFeed, middleEnrollmentOf, xiaoshengchuOf, schoolBadges, scoresOfSchool,
   isComprehensive, brandGroupOf, groupOfSchool, resolvePoiName, resolveSchoolIdOf,
   type BrandUnit,
 } from '../data';
@@ -69,6 +69,11 @@ const gaokaoRows = computed(() => model.value.gaokaoRows);
 const brandCard = computed(() => model.value.brandCard);
 const brandCardUseful = computed(() => model.value.brandCardUseful);
 const campuses = computed(() => model.value.campuses);
+/** 初中 tab：2026 招生计划（班数/范围/机制/派位组），按当前学段 POI school_id 外键查 */
+const middleEnroll = computed(() => {
+  if (stage.value !== 'middle') return null;
+  return middleEnrollmentOf(schoolId.value || null);
+});
 
 // Historical in-component implementation is inactive. Production values above use buildDetailModel.
 if (false) {
@@ -510,11 +515,41 @@ const brandCardUseful = computed(() =>
       <p v-if="feedRows.length" class="sub-note" style="margin-top:4px;">点击初中可查看该校升学通道详情。</p>
     </div>
 
-    <!-- 初中 tab：招生 · 生源小学 -->
+    <!-- 初中 tab：招生计划（2026）：班数/范围/机制 + 生源小学 -->
     <div v-if="stage === 'middle'" class="card">
       <div class="card-title">招生计划（2026）</div>
+
+      <!-- 机制徽章 + 班数 + 范围（来自初中招生计划表） -->
+      <template v-if="middleEnroll">
+        <div class="mech-row">
+          <span class="badge" :class="middleEnroll.record.mechanism">
+            {{ middleEnroll.mechanismDef.label }}
+          </span>
+          <span v-if="middleEnroll.record.plan_classes != null" class="mech-plan">
+            计划 {{ middleEnroll.record.plan_classes }} 个班
+          </span>
+        </div>
+        <div v-if="middleEnroll.record.scope" class="zone-block">
+          <div class="zone-label">招生服务范围</div>
+          <p>{{ middleEnroll.record.scope }}</p>
+        </div>
+        <p v-if="middleEnroll.record.mechanism_note" class="sub-note">
+          官方备注：{{ middleEnroll.record.mechanism_note }}
+        </p>
+        <!-- 派位组：多校派位时列出组内学校 -->
+        <div v-if="middleEnroll.record.group_members && middleEnroll.record.group_members.length" class="zone-block">
+          <div class="zone-label">派位组成员（随机分配，组内兜底）</div>
+          <p>{{ middleEnroll.record.group_members.join('、') }}</p>
+        </div>
+        <!-- 单校电脑抽签：红字警示 -->
+        <div v-if="middleEnroll.mechanismDef.can_lose && middleEnroll.mechanismDef.lose_text" class="lottery-warning">
+          ⚠️ {{ middleEnroll.mechanismDef.lose_text }}
+        </div>
+      </template>
+
+      <!-- 生源小学反查 -->
       <template v-if="feedPrimarys.length">
-        <p class="sub-note">以下小学的 2026 对口/派位名单包含本校（由七区全量小学升学路线反查，校名全等匹配）。</p>
+        <p class="sub-note" style="margin-top:10px;">以下小学的 2026 对口/派位名单包含本校（由七区全量小学升学路线反查，校名全等匹配）。</p>
         <div class="feed-list">
           <div v-for="r in feedPrimarys" :key="r.primary" class="feed-item">
             <RouterLink :to="`/school/${encodeURIComponent(r.primary)}?stage=primary`" class="feed-name">{{ r.primary }}</RouterLink>
@@ -522,7 +557,7 @@ const brandCardUseful = computed(() =>
           </div>
         </div>
       </template>
-      <p v-else class="empty">暂无生源小学数据：2026 公办小学对口/派位名单中未匹配到包含本校的记录。民办校以官方摇号 / 直升政策为准，公办新建校或未收录点位以最新官方公告为准。</p>
+      <p v-else-if="!middleEnroll" class="empty">暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。</p>
     </div>
 
     <!-- 初中 tab：升学通道（名额分配/自招，LinkagePanel） -->
@@ -648,6 +683,18 @@ const brandCardUseful = computed(() =>
 .badge.h-city { background: #b45309; }
 .badge.h-dist { background: #0f766e; }
 .badge.h-normal { background: #57534e; }
+
+/* 初中招生机制徽章 */
+.badge.single_zone { background: #0f766e; }
+.badge.group_paidui { background: #1e40af; }
+.badge.single_lottery { background: #dc2626; }
+.mech-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.mech-plan { font-size: 13px; font-weight: 600; color: #1a1b1c; }
+.lottery-warning {
+  margin-top: 10px; padding: 8px 10px; border-radius: 8px;
+  background: #fef2f2; border: 1px solid #fecaca;
+  color: #991b1b; font-size: 12px; line-height: 1.6;
+}
 
 .card {
   background: #fff; border: 1px solid #e4e3dd; border-radius: 14px;

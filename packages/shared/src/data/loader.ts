@@ -9,6 +9,7 @@ import type {
   Tier1Snapshot,
   HighLevelsSnapshot,
   EnrollmentSnapshot,
+  MiddleEnrollmentSnapshot,
 } from '../types.js';
 import type { QuotaMatrix, SpecialMatrix, Batch2Scores, HighScores, Site, BrandGroups, EducationGroups } from './types.js';
 
@@ -21,6 +22,8 @@ export interface DataLoaders {
   highLevels: HighLevelsSnapshot;
   /** 小学 2026 招生计划（7 区） */
   enrollments: EnrollmentSnapshot[];
+  /** 初中 2026 招生计划（7 区，初中视角：班数/招生范围/机制/派位组成员） */
+  middleEnrollments: MiddleEnrollmentSnapshot[];
   quotaMatrix: QuotaMatrix;
   specialMatrix: SpecialMatrix;
   batch2Scores: Batch2Scores;

@@ -255,5 +255,30 @@ export interface EnrollmentSnapshot {
   map_fail: string[];
 }
 
+/** data/primary/enrollments/middle_enrollment_2026_*.json —— 初中视角招生计划 */
+export type MiddleMechanism = 'single_zone' | 'group_paidui' | 'single_lottery';
+export interface MiddleMechanismDef {
+  label: string;
+  can_lose: boolean;
+  lose_text: string | null;
+}
+export interface MiddleEnrollmentRecord {
+  school: string;
+  school_id: string | null;
+  plan_classes: number | null;
+  scope: string | null;
+  mechanism: MiddleMechanism;
+  mechanism_note: string | null;
+  group_members: string[] | null;
+}
+export interface MiddleEnrollmentSnapshot {
+  year: number;
+  district: string;
+  source: string;
+  source_url: string | null;
+  mechanisms: Record<MiddleMechanism, MiddleMechanismDef>;
+  records: MiddleEnrollmentRecord[];
+}
+
 /** 学段标识 */
 export type SchoolStage = 'primary' | 'middle' | 'high';
