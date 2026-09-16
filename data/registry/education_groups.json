@@ -7,8 +7,8 @@
     "total_groups": 85,
     "total_members": 335,
     "poi_exact": 15,
-    "poi_variant": 12,
-    "poi_missing_7dist": 8,
+    "poi_variant": 11,
+    "poi_missing_7dist": 2,
     "poi_far": 8
   },
   "groups": [
@@ -2590,9 +2590,19 @@
           "stage": "九年一贯",
           "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
+          "poi_match": "已锚定",
           "poi_name": "",
-          "school_id": ""
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "广铁一中铁铮学校(西校区)",
+              "school_id": "gz-440112-7127244c"
+            },
+            {
+              "poi_name": "广铁一中铁铮学校(东校区)",
+              "school_id": "gz-440112-d3055548"
+            }
+          ]
         }
       ],
       "source_urls": [
@@ -3122,25 +3132,35 @@
           "stage": "小学",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "已锚定",
+          "poi_name": "广州市白云区培英中学附属第三小学",
+          "school_id": "gz-440111-8bed320e"
         },
         {
           "name": "白云湖数字科技城八方物流地块配建学校",
           "stage": "待开办",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
+          "poi_match": "已锚定",
           "poi_name": "",
-          "school_id": ""
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "广州市培英中学科技城校区",
+              "school_id": "gz-440111-e128c24f"
+            },
+            {
+              "poi_name": "广州市培英中学附属科技城小学",
+              "school_id": "gz-440111-ccb0d7b4"
+            }
+          ]
         },
         {
           "name": "广州市白云区黄石学校",
           "stage": "初中",
           "source_url": "http://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html",
           "verified": "2026-09-14",
-          "poi_match": "变体命中",
+          "poi_match": "已锚定",
           "poi_name": "黄石学校(黄石校区)",
           "school_id": "gz-440111-a53c68e3",
           "note": "招考办2026名额分配表"
@@ -3335,9 +3355,9 @@
           "stage": "初中",
           "source_url": "http://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": "",
+          "poi_match": "已锚定",
+          "poi_name": "广州市白云区景泰中学白云湖校区",
+          "school_id": "gz-440111-2186a02a",
           "note": "招考办2026名额分配表"
         }
       ],
@@ -3636,9 +3656,9 @@
           "stage": "待开办",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "已锚定",
+          "poi_name": "白云广附金悦实验小学",
+          "school_id": "gz-440111-d9c64fa9"
         },
         {
           "name": "广龙地块配建学校",
@@ -3872,9 +3892,9 @@
           "stage": "小学",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "已锚定",
+          "poi_name": "广东技术师范大学白云实验小学",
+          "school_id": "gz-440111-f9ef2295"
         }
       ],
       "source_urls": [

@@ -42,26 +42,29 @@ for dist, fpath in district_files.items():
                  "poi_name": cp.get("poi_name"), "school_id": cp.get("school_id")}
                 for cp in core_anchors[g["brand"]]
             ]
-        # 成员锚定：锚点表命中（可多校区）→ 已锚定；未命中 → 留空走匹配器
-        for m in g.get("members", []):
-            a = member_anchors.get(m["name"])
-            if not a or not a.get("school_ids"):
-                continue
-            ids = a["school_ids"]
-            names = a.get("poi_names") or [""] * len(ids)
-            m["poi_match"] = "已锚定"
-            if len(ids) == 1:
-                m["poi_name"] = names[0] if names else ""
-                m["school_id"] = ids[0]
-            else:
-                # 多校区：不设单一 school_id（无主校语义），全部校区放 campuses（每校区独立实体命中）
-                m["poi_name"] = ""
-                m["school_id"] = ""
-                m["campuses"] = [
-                    {"poi_name": names[i], "school_id": ids[i]}
-                    for i in range(len(ids)) if names[i]
-                ]
         all_groups.append(g)
+
+def apply_member_anchors(g):
+    """锚点表统一应用（对 partial/2026 合并/2026 新建/brand 全部成员生效，幂等）：
+    锚点命中（可多校区）→ 已锚定；未命中 → 保留原状态（空 school_id 走匹配器）"""
+    for m in g.get("members", []):
+        a = member_anchors.get(m["name"])
+        if not a or not a.get("school_ids"):
+            continue
+        ids = a["school_ids"]
+        names = a.get("poi_names") or [""] * len(ids)
+        m["poi_match"] = "已锚定"
+        if len(ids) == 1:
+            m["poi_name"] = names[0] if names else ""
+            m["school_id"] = ids[0]
+        else:
+            # 多校区：不设单一 school_id（无主校语义），全部校区放 campuses（每校区独立实体命中）
+            m["poi_name"] = ""
+            m["school_id"] = ""
+            m["campuses"] = [
+                {"poi_name": names[i], "school_id": ids[i]}
+                for i in range(len(ids)) if names[i]
+            ]
 
 print(f"7区partial合计: {len(all_groups)}集团")
 
@@ -226,8 +229,9 @@ for b in dbrand.get("brands", []):
 
 print(f"brand_groups新增: {brand_added}个品牌集团")
 
-# 4. 对"待比对"的成员跑POI匹配；已有 school_id 的成员是人工确认锚点，保留不再重匹配
-#    （产物漂移根因之一：全量重跑会把锚点覆盖成匹配器的不同结果；锚点机制 + 区上下文收敛后重跑稳定）
+# 4. 锚点表统一应用（partial/2026 合并/2026 新建/brand 全部成员，幂等），再对未锚定成员跑POI匹配
+for g in all_groups:
+    apply_member_anchors(g)
 import importlib.util
 ADCODE_OF = {"荔湾":"440103","越秀":"440104","海珠":"440105","天河":"440106","白云":"440111","黄埔":"440112","番禺":"440113"}
 _spec = importlib.util.spec_from_file_location("match_poi", os.path.join(BASE, "scripts/match_poi.py"))
