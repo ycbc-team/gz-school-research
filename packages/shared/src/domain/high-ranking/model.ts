@@ -19,6 +19,8 @@ export interface HighRankingBuildOptions {
   groupBy: HighRankingGroupBy;
   /** 空数组代表不显示任何区；未传代表七区全选。 */
   districtAdcodes?: readonly string[];
+  /** 隶属筛选值（如省属、市属、荔湾区属）；未传代表不限制。 */
+  affiliations?: readonly string[];
   sortBy?: HighRankingSortBy;
 }
 
@@ -143,9 +145,11 @@ export function buildHighRankingGroups(
   const options: HighRankingBuildOptions = typeof input === 'string' ? { groupBy: input } : input;
   const { groupBy, sortBy = 'score2026' } = options;
   const districts = options.districtAdcodes ? new Set(options.districtAdcodes) : null;
+  const affiliations = options.affiliations ? new Set(options.affiliations) : null;
   const groups = new Map<string, HighRankingRow[]>();
   for (const row of buildHighRankingRows(loaders)) {
     if (districts && !districts.has(row.adcode)) continue;
+    if (affiliations && (!row.affiliation || !affiliations.has(row.affiliation))) continue;
     const key = groupBy === 'none' ? 'all' : groupBy === 'district' ? row.district : categoryGroupKey(row.category);
     const list = groups.get(key) || [];
     list.push(row);
