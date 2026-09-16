@@ -114,4 +114,5 @@ test('高中明细 VM：校区保留隶属信息，未匹配时为空', () => {
   const rows = buildHighRankingGroups(noAffiliation, 'category').flatMap((group) => group.items);
   assert.equal(rows.find((row) => row.name === '广东实验中学(高中部)')?.affiliation, '省属');
   assert.equal(rows.find((row) => row.name === '无隶属高中')?.affiliation, null);
+  assert.equal(rows.find((row) => row.name === '广州市西关培英中学')?.affiliation, null, '普通高中不展示行政区属');
 });
