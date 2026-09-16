@@ -147,10 +147,14 @@ export function buildHighRankingRows(loaders: Pick<DataLoaders, 'highSchools' | 
   const candidates = new Map<string, string[]>();
   for (const row of rows) {
     const short = highRankingShortName(row.name);
-    candidates.set(short, [...(candidates.get(short) || []), row.name]);
+    const key = highRankingShortNameKey(short);
+    candidates.set(key, [...(candidates.get(key) || []), row.name]);
   }
-  const ambiguous = new Set([...candidates].filter(([, names]) => new Set(names).size > 1).map(([short]) => short));
-  return rows.map((row) => ({ ...row, displayName: ambiguous.has(highRankingShortName(row.name)) ? row.name : highRankingShortName(row.name) }));
+  const ambiguous = new Set([...candidates].filter(([, names]) => new Set(names).size > 1).map(([key]) => key));
+  return rows.map((row) => ({
+    ...row,
+    displayName: ambiguous.has(highRankingShortNameKey(highRankingShortName(row.name))) ? row.name : highRankingShortName(row.name),
+  }));
 }
 
 function highRankingShortName(name: string): string {
@@ -162,6 +166,11 @@ function highRankingShortName(name: string): string {
     if (rest.length >= 3 && !rest.startsWith('大学')) return rest;
   }
   return trimmed;
+}
+
+/** 比较简称时忽略括号里的校区/学部，避免「实验中学」与「实验中学(高中部)」被误判为不同。 */
+function highRankingShortNameKey(name: string): string {
+  return name.replace(/（[^）]*）|\([^)]*\)/g, '').replace(/\s+/g, '').trim();
 }
 
 export function buildHighRankingGroups(

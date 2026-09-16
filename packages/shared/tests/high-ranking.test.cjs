@@ -38,7 +38,8 @@ test('高中明细 VM：全量学校的政策标签与简称均不混淆', () =>
   assert.deepEqual([...collisions].filter(([, names]) => new Set(names).size > 1), [], '任意两所学校的列表简称不得重名');
   const guangdong = rows.find((row) => row.name === '广东实验中学(高中部)');
   const guangzhou = rows.find((row) => row.name === '广州实验中学');
-  assert.notEqual(guangdong?.displayName, guangzhou?.displayName);
+  assert.equal(guangdong?.displayName, '广东实验中学(高中部)');
+  assert.equal(guangzhou?.displayName, '广州实验中学');
 });
 
 test('高中明细 VM：支持不分组、七区位置筛选与多年份排序', () => {
