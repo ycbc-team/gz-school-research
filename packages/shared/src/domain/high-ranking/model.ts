@@ -27,6 +27,7 @@ export interface HighRankingRow {
   schoolName: string;
   /** 点位所在行政区 */
   district: string;
+  minban: boolean;
   /** 省市属示范 / 区属示范 / 普通高中；由 levels 分类直接决定分组 */
   category: string;
   demo: string | null;
@@ -86,9 +87,10 @@ function scoresForPoi(poi: SchoolPoi, yearScores: Record<string, HighScoreRecord
 }
 
 /** 构建校区行；每组内按 2026 第三批户籍生分数降序，无分数置后。 */
-export function buildHighRankingRows(loaders: Pick<DataLoaders, 'highSchools' | 'highLevels' | 'highScores2025' | 'highScores2026'>): HighRankingRow[] {
+export function buildHighRankingRows(loaders: Pick<DataLoaders, 'highSchools' | 'highLevels' | 'highScores2025' | 'highScores2026' | 'entities'>): HighRankingRow[] {
   // 快照可能含七区外补点；本页契约是「七区」，因此必须按点位 adcode 截断。
   const allPois = loaders.highSchools.schools;
+  const minbanIds = new Set(loaders.entities.entities.filter((entity) => entity.stage === 'high' && entity.nature === '民办').map((entity) => entity.school_id));
   return allPois.filter((poi) => poi.adcode in ADCODE_TO_DISTRICT).map((poi) => {
     const level = levelForPoi(poi, loaders.highLevels.schools);
     const schoolId = poi.school_id || null;
@@ -100,6 +102,7 @@ export function buildHighRankingRows(loaders: Pick<DataLoaders, 'highSchools' | 
       name: poi.name,
       schoolName: poi.school || level?.name || poi.name,
       district: ADCODE_TO_DISTRICT[poi.adcode] || level?.district || '其他',
+      minban: schoolId != null && minbanIds.has(schoolId),
       category: level?.category || '未标注',
       demo: level?.demo || null,
       score2025,
@@ -110,7 +113,7 @@ export function buildHighRankingRows(loaders: Pick<DataLoaders, 'highSchools' | 
 }
 
 export function buildHighRankingGroups(
-  loaders: Pick<DataLoaders, 'highSchools' | 'highLevels' | 'highScores2025' | 'highScores2026'>,
+  loaders: Pick<DataLoaders, 'highSchools' | 'highLevels' | 'highScores2025' | 'highScores2026' | 'entities'>,
   groupBy: HighRankingGroupBy,
 ): HighRankingGroup[] {
   const groups = new Map<string, HighRankingRow[]>();

@@ -12,6 +12,7 @@ const loaders = {
   highLevels: load('high/levels.json'),
   highScores2025: load('high/scores_2025.json'),
   highScores2026: load('high/scores_2026.json'),
+  entities: load('registry/entities.json'),
 };
 
 test('高中明细 VM：仅七区、保留两年录取线，并按 2026 分数降序', () => {
@@ -32,4 +33,10 @@ test('高中明细 VM：只展示第三批户籍生，并回退同校区的官�
   assert.equal(universityTown?.score2025[0]?.text, '732');
   assert.ok(rows.some((row) => row.name === '广州市西关培英中学' && row.score2026.length === 0), '仅第四批的学校应展示为空');
   assert.ok(rows.some((row) => row.category === '普通高中'), '普通高中应单独分组，不并入省市属示范');
+});
+
+test('高中明细 VM：民办徽标读取实体注册表办学性质', () => {
+  const rows = buildHighRankingGroups(loaders, 'category').flatMap((group) => group.items);
+  assert.equal(rows.find((row) => row.name === '耀华中学')?.minban, true);
+  assert.equal(rows.find((row) => row.name === '广东实验中学(高中部)')?.minban, false);
 });
