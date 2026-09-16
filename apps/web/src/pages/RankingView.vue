@@ -255,7 +255,7 @@ const groups = computed(() => {
               </th>
               <th v-if="showAbs" class="c-sub">{{ absLabel }}</th>
               <th class="c-sub">
-                名额分配符合资格考生数
+                考生数
                 <span
                   class="q-mark"
                   aria-label="名额分配符合资格考生数口径说明"
