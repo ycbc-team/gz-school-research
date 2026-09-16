@@ -216,6 +216,38 @@ const REMOVED_POI_ALIAS = {
   'high|广州市南海中学(高中部)': '广州市南海中学',
 };
 
+// 教育集团成员官方名/旧名 → POI 点位名（P3 覆盖清单 2026-09-14 查证：更名/并入/承继）。
+// 与 OFFICIAL_MIDDLE_ALIAS 同机制（全等别名桥接），供匹配器按成员名找回 POI；
+// 值可为数组 = 挂多个校区实体（多校区由 merge_groups 锚点表承载，别名侧同时桥接保证匹配器自洽）。
+const GROUP_MEMBER_ALIAS = {
+  // —— 2024 黄埔集团化整合（南方+ 2024-04-30）：九佛系并入广州知识城中学 ——
+  'middle|九佛中学': '广州知识城中学(东校区)',
+  'middle|九佛第二中学': '广州知识城中学(南校区)',
+  // —— 白云区更名承继（P3 逐校查证）——
+  'primary|广州市白云区凤凰小学': '广州市白云区培英中学附属第三小学',      // 2024-06-19 更名
+  'primary|广州市白云区江高镇中心小学': '广东技术师范大学白云实验小学',    // 2021-08-11 更名
+  'primary|越秀天悦金沙配建小学': '白云广附金悦实验小学',                 // = 金广附系配建（2024-09 开学）
+  'middle|白云湖数字科技城八方物流地块配建学校': '广州市培英中学科技城校区', // = 培英科技城校区（2025-09 开学；多校区由锚点表承载）
+  'middle|广州市白云区南悦中学': '广州市白云区景泰中学白云湖校区',          // 更名景泰中学白云湖校区
+  // —— 集团成员官方名 → 校区/实体 POI（2026-09-16 锚点表瘦身迁移：单校区锚定全部下沉 entities 别名，产物确定性由测试保证）——
+  // 多校区成员（广州中学/新滘/龙口西/天河外/省实荔湾/知识城/培英/六十五中/空港实验/铁铮/八方物流）由锚点表 members 一对多承载，不在此列
+  'primary|广州市海珠区瑞宝小学': '海珠区瑞宝小学(北校区)',
+  'primary|广州市海珠区晓港湾小学': '晓港湾小学(晓港湾校区)',            // 同区海珠校区已确认（防跨区落黄埔）
+  'primary|广州市海珠区新民六街小学': '新民六街小学(北校区)',
+  'primary|五山小学': '五山小学(西校区)',
+  'primary|华康小学': '华康小学(海欣校区)',
+  'primary|广州市真光中学附属小学': '广州市真光中学附属小学(滘口校区)',
+  'middle|广州市第四中学丰宁学校': '广州市第四中学丰宁学校',               // 越秀丰宁路（荔湾四中集团托管，跨区真实）
+  'middle|广州市西关外国语嘉庚学校': '广州市陈嘉庚纪念中学',
+  'primary|广州市西关外国语学校附属流花小学': '广州市流花路小学',
+  'primary|广州市西关外国语学校附属西华小学': '西华路小学',
+  'primary|广州市荔湾区蒋光鼐纪念小学文昌学校': '广州市荔湾区文昌小学',
+  'primary|广州市荔湾区芳村小学实验学校': '芳村小学',
+  'primary|广州市荔湾区西关实验小学龙溪学校': '广州市荔湾区龙溪小学',
+  'primary|广州市白云区汇侨第一小学': '汇侨第一小学(汇侨校区)',
+  'primary|广州市白云区棠溪小学': '白云区棠溪小学(棠溪校区)',
+};
+
 // 官方录取表名（2025/2026 第三、四批及第一批外语艺术类，逐字取招考办原文）→ 项目 POI 名（levels campuses）。
 // 桥接「官方招生单位名」与「POI 点位名」，供 scores 事实表按 school_id 引用。
 // 仅列 norm 全等无法自动命中的；值为数组表示该官方条目同时挂到多个校区实体（如 2025 按学校整体招生的校区）。
@@ -283,6 +315,16 @@ const OFFICIAL_HIGH_ALIAS = {
   '广州市艺术中学（黄埔校区）（音乐）': '广州市艺术中学黄埔校区',
 };
 
+// 纯名判定：与 data_quality_test.py [3] 检查口径一致（无校区/学部/括号/“学校”字样的别名才参与纯名先占；
+// 「广铁一中铁英学校」含“学校”是共享别名，东/西校区都挂，不参与先占）
+function isPlainAlias(s) {
+  if (/校区|本部|、|初中部|高中部|小学部|年级|教学|楼|\(|（/.test(s)) return false;
+  if (/学校/.test(s.split('（')[0].split('(')[0])) return false;
+  return true;
+}
+// 纯名先占表：区|纯名 → 已持有该纯名的实体 school_id（实体名自身 norm 优先占位；同区跨 stage 也拦截）
+const plainOwner = new Map();
+
 // ---- 1) 每个 POI 建一个实体；school_id 即 POI 主键 ----
 const entities = [];           // {school_id, name, stage, aliases:Set(norm)}
 const poiIdByKey = new Map();   // "stage|adcode|poiName" -> school_id（同名跨区必须独立）
@@ -296,6 +338,13 @@ for (const [stage, file] of Object.entries(stageFiles)) {
     // 幂等：POI 已有 school_id 时保留（历史算法产出，事实表已按此引用），无 id 才新算
     const schoolId = p.school_id || idKey(p.adcode, sn);
     const ent = { school_id: schoolId, name: p.name, stage, aliases: new Set(poiNameAliases(p.name, p.adcode)) };
+    // 实体名自身 norm 的纯名变体先占位（「景泰中学」实体名 = 纯名，别名表不得再挂同区其他实体）
+    for (const v of poiNameAliases(p.name, p.adcode)) {
+      if (isPlainAlias(v)) {
+        const key = p.adcode + '|' + v;
+        if (!plainOwner.has(key)) plainOwner.set(key, schoolId);
+      }
+    }
     entities.push(ent);
     poiIdByKey.set(stage + '|' + p.adcode + '|' + p.name, schoolId);
     entByStagePoiName.set(stage + '|' + sn, ent);
@@ -364,7 +413,17 @@ const MINBAN_IDS = new Set([
 function attachAlias(stage, poiName, aliasName) {
   const ent = entByStagePoiName.get(stage + '|' + normName(poiName));
   if (!ent) return false;
-  for (const v of withDistrictVariants(normName(aliasName))) ent.aliases.add(v);
+  for (const v of withDistrictVariants(normName(aliasName))) {
+    // 纯名变体先占先得：已被同 stage 同名主校区实体持有则跳过，避免同区纯名被多实体共用
+    // （官方主名「广州市白云区景泰中学」的纯名变体「景泰中学」属于主校区实体，不再挂到白云湖校区）
+    if (isPlainAlias(v)) {
+      const key = ent.school_id.split('-')[1] + '|' + v;
+      const owner = plainOwner.get(key);
+      if (owner && owner !== ent.school_id) continue;
+      plainOwner.set(key, ent.school_id);
+    }
+    ent.aliases.add(v);
+  }
   return true;
 }
 // tier1：本部通用名挂到其名下各 POI 实体（school_ids 直接关联；孤儿记录按 aliases 兜底）
@@ -373,8 +432,13 @@ for (const [stage, file] of [['primary', 'data/primary/tier1_schools_all.json'],
   for (const blk of Object.values(j.districts || {}))
     for (const s of blk.schools || []) {
       const common = normName(s.name); // 官方通用名/本部名
+      const sids = s.school_ids || [];
+      // 多校区纯名通用名（如「京溪小学」4 分校区）：不挂 common，避免同区纯名被多实体共用
+      // （匹配器层宁可缺失，多校区由锚点表 members 一对多承载；搜索场景走 tier1 文件直连 school_ids）
+      // 与 data_quality [3] 口径一致：含"学校"的共享泛名（如铁英学校合并招生）允许挂多校区
+      if (sids.length > 1 && isPlainAlias(common)) continue;
       const attached = new Set();
-      for (const sid of (s.school_ids || [])) {
+      for (const sid of sids) {
         const ent = entities.find((e) => e.school_id === sid);
         if (!ent) continue;
         for (const v of withDistrictVariants(common)) ent.aliases.add(v);
@@ -395,10 +459,15 @@ const sites = read('data/registry/sites.json');
 for (const ent of sites.schools || []) {
   const stage = (ent.stages && ent.stages[0]) || 'high';
   const common = normName(ent.name);
+  // 多校区纯名通用名（如「执信中学」→ 执信路/天河/水荫多校区）：不挂 common，避免同区纯名被多实体共用
+  // （多校区由锚点表/搜索 sites 列表承载；校区专属别名照挂）
+  const isPlainCommon = isPlainAlias(common);
   for (const poi of (ent.sites || [])) {
     const e = entByStagePoiName.get(stage + '|' + normName(poi.poi_name));
     if (!e) continue;
-    for (const v of withDistrictVariants(common)) e.aliases.add(v);
+    if (!(ent.sites.length > 1 && isPlainCommon)) {
+      for (const v of withDistrictVariants(common)) e.aliases.add(v);
+    }
     for (const a of (ent.aliases || [])) for (const v of withDistrictVariants(normName(a))) e.aliases.add(v);
   }
 }
@@ -412,6 +481,14 @@ for (const [k, poi] of Object.entries(REMOVED_POI_ALIAS)) {
   const [stage, official] = k.split('|');
   if (attachAlias(stage, poi, official)) aliasHit++;
   else console.log('  [被删点位别名未命中POI]', official, '->', poi);
+}
+// 教育集团成员旧名/官方名 → POI 实体（P3 查证更名承继；值可为数组=挂多校区实体）
+for (const [k, poi] of Object.entries(GROUP_MEMBER_ALIAS)) {
+  const [stage, official] = k.split('|');
+  for (const p of (Array.isArray(poi) ? poi : [poi])) {
+    if (attachAlias(stage, p, official)) aliasHit++;
+    else console.log('  [集团成员别名未命中POI]', official, '->', p);
+  }
 }
 // 官方高中录取表名 → POI 实体（2025/2026 录取分数表逐字原文；值可为数组=挂多个校区）
 for (const [official, poi] of Object.entries(OFFICIAL_HIGH_ALIAS)) {

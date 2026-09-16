@@ -38,15 +38,20 @@ def norm(name):
     s = s.replace("（","(").replace("）",")").replace("【","[").replace("】","]")
     # 只剥离状态/泛化括号（如“建设中”），保留校区类括号（如“(东风广场校区)”）
     s = re.sub(r"[\(\[][^()\[\]]*[\)\]]", lambda m: "" if any(k in m.group(0) for k in _PAREN_DROP) else m.group(0), s)
-    s = s.replace("广州市","").replace("广州","")
+    # 只去"广州市"行政区划前缀
+    s = s.replace("广州市","")
     # 区名归一：仅剥离"XX区"中的区字（限已知区名），使「白云区广大附中实验中学」与「广州市白云广大附中实验中学」对齐
     s = re.sub(r"(越秀|海珠|天河|荔湾|白云|黄埔|番禺|南沙|增城|从化|花都|萝岗)区", r"\1", s)
     # 前导区名剥离：成员名常带区名前缀而 POI 名不带（「白云区广大附中实验中学(南校区)」vs「广大附中实验中学(南校区)」），
-    # 剥除前导区名使精确命中成立；但剩余过短时保留（「白云中学」→「中学」会变泛词，不剥）
+    # 剥除前导区名使精确命中成立；但剩余过短或为纯泛词时保留（「白云中学」→「中学」、「天河外国语学校」→「外国语学校」都是泛词毁名）
     for _d in ("白云", "越秀", "海珠", "天河", "荔湾", "黄埔", "番禺", "萝岗"):
-        if s.startswith(_d) and len(s) - len(_d) >= 4:
+        if s.startswith(_d) and len(s) - len(_d) >= 4 and s[len(_d):] not in _GENERIC_SUFFIX:
             s = s[len(_d):]
             break
+    # 前导"广州"是校名成分（「广州中学」剥成「中学」是泛词毁名），仅在剩余非纯泛词时剥离
+    # （「广州大学附属中学」→「大学附属中学」对齐；须在区名剥离后，区名后的「广州」同样要处理）
+    if s.startswith("广州") and len(s) - 2 >= 4 and s[2:] not in _GENERIC_SUFFIX:
+        s = s[2:]
     s = re.sub(r"\s+","",s)
     return s
 
@@ -67,7 +72,13 @@ def load_aliases(path):
         key = norm(e["name"])
         alias_map.setdefault(key, []).append({"name":e["name"],"stage":e.get("stage",""),"aliases":[norm(a) for a in e.get("aliases",[])]})
         for a in e.get("aliases",[]):
-            alias_map.setdefault(norm(a), []).append({"name":e["name"],"stage":e.get("stage",""),"aliases":[]})
+            k = norm(a)
+            alias_map.setdefault(k, []).append({"name":e["name"],"stage":e.get("stage",""),"aliases":[]})
+            # build_entities 的 normName 会全删括号，match_poi.norm 保留校区括号（如「(本部)」）：
+            # 补一个"去括号"key，使「广州空港实验中学(本部)」与别名「广州空港实验中学本部」对齐
+            k2 = k.replace("(", "").replace(")", "")
+            if k2 != k:
+                alias_map.setdefault(k2, []).append({"name":e["name"],"stage":e.get("stage",""),"aliases":[]})
     return alias_map
 
 def match_school(name, poi_all, alias_map, preferred_adcode=None, preferred_stage=None):
@@ -82,10 +93,12 @@ def match_school(name, poi_all, alias_map, preferred_adcode=None, preferred_stag
     def _mk(p, poi_match):
         district = SEVEN_DISTRICTS.get(p["adcode"], FAR_DISTRICTS.get(p["adcode"],"未知"))
         return {"poi_match":poi_match,"matched_name":p["name"],"stage":p["stage"],"district":district,"school_id":p["school_id"]}
-    def _pick(cands, poi_match):
+    def _pick(cands, poi_match, district_guard=True):
         """收敛：先按 school_id 去重（同址多学部 POI 在初中/高中库各一份，视为同一候选），
         再按 同阶段唯一 → 主 POI（无括号）唯一 → 同区唯一 → 全局唯一（允许跨区招生记录）→ 缺失。
-        宁可缺失、不跨区错配：多候选且无法收敛到唯一时返回 None，由调用方以显式 school_id 锚定补救。"""
+        宁可缺失、不跨区错配：多候选且无法收敛到唯一时返回 None，由调用方以显式 school_id 锚定补救。
+        district_guard=False 用于 alias 精确命中（2a/2b）：实体身份映射是人工确认的显式关系，
+        跨区也成立（如白云培英集团核心校「广州市培英中学」本部在荔湾鹤洞校区）；模糊防错配只约束 substring 吸附。"""
         if not cands: return None
         seen = {}
         for c in cands:
@@ -106,7 +119,7 @@ def match_school(name, poi_all, alias_map, preferred_adcode=None, preferred_stag
             mains = [c for c in cs if "(" not in c["name"] and "（" not in c["name"]]
             if len(mains) == 1: return mains[0]
             return None
-        if preferred_adcode:
+        if preferred_adcode and district_guard:
             same = [c for c in cands if c["adcode"] == preferred_adcode]
             if len(same) == 1:
                 return _mk(same[0], poi_match)
@@ -119,7 +132,7 @@ def match_school(name, poi_all, alias_map, preferred_adcode=None, preferred_stag
                 return None
             # 同区无候选：仅当成员名含"其他区"区名（如白云名单里的培英鹤洞校区→荔湾）才回退全局唯一；
             # 否则宁可缺失、不跨区错配（如「海珠晓港湾小学」不落到黄埔「港湾小学」）
-            own_name = name.replace("广州市","").replace("广州","")
+            own_name = name.replace("广州市","")
             self_dist = SEVEN_DISTRICTS.get(preferred_adcode, "")
             has_other = any(k in own_name for k in ("越秀","海珠","天河","荔湾","白云","黄埔","番禺","萝岗") if k != self_dist)
             if has_other:
@@ -144,15 +157,20 @@ def match_school(name, poi_all, alias_map, preferred_adcode=None, preferred_stag
     r = _pick([p for p in poi_all if p["norm"] == n], "精确命中")
     if r: return r
     # 2. alias match（一个别名可能对应多个实体：跨实体收集 POI 候选，同区优先收敛）
+    if n not in alias_map:
+        # build_entities.normName 全删括号而本 norm 保留校区括号（如「(本部)」）：回退查去括号 key
+        _n_flat = n.replace("(", "").replace(")", "")
+        if _n_flat != n and _n_flat in alias_map:
+            n = _n_flat
     if n in alias_map:
         ents = alias_map[n]
-        # 2a. 先精确匹配实体完整名（含校区括号，避免多校区 norm 歧义）
+        # 2a. 先精确匹配实体完整名（含校区括号，避免多校区 norm 歧义）；身份映射显式确认，跨区不拦截
         ent_names = {e["name"] for e in ents}
-        r = _pick([p for p in poi_all if p["name"] in ent_names], "变体命中")
+        r = _pick([p for p in poi_all if p["name"] in ent_names], "变体命中", district_guard=False)
         if r: return r
         # 2b. 再按 norm 匹配
         ent_norms = {norm(e["name"]) for e in ents}
-        r = _pick([p for p in poi_all if p["norm"] in ent_norms], "变体命中")
+        r = _pick([p for p in poi_all if p["norm"] in ent_norms], "变体命中", district_guard=False)
         if r: return r
         # 2b5. 实体主校 POI 缺失时，用实体核心名前缀在同区找分校区 POI（如「华阳小学」→「华阳小学(华成校区)」）
         # 修复"主校无独立 POI、只有分校区 POI"导致的成员丢失（46 处漂移主因之一）

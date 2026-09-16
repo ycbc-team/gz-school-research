@@ -108,7 +108,9 @@ test('品牌关联：全量品牌实体对比修复前后，品牌分支新增�
   // 口径 = groupOfSchool 解析为 brand 来源的全部实体（按名 + school_id 外键），school_id 外键新增实体同样受回归保护。
   // 注：重跑生产脚本后为 65 —— 铁英小学/铁英中学/省实荔湾初中部/广雅荔湾/西关广雅南岸路 5 个实体
   // 同时命中 education 索引（education 优先），回归 education 分支，不再计入 brand 覆盖。
-  assert.equal(eligible.length, 65, '品牌实体覆盖范围变更，请审阅当前态回归结果');
+  // 2026-09-16 品牌关联治理后为 66：锚点表瘦身 + entities 脚本构建（school_id 外键 35 个 + 按名匹配 31 个），
+  // 品牌详情页覆盖范围经全量回归审阅（每个实体均能解析到集团且当前态非空）。
+  assert.equal(eligible.length, 66, '品牌实体覆盖范围变更，请审阅当前态回归结果');
   const failures = [];
   for (const entity of eligible) {
     const group = repo.groupOfSchool(entity.name, entity.school_id);
