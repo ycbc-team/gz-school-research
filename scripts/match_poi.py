@@ -34,46 +34,85 @@ def load_poi(path, stage):
     return out
 
 def load_aliases(path):
+    """别名表：norm_alias -> 实体列表（一个别名可能被多个实体共享，如「广铁一中铁英学校」
+    同时是番禺东/西校区别名、泛称「广州大学附属中学」同时是大学城/黄华路校区别名）。
+    保留全部实体，由 match_school 结合 preferred_adcode 收敛，避免"后写覆盖"式错配。"""
     d = json.load(open(path))
-    alias_map = {}  # norm_alias -> entity
+    alias_map = {}  # norm_alias -> [entity]
     for e in d.get("entities",[]):
         key = norm(e["name"])
-        alias_map[key] = {"name":e["name"],"stage":e.get("stage",""),"aliases":[norm(a) for a in e.get("aliases",[])]}
+        alias_map.setdefault(key, []).append({"name":e["name"],"stage":e.get("stage",""),"aliases":[norm(a) for a in e.get("aliases",[])]})
         for a in e.get("aliases",[]):
-            alias_map[norm(a)] = {"name":e["name"],"stage":e.get("stage",""),"aliases":[]}
+            alias_map.setdefault(norm(a), []).append({"name":e["name"],"stage":e.get("stage",""),"aliases":[]})
     return alias_map
 
-def match_school(name, poi_all, alias_map):
+def match_school(name, poi_all, alias_map, preferred_adcode=None, preferred_stage=None):
+    """
+    preferred_adcode：构建某区招生计划时传入该区 adcode，命中候选时优先取同区 POI；
+    preferred_stage：命中候选时优先取指定学段 POI（如初中计划优先初中部，避免选到高中部）。
+    收敛顺序：同区唯一 → 同区同阶段唯一 → 全局唯一（跨区招生记录如培英鹤洞校区）→ 缺失。
+    """
     n = norm(name)
-    # 1. exact norm match in POI
-    for p in poi_all:
-        if p["norm"] == n:
-            district = SEVEN_DISTRICTS.get(p["adcode"], FAR_DISTRICTS.get(p["adcode"],"未知"))
-            return {"poi_match":"精确命中","matched_name":p["name"],"stage":p["stage"],"district":district,"school_id":p["school_id"]}
-    # 2. alias match
-    if n in alias_map:
-        ent = alias_map[n]
-        # 2a. 先精确匹配实体完整名（含校区括号，避免多校区 norm 歧义）
-        for p in poi_all:
-            if p["name"] == ent["name"]:
-                district = SEVEN_DISTRICTS.get(p["adcode"], FAR_DISTRICTS.get(p["adcode"],"未知"))
-                return {"poi_match":"变体命中","matched_name":p["name"],"stage":p["stage"],"district":district,"school_id":p["school_id"]}
-        # 2b. 再按 norm 匹配
-        en = norm(ent["name"])
-        for p in poi_all:
-            if p["norm"] == en:
-                district = SEVEN_DISTRICTS.get(p["adcode"], FAR_DISTRICTS.get(p["adcode"],"未知"))
-                return {"poi_match":"变体命中","matched_name":p["name"],"stage":p["stage"],"district":district,"school_id":p["school_id"]}
-        return {"poi_match":"变体命中","matched_name":ent["name"],"stage":ent["stage"],"district":"实体表无坐标","school_id":""}
-    # 3. substring / contains match (variant)
-    candidates = []
-    for p in poi_all:
-        if n and (n in p["norm"] or p["norm"] in n):
-            candidates.append(p)
-    if len(candidates) == 1:
-        p = candidates[0]
+    def _mk(p, poi_match):
         district = SEVEN_DISTRICTS.get(p["adcode"], FAR_DISTRICTS.get(p["adcode"],"未知"))
-        return {"poi_match":"变体命中","matched_name":p["name"],"stage":p["stage"],"district":district,"school_id":p["school_id"]}
+        return {"poi_match":poi_match,"matched_name":p["name"],"stage":p["stage"],"district":district,"school_id":p["school_id"]}
+    def _pick(cands, poi_match):
+        """收敛：先按 school_id 去重（同址多学部 POI 在初中/高中库各一份，视为同一候选），
+        再按 同区唯一 → 同区同阶段唯一 → 全局唯一（允许跨区招生记录）→ 缺失。"""
+        if not cands: return None
+        seen = {}
+        for c in cands:
+            if c["school_id"] not in seen:
+                seen[c["school_id"]] = c
+            elif preferred_stage and c["stage"] == preferred_stage and seen[c["school_id"]]["stage"] != preferred_stage:
+                # 同 id 多学部 POI（九年制/完中在小学/初中/高中库各一份）：保留与目标学段一致的副本，
+                # 避免"去重后只剩小学部副本"导致初中阶段过滤落空（如广州华美英语实验学校）
+                seen[c["school_id"]] = c
+        cands = list(seen.values())
+        def by_stage(cs):
+            if preferred_stage:
+                st = [c for c in cs if c["stage"] == preferred_stage]
+                if len(st) == 1: return st[0]
+            return None
+        if preferred_adcode:
+            same = [c for c in cands if c["adcode"] == preferred_adcode]
+            if len(same) == 1:
+                return _mk(same[0], poi_match)
+            if same:
+                r = by_stage(same)
+                if r: return _mk(r, poi_match)
+                return None
+            # 同区无候选：跨区招生记录回退全局唯一（如白云名单里的培英鹤洞校区）
+            r = by_stage(cands)
+            if r: return _mk(r, poi_match)
+            if len(cands) == 1:
+                return _mk(cands[0], poi_match)
+            return None
+        r = by_stage(cands)
+        if r: return _mk(r, poi_match)
+        if len(cands) == 1:
+            return _mk(cands[0], poi_match)
+        return None
+    # 1. exact norm match in POI
+    r = _pick([p for p in poi_all if p["norm"] == n], "精确命中")
+    if r: return r
+    # 2. alias match（一个别名可能对应多个实体：跨实体收集 POI 候选，同区优先收敛）
+    if n in alias_map:
+        ents = alias_map[n]
+        # 2a. 先精确匹配实体完整名（含校区括号，避免多校区 norm 歧义）
+        ent_names = {e["name"] for e in ents}
+        r = _pick([p for p in poi_all if p["name"] in ent_names], "变体命中")
+        if r: return r
+        # 2b. 再按 norm 匹配
+        ent_norms = {norm(e["name"]) for e in ents}
+        r = _pick([p for p in poi_all if p["norm"] in ent_norms], "变体命中")
+        if r: return r
+        # 2c. 实体存在但 POI 无坐标：未给区上下文时保留原兜底；给了区上下文则继续 substring 找同区 POI
+        if not preferred_adcode:
+            return {"poi_match":"变体命中","matched_name":ents[0]["name"],"stage":ents[0]["stage"],"district":"实体表无坐标","school_id":""}
+    # 3. substring / contains match (variant)
+    r = _pick([p for p in poi_all if n and (n in p["norm"] or p["norm"] in n)], "变体命中")
+    if r: return r
     # 4. far district keyword check
     for kw in FAR_KEYWORDS:
         if kw in name:

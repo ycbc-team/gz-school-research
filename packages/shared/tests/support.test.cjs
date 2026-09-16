@@ -49,9 +49,9 @@ test('精确名命中：执信本部、番禺铁英（别名表来自实体注�
   assert.ok(h2 && h2.name.includes('番禺区广铁一中铁英学校'));
 });
 
-test('黄埔铁英口碑记录无实体（POI 未收录）→ 别名表不命中，属正确行为', () => {
+test('黄埔铁英口碑记录已收录实体（黄埔铁英中学 POI 入库）→ 括号全名命中本校', () => {
   const h = matchTier1ByPoiName('广州市黄埔区铁英学校（黄埔铁英）', middleTier1, mTable);
-  assert.equal(h, undefined);
+  assert.ok(h && h.name.includes('黄埔铁英'), '应命中黄埔铁英口碑记录');
 });
 
 test('别名命中：星执（POI 短名 → 星执记录）', () => {

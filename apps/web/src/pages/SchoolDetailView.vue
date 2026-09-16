@@ -16,7 +16,7 @@ import {
 import {
   repository, primarySchools, middleSchools, highSchools, primaryTier1, middleTier1,
   highLevels, tier1Schools, middleTier1Schools, entities, matchEnrollment,
-  middleQuotaSummary, middlePrimaryFeed, middleEnrollmentOf, xiaoshengchuOf, schoolBadges, scoresOfSchool,
+  middleQuotaSummary, middlePrimaryFeed, middleEnrollmentsOf, xiaoshengchuOf, schoolBadges, scoresOfSchool,
   isComprehensive, brandGroupOf, groupOfSchool, resolvePoiName, resolveSchoolIdOf,
   type BrandUnit,
 } from '../data';
@@ -69,10 +69,10 @@ const gaokaoRows = computed(() => model.value.gaokaoRows);
 const brandCard = computed(() => model.value.brandCard);
 const brandCardUseful = computed(() => model.value.brandCardUseful);
 const campuses = computed(() => model.value.campuses);
-/** 初中 tab：2026 招生计划（班数/范围/机制/派位组），按当前学段 POI school_id 外键查 */
-const middleEnroll = computed(() => {
-  if (stage.value !== 'middle') return null;
-  return middleEnrollmentOf(schoolId.value || null);
+/** 初中 tab：2026 招生计划（一校多规则：同一初中可对应多区/多机制入学，逐条渲染），按当前学段 POI school_id 外键查 */
+const middleEnrolls = computed(() => {
+  if (stage.value !== 'middle') return [];
+  return middleEnrollmentsOf(schoolId.value || null) || [];
 });
 
 // Historical in-component implementation is inactive. Production values above use buildDetailModel.
@@ -519,31 +519,34 @@ const brandCardUseful = computed(() =>
     <div v-if="stage === 'middle'" class="card">
       <div class="card-title">招生计划（2026）</div>
 
-      <!-- 机制徽章 + 班数 + 范围（来自初中招生计划表） -->
-      <template v-if="middleEnroll">
-        <div class="mech-row">
-          <span class="badge" :class="middleEnroll.record.mechanism">
-            {{ middleEnroll.mechanismDef.label }}
-          </span>
-          <span v-if="middleEnroll.record.plan_classes != null" class="mech-plan">
-            计划 {{ middleEnroll.record.plan_classes }} 个班
-          </span>
-        </div>
-        <div v-if="middleEnroll.record.scope" class="zone-block">
-          <div class="zone-label">招生服务范围</div>
-          <p>{{ middleEnroll.record.scope }}</p>
-        </div>
-        <p v-if="middleEnroll.record.mechanism_note" class="sub-note">
-          官方备注：{{ middleEnroll.record.mechanism_note }}
-        </p>
-        <!-- 派位组：多校派位时列出组内学校 -->
-        <div v-if="middleEnroll.record.group_members && middleEnroll.record.group_members.length" class="zone-block">
-          <div class="zone-label">派位组成员（随机分配，组内兜底）</div>
-          <p>{{ middleEnroll.record.group_members.join('、') }}</p>
-        </div>
-        <!-- 单校电脑抽签：红字警示 -->
-        <div v-if="middleEnroll.mechanismDef.can_lose && middleEnroll.mechanismDef.lose_text" class="lottery-warning">
-          ⚠️ {{ middleEnroll.mechanismDef.lose_text }}
+      <!-- 机制徽章 + 班数 + 范围（来自初中招生计划表）；一校多规则时逐条渲染 -->
+      <template v-if="middleEnrolls.length">
+        <div v-for="(m, mi) in middleEnrolls" :key="`${m.district}-${m.record.school}`" class="mech-block" :style="mi ? 'border-top:1px dashed #e5e7eb;margin-top:10px;padding-top:10px;' : ''">
+          <div class="mech-row">
+            <span v-if="middleEnrolls.length > 1" class="badge b-district">{{ m.district }}</span>
+            <span class="badge" :class="m.record.mechanism">
+              {{ m.mechanismDef.label }}
+            </span>
+            <span v-if="m.record.plan_classes != null" class="mech-plan">
+              计划 {{ m.record.plan_classes }} 个班
+            </span>
+          </div>
+          <div v-if="m.record.scope" class="zone-block">
+            <div class="zone-label">招生服务范围</div>
+            <p>{{ m.record.scope }}</p>
+          </div>
+          <p v-if="m.record.mechanism_note" class="sub-note">
+            官方备注：{{ m.record.mechanism_note }}
+          </p>
+          <!-- 派位组：多校派位时列出组内学校 -->
+          <div v-if="m.record.group_members && m.record.group_members.length" class="zone-block">
+            <div class="zone-label">派位组成员（随机分配，组内兜底）</div>
+            <p>{{ m.record.group_members.join('、') }}</p>
+          </div>
+          <!-- 单校电脑抽签：红字警示 -->
+          <div v-if="m.mechanismDef.can_lose && m.mechanismDef.lose_text" class="lottery-warning">
+            ⚠️ {{ m.mechanismDef.lose_text }}
+          </div>
         </div>
       </template>
 
@@ -557,7 +560,7 @@ const brandCardUseful = computed(() =>
           </div>
         </div>
       </template>
-      <p v-else-if="!middleEnroll" class="empty">暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。</p>
+      <p v-else-if="!middleEnrolls.length" class="empty">暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。</p>
     </div>
 
     <!-- 初中 tab：升学通道（名额分配/自招，LinkagePanel） -->

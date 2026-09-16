@@ -264,7 +264,10 @@ export interface MiddleMechanismDef {
 }
 export interface MiddleEnrollmentRecord {
   school: string;
+  /** 单一归属 school_id；合并招生（多校区共用一套计划）时为 null，改用 school_ids 列出全部校区 */
   school_id: string | null;
+  /** 多校区共用同一招生计划时列出全部校区 id（如番禺铁英学校 28 班合并招生：东/西两校区） */
+  school_ids?: string[];
   plan_classes: number | null;
   scope: string | null;
   mechanism: MiddleMechanism;

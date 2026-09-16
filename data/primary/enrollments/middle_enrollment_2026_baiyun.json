@@ -185,7 +185,7 @@
   },
   {
    "school": "广州市白云区景泰中学分校区（原广州市白云区南悦中学）",
-   "school_id": "gz-440111-048815b3",
+   "school_id": "gz-440111-2186a02a",
    "plan_classes": 5,
    "scope": "夏茅小学、环滘小学",
    "mechanism": "single_zone",
@@ -356,7 +356,7 @@
   },
   {
    "school": "广州市六十五中学（江府校区）",
-   "school_id": null,
+   "school_id": "gz-440111-4ebb4316",
    "plan_classes": 6,
    "scope": "水沥小学、双岗小学、新楼小学、广铁八小、江村小学（塘贝户籍）",
    "mechanism": "group_paidui",
@@ -365,7 +365,7 @@
   },
   {
    "school": "广州市白云区广州空港实验中学（东校区）",
-   "school_id": null,
+   "school_id": "gz-440111-0cf700fb",
    "plan_classes": 4,
    "scope": "白云区人和镇第一小学、白云区人和镇第六小学、73中小学部",
    "mechanism": "group_paidui",
@@ -374,7 +374,7 @@
   },
   {
    "school": "广州市白云区广州空港实验中学（西校区）",
-   "school_id": null,
+   "school_id": "gz-440111-35860c30",
    "plan_classes": 8,
    "scope": "广州市白云区广州空港实验小学（总校区、北校区）、广州市白云区六中实验小学南校区（除民强村、新兴村外）\n人和镇第二小学（建南校区）、广州市白云区六中实验小学北校区（汉塘村、明星村）",
    "mechanism": "group_paidui",
@@ -383,7 +383,7 @@
   },
   {
    "school": "广州市白云区广州空港实验中学（本部）",
-   "school_id": null,
+   "school_id": "gz-440111-d4c4285e",
    "plan_classes": 6,
    "scope": "白云区人和镇第一小学、白云区人和镇第六小学",
    "mechanism": "single_zone",
@@ -392,7 +392,7 @@
   },
   {
    "school": "广州市白云区六中实验中学（空港校区）",
-   "school_id": null,
+   "school_id": "gz-440111-4ab20f44",
    "plan_classes": 8,
    "scope": "白云区人和镇第二小学、白云区人和镇第五小学、白云区人和镇第七小学、广州市白云区六中实验小学北校区（除汉塘村、民强村、新兴村、明星村、福和雅苑安置区外）",
    "mechanism": "group_paidui",
@@ -482,7 +482,7 @@
   },
   {
    "school": "广州市白云区龙归学校（珑璟校区）",
-   "school_id": null,
+   "school_id": "gz-440111-9c7a2c45",
    "plan_classes": 4,
    "scope": "广州市白云区龙归学校（珑璟校区）小学部",
    "mechanism": "single_zone",
@@ -491,7 +491,7 @@
   },
   {
    "school": "广东第二师范学院实验中学",
-   "school_id": "gz-440111-33d95662",
+   "school_id": "gz-440111-014a9fb2",
    "plan_classes": 11,
    "scope": "广东第二师范学院实验小学、蟠龙小学",
    "mechanism": "single_zone",
@@ -518,7 +518,7 @@
   },
   {
    "school": "广州市白云区竹料第一中学",
-   "school_id": "gz-440111-78d61733",
+   "school_id": "gz-440111-fd1c1c12",
    "plan_classes": 11,
    "scope": "南校区：竹料一小、竹料二小、竹料四小\n北校区：竹料一小、竹料三小",
    "mechanism": "group_paidui",
@@ -536,7 +536,7 @@
   },
   {
    "school": "广州大同中学",
-   "school_id": "gz-440111-2b28ed6a",
+   "school_id": "gz-440111-63a7bd1d",
    "plan_classes": 14,
    "scope": "良田一小、良田二小、良田三小",
    "mechanism": "group_paidui",

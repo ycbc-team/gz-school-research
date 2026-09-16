@@ -31,10 +31,11 @@ _POI_ALL = (
 )
 _ALIAS_MAP = _load_aliases(os.path.join(ROOT, "data/registry/entities.json"))
 
-def match_school_id(name):
-    """官方名单校名 → POI school_id；未命中返回 None。统一走 match_poi 管道（实体表别名优先）。"""
+def match_school_id(name, adcode=None):
+    """官方名单校名 → POI school_id；未命中返回 None。统一走 match_poi 管道（实体表别名优先）。
+    adcode=本区 adcode：优先命中本区 POI，避免跨区同名校（如铁英学校/广大附中）被错配到异区校区。"""
     if not name: return None
-    r = _match_school(name, _POI_ALL, _ALIAS_MAP)
+    r = _match_school(name, _POI_ALL, _ALIAS_MAP, preferred_adcode=adcode, preferred_stage="初中")
     return r.get("school_id") or None
 
 # 区级枚举定义：UI 直接用 label / lose_text
@@ -76,9 +77,19 @@ def build_panyu():
         if mech == "group_paidui" and school == "番禺区实验中学":
             members = ["广东仲元中学一校区（初中部）","广东番禺中学附属学校","番禺区实验中学","市桥东风中学","市桥侨联中学","市桥星海中学","市桥桥城中学","市桥桥兴中学"]
 
-        sid = match_school_id(school)
+        sid = match_school_id(school, "440113")
+        sids = None
+        # 铁英学校 = 东/西两校区合计 28 班（官方无单校区拆分）：school_id 置 None，school_ids 列出两校区，
+        # 两个校区的详情页共用这一套招生计划
+        if school == "广铁一中铁英学校":
+            sid = None
+            sids = ["gz-440113-43d027a5", "gz-440113-94c76638"]
+        # 仲元二校区（大龙街）与校本部不同址，POI 库无独立点位，不挂校本部 id
+        if school == "广东仲元中学二校区（初中部）":
+            sid = None
         recs.append({
             "school": school, "school_id": sid,
+            **({"school_ids": sids} if sids else {}),
             "plan_classes": plan_n, "scope": scope,
             "mechanism": mech, "mechanism_note": note or None,
             "group_members": members,
@@ -109,7 +120,7 @@ def build_baiyun():
             mech = "group_paidui"
         else:
             mech = "single_zone"
-        sid = match_school_id(school)
+        sid = match_school_id(school, "440111")
         recs.append({
             "school": school, "school_id": sid,
             "plan_classes": plan_n, "scope": feed or None,
@@ -144,10 +155,10 @@ def build_liwan():
                               "group_members": members}
             else:
                 # 同一初中可能在多组（如真光本部在多个组），保留成员列表并集
-                rec_map[m]["group_members"] = list(set(rec_map[m]["group_members"] or []) | set(members))
+                rec_map[m]["group_members"] = sorted(set(rec_map[m]["group_members"] or []) | set(members))
     recs = []
     for m, r in rec_map.items():
-        r["school_id"] = match_school_id(m)
+        r["school_id"] = match_school_id(m, "440103")
         recs.append(r)
     return {
         "year": 2026, "district": "荔湾区",
@@ -200,7 +211,7 @@ def build_from_xiaoshengchu(district_key, district_name, adcode):
             rec["group_members"] = sorted(group_members_map.get(rec["mechanism_note"], set()))
     recs = []
     for j, r in rec_map.items():
-        r["school_id"] = match_school_id(j)
+        r["school_id"] = match_school_id(j, adcode)
         recs.append(r)
     return {
         "year": 2026, "district": district_name,

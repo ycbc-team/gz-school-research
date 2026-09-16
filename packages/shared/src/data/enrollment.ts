@@ -64,39 +64,50 @@ export function createEnrollmentApi(loaders: DataLoaders) {
 /**
  * 初中 2026 招生计划查询域（初中视角）：按 school_id 索引，返回班数/范围/机制/派位组。
  * 与小学 matchEnrollment 不同：初中按 POI school_id 精确外键，不做模糊匹配。
+ *
+ * 「一校多规则」：同一 school_id 可能对应多条招生记录（同一初中在多区、或多机制并存，
+ * 例如番禺校区+越秀派位、单校划片+全区电脑派位）。middleEnrollmentsOf 返回全部记录，
+ * 由调用方逐条渲染；middleEnrollmentOf 保留首条语义供兼容。
  */
 export interface MiddleEnrollmentMatch {
   record: MiddleEnrollmentRecord;
   mechanismDef: MiddleMechanismDef;
+  /** 记录所在区（多区并存时用于区分规则来源） */
+  district: string;
 }
+const DEFAULT_DEFS: Record<MiddleMechanism, MiddleMechanismDef> = {
+  single_zone: { label: '单校划片', can_lose: false, lose_text: null },
+  group_paidui: { label: '多校电脑派位', can_lose: false, lose_text: '组内学校兜底。' },
+  single_lottery: { label: '单校电脑抽签', can_lose: true, lose_text: '未中签回原学区。' },
+};
 export function createMiddleEnrollmentApi(loaders: DataLoaders) {
   const list = loaders.middleEnrollments || [];
   const byId = new Map<string, MiddleEnrollmentRecord>();
+  const byIdAll = new Map<string, MiddleEnrollmentMatch[]>();
   const byName = new Map<string, MiddleEnrollmentRecord>();
-  const mechanismsByDistrict = new Map<string, Record<MiddleMechanism, MiddleMechanismDef>>();
   for (const snap of list) {
-    if (snap.mechanisms) mechanismsByDistrict.set(snap.district, snap.mechanisms);
     for (const r of snap.records) {
       if (r.school_id && !byId.has(r.school_id)) byId.set(r.school_id, r);
       if (r.school && !byName.has(r.school)) byName.set(r.school, r);
+      const def = (snap.mechanisms && snap.mechanisms[r.mechanism]) || DEFAULT_DEFS[r.mechanism];
+      const match: MiddleEnrollmentMatch = { record: r, mechanismDef: def, district: snap.district };
+      const ids = r.school_id ? [r.school_id, ...(r.school_ids || [])] : (r.school_ids || []);
+      for (const id of ids) {
+        const arr = byIdAll.get(id) || [];
+        arr.push(match);
+        byIdAll.set(id, arr);
+      }
     }
   }
-  /** 按初中 POI school_id 查 2026 招生计划；无数据返回 null */
-  function middleEnrollmentOf(schoolId: string | null | undefined): MiddleEnrollmentMatch | null {
+  /** 按初中 POI school_id 查 2026 招生计划全部规则（一校多规则）；无数据返回 null */
+  function middleEnrollmentsOf(schoolId: string | null | undefined): MiddleEnrollmentMatch[] | null {
     if (!schoolId) return null;
-    const r = byId.get(schoolId);
-    if (!r) return null;
-    // 机制定义优先从区级快照取，否则用内置默认
-    let def: MiddleMechanismDef | undefined;
-    for (const snap of list) {
-      if (snap.mechanisms && snap.mechanisms[r.mechanism]) { def = snap.mechanisms[r.mechanism]; break; }
-    }
-    if (!def) {
-      def = { single_zone: {label:'单校划片',can_lose:false,lose_text:null},
-              group_paidui: {label:'多校电脑派位',can_lose:false,lose_text:'组内学校兜底。'},
-              single_lottery: {label:'单校电脑抽签',can_lose:true,lose_text:'未中签回原学区。'} }[r.mechanism];
-    }
-    return { record: r, mechanismDef: def };
+    return byIdAll.get(schoolId) || null;
   }
-  return { middleEnrollmentOf };
+  /** 兼容：返回该 school_id 的首条规则；无数据返回 null */
+  function middleEnrollmentOf(schoolId: string | null | undefined): MiddleEnrollmentMatch | null {
+    const arr = middleEnrollmentsOf(schoolId);
+    return arr && arr.length ? (arr[0] ?? null) : null;
+  }
+  return { middleEnrollmentOf, middleEnrollmentsOf };
 }

@@ -120,6 +120,7 @@ export const {
   xiaoshengchuOf,
   middlePrimaryFeed,
   middleEnrollmentOf,
+  middleEnrollmentsOf,
   schoolBadges,
   scoresOfSchool,
   scoresBySchoolId,

@@ -7,6 +7,11 @@
 3. entities 别名跨实体抢名（曾致 4 个东风东校区实体共用"东风东路小学"纯名别名）
 4. 多校区 campus 的 school_id 悬空
 5. 集团核心校/成员名无法匹配到任何 POI
+6. tier1 口碑字段/摘要/school_id 悬空回归
+7. 全量 POI 自我匹配（match_school 对每个 POI 用自身 adcode+学段必须解析回自身 school_id，
+   防"修复A引入B"的校名匹配全局回归）
+8. 初中招生计划 school_id 存在性 + 区一致性（跨区白名单）+ 合并招生 school_ids 存在性
+9. 校名匹配关键案例 golden（改动后必须逐条复核再更新）
 
 用法：python3 scripts/data_quality_test.py
 """
@@ -143,6 +148,65 @@ def main():
 
     check_tier1("data/primary/tier1_schools_all.json", "primary")
     check_tier1("data/middle/tier1_schools_all.json", "middle")
+
+    # ---- 7. 全量 POI 自我匹配：match_school 对每个 POI 用自身 adcode+学段必须解析回自身 school_id ----
+    # 校名匹配规则的核心回归（防"修复A引入B"）：任何 POI 被别的 POI 抢名/被泛名吸走都会在此失败
+    sys.path.insert(0, os.path.join(ROOT, "scripts"))
+    import match_poi
+    _poi_all = (
+        match_poi.load_poi(POI_PATHS[0], "小学")
+        + match_poi.load_poi(POI_PATHS[1], "初中")
+        + match_poi.load_poi(POI_PATHS[2], "高中")
+    )
+    _am = match_poi.load_aliases(os.path.join(ROOT, "data/registry/entities.json"))
+    for lib, stage in (("data/primary/schools-gz.json", "小学"), ("data/middle/schools-gz.json", "初中"), ("data/high/schools-gz.json", "高中")):
+        d = json.load(open(os.path.join(ROOT, lib)))
+        for s in d.get("schools", []):
+            r = match_poi.match_school(s["name"], _poi_all, _am,
+                                       preferred_adcode=s.get("adcode"), preferred_stage=stage)
+            check(r.get("school_id") == s.get("school_id"),
+                  f"[7/{stage}] 自我匹配失败: {s['name']} -> {r.get('school_id')}（应为 {s.get('school_id')}）")
+
+    # ---- 8. 初中招生计划 school_id 一致性：必须存在；区一致（跨区白名单）；合并招生 school_ids 均存在 ----
+    # 跨区白名单：培英鹤洞校区(白云名单引用荔湾)、四中丰宁学校(荔湾区属，校址纸行路39号在越秀/荔湾交界，高德归越秀)
+    CROSS_DISTRICT_OK = {"gz-440103-a3ee807c", "gz-440104-3b870a8e"}
+    for f in sorted(os.listdir(os.path.join(ROOT, "data/primary/enrollments"))):
+        if not f.startswith("middle_enrollment_2026_"):
+            continue
+        d = json.load(open(os.path.join(ROOT, "data/primary/enrollments", f)))
+        for r in d.get("records", []):
+            sid = r.get("school_id")
+            if sid:
+                check(sid in poi_ids, f"[8/{d['district']}] 招生记录 school_id 悬空: {r['school']} -> {sid}")
+                if sid not in CROSS_DISTRICT_OK:
+                    po = _poi_all
+                    adc = next((p["adcode"] for p in po if p["school_id"] == sid), None)
+                    expect_ad = {"番禺区": "440113", "越秀区": "440104", "海珠区": "440105",
+                                 "荔湾区": "440103", "天河区": "440106", "白云区": "440111", "黄埔区": "440112"}[d["district"]]
+                    check(adc == expect_ad, f"[8/{d['district']}] 招生记录跨区挂错: {r['school']} -> {sid} (POI 区 {adc} ≠ {expect_ad})")
+            for sid2 in (r.get("school_ids") or []):
+                check(sid2 in poi_ids, f"[8/{d['district']}] 合并招生 school_ids 悬空: {r['school']} -> {sid2}")
+
+    # ---- 9. 关键案例 golden：校名匹配基线（改动后必须逐条复核再更新） ----
+    # 校名取招生记录真实名（与 build_middle_enrollment 输入一致）；缺失为 None
+    KEY_CASES = [
+        ("广州大学附属中学", "440104", "gz-440104-b22c4eca"),          # 越秀派位 -> 黄华路校区
+        ("广州大学附属中学（大学城校区）", "440113", "gz-440113-8f5e4721"),  # 番禺单校抽签 -> 大学城
+        ("广铁一中番禺校区", "440113", "gz-440113-97e0acaa"),           # 番禺亚运城
+        ("铁英中学", "440112", "gz-440112-c80ac6ac"),                    # 黄埔铁英中学（独立校）
+        ("广铁一中铁英学校", "440113", None),                            # 番禺合并招生：无单一校区 id
+        ("广州市白云区景泰中学分校区（原广州市白云区南悦中学）", "440111", "gz-440111-2186a02a"),  # 白云湖校区
+        ("广州市西关外国语学校校本部", "440103", "gz-440103-b41a3512"),   # 西外初中部
+        ("广州市西关外国语学校文昌南校区", "440103", "gz-440103-df535585"),  # 文昌南（新校区）
+        ("广东实验中学荔湾学校广钢新城校区", "440103", "gz-440103-53cac770"),  # 省实荔湾初中部
+        ("广东实验中学荔湾学校花地湾校区", "440103", "gz-440103-ff7538dc"),  # 花地湾（新校区）
+        ("广州市白云区广州空港实验中学（本部）", "440111", "gz-440111-d4c4285e"),  # 空港本部（勿被黄埔广州实验中学吸走）
+        ("广州市白云区六中实验中学（空港校区）", "440111", "gz-440111-4ab20f44"),  # 六中实验空港校区
+    ]
+    for name, adcode, expect in KEY_CASES:
+        r = match_poi.match_school(name, _poi_all, _am, preferred_adcode=adcode, preferred_stage="初中")
+        check((r.get("school_id") or None) == expect,
+              f"[9] 关键案例失配: {name} -> {r.get('school_id')}（应为 {expect}）")
 
     # ---- 汇总 ----
     print(f"数据质量测试: {checks} 项检查, {len(failures)} 项失败")

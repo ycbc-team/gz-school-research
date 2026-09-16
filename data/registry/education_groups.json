@@ -1854,9 +1854,18 @@
       "core_poi": [
         {
           "name": "广州市西关外国语学校",
-          "poi_match": "精确命中",
           "poi_name": "广州市西关外国语学校(初中部)",
           "school_id": "gz-440103-b41a3512"
+        },
+        {
+          "name": "广州市西关外国语学校",
+          "poi_name": "广州市西关外国语学校彩虹桥校区",
+          "school_id": "gz-440103-dfff68f2"
+        },
+        {
+          "name": "广州市西关外国语学校",
+          "poi_name": "广州市西关外国语学校文昌南校区",
+          "school_id": "gz-440103-df535585"
         }
       ],
       "level": "区属",
@@ -1926,7 +1935,17 @@
           "verified": "2026-09-14",
           "poi_match": "精确命中",
           "poi_name": "广东实验中学荔湾学校(第三小学部)",
-          "school_id": "gz-440103-9f5557ad"
+          "school_id": "gz-440103-53cac770",
+          "campuses": [
+            {
+              "poi_name": "广东实验中学荔湾学校(初中部)",
+              "school_id": "gz-440103-53cac770"
+            },
+            {
+              "poi_name": "广东实验中学荔湾学校花地湾校区",
+              "school_id": "gz-440103-ff7538dc"
+            }
+          ]
         }
       ],
       "source_urls": [
@@ -2506,6 +2525,13 @@
       "source_urls": [
         "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html",
         "http://www.hp.gov.cn/2021gb/zz/mtxx/content/post_8533349.html"
+      ],
+      "core_poi": [
+        {
+          "name": "广州市铁英中学",
+          "poi_name": "广铁一中铁英中学",
+          "school_id": "gz-440112-c80ac6ac"
+        }
       ]
     },
     {
@@ -3142,7 +3168,7 @@
           "verified": "2026-09-14",
           "poi_match": "变体命中",
           "poi_name": "广州市白云区景泰中学白云湖校区",
-          "school_id": "gz-440111-2186a02a"
+          "school_id": "gz-440111-048815b3"
         },
         {
           "name": "广州市白云区竹料第一中学",
@@ -4299,7 +4325,7 @@
           "verified": "2026-09-14",
           "poi_match": "精确命中",
           "poi_name": "广州市铁一中学(越秀校区)",
-          "school_id": "gz-440104-09652aa5",
+          "school_id": "gz-440113-97e0acaa",
           "legal": "same",
           "relation": "市属校区（番禺）"
         },
@@ -4309,7 +4335,7 @@
           "verified": "2026-09-14",
           "poi_match": "精确命中",
           "poi_name": "广州市铁一中学(越秀校区)",
-          "school_id": "gz-440104-09652aa5",
+          "school_id": "gz-440111-28c16cca",
           "legal": "same",
           "relation": "市属校区（白云）"
         },
@@ -4330,7 +4356,7 @@
           "verified": "2026-09-14",
           "poi_match": "精确命中",
           "poi_name": "广州市番禺区广铁一中铁英学校(西校区)",
-          "school_id": "gz-440113-94c76638",
+          "school_id": "gz-440113-43d027a5",
           "legal": "independent",
           "relation": "区属成员校（番禺东）"
         },
