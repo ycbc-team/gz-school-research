@@ -72,7 +72,7 @@ function shortName(name: string): string {
                 <td class="school">
                   <RouterLink :to="{ path: '/school/' + encodeURIComponent(row.name), query: { stage: 'high', ...(row.schoolId ? { id: row.schoolId } : {}) } }">{{ shortName(row.name) }}</RouterLink>
                   <em v-if="row.minban" class="mb-tag">民办</em>
-                  <span class="district">{{ row.district }}</span>
+                  <span class="school-meta"><span>{{ row.district }}</span><span v-if="row.affiliation">{{ row.affiliation }}</span></span>
                 </td>
                 <td class="score"><span v-if="!row.score2025.length" class="empty">—</span><span v-for="(score, index) in row.score2025" :key="index" class="score-line">{{ score.text }}</span></td>
                 <td class="score current"><span v-if="!row.score2026.length" class="empty">—</span><span v-for="(score, index) in row.score2026" :key="index" class="score-line">{{ score.text }}</span></td>
@@ -102,7 +102,7 @@ function shortName(name: string): string {
 h2 { padding: 12px 14px 8px; font-size: 15px; } h2 em { margin-left: 8px; color: #8a93a3; font-size: 11.5px; font-style: normal; font-weight: 400; }
 .table-wrap { overflow-x: auto; } table { width: 100%; min-width: 620px; border-collapse: collapse; font-size: 12.5px; }.rank-table { table-layout: fixed; }.col-school { width: 42%; }.col-score { width: 29%; }
 th { padding: 7px 10px; color: #6b7280; font-size: 11.5px; text-align: left; border-bottom: 1px solid #ecebe6; } td { padding: 8px 10px; vertical-align: top; border-bottom: 1px solid #f2f1ec; } tbody tr:last-child td { border: 0; } tbody tr:hover { background: #fafbfc; }
-.school { font-weight: 600; }.district { display: block; margin-top: 3px; color: #8a93a3; font-size: 11px; font-weight: 400; }.score { color: #4b5563; font-variant-numeric: tabular-nums; }.current { color: #1a1b1c; font-weight: 400; }.score-line { display: block; line-height: 1.65; }.empty { color: #9ca3af; } footer { margin: 18px 2px 30px; }
+.school { font-weight: 600; }.school-meta { display: flex; gap: 7px; margin-top: 3px; color: #8a93a3; font-size: 11px; font-weight: 400; }.school-meta span + span::before { content: '·'; margin-right: 7px; color: #c3c9d4; }.score { color: #4b5563; font-variant-numeric: tabular-nums; }.current { color: #1a1b1c; font-weight: 400; }.score-line { display: block; line-height: 1.65; }.empty { color: #9ca3af; } footer { margin: 18px 2px 30px; }
 .mb-tag { display: inline-block; margin-left: 6px; padding: 0 5px; border: 1px solid #fde68a; border-radius: 8px; background: #fef3c7; color: #b45309; font-size: 10.5px; font-style: normal; font-weight: 400; line-height: 15px; vertical-align: 1px; }
 .q-mark { display: inline-flex; align-items: center; justify-content: center; width: 15px; height: 15px; margin-left: 3px; padding: 0; border: 1px solid #c3c9d4; border-radius: 50%; background: #fff; color: #6b7280; font-size: 10px; cursor: help; vertical-align: 1px; }.q-mark:hover { border-color: #1a6bd6; color: #1a6bd6; }.hint-pop { position: fixed; z-index: 1300; width: 330px; max-width: 86vw; padding: 10px 12px; border: 1px solid #e4e3dd; border-radius: 12px; background: #fff; box-shadow: 0 10px 30px rgba(20,30,50,.16); color: #4b5563; font-size: 12px; line-height: 1.65; }
 @media (max-width: 600px) { .filter-bar { top: 58px; }.filter { flex: 1; padding: 7px 5px; font-size: 12px; } }

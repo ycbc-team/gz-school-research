@@ -27,6 +27,8 @@ export interface HighRankingRow {
   schoolName: string;
   /** 点位所在行政区 */
   district: string;
+  /** 省属 / 市属 / XX区属；levels 未匹配时为空，供 UI 按需隐藏。 */
+  affiliation: string | null;
   minban: boolean;
   /** 省市属示范 / 区属示范 / 普通高中；由 levels 分类直接决定分组 */
   category: string;
@@ -107,6 +109,7 @@ export function buildHighRankingRows(loaders: Pick<DataLoaders, 'highSchools' | 
       name: poi.name,
       schoolName: poi.school || level?.name || poi.name,
       district: ADCODE_TO_DISTRICT[poi.adcode] || level?.district || '其他',
+      affiliation: level?.affiliation || null,
       minban: schoolId != null && minbanIds.has(schoolId),
       category: level?.category || '未标注',
       demo: level?.demo || null,

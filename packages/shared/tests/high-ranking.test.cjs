@@ -47,3 +47,9 @@ test('高中明细 VM：未标注点位并入普通高中模块', () => {
   const normal = groups.find((group) => group.title === '普通高中');
   assert.ok(normal?.items.some((row) => row.category === '未标注'));
 });
+
+test('高中明细 VM：校区保留隶属信息，未匹配时为空', () => {
+  const rows = buildHighRankingGroups(loaders, 'category').flatMap((group) => group.items);
+  assert.equal(rows.find((row) => row.name === '广东实验中学(高中部)')?.affiliation, '省属');
+  assert.equal(rows.find((row) => row.category === '未标注')?.affiliation, null);
+});
