@@ -3,7 +3,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { buildHighRankingGroups } = require('../dist/cjs/index.js');
+const { buildHighRankingGroups, buildHighRankingRows } = require('../dist/cjs/index.js');
 
 const ROOT = path.resolve(__dirname, '../../..');
 const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', file), 'utf8'));
@@ -24,6 +24,21 @@ test('高中明细 VM：仅七区、保留两年录取线，并按 2026 分数�
     const values = group.items.map((row) => row.sortScore2026).filter((value) => value != null);
     assert.deepEqual(values, values.slice().sort((a, b) => b - a));
   }
+});
+
+test('高中明细 VM：全量学校的政策标签与简称均不混淆', () => {
+  const rows = buildHighRankingRows(loaders);
+  for (const row of rows) {
+    if (row.category === '省市属示范') assert.ok(['省属', '市属'].includes(row.affiliation), `${row.name} 应标注省属或市属`);
+    else if (row.category === '区属示范') assert.match(row.affiliation || '', /^.+区属$/, `${row.name} 应标注对应区属`);
+    else assert.equal(row.affiliation, null, `${row.name} 不应展示行政隶属为招生政策标签`);
+  }
+  const collisions = new Map();
+  for (const row of rows) collisions.set(row.displayName, [...(collisions.get(row.displayName) || []), row.name]);
+  assert.deepEqual([...collisions].filter(([, names]) => new Set(names).size > 1), [], '任意两所学校的列表简称不得重名');
+  const guangdong = rows.find((row) => row.name === '广东实验中学(高中部)');
+  const guangzhou = rows.find((row) => row.name === '广州实验中学');
+  assert.notEqual(guangdong?.displayName, guangzhou?.displayName);
 });
 
 test('高中明细 VM：支持不分组、七区位置筛选与多年份排序', () => {

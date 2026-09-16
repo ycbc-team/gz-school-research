@@ -38,6 +38,8 @@ export interface HighRankingScore {
 export interface HighRankingRow {
   schoolId: string | null;
   name: string;
+  /** 用于列表的简称；全量去重后，存在歧义时保留原校名。 */
+  displayName: string;
   schoolName: string;
   /** 点位 adcode，仅供筛选状态机使用。 */
   adcode: string;
@@ -113,7 +115,7 @@ export function buildHighRankingRows(loaders: Pick<DataLoaders, 'highSchools' | 
   // 快照可能含七区外补点；本页契约是「七区」，因此必须按点位 adcode 截断。
   const allPois = loaders.highSchools.schools;
   const minbanIds = new Set(loaders.entities.entities.filter((entity) => entity.stage === 'high' && entity.nature === '民办').map((entity) => entity.school_id));
-  return allPois.filter((poi) => poi.adcode in ADCODE_TO_DISTRICT).map((poi) => {
+  const rows = allPois.filter((poi) => poi.adcode in ADCODE_TO_DISTRICT).map((poi) => {
     const level = levelForPoi(poi, loaders.highLevels.schools);
     const schoolId = poi.school_id || null;
     const score2025 = scoresForPoi(poi, loaders.highScores2025.by_school_id);
@@ -124,6 +126,7 @@ export function buildHighRankingRows(loaders: Pick<DataLoaders, 'highSchools' | 
     return {
       schoolId,
       name: poi.name,
+      displayName: poi.name,
       schoolName: poi.school || level?.name || poi.name,
       adcode: poi.adcode,
       district: ADCODE_TO_DISTRICT[poi.adcode] || level?.district || '其他',
@@ -140,6 +143,25 @@ export function buildHighRankingRows(loaders: Pick<DataLoaders, 'highSchools' | 
       sortScoreAverage: values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null,
     };
   });
+  // 先按现有规则尝试缩短；若任意两个校区缩写相同，则该缩写不安全，相关校名一律保留全称。
+  const candidates = new Map<string, string[]>();
+  for (const row of rows) {
+    const short = highRankingShortName(row.name);
+    candidates.set(short, [...(candidates.get(short) || []), row.name]);
+  }
+  const ambiguous = new Set([...candidates].filter(([, names]) => new Set(names).size > 1).map(([short]) => short));
+  return rows.map((row) => ({ ...row, displayName: ambiguous.has(highRankingShortName(row.name)) ? row.name : highRankingShortName(row.name) }));
+}
+
+function highRankingShortName(name: string): string {
+  const trimmed = name.trim();
+  if (trimmed.startsWith('广州市')) return trimmed.slice(3);
+  if (trimmed.startsWith('广东')) return trimmed.slice(2);
+  if (trimmed.startsWith('广州')) {
+    const rest = trimmed.slice(2);
+    if (rest.length >= 3 && !rest.startsWith('大学')) return rest;
+  }
+  return trimmed;
 }
 
 export function buildHighRankingGroups(

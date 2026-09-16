@@ -63,16 +63,6 @@ function toggleHint(e: MouseEvent) { showHint.value ? closeHint() : openHint(e);
 onMounted(() => { window.addEventListener('scroll', closeHint, true); window.addEventListener('resize', closeHint); });
 onBeforeUnmount(() => { window.removeEventListener('scroll', closeHint, true); window.removeEventListener('resize', closeHint); });
 
-function shortName(name: string): string {
-  const n = name.trim();
-  if (n.startsWith('广州市')) return n.slice(3);
-  if (n.startsWith('广东')) return n.slice(2);
-  if (n.startsWith('广州')) {
-    const rest = n.slice(2);
-    if (rest.length >= 3 && !rest.startsWith('大学')) return rest;
-  }
-  return n;
-}
 </script>
 
 <template>
@@ -124,7 +114,7 @@ function shortName(name: string): string {
             <tbody>
               <tr v-for="row in group.items" :key="row.schoolId || row.name">
                 <td class="school">
-                  <RouterLink :to="{ path: '/school/' + encodeURIComponent(row.name), query: { stage: 'high', ...(row.schoolId ? { id: row.schoolId } : {}) } }">{{ shortName(row.name) }}</RouterLink>
+                  <RouterLink :to="{ path: '/school/' + encodeURIComponent(row.name), query: { stage: 'high', ...(row.schoolId ? { id: row.schoolId } : {}) } }">{{ row.displayName }}</RouterLink>
                   <em v-if="row.minban" class="mb-tag">民办</em>
                   <span class="school-meta"><span>{{ row.district }}</span><span v-if="row.affiliation">{{ row.affiliation }}</span></span>
                 </td>
