@@ -40,3 +40,10 @@ test('高中明细 VM：民办徽标读取实体注册表办学性质', () => {
   assert.equal(rows.find((row) => row.name === '耀华中学')?.minban, true);
   assert.equal(rows.find((row) => row.name === '广东实验中学(高中部)')?.minban, false);
 });
+
+test('高中明细 VM：未标注点位并入普通高中模块', () => {
+  const groups = buildHighRankingGroups(loaders, 'category');
+  assert.equal(groups.some((group) => group.title === '未标注'), false);
+  const normal = groups.find((group) => group.title === '普通高中');
+  assert.ok(normal?.items.some((row) => row.category === '未标注'));
+});

@@ -74,6 +74,11 @@ function categoryOrder(value: string): number {
   return 99;
 }
 
+/** 未匹配 levels 分类的点位按普通高中归组，避免产生孤立的「未标注」模块。 */
+function categoryGroupKey(category: string): string {
+  return category === '未标注' ? '普通高中' : category;
+}
+
 function scoresForPoi(poi: SchoolPoi, yearScores: Record<string, HighScoreRecord[]>, allPois: SchoolPoi[]): HighRankingScore[] {
   const direct = poi.school_id ? (yearScores[poi.school_id] || []) : [];
   // 部分官方招生单位只挂在同校另一校区实体。例如广大附中官方分数挂黄华路校区，
@@ -118,7 +123,7 @@ export function buildHighRankingGroups(
 ): HighRankingGroup[] {
   const groups = new Map<string, HighRankingRow[]>();
   for (const row of buildHighRankingRows(loaders)) {
-    const key = groupBy === 'district' ? row.district : row.category;
+    const key = groupBy === 'district' ? row.district : categoryGroupKey(row.category);
     const list = groups.get(key) || [];
     list.push(row);
     groups.set(key, list);
