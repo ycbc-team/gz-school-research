@@ -123,7 +123,7 @@ export function createRegistryApi(loaders: DataLoaders) {
     brand: string;
     note?: string;
     core: string[];
-    members: Array<{ name: string; stage?: string; role: string; poi_names?: string[]; poi_name?: string; school_id?: string; legal?: 'same' | 'independent' }>;
+    members: Array<{ name: string; stage?: string; role: string; school_ids?: string[]; poi_names?: string[]; poi_name?: string; school_id?: string; legal?: 'same' | 'independent' }>;
     source_urls: string[];
   } | null {
     if (!name && !schoolId) return null;
@@ -178,6 +178,7 @@ export function createRegistryApi(loaders: DataLoaders) {
           name: u.name,
           role: u.role,
           legal: u.legal,
+          school_ids: u.school_ids,
           poi_names: u.poi_names,
         })),
         source_urls: [],

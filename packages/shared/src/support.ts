@@ -94,6 +94,7 @@ export function attachTier1ToPois(
 /** 品牌单位的最小形状（与 apps/web brandGroups 的 BrandUnit 兼容） */
 export interface BrandUnitLite {
   name: string;
+  school_ids?: string[];
   poi_names?: string[];
 }
 

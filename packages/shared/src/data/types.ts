@@ -99,6 +99,8 @@ export interface BrandUnit {
   role: string;
   /** same=与品牌核心同法人；independent=独立法人（借用品牌） */
   legal: 'same' | 'independent';
+  /** 实体外键；品牌当前态、详情跳转优先使用，禁止以名称猜测校区 */
+  school_ids?: string[];
   /** 该单位的 POI 名覆盖（tier1 aliases 未覆盖其点位名时使用） */
   poi_names?: string[];
 }

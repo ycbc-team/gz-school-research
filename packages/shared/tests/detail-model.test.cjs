@@ -8,7 +8,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const { createRepository, buildDetailModel, buildLinkageModel } = require('../dist/cjs/index.js');
+const { createRepository, buildDetailModel, buildLinkageModel, normName } = require('../dist/cjs/index.js');
 const ROOT = path.resolve(__dirname, '../../..');
 const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', file), 'utf8'));
 const loaders = {
@@ -86,4 +86,67 @@ test('第一批高中详情只按 school_id 反查，所有已映射招生单位
     if (!model.highSpecialCoverage.length) missing.push(`${rawName}: ${schoolId} 无第一批覆盖`);
   }
   assert.deepEqual(missing, [], `第一批招生 ID 反查回归: ${missing.join('; ')}`);
+});
+
+test('品牌关联：广大附黄华路校区以 school_id 标记当前项并生成 ID 跳转', () => {
+  const schoolId = 'gz-440104-b22c4eca';
+  const entity = repo.entities.find((e) => e.school_id === schoolId);
+  assert.ok(entity, '黄华路校区实体必须存在');
+  const model = buildDetailModel('middle', entity.name, repo, schoolId);
+  const rows = model.brandCard.groups.flatMap((g) => g.rows);
+  const current = rows.filter((r) => r.isCurrent);
+  assert.deepEqual(current.map((r) => r.name), ['广州大学附属中学（黄华路校区）']);
+  assert.match(current[0].link, /id=gz-440104-b22c4eca/);
+});
+
+test('品牌关联：全量品牌实体对比修复前后，品牌分支新增当前态必须由显式身份来源支撑', () => {
+  const eligible = repo.entities.filter((entity) =>
+    ['primary', 'middle', 'high'].includes(entity.stage) && repo.brandGroupOf(entity.name),
+  );
+  // 覆盖范围快照：新品牌实体加入时必须显式审阅这条 ID 当前态规则。
+  assert.equal(eligible.length, 49, '品牌实体覆盖范围变更，请审阅当前态回归结果');
+  const failures = [];
+  for (const entity of eligible) {
+    const group = repo.groupOfSchool(entity.name, entity.school_id);
+    assert.ok(group, `${entity.name}: 必须能解析到集团`);
+    const model = buildDetailModel(entity.stage, entity.name, repo, entity.school_id);
+    const after = model.brandCard.groups.flatMap((g) => g.rows)
+      .filter((r) => r.isCurrent)
+      .map((r) => r.name)
+      .sort();
+    if (!after.length) failures.push(`${entity.name}: 修复后没有当前项`);
+
+    if (group.source === 'education') {
+      // 本次修复只改品牌分支；教育集团分支的当前态必须逐项保持不变。
+      const before = group.members
+        .filter((m) => (m.school_id && m.school_id === entity.school_id) || normName(m.name) === normName(entity.name) || (m.poi_name && normName(m.poi_name) === normName(entity.name)))
+        .map((m) => m.name)
+        .sort();
+      if (JSON.stringify(after) !== JSON.stringify(before)) {
+        failures.push(`${entity.name}: 教育集团当前项发生变化（修复前 ${before.join('、')}；修复后 ${after.join('、')}）`);
+      }
+      continue;
+    }
+
+    // 修复前品牌规则会剥离括号内容再比名（校区实体因此普遍失去当前态）；修复后：
+    // - 保留原命中（非校区别名兼容，仅无校区括号的单位）；
+    // - 新增命中必须来自显式身份来源之一：school_id 外键 / 全名全等（校区括号是身份的一部分）/ poi_names 显式点位覆盖。
+    const before = group.members
+      .filter((m) => normName(m.name.replace(/[（(][^）)]*[）)]/g, '')) === normName(entity.name))
+      .map((m) => m.name);
+    const legitNew = group.members
+      .filter((m) =>
+        (m.school_ids || []).includes(entity.school_id) ||
+        normName(m.name) === normName(entity.name) ||
+        (m.poi_names || []).some((p) => normName(p) === normName(entity.name)),
+      )
+      .map((m) => m.name);
+    for (const name of before) {
+      if (!after.includes(name)) failures.push(`${entity.name}: 原当前项丢失 ${name}`);
+    }
+    for (const name of after) {
+      if (!before.includes(name) && !legitNew.includes(name)) failures.push(`${entity.name}: 出现无显式身份来源支撑的新当前项 ${name}`);
+    }
+  }
+  assert.deepEqual(failures, [], `品牌当前态全量回归: ${failures.join('; ')}`);
 });

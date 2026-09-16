@@ -274,6 +274,8 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     const rows: BrandRow[] = [];
     for (const u of g.units as BrandUnit[]) {
       const unitNorm = unitCoreNorm(u.name);
+      const fullUnitNorm = normName(u.name);
+      const unitSchoolIds = u.school_ids || [];
       const newM = newOpeningOf('middle', unitNorm);
       const newP = newOpeningOf('primary', unitNorm);
       const tierM = newM
@@ -317,10 +319,23 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
       const stageToKey: Record<string, SchoolStage> = { 小学: 'primary', 初中: 'middle', 高中: 'high' };
       const order = [stage, ...(['primary', 'middle', 'high'] as SchoolStage[]).filter((s) => s !== stage)];
       const stageKey = order.find((k: SchoolStage) => stages.includes(STAGE_SHORT[k])) || null;
-      const link = stageKey ? `/school/${encodeURIComponent(u.name)}?stage=${stageKey}` : null;
+      const linkedEntity = stageKey
+        ? unitSchoolIds.map((id) => repo.entities.find((e) => e.school_id === id && e.stage === stageKey)).find(Boolean)
+        : null;
+      const link = stageKey
+        ? `/school/${encodeURIComponent(linkedEntity?.name || u.name)}?stage=${stageKey}${linkedEntity ? `&id=${linkedEntity.school_id}` : ''}`
+        : null;
+      // 校区名称中的括号是身份的一部分，不能为“去别名”而被抹掉。
+      // 无显式实体映射的历史单位才保留非校区别名的名称兼容。
+      const hasCampusQualifier = /[（(][^）)]*校区[^）)]*[）)]/.test(u.name);
+      const isCurrent =
+        (!!schoolId && unitSchoolIds.includes(schoolId)) ||
+        fullUnitNorm === normName(schoolName) ||
+        poiNormExtras.includes(normName(schoolName)) ||
+        (!hasCampusQualifier && unitNorm === normName(schoolName));
       rows.push({
         name: u.name, role: u.role, legal: u.legal, district, stages,
-        badge: null, reason, isCurrent: unitNorm === normName(schoolName), link,
+        badge: null, reason, isCurrent, link,
       });
     }
     const groups: { key: string; title: string; rows: BrandRow[] }[] = [];
