@@ -2,10 +2,10 @@
 /**
  * 初中升学信号明细
  * - 数据真源：data/linkage/middle_middle.json（scripts/linkage/build_ranking_middle.py 聚合，
- *   含名额分配考生数/省市属·区属指标/2026 自招名单计数/指标到校高中明细+特控率）
+ *   含名额分配符合资格考生数/省市属·区属指标/2026 自招名单计数/指标到校高中明细+特控率）
  * - 分组：按区（区教育局口径）或按教育集团（@gz/shared groupOfSchool，brand 优先）
  * - 指标（6 选 1）：自招绝对值 / 自招比例 / 区属指标数 / 区属指标比例 / 省市属指标比例 / 指标×高中特控率
- * - 榜单口径：所有比例均以「名额分配符合资格考生数（kaosheng）」为分母，
+ * - 榜单口径：所有比例均以「符合名额分配报考资格考生数（kaosheng）」为分母，
  *   消除学校规模差异（学生多则名额自然多，须看比例）
  */
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
@@ -38,14 +38,14 @@ const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: stri
     title: '自主招生（2026 资格名单）',
     items: [
       { v: 'aut_abs', l: '自招人数（绝对值）' },
-      { v: 'aut_ratio', l: '自招比例（÷考生数）' },
+      { v: 'aut_ratio', l: '自招比例（÷名额分配符合资格考生数）' },
     ],
   },
   {
     title: '指标到校',
     items: [
-      { v: 'qu_ratio', l: '区属指标比例（÷考生数）' },
-      { v: 'sheng_ratio', l: '省市属指标比例（÷考生数）' },
+      { v: 'qu_ratio', l: '区属指标比例（÷名额分配符合资格考生数）' },
+      { v: 'sheng_ratio', l: '省市属指标比例（÷名额分配符合资格考生数）' },
     ],
   },
   {
@@ -56,10 +56,10 @@ const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: stri
 
 const METRIC_META: Record<MetricKey, { label: string; note: string; unit: string; digits: number }> = {
   aut_abs: { label: '自招人数', note: '2026 年自主招生综合能力考核资格名单中，来源初中的考生人数（绝对值）。', unit: '人', digits: 0 },
-  aut_ratio: { label: '自招比例', note: '自招资格人数 ÷ 名额分配符合资格考生数。比例口径消除学校规模差异（学生多则名额自然多）。', unit: '%', digits: 1 },
-  qu_ratio: { label: '区属指标比例', note: '区属指标数 ÷ 考生数。反映本区学生获得本区区属指标的机会。', unit: '%', digits: 1 },
-  sheng_ratio: { label: '省市属指标比例', note: '省市属高中名额分配指标数 ÷ 考生数。省市属指标按符合资格考生等比例分配，全区一致。', unit: '%', digits: 1 },
-  tekong: { label: '指标×特控率', note: 'Σ(区属高中给该校指标名额 × 该高中特控率) ÷ 该校考生数。反映该校考生经区属指标到校路径预计上特控（一本）线的比例；特控率为喜报/网传口径，缺失的高中名额不计。', unit: '%', digits: 1 },
+  aut_ratio: { label: '自招比例', note: '自招资格人数 ÷ 符合名额分配报考资格考生数。比例口径消除学校规模差异（学生多则名额自然多）。', unit: '%', digits: 1 },
+  qu_ratio: { label: '区属指标比例', note: '区属指标数 ÷ 符合名额分配报考资格考生数。反映本区学生获得本区区属指标的机会。', unit: '%', digits: 1 },
+  sheng_ratio: { label: '省市属指标比例', note: '省市属高中名额分配指标数 ÷ 符合名额分配报考资格考生数。省市属指标按符合资格考生等比例分配，全区一致。', unit: '%', digits: 1 },
+  tekong: { label: '指标×特控率', note: 'Σ(区属高中给该校指标名额 × 该高中特控率) ÷ 符合名额分配报考资格考生数。反映该校符合资格考生经区属指标到校路径预计上特控（一本）线的比例；特控率为喜报/网传口径，缺失的高中名额不计。', unit: '%', digits: 1 },
 };
 
 /** 区属/省市属比例指标额外展示一列指标数绝对值 */
@@ -72,7 +72,7 @@ function fmtAbs(v: number | null): string {
   return v == null ? '—' : String(v);
 }
 
-/** 指标口径 / 考生数口径问号 popup（PC hover / 触屏点击）。
+/** 指标口径 / 名额分配符合资格考生数口径问号 popup（PC hover / 触屏点击）。
  *  Teleport 到 body + fixed 定位，避免被 .rank-group overflow 裁剪；
  *  切换指标、页面滚动、窗口缩放时自动收起。 */
 const showHint = ref<'metric' | 'kaosheng' | null>(null);
@@ -107,8 +107,8 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', closeHint);
 });
 
-/** 考生数口径：广州市招考办名额分配资格考生定义（官方原文整理） */
-const KAOSHENG_NOTE = '初中应届毕业生，具有广州市户籍（含政策性照顾学生）；户籍迁入广州、申报政策性照顾学生资格截止时间为当年4月30日。学籍与就读要求（二选一）：情况A——在同一间广州初中拥有三年完整学籍，并且一直在该校实际读到毕业；情况B——从市外转入广州初中，在转入的这所学校读到毕业。';
+/** 符合名额分配报考资格考生数：广州市招考办政策口径（官方原文整理） */
+const KAOSHENG_NOTE = '本列统计的是“符合名额分配报考资格的考生数”，不是学校全部应考人数。按广州市招生政策，须同时满足：初中应届毕业、具有广州市户籍（含政策性照顾学生，户籍或资格申报截止当年4月30日），并满足学籍条件——在广州同一初中有三年完整学籍且就读至毕业，或从市外转入广州后在转入学校就读至毕业。未满足上述条件但仍报名参加中考的考生，不计入本列，因此学校实际应考人数通常会更多。';
 
 const metricLabel = computed(() => METRIC_META[metric.value].label);
 const metricNote = computed(() => METRIC_META[metric.value].note);
@@ -255,10 +255,10 @@ const groups = computed(() => {
               </th>
               <th v-if="showAbs" class="c-sub">{{ absLabel }}</th>
               <th class="c-sub">
-                考生数
+                名额分配符合资格考生数
                 <span
                   class="q-mark"
-                  aria-label="考生数口径说明"
+                  aria-label="名额分配符合资格考生数口径说明"
                   @mouseenter="openHint('kaosheng', $event)"
                   @mouseleave="scheduleClose"
                   @click.stop="toggleHint('kaosheng', $event)"
@@ -285,7 +285,7 @@ const groups = computed(() => {
     </main>
 
     <footer class="foot-note">
-      数据来源：广州市招考办 2026 名额分配计划汇总表（考生数/指标数）· 2026 自主招生资格名单（13866 条）· 高中特控率喜报/网传口径（data/high/levels.json）。比例均为「÷ 名额分配符合资格考生数」。
+      数据来源：广州市招考办 2026 名额分配计划汇总表（符合名额分配报考资格考生数/指标数）· 2026 自主招生资格名单（13866 条）· 高中特控率喜报/网传口径（data/high/levels.json）。比例均为「÷ 符合名额分配报考资格考生数」，不代表学校全部应考人数。
     </footer>
 
     <Teleport to="body">
@@ -301,7 +301,7 @@ const groups = computed(() => {
           <div class="hp-line">{{ metricNote }}</div>
         </template>
         <template v-else>
-          <div class="hp-title">考生数口径</div>
+          <div class="hp-title">名额分配符合资格考生数口径</div>
           <div class="hp-line">{{ KAOSHENG_NOTE }}</div>
         </template>
       </div>
@@ -374,7 +374,7 @@ const groups = computed(() => {
 .c-sub { color: #6b7280; font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .c-name { max-width: 240px; }
 
-/* 指标口径/考生数口径问号 + popup（Teleport 到 body，fixed 定位不受表格 overflow 裁剪） */
+/* 指标口径/名额分配符合资格考生数口径问号 + popup（Teleport 到 body，fixed 定位不受表格 overflow 裁剪） */
 .q-mark {
   display: inline-flex; align-items: center; justify-content: center;
   width: 15px; height: 15px; margin-left: 4px; border-radius: 50%;
