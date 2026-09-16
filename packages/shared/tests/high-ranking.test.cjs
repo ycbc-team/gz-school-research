@@ -49,7 +49,7 @@ test('高中明细 VM：全量校区展示快照必须显式更新', () => {
     .map(({ schoolId, name, displayName, category, affiliation, score2025, score2026 }) => ({ schoolId, name, displayName, category, affiliation, score2025, score2026 }))
     .sort((a, b) => String(a.schoolId).localeCompare(String(b.schoolId), 'zh'));
   const digest = crypto.createHash('sha256').update(JSON.stringify(snapshot)).digest('hex');
-  assert.equal(digest, 'e7d1571d11a99e55b0d29bc1b08b6eeea73cd650f78242ae6a56e99181fe6a70', '任一高中校区的简称、分类、政策标签或录取线口径变更，都必须确认并更新全量快照');
+  assert.equal(digest, 'c2e0ea1ffa1c107981d420b0a84cdc436a38f7d09ee2678ff12c787f4997ec8f', '任一高中校区的简称、分类、政策标签或录取线口径变更，都必须确认并更新全量快照');
 });
 
 test('高中明细 VM：支持不分组、七区位置筛选与多年份排序', () => {

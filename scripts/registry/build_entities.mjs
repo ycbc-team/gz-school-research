@@ -153,7 +153,7 @@ const OFFICIAL_MIDDLE_ALIAS = {
   '广州市天河区明珠中英文学校': '天河明珠中英文学校',
   '广州市天河区大华学校': '广州大华中英文学校',
   '暨南大学附属实验学校': '暨南大学附属中学',
-  '广州市第一一三中学': '广州市第一一三中学(东方校区)',
+  '广州市第一一三中学': '广州市第一一三中学(乐学校区)',   // 本部=乐学校区（quota入库人工核对；原东方校区为历史误挂）
   // 海珠区
   '广州市九十七中晓园学校': '广州市第九十七中学晓园学校',
   '广州市五中滨江学校': '广州市五中滨江学校(远安校区)',
@@ -179,10 +179,13 @@ const OFFICIAL_MIDDLE_ALIAS = {
   // 越秀区（校区官方叫法 → 越秀路名校区）
   '广东华侨中学（越秀校区）': '广东华侨中学(起义路校区)',
   '广州大学附属中学（越秀校区）': '广州大学附属中学(黄华路校区)',
+  '广州大学附属中学': '广州大学附属中学(黄华路校区)',  // 越秀派位裸名→黄华路（完中本部；录取分由 OFFICIAL_HIGH_ALIAS 挂大学城）
   '广州市执信中学（越秀校区）': '广州市执信中学(执信路校区)',
   '广州市第二中学（越秀校区）': '广州市第二中学(应元路校区)',
   // 荔湾区
-  '广州市荔湾区博雅中英文学校': '博雅中英文学校(海中校区)',
+  '广州市荔湾区博雅中英文学校': '博雅中英文学校(海龙校区)',   // 海中校区不存在，入库=海龙校区（quota人工核对）
+  '广州市第四中学': '广州市第四中学(津园校区)',   // 初中配额裸名→初中部津园（四中初中校区；锐园为高中部由 OFFICIAL_HIGH_ALIAS 持有）
+  '广州中学': '广州中学(五山校区)',   // 初中配额裸名→初中部五山（凤凰校区为高中部由 OFFICIAL_HIGH_ALIAS 持有）
   '广州市荔湾区博雅实验学校': '荔湾区东沙博雅实验学校',
   '广州市荔湾区新苗学校': '广州荔湾区新苗学校',
   '广州市荔湾区芳华初级中学': '广州市荔湾区芳华中学',
@@ -261,7 +264,7 @@ const OFFICIAL_HIGH_ALIAS = {
   '广州市执信中学（执信路校区）': '广州市执信中学(执信路校区)',
   '广州市执信中学（天河校区）': '执信中学(天河校区)',
   '广州市第二中学': '广州市第二中学(应元路校区)',
-  '广州大学附属中学': '广州大学附属中学(黄华路校区)',
+  '广州大学附属中学': '广州大学附属中学(大学城校区)',  // 录取分/高中表按学校整体招生 → 大学城（high）
   '广州市第七中学（校本部）': '广州市第七中学(高中部)',
   '广州市第十六中学（校本部）': '广州市第十六中学',
   '广州市培正中学': '培正中学',
@@ -410,8 +413,11 @@ const MINBAN_IDS = new Set([
 ]);
 
 // ---- 2) 把 tier1 / sites 的别名挂到对应 POI 实体 ----
-function attachAlias(stage, poiName, aliasName) {
-  const ent = entByStagePoiName.get(stage + '|' + normName(poiName));
+function attachAlias(stage, poiName, aliasName, force = false) {
+  const ent = entByStagePoiName.get(stage + '|' + normName(poiName))
+    // 跨 stage fallback：官方名指向完中实体（如广附黄华路 stage=middle，但官方录取表
+    // 按「广州大学附属中学」招生，应把别名挂到该实体，由匹配器按实体全量索引命中）
+    ?? [...entByStagePoiName.entries()].find(([k, e]) => k.endsWith('|' + normName(poiName)))?.[1];
   if (!ent) return false;
   for (const v of withDistrictVariants(normName(aliasName))) {
     // 纯名变体先占先得：已被同 stage 同名主校区实体持有则跳过，避免同区纯名被多实体共用
@@ -419,7 +425,13 @@ function attachAlias(stage, poiName, aliasName) {
     if (isPlainAlias(v)) {
       const key = ent.school_id.split('-')[1] + '|' + v;
       const owner = plainOwner.get(key);
-      if (owner && owner !== ent.school_id) continue;
+      if (owner && owner !== ent.school_id) {
+        // force=显式人工配置（OFFICIAL_HIGH_ALIAS 官方录取表名等）：绕过纯名拦截。
+        // 官方录取分数表用裸名招生（如「广州市第一一三中学」「广州大学附属中学」），
+        // 纯名拦截会阻止其挂到 high 实体（如一一三中金融城/元岗两校区、广大附大学城），导致录取分落 unmapped。
+        // 显式配置表达"该裸名属于这些实体"的明确意图，不受纯名先占规则约束。
+        if (!force) continue;
+      }
       plainOwner.set(key, ent.school_id);
     }
     ent.aliases.add(v);
@@ -491,10 +503,19 @@ for (const [k, poi] of Object.entries(GROUP_MEMBER_ALIAS)) {
   }
 }
 // 官方高中录取表名 → POI 实体（2025/2026 录取分数表逐字原文；值可为数组=挂多个校区）
+// force=true：官方录取裸名（如「广州市第一一三中学」「广州大学附属中学」）显式配置，绕过纯名先占
 for (const [official, poi] of Object.entries(OFFICIAL_HIGH_ALIAS)) {
-  for (const p of (Array.isArray(poi) ? poi : [poi])) {
-    if (attachAlias('high', p, official)) aliasHit++;
-    else console.log('  [高中别名未命中POI]', official, '->', p);
+  const list = Array.isArray(poi) ? poi : [poi];
+  for (let i = 0; i < list.length; i++) {
+    // 数组=官方条目挂多个校区（2025 按学校整体招生）：纯名（裸名）只归首校区，
+    // 其余校区仅挂校区限定名，避免同区同 stage 多实体抢同一纯名（检查 [3]）。
+    if (i > 0 && isPlainAlias(official)) {
+      if (attachAlias('high', list[i], official, false)) aliasHit++;
+      else console.log('  [高中别名未命中POI]', official, '->', list[i]);
+    } else {
+      if (attachAlias('high', list[i], official, true)) aliasHit++;
+      else console.log('  [高中别名未命中POI]', official, '->', list[i]);
+    }
   }
 }
 

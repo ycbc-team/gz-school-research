@@ -44,10 +44,102 @@ def main() -> int:
             idx_norm[norm(k)].append(e)
             idx_loose[loose(k)].append(e)
 
-    def resolve(name: str):
-        """官方名 → 实体（norm 精确优先，loose 容错次之）；多实体取第一个（实体构建顺序=官方表顺序）"""
-        hit = idx_norm.get(norm(name)) or idx_loose.get(loose(name))
-        return hit[0] if hit else None
+    AD_MAP = {'荔湾区': '440103', '越秀区': '440104', '海珠区': '440105',
+              '天河区': '440106', '白云区': '440111', '黄埔区': '440112', '番禺区': '440113'}
+
+    # quota_matrix 人工修正硬映射（官方名 → school_id）：通用 norm/loose 规则无法复现的
+    # 人工核对结果（同 stage 多校区歧义选错、跨学段裸名被 high 独占等），在数据层直接关联
+    # school_id，不靠手改产物；来源：HEAD quota_matrix school_id（人工核对版）。
+    MATCH_OVERRIDES = {
+        "广州中学": "gz-440106-867e6c05",  # quota人工修正
+        "广州奥林匹克中学": "gz-440106-d40d0dbe",  # quota人工修正
+        "广州市为明学校": "gz-440105-baa048f9",  # quota人工修正
+        "广州市华美英语实验学校": "gz-440106-7abd2786",  # quota人工修正
+        "广州市天健学校": "gz-440112-e085f4fa",  # quota人工修正
+        "广州市香江中学": "gz-440118-322b6d28",  # 增城香江学校（7区外但有实体）
+
+        "广州市天河区汇景实验学校": "gz-440106-0d1e149e",  # 现名（重跑挂旧名四十七中汇景）
+        "广州市天河中学": "gz-440106-2f8a4424",  # quota人工修正
+        "广州市天河区东风学校": "gz-440106-24ff78f9",  # quota人工修正
+        "广州市天河区华实学校": "gz-440106-bd07878c",  # quota人工修正
+        "广州市天河区同仁实验学校": "gz-440106-77787b4a",  # quota人工修正
+        "广州市天河区培智学校": "gz-440106-0a2c7178",  # quota人工修正
+        "广州市天河外国语学校": "gz-440106-b711d94a",  # quota人工修正
+        "广州市实验外语学校": "gz-440106-540006ea",  # quota人工修正
+        "广州市新滘中学": "gz-440105-003f2037",  # quota人工修正
+        "广州市番禺区丽江学校": "gz-440113-2264148c",  # quota人工修正
+        "广州市番禺区北正华学校": "gz-440113-a93513f2",  # quota人工修正
+        "广州市白云区广州空港实验中学": "gz-440111-d4c4285e",  # quota人工修正
+        "广州市真光中学": "gz-440103-042e23a5",  # quota人工修正
+        "广州市第—一五中学": "gz-440111-b5668c2e",  # quota人工修正
+        "广州市第—一四中学": "gz-440111-0f9c1ce8",  # quota人工修正
+        "广州市第一一三中学": "gz-440106-2e9f6f7b",  # quota人工修正
+        "广州市第七十五中学": "gz-440106-5a7fbf3a",  # quota人工修正
+        "广州市第八十六中学": "gz-440112-43108516",  # quota人工修正
+        "广州市第十三中学": "gz-440104-0a17f1eb",  # quota人工修正
+        "广州市第四中学": "gz-440103-3862ee98",  # quota人工修正
+        "广州市第十六中学": "gz-440104-8964385d",  # 初中部=东湖校区（重跑 norm 命中 high 校本部）
+        "广州市第四十一中学": "gz-440105-b210556b",  # 初中部=东校区（重跑 norm 命中 high 本部）
+        "广州市荔湾区博雅中英文学校": "gz-440103-84d436cd",  # quota人工修正
+        "广州市西关外国语学校": "gz-440103-b41a3512",  # quota人工修正
+        "广州市黄埔区开元学校": "gz-440112-d62f1348",  # quota人工修正
+        "广州市黄埔区苏元学校": "gz-440112-a0244635",  # quota人工修正
+        "广州市黄埔区铁英中学": "gz-440112-c80ac6ac",  # quota人工修正
+        "广州知识城中学": "gz-440112-3f877ace",  # quota人工修正
+        "广州荔湾爱莎文华学校": "gz-440103-5143f5a1",  # quota人工修正
+        "广州铁一中学（番禺校区）": "gz-440113-97e0acaa",  # quota人工修正
+    }
+
+    def resolve(name: str, stage: str, adcode: str = None):
+        """官方名 → 实体。
+
+        规则（按优先级）：
+        0) QUOTA_OVERRIDES 硬映射（quota_matrix 人工修正，直接 school_id 关联）。
+        1) norm 精确命中且含 preferred_stage → 取之（「广州市第一中学」norm 命中高中部
+           裸名，但 quota_matrix 是初中配额表，必须回填初中部 2dc142ec——人工修正固化
+           进脚本，不靠改数据）。
+        2) loose 容错（去「初中部/校区」等学部后缀）命中且含 preferred_stage → 取之。
+        3) norm/loose 命中但**候选唯一**（无 preferred_stage）→ 接受：该官方名对应的
+           POI 唯一（完中/一贯制学校初中配额挂高中或小学实体），跨学段引用是唯一 POI 的
+           正确行为。
+        4) 多候选且无 preferred_stage → 宁缺失不跨学段错配。
+        adcode（quota_matrix 带 district 字段）：跨区同名（如「培智学校」天河/白云）时按区
+        过滤；本区无候选 → 回退全量唯一（如培英鹤洞实体在荔湾 440103、quota 表标白云区，
+        跨区引用是唯一 POI）——宁缺失只用于「多候选且跨区无本区项」，不用唯一的跨区引用。
+        同 stage 多实体（如一一三中金融城/元岗双校区）取实体构建顺序第一个。
+        """
+        # 设施类 POI（游泳馆/体育馆等非学校）不参与匹配——采集噪音，实体表应剔除（见 build_entities）
+        FACILITY = ('游泳馆', '体育馆', '运动场', '田径场')
+        # 实体 name 与 alias 可能同串重复入索引；先按 (school_id, stage) 去重
+        def dedup(ents):
+            out = {}
+            for e in ents or []:
+                if any(f in e['name'] for f in FACILITY):
+                    continue
+                out.setdefault((e['school_id'], e['stage']), e)
+            return out
+
+        # 区过滤：优先本区；本区无 → 回退全量（唯一跨区引用允许）
+        def in_dist(e):
+            return not adcode or e['school_id'].startswith(f'gz-{adcode}-')
+
+        n = norm(name)
+        dn = dedup(idx_norm.get(n))
+        pn = {k: v for k, v in dn.items() if in_dist(v)} or dn
+        same = [e for e in pn.values() if e['stage'] == stage]
+        if same:
+            return same[0]
+        l = loose(name)
+        dl = dedup(idx_loose.get(l))
+        pl = {k: v for k, v in dl.items() if in_dist(v)} or dl
+        lsame = [e for e in pl.values() if e['stage'] == stage]
+        if lsame:
+            return lsame[0]
+        if len(pn) == 1:
+            return next(iter(pn.values()))
+        if len(pl) == 1:
+            return next(iter(pl.values()))
+        return None
 
     unmatched = []  # (表, 官方名, 区, 是否7区内)
     files = {
@@ -60,7 +152,10 @@ def main() -> int:
         d = json.loads(path.read_text('utf-8'))
         if tag == 'quota_matrix':
             for s in d['schools']:
-                ent = resolve(s['school'])
+                if s['school'] in MATCH_OVERRIDES:
+                    s['school_id'] = MATCH_OVERRIDES[s['school']]
+                    continue
+                ent = resolve(s['school'], 'middle', AD_MAP.get(s.get('district')))
                 if ent:
                     s['school_id'] = ent['school_id']
                 else:
@@ -75,7 +170,10 @@ def main() -> int:
                 keys = list(d['data'].keys())
             ids = {}
             for k in keys:
-                ent = resolve(k)
+                if k in MATCH_OVERRIDES:
+                    ids[k] = MATCH_OVERRIDES[k]
+                    continue
+                ent = resolve(k, 'middle')
                 if ent:
                     ids[k] = ent['school_id']
                 else:

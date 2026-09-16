@@ -827,19 +827,6 @@
     "gongfei": false
    }
   ],
-  "gz-440106-fa9338a2": [
-   {
-    "official_name": "广州奥林匹克中学",
-    "nature": "公办",
-    "scope": "全市",
-    "huji": 632,
-    "feihuji": 632,
-    "waiqu": 632,
-    "batch": 3,
-    "kind": "public",
-    "gongfei": false
-   }
-  ],
   "gz-440111-0901ed40": [
    {
     "official_name": "广州市华文高级中学",
@@ -857,19 +844,6 @@
     "min_score": 570,
     "batch": 4,
     "kind": "private",
-    "gongfei": false
-   }
-  ],
-  "gz-440111-0cf700fb": [
-   {
-    "official_name": "广州市白云区广州空港实验中学",
-    "nature": "公办",
-    "scope": "全市",
-    "huji": 599,
-    "feihuji": 630,
-    "waiqu": 601,
-    "batch": 3,
-    "kind": "public",
     "gongfei": false
    }
   ],
@@ -1361,6 +1335,26 @@
     "gongfei": false
    }
   ],
+  "gz-440112-e085f4fa": [
+   {
+    "official_name": "广州市天健学校",
+    "nature": "民办",
+    "scope": "全市",
+    "min_score": 632,
+    "batch": 3,
+    "kind": "private",
+    "gongfei": true
+   },
+   {
+    "official_name": "广州市天健学校",
+    "nature": "民办",
+    "scope": "全市",
+    "min_score": 414,
+    "batch": 4,
+    "kind": "private",
+    "gongfei": false
+   }
+  ],
   "gz-440112-ec15555e": [
    {
     "official_name": "广州知识城中学",
@@ -1518,6 +1512,19 @@
     "gongfei": false
    }
   ],
+  "gz-440113-8f5e4721": [
+   {
+    "official_name": "广州大学附属中学",
+    "nature": "公办",
+    "scope": "全市",
+    "huji": 738,
+    "feihuji": 738,
+    "waiqu": null,
+    "batch": 3,
+    "kind": "public",
+    "gongfei": false
+   }
+  ],
   "gz-440113-97e0acaa": [
    {
     "official_name": "广州市铁一中学（番禺校区）",
@@ -1653,19 +1660,6 @@
     "scope": "全市",
     "huji": 712,
     "feihuji": 713,
-    "waiqu": null,
-    "batch": 3,
-    "kind": "public",
-    "gongfei": false
-   }
-  ],
-  "gz-440113-8f5e4721": [
-   {
-    "official_name": "广州大学附属中学",
-    "nature": "公办",
-    "scope": "全市",
-    "huji": 738,
-    "feihuji": 738,
     "waiqu": null,
     "batch": 3,
     "kind": "public",
@@ -2044,16 +2038,6 @@
    "nature": "民办",
    "scope": "全市",
    "min_score": 724,
-   "batch": 3,
-   "kind": "private",
-   "gongfei": true
-  },
-  {
-   "official_name": "广州市天健学校",
-   "raw_name": "广州市天健学校（公费班）",
-   "nature": "民办",
-   "scope": "全市",
-   "min_score": 632,
    "batch": 3,
    "kind": "private",
    "gongfei": true
@@ -2610,16 +2594,6 @@
    "nature": "民办",
    "scope": "全市",
    "min_score": 420,
-   "batch": 4,
-   "kind": "private",
-   "gongfei": false
-  },
-  {
-   "official_name": "广州市天健学校",
-   "raw_name": "广州市天健学校",
-   "nature": "民办",
-   "scope": "全市",
-   "min_score": 414,
    "batch": 4,
    "kind": "private",
    "gongfei": false

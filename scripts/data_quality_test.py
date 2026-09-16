@@ -72,19 +72,22 @@ def main():
                 if csid:
                     check(csid in poi_ids, f"[2] campus 悬空 school_id: {g['brand']} → {m['name']} / {c.get('poi_name')} ({csid})")
 
-    # ---- 3. entities 纯名别名不得被同区多个实体共用（抢名） ----
-    # 跨区同名（不同学校）放行；同区多校区共用纯名 → 匹配不确定，报错
+    # ---- 3. entities 纯名别名不得被同区同 stage 多个实体共用（抢名） ----
+    # 跨区同名（不同学校）放行；同区多校区共用纯名 → 匹配不确定，报错。
+    # 同区跨 stage（初中部 middle / 高中部 high 各自持裸名，如「广州中学」五山/凤凰）放行：
+    # resolve 按 stage 过滤后唯一，匹配确定（初中表命中 middle、高中表命中 high）。
     entities = load_entities()
-    alias_owner = {}  # alias -> (school_id, adcode)
+    alias_owner = {}  # alias -> (school_id, adcode, stage)
     for ent in entities:
         # 纯名 = 无括号/无校区限定词的别名
         adcode = ent["school_id"].split("-")[1] if ent.get("school_id") else ""
+        stage = ent.get("stage")
         for a in ent.get("aliases", []):
             if "(" not in a and "校区" not in a and "本部" not in a and "学校" not in a.split("（")[0] and "、" not in a \
                and "初中部" not in a and "高中部" not in a and "小学部" not in a and "年级" not in a and "教学" not in a and "楼" not in a:
-                if a in alias_owner and alias_owner[a][1] == adcode and alias_owner[a][0] != ent["school_id"]:
-                    check(False, f"[3] 同区纯名别名被多实体共用: '{a}' → {alias_owner[a][0]} 与 {ent['school_id']}（{adcode}）")
-                alias_owner.setdefault(a, (ent["school_id"], adcode))
+                if a in alias_owner and alias_owner[a][1] == adcode and alias_owner[a][2] == stage and alias_owner[a][0] != ent["school_id"]:
+                    check(False, f"[3] 同区同stage纯名别名被多实体共用: '{a}' → {alias_owner[a][0]} 与 {ent['school_id']}（{adcode}/{stage}）")
+                alias_owner.setdefault(a, (ent["school_id"], adcode, stage))
 
     # ---- 4. 集团必须有来源 ----
     for g in groups:

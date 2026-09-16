@@ -272,8 +272,9 @@ def main():
             "unmapped": unmapped,
         }
         out = OUT / f"scores_{year}.json"
+        # 入库格式 = 1 空格缩进（与既有产物一致，保证重跑 == 入库的格式确定性）
         out.write_text(
-            json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n",
+            json.dumps(payload, ensure_ascii=False, indent=1) + "\n",
             encoding="utf-8")
         print(f"→ {out.name}: {len(by_sid)} 个实体校区, {len(unmapped)} 条未映射")
 

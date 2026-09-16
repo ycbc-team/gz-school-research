@@ -2262,7 +2262,7 @@
       "minban": false,
       "group": {
         "brand": "广东广雅中学教育集团",
-        "source": "education"
+        "source": "brand"
       },
       "kaosheng": 148,
       "sheng_quota": 8,
@@ -4362,8 +4362,8 @@
       "district": "越秀区",
       "minban": false,
       "group": {
-        "brand": "广东实验中学越秀教育集团",
-        "source": "education"
+        "brand": "广东实验中学教育集团",
+        "source": "brand"
       },
       "kaosheng": 607,
       "sheng_quota": 32,
@@ -7963,9 +7963,9 @@
     },
     {
       "name": "广州市海珠区华立学校",
-      "school_id": "gz-440105-8371ce9c",
+      "school_id": null,
       "district": "海珠区",
-      "minban": true,
+      "minban": false,
       "group": null,
       "kaosheng": 2,
       "sheng_quota": 0,
@@ -9342,10 +9342,13 @@
     },
     {
       "name": "广州市天河区汇景实验学校",
-      "school_id": "gz-440106-28049c58",
+      "school_id": "gz-440106-0d1e149e",
       "district": "天河区",
       "minban": false,
-      "group": null,
+      "group": {
+        "brand": "广州中学教育集团",
+        "source": "education"
+      },
       "kaosheng": 671,
       "sheng_quota": 34,
       "qu_quota": 164,
@@ -11605,7 +11608,7 @@
     },
     {
       "name": "广州市白云区广东第二师范学院实验中学",
-      "school_id": "gz-440111-33d95662",
+      "school_id": "gz-440111-014a9fb2",
       "district": "白云区",
       "minban": false,
       "group": {
@@ -11806,7 +11809,7 @@
     },
     {
       "name": "广州市白云区竹料第一中学",
-      "school_id": "gz-440111-78d61733",
+      "school_id": "gz-440111-fd1c1c12",
       "district": "白云区",
       "minban": false,
       "group": {
@@ -12864,7 +12867,7 @@
     },
     {
       "name": "广州市白云区三元里中学",
-      "school_id": "gz-440111-a20eb9b6",
+      "school_id": null,
       "district": "白云区",
       "minban": false,
       "group": {
@@ -17895,7 +17898,7 @@
     },
     {
       "name": "北京师范大学广州实验学校",
-      "school_id": "gz-440112-ef267ef4",
+      "school_id": "gz-440112-8bbf8f06",
       "district": "黄埔区",
       "minban": false,
       "group": null,
@@ -20738,7 +20741,7 @@
     },
     {
       "name": "广东第二师范学院广州南站附属学校",
-      "school_id": "gz-440113-c6e3adf4",
+      "school_id": null,
       "district": "番禺区",
       "minban": false,
       "group": null,
@@ -21529,7 +21532,10 @@
       "school_id": "gz-440113-95be9ccc",
       "district": "番禺区",
       "minban": false,
-      "group": null,
+      "group": {
+        "brand": "番广实验教育集团",
+        "source": "education"
+      },
       "kaosheng": 142,
       "sheng_quota": 7,
       "qu_quota": 39,
