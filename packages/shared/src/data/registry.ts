@@ -113,6 +113,47 @@ export function createRegistryApi(loaders: DataLoaders) {
   }
 
   /**
+   * school_id → 品牌组索引（brandGroups 单位显式 school_ids 外键，离线构建 O(1) 查）。
+   * 品牌关联以实体外键为主（与 education 分支同机制），名字匹配仅作无外键时的兜底；
+   * 同一 school_id 同时命中 education 与 brand 时，education 优先（groupOfSchool 先查 education 索引）。
+   */
+  const brandSchoolIdToGroup = new Map<string, BrandGroup>();
+  {
+    for (const g of loaders.brandGroups.brands || []) {
+      for (const u of g.units || []) {
+        for (const sid of u.school_ids || []) {
+          if (!brandSchoolIdToGroup.has(sid)) brandSchoolIdToGroup.set(sid, g);
+        }
+      }
+    }
+  }
+
+  /** brand 来源的 groupOfSchool 结果结构（school_id 外键命中与按名匹配共用） */
+  function brandGroupResult(bg: BrandGroup): {
+    source: 'brand';
+    brand: string;
+    note?: string;
+    core: string[];
+    members: Array<{ name: string; role: string; school_ids?: string[]; poi_names?: string[]; legal?: 'same' | 'independent' }>;
+    source_urls: string[];
+  } {
+    return {
+      source: 'brand',
+      brand: bg.brand,
+      note: bg.brand_note,
+      core: bg.units.filter((u) => u.legal === 'same').map((u) => u.name),
+      members: bg.units.map((u) => ({
+        name: u.name,
+        role: u.role,
+        legal: u.legal,
+        school_ids: u.school_ids,
+        poi_names: u.poi_names,
+      })),
+      source_urls: [],
+    };
+  }
+
+  /**
    * 按 school_id（首选）或校名（经 entities 表反查 school_id）匹配所属教育集团。
    * - 没传 school_id 时，用校名在 entities 表反查 school_id（含别名桥接），查到了走同一条精确路径
    * - 其次 brandGroups（8 个重点品牌，带法人关系/口碑标注，按 POI 名匹配）
@@ -123,7 +164,7 @@ export function createRegistryApi(loaders: DataLoaders) {
     brand: string;
     note?: string;
     core: string[];
-    members: Array<{ name: string; stage?: string; role: string; school_ids?: string[]; poi_names?: string[]; poi_name?: string; school_id?: string; legal?: 'same' | 'independent' }>;
+    members: Array<{ name: string; stage?: string; role: string; school_ids?: string[]; poi_names?: string[]; poi_name?: string; school_id?: string; campuses?: Array<{ poi_name: string; school_id: string }>; legal?: 'same' | 'independent' }>;
     source_urls: string[];
   } | null {
     if (!name && !schoolId) return null;
@@ -160,30 +201,16 @@ export function createRegistryApi(loaders: DataLoaders) {
             poi_names: m.campuses?.length ? m.campuses.map((c: { poi_name: string }) => c.poi_name) : m.poi_name ? [m.poi_name] : undefined,
             poi_name: m.poi_name,
             school_id: m.school_id,
+            campuses: m.campuses,
           })),
         ],
         source_urls: g.source_urls || [],
       };
     }
 
-    // 2. 8 个重点品牌（brand_groups，无 school_id 概念，按 POI 名匹配）
-    const bg = brandGroupOf(name || '');
-    if (bg) {
-      return {
-        source: 'brand',
-        brand: bg.brand,
-        note: bg.brand_note,
-        core: bg.units.filter((u) => u.legal === 'same').map((u) => u.name),
-        members: bg.units.map((u) => ({
-          name: u.name,
-          role: u.role,
-          legal: u.legal,
-          school_ids: u.school_ids,
-          poi_names: u.poi_names,
-        })),
-        source_urls: [],
-      };
-    }
+    // 2. 8 个重点品牌：优先 school_id 外键精确查（与 education 同机制），未命中再按 POI 名匹配
+    const bg = (schoolId && brandSchoolIdToGroup.get(schoolId)) || brandGroupOf(name || '');
+    if (bg) return brandGroupResult(bg);
 
     // 3. 未关联任何集团：异常/未收录，返回 null
     return null;

@@ -29,7 +29,7 @@
       "level": "区属",
       "type": "完中集团",
       "members": [
-        {"name": "知识城中学", "stage": "初中", "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广州知识城中学(南校区)", "school_id": "gz-440112-87f27cf4_alt"},
+        {"name": "知识城中学", "stage": "初中", "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html", "verified": "2026-09-14", "poi_match": "人工锚定", "poi_name": "广州知识城中学(北校区)", "school_id": "gz-440112-3f877ace"},
         {"name": "九佛中学", "stage": "初中", "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html", "verified": "2026-09-14", "poi_match": "7区内真实缺失", "poi_name": "", "school_id": ""},
         {"name": "九佛第二中学", "stage": "初中", "source_url": "http://www.hp.gov.cn/2021gb/zz/bmdt/content/post_8554368.html", "verified": "2026-09-14", "poi_match": "7区内真实缺失", "poi_name": "", "school_id": ""}
       ],

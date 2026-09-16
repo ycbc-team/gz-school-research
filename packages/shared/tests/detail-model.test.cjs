@@ -101,10 +101,14 @@ test('品牌关联：广大附黄华路校区以 school_id 标记当前项并生
 
 test('品牌关联：全量品牌实体对比修复前后，品牌分支新增当前态必须由显式身份来源支撑', () => {
   const eligible = repo.entities.filter((entity) =>
-    ['primary', 'middle', 'high'].includes(entity.stage) && repo.brandGroupOf(entity.name),
+    ['primary', 'middle', 'high'].includes(entity.stage) &&
+    repo.groupOfSchool(entity.name, entity.school_id)?.source === 'brand',
   );
   // 覆盖范围快照：新品牌实体加入时必须显式审阅这条 ID 当前态规则。
-  assert.equal(eligible.length, 49, '品牌实体覆盖范围变更，请审阅当前态回归结果');
+  // 口径 = groupOfSchool 解析为 brand 来源的全部实体（按名 + school_id 外键），school_id 外键新增实体同样受回归保护。
+  // 注：重跑生产脚本后为 65 —— 铁英小学/铁英中学/省实荔湾初中部/广雅荔湾/西关广雅南岸路 5 个实体
+  // 同时命中 education 索引（education 优先），回归 education 分支，不再计入 brand 覆盖。
+  assert.equal(eligible.length, 65, '品牌实体覆盖范围变更，请审阅当前态回归结果');
   const failures = [];
   for (const entity of eligible) {
     const group = repo.groupOfSchool(entity.name, entity.school_id);

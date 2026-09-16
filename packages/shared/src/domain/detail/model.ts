@@ -250,6 +250,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
           reason: null,
           isCurrent:
             !!(m.school_id && m.school_id === schoolId) ||
+            !!(m.campuses || []).some((c) => c.school_id === schoolId) ||
             normName(m.name) === normName(schoolName) ||
             !!(m.poi_name && normName(m.poi_name) === normName(schoolName)),
           link,
@@ -263,16 +264,17 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
       return { brand: grp.brand, note: grp.note, sourceUrls: grp.source_urls || [], groups };
     }
 
-    // brand 来源：8 个重点品牌（法人关系标注）
-    const g = repo.brandGroupOf(schoolName);
-    if (!g) return null;
+    // brand 来源：8 个重点品牌（法人关系标注）。
+    // groupOfSchool 已按 school_id 外键（优先）或按名解析到品牌组；此处直接用其结果，
+    // 不再二次按名匹配（否则带外键但名字不含单位名的实体（如星悦初中部）会丢品牌卡片）。
+    const units = grp.members as BrandUnit[];
     const unitCoreNorm = (n: string): string => normName(n.replace(/[（(][^）)]*[）)]/g, ''));
     const newOpeningOf = (s: 'primary' | 'middle', un: string): boolean => {
       const list = s === 'primary' ? primarySchools.schools : middleSchools.schools;
       return list.some((po: SchoolPoi) => normName(po.name) === un && !!po.note && po.note.includes('新开办'));
     };
     const rows: BrandRow[] = [];
-    for (const u of g.units as BrandUnit[]) {
+    for (const u of units) {
       const unitNorm = unitCoreNorm(u.name);
       const fullUnitNorm = normName(u.name);
       const unitSchoolIds = u.school_ids || [];
@@ -300,6 +302,12 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
       if (hasPoiFor(primarySchools.schools, tierP)) stages.push('小学');
       if (hasPoiFor(middleSchools.schools, tierM)) stages.push('初中');
       if (hasPoiFor(highSchools.schools, tierM || tierP)) stages.push('高中');
+      // school_id 外键命中的实体学段也算入（如星悦初中部：POI 名不含单位名，但外键实体存在）
+      for (const s of ['primary', 'middle', 'high'] as SchoolStage[]) {
+        if (!stages.includes(STAGE_SHORT[s]) && unitSchoolIds.some((id) => repo.entities.some((e) => e.school_id === id && e.stage === s))) {
+          stages.push(STAGE_SHORT[s]);
+        }
+      }
       if (!stages.length) {
         if (tierM) stages.push('初中');
         else if (tierP) stages.push('小学');
@@ -343,7 +351,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     const indepRows = rows.filter((r) => r.legal === 'independent');
     if (sameRows.length) groups.push({ key: 'same', title: '同一法人单位（品牌本体/分校区）', rows: sameRows });
     if (indepRows.length) groups.push({ key: 'independent', title: '独立法人单位（品牌合作）', rows: indepRows });
-    return { brand: g.brand, note: g.brand_note, sourceUrls: [], groups };
+    return { brand: grp.brand, note: grp.note, sourceUrls: [], groups };
   })();
   const brandCardUseful = !!brandCard && brandCard.groups.some((g) => g.rows.some((r) => !r.isCurrent));
 

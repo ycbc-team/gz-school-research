@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """合并7区partial + 2026招考办表 + brand_groups → education_groups.json"""
-import json, re, os
+import json, re, os, sys
 
 BASE = "/Users/bytedance/Developer/gz_school_research"
 TODAY = "2026-09-14"
@@ -176,9 +176,9 @@ for b in dbrand.get("brands", []):
             "stage": stage,
             "source_url": u.get("source_url",""),
             "verified": TODAY,
-            "poi_match": "待比对",
-            "poi_name": "",
-            "school_id": "",
+            "poi_match": "已锚定" if u.get("school_ids") else "待比对",
+            "poi_name": (u.get("poi_names") or [""])[0] if u.get("school_ids") else "",
+            "school_id": u.get("school_ids", [""])[0] if u.get("school_ids") else "",
             "poi_match_name": poi_match_name,
             "legal": u.get("legal",""),
             "relation": role
@@ -190,42 +190,53 @@ for b in dbrand.get("brands", []):
         "level": "省市属",
         "type": "混合学段集团",
         "members": members,
-        "source_urls": list(set(u.get("source_url","") for u in b.get("units",[]) if u.get("source_url"))),
+        "source_urls": sorted(set(u.get("source_url","") for u in b.get("units",[]) if u.get("source_url"))),
         "note": b.get("brand_note","")
     })
     brand_added += 1
 
 print(f"brand_groups新增: {brand_added}个品牌集团")
 
-# 4. 对所有"待比对"的成员跑POI匹配
-import subprocess
-all_names = []
-name_to_member = []
+# 4. 对"待比对"的成员跑POI匹配；已有 school_id 的成员是人工确认锚点，保留不再重匹配
+#    （产物漂移根因之一：全量重跑会把锚点覆盖成匹配器的不同结果；锚点机制 + 区上下文收敛后重跑稳定）
+import importlib.util
+ADCODE_OF = {"荔湾":"440103","越秀":"440104","海珠":"440105","天河":"440106","白云":"440111","黄埔":"440112","番禺":"440113"}
+_spec = importlib.util.spec_from_file_location("match_poi", os.path.join(BASE, "scripts/match_poi.py"))
+mp = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(mp)
+
+pending = []  # (group, member)
 for g in all_groups:
     for m in g.get("members", []):
-        # 全量重跑匹配（别名表更新后需要重新计算）
-        all_names.append(m.get("poi_match_name", m["name"]))
-        name_to_member.append(m)
+        # 锚点 = school_id 非空（人工确认过归属）；school_id 空的一律交给匹配器（修好的匹配器会找回旧缺失）
+        if not m.get("school_id"):
+            pending.append((g, m))
 
-if all_names:
-    # 对有poi_match_name的成员，用那个名称匹配
-    match_names = []
-    for m in name_to_member:
-        match_names.append(m.get("poi_match_name", m["name"]))
-    with open("/tmp/merge_names.json","w") as f:
-        json.dump({"schools": match_names}, f, ensure_ascii=False)
-    result = subprocess.run(["python3", os.path.join(BASE,"scripts/match_poi.py"), "/tmp/merge_names.json"],
-                          capture_output=True, text=True, cwd=BASE)
-    match_data = json.loads(result.stdout)
-    match_map = {r["name"]: r for r in match_data["results"]}
-    for m in name_to_member:
+if pending:
+    poi_all = []
+    poi_all += mp.load_poi(os.path.join(BASE,"data/primary/schools-gz.json"),"小学")
+    poi_all += mp.load_poi(os.path.join(BASE,"data/middle/schools-gz.json"),"初中")
+    poi_all += mp.load_poi(os.path.join(BASE,"data/high/schools-gz.json"),"高中")
+    alias_map = mp.load_aliases(os.path.join(BASE,"data/registry/entities.json"))
+    matched = 0
+    for g, m in pending:
         mname = m.get("poi_match_name", m["name"])
-        r = match_map.get(mname, {})
+        # 成员级区名解析：成员名含区名（如「广州市增城区新塘镇第三中学」）时用成员区名覆盖集团区，
+        # 避免"集团在越秀、成员在增城"时把成员匹配到集团所在区的同名校
+        adc = ADCODE_OF.get(g.get("district", ""))
+        for dist, code in ADCODE_OF.items():
+            if dist in mname:
+                adc = code
+                break
+        r = mp.match_school(mname, poi_all, alias_map, preferred_adcode=adc)
         m["poi_match"] = r.get("poi_match", "7区内真实缺失")
         m["poi_name"] = r.get("matched_name", "")
         m["school_id"] = r.get("school_id", "")
+        if r.get("poi_match") == "精确命中" or r.get("poi_match") == "变体命中":
+            matched += 1
         if "poi_match_name" in m:
             del m["poi_match_name"]
+    print(f"匹配 {len(pending)} 个待比对成员，命中 {matched} 个")
 
 # 5. 统计
 total_groups = len(all_groups)
@@ -247,7 +258,7 @@ for d, c in sorted(district_count.items()):
     ms = sum(len(g["members"]) for g in all_groups if g["district"]==d)
     print(f"  {d}: {c}集团, {ms}成员")
 
-# 6. 写出
+# 6. 写出（支持 argv[1] 输出到指定路径，供 check_groups_drift.py 做"产物 vs 重跑"一致性校验）
 out = {
     "title": "广州7区教育集团名录（区教育局官方口径+招考办名额分配表+品牌组）",
     "updated": TODAY,
@@ -264,10 +275,11 @@ out = {
     "groups": all_groups
 }
 
-with open(os.path.join(BASE, "data/registry/education_groups.json"), "w") as f:
+OUT_PATH = sys.argv[1] if len(sys.argv) > 1 else os.path.join(BASE, "data/registry/education_groups.json")
+with open(OUT_PATH, "w") as f:
     json.dump(out, f, ensure_ascii=False, indent=2)
 
-print(f"\n已写入 data/registry/education_groups.json")
+print(f"\n已写入 {OUT_PATH}")
 
 # 输出7区内真实缺失清单
 print(f"\n=== 7区内真实缺失清单（{missing}所）===")

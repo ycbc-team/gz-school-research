@@ -240,8 +240,8 @@
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
           "poi_match": "变体命中",
-          "poi_name": "广州市白云区景泰中学白云湖校区",
-          "school_id": "gz-440111-2186a02a"
+          "poi_name": "景泰中学",
+          "school_id": "gz-440111-048815b3"
         },
         {
           "name": "广州市白云区竹料第一中学",
@@ -347,8 +347,8 @@
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
           "poi_match": "变体命中",
-          "poi_name": "黄石学校(祥景校区)",
-          "school_id": "gz-440111-76eef049"
+          "poi_name": "黄石学校(黄石校区)",
+          "school_id": "gz-440111-a53c68e3"
         },
         {
           "name": "广州市第六十七中学",
@@ -406,9 +406,9 @@
           "stage": "小学",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "人工锚定",
+          "poi_name": "广州空港实验小学(总校区)",
+          "school_id": "gz-440111-981cfa5b"
         }
       ],
       "source_urls": [
@@ -440,8 +440,8 @@
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
           "poi_match": "变体命中",
-          "poi_name": "龙归学校(小学部)",
-          "school_id": "gz-440111-27e6c92d"
+          "poi_name": "龙归学校（珑璟校区）",
+          "school_id": "gz-440111-9c7a2c45"
         },
         {
           "name": "广州市第一一五中学",
@@ -509,9 +509,10 @@
           "stage": "初中",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "人工锚定",
+          "poi_name": "广大附中实验中学(南校区)",
+          "school_id": "gz-440111-0078267c",
+          "campuses": [{"poi_name":"广大附中实验中学(星汇金沙校区)","school_id":"gz-440111-b95f2597"}]
         },
         {
           "name": "广州市广园中学",
@@ -556,7 +557,8 @@
           "verified": "2026-09-14",
           "poi_match": "变体命中",
           "poi_name": "白云广附云湖实验学校",
-          "school_id": "gz-440111-92e78967"
+          "school_id": "gz-440111-92e78967",
+          "campuses": [{"poi_name":"广州市白云区白云广附云湖实验学校小学部","school_id":"gz-440111-acfb7ee3"}]
         },
         {
           "name": "越秀天悦金沙配建小学",
@@ -641,7 +643,8 @@
           "verified": "2026-09-14",
           "poi_match": "变体命中",
           "poi_name": "广州云雅实验学校",
-          "school_id": "gz-440111-7d12a21e"
+          "school_id": "gz-440111-7d12a21e",
+          "campuses": [{"poi_name":"广州云雅实验学校初中部","school_id":"gz-440111-6782d2c7"},{"poi_name":"广州白云广雅实验学校-小学部","school_id":"gz-440111-13575da4"}]
         },
         {
           "name": "广州市源雅学校",
@@ -860,9 +863,9 @@
           "stage": "小学",
           "source_url": "http://news.dayoo.com/guangzhou/202403/12/139995_54641238.htm",
           "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "人工锚定",
+          "poi_name": "汇侨第一小学(汇侨校区)",
+          "school_id": "gz-440111-50352c96"
         },
         {
           "name": "广州市白云区棠涌小学",

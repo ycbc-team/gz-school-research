@@ -16,6 +16,22 @@ FAR_KEYWORDS = ["花都","南沙","增城","从化","英德","清远","佛山","
 _PAREN_KEEP = ("校区", "校区)", "部", "园", "本部", "分教点", "教学点", "南", "北", "东", "西", "中")
 _PAREN_DROP = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "新开办", "暂定", "筹办", "装修", "工地", "选址", "暂停营业")
 
+# 泛词后缀：substring 匹配前先剥离，避免「广州实验中学」规约成「实验中学」后吸附任何含「实验中学」的成员
+_GENERIC_SUFFIX = ("实验中学", "附属实验学校", "外国语实验学校", "实验学校", "外国语学校", "附属中学", "中学", "附属小学", "小学", "学校", "初中部", "小学部", "高中部")
+
+def strip_generic(s):
+    """剥离学校名末尾的泛词后缀，返回核心词（如「白云广大附中实验中学」→「白云广大附中」；纯泛词→空）。"""
+    t = s
+    changed = True
+    while changed:
+        changed = False
+        for w in _GENERIC_SUFFIX:
+            if t.endswith(w) and len(t) > len(w):
+                t = t[: -len(w)]
+                changed = True
+                break
+    return t
+
 def norm(name):
     if not name: return ""
     s = name.strip()
@@ -23,6 +39,14 @@ def norm(name):
     # 只剥离状态/泛化括号（如“建设中”），保留校区类括号（如“(东风广场校区)”）
     s = re.sub(r"[\(\[][^()\[\]]*[\)\]]", lambda m: "" if any(k in m.group(0) for k in _PAREN_DROP) else m.group(0), s)
     s = s.replace("广州市","").replace("广州","")
+    # 区名归一：仅剥离"XX区"中的区字（限已知区名），使「白云区广大附中实验中学」与「广州市白云广大附中实验中学」对齐
+    s = re.sub(r"(越秀|海珠|天河|荔湾|白云|黄埔|番禺|南沙|增城|从化|花都|萝岗)区", r"\1", s)
+    # 前导区名剥离：成员名常带区名前缀而 POI 名不带（「白云区广大附中实验中学(南校区)」vs「广大附中实验中学(南校区)」），
+    # 剥除前导区名使精确命中成立；但剩余过短时保留（「白云中学」→「中学」会变泛词，不剥）
+    for _d in ("白云", "越秀", "海珠", "天河", "荔湾", "黄埔", "番禺", "萝岗"):
+        if s.startswith(_d) and len(s) - len(_d) >= 4:
+            s = s[len(_d):]
+            break
     s = re.sub(r"\s+","",s)
     return s
 
@@ -53,12 +77,15 @@ def match_school(name, poi_all, alias_map, preferred_adcode=None, preferred_stag
     收敛顺序：同区唯一 → 同区同阶段唯一 → 全局唯一（跨区招生记录如培英鹤洞校区）→ 缺失。
     """
     n = norm(name)
+    def bare(s):
+        return re.sub(r"[\(（][^()（）]*[\)）]", "", s)
     def _mk(p, poi_match):
         district = SEVEN_DISTRICTS.get(p["adcode"], FAR_DISTRICTS.get(p["adcode"],"未知"))
         return {"poi_match":poi_match,"matched_name":p["name"],"stage":p["stage"],"district":district,"school_id":p["school_id"]}
     def _pick(cands, poi_match):
         """收敛：先按 school_id 去重（同址多学部 POI 在初中/高中库各一份，视为同一候选），
-        再按 同区唯一 → 同区同阶段唯一 → 全局唯一（允许跨区招生记录）→ 缺失。"""
+        再按 同阶段唯一 → 主 POI（无括号）唯一 → 同区唯一 → 全局唯一（允许跨区招生记录）→ 缺失。
+        宁可缺失、不跨区错配：多候选且无法收敛到唯一时返回 None，由调用方以显式 school_id 锚定补救。"""
         if not cands: return None
         seen = {}
         for c in cands:
@@ -74,6 +101,11 @@ def match_school(name, poi_all, alias_map, preferred_adcode=None, preferred_stag
                 st = [c for c in cs if c["stage"] == preferred_stage]
                 if len(st) == 1: return st[0]
             return None
+        def by_main(cs):
+            # 主 POI（名不含校区括号）优先于分校区 POI
+            mains = [c for c in cs if "(" not in c["name"] and "（" not in c["name"]]
+            if len(mains) == 1: return mains[0]
+            return None
         if preferred_adcode:
             same = [c for c in cands if c["adcode"] == preferred_adcode]
             if len(same) == 1:
@@ -81,18 +113,33 @@ def match_school(name, poi_all, alias_map, preferred_adcode=None, preferred_stag
             if same:
                 r = by_stage(same)
                 if r: return _mk(r, poi_match)
+                r = by_main(same)
+                if r: return _mk(r, poi_match)
+                # 同区多候选无法收敛：宁可缺失（由调用方显式锚定），不跨区错配
                 return None
-            # 同区无候选：跨区招生记录回退全局唯一（如白云名单里的培英鹤洞校区）
-            r = by_stage(cands)
-            if r: return _mk(r, poi_match)
-            if len(cands) == 1:
-                return _mk(cands[0], poi_match)
+            # 同区无候选：仅当成员名含"其他区"区名（如白云名单里的培英鹤洞校区→荔湾）才回退全局唯一；
+            # 否则宁可缺失、不跨区错配（如「海珠晓港湾小学」不落到黄埔「港湾小学」）
+            own_name = name.replace("广州市","").replace("广州","")
+            self_dist = SEVEN_DISTRICTS.get(preferred_adcode, "")
+            has_other = any(k in own_name for k in ("越秀","海珠","天河","荔湾","白云","黄埔","番禺","萝岗") if k != self_dist)
+            if has_other:
+                r = by_stage(cands)
+                if r: return _mk(r, poi_match)
+                r = by_main(cands)
+                if r: return _mk(r, poi_match)
+                if len(cands) == 1:
+                    return _mk(cands[0], poi_match)
             return None
         r = by_stage(cands)
+        if r: return _mk(r, poi_match)
+        r = by_main(cands)
         if r: return _mk(r, poi_match)
         if len(cands) == 1:
             return _mk(cands[0], poi_match)
         return None
+    # 0. 远郊成员拦截：必须在 exact/alias 命中之后（POI 库自身含"暨南大学附属增城实验学校"等远郊 POI，
+    #    自我匹配/同区成员须先精确命中自己），但要在 substring 吸附之前（防「新塘镇第三中学」→「广州市第三中学」）。
+    #    含"中山"的七区真实校（中山三路小学/中山大学附属中学等）经 exact/alias 命中自己，不会被拦到。
     # 1. exact norm match in POI
     r = _pick([p for p in poi_all if p["norm"] == n], "精确命中")
     if r: return r
@@ -107,17 +154,93 @@ def match_school(name, poi_all, alias_map, preferred_adcode=None, preferred_stag
         ent_norms = {norm(e["name"]) for e in ents}
         r = _pick([p for p in poi_all if p["norm"] in ent_norms], "变体命中")
         if r: return r
+        # 2b5. 实体主校 POI 缺失时，用实体核心名前缀在同区找分校区 POI（如「华阳小学」→「华阳小学(华成校区)」）
+        # 修复"主校无独立 POI、只有分校区 POI"导致的成员丢失（46 处漂移主因之一）
+        # base 必须剥校区括号：实体全名含"(东校区)"时 startswith 只命中同校区 POI，
+        # 会把共享别名（如「广铁一中铁英学校」=番禺东/西校区别名）错收敛到单个校区
+        for e in ents:
+            base = bare(norm(e["name"]))
+            if len(base) < 4:
+                continue
+            cands = [p for p in poi_all if p["norm"].startswith(base) and (not preferred_adcode or p["adcode"] == preferred_adcode)]
+            # 学段限定优先：实体名含"初中部/小学部/高中部"时，只保留候选名含同限定词的 POI
+            # （「云雅实验学校(初中部)」实体不应落到无括号的「云雅实验学校」主校）
+            for _kw in ("初中部", "小学部", "高中部"):
+                if _kw in norm(e["name"]) and len(cands) > 1:
+                    suff = [c for c in cands if _kw in c["norm"]]
+                    if suff:
+                        cands = suff
+                        break
+            r = _pick(cands, "变体命中")
+            if r:
+                return r
         # 2c. 实体存在但 POI 无坐标：未给区上下文时保留原兜底；给了区上下文则继续 substring 找同区 POI
         if not preferred_adcode:
             return {"poi_match":"变体命中","matched_name":ents[0]["name"],"stage":ents[0]["stage"],"district":"实体表无坐标","school_id":""}
-    # 3. substring / contains match (variant)
-    r = _pick([p for p in poi_all if n and (n in p["norm"] or p["norm"] in n)], "变体命中")
-    if r: return r
-    # 4. far district keyword check
+    # 2d. far district keyword check（exact/alias 均未命中后才拦截远郊）
     for kw in FAR_KEYWORDS:
         if kw in name:
             return {"poi_match":"远郊不在POI范围","matched_name":"","stage":"","district":kw,"school_id":""}
-    # 5. default: 7区内真实缺失
+    # 3. substring / contains match (variant)：剥离泛词后按核心词匹配，同区优先，防「实验中学」类泛词吸附
+    if n:
+        n_core = strip_generic(n)
+        _WEAK_CORE = ("白云", "越秀", "海珠", "天河", "荔湾", "黄埔", "番禺", "萝岗",
+                      "第一", "第二", "第三", "第四", "第五", "第六", "第七", "第八", "第九", "第十")
+        _NON_SCHOOL = ("充电站", "停车场", "广场", "大厦", "中心", "公园", "小区", "花园", "银行", "医院", "超市", "餐厅", "酒店", "公司", "商厦")
+        a_cands, b_cands = [], []  # A支=成员核心在POI（专属高）；B支=POI核心在成员（按位置收敛）
+        for p in poi_all:
+            if not p["norm"]:
+                continue
+            if any(bare(p["name"]).endswith(k) for k in _NON_SCHOOL):
+                continue
+            p_bare = bare(p["norm"])
+            p_core = strip_generic(p_bare)
+            if p_core in _WEAK_CORE:
+                p_core = ""
+            if len(n_core) >= 2 and n_core not in _WEAK_CORE and (n_core in p_bare or n_core in p["norm"]):
+                a_cands.append((p, p_core))
+            elif len(p_core) >= 2 and p_core in n:
+                b_cands.append((p, p_core))
+        suffix = ""
+        for w in ("小学", "中学", "初中", "高中", "学校"):
+            if n.endswith(w):
+                suffix = w
+                break
+        if a_cands:
+            # A 支优先（成员核心词直接命中 POI，如「云英实验学校」→「云英实验附属小学」）
+            if suffix:
+                suff = [c for c in a_cands if bare(c[0]["norm"]).endswith(suffix) or c[0]["norm"].endswith(suffix)]
+                if len(suff) >= 1:
+                    a_cands = suff  # 后缀一致的候选优先；全不一致时保留原候选（南悦充电站类已被 _NON_SCHOOL 排除）
+            cands = a_cands
+        else:
+            cands = b_cands
+            # B 支位置优先：POI 核心词在成员名中出现位置越靠后越专属
+            # （「宝源学校」→「宝源」优于集团名「乐贤坊」；「金广实验学校」→「金广实验」优于区名「白云」）
+            if len(cands) > 1:
+                b_pos = [(p, n.find(pc)) for p, pc in cands if pc and pc in n]
+                if b_pos:
+                    maxpos = max(pos for _, pos in b_pos)
+                    if maxpos > 0:
+                        top = [p for p, pos in b_pos if pos == maxpos]
+                        if len(top) == 1:
+                            cands = [(p, pc) for p, pc in cands if p in top]
+        # 泛词后缀一致优先：成员"…小学"时候选"…小学"优先于"…中学"（如耀华小学 vs 耀华中学）
+        if suffix and len(cands) > 1:
+            suff = [c for c in cands if bare(c[0]["norm"]).endswith(suffix) or c[0]["norm"].endswith(suffix)]
+            if suff:
+                cands = suff
+        # 学段限定优先：成员名含"(初中部)/(小学部)/(高中部)"等限定词时，候选名含对应限定词的优先
+        # （如「云雅实验学校(初中部)」应命中「云雅实验学校初中部」而非无括号的「云雅实验学校」主校）
+        for _kw in ("(初中部)", "初中部", "(小学部)", "小学部", "(高中部)", "高中部", "(中学)", "中学部"):
+            if _kw in n and len(cands) > 1:
+                suff = [c for c in cands if _kw in c[0]["norm"]]
+                if suff:
+                    cands = suff
+                    break
+        r = _pick([c[0] for c in cands], "变体命中")
+        if r: return r
+    # 4. default: 7区内真实缺失
     return {"poi_match":"7区内真实缺失","matched_name":"","stage":"","district":"","school_id":""}
 
 def main():

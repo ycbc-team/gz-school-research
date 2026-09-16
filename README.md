@@ -57,6 +57,36 @@ npm run check                 # 全部 workspace 类型检查
 数据真源约定：`data/` 下 JSON 为唯一数据真源，Web 与小程序均从该层构建加载，勿手改产物；
 小程序包内 `shared/`、`data/` 为构建产物（git 忽略，由 `npm run build:mp` 生成）。
 
+## 教育集团数据流与产物纪律（2026-09 品牌关联修复后强制）
+
+数据流（禁止绕过）：
+
+```
+data/registry/_partial_{区}_groups.json   ← 7 区采集底稿（纯源，人工维护，含 school_id 锚点）
+data/registry/education_groups_2026.json ← 招考办名额分配表（纯源）
+data/registry/brand_groups.json          ← 8 重点品牌（纯源，unit.school_ids 外键锚点）
+        │
+        ▼  python3 scripts/merge_groups.py   （本地脚本，无联网）
+data/registry/education_groups.json      ← ★ 唯一生成产物，禁止手改 ★
+        │
+        ▼  node scripts/data/compact.mjs  +  npm run build:shared
+apps/web/src/data/compact/**  与  @gz/shared 构建产物（Web/小程序实际消费）
+```
+
+纪律：
+
+1. **产物禁止手改**：`education_groups.json` 只能由 `merge_groups.py` 生成。需要调整归属时改三处源
+   （partial / brand_groups / entities），然后重跑生产脚本。历史 94 处漂移即因 9 次提交直接手改产物造成。
+2. **先跑生产脚本**：`npm run check` 已内置 `check_groups_drift.py`——重跑 `merge_groups.py` 到临时文件
+   并与入库产物对比，不一致即失败（丢失/错配/新增逐条列出）。改源后必须重跑
+   `python3 scripts/merge_groups.py` 使产物同步，否则 check 红。
+3. **匹配器**：`scripts/match_poi.py` 的改动由 `scripts/test_match_poi.py`（14 回归用例）与
+   `data_quality_test.py`（3307 项含全量 POI 自我匹配）守护；改匹配器必须全量重跑 `npm run check`。
+4. **宁可缺失、不跨区错配**：匹配器对无法收敛到唯一同区候选的成员返回缺失，由调用方以显式
+   school_id 锚点（partial/brand_groups 的 school_ids 字段）补救，不允许跨区吸附。
+5. **新增/调整学校归属标准流程**：改源 → 重跑 `python3 scripts/merge_groups.py` → `npm run check`
+   （含产物一致性）→ 确认缺失清单（若为真实缺失，在 partial 标记 `7区内真实缺失` 并同步产物）→ 提交源+产物。
+
 
 ## Web 应用（apps/web）
 

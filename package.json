@@ -14,6 +14,6 @@
     "preview:web": "npm run preview -w @gz/web",
     "build:mp": "node scripts/miniprogram/build.mjs",
     "test": "npm test -w @gz/shared",
-    "check": "npm run typecheck --workspaces --if-present && npm test -w @gz/shared && python3 scripts/data_quality_test.py"
+    "check": "npm run typecheck --workspaces --if-present && npm test -w @gz/shared && python3 scripts/data_quality_test.py && python3 scripts/test_match_poi.py && python3 scripts/check_groups_drift.py"
   }
 }

@@ -9,16 +9,19 @@
       "units": [
         {
           "name": "清华附中湾区学校",
+          "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_8903657.html",
           "role": "本部（智谷校区）",
           "legal": "independent"
         },
         {
           "name": "清华附中湾区学校（智谷校区）",
+          "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_8903657.html",
           "role": "高中点位（智谷）",
           "legal": "independent"
         },
         {
           "name": "清华附中湾区学校（智慧城校区）",
+          "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/post_10979972.html",
           "role": "新校区（2026 启用）",
           "legal": "independent"
         }
@@ -53,7 +56,8 @@
         {
           "name": "广州市黄埔区铁英学校（黄埔铁英）",
           "role": "区属成员校（黄埔）",
-          "legal": "independent"
+          "legal": "independent",
+          "school_ids": ["gz-440112-c80ac6ac", "gz-440112-adb9c303"]
         },
         {
           "name": "广州市番禺区广铁一中铁英学校(东校区)",
@@ -81,17 +85,48 @@
         {
           "name": "广东实验中学（初中部）",
           "role": "核心校·初中部",
-          "legal": "same"
+          "legal": "same",
+          "school_ids": [
+            "gz-440104-7c4a905f"
+          ]
+        },
+        {
+          "name": "广东实验中学（高中部）",
+          "role": "核心校·高中部（荔湾校区）",
+          "legal": "same",
+          "school_ids": [
+            "gz-440103-3aca532e"
+          ]
         },
         {
           "name": "广东实验中学永平校区（省实永平）",
-          "role": "省属校区（永平）",
-          "legal": "same"
+          "role": "省属校区（永平，现称白云校区）",
+          "legal": "same",
+          "school_ids": [
+            "gz-440111-a3cf5a4f"
+          ]
+        },
+        {
+          "name": "广东实验中学（云城校区）",
+          "role": "省属校区（云城，小学部）",
+          "legal": "same",
+          "school_ids": [
+            "gz-440111-3405d87e"
+          ]
         },
         {
           "name": "广东实验中学荔湾学校（省实荔湾）",
           "role": "区属合作办学",
-          "legal": "independent"
+          "legal": "independent",
+          "school_ids": [
+            "gz-440103-1d99218d",
+            "gz-440103-53cac770",
+            "gz-440103-6b0e7dbd",
+            "gz-440103-82b9766a",
+            "gz-440103-9f5557ad",
+            "gz-440103-b54d0b70",
+            "gz-440103-ff7538dc"
+          ]
         },
         {
           "name": "广州市白云实验学校（白云省实，民办）",
@@ -114,6 +149,14 @@
             "广东实验中学越秀学校(天胜校区)",
             "广东实验中学越秀学校(盘福校区)"
           ]
+        },
+        {
+          "name": "广东实验中学琶洲学校",
+          "role": "区属合作办学（海珠，2025 首开）",
+          "legal": "independent",
+          "school_ids": [
+            "gz-440105-f88edb06"
+          ]
         }
       ]
     },
@@ -127,6 +170,14 @@
           "legal": "same"
         },
         {
+          "name": "广东广雅中学（荔湾校区）",
+          "role": "核心校·本部（荔湾校区）",
+          "legal": "same",
+          "school_ids": [
+            "gz-440103-bb7f78f0"
+          ]
+        },
+        {
           "name": "广东广雅中学（花都校区）",
           "role": "市属校区（花都，与本部同一法人、人财物统一管理）",
           "legal": "same",
@@ -136,7 +187,12 @@
         {
           "name": "广州市荔湾区西关广雅实验学校（西雅）",
           "role": "区属合作办学",
-          "legal": "independent"
+          "legal": "independent",
+          "school_ids": [
+            "gz-440103-693412ae",
+            "gz-440103-7207525c",
+            "gz-440103-c5d5de44"
+          ]
         },
         {
           "name": "广州市白云区云雅实验学校（云雅/白云广雅，民办）",
@@ -182,6 +238,14 @@
           "note": "执信官网 2025-06《执信教育集团青年教师教学能力大赛》：参赛核心校为执信路校区、天河校区、水荫路校区。水荫路校区为执信初中教学点。"
         },
         {
+          "name": "广州市执信中学（二沙岛国际校区）",
+          "role": "核心校·国际部（二沙岛）",
+          "legal": "same",
+          "school_ids": [
+            "gz-440104-63c59c98"
+          ]
+        },
+        {
           "name": "广州市番禺执信中学（星执学校，民办）",
           "role": "民办合作办学",
           "legal": "independent",
@@ -214,6 +278,14 @@
           "legal": "independent",
           "source_url": "http://www.gzns.gov.cn/gznsjy/attachment/7/7707/7707168/9938346.pdf",
           "note": "南沙区政府 2023 部门决算文：区属公办九年一贯制，由南沙区教育局举办、广州市执信中学托管，属广州执信教育集团成员校；官网 2025 两次活动稿均列名。"
+        },
+        {
+          "name": "广州市番禺执信中学附属小学（星执附小）",
+          "role": "区属民办·小学部（星河湾，执信系）",
+          "legal": "independent",
+          "school_ids": [
+            "gz-440113-883c58c4"
+          ]
         }
       ]
     },
@@ -223,8 +295,11 @@
       "units": [
         {
           "name": "广州市第二中学（初中部）",
-          "role": "核心校·初中部",
-          "legal": "same"
+          "role": "核心校·初中部（应元路校区）",
+          "legal": "same",
+          "school_ids": [
+            "gz-440104-7f3031fc"
+          ]
         },
         {
           "name": "广州市第二中学（科学城校区）",
@@ -237,6 +312,9 @@
           "legal": "independent",
           "poi_names": [
             "广州市黄埔区苏元学校"
+          ],
+          "school_ids": [
+            "gz-440112-a0244635"
           ]
         },
         {
@@ -244,14 +322,22 @@
           "role": "区属公办成员校（黄埔，九年一贯）",
           "legal": "independent",
           "source_url": "https://www.gdgzez.com.cn/zp/zpzc/content_14024",
-          "note": "二中官网 2023 招聘公告明确列为集团成员校；招考办 2026 名额分配表中广州市第二中学核心校下唯一初中成员。"
+          "note": "二中官网 2023 招聘公告明确列为集团成员校；招考办 2026 名额分配表中广州市第二中学核心校下唯一初中成员。",
+          "school_ids": [
+            "gz-440112-48db116a",
+            "gz-440112-84bb98f2"
+          ]
         },
         {
           "name": "广州市黄埔区开元学校",
           "role": "区属公办成员校（黄埔，完全中学）",
           "legal": "independent",
           "source_url": "https://www.gdgzez.com.cn/zp/zpzc/content_14348",
-          "note": "二中官网 2024 优才计划公告列为「一体多翼」托管校；黄埔区属公办，委托二中管理。"
+          "note": "二中官网 2024 优才计划公告列为「一体多翼」托管校；黄埔区属公办，委托二中管理。",
+          "school_ids": [
+            "gz-440112-549c8532",
+            "gz-440112-d62f1348"
+          ]
         },
         {
           "name": "广州市增城区应元学校",
@@ -297,12 +383,19 @@
         {
           "name": "广州大学附属中学黄埔实验学校（黄埔广附）",
           "role": "区属合作办学",
-          "legal": "independent"
+          "legal": "independent",
+          "school_ids": [
+            "gz-440112-705c66e3",
+            "gz-440112-87756a6d"
+          ]
         },
         {
           "name": "广州市白云区星悦实验学校（星悦）",
           "role": "白云广附教育集团成员校（2025 小学部首开）",
-          "legal": "independent"
+          "legal": "independent",
+          "school_ids": [
+            "gz-440111-2ed8a6e2"
+          ]
         },
         {
           "name": "广大附中番禺实验学校",
@@ -328,7 +421,10 @@
             "广大附中高新区实验学校(初中部)",
             "广大附中高新区实验学校北校区(小学部)"
           ],
-          "note": "广附官网首页「集团成员学校」栏目列明。"
+          "note": "广附官网首页「集团成员学校」栏目列明。",
+          "school_ids": [
+            "gz-440112-66c2a1f1"
+          ]
         },
         {
           "name": "广大附中花都学校",
@@ -356,7 +452,10 @@
           "role": "集团成员小学（市属/广大附小）",
           "legal": "independent",
           "source_url": "https://www.gdfz.edu.cn/",
-          "note": "广附官网首页「集团成员学校」栏目列明。"
+          "note": "广附官网首页「集团成员学校」栏目列明。",
+          "school_ids": [
+            "gz-440113-d3d3956a"
+          ]
         },
         {
           "name": "广大附中从化实验学校",
@@ -364,6 +463,22 @@
           "legal": "independent",
           "source_url": "https://www.gdfz.edu.cn/jtcyxx/gdfzchsyxx",
           "note": "广附官网集团成员校专页；亦为招考办 2026 名额分配表中广州大学附属中学核心校下唯一初中成员。"
+        },
+        {
+          "name": "广州英豪学校（广大附中英豪学校）",
+          "role": "区外托管民办（从化，2018 广附集团接管）",
+          "legal": "independent",
+          "school_ids": [
+            "gz-440117-83d50e90"
+          ]
+        },
+        {
+          "name": "广州华联外语实验学校（广附华联）",
+          "role": "区属民办合作（白云，2018 广附合作办学）",
+          "legal": "independent",
+          "school_ids": [
+            "gz-440111-b694e3ef"
+          ]
         }
       ]
     },
@@ -375,6 +490,14 @@
           "name": "华南师范大学附属中学（初中部）",
           "role": "核心校·初中部",
           "legal": "same"
+        },
+        {
+          "name": "华南师范大学附属中学（石牌校区）",
+          "role": "核心校·本部（石牌校区）",
+          "legal": "same",
+          "school_ids": [
+            "gz-440106-d5983217"
+          ]
         },
         {
           "name": "华南师范大学附属中学（知识城校区）",
