@@ -358,7 +358,7 @@ const groups = computed(() => {
 .rank-group { background: #fff; border: 1px solid #e4e3dd; border-radius: 14px; overflow: hidden; }
 .rg-title {
   display: flex; align-items: baseline; gap: 8px;
-  font-size: 15px; font-weight: 700; margin: 0; padding: 12px 14px 8px;
+  font-size: 15px; font-weight: 700; margin: 0; padding: 12px 10px 8px;
 }
 .rg-count { font-style: normal; font-size: 11.5px; color: #8a93a3; font-weight: 500; }
 .rank-table { width: 100%; border-collapse: collapse; font-size: 13px; }
