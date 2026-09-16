@@ -54,6 +54,33 @@ NON_SCHOOL = [
     "聋人", "盲人", "培智", "工读",
 ]
 
+# 名称未写「初中部」但已由招生校区口径确认不招收高中生的校区。高德 POI 常笼统标为「中学」，
+# 不能仅凭名称规则判断；此表也须在 build_high_levels_js.py 同步执行，防止清洗阶段回灌。
+MIDDLE_ONLY_CAMPUSES = {
+    "广州市真光中学(芳花校区)",
+    "广州市真光中学(岭南校区)",
+    "广州市西关培英中学(西校区)",
+    "广州市第十三中学(禺山校区)",
+    "广东实验中学越秀学校(盘福校区)",
+    "广东外语外贸大学实验中学(北校区)",
+    "广东仲元中学(第二校区)",
+    "广州市南武中学",
+    "广州市第二中学(科学城校区)",
+}
+
+
+def is_high_candidate(name):
+    """高中候选名称过滤；供采集与回归用例共用。"""
+    if not name or name in MIDDLE_ONLY_CAMPUSES:
+        return False
+    if any(b in name for b in NON_SCHOOL):
+        return False
+    if "初中" in name and "高中" not in name:
+        return False
+    if "小学" in name:
+        return False
+    return "高中" in name or "高级中学" in name or "中学" in name
+
 
 def load_key():
     env_path = os.path.join(ROOT, ".env")
@@ -116,26 +143,10 @@ def fetch_pois(key, adcode):
     collect({"key": key, "types": "141200", "city": adcode, "citylimit": "true"})
 
     # 过滤：高中 + 完全中学（有高中部的「XX中学」），剔除纯初中/职业/机构
-    def is_high(n):
-        if not n:
-            return False
-        if any(b in n for b in NON_SCHOOL):
-            return False
-        # 初中部 / 小学校区等低学段点位：剔除（「XX中学高中部」含高中，保留）
-        if "初中" in n and "高中" not in n:
-            return False
-        if "小学" in n:
-            return False
-        if "高中" in n or "高级中学" in n:
-            return True
-        if "中学" in n:
-            return True  # 「XX中学」命名的完全中学 / 纯高中
-        return False
-
     keep, seen = [], set()
     for s in out:
         n = s["name"]
-        if not is_high(n):
+        if not is_high_candidate(n):
             continue
         k = (n, round(s["lng"], 5), round(s["lat"], 5))
         if k in seen:

@@ -24,6 +24,7 @@ const entities = load('data/registry/entities.json').entities;
 const middlePois = load('data/middle/schools-gz.json').schools;
 const primaryPois = load('data/primary/schools-gz.json').schools;
 const highPois = load('data/high/schools-gz.json').schools;
+const highLevels = load('data/high/levels.json').schools;
 const districtQuota = load('data/linkage/district_quota.json').data;
 const quotaMatrix = load('data/linkage/quota_matrix.json');
 const schoolnames = load('data/linkage/raw/schoolnames.json');
@@ -48,6 +49,21 @@ test('每个 POI 的 school_id 在 entities 里存在', () => {
     if (p.school_id && !ids.has(p.school_id)) missing.push(p.name || p.school, p.school_id);
   }
   assert.deepEqual(missing, [], `POI 引用了不存在的 entity: ${missing.join(', ')}`);
+});
+
+test('已确认仅初中的校区不进入高中点位或高中清单', () => {
+  const names = new Set(highPois.map((poi) => poi.name));
+  const campuses = new Set(highLevels.flatMap((school) => school.campuses || []));
+  const middleOnly = [
+    '广州市真光中学(芳花校区)', '广州市真光中学(岭南校区)',
+    '广州市西关培英中学(西校区)', '广州市第十三中学(禺山校区)',
+    '广东实验中学越秀学校(盘福校区)', '广东外语外贸大学实验中学(北校区)',
+    '广东仲元中学(第二校区)', '广州市南武中学', '广州市第二中学(科学城校区)',
+  ];
+  for (const name of middleOnly) {
+    assert.equal(names.has(name), false, `${name} 不应作为高中点位`);
+    assert.equal(campuses.has(name), false, `${name} 不应作为高中校区`);
+  }
 });
 
 test('entities 里每个实体都有合法 name（非空、非单字 OCR 垃圾）', () => {

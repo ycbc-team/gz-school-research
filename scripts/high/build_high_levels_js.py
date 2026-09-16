@@ -27,6 +27,19 @@ JUNK = [
     "招生办", "停车场", "卓越", "教育(", "教育（",
 ]
 
+# 招生校区口径确认不招收高中生的校区；即使仍出现在高德「中学」分类或旧 levels 清单中也不能进高中点位。
+MIDDLE_ONLY_CAMPUSES = {
+    "广州市真光中学(芳花校区)",
+    "广州市真光中学(岭南校区)",
+    "广州市西关培英中学(西校区)",
+    "广州市第十三中学(禺山校区)",
+    "广东实验中学越秀学校(盘福校区)",
+    "广东外语外贸大学实验中学(北校区)",
+    "广东仲元中学(第二校区)",
+    "广州市南武中学",
+    "广州市第二中学(科学城校区)",
+}
+
 
 def norm(s: str) -> str:
     """统一名称用于匹配：去广州前缀、全半角括号统一后去括号、去空白。"""
@@ -34,6 +47,13 @@ def norm(s: str) -> str:
     s = s.replace("（", "(").replace("）", ")")
     s = re.sub(r"[()]", "", s)
     return re.sub(r"\s+", "", s)
+
+
+MIDDLE_ONLY_CAMPUS_KEYS = {norm(name) for name in MIDDLE_ONLY_CAMPUSES}
+
+
+def is_high_campus(name: str) -> bool:
+    return norm(name) not in MIDDLE_ONLY_CAMPUS_KEYS
 
 
 def main():
@@ -46,6 +66,8 @@ def main():
     alias_to_school = {}
     for sc in levels["schools"]:
         for c in sc.get("campuses", []):
+            if not is_high_campus(c):
+                continue
             campus_to_school[norm(c)] = sc
         for a in sc.get("aliases", []):
             alias_to_school.setdefault(norm(a), sc)
@@ -55,6 +77,9 @@ def main():
     dropped = []  # 留痕：被剔除的点位（供复核）
     for p in raw.get("schools", []):
         name = p["name"]
+        if not is_high_campus(name):
+            dropped.append((name, "初中校区"))
+            continue
         key = norm(name)
         # 先按校区/别名精确匹配（真实学校名可能含「楼/馆」，如石楼中学，须先匹配再剔噪音）
         sc = campus_to_school.get(key) or alias_to_school.get(key)

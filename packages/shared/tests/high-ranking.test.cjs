@@ -31,8 +31,7 @@ test('高中明细 VM：只展示第三批户籍生，且绝不聚合同校其�
   const universityTown = rows.find((row) => row.name === '广州大学附属中学(大学城校区)');
   assert.equal(universityTown?.score2026[0]?.text, '738');
   assert.equal(universityTown?.score2025[0]?.text, '732');
-  const fanghua = rows.find((row) => row.name === '广州市真光中学(芳花校区)');
-  assert.equal(fanghua?.score2026.length, 0);
+  assert.equal(rows.some((row) => row.name === '广州市真光中学(芳花校区)'), false);
   assert.ok(rows.some((row) => row.name === '广州市西关培英中学' && row.score2026.length === 0), '仅第四批的学校应展示为空');
   assert.ok(rows.some((row) => row.category === '普通高中'), '普通高中应单独分组，不并入省市属示范');
 });
@@ -44,14 +43,46 @@ test('高中明细 VM：民办徽标读取实体注册表办学性质', () => {
 });
 
 test('高中明细 VM：未标注点位并入普通高中模块', () => {
-  const groups = buildHighRankingGroups(loaders, 'category');
+  const unclassified = {
+    ...loaders,
+    highSchools: {
+      ...loaders.highSchools,
+      schools: [...loaders.highSchools.schools, {
+        name: '未标注高中', school: '未标注高中', school_id: 'test-unclassified-high',
+        adcode: '440103', lng: 113.2, lat: 23.1,
+      }],
+    },
+    entities: {
+      ...loaders.entities,
+      entities: [...loaders.entities.entities, {
+        school_id: 'test-unclassified-high', name: '未标注高中', stage: 'high', aliases: [],
+      }],
+    },
+  };
+  const groups = buildHighRankingGroups(unclassified, 'category');
   assert.equal(groups.some((group) => group.title === '未标注'), false);
   const normal = groups.find((group) => group.title === '普通高中');
   assert.ok(normal?.items.some((row) => row.category === '未标注'));
 });
 
 test('高中明细 VM：校区保留隶属信息，未匹配时为空', () => {
-  const rows = buildHighRankingGroups(loaders, 'category').flatMap((group) => group.items);
+  const noAffiliation = {
+    ...loaders,
+    highSchools: {
+      ...loaders.highSchools,
+      schools: [...loaders.highSchools.schools, {
+        name: '无隶属高中', school: '无隶属高中', school_id: 'test-no-affiliation-high',
+        adcode: '440103', lng: 113.2, lat: 23.1,
+      }],
+    },
+    entities: {
+      ...loaders.entities,
+      entities: [...loaders.entities.entities, {
+        school_id: 'test-no-affiliation-high', name: '无隶属高中', stage: 'high', aliases: [],
+      }],
+    },
+  };
+  const rows = buildHighRankingGroups(noAffiliation, 'category').flatMap((group) => group.items);
   assert.equal(rows.find((row) => row.name === '广东实验中学(高中部)')?.affiliation, '省属');
-  assert.equal(rows.find((row) => row.category === '未标注')?.affiliation, null);
+  assert.equal(rows.find((row) => row.name === '无隶属高中')?.affiliation, null);
 });
