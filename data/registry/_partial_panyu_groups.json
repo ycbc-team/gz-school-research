@@ -11,7 +11,9 @@
     {
       "brand": "广东仲元中学教育集团",
       "district": "番禺",
-      "core": ["广东仲元中学"],
+      "core": [
+        "广东仲元中学"
+      ],
       "level": "区属",
       "type": "完中集团",
       "members": [
@@ -19,46 +21,31 @@
           "name": "广东仲元中学",
           "stage": "完中",
           "source_url": "http://www.panyu.gov.cn/zwgk/yajytacl/2019/ta/content/post_6456455.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广东仲元中学(第二校区)",
-          "school_id": "gz-440113-6dbdc462"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市番禺区石北中学",
           "stage": "完中",
           "source_url": "http://www.panyu.gov.cn/zwgk/yajytacl/2019/ta/content/post_6456455.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "石北中学",
-          "school_id": "gz-440113-809482e2"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市番禺区市桥侨联中学",
           "stage": "初中",
           "source_url": "http://www.panyu.gov.cn/zwgk/yajytacl/2019/ta/content/post_6456455.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "侨联中学",
-          "school_id": "gz-440113-f543c46b"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市番禺区石碁第四中学",
           "stage": "初中",
           "source_url": "http://www.panyu.gov.cn/zwgk/yajytacl/2019/ta/content/post_6456455.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "石碁第四中学",
-          "school_id": "gz-440113-9fa97423"
+          "verified": "2026-09-14"
         },
         {
           "name": "广东仲元中学莲花湾学校",
           "stage": "九年一贯",
           "source_url": "https://www.panyu.gov.cn/zwgk/yajytacl/2025/ya/content/post_10628091.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广东仲元中学莲花湾学校",
-          "school_id": "gz-440113-34ff409c"
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -69,7 +56,9 @@
     {
       "brand": "广东番禺中学教育集团",
       "district": "番禺",
-      "core": ["广东番禺中学"],
+      "core": [
+        "广东番禺中学"
+      ],
       "level": "区属",
       "type": "完中集团",
       "members": [
@@ -77,46 +66,31 @@
           "name": "广东番禺中学",
           "stage": "完中",
           "source_url": "http://www.panyu.gov.cn/zwgk/yajytacl/2019/ta/content/post_6456455.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广东番禺中学",
-          "school_id": "gz-440113-5f62f75c"
+          "verified": "2026-09-14"
         },
         {
           "name": "广东番禺中学附属学校",
           "stage": "九年一贯",
           "source_url": "https://www.panyu.gov.cn/ztzx/fzqx/128q/content/post_9435726.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广东番禺中学附属学校",
-          "school_id": "gz-440113-53650c78"
+          "verified": "2026-09-14"
         },
         {
           "name": "广东番禺中学教育集团兴南学校",
           "stage": "九年一贯",
           "source_url": "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10297/post_10297944.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广东番禺中学教育集团兴南学校",
-          "school_id": "gz-440113-4d474674"
+          "verified": "2026-09-14"
         },
         {
           "name": "广东番禺中学教育集团培兰小学",
           "stage": "小学",
           "source_url": "http://www.panyu.gov.cn/zwgk/ggqsy/jy/content/post_9920371.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "培兰小学",
-          "school_id": "gz-440113-08c8bc38"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市番禺区南村中学",
           "stage": "完中",
           "source_url": "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/zjxx/nczzf/content/post_9645271.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "南村中学",
-          "school_id": "gz-440113-cbaa8160"
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -128,7 +102,9 @@
     {
       "brand": "市桥桥城中学教育集团",
       "district": "番禺",
-      "core": ["广州市番禺区市桥桥城中学"],
+      "core": [
+        "广州市番禺区市桥桥城中学"
+      ],
       "level": "区属",
       "type": "初中集团",
       "members": [
@@ -136,10 +112,7 @@
           "name": "广州市番禺区市桥桥城中学",
           "stage": "初中",
           "source_url": "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_9157738.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "桥城中学",
-          "school_id": "gz-440113-7f18cc62"
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -150,7 +123,9 @@
     {
       "brand": "市桥实验小学教育集团",
       "district": "番禺",
-      "core": ["广州市番禺区市桥实验小学"],
+      "core": [
+        "广州市番禺区市桥实验小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
@@ -158,10 +133,7 @@
           "name": "广州市番禺区市桥实验小学",
           "stage": "小学",
           "source_url": "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_9157738.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "市桥实验小学",
-          "school_id": "gz-440113-2ad239a0"
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -172,7 +144,9 @@
     {
       "brand": "沙头中心小学教育集团",
       "district": "番禺",
-      "core": ["广州市番禺区沙头中心小学"],
+      "core": [
+        "广州市番禺区沙头中心小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
@@ -180,10 +154,7 @@
           "name": "广州市番禺区沙头中心小学",
           "stage": "小学",
           "source_url": "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_9157738.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "沙头中心小学",
-          "school_id": "gz-440113-52835776"
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -194,7 +165,9 @@
     {
       "brand": "番广实验教育集团",
       "district": "番禺",
-      "core": ["广州大学附属中学番禺实验学校"],
+      "core": [
+        "广州大学附属中学番禺实验学校"
+      ],
       "level": "区属",
       "type": "九年一贯集团",
       "members": [
@@ -202,28 +175,19 @@
           "name": "广州大学附属中学番禺实验学校",
           "stage": "九年一贯",
           "source_url": "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_9157738.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广大附中番禺实验学校",
-          "school_id": "gz-440113-213843c2"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市番禺区番广附万博学校",
           "stage": "九年一贯",
           "source_url": "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10425301.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广州市番禺区番广附万博学校(东校区)",
-          "school_id": "gz-440113-6609c936"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市番禺区番广附创新城学校",
           "stage": "九年一贯",
           "source_url": "https://view.inews.qq.com/a/20250906A04VA200",
           "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广州市番禺区番广附创新城学校",
-          "school_id": "gz-440113-c51f439d",
           "note": "番广实验教育集团成员校（2025 公办九年制新开办，广大附中同理念同教材同教研同评价）"
         }
       ],
@@ -235,7 +199,9 @@
     {
       "brand": "仲元附属学校教育集团",
       "district": "番禺",
-      "core": ["广东仲元中学附属学校"],
+      "core": [
+        "广东仲元中学附属学校"
+      ],
       "level": "区属",
       "type": "九年一贯集团",
       "members": [
@@ -243,19 +209,13 @@
           "name": "广东仲元中学附属学校",
           "stage": "九年一贯",
           "source_url": "https://www.panyu.gov.cn/gkmlpt/content/10/10242/mpost_10242063.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广东仲元中学附属学校",
-          "school_id": "gz-440113-b5ff857b"
+          "verified": "2026-09-14"
         },
         {
           "name": "广东仲元中学附属学校教育集团沙滘中学",
           "stage": "初中",
           "source_url": "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10438/mpost_10438800.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "沙滘中学",
-          "school_id": "gz-440113-f744f14a"
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -268,7 +228,9 @@
     {
       "brand": "德兴小学教育集团",
       "district": "番禺",
-      "core": ["广州市番禺区市桥德兴小学"],
+      "core": [
+        "广州市番禺区市桥德兴小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
@@ -276,19 +238,13 @@
           "name": "广州市番禺区市桥德兴小学",
           "stage": "小学",
           "source_url": "http://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10033795.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "德兴小学",
-          "school_id": "gz-440113-dccc5e5f"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市番禺区市桥东兴小学",
           "stage": "小学",
           "source_url": "http://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10033795.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "东兴小学",
-          "school_id": "gz-440113-387db763"
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -298,7 +254,9 @@
     {
       "brand": "钟村中心小学教育集团",
       "district": "番禺",
-      "core": ["广州市番禺区钟村中心小学"],
+      "core": [
+        "广州市番禺区钟村中心小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
@@ -306,28 +264,19 @@
           "name": "广州市番禺区钟村中心小学",
           "stage": "小学",
           "source_url": "http://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10033795.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "钟村中心小学",
-          "school_id": "gz-440113-acbdd815"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市番禺区石壁小学",
           "stage": "小学",
           "source_url": "http://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10033795.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "石壁小学",
-          "school_id": "gz-440113-ecbfeed3"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市番禺区钟村第二小学",
           "stage": "小学",
           "source_url": "http://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10033795.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "钟村第二小学",
-          "school_id": "gz-440113-a3504863"
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [

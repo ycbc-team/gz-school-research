@@ -8,14 +8,6 @@
       "core": [
         "广州市第三中学"
       ],
-      "core_poi": [
-        {
-          "name": "广州市第三中学",
-          "poi_match": "精确命中",
-          "poi_name": "广州市第三中学",
-          "school_id": "gz-440104-d9ec2dbb"
-        }
-      ],
       "level": "区属",
       "type": "完中集团",
       "members": [
@@ -23,28 +15,19 @@
           "name": "广州市第三中学实验学校",
           "stage": "初中",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广州市第三中学实验学校",
-          "school_id": "gz-440104-39515a9d"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市第十中学",
           "stage": "初中",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广州市第十中学",
-          "school_id": "gz-440104-819bd7a1"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市真光学校",
           "stage": "九年一贯",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广州市真光学校(一德西校区)",
-          "school_id": "gz-440104-54a43537"
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -57,14 +40,6 @@
       "core": [
         "广州市第七中学"
       ],
-      "core_poi": [
-        {
-          "name": "广州市第七中学",
-          "poi_match": "精确命中",
-          "poi_name": "广州市第七中学(初中部)",
-          "school_id": "gz-440104-74121d17"
-        }
-      ],
       "level": "区属",
       "type": "完中集团",
       "members": [
@@ -72,37 +47,25 @@
           "name": "广州市第七中学实验学校",
           "stage": "九年一贯",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广州市第七中学实验学校",
-          "school_id": "gz-440104-d5f83454"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市第七中学东山学校",
           "stage": "初中",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广州市第七中学东山学校",
-          "school_id": "gz-440104-7b6a95bd"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市增城区新塘镇第三中学",
           "stage": "初中",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "远郊不在POI范围",
-          "poi_name": "",
-          "school_id": ""
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市增城区永和中学",
           "stage": "高中",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "远郊不在POI范围",
-          "poi_name": "",
-          "school_id": ""
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -115,14 +78,6 @@
       "core": [
         "广州市第十六中学"
       ],
-      "core_poi": [
-        {
-          "name": "广州市第十六中学",
-          "poi_match": "精确命中",
-          "poi_name": "广州市第十六中学(东湖校区)",
-          "school_id": "gz-440104-8964385d"
-        }
-      ],
       "level": "区属",
       "type": "完中集团",
       "members": [
@@ -130,46 +85,31 @@
           "name": "广州市第十六中学实验学校",
           "stage": "初中",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广州市第十六中学实验学校",
-          "school_id": "gz-440104-27ecd0e4"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市第十六中学东华实验学校",
           "stage": "初中",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广州市第十六中学东华实验学校",
-          "school_id": "gz-440104-c117279e"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市增城区荔城街荔景中学",
           "stage": "初中",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "远郊不在POI范围",
-          "poi_name": "",
-          "school_id": ""
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市增城区派潭中学",
           "stage": "高中",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "远郊不在POI范围",
-          "poi_name": "",
-          "school_id": ""
+          "verified": "2026-09-14"
         },
         {
           "name": "英德市连江中学",
           "stage": "初中",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "远郊不在POI范围",
-          "poi_name": "",
-          "school_id": ""
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -182,14 +122,6 @@
       "core": [
         "广州市育才中学"
       ],
-      "core_poi": [
-        {
-          "name": "广州市育才中学",
-          "poi_match": "精确命中",
-          "poi_name": "育才中学(东校区)",
-          "school_id": "gz-440104-191aaa35"
-        }
-      ],
       "level": "区属",
       "type": "混合学段集团",
       "members": [
@@ -197,19 +129,13 @@
           "name": "广州市越秀区育才学校",
           "stage": "小学",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "广州市育才学校",
-          "school_id": "gz-440104-982a248f"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市越秀区育才实验学校",
           "stage": "初中",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广州市越秀区育才实验学校",
-          "school_id": "gz-440104-ff8d7e05"
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -222,14 +148,6 @@
       "core": [
         "广州市培正中学"
       ],
-      "core_poi": [
-        {
-          "name": "广州市培正中学",
-          "poi_match": "精确命中",
-          "poi_name": "培正中学",
-          "school_id": "gz-440104-99aef0e5"
-        }
-      ],
       "level": "区属",
       "type": "混合学段集团",
       "members": [
@@ -237,46 +155,31 @@
           "name": "广州市培正中学矿泉学校",
           "stage": "初中",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广州市培正中学矿泉学校",
-          "school_id": "gz-440104-d6c68349"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市越秀区东山培正小学",
           "stage": "小学",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "培正小学(海印苑校区)",
-          "school_id": "gz-440104-08dedf9a"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市越秀区沙涌南小学",
           "stage": "小学",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "沙涌南小学",
-          "school_id": "gz-440104-6d749319"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市增城区中新镇第一小学",
           "stage": "小学",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "远郊不在POI范围",
-          "poi_name": "",
-          "school_id": ""
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市增城区中新中学",
           "stage": "完中",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "远郊不在POI范围",
-          "poi_name": "",
-          "school_id": ""
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -289,14 +192,6 @@
       "core": [
         "广东实验中学越秀学校"
       ],
-      "core_poi": [
-        {
-          "name": "广东实验中学越秀学校",
-          "poi_match": "精确命中",
-          "poi_name": "广东实验中学越秀学校(天胜校区)",
-          "school_id": "gz-440104-32444523"
-        }
-      ],
       "level": "区属",
       "type": "完中集团",
       "members": [
@@ -304,10 +199,7 @@
           "name": "广州市华侨外国语学校",
           "stage": "九年一贯",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广州市华侨外国语学校(华侨新村校区)",
-          "school_id": "gz-440104-d972cf95"
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -320,14 +212,6 @@
       "core": [
         "广州市越秀区东风东路小学"
       ],
-      "core_poi": [
-        {
-          "name": "广州市越秀区东风东路小学",
-          "poi_match": "精确命中",
-          "poi_name": "广州市越秀区东风东路小学(建设中)",
-          "school_id": "gz-440104-402961f4"
-        }
-      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
@@ -335,28 +219,19 @@
           "name": "广州市越秀区水荫路小学",
           "stage": "小学",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "水荫路小学",
-          "school_id": "gz-440104-05b607d4"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市越秀区中山三路小学",
           "stage": "小学",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "中山三路小学",
-          "school_id": "gz-440104-e7bae9f9"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市东风东教育集团番禺小学",
           "stage": "小学",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广州市东风东教育集团番禺小学",
-          "school_id": "gz-440113-ad96c291"
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -369,14 +244,6 @@
       "core": [
         "广州市越秀区东山培正小学"
       ],
-      "core_poi": [
-        {
-          "name": "广州市越秀区东山培正小学",
-          "poi_match": "变体命中",
-          "poi_name": "培正小学(海印苑校区)",
-          "school_id": "gz-440104-08dedf9a"
-        }
-      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
@@ -384,19 +251,13 @@
           "name": "广州市越秀区大沙头小学",
           "stage": "小学",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "大沙头小学(西校区)",
-          "school_id": "gz-440104-2aa7d451"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市越秀区中山二路小学",
           "stage": "小学",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "变体命中",
-          "poi_name": "中山二路小学",
-          "school_id": "gz-440104-f1e5ed2e"
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [
@@ -409,14 +270,6 @@
       "core": [
         "广州市越秀区铁一小学"
       ],
-      "core_poi": [
-        {
-          "name": "广州市越秀区铁一小学",
-          "poi_match": "精确命中",
-          "poi_name": "广州市越秀区铁一小学",
-          "school_id": "gz-440104-755a5101"
-        }
-      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
@@ -424,19 +277,13 @@
           "name": "广州市越秀区五羊小学",
           "stage": "小学",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "广州市越秀区五羊小学",
-          "school_id": "gz-440104-d9540a45"
+          "verified": "2026-09-14"
         },
         {
           "name": "广州市越秀区杨箕小学",
           "stage": "小学",
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
-          "verified": "2026-09-14",
-          "poi_match": "精确命中",
-          "poi_name": "越秀区杨箕小学",
-          "school_id": "gz-440104-bff4ab82"
+          "verified": "2026-09-14"
         }
       ],
       "source_urls": [

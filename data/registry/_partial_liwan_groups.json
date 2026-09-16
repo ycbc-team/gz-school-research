@@ -11,19 +11,60 @@
     {
       "brand": "广州市真光中学教育集团",
       "district": "荔湾",
-      "core": ["广州市真光中学"],
-      "core_poi": [{"name": "广州市真光中学", "poi_match": "精确命中", "poi_name": "广州市真光中学(岭南校区)", "school_id": "gz-440103-042e23a5"}],
+      "core": [
+        "广州市真光中学"
+      ],
       "level": "区属",
       "type": "混合学段集团",
       "members": [
-        {"name": "广州市真光中学金道学校", "stage": "初中", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市真光中学金道学校", "school_id": "gz-440103-f203d28d"},
-        {"name": "广州市真光中学文伟学校", "stage": "初中", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市真光中学文伟学校", "school_id": "gz-440103-55453ba4"},
-        {"name": "广州市真光中学东漖学校", "stage": "初中", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市真光中学东漖学校", "school_id": "gz-440103-2c188507"},
-        {"name": "广州市真光中学附属小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市真光中学附属小学(建设中)", "school_id": "gz-440103-eee37a73"},
-        {"name": "广州市真光中学附属培真小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市真光中学附属培真小学(广船校区)", "school_id": "gz-440103-039a7621"},
-        {"name": "广州市真光中学附属鹤洞小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "7区内真实缺失", "poi_name": "", "school_id": ""},
-        {"name": "广州市真光中学附属坑口小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "7区内真实缺失", "poi_name": "", "school_id": ""},
-        {"name": "广州市真光中学附属西塱小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "7区内真实缺失", "poi_name": "", "school_id": ""}
+        {
+          "name": "广州市真光中学金道学校",
+          "stage": "初中",
+          "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市真光中学文伟学校",
+          "stage": "初中",
+          "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市真光中学东漖学校",
+          "stage": "初中",
+          "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市真光中学附属小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市真光中学附属培真小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市真光中学附属鹤洞小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市真光中学附属坑口小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市真光中学附属西塱小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
@@ -33,17 +74,48 @@
     {
       "brand": "广州市第一中学教育集团",
       "district": "荔湾",
-      "core": ["广州市第一中学"],
-      "core_poi": [{"name": "广州市第一中学", "poi_match": "精确命中", "poi_name": "广州市第一中学(初中部)", "school_id": "gz-440103-2dc142ec"}],
+      "core": [
+        "广州市第一中学"
+      ],
       "level": "区属",
       "type": "混合学段集团",
       "members": [
-        {"name": "广州市第一中学红岩学校", "stage": "初中", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市第一中学红岩学校", "school_id": "gz-440103-f05eda96"},
-        {"name": "广州市第一中学十甫学校", "stage": "初中", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市第一中学十甫学校", "school_id": "gz-440103-81794a0d"},
-        {"name": "广州市第一中学双桥学校", "stage": "九年一贯", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市第一中学双桥学校", "school_id": "gz-440103-b6850b3c"},
-        {"name": "广州市美华中学", "stage": "初中", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市美华中学", "school_id": "gz-440103-b0abf891"},
-        {"name": "广州市第一中学附属环市西路小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "7区内真实缺失", "poi_name": "", "school_id": ""},
-        {"name": "广州市第一中学附属詹天佑小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "7区内真实缺失", "poi_name": "", "school_id": ""}
+        {
+          "name": "广州市第一中学红岩学校",
+          "stage": "初中",
+          "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市第一中学十甫学校",
+          "stage": "初中",
+          "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市第一中学双桥学校",
+          "stage": "九年一贯",
+          "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市美华中学",
+          "stage": "初中",
+          "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市第一中学附属环市西路小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市第一中学附属詹天佑小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
@@ -53,15 +125,36 @@
     {
       "brand": "广州市第四中学教育集团",
       "district": "荔湾",
-      "core": ["广州市第四中学"],
-      "core_poi": [{"name": "广州市第四中学", "poi_match": "精确命中", "poi_name": "广州市第四中学(津园校区)", "school_id": "gz-440103-3862ee98"}],
+      "core": [
+        "广州市第四中学"
+      ],
       "level": "区属",
       "type": "混合学段集团",
       "members": [
-        {"name": "广州市第四中学丰宁学校", "stage": "初中", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市第四中学丰宁学校", "school_id": "gz-440104-3b870a8e"},
-        {"name": "广州市第四中学花地学校", "stage": "初中", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市第四中学花地学校", "school_id": "gz-440103-958c2ab9"},
-        {"name": "广州市第四中学附属芦荻西小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市第四中学附属芦荻西小学", "school_id": "gz-440103-43860928"},
-        {"name": "广州市第四中学附属耀华小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "7区内真实缺失", "poi_name": "", "school_id": ""}
+        {
+          "name": "广州市第四中学丰宁学校",
+          "stage": "初中",
+          "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市第四中学花地学校",
+          "stage": "初中",
+          "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市第四中学附属芦荻西小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市第四中学附属耀华小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
@@ -71,15 +164,36 @@
     {
       "brand": "广州市西关外国语学校教育集团",
       "district": "荔湾",
-      "core": ["广州市西关外国语学校"],
-      "core_poi": [{"name": "广州市西关外国语学校", "poi_match": "精确命中", "poi_name": "广州市西关外国语学校(初中部)", "school_id": "gz-440103-b41a3512"}],
+      "core": [
+        "广州市西关外国语学校"
+      ],
       "level": "区属",
       "type": "混合学段集团",
       "members": [
-        {"name": "广州市西关外国语流花学校", "stage": "初中", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市西关外国语流花学校", "school_id": "gz-440103-9870a631"},
-        {"name": "广州市西关外国语嘉庚学校", "stage": "初中", "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html", "verified": "2026-09-14", "poi_match": "人工锚定", "poi_name": "广州市陈嘉庚纪念中学", "school_id": "gz-440103-eb3cb5c6"},
-        {"name": "广州市西关外国语学校附属流花小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "人工锚定", "poi_name": "广州市流花路小学", "school_id": "gz-440103-f51bffec"},
-        {"name": "广州市西关外国语学校附属西华小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "人工锚定", "poi_name": "西华路小学", "school_id": "gz-440103-dfd5d6a8"}
+        {
+          "name": "广州市西关外国语流花学校",
+          "stage": "初中",
+          "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市西关外国语嘉庚学校",
+          "stage": "初中",
+          "source_url": "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市西关外国语学校附属流花小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市西关外国语学校附属西华小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9110592.html",
@@ -89,12 +203,18 @@
     {
       "brand": "广东实验中学荔湾学校教育集团",
       "district": "荔湾",
-      "core": ["广东实验中学荔湾学校"],
-      "core_poi": [{"name": "广东实验中学荔湾学校", "poi_match": "人工锚定", "poi_name": "广东实验中学荔湾学校(初中部)", "school_id": "gz-440103-53cac770"}],
+      "core": [
+        "广东实验中学荔湾学校"
+      ],
       "level": "省市属",
       "type": "九年一贯集团",
       "members": [
-        {"name": "广东实验中学荔湾学校", "stage": "九年一贯", "source_url": "https://www.lw.gov.cn/attachment/7/7739/7739520/10018863.pdf", "verified": "2026-09-14", "poi_match": "人工锚定", "poi_name": "广东实验中学荔湾学校(初中部)", "school_id": "gz-440103-53cac770"}
+        {
+          "name": "广东实验中学荔湾学校",
+          "stage": "九年一贯",
+          "source_url": "https://www.lw.gov.cn/attachment/7/7739/7739520/10018863.pdf",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.lw.gov.cn/attachment/7/7739/7739520/10018863.pdf",
@@ -104,13 +224,24 @@
     {
       "brand": "广东广雅中学教育集团",
       "district": "荔湾",
-      "core": ["广东广雅中学"],
-      "core_poi": [{"name": "广东广雅中学", "poi_match": "精确命中", "poi_name": "广东广雅中学(荔湾校区)", "school_id": "gz-440103-bb7f78f0"}],
+      "core": [
+        "广东广雅中学"
+      ],
       "level": "省市属",
       "type": "混合学段集团",
       "members": [
-        {"name": "广州市荔湾区西关广雅实验学校", "stage": "初中", "source_url": "https://www.lw.gov.cn/attachment/7/7739/7739520/10018863.pdf", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "西关广雅实验学校(南岸路校区)", "school_id": "gz-440103-c5d5de44"},
-        {"name": "广州市荔湾区广雅小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广雅小学", "school_id": "gz-440103-5d3549b8"}
+        {
+          "name": "广州市荔湾区西关广雅实验学校",
+          "stage": "初中",
+          "source_url": "https://www.lw.gov.cn/attachment/7/7739/7739520/10018863.pdf",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区广雅小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.lw.gov.cn/attachment/7/7739/7739520/10018863.pdf",
@@ -120,12 +251,18 @@
     {
       "brand": "广州市荔湾区沙面小学教育集团",
       "district": "荔湾",
-      "core": ["广州市荔湾区沙面小学"],
-      "core_poi": [{"name": "广州市荔湾区沙面小学", "poi_match": "变体命中", "poi_name": "沙面小学岭南校区", "school_id": "gz-440103-554e0beb"}],
+      "core": [
+        "广州市荔湾区沙面小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
-        {"name": "广州市荔湾区沙面小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "沙面小学岭南校区", "school_id": "gz-440103-554e0beb"}
+        {
+          "name": "广州市荔湾区沙面小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9354813.html",
@@ -135,14 +272,30 @@
     {
       "brand": "广州市荔湾区乐贤坊小学教育集团",
       "district": "荔湾",
-      "core": ["广州市荔湾区乐贤坊小学"],
-      "core_poi": [{"name": "广州市荔湾区乐贤坊小学", "poi_match": "变体命中", "poi_name": "乐贤坊小学", "school_id": "gz-440103-a15d3a11"}],
+      "core": [
+        "广州市荔湾区乐贤坊小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
-        {"name": "广州市荔湾区乐贤坊小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "乐贤坊小学", "school_id": "gz-440103-a15d3a11"},
-        {"name": "广州市荔湾区乐贤坊小学龙津学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "乐贤坊小学龙津学校", "school_id": "gz-440103-16043f05"},
-        {"name": "广州市荔湾区乐贤坊小学宝源学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "7区内真实缺失", "poi_name": "", "school_id": ""}
+        {
+          "name": "广州市荔湾区乐贤坊小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区乐贤坊小学龙津学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区乐贤坊小学宝源学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9354813.html",
@@ -152,15 +305,36 @@
     {
       "brand": "广州市荔湾区康有为纪念小学教育集团",
       "district": "荔湾",
-      "core": ["广州市荔湾区康有为纪念小学"],
-      "core_poi": [{"name": "广州市荔湾区康有为纪念小学", "poi_match": "精确命中", "poi_name": "广州市荔湾区康有为纪念小学(白鹅潭校区)", "school_id": "gz-440103-26cf2268"}],
+      "core": [
+        "广州市荔湾区康有为纪念小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
-        {"name": "广州市荔湾区康有为纪念小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市荔湾区康有为纪念小学(白鹅潭校区)", "school_id": "gz-440103-26cf2268"},
-        {"name": "广州市荔湾区康有为纪念小学南塘学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "康有为纪念小学南塘学校", "school_id": "gz-440103-bbb42ad7"},
-        {"name": "广州市荔湾区康有为纪念小学五眼桥学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "康有为纪念小学五眼桥学校", "school_id": "gz-440103-ab2416ab"},
-        {"name": "广州市荔湾区康有为纪念小学海中学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "康有为纪念小学海中学校", "school_id": "gz-440103-c4a554f5"}
+        {
+          "name": "广州市荔湾区康有为纪念小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区康有为纪念小学南塘学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区康有为纪念小学五眼桥学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区康有为纪念小学海中学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9354813.html",
@@ -170,14 +344,30 @@
     {
       "brand": "广州市荔湾区华侨小学教育集团",
       "district": "荔湾",
-      "core": ["广州市荔湾区华侨小学"],
-      "core_poi": [{"name": "广州市荔湾区华侨小学", "poi_match": "精确命中", "poi_name": "荔湾区华侨小学(西校区)", "school_id": "gz-440103-6cb82f52"}],
+      "core": [
+        "广州市荔湾区华侨小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
-        {"name": "广州市荔湾区华侨小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "荔湾区华侨小学(西校区)", "school_id": "gz-440103-6cb82f52"},
-        {"name": "广州市荔湾区华侨小学汇龙学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "荔湾区华侨小学(西校区)", "school_id": "gz-440103-6cb82f52"},
-        {"name": "广州市荔湾区华侨小学翠园学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市荔湾区华侨小学翠园学校", "school_id": "gz-440103-81e53843"}
+        {
+          "name": "广州市荔湾区华侨小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区华侨小学汇龙学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区华侨小学翠园学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9354813.html",
@@ -187,14 +377,30 @@
     {
       "brand": "广州市荔湾区蒋光鼐纪念小学教育集团",
       "district": "荔湾",
-      "core": ["广州市荔湾区蒋光鼐纪念小学"],
-      "core_poi": [{"name": "广州市荔湾区蒋光鼐纪念小学", "poi_match": "变体命中", "poi_name": "蒋光鼐纪念小学", "school_id": "gz-440103-143903fe"}],
+      "core": [
+        "广州市荔湾区蒋光鼐纪念小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
-        {"name": "广州市荔湾区蒋光鼐纪念小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "蒋光鼐纪念小学", "school_id": "gz-440103-143903fe"},
-        {"name": "广州市荔湾区蒋光鼐纪念小学三元坊学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "7区内真实缺失", "poi_name": "", "school_id": ""},
-        {"name": "广州市荔湾区蒋光鼐纪念小学文昌学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "人工锚定", "poi_name": "广州市荔湾区文昌小学", "school_id": "gz-440103-11e27c02"}
+        {
+          "name": "广州市荔湾区蒋光鼐纪念小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区蒋光鼐纪念小学三元坊学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区蒋光鼐纪念小学文昌学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9354813.html",
@@ -204,16 +410,42 @@
     {
       "brand": "广州市荔湾区芳村小学教育集团",
       "district": "荔湾",
-      "core": ["广州市荔湾区芳村小学"],
-      "core_poi": [{"name": "广州市荔湾区芳村小学", "poi_match": "变体命中", "poi_name": "芳村小学", "school_id": "gz-440103-28507a63"}],
+      "core": [
+        "广州市荔湾区芳村小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
-        {"name": "广州市荔湾区芳村小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "芳村小学", "school_id": "gz-440103-28507a63"},
-        {"name": "广州市荔湾区芳村小学实验学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "芳村小学", "school_id": "gz-440103-28507a63"},
-        {"name": "广州市荔湾区芳村小学东沙学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "芳村小学东沙学校", "school_id": "gz-440103-69a306af"},
-        {"name": "广州市荔湾区芳村小学南漖学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市荔湾区芳村小学南漖学校", "school_id": "gz-440103-a5de21fb"},
-        {"name": "广州市荔湾区芳村小学新东学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "芳村小学", "school_id": "gz-440103-28507a63"}
+        {
+          "name": "广州市荔湾区芳村小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区芳村小学实验学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区芳村小学东沙学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区芳村小学南漖学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区芳村小学新东学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9354813.html",
@@ -223,14 +455,30 @@
     {
       "brand": "广州市荔湾区合兴苑小学教育集团",
       "district": "荔湾",
-      "core": ["广州市荔湾区合兴苑小学"],
-      "core_poi": [{"name": "广州市荔湾区合兴苑小学", "poi_match": "变体命中", "poi_name": "合兴苑小学", "school_id": "gz-440103-3aa658a6"}],
+      "core": [
+        "广州市荔湾区合兴苑小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
-        {"name": "广州市荔湾区合兴苑小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "合兴苑小学", "school_id": "gz-440103-3aa658a6"},
-        {"name": "广州市荔湾区合兴苑小学鸿图苑学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "合兴苑小学", "school_id": "gz-440103-3aa658a6"},
-        {"name": "广州市荔湾区合兴苑小学葵蓬学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "合兴苑小学", "school_id": "gz-440103-3aa658a6"}
+        {
+          "name": "广州市荔湾区合兴苑小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区合兴苑小学鸿图苑学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区合兴苑小学葵蓬学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9354813.html",
@@ -240,15 +488,36 @@
     {
       "brand": "广州市荔湾区西关实验小学教育集团",
       "district": "荔湾",
-      "core": ["广州市荔湾区西关实验小学"],
-      "core_poi": [{"name": "广州市荔湾区西关实验小学", "poi_match": "变体命中", "poi_name": "西关实验小学", "school_id": "gz-440103-60b47bca"}],
+      "core": [
+        "广州市荔湾区西关实验小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
-        {"name": "广州市荔湾区西关实验小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "西关实验小学", "school_id": "gz-440103-60b47bca"},
-        {"name": "广州市荔湾区西关实验小学增滘学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市荔湾区西关实验小学增滘学校", "school_id": "gz-440103-f8cc454e"},
-        {"name": "广州市荔湾区西关实验小学海北学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "人工锚定", "poi_name": "荔湾区海北小学", "school_id": "gz-440103-7a85adc9"},
-        {"name": "广州市荔湾区西关实验小学龙溪学校", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "人工锚定", "poi_name": "广州市荔湾区龙溪小学", "school_id": "gz-440103-53fbb2c8"}
+        {
+          "name": "广州市荔湾区西关实验小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区西关实验小学增滘学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区西关实验小学海北学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市荔湾区西关实验小学龙溪学校",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9354813.html",
@@ -258,12 +527,18 @@
     {
       "brand": "广州市荔湾区西关培正小学教育集团",
       "district": "荔湾",
-      "core": ["广州市荔湾区西关培正小学"],
-      "core_poi": [{"name": "广州市荔湾区西关培正小学", "poi_match": "精确命中", "poi_name": "广州市荔湾区西关培正小学(芳信校区)(建设中)", "school_id": "gz-440103-6e10b35d"}],
+      "core": [
+        "广州市荔湾区西关培正小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
-        {"name": "广州市荔湾区西关培正小学", "stage": "小学", "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市荔湾区西关培正小学(芳信校区)(建设中)", "school_id": "gz-440103-6e10b35d"}
+        {
+          "name": "广州市荔湾区西关培正小学",
+          "stage": "小学",
+          "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.gz.gov.cn/zwfw/zxfw/jyfw7/content/mpost_9354813.html",

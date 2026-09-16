@@ -10,17 +10,54 @@
     {
       "brand": "华阳教育集团",
       "district": "天河",
-      "core": ["华阳小学"],
+      "core": [
+        "华阳小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
-        {"name": "华阳小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "华阳小学(华成校区)", "school_id": "gz-440106-0b79aecf"},
-        {"name": "侨乐小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "天河区侨乐小学", "school_id": "gz-440106-3332b6cb"},
-        {"name": "石牌小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "石牌小学", "school_id": "gz-440106-2ab62791"},
-        {"name": "珠村小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "珠村小学", "school_id": "gz-440106-8224c016"},
-        {"name": "高塘石小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_10756725.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广州市天河区华阳教育集团高塘石小学", "school_id": "gz-440106-ed929fc7"},
-        {"name": "新塘小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9696501.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "新塘小学", "school_id": "gz-440106-049702a3"},
-        {"name": "奥体东小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "奥体东小学", "school_id": "gz-440106-394a30e4"}
+        {
+          "name": "华阳小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "侨乐小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "石牌小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "珠村小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "高塘石小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_10756725.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "新塘小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9696501.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "奥体东小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
@@ -31,18 +68,62 @@
     {
       "brand": "体育东教育集团",
       "district": "天河",
-      "core": ["体育东路小学", "体育东路小学兴国学校", "体育东路小学海明学校"],
+      "core": [
+        "体育东路小学",
+        "体育东路小学兴国学校",
+        "体育东路小学海明学校"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
-        {"name": "体育东路小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "体育东路小学", "school_id": "gz-440106-fafdbff4"},
-        {"name": "体育东路小学兴国学校", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "体育东路小学兴国学校", "school_id": "gz-440106-cdfda274"},
-        {"name": "体育东路小学海明学校", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "体育东路小学海明学校", "school_id": "gz-440106-bd76b30f"},
-        {"name": "天河区第一实验小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市天河区第一实验小学", "school_id": "gz-440106-b69bcbc4"},
-        {"name": "冼村小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "冼村小学", "school_id": "gz-440106-f69544d1"},
-        {"name": "吉山小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "吉山小学", "school_id": "gz-440106-579bdc60"},
-        {"name": "均和小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_7755898.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "均和小学", "school_id": "gz-440106-1c0a974d"},
-        {"name": "灵秀小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "灵秀小学", "school_id": "gz-440106-a52ecc01"}
+        {
+          "name": "体育东路小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "体育东路小学兴国学校",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "体育东路小学海明学校",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "天河区第一实验小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "冼村小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "吉山小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "均和小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_7755898.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "灵秀小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
@@ -52,17 +133,54 @@
     {
       "brand": "天府教育集团",
       "district": "天河",
-      "core": ["天府路小学"],
+      "core": [
+        "天府路小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
-        {"name": "天府路小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "天府路小学", "school_id": "gz-440106-6dc5833a"},
-        {"name": "华融小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广州市天河区华融小学", "school_id": "gz-440106-368a8ac7"},
-        {"name": "昌乐小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "昌乐小学(旭日校区)", "school_id": "gz-440106-4eab4155"},
-        {"name": "车陂小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "车陂小学", "school_id": "gz-440106-93dce356"},
-        {"name": "棠东小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "棠东小学", "school_id": "gz-440106-f56704cf"},
-        {"name": "柯木塱小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广州市天河区柯木塱小学", "school_id": "gz-440106-5be25e1e"},
-        {"name": "石东小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "天河区石东小学", "school_id": "gz-440106-6618e0e7"}
+        {
+          "name": "天府路小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "华融小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "昌乐小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "车陂小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "棠东小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "柯木塱小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "石东小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html"
@@ -71,14 +189,36 @@
     {
       "brand": "奥林匹克教育集团",
       "district": "天河",
-      "core": ["广州奥林匹克中学"],
+      "core": [
+        "广州奥林匹克中学"
+      ],
       "level": "区属",
       "type": "混合学段集团",
       "members": [
-        {"name": "广州奥林匹克中学", "stage": "完中", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市奥林匹克中学(黄村西路校区)", "school_id": "gz-440106-d40d0dbe"},
-        {"name": "广州市第十八中学", "stage": "初中", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市第十八中学", "school_id": "gz-440106-ef4076c1"},
-        {"name": "广州市泰安中学", "stage": "初中", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市泰安中学", "school_id": "gz-440106-22156e02"},
-        {"name": "智谷第一实验学校", "stage": "九年一贯", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "天河区智谷第一实验学校", "school_id": "gz-440106-d311ea50"}
+        {
+          "name": "广州奥林匹克中学",
+          "stage": "完中",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市第十八中学",
+          "stage": "初中",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市泰安中学",
+          "stage": "初中",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "智谷第一实验学校",
+          "stage": "九年一贯",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.thnet.gov.cn/thdt/mtjj/content/post_9452863.html"
@@ -87,15 +227,42 @@
     {
       "brand": "龙口西教育集团",
       "district": "天河",
-      "core": ["龙口西小学"],
+      "core": [
+        "龙口西小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
-        {"name": "龙口西小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/zsk/jy/zs/content/post_9890860.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "龙口西小学(天阳校区)", "school_id": "gz-440106-5e40124c"},
-        {"name": "泰安小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/zsk/jy/zs/content/post_9890860.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广州市天河区泰安小学", "school_id": "gz-440106-b7efb60d"},
-        {"name": "凌塘小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/zsk/jy/zs/content/post_9890860.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "天河区凌塘小学", "school_id": "gz-440106-0cf43f53"},
-        {"name": "东圃小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/zsk/jy/zs/content/post_9890860.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "东圃小学", "school_id": "gz-440106-4d4c3ab8"},
-        {"name": "黄村小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/hdjl/zsk/jy/zs/content/post_9890860.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广州市天河区黄村小学", "school_id": "gz-440106-9a67aee6"}
+        {
+          "name": "龙口西小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/zsk/jy/zs/content/post_9890860.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "泰安小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/zsk/jy/zs/content/post_9890860.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "凌塘小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/zsk/jy/zs/content/post_9890860.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "东圃小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/zsk/jy/zs/content/post_9890860.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "黄村小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/hdjl/zsk/jy/zs/content/post_9890860.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "http://www.thnet.gov.cn/hdjl/zsk/jy/zs/content/post_9890860.html"
@@ -104,16 +271,48 @@
     {
       "brand": "先烈东教育集团",
       "district": "天河",
-      "core": ["先烈东小学"],
+      "core": [
+        "先烈东小学"
+      ],
       "level": "区属",
       "type": "小学集团",
       "members": [
-        {"name": "先烈东小学", "stage": "小学", "source_url": "http://www.thnet.gov.cn/thdt/mtjj/content/post_8493652.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广州市天河区先烈东小学(沙河校区)", "school_id": "gz-440106-0b7b33c7"},
-        {"name": "沙河小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "沙河小学", "school_id": "gz-440106-4efbbcb7"},
-        {"name": "银河小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "银河小学", "school_id": "gz-440106-96bdd212"},
-        {"name": "四海小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html", "verified": "2026-09-14", "poi_match": "变体命中", "poi_name": "广州市天河区四海小学", "school_id": "gz-440106-b6375b93"},
-        {"name": "龙岗路小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "龙岗路小学", "school_id": "gz-440106-ac6650f4"},
-        {"name": "五一小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "五一小学", "school_id": "gz-440106-3bc362f9"}
+        {
+          "name": "先烈东小学",
+          "stage": "小学",
+          "source_url": "http://www.thnet.gov.cn/thdt/mtjj/content/post_8493652.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "沙河小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "银河小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "四海小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "龙岗路小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "五一小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "http://www.thnet.gov.cn/thdt/mtjj/content/post_8493652.html",
@@ -123,15 +322,42 @@
     {
       "brand": "广州中学教育集团",
       "district": "天河",
-      "core": ["广州中学"],
+      "core": [
+        "广州中学"
+      ],
       "level": "区属",
       "type": "混合学段集团",
       "members": [
-        {"name": "广州中学", "stage": "完中", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9096906.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州中学(五山校区)", "school_id": "gz-440106-867e6c05"},
-        {"name": "汇景实验学校", "stage": "九年一贯", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9096906.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "汇景实验学校（小学部）", "school_id": "gz-440106-efcdec9d"},
-        {"name": "长兴中学", "stage": "初中", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9096906.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市长兴中学", "school_id": "gz-440106-7077b270"},
-        {"name": "五山小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9096906.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "五山小学(西校区)", "school_id": "gz-440106-73e86142"},
-        {"name": "华康小学", "stage": "小学", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9096906.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "华康小学(海欣校区)", "school_id": "gz-440106-ad7011bb"}
+        {
+          "name": "广州中学",
+          "stage": "完中",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9096906.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "汇景实验学校",
+          "stage": "九年一贯",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9096906.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "长兴中学",
+          "stage": "初中",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9096906.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "五山小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9096906.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "华康小学",
+          "stage": "小学",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9096906.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.thnet.gov.cn/thdt/mtjj/content/post_9096906.html",
@@ -141,13 +367,30 @@
     {
       "brand": "天河外国语教育集团",
       "district": "天河",
-      "core": ["天河外国语学校"],
+      "core": [
+        "天河外国语学校"
+      ],
       "level": "区属",
       "type": "混合学段集团",
       "members": [
-        {"name": "天河外国语学校", "stage": "完中", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_8971104.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市天河外国语学校(珠江新城校区)", "school_id": "gz-440106-b711d94a"},
-        {"name": "华颖外国语学校", "stage": "九年一贯", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_8971104.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市华颖外国语学校", "school_id": "gz-440106-dab5b807"},
-        {"name": "天河外国语智谷学校", "stage": "九年一贯", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_10426840.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市天河外国语智谷学校", "school_id": "gz-440106-d042314d"}
+        {
+          "name": "天河外国语学校",
+          "stage": "完中",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_8971104.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "华颖外国语学校",
+          "stage": "九年一贯",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_8971104.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "天河外国语智谷学校",
+          "stage": "九年一贯",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_10426840.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "https://www.thnet.gov.cn/thdt/mtjj/content/post_8971104.html",
@@ -157,12 +400,24 @@
     {
       "brand": "113中学教育集团",
       "district": "天河",
-      "core": ["广州市第一一三中学"],
+      "core": [
+        "广州市第一一三中学"
+      ],
       "level": "区属",
       "type": "混合学段集团",
       "members": [
-        {"name": "广州市第一一三中学", "stage": "完中", "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市第一一三中学(乐学校区)", "school_id": "gz-440106-2e9f6f7b"},
-        {"name": "广州市第一一三中学陶育实验学校", "stage": "九年一贯", "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html", "verified": "2026-09-14", "poi_match": "精确命中", "poi_name": "广州市第一一三中学陶育实验学校(暨南校区)", "school_id": "gz-440106-7c81ab92"}
+        {
+          "name": "广州市第一一三中学",
+          "stage": "完中",
+          "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
+          "verified": "2026-09-14"
+        },
+        {
+          "name": "广州市第一一三中学陶育实验学校",
+          "stage": "九年一贯",
+          "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html",
+          "verified": "2026-09-14"
+        }
       ],
       "source_urls": [
         "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",

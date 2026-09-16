@@ -28,10 +28,39 @@ district_files = {
     "番禺": "data/registry/_partial_panyu_groups.json",
 }
 all_groups = []
+anchors = load_json("scripts/groups_anchors.json") if os.path.exists(os.path.join(BASE, "scripts/groups_anchors.json")) else {"members": {}, "core_poi": {}}
+member_anchors = anchors.get("members", {})
+core_anchors = anchors.get("core_poi", {})
 for dist, fpath in district_files.items():
     d = load_json(fpath)
     for g in d.get("groups", []):
         g.setdefault("district", dist)
+        # core_poi 回填：核心校 POI 锚定来自下游锚点表（partial 保持纯采集底稿）
+        if g["brand"] in core_anchors:
+            g["core_poi"] = [
+                {"name": cp.get("poi_name") or (g.get("core") or [""])[0], "poi_match": "已锚定",
+                 "poi_name": cp.get("poi_name"), "school_id": cp.get("school_id")}
+                for cp in core_anchors[g["brand"]]
+            ]
+        # 成员锚定：锚点表命中（可多校区）→ 已锚定；未命中 → 留空走匹配器
+        for m in g.get("members", []):
+            a = member_anchors.get(m["name"])
+            if not a or not a.get("school_ids"):
+                continue
+            ids = a["school_ids"]
+            names = a.get("poi_names") or [""] * len(ids)
+            m["poi_match"] = "已锚定"
+            if len(ids) == 1:
+                m["poi_name"] = names[0] if names else ""
+                m["school_id"] = ids[0]
+            else:
+                # 多校区：不设单一 school_id（无主校语义），全部校区放 campuses（每校区独立实体命中）
+                m["poi_name"] = ""
+                m["school_id"] = ""
+                m["campuses"] = [
+                    {"poi_name": names[i], "school_id": ids[i]}
+                    for i in range(len(ids)) if names[i]
+                ]
         all_groups.append(g)
 
 print(f"7区partial合计: {len(all_groups)}集团")
@@ -208,8 +237,8 @@ _spec.loader.exec_module(mp)
 pending = []  # (group, member)
 for g in all_groups:
     for m in g.get("members", []):
-        # 锚点 = school_id 非空（人工确认过归属）；school_id 空的一律交给匹配器（修好的匹配器会找回旧缺失）
-        if not m.get("school_id"):
+        # 锚点 = 锚点表已命中（poi_match="已锚定"，含多校区 campuses）；其余 school_id 空的一律交给匹配器
+        if not m.get("school_id") and m.get("poi_match") != "已锚定":
             pending.append((g, m))
 
 if pending:
