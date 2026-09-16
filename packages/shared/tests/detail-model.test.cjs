@@ -5,6 +5,7 @@
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -110,7 +111,10 @@ test('品牌关联：全量品牌实体对比修复前后，品牌分支新增�
   // 同时命中 education 索引（education 优先），回归 education 分支，不再计入 brand 覆盖。
   // 2026-09-16 品牌关联治理后为 66：锚点表瘦身 + entities 脚本构建（school_id 外键 35 个 + 按名匹配 31 个），
   // 品牌详情页覆盖范围经全量回归审阅（每个实体均能解析到集团且当前态非空）。
-  assert.equal(eligible.length, 66, '品牌实体覆盖范围变更，请审阅当前态回归结果');
+  // 2026-09-16 法人多校区治理后为 58：merge_groups 对 education core_poi 做法人推导补全
+  // （matchNorm(coreCampusName) 归并全部校区），华阳小学/真光等校区改由 education 索引命中
+  // （education 优先），品牌卡归属更准确（教育集团 core_poi 全校区可见）。
+  assert.equal(eligible.length, 58, '品牌实体覆盖范围变更，请审阅当前态回归结果');
   const failures = [];
   for (const entity of eligible) {
     const group = repo.groupOfSchool(entity.name, entity.school_id);
@@ -190,4 +194,42 @@ test('法人多校区：高中覆盖反查行聚合法人全部校区', () => {
   assert.ok(row, '省市属高中覆盖反查应含一一三中法人行');
   assert.equal(row.campuses.length, 4, '覆盖行应聚合法人 4 个校区');
   assert.ok(row.campuses.every((c) => c.poiName), '覆盖行各校区均可跳转');
+});
+
+test('品牌关联全量回归：法人组成员校区详情页品牌卡不得消失（快照显式更新）', () => {
+  // 判定「应有品牌卡」：实体法人 core（去括号校区+区名归一）∈ 任一组 core/成员名/brand units 名
+  // （与 scripts/merge_groups.py legal_campuses 同语义）。任何改动导致品牌模块从详情页
+  // 消失/未渲染（null 或 useful=false），本测试立即失败——快照 digest 强制显式更新。
+  const edu = load('registry/education_groups.json').groups;
+  const brand = (load('registry/brand_groups.json').groups || []);
+  const coreOf = (n) => (n || '').replace(/[（(][^）)]*[）)]/g, '').trim();
+  const nrm = (s) => s.replace(/[（(]/g, '').replace(/[）)]/g, '').replace(/广州市/g, '').replace(/\s/g, '');
+  const grpKeys = new Set();
+  for (const g of edu) {
+    for (const c of g.core || []) grpKeys.add(nrm(coreOf(c)));
+    for (const m of g.members || []) grpKeys.add(nrm(coreOf(m.name)));
+  }
+  for (const g of brand) {
+    for (const u of g.units || []) grpKeys.add(nrm(coreOf(u.name)));
+  }
+  const miss = [];
+  const shown = [];
+  for (const e of repo.entities) {
+    if (!grpKeys.has(nrm(coreOf(e.name)))) continue;
+    const m = buildDetailModel(e.stage, e.name, repo, e.school_id);
+    shown.push(`${e.school_id}|${m.brandCard ? m.brandCard.brand : ''}|${m.brandCardUseful}`);
+    if (!m.brandCard) { miss.push(`${e.name} 品牌卡为 null`); continue; }
+    // 组内有非当前成员行（真增量信息）时必须渲染（useful）
+    if (!m.brandCardUseful && m.brandCard.groups.some((g) => g.rows.some((r) => !r.isCurrent))) {
+      miss.push(`${e.name} 有非当前成员行但 useful=false`);
+    }
+  }
+  assert.deepEqual(miss, [], `品牌卡消失/未渲染: ${miss.join('; ')}`);
+  // 快照：渲染中的品牌卡名单 digest（brandCardUseful=true 实体）
+  const digest = crypto
+    .createHash('sha256')
+    .update(shown.filter((s) => s.endsWith('|true')).sort().join('\n'))
+    .digest('hex')
+    .slice(0, 16);
+  assert.equal(digest, '04250befcd51d237', '品牌关联全量快照漂移：有实体的品牌卡渲染状态变化，需显式确认后更新');
 });

@@ -105,6 +105,13 @@ def strip_generic(s):
     return t
 
 
+def coreCampusName(name):
+    """法人核心名：去括号校区后缀（「广州市第一一三中学(乐学校区)」→「广州市第一一三中学」；
+    无括号则返回自身）。官方升学文件/教育集团按法人单位公布，同一法人的全部校区实体
+    由「coreCampusName(实体名) 全等」聚合（backfill 法人 school_ids、merge_groups 品牌归属共用）。"""
+    return re.sub(r"[（(][^）)]*[）)]", "", name or "").strip()
+
+
 def matchNorm(name):
     """泛词保护归一（集团成员→POI 匹配专用，原 match_poi.norm）：
     状态括号剥、保留校区括号；去「广州市」前缀；区名归一；前导区名剥离（剩余纯泛词保留）；

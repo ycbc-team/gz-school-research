@@ -8,9 +8,26 @@ TODAY = "2026-09-14"
 # 统一匹配库：brandNorm=品牌/集团名容错（原本文件 norm 定义已收敛至此，不再本地重复）
 sys.path.insert(0, os.path.join(BASE, "scripts/registry"))
 from school_match import brandNorm as norm
+from school_match import coreCampusName as core_name
+from school_match import matchNorm as match_norm
 
 def load_json(path):
     return json.load(open(os.path.join(BASE, path)))
+
+# 实体表：法人推导（core 名/成员名 → 同法人全部校区实体）的权威来源
+_ENTITIES = load_json("data/registry/entities.json")["entities"]
+
+def legal_campuses(name):
+    """法人推导：同一法人的全部校区实体（按 school_id 去重）。
+    key = matchNorm(coreCampusName(名))：去括号校区 + 区名/「广州市」前缀归一，
+    使「华阳小学(华成校区)」与「广州市天河区华阳小学(天润校区)」归并到「华阳小学」法人。
+    供 core_poi 补全与成员多校区匹配（成员名「华阳小学」→ 全部校区）。"""
+    key = match_norm(core_name(name))
+    seen = {}
+    for e in _ENTITIES:
+        if match_norm(core_name(e["name"])) == key:
+            seen.setdefault(e["school_id"], e["name"])
+    return [{"poi_name": n, "school_id": sid} for sid, n in seen.items()]
 
 # 1. 加载7区partial
 partials = {}
@@ -31,13 +48,26 @@ for dist, fpath in district_files.items():
     d = load_json(fpath)
     for g in d.get("groups", []):
         g.setdefault("district", dist)
-        # core_poi 回填：核心校 POI 锚定来自下游锚点表（partial 保持纯采集底稿）
+        # core_poi 回填：核心校 POI 锚定来自下游锚点表（partial 保持纯采集底稿）；
+        # 再按法人推导补齐锚点未覆盖的校区（如真光 core 只锚岭南 → 自动补本部/广钢等全部校区），
+        # 保证任一校区详情页都能经 school_id 外键命中所属集团（不依赖运行时按名匹配）
         if g["brand"] in core_anchors:
-            g["core_poi"] = [
+            anchored = [
                 {"name": cp.get("poi_name") or (g.get("core") or [""])[0], "poi_match": "已锚定",
                  "poi_name": cp.get("poi_name"), "school_id": cp.get("school_id")}
                 for cp in core_anchors[g["brand"]]
             ]
+        else:
+            anchored = []
+        have = {cp.get("school_id") for cp in anchored if cp.get("school_id")}
+        derived = []
+        for core in g.get("core") or []:
+            for cp in legal_campuses(core):
+                if cp["school_id"] not in have:
+                    derived.append({"name": cp["poi_name"], "poi_match": "法人推导",
+                                    "poi_name": cp["poi_name"], "school_id": cp["school_id"]})
+        if anchored or derived:
+            g["core_poi"] = anchored + derived
         all_groups.append(g)
 
 def apply_member_anchors(g):
@@ -240,14 +270,39 @@ _matcher = SchoolMatcher.load(
 pending = []  # (group, member)
 for g in all_groups:
     for m in g.get("members", []):
-        # 锚点 = 锚点表已命中（poi_match="已锚定"，含多校区 campuses）；其余 school_id 空的一律交给匹配器
-        if not m.get("school_id") and m.get("poi_match") != "已锚定":
+        # 锚点 = 锚点表已命中（poi_match="已锚定"，含多校区 campuses）；
+        # 其余 school_id 空的一律交给匹配器；「变体命中」也重新比对（法人推导可能修正误配，
+        # 如「华阳小学」此前变体命中到高塘石小学；法人推导未命中时保留原值不扰动）
+        if (not m.get("school_id") and m.get("poi_match") != "已锚定") or m.get("poi_match") == "变体命中":
             pending.append((g, m))
 
 if pending:
     matched = 0
     for g, m in pending:
         mname = m.get("poi_match_name", m["name"])
+        had_school_id = m.get("school_id") or ""
+        was_variant = m.get("poi_match") == "变体命中"
+        # 法人推导优先：成员名 → 同法人全部校区实体（如「华阳小学」→ 华成/天河东/林和东/天润），
+        # 避免无本部实体时落进包含匹配误挂其它学校（此前「华阳小学」→ 高塘石小学）
+        legal = legal_campuses(mname)
+        if legal:
+            if len(legal) == 1:
+                m["poi_match"] = "法人推导"
+                m["poi_name"] = legal[0]["poi_name"]
+                m["school_id"] = legal[0]["school_id"]
+            else:
+                # 多校区：不设单一 school_id（无主校语义），全部校区放 campuses（每校区独立实体命中）
+                m["poi_match"] = "法人推导"
+                m["poi_name"] = ""
+                m["school_id"] = ""
+                m["campuses"] = [{"poi_name": c["poi_name"], "school_id": c["school_id"]} for c in legal]
+            matched += 1
+            if "poi_match_name" in m:
+                del m["poi_match_name"]
+            continue
+        if was_variant and had_school_id:
+            # 变体命中但法人推导未命中：保留原值，不扰动既有匹配
+            continue
         # 成员级区名解析：成员名含区名（如「广州市增城区新塘镇第三中学」）时用成员区名覆盖集团区，
         # 避免"集团在越秀、成员在增城"时把成员匹配到集团所在区的同名校
         adc = ADCODE_OF.get(g.get("district", ""))
