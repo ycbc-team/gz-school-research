@@ -24,7 +24,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 首次固化 2026-09-16：primary 256 + middle 166 + high 2（详见 outputs/orphan_schools_20260916.md）
 # 2026-09-16 更新：小学缺口修复 9 所（荔湾文昌小学、越秀八一/知用/七中实验、白云新和/云湖/棠景、
 #   黄埔华中师范、番禺沙北）→ 孤儿 221→212，消除 9、新增 0（纯正向）
-ORPHAN_SNAPSHOT = "be853d0bec84b7f8"
+# 2026-09-16 更新：初中缺口修复 4 所（白云六十五中桃园/明德、培英科技城、培英实验云景；
+#   另新增匹配奥中智谷/华工初中部/暨大初中部/六中珠江万胜围但升学仍缺，仍属孤儿）→ middle 165→161，新增 0
+# 2026-09-16 更新：孤儿判定补记 school_ids（铁英东/西、明德+同德共担计划）→ 374，新增 0（纯正向）
+ORPHAN_SNAPSHOT = "8a198a1e5dc7b3b0"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
@@ -299,6 +302,7 @@ def main():
     for _f in glob.glob(os.path.join(ROOT, "data/primary/enrollments/middle_enrollment_2026_*.json")):
         for _r in json.load(open(_f)).get("records", []):
             if _r.get("school_id"): _mid_enroll_ids.add(_r["school_id"])
+            for _s in _r.get("school_ids") or []: _mid_enroll_ids.add(_s)
     _xs_ids = {r.get("school_id") for r in json.load(open(os.path.join(ROOT, "data/primary/xiaoshengchu_2026.json"))).get("records", []) if r.get("school_id")}
     _rm_ids = {s.get("school_id") for s in json.load(open(os.path.join(ROOT, "data/linkage/ranking_middle.json"))).get("schools", []) if s.get("school_id")}
     _qm_names = {s.get("school") for s in json.load(open(os.path.join(ROOT, "data/linkage/quota_matrix.json"))).get("schools", []) if s.get("school")}

@@ -32,10 +32,30 @@ _MATCHER = _SchoolMatcher.load(
 
 def match_school_id(name, adcode=None):
     """官方名单校名 → POI school_id；未命中返回 None。统一走 school_match 管道（实体表别名优先）。
-    adcode=本区 adcode：优先命中本区 POI，避免跨区同名校（如铁英学校/广大附中）被错配到异区校区。"""
-    if not name: return None
+    adcode=本区 adcode：优先命中本区 POI，避免跨区同名校（如铁英学校/广大附中）被错配到异区校区。
+    历史修正锚定优先：官方裸名/历史人工 id 固化在 MIDDLE_ANCHORS（重跑不漂移；None=显式宁缺）。"""
+    if not name:
+        return None
+    if name in MIDDLE_ANCHORS:
+        return MIDDLE_ANCHORS[name]
     r = _MATCHER.resolve(name, preferred_adcode=adcode, preferred_stage="初中")
     return r.get("school_id") or None
+
+
+# 历史修正/官方裸名 → 法人主校区锚定（resolve 宁缺、跨区吸附或漂移时固化；None=显式宁缺）。
+# 来源：HEAD 初中计划 json 的历史人工/旧匹配器 id（用户纪律：历史修正固化进脚本，不可被覆盖成错误结果）
+MIDDLE_ANCHORS = {
+    "广州市第七中学": "gz-440104-74121d17",        # 越秀本部初中部（resolve 曾跨区吸附白云桂花校区 82856abf）
+    "广东实验中学": "gz-440104-7c4a905f",          # 越秀校区（越秀区计划裸名）
+    "广州市新滘中学": "gz-440105-003f2037",        # 贵荣校区（历史）
+    "广州知识城中学": "gz-440112-3f877ace",        # 北校区（历史）
+    "广州中学": "gz-440106-867e6c05",              # 五山校区（历史）
+    "广州市第七十五中学": "gz-440106-5a7fbf3a",    # 燕塘西校区（历史）
+    "广州市天河中学": "gz-440106-2f8a4424",        # 天河东路校区（历史）
+    "广州市第一一三中学": "gz-440106-2e9f6f7b",    # 乐学校区（历史；resolve 曾漂至金融城校区）
+    "广州市三元里中学": None,                      # POI 无独立实体，resolve 吸附大学校区 → 宁缺
+    "广东第二师范学院广州南站附属学校": None,       # resolve 命中小学（跨学段）→ 宁缺
+}
 
 # 区级枚举定义：UI 直接用 label / lose_text
 MECHANISMS = {
@@ -120,8 +140,14 @@ def build_baiyun():
         else:
             mech = "single_zone"
         sid = match_school_id(school, "440111")
+        sids = None
+        # 明德校区+同德校区合并招生（官方同一条记录）：school_id 置 None，school_ids 列出两校区共担
+        if school == "广州市第六十五中学（明德校区、同德校区）":
+            sid = None
+            sids = ["gz-440111-c8461d5d", "gz-440111-c7b90869"]
         recs.append({
             "school": school, "school_id": sid,
+            **({"school_ids": sids} if sids else {}),
             "plan_classes": plan_n, "scope": feed or None,
             "mechanism": mech, "mechanism_note": note or None,
             "group_members": None,

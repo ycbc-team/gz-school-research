@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>初中缺口修复报告 2026-09-16</title>
+<style>
+  :root { --ink:#1a2233; --sub:#5b6472; --line:#e3e7ee; --bg:#f7f9fc; --ok:#0e7a4d; --warn:#b45309; --bad:#b91c1c; --blue:#1d4ed8; --chip:#eef2f9; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--bg); line-height:1.6; padding:32px 20px; }
+  .wrap { max-width:1080px; margin:0 auto; }
+  h1 { font-size:24px; margin-bottom:4px; }
+  .meta { color:var(--sub); font-size:13px; margin-bottom:20px; }
+  .lead { background:#fff; border:1px solid var(--line); border-left:4px solid var(--blue); border-radius:8px; padding:14px 18px; font-size:15px; margin-bottom:24px; }
+  h2 { font-size:17px; margin:28px 0 12px; padding-left:10px; border-left:4px solid var(--blue); }
+  .cards { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:8px; }
+  .card { flex:1 1 200px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+  .card .num { font-size:26px; font-weight:700; }
+  .card .lbl { font-size:12px; color:var(--sub); }
+  .card.ok .num { color:var(--ok); } .card.warn .num { color:var(--warn); } .card.bad .num { color:var(--bad); }
+  table { width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); border-radius:8px; overflow:hidden; font-size:13px; }
+  th, td { padding:8px 10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+  th { background:#f1f5fb; font-weight:600; white-space:nowrap; }
+  tr:last-child td { border-bottom:none; }
+  .tag { display:inline-block; padding:1px 8px; border-radius:10px; font-size:12px; white-space:nowrap; }
+  .t-ok { background:#e6f6ee; color:var(--ok); } .t-fix { background:#fef3e2; color:var(--warn); } .t-none { background:#fdecec; color:var(--bad); }
+  .t-info { background:var(--chip); color:var(--sub); }
+  code { background:#eef1f6; padding:1px 5px; border-radius:4px; font-size:12px; font-family:ui-monospace,Menlo,monospace; }
+  .flow { display:flex; align-items:stretch; gap:0; background:#fff; border:1px solid var(--line); border-radius:10px; padding:18px; flex-wrap:wrap; }
+  .fstep { flex:1 1 220px; padding:10px 14px; }
+  .fstep .ft { font-weight:700; font-size:14px; }
+  .fstep .fd { font-size:12px; color:var(--sub); margin-top:4px; }
+  .farrow { display:flex; align-items:center; color:var(--sub); font-size:20px; padding:0 6px; }
+  .note { font-size:12px; color:var(--sub); margin-top:6px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:720px){ .grid2 { grid-template-columns:1fr; } .farrow { display:none; } }
+  .box { background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+  .box h3 { font-size:14px; margin-bottom:8px; }
+  ul { margin:6px 0 6px 18px; } li { margin-bottom:4px; font-size:13px; }
+  .okb { color:var(--ok); font-weight:600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>初中缺口修复报告</h1>
+  <div class="meta">2026-09-16 · scripts/primary/build_middle_enrollment.py + MIDDLE_ANCHORS · 数据口径：7 区公办初中招生计划</div>
+
+  <div class="lead">
+    <b>核心结论</b>：初中官方计划 <code>unmatched</code> 数组全 0 是假象——真缺口藏在 records 里 <code>school_id=None</code>（14 条）。
+    本次在构建脚本层修复：<b>新增匹配 8 所 + 合并共担 1 条 + 历史固化 8 所（防重跑漂移/跨区错配）+ 宁缺 5 所</b>。
+    middle 孤儿 <b>165 → 160</b>，新增 0（纯正向）。验证：44 node 测试 + 3485 项数据质量 + 产物一致性全绿。
+  </div>
+
+  <div class="cards">
+    <div class="card warn"><div class="num">14</div><div class="lbl">修复前 school_id=None（真缺口）</div></div>
+    <div class="card ok"><div class="num">8</div><div class="lbl">新增匹配（resolve 修复后命中）</div></div>
+    <div class="card ok"><div class="num">8</div><div class="lbl">历史固化（防漂移/防跨区吸附）</div></div>
+    <div class="card bad"><div class="num">5</div><div class="lbl">宁缺（宁可缺失、不跨区/跨学段错配）</div></div>
+    <div class="card ok"><div class="num">160</div><div class="lbl">修复后 middle 孤儿（165→160，新增 0）</div></div>
+  </div>
+
+  <h2>一、修复漏斗</h2>
+  <div class="flow">
+    <div class="fstep"><div class="ft">① 计划 records 14 条 None</div><div class="fd">unmatched=0 是假象：records 内 school_id=None 才是真缺口（白云 6 / 海珠 1 / 黄埔 1 / 番禺 3 / 天河 3）</div></div>
+    <div class="farrow">→</div>
+    <div class="fstep"><div class="ft">② 统一匹配库逐一 resolve</div><div class="fd">12/14 手动可命中；发现脏命中 2（三元里→大学校区、二师南站→小学）+ 真缺失 2（云翔、CPPQ）</div></div>
+    <div class="farrow">→</div>
+    <div class="fstep"><div class="ft">③ 全区重跑出现 6 处回退</div><div class="fd">广州中学/七十五中/天河中学/省实/新滘/知识城 resolve 回「7区内真实缺失」（POI 只有带括号校区名，无裸名）</div></div>
+    <div class="farrow">→</div>
+    <div class="fstep"><div class="ft">④ 脚本层修复（本次）</div><div class="fd">MIDDLE_ANCHORS 固化历史 id（防漂移/防跨区吸附）+ 防脏命中宁缺 + 合并招生 school_ids 共担</div></div>
+  </div>
+
+  <h2>二、修复明细</h2>
+  <table>
+    <tr><th style="width:110px">类别</th><th>学校（计划名）</th><th>school_id / school_ids</th><th>说明</th></tr>
+    <tr>
+      <td><span class="tag t-ok">新增匹配</span></td>
+      <td>广州市第六十五中学（桃园校区）</td><td><code>gz-440111-4cf10429</code></td>
+      <td>白云；resolve 命中六十五中桃园校区</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-ok">新增匹配</span></td>
+      <td>广州市培英中学（科技城校区）</td><td><code>gz-440111-e128c24f</code></td>
+      <td>白云；命中培英科技城校区</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-ok">新增匹配</span></td>
+      <td>广州市白云区培英实验学校（云景校区）</td><td><code>gz-440111-2d42f392</code></td>
+      <td>白云；命中培英实验云景初中部</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-ok">新增匹配</span></td>
+      <td>广州市海珠区六中珠江中学（万胜围校区）</td><td><code>gz-440105-e58a8300</code></td>
+      <td>海珠；命中六中珠江万胜围</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-ok">新增匹配</span></td>
+      <td>广州奥林匹克中学（含智谷校区）</td><td><code>gz-440106-fa9338a2</code></td>
+      <td>天河；命中奥中智谷校区</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-ok">新增匹配</span></td>
+      <td>华南理工大学附属实验学校（初中部）</td><td><code>gz-440106-9bed7efb</code></td>
+      <td>天河；命中华工附属中学部</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-ok">新增匹配</span></td>
+      <td>暨南大学附属实验学校（初中部）</td><td><code>gz-440106-11e15e8d</code></td>
+      <td>天河；命中暨大附属中学</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-ok">合并共担</span></td>
+      <td>广州市第六十五中学（明德校区、同德校区）</td><td><code>[gz-440111-c8461d5d, gz-440111-c7b90869]</code></td>
+      <td>白云；官方同一条记录两校区合并招生 → school_ids 共担（同铁英模式）</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-fix">历史固化</span></td>
+      <td>广州市第七中学</td><td><code>gz-440104-74121d17</code></td>
+      <td>越秀本部初中部；resolve 曾<b>跨区吸附白云桂花校区</b>（gz-440111-82856abf）</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-fix">历史固化</span></td>
+      <td>广东实验中学</td><td><code>gz-440104-7c4a905f</code></td>
+      <td>越秀校区（越秀区计划裸名，resolve 宁缺）</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-fix">历史固化</span></td>
+      <td>广州市新滘中学</td><td><code>gz-440105-003f2037</code></td>
+      <td>贵荣校区（历史 id，resolve 宁缺）</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-fix">历史固化</span></td>
+      <td>广州知识城中学</td><td><code>gz-440112-3f877ace</code></td>
+      <td>北校区（历史 id，resolve 宁缺）</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-fix">历史固化</span></td>
+      <td>广州中学</td><td><code>gz-440106-867e6c05</code></td>
+      <td>五山校区（历史 id，resolve 宁缺）</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-fix">历史固化</span></td>
+      <td>广州市第七十五中学</td><td><code>gz-440106-5a7fbf3a</code></td>
+      <td>燕塘西校区（历史 id，resolve 宁缺）</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-fix">历史固化</span></td>
+      <td>广州市天河中学</td><td><code>gz-440106-2f8a4424</code></td>
+      <td>天河东路校区（历史 id，resolve 宁缺）</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-fix">历史固化</span></td>
+      <td>广州市第一一三中学</td><td><code>gz-440106-2e9f6f7b</code></td>
+      <td>乐学校区；resolve 曾漂移至金融城校区（35cad4e6）</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-none">宁缺</span></td>
+      <td>广州市三元里中学</td><td><code>None</code></td>
+      <td>resolve 命中<b>大学脏实体</b>（广州中医药大学三元里校区）→ 拒挂，宁缺</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-none">宁缺</span></td>
+      <td>广东第二师范学院广州南站附属学校</td><td><code>None</code></td>
+      <td>resolve 命中<b>小学</b>（南站小学，跨学段）→ 拒挂，宁缺</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-none">宁缺</span></td>
+      <td>广州市白云区云翔学校</td><td><code>None</code></td>
+      <td>POI 无独立点位（真缺失）</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-none">宁缺</span></td>
+      <td>黄埔区CPPQ-A4-2地块九年制学校（暂定名）</td><td><code>None</code></td>
+      <td>在建未命名（真缺失）</td>
+    </tr>
+    <tr>
+      <td><span class="tag t-none">宁缺</span></td>
+      <td>广东仲元中学二校区（初中部）</td><td><code>None</code></td>
+      <td>POI 无独立点位（显式宁缺，同铁英设计但无校区实体可挂）</td>
+    </tr>
+  </table>
+  <div class="note">注：铁英学校（东/西校区 school_ids 共担）与仲元二校区为脚本既有设计，本次未变。</div>
+
+  <h2>三、孤儿影响（纯正向）</h2>
+  <div class="grid2">
+    <div class="box">
+      <h3>消除（有招生了）</h3>
+      <ul>
+        <li>六十五中桃园校区 / 明德校区 / 同德校区（school_ids 共担）</li>
+        <li>培英科技城校区 / 培英实验云景校区（仍无升学，属升学缺口）</li>
+        <li>六中珠江万胜围 / 奥中智谷 / 华工初中部 / 暨大初中部（其中华工、暨大全消除）</li>
+        <li>铁英东/西校区（school_ids 判定补记后消除「无招生」）</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>结构性问题（未决，需决策）</h3>
+      <ul>
+        <li><b>越秀/海珠/天河/黄埔 4 区初中计划 = 小升初反推</b>（非官方初中招生文件），覆盖不全——无招生学校多数由此而来</li>
+        <li><b>脏 POI 实体 11 所</b>（便利店/充电站/楼栋/场馆/大学/外籍校/武馆）污染孤儿名单，应在实体构建脚本过滤</li>
+        <li><b>升学缺口</b>：部分新增匹配学校仍无 ranking/quota 数据</li>
+        <li><b>民办 nature 疑似误标</b>（南外实验/斐特思/黄广/理工实验等 440100 段）</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>四、验证</h2>
+  <table>
+    <tr><th>检查</th><th>结果</th></tr>
+    <tr><td>node 全量测试（44）</td><td class="okb">全部通过</td></tr>
+    <tr><td>数据质量（3485 项）</td><td class="okb">0 失败（孤儿快照显式更新至 8a198a1e）</td></tr>
+    <tr><td>产物一致性（335 成员）</td><td class="okb">重跑产物与入库产物完全一致</td></tr>
+    <tr><td>孤儿增量</td><td class="okb">middle 165→160，新增 0（纯正向）；孤儿判定补记 school_ids（铁英/明德同德）</td></tr>
+    <tr><td>HEAD 回退</td><td class="okb">无（HEAD matched 全部保持）</td></tr>
+  </table>
+</div>
+</body>
+</html>

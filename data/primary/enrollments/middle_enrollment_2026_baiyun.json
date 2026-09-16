@@ -158,7 +158,7 @@
   },
   {
    "school": "广州市第六十五中学（桃园校区）",
-   "school_id": null,
+   "school_id": "gz-440111-4cf10429",
    "plan_classes": 8,
    "scope": "65中附属小学（地段生），桃园小学",
    "mechanism": "single_zone",
@@ -168,6 +168,10 @@
   {
    "school": "广州市第六十五中学（明德校区、同德校区）",
    "school_id": null,
+   "school_ids": [
+    "gz-440111-c8461d5d",
+    "gz-440111-c7b90869"
+   ],
    "plan_classes": 16,
    "scope": "明德校区：明德小学（本部）、同德小学、岭南花园小学（地段生）、65附小分校区（地段生）\n同德校区：明德小学富康校区",
    "mechanism": "group_paidui",
@@ -212,7 +216,7 @@
   },
   {
    "school": "广州市培英中学（科技城校区）",
-   "school_id": null,
+   "school_id": "gz-440111-e128c24f",
    "plan_classes": 8,
    "scope": "广州市白云区培英中学附属科技城小学",
    "mechanism": "single_zone",
@@ -275,7 +279,7 @@
   },
   {
    "school": "广州市白云区培英实验学校（云景校区）",
-   "school_id": null,
+   "school_id": "gz-440111-2d42f392",
    "plan_classes": 8,
    "scope": "云英实验学校（小学部）",
    "mechanism": "single_zone",
