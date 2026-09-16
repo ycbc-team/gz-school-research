@@ -14,13 +14,15 @@ import type { HighLevelSchool, SchoolPoi } from '../../types.js';
 export type HighRankingGroupBy = 'none' | 'category' | 'district';
 /** 录取线排序口径。average 会聚合当前及后续接入的所有年份分数。 */
 export type HighRankingSortBy = 'score2025' | 'score2026' | 'average';
+/** 高中明细筛选项：四类互斥招生学校类型，便于 UI 多选。 */
+export type HighRankingFilterKey = 'province-municipal-demo' | 'normal-public' | 'private' | `district-demo:${string}`;
 
 export interface HighRankingBuildOptions {
   groupBy: HighRankingGroupBy;
   /** 空数组代表不显示任何区；未传代表七区全选。 */
   districtAdcodes?: readonly string[];
-  /** 隶属筛选值（如省属、市属、荔湾区属）；未传代表不限制。 */
-  affiliations?: readonly string[];
+  /** 筛选学校类型；未传代表不限制。 */
+  filters?: readonly HighRankingFilterKey[];
   sortBy?: HighRankingSortBy;
 }
 
@@ -145,11 +147,11 @@ export function buildHighRankingGroups(
   const options: HighRankingBuildOptions = typeof input === 'string' ? { groupBy: input } : input;
   const { groupBy, sortBy = 'score2026' } = options;
   const districts = options.districtAdcodes ? new Set(options.districtAdcodes) : null;
-  const affiliations = options.affiliations ? new Set(options.affiliations) : null;
+  const filters = options.filters ? new Set(options.filters) : null;
   const groups = new Map<string, HighRankingRow[]>();
   for (const row of buildHighRankingRows(loaders)) {
     if (districts && !districts.has(row.adcode)) continue;
-    if (affiliations && (!row.affiliation || !affiliations.has(row.affiliation))) continue;
+    if (filters && ![...filters].some((filter) => matchesFilter(row, filter))) continue;
     const key = groupBy === 'none' ? 'all' : groupBy === 'district' ? row.district : categoryGroupKey(row.category);
     const list = groups.get(key) || [];
     list.push(row);
@@ -178,4 +180,11 @@ export function buildHighRankingGroups(
       return bv - av || a.name.localeCompare(b.name, 'zh');
     }),
   }));
+}
+
+function matchesFilter(row: HighRankingRow, filter: HighRankingFilterKey): boolean {
+  if (filter === 'province-municipal-demo') return row.category === '省市属示范' && (row.affiliation === '省属' || row.affiliation === '市属');
+  if (filter === 'normal-public') return row.category === '普通高中' && !row.minban;
+  if (filter === 'private') return row.minban;
+  return row.category === '区属示范' && row.affiliation === filter.slice('district-demo:'.length);
 }

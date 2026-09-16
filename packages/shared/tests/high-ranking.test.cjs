@@ -43,16 +43,16 @@ test('高中明细 VM：支持不分组、七区位置筛选与多年份排序',
   }
 });
 
-test('高中明细 VM：支持按省市属和区属筛选，空选择不返回学校', () => {
+test('高中明细 VM：支持按招生学校分类筛选，普通公办高中独立于民办和区属示范', () => {
   const provincialMunicipal = buildHighRankingGroups(loaders, {
-    groupBy: 'none', affiliations: ['省属', '市属'],
+    groupBy: 'none', filters: ['province-municipal-demo'],
   });
   assert.ok(provincialMunicipal[0].items.length > 0);
   assert.ok(provincialMunicipal[0].items.every((row) => ['省属', '市属'].includes(row.affiliation)));
 
-  const liwan = buildHighRankingGroups(loaders, { groupBy: 'none', affiliations: ['荔湾区属'] });
-  assert.ok(liwan[0].items.every((row) => row.affiliation === '荔湾区属'));
-  assert.deepEqual(buildHighRankingGroups(loaders, { groupBy: 'none', affiliations: [] }), []);
+  const ordinary = buildHighRankingGroups(loaders, { groupBy: 'none', filters: ['normal-public'] });
+  assert.ok(ordinary[0].items.every((row) => row.category === '普通高中' && !row.minban));
+  assert.deepEqual(buildHighRankingGroups(loaders, { groupBy: 'none', filters: [] }), []);
 });
 
 test('高中明细 VM：只展示第三批户籍生，且绝不聚合同校其它校区', () => {

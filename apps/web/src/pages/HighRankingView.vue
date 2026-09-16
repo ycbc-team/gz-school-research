@@ -1,40 +1,37 @@
 <script setup lang="ts">
 /** UI only: 高中明细的行、分组、录取线口径与排序均由 @gz/shared ViewModel 提供。 */
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
-import { DISTRICTS, buildHighRankingGroups, type HighRankingGroupBy, type HighRankingSortBy } from '@gz/shared';
+import { DISTRICTS, buildHighRankingGroups, type HighRankingFilterKey, type HighRankingGroupBy, type HighRankingSortBy } from '@gz/shared';
 import { entities, highLevels, highSchools, highScores2025, highScores2026 } from '../data';
 
-const openMenu = ref<'group' | 'affiliation' | 'district' | 'sort' | null>(null);
+const openMenu = ref<'group' | 'filter' | 'district' | 'sort' | null>(null);
 const groupBy = ref<HighRankingGroupBy>('none');
 const selectedDistricts = ref(new Set(DISTRICTS.map((district) => district.adcode)));
-const AFFILIATION_OPTIONS = [
-  { label: '省市属', values: ['省属', '市属'] },
-  ...DISTRICTS.map((district) => ({ label: `${district.name}属`, values: [`${district.name}属`] })),
-  { label: '民办', values: ['民办'] },
+const SCHOOL_FILTERS: Array<{ label: string; key: HighRankingFilterKey }> = [
+  { label: '省市属示范', key: 'province-municipal-demo' },
+  ...DISTRICTS.map((district) => ({ label: `${district.name}属示范`, key: `district-demo:${district.name}属` as HighRankingFilterKey })),
+  { label: '普通公办高中', key: 'normal-public' },
+  { label: '民办高中', key: 'private' },
 ];
-const ALL_AFFILIATIONS = AFFILIATION_OPTIONS.flatMap((option) => option.values);
-/** null 表示不限制，确保“全选”也包含未标注隶属的点位。 */
-const selectedAffiliations = ref<Set<string> | null>(null);
+/** null 表示不限制；全选时包含分类尚未标注的点位。 */
+const selectedFilters = ref<Set<HighRankingFilterKey> | null>(null);
 const sortBy = ref<HighRankingSortBy>('score2026');
 const groups = computed(() => buildHighRankingGroups(
   { highSchools, highLevels, highScores2025, highScores2026, entities },
-  { groupBy: groupBy.value, districtAdcodes: [...selectedDistricts.value], affiliations: selectedAffiliations.value ? [...selectedAffiliations.value] : undefined, sortBy: sortBy.value },
+  { groupBy: groupBy.value, districtAdcodes: [...selectedDistricts.value], filters: selectedFilters.value ? [...selectedFilters.value] : undefined, sortBy: sortBy.value },
 ));
 const groupLabel = computed(() => ({ none: '不分组', category: '省市区属', district: '行政区位置' })[groupBy.value]);
 const sortLabel = computed(() => ({ score2025: '2025 分', score2026: '2026 分', average: '历年平均分' })[sortBy.value]);
 const districtAllOn = computed(() => selectedDistricts.value.size === DISTRICTS.length);
-const affiliationAllOn = computed(() => selectedAffiliations.value === null);
-function affiliationOn(values: string[]) {
-  return affiliationAllOn.value || values.every((value) => selectedAffiliations.value!.has(value));
+const filterAllOn = computed(() => selectedFilters.value === null);
+function filterOn(key: HighRankingFilterKey) { return filterAllOn.value || selectedFilters.value!.has(key); }
+function toggleFilter(key: HighRankingFilterKey) {
+  const next = new Set(selectedFilters.value || SCHOOL_FILTERS.map((filter) => filter.key));
+  next.has(key) ? next.delete(key) : next.add(key);
+  selectedFilters.value = next;
 }
-function toggleAffiliation(values: string[]) {
-  const next = new Set(selectedAffiliations.value || ALL_AFFILIATIONS);
-  const enabled = values.every((value) => next.has(value));
-  values.forEach((value) => enabled ? next.delete(value) : next.add(value));
-  selectedAffiliations.value = next;
-}
-function selectAllAffiliations() { selectedAffiliations.value = null; }
-function selectNoAffiliations() { selectedAffiliations.value = new Set(); }
+function selectAllFilters() { selectedFilters.value = null; }
+function selectNoFilters() { selectedFilters.value = new Set(); }
 function toggleDistrict(adcode: string) {
   const next = new Set(selectedDistricts.value);
   next.has(adcode) ? next.delete(adcode) : next.add(adcode);
@@ -88,7 +85,7 @@ function shortName(name: string): string {
 
     <div class="filter-bar" aria-label="高中明细筛选器">
       <div class="fb-col"><button class="fb-btn" :class="{ on: openMenu === 'group' }" @click="openMenu = openMenu === 'group' ? null : 'group'">分组<em class="fb-badge">{{ groupLabel }}</em><span class="arr">▾</span></button></div>
-      <div class="fb-col"><button class="fb-btn" :class="{ on: openMenu === 'affiliation' }" @click="openMenu = openMenu === 'affiliation' ? null : 'affiliation'">隶属<em v-if="!affiliationAllOn" class="fb-badge">{{ selectedAffiliations?.size }}</em><span class="arr">▾</span></button></div>
+      <div class="fb-col"><button class="fb-btn" :class="{ on: openMenu === 'filter' }" @click="openMenu = openMenu === 'filter' ? null : 'filter'">筛选<em v-if="!filterAllOn" class="fb-badge">{{ selectedFilters?.size }}</em><span class="arr">▾</span></button></div>
       <div class="fb-col"><button class="fb-btn" :class="{ on: openMenu === 'district' }" @click="openMenu = openMenu === 'district' ? null : 'district'">位置<em v-if="!districtAllOn" class="fb-badge">{{ selectedDistricts.size }}</em><span class="arr">▾</span></button></div>
       <div class="fb-col"><button class="fb-btn" :class="{ on: openMenu === 'sort' }" @click="openMenu = openMenu === 'sort' ? null : 'sort'">排序<em class="fb-badge">{{ sortLabel }}</em><span class="arr">▾</span></button></div>
 
@@ -97,9 +94,9 @@ function shortName(name: string): string {
         <button class="pop-chip" :class="{ on: groupBy === 'category' }" @click="groupBy = 'category'">按省市区属</button>
         <button class="pop-chip" :class="{ on: groupBy === 'district' }" @click="groupBy = 'district'">按行政区位置</button>
       </div><div class="pop-foot"><button class="pop-link" @click="openMenu = null">完成</button></div></div>
-      <div v-if="openMenu === 'affiliation'" class="fb-pop"><div class="pop-chips">
-        <button v-for="option in AFFILIATION_OPTIONS" :key="option.label" class="pop-chip" :class="{ on: affiliationOn(option.values) }" @click="toggleAffiliation(option.values)">{{ option.label }}</button>
-      </div><div class="pop-foot"><button class="pop-link" @click="selectAllAffiliations">全选</button><button class="pop-link" @click="selectNoAffiliations">全不选</button><button class="pop-link" @click="openMenu = null">完成</button></div></div>
+      <div v-if="openMenu === 'filter'" class="fb-pop"><div class="pop-chips">
+        <button v-for="option in SCHOOL_FILTERS" :key="option.key" class="pop-chip" :class="{ on: filterOn(option.key) }" @click="toggleFilter(option.key)">{{ option.label }}</button>
+      </div><div class="pop-foot"><button class="pop-link" @click="selectAllFilters">全选</button><button class="pop-link" @click="selectNoFilters">全不选</button><button class="pop-link" @click="openMenu = null">完成</button></div></div>
       <div v-if="openMenu === 'district'" class="fb-pop"><div class="pop-chips">
         <button v-for="district in DISTRICTS" :key="district.adcode" class="pop-chip" :class="{ on: selectedDistricts.has(district.adcode) }" @click="toggleDistrict(district.adcode)">{{ district.name }}</button>
       </div><div class="pop-foot"><button class="pop-link" @click="flipDistricts">{{ districtAllOn ? '取消全选' : '全选' }}</button><button class="pop-link" @click="openMenu = null">完成</button></div></div>
