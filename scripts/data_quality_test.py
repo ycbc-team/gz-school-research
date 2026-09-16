@@ -93,8 +93,18 @@ def main():
     for g in groups:
         check(bool(g.get("source_urls")), f"[4] 集团无来源: {g['brand']}")
 
-    # ---- 5. 成员数 > 0（已知例外：黄埔3集团官方名册未发布，见P3报告） ----
-    KNOWN_EMPTY = {"广州市黄埔区怡园教育集团", "广州开发区外国语学校教育集团", "广州开发区中学教育集团"}
+    # ---- 5. 成员数 > 0（已知例外：官方文件/品牌组只列核心校自身 → 核心校成员去重后成员为空，
+    # 校区由 core_poi 承载，属正常）----
+    KNOWN_EMPTY = {
+        # 官方名册未发布（见 P3 报告）
+        "广州市黄埔区怡园教育集团", "广州开发区外国语学校教育集团", "广州开发区中学教育集团",
+        # 区文件成员名单仅核心校自身（merge_groups 核心校成员去重后为空，校区在 core_poi）
+        "广东实验中学荔湾学校教育集团", "广州市荔湾区沙面小学教育集团", "广州市荔湾区西关培正小学教育集团",
+        "广州开发区第二小学教育集团", "京溪小学教育集团", "市桥桥城中学教育集团",
+        "市桥实验小学教育集团", "沙头中心小学教育集团",
+        # 品牌组仅核心校（清华附中 3 校区），无独立成员校
+        "清华附中湾区学校教育集团",
+    }
     for g in groups:
         if len(g.get("members", [])) > 0:
             continue
@@ -211,11 +221,11 @@ def main():
         check((r.get("school_id") or None) == expect,
               f"[9] 关键案例失配: {name} -> {r.get('school_id')}（应为 {expect}）")
 
-    # ---- 10. education_groups 跨法人挂载校验：core_poi/成员 campuses 的 school_id 对应实体
-    # 必须属该组法人（组 core/成员名的 matchNorm 归一 ∈ 组内集合），防「跨区同名法人误并」
-    # （如海珠/黄埔/番禺实验小学曾归一成「实验小学」互相挂载；法人跨区校区如七中桂花校区
-    # 属七中法人 → 通过；跨区成员如十六中集团纳增城派潭中学 → 成员行放行，不校验 core_poi 区划）。
-    # 组 core/成员实体的 aliases（法人通称，如东山培正小学 alias「培正小学」）同样视为组法人集合。
+    # ---- 10. education_groups 跨区同名撞车校验：core_poi 实体的法人 key（matchNorm(coreCampusName)
+    # 含 aliases 通称）若与组 core/成员法人 key 相同、但存在不同行政区实体 → 报错。
+    # 拦截「matchNorm 撞车」型跨法人误并（如海珠/黄埔/番禺实验小学曾归一成「实验小学」互相挂载）。
+    # 法人 key 不在组内 → 放行：无括号校区/学部后缀（沙面小学悦江校区）、通称差异（桥城中学）
+    # 等合法挂载不受影响；法人跨区校区（七中桂花校区属七中法人）key 命中即通过。
     from school_match import coreCampusName, matchNorm
     ent_by_id = {}
     _ent_by_norm = {}
@@ -238,10 +248,25 @@ def main():
         _legal.add(matchNorm(coreCampusName(_g.get("brand", "").replace("教育集团", ""))))
         for _cp in _g.get("core_poi") or []:
             _sid = _cp.get("school_id")
+            _ad = _sid.split("-")[1] if _sid else ""
             for _e in ent_by_id.get(_sid, []):
                 _en = matchNorm(coreCampusName(_e.get("name", "")))
-                check(_en in _legal,
-                      f"[10] 跨法人挂载: {_g['brand']} core_poi {_cp.get('poi_name')} ({_sid}) → 实体 {_e.get('name')} 法人 [{_en}] 非组法人 {sorted(_legal)}")
+                _hit = _en in _legal or any(matchNorm(coreCampusName(_a)) in _legal
+                                            for _a in (_e.get("aliases") or []))
+                if not _hit:
+                    continue  # 合法差异挂载（无括号校区/学部后缀、通称），不拦截
+                # 同 key 命中但存在「法人名不同且跨行政区」实体 → 跨区同名撞车
+                # （matchNorm 撞车型误并：海珠/黄埔/番禺实验小学曾归一成「实验小学」；
+                # 同一法人的跨区校区如铁一越秀/白云/番禺、七中桂花校区 → 法人名相同，不撞车）
+                _my_legal = coreCampusName(_e.get("name", ""))
+                _cross = [x for x in _ent_by_norm.get(_en, [])
+                          if x["school_id"].split("-")[1] != _ad
+                          and coreCampusName(x.get("name", "")) != _my_legal]
+                if _cross:
+                    check(False,
+                          f"[10] 跨区同名撞车: {_g['brand']} core_poi {_cp.get('poi_name')} ({_sid}) "
+                          f"法人 [{_en}] 与其他行政区不同法人撞车: "
+                          f"{[(x['name'], x['school_id']) for x in _cross]}")
 
     # ---- 汇总 ----
     print(f"数据质量测试: {checks} 项检查, {len(failures)} 项失败")

@@ -21,11 +21,15 @@ def legal_campuses(name):
     """法人推导：同一法人的全部校区实体（按 school_id 去重）。
     key = matchNorm(coreCampusName(名))：去括号校区 + 区名/「广州市」前缀归一，
     使「华阳小学(华成校区)」与「广州市天河区华阳小学(天润校区)」归并到「华阳小学」法人。
+    匹配实体 name 及其 aliases（法人通称/官方名，如「桥城中学」alias「市桥桥城中学」、
+    「省实白云实验学校」alias「白云实验学校」→ 正确归入对应法人）。
     供 core_poi 补全与成员多校区匹配（成员名「华阳小学」→ 全部校区）。"""
     key = match_norm(core_name(name))
     seen = {}
     for e in _ENTITIES:
         if match_norm(core_name(e["name"])) == key:
+            seen.setdefault(e["school_id"], e["name"])
+        elif any(match_norm(core_name(a)) == key for a in (e.get("aliases") or [])):
             seen.setdefault(e["school_id"], e["name"])
     return [{"poi_name": n, "school_id": sid} for sid, n in seen.items()]
 
@@ -241,6 +245,14 @@ for b in dbrand.get("brands", []):
             "legal": u.get("legal",""),
             "relation": role
         })
+    # 品牌组同样法人推导 core_poi（brand 段不走 partial 的 core_poi 推导段，
+    # 校区信息此前全在成员行 campuses——核心校成员去重后须由 core_poi 承载，
+    # 且保证任一校区详情页经 school_id 外键命中所属集团）
+    brand_core_poi = [
+        {"name": cp["poi_name"], "poi_match": "法人推导",
+         "poi_name": cp["poi_name"], "school_id": cp["school_id"]}
+        for cp in legal_campuses(core_school)
+    ]
     all_groups.append({
         "brand": group_brand,
         "district": "跨区",
@@ -248,6 +260,7 @@ for b in dbrand.get("brands", []):
         "level": "省市属",
         "type": "混合学段集团",
         "members": members,
+        "core_poi": brand_core_poi,
         "source_urls": sorted(set(u.get("source_url","") for u in b.get("units",[]) if u.get("source_url"))),
         "note": b.get("brand_note","")
     })
@@ -356,6 +369,48 @@ out = {
     },
     "groups": all_groups
 }
+
+# 5. 核心校成员去重：官方文件常把核心校（含其全部校区）同时列入成员名单（同源 source_url）。
+# 展示层 core 与 member 不重复：member 法人 ∈ 组 core 法人集合 且行内校区已由 core_poi 覆盖
+# → 跳过该成员行（官方来源并入组级）；未覆盖校区补进 core_poi（同法人校区，保证品牌卡校区
+# 完整、任一校区经外键命中）后跳过；无法判定覆盖（无 school_id/campuses）的 core 同法人
+# 成员行保留（宁多勿漏）。
+core_dup_removed = 0
+for _g in all_groups:
+    _core_legals = {match_norm(core_name(_c)) for _c in _g.get("core") or []}
+    _covered = {_cp.get("school_id") for _cp in _g.get("core_poi") or [] if _cp.get("school_id")}
+    _kept = []
+    for _m in _g.get("members") or []:
+        if match_norm(core_name(_m.get("name", ""))) not in _core_legals:
+            _kept.append(_m)
+            continue
+        _m_ids = ([_m["school_id"]] if _m.get("school_id") else []) + \
+                 [_c.get("school_id") for _c in (_m.get("campuses") or []) if _c.get("school_id")]
+        if not _m_ids:
+            _kept.append(_m)  # 无法判定覆盖，保留
+            continue
+        _uncovered = [_sid for _sid in _m_ids if _sid not in _covered]
+        if _uncovered:
+            # 同法人校区未覆盖 → 补 core_poi
+            for _c in (_m.get("campuses") or []):
+                if _c.get("school_id") in _uncovered:
+                    _g.setdefault("core_poi", []).append(
+                        {"name": _c["poi_name"], "poi_match": "法人推导",
+                         "poi_name": _c["poi_name"], "school_id": _c["school_id"]})
+                    _covered.add(_c["school_id"])
+            if _m.get("school_id") and _m["school_id"] in _uncovered:
+                _g.setdefault("core_poi", []).append(
+                    {"name": _m.get("poi_name") or _m["name"], "poi_match": "法人推导",
+                     "poi_name": _m.get("poi_name") or _m["name"], "school_id": _m["school_id"]})
+                _covered.add(_m["school_id"])
+        # 官方来源并入组级（成员行删除不丢官方口径）
+        for _u in (_m.get("source_url") or "").split(","):
+            _u = _u.strip()
+            if _u and _u not in _g.get("source_urls", []):
+                _g.setdefault("source_urls", []).append(_u)
+        core_dup_removed += 1
+    _g["members"] = _kept
+print(f"核心校成员去重: 移除{core_dup_removed}行 core 兼 member")
 
 OUT_PATH = sys.argv[1] if len(sys.argv) > 1 else os.path.join(BASE, "data/registry/education_groups.json")
 with open(OUT_PATH, "w") as f:
