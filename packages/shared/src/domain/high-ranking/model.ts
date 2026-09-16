@@ -143,14 +143,19 @@ export function buildHighRankingRows(loaders: Pick<DataLoaders, 'highSchools' | 
       sortScoreAverage: values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null,
     };
   });
-  // 先按现有规则尝试缩短；若任意两个校区缩写相同，则该缩写不安全，相关校名一律保留全称。
-  const candidates = new Map<string, string[]>();
+  // 只有「广东XX」和「广州XX」这两类不同学校主体缩成相同基础校名时才保留前缀。
+  // 同一学校的不同校区（如执信路/天河）已由校区后缀区分，不能因此保留“广州市”。
+  const candidates = new Map<string, Set<string>>();
   for (const row of rows) {
     const short = highRankingShortName(row.name);
     const key = highRankingShortNameKey(short);
-    candidates.set(key, [...(candidates.get(key) || []), row.name]);
+    const prefixes = candidates.get(key) || new Set<string>();
+    prefixes.add(highRankingSubjectPrefix(row.name));
+    candidates.set(key, prefixes);
   }
-  const ambiguous = new Set([...candidates].filter(([, names]) => new Set(names).size > 1).map(([key]) => key));
+  const ambiguous = new Set([...candidates]
+    .filter(([, prefixes]) => prefixes.has('广东') && prefixes.has('广州'))
+    .map(([key]) => key));
   return rows.map((row) => ({
     ...row,
     displayName: ambiguous.has(highRankingShortNameKey(highRankingShortName(row.name))) ? row.name : highRankingShortName(row.name),
@@ -168,9 +173,16 @@ function highRankingShortName(name: string): string {
   return trimmed;
 }
 
-/** 比较简称时忽略括号里的校区/学部，避免「实验中学」与「实验中学(高中部)」被误判为不同。 */
+/** 比较简称时忽略括号里的校区/学部，识别「实验中学」与「实验中学(高中部)」的基础校名。 */
 function highRankingShortNameKey(name: string): string {
   return name.replace(/（[^）]*）|\([^)]*\)/g, '').replace(/\s+/g, '').trim();
+}
+
+/** 用于识别不同学校主体；“广州市”只是行政写法，不与“广东/广州”主体混淆。 */
+function highRankingSubjectPrefix(name: string): string {
+  if (name.startsWith('广东')) return '广东';
+  if (name.startsWith('广州') && !name.startsWith('广州市')) return '广州';
+  return '';
 }
 
 export function buildHighRankingGroups(

@@ -32,6 +32,7 @@ test('高中明细 VM：全量学校的政策标签与简称均不混淆', () =>
     if (row.category === '省市属示范') assert.ok(['省属', '市属'].includes(row.affiliation), `${row.name} 应标注省属或市属`);
     else if (row.category === '区属示范') assert.match(row.affiliation || '', /^.+区属$/, `${row.name} 应标注对应区属`);
     else assert.equal(row.affiliation, null, `${row.name} 不应展示行政隶属为招生政策标签`);
+    assert.equal(row.displayName.startsWith('广州市'), false, `${row.name} 应省略“广州市”行政前缀`);
   }
   const collisions = new Map();
   for (const row of rows) collisions.set(row.displayName, [...(collisions.get(row.displayName) || []), row.name]);
