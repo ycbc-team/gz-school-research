@@ -26,6 +26,23 @@ test('高中明细 VM：仅七区、保留两年录取线，并按 2026 分数�
   }
 });
 
+test('高中明细 VM：支持不分组、七区位置筛选与多年份排序', () => {
+  const liwanOnly = buildHighRankingGroups(loaders, {
+    groupBy: 'none', districtAdcodes: ['440103'], sortBy: 'score2025',
+  });
+  assert.equal(liwanOnly.length, 1);
+  assert.equal(liwanOnly[0].title, '全部高中');
+  assert.ok(liwanOnly[0].items.every((row) => row.district === '荔湾区'));
+  const scores = liwanOnly[0].items.map((row) => row.sortScore2025).filter((value) => value != null);
+  assert.deepEqual(scores, scores.slice().sort((a, b) => b - a));
+
+  const averaged = buildHighRankingGroups(loaders, { groupBy: 'district', sortBy: 'average' });
+  for (const group of averaged) {
+    const values = group.items.map((row) => row.sortScoreAverage).filter((value) => value != null);
+    assert.deepEqual(values, values.slice().sort((a, b) => b - a));
+  }
+});
+
 test('高中明细 VM：只展示第三批户籍生，且绝不聚合同校其它校区', () => {
   const rows = buildHighRankingGroups(loaders, 'category').flatMap((group) => group.items);
   const universityTown = rows.find((row) => row.name === '广州大学附属中学(大学城校区)');

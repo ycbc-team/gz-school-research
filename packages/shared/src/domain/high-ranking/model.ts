@@ -10,7 +10,17 @@ import type { DataLoaders } from '../../data/loader.js';
 import type { HighScoreRecord } from '../../data/types.js';
 import type { HighLevelSchool, SchoolPoi } from '../../types.js';
 
-export type HighRankingGroupBy = 'category' | 'district';
+/** 不分组 / 按主管隶属 / 按点位所在区。 */
+export type HighRankingGroupBy = 'none' | 'category' | 'district';
+/** 录取线排序口径。average 会聚合当前及后续接入的所有年份分数。 */
+export type HighRankingSortBy = 'score2025' | 'score2026' | 'average';
+
+export interface HighRankingBuildOptions {
+  groupBy: HighRankingGroupBy;
+  /** 空数组代表不显示任何区；未传代表七区全选。 */
+  districtAdcodes?: readonly string[];
+  sortBy?: HighRankingSortBy;
+}
 
 export interface HighRankingScore {
   /** 官网招生单位原文 */
@@ -25,6 +35,8 @@ export interface HighRankingRow {
   schoolId: string | null;
   name: string;
   schoolName: string;
+  /** 点位 adcode，仅供筛选状态机使用。 */
+  adcode: string;
   /** 点位所在行政区 */
   district: string;
   /** 省属 / 市属 / XX区属；levels 未匹配时为空，供 UI 按需隐藏。 */
@@ -35,8 +47,12 @@ export interface HighRankingRow {
   demo: string | null;
   score2025: HighRankingScore[];
   score2026: HighRankingScore[];
+  /** 2025 年第三批户籍生分数。 */
+  sortScore2025: number | null;
   /** 2026 年第三批户籍生分数；无数据为 null，置于排序末尾 */
   sortScore2026: number | null;
+  /** 已接入年份的第三批户籍生分数平均值。 */
+  sortScoreAverage: number | null;
 }
 
 export interface HighRankingGroup {
@@ -98,11 +114,14 @@ export function buildHighRankingRows(loaders: Pick<DataLoaders, 'highSchools' | 
     const schoolId = poi.school_id || null;
     const score2025 = scoresForPoi(poi, loaders.highScores2025.by_school_id);
     const score2026 = scoresForPoi(poi, loaders.highScores2026.by_school_id);
-    const values = score2026.map((score) => score.value).filter((v): v is number => v != null);
+    const values2025 = score2025.map((score) => score.value).filter((v): v is number => v != null);
+    const values2026 = score2026.map((score) => score.value).filter((v): v is number => v != null);
+    const values = [...values2025, ...values2026];
     return {
       schoolId,
       name: poi.name,
       schoolName: poi.school || level?.name || poi.name,
+      adcode: poi.adcode,
       district: ADCODE_TO_DISTRICT[poi.adcode] || level?.district || '其他',
       affiliation: level?.affiliation || null,
       minban: schoolId != null && minbanIds.has(schoolId),
@@ -110,18 +129,24 @@ export function buildHighRankingRows(loaders: Pick<DataLoaders, 'highSchools' | 
       demo: level?.demo || null,
       score2025,
       score2026,
-      sortScore2026: values.length ? Math.max(...values) : null,
+      sortScore2025: values2025.length ? Math.max(...values2025) : null,
+      sortScore2026: values2026.length ? Math.max(...values2026) : null,
+      sortScoreAverage: values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null,
     };
   });
 }
 
 export function buildHighRankingGroups(
   loaders: Pick<DataLoaders, 'highSchools' | 'highLevels' | 'highScores2025' | 'highScores2026' | 'entities'>,
-  groupBy: HighRankingGroupBy,
+  input: HighRankingGroupBy | HighRankingBuildOptions = 'category',
 ): HighRankingGroup[] {
+  const options: HighRankingBuildOptions = typeof input === 'string' ? { groupBy: input } : input;
+  const { groupBy, sortBy = 'score2026' } = options;
+  const districts = options.districtAdcodes ? new Set(options.districtAdcodes) : null;
   const groups = new Map<string, HighRankingRow[]>();
   for (const row of buildHighRankingRows(loaders)) {
-    const key = groupBy === 'district' ? row.district : categoryGroupKey(row.category);
+    if (districts && !districts.has(row.adcode)) continue;
+    const key = groupBy === 'none' ? 'all' : groupBy === 'district' ? row.district : categoryGroupKey(row.category);
     const list = groups.get(key) || [];
     list.push(row);
     groups.set(key, list);
@@ -132,16 +157,21 @@ export function buildHighRankingGroups(
       const ib = GZ_DISTRICTS.findIndex((d) => d.name === b);
       return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
     }
+    if (groupBy === 'none') return 0;
     return categoryOrder(a) - categoryOrder(b) || a.localeCompare(b, 'zh');
   });
+  const scoreFor = (row: HighRankingRow) => sortBy === 'score2025'
+    ? row.sortScore2025
+    : sortBy === 'average' ? row.sortScoreAverage : row.sortScore2026;
   return keys.map((key) => ({
     key,
-    title: key,
+    title: groupBy === 'none' ? '全部高中' : key,
     items: groups.get(key)!.slice().sort((a, b) => {
-      if (a.sortScore2026 == null && b.sortScore2026 == null) return a.name.localeCompare(b.name, 'zh');
-      if (a.sortScore2026 == null) return 1;
-      if (b.sortScore2026 == null) return -1;
-      return b.sortScore2026 - a.sortScore2026 || a.name.localeCompare(b.name, 'zh');
+      const av = scoreFor(a); const bv = scoreFor(b);
+      if (av == null && bv == null) return a.name.localeCompare(b.name, 'zh');
+      if (av == null) return 1;
+      if (bv == null) return -1;
+      return bv - av || a.name.localeCompare(b.name, 'zh');
     }),
   }));
 }
