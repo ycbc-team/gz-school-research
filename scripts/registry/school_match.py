@@ -112,6 +112,16 @@ def coreCampusName(name):
     return re.sub(r"[（(][^）)]*[）)]", "", name or "").strip()
 
 
+def _is_generic_core(s: str) -> bool:
+    """剩余核心剥掉序数/修饰词后是否落入泛词表（区名/「广州」剥离会毁名 → 不应剥离）。
+    「实验小学」→剥「实验」→「小学」∈泛词 → 保护（避免海珠/黄埔/番禺区实验小学归一成「实验小学」）；
+    「星悦实验学校」→不以「实验」开头 →「星悦实验学校」∉泛词 → 可剥离区名；
+    「第七中学」→剥「第七」→「中学」∈泛词 → 保护（避免「X区第七中学」与越秀七中撞车）。"""
+    core = re.sub(r"^第?[一二三四五六七八九十0-9]+", "", s)
+    core = re.sub(r"^(实验|附属|外国语|外语)", "", core)
+    return core in _GENERIC_SUFFIX
+
+
 def matchNorm(name):
     """泛词保护归一（集团成员→POI 匹配专用，原 match_poi.norm）：
     状态括号剥、保留校区括号；去「广州市」前缀；区名归一；前导区名剥离（剩余纯泛词保留）；
@@ -126,14 +136,14 @@ def matchNorm(name):
     s = s.replace("广州市", "")
     # 区名归一：仅剥离"XX区"中的区字（限已知区名），使「白云区广大附中实验中学」与「广州市白云广大附中实验中学」对齐
     s = re.sub(r"(越秀|海珠|天河|荔湾|白云|黄埔|番禺|南沙|增城|从化|花都|萝岗)区", r"\1", s)
-    # 前导区名剥离：成员名常带区名前缀而 POI 名不带；剩余过短或为纯泛词时保留（泛词毁名保护）
+    # 前导区名剥离：成员名常带区名前缀而 POI 名不带；剩余过短或为纯泛词（含修饰型泛词）时保留（泛词毁名保护）
     for _d in ("白云", "越秀", "海珠", "天河", "荔湾", "黄埔", "番禺", "萝岗"):
-        if s.startswith(_d) and len(s) - len(_d) >= 4 and s[len(_d):] not in _GENERIC_SUFFIX:
+        if s.startswith(_d) and len(s) - len(_d) >= 4 and not _is_generic_core(s[len(_d):]):
             s = s[len(_d):]
             break
     # 前导"广州"是校名成分（「广州中学」剥成「中学」是泛词毁名），仅在剩余非纯泛词时剥离
-    # （「广州大学附属中学」→「大学附属中学」对齐；须在区名剥离后）
-    if s.startswith("广州") and len(s) - 2 >= 4 and s[2:] not in _GENERIC_SUFFIX:
+    # （「广州大学附属中学」→「大学附属中学」对齐；「广州实验小学」→「实验小学」同样受保护；须在区名剥离后）
+    if s.startswith("广州") and len(s) - 2 >= 4 and not _is_generic_core(s[2:]):
         s = s[2:]
     s = re.sub(r"\s+", "", s)
     return s

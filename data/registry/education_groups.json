@@ -1012,22 +1012,10 @@
           "school_id": "gz-440105-6299c301"
         },
         {
-          "name": "广州市黄埔区实验小学",
-          "poi_match": "法人推导",
-          "poi_name": "广州市黄埔区实验小学",
-          "school_id": "gz-440112-9e826efe"
-        },
-        {
           "name": "海珠区实验小学",
           "poi_match": "法人推导",
           "poi_name": "海珠区实验小学",
           "school_id": "gz-440105-2fd44dc2"
-        },
-        {
-          "name": "番禺区实验小学",
-          "poi_match": "法人推导",
-          "poi_name": "番禺区实验小学",
-          "school_id": "gz-440113-d099ba85"
         }
       ]
     },

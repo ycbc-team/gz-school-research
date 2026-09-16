@@ -211,6 +211,38 @@ def main():
         check((r.get("school_id") or None) == expect,
               f"[9] 关键案例失配: {name} -> {r.get('school_id')}（应为 {expect}）")
 
+    # ---- 10. education_groups 跨法人挂载校验：core_poi/成员 campuses 的 school_id 对应实体
+    # 必须属该组法人（组 core/成员名的 matchNorm 归一 ∈ 组内集合），防「跨区同名法人误并」
+    # （如海珠/黄埔/番禺实验小学曾归一成「实验小学」互相挂载；法人跨区校区如七中桂花校区
+    # 属七中法人 → 通过；跨区成员如十六中集团纳增城派潭中学 → 成员行放行，不校验 core_poi 区划）。
+    # 组 core/成员实体的 aliases（法人通称，如东山培正小学 alias「培正小学」）同样视为组法人集合。
+    from school_match import coreCampusName, matchNorm
+    ent_by_id = {}
+    _ent_by_norm = {}
+    for _e in entities:
+        ent_by_id.setdefault(_e["school_id"], []).append(_e)
+        _ent_by_norm.setdefault(matchNorm(coreCampusName(_e.get("name", ""))), []).append(_e)
+    for _g in groups:
+        _legal = set()
+        for _c in _g.get("core") or []:
+            _cn = matchNorm(coreCampusName(_c))
+            _legal.add(_cn)
+            # 组 core 实体的 aliases（法人通称，如东山培正小学 alias「培正小学」）同为组法人集合
+            for _ce in _ent_by_norm.get(_cn, []):
+                for _a in (_ce.get("aliases") or []):
+                    _legal.add(matchNorm(coreCampusName(_a)))
+        for _m in _g.get("members") or []:
+            _legal.add(matchNorm(coreCampusName(_m.get("name", ""))))
+            for _cp in _m.get("campuses") or []:
+                _legal.add(matchNorm(coreCampusName(_cp.get("poi_name", ""))))
+        _legal.add(matchNorm(coreCampusName(_g.get("brand", "").replace("教育集团", ""))))
+        for _cp in _g.get("core_poi") or []:
+            _sid = _cp.get("school_id")
+            for _e in ent_by_id.get(_sid, []):
+                _en = matchNorm(coreCampusName(_e.get("name", "")))
+                check(_en in _legal,
+                      f"[10] 跨法人挂载: {_g['brand']} core_poi {_cp.get('poi_name')} ({_sid}) → 实体 {_e.get('name')} 法人 [{_en}] 非组法人 {sorted(_legal)}")
+
     # ---- 汇总 ----
     print(f"数据质量测试: {checks} 项检查, {len(failures)} 项失败")
     if failures:
