@@ -15,9 +15,14 @@
 
 用法：python3 scripts/data_quality_test.py
 """
-import json, re, sys, os
+import json, re, sys, os, glob, hashlib
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# 孤儿学校清单快照（sha256 前 16 位）：公办且「无招生或无升学」的异常学校清单。
+# 存量孤儿逐一排查修复（修复一所 → 重跑 → 显式更新此快照）；孤儿新增/变化立即失败。
+# 首次固化 2026-09-16：primary 256 + middle 166 + high 2（详见 outputs/orphan_schools_20260916.md）
+ORPHAN_SNAPSHOT = "92e9fb0249bb7487"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
@@ -267,6 +272,53 @@ def main():
                           f"[10] 跨区同名撞车: {_g['brand']} core_poi {_cp.get('poi_name')} ({_sid}) "
                           f"法人 [{_en}] 与其他行政区不同法人撞车: "
                           f"{[(x['name'], x['school_id']) for x in _cross]}")
+
+    # ---- 11. 孤儿学校：公办 + 无招生信息 或 无升学信息（逐一排查清单 + 快照防线）----
+    # 口径（按学段）：
+    #   primary：招生 = 2026 小学地段招生（enrollments/2026-*.json）；升学 = 小升初出口（xiaoshengchu_2026）
+    #   middle： 招生 = 2026 初中招生计划（enrollments/middle_enrollment_2026_*.json）；
+    #            升学 = ranking_middle（中考指标）或 quota_matrix（名额分配）
+    #   high：   招生 = 2025/2026 中考录取分数（高考升学数据项目未采集，分数为唯一信息源）
+    # 孤儿 = 公办（nature != 民办）且「无招生 或 无升学」任一缺失——均属异常 case，需逐校排查。
+    # 快照机制（与品牌卡全量回归同款）：孤儿清单 sha256 digest 固化——存量孤儿供排查
+    # （每修复一所须显式更新快照），孤儿新增/变化立即失败（数据回退防线）。
+    _orphan_files = glob.glob(os.path.join(ROOT, "data/primary/enrollments/2026-*.json"))
+    _pri_enroll_ids = set()
+    for _f in _orphan_files:
+        for _r in json.load(open(_f)).get("records", []):
+            if _r.get("school_id"): _pri_enroll_ids.add(_r["school_id"])
+    _mid_enroll_ids = set()
+    for _f in glob.glob(os.path.join(ROOT, "data/primary/enrollments/middle_enrollment_2026_*.json")):
+        for _r in json.load(open(_f)).get("records", []):
+            if _r.get("school_id"): _mid_enroll_ids.add(_r["school_id"])
+    _xs_ids = {r.get("school_id") for r in json.load(open(os.path.join(ROOT, "data/primary/xiaoshengchu_2026.json"))).get("records", []) if r.get("school_id")}
+    _rm_ids = {s.get("school_id") for s in json.load(open(os.path.join(ROOT, "data/linkage/ranking_middle.json"))).get("schools", []) if s.get("school_id")}
+    _qm_names = {s.get("school") for s in json.load(open(os.path.join(ROOT, "data/linkage/quota_matrix.json"))).get("schools", []) if s.get("school")}
+    _sc26 = json.load(open(os.path.join(ROOT, "data/high/scores_2026.json"))).get("by_school_id", {})
+    _sc25 = json.load(open(os.path.join(ROOT, "data/high/scores_2025.json"))).get("by_school_id", {})
+    _orphans = []
+    for _e in entities:
+        if _e.get("nature") == "民办" or _e.get("stage") not in ("primary", "middle", "high"):
+            continue
+        _lacks = []
+        if _e["stage"] == "primary":
+            if _e["school_id"] not in _pri_enroll_ids: _lacks.append("无招生")
+            if _e["school_id"] not in _xs_ids: _lacks.append("无升学")
+        elif _e["stage"] == "middle":
+            if _e["school_id"] not in _mid_enroll_ids: _lacks.append("无招生")
+            if _e["school_id"] not in _rm_ids and _e["name"] not in _qm_names: _lacks.append("无升学")
+        else:  # high
+            if _e["school_id"] not in _sc26 and _e["school_id"] not in _sc25: _lacks.append("无招生")
+            if _lacks: _lacks.append("无升学(高考未采集)")
+        if _lacks:
+            _orphans.append((_e["school_id"].split("-")[1] if _e.get("school_id") else "?", _e["name"], _e["school_id"], _e["stage"], "+".join(_lacks)))
+    _orphans.sort()
+    print(f"\n[11] 孤儿学校（公办且无招生或无升学，待逐校排查）: {len(_orphans)} 所")
+    for _o in _orphans:
+        print(f"      {_o[0]} | {_o[1]} | {_o[2]} | {_o[3]} | {_o[4]}")
+    _orphan_digest = hashlib.sha256("\n".join(f"{o[0]}|{o[1]}|{o[2]}|{o[4]}" for o in _orphans).encode()).hexdigest()[:16]
+    check(_orphan_digest == ORPHAN_SNAPSHOT,
+          f"[11] 孤儿学校清单漂移: digest {_orphan_digest} != 固化 {ORPHAN_SNAPSHOT}（新增孤儿须立即排查；修复孤儿后显式更新快照）")
 
     # ---- 汇总 ----
     print(f"数据质量测试: {checks} 项检查, {len(failures)} 项失败")
