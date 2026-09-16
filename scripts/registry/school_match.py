@@ -354,8 +354,10 @@ class SchoolMatcher:
                     p_core = ""
                 # 「华阳教育集团高塘石小学」「华阳集团侨乐小学」类集团/集团化成员：
                 # 核心校裸名（如「华阳小学」）不得吸附集团名下成员（集团名 ≠ 核心校名；
-                # 成员应走 alias/显式映射命中）；仅当成员名以核心裸名为前缀（如「广州中学教育集团XX」）才放行
-                if "集团" in p_bare and not p["norm"].startswith(n_bare):
+                # 成员应走 alias/显式映射命中）；仅当成员名以核心裸名为前缀（如「广州中学教育集团XX」），
+                # 或 POI 以成员裸名为结尾（成员裸名匹配自身集团前缀 POI，如「高塘石小学」→
+                # 「华阳教育集团高塘石小学」）才放行
+                if "集团" in p_bare and not (p["norm"].startswith(n_bare) or p["norm"].endswith(n_bare)):
                     continue
                 if len(n_bare) >= 4 and n_bare != n_core and n_bare in p_bare:
                     bare_cands.append(p)  # 「第七中学实验学校(小学部)」→「第七中学实验学校」精确包含，

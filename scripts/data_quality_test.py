@@ -22,7 +22,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 孤儿学校清单快照（sha256 前 16 位）：公办且「无招生或无升学」的异常学校清单。
 # 存量孤儿逐一排查修复（修复一所 → 重跑 → 显式更新此快照）；孤儿新增/变化立即失败。
 # 首次固化 2026-09-16：primary 256 + middle 166 + high 2（详见 outputs/orphan_schools_20260916.md）
-ORPHAN_SNAPSHOT = "9d904f3725f31445"
+# 2026-09-16 更新：小学缺口修复 9 所（荔湾文昌小学、越秀八一/知用/七中实验、白云新和/云湖/棠景、
+#   黄埔华中师范、番禺沙北）→ 孤儿 221→212，消除 9、新增 0（纯正向）
+ORPHAN_SNAPSHOT = "be853d0bec84b7f8"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 

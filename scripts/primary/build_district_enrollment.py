@@ -41,6 +41,10 @@ PREFIXES = ["市桥", "钟村", "石壁", "大石", "洛浦", "南村", "化龙"
 NAME_MAP = {
     # 转录差异：raw sheets 读作「番禺区中学」，官方 xls/实体为「番禺中学」——归一绑定防 rank 漂移
     "广东番禺区中学教育集团兴南学校": "广东番禺中学教育集团兴南学校",
+    # 2024 更名：文昌小学并入蒋光鼐纪念小学教育集团（新快网2025-03；xiaoshengchu 同名映射），挂本体文昌小学
+    "广州市荔湾区蒋光鼐纪念小学文昌学校": "广州市荔湾区文昌小学",
+    # 海鸥学校（九年制，海鸥岛沙北村）小学部 POI 名「沙北小学」（xiaoshengchu 同名映射）
+    "石楼镇海鸥学校": "沙北小学",
     "养正小学": "王圣堂温浩根养正学校",
     "华侨外国语学校（小学部）": "广州市华侨外国语学校-华侨小学",
     "回民小学": "广州市回民小学北校区",
@@ -192,6 +196,15 @@ def rank_candidates(rec_school, poi_list):
 
 # ---------- 越秀 ----------
 def parse_yuexiu(txt_path):
+    # TXT 缺失时回退 _raw/yuexiu_2026.json（转录产物），保证本地可重跑
+    if not os.path.exists(txt_path):
+        raw = json.load(open(os.path.join(OUT_DIR, "_raw", "yuexiu_2026.json"), encoding="utf-8"))
+        return [{
+            "school": s["school"], "district": "越秀区",
+            "plan_classes": s.get("plan_classes"), "zone": s.get("zone", ""),
+            "note": s.get("note", ""), "phone": s.get("phone", ""),
+            "source": "越秀区教育局2026",
+        } for s in raw["schools"]]
     with open(txt_path, encoding="utf-8") as f:
         lines = [l.strip() for l in f if l.strip()]
     blocks = []  # (school, lines[])

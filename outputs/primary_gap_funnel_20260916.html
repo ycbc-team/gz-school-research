@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小学地段招生缺口调查 — 2026 · 7区（含18歧义处理）</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f6f7f9; color: #1f2329; padding: 32px 16px; }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .sub { color: #6b7280; font-size: 13px; margin-bottom: 24px; }
+  h2 { font-size: 15px; font-weight: 600; margin: 26px 0 12px; color: #111827; }
+  .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+
+  /* 漏斗 */
+  .funnel { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .fstep { display: flex; align-items: center; justify-content: center; gap: 12px; border-radius: 10px; color: #fff; font-weight: 600; height: 52px; position: relative; }
+  .fstep .num { font-size: 20px; }
+  .fstep .lbl { font-size: 12px; font-weight: 400; opacity: .92; }
+  .fstep .tag { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 11px; font-weight: 500; background: rgba(255,255,255,.22); border-radius: 999px; padding: 2px 8px; }
+  .f1 { width: 100%; background: #2563eb; }
+  .f2 { width: 88%; background: #0ea5e9; }
+  .f3 { width: 76%; background: #f59e0b; }
+  .f4 { width: 60%; background: #10b981; }
+  .f5 { width: 42%; background: #6b7280; }
+  .farrow { color: #9ca3af; font-size: 13px; }
+
+  /* 原因拆解 */
+  .rows { display: flex; flex-direction: column; gap: 8px; }
+  .row { display: grid; grid-template-columns: 110px 1fr auto; gap: 10px; align-items: center; border: 1px solid #eef0f3; border-radius: 8px; padding: 10px 12px; background: #fafbfc; }
+  .row .k { font-size: 13px; font-weight: 600; }
+  .row .v { font-size: 12.5px; color: #374151; line-height: 1.5; }
+  .row .n { font-size: 15px; font-weight: 700; color: #dc2626; }
+  .row .n.green { color: #059669; }
+
+  /* 修复清单 */
+  .fix { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .fix .it { border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; background: #f9fafb; }
+  .fix .it b { display: block; font-size: 13px; margin-bottom: 5px; color: #111827; }
+  .fix .it span { font-size: 12px; color: #4b5563; line-height: 1.55; display: block; }
+
+  /* 余留 */
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .box { border-radius: 10px; padding: 14px; }
+  .box.b-red { background: #fef2f2; border: 1px solid #fecaca; }
+  .box.b-green { background: #ecfdf5; border: 1px solid #a7f3d0; }
+  .box h3 { font-size: 13px; margin-bottom: 8px; }
+  .box.b-red h3 { color: #b91c1c; }
+  .box.b-green h3 { color: #047857; }
+  .box ul { padding-left: 16px; }
+  .box li { font-size: 12px; color: #374151; line-height: 1.6; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-top: 10px; }
+  th, td { border: 1px solid #e5e7eb; padding: 6px 8px; text-align: left; }
+  th { background: #f9fafb; font-weight: 600; }
+  .num-r { text-align: right; font-variant-numeric: tabular-nums; }
+
+  .note { font-size: 12px; color: #6b7280; margin-top: 14px; line-height: 1.7; }
+  .ok { color: #059669; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>小学地段招生缺口调查 — 数据源与匹配链路（含 18 歧义处理）</h1>
+  <div class="sub">广州市 7 区 · 2026 公办小学招生 · 提交 98d5f82 + 歧义修复 · 2026-09-16</div>
+
+  <div class="card">
+    <h2>① 漏斗：政府文件本身没有缺</h2>
+    <div class="funnel">
+      <div class="fstep f1"><span class="num">674</span><span class="lbl">7区官方文件记录学校</span></div>
+      <div class="farrow">▼</div>
+      <div class="fstep f2"><span class="num">602</span><span class="lbl">已匹配 school_id（原 HEAD）</span></div>
+      <div class="farrow">▼</div>
+      <div class="fstep f3"><span class="num">72</span><span class="lbl">unmatched（缺口）</span><span class="tag">修复对象</span></div>
+      <div class="farrow">▼</div>
+      <div class="fstep f4"><span class="num">36</span><span class="lbl">匹配库三处 bug + 锚定基线修复后</span></div>
+      <div class="farrow">▼</div>
+      <div class="fstep f5"><span class="num">27</span><span class="lbl">18歧义处理后：全部为真缺失/宁缺</span><span class="tag">本次 +9 所归位</span></div>
+    </div>
+    <div class="note">缺的不是政府文件：7 区官方记录 674 所全部在。<b>缺的是「OCR 转录 → 实体/POI 匹配」这一环。</b>本次歧义处理又归位 9 所（越秀 3、白云 3、荔湾 1、番禺 1、黄埔 1），剩余 27 所全部核实为 POI 真缺失 / 跨学段 / 跨区宁缺（宁可缺失、不跨区错配）。</div>
+  </div>
+
+  <div class="card">
+    <h2>② 72 个缺口 → 27 个缺口拆解</h2>
+    <div class="rows">
+      <div class="row"><div class="k">匹配规则漏（54→已修复）</div><div class="v">「XX学校（小学部）」全角括号 vs 实体「(小学部)」；strip_generic 泛词毁名（「广州中学」→「中学」）；半括号残留；集团名防吸附误伤成员裸名（高塘石小学→「华阳教育集团高塘石小学」）</div><div class="n green">45</div></div>
+      <div class="row"><div class="k">18 歧义处理（9 归位 + 9 宁缺）</div><div class="v">归位：蒋光鼐文昌学校→文昌小学、石楼镇海鸥学校→沙北小学、白云中学棠景/新和/云湖→小学部实体、双沙暂定名→华中师范大学黄埔实验学校、越秀八一/知用/七中实验（resolve 修复后命中）；宁缺：宝玉直实验本部（POI 无）、第二实验北校区、华阳天河南校区、协和小学、汇景华园校区、开元西校区、铁铮、陈田西、金广御金沙等</div><div class="n green">9</div></div>
+      <div class="row"><div class="k">修复后仍 unmatched</div><div class="v">全部为真缺失（POI 库无对应：新校/在建/撤并无独立招生）或宁缺（跨学段：星悦/省实云城/南武附属仅初中 stage；跨区：桂花岗小学实体在白云）。逐校清单见下表</div><div class="n">27</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>③ 本次修复（全部固化进脚本，重跑不再漂移）</h2>
+    <div class="fix">
+      <div class="it"><b>NAME_MAP 增补 9 条（三个 build 脚本）</b><span>荔湾蒋光鼐文昌→文昌小学；番禺海鸥学校→沙北小学；白云棠景/新和/云湖→小学部实体；黄埔双沙暂定名→华中师范大学黄埔实验学校（2026 新启用）；另修复 build_huangpu 锚定缩进 bug（HP_NAME_MAP 只在锚定命中后查）+ 清理 10 条过时 None（POI 已补，删 None 走 rank 恢复匹配）</span></div>
+      <div class="it"><b>越秀本地可重跑</b><span>parse_yuexiu 支持 _raw/yuexiu_2026.json 回退（原依赖缺失的 TXT），重跑后 unmatched 4→1：八一实验学校/知用学校/第七中学实验学校 resolve 修复后归位</span></div>
+      <div class="it"><b>匹配库集团防吸附修正</b><span>「华阳小学」仍不吸附「华阳教育集团XX小学」；但成员裸名（高塘石小学）可 endswith 命中自身集团前缀 POI——修复产物一致性回归（335 成员重跑与入库一致）</span></div>
+      <div class="it"><b>测试基线更新（显式）</b><span>华阳小学 golden：POI 补齐后 4 校区无法收敛唯一 → 宁缺（与京溪同款口径，华成校区由 _anchors 锚定展开）；孤儿快照 221→212（消除 9、新增 0，纯正向）</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>④ 余留 27 所（真缺失 / 宁缺，逐校）</h2>
+    <table>
+      <tr><th>区</th><th>学校（官方表名）</th><th>定性</th><th>原因</th></tr>
+      <tr><td>海珠</td><td>北山小学</td><td>真缺失</td><td>POI 库无</td></tr>
+      <tr><td>海珠</td><td>基道小学</td><td>真缺失</td><td>POI 库无</td></tr>
+      <tr><td>海珠</td><td>南武中学附属学校</td><td>宁缺</td><td>POI 仅初中 stage（77baeea5）</td></tr>
+      <tr><td>海珠</td><td>宝玉直实验小学（本部）</td><td>真缺失</td><td>南石头街本部无独立 POI（宝岗/光大/南边路均为他校区）</td></tr>
+      <tr><td>海珠</td><td>第二实验小学（北校区）</td><td>真缺失</td><td>POI 库无北校区实体（南校区锚定 94dfa7d6，江海校区 32173950 不同址）</td></tr>
+      <tr><td>天河</td><td>体育东路教育集团协和小学</td><td>真缺失</td><td>POI 库无协和小学</td></tr>
+      <tr><td>天河</td><td>华阳小学（天河南校区）</td><td>真缺失</td><td>POI 库无天河南校区（华成/天河东/林和东/天润为其他校区）</td></tr>
+      <tr><td>天河</td><td>汇景实验学校（华园校区）小学部</td><td>真缺失</td><td>POI 库无华园校区（汇景校区小学部 efcdec9d 已占用）</td></tr>
+      <tr><td>越秀</td><td>桂花岗小学</td><td>宁缺</td><td>实体误标白云区（跨区拒绝）</td></tr>
+      <tr><td>番禺</td><td>化龙镇中心小学</td><td>真缺失</td><td>POI 库无</td></tr>
+      <tr><td>番禺</td><td>新桥小学</td><td>真缺失</td><td>POI 库无</td></tr>
+      <tr><td>番禺</td><td>石碁镇永善小学</td><td>真缺失</td><td>POI 库无</td></tr>
+      <tr><td>黄埔</td><td>九龙第一小学</td><td>真缺失</td><td>POI 库无（知识城片区新建）</td></tr>
+      <tr><td>黄埔</td><td>刘村…AG0222001 地块九年制学校(暂定名)</td><td>真缺失</td><td>在建/暂定名</td></tr>
+      <tr><td>黄埔</td><td>知识城南安置区(二期)小学(暂定名)</td><td>真缺失</td><td>在建/暂定名</td></tr>
+      <tr><td>黄埔</td><td>CPPQ-A4-2 地块(长岭雅居)九年制学校(暂定名)</td><td>真缺失</td><td>在建/暂定名</td></tr>
+      <tr><td>黄埔</td><td>开元学校(西校区)</td><td>宁缺</td><td>POI 无西校区；rank 会吸附东校区（跨校区错配）→ 宁缺</td></tr>
+      <tr><td>黄埔</td><td>铁铮学校</td><td>宁缺</td><td>POI 仅初中 stage（东/西校区）</td></tr>
+      <tr><td>白云</td><td>广东外语外贸大学实验中学（陈田西校区）小学部</td><td>真缺失</td><td>POI 库无陈田西校区</td></tr>
+      <tr><td>白云</td><td>广东实验中学（云城校区）</td><td>宁缺</td><td>POI 仅初中 stage（3405d87e）</td></tr>
+      <tr><td>白云</td><td>广州实验教育集团花城实验学校</td><td>真缺失</td><td>POI 库无</td></tr>
+      <tr><td>白云</td><td>广州市白云区云翔学校</td><td>真缺失</td><td>POI 库无</td></tr>
+      <tr><td>白云</td><td>星悦实验学校（小学）</td><td>宁缺</td><td>POI 仅初中 stage（2ed8a6e2）</td></tr>
+      <tr><td>白云</td><td>民航学校（人和校区）</td><td>宁缺</td><td>同 POI 已被校本部占用</td></tr>
+      <tr><td>白云</td><td>金广实验学校（御金沙校区）</td><td>宁缺</td><td>同 POI（金广实验小学）已被金域蓝湾校区占用</td></tr>
+      <tr><td>白云</td><td>龙归学校（珑璟校区）</td><td>宁缺</td><td>同 POI 已被本部占用</td></tr>
+      <tr><td>白云</td><td>羊城铁路总公司广州铁路第八小学</td><td>真缺失</td><td>POI 库无</td></tr>
+    </table>
+    <div class="note">口径：<b>宁可缺失、不跨区错配</b>。真缺失 = POI 库确实没有该实体（新校/在建/撤并无独立招生）；宁缺 = POI 存在但跨学段/跨校区/同址被占（多校区由 _anchors 锚定 + merge 层展开，匹配器层不强行吸附）。下一步计划：真缺失 18+9 所按需补 POI/实体，或维持 skip。</div>
+  </div>
+
+  <div class="card">
+    <h2>⑤ 验证结果</h2>
+    <div class="two">
+      <div class="box b-green">
+        <h3>全绿</h3>
+        <ul>
+          <li>7 区重建 vs HEAD：<b>回退 0</b>（越秀 unmatched 4→1，其余区无回退）</li>
+          <li>unmatched：72 → 36 → <b>27</b>（本次归位 9 所）</li>
+          <li>孤儿学校：221 → 212（消除 9、新增 0，纯正向）</li>
+          <li>44 node 测试 · 3469 数据质量 · 19 匹配器回归 · 335 成员产物一致性：<b>全部通过</b></li>
+        </ul>
+      </div>
+      <div class="box b-red">
+        <h3>余留待定</h3>
+        <ul>
+          <li>27 所真缺失/宁缺是否补 POI/实体（新校/在建校待启用后补采）</li>
+          <li>越秀 _raw 由当前 json 转录合成（TXT 源已丢失），源文件恢复后需复核 zone 字段</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
