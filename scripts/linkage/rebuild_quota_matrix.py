@@ -46,6 +46,12 @@ NAME_FIX = {
 # 匹配层级：norm 全等(3) > normName 复刻全等(2) > 去教育机构后缀 core(1) > 前缀包含(0.5)；
 # 学部按 middle → primary → high 分层，歧义时同区优先。
 
+# OCR 校名规范化（对旧矩阵沿用的校名也生效；只改名称不改 school_id 沿用）：
+# 历史 OCR/录入把「第一一五中学」误写为 U+2014 破折号「第—一五中学」等，统一还原为「一」，
+# 使通用匹配器可直接命中实体，避免错字下沉到下游各表（backfill 覆盖表不再兜底此类）。
+def normalize_school_name(name: str) -> str:
+    return (name or '').replace('\u2014', '一')
+
 def names_for(pno):
     g = json.load(open(SN, encoding='utf-8'))
     ns = g.get(str(pno), [])
@@ -232,14 +238,14 @@ def main():
         for item in plan:
             r, ins_name, ins_val = item
             if r is None:
-                name = ins_name
+                name = normalize_school_name(ins_name)
                 kao, ss, qu = ins_val
                 rec = {'page': pno, 'row': None, 'school': name,
                        'kaosheng': kao, 'sheng_quota': ss, 'qu_quota': qu,
                        'sz': {}, 'sz_sum': 0, 'is_district_head': False,
                        'district': dist}
             else:
-                name = NAME_FIX.get((pno, r)) or (names[r] if r < len(names) else '')
+                name = normalize_school_name(NAME_FIX.get((pno, r)) or (names[r] if r < len(names) else ''))
                 if not name:
                     print(f'!! p{pno} r{r} 无校名，跳过'); continue
                 val = VV.P.get(pno, {}).get(r)

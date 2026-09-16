@@ -12121,11 +12121,14 @@
       "tekong_quota_rate": 2.7
     },
     {
-      "name": "广州市第—一五中学",
+      "name": "广州市第一一五中学",
       "school_id": "gz-440111-b5668c2e",
       "district": "白云区",
       "minban": false,
-      "group": null,
+      "group": {
+        "brand": "广外实验中学教育集团",
+        "source": "education"
+      },
       "kaosheng": 259,
       "sheng_quota": 13,
       "qu_quota": 51,
@@ -12197,7 +12200,7 @@
           "tekong": null
         }
       ],
-      "tekong_quota_rate": null
+      "tekong_quota_rate": 3.8
     },
     {
       "name": "广州市第七十中学",
@@ -12626,11 +12629,14 @@
       "tekong_quota_rate": 2.7
     },
     {
-      "name": "广州市第—一四中学",
+      "name": "广州市第一一四中学",
       "school_id": "gz-440111-0f9c1ce8",
       "district": "白云区",
       "minban": false,
-      "group": null,
+      "group": {
+        "brand": "广州市白云区白云实验教育集团",
+        "source": "education"
+      },
       "kaosheng": 68,
       "sheng_quota": 3,
       "qu_quota": 11,
@@ -12667,7 +12673,7 @@
           "tekong": null
         }
       ],
-      "tekong_quota_rate": null
+      "tekong_quota_rate": 1.9
     },
     {
       "name": "广州市白云区大朗中学",

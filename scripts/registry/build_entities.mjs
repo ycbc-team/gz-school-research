@@ -211,6 +211,24 @@ const OFFICIAL_MIDDLE_ALIAS = {
   '丽江学校': '丽江小学',
 };
 
+// 官方初中裸名 → 初中部校区实体（force 绕过纯名先占）：
+// 这些学校的官方名（无校区）在实体表里只挂在高中部/完中本部（high）上，初中表按
+// 「区+名+学段」匹配时命中 high 或唯一候选跨学段引用，锚不到初中部校区。
+// 数据层把裸名挂到初中部校区实体后，初中表 stage 过滤即唯一命中（高中表仍命中 high，
+// 跨 stage 共用同一裸名合法——别名非主键）。同区同 stage 仍歧义的（完中本部自身有
+// middle 行）不在此表，由 backfill MATCH_OVERRIDES 显式兜底。
+const FORCED_MIDDLE_ALIAS = {
+  '广州奥林匹克中学': '广州市奥林匹克中学(黄村西路校区)',   // 奥中初中部=黄村西路（高中部由 OFFICIAL_HIGH_ALIAS 持裸名）
+  '广州市华美英语实验学校': '广州华美英语实验学校',        // 华美初中（middle）；高中实体 a6394a7a 持官方名
+  '广州市天河中学': '广州市天河中学(天河东路校区)',        // 天河中学初中部=天河东路（高中=珠江新城 high）
+  '广州市第七十五中学': '广州市第七十五中学(燕塘西校区)',  // 七十五中初中部=燕塘西（高中=天平架 high）
+  '广州市天河区华实学校': '广州市天河区华实学校初中部',    // 华实初中部（primary 实体持官方裸名，初中表 stage 过滤后唯一）
+  '广州知识城中学': '广州知识城中学(北校区)',              // 初中配额锚北校区（南校区为 high）
+  '广州市黄埔区开元学校': '广州开元学校',                  // 开元初中（middle）；高中实体 203c6d64 持官方名
+  '广州市黄埔区苏元学校': '广州市黄埔区苏元学校(西校区)',  // 苏元初中=西校区（高中实体 8bf29a28 持官方名）
+  '广州市番禺区北正华学校': '番禺区北新正华学校',          // 官方名 vs 实体名（更名后实体未同步旧名）
+};
+
 // 被删点位名（来源叫法）→ stage|base POI 名；点位删除后保留叫法映射到完中实体（防搜索/来源文件失配）
 const REMOVED_POI_ALIAS = {
   'middle|南村中学(初中部)': '南村中学',
@@ -488,6 +506,11 @@ let aliasHit = 0;
 for (const [official, poi] of Object.entries(OFFICIAL_MIDDLE_ALIAS)) {
   if (attachAlias('middle', poi, official)) aliasHit++;
   else console.log('  [别名未命中POI]', official, '->', poi);
+}
+// 官方初中裸名 → 初中部校区实体（force=true 绕过纯名先占，见 FORCED_MIDDLE_ALIAS 注释）
+for (const [official, poi] of Object.entries(FORCED_MIDDLE_ALIAS)) {
+  if (attachAlias('middle', poi, official, true)) aliasHit++;
+  else console.log('  [强制初中别名未命中POI]', official, '->', poi);
 }
 for (const [k, poi] of Object.entries(REMOVED_POI_ALIAS)) {
   const [stage, official] = k.split('|');
