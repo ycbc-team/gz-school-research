@@ -7,7 +7,7 @@
     "total_groups": 85,
     "total_members": 335,
     "poi_exact": 0,
-    "poi_variant": 23,
+    "poi_variant": 22,
     "poi_missing_7dist": 2,
     "poi_far": 8
   },
@@ -1386,8 +1386,18 @@
           "source_url": "http://www.thnet.gov.cn/hdjl/rdhy/content/post_3760731.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "天河区侨乐小学",
-          "school_id": "gz-440106-3332b6cb"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "天河区侨乐小学",
+              "school_id": "gz-440106-3332b6cb"
+            },
+            {
+              "poi_name": "广州华阳集团侨乐小学(北校区)",
+              "school_id": "gz-440106-95cb8bc4"
+            }
+          ]
         },
         {
           "name": "石牌小学",
@@ -1409,7 +1419,7 @@
           "name": "高塘石小学",
           "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_10756725.html",
           "verified": "2026-09-14",
-          "poi_match": "变体命中",
+          "poi_match": "法人推导",
           "poi_name": "广州市天河区华阳教育集团高塘石小学",
           "school_id": "gz-440106-ed929fc7"
         },
@@ -1616,6 +1626,18 @@
           "poi_match": "法人推导",
           "poi_name": "天府路小学",
           "school_id": "gz-440106-6dc5833a"
+        },
+        {
+          "name": "天府路小学翠湖校区",
+          "poi_match": "法人推导",
+          "poi_name": "天府路小学翠湖校区",
+          "school_id": "gz-440106-4dbb5b90"
+        },
+        {
+          "name": "广州市天河区天府路小学建业校区",
+          "poi_match": "法人推导",
+          "poi_name": "广州市天河区天府路小学建业校区",
+          "school_id": "gz-440106-ecfc1a19"
         }
       ]
     },
@@ -1811,8 +1833,18 @@
           "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "五一小学",
-          "school_id": "gz-440106-3bc362f9"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "五一小学",
+              "school_id": "gz-440106-3bc362f9"
+            },
+            {
+              "poi_name": "五一小学红英校区",
+              "school_id": "gz-440106-8d6ca869"
+            }
+          ]
         }
       ],
       "source_urls": [

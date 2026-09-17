@@ -442,3 +442,21 @@ if __name__ == "__main__":
         entities_path=os.path.join(BASE, "data/registry/entities.json"))
     r = matcher.resolve(name, preferred_adcode=adcode, preferred_stage=stage)
     print(json.dumps({"name": name, **r} if r else {"name": name, "result": None}, ensure_ascii=False, indent=2))
+
+
+def resolve_primary_entities(entities, official, adcode):
+    """官方小学名 → 实体名列表（实体表别名 + normName 全等，按区过滤）。
+
+    官方划片表按小学法人名（裸名）公布，同区多校区并列招生（如「华阳小学」4 校区），
+    返回全部命中实体名（由调用方建多条记录）；未命中返回 []（宁可缺失、不跨区错配）。
+
+    entities: [{name, aliases, adcode}]（primary stage 实体 + POI join 的区码）
+    """
+    n = normName(official)
+    hits = []
+    for e in entities:
+        if e.get("adcode") != adcode:
+            continue
+        if n == normName(e["name"]) or any(n == normName(a) for a in (e.get("aliases") or [])):
+            hits.append(e["name"])
+    return hits

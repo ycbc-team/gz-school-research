@@ -119,6 +119,12 @@ def main():
     # （resolve by_main 优先无括号主 POI）→ 只要冲突实体中存在无括号主名即放行；
     # 仅当冲突双方都带校区括号（无主 POI 可收敛，如「广钢校区」vs「岭南校区」裸名撞）才报错。
     entities = load_entities()
+    # 官方划片表小学名共享裸名豁免（与 build_entities.mjs OFFICIAL_PRIMARY_ALIAS 多校区裸名键同步）：
+    # 官方文件按小学法人名（裸名）公布，同区多校区并列招生是业务事实（华阳小学 4 校区、龙口西 5 校区等），
+    # 匹配器/构建脚本按官方名解析出全部校区实体，不构成匹配歧义。新增共享裸名需同步更新本集合。
+    _PRIMARY_SHARED_PLAIN = {'华康小学', '华阳小学', '龙口西小学', '华景小学', '天府路小学', '员村小学',
+                             '昌乐小学', '五山小学', '银河小学', '侨乐小学', '龙洞小学', '天河第一小学',
+                             '体育西路小学', '元岗小学', '棠德南小学'}
     alias_owner = {}  # alias -> (school_id, adcode, stage, 该实体名是否无括号)
     for ent in entities:
         # 纯名 = 无括号/无校区限定词的别名
@@ -126,6 +132,8 @@ def main():
         stage = ent.get("stage")
         has_main = "(" not in ent.get("name", "") and "（" not in ent.get("name", "")
         for a in ent.get("aliases", []):
+            if a in _PRIMARY_SHARED_PLAIN:
+                continue  # 官方划片表共享裸名（业务事实，见上注释）
             if "(" not in a and "校区" not in a and "本部" not in a and "学校" not in a.split("（")[0] and "、" not in a \
                and "初中部" not in a and "高中部" not in a and "小学部" not in a and "年级" not in a and "教学" not in a and "楼" not in a:
                 if a in alias_owner and alias_owner[a][1] == adcode and alias_owner[a][2] == stage and alias_owner[a][0] != ent["school_id"]:
