@@ -192,7 +192,10 @@
         <view class="tbl">
           <view class="tbl-row tbl-head"><text>初中</text><text>自招</text><text>体育</text><text>艺术</text></view>
           <view wx:for="{{linkage.highSpecialCoverage}}" wx:key="school" class="tbl-row">
-            <text>{{item.school}}</text><text>{{item.autonomy}}</text><text>{{item.sports}}</text><text>{{item.arts}}</text>
+            <text wx:if="{{item.campuses.length > 1}}" class="sch-link" data-campuses="{{item.campuses}}" bindtap="openCampusPicker">{{item.school}}</text>
+            <text wx:elif="{{item.poiName}}" class="sch-link" data-to="/school/{{item.poiName}}?stage=middle&id={{item.schoolId}}" bindtap="goSchool">{{item.school}}</text>
+            <text wx:else>{{item.school}}</text>
+            <text>{{item.autonomy}}</text><text>{{item.sports}}</text><text>{{item.arts}}</text>
           </view>
         </view>
       </view>
@@ -204,10 +207,9 @@
             <view class="tbl-row tbl-head"><text>初中</text><text>所在区</text><text>名额</text></view>
             <view wx:for="{{linkage.highCoverage}}" wx:key="school" class="tbl-row">
             <view>
-              <text class="sch-link" data-to="/school/{{item.school}}?stage=middle" bindtap="goSchool">{{item.school}}</text>
-              <view wx:if="{{item.campuses.length > 1}}" class="sub-links">
-                <text wx:for="{{item.campuses}}" wx:for-item="c" wx:key="schoolId" class="sch-link" data-to="/school/{{c.poiName}}?stage=middle&id={{c.schoolId}}" bindtap="goSchool">{{c.campus}}</text>
-              </view>
+              <text wx:if="{{item.campuses.length > 1}}" class="sch-link" data-campuses="{{item.campuses}}" bindtap="openCampusPicker">{{item.school}}</text>
+              <text wx:elif="{{item.poiName}}" class="sch-link" data-to="/school/{{item.poiName}}?stage=middle" bindtap="goSchool">{{item.school}}</text>
+              <text wx:else>{{item.school}}</text>
             </view>
             <text>{{item.districtsText}}</text><text class="strong">{{item.n}}</text>
           </view>
@@ -219,10 +221,9 @@
             <view class="tbl-row tbl-head"><text>初中</text><text>名额</text></view>
             <view wx:for="{{linkage.highDistrictCoverage}}" wx:key="school" class="tbl-row">
               <view>
-                <text class="sch-link" data-to="/school/{{item.school}}?stage=middle" bindtap="goSchool">{{item.school}}</text>
-                <view wx:if="{{item.campuses.length > 1}}" class="sub-links">
-                  <text wx:for="{{item.campuses}}" wx:for-item="c" wx:key="schoolId" class="sch-link" data-to="/school/{{c.poiName}}?stage=middle&id={{c.schoolId}}" bindtap="goSchool">{{c.campus}}</text>
-                </view>
+                <text wx:if="{{item.campuses.length > 1}}" class="sch-link" data-campuses="{{item.campuses}}" bindtap="openCampusPicker">{{item.school}}</text>
+                <text wx:elif="{{item.poiName}}" class="sch-link" data-to="/school/{{item.poiName}}?stage=middle" bindtap="goSchool">{{item.school}}</text>
+                <text wx:else>{{item.school}}</text>
               </view>
               <text class="strong">{{item.n}}</text>
             </view>

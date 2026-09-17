@@ -268,7 +268,7 @@ const badges = computed<{ text: string; cls: string }[]>(() =>
 const headText = computed(() => {
   if (stage.value === 'high') {
     const r = rec.value;
-    return r ? `${r.demo || ''}${r.demo && r.affiliation ? ' · ' : ''}${r.affiliation || ''}${r.campuses?.length ? ` · ${r.campuses.length} 校区` : ''}`.trim() : '';
+    return r ? `${r.demo || ''}${r.demo && r.affiliation ? ' · ' : ''}${r.affiliation || ''}`.trim() : '';
   }
   const t = tier.value;
   if (!t) return '';

@@ -5,13 +5,42 @@
  * - stage='high'：指定高中校区的名额分配覆盖初中 + 特殊通道覆盖（各校区独立）
  * 数据组装已下沉 @gz/shared buildLinkageModel（与小程序详情页共用），本组件只做渲染。
  */
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { buildLinkageModel } from '@gz/shared';
 import { repository } from '../data';
 
 const props = defineProps<{ stage: 'middle' | 'high'; school: string; schoolId?: string }>();
+const router = useRouter();
 const schoolName = computed(() => decodeURIComponent(props.school || ''));
 const model = computed(() => buildLinkageModel(props.stage, schoolName.value, repository, props.schoolId));
+
+/** 高中视角反查行：多校区法人一个名字 → 弹窗选校区（与初中明细一致，不直接锚定单校区） */
+const ADCODE_DIST: Record<string, string> = {
+  '440103': '荔湾', '440104': '越秀', '440105': '海珠', '440106': '天河',
+  '440111': '白云', '440112': '黄埔', '440113': '番禺', '440114': '花都',
+  '440117': '从化', '440118': '增城', '440115': '南沙', '440100': '市属',
+};
+const districtOf = (sid: string): string => ADCODE_DIST[sid.slice(3, 9)] || '';
+type CampusLinkT = { schoolId: string; poiName: string | null; campus: string };
+type CampusPick = { top: number; left: number; items: Array<{ poiName: string; schoolId: string; name: string; district: string }> };
+const campusPicker = ref<CampusPick | null>(null);
+function openCampusPicker(r: { school: string; campuses: CampusLinkT[] }, e: MouseEvent) {
+  const items = r.campuses.map((c) => ({
+    poiName: c.poiName || c.campus, schoolId: c.schoolId,
+    name: c.poiName || c.campus, district: districtOf(c.schoolId),
+  }));
+  const btn = (e.currentTarget as HTMLElement).getBoundingClientRect();
+  const w = 300;
+  let left = btn.left;
+  if (left + w > window.innerWidth - 8) left = Math.max(8, window.innerWidth - w - 8);
+  campusPicker.value = { top: btn.bottom + 6, left, items };
+}
+function closeCampusPicker() { campusPicker.value = null; }
+function goCampus(item: CampusPick['items'][number]) {
+  closeCampusPicker();
+  router.push({ path: `/school/${encodeURIComponent(item.poiName || item.name)}`, query: { stage: 'middle', id: item.schoolId } });
+}
 </script>
 
 <template>
@@ -102,9 +131,9 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
         <div class="tbl-row tbl-head"><span>初中</span><span>自招</span><span>体育</span><span>艺术</span></div>
         <div v-for="r in model.highSpecialCoverage" :key="r.school" class="tbl-row">
           <span>
-            <RouterLink v-if="r.poiName && r.schoolId" :to="{ path: `/school/${encodeURIComponent(r.poiName)}`, query: { stage: 'middle', id: r.schoolId } }" class="sch-link">{{ r.school }}</RouterLink>
+            <button v-if="r.campuses.length > 1" class="sch-link campus-open" @click="openCampusPicker(r, $event)">{{ r.school }}</button>
+            <RouterLink v-else-if="r.poiName && r.schoolId" :to="{ path: `/school/${encodeURIComponent(r.poiName)}`, query: { stage: 'middle', id: r.schoolId } }" class="sch-link">{{ r.school }}</RouterLink>
             <template v-else>{{ r.school }}</template>
-            <template v-if="r.campuses.length > 1"><br><span class="sub-links"><RouterLink v-for="c in r.campuses" :key="c.schoolId" :to="{ path: `/school/${encodeURIComponent(c.poiName || c.campus)}`, query: { stage: 'middle', id: c.schoolId } }" class="sch-link">{{ c.campus }}</RouterLink></span></template>
           </span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span>
         </div>
       </div>
@@ -118,9 +147,9 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
           <div class="tbl-row tbl-head"><span>初中</span><span>所在区</span><span>名额</span></div>
           <div v-for="r in model.highCoverage" :key="r.school" class="tbl-row">
             <span>
-              <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink>
+              <button v-if="r.campuses.length > 1" class="sch-link campus-open" @click="openCampusPicker(r, $event)">{{ r.school }}</button>
+              <RouterLink v-else-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink>
               <template v-else>{{ r.school }}</template>
-              <template v-if="r.campuses.length > 1"><br><span class="sub-links"><RouterLink v-for="c in r.campuses" :key="c.schoolId" :to="{ path: `/school/${encodeURIComponent(c.poiName || c.campus)}`, query: { stage: 'middle', id: c.schoolId } }" class="sch-link">{{ c.campus }}</RouterLink></span></template>
             </span>
             <span>{{ r.districts.join('、') || '—' }}</span><span class="strong">{{ r.n }}</span>
           </div>
@@ -132,9 +161,9 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
           <div class="tbl-row tbl-head"><span>初中</span><span>名额</span></div>
           <div v-for="r in model.highDistrictCoverage" :key="r.school" class="tbl-row">
             <span>
-              <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink>
+              <button v-if="r.campuses.length > 1" class="sch-link campus-open" @click="openCampusPicker(r, $event)">{{ r.school }}</button>
+              <RouterLink v-else-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="sch-link">{{ r.school }}</RouterLink>
               <template v-else>{{ r.school }}</template>
-              <template v-if="r.campuses.length > 1"><br><span class="sub-links"><RouterLink v-for="c in r.campuses" :key="c.schoolId" :to="{ path: `/school/${encodeURIComponent(c.poiName || c.campus)}`, query: { stage: 'middle', id: c.schoolId } }" class="sch-link">{{ c.campus }}</RouterLink></span></template>
             </span>
             <span class="strong">{{ r.n }}</span>
           </div>
@@ -147,6 +176,18 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
       <p class="empty">该校为区属高中：名额分配面向本区初中、官方未公布逐初中明细；省市属自招/特长等特殊通道暂未覆盖到本校。</p>
     </div>
   </template>
+
+  <!-- 多校区法人行：一个名字 + 弹窗选校区（与初中明细一致） -->
+  <Teleport to="body">
+    <div v-if="campusPicker" class="campus-mask" @click="closeCampusPicker"></div>
+    <div v-if="campusPicker" class="campus-pop" :style="{ top: campusPicker.top + 'px', left: campusPicker.left + 'px' }">
+      <div class="campus-pop-title">选择校区</div>
+      <button v-for="c in campusPicker.items" :key="c.schoolId" class="campus-opt" @click="goCampus(c)">
+        <span class="campus-name">{{ c.name }}</span>
+        <span class="campus-dist">{{ c.district }}</span>
+      </button>
+    </div>
+  </Teleport>
 </template>
 
 <style scoped>
@@ -184,8 +225,23 @@ const model = computed(() => buildLinkageModel(props.stage, schoolName.value, re
 .tbl-head > span { color: #6b7280; }
 .sch-link { color: #1a6bd6; text-decoration: none; }
 .sch-link:hover { text-decoration: underline; }
-.sub-links { display: inline-flex; flex-wrap: wrap; gap: 8px; font-size: 11px; margin-top: 4px; }
-.sub-links .sch-link { color: #4b8be0; }
+.campus-open { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+.campus-open:hover { color: #0e4fb0; }
+.campus-mask { position: fixed; inset: 0; z-index: 1350; background: rgba(0, 0, 0, 0.03); }
+.campus-pop {
+  position: fixed; z-index: 1400; width: 300px; max-width: 86vw;
+  background: #fff; border: 1px solid #e4e3dd; border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(20, 30, 50, 0.16); padding: 8px;
+}
+.campus-pop-title { font-size: 11px; color: #8a93a3; font-weight: 600; padding: 2px 8px 8px; }
+.campus-opt {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  width: 100%; border: none; background: transparent; border-radius: 8px;
+  padding: 8px; cursor: pointer; font: inherit; text-align: left;
+}
+.campus-opt:hover { background: #f2f7ff; }
+.campus-name { color: #1a6bd6; font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.campus-dist { flex: none; color: #8a93a3; font-size: 11px; }
 
 @media (max-width: 600px) {
   .kv-row > span { width: 84px; }

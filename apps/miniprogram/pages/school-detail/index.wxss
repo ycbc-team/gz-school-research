@@ -58,6 +58,7 @@
 .tbl { display: flex; flex-direction: column; gap: 8rpx; }
 .tbl-row { display: flex; align-items: center; gap: 14rpx; font-size: 24rpx; padding: 8rpx 10rpx; border-radius: 8rpx; }
 .tbl-row text:first-child { flex: 1; min-width: 0; }
+.tbl-row view:first-child { flex: 1; min-width: 0; }
 .tbl-row text:nth-child(n+2) { flex: none; width: 88rpx; text-align: right; }
 .tbl-row .strong { color: #1a1b1c; font-weight: 700; }
 .tbl-head { background: #f7f6f2; font-size: 22rpx; color: #6b7280; font-weight: 600; }

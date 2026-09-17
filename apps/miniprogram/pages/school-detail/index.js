@@ -93,4 +93,20 @@ Page({
     if (!hit) return;
     wx.navigateTo({ url: `/pages/school-detail/index?name=${encodeURIComponent(hit.name)}&stage=${hit.stage}&id=${encodeURIComponent(hit.id)}` });
   },
+
+  /** 多校区法人行：一个名字 → 弹出校区列表（与初中明细一致，不直接锚定单校区） */
+  openCampusPicker(e) {
+    const raw = e.currentTarget.dataset.campuses;
+    let campuses = raw;
+    if (typeof raw === 'string') { try { campuses = JSON.parse(raw); } catch (_) { campuses = []; } }
+    if (!Array.isArray(campuses) || !campuses.length) return;
+    wx.showActionSheet({
+      itemList: campuses.map((c) => c.poiName || c.campus),
+      success: (res) => {
+        const c = campuses[res.tapIndex];
+        if (!c) return;
+        this.goSchool({ currentTarget: { dataset: { to: `/school/${c.poiName || c.campus}?stage=middle&id=${c.schoolId}` } } });
+      },
+    });
+  },
 });

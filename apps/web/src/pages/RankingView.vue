@@ -315,7 +315,7 @@ const groups = computed(() => {
                   v-if="(row.s.school_ids?.length ?? 0) > 1"
                   class="school-link campus-open"
                   @click="openCampusPicker(row.s, $event)"
-                >{{ shortName(row.s.name) }}<span class="campus-badge">{{ (row.s.school_ids || []).length }} 校区</span></button>
+                >{{ shortName(row.s.name) }}</button>
                 <RouterLink
                   v-else
                   class="school-link"
@@ -458,11 +458,6 @@ const groups = computed(() => {
 .school-link:hover { text-decoration-thickness: 2px; }
 .campus-open { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
 .campus-open:hover { color: #0e4fb0; }
-.campus-badge {
-  margin-left: 6px; font-style: normal; font-size: 10.5px; color: #1a6bd6;
-  background: #eaf1fe; border: 1px solid #c8dcf7; border-radius: 8px; padding: 0 5px; line-height: 15px;
-  vertical-align: 1px; white-space: nowrap;
-}
 .campus-mask { position: fixed; inset: 0; z-index: 1350; background: rgba(0, 0, 0, 0.03); }
 .campus-pop {
   position: fixed; z-index: 1400; width: 300px; max-width: 86vw;
