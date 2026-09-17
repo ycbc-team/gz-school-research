@@ -62,13 +62,29 @@ function resolveOne(idx, name, district) {
   return (hit || list[0]).school_id;
 }
 // feed 初中解析：同区多校区全收（如「广铁一中铁英学校」→ 东/西两校区），跨区同名按 district 过滤
-function resolveMany(idx, name, district) {
-  const list = idx.get(normName(name));
-  if (!list || !list.length) return [];
-  let picked = list;
+// 法人裸名回退：派位/对口表法人名（如「广州市第七中学」「广州市育才中学」）不挂同区多校区别名
+// （检查 [3] 防无主 POI 歧义），alias 命中为空或区过滤后为空时，按 core 名回退同区同学段全部实体——
+// 法人多校区全收是业务正确（升学聚合按法人 school_ids 展示），匹配收敛到数据层，运行时只依赖 school_id。
+function coreOfName(raw) {
+  const n = String(raw || '').replace(/（/g, '(').replace(/）/g, ')').replace(/\([^()]*\)/g, '')
+    .replace(/^广州市/, '').replace(/^(荔湾|越秀|海珠|天河|白云|黄埔|番禺)区/, '').replace(/\s+/g, '');
+  return n;
+}
+function resolveMany(idx, name, district, stage) {
+  let picked = idx.get(normName(name)) || [];
   if (district) {
-    const f = list.filter((e) => entDistrict.get(e.school_id) === district);
+    const f = picked.filter((e) => entDistrict.get(e.school_id) === district);
     if (f.length) picked = f;
+    else picked = []; // 跨区命中（如白云桂花持裸名）→ 清空触发 core 回退，宁缺不跨区
+  }
+  if (!picked.length) {
+    const core = coreOfName(name);
+    let all = entities.filter((e) => e.stage === stage && coreOfName(e.name) === core);
+    if (district) {
+      const f = all.filter((e) => entDistrict.get(e.school_id) === district);
+      if (f.length) all = f;
+    }
+    picked = all;
   }
   return [...new Set(picked.map((e) => e.school_id))];
 }
@@ -81,7 +97,7 @@ const outRecords = src.records.map((r) => {
   if (primaryId) primaryHit++;
   const feed_ids = [], feed_unresolved = [];
   for (const name of (r.feed_junior_highs || [])) {
-    const ids = resolveMany(middleAlias, name, district);
+    const ids = resolveMany(middleAlias, name, district, 'middle');
     if (ids.length) feed_ids.push(...ids); else feed_unresolved.push(name);
   }
   return {

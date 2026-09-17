@@ -62,6 +62,21 @@ const stageFiles = {
   high: 'data/high/schools-gz.json',
 };
 
+// 非学校 POI 剔除（命中即不建实体，POI 点位表原样保留）。
+// 复用项目既有词表：build_high_levels_js.JUNK（楼栋/设施）、school_match._NON_SCHOOL、
+// backfill_xiaoshengchu_missing 非学校词。注意：地名/校区名含「楼」（石楼镇/九楼校区/新楼村）
+// 与附属中小学名含「大学/学院」（广州大学附属中学等）不可泛杀，故「楼」用精确词、
+// 高校本体用前缀精确匹配。命中数有测试固化（脏实体清单漂移防线）。
+const NON_SCHOOL_POI = [
+  /停车场/, /充电站/, /便利店/, /咏春/, /外籍人员子女/,
+  /后门/, /宿舍/, /游泳馆/, /文体楼/, /号楼$/, /总站/,
+  /地铁/, /公交/, /路口/, /门卫室/, /正门/, /招生办/, /创意园/,
+  /高三教学区/, /商务中心/, /发展中心/, /12栋/, /南教学楼/,
+  /雅政楼$/, /行雅楼$/, /卓凡楼$/, /仁爱楼$/, /尚学搂$/,
+  /^广州中医药大学/, // 高校本体（三元里校区）；附属中小学以「附属」开头不受影响
+];
+const isNonSchoolPoi = (name) => NON_SCHOOL_POI.some((re) => re.test(String(name || '')));
+
 // 官方初中名 → 对应 POI 名（人工核对 2026-09-11，全等别名；存疑/无POI 的不入表）
 const OFFICIAL_MIDDLE_ALIAS = {
   '广州市西关外国语学校校本部': '广州市西关外国语学校(初中部)',
@@ -372,6 +387,7 @@ for (const [stage, file] of Object.entries(stageFiles)) {
   const j = read(file);
   const pois = j.schools || j;
   for (const p of pois) {
+    if (isNonSchoolPoi(p.name)) continue;
     const rawNorm = String(p.name).replace(/（/g, '(').replace(/）/g, ')').replace(/\s+/g, '');
     const bareCore = bareCoreOf(rawNorm);
     if (bareCore) {
@@ -385,6 +401,7 @@ for (const [stage, file] of Object.entries(stageFiles)) {
   const j = read(file);
   const pois = j.schools || j;
   for (const p of pois) {
+    if (isNonSchoolPoi(p.name)) continue;
     const sn = normName(p.name);
     // 幂等：POI 已有 school_id 时保留（历史算法产出，事实表已按此引用），无 id 才新算
     const schoolId = p.school_id || idKey(p.adcode, sn);

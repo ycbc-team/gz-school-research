@@ -158,13 +158,16 @@ def main() -> int:
                     else:
                         s.pop('school_id', None)
                         unmatched.append((tag, s['school'], s.get('district'), s.get('district') in CITY7))
-                # 法人行（不带校区括号）：挂该法人同 stage 全部校区实体（school_ids 数组）
+                # 法人行（不带校区括号）：挂该法人同 stage 全部校区实体（school_ids 数组）。
+                # 校区收敛（如脏 POI 实体剔除后 ids 变 1 或 0）必须清残留旧数组，否则引用断链。
                 if s.get('school_id'):
                     c = core_name(s['school'])
                     if c == s['school']:
                         ids = by_core.get(('middle', c)) or []
                         if len(ids) > 1:
                             s['school_ids'] = ids
+                        else:
+                            s.pop('school_ids', None)
         else:
             if tag == 'special_matrix':
                 keys = list(d['matrix'].keys())

@@ -27,7 +27,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 2026-09-16 更新：初中缺口修复 4 所（白云六十五中桃园/明德、培英科技城、培英实验云景；
 #   另新增匹配奥中智谷/华工初中部/暨大初中部/六中珠江万胜围但升学仍缺，仍属孤儿）→ middle 165→161，新增 0
 # 2026-09-16 更新：孤儿判定补记 school_ids（铁英东/西、明德+同德共担计划）→ 374，新增 0（纯正向）
-ORPHAN_SNAPSHOT = "8a198a1e5dc7b3b0"
+# 2026-09-17 更新：剔除脏 POI 实体 18 所（楼栋/游泳馆/便利店/充电站/大学校区/外籍校/咏春/后门/教学区）
+#   → 孤儿 374→357，新增 0（纯正向）；build_entities 加 NON_SCHOOL_POI 过滤（复用既有词表）
+ORPHAN_SNAPSHOT = "d5dac4014c593d8d"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
