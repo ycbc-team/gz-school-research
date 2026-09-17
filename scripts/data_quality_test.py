@@ -49,7 +49,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #   （未确认校区宁缺、回孤儿待逐校确认；净消除 4 所），新增 0
 # 2026-09-17 二更：仲元二校区官方明文「二校区（初中部）」10 班 450 人（番禺招生计划），
 #   build_middle_enrollment 补挂 gz-440113-6dbdc462（原 school_id=None 过时）→ 孤儿 335→334，新增 0
-ORPHAN_SNAPSHOT = "f82610dffa453afb"
+ORPHAN_SNAPSHOT = "b2c8b1a81a8adab3"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
@@ -374,6 +374,17 @@ def main():
     for _o in _orphans:
         print(f"      {_o[0]} | {_o[1]} | {_o[2]} | {_o[3]} | {_o[4]}")
     _orphan_digest = hashlib.sha256("\n".join(f"{o[0]}|{o[1]}|{o[2]}|{o[4]}" for o in _orphans).encode()).hexdigest()[:16]
+    if os.environ.get("UPDATE_SNAPSHOT") == "1":
+        # 注释承诺的显式更新机制：把当前孤儿清单 digest 写回本文件 ORPHAN_SNAPSHOT 常量。
+        # 仅在排查确认孤儿变化符合预期（修复/冗余实体归位）时使用，禁止用于掩盖新增。
+        _txt = open(__file__, encoding="utf-8").read()
+        _txt, _n = re.subn(r'ORPHAN_SNAPSHOT = "[0-9a-f]{16}"',
+                            f'ORPHAN_SNAPSHOT = "{_orphan_digest}"', _txt, count=1)
+        if _n:
+            open(__file__, "w", encoding="utf-8").write(_txt)
+            print(f"[11] UPDATE_SNAPSHOT=1：孤儿快照已更新 → {_orphan_digest}")
+        else:
+            print(f"[11] UPDATE_SNAPSHOT=1：未找到 ORPHAN_SNAPSHOT 常量，跳过写回")
     check(_orphan_digest == ORPHAN_SNAPSHOT,
           f"[11] 孤儿学校清单漂移: digest {_orphan_digest} != 固化 {ORPHAN_SNAPSHOT}（新增孤儿须立即排查；修复孤儿后显式更新快照）")
 

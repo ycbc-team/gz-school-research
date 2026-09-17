@@ -420,10 +420,14 @@
     "gz-440113-94c76638"
    ],
    "plan_classes": 28,
-   "scope": "",
-   "mechanism": "single_zone",
-   "mechanism_note": null,
-   "group_members": null
+   "scope": "亚运城户籍的小学应届毕业生（必须是业主子女身份）。",
+   "mechanism": "group_paidui",
+   "mechanism_note": "电脑派位；与广铁一中番禺校区同组（见番禺校区行备注）。",
+   "group_members": [
+    "广铁一中番禺校区",
+    "广铁一中铁英学校(西校区)",
+    "广铁一中铁英学校(东校区)"
+   ]
   },
   {
    "school": "广大附中番禺实验学校",
