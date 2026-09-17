@@ -104,6 +104,9 @@
     <view wx:if="{{linkage.specialRows.length}}" class="card">
       <view class="card-title">中考-第一批</view>
       <view class="sub-note">特殊通道：自主招生 / 体育 / 艺术特长生。资格名单人数，非最终预录取。</view>
+      <view wx:if="{{linkage.campuses.length > 1}}" class="qblock">
+        <view class="qblock-title">该初中校区（特殊通道资格名单按官方法人单位统一公布，与同法人其他校区合计，录取后校区由学校统筹）</view>
+      </view>
       <view class="tbl">
         <view class="tbl-row tbl-head"><text>升入高中</text><text>自招</text><text>体育</text><text>艺术</text></view>
         <view wx:for="{{linkage.specialRows}}" wx:key="campus" class="tbl-row">

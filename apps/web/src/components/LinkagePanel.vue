@@ -49,6 +49,9 @@ function goCampus(item: CampusPick['items'][number]) {
     <div class="card" v-if="model.specialRows.length">
       <div class="card-title">中考-第一批</div>
       <p class="sub-note">特殊通道：自主招生 / 体育 / 艺术特长生。本校学生通过特殊通道被以下高中录取（资格名单人数，非最终预录取）。升入高中为官方法人招生单位，个别学校（如广州大学附属中学）多校区共用同一计划，录取后校区由学校统筹。</p>
+      <div v-if="model.campuses.length > 1" class="qblock">
+        <div class="qblock-title">该初中校区（特殊通道资格名单按官方法人单位统一公布，与同法人其他校区合计，录取后校区由学校统筹）</div>
+      </div>
       <div class="tbl">
         <div class="tbl-row tbl-head"><span>升入高中</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
         <div v-for="r in model.specialRows" :key="r.campus" class="tbl-row">
