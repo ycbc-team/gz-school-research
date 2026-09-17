@@ -146,7 +146,11 @@
       "sz_sum": 30,
       "school_id": "gz-440103-b41a3512",
       "is_district_head": false,
-      "district": "荔湾区"
+      "district": "荔湾区",
+      "school_ids": [
+        "gz-440103-b41a3512",
+        "gz-440103-dfff68f2"
+      ]
     },
     {
       "page": 0,
@@ -691,10 +695,8 @@
       "district": "荔湾区",
       "school_ids": [
         "gz-440103-042e23a5",
-        "gz-440103-04c54db8",
-        "gz-440103-2b8081bc",
-        "gz-440103-4bb96190",
-        "gz-440103-882931a0"
+        "gz-440103-1f4697e3",
+        "gz-440103-4bb96190"
       ]
     },
     {
@@ -753,9 +755,14 @@
         "清华附中湾区学校（智谷校区）": 1
       },
       "sz_sum": 22,
-      "school_id": "gz-440103-c5d5de44",
+      "school_id": "gz-440103-693412ae",
       "is_district_head": false,
-      "district": "荔湾区"
+      "district": "荔湾区",
+      "school_ids": [
+        "gz-440103-693412ae",
+        "gz-440103-7207525c",
+        "gz-440103-c5d5de44"
+      ]
     },
     {
       "page": 1,
@@ -930,11 +937,10 @@
         "清华附中湾区学校（智慧城校区）": 0
       },
       "sz_sum": 26,
-      "school_id": "gz-440104-028e64d6",
+      "school_id": "gz-440104-74121d17",
       "is_district_head": false,
       "district": "越秀区",
       "school_ids": [
-        "gz-440104-028e64d6",
         "gz-440104-74121d17",
         "gz-440111-82856abf"
       ]
@@ -995,11 +1001,12 @@
         "清华附中湾区学校（智慧城校区）": 2
       },
       "sz_sum": 18,
-      "school_id": "gz-440104-0a17f1eb",
+      "school_id": "gz-440104-2213d9b3",
       "is_district_head": false,
       "district": "越秀区",
       "school_ids": [
         "gz-440104-0a17f1eb",
+        "gz-440104-2213d9b3",
         "gz-440104-9b88f912"
       ]
     },
@@ -1036,8 +1043,7 @@
       "district": "越秀区",
       "school_ids": [
         "gz-440104-8964385d",
-        "gz-440104-8a1a7b3d",
-        "gz-440106-52f7f4b7"
+        "gz-440104-8a1a7b3d"
       ]
     },
     {
@@ -1099,13 +1105,9 @@
         "清华附中湾区学校（智慧城校区）": 1
       },
       "sz_sum": 24,
-      "school_id": "gz-440104-089a2a5b",
+      "school_id": "gz-440104-32444523",
       "is_district_head": false,
-      "district": "越秀区",
-      "school_ids": [
-        "gz-440104-089a2a5b",
-        "gz-440104-32444523"
-      ]
+      "district": "越秀区"
     },
     {
       "page": 2,
@@ -1544,7 +1546,11 @@
       "sz_sum": 32,
       "school_id": "gz-440104-7c4a905f",
       "is_district_head": false,
-      "district": "越秀区"
+      "district": "越秀区",
+      "school_ids": [
+        "gz-440104-7c4a905f",
+        "gz-440111-a3cf5a4f"
+      ]
     },
     {
       "page": 3,
@@ -1576,7 +1582,11 @@
       "sz_sum": 26,
       "school_id": "gz-440104-b22c4eca",
       "is_district_head": false,
-      "district": "越秀区"
+      "district": "越秀区",
+      "school_ids": [
+        "gz-440104-b22c4eca",
+        "gz-440113-8f5e4721"
+      ]
     },
     {
       "page": 3,
@@ -1607,7 +1617,12 @@
       "sz_sum": 20,
       "school_id": "gz-440104-09652aa5",
       "is_district_head": false,
-      "district": "越秀区"
+      "district": "越秀区",
+      "school_ids": [
+        "gz-440104-09652aa5",
+        "gz-440111-28c16cca",
+        "gz-440113-97e0acaa"
+      ]
     },
     {
       "page": 3,
@@ -1640,7 +1655,11 @@
       "sz_sum": 33,
       "school_id": "gz-440104-1560332d",
       "is_district_head": false,
-      "district": "越秀区"
+      "district": "越秀区",
+      "school_ids": [
+        "gz-440104-1560332d",
+        "gz-440111-99d97ada"
+      ]
     },
     {
       "page": 3,
@@ -1735,7 +1754,12 @@
       "sz_sum": 27,
       "school_id": "gz-440104-f3ca07ff",
       "is_district_head": false,
-      "district": "越秀区"
+      "district": "越秀区",
+      "school_ids": [
+        "gz-440104-1e9bdce3",
+        "gz-440104-f3ca07ff",
+        "gz-440106-22fcbcd6"
+      ]
     },
     {
       "page": 3,
@@ -1846,11 +1870,7 @@
       "sz_sum": 20,
       "school_id": "gz-440105-0ffca7e3",
       "is_district_head": false,
-      "district": "海珠区",
-      "school_ids": [
-        "gz-440105-0ffca7e3",
-        "gz-440105-aec34da3"
-      ]
+      "district": "海珠区"
     },
     {
       "page": 4,
@@ -1936,14 +1956,9 @@
         "清华附中湾区学校（智慧城校区）": 2
       },
       "sz_sum": 28,
-      "school_id": "gz-440105-40a80ebb",
+      "school_id": "gz-440105-b210556b",
       "is_district_head": false,
-      "district": "海珠区",
-      "school_ids": [
-        "gz-440105-13585057",
-        "gz-440105-40a80ebb",
-        "gz-440105-b210556b"
-      ]
+      "district": "海珠区"
     },
     {
       "page": 4,
@@ -2833,11 +2848,10 @@
         "清华附中湾区学校（智慧城校区）": 2
       },
       "sz_sum": 76,
-      "school_id": "gz-440106-3c8afb6a",
+      "school_id": "gz-440106-867e6c05",
       "is_district_head": false,
       "district": "天河区",
       "school_ids": [
-        "gz-440106-3c8afb6a",
         "gz-440106-867e6c05",
         "gz-440106-a989804b"
       ]
@@ -2876,7 +2890,6 @@
       "district": "天河区",
       "school_ids": [
         "gz-440106-5a7fbf3a",
-        "gz-440106-5b430017",
         "gz-440106-621b20d3"
       ]
     },
@@ -2952,9 +2965,7 @@
       "district": "天河区",
       "school_ids": [
         "gz-440106-2e9f6f7b",
-        "gz-440106-5f78f6a9",
-        "gz-440106-b049d65a",
-        "gz-440106-ced6bbff"
+        "gz-440106-b049d65a"
       ]
     },
     {
@@ -3052,7 +3063,6 @@
       "district": "天河区",
       "school_ids": [
         "gz-440106-2f8a4424",
-        "gz-440106-93897236",
         "gz-440106-dd16c13e"
       ]
     },
@@ -3317,7 +3327,12 @@
       "sz_sum": 25,
       "school_id": "gz-440106-22fcbcd6",
       "is_district_head": false,
-      "district": "天河区"
+      "district": "天河区",
+      "school_ids": [
+        "gz-440104-1e9bdce3",
+        "gz-440104-f3ca07ff",
+        "gz-440106-22fcbcd6"
+      ]
     },
     {
       "page": 6,
@@ -3454,7 +3469,11 @@
       "sz_sum": 22,
       "school_id": "gz-440106-a565a93c",
       "is_district_head": false,
-      "district": "天河区"
+      "district": "天河区",
+      "school_ids": [
+        "gz-440106-a565a93c",
+        "gz-440112-3847727f"
+      ]
     },
     {
       "page": 7,
@@ -3853,7 +3872,11 @@
       "sz_sum": 1,
       "school_id": "gz-440106-cc1c335f",
       "is_district_head": false,
-      "district": "天河区"
+      "district": "天河区",
+      "school_ids": [
+        "gz-440106-429b917e",
+        "gz-440106-cc1c335f"
+      ]
     },
     {
       "page": 8,
@@ -3948,7 +3971,11 @@
       "sz_sum": 21,
       "school_id": "gz-440111-a3cf5a4f",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440104-7c4a905f",
+        "gz-440111-a3cf5a4f"
+      ]
     },
     {
       "page": 9,
@@ -4065,7 +4092,11 @@
       "sz_sum": 15,
       "school_id": "gz-440103-a3ee807c",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440103-a3ee807c",
+        "gz-440111-6271c94b"
+      ]
     },
     {
       "page": 9,
@@ -4315,9 +4346,13 @@
         "清华附中湾区学校（智慧城校区）": 0
       },
       "sz_sum": 10,
-      "school_id": "gz-440111-9c7a2c45",
+      "school_id": "gz-440111-4c9a3eaa",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-4c9a3eaa",
+        "gz-440111-9c7a2c45"
+      ]
     },
     {
       "page": 9,
@@ -4675,7 +4710,11 @@
       "sz_sum": 9,
       "school_id": "gz-440111-6271c94b",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440103-a3ee807c",
+        "gz-440111-6271c94b"
+      ]
     },
     {
       "page": 10,
@@ -4721,7 +4760,12 @@
       "sz_sum": 12,
       "school_id": "gz-440111-c8461d5d",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-4ebb4316",
+        "gz-440111-c7b90869",
+        "gz-440111-c8461d5d"
+      ]
     },
     {
       "page": 10,
@@ -4744,9 +4788,13 @@
         "清华附中湾区学校（智慧城校区）": 2
       },
       "sz_sum": 8,
-      "school_id": "gz-440111-a53c68e3",
+      "school_id": "gz-440111-292274e7",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-292274e7",
+        "gz-440111-a53c68e3"
+      ]
     },
     {
       "page": 10,
@@ -4824,7 +4872,12 @@
       "sz_sum": 25,
       "school_id": "gz-440111-28c16cca",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440104-09652aa5",
+        "gz-440111-28c16cca",
+        "gz-440113-97e0acaa"
+      ]
     },
     {
       "page": 10,
@@ -4869,9 +4922,15 @@
         "清华附中湾区学校（智慧城校区）": 0
       },
       "sz_sum": 11,
-      "school_id": "gz-440111-d4c4285e",
+      "school_id": "gz-440111-0cf700fb",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-0cf700fb",
+        "gz-440111-150715c8",
+        "gz-440111-35860c30",
+        "gz-440111-d4c4285e"
+      ]
     },
     {
       "page": 10,
@@ -4914,7 +4973,11 @@
       "sz_sum": 3,
       "school_id": "gz-440111-99d97ada",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440104-1560332d",
+        "gz-440111-99d97ada"
+      ]
     },
     {
       "page": 11,
@@ -4941,7 +5004,12 @@
       "sz_sum": 12,
       "school_id": "gz-440111-c7b90869",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-4ebb4316",
+        "gz-440111-c7b90869",
+        "gz-440111-c8461d5d"
+      ]
     },
     {
       "page": 11,
@@ -5045,7 +5113,11 @@
       "sz_sum": 19,
       "school_id": "gz-440111-b4e0e849",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-b4e0e849",
+        "gz-440111-ce7a2db7"
+      ]
     },
     {
       "page": 11,
@@ -5104,9 +5176,13 @@
         "清华附中湾区学校（智慧城校区）": 4
       },
       "sz_sum": 44,
-      "school_id": "gz-440111-b95f2597",
+      "school_id": "gz-440111-0078267c",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-0078267c",
+        "gz-440111-b95f2597"
+      ]
     },
     {
       "page": 11,
@@ -5221,7 +5297,11 @@
       "sz_sum": 25,
       "school_id": "gz-440111-6782d2c7",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-6782d2c7",
+        "gz-440111-7d12a21e"
+      ]
     },
     {
       "page": 11,
@@ -5602,7 +5682,12 @@
       "sz_sum": 6,
       "school_id": "gz-440111-1b7d3f87",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-1b7d3f87",
+        "gz-440111-6782f041",
+        "gz-440111-e74c2e1d"
+      ]
     },
     {
       "page": 12,
@@ -5732,7 +5817,12 @@
       "sz_sum": 2,
       "school_id": "gz-440111-6782f041",
       "is_district_head": false,
-      "district": "白云区"
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-1b7d3f87",
+        "gz-440111-6782f041",
+        "gz-440111-e74c2e1d"
+      ]
     },
     {
       "page": 13,
@@ -5763,9 +5853,14 @@
         "清华附中湾区学校（智慧城校区）": 2
       },
       "sz_sum": 23,
-      "school_id": "gz-440112-43108516",
+      "school_id": "gz-440112-06029745",
       "is_district_head": false,
-      "district": "黄埔区"
+      "district": "黄埔区",
+      "school_ids": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516"
+      ]
     },
     {
       "page": 13,
@@ -6361,7 +6456,11 @@
       "sz_sum": 11,
       "school_id": "gz-440112-96610f39",
       "is_district_head": false,
-      "district": "黄埔区"
+      "district": "黄埔区",
+      "school_ids": [
+        "gz-440112-22ec4fcc",
+        "gz-440112-96610f39"
+      ]
     },
     {
       "page": 14,
@@ -6629,7 +6728,11 @@
       "sz_sum": 10,
       "school_id": "gz-440112-3847727f",
       "is_district_head": false,
-      "district": "黄埔区"
+      "district": "黄埔区",
+      "school_ids": [
+        "gz-440106-a565a93c",
+        "gz-440112-3847727f"
+      ]
     },
     {
       "page": 14,
@@ -8261,7 +8364,12 @@
       "sz_sum": 14,
       "school_id": "gz-440113-97e0acaa",
       "is_district_head": false,
-      "district": "番禺区"
+      "district": "番禺区",
+      "school_ids": [
+        "gz-440104-09652aa5",
+        "gz-440111-28c16cca",
+        "gz-440113-97e0acaa"
+      ]
     },
     {
       "page": 18,
@@ -8293,7 +8401,11 @@
       "sz_sum": 29,
       "school_id": "gz-440113-8f5e4721",
       "is_district_head": false,
-      "district": "番禺区"
+      "district": "番禺区",
+      "school_ids": [
+        "gz-440104-b22c4eca",
+        "gz-440113-8f5e4721"
+      ]
     },
     {
       "page": 18,

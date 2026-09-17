@@ -37,7 +37,10 @@
    "scope": null,
    "mechanism": "single_zone",
    "mechanism_note": "天河区公办初中对口直升（广州中学划片）",
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440106-a989804b"
+   ]
   },
   {
    "school": "广州市第一一三中学",
@@ -46,7 +49,10 @@
    "scope": null,
    "mechanism": "single_zone",
    "mechanism_note": "天河区公办初中对口直升（广州市第一一三中学划片）",
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440106-b049d65a"
+   ]
   },
   {
    "school": "广州市天河区汇景实验学校",
@@ -64,7 +70,10 @@
    "scope": null,
    "mechanism": "single_zone",
    "mechanism_note": "天河区公办初中对口直升（广州市第七十五中学划片）",
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440106-621b20d3"
+   ]
   },
   {
    "school": "广州市第八十九中学",
@@ -100,7 +109,10 @@
    "scope": null,
    "mechanism": "single_zone",
    "mechanism_note": "天河区公办初中对口直升（广州市天河中学划片）",
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440106-dd16c13e"
+   ]
   },
   {
    "school": "广州市第一一三中学陶育实验学校",
@@ -226,7 +238,10 @@
    "scope": null,
    "mechanism": "single_zone",
    "mechanism_note": "九年制学校内部直升（官方未单列小学部直升，按区属九年制直升惯例）+ 附件10全区电脑派位",
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440106-e32237e4"
+   ]
   },
   {
    "school": "华南理工大学附属实验学校（初中部）",

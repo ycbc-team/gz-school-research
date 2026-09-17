@@ -338,7 +338,10 @@
     {
       "name": "广州市西关外国语学校",
       "school_id": "gz-440103-b41a3512",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440103-b41a3512",
+        "gz-440103-dfff68f2"
+      ],
       "district": "荔湾区",
       "minban": false,
       "group": {
@@ -1801,10 +1804,8 @@
       "school_id": "gz-440103-042e23a5",
       "school_ids": [
         "gz-440103-042e23a5",
-        "gz-440103-04c54db8",
-        "gz-440103-2b8081bc",
-        "gz-440103-4bb96190",
-        "gz-440103-882931a0"
+        "gz-440103-1f4697e3",
+        "gz-440103-4bb96190"
       ],
       "district": "荔湾区",
       "minban": false,
@@ -2017,8 +2018,12 @@
     },
     {
       "name": "广州市荔湾区西关广雅实验学校",
-      "school_id": "gz-440103-c5d5de44",
-      "school_ids": null,
+      "school_id": "gz-440103-693412ae",
+      "school_ids": [
+        "gz-440103-693412ae",
+        "gz-440103-7207525c",
+        "gz-440103-c5d5de44"
+      ],
       "district": "荔湾区",
       "minban": false,
       "group": {
@@ -2562,9 +2567,8 @@
     },
     {
       "name": "广州市第七中学",
-      "school_id": "gz-440104-028e64d6",
+      "school_id": "gz-440104-74121d17",
       "school_ids": [
-        "gz-440104-028e64d6",
         "gz-440104-74121d17",
         "gz-440111-82856abf"
       ],
@@ -2767,9 +2771,10 @@
     },
     {
       "name": "广州市第十三中学",
-      "school_id": "gz-440104-0a17f1eb",
+      "school_id": "gz-440104-2213d9b3",
       "school_ids": [
         "gz-440104-0a17f1eb",
+        "gz-440104-2213d9b3",
         "gz-440104-9b88f912"
       ],
       "district": "越秀区",
@@ -2868,8 +2873,7 @@
       "school_id": "gz-440104-8a1a7b3d",
       "school_ids": [
         "gz-440104-8964385d",
-        "gz-440104-8a1a7b3d",
-        "gz-440106-52f7f4b7"
+        "gz-440104-8a1a7b3d"
       ],
       "district": "越秀区",
       "minban": false,
@@ -3070,11 +3074,8 @@
     },
     {
       "name": "广东实验中学越秀学校",
-      "school_id": "gz-440104-089a2a5b",
-      "school_ids": [
-        "gz-440104-089a2a5b",
-        "gz-440104-32444523"
-      ],
+      "school_id": "gz-440104-32444523",
+      "school_ids": null,
       "district": "越秀区",
       "minban": false,
       "group": {
@@ -4456,7 +4457,10 @@
     {
       "name": "广东实验中学（越秀校区）",
       "school_id": "gz-440104-7c4a905f",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440104-7c4a905f",
+        "gz-440111-a3cf5a4f"
+      ],
       "district": "越秀区",
       "minban": false,
       "group": {
@@ -4564,7 +4568,10 @@
     {
       "name": "广州大学附属中学（越秀校区）",
       "school_id": "gz-440104-b22c4eca",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440104-b22c4eca",
+        "gz-440113-8f5e4721"
+      ],
       "district": "越秀区",
       "minban": false,
       "group": {
@@ -4672,7 +4679,11 @@
     {
       "name": "广州市铁一中学（越秀校区）",
       "school_id": "gz-440104-09652aa5",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440104-09652aa5",
+        "gz-440111-28c16cca",
+        "gz-440113-97e0acaa"
+      ],
       "district": "越秀区",
       "minban": false,
       "group": {
@@ -4775,7 +4786,10 @@
     {
       "name": "广东华侨中学（越秀校区）",
       "school_id": "gz-440104-1560332d",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440104-1560332d",
+        "gz-440111-99d97ada"
+      ],
       "district": "越秀区",
       "minban": false,
       "group": null,
@@ -5078,7 +5092,11 @@
     {
       "name": "广州市执信中学（越秀校区）",
       "school_id": "gz-440104-f3ca07ff",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440104-1e9bdce3",
+        "gz-440104-f3ca07ff",
+        "gz-440106-22fcbcd6"
+      ],
       "district": "越秀区",
       "minban": false,
       "group": {
@@ -5431,10 +5449,7 @@
     {
       "name": "广州市第五中学",
       "school_id": "gz-440105-0ffca7e3",
-      "school_ids": [
-        "gz-440105-0ffca7e3",
-        "gz-440105-aec34da3"
-      ],
+      "school_ids": null,
       "district": "海珠区",
       "minban": false,
       "group": {
@@ -5724,12 +5739,8 @@
     },
     {
       "name": "广州市第四十一中学",
-      "school_id": "gz-440105-40a80ebb",
-      "school_ids": [
-        "gz-440105-13585057",
-        "gz-440105-40a80ebb",
-        "gz-440105-b210556b"
-      ],
+      "school_id": "gz-440105-b210556b",
+      "school_ids": null,
       "district": "海珠区",
       "minban": false,
       "group": {
@@ -8413,9 +8424,8 @@
     },
     {
       "name": "广州中学",
-      "school_id": "gz-440106-3c8afb6a",
+      "school_id": "gz-440106-867e6c05",
       "school_ids": [
-        "gz-440106-3c8afb6a",
         "gz-440106-867e6c05",
         "gz-440106-a989804b"
       ],
@@ -8538,7 +8548,6 @@
       "school_id": "gz-440106-5a7fbf3a",
       "school_ids": [
         "gz-440106-5a7fbf3a",
-        "gz-440106-5b430017",
         "gz-440106-621b20d3"
       ],
       "district": "天河区",
@@ -8760,9 +8769,7 @@
       "school_id": "gz-440106-2e9f6f7b",
       "school_ids": [
         "gz-440106-2e9f6f7b",
-        "gz-440106-5f78f6a9",
-        "gz-440106-b049d65a",
-        "gz-440106-ced6bbff"
+        "gz-440106-b049d65a"
       ],
       "district": "天河区",
       "minban": false,
@@ -9087,7 +9094,6 @@
       "school_id": "gz-440106-2f8a4424",
       "school_ids": [
         "gz-440106-2f8a4424",
-        "gz-440106-93897236",
         "gz-440106-dd16c13e"
       ],
       "district": "天河区",
@@ -9914,7 +9920,11 @@
     {
       "name": "广州市执信中学（天河校区）",
       "school_id": "gz-440106-22fcbcd6",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440104-1e9bdce3",
+        "gz-440104-f3ca07ff",
+        "gz-440106-22fcbcd6"
+      ],
       "district": "天河区",
       "minban": false,
       "group": {
@@ -10331,7 +10341,10 @@
     {
       "name": "华南师范大学附属中学（五山校区）",
       "school_id": "gz-440106-a565a93c",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440106-a565a93c",
+        "gz-440112-3847727f"
+      ],
       "district": "天河区",
       "minban": false,
       "group": {
@@ -11209,7 +11222,10 @@
     {
       "name": "广州市天河区同仁艺体实验中学",
       "school_id": "gz-440106-cc1c335f",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440106-429b917e",
+        "gz-440106-cc1c335f"
+      ],
       "district": "天河区",
       "minban": true,
       "group": null,
@@ -11369,7 +11385,10 @@
     {
       "name": "广东实验中学（白云校区）",
       "school_id": "gz-440111-a3cf5a4f",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440104-7c4a905f",
+        "gz-440111-a3cf5a4f"
+      ],
       "district": "白云区",
       "minban": false,
       "group": {
@@ -11746,7 +11765,10 @@
     {
       "name": "广州市培英中学（鹤洞校区）",
       "school_id": "gz-440103-a3ee807c",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440103-a3ee807c",
+        "gz-440111-6271c94b"
+      ],
       "district": "白云区",
       "minban": false,
       "group": {
@@ -12507,8 +12529,11 @@
     },
     {
       "name": "广州市白云区龙归学校",
-      "school_id": "gz-440111-9c7a2c45",
-      "school_ids": null,
+      "school_id": "gz-440111-4c9a3eaa",
+      "school_ids": [
+        "gz-440111-4c9a3eaa",
+        "gz-440111-9c7a2c45"
+      ],
       "district": "白云区",
       "minban": false,
       "group": {
@@ -13474,7 +13499,10 @@
     {
       "name": "广州市培英中学（岭南校区）",
       "school_id": "gz-440111-6271c94b",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440103-a3ee807c",
+        "gz-440111-6271c94b"
+      ],
       "district": "白云区",
       "minban": false,
       "group": {
@@ -13582,7 +13610,11 @@
     {
       "name": "广州市第六十五中学（明德校区）",
       "school_id": "gz-440111-c8461d5d",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440111-4ebb4316",
+        "gz-440111-c7b90869",
+        "gz-440111-c8461d5d"
+      ],
       "district": "白云区",
       "minban": false,
       "group": {
@@ -13674,8 +13706,11 @@
     },
     {
       "name": "广州市白云区黄石学校",
-      "school_id": "gz-440111-a53c68e3",
-      "school_ids": null,
+      "school_id": "gz-440111-292274e7",
+      "school_ids": [
+        "gz-440111-292274e7",
+        "gz-440111-a53c68e3"
+      ],
       "district": "白云区",
       "minban": false,
       "group": {
@@ -13889,7 +13924,11 @@
     {
       "name": "广州市铁一中学（白云校区）",
       "school_id": "gz-440111-28c16cca",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440104-09652aa5",
+        "gz-440111-28c16cca",
+        "gz-440113-97e0acaa"
+      ],
       "district": "白云区",
       "minban": false,
       "group": {
@@ -14034,8 +14073,13 @@
     },
     {
       "name": "广州市白云区广州空港实验中学",
-      "school_id": "gz-440111-d4c4285e",
-      "school_ids": null,
+      "school_id": "gz-440111-0cf700fb",
+      "school_ids": [
+        "gz-440111-0cf700fb",
+        "gz-440111-150715c8",
+        "gz-440111-35860c30",
+        "gz-440111-d4c4285e"
+      ],
       "district": "白云区",
       "minban": false,
       "group": null,
@@ -14173,7 +14217,10 @@
     {
       "name": "广东华侨中学（白云校区）",
       "school_id": "gz-440111-99d97ada",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440104-1560332d",
+        "gz-440111-99d97ada"
+      ],
       "district": "白云区",
       "minban": false,
       "group": null,
@@ -14218,7 +14265,11 @@
     {
       "name": "广州市第六十五中学（同德校区）",
       "school_id": "gz-440111-c7b90869",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440111-4ebb4316",
+        "gz-440111-c7b90869",
+        "gz-440111-c8461d5d"
+      ],
       "district": "白云区",
       "minban": false,
       "group": {
@@ -14496,7 +14547,10 @@
     {
       "name": "广州市白云区广州培文外国语学校",
       "school_id": "gz-440111-b4e0e849",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440111-b4e0e849",
+        "gz-440111-ce7a2db7"
+      ],
       "district": "白云区",
       "minban": true,
       "group": null,
@@ -14688,8 +14742,11 @@
     },
     {
       "name": "广州市白云区广大附中实验中学",
-      "school_id": "gz-440111-b95f2597",
-      "school_ids": null,
+      "school_id": "gz-440111-0078267c",
+      "school_ids": [
+        "gz-440111-0078267c",
+        "gz-440111-b95f2597"
+      ],
       "district": "白云区",
       "minban": false,
       "group": {
@@ -15078,7 +15135,10 @@
     {
       "name": "广州市白云区云雅实验学校",
       "school_id": "gz-440111-6782d2c7",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440111-6782d2c7",
+        "gz-440111-7d12a21e"
+      ],
       "district": "白云区",
       "minban": true,
       "group": {
@@ -16163,7 +16223,11 @@
     {
       "name": "广州市白云中学（汇侨校区）",
       "school_id": "gz-440111-1b7d3f87",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440111-1b7d3f87",
+        "gz-440111-6782f041",
+        "gz-440111-e74c2e1d"
+      ],
       "district": "白云区",
       "minban": false,
       "group": {
@@ -16555,7 +16619,11 @@
     {
       "name": "广州市白云中学（棠景校区）",
       "school_id": "gz-440111-6782f041",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440111-1b7d3f87",
+        "gz-440111-6782f041",
+        "gz-440111-e74c2e1d"
+      ],
       "district": "白云区",
       "minban": false,
       "group": {
@@ -16627,8 +16695,12 @@
     },
     {
       "name": "广州市第八十六中学",
-      "school_id": "gz-440112-43108516",
-      "school_ids": null,
+      "school_id": "gz-440112-06029745",
+      "school_ids": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516"
+      ],
       "district": "黄埔区",
       "minban": false,
       "group": {
@@ -18537,7 +18609,10 @@
     {
       "name": "广东省教育研究院黄埔实验学校",
       "school_id": "gz-440112-96610f39",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440112-22ec4fcc",
+        "gz-440112-96610f39"
+      ],
       "district": "黄埔区",
       "minban": false,
       "group": {
@@ -19417,7 +19492,10 @@
     {
       "name": "华南师范大学附属中学（知识城校区）",
       "school_id": "gz-440112-3847727f",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440106-a565a93c",
+        "gz-440112-3847727f"
+      ],
       "district": "黄埔区",
       "minban": false,
       "group": {
@@ -24285,7 +24363,11 @@
     {
       "name": "广州铁一中学（番禺校区）",
       "school_id": "gz-440113-97e0acaa",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440104-09652aa5",
+        "gz-440111-28c16cca",
+        "gz-440113-97e0acaa"
+      ],
       "district": "番禺区",
       "minban": false,
       "group": null,
@@ -24375,7 +24457,10 @@
     {
       "name": "广州大学附属中学（番禺校区）",
       "school_id": "gz-440113-8f5e4721",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440104-b22c4eca",
+        "gz-440113-8f5e4721"
+      ],
       "district": "番禺区",
       "minban": false,
       "group": {

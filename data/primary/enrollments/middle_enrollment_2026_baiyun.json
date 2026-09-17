@@ -37,7 +37,10 @@
    "scope": "汇侨第一小学",
    "mechanism": "single_zone",
    "mechanism_note": null,
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440111-e74c2e1d"
+   ]
   },
   {
    "school": "广州市白云中学（棠景校区）",
@@ -46,7 +49,10 @@
    "scope": "广州市白云中学棠景校区小学部",
    "mechanism": "single_zone",
    "mechanism_note": null,
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440111-e74c2e1d"
+   ]
   },
   {
    "school": "广州市三元里中学",
@@ -127,7 +133,10 @@
    "scope": "广东外语外贸大学实验中学（陈田西校区小学部）、广州市花城实验学校（普通生）",
    "mechanism": "single_zone",
    "mechanism_note": null,
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440111-f751344d"
+   ]
   },
   {
    "school": "广州市白云区大朗中学",
@@ -365,7 +374,10 @@
    "scope": "水沥小学、双岗小学、新楼小学、广铁八小、江村小学（塘贝户籍）",
    "mechanism": "group_paidui",
    "mechanism_note": null,
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440111-c7b90869"
+   ]
   },
   {
    "school": "广州市白云区广州空港实验中学（东校区）",
@@ -374,7 +386,10 @@
    "scope": "白云区人和镇第一小学、白云区人和镇第六小学、73中小学部",
    "mechanism": "group_paidui",
    "mechanism_note": null,
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440111-150715c8"
+   ]
   },
   {
    "school": "广州市白云区广州空港实验中学（西校区）",
@@ -383,7 +398,10 @@
    "scope": "广州市白云区广州空港实验小学（总校区、北校区）、广州市白云区六中实验小学南校区（除民强村、新兴村外）\n人和镇第二小学（建南校区）、广州市白云区六中实验小学北校区（汉塘村、明星村）",
    "mechanism": "group_paidui",
    "mechanism_note": "建南安置区完全中学建成投入使用后，推动将该校学生搬迁至新学校",
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440111-150715c8"
+   ]
   },
   {
    "school": "广州市白云区广州空港实验中学（本部）",
@@ -392,7 +410,10 @@
    "scope": "白云区人和镇第一小学、白云区人和镇第六小学",
    "mechanism": "single_zone",
    "mechanism_note": null,
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440111-150715c8"
+   ]
   },
   {
    "school": "广州市白云区六中实验中学（空港校区）",
@@ -464,7 +485,10 @@
    "scope": "永兴小学、龙归学校小学部",
    "mechanism": "single_zone",
    "mechanism_note": null,
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440111-4c9a3eaa"
+   ]
   },
   {
    "school": "广东外语外贸大学实验中学",
@@ -473,7 +497,10 @@
    "scope": "广东外语外贸大学实验中学小学部",
    "mechanism": "single_zone",
    "mechanism_note": null,
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440111-f751344d"
+   ]
   },
   {
    "school": "广州市白云区云翔学校",
@@ -491,7 +518,10 @@
    "scope": "广州市白云区龙归学校（珑璟校区）小学部",
    "mechanism": "single_zone",
    "mechanism_note": null,
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440111-4c9a3eaa"
+   ]
   },
   {
    "school": "广东第二师范学院实验中学",

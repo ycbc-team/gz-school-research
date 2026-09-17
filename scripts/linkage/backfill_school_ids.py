@@ -48,13 +48,19 @@ def main() -> int:
     # 由实体表 name 去括号校区后缀推导（如「广州市第一一三中学(乐学校区)」→ 法人「广州市第一一三中学」），
     # 再统一去「广州市」前缀（保留「X区」区名隔离不同法人：从化区第七中学 ≠ 第七中学），
     # 使「育才中学(东校区)」（POI 无广州市前缀）与「广州市育才中学(西校区)」归同一法人聚合。
+    # core_loose：再剥离尾部「校区/分校/初中部/高中部/小学部」后缀——POI 表存在不带括号的
+    # 校区/学部名（如「广州市第十三中学文德校区」「广州市第十三中学初中部」），core_name 无法归一；
+    # 剥离后与括号版（文德校区/禺山校区）同归「第十三中学」。区名前缀保留，跨区法人不混。
     # 脚本生成不手改；quota 法人行写入 school_ids 数组，前端升学信息按法人聚合展示、各校区分别跳转。
     def core_name(n: str) -> str:
         return re.sub(r'^广州市', '', re.sub(r'[（(][^）)]*[）)]', '', n or '').strip())
 
+    def core_loose(n: str) -> str:
+        return re.sub(r'(校区|分校|初中部|高中部|小学部)$', '', core_name(n))
+
     by_core: dict[tuple, list] = defaultdict(list)
     for e in entities['entities']:
-        by_core[(e['stage'], core_name(e['name']))].append(e['school_id'])
+        by_core[(e['stage'], core_loose(e['name']))].append(e['school_id'])
     for k in by_core:
         by_core[k] = sorted(set(by_core[k]))
     by_id = {e['school_id']: e['name'] for e in entities['entities']}
@@ -161,22 +167,30 @@ def main() -> int:
                     else:
                         s.pop('school_id', None)
                         unmatched.append((tag, s['school'], s.get('district'), s.get('district') in CITY7))
-                # 法人行（不带校区括号）：挂该法人同 stage 全部校区实体（school_ids 数组）。
-                # 判定用「原名无括号」而非 core_name 比较（core_name 去广州市后与原名不等，会漏判法人行）；
-                # by_core key 已去广州市+保留区名（育才东/西归同一法人，从化七中不混入）。
+                # 法人/校区行聚合 school_ids：官方升学文件按法人公布，一个法人名对应同 stage
+                # 全部校区实体——school_ids 数组 = 同 core 现存 middle 校区全集（实体表现存即
+                # 「办初中」：纯高中校区已由 build_entities NON_MIDDLE_CAMPUS/CAMPUS_STAGE_FIX
+                # 删除或转 high，不再出现在 middle by_core，天然排除）。
+                # 聚合 key 用「行 school_id 对应实体的 core_name」而非行原名：官方名单名带区前缀
+                # 而实体名不带（如「广州市白云区龙归学校」vs 实体「龙归学校(初中部)」），
+                # 原名 core 会失配（龙归 4c9a3eaa 曾因此无升学仍孤儿）；实体 core 反查天然对齐，
+                # 且实体 core 保留区名（从化区第七中学 ≠ 第七中学）不受影响。
+                # 主 id 归一仍只对法人行（原名无括号）做（用户口径：一个名字 + 弹窗选校区）；
                 # 校区收敛（如脏 POI 实体剔除后 ids 变 1 或 0）必须清残留旧数组，否则引用断链。
-                if s.get('school_id') and '(' not in s['school'] and '（' not in s['school']:
-                    ids = by_core.get(('middle', core_name(s['school']))) or []
+                if s.get('school_id'):
+                    _core = core_loose(by_id.get(s['school_id'], ''))
+                    ids = by_core.get(('middle', _core)) or [] if _core else []
                     if len(ids) > 1:
                         s['school_ids'] = ids
-                        # 主 id 归一：多校区法人行主 school_id 必须指向「本部实体」——
-                        # school_ids 中「实体名无括号且去广州市后=法人名」者（如十六中→本部 8a1a7b3d，
-                        # 而非首匹配的东湖校区）；无本部实体（如七中仅麓湖/初中部/桂花校区）取 ids[0]。
-                        # 否则列表页点法人名跳到校区详情页（用户口径：一个名字 + 弹窗选校区）。
-                        home = next((i for i in ids
-                                     if '(' not in by_id.get(i, '') and '（' not in by_id.get(i, '')
-                                     and core_name(by_id.get(i, '')) == core_name(s['school'])), None)
-                        s['school_id'] = home or ids[0]
+                        if '(' not in s['school'] and '（' not in s['school']:
+                            # 主 id 归一：多校区法人行主 school_id 必须指向「本部实体」——
+                            # school_ids 中「实体名无括号且去广州市后=法人名」者（如十六中→本部 8a1a7b3d，
+                            # 而非首匹配的东湖校区）；无本部实体（如七中仅麓湖/初中部/桂花校区）取 ids[0]。
+                            # 否则列表页点法人名跳到校区详情页。
+                            home = next((i for i in ids
+                                         if '(' not in by_id.get(i, '') and '（' not in by_id.get(i, '')
+                                         and core_loose(by_id.get(i, '')) == _core), None)
+                            s['school_id'] = home or ids[0]
                     else:
                         s.pop('school_ids', None)
         else:

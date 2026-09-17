@@ -69,8 +69,42 @@ const stageFiles = {
 // 命中 → 不建 middle 实体，并从中表 POI 表中删除；high 表不受影响。
 const NON_MIDDLE_CAMPUS = [
   '广州市第十六中学(水荫校区)',  // 2026-09-17 用户+官方确认：原恒福中学高中部，纯高中
+  // —— 2026-09-17 联网核实（outputs/campus_middle_webverify_20260917.md），
+  //    完中同 id 有 high 的校区：删 middle 留 high ——
+  '广州市真光中学(本部校区)',    // 培真路17号=高中本部；初中部本部在鹤洞路98号（另一 POI）
+  '广州市真光中学(广钢校区)',    // 崇文五路 2025 新办纯高中
+  '广州市真光中学(汾水校区)',    // 芬芳街47号 纯高中（独立招生代码）
+  '广州市第六十五中学(江高校区)',// 2024/2026 初中 plan 无此行，仅高中名额分配；江高片初中由江府承接
+  '广州市培英中学(云城校区)',    // 官方「培英白云新城校区」公办普通高中 48 班
+  '广州市第七中学(麓湖校区)',    // 2026-08-31 揭牌「优质公办高中新阵地」首年高一 540 人；初中在本部东山
+  '广州中学(凤凰校区)',          // 官方：凤凰全部为高中
+  '广州市第一一三中学(金融城校区)', // 高中部；2026 市招考办以金融城校区招高中 430 人
+  '广州市第一一三中学(元岗校区)', // 2026-09 启用面向高中阶段招 500 人
+  '广州市天河中学(珠江新城校区)', // 官方表：珠江新城=高中部（华成路7号）
+  '华南师范大学附属中学(石牌校区)', // 石牌=纯高中（自招简章面向中考应届生）；初中部在五山校区
+  '广州市第五中学(金碧校区)',    // 金恒路66号 2022 秋起只招高一；2026 初中表五中仅列本部南村路32号
 ];
 const isNonMiddleCampus = (stage, name) => stage === 'middle' && NON_MIDDLE_CAMPUS.some((s) => name === s);
+
+// 校区学段修正（school_id → 正确 stage）：middle 表误建、实际为高中/小学的校区实体。
+// 与 NON_MIDDLE_CAMPUS 的区别：NON_MIDDLE 是「同 id 有 high」删 middle 留 high；
+// 本表是「实体只有 middle stage」——删除即丢失学校，须改为正确学段实体（POI 记录迁至对应表）。
+// 依据：outputs/campus_middle_webverify_20260917.md 联网核实。
+const CAMPUS_STAGE_FIX = {
+  'gz-440111-15fa03a9': 'high',    // 白云中学(南区) 藤业一路366号=官方高中部（金沙洲）
+  'gz-440111-5849b586': 'high',    // 白云中学(北区) 藤业一路365号=高中部校园北半
+  'gz-440111-3405d87e': 'primary', // 省实(云城校区) 萧岗明珠北路45号=小学部（官网）；初中在白云校区
+  'gz-440104-089a2a5b': 'high',    // 省实越秀(盘福校区)=高中（高三）部；初中招生仅列天胜校区
+  'gz-440104-63c59c98': 'high',    // 执信(二沙岛国际校区)=高中国际合作办学（AP/A-Level）
+  'gz-440112-b56cfdce': 'high',    // 二中(科学城校区) 水西路11号=高中部；初中在应元路21号
+  'gz-440106-5b430017': 'high',    // 75中(燕塘东校区) 燕岭路151号=高中部（官方表）
+  'gz-440105-13585057': 'high',    // 41中(南校区) 2026 初中已集中校本部，东/南转高中
+  'gz-440105-b210556b': 'high',    // 41中(东校区) 2024-12 官方扩建(1.4亿)转高中部
+  'gz-440104-0a17f1eb': 'high',    // 十三中(文德校区) 文德路83号=高中/北校；初中部在禺山校区
+                                    // （禺山路14号，9b88f912）——历史 OFFICIAL_ALIAS 曾将官方
+                                    // 「广州市第十三中学」初中行桥接到本校区（错误），此处修正防再建 middle
+};
+const stageFixOf = (stage, p) => (stage === 'middle' && CAMPUS_STAGE_FIX[p.school_id]) || stage;
 
 // 非学校 POI 剔除（命中即不建实体，POI 点位表原样保留）。
 // 复用项目既有词表：build_high_levels_js.JUNK（楼栋/设施）、school_match._NON_SCHOOL、
@@ -379,6 +413,11 @@ const entities = [];           // {school_id, name, stage, aliases:Set(norm)}
 const poiIdByKey = new Map();   // "stage|adcode|poiName" -> school_id（同名跨区必须独立）
 const entByStagePoiName = new Map(); // "stage|norm(poiName)" -> entity
 
+// POI 名规范化（仅实体层，不改源 POI 名）：同 school_id 跨 stage 实体名括号写法不一致
+// （如「广州市第十三中学文德校区」middle 无括号 / high 带括号），会致 backfill 法人聚合
+// core 失配、该校区无升学仍孤儿。此处统一为规范写法（实体名=括号版，school_id 幂等保留）。
+const POI_NAME_FIX = { '广州市第十三中学文德校区': '广州市第十三中学(文德校区)' };
+
 // 核心裸名归一：去括号、去「广州市」前缀；「广州奥林匹克中学」vs「广州市奥林匹克中学」这类
 // 「广州」/「广州市」混写也归一到同一核心（防计数/挂载分歧）。仅当去「广州」后剩余为泛词
 // （如「广州中学」→「中学」）时保留前缀，避免泛词毁名（历史多次踩坑）。
@@ -398,42 +437,57 @@ for (const [stage, file] of Object.entries(stageFiles)) {
   const pois = j.schools || j;
   for (const p of pois) {
     if (isNonSchoolPoi(p.name) || isNonMiddleCampus(stage, p.name)) continue;
-    const rawNorm = String(p.name).replace(/（/g, '(').replace(/）/g, ')').replace(/\s+/g, '');
+    const _st = stageFixOf(stage, p);  // 学段修正：middle 误建 → 按正确 stage 统计
+    const pn0 = POI_NAME_FIX[p.name] || p.name;  // 规范化实体名（统计与建实体口径一致）
+    const rawNorm = String(pn0).replace(/（/g, '(').replace(/）/g, ')').replace(/\s+/g, '');
     const bareCore = bareCoreOf(rawNorm);
     if (bareCore) {
-      const k = stage + '|' + p.adcode + '|' + bareCore;
+      const k = _st + '|' + p.adcode + '|' + bareCore;
       bareCoreCount.set(k, (bareCoreCount.get(k) || 0) + 1);
     }
   }
 }
 
+const seenSchoolIdByStage = new Set();  // "stage|school_id" 已建实体（同 id 多 POI 点位去重）
 for (const [stage, file] of Object.entries(stageFiles)) {
   const j = read(file);
   const pois = j.schools || j;
   for (const p of pois) {
     if (isNonSchoolPoi(p.name) || isNonMiddleCampus(stage, p.name)) continue;
-    const sn = normName(p.name);
+    const pn = POI_NAME_FIX[p.name] || p.name;  // 规范化实体名（POI 原名仅用于 idKey/回写查表）
+    const _st = stageFixOf(stage, p);  // 学段修正：middle 误建 → 按正确 stage 建实体（POI 数据随迁）
+    const sn = normName(pn);
     // 幂等：POI 已有 school_id 时保留（历史算法产出，事实表已按此引用），无 id 才新算
-    const schoolId = p.school_id || idKey(p.adcode, sn);
-    const ent = { school_id: schoolId, name: p.name, stage, aliases: new Set(poiNameAliases(p.name, p.adcode)) };
+    const schoolId = p.school_id || idKey(_st, sn);
+    // 同 id 去重：POI 表可能对同一 school_id 存在多条点位（如「广州市第十三中学文德校区」与
+    // 「广州市第十三中学(文德校区)」两个高德 POI）——同 (stage, school_id) 只建一个实体，
+    // 后续点位 aliases 并入首个（否则实体表同 id 双实体、by_id 反查被覆盖导致聚合失配）
+    const _dupKey = _st + '|' + schoolId;
+    if (seenSchoolIdByStage.has(_dupKey)) {
+      const _existing = entities.find((e) => e.stage === _st && e.school_id === schoolId);
+      if (_existing) for (const v of poiNameAliases(pn, p.adcode)) _existing.aliases.add(v);
+      continue;
+    }
+    seenSchoolIdByStage.add(_dupKey);
+    const ent = { school_id: schoolId, name: pn, stage: _st, aliases: new Set(poiNameAliases(pn, p.adcode)) };
     // 学部/校区括号 → 核心裸名别名（如「广东番禺中学实验学校(小学部)」→「广东番禺中学实验学校」）。
     // 仅当同区同学段该核心名为独苗时挂载（如小学部唯一实体），保证 resolve「区+学段」可唯一收敛；
     // 多校区共用核心名（万松园小学松园/云桂校区）不挂裸名 → resolve 宁缺毋滥，build 靠 _anchors 锚定。
-    const rawNorm = String(p.name).replace(/（/g, '(').replace(/）/g, ')').replace(/\s+/g, '');
+    const rawNorm = String(pn).replace(/（/g, '(').replace(/）/g, ')').replace(/\s+/g, '');
     const bareCore = bareCoreOf(rawNorm);
-    if (bareCore && bareCore !== sn && bareCoreCount.get(stage + '|' + p.adcode + '|' + bareCore) === 1) {
+    if (bareCore && bareCore !== sn && bareCoreCount.get(_st + '|' + p.adcode + '|' + bareCore) === 1) {
       ent.aliases.add(bareCore);
     }
     // 实体名自身 norm 的纯名变体先占位（「景泰中学」实体名 = 纯名，别名表不得再挂同区其他实体）
-    for (const v of poiNameAliases(p.name, p.adcode)) {
+    for (const v of poiNameAliases(pn, p.adcode)) {
       if (isPlainAlias(v)) {
         const key = p.adcode + '|' + v;
         if (!plainOwner.has(key)) plainOwner.set(key, schoolId);
       }
     }
     entities.push(ent);
-    poiIdByKey.set(stage + '|' + p.adcode + '|' + p.name, schoolId);
-    entByStagePoiName.set(stage + '|' + sn, ent);
+    poiIdByKey.set(_st + '|' + p.adcode + '|' + p.name, schoolId);
+    entByStagePoiName.set(_st + '|' + sn, ent);
   }
 }
 
@@ -599,17 +653,39 @@ write('data/registry/entities.json', {
 // 匹配失败的 POI（school_id 为 null，如「广州市第三中学仁爱楼」「全家便利店(陶育店)」
 // 「港湾中学-港湾咏春」等楼栋/设施/后门/便利店）都是假学校点位：不建实体、
 // 不在地图/列表展示，直接从点位表删除（用户口径：无需展示），脚本可复现。
+const stageMoved = {};  // 学段修正：从 middle 表迁出的 POI 记录（按目标 stage 收集）
 for (const [stage, file] of Object.entries(stageFiles)) {
   const j = read(file);
   const kept = [];
+  const seenPoiSid = new Set();  // 同 (stage, school_id) 重复点位去重（实体表同 id 唯一）
   for (const p of (j.schools || j)) {
     if (isNonMiddleCampus(stage, p.name)) continue;  // 纯高中校区（初中不办学），从 middle 表删除
+    const _st = stageFixOf(stage, p);
+    if (_st !== stage) {  // 学段修正：从本表迁出（如 middle→high/primary），目标表追加
+      stageMoved[_st] = stageMoved[_st] || [];
+      stageMoved[_st].push({ ...p });
+      continue;
+    }
     const sid = poiIdByKey.get(stage + '|' + p.adcode + '|' + p.name) || null;
     p.school_id = sid;
-    if (sid) kept.push(p);
+    if (sid) {
+      if (seenPoiSid.has(stage + '|' + sid)) continue;  // 同 id 已保留一条，跳过重复点位
+      seenPoiSid.add(stage + '|' + sid);
+      kept.push(p);
+    }
   }
   j.schools = kept;
   write(file, j);
+}
+for (const [target, recs] of Object.entries(stageMoved)) {
+  const j = read(stageFiles[target]);
+  const seen = new Set(j.schools.map((x) => target + '|' + (x.school_id || '')));
+  for (const p of recs) {
+    const sid = poiIdByKey.get(target + '|' + p.adcode + '|' + p.name) || p.school_id || null;
+    p.school_id = sid;
+    if (sid && !seen.has(target + '|' + sid)) { j.schools.push(p); seen.add(target + '|' + sid); }
+  }
+  write(stageFiles[target], j);
 }
 
 // ---- 统计 ----

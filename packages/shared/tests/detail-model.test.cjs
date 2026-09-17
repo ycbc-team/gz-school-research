@@ -114,7 +114,10 @@ test('品牌关联：全量品牌实体对比修复前后，品牌分支新增�
   // 2026-09-16 法人多校区治理后为 58：merge_groups 对 education core_poi 做法人推导补全
   // （matchNorm(coreCampusName) 归并全部校区），华阳小学/真光等校区改由 education 索引命中
   // （education 优先），品牌卡归属更准确（教育集团 core_poi 全校区可见）。
-  assert.equal(eligible.length, 58, '品牌实体覆盖范围变更，请审阅当前态回归结果');
+  // 2026-09-17 校区办学联网核实后为 57：41中东/盘福等 9 所校区 stage 修正（middle→high/primary，
+  // 见 CAMPUS_STAGE_FIX，campus_middle_webverify_20260917.md），学段变更后不再计入 brand 覆盖
+  //（详情页按正确学段渲染品牌卡）。
+  assert.equal(eligible.length, 57, '品牌实体覆盖范围变更，请审阅当前态回归结果');
   const failures = [];
   for (const entity of eligible) {
     const group = repo.groupOfSchool(entity.name, entity.school_id);
@@ -162,13 +165,14 @@ test('品牌关联：全量品牌实体对比修复前后，品牌分支新增�
 });
 
 test('法人多校区：官方升学文件一个名称对应多个 school_id，聚合展示分别跳转', () => {
-  // 一一三中法人行：4 个 middle 校区（乐学/金融城/东方/元岗）
+  // 一一三中法人行：2 个 middle 校区（乐学/东方）；金融城/元岗为纯高中（NON_MIDDLE，
+  // 2026-09-17 联网核实 campus_middle_webverify_20260917.md）
   const row = loaders.quotaMatrix.schools.find((s) => s.school === '广州市第一一三中学');
   assert.ok(row, 'quota 应有广州市第一一三中学法人行');
-  assert.equal(row.school_ids.length, 4, '法人行应挂 4 个校区 school_id');
+  assert.equal(row.school_ids.length, 2, '法人行应挂 2 个 middle 校区 school_id');
   const model = buildLinkageModel('middle', '广州市第一一三中学', repo, row.school_id);
   assert.equal(model.quota?.sheng_quota != null, true, '法人级配额应可展示');
-  assert.equal(model.campuses.length, 4, '升学信息应聚合 4 个校区');
+  assert.equal(model.campuses.length, 2, '升学信息应聚合 2 个校区');
   for (const c of model.campuses) {
     assert.ok(c.poiName, '每个校区都应能跳转各自详情页');
     const e = repo.entities.find((x) => x.school_id === c.schoolId);
@@ -178,13 +182,13 @@ test('法人多校区：官方升学文件一个名称对应多个 school_id，�
 });
 
 test('法人多校区：从任一校区 POI 进入都能命中法人升学数据', () => {
-  const campusEntity = repo.entities.find((e) => e.school_id === 'gz-440106-5f78f6a9'); // 金融城校区
-  assert.ok(campusEntity, '应存在一一三中金融城校区实体');
+  const campusEntity = repo.entities.find((e) => e.school_id === 'gz-440106-b049d65a'); // 东方校区（初中部）
+  assert.ok(campusEntity, '应存在一一三中东方校区实体');
   const model = buildLinkageModel('middle', campusEntity.name, repo, campusEntity.school_id);
   assert.ok(model.quota, '校区 POI 应归并到法人行展示升学数据');
-  assert.equal(model.campuses.length, 4, '聚合展示法人全部校区');
+  assert.equal(model.campuses.length, 2, '聚合展示法人全部 middle 校区');
   // 无 school_id 纯名进入（搜索/反查场景）也应命中
-  const byName = buildLinkageModel('middle', '广州市第一一三中学(金融城校区)', repo, null);
+  const byName = buildLinkageModel('middle', '广州市第一一三中学(东方校区)', repo, null);
   assert.ok(byName.quota, '纯名进入也应命中法人行');
 });
 
@@ -192,7 +196,7 @@ test('法人多校区：高中覆盖反查行聚合法人全部校区', () => {
   const model = buildLinkageModel('high', '华南师范大学附属中学（石牌校区）', repo, null);
   const row = model.highCoverage.find((r) => r.school === '广州市第一一三中学');
   assert.ok(row, '省市属高中覆盖反查应含一一三中法人行');
-  assert.equal(row.campuses.length, 4, '覆盖行应聚合法人 4 个校区');
+  assert.equal(row.campuses.length, 2, '覆盖行应聚合法人 2 个 middle 校区');
   assert.ok(row.campuses.every((c) => c.poiName), '覆盖行各校区均可跳转');
 });
 
@@ -231,5 +235,7 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
     .update(shown.filter((s) => s.endsWith('|true')).sort().join('\n'))
     .digest('hex')
     .slice(0, 16);
-  assert.equal(digest, '44791cf0ebf02d25', '品牌关联全量快照漂移：有实体的品牌卡渲染状态变化，需显式确认后更新');
+  // 2026-09-17 校区办学联网核实（CAMPUS_STAGE_FIX + NON_MIDDLE_CAMPUS）后更新：
+  // stage 修正的校区详情页按正确学段渲染品牌卡（渲染名单变化、无品牌卡消失）
+  assert.equal(digest, 'fb5cebcb23026c49', '品牌关联全量快照漂移：有实体的品牌卡渲染状态变化，需显式确认后更新');
 });
