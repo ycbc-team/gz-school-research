@@ -7,7 +7,7 @@
     "total_groups": 85,
     "total_members": 335,
     "poi_exact": 0,
-    "poi_variant": 22,
+    "poi_variant": 23,
     "poi_missing_7dist": 2,
     "poi_far": 8
   },
@@ -1957,17 +1957,13 @@
           "stage": "九年一贯",
           "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9096906.html",
           "verified": "2026-09-14",
-          "poi_match": "法人推导",
+          "poi_match": "已锚定",
           "poi_name": "",
           "school_id": "",
           "campuses": [
             {
               "poi_name": "汇景实验学校（小学部）",
               "school_id": "gz-440106-efcdec9d"
-            },
-            {
-              "poi_name": "广州市第四十七中汇景实验学校(中学部)",
-              "school_id": "gz-440106-28049c58"
             },
             {
               "poi_name": "广州市天河区汇景实验学校",
@@ -2495,19 +2491,13 @@
         },
         {
           "name": "西关外国语学校初中部(彩虹桥校区)",
-          "poi_match": "法人推导",
+          "poi_match": "已锚定",
           "poi_name": "西关外国语学校初中部(彩虹桥校区)",
           "school_id": "gz-440103-dfff68f2"
         },
         {
-          "name": "广州市西关外国语学校中学部",
-          "poi_match": "法人推导",
-          "poi_name": "广州市西关外国语学校中学部",
-          "school_id": "gz-440103-1df8fc85"
-        },
-        {
           "name": "广州市西关外国语学校(高中部)",
-          "poi_match": "法人推导",
+          "poi_match": "已锚定",
           "poi_name": "广州市西关外国语学校(高中部)",
           "school_id": "gz-440103-6bd45d68"
         }

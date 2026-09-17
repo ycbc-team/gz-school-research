@@ -443,7 +443,8 @@ for (const [stage, file] of Object.entries(stageFiles)) {
 // 名单来源（按 school_id / 名称别名匹配实体并去重，共 62 个）：
 //   ① data/primary/enrollments/2026-panyu.json 民办招生计划 sheet（38 个）
 //   ② data/high/levels.json nature=民办（19 所，按名称/别名/校区匹配，含同址初高中两实体）
-//   ③ data/middle/tier1_schools_all.json 口碑校法人类型=民办非企业单位（8 条，含 3 个补点按别名解析）
+//   ③ 历史：tier1 口碑表法人类型=民办非企业单位（8 条，tier1 已废弃、不再作为来源，
+//      此 8 条已固化进下表 school_id，公办为默认性质）
 // 公办为默认性质，不写字段；新增民办学校时在此追加 school_id。
 const MINBAN_IDS = new Set([
   'gz-440103-3ea667b1', 'gz-440103-4935332a', 'gz-440103-4ab42b76', 'gz-440103-5143f5a1', 'gz-440103-6c3ca7d0',
@@ -521,34 +522,10 @@ function attachAlias(stage, poiName, aliasName, force = false) {
   }
   return true;
 }
-// tier1：本部通用名挂到其名下各 POI 实体（school_ids 直接关联；孤儿记录按 aliases 兜底）
-for (const [stage, file] of [['primary', 'data/primary/tier1_schools_all.json'], ['middle', 'data/middle/tier1_schools_all.json']]) {
-  const j = read(file);
-  for (const blk of Object.values(j.districts || {}))
-    for (const s of blk.schools || []) {
-      const common = normName(s.name); // 官方通用名/本部名
-      const sids = s.school_ids || [];
-      // 多校区纯名通用名（如「京溪小学」4 分校区）：不挂 common，避免同区纯名被多实体共用
-      // （匹配器层宁可缺失，多校区由锚点表 members 一对多承载；搜索场景走 tier1 文件直连 school_ids）
-      // 与 data_quality [3] 口径一致：含"学校"的共享泛名（如铁英学校合并招生）允许挂多校区
-      if (sids.length > 1 && isPlainAlias(common)) continue;
-      const attached = new Set();
-      for (const sid of sids) {
-        const ent = entities.find((e) => e.school_id === sid);
-        if (!ent) continue;
-        for (const v of withDistrictVariants(common)) ent.aliases.add(v);
-        attached.add(sid);
-      }
-      // 孤儿记录：保留的 aliases 仍尝试挂载（防漏）
-      if (attached.size === 0) {
-        for (const poi of (s.aliases || [])) {
-          const ent = entByStagePoiName.get(stage + '|' + normName(poi));
-          if (!ent) continue;
-          for (const v of withDistrictVariants(common)) ent.aliases.add(v);
-        }
-      }
-    }
-}
+// tier1（网传口碑表）已于 2026-09-17 判定为废弃信息：只服务详情页「学校信号」模块（即将重构），
+// 不得被数据管线依赖——别名挂载段已移除（历史：tier1 school_ids 曾把「广州市第十六中学(水荫校区)」
+// 挂上「第十六中学本部」别名，属网传数据错误；本部限定名改由 OFFICIAL_HIGH_ALIAS/
+// OFFICIAL_MIDDLE_ALIAS 官方录取表桥接，多校区承载走锚点表/显式映射）
 // sites.json：31 所高中，sites[].poi_name 命中的，挂 sites 别名
 const sites = read('data/registry/sites.json');
 for (const ent of sites.schools || []) {

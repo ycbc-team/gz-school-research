@@ -26,21 +26,32 @@ export function looseNorm(s: string): string {
 
 /**
  * 构建 (归一化别名, 口碑记录) 表，长别名优先。
- * 别名唯一宿主为实体注册表 entities（POI name + aliases）；
- * 口碑记录通过 school_ids 关联实体，不再自存别名（孤儿记录除外，但不参与匹配）。
+ * 2026-09-17 调整：tier1 为废弃网传数据源，不得反向污染实体注册表别名——
+ * 口碑记录自身的 name/aliases 直接参与匹配（tier1 模块自洽，按 school_ids 关联实体）；
+ * 实体注册表 name/aliases 仅作补充（官方/POI 可靠名），不再承载 tier1 网传标注（如「番禺铁英」）。
  */
 export function buildAliasTable(
   schools: ReadonlyArray<Tier1School>,
   entities: ReadonlyArray<{ school_id: string; name: string; aliases?: string[] }>,
 ): Array<{ alias: string; school: Tier1School }> {
+  const table: Array<{ alias: string; school: Tier1School }> = [];
+  const seen = new Set<string>();
+  // 1) 口碑记录自身 name/aliases（网传标注留在 tier1 内部，不进实体表）
+  for (const sc of schools) {
+    for (const a of [sc.name, ...(sc.aliases || [])]) {
+      const na = normName(a);
+      if (!na || seen.has(na)) continue;
+      seen.add(na);
+      table.push({ alias: na, school: sc });
+    }
+  }
+  // 2) 实体补充：school_ids 关联实体的 name/aliases（官方/POI 名）
   const tierBySchoolId = new Map<string, Tier1School>();
   for (const sc of schools) {
     for (const sid of sc.school_ids || []) {
       if (!tierBySchoolId.has(sid)) tierBySchoolId.set(sid, sc);
     }
   }
-  const table: Array<{ alias: string; school: Tier1School }> = [];
-  const seen = new Set<string>();
   for (const e of entities) {
     const sc = tierBySchoolId.get(e.school_id);
     if (!sc) continue;

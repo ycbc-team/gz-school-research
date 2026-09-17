@@ -1,5 +1,5 @@
 {
-  "note": "教育集团成员锚点表（下游数据处理资源，非源数据）。仅承载「一对多」关系：成员名→多个校区POI（school_ids[]>1）与集团核心校POI列表。单校区锚定由 entities 别名+匹配器承担（build_entities.mjs GROUP_MEMBER_ALIAS 生产）；产物确定性由 test_match_poi golden + check_groups_drift 保证。",
+  "note": "教育集团成员锚点表（下游数据处理资源，非源数据）。仅承载「一对多」关系：成员名→多个校区POI（school_ids[]>1）与集团核心校POI列表。单校区锚定由 entities 别名+匹配器承担（build_entities.mjs GROUP_MEMBER_ALIAS 生产）；产物确定性由 test_match_poi golden + check_groups_drift 保证。\n2026-09-17：汇景实验学校成员显式锚定（小学部+初中部法人，去更名前旧实体）；西关外国语 core_poi 显式锚定彩虹桥校区（tier1 别名移除后推导不再命中，真实法人校区须数据层承载）",
   "members": {
     "白云湖数字科技城八方物流地块配建学校": {
       "school_ids": [
@@ -250,6 +250,16 @@
         "景泰小学(景泰校区)",
         "景泰小学(柯子岭校区)"
       ]
+    },
+    "汇景实验学校": {
+      "school_ids": [
+        "gz-440106-efcdec9d",
+        "gz-440106-0d1e149e"
+      ],
+      "poi_names": [
+        "汇景实验学校（小学部）",
+        "广州市天河区汇景实验学校"
+      ]
     }
   },
   "core_poi": {
@@ -443,6 +453,14 @@
       {
         "poi_name": "广州市西关外国语学校(初中部)",
         "school_id": "gz-440103-b41a3512"
+      },
+      {
+        "poi_name": "西关外国语学校初中部(彩虹桥校区)",
+        "school_id": "gz-440103-dfff68f2"
+      },
+      {
+        "poi_name": "广州市西关外国语学校(高中部)",
+        "school_id": "gz-440103-6bd45d68"
       }
     ],
     "广州市铁一小学教育集团": [
