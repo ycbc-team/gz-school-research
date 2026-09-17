@@ -50,6 +50,13 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 2026-09-17 二更：仲元二校区官方明文「二校区（初中部）」10 班 450 人（番禺招生计划），
 #   build_middle_enrollment 补挂 gz-440113-6dbdc462（原 school_id=None 过时）→ 孤儿 335→334，新增 0
 ORPHAN_SNAPSHOT = "b2c8b1a81a8adab3"
+
+# 同段同址冗余候选快照（sha256 前 16 位）：同学段+同区+≤50m 的公办实体对。
+# 方向：候选越少越好（每合并一对冗余实体就少一组，属纯正向改进）。
+# 与孤儿快照同款防线：新增候选立即失败，须排查后再 UPDATE_SNAPSHOT=1 显式更新。
+# 首次固化 2026-09-17：15 组候选（含省实荔湾 初中部/初中部一期/花地湾 同址北文街2号、
+#   景泰小学柯子岭校区/43号A座 等，逐一排查中，见提交说明）。
+CO_LOCATED_SNAPSHOT = "bf08fe098b4faeb5"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
@@ -387,6 +394,66 @@ def main():
             print(f"[11] UPDATE_SNAPSHOT=1：未找到 ORPHAN_SNAPSHOT 常量，跳过写回")
     check(_orphan_digest == ORPHAN_SNAPSHOT,
           f"[11] 孤儿学校清单漂移: digest {_orphan_digest} != 固化 {ORPHAN_SNAPSHOT}（新增孤儿须立即排查；修复孤儿后显式更新快照）")
+
+    # ---- 12. 同段同址冗余候选：同学段（primary/middle/high）+ 同区 + 坐标距离 ≤50m 的公办实体 ----
+    # 复用「全实体坐标检测」思路（相邻点检测，曾用于发现九年一贯/完中同址多学部）：
+    # 跨学段同址（小学+初中=九年一贯、初中+高中=完中）是正常办学形态，故只看同学段；
+    # 同学段同址是冗余候选（如省实荔湾 初中部/初中部一期 同址北文街2号），须逐一排查
+    # （部分候选可能是有意拆分/临迁同址，如十七中西校区=原82中 2026-08 临迁培正矿泉，
+    #  由人工确认后决定保留或合并，并把修正固化到 POI/实体构建脚本，禁止手改）。
+    # 快照防线同孤儿：候选清单 digest 固化，新增候选立即失败（防止悄悄引入新冗余点位）。
+    _POI_FILES = {
+        "primary": os.path.join(ROOT, "data/primary/schools-gz.json"),
+        "middle": os.path.join(ROOT, "data/middle/schools-gz.json"),
+        "high": os.path.join(ROOT, "data/high/schools-gz.json"),
+    }
+    _ent_by_id = {e["school_id"]: e for e in entities}
+    _co = []
+    for _stg, _pf in _POI_FILES.items():
+        for _p in json.load(open(_pf)).get("schools", []):
+            if not _p.get("school_id"):
+                continue
+            _ad = str(_p.get("adcode", ""))
+            if _ad not in _SEVEN_ADCODES:
+                continue
+            _e = _ent_by_id.get(_p["school_id"])
+            if _e and _e.get("nature") == "民办":
+                continue  # 民办不受公办派位/学位房逻辑约束，同址不构成数据冗余问题
+            if _p.get("lng") and _p.get("lat"):
+                _co.append((_stg, _ad, _p["school_id"], _p["name"], float(_p["lng"]), float(_p["lat"])))
+    import math as _math
+    def _haversine(a, b):
+        _R = 6371000.0
+        _p1, _p2 = _math.radians(a[5]), _math.radians(b[5])
+        _dp = _math.radians(b[5] - a[5])
+        _dl = _math.radians(b[4] - a[4])
+        _x = _math.sin(_dp / 2) ** 2 + _math.cos(_p1) * _math.cos(_p2) * _math.sin(_dl / 2) ** 2
+        return 2 * _R * _math.asin(_math.sqrt(_x))
+    _co_pairs = []
+    for _i in range(len(_co)):
+        for _j in range(_i + 1, len(_co)):
+            _a, _b = _co[_i], _co[_j]
+            if _a[0] != _b[0] or _a[1] != _b[1]:
+                continue
+            _d = _haversine(_a, _b)
+            if _d <= 50:
+                _co_pairs.append((round(_d, 1), _a[1], _a[0], _a[2], _a[3], _b[2], _b[3]))
+    _co_pairs.sort()
+    print(f"\n[12] 同段同址冗余候选（同学段+同区+≤50m，公办）: {len(_co_pairs)} 组")
+    for _p in _co_pairs:
+        print(f"      {_p[0]:6.1f}m | {_p[1]} {_p[2]} | {_p[3]} {_p[4]}  <->  {_p[5]} {_p[6]}")
+    _co_digest = hashlib.sha256("\n".join(f"{p[1]}|{p[2]}|{p[3]}|{p[5]}|{p[6]}" for p in _co_pairs).encode()).hexdigest()[:16]
+    if os.environ.get("UPDATE_SNAPSHOT") == "1":
+        _txt = open(__file__, encoding="utf-8").read()
+        _txt, _n = re.subn(r'CO_LOCATED_SNAPSHOT = "[0-9a-f]{16}"',
+                            f'CO_LOCATED_SNAPSHOT = "{_co_digest}"', _txt, count=1)
+        if _n:
+            open(__file__, "w", encoding="utf-8").write(_txt)
+            print(f"[12] UPDATE_SNAPSHOT=1：同址候选快照已更新 → {_co_digest}")
+        else:
+            print(f"[12] UPDATE_SNAPSHOT=1：未找到 CO_LOCATED_SNAPSHOT 常量，跳过写回")
+    check(_co_digest == CO_LOCATED_SNAPSHOT,
+          f"[12] 同段同址候选漂移: digest {_co_digest} != 固化 {CO_LOCATED_SNAPSHOT}（新增同址冗余候选须立即排查；修复后显式更新快照）")
 
     # ---- 汇总 ----
     print(f"数据质量测试: {checks} 项检查, {len(failures)} 项失败")

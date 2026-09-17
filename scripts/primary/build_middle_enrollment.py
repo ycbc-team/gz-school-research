@@ -340,11 +340,19 @@ if __name__ == "__main__":
                 _r["school_ids"] = _sids
         return data
 
-    targets = sys.argv[1:] or list(BUILDERS.keys())
+    # 支持 --out-dir DIR：产物一致性重跑（check_groups_drift）输出到临时目录，不改工作区
+    _args = list(sys.argv[1:])
+    out_dir = None
+    if "--out-dir" in _args:
+        i = _args.index("--out-dir")
+        out_dir = _args[i + 1]
+        del _args[i:i + 2]
+    targets = _args or list(BUILDERS.keys())
     for dk in targets:
         data = BUILDERS[dk]()
         data = attach_legal_school_ids(data)
-        out = os.path.join(OUT, f"middle_enrollment_2026_{dk}.json")
+        out = os.path.join(out_dir or OUT, f"middle_enrollment_2026_{dk}.json")
+        os.makedirs(os.path.dirname(out), exist_ok=True)
         with open(out, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=1)
         # 统计
