@@ -38,7 +38,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #     斐特思/黄广附属），新增 0
 # 2026-09-17 更新：孤儿判定「有升学」计入 quota 法人行 school_ids（校区升学聚合在法人行，
 #   主 id 归一后避免东湖/桂花/麓湖/育才等校区误判孤儿）→ 孤儿 353→339，新增 0
-ORPHAN_SNAPSHOT = "ba9a3ab6751b69f6"
+# 2026-09-17 更新：初中招生文件（build_middle_enrollment.py）法人行补 school_ids——
+#   政府招生按法人公布（一条「广州市第十六中学」覆盖东湖/本部/水荫），校区实体经
+#   school_ids 命中「有招生」，消除 39 所「无招生」误报孤儿（东湖/水荫/育才东西/
+#   桂花/麓湖/一一三中三校区/真光各校区等 57 所校区实体中仍有 18 所缺升学）→ 339→300，新增 0
+ORPHAN_SNAPSHOT = "ea858a5979f84737"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 

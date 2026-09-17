@@ -257,9 +257,37 @@ BUILDERS = {
 }
 
 if __name__ == "__main__":
+    _entities = json.load(open(os.path.join(ROOT, "data/registry/entities.json")))
+
+    # 法人行挂 school_ids（与 quota_matrix 口径一致）：政府招生文件按法人单位公布
+    # （一条「广州市第十六中学」覆盖东湖/本部/水荫校区，无独立校区行），校区实体须经
+    # 法人行 school_ids 命中「有招生」；否则东湖/水荫等校区实体会被孤儿判定误报
+    # 「无招生」。法人推导与 backfill_school_ids.py 相同：同 stage 下去括号+去
+    # 「广州市」后同 core 名的全部校区实体（脚本生成不手改）。
+    def attach_legal_school_ids(data):
+        by_core = {}
+        for _e in _entities["entities"]:
+            if _e.get("stage") != "middle":
+                continue
+            _core = re.sub(r"^广州市", "", re.sub(r"[（(][^）)]*[）)]", "", _e["name"]).strip())
+            by_core.setdefault(_core, set()).add(_e["school_id"])
+        _by_id = {_e["school_id"]: _e for _e in _entities["entities"] if _e.get("stage") == "middle"}  # 完中同 id 有 middle+high 双实体，只取 middle
+        for _r in data["records"]:
+            if not _r.get("school_id") or _r.get("school_ids"):
+                continue
+            _e = _by_id.get(_r["school_id"])
+            if not _e or _e.get("stage") != "middle":
+                continue
+            _core = re.sub(r"^广州市", "", re.sub(r"[（(][^）)]*[）)]", "", _e["name"]).strip())
+            _sids = sorted(by_core.get(_core, set()))
+            if len(_sids) > 1:  # 多校区法人才写 school_ids；单校区无歧义不写
+                _r["school_ids"] = _sids
+        return data
+
     targets = sys.argv[1:] or list(BUILDERS.keys())
     for dk in targets:
         data = BUILDERS[dk]()
+        data = attach_legal_school_ids(data)
         out = os.path.join(OUT, f"middle_enrollment_2026_{dk}.json")
         with open(out, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=1)

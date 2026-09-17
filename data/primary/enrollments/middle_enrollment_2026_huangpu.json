@@ -353,6 +353,10 @@
     "会元学校",
     "华南师范大学附属中学（知识城校区）",
     "广州实验中学"
+   ],
+   "school_ids": [
+    "gz-440106-d5983217",
+    "gz-440112-3847727f"
    ]
   },
   {
@@ -398,7 +402,11 @@
    "scope": null,
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（不参加电脑派位）",
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440112-12747882",
+    "gz-440112-674f4721"
+   ]
   },
   {
    "school": "华南师范大学附属黄埔实验学校",
@@ -461,7 +469,12 @@
    "scope": null,
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（不参加电脑派位）",
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440112-3f877ace",
+    "gz-440112-badbc2ab",
+    "gz-440112-ec15555e"
+   ]
   },
   {
    "school": "广州市黄埔军校纪念中学（北校区）",
@@ -470,7 +483,11 @@
    "scope": null,
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（不参加电脑派位）",
-   "group_members": null
+   "group_members": null,
+   "school_ids": [
+    "gz-440112-12747882",
+    "gz-440112-674f4721"
+   ]
   }
  ]
 }
