@@ -8,21 +8,6 @@ import type { Repository } from '../../data/repository.js';
 import type { QuotaSchool } from '../../data/types.js';
 import { normName } from '../../support.js';
 
-export interface SpecialRow {
-  /** 简称（内部 key，如「侨中」） */
-  campus: string;
-  /** 官方全称（特殊通道名单原文，如「华南师范大学附属中学（石牌）」） */
-  campusFull: string;
-  /** 归属高中全名（跳转用） */
-  school: string;
-  /** 实体 POI 名（school_id → entities.name；无实体为 null = 不可跳转） */
-  poiName: string | null;
-  /** 高中实体外键；第一批招生跳转必须使用该字段 */
-  schoolId: string | null;
-  /** 2026 自主招生计划数（官方汇总表，按校区公布）；null=未收录/非自招校 */
-  autonomyPlan: number | null;
-  autonomy: number; sports: number; arts: number;
-}
 export interface BatchMergedRow {
   /** 简称（内部 key，如「侨中」） */
   campus: string;
@@ -36,16 +21,12 @@ export interface BatchMergedRow {
 }
 export interface DistrictRow { name: string; poiName: string | null; n: number }
 export interface HighCoverRow { school: string; poiName: string | null; n: number; districts: string[]; campuses: CampusLink[] }
-export interface HighSpecialRow { school: string; poiName: string | null; schoolId: string | null; autonomy: number; sports: number; arts: number; campuses: CampusLink[]; /** 行名（官方名单原文）是否已精确到单个校区实体（行名==实体名）；false 表示行名是法人/裸名，需经 campuses 选择校区 */ campusExact: boolean }
 
 /** 法人多校区跳转链接：官方升学文件按法人单位公布，一个法人名对应同 stage 全部校区实体；
  *  升学信息按法人聚合展示，各校区分别点击跳转各自详情页（1 id ↔ 1 详情页 ↔ 1 POI 不变）。 */
 export interface CampusLink { schoolId: string; poiName: string | null; campus: string }
 
 export interface LinkageModel {
-  /** 初中：第一批特殊通道（自招/体育/艺术） */
-  specialRows: SpecialRow[];
-  specialTotal: number;
   /** 初中：名额分配汇总 */
   quota: { kaosheng: number | null; sheng_quota: number | null; qu_quota: number | null } | null;
   /** 初中：省市属（名额+录取最低分合并） */
@@ -55,8 +36,6 @@ export interface LinkageModel {
   /** 初中：当前法人学校的全部校区（school_ids → 各校区详情跳转） */
   campuses: CampusLink[];
   hasMiddleData: boolean;
-  /** 高中：第一批特殊通道覆盖初中 */
-  highSpecialCoverage: HighSpecialRow[];
   /** 高中：第二批省市属覆盖初中 */
   highCoverage: HighCoverRow[];
   /** 高中：区属覆盖初中（poiName 无实体为 null = 不可跳转；campuses 法人多校区分别跳转） */
@@ -69,6 +48,8 @@ export interface LinkageModel {
   /** 高中：体育/艺术特长生项目二级细项（官方明细表；空数组=无项目） */
   sportsProjects: { project: string; plan: number; note?: string }[] | null;
   artsProjects: { project: string; plan: number; note?: string }[] | null;
+  /** 高中：特长生计划备注类型（'reserve'=含优秀体育后备人才名额 / 'lingjun'=领军龙足球试点单列），前端据此条件显示解释 */
+  planNotes: ('reserve' | 'lingjun')[];
   hasHighData: boolean;
 }
 
@@ -104,19 +85,6 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
           .map((c) => ({ campus: c, campusFull: c, school: CAMPUS_INFO[c]!.school, poiName: poiOfRow(c, CAMPUS_INFO[c]!.school), n: quota.sz[c] as number }))
           .sort((a, b) => b.n - a.n)
       : [];
-    const specialRows = (() => {
-      const m = repo.specialOf(schoolName);
-      if (!m) return [];
-      return Object.entries(m)
-        .map(([k, v]) => {
-          const highId = repo.specialHighSchoolId(k);
-          const poiName = poiNameOf(highId);
-          // k 是官方名单原文，仅作展示；关联和跳转只使用 highId。
-          return { campus: k, campusFull: k, school: poiName || normCampus(k), poiName, schoolId: highId, autonomyPlan: repo.autonomyPlanOf(k), autonomy: v.autonomy ?? 0, sports: v.sports ?? 0, arts: v.arts ?? 0 };
-        })
-        .sort((a, b) => (b.autonomy + b.sports + b.arts) - (a.autonomy + a.sports + a.arts));
-    })();
-    const specialTotal = specialRows.reduce((s, r) => s + r.autonomy + r.sports + r.arts, 0);
     const batchRows = Object.entries(repo.batch2Of(schoolName)).map(([k, v]) => ({
       campus: k,
       campusFull: k,
@@ -147,14 +115,11 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
       .map(([name, n]) => ({ name, poiName: resolvePoi(name), n }))
       .sort((a, b) => b.n - a.n);
     return {
-      specialRows,
-      specialTotal,
       quota: quota ? { kaosheng: quota.kaosheng, sheng_quota: quota.sheng_quota, qu_quota: quota.qu_quota } : null,
       batchMerged,
       districtRows,
       campuses: campusesOf(quota),
       hasMiddleData: !!quota || batchRows.length > 0,
-      highSpecialCoverage: [],
       highCoverage: [],
       highDistrictCoverage: [],
       autonomyPlan: null,
@@ -162,6 +127,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
       artsPlan: null,
       sportsProjects: null,
       artsProjects: null,
+      planNotes: [],
       hasHighData: false,
     };
   }
@@ -191,25 +157,6 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     .map(([school, v]) => ({ school, poiName: poiNameOf(v.schoolId), n: v.n, districts: [...v.districts], campuses: campusesOf(repo.linkageOf(school)) }))
     .sort((a, b) => b.n - a.n)
     .slice(0, 30);
-  const mergedSpecial = new Map<string, { autonomy: number; sports: number; arts: number; schoolId: string | null }>();
-  for (const s of repo.specialCoverageByHighSchoolId(schoolId)) {
-    const m = mergedSpecial.get(s.school) || { autonomy: 0, sports: 0, arts: 0, schoolId: null };
-    m.autonomy += s.autonomy;
-    m.sports += s.sports;
-    m.arts += s.arts;
-    if (!m.schoolId && s.school_id) m.schoolId = s.school_id;
-    mergedSpecial.set(s.school, m);
-  }
-  const highSpecialCoverage: HighSpecialRow[] = [...mergedSpecial.entries()]
-    .map(([school, v]) => {
-      const poiName = poiNameOf(v.schoolId);
-      // 行名精确到校区实体（如「广州市铁一中学（越秀校区）"」→ 实体同名校区）→ 直接跳；
-      // 行名是法人/裸名（如「广州市番禺区广铁一中铁英学校」→ 西/东两校区）→ 需 campuses 选择
-      const campusExact = !!poiName && normName(school) === normName(poiName);
-      return { school, poiName, schoolId: v.schoolId, autonomy: v.autonomy, sports: v.sports, arts: v.arts, campuses: campusesOf(repo.linkageOf(school)), campusExact };
-    })
-    .sort((a, b) => b.autonomy + b.sports + b.arts - (a.autonomy + a.sports + a.arts))
-    .slice(0, 30);
   const highDistrictCoverage: { school: string; poiName: string | null; n: number; campuses: CampusLink[] }[] = repo
     .districtCoverage(schoolName)
     .slice(0, 50)
@@ -217,16 +164,16 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
 
   const autonomyPlan = stage === 'high' ? repo.autonomyPlanOf(schoolName) : null;
   const specialPlan = stage === 'high' && schoolId ? repo.specialPlanOf(schoolId) : null;
+  const planNotes: ('reserve' | 'lingjun')[] = [];
+  if (specialPlan?.sportsProjects?.some((p) => p.note?.includes('体育后备人才'))) planNotes.push('reserve');
+  if (specialPlan?.sportsProjects?.some((p) => p.note?.includes('领军龙'))) planNotes.push('lingjun');
 
   return {
-    specialRows: [],
-    specialTotal: 0,
     quota: null,
     batchMerged: [],
     districtRows: [],
     campuses: [],
     hasMiddleData: false,
-    highSpecialCoverage,
     highCoverage,
     highDistrictCoverage,
     autonomyPlan,
@@ -234,6 +181,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     artsPlan: specialPlan?.arts ?? null,
     sportsProjects: specialPlan?.sportsProjects ?? null,
     artsProjects: specialPlan?.artsProjects ?? null,
+    planNotes,
     hasHighData: highCoverage.length > 0 || highDistrictCoverage.length > 0 || autonomyPlan != null || specialPlan != null,
   };
 }

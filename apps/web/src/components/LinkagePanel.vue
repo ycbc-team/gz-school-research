@@ -113,6 +113,8 @@ function goCampus(item: CampusPick['items'][number]) {
     <div class="card" v-if="model.autonomyPlan != null || model.sportsPlan != null || model.artsPlan != null">
       <div class="card-title">第一批招生（2026）</div>
       <p class="sub-note">自主招生 / 体育 / 艺术特长生均为全市（或本区）统一竞争的特殊通道，考生自由报名、按志愿和成绩投档录取，不分配到校。以下为按官方公布的本校（校区）招生计划数，计划数即录取数（按计划投档，实际录取不超计划）。</p>
+      <p v-if="model.planNotes.includes('reserve')" class="plan-note">本校体育特长生计划含"优秀体育后备人才"名额（上限见各项目标注）：报考条件在体育特长生基础上要求较高体育竞技水平，录取最低控制分数线不低于全市普通高中录取最低控制分数线的80%；未用完的后备人才名额滚入同项目体育特长生计划。</p>
+      <p v-if="model.planNotes.includes('lingjun')" class="plan-note">本校为青少年足球人才培养改革试点"领军龙"学校：足球招生计划单列、面向全市，以考生足球专业成绩作为录取的主要依据，按特长生招生程序办理录取。</p>
       <div class="kv">
         <div class="kv-row"><span>自主招生计划</span><b>{{ model.autonomyPlan ?? '—' }} 人</b></div>
         <div class="kv-row"><span>体育特长生计划</span><b>{{ model.sportsPlan ?? '—' }} 人</b></div>
@@ -191,6 +193,7 @@ function goCampus(item: CampusPick['items'][number]) {
 .qblock:first-of-type { margin-top: 4px; }
 .qblock-title { font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 6px; }
 .sub-note { font-size: 11px; color: #9aa0a6; line-height: 1.6; margin: 0 0 10px; }
+.plan-note { font-size: 11px; color: #8a8f98; line-height: 1.6; margin: 0 0 8px; padding: 6px 8px; background: #f7f8fa; border-radius: 6px; }
 .empty { font-size: 12.5px; color: #9aa0a6; margin: 4px 0; line-height: 1.6; }
 
 .kv { display: flex; flex-direction: column; gap: 6px; }

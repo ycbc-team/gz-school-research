@@ -176,6 +176,8 @@
       <view wx:if="{{linkage.autonomyPlan !== null && linkage.autonomyPlan !== undefined || linkage.sportsPlan !== null && linkage.sportsPlan !== undefined || linkage.artsPlan !== null && linkage.artsPlan !== undefined}}" class="card">
         <view class="card-title">第一批招生（2026）</view>
         <view class="sub-note">自主招生 / 体育 / 艺术特长生均为全市（或本区）统一竞争的特殊通道，考生自由报名、按志愿和成绩投档录取，不分配到校。以下为按官方公布的本校（校区）招生计划数，计划数即录取数（按计划投档，实际录取不超计划）。</view>
+        <view wx:if="{{linkage.hasReserveNote}}" class="plan-note">本校体育特长生计划含"优秀体育后备人才"名额（上限见各项目标注）：报考条件在体育特长生基础上要求较高体育竞技水平，录取最低控制分数线不低于全市普通高中录取最低控制分数线的80%；未用完的后备人才名额滚入同项目体育特长生计划。</view>
+        <view wx:if="{{linkage.hasLingjunNote}}" class="plan-note">本校为青少年足球人才培养改革试点"领军龙"学校：足球招生计划单列、面向全市，以考生足球专业成绩作为录取的主要依据，按特长生招生程序办理录取。</view>
         <view class="kv">
           <view class="kv-row"><text>自主招生计划</text><text>{{linkage.autonomyPlan !== null && linkage.autonomyPlan !== undefined ? linkage.autonomyPlan : '—'}} 人</text></view>
           <view class="kv-row"><text>体育特长生计划</text><text>{{linkage.sportsPlan !== null && linkage.sportsPlan !== undefined ? linkage.sportsPlan : '—'}} 人</text></view>

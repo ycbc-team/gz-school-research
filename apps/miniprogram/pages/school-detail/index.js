@@ -64,7 +64,7 @@ Page({
     const rawLinkage = stage === 'middle' || stage === 'high'
       ? buildLinkageModel(stage, this.name, repository, this.schoolId || null)
       : null;
-    // WXML 表达式不支持 join，预计算覆盖行所在区文本
+    // WXML 表达式不支持 join / includes，预计算覆盖行所在区文本与备注类型
     const linkage = rawLinkage
       ? {
           ...rawLinkage,
@@ -72,6 +72,8 @@ Page({
             ...r,
             districtsText: r.districts.join('、') || '—',
           })),
+          hasReserveNote: (rawLinkage.planNotes || []).includes('reserve'),
+          hasLingjunNote: (rawLinkage.planNotes || []).includes('lingjun'),
         }
       : null;
     wx.setNavigationBarTitle({ title: this.name });

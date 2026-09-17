@@ -86,6 +86,8 @@ test('第一批高中详情计划数按 school_id 反查（自主/体育/艺术�
   assert.equal(m1.sportsProjects.reduce((s, p) => s + p.plan, 0), m1.sportsPlan, '体育项目合计=体育计划数');
   assert.equal(m1.artsProjects.length, 2, '真光本部艺术项目=2 项');
   assert.equal(m1.artsProjects.reduce((s, p) => s + p.plan, 0), m1.artsPlan, '艺术项目合计=艺术计划数');
+  // 备注类型：真光本部体育含"体育后备人才"上限备注 → 前端条件显示解释
+  assert.deepEqual(m1.planNotes, ['reserve'], '真光本部 planNotes 应含 reserve');
   // 2) 特长生计划按 school_id 反查（铁一越秀）
   const ty = repo.entities.find((e) => e.name === '广州市铁一中学(越秀校区)');
   assert.ok(ty);
@@ -102,6 +104,13 @@ test('第一批高中详情计划数按 school_id 反查（自主/体育/艺术�
   assert.equal(m3.artsPlan, null);
   assert.equal(m3.sportsProjects, null, '无特长生计划 → 项目明细 null');
   assert.equal(m3.artsProjects, null);
+  assert.deepEqual(m3.planNotes, [], '无特长生计划 → 备注类型空');
+
+  // 6) 领军龙足球试点单列：华附石牌 planNotes 含 lingjun → 前端条件显示领军龙解释
+  const hf = repo.entities.find((e) => e.name === '华南师范大学附属中学(石牌校区)');
+  assert.ok(hf, '需要华附石牌实体');
+  const m4 = buildLinkageModel('high', hf.name, repo, hf.school_id);
+  assert.ok(m4.planNotes.includes('lingjun'), '华附石牌为领军龙试点 → planNotes 含 lingjun');
   // 4) 特长生计划总量 = 官方口径（体育 1905 不含领军龙 / 艺术 1741 / 领军龙 116）
   assert.equal(special.special_plan_summary.sports, 1905);
   assert.equal(special.special_plan_summary.arts, 1741);

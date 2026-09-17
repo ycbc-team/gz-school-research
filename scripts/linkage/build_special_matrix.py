@@ -115,22 +115,20 @@ sports = json.load(open(f'{BASE}/special/sports_2026.json'))
 arts = json.load(open(f'{BASE}/special/arts_2026.json'))
 auto = json.load(open(f'{BASE}/autonomy/autonomy_qualify_2026.json'))
 
-# sports/arts：初中=school 字段；autonomy：初中=school_junior 字段
+# sports/arts：初中=school 字段；autonomy：初中=school_junior 字段。
+# 名单只用于构建 all_hs（名单高中原文集合 → high_school_ids 外键，供升学路径页跳转）。
+# 资格名单计数矩阵（matrix）已废弃：初中第一批模块与高中第一批覆盖表均已移除，
+# 前端不再消费"每所初中升入各高中的资格人数"，故不再输出。
 m_sports = agg_project(sports)
 m_arts = agg_project(arts)
 m_auto = agg_autonomy(auto)
 
-# 合并结构：matrix[初中][高中] = {sports, arts, autonomy}
-matrix = collections.defaultdict(lambda: collections.defaultdict(dict))
 all_hs = set()
-for (j, h), v in m_sports.items():
-    matrix[j][h]['sports'] = v
+for (j, h) in m_sports.keys():
     all_hs.add(h)
-for (j, h), v in m_arts.items():
-    matrix[j][h]['arts'] = v
+for (j, h) in m_arts.keys():
     all_hs.add(h)
-for (j, h), v in m_auto.items():
-    matrix[j][h]['autonomy'] = v
+for (j, h) in m_auto.keys():
     all_hs.add(h)
 
 # 高中原文 → 实体名/ID（审计：未命中说明名单名与实体表有出入，需人工复核）
@@ -198,12 +196,11 @@ sp_summary = {
 
 out = {
     'updated': '2026-09-17',
-    'scope': '全部有名单的高中（含区属/中职），体育/艺术特长生通过测试名单 + 自招综合能力考核资格名单',
+    'scope': '全部有名单的高中（含区属/中职），名单仅用于构建"名单原文→实体 school_id"外键；资格名单计数矩阵已废弃不输出',
     'note': (
         '体育/艺术=通过专业测试名单（官方发布）；自招=综合能力考核资格名单口径（考核前≤5倍计划，非预录取）。'
-        '收录范围=官方名单出现的全部招生高中（不再限省市属 11 所）；矩阵键=名单原文（可溯源），'
-        'high_school_ids=名单原文→高中实体 school_id，是第一批招生关联唯一外键；'
-        '值为 null 表示未收录对应高中实体，仅保留原文展示，不得名称兜底。'
+        '收录范围=官方名单出现的全部招生高中（不再限省市属 11 所）；high_school_ids=名单原文→高中实体 school_id，'
+        '是第一批招生关联唯一外键；值为 null 表示未收录对应高中实体，仅保留原文展示，不得名称兜底。'
         'autonomy_plan=2026官方自主招生计划数（按校区公布），计划数≠资格名单人数≠录取人数；'
         'special_plan=2026官方体育/艺术特长生计划数（按校区+项目，含领军龙足球试点单列），'
         '计划数=录取数口径（按计划投档）。'
@@ -217,13 +214,11 @@ out = {
     'special_plan': special_plan,
     'special_plan_source': sp_raw['url'],
     'special_plan_summary': sp_summary,
-    'matrix': {j: dict(hs) for j, hs in matrix.items()},
 }
 if previous.get('middle_school_ids'):
     out['middle_school_ids'] = previous['middle_school_ids']
 json.dump(out, open(OUT, 'w'), ensure_ascii=False, indent=1)
 print('高中招生单位数:', len(all_hs))
-print('初中学数:', len(matrix))
 print('收录记录: 体育', sum(m_sports.values()), '艺术', sum(m_arts.values()), '自招', sum(m_auto.values()))
 print('未匹配到高中实体的名单名（需人工复核）:', len(unresolved))
 for u in unresolved:
