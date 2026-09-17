@@ -38,6 +38,10 @@ const middleAlias = aliasIndex('middle');
 // build_entities DROP_CAMPUS 剔除）→ 归并到柯子岭校区 gz-440111-9e34191e。
 const RESOLVE_OVERRIDE = {
   '景泰小学柯子岭校区43号A座': ['gz-440111-9e34191e'],
+  // 跨区同名：白云「龙溪小学」(民办, fd1c0f9d) 与 荔湾「西关实验小学龙溪学校」(公办, 53fbb2c8)
+  // 别名都含「龙溪小学」；no_feed 记录 group 无区名 → districtOfGroup 为 null，resolveOne
+  // fallback 到首个匹配（荔湾）造成错配。显式归位白云实体。
+  '龙溪小学': ['gz-440111-fd1c0f9d'],
 };
 const AD = {'440103':'荔湾区','440104':'越秀区','440105':'海珠区','440106':'天河区','440111':'白云区','440112':'黄埔区','440113':'番禺区'};
 const districtOfGroup = (g) => { if(!g) return null; const m=/(荔湾|越秀|海珠|天河|白云|黄埔|番禺)区/.exec(g); return m ? m[1]+'区' : null; };
@@ -145,10 +149,27 @@ const outRecords = src.records.map((r) => {
     source_url: r.source_url, source_note: r.source_note, data_gaps: r.data_gaps,
   };
 });
+// 同 (group, school_id) 去重：同一小学多源名/多条源记录（更名残留、实体合并、源表重复行）
+// 解析到同一实体时，feed 并集、保留较完整 note——产物层单条，避免前端同校重复展示。
+// （school_id 为空的历史缺口记录不合并，保持逐条可排查。）
+const deduped = [];
+{
+  const byKey = new Map();
+  for (const r of outRecords) {
+    if (!r.school_id) { deduped.push(r); continue; }
+    const k = `${r.group || ''}\u0000${r.school_id}`;
+    const prev = byKey.get(k);
+    if (!prev) { byKey.set(k, r); continue; }
+    prev.feed_school_ids = [...new Set([...(prev.feed_school_ids || []), ...(r.feed_school_ids || [])])];
+    prev.feed_unresolved = [...new Set([...(prev.feed_unresolved || []), ...(r.feed_unresolved || [])])];
+    if (!(prev.feed_school_ids || []).length && (r.feed_school_ids || []).length) prev.source_note = r.source_note;
+  }
+  deduped.push(...byKey.values());
+}
 // 重复的分组元数据提为维表，事实记录仅保留 group_id，保持与 DataLoaders 契约一致。
 const groups = [];
 const groupIdByKey = new Map();
-const records = outRecords.map(({ group, source_url, data_gaps, ...fact }) => {
+const records = deduped.map(({ group, source_url, data_gaps, ...fact }) => {
   const name = group || '';
   const sourceUrl = source_url || '';
   const dataGaps = data_gaps ?? null;

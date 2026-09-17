@@ -445,6 +445,26 @@ def main():
                 _co_pairs.append((round(_d, 1), _a[1], _a[0], _a[2], _a[3], _b[2], _b[3]))
     _co_pairs.sort()
     print(f"\n[12] 同段同址冗余候选（同学段+同区+≤50m，公办）: {len(_co_pairs)} 组")
+
+    # ---- 13. 小升初记录同组同校不得重复（upgrade 产物层去重防线）----
+    # 同一小学多源名（更名残留）/多条源记录（实体合并、源表重复行）解析到同一实体后，
+    # 若产物仍出现同 (group_id, school_id) 多行，前端同校重复展示且无声无息。
+    # 该检查锁定「upgrade_xiaoshengchu.mjs 已按 (group, school_id) 去重」这一不变量：
+    # 任何源头新增同名/多记录，产物重复立即失败（如陶育路小学→陶育实验学校小学部
+    # 合并后曾出现两条同校记录，2026-09-17 修复）。
+    _xs_records = json.load(open(os.path.join(ROOT, "data/primary/xiaoshengchu_2026.json"))).get("records", [])
+    _xs_keys = {}
+    for _r in _xs_records:
+        _sid = _r.get("school_id")
+        if not _sid:
+            continue  # 未解析缺口记录不参与去重判定（逐条保留可排查）
+        _k = (_r.get("group_id"), _sid)
+        if _k in _xs_keys:
+            check(False, f"[13] 小升初同组同校重复: group_id={_k[0]} school_id={_sid}（{_xs_keys[_k]} 与后续行）")
+        else:
+            _xs_keys[_k] = _r.get("source_note", "")[:24]
+    print(f"[13] 小升初同组同校重复检查: {len(_xs_keys)} 唯一组，无重复")
+
     for _p in _co_pairs:
         print(f"      {_p[0]:6.1f}m | {_p[1]} {_p[2]} | {_p[3]} {_p[4]}  <->  {_p[5]} {_p[6]}")
     _co_digest = hashlib.sha256("\n".join(f"{p[1]}|{p[2]}|{p[3]}|{p[5]}|{p[6]}" for p in _co_pairs).encode()).hexdigest()[:16]
