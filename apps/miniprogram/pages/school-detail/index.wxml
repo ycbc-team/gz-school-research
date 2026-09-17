@@ -195,7 +195,7 @@
         <view class="tbl">
           <view class="tbl-row tbl-head"><text>初中</text><text>自招</text><text>体育</text><text>艺术</text></view>
           <view wx:for="{{linkage.highSpecialCoverage}}" wx:key="school" class="tbl-row">
-            <text wx:if="{{!item.poiName && item.campuses.length > 1}}" class="sch-link" data-campuses="{{item.campuses}}" bindtap="openCampusPicker">{{item.school}}</text>
+            <text wx:if="{{!item.campusExact && item.campuses.length > 1}}" class="sch-link" data-campuses="{{item.campuses}}" bindtap="openCampusPicker">{{item.school}}</text>
             <text wx:elif="{{item.poiName}}" class="sch-link" data-to="/school/{{item.poiName}}?stage=middle&id={{item.schoolId}}" bindtap="goSchool">{{item.school}}</text>
             <text wx:else>{{item.school}}</text>
             <text>{{item.autonomy}}</text><text>{{item.sports}}</text><text>{{item.arts}}</text>

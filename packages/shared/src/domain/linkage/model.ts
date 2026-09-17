@@ -6,6 +6,7 @@
  */
 import type { Repository } from '../../data/repository.js';
 import type { QuotaSchool } from '../../data/types.js';
+import { normName } from '../../support.js';
 
 export interface SpecialRow {
   /** 简称（内部 key，如「侨中」） */
@@ -35,7 +36,7 @@ export interface BatchMergedRow {
 }
 export interface DistrictRow { name: string; poiName: string | null; n: number }
 export interface HighCoverRow { school: string; poiName: string | null; n: number; districts: string[]; campuses: CampusLink[] }
-export interface HighSpecialRow { school: string; poiName: string | null; schoolId: string | null; autonomy: number; sports: number; arts: number; campuses: CampusLink[] }
+export interface HighSpecialRow { school: string; poiName: string | null; schoolId: string | null; autonomy: number; sports: number; arts: number; campuses: CampusLink[]; /** 行名（官方名单原文）是否已精确到单个校区实体（行名==实体名）；false 表示行名是法人/裸名，需经 campuses 选择校区 */ campusExact: boolean }
 
 /** 法人多校区跳转链接：官方升学文件按法人单位公布，一个法人名对应同 stage 全部校区实体；
  *  升学信息按法人聚合展示，各校区分别点击跳转各自详情页（1 id ↔ 1 详情页 ↔ 1 POI 不变）。 */
@@ -190,7 +191,13 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     mergedSpecial.set(s.school, m);
   }
   const highSpecialCoverage: HighSpecialRow[] = [...mergedSpecial.entries()]
-    .map(([school, v]) => ({ school, poiName: poiNameOf(v.schoolId), schoolId: v.schoolId, autonomy: v.autonomy, sports: v.sports, arts: v.arts, campuses: campusesOf(repo.linkageOf(school)) }))
+    .map(([school, v]) => {
+      const poiName = poiNameOf(v.schoolId);
+      // 行名精确到校区实体（如「广州市铁一中学（越秀校区）"」→ 实体同名校区）→ 直接跳；
+      // 行名是法人/裸名（如「广州市番禺区广铁一中铁英学校」→ 西/东两校区）→ 需 campuses 选择
+      const campusExact = !!poiName && normName(school) === normName(poiName);
+      return { school, poiName, schoolId: v.schoolId, autonomy: v.autonomy, sports: v.sports, arts: v.arts, campuses: campusesOf(repo.linkageOf(school)), campusExact };
+    })
     .sort((a, b) => b.autonomy + b.sports + b.arts - (a.autonomy + a.sports + a.arts))
     .slice(0, 30);
   const highDistrictCoverage: { school: string; poiName: string | null; n: number; campuses: CampusLink[] }[] = repo

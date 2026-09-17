@@ -134,8 +134,8 @@ function goCampus(item: CampusPick['items'][number]) {
         <div class="tbl-row tbl-head"><span>初中</span><span>自招</span><span>体育</span><span>艺术</span></div>
         <div v-for="r in model.highSpecialCoverage" :key="r.school" class="tbl-row">
           <span>
-            <!-- 第一批行名已是官方名单原文（精确到校区），poiName 可定位时直接跳该校区；仅法人/裸名无法定位时才弹校区选择 -->
-            <button v-if="!r.poiName && r.campuses.length > 1" class="sch-link campus-open" @click="openCampusPicker(r, $event)">{{ r.school }}</button>
+            <!-- 行名精确到校区（铁一越秀）→ 直接跳；行名是法人/裸名（铁英学校东西校区）→ 弹校区选择 -->
+            <button v-if="!r.campusExact && r.campuses.length > 1" class="sch-link campus-open" @click="openCampusPicker(r, $event)">{{ r.school }}</button>
             <RouterLink v-else-if="r.poiName && r.schoolId" :to="{ path: `/school/${encodeURIComponent(r.poiName)}`, query: { stage: 'middle', id: r.schoolId } }" class="sch-link">{{ r.school }}</RouterLink>
             <template v-else>{{ r.school }}</template>
           </span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span>
