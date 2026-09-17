@@ -103,9 +103,11 @@ def build_panyu():
         if school == "广铁一中铁英学校":
             sid = None
             sids = ["gz-440113-43d027a5", "gz-440113-94c76638"]
-        # 仲元二校区（大龙街）与校本部不同址，POI 库无独立点位，不挂校本部 id
+        # 仲元二校区（大龙街）：官方明文「二校区（初中部）」10 班 450 人（电脑派位），
+        # 实体 gz-440113-6dbdc462 存在（middle POI 表在列，无独立地址点位）；
+        # 挂独立实体 id——官方明文办初中，孤儿宁缺原则不适用（有官方招生记录）
         if school == "广东仲元中学二校区（初中部）":
-            sid = None
+            sid = "gz-440113-6dbdc462"
         recs.append({
             "school": school, "school_id": sid,
             **({"school_ids": sids} if sids else {}),
