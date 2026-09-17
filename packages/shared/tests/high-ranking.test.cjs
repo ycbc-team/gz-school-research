@@ -51,7 +51,8 @@ test('高中明细 VM：全量校区展示快照必须显式更新', () => {
   const digest = crypto.createHash('sha256').update(JSON.stringify(snapshot)).digest('hex');
   // 2026-09-17 校区办学联网核实更新：CAMPUS_STAGE_FIX 使 9 所校区实体从 middle 迁入高中表
   //（盘福/41中东等，见 campus_middle_webverify_20260917.md），高中明细新增校区行——有意变更
-  assert.equal(digest, 'e159dafbf06618d63727740148deb271fee0897c61afd5c95636c545f49a7c2b', '任一高中校区的简称、分类、政策标签或录取线口径变更，都必须确认并更新全量快照');
+  // 再更新：十三中文德校区修正（CAMPUS_STAGE_FIX 增补，高中/北校不再误建初中实体），高中明细行随迁
+  assert.equal(digest, '24fdafee2715d924572b6bdfe4811901564bcbf5dbe2df54dce751b540e2d75d', '任一高中校区的简称、分类、政策标签或录取线口径变更，都必须确认并更新全量快照');
 });
 
 test('高中明细 VM：支持不分组、七区位置筛选与多年份排序', () => {
