@@ -33,6 +33,12 @@ function aliasIndex(stage) {
 }
 const primaryAlias = aliasIndex('primary');
 const middleAlias = aliasIndex('middle');
+// 点位合并覆盖（实体删除/合并后旧 POI 名须归并到保留实体）：
+// 景泰小学柯子岭校区43号A座 gz-440111-8d42bf12 与柯子岭校区同址冗余（2026-09-17 用户确认，
+// build_entities DROP_CAMPUS 剔除）→ 归并到柯子岭校区 gz-440111-9e34191e。
+const RESOLVE_OVERRIDE = {
+  '景泰小学柯子岭校区43号A座': ['gz-440111-9e34191e'],
+};
 const AD = {'440103':'荔湾区','440104':'越秀区','440105':'海珠区','440106':'天河区','440111':'白云区','440112':'黄埔区','440113':'番禺区'};
 const districtOfGroup = (g) => { if(!g) return null; const m=/(荔湾|越秀|海珠|天河|白云|黄埔|番禺)区/.exec(g); return m ? m[1]+'区' : null; };
 function resolve(idx, name, district) {
@@ -55,6 +61,8 @@ for (const e of entities) {
 }
 // 小学 record 定位：跨区同名时按 district 取唯一实体（fact 主表外键必须唯一）
 function resolveOne(idx, name, district) {
+  const ov = RESOLVE_OVERRIDE[normName(name)];
+  if (ov) return ov[0];
   const list = idx.get(normName(name));
   if (!list || !list.length) return null;
   if (list.length === 1) return list[0].school_id;
@@ -91,6 +99,8 @@ function coreOfName(raw) {
 //      跨区法人校区按归属收录（桂花归越秀），别区法人校区（广附大学城归番禺）排除；
 //      无归属信息时按 POI 区兜底合并（育才东 quota 未挂但 POI 在越秀），宁缺不跨区。
 function resolveMany(idx, name, district, stage) {
+  const ov = RESOLVE_OVERRIDE[normName(name)];
+  if (ov) return [...ov];
   const hasCampus = /[（(]/.test(name);
   let picked = idx.get(normName(name)) || [];
   if (district) {

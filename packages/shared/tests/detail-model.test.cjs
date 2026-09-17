@@ -235,7 +235,7 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
     .update(shown.filter((s) => s.endsWith('|true')).sort().join('\n'))
     .digest('hex')
     .slice(0, 16);
-  // 2026-09-17 校区办学联网核实（CAMPUS_STAGE_FIX + NON_MIDDLE_CAMPUS）后更新：
-  // stage 修正的校区详情页按正确学段渲染品牌卡（渲染名单变化、无品牌卡消失）
-  assert.equal(digest, 'fb5cebcb23026c49', '品牌关联全量快照漂移：有实体的品牌卡渲染状态变化，需显式确认后更新');
+  // 2026-09-17 同址冗余合并（build_entities DROP_CAMPUS：省实荔湾初中部一期、十三中初中部、
+  // 柯子岭43号A座）后更新：品牌卡渲染名单随实体合并变化（无品牌卡消失，miss 为空）
+  assert.equal(digest, 'ae684a94aba06abb', '品牌关联全量快照漂移：有实体的品牌卡渲染状态变化，需显式确认后更新');
 });

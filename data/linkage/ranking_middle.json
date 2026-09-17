@@ -2205,11 +2205,8 @@
     },
     {
       "name": "广东实验中学荔湾学校",
-      "school_id": "gz-440103-1d99218d",
-      "school_ids": [
-        "gz-440103-1d99218d",
-        "gz-440103-53cac770"
-      ],
+      "school_id": "gz-440103-53cac770",
+      "school_ids": null,
       "district": "荔湾区",
       "minban": false,
       "group": {
@@ -2771,11 +2768,8 @@
     },
     {
       "name": "广州市第十三中学",
-      "school_id": "gz-440104-2213d9b3",
-      "school_ids": [
-        "gz-440104-2213d9b3",
-        "gz-440104-9b88f912"
-      ],
+      "school_id": "gz-440104-0a17f1eb",
+      "school_ids": null,
       "district": "越秀区",
       "minban": false,
       "group": null,

@@ -57,7 +57,10 @@
           "name": "广州市黄埔区铁英学校（黄埔铁英）",
           "role": "区属成员校（黄埔）",
           "legal": "independent",
-          "school_ids": ["gz-440112-c80ac6ac", "gz-440112-adb9c303"]
+          "school_ids": [
+            "gz-440112-c80ac6ac",
+            "gz-440112-adb9c303"
+          ]
         },
         {
           "name": "广州市番禺区广铁一中铁英学校(东校区)",
@@ -119,7 +122,6 @@
           "role": "区属合作办学",
           "legal": "independent",
           "school_ids": [
-            "gz-440103-1d99218d",
             "gz-440103-53cac770",
             "gz-440103-6b0e7dbd",
             "gz-440103-82b9766a",
