@@ -1,0 +1,92 @@
+{
+  "title": "2022年天河区完全中学基本情况表",
+  "district": "440106",
+  "source_url": "https://www.thnet.gov.cn/zwgk/ggqsydwxxgkzl/jyly/wqzx/content/post_8724046.html",
+  "published": "2023-02-20",
+  "scope_note": "天河区完全中学 10 所（非全区初中全量）；stage_verified 字段为 2026-09-17 联网核实结论补充",
+  "schools": [
+    {
+      "seq": 1,
+      "nature": "区属公办",
+      "name": "广州中学",
+      "campuses": [
+        {"campus": "凤凰校区", "address": "天河区华美路63号", "stage_verified": "高中"},
+        {"campus": "五山校区", "address": "天河区五山路贤韵街5号", "stage_verified": "初中"},
+        {"campus": "名雅校区", "address": "天河区华文街10号", "stage_verified": "初中"},
+        {"campus": "天润校区", "address": "天河区天寿路20号", "stage_verified": "初中"}
+      ]
+    },
+    {
+      "seq": 2,
+      "nature": "区属公办",
+      "name": "广州市天河外国语学校",
+      "campuses": [{"campus": null, "address": "天河区海乐路9号", "stage_verified": "完中"}]
+    },
+    {
+      "seq": 3,
+      "nature": "区属公办",
+      "name": "广州市天河中学",
+      "campuses": [
+        {"campus": "天河东校区", "address": "天河区天河南街道天河东路44号", "stage_official": "初中部"},
+        {"campus": "花城校区", "address": "天河区冼村街道猎德大道27号", "stage_official": "初中部"},
+        {"campus": "珠江新城校区", "address": "天河区冼村街道华成路7号", "stage_official": "高中部"}
+      ]
+    },
+    {
+      "seq": 4,
+      "nature": "区属公办",
+      "name": "广州市第一一三中学",
+      "campuses": [
+        {"campus": "东方校区", "address": "天河区东方二路1号", "stage_verified": "初中"},
+        {"campus": "金融校区", "address": "天河区员村二横路4号大院", "stage_verified": "高中"},
+        {"campus": "乐学校区", "address": "天河区员村西街6号", "stage_verified": "初中"}
+      ]
+    },
+    {
+      "seq": 5,
+      "nature": "区属公办",
+      "name": "广州市第八十九中学",
+      "campuses": [{"campus": null, "address": "天河区天源路1219号", "stage_verified": "完中"}]
+    },
+    {
+      "seq": 6,
+      "nature": "区属公办",
+      "name": "广州市第七十五中学",
+      "campuses": [
+        {"campus": "天平架校区", "address": "天河区广州大道北498号", "stage_official": "初中部"},
+        {"campus": "燕塘西校区", "address": "天河区燕成路21号", "stage_official": "初中部"},
+        {"campus": "燕塘东校区", "address": "天河区燕岭路151号", "stage_official": "高中部"}
+      ]
+    },
+    {
+      "seq": 7,
+      "nature": "区属公办",
+      "name": "广州市奥林匹克中学",
+      "campuses": [
+        {"campus": "黄村校区", "address": "天河区中山大道黄村西路5号", "stage_verified": "完中"},
+        {"campus": "车陂校区", "address": "天河区车陂路696号", "stage_verified": "初中"}
+      ]
+    },
+    {
+      "seq": 8,
+      "nature": "省属学校",
+      "name": "华南师范大学附属中学",
+      "campuses": [
+        {"campus": "石牌校区", "address": "天河区中山大道西1号", "stage_verified": "高中"},
+        {"campus": "五山校区", "address": "天河区五山路", "stage_verified": "初中"}
+      ]
+    },
+    {
+      "seq": 9,
+      "nature": "市属学校",
+      "name": "广州市执信中学（天河校区）",
+      "campuses": [{"campus": "天河校区", "address": "天河区珠吉街执信三路", "stage_verified": "完中"}]
+    },
+    {
+      "seq": 10,
+      "nature": "民办学校",
+      "name": "广州天省实验学校",
+      "campuses": [{"campus": null, "address": "天河区天源路399号", "stage_verified": "完中"}]
+    }
+  ]
+}
