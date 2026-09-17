@@ -21,10 +21,11 @@ const write = (p, o) => fs.writeFileSync(path.join(ROOT, p), JSON.stringify(o, n
 const normName = (s) => !s ? '' : String(s).replace(/（/g,'(').replace(/）/g,')').replace(/^广州市/,'').replace(/[()]/g,'').replace(/\s+/g,'');
 
 const entities = read('data/registry/entities.json').entities;
-// norm alias -> entity（按 stage）
+// norm alias -> entity（按 stage）；name + aliases 双索引（实体自身名由 name 覆盖，
+// aliases 只承载真实变体/官方桥接，不再冗余自身 norm）
 function aliasIndex(stage) {
   const m = new Map();
-  for (const e of entities) if (e.stage === stage) for (const a of e.aliases) {
+  for (const e of entities) if (e.stage === stage) for (const a of new Set([e.name, ...(e.aliases || [])])) {
     const k = normName(a); if (!k) continue;
     if (!m.has(k)) m.set(k, []);
     m.get(k).push(e);

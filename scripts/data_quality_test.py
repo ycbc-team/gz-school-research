@@ -127,11 +127,12 @@ def main():
                              '体育西路小学', '元岗小学', '棠德南小学'}
     alias_owner = {}  # alias -> (school_id, adcode, stage, 该实体名是否无括号)
     for ent in entities:
-        # 纯名 = 无括号/无校区限定词的别名
+        # 纯名 = 无括号/无校区限定词的别名；实体名自身也参与（build_entities 不再把自身
+        # norm 写进 aliases，纯名冲突检查须覆盖 name，避免同区同 stage 同名实体漏检）
         adcode = ent["school_id"].split("-")[1] if ent.get("school_id") else ""
         stage = ent.get("stage")
         has_main = "(" not in ent.get("name", "") and "（" not in ent.get("name", "")
-        for a in ent.get("aliases", []):
+        for a in [ent.get("name", "")] + ent.get("aliases", []):
             if a in _PRIMARY_SHARED_PLAIN:
                 continue  # 官方划片表共享裸名（业务事实，见上注释）
             if "(" not in a and "校区" not in a and "本部" not in a and "学校" not in a.split("（")[0] and "、" not in a \

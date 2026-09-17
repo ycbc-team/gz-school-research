@@ -3779,16 +3779,36 @@
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "景泰中学",
-          "school_id": "gz-440111-048815b3"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "景泰中学",
+              "school_id": "gz-440111-048815b3"
+            },
+            {
+              "poi_name": "广州市白云区景泰中学白云湖校区",
+              "school_id": "gz-440111-2186a02a"
+            }
+          ]
         },
         {
           "name": "广州市白云区竹料第一中学",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "竹料第一中学",
-          "school_id": "gz-440111-fd1c1c12"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "广州市白云区竹料第一中学北校区",
+              "school_id": "gz-440111-78d61733"
+            },
+            {
+              "poi_name": "竹料第一中学",
+              "school_id": "gz-440111-fd1c1c12"
+            }
+          ]
         },
         {
           "name": "广州市白云区新和学校",

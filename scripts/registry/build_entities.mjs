@@ -48,12 +48,15 @@ const AD_DISTRICT = {
 const DIST = /^(荔湾|越秀|海珠|天河|白云|黄埔|番禺)区/;
 function poiNameAliases(poiName, adcode) {
   const base = normName(poiName);
-  const out = [base];
+  const out = [];
   const dist = AD_DISTRICT[adcode];
   if (dist) {
     if (DIST.test(base)) out.push(base.replace(DIST, ''));        // 去区名
     else out.push(dist + base);                                    // 加区名
   }
+  // 自身 norm（== name）不入 aliases：索引侧（upgrade aliasIndex / SchoolMatcher /
+  // 前端 registry 等）均已 name+aliases 双索引，自身名冗余只会增大实体表体积
+  // （entities.json 会打进小程序包）。区名变体才是真实别名，保留。
   return out;
 }
 const stageFiles = {
@@ -687,6 +690,7 @@ function attachAlias(stage, poiName, aliasName, force = false) {
       }
       plainOwner.set(key, ent.school_id);
     }
+    if (v === normName(ent.name)) continue;  // 自身归一名不入 aliases（索引侧 name 已覆盖）
     ent.aliases.add(v);
   }
   return true;
@@ -707,9 +711,9 @@ for (const ent of sites.schools || []) {
     const e = entByStagePoiName.get(stage + '|' + normName(poi.poi_name));
     if (!e) continue;
     if (!(ent.sites.length > 1 && isPlainCommon)) {
-      for (const v of withDistrictVariants(common)) e.aliases.add(v);
+      for (const v of withDistrictVariants(common)) if (v !== normName(e.name)) e.aliases.add(v);
     }
-    for (const a of (ent.aliases || [])) for (const v of withDistrictVariants(normName(a))) e.aliases.add(v);
+    for (const a of (ent.aliases || [])) for (const v of withDistrictVariants(normName(a))) if (v !== normName(e.name)) e.aliases.add(v);
   }
 }
 // 人工核对的官方初中名 → POI 实体

@@ -213,11 +213,12 @@ for item in PENDING:
     else:
         # 添加实体
         aliases = []
-        # 生成别名：带区名前缀 + 去区名
+        # 生成别名：只加区名变体（带区名前缀/去区名）；自身 norm 不入 aliases
+        # （索引侧 name 已覆盖，与 build_entities poiNameAliases 口径一致）
         dist_names = {'440103': '荔湾区', '440104': '越秀区', '440105': '海珠区',
                       '440106': '天河区', '440111': '白云区', '440112': '黄埔区', '440113': '番禺区'}
         base_alias = norm_name(poi_name)
-        aliases.append(base_alias)
+        aliases = []
         dist = dist_names.get(adcode, '')
         if dist and not base_alias.startswith(dist):
             aliases.append(dist + base_alias)
