@@ -144,7 +144,6 @@ for g2026 in d2026["groups"]:
             if norm(mname) not in existing_names:
                 matched["members"].append({
                     "name": mname,
-                    "stage": "初中",
                     "source_url": d2026.get("source",""),
                     "verified": TODAY,
                     "poi_match": "待比对",
@@ -165,7 +164,7 @@ for g2026 in d2026["groups"]:
         members = []
         for mname in g2026.get("members", []):
             members.append({
-                "name": mname, "stage": "初中",
+                "name": mname,
                 "source_url": d2026.get("source",""),
                 "verified": TODAY,
                 "poi_match": "待比对", "poi_name": "", "school_id": "",
@@ -413,6 +412,12 @@ for _g in all_groups:
 print(f"核心校成员去重: 移除{core_dup_removed}行 core 兼 member")
 
 OUT_PATH = sys.argv[1] if len(sys.argv) > 1 else os.path.join(BASE, "data/registry/education_groups.json")
+# education 源不带静态 stage：学段统一按校区/学部实体联表查询（2026-09-17 用户口径，
+# 静态 stage 曾致十六中水荫校区误标初中；成员校/核心校学段以实体表为准，查不到则空）
+for _g in out.get("groups", []):
+    for _m in _g.get("members", []):
+        _m.pop("stage", None)
+    _g.pop("stage", None)
 with open(OUT_PATH, "w") as f:
     json.dump(out, f, ensure_ascii=False, indent=2)
 

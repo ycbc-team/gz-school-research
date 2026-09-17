@@ -164,7 +164,7 @@ export function createRegistryApi(loaders: DataLoaders) {
     brand: string;
     note?: string;
     core: string[];
-    members: Array<{ name: string; stage?: string; role: string; school_ids?: string[]; poi_names?: string[]; poi_name?: string; school_id?: string; campuses?: Array<{ poi_name: string; school_id: string }>; legal?: 'same' | 'independent' }>;
+    members: Array<{ name: string; role: string; school_ids?: string[]; poi_names?: string[]; poi_name?: string; school_id?: string; campuses?: Array<{ poi_name: string; school_id: string }>; legal?: 'same' | 'independent' }>;
     source_urls: string[];
   } | null {
     if (!name && !schoolId) return null;
@@ -196,7 +196,6 @@ export function createRegistryApi(loaders: DataLoaders) {
           ...coreRows,
           ...g.members.map((m) => ({
             name: m.name,
-            stage: m.stage,
             role: '成员校',
             poi_names: m.campuses?.length ? m.campuses.map((c: { poi_name: string }) => c.poi_name) : m.poi_name ? [m.poi_name] : undefined,
             poi_name: m.poi_name,

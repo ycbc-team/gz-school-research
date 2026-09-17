@@ -320,8 +320,7 @@ const brandCard = computed<{ brand: string; note?: string; sourceUrls: string[];
       return st;
     };
     const rows: BrandRow[] = grp.members.flatMap((m) => {
-      const stageKey = m.stage === '小学' ? 'primary' : m.stage === '初中' ? 'middle' : m.stage === '高中' ? 'high' : null;
-      // 多校区：每个校区展开一行；单校区：一行
+            // education 源无静态 stage（已从数据层删除），学段一律按校区实体联查；查不到不显示
       const campusNames = (m.poi_names && m.poi_names.length > 1) ? m.poi_names : [m.poi_name || m.name];
       return campusNames.map((cn) => {
         const poiTarget = resolvePoiName(cn);
@@ -329,15 +328,14 @@ const brandCard = computed<{ brand: string; note?: string; sourceUrls: string[];
         const finalStage = campusStages.includes('初中') ? 'middle'
           : campusStages.includes('高中') ? 'high'
           : campusStages.includes('小学') ? 'primary'
-          : (stageKey || (m.role === '核心校' ? stage.value : null));
+          : null;
         const link = finalStage && poiTarget ? `/school/${encodeURIComponent(poiTarget)}?stage=${finalStage}` : null;
         return {
           name: m.name === cn ? m.name : cn,
           role: m.role,
           legal: 'same',
           district: '',
-          stages: campusStages.length ? campusStages
-            : (m.stage ? [m.stage] : (m.role === '核心校' && stage.value ? [stage.value === 'primary' ? '小学' : stage.value === 'middle' ? '初中' : '高中'] : [])),
+          stages: campusStages,
           badge: null,
           reason: null,
           isCurrent:

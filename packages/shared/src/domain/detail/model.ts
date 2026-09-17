@@ -247,11 +247,9 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
         return st;
       };
       const rows: BrandRow[] = grp.members.map((m) => {
-        const stageKey = m.stage === '小学' ? 'primary' : m.stage === '初中' ? 'middle' : m.stage === '高中' ? 'high' : null;
+        // education 源无静态 stage，学段一律按校区/学部实体联查；查不到（远郊/未收录）不显示
         const campusStages = campusStageOf(m.poi_name || m.name);
-        const stages: string[] = campusStages.length
-          ? campusStages
-          : (m.stage ? [m.stage] : (m.role === '核心校' && stage ? [STAGE_SHORT[stage]] : []));
+        const stages: string[] = campusStages;
         const finalStage = campusStages.includes('初中') ? 'middle'
           : campusStages.includes('高中') ? 'high'
           : campusStages.includes('小学') ? 'primary'
