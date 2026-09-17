@@ -1626,7 +1626,12 @@ def build_tianhe():
                               '华南理工大学附属实验学校（小学部）', '暨南大学附属实验学校（小学部）'):
                 group = '九年制/企事业办学校小学部内部直升'
             else:
-                group = f'天河区公办初中对口直升（{feed[0]}划片）'
+                # 单校划片：group 名列出全部对口初中（多对口如「石牌小学」明文对口天河中学+陶育实验学校，
+                # 若只显 feed[0] 会让任一初中详情页误以为该小学不属于自己划片）
+                if len(feed) == 1:
+                    group = f'天河区公办初中对口直升（{feed[0]}划片）'
+                else:
+                    group = f'天河区公办初中对口直升（{"、".join(feed)}划片）'
             # 附件10 电脑派位资格
             paiwei = []
             for school, pool in TH_PAIWEI.items():
