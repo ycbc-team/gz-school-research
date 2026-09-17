@@ -608,10 +608,19 @@ write('data/registry/entities.json', {
   entities,
 });
 
-// ---- 4) 回写 POI school_id ----
+// ---- 4) 回写 POI school_id；无实体关联的假 POI 完全删除 ----
+// 匹配失败的 POI（school_id 为 null，如「广州市第三中学仁爱楼」「全家便利店(陶育店)」
+// 「港湾中学-港湾咏春」等楼栋/设施/后门/便利店）都是假学校点位：不建实体、
+// 不在地图/列表展示，直接从点位表删除（用户口径：无需展示），脚本可复现。
 for (const [stage, file] of Object.entries(stageFiles)) {
   const j = read(file);
-  for (const p of (j.schools || j)) p.school_id = poiIdByKey.get(stage + '|' + p.adcode + '|' + p.name) || null;
+  const kept = [];
+  for (const p of (j.schools || j)) {
+    const sid = poiIdByKey.get(stage + '|' + p.adcode + '|' + p.name) || null;
+    p.school_id = sid;
+    if (sid) kept.push(p);
+  }
+  j.schools = kept;
   write(file, j);
 }
 
