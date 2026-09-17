@@ -9,12 +9,14 @@
  *   消除学校规模差异（学生多则名额自然多，须看比例）
  */
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
+import { useRouter } from 'vue-router';
 import { DISTRICTS } from '@gz/shared';
-import { rankingMiddle } from '../data';
+import { rankingMiddle, entities } from '../data';
 
 interface Row {
   name: string;
   school_id?: string | null;
+  school_ids?: string[] | null;
   district: string;
   minban?: boolean;
   group?: { brand: string; source: 'brand' | 'education' } | null;
@@ -26,7 +28,47 @@ interface Row {
   tekong_quota_rate?: number | null;
 }
 
+const router = useRouter();
 const schools = rankingMiddle.schools as Row[];
+
+/** school_id → 实体（校区名/区），多校区法人行弹窗选校区用 */
+const ENT_BY_ID = new Map(
+  (entities as { entities: Array<{ school_id: string; name: string }> }).entities.map((e) => [e.school_id, e]),
+);
+const ADCODE_DIST: Record<string, string> = {
+  '440103': '荔湾', '440104': '越秀', '440105': '海珠', '440106': '天河',
+  '440111': '白云', '440112': '黄埔', '440113': '番禺', '440114': '花都',
+  '440117': '从化', '440118': '增城', '440115': '南沙', '440100': '市属',
+};
+const districtOf = (sid: string): string => ADCODE_DIST[sid.slice(3, 9)] || '';
+
+/** 多校区法人行弹窗：一个名字 → 点击弹出 school_ids 校区列表 → 选跳哪个校区 */
+const campusPicker = ref<{ top: number; left: number; items: Array<{ id: string; name: string; district: string }> } | null>(null);
+function openCampusPicker(s: Row, e: MouseEvent) {
+  const ids = (s.school_ids || []).filter((i) => ENT_BY_ID.has(i));
+  if (ids.length < 2) {
+    // 弹窗数据不足（school_ids 缺失/无法解析）→ 回退直接跳主 id
+    goSchool(s.name, s.school_id || undefined);
+    return;
+  }
+  const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
+  const w = 300;
+  let left = r.left;
+  if (left + w > window.innerWidth - 8) left = Math.max(8, window.innerWidth - w - 8);
+  campusPicker.value = {
+    top: r.bottom + 6,
+    left,
+    items: ids.map((id) => ({ id, name: ENT_BY_ID.get(id)!.name, district: districtOf(id) })),
+  };
+}
+function closeCampusPicker() { campusPicker.value = null; }
+function goCampus(item: { id: string; name: string }) {
+  closeCampusPicker();
+  goSchool(item.name, item.id);
+}
+function goSchool(name: string, id?: string) {
+  router.push({ path: `/school/${encodeURIComponent(name)}`, query: { stage: 'middle', ...(id ? { id } : {}) } });
+}
 
 const openMenu = ref<'group' | 'metric' | null>(null);
 const groupBy = ref<'district' | 'group'>('district');
@@ -97,14 +139,14 @@ function toggleHint(kind: 'metric' | 'kaosheng', e: MouseEvent) {
   else openHint(kind, e);
 }
 function closeHint() { clearTimeout(hintTimer); showHint.value = null; }
-watch(metric, closeHint);
+watch(metric, () => { closeHint(); closeCampusPicker(); });
 onMounted(() => {
-  window.addEventListener('scroll', closeHint, true);
-  window.addEventListener('resize', closeHint);
+  window.addEventListener('scroll', () => { closeHint(); closeCampusPicker(); }, true);
+  window.addEventListener('resize', () => { closeHint(); closeCampusPicker(); });
 });
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', closeHint, true);
-  window.removeEventListener('resize', closeHint);
+  window.removeEventListener('scroll', () => { closeHint(); closeCampusPicker(); }, true);
+  window.removeEventListener('resize', () => { closeHint(); closeCampusPicker(); });
 });
 
 /** 符合名额分配报考资格考生数：广州市招考办政策口径（官方原文整理） */
@@ -269,7 +311,13 @@ const groups = computed(() => {
           <tbody>
             <tr v-for="row in g.items" :key="row.s.name">
               <td class="c-name">
+                <button
+                  v-if="(row.s.school_ids?.length ?? 0) > 1"
+                  class="school-link campus-open"
+                  @click="openCampusPicker(row.s, $event)"
+                >{{ shortName(row.s.name) }}<span class="campus-badge">{{ (row.s.school_ids || []).length }} 校区</span></button>
                 <RouterLink
+                  v-else
                   class="school-link"
                   :to="{ path: '/school/' + encodeURIComponent(row.s.name), query: { stage: 'middle', ...(row.s.school_id ? { id: row.s.school_id } : {}) } }"
                 >{{ shortName(row.s.name) }}</RouterLink>
@@ -304,6 +352,19 @@ const groups = computed(() => {
           <div class="hp-title">名额分配符合资格考生数口径</div>
           <div class="hp-line">{{ KAOSHENG_NOTE }}</div>
         </template>
+      </div>
+      <!-- 多校区法人行：一个名字 + 弹窗选校区（用户口径：不直接锚定单校区） -->
+      <div v-if="campusPicker" class="campus-mask" @click="closeCampusPicker"></div>
+      <div
+        v-if="campusPicker"
+        class="campus-pop"
+        :style="{ top: campusPicker.top + 'px', left: campusPicker.left + 'px' }"
+      >
+        <div class="campus-pop-title">选择校区</div>
+        <button v-for="c in campusPicker.items" :key="c.id" class="campus-opt" @click="goCampus(c)">
+          <span class="campus-name">{{ shortName(c.name) }}</span>
+          <span class="campus-dist">{{ c.district }}</span>
+        </button>
       </div>
     </Teleport>
   </div>
@@ -395,6 +456,28 @@ const groups = computed(() => {
 
 .school-link { color: #1a6bd6; text-decoration: underline; text-underline-offset: 2px; }
 .school-link:hover { text-decoration-thickness: 2px; }
+.campus-open { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+.campus-open:hover { color: #0e4fb0; }
+.campus-badge {
+  margin-left: 6px; font-style: normal; font-size: 10.5px; color: #1a6bd6;
+  background: #eaf1fe; border: 1px solid #c8dcf7; border-radius: 8px; padding: 0 5px; line-height: 15px;
+  vertical-align: 1px; white-space: nowrap;
+}
+.campus-mask { position: fixed; inset: 0; z-index: 1350; background: rgba(0, 0, 0, 0.03); }
+.campus-pop {
+  position: fixed; z-index: 1400; width: 300px; max-width: 86vw;
+  background: #fff; border: 1px solid #e4e3dd; border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(20, 30, 50, 0.16); padding: 8px;
+}
+.campus-pop-title { font-size: 12.5px; font-weight: 700; color: #1a1b1c; padding: 4px 6px 8px; }
+.campus-opt {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  width: 100%; border: 0; background: transparent; border-radius: 8px;
+  padding: 7px 8px; font-size: 12.5px; color: #1a6bd6; cursor: pointer; text-align: left;
+}
+.campus-opt:hover { background: #f2f7ff; }
+.campus-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.campus-dist { flex: none; font-size: 11px; color: #8a93a3; }
 .mb-tag {
   margin-left: 6px; font-style: normal; font-size: 10.5px; color: #b45309;
   background: #fef3c7; border: 1px solid #fde68a; border-radius: 8px; padding: 0 5px; line-height: 15px;

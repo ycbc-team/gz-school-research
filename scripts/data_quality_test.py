@@ -29,7 +29,13 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 2026-09-16 更新：孤儿判定补记 school_ids（铁英东/西、明德+同德共担计划）→ 374，新增 0（纯正向）
 # 2026-09-17 更新：剔除脏 POI 实体 18 所（楼栋/游泳馆/便利店/充电站/大学校区/外籍校/咏春/后门/教学区）
 #   → 孤儿 374→357，新增 0（纯正向）；build_entities 加 NON_SCHOOL_POI 过滤（复用既有词表）
-ORPHAN_SNAPSHOT = "d5dac4014c593d8d"
+# 2026-09-17 更新：孤儿排查口径收窄为只看 7 区（荔湾/越秀/海珠/天河/白云/黄埔/番禺）公办——
+#   远郊（花都/从化/增城/南沙）与无 adcode 市属实体本就无招生/升学采集，不属于异常排查
+#   → 孤儿 357→353（排除 9 所非 7 区孤儿：黄广中学/英豪/香江/暨大增城/广外空港/南外/理工实验/
+#     斐特思/黄广附属），新增 0
+# 2026-09-17 更新：孤儿判定「有升学」计入 quota 法人行 school_ids（校区升学聚合在法人行，
+#   主 id 归一后避免东湖/桂花/麓湖/育才等校区误判孤儿）→ 孤儿 353→339，新增 0
+ORPHAN_SNAPSHOT = "ba9a3ab6751b69f6"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
@@ -308,11 +314,20 @@ def main():
     _xs_ids = {r.get("school_id") for r in json.load(open(os.path.join(ROOT, "data/primary/xiaoshengchu_2026.json"))).get("records", []) if r.get("school_id")}
     _rm_ids = {s.get("school_id") for s in json.load(open(os.path.join(ROOT, "data/linkage/ranking_middle.json"))).get("schools", []) if s.get("school_id")}
     _qm_names = {s.get("school") for s in json.load(open(os.path.join(ROOT, "data/linkage/quota_matrix.json"))).get("schools", []) if s.get("school")}
+    # 法人行 school_ids 也算「有升学」：校区实体升学信息聚合在法人行（school_ids 数组），
+    # 避免主 id 归一（法人行主 id 指向本部后）把校区实体误判为无升学孤儿。
+    _qm_school_ids = {i for s in json.load(open(os.path.join(ROOT, "data/linkage/quota_matrix.json"))).get("schools", []) for i in (s.get("school_ids") or [])}
     _sc26 = json.load(open(os.path.join(ROOT, "data/high/scores_2026.json"))).get("by_school_id", {})
     _sc25 = json.load(open(os.path.join(ROOT, "data/high/scores_2025.json"))).get("by_school_id", {})
     _orphans = []
+    # 孤儿排查只看 7 区（荔湾/越秀/海珠/天河/白云/黄埔/番禺）公办学校：
+    # 远郊（花都/从化/增城/南沙）与无 adcode 市属实体本就无招生/升学采集，不属于异常排查范围。
+    _SEVEN_ADCODES = {'440103', '440104', '440105', '440106', '440111', '440112', '440113'}
     for _e in entities:
         if _e.get("nature") == "民办" or _e.get("stage") not in ("primary", "middle", "high"):
+            continue
+        _ad = (_e.get("school_id") or "?").split("-")[1] if _e.get("school_id") else "?"
+        if _ad not in _SEVEN_ADCODES:
             continue
         _lacks = []
         if _e["stage"] == "primary":
@@ -320,7 +335,7 @@ def main():
             if _e["school_id"] not in _xs_ids: _lacks.append("无升学")
         elif _e["stage"] == "middle":
             if _e["school_id"] not in _mid_enroll_ids: _lacks.append("无招生")
-            if _e["school_id"] not in _rm_ids and _e["name"] not in _qm_names: _lacks.append("无升学")
+            if _e["school_id"] not in _rm_ids and _e["school_id"] not in _qm_school_ids and _e["name"] not in _qm_names: _lacks.append("无升学")
         else:  # high
             if _e["school_id"] not in _sc26 and _e["school_id"] not in _sc25: _lacks.append("无招生")
             if _lacks: _lacks.append("无升学(高考未采集)")

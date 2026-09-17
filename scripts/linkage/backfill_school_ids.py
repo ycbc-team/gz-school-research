@@ -57,6 +57,7 @@ def main() -> int:
         by_core[(e['stage'], core_name(e['name']))].append(e['school_id'])
     for k in by_core:
         by_core[k] = sorted(set(by_core[k]))
+    by_id = {e['school_id']: e['name'] for e in entities['entities']}
 
     AD_MAP = {'荔湾区': '440103', '越秀区': '440104', '海珠区': '440105',
               '天河区': '440106', '白云区': '440111', '黄埔区': '440112', '番禺区': '440113'}
@@ -168,6 +169,14 @@ def main() -> int:
                     ids = by_core.get(('middle', core_name(s['school']))) or []
                     if len(ids) > 1:
                         s['school_ids'] = ids
+                        # 主 id 归一：多校区法人行主 school_id 必须指向「本部实体」——
+                        # school_ids 中「实体名无括号且去广州市后=法人名」者（如十六中→本部 8a1a7b3d，
+                        # 而非首匹配的东湖校区）；无本部实体（如七中仅麓湖/初中部/桂花校区）取 ids[0]。
+                        # 否则列表页点法人名跳到校区详情页（用户口径：一个名字 + 弹窗选校区）。
+                        home = next((i for i in ids
+                                     if '(' not in by_id.get(i, '') and '（' not in by_id.get(i, '')
+                                     and core_name(by_id.get(i, '')) == core_name(s['school'])), None)
+                        s['school_id'] = home or ids[0]
                     else:
                         s.pop('school_ids', None)
         else:

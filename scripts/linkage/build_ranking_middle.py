@@ -281,8 +281,9 @@ def group_resolve(name: str):
 
 
 # ---------------- 聚合 ----------------
-def build_row(name: str, district: str, school_id=None):
-    """单校聚合：quota / 区属指标×特控率 / 自招 / 集团。quota 缺行 → 数值字段置 null。"""
+def build_row(name: str, district: str, school_id=None, school_ids=None):
+    """单校聚合：quota / 区属指标×特控率 / 自招 / 集团。quota 缺行 → 数值字段置 null。
+    school_ids=多校区法人行校区实体数组（与 school_id 主 id 同源，前端「一个名字+弹窗选校区」用）。"""
     qn, qv = find_quota(name)
     aut_n = find_aut(name)
     if qv is None:
@@ -310,6 +311,7 @@ def build_row(name: str, district: str, school_id=None):
     return {
         'name': name,
         'school_id': school_id,
+        'school_ids': school_ids,
         'district': district,
         'minban': bool(school_id and school_id in MINBAN_IDS),
         'group': group_resolve(name),
@@ -328,12 +330,12 @@ missing_quota = []
 for qs in quota['schools']:
     if qs.get('district') not in SEVEN_DISTRICTS:
         continue
-    out_schools.append(build_row(qs['school'], qs['district'], qs.get('school_id')))
+    out_schools.append(build_row(qs['school'], qs['district'], qs.get('school_id'), qs.get('school_ids')))
 
 # 补充学校机制保留（候选底已为全量，正常为空；仅用于个别未进名额分配表但有自招信号的学校）
 EXTRA_SCHOOLS = []
 for e in EXTRA_SCHOOLS:
-    out_schools.append(build_row(e['name'], e['district'], e.get('school_id')))
+    out_schools.append(build_row(e['name'], e['district'], e.get('school_id'), e.get('school_ids')))
 
 result = {
     'title': '广州初中升学信号明细基础表（自招 / 指标到校 / 特控率）',
