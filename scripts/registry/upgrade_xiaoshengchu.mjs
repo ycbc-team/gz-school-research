@@ -61,32 +61,58 @@ function resolveOne(idx, name, district) {
   const hit = list.find((e) => entDistrict.get(e.school_id) === district);
   return (hit || list[0]).school_id;
 }
-// feed 初中解析：同区多校区全收（如「广铁一中铁英学校」→ 东/西两校区），跨区同名按 district 过滤
-// 法人裸名回退：派位/对口表法人名（如「广州市第七中学」「广州市育才中学」）不挂同区多校区别名
-// （检查 [3] 防无主 POI 歧义），alias 命中为空或区过滤后为空时，按 core 名回退同区同学段全部实体——
-// 法人多校区全收是业务正确（升学聚合按法人 school_ids 展示），匹配收敛到数据层，运行时只依赖 school_id。
-function coreOfName(raw) {
-  const n = String(raw || '').replace(/（/g, '(').replace(/）/g, ')').replace(/\([^()]*\)/g, '')
-    .replace(/^广州市/, '').replace(/^(荔湾|越秀|海珠|天河|白云|黄埔|番禺)区/, '').replace(/\s+/g, '');
-  return n;
+// 校区 → 升学归属区 图（quota_matrix 权威）：法人行 school_ids（如越秀七中行含白云桂花校区）
+// 与校区限定行 school_id 共同标注「该校区参与哪个区的升学」。
+// 判定标准（用户口径）：POI 地理位置 ≠ 升学归属——桂花校区 POI 在白云，但白云升学无它、
+// 越秀七中法人行收录 → 归属越秀；广附大学城在番禺校区行 → 归属番禺，越秀派位不含。
+const campusDist = new Map(); // school_id -> 归属区（如「越秀区」）
+for (const s of (read('data/linkage/quota_matrix.json').schools || [])) {
+  if (!s.district) continue;
+  if (s.school_id) campusDist.set(s.school_id, s.district);
+  for (const sid of s.school_ids || []) campusDist.set(sid, s.district);
 }
+
+// 法人名归一：去括号校区/学部后缀 + 去「广州市」前缀；保留「X区」区名前缀——
+// 使「育才中学(东校区)」（POI 无广州市前缀）与「广州市育才中学(西校区)」归同一法人，
+// 同时隔离不同法人（「广州市从化区第七中学」→「从化区第七中学」≠「第七中学」，不混入）。
+// 只去「广州市」不去「广州」：避免「广州中学」→「中学」历史毁名；「广州大学附属中学」保持原样。
+function coreOfName(raw) {
+  return String(raw || '').replace(/（/g, '(').replace(/）/g, ')')
+    .replace(/\([^()]*\)/g, '').replace(/^广州市/, '').replace(/\s+/g, '');
+}
+
+// feed 初中解析：
+// 1) alias 精确优先（校区限定名与官方别名都走这，如「广铁一中番禺校区」「广铁一中铁英学校」）
+//    → 按 POI 区过滤；区过滤为空（跨区命中如白云桂花持裸名）→ 清空
+// 2) alias 空/被滤后：
+//    - 校区限定名（带括号）→ unresolved（宁缺，不模糊匹配）
+//    - 法人裸名（无括号）→ 按法人 core 聚合全部同 stage 校区，再按「升学归属区」
+//      （quota 法人行收录，如越秀七中行含白云桂花校区/越秀十六中行含天河水荫校区）过滤——
+//      跨区法人校区按归属收录（桂花归越秀），别区法人校区（广附大学城归番禺）排除；
+//      无归属信息时按 POI 区兜底合并（育才东 quota 未挂但 POI 在越秀），宁缺不跨区。
 function resolveMany(idx, name, district, stage) {
+  const hasCampus = /[（(]/.test(name);
   let picked = idx.get(normName(name)) || [];
   if (district) {
     const f = picked.filter((e) => entDistrict.get(e.school_id) === district);
     if (f.length) picked = f;
-    else picked = []; // 跨区命中（如白云桂花持裸名）→ 清空触发 core 回退，宁缺不跨区
+    else picked = [];
   }
-  if (!picked.length) {
-    const core = coreOfName(name);
-    let all = entities.filter((e) => e.stage === stage && coreOfName(e.name) === core);
-    if (district) {
-      const f = all.filter((e) => entDistrict.get(e.school_id) === district);
-      if (f.length) all = f;
+  if (picked.length) return [...new Set(picked.map((e) => e.school_id))];
+  if (hasCampus) return [];
+  const core = coreOfName(name);
+  const all = entities.filter((e) => e.stage === stage && coreOfName(e.name) === core);
+  if (district) {
+    const byOwn = all.filter((e) => campusDist.get(e.school_id) === district);
+    if (byOwn.length) {
+      // 归属区命中 → 同法人未挂 quota 的校区按 POI 区兜底合并（如育才东校区 quota 未挂但 POI 在越秀）
+      const rest = all.filter((e) => !campusDist.has(e.school_id) && entDistrict.get(e.school_id) === district);
+      return [...new Set([...byOwn, ...rest].map((e) => e.school_id))];
     }
-    picked = all;
+    const byPoi = all.filter((e) => entDistrict.get(e.school_id) === district);
+    if (byPoi.length) return [...new Set(byPoi.map((e) => e.school_id))];
   }
-  return [...new Set(picked.map((e) => e.school_id))];
+  return [...new Set(all.map((e) => e.school_id))];
 }
 
 const src = read('data/primary/xiaoshengchu_all.json');

@@ -46,9 +46,11 @@ def main() -> int:
 
     # 法人聚合：官方升学文件按法人单位公布（不分校区），一个法人名对应同 stage 全部校区实体。
     # 由实体表 name 去括号校区后缀推导（如「广州市第一一三中学(乐学校区)」→ 法人「广州市第一一三中学」），
+    # 再统一去「广州市」前缀（保留「X区」区名隔离不同法人：从化区第七中学 ≠ 第七中学），
+    # 使「育才中学(东校区)」（POI 无广州市前缀）与「广州市育才中学(西校区)」归同一法人聚合。
     # 脚本生成不手改；quota 法人行写入 school_ids 数组，前端升学信息按法人聚合展示、各校区分别跳转。
     def core_name(n: str) -> str:
-        return re.sub(r'[（(][^）)]*[）)]', '', n or '').strip()
+        return re.sub(r'^广州市', '', re.sub(r'[（(][^）)]*[）)]', '', n or '').strip())
 
     by_core: dict[tuple, list] = defaultdict(list)
     for e in entities['entities']:
@@ -159,15 +161,15 @@ def main() -> int:
                         s.pop('school_id', None)
                         unmatched.append((tag, s['school'], s.get('district'), s.get('district') in CITY7))
                 # 法人行（不带校区括号）：挂该法人同 stage 全部校区实体（school_ids 数组）。
+                # 判定用「原名无括号」而非 core_name 比较（core_name 去广州市后与原名不等，会漏判法人行）；
+                # by_core key 已去广州市+保留区名（育才东/西归同一法人，从化七中不混入）。
                 # 校区收敛（如脏 POI 实体剔除后 ids 变 1 或 0）必须清残留旧数组，否则引用断链。
-                if s.get('school_id'):
-                    c = core_name(s['school'])
-                    if c == s['school']:
-                        ids = by_core.get(('middle', c)) or []
-                        if len(ids) > 1:
-                            s['school_ids'] = ids
-                        else:
-                            s.pop('school_ids', None)
+                if s.get('school_id') and '(' not in s['school'] and '（' not in s['school']:
+                    ids = by_core.get(('middle', core_name(s['school']))) or []
+                    if len(ids) > 1:
+                        s['school_ids'] = ids
+                    else:
+                        s.pop('school_ids', None)
         else:
             if tag == 'special_matrix':
                 keys = list(d['matrix'].keys())

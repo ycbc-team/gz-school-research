@@ -1228,7 +1228,11 @@
       "sz_sum": 26,
       "school_id": "gz-440104-7ec82efb",
       "is_district_head": false,
-      "district": "越秀区"
+      "district": "越秀区",
+      "school_ids": [
+        "gz-440104-191aaa35",
+        "gz-440104-7ec82efb"
+      ]
     },
     {
       "page": 2,
@@ -6810,7 +6814,11 @@
       "sz_sum": 19,
       "school_id": "gz-440112-674f4721",
       "is_district_head": false,
-      "district": "黄埔区"
+      "district": "黄埔区",
+      "school_ids": [
+        "gz-440112-12747882",
+        "gz-440112-674f4721"
+      ]
     },
     {
       "page": 14,
