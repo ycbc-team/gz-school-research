@@ -42,7 +42,12 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #   政府招生按法人公布（一条「广州市第十六中学」覆盖东湖/本部/水荫），校区实体经
 #   school_ids 命中「有招生」，消除 39 所「无招生」误报孤儿（东湖/水荫/育才东西/
 #   桂花/麓湖/一一三中三校区/真光各校区等 57 所校区实体中仍有 18 所缺升学）→ 339→300，新增 0
-ORPHAN_SNAPSHOT = "ea858a5979f84737"
+# 2026-09-17 更新：校区「办不办初中」是业务事实不能从法人名推导（部分校区非完中、
+#   初中部只在某些校区；其余为表生产错误）——attach 收紧为 CONFIRMED_CAMPUS 白名单
+#   （官方 raw/用户确认：十六中东湖+本部、知识城东+南、六十五中明德+同德、铁英东+西），
+#   水荫纯高中 middle 实体删除（build_entities NON_MIDDLE_CAMPUS）→ 孤儿 300→335
+#   （未确认校区宁缺、回孤儿待逐校确认；净消除 4 所），新增 0
+ORPHAN_SNAPSHOT = "57acd85f7af57cb2"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 

@@ -231,5 +231,5 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
     .update(shown.filter((s) => s.endsWith('|true')).sort().join('\n'))
     .digest('hex')
     .slice(0, 16);
-  assert.equal(digest, '96fa4cf979b2e9c5', '品牌关联全量快照漂移：有实体的品牌卡渲染状态变化，需显式确认后更新');
+  assert.equal(digest, '44791cf0ebf02d25', '品牌关联全量快照漂移：有实体的品牌卡渲染状态变化，需显式确认后更新');
 });

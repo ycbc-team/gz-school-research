@@ -62,6 +62,16 @@ const stageFiles = {
   high: 'data/high/schools-gz.json',
 };
 
+// 纯高中校区（初中不办学）：middle 表不得保留（业务事实，人工/官方核对后固化）。
+// 例：广州市第十六中学(水荫校区)——原恒福中学高中部并入 16 中，只有高中；
+// 越秀区初中招生（法人「广州市第十六中学」）只覆盖东湖/本部。这类校区若留在
+// middle 表，会生成多余 middle 实体并污染孤儿判定（「无招生」实为「该学段不办学」）。
+// 命中 → 不建 middle 实体，并从中表 POI 表中删除；high 表不受影响。
+const NON_MIDDLE_CAMPUS = [
+  '广州市第十六中学(水荫校区)',  // 2026-09-17 用户+官方确认：原恒福中学高中部，纯高中
+];
+const isNonMiddleCampus = (stage, name) => stage === 'middle' && NON_MIDDLE_CAMPUS.some((s) => name === s);
+
 // 非学校 POI 剔除（命中即不建实体，POI 点位表原样保留）。
 // 复用项目既有词表：build_high_levels_js.JUNK（楼栋/设施）、school_match._NON_SCHOOL、
 // backfill_xiaoshengchu_missing 非学校词。注意：地名/校区名含「楼」（石楼镇/九楼校区/新楼村）
@@ -387,7 +397,7 @@ for (const [stage, file] of Object.entries(stageFiles)) {
   const j = read(file);
   const pois = j.schools || j;
   for (const p of pois) {
-    if (isNonSchoolPoi(p.name)) continue;
+    if (isNonSchoolPoi(p.name) || isNonMiddleCampus(stage, p.name)) continue;
     const rawNorm = String(p.name).replace(/（/g, '(').replace(/）/g, ')').replace(/\s+/g, '');
     const bareCore = bareCoreOf(rawNorm);
     if (bareCore) {
@@ -401,7 +411,7 @@ for (const [stage, file] of Object.entries(stageFiles)) {
   const j = read(file);
   const pois = j.schools || j;
   for (const p of pois) {
-    if (isNonSchoolPoi(p.name)) continue;
+    if (isNonSchoolPoi(p.name) || isNonMiddleCampus(stage, p.name)) continue;
     const sn = normName(p.name);
     // 幂等：POI 已有 school_id 时保留（历史算法产出，事实表已按此引用），无 id 才新算
     const schoolId = p.school_id || idKey(p.adcode, sn);
@@ -616,6 +626,7 @@ for (const [stage, file] of Object.entries(stageFiles)) {
   const j = read(file);
   const kept = [];
   for (const p of (j.schools || j)) {
+    if (isNonMiddleCampus(stage, p.name)) continue;  // 纯高中校区（初中不办学），从 middle 表删除
     const sid = poiIdByKey.get(stage + '|' + p.adcode + '|' + p.name) || null;
     p.school_id = sid;
     if (sid) kept.push(p);

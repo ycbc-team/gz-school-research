@@ -260,10 +260,27 @@ if __name__ == "__main__":
     _entities = json.load(open(os.path.join(ROOT, "data/registry/entities.json")))
 
     # 法人行挂 school_ids（与 quota_matrix 口径一致）：政府招生文件按法人单位公布
-    # （一条「广州市第十六中学」覆盖东湖/本部/水荫校区，无独立校区行），校区实体须经
-    # 法人行 school_ids 命中「有招生」；否则东湖/水荫等校区实体会被孤儿判定误报
-    # 「无招生」。法人推导与 backfill_school_ids.py 相同：同 stage 下去括号+去
-    # 「广州市」后同 core 名的全部校区实体（脚本生成不手改）。
+    # （一条「广州市第十六中学」覆盖多个校区，无独立校区行），校区实体须经法人行
+    # school_ids 命中「有招生」；否则校区实体会被孤儿判定误报「无招生」。
+    #
+    # 【关键口径 2026-09-17】校区「办不办初中」是业务事实，不能从法人名/校区名推导：
+    # 部分校区不是完中，初中部只设在某些校区（如十六中初中在东湖/本部，水荫校区是
+    # 纯高中——middle 实体已由 build_entities NON_MIDDLE_CAMPUS 删除）；官方文件按
+    # 校区招生的（白云/番禺/荔湾 raw）与人工核对的才确认。故只挂 CONFIRMED_CAMPUS
+    # 白名单（来源：官方招生 raw / 用户核实），未确认校区宁缺（孤儿保留待逐校确认），
+    # 不盲目挂全部同 core 校区。
+    _CONFIRMED_CAMPUS = {
+        'gz-440104-8964385d',  # 广州市第十六中学(东湖校区)：初中初一初二（用户+官方）
+        'gz-440104-8a1a7b3d',  # 广州市第十六中学（本部）：初中初三回本部
+        'gz-440112-badbc2ab',  # 广州知识城中学(东校区)：官方「东校区招收初中一年级新生」
+        'gz-440112-ec15555e',  # 广州知识城中学(南校区)：官方「初中部设在东校区和南校区」
+        'gz-440111-c8461d5d',  # 广州市第六十五中学初中部(明德校区)：白云官方 raw
+        'gz-440111-c7b90869',  # 广州市第六十五中学(同德校区)：白云官方 raw
+        'gz-440113-43d027a5',  # 广铁一中铁英学校(东校区)：番禺官方（东/西合计 28 班）
+        'gz-440113-94c76638',  # 广铁一中铁英学校(西校区)：番禺官方（东/西合计 28 班）
+    }
+    # 法人推导与 backfill_school_ids.py 相同：同 stage 下去括号+去「广州市」后同
+    # core 名的全部校区实体；只挂白名单内确认办初中的校区（脚本生成不手改）。
     def attach_legal_school_ids(data):
         by_core = {}
         for _e in _entities["entities"]:
@@ -279,7 +296,7 @@ if __name__ == "__main__":
             if not _e or _e.get("stage") != "middle":
                 continue
             _core = re.sub(r"^广州市", "", re.sub(r"[（(][^）)]*[）)]", "", _e["name"]).strip())
-            _sids = sorted(by_core.get(_core, set()))
+            _sids = sorted((by_core.get(_core, set()) & _CONFIRMED_CAMPUS))
             if len(_sids) > 1:  # 多校区法人才写 school_ids；单校区无歧义不写
                 _r["school_ids"] = _sids
         return data
