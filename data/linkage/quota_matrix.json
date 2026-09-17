@@ -1005,7 +1005,6 @@
       "is_district_head": false,
       "district": "越秀区",
       "school_ids": [
-        "gz-440104-0a17f1eb",
         "gz-440104-2213d9b3",
         "gz-440104-9b88f912"
       ]
@@ -2923,11 +2922,7 @@
       "sz_sum": 29,
       "school_id": "gz-440106-8f55ab34",
       "is_district_head": false,
-      "district": "天河区",
-      "school_ids": [
-        "gz-440106-8f55ab34",
-        "gz-440106-f94ad54a"
-      ]
+      "district": "天河区"
     },
     {
       "page": 6,

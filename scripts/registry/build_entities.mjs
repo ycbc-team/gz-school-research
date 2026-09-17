@@ -86,6 +86,12 @@ const NON_MIDDLE_CAMPUS = [
 ];
 const isNonMiddleCampus = (stage, name) => stage === 'middle' && NON_MIDDLE_CAMPUS.some((s) => name === s);
 
+// 冗余实体剔除（跨 stage）：高德查询到的重复/冗余点位，实体表有主实体即可。
+// 89中(北区) gz-440106-f94ad54a：2026-09-17 用户确认「北区」仅为配套扩建、无独立办学，
+// 有 89中(8f55ab34) 实体即够——不建实体后 POI 自动按「无 id 假学校」清出点位表。
+const DROP_CAMPUS = ['广州市第八十九中学(北区)'];
+const isDropCampus = (name) => DROP_CAMPUS.includes(name);
+
 // 校区学段修正（school_id → 正确 stage）：middle 表误建、实际为高中/小学的校区实体。
 // 与 NON_MIDDLE_CAMPUS 的区别：NON_MIDDLE 是「同 id 有 high」删 middle 留 high；
 // 本表是「实体只有 middle stage」——删除即丢失学校，须改为正确学段实体（POI 记录迁至对应表）。
@@ -436,7 +442,7 @@ for (const [stage, file] of Object.entries(stageFiles)) {
   const j = read(file);
   const pois = j.schools || j;
   for (const p of pois) {
-    if (isNonSchoolPoi(p.name) || isNonMiddleCampus(stage, p.name)) continue;
+    if (isNonSchoolPoi(p.name) || isNonMiddleCampus(stage, p.name) || isDropCampus(p.name)) continue;
     const _st = stageFixOf(stage, p);  // 学段修正：middle 误建 → 按正确 stage 统计
     const pn0 = POI_NAME_FIX[p.name] || p.name;  // 规范化实体名（统计与建实体口径一致）
     const rawNorm = String(pn0).replace(/（/g, '(').replace(/）/g, ')').replace(/\s+/g, '');
@@ -453,7 +459,7 @@ for (const [stage, file] of Object.entries(stageFiles)) {
   const j = read(file);
   const pois = j.schools || j;
   for (const p of pois) {
-    if (isNonSchoolPoi(p.name) || isNonMiddleCampus(stage, p.name)) continue;
+    if (isNonSchoolPoi(p.name) || isNonMiddleCampus(stage, p.name) || isDropCampus(p.name)) continue;
     const pn = POI_NAME_FIX[p.name] || p.name;  // 规范化实体名（POI 原名仅用于 idKey/回写查表）
     const _st = stageFixOf(stage, p);  // 学段修正：middle 误建 → 按正确 stage 建实体（POI 数据随迁）
     const sn = normName(pn);
@@ -659,7 +665,7 @@ for (const [stage, file] of Object.entries(stageFiles)) {
   const kept = [];
   const seenPoiSid = new Set();  // 同 (stage, school_id) 重复点位去重（实体表同 id 唯一）
   for (const p of (j.schools || j)) {
-    if (isNonMiddleCampus(stage, p.name)) continue;  // 纯高中校区（初中不办学），从 middle 表删除
+    if (isNonMiddleCampus(stage, p.name) || isDropCampus(p.name)) continue;  // 纯高中校区/冗余点位删除
     const _st = stageFixOf(stage, p);
     if (_st !== stage) {  // 学段修正：从本表迁出（如 middle→high/primary），目标表追加
       stageMoved[_st] = stageMoved[_st] || [];
