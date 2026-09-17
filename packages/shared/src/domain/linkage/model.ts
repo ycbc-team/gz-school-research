@@ -66,6 +66,9 @@ export interface LinkageModel {
   /** 高中：本校 2026 体育/艺术特长生计划数（按校区；null=未收录/无特长生计划） */
   sportsPlan: number | null;
   artsPlan: number | null;
+  /** 高中：体育/艺术特长生项目二级细项（官方明细表；空数组=无项目） */
+  sportsProjects: { project: string; plan: number; note?: string }[] | null;
+  artsProjects: { project: string; plan: number; note?: string }[] | null;
   hasHighData: boolean;
 }
 
@@ -157,6 +160,8 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
       autonomyPlan: null,
       sportsPlan: null,
       artsPlan: null,
+      sportsProjects: null,
+      artsProjects: null,
       hasHighData: false,
     };
   }
@@ -227,6 +232,8 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     autonomyPlan,
     sportsPlan: specialPlan?.sports ?? null,
     artsPlan: specialPlan?.arts ?? null,
+    sportsProjects: specialPlan?.sportsProjects ?? null,
+    artsProjects: specialPlan?.artsProjects ?? null,
     hasHighData: highCoverage.length > 0 || highDistrictCoverage.length > 0 || autonomyPlan != null || specialPlan != null,
   };
 }

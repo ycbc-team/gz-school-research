@@ -177,9 +177,20 @@
         <view class="card-title">第一批招生（2026）</view>
         <view class="sub-note">自主招生 / 体育 / 艺术特长生均为全市（或本区）统一竞争的特殊通道，考生自由报名、按志愿和成绩投档录取，不分配到校。以下为按官方公布的本校（校区）招生计划数，计划数即录取数（按计划投档，实际录取不超计划）。</view>
         <view class="kv">
-          <view class="kv-row"><text>自主招生计划</text><text class="plan-hl">{{linkage.autonomyPlan || '—'}} 人</text></view>
-          <view class="kv-row"><text>体育特长生计划</text><text>{{linkage.sportsPlan || '—'}} 人</text></view>
-          <view class="kv-row"><text>艺术特长生计划</text><text>{{linkage.artsPlan || '—'}} 人</text></view>
+          <view class="kv-row"><text>自主招生计划</text><text>{{linkage.autonomyPlan !== null && linkage.autonomyPlan !== undefined ? linkage.autonomyPlan : '—'}} 人</text></view>
+          <view class="kv-row"><text>体育特长生计划</text><text>{{linkage.sportsPlan !== null && linkage.sportsPlan !== undefined ? linkage.sportsPlan : '—'}} 人</text></view>
+          <view wx:if="{{linkage.sportsProjects && linkage.sportsProjects.length}}" class="proj-list">
+            <view wx:for="{{linkage.sportsProjects}}" wx:key="project" class="proj-row">
+              <text>{{item.project}}</text><text>{{item.plan}} 人</text>
+              <text wx:if="{{item.note}}" class="proj-note">{{item.note}}</text>
+            </view>
+          </view>
+          <view class="kv-row"><text>艺术特长生计划</text><text>{{linkage.artsPlan !== null && linkage.artsPlan !== undefined ? linkage.artsPlan : '—'}} 人</text></view>
+          <view wx:if="{{linkage.artsProjects && linkage.artsProjects.length}}" class="proj-list">
+            <view wx:for="{{linkage.artsProjects}}" wx:key="project" class="proj-row">
+              <text>{{item.project}}</text><text>{{item.plan}} 人</text>
+            </view>
+          </view>
         </view>
       </view>
       <view wx:if="{{linkage.highCoverage.length || linkage.highDistrictCoverage.length}}" class="card">

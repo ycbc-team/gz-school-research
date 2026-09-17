@@ -80,6 +80,12 @@ test('第一批高中详情计划数按 school_id 反查（自主/体育/艺术�
   assert.equal(m1.autonomyPlan, 70, '真光本部自主招生计划=70');
   assert.equal(m1.sportsPlan, 40, '真光本部体育特长生计划=40');
   assert.equal(m1.artsPlan, 24, '真光本部艺术特长生计划=24');
+  // 项目二级细项（官方明细表逐项，合计必须=计划总数）
+  assert.equal(m1.sportsProjects.length, 5, '真光本部体育项目=5 项');
+  assert.deepEqual(m1.sportsProjects[0], { project: '男子足球', plan: 10, note: '其中体育后备人才不超2人' });
+  assert.equal(m1.sportsProjects.reduce((s, p) => s + p.plan, 0), m1.sportsPlan, '体育项目合计=体育计划数');
+  assert.equal(m1.artsProjects.length, 2, '真光本部艺术项目=2 项');
+  assert.equal(m1.artsProjects.reduce((s, p) => s + p.plan, 0), m1.artsPlan, '艺术项目合计=艺术计划数');
   // 2) 特长生计划按 school_id 反查（铁一越秀）
   const ty = repo.entities.find((e) => e.name === '广州市铁一中学(越秀校区)');
   assert.ok(ty);
@@ -94,6 +100,8 @@ test('第一批高中详情计划数按 school_id 反查（自主/体育/艺术�
   assert.equal(m3.autonomyPlan, 17, '真光汾水自主招生计划=17');
   assert.equal(m3.sportsPlan, null, '真光汾水无特长生计划 → null');
   assert.equal(m3.artsPlan, null);
+  assert.equal(m3.sportsProjects, null, '无特长生计划 → 项目明细 null');
+  assert.equal(m3.artsProjects, null);
   // 4) 特长生计划总量 = 官方口径（体育 1905 不含领军龙 / 艺术 1741 / 领军龙 116）
   assert.equal(special.special_plan_summary.sports, 1905);
   assert.equal(special.special_plan_summary.arts, 1741);

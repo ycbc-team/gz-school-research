@@ -114,9 +114,19 @@ function goCampus(item: CampusPick['items'][number]) {
       <div class="card-title">第一批招生（2026）</div>
       <p class="sub-note">自主招生 / 体育 / 艺术特长生均为全市（或本区）统一竞争的特殊通道，考生自由报名、按志愿和成绩投档录取，不分配到校。以下为按官方公布的本校（校区）招生计划数，计划数即录取数（按计划投档，实际录取不超计划）。</p>
       <div class="kv">
-        <div class="kv-row"><span>自主招生计划</span><b class="plan-hl">{{ model.autonomyPlan ?? '—' }} 人</b></div>
+        <div class="kv-row"><span>自主招生计划</span><b>{{ model.autonomyPlan ?? '—' }} 人</b></div>
         <div class="kv-row"><span>体育特长生计划</span><b>{{ model.sportsPlan ?? '—' }} 人</b></div>
+        <div v-if="model.sportsProjects && model.sportsProjects.length" class="proj-list">
+          <div v-for="p in model.sportsProjects" :key="p.project" class="proj-row">
+            <span>{{ p.project }}</span><span>{{ p.plan }} 人</span><span v-if="p.note" class="proj-note">{{ p.note }}</span>
+          </div>
+        </div>
         <div class="kv-row"><span>艺术特长生计划</span><b>{{ model.artsPlan ?? '—' }} 人</b></div>
+        <div v-if="model.artsProjects && model.artsProjects.length" class="proj-list">
+          <div v-for="p in model.artsProjects" :key="p.project" class="proj-row">
+            <span>{{ p.project }}</span><span>{{ p.plan }} 人</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -187,7 +197,10 @@ function goCampus(item: CampusPick['items'][number]) {
 .kv-row { display: flex; gap: 10px; font-size: 12.5px; align-items: baseline; }
 .kv-row > span { flex: none; width: 100px; color: #6b7280; font-size: 11.5px; }
 .kv-row > b { font-weight: 600; line-height: 1.6; }
-.plan-hl { color: #e0452e; font-size: 15px; font-weight: 800; }
+.proj-list { display: flex; flex-direction: column; gap: 2px; padding-left: 110px; margin: -2px 0 4px; }
+.proj-row { display: flex; gap: 10px; font-size: 11.5px; color: #6b7280; }
+.proj-row span:first-child { flex: none; width: 120px; }
+.proj-note { color: #9ca3af; font-size: 10.5px; }
 
 .bars { display: flex; flex-direction: column; gap: 5px; margin-top: 10px; }
 .bar-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }

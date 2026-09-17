@@ -83,13 +83,28 @@ export function createQuotaApi(loaders: DataLoaders) {
   }
 
   /** 高中实体 school_id → 2026 体育/艺术特长生计划数（special_matrix.special_plan，构建期已映射实体外键） */
-  function specialPlanOf(schoolId: string | null | undefined): { sports: number; arts: number } | null {
+  function specialPlanOf(schoolId: string | null | undefined): {
+    sports: number;
+    arts: number;
+    sportsProjects: { project: string; plan: number; note?: string }[];
+    artsProjects: { project: string; plan: number; note?: string }[];
+  } | null {
     if (!schoolId) return null;
     const p = (specialMatrix as Record<string, any>).special_plan?.[schoolId] as
-      | { sports?: number; arts?: number }
+      | {
+          sports?: number;
+          arts?: number;
+          sports_projects?: { project: string; plan: number; note?: string }[];
+          arts_projects?: { project: string; plan: number; note?: string }[];
+        }
       | undefined;
     if (!p) return null;
-    return { sports: p.sports ?? 0, arts: p.arts ?? 0 };
+    return {
+      sports: p.sports ?? 0,
+      arts: p.arts ?? 0,
+      sportsProjects: p.sports_projects ?? [],
+      artsProjects: p.arts_projects ?? [],
+    };
   }
 
   /** 按初中名查第二批次录取分数（值 = 校区 → 记录） */
