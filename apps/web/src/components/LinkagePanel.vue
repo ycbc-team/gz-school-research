@@ -48,17 +48,17 @@ function goCampus(item: CampusPick['items'][number]) {
   <template v-if="stage === 'middle'">
     <div class="card" v-if="model.specialRows.length">
       <div class="card-title">中考-第一批</div>
-      <p class="sub-note">特殊通道：自主招生 / 体育 / 艺术特长生。本校学生通过特殊通道被以下高中录取（资格名单人数，非最终预录取）。升入高中为官方法人招生单位，个别学校（如广州大学附属中学）多校区共用同一计划，录取后校区由学校统筹。</p>
+      <p class="sub-note">特殊通道：自主招生 / 体育 / 艺术特长生。本校学生通过特殊通道被以下高中录取（资格名单人数，非最终预录取）。升入高中为官方法人招生单位，个别学校（如广州大学附属中学）多校区共用同一计划，录取后校区由学校统筹。自招计划数按官方公布（多校区各有计划），计划数≠资格名单人数≠录取人数。</p>
       <div v-if="model.campuses.length > 1" class="qblock">
         <div class="qblock-title">该初中校区（特殊通道资格名单按官方法人单位统一公布，与同法人其他校区合计，录取后校区由学校统筹）</div>
       </div>
       <div class="tbl">
-        <div class="tbl-row tbl-head"><span>升入高中</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
+        <div class="tbl-row tbl-head"><span>升入高中</span><span>自招计划</span><span>自招</span><span>体育</span><span>艺术</span><span>合计</span></div>
         <div v-for="r in model.specialRows" :key="r.campus" class="tbl-row">
           <span>
             <RouterLink v-if="r.poiName && r.schoolId" :to="{ path: `/school/${encodeURIComponent(r.poiName)}`, query: { stage: 'high', id: r.schoolId } }" class="sch-link">{{ r.campusFull || r.campus }}</RouterLink>
             <template v-else>{{ r.campusFull || r.campus }}</template>
-          </span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
+          </span><span class="dim">{{ r.autonomyPlan ?? '—' }}</span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span><span class="strong">{{ r.autonomy + r.sports + r.arts }}</span>
         </div>
       </div>
     </div>
@@ -129,12 +129,13 @@ function goCampus(item: CampusPick['items'][number]) {
   <template v-else>
     <div class="card" v-if="model.highSpecialCoverage.length">
       <div class="card-title">第一批招生（2026）</div>
-      <p class="sub-note">特殊通道（自主招生 / 体育 / 艺术特长生）覆盖初中，按合计人数降序。高中部招生计划按官方法人单位统一公布，办学地点以校区页为准（如广州大学附属中学高中部设于大学城校区），录取后校区由学校统筹安排。</p>
+      <p class="sub-note">特殊通道（自主招生 / 体育 / 艺术特长生）覆盖初中，按合计人数降序。高中部招生计划按官方法人单位统一公布，办学地点以校区页为准（如广州大学附属中学高中部设于大学城校区），录取后校区由学校统筹安排。本校自主招生计划 {{ model.autonomyPlan ?? '—' }}（按校区，计划数≠资格人数≠录取人数）。</p>
       <div class="tbl">
         <div class="tbl-row tbl-head"><span>初中</span><span>自招</span><span>体育</span><span>艺术</span></div>
         <div v-for="r in model.highSpecialCoverage" :key="r.school" class="tbl-row">
           <span>
-            <button v-if="r.campuses.length > 1" class="sch-link campus-open" @click="openCampusPicker(r, $event)">{{ r.school }}</button>
+            <!-- 第一批行名已是官方名单原文（精确到校区），poiName 可定位时直接跳该校区；仅法人/裸名无法定位时才弹校区选择 -->
+            <button v-if="!r.poiName && r.campuses.length > 1" class="sch-link campus-open" @click="openCampusPicker(r, $event)">{{ r.school }}</button>
             <RouterLink v-else-if="r.poiName && r.schoolId" :to="{ path: `/school/${encodeURIComponent(r.poiName)}`, query: { stage: 'middle', id: r.schoolId } }" class="sch-link">{{ r.school }}</RouterLink>
             <template v-else>{{ r.school }}</template>
           </span><span>{{ r.autonomy }}</span><span>{{ r.sports }}</span><span>{{ r.arts }}</span>

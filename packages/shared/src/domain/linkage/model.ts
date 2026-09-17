@@ -18,6 +18,8 @@ export interface SpecialRow {
   poiName: string | null;
   /** 高中实体外键；第一批招生跳转必须使用该字段 */
   schoolId: string | null;
+  /** 2026 自主招生计划数（官方汇总表，按校区公布）；null=未收录/非自招校 */
+  autonomyPlan: number | null;
   autonomy: number; sports: number; arts: number;
 }
 export interface BatchMergedRow {
@@ -58,6 +60,8 @@ export interface LinkageModel {
   highCoverage: HighCoverRow[];
   /** 高中：区属覆盖初中（poiName 无实体为 null = 不可跳转；campuses 法人多校区分别跳转） */
   highDistrictCoverage: { school: string; poiName: string | null; n: number; campuses: CampusLink[] }[];
+  /** 高中：本校 2026 自主招生计划数（按校区；null=未收录/非自招校） */
+  autonomyPlan: number | null;
   hasHighData: boolean;
 }
 
@@ -101,7 +105,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
           const highId = repo.specialHighSchoolId(k);
           const poiName = poiNameOf(highId);
           // k 是官方名单原文，仅作展示；关联和跳转只使用 highId。
-          return { campus: k, campusFull: k, school: poiName || normCampus(k), poiName, schoolId: highId, autonomy: v.autonomy ?? 0, sports: v.sports ?? 0, arts: v.arts ?? 0 };
+          return { campus: k, campusFull: k, school: poiName || normCampus(k), poiName, schoolId: highId, autonomyPlan: repo.autonomyPlanOf(k), autonomy: v.autonomy ?? 0, sports: v.sports ?? 0, arts: v.arts ?? 0 };
         })
         .sort((a, b) => (b.autonomy + b.sports + b.arts) - (a.autonomy + a.sports + a.arts));
     })();
@@ -146,6 +150,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
       highSpecialCoverage: [],
       highCoverage: [],
       highDistrictCoverage: [],
+      autonomyPlan: null,
       hasHighData: false,
     };
   }
@@ -193,6 +198,8 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     .slice(0, 50)
     .map((r) => ({ school: r.school, poiName: poiNameOf(r.school_id), n: r.n, campuses: campusesOf(repo.linkageOf(r.school)) }));
 
+  const autonomyPlan = stage === 'high' ? repo.autonomyPlanOf(schoolName) : null;
+
   return {
     specialRows: [],
     specialTotal: 0,
@@ -204,6 +211,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     highSpecialCoverage,
     highCoverage,
     highDistrictCoverage,
+    autonomyPlan,
     hasHighData: highCoverage.length > 0 || highSpecialCoverage.length > 0 || highDistrictCoverage.length > 0,
   };
 }

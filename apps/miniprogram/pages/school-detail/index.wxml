@@ -103,16 +103,16 @@
   <block wx:if="{{model.stage === 'middle' && linkage}}">
     <view wx:if="{{linkage.specialRows.length}}" class="card">
       <view class="card-title">中考-第一批</view>
-      <view class="sub-note">特殊通道：自主招生 / 体育 / 艺术特长生。资格名单人数，非最终预录取。</view>
+      <view class="sub-note">特殊通道：自主招生 / 体育 / 艺术特长生。资格名单人数，非最终预录取。自招计划数按官方公布（多校区各有计划），计划数≠资格名单人数≠录取人数。</view>
       <view wx:if="{{linkage.campuses.length > 1}}" class="qblock">
         <view class="qblock-title">该初中校区（特殊通道资格名单按官方法人单位统一公布，与同法人其他校区合计，录取后校区由学校统筹）</view>
       </view>
       <view class="tbl">
-        <view class="tbl-row tbl-head"><text>升入高中</text><text>自招</text><text>体育</text><text>艺术</text></view>
+        <view class="tbl-row tbl-head"><text>升入高中</text><text>自招计划</text><text>自招</text><text>体育</text><text>艺术</text></view>
         <view wx:for="{{linkage.specialRows}}" wx:key="campus" class="tbl-row">
           <text wx:if="{{item.schoolId}}" class="sch-link" data-to="/school/{{item.school}}?stage=high&id={{item.schoolId}}" bindtap="goSchool">{{item.campusFull || item.campus}}</text>
           <text wx:else>{{item.campusFull || item.campus}}</text>
-          <text>{{item.autonomy}}</text><text>{{item.sports}}</text><text>{{item.arts}}</text>
+          <text class="dim">{{item.autonomyPlan || '—'}}</text><text>{{item.autonomy}}</text><text>{{item.sports}}</text><text>{{item.arts}}</text>
         </view>
       </view>
     </view>
@@ -191,11 +191,11 @@
     <block wx:if="{{linkage}}">
       <view wx:if="{{linkage.highSpecialCoverage.length}}" class="card">
         <view class="card-title">第一批招生（2026）</view>
-        <view class="sub-note">特殊通道（自主招生 / 体育 / 艺术特长生）覆盖初中，按合计人数降序。</view>
+        <view class="sub-note">特殊通道（自主招生 / 体育 / 艺术特长生）覆盖初中，按合计人数降序。本校自主招生计划 {{linkage.autonomyPlan || '—'}}（按校区，计划数≠资格人数≠录取人数）。</view>
         <view class="tbl">
           <view class="tbl-row tbl-head"><text>初中</text><text>自招</text><text>体育</text><text>艺术</text></view>
           <view wx:for="{{linkage.highSpecialCoverage}}" wx:key="school" class="tbl-row">
-            <text wx:if="{{item.campuses.length > 1}}" class="sch-link" data-campuses="{{item.campuses}}" bindtap="openCampusPicker">{{item.school}}</text>
+            <text wx:if="{{!item.poiName && item.campuses.length > 1}}" class="sch-link" data-campuses="{{item.campuses}}" bindtap="openCampusPicker">{{item.school}}</text>
             <text wx:elif="{{item.poiName}}" class="sch-link" data-to="/school/{{item.poiName}}?stage=middle&id={{item.schoolId}}" bindtap="goSchool">{{item.school}}</text>
             <text wx:else>{{item.school}}</text>
             <text>{{item.autonomy}}</text><text>{{item.sports}}</text><text>{{item.arts}}</text>

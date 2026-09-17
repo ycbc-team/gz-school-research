@@ -35,6 +35,10 @@ export interface SpecialMatrix {
   high_school_ids?: Record<string, string | null>;
   /** 初中名 → 实体 school_id（backfill 回填；官方名唯一外键） */
   middle_school_ids?: Record<string, string>;
+  /** 2026 自主招生计划（官方汇总表，原文名 → 计划数）；计划数≠资格名单人数≠录取人数 */
+  autonomy_plan?: Record<string, number>;
+  /** autonomy_plan 的 normName 归一索引（前端查询兜底） */
+  autonomy_plan_norm?: Record<string, number>;
 }
 
 /** 第二批次录取分数记录（值 = 校区 → 记录；无分数的 false 记录已在数据治理中删除） */

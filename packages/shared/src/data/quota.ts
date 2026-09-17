@@ -73,6 +73,15 @@ export function createQuotaApi(loaders: DataLoaders) {
     return canon ? specialMatrix.matrix[canon] : undefined;
   }
 
+  /** 官方名单原文 → 2026 自主招生计划数（原文精确 → 归一兜底）；计划数≠资格名单人数≠录取人数 */
+  function autonomyPlanOf(rawHighName: string): number | null {
+    if (!rawHighName) return null;
+    if (specialMatrix.autonomy_plan?.[rawHighName] != null) return specialMatrix.autonomy_plan[rawHighName];
+    const nk = normName(rawHighName);
+    const m = specialMatrix.autonomy_plan_norm as Record<string, number> | undefined;
+    return m?.[nk] ?? null;
+  }
+
   /** 按初中名查第二批次录取分数（值 = 校区 → 记录） */
   function batch2Of(schoolName: string): Record<string, { admitted?: boolean; min_score?: number | null; last_score?: number | null }> {
     const out: Record<string, { admitted?: boolean; min_score?: number | null; last_score?: number | null }> = {};
@@ -228,7 +237,7 @@ export function createQuotaApi(loaders: DataLoaders) {
   }
 
   return {
-    linkageOf, specialOf, batch2Of, districtQuotaOf, districtCoverage,
+    linkageOf, specialOf, autonomyPlanOf, batch2Of, districtQuotaOf, districtCoverage,
     quotaCoverage, specialHighSchoolId, specialCoverageByHighSchoolId, middleQuotaSummary,
     xiaoshengchuOf, middlePrimaryFeed,
   };

@@ -145,18 +145,27 @@ try:
 except FileNotFoundError:
     previous = {}
 
+# ---------------- 2026 自主招生计划（官方汇总表，按校区/法人公布） ----------------
+plan_raw = json.load(open('data/linkage/raw/autonomy/plan_2026.json'))
+autonomy_plan = {s['name']: s['plan'] for s in plan_raw['schools']}
+plan_norm = {norm(k): v for k, v in autonomy_plan.items()}
+
 out = {
-    'updated': '2026-09-15',
+    'updated': '2026-09-17',
     'scope': '全部有名单的高中（含区属/中职），体育/艺术特长生通过测试名单 + 自招综合能力考核资格名单',
     'note': (
         '体育/艺术=通过专业测试名单（官方发布）；自招=综合能力考核资格名单口径（考核前≤5倍计划，非预录取）。'
         '收录范围=官方名单出现的全部招生高中（不再限省市属 11 所）；矩阵键=名单原文（可溯源），'
         'high_school_ids=名单原文→高中实体 school_id，是第一批招生关联唯一外键；'
         '值为 null 表示未收录对应高中实体，仅保留原文展示，不得名称兜底。'
+        'autonomy_plan=2026官方自主招生计划数（按校区公布），计划数≠资格名单人数≠录取人数。'
     ),
     'high_schools': sorted(all_hs),
     'high_entities': high_entities,
     'high_school_ids': high_school_ids,
+    'autonomy_plan': autonomy_plan,
+    'autonomy_plan_norm': plan_norm,
+    'autonomy_plan_source': plan_raw['source_url'],
     'matrix': {j: dict(hs) for j, hs in matrix.items()},
 }
 if previous.get('middle_school_ids'):
