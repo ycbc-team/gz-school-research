@@ -19,7 +19,7 @@ BASE = 'data/linkage/raw'
 # 统一匹配库：norm 本体收敛至 school_match.normName（原"复刻 shared normName"定义已删）
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "registry"))
 from school_match import normName as norm
-OUT = 'data/linkage/special_matrix.json'
+OUT = sys.argv[1] if len(sys.argv) > 1 else 'data/linkage/special_matrix.json'
 SOURCE_MAP = 'data/registry/source_name_mappings.json'
 SOURCE = 'gzzk-special-2026'
 
@@ -76,6 +76,11 @@ def resolve_entity(name: str):
 # 已知截断/异常名单名 → 完整高中名（PDF 解析截断，显式修复、可审计）
 HIGH_NAME_FIX = {
     '广州市第一': '广州市第一中学',  # sports/arts 23 条 project 截断，招生校为广州市第一中学
+}
+
+# 特长生计划表学校名 → 招生高中（校区）原文（领军龙单列无括号名，显式修复、可审计）
+SPECIAL_NAME_FIX = {
+    '华南师范大学附属中学': '华南师范大学附属中学（石牌校区）',  # 领军龙男足单列，主校区石牌
 }
 
 
@@ -140,8 +145,9 @@ for h in sorted(all_hs):
         unresolved.append(h)
 
 # 保留由 backfill_school_ids 生成的初中外键；本生成器只负责第一批事实和高中外键。
+PREV = sys.argv[2] if len(sys.argv) > 2 else OUT
 try:
-    previous = json.load(open(OUT))
+    previous = json.load(open(PREV))
 except FileNotFoundError:
     previous = {}
 
@@ -149,6 +155,46 @@ except FileNotFoundError:
 plan_raw = json.load(open('data/linkage/raw/autonomy/plan_2026.json'))
 autonomy_plan = {s['name']: s['plan'] for s in plan_raw['schools']}
 plan_norm = {norm(k): v for k, v in autonomy_plan.items()}
+# 实体名变体：官方原文（全角"（校本部）"）与实体 POI 名（半角"（本部校区）"）存在名称差异，
+# 前端按实体名反查计划时必须命中。构建期一次映射，避免运行时名称兜底。
+for k, v in autonomy_plan.items():
+    ent = resolve_entity(k)
+    if ent and norm(ent['name']) not in plan_norm:
+        plan_norm[norm(ent['name'])] = v
+
+# ---------------- 2026 体育/艺术特长生计划（官方计划表附件1，按校区+项目） ----------------
+sp_raw = json.load(open('data/linkage/raw/special/plan_special_2026.json'))
+sp_by_name = collections.defaultdict(
+    lambda: {'sports': [], 'arts': [], 'sports_total': 0, 'arts_total': 0})
+for s in sp_raw['schools']:
+    key = SPECIAL_NAME_FIX.get(s['school'], s['school'])
+    d = sp_by_name[key]
+    d['sports'] += s['sports']
+    d['arts'] += s['arts']
+    d['sports_total'] += s.get('sports_total') or 0
+    d['arts_total'] += s.get('arts_total') or 0
+special_plan = {}
+special_plan_unresolved = []
+for name, d in sp_by_name.items():
+    ent = resolve_entity(SPECIAL_NAME_FIX.get(name, name))
+    if ent:
+        special_plan[ent['school_id']] = {
+            'name': ent['name'],
+            'sports': d['sports_total'],
+            'arts': d['arts_total'],
+            'sports_projects': d['sports'],
+            'arts_projects': d['arts'],
+        }
+    else:
+        special_plan_unresolved.append(name)
+# 审计口径：官方体育 1905（不含领军龙116）/ 艺术 1741
+sp_summary = {
+    'sports': sum(s.get('sports_total') or 0 for s in sp_raw['schools']
+                  if not s.get('football_special')),
+    'arts': sum(s.get('arts_total') or 0 for s in sp_raw['schools']),
+    'football_special': sum(s.get('sports_total') or 0 for s in sp_raw['schools']
+                            if s.get('football_special')),
+}
 
 out = {
     'updated': '2026-09-17',
@@ -158,7 +204,9 @@ out = {
         '收录范围=官方名单出现的全部招生高中（不再限省市属 11 所）；矩阵键=名单原文（可溯源），'
         'high_school_ids=名单原文→高中实体 school_id，是第一批招生关联唯一外键；'
         '值为 null 表示未收录对应高中实体，仅保留原文展示，不得名称兜底。'
-        'autonomy_plan=2026官方自主招生计划数（按校区公布），计划数≠资格名单人数≠录取人数。'
+        'autonomy_plan=2026官方自主招生计划数（按校区公布），计划数≠资格名单人数≠录取人数；'
+        'special_plan=2026官方体育/艺术特长生计划数（按校区+项目，含领军龙足球试点单列），'
+        '计划数=录取数口径（按计划投档）。'
     ),
     'high_schools': sorted(all_hs),
     'high_entities': high_entities,
@@ -166,6 +214,9 @@ out = {
     'autonomy_plan': autonomy_plan,
     'autonomy_plan_norm': plan_norm,
     'autonomy_plan_source': plan_raw['source_url'],
+    'special_plan': special_plan,
+    'special_plan_source': sp_raw['url'],
+    'special_plan_summary': sp_summary,
     'matrix': {j: dict(hs) for j, hs in matrix.items()},
 }
 if previous.get('middle_school_ids'):
@@ -177,3 +228,8 @@ print('收录记录: 体育', sum(m_sports.values()), '艺术', sum(m_arts.value
 print('未匹配到高中实体的名单名（需人工复核）:', len(unresolved))
 for u in unresolved:
     print('  !', u)
+print('特长生计划未匹配实体:', len(special_plan_unresolved))
+for u in special_plan_unresolved:
+    print('  !', u)
+print('特长生计划审计: 体育', sp_summary['sports'], '(不含领军龙) / 艺术', sp_summary['arts'],
+      '/ 领军龙足球', sp_summary['football_special'])

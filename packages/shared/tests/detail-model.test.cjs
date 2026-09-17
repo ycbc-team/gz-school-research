@@ -71,22 +71,33 @@ test('详情模型：高中校区详情不聚合同校其它校区的录取线',
   assert.ok(model.admissionRows.every((row) => row.value.includes('广钢')));
 });
 
-test('第一批高中详情只按 school_id 反查，所有已映射招生单位均有覆盖数据', () => {
+test('第一批高中详情计划数按 school_id 反查（自主/体育/艺术），实体名可命中官方计划', () => {
   const special = loaders.specialMatrix;
-  const seen = new Set();
-  const missing = [];
-  for (const [rawName, schoolId] of Object.entries(special.high_school_ids || {})) {
-    if (!schoolId || seen.has(schoolId)) continue;
-    seen.add(schoolId);
-    const entity = repo.entities.find((e) => e.school_id === schoolId);
-    if (!entity) {
-      missing.push(`${rawName}: 实体不存在(${schoolId})`);
-      continue;
-    }
-    const model = buildLinkageModel('high', entity.name, repo, schoolId);
-    if (!model.highSpecialCoverage.length) missing.push(`${rawName}: ${schoolId} 无第一批覆盖`);
-  }
-  assert.deepEqual(missing, [], `第一批招生 ID 反查回归: ${missing.join('; ')}`);
+  // 1) 自主招生计划：官方原文"（校本部）"与实体"（本部校区）"名称差异已在构建期归一 → 实体名反查命中
+  const zg = repo.entities.find((e) => e.name === '广州市真光中学(本部校区)');
+  assert.ok(zg, '需要真光本部校区实体');
+  const m1 = buildLinkageModel('high', zg.name, repo, zg.school_id);
+  assert.equal(m1.autonomyPlan, 70, '真光本部自主招生计划=70');
+  assert.equal(m1.sportsPlan, 40, '真光本部体育特长生计划=40');
+  assert.equal(m1.artsPlan, 24, '真光本部艺术特长生计划=24');
+  // 2) 特长生计划按 school_id 反查（铁一越秀）
+  const ty = repo.entities.find((e) => e.name === '广州市铁一中学(越秀校区)');
+  assert.ok(ty);
+  const m2 = buildLinkageModel('high', ty.name, repo, ty.school_id);
+  assert.equal(m2.autonomyPlan, 33, '铁一越秀自主招生计划=33');
+  assert.equal(m2.sportsPlan, 10, '铁一越秀体育特长生计划=10');
+  assert.equal(m2.artsPlan, 35, '铁一越秀艺术特长生计划=35');
+  // 3) 官方无特长生计划的校区返回 null（不得误显示 0）
+  const fs = repo.entities.find((e) => e.name === '广州市真光中学(汾水校区)');
+  assert.ok(fs);
+  const m3 = buildLinkageModel('high', fs.name, repo, fs.school_id);
+  assert.equal(m3.autonomyPlan, 17, '真光汾水自主招生计划=17');
+  assert.equal(m3.sportsPlan, null, '真光汾水无特长生计划 → null');
+  assert.equal(m3.artsPlan, null);
+  // 4) 特长生计划总量 = 官方口径（体育 1905 不含领军龙 / 艺术 1741 / 领军龙 116）
+  assert.equal(special.special_plan_summary.sports, 1905);
+  assert.equal(special.special_plan_summary.arts, 1741);
+  assert.equal(special.special_plan_summary.football_special, 116);
 });
 
 test('品牌关联：广大附黄华路校区以 school_id 标记当前项并生成 ID 跳转', () => {

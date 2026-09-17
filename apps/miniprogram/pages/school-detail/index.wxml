@@ -101,22 +101,6 @@
 
   <!-- 初中：升学通道 -->
   <block wx:if="{{model.stage === 'middle' && linkage}}">
-    <view wx:if="{{linkage.specialRows.length}}" class="card">
-      <view class="card-title">中考-第一批</view>
-      <view class="sub-note">特殊通道：自主招生 / 体育 / 艺术特长生。资格名单人数，非最终预录取。自招计划数按官方公布（多校区各有计划），计划数≠资格名单人数≠录取人数。</view>
-      <view wx:if="{{linkage.campuses.length > 1}}" class="qblock">
-        <view class="qblock-title">该初中校区（特殊通道资格名单按官方法人单位统一公布，与同法人其他校区合计，录取后校区由学校统筹）</view>
-      </view>
-      <view class="tbl">
-        <view class="tbl-row tbl-head"><text>升入高中</text><text>自招计划</text><text>自招</text><text>体育</text><text>艺术</text></view>
-        <view wx:for="{{linkage.specialRows}}" wx:key="campus" class="tbl-row">
-          <text wx:if="{{item.schoolId}}" class="sch-link" data-to="/school/{{item.school}}?stage=high&id={{item.schoolId}}" bindtap="goSchool">{{item.campusFull || item.campus}}</text>
-          <text wx:else>{{item.campusFull || item.campus}}</text>
-          <text class="dim">{{item.autonomyPlan || '—'}}</text><text>{{item.autonomy}}</text><text>{{item.sports}}</text><text>{{item.arts}}</text>
-        </view>
-      </view>
-    </view>
-
     <view wx:if="{{linkage.quota && (linkage.batchMerged.length || linkage.quota.qu_quota != null)}}" class="card">
       <view class="card-title">中考-第二批</view>
       <view class="sub-note">名额分配（指标到校）：按高中隶属分省市属、区属两块。</view>
@@ -189,17 +173,13 @@
       <view class="sub-note">录取线为官方发布（户籍生）。</view>
     </view>
     <block wx:if="{{linkage}}">
-      <view wx:if="{{linkage.highSpecialCoverage.length}}" class="card">
+      <view wx:if="{{linkage.autonomyPlan !== null && linkage.autonomyPlan !== undefined || linkage.sportsPlan !== null && linkage.sportsPlan !== undefined || linkage.artsPlan !== null && linkage.artsPlan !== undefined}}" class="card">
         <view class="card-title">第一批招生（2026）</view>
-        <view class="sub-note">特殊通道（自主招生 / 体育 / 艺术特长生）覆盖初中，按合计人数降序。本校自主招生计划 {{linkage.autonomyPlan || '—'}}（按校区，计划数≠资格人数≠录取人数）。</view>
-        <view class="tbl">
-          <view class="tbl-row tbl-head"><text>初中</text><text>自招</text><text>体育</text><text>艺术</text></view>
-          <view wx:for="{{linkage.highSpecialCoverage}}" wx:key="school" class="tbl-row">
-            <text wx:if="{{!item.campusExact && item.campuses.length > 1}}" class="sch-link" data-campuses="{{item.campuses}}" bindtap="openCampusPicker">{{item.school}}</text>
-            <text wx:elif="{{item.poiName}}" class="sch-link" data-to="/school/{{item.poiName}}?stage=middle&id={{item.schoolId}}" bindtap="goSchool">{{item.school}}</text>
-            <text wx:else>{{item.school}}</text>
-            <text>{{item.autonomy}}</text><text>{{item.sports}}</text><text>{{item.arts}}</text>
-          </view>
+        <view class="sub-note">自主招生 / 体育 / 艺术特长生均为全市（或本区）统一竞争的特殊通道，考生自由报名、按志愿和成绩投档录取，不分配到校。以下为按官方公布的本校（校区）招生计划数，计划数即录取数（按计划投档，实际录取不超计划）。</view>
+        <view class="kv">
+          <view class="kv-row"><text>自主招生计划</text><text class="plan-hl">{{linkage.autonomyPlan || '—'}} 人</text></view>
+          <view class="kv-row"><text>体育特长生计划</text><text>{{linkage.sportsPlan || '—'}} 人</text></view>
+          <view class="kv-row"><text>艺术特长生计划</text><text>{{linkage.artsPlan || '—'}} 人</text></view>
         </view>
       </view>
       <view wx:if="{{linkage.highCoverage.length || linkage.highDistrictCoverage.length}}" class="card">
@@ -235,7 +215,7 @@
       </view>
       <view wx:if="{{!linkage.hasHighData}}" class="card">
         <view class="card-title">升学通道</view>
-        <view class="empty">该校为区属高中：名额分配面向本区初中、官方未公布逐初中明细；省市属自招/特长等特殊通道暂未覆盖到本校。</view>
+        <view class="empty">该校为区属高中：名额分配面向本区初中、官方未公布逐初中明细；第一批特殊通道暂未收录到本校计划。</view>
       </view>
     </block>
   </block>

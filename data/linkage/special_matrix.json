@@ -1,7 +1,7 @@
 {
  "updated": "2026-09-17",
  "scope": "全部有名单的高中（含区属/中职），体育/艺术特长生通过测试名单 + 自招综合能力考核资格名单",
- "note": "体育/艺术=通过专业测试名单（官方发布）；自招=综合能力考核资格名单口径（考核前≤5倍计划，非预录取）。收录范围=官方名单出现的全部招生高中（不再限省市属 11 所）；矩阵键=名单原文（可溯源），high_school_ids=名单原文→高中实体 school_id，是第一批招生关联唯一外键；值为 null 表示未收录对应高中实体，仅保留原文展示，不得名称兜底。autonomy_plan=2026官方自主招生计划数（按校区公布），计划数≠资格名单人数≠录取人数。",
+ "note": "体育/艺术=通过专业测试名单（官方发布）；自招=综合能力考核资格名单口径（考核前≤5倍计划，非预录取）。收录范围=官方名单出现的全部招生高中（不再限省市属 11 所）；矩阵键=名单原文（可溯源），high_school_ids=名单原文→高中实体 school_id，是第一批招生关联唯一外键；值为 null 表示未收录对应高中实体，仅保留原文展示，不得名称兜底。autonomy_plan=2026官方自主招生计划数（按校区公布），计划数≠资格名单人数≠录取人数；special_plan=2026官方体育/艺术特长生计划数（按校区+项目，含领军龙足球试点单列），计划数=录取数口径（按计划投档）。",
  "high_schools": [
   "北京师范大学广州实验学校",
   "华南师范大学附属中学（知识城校区）",
@@ -470,9 +470,1876 @@
   "增城区增城中学": 64,
   "增城区应元学校": 20,
   "从化区从化中学": 40,
-  "广州天省实验学校": 33
+  "广州天省实验学校": 33,
+  "广东实验中学高中部": 83,
+  "第二中学应元路校区": 155,
+  "第六中学": 75,
+  "广东华侨中学起义路校区": 34,
+  "广州大学附属中学大学城校区": 102,
+  "第一中学高中部": 70,
+  "真光中学本部校区": 70,
+  "第七中学高中部": 45,
+  "第十六中学": 48,
+  "育才中学西校区": 51,
+  "第五中学": 72,
+  "南武中学高中部": 48,
+  "海珠外国语实验中学": 36,
+  "广州中学凤凰校区": 70,
+  "培英中学云城校区": 32,
+  "象贤中学": 80
  },
  "autonomy_plan_source": "https://gzzk.gz.gov.cn/zkzz/zkxx/zkzx/content/post_10805488.html",
+ "special_plan": {
+  "gz-440111-a3cf5a4f": {
+   "name": "广东实验中学(白云校区)",
+   "sports": 30,
+   "arts": 26,
+   "sports_projects": [
+    {
+     "project": "男子篮球",
+     "plan": 8,
+     "note": "其中体育后备人才不超4人"
+    },
+    {
+     "project": "男子足球",
+     "plan": 12,
+     "note": "其中体育后备人才不超6人"
+    },
+    {
+     "project": "乒乓球",
+     "plan": 6,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "无线电测向",
+     "plan": 4,
+     "note": "其中体育后备人才不超2人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "合唱",
+     "plan": 14
+    },
+    {
+     "project": "民乐",
+     "plan": 12
+    }
+   ]
+  },
+  "gz-440103-3aca532e": {
+   "name": "广东实验中学(高中部)",
+   "sports": 32,
+   "arts": 25,
+   "sports_projects": [
+    {
+     "project": "羽毛球",
+     "plan": 6,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "游泳",
+     "plan": 10,
+     "note": "其中体育后备人才不超5人"
+    },
+    {
+     "project": "田径",
+     "plan": 10,
+     "note": "其中体育后备人才不超5人"
+    },
+    {
+     "project": "网球",
+     "plan": 6,
+     "note": "其中体育后备人才不超3人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 15
+    },
+    {
+     "project": "舞蹈",
+     "plan": 10
+    }
+   ]
+  },
+  "gz-440106-d5983217": {
+   "name": "华南师范大学附属中学(石牌校区)",
+   "sports": 30,
+   "arts": 10,
+   "sports_projects": [
+    {
+     "project": "田径",
+     "plan": 10,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "游泳",
+     "plan": 8,
+     "note": "其中体育后备人才不超4人"
+    },
+    {
+     "project": "男足",
+     "plan": 12,
+     "note": "领军龙足球试点单列"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "合唱",
+     "plan": 10
+    }
+   ]
+  },
+  "gz-440112-3847727f": {
+   "name": "华南师范大学附属中学(知识城校区)",
+   "sports": 17,
+   "arts": 13,
+   "sports_projects": [
+    {
+     "project": "男子篮球",
+     "plan": 8,
+     "note": "其中体育后备人才不超4人"
+    },
+    {
+     "project": "羽毛球",
+     "plan": 6,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "击剑",
+     "plan": 3,
+     "note": "其中体育后备人才不超1人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "舞蹈",
+     "plan": 10
+    },
+    {
+     "project": "民乐",
+     "plan": 3
+    }
+   ]
+  },
+  "gz-440103-bb7f78f0": {
+   "name": "广东广雅中学(荔湾校区)",
+   "sports": 30,
+   "arts": 30,
+   "sports_projects": [
+    {
+     "project": "田径",
+     "plan": 8,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "羽毛球",
+     "plan": 6,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "男子篮球",
+     "plan": 8,
+     "note": "其中体育后备人才不超4人"
+    },
+    {
+     "project": "女子篮球",
+     "plan": 8,
+     "note": "其中体育后备人才不超4人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "合唱",
+     "plan": 15
+    },
+    {
+     "project": "舞蹈",
+     "plan": 15
+    }
+   ]
+  },
+  "gz-440104-f3ca07ff": {
+   "name": "广州市执信中学(执信路校区)",
+   "sports": 28,
+   "arts": 10,
+   "sports_projects": [
+    {
+     "project": "科技体育",
+     "plan": 6
+    },
+    {
+     "project": "男足",
+     "plan": 22,
+     "note": "领军龙足球试点单列"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "舞蹈",
+     "plan": 10
+    }
+   ]
+  },
+  "gz-440106-22fcbcd6": {
+   "name": "执信中学(天河校区)",
+   "sports": 24,
+   "arts": 30,
+   "sports_projects": [
+    {
+     "project": "男子篮球",
+     "plan": 8,
+     "note": "其中体育后备人才不超4人"
+    },
+    {
+     "project": "羽毛球",
+     "plan": 6,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "游泳",
+     "plan": 10,
+     "note": "其中体育后备人才不超4人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 18
+    },
+    {
+     "project": "合唱",
+     "plan": 12
+    }
+   ]
+  },
+  "gz-440104-7f3031fc": {
+   "name": "广州市第二中学(应元路校区)",
+   "sports": 20,
+   "arts": 25,
+   "sports_projects": [
+    {
+     "project": "武术",
+     "plan": 4,
+     "note": "其中体育后备人才不超1人"
+    },
+    {
+     "project": "游泳",
+     "plan": 8
+    },
+    {
+     "project": "科技体育",
+     "plan": 8,
+     "note": "其中体育后备人才不超1人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 15
+    },
+    {
+     "project": "舞蹈",
+     "plan": 10
+    }
+   ]
+  },
+  "gz-440105-12b49e3f": {
+   "name": "广州市第六中学",
+   "sports": 20,
+   "arts": 28,
+   "sports_projects": [
+    {
+     "project": "棋类",
+     "plan": 10
+    },
+    {
+     "project": "游泳",
+     "plan": 10,
+     "note": "其中体育后备人才不超2人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 18
+    },
+    {
+     "project": "民乐",
+     "plan": 10
+    }
+   ]
+  },
+  "gz-440113-8f5e4721": {
+   "name": "广州大学附属中学(大学城校区)",
+   "sports": 36,
+   "arts": 24,
+   "sports_projects": [
+    {
+     "project": "男子篮球",
+     "plan": 10,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "男子足球",
+     "plan": 12,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "田径",
+     "plan": 10,
+     "note": "其中体育后备人才不超4人"
+    },
+    {
+     "project": "攀岩",
+     "plan": 4,
+     "note": "其中体育后备人才不超2人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "合唱",
+     "plan": 12
+    },
+    {
+     "project": "美术",
+     "plan": 12
+    }
+   ]
+  },
+  "gz-440115-a936e5d5": {
+   "name": "广州外国语学校",
+   "sports": 16,
+   "arts": 27,
+   "sports_projects": [
+    {
+     "project": "啦啦操",
+     "plan": 8
+    },
+    {
+     "project": "网球",
+     "plan": 8
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 15
+    },
+    {
+     "project": "合唱",
+     "plan": 12
+    }
+   ]
+  },
+  "gz-440104-09652aa5": {
+   "name": "广州市铁一中学(越秀校区)",
+   "sports": 10,
+   "arts": 35,
+   "sports_projects": [
+    {
+     "project": "健美操",
+     "plan": 6,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "武术",
+     "plan": 4
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 15
+    },
+    {
+     "project": "舞蹈",
+     "plan": 8
+    },
+    {
+     "project": "合唱",
+     "plan": 12
+    }
+   ]
+  },
+  "gz-440113-97e0acaa": {
+   "name": "广州市铁一中学(番禺校区)",
+   "sports": 14,
+   "arts": 16,
+   "sports_projects": [
+    {
+     "project": "男子篮球",
+     "plan": 8
+    },
+    {
+     "project": "定向越野",
+     "plan": 6
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "语言艺术",
+     "plan": 6
+    },
+    {
+     "project": "舞蹈",
+     "plan": 10
+    }
+   ]
+  },
+  "gz-440111-28c16cca": {
+   "name": "广州市铁一中学(白云校区)",
+   "sports": 20,
+   "arts": 24,
+   "sports_projects": [
+    {
+     "project": "男子排球",
+     "plan": 6
+    },
+    {
+     "project": "游泳",
+     "plan": 10,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "击剑",
+     "plan": 4
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "民乐",
+     "plan": 12
+    },
+    {
+     "project": "合唱",
+     "plan": 12
+    }
+   ]
+  },
+  "gz-440103-e281e7d0": {
+   "name": "广州协和学校",
+   "sports": 22,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "男子篮球",
+     "plan": 8
+    },
+    {
+     "project": "啦啦操",
+     "plan": 8,
+     "note": "其中体育后备人才不超4人"
+    },
+    {
+     "project": "冰雪运动",
+     "plan": 6,
+     "note": "其中体育后备人才不超3人"
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440104-1560332d": {
+   "name": "广东华侨中学(起义路校区)",
+   "sports": 14,
+   "arts": 15,
+   "sports_projects": [
+    {
+     "project": "乒乓球",
+     "plan": 8
+    },
+    {
+     "project": "网球",
+     "plan": 6
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 15
+    }
+   ]
+  },
+  "gz-440104-32444523": {
+   "name": "广东实验中学越秀学校(天胜校区)",
+   "sports": 35,
+   "arts": 25,
+   "sports_projects": [
+    {
+     "project": "男子足球",
+     "plan": 12,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "女子篮球",
+     "plan": 8,
+     "note": "其中体育后备人才不超1人"
+    },
+    {
+     "project": "健美操",
+     "plan": 9,
+     "note": "其中体育后备人才不超4人"
+    },
+    {
+     "project": "无线电测向",
+     "plan": 6
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "美术",
+     "plan": 25
+    }
+   ]
+  },
+  "gz-440104-8a1a7b3d": {
+   "name": "广州市第十六中学",
+   "sports": 4,
+   "arts": 30,
+   "sports_projects": [
+    {
+     "project": "棋类",
+     "plan": 4
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 18
+    },
+    {
+     "project": "合唱",
+     "plan": 12
+    }
+   ]
+  },
+  "gz-440106-52f7f4b7": {
+   "name": "广州市第十六中学(水荫校区)",
+   "sports": 6,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "啦啦操",
+     "plan": 6
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440104-9c6632b1": {
+   "name": "广州市第十七中学",
+   "sports": 12,
+   "arts": 14,
+   "sports_projects": [
+    {
+     "project": "武术",
+     "plan": 6
+    },
+    {
+     "project": "定向越野",
+     "plan": 6
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "舞蹈",
+     "plan": 10
+    },
+    {
+     "project": "非遗粤歌",
+     "plan": 4
+    }
+   ]
+  },
+  "gz-440104-7ec82efb": {
+   "name": "广州市育才中学(西校区)",
+   "sports": 16,
+   "arts": 55,
+   "sports_projects": [
+    {
+     "project": "男子排球",
+     "plan": 4
+    },
+    {
+     "project": "女子排球",
+     "plan": 4
+    },
+    {
+     "project": "无线电测向",
+     "plan": 8
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 15
+    },
+    {
+     "project": "美术",
+     "plan": 40
+    }
+   ]
+  },
+  "gz-440104-2a1f2eaf": {
+   "name": "广州市第七中学(高中部)",
+   "sports": 22,
+   "arts": 26,
+   "sports_projects": [
+    {
+     "project": "田径",
+     "plan": 10,
+     "note": "其中体育后备人才不超5人"
+    },
+    {
+     "project": "女足",
+     "plan": 12,
+     "note": "领军龙足球试点单列"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "合唱",
+     "plan": 14
+    },
+    {
+     "project": "民乐",
+     "plan": 12
+    }
+   ]
+  },
+  "gz-440111-82856abf": {
+   "name": "广州市第七中学(桂花校区)",
+   "sports": 14,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "男子篮球",
+     "plan": 8,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "棒球",
+     "plan": 6
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440104-d9ec2dbb": {
+   "name": "广州市第三中学",
+   "sports": 28,
+   "arts": 40,
+   "sports_projects": [
+    {
+     "project": "田径",
+     "plan": 14,
+     "note": "其中体育后备人才不超5人"
+    },
+    {
+     "project": "羽毛球",
+     "plan": 8,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "击剑",
+     "plan": 6,
+     "note": "其中体育后备人才不超3人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 22
+    },
+    {
+     "project": "舞蹈",
+     "plan": 18
+    }
+   ]
+  },
+  "gz-440104-99aef0e5": {
+   "name": "培正中学",
+   "sports": 70,
+   "arts": 14,
+   "sports_projects": [
+    {
+     "project": "男子足球",
+     "plan": 18,
+     "note": "其中体育后备人才不超7人"
+    },
+    {
+     "project": "男子篮球",
+     "plan": 10,
+     "note": "其中体育后备人才不超5人"
+    },
+    {
+     "project": "女子篮球",
+     "plan": 10,
+     "note": "其中体育后备人才不超5人"
+    },
+    {
+     "project": "网球",
+     "plan": 10,
+     "note": "其中体育后备人才不超5人"
+    },
+    {
+     "project": "女足",
+     "plan": 22,
+     "note": "领军龙足球试点单列"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "舞蹈",
+     "plan": 14
+    }
+   ]
+  },
+  "gz-440105-0ffca7e3": {
+   "name": "广州市第五中学",
+   "sports": 20,
+   "arts": 37,
+   "sports_projects": [
+    {
+     "project": "游泳",
+     "plan": 8,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "男足",
+     "plan": 12,
+     "note": "领军龙足球试点单列"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "合唱",
+     "plan": 12
+    },
+    {
+     "project": "语言艺术",
+     "plan": 10
+    },
+    {
+     "project": "美术",
+     "plan": 15
+    }
+   ]
+  },
+  "gz-440105-515da9e2": {
+   "name": "广州市南武中学(高中部)",
+   "sports": 26,
+   "arts": 12,
+   "sports_projects": [
+    {
+     "project": "女子足球",
+     "plan": 12,
+     "note": "其中体育后备人才不超6人"
+    },
+    {
+     "project": "羽毛球",
+     "plan": 8
+    },
+    {
+     "project": "乒乓球",
+     "plan": 6
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "民乐",
+     "plan": 12
+    }
+   ]
+  },
+  "gz-440105-dd2723fc": {
+   "name": "广州市南武中学(岭南画派纪念校区)",
+   "sports": 14,
+   "arts": 23,
+   "sports_projects": [
+    {
+     "project": "游泳",
+     "plan": 8,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "冰雪运动",
+     "plan": 6,
+     "note": "其中体育后备人才不超1人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "美术",
+     "plan": 23
+    }
+   ]
+  },
+  "gz-440105-40a80ebb": {
+   "name": "广州市第四十一中学",
+   "sports": 22,
+   "arts": 10,
+   "sports_projects": [
+    {
+     "project": "男子足球",
+     "plan": 10,
+     "note": "其中体育后备人才不超5人"
+    },
+    {
+     "project": "冰雪运动",
+     "plan": 8,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "毽球",
+     "plan": 4
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 10
+    }
+   ]
+  },
+  "gz-440105-e76b659d": {
+   "name": "广州市海珠外国语实验中学",
+   "sports": 22,
+   "arts": 10,
+   "sports_projects": [
+    {
+     "project": "男子足球",
+     "plan": 12,
+     "note": "其中体育后备人才不超6人"
+    },
+    {
+     "project": "男子篮球",
+     "plan": 10,
+     "note": "其中体育后备人才不超5人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "语言艺术",
+     "plan": 10
+    }
+   ]
+  },
+  "gz-440105-f0712355": {
+   "name": "广州市第九十七中学",
+   "sports": 31,
+   "arts": 20,
+   "sports_projects": [
+    {
+     "project": "男子排球",
+     "plan": 10
+    },
+    {
+     "project": "女子排球",
+     "plan": 7
+    },
+    {
+     "project": "乒乓球",
+     "plan": 6
+    },
+    {
+     "project": "健美操",
+     "plan": 8
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "舞蹈",
+     "plan": 12
+    },
+    {
+     "project": "古琴",
+     "plan": 8
+    }
+   ]
+  },
+  "gz-440103-6bd45d68": {
+   "name": "广州市西关外国语学校(高中部)",
+   "sports": 16,
+   "arts": 15,
+   "sports_projects": [
+    {
+     "project": "男子排球",
+     "plan": 8,
+     "note": "其中体育后备人才不超4人"
+    },
+    {
+     "project": "女子排球",
+     "plan": 8,
+     "note": "其中体育后备人才不超2人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 15
+    }
+   ]
+  },
+  "gz-440103-2b8081bc": {
+   "name": "广州市真光中学(本部校区)",
+   "sports": 40,
+   "arts": 24,
+   "sports_projects": [
+    {
+     "project": "男子足球",
+     "plan": 10,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "女子足球",
+     "plan": 8,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "田径",
+     "plan": 10,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "健美操",
+     "plan": 8,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "击剑",
+     "plan": 4
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "合唱",
+     "plan": 12
+    },
+    {
+     "project": "美术",
+     "plan": 12
+    }
+   ]
+  },
+  "gz-440103-8920aa01": {
+   "name": "广州市第四中学(高中部锐园校区)",
+   "sports": 22,
+   "arts": 32,
+   "sports_projects": [
+    {
+     "project": "男子篮球",
+     "plan": 10
+    },
+    {
+     "project": "游泳",
+     "plan": 8
+    },
+    {
+     "project": "射击",
+     "plan": 4
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "合唱",
+     "plan": 12
+    },
+    {
+     "project": "民乐",
+     "plan": 10
+    },
+    {
+     "project": "舞蹈",
+     "plan": 10
+    }
+   ]
+  },
+  "gz-440103-c9f13fde": {
+   "name": "广州市南海中学",
+   "sports": 10,
+   "arts": 31,
+   "sports_projects": [
+    {
+     "project": "跆拳道",
+     "plan": 10,
+     "note": "其中体育后备人才不超1人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "美术",
+     "plan": 25
+    },
+    {
+     "project": "粤剧",
+     "plan": 6
+    }
+   ]
+  },
+  "gz-440103-d78c848a": {
+   "name": "广州市西关培英中学",
+   "sports": 2,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "武术",
+     "plan": 2
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440103-c62eab6a": {
+   "name": "广州市第一中学(高中部)",
+   "sports": 36,
+   "arts": 24,
+   "sports_projects": [
+    {
+     "project": "游泳",
+     "plan": 10,
+     "note": "其中体育后备人才不超4人"
+    },
+    {
+     "project": "男子篮球",
+     "plan": 8,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "女子篮球",
+     "plan": 8,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "田径",
+     "plan": 10,
+     "note": "其中体育后备人才不超2人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "合唱",
+     "plan": 12
+    },
+    {
+     "project": "舞蹈",
+     "plan": 12
+    }
+   ]
+  },
+  "gz-440106-93897236": {
+   "name": "广州市天河中学(珠江新城校区)",
+   "sports": 22,
+   "arts": 12,
+   "sports_projects": [
+    {
+     "project": "男子篮球",
+     "plan": 8
+    },
+    {
+     "project": "羽毛球",
+     "plan": 6
+    },
+    {
+     "project": "游泳",
+     "plan": 8,
+     "note": "其中体育后备人才不超1人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "民乐",
+     "plan": 4
+    },
+    {
+     "project": "美术",
+     "plan": 8
+    }
+   ]
+  },
+  "gz-440106-d8e69757": {
+   "name": "广州奥林匹克中学(高中部)",
+   "sports": 24,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "田径",
+     "plan": 12,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "射击",
+     "plan": 4
+    },
+    {
+     "project": "手球",
+     "plan": 8,
+     "note": "其中体育后备人才不超4人"
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440106-8f55ab34": {
+   "name": "广州市第八十九中学",
+   "sports": 32,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "男子足球",
+     "plan": 14,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "女子足球",
+     "plan": 12,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "体育舞蹈",
+     "plan": 6
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440106-5f78f6a9": {
+   "name": "广州市第一一三中学(金融城校区)",
+   "sports": 14,
+   "arts": 12,
+   "sports_projects": [
+    {
+     "project": "女子篮球",
+     "plan": 8
+    },
+    {
+     "project": "乒乓球",
+     "plan": 6
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "合唱",
+     "plan": 12
+    }
+   ]
+  },
+  "gz-440106-621b20d3": {
+   "name": "广州市第七十五中学(天平架校区)",
+   "sports": 6,
+   "arts": 8,
+   "sports_projects": [
+    {
+     "project": "女子排球",
+     "plan": 6
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "舞蹈",
+     "plan": 8
+    }
+   ]
+  },
+  "gz-440106-3c8afb6a": {
+   "name": "广州中学(凤凰校区)",
+   "sports": 26,
+   "arts": 27,
+   "sports_projects": [
+    {
+     "project": "田径",
+     "plan": 10,
+     "note": "其中体育后备人才不超4人"
+    },
+    {
+     "project": "男子足球",
+     "plan": 10,
+     "note": "其中体育后备人才不超4人"
+    },
+    {
+     "project": "武术",
+     "plan": 6,
+     "note": "其中体育后备人才不超1人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "美术",
+     "plan": 12
+    },
+    {
+     "project": "交响乐",
+     "plan": 15
+    }
+   ]
+  },
+  "gz-440106-b711d94a": {
+   "name": "广州市天河外国语学校（珠江新城校区）",
+   "sports": 6,
+   "arts": 21,
+   "sports_projects": [
+    {
+     "project": "啦啦操",
+     "plan": 6
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 15
+    },
+    {
+     "project": "语言艺术",
+     "plan": 6
+    }
+   ]
+  },
+  "gz-440106-01fd3a87": {
+   "name": "广州天省实验学校",
+   "sports": 0,
+   "arts": 4,
+   "sports_projects": [],
+   "arts_projects": [
+    {
+     "project": "非遗广彩",
+     "plan": 4
+    }
+   ]
+  },
+  "gz-440106-a6394a7a": {
+   "name": "广州市华美英语实验学校",
+   "sports": 3,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "男子排球",
+     "plan": 3
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440111-33d95662": {
+   "name": "广东第二师范学院实验中学(高中部)",
+   "sports": 6,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "武术",
+     "plan": 6,
+     "note": "其中体育后备人才不超1人"
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440111-7e484346": {
+   "name": "广东外语外贸大学实验中学",
+   "sports": 28,
+   "arts": 18,
+   "sports_projects": [
+    {
+     "project": "游泳",
+     "plan": 10,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "羽毛球",
+     "plan": 6
+    },
+    {
+     "project": "男足",
+     "plan": 12,
+     "note": "领军龙足球试点单列"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "美术",
+     "plan": 12
+    },
+    {
+     "project": "语言艺术",
+     "plan": 6
+    }
+   ]
+  },
+  "gz-440111-e74c2e1d": {
+   "name": "广州市白云中学",
+   "sports": 20,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "田径",
+     "plan": 12,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "女子篮球",
+     "plan": 8
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440111-218475ea": {
+   "name": "广州市第六十五中学(江高校区)",
+   "sports": 8,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "男子篮球",
+     "plan": 8
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440111-2b28ed6a": {
+   "name": "广州大同中学(高中部)",
+   "sports": 26,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "男子足球",
+     "plan": 12,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "田径",
+     "plan": 10,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "曲棍球",
+     "plan": 4,
+     "note": "其中体育后备人才不超2人"
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440111-7b531bd6": {
+   "name": "广州市实验外语学校",
+   "sports": 0,
+   "arts": 10,
+   "sports_projects": [],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 10
+    }
+   ]
+  },
+  "gz-440111-c08e69db": {
+   "name": "广州市白云艺术中学",
+   "sports": 0,
+   "arts": 32,
+   "sports_projects": [],
+   "arts_projects": [
+    {
+     "project": "合唱",
+     "plan": 14
+    },
+    {
+     "project": "美术",
+     "plan": 18
+    }
+   ]
+  },
+  "gz-440111-730c7404": {
+   "name": "广州市培英中学(云城校区)",
+   "sports": 30,
+   "arts": 12,
+   "sports_projects": [
+    {
+     "project": "男子篮球",
+     "plan": 8
+    },
+    {
+     "project": "男子足球",
+     "plan": 10,
+     "note": "其中体育后备人才不超1人"
+    },
+    {
+     "project": "田径",
+     "plan": 8
+    },
+    {
+     "project": "击剑",
+     "plan": 4
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "民乐",
+     "plan": 12
+    }
+   ]
+  },
+  "gz-440103-a3ee807c": {
+   "name": "广州市培英中学(鹤洞校区)",
+   "sports": 24,
+   "arts": 10,
+   "sports_projects": [
+    {
+     "project": "男子排球",
+     "plan": 8,
+     "note": "其中体育后备人才不超1人"
+    },
+    {
+     "project": "女子排球",
+     "plan": 8,
+     "note": "其中体育后备人才不超1人"
+    },
+    {
+     "project": "女子足球",
+     "plan": 8,
+     "note": "其中体育后备人才不超1人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "舞蹈",
+     "plan": 10
+    }
+   ]
+  },
+  "gz-440112-9d315f50": {
+   "name": "广州开发区外国语学校",
+   "sports": 18,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "女子足球",
+     "plan": 12
+    },
+    {
+     "project": "健美操",
+     "plan": 6
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440112-0876de16": {
+   "name": "北京师范大学广州实验学校-中学部",
+   "sports": 26,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "女子排球",
+     "plan": 8
+    },
+    {
+     "project": "男子篮球",
+     "plan": 10
+    },
+    {
+     "project": "跳绳",
+     "plan": 8
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440112-0cb5a402": {
+   "name": "广州市第八十六中学",
+   "sports": 20,
+   "arts": 56,
+   "sports_projects": [
+    {
+     "project": "男子足球",
+     "plan": 12
+    },
+    {
+     "project": "男子篮球",
+     "plan": 8
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "美术",
+     "plan": 25
+    },
+    {
+     "project": "舞蹈",
+     "plan": 14
+    },
+    {
+     "project": "交响乐",
+     "plan": 17
+    }
+   ]
+  },
+  "gz-440112-ff5acfd5": {
+   "name": "玉岩中学",
+   "sports": 36,
+   "arts": 33,
+   "sports_projects": [
+    {
+     "project": "田径",
+     "plan": 12,
+     "note": "其中体育后备人才不超6人"
+    },
+    {
+     "project": "男子篮球",
+     "plan": 8,
+     "note": "其中体育后备人才不超4人"
+    },
+    {
+     "project": "羽毛球",
+     "plan": 4
+    },
+    {
+     "project": "男足",
+     "plan": 12,
+     "note": "领军龙足球试点单列"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 15
+    },
+    {
+     "project": "舞蹈",
+     "plan": 10
+    },
+    {
+     "project": "非遗剪纸、版画",
+     "plan": 8
+    }
+   ]
+  },
+  "gz-440112-8b4292d7": {
+   "name": "广州科学城中学",
+   "sports": 32,
+   "arts": 49,
+   "sports_projects": [
+    {
+     "project": "男子足球",
+     "plan": 12,
+     "note": "其中体育后备人才不超6人"
+    },
+    {
+     "project": "田径",
+     "plan": 12,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "女子篮球",
+     "plan": 8,
+     "note": "其中体育后备人才不超4人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "合唱",
+     "plan": 12
+    },
+    {
+     "project": "民乐",
+     "plan": 12
+    },
+    {
+     "project": "美术",
+     "plan": 25
+    }
+   ]
+  },
+  "gz-440112-203c6d64": {
+   "name": "广州市黄埔区开元学校",
+   "sports": 19,
+   "arts": 18,
+   "sports_projects": [
+    {
+     "project": "游泳",
+     "plan": 8
+    },
+    {
+     "project": "羽毛球",
+     "plan": 6
+    },
+    {
+     "project": "射击飞镖",
+     "plan": 5
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "民乐",
+     "plan": 10
+    },
+    {
+     "project": "舞蹈",
+     "plan": 8
+    }
+   ]
+  },
+  "gz-440112-ec15555e": {
+   "name": "广州知识城中学(南校区)",
+   "sports": 0,
+   "arts": 6,
+   "sports_projects": [],
+   "arts_projects": [
+    {
+     "project": "语言艺术",
+     "plan": 6
+    }
+   ]
+  },
+  "gz-440112-8bf29a28": {
+   "name": "广州市黄埔区苏元学校",
+   "sports": 0,
+   "arts": 8,
+   "sports_projects": [],
+   "arts_projects": [
+    {
+     "project": "交响乐",
+     "plan": 8
+    }
+   ]
+  },
+  "gz-440112-87f27cf4": {
+   "name": "广州实验中学",
+   "sports": 0,
+   "arts": 20,
+   "sports_projects": [],
+   "arts_projects": [
+    {
+     "project": "美术",
+     "plan": 12
+    },
+    {
+     "project": "交响乐",
+     "plan": 8
+    }
+   ]
+  },
+  "gz-440113-acf92324": {
+   "name": "广东仲元中学",
+   "sports": 46,
+   "arts": 23,
+   "sports_projects": [
+    {
+     "project": "田径",
+     "plan": 12
+    },
+    {
+     "project": "男子篮球",
+     "plan": 10,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "女子篮球",
+     "plan": 8
+    },
+    {
+     "project": "男子足球",
+     "plan": 12
+    },
+    {
+     "project": "击剑",
+     "plan": 4
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "民乐",
+     "plan": 8
+    },
+    {
+     "project": "交响乐",
+     "plan": 15
+    }
+   ]
+  },
+  "gz-440113-5f62f75c": {
+   "name": "广东番禺中学",
+   "sports": 40,
+   "arts": 12,
+   "sports_projects": [
+    {
+     "project": "田径",
+     "plan": 12,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "男子篮球",
+     "plan": 10,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "女子篮球",
+     "plan": 10,
+     "note": "其中体育后备人才不超3人"
+    },
+    {
+     "project": "啦啦操",
+     "plan": 8,
+     "note": "其中体育后备人才不超4人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "美术",
+     "plan": 12
+    }
+   ]
+  },
+  "gz-440113-fe0cfa1f": {
+   "name": "象贤中学",
+   "sports": 34,
+   "arts": 22,
+   "sports_projects": [
+    {
+     "project": "田径",
+     "plan": 10,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "女子足球",
+     "plan": 12,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "男足",
+     "plan": 12,
+     "note": "领军龙足球试点单列"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "美术（含书法）",
+     "plan": 12
+    },
+    {
+     "project": "民乐",
+     "plan": 10
+    }
+   ]
+  },
+  "gz-440113-83a6a219": {
+   "name": "广东第二师范学院番禺附属中学",
+   "sports": 8,
+   "arts": 51,
+   "sports_projects": [
+    {
+     "project": "男子篮球",
+     "plan": 8,
+     "note": "其中体育后备人才不超2人"
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "美术",
+     "plan": 25
+    },
+    {
+     "project": "舞蹈",
+     "plan": 12
+    },
+    {
+     "project": "合唱",
+     "plan": 14
+    }
+   ]
+  },
+  "gz-440113-6cf93097": {
+   "name": "禺山高级中学",
+   "sports": 20,
+   "arts": 47,
+   "sports_projects": [
+    {
+     "project": "男子足球",
+     "plan": 12
+    },
+    {
+     "project": "毽球",
+     "plan": 8
+    }
+   ],
+   "arts_projects": [
+    {
+     "project": "美术",
+     "plan": 25
+    },
+    {
+     "project": "合唱",
+     "plan": 12
+    },
+    {
+     "project": "舞蹈",
+     "plan": 10
+    }
+   ]
+  },
+  "gz-440113-2570c29b": {
+   "name": "广州市番禺区大龙中学",
+   "sports": 24,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "男子足球",
+     "plan": 10,
+     "note": "其中体育后备人才不超5人"
+    },
+    {
+     "project": "男子排球",
+     "plan": 8,
+     "note": "其中体育后备人才不超4人"
+    },
+    {
+     "project": "女子排球",
+     "plan": 6,
+     "note": "其中体育后备人才不超3人"
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440113-e7ca2b33": {
+   "name": "洛溪新城中学",
+   "sports": 14,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "男子排球",
+     "plan": 6,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "女子排球",
+     "plan": 8,
+     "note": "其中体育后备人才不超2人"
+    }
+   ],
+   "arts_projects": []
+  },
+  "gz-440113-e121d1b3": {
+   "name": "番禺实验中学",
+   "sports": 25,
+   "arts": 0,
+   "sports_projects": [
+    {
+     "project": "乒乓球",
+     "plan": 6,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "游泳",
+     "plan": 8
+    },
+    {
+     "project": "武术",
+     "plan": 7,
+     "note": "其中体育后备人才不超2人"
+    },
+    {
+     "project": "艺术体操",
+     "plan": 4,
+     "note": "其中体育后备人才不超2人"
+    }
+   ],
+   "arts_projects": []
+  }
+ },
+ "special_plan_source": "https://jyj.gz.gov.cn/yw/zsks/content/post_10755771.html",
+ "special_plan_summary": {
+  "sports": 1905,
+  "arts": 1741,
+  "football_special": 116
+ },
  "matrix": {
   "广州市第一中学": {
    "广州市第一中学": {

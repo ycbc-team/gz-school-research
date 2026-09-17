@@ -63,6 +63,9 @@ export interface LinkageModel {
   highDistrictCoverage: { school: string; poiName: string | null; n: number; campuses: CampusLink[] }[];
   /** 高中：本校 2026 自主招生计划数（按校区；null=未收录/非自招校） */
   autonomyPlan: number | null;
+  /** 高中：本校 2026 体育/艺术特长生计划数（按校区；null=未收录/无特长生计划） */
+  sportsPlan: number | null;
+  artsPlan: number | null;
   hasHighData: boolean;
 }
 
@@ -147,11 +150,13 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
       batchMerged,
       districtRows,
       campuses: campusesOf(quota),
-      hasMiddleData: !!quota || specialTotal > 0 || batchRows.length > 0,
+      hasMiddleData: !!quota || batchRows.length > 0,
       highSpecialCoverage: [],
       highCoverage: [],
       highDistrictCoverage: [],
       autonomyPlan: null,
+      sportsPlan: null,
+      artsPlan: null,
       hasHighData: false,
     };
   }
@@ -206,6 +211,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     .map((r) => ({ school: r.school, poiName: poiNameOf(r.school_id), n: r.n, campuses: campusesOf(repo.linkageOf(r.school)) }));
 
   const autonomyPlan = stage === 'high' ? repo.autonomyPlanOf(schoolName) : null;
+  const specialPlan = stage === 'high' && schoolId ? repo.specialPlanOf(schoolId) : null;
 
   return {
     specialRows: [],
@@ -219,6 +225,8 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     highCoverage,
     highDistrictCoverage,
     autonomyPlan,
-    hasHighData: highCoverage.length > 0 || highSpecialCoverage.length > 0 || highDistrictCoverage.length > 0,
+    sportsPlan: specialPlan?.sports ?? null,
+    artsPlan: specialPlan?.arts ?? null,
+    hasHighData: highCoverage.length > 0 || highDistrictCoverage.length > 0 || autonomyPlan != null || specialPlan != null,
   };
 }

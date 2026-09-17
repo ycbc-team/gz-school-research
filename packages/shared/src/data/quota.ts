@@ -82,6 +82,16 @@ export function createQuotaApi(loaders: DataLoaders) {
     return m?.[nk] ?? null;
   }
 
+  /** 高中实体 school_id → 2026 体育/艺术特长生计划数（special_matrix.special_plan，构建期已映射实体外键） */
+  function specialPlanOf(schoolId: string | null | undefined): { sports: number; arts: number } | null {
+    if (!schoolId) return null;
+    const p = (specialMatrix as Record<string, any>).special_plan?.[schoolId] as
+      | { sports?: number; arts?: number }
+      | undefined;
+    if (!p) return null;
+    return { sports: p.sports ?? 0, arts: p.arts ?? 0 };
+  }
+
   /** 按初中名查第二批次录取分数（值 = 校区 → 记录） */
   function batch2Of(schoolName: string): Record<string, { admitted?: boolean; min_score?: number | null; last_score?: number | null }> {
     const out: Record<string, { admitted?: boolean; min_score?: number | null; last_score?: number | null }> = {};
@@ -237,7 +247,7 @@ export function createQuotaApi(loaders: DataLoaders) {
   }
 
   return {
-    linkageOf, specialOf, autonomyPlanOf, batch2Of, districtQuotaOf, districtCoverage,
+    linkageOf, specialOf, autonomyPlanOf, specialPlanOf, batch2Of, districtQuotaOf, districtCoverage,
     quotaCoverage, specialHighSchoolId, specialCoverageByHighSchoolId, middleQuotaSummary,
     xiaoshengchuOf, middlePrimaryFeed,
   };
