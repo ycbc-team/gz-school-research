@@ -237,9 +237,26 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
 
     // education 来源：区属官方集团（核心校多校区展开 + 成员校，简化渲染）
     if (grp.source === 'education') {
+      /** 校区学段按实体 POI 表判定，不依赖成员静态 stage/当前查看 stage（十六中水荫=高中、本部=初中+高中） */
+      const campusStageOf = (cn: string): string[] => {
+        const n = normName(cn);
+        const st: string[] = [];
+        if (primarySchools.schools.some((s: SchoolPoi) => normName(s.name) === n)) st.push('小学');
+        if (middleSchools.schools.some((s: SchoolPoi) => normName(s.name) === n)) st.push('初中');
+        if (highSchools.schools.some((s: SchoolPoi) => normName(s.name) === n)) st.push('高中');
+        return st;
+      };
       const rows: BrandRow[] = grp.members.map((m) => {
-        const stages: string[] = m.stage ? [m.stage] : (m.role === '核心校' && stage ? [STAGE_SHORT[stage]] : []);
-        const link = m.name ? `/school/${encodeURIComponent(m.poi_name || m.name)}?stage=${stage || 'primary'}` : null;
+        const stageKey = m.stage === '小学' ? 'primary' : m.stage === '初中' ? 'middle' : m.stage === '高中' ? 'high' : null;
+        const campusStages = campusStageOf(m.poi_name || m.name);
+        const stages: string[] = campusStages.length
+          ? campusStages
+          : (m.stage ? [m.stage] : (m.role === '核心校' && stage ? [STAGE_SHORT[stage]] : []));
+        const finalStage = campusStages.includes('初中') ? 'middle'
+          : campusStages.includes('高中') ? 'high'
+          : campusStages.includes('小学') ? 'primary'
+          : stage;
+        const link = m.name ? `/school/${encodeURIComponent(m.poi_name || m.name)}?stage=${finalStage || 'primary'}` : null;
         return {
           name: m.name,
           role: m.role,

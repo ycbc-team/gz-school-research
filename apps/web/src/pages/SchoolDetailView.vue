@@ -309,20 +309,35 @@ const brandCard = computed<{ brand: string; note?: string; sourceUrls: string[];
 
   /* ---- source=education：区属官方集团（core+members 结构，无法人关系标注） ---- */
   if (grp.source === 'education') {
+    /** 校区学段按实体 POI 表判定（middle/high/primary 存在性），不依赖成员表静态 stage
+     * 或当前查看 stage：如十六中(水荫校区) 仅 high → 高中；本部 middle+high → 初中+高中 */
+    const campusStageOf = (cn: string): string[] => {
+      const n = normName(cn);
+      const st: string[] = [];
+      if (primarySchools.schools.some((s) => normName(s.name) === n)) st.push('小学');
+      if (middleSchools.schools.some((s) => normName(s.name) === n)) st.push('初中');
+      if (highSchools.schools.some((s) => normName(s.name) === n)) st.push('高中');
+      return st;
+    };
     const rows: BrandRow[] = grp.members.flatMap((m) => {
       const stageKey = m.stage === '小学' ? 'primary' : m.stage === '初中' ? 'middle' : m.stage === '高中' ? 'high' : null;
-      const finalStage = stageKey || (m.role === '核心校' ? stage.value : null);
       // 多校区：每个校区展开一行；单校区：一行
       const campusNames = (m.poi_names && m.poi_names.length > 1) ? m.poi_names : [m.poi_name || m.name];
       return campusNames.map((cn) => {
         const poiTarget = resolvePoiName(cn);
+        const campusStages = campusStageOf(cn);
+        const finalStage = campusStages.includes('初中') ? 'middle'
+          : campusStages.includes('高中') ? 'high'
+          : campusStages.includes('小学') ? 'primary'
+          : (stageKey || (m.role === '核心校' ? stage.value : null));
         const link = finalStage && poiTarget ? `/school/${encodeURIComponent(poiTarget)}?stage=${finalStage}` : null;
         return {
           name: m.name === cn ? m.name : cn,
           role: m.role,
           legal: 'same',
           district: '',
-          stages: m.stage ? [m.stage] : (m.role === '核心校' && stage.value ? [stage.value === 'primary' ? '小学' : stage.value === 'middle' ? '初中' : '高中'] : []),
+          stages: campusStages.length ? campusStages
+            : (m.stage ? [m.stage] : (m.role === '核心校' && stage.value ? [stage.value === 'primary' ? '小学' : stage.value === 'middle' ? '初中' : '高中'] : [])),
           badge: null,
           reason: null,
           isCurrent:
