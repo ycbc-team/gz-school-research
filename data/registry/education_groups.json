@@ -5249,25 +5249,12 @@
           "name": "广州市白云区铁一学校（白云铁一）",
           "source_url": "",
           "verified": "2026-09-14",
-          "poi_match": "法人推导",
-          "poi_name": "",
-          "school_id": "",
+          "poi_match": "已锚定",
+          "poi_name": "广州市铁一中学(白云校区)",
+          "school_id": "gz-440111-28c16cca",
+          "poi_match_name": "广州市铁一中学(白云校区)",
           "legal": "same",
-          "relation": "市属校区（白云）",
-          "campuses": [
-            {
-              "poi_name": "广州市铁一中学(越秀校区)",
-              "school_id": "gz-440104-09652aa5"
-            },
-            {
-              "poi_name": "广州市铁一中学(白云校区)",
-              "school_id": "gz-440111-28c16cca"
-            },
-            {
-              "poi_name": "广州市铁一中学(番禺校区)",
-              "school_id": "gz-440113-97e0acaa"
-            }
-          ]
+          "relation": "市属校区（白云）"
         },
         {
           "name": "广州市黄埔区铁英学校（黄埔铁英）",
@@ -5284,41 +5271,23 @@
           "name": "广州市番禺区广铁一中铁英学校(东校区)",
           "source_url": "",
           "verified": "2026-09-14",
-          "poi_match": "法人推导",
+          "poi_match": "已锚定",
           "poi_name": "",
-          "school_id": "",
+          "school_id": "gz-440113-43d027a5",
+          "poi_match_name": "广州市番禺区广铁一中铁英学校(东校区)",
           "legal": "independent",
-          "relation": "区属成员校（番禺东）",
-          "campuses": [
-            {
-              "poi_name": "广州市番禺区广铁一中铁英学校(西校区)",
-              "school_id": "gz-440113-94c76638"
-            },
-            {
-              "poi_name": "广州市番禺区广铁一中铁英学校(东校区)",
-              "school_id": "gz-440113-43d027a5"
-            }
-          ]
+          "relation": "区属成员校（番禺东）"
         },
         {
           "name": "广州市番禺区广铁一中铁英学校(西校区)",
           "source_url": "",
           "verified": "2026-09-14",
-          "poi_match": "法人推导",
+          "poi_match": "已锚定",
           "poi_name": "",
-          "school_id": "",
+          "school_id": "gz-440113-94c76638",
+          "poi_match_name": "广州市番禺区广铁一中铁英学校(西校区)",
           "legal": "independent",
-          "relation": "区属成员校（番禺西）",
-          "campuses": [
-            {
-              "poi_name": "广州市番禺区广铁一中铁英学校(西校区)",
-              "school_id": "gz-440113-94c76638"
-            },
-            {
-              "poi_name": "广州市番禺区广铁一中铁英学校(东校区)",
-              "school_id": "gz-440113-43d027a5"
-            }
-          ]
+          "relation": "区属成员校（番禺西）"
         },
         {
           "name": "广州市南沙区铁英学校",
