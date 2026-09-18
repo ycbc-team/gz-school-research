@@ -244,10 +244,14 @@ class SchoolMatcher:
                     return mains[0]
                 return None
 
-            if preferred_adcode and district_guard:
+            if preferred_adcode:
                 same = [c for c in cands if c["adcode"] == preferred_adcode]
+                # 同区唯一优先（无论 district_guard）：「广东实验中学」在越秀上下文应收敛到越秀校区
+                # 7c4a905f，而非在越秀/白云两校区间宁缺
                 if len(same) == 1:
                     return _mk(same[0], poi_match)
+            if preferred_adcode and district_guard:
+                same = [c for c in cands if c["adcode"] == preferred_adcode]
                 if same:
                     r = by_stage(same)
                     if r:
