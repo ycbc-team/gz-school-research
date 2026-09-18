@@ -310,3 +310,23 @@ test('品牌关联：校区+学部复合名实体归属教育集团（奥体小�
   const cur = coreRows.find((r) => r.isCurrent);
   assert.ok(cur && cur.stages.includes('小学'), '当前行应为小学部且学段含小学');
 });
+
+test('高中徽章/信息行：省市属·区属官方口径 + 区属不带区名', () => {
+  // 回归：徽章对应指标到校批次（省市属面向全市/区属面向本区），不再误标「省示范/市示范」；
+  // 信息行隶属区属统一「区属」（不带区名），省市属保留细粒度省属/市属
+  const target = repo.entities.find((e) => e.name.includes('天河中学') && e.stage === 'high');
+  assert.ok(target, '天河中学高中实体应存在');
+  const m = buildDetailModel('high', target.name, repo, target.school_id);
+  const texts = m.badges.map((b) => b.text);
+  assert.ok(texts.includes('区属'), `天河中学区属徽章应含「区属」（实际: ${texts.join('·')}）`);
+  assert.ok(!texts.some((t) => t.includes('市示范')), '不应再出现「市示范」徽章');
+  assert.ok(!texts.some((t) => t.includes('省示范')), '不应再出现「省示范」徽章');
+  assert.ok(m.headText.includes('国家级示范性'), '信息行应保留示范等级（国家级示范性）');
+  assert.ok(m.headText.includes('区属') && !m.headText.includes('天河区属') && !m.headText.includes('天河区区属'), '信息行隶属应归一为「区属」不带区名');
+  // 省市属学校（华附）徽章为「省市属」
+  const hf = repo.entities.find((e) => e.name.includes('华南师范大学附属中学') && e.stage === 'high');
+  const m2 = buildDetailModel('high', hf.name, repo, hf.school_id);
+  const t2 = m2.badges.map((b) => b.text);
+  assert.ok(t2.includes('省市属'), `省市属学校徽章应含「省市属」（实际: ${t2.join('·')}）`);
+  assert.ok(m2.headText.includes('省属'), '省市属信息行应保留细粒度「省属」');
+});

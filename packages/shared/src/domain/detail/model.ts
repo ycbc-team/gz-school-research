@@ -211,7 +211,10 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
   const headText = (() => {
     if (stage === 'high') {
       const r = rec;
-      return r ? `${r.demo || ''}${r.demo && r.affiliation ? ' · ' : ''}${r.affiliation || ''}${r.campuses?.length ? ` · ${r.campuses.length} 校区` : ''}`.trim() : '';
+      // 隶属展示：区属统一为「区属」（不带区名，如「天河区属」→「区属」，与区域徽章不重复）；
+      // 省市属保留细粒度「省属/市属」（官方：省市属名额面向全市、区属面向本区）
+      const affText = (a: string) => (a.endsWith('区属') ? '区属' : a);
+      return r ? `${r.demo || ''}${r.demo && r.affiliation ? ' · ' : ''}${affText(r.affiliation || '')}${r.campuses?.length ? ` · ${r.campuses.length} 校区` : ''}`.trim() : '';
     }
     const t = tier;
     if (!t) return '';
