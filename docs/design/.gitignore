@@ -1,0 +1,6 @@
+# 构建产物：由 school-search-ui-spec.html 经 scripts/render_mobile.py 渲染生成。
+# 重新出图只需运行该脚本，无需进 git。
+ui-mockup-web/images/
+
+# 本地 Word 副本（产物，非源码；线上共享版在腾讯文档，不在此处跟踪）
+广州小初高学校搜索-UI稿.docx

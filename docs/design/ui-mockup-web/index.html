@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>广州小初高学校搜索 · UI 稿</title>
+<style>
+:root{
+  --bg:#f4f5f8; --card:#ffffff; --ink:#1a2330; --sub:#5b6675; --line:#e6e9ef;
+  --accent:#2f6df0; --accent2:#5b8def;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Helvetica,"Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.5;-webkit-text-size-adjust:100%}
+.wrap{max-width:560px;margin:0 auto;padding:24px 16px 48px}
+header.top{text-align:center;padding:8px 0 22px}
+header.top .kicker{font-size:12px;letter-spacing:2px;color:var(--accent);font-weight:700}
+header.top h1{font-size:22px;font-weight:700;margin-top:6px}
+header.top p{font-size:13px;color:var(--sub);margin-top:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;margin-bottom:18px;box-shadow:0 2px 10px rgba(20,30,50,.05)}
+.card .cap{display:flex;align-items:center;gap:9px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.card .cap .idx{font-size:12px;font-weight:700;color:#fff;background:var(--accent);
+  min-width:22px;height:22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px}
+.card .cap .txt{font-size:14px;font-weight:600}
+.card img{display:block;width:100%;height:auto}
+footer{text-align:center;font-size:12px;color:var(--sub);padding-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="kicker">UI MOCKUP</div>
+    <h1>广州小初高学校搜索 · 设计稿</h1>
+    <p>知性蓝主题 · 移动端 11 屏 · 纯静态页（Safari 可直开）</p>
+  </header>
+
+  <section class="card">
+    <div class="cap"><span class="idx">0</span><span class="txt">封面</span></div>
+    <img src="images/cover.png" alt="封面">
+  </section>
+
+  <section class="card">
+    <div class="cap"><span class="idx">1</span><span class="txt">设计基础 · 主题色阶（知性蓝）</span></div>
+    <img src="images/base_color.png" alt="主题色阶">
+  </section>
+
+  <section class="card">
+    <div class="cap"><span class="idx">2</span><span class="txt">设计基础 · 小程序按钮与控件体系</span></div>
+    <img src="images/base_button.png" alt="按钮与控件">
+  </section>
+
+  <section class="card">
+    <div class="cap"><span class="idx">3</span><span class="txt">设计基础 · 通用标签样式（Tag）</span></div>
+    <img src="images/base_tag.png" alt="通用标签">
+  </section>
+
+  <section class="card">
+    <div class="cap"><span class="idx">01</span><span class="txt">首页（地图层）</span></div>
+    <img src="images/screen01_home_map.png" alt="首页地图层">
+  </section>
+
+  <section class="card">
+    <div class="cap"><span class="idx">02</span><span class="txt">搜索页 · 默认态</span></div>
+    <img src="images/screen02_search_default.png" alt="搜索页默认态">
+  </section>
+
+  <section class="card">
+    <div class="cap"><span class="idx">03</span><span class="txt">搜索页 · 联想词态</span></div>
+    <img src="images/screen03_search_suggest.png" alt="搜索页联想词态">
+  </section>
+
+  <section class="card">
+    <div class="cap"><span class="idx">04</span><span class="txt">筛选栏半窗 · 状态 A（行政区）</span></div>
+    <img src="images/screen04_filter_A.png" alt="筛选栏状态A">
+  </section>
+
+  <section class="card">
+    <div class="cap"><span class="idx">05</span><span class="txt">筛选栏半窗 · 状态 B（学段）</span></div>
+    <img src="images/screen05_filter_B.png" alt="筛选栏状态B">
+  </section>
+
+  <section class="card">
+    <div class="cap"><span class="idx">06</span><span class="txt">地图层</span></div>
+    <img src="images/screen06_map.png" alt="地图层">
+  </section>
+
+  <section class="card">
+    <div class="cap"><span class="idx">·</span><span class="txt">组件与交互规范</span></div>
+    <img src="images/spec_table.png" alt="组件与交互规范">
+  </section>
+
+  <footer>广州学区研究 · gz-school-research · 2026</footer>
+</div>
+</body>
+</html>
