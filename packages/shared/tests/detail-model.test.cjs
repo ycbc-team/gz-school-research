@@ -192,6 +192,30 @@ test('品牌关联：全量品牌实体对比修复前后，品牌分支新增�
   assert.deepEqual(failures, [], `品牌当前态全量回归: ${failures.join('; ')}`);
 });
 
+test('品牌关联：education 多校区成员平铺每校区一行，各自带学段 Badge 与 school_id 跳转（侨乐小学回归）', () => {
+  // 侨乐小学：华阳教育集团成员，双校区 campuses（poi_name/school_id 为空）——2026-09-18 修复前
+  // 该行 stages=[] 导致「小学」Badge 缺失；修复后平铺为两行、各自独立跳转。
+  const cases = [
+    { name: '天河区侨乐小学', schoolId: 'gz-440106-3332b6cb' },
+    { name: '广州华阳集团侨乐小学(北校区)', schoolId: 'gz-440106-95cb8bc4' },
+  ];
+  for (const c of cases) {
+    const model = buildDetailModel('primary', c.name, repo, c.schoolId);
+    assert.ok(model.brandCard, `${c.name}: 必须渲染品牌关联`);
+    const rows = model.brandCard.groups.flatMap((g) => g.rows);
+    const mine = rows.filter((r) => r.name === c.name);
+    assert.equal(mine.length, 1, `${c.name}: 平铺为独立一行`);
+    assert.ok(mine[0].stages.includes('小学'), `${c.name}: 应有「小学」学段 Badge（stages=${JSON.stringify(mine[0].stages)}）`);
+    assert.ok(mine[0].link && mine[0].link.includes(`id=${c.schoolId}`), `${c.name}: 链接应携带本校区 school_id`);
+    assert.equal(mine[0].isCurrent, true, `${c.name}: 当前查看校区行应标记 isCurrent`);
+    // 兄弟校区行独立存在且不误标当前
+    const sibling = cases.find((x) => x.schoolId !== c.schoolId);
+    const other = rows.filter((r) => r.name === sibling.name);
+    assert.equal(other.length, 1, `${c.name}: 兄弟校区也应平铺为一行`);
+    assert.equal(other[0].isCurrent, false, `${c.name}: 兄弟校区行不应标记 isCurrent`);
+  }
+});
+
 test('法人多校区：官方升学文件一个名称对应多个 school_id，聚合展示分别跳转', () => {
   // 一一三中法人行：2 个 middle 校区（乐学/东方）；金融城/元岗为纯高中（NON_MIDDLE，
   // 2026-09-17 联网核实 campus_middle_webverify_20260917.md）

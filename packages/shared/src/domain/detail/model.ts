@@ -246,30 +246,40 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
         if (highSchools.schools.some((s: SchoolPoi) => normName(s.name) === n)) st.push('高中');
         return st;
       };
-      const rows: BrandRow[] = grp.members.map((m) => {
+      const rows: BrandRow[] = grp.members.flatMap((m) => {
         // education 源无静态 stage，学段一律按校区/学部实体联查；查不到（远郊/未收录）不显示
-        const campusStages = campusStageOf(m.poi_name || m.name);
-        const stages: string[] = campusStages;
-        const finalStage = campusStages.includes('初中') ? 'middle'
-          : campusStages.includes('高中') ? 'high'
-          : campusStages.includes('小学') ? 'primary'
-          : stage;
-        const link = m.name ? `/school/${encodeURIComponent(m.poi_name || m.name)}?stage=${finalStage || 'primary'}` : null;
-        return {
-          name: m.name,
-          role: m.role,
-          legal: 'same' as const,
-          district: '',
-          stages,
-          badge: null,
-          reason: null,
-          isCurrent:
-            !!(m.school_id && m.school_id === schoolId) ||
-            !!(m.campuses || []).some((c) => c.school_id === schoolId) ||
-            normName(m.name) === normName(schoolName) ||
-            !!(m.poi_name && normName(m.poi_name) === normName(schoolName)),
-          link,
-        };
+        // 多校区成员（campuses 非空、poi_name/school_id 为空，如侨乐小学南北校区）平铺为每校区一行：
+        // 各自按校区 POI 联查学段、携带各自 school_id 跳转，保证每校区详情页可独立命中
+        const campusList: Array<{ poi_name: string; school_id?: string }> =
+          m.campuses && m.campuses.length
+            ? m.campuses
+            : [{ poi_name: m.poi_name || m.name, school_id: m.school_id || '' }];
+        return campusList.map((c) => {
+          const cn = c.poi_name || m.name;
+          const campusStages = campusStageOf(cn);
+          const stages: string[] = campusStages;
+          const finalStage = campusStages.includes('初中') ? 'middle'
+            : campusStages.includes('高中') ? 'high'
+            : campusStages.includes('小学') ? 'primary'
+            : stage;
+          const link = cn
+            ? `/school/${encodeURIComponent(cn)}?stage=${finalStage || 'primary'}${c.school_id ? `&id=${c.school_id}` : ''}`
+            : null;
+          return {
+            name: m.campuses && m.campuses.length ? cn : m.name,
+            role: m.role,
+            legal: 'same' as const,
+            district: '',
+            stages,
+            badge: null,
+            reason: null,
+            isCurrent:
+              !!(c.school_id && c.school_id === schoolId) ||
+              normName(cn) === normName(schoolName) ||
+              normName(m.name) === normName(schoolName),
+            link,
+          };
+        });
       });
       const groups: { key: string; title: string; rows: BrandRow[] }[] = [];
       const coreRows = rows.filter((r) => r.role === '核心校');
