@@ -371,17 +371,17 @@ const groups = computed(() => {
 </template>
 
 <style scoped>
-.page { max-width: 980px; margin: 0 auto; padding: 16px; }
-.top { display: flex; flex-direction: column; gap: 6px; }
+.page { max-width: 1180px; margin: 0 auto; }
+.top { display: flex; flex-direction: column; gap: 7px; }
 .back { font-size: 13px; color: #1a6bd6; text-decoration: none; }
 .back:hover { text-decoration: underline; }
 .page-title { font-size: 20px; font-weight: 700; margin: 0; }
 
 /* ---- 顶部过滤器（对齐地图页） ---- */
 .filter-bar {
-  position: sticky; top: 0; z-index: 1200;
+  position: sticky; top: 65px; z-index: 1200;
   display: flex; gap: 8px; background: #fff;
-  border: 1px solid #e4e3dd; border-radius: 14px; padding: 8px; margin-top: 14px;
+  border: 1px solid #e4e3dd; border-radius: 14px; padding: 8px; margin: 15px 0;
 }
 .fb-col { flex: 1 1 0; min-width: 0; }
 .fb-btn {
@@ -419,16 +419,16 @@ const groups = computed(() => {
 .rank-group { background: #fff; border: 1px solid #e4e3dd; border-radius: 14px; overflow: hidden; }
 .rg-title {
   display: flex; align-items: baseline; gap: 8px;
-  font-size: 15px; font-weight: 700; margin: 0; padding: 12px 10px 8px;
+  font-size: 15px; font-weight: 700; margin: 0; padding: 12px 18px 8px;
 }
 .rg-count { font-style: normal; font-size: 11.5px; color: #8a93a3; font-weight: 500; }
 .rank-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .rank-table th {
   text-align: left; font-size: 11.5px; color: #8a93a3; font-weight: 600;
-  padding: 6px 10px; border-bottom: 1px solid #ecebe6;
+  padding: 7px 10px; border-bottom: 1px solid #ecebe6;
   position: relative;
 }
-.rank-table td { padding: 7px 10px; border-bottom: 1px solid #f2f1ec; vertical-align: middle; }
+.rank-table td { padding: 8px 10px; border-bottom: 1px solid #f2f1ec; vertical-align: middle; }
 .rank-table tbody tr:last-child td { border-bottom: none; }
 .rank-table tbody tr:hover { background: #fafbfc; }
 .c-val { font-variant-numeric: tabular-nums; font-weight: 600; color: #1a1b1c; white-space: nowrap; }
