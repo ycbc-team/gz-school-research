@@ -4,14 +4,14 @@
  * - 数据真源：data/linkage/middle_middle.json（scripts/linkage/build_ranking_middle.py 聚合，
  *   含名额分配符合资格考生数/省市属·区属指标/2026 自招名单计数/指标到校高中明细+特控率）
  * - 分组：不分组 / 按区（区教育局口径）或按教育集团（@gz/shared groupOfSchool，brand 优先）；可叠加行政区位置筛选
- * - 指标（4 选 1）：默认（机构综合口径，名单见 data/middle/tiers_huangpu.json）/ 区属指标比例 / 省市属指标比例 / 指标×高中特控率
+ * - 指标（4 选 1）：默认（机构综合口径，七区名单见 data/middle/org_sort/*.json）/ 区属指标比例 / 省市属指标比例 / 指标×高中特控率
  * - 榜单口径：所有比例均以「符合名额分配报考资格考生数（kaosheng）」为分母，
  *   消除学校规模差异（学生多则名额自然多，须看比例）
  */
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 import { useRouter } from 'vue-router';
 import { DISTRICTS } from '@gz/shared';
-import { rankingMiddle, entities, middleTiersHuangpu } from '../data';
+import { rankingMiddle, entities, middleOrgSort } from '../data';
 
 interface Row {
   name: string;
@@ -193,15 +193,17 @@ function rankSort(a: { v: number | null; minban?: boolean }, b: { v: number | nu
   return b.v - a.v;
 }
 
-/** 内部默认排序：按机构手工整理名单（data/middle/tiers_huangpu.json，按 school_id 精确到校区）；对外不展示梯队信息 */
-const TIER_OF = new Map<string, number>();
-for (const t of middleTiersHuangpu.tiers) {
-  for (const s of t.schools) if (s.school_id) TIER_OF.set(s.school_id, t.tier);
+/** 内部默认排序：机构手工整理档位（data/middle/org_sort/*.json，按 school_id 精确到校区）；对外不展示档位信息 */
+const LEVEL_OF = new Map<string, number>();
+for (const list of Object.values(middleOrgSort)) {
+  for (const lv of list.levels) {
+    for (const s of lv.schools) if (s.school_id) LEVEL_OF.set(s.school_id, lv.level);
+  }
 }
-function tierSort(a: { s: Row; v: number | null; minban?: boolean }, b: { s: Row; v: number | null; minban?: boolean }): number {
-  const ta = TIER_OF.get(a.s.school_id ?? '') ?? 99;
-  const tb = TIER_OF.get(b.s.school_id ?? '') ?? 99;
-  if (ta !== tb) return ta - tb;
+function levelSort(a: { s: Row; v: number | null; minban?: boolean }, b: { s: Row; v: number | null; minban?: boolean }): number {
+  const la = LEVEL_OF.get(a.s.school_id ?? '') ?? 99;
+  const lb = LEVEL_OF.get(b.s.school_id ?? '') ?? 99;
+  if (la !== lb) return la - lb;
   return rankSort(a, b);
 }
 
@@ -230,7 +232,7 @@ const districtOrder = DISTRICTS.map((d) => d.name.replace('区', ''));
 
 const groups = computed(() => {
   const rows = schools.filter(districtVisible).map((s) => ({ s, v: metricValue(s), minban: !!s.minban }));
-  const sortFn = metric.value === 'default' ? tierSort : rankSort;
+  const sortFn = metric.value === 'default' ? levelSort : rankSort;
   if (groupBy.value === 'none') {
     return [{ key: 'all', title: '', items: rows.slice().sort(sortFn) }];
   }

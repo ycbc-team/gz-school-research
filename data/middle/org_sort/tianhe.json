@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "name": "天河区初中档位名单（机构手工整理）",
+    "source": "机构手工整理，非官方口径",
+    "updated": "2026-09-18",
+    "description": "政策不允许对学校公开分档，本名单仅用于初中明细页内部默认排序；对外界面只显示“默认”排序，不展示档位信息。",
+    "district_note": "公办以地段对口直升为主；113 等集团校多校区生源差异巨大，不能合并统计；天外、天省早年是选拔生源，现在高分存在生源红利，中等生增值偏弱。",
+    "campus_note": "档位按校区归属精确到校区；同一学校的其他校区、高中部或同名实体不计入同一档位。",
+    "match_note": "school_id 为榜单 data/linkage/ranking_middle.json 中记录的 school_id；标注“未收录”的条目当前榜单数据缺失，默认排序时无匹配行。"
+  },
+  "levels": [
+    {
+      "level": 1,
+      "label": "第一档",
+      "schools": [
+        { "name": "广州市天河区汇景实验学校", "short": "汇景实验学校", "note": "", "school_id": "gz-440106-0d1e149e" },
+        { "name": "广州中学", "short": "广州中学本部（五山）", "note": "榜单记录为广州中学", "school_id": "gz-440106-867e6c05" }
+      ]
+    },
+    {
+      "level": 2,
+      "label": "第二档",
+      "schools": [
+        { "name": "广州市天河中学", "short": "天河中学", "note": "", "school_id": "gz-440106-2f8a4424" },
+        { "name": "广州市第一一三中学", "short": "113中学五山本部", "note": "另有一一三中学陶育实验学校（gz-440106-7c81ab92）未计入本档", "school_id": "gz-440106-2e9f6f7b" },
+        { "name": "华南理工大学附属实验学校", "short": "华工附中", "note": "", "school_id": "gz-440106-9bed7efb" },
+        { "name": "暨南大学附属实验学校", "short": "暨大附中", "note": "", "school_id": "gz-440106-11e15e8d" }
+      ]
+    },
+    {
+      "level": 3,
+      "label": "第三档",
+      "schools": [
+        { "name": "广州市天河外国语学校", "short": "天河外国语", "note": "", "school_id": "gz-440106-069ddb41" },
+        { "name": "广州天省实验学校", "short": "天省实验", "note": "民办", "school_id": "gz-440106-01fd3a87" }
+      ]
+    },
+    {
+      "level": 4,
+      "label": "第四档",
+      "schools": [
+        { "name": "东圃中学", "short": "东圃中学", "note": "实体与榜单均未收录，默认排序无匹配", "school_id": null },
+        { "name": "广州奥林匹克中学", "short": "奥林匹克中学", "note": "", "school_id": "gz-440106-d40d0dbe" },
+        { "name": "广州市骏景中学", "short": "骏景中学", "note": "", "school_id": "gz-440106-b7d476f7" },
+        { "name": "广州市第八十九中学", "short": "89中", "note": "", "school_id": "gz-440106-8f55ab34" }
+      ]
+    }
+  ]
+}
