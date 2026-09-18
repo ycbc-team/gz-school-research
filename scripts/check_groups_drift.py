@@ -50,6 +50,30 @@ def _check_middle_enrollment():
     print(f"产物一致性: ✓ build_middle_enrollment 重跑产物与入库完全一致（{len(glob.glob(os.path.join(MID_OUT, _MID_GLOB)))} 区）")
 
 
+def _check_special_matrix():
+    """重跑 build_special_plan + build_special_matrix 到临时文件，与入库比对（防解析漂移/手改产物）。"""
+    tmp = tempfile.gettempdir()
+    plan_tmp = os.path.join(tmp, "plan_special_repro.json")
+    matrix_tmp = os.path.join(tmp, "special_matrix_repro.json")
+    _replay("scripts/linkage/build_special_plan.py", plan_tmp)
+    # previous 用入库产物：backfill 生成的初中外键只存在于入库，重跑到新文件会丢失
+    _replay("scripts/linkage/build_special_matrix.py", matrix_tmp, os.path.join(ROOT, "data/linkage/special_matrix.json"))
+    pairs = [
+        (os.path.join(ROOT, "data/linkage/raw/special/plan_special_2026.json"), plan_tmp, "plan_special_2026"),
+        (os.path.join(ROOT, "data/linkage/special_matrix.json"), matrix_tmp, "special_matrix"),
+    ]
+    failed = []
+    for prod, repro, label in pairs:
+        with open(prod) as a, open(repro) as b:
+            if json.load(a) != json.load(b):
+                failed.append(label)
+    if failed:
+        print(f"产物一致性: ✗ 重跑产物与入库不一致：{', '.join(failed)}（解析/映射漂移或手改产物）")
+        print("  → 修复须固化到生产脚本后重跑并提交产物，禁止手改产物。")
+        sys.exit(1)
+    print("产物一致性: ✓ build_special_plan + build_special_matrix 重跑产物与入库完全一致")
+
+
 def main():
     # 1) education_groups
     tmp = os.path.join(tempfile.gettempdir(), "education_groups_repro.json")
@@ -97,6 +121,9 @@ def main():
 
     # 2) middle_enrollment（本次新增：机制判定/回填手改都会被重跑覆盖检出）
     _check_middle_enrollment()
+
+    # 3) special plan + matrix（2026 特长生计划解析 + 升学通道矩阵）
+    _check_special_matrix()
 
 
 if __name__ == "__main__":

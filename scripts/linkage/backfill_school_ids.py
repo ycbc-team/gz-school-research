@@ -195,7 +195,10 @@ def main() -> int:
                         s.pop('school_ids', None)
         else:
             if tag == 'special_matrix':
-                keys = list(d['matrix'].keys())
+                # 资格名单计数矩阵（matrix）已废弃：初中第一批模块与高中第一批覆盖表均已移除，
+                # 无任何消费方；special_matrix.middle_school_ids 由 build_special_matrix 从入库
+                # previous 继承（本项目只有构建产物，不再手工回填），这里跳过。
+                continue
             elif tag == 'batch2_scores':
                 keys = sorted({k for v in d['data'].values() for k in v.keys()})
             else:  # district_quota

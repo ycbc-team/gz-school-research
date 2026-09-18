@@ -19,7 +19,7 @@ BASE = 'data/linkage/raw'
 # 统一匹配库：norm 本体收敛至 school_match.normName（原"复刻 shared normName"定义已删）
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "registry"))
 from school_match import normName as norm
-OUT = 'data/linkage/special_matrix.json'
+OUT = sys.argv[1] if len(sys.argv) > 1 else 'data/linkage/special_matrix.json'
 SOURCE_MAP = 'data/registry/source_name_mappings.json'
 SOURCE = 'gzzk-special-2026'
 
@@ -78,6 +78,11 @@ HIGH_NAME_FIX = {
     '广州市第一': '广州市第一中学',  # sports/arts 23 条 project 截断，招生校为广州市第一中学
 }
 
+# 特长生计划表学校名 → 招生高中（校区）原文（领军龙单列无括号名，显式修复、可审计）
+SPECIAL_NAME_FIX = {
+    '华南师范大学附属中学': '华南师范大学附属中学（石牌校区）',  # 领军龙男足单列，主校区石牌
+}
+
 
 def fix_high(name: str) -> str:
     return HIGH_NAME_FIX.get(name, name)
@@ -110,22 +115,20 @@ sports = json.load(open(f'{BASE}/special/sports_2026.json'))
 arts = json.load(open(f'{BASE}/special/arts_2026.json'))
 auto = json.load(open(f'{BASE}/autonomy/autonomy_qualify_2026.json'))
 
-# sports/arts：初中=school 字段；autonomy：初中=school_junior 字段
+# sports/arts：初中=school 字段；autonomy：初中=school_junior 字段。
+# 名单只用于构建 all_hs（名单高中原文集合 → high_school_ids 外键，供升学路径页跳转）。
+# 资格名单计数矩阵（matrix）已废弃：初中第一批模块与高中第一批覆盖表均已移除，
+# 前端不再消费"每所初中升入各高中的资格人数"，故不再输出。
 m_sports = agg_project(sports)
 m_arts = agg_project(arts)
 m_auto = agg_autonomy(auto)
 
-# 合并结构：matrix[初中][高中] = {sports, arts, autonomy}
-matrix = collections.defaultdict(lambda: collections.defaultdict(dict))
 all_hs = set()
-for (j, h), v in m_sports.items():
-    matrix[j][h]['sports'] = v
+for (j, h) in m_sports.keys():
     all_hs.add(h)
-for (j, h), v in m_arts.items():
-    matrix[j][h]['arts'] = v
+for (j, h) in m_arts.keys():
     all_hs.add(h)
-for (j, h), v in m_auto.items():
-    matrix[j][h]['autonomy'] = v
+for (j, h) in m_auto.keys():
     all_hs.add(h)
 
 # 高中原文 → 实体名/ID（审计：未命中说明名单名与实体表有出入，需人工复核）
@@ -140,8 +143,9 @@ for h in sorted(all_hs):
         unresolved.append(h)
 
 # 保留由 backfill_school_ids 生成的初中外键；本生成器只负责第一批事实和高中外键。
+PREV = sys.argv[2] if len(sys.argv) > 2 else OUT
 try:
-    previous = json.load(open(OUT))
+    previous = json.load(open(PREV))
 except FileNotFoundError:
     previous = {}
 
@@ -149,16 +153,57 @@ except FileNotFoundError:
 plan_raw = json.load(open('data/linkage/raw/autonomy/plan_2026.json'))
 autonomy_plan = {s['name']: s['plan'] for s in plan_raw['schools']}
 plan_norm = {norm(k): v for k, v in autonomy_plan.items()}
+# 实体名变体：官方原文（全角"（校本部）"）与实体 POI 名（半角"（本部校区）"）存在名称差异，
+# 前端按实体名反查计划时必须命中。构建期一次映射，避免运行时名称兜底。
+for k, v in autonomy_plan.items():
+    ent = resolve_entity(k)
+    if ent and norm(ent['name']) not in plan_norm:
+        plan_norm[norm(ent['name'])] = v
+
+# ---------------- 2026 体育/艺术特长生计划（官方计划表附件1，按校区+项目） ----------------
+sp_raw = json.load(open('data/linkage/raw/special/plan_special_2026.json'))
+sp_by_name = collections.defaultdict(
+    lambda: {'sports': [], 'arts': [], 'sports_total': 0, 'arts_total': 0})
+for s in sp_raw['schools']:
+    key = SPECIAL_NAME_FIX.get(s['school'], s['school'])
+    d = sp_by_name[key]
+    d['sports'] += s['sports']
+    d['arts'] += s['arts']
+    d['sports_total'] += s.get('sports_total') or 0
+    d['arts_total'] += s.get('arts_total') or 0
+special_plan = {}
+special_plan_unresolved = []
+for name, d in sp_by_name.items():
+    ent = resolve_entity(SPECIAL_NAME_FIX.get(name, name))
+    if ent:
+        special_plan[ent['school_id']] = {
+            'name': ent['name'],
+            'sports': d['sports_total'],
+            'arts': d['arts_total'],
+            'sports_projects': d['sports'],
+            'arts_projects': d['arts'],
+        }
+    else:
+        special_plan_unresolved.append(name)
+# 审计口径：官方体育 1905（不含领军龙116）/ 艺术 1741
+sp_summary = {
+    'sports': sum(s.get('sports_total') or 0 for s in sp_raw['schools']
+                  if not s.get('football_special')),
+    'arts': sum(s.get('arts_total') or 0 for s in sp_raw['schools']),
+    'football_special': sum(s.get('sports_total') or 0 for s in sp_raw['schools']
+                            if s.get('football_special')),
+}
 
 out = {
     'updated': '2026-09-17',
-    'scope': '全部有名单的高中（含区属/中职），体育/艺术特长生通过测试名单 + 自招综合能力考核资格名单',
+    'scope': '全部有名单的高中（含区属/中职），名单仅用于构建"名单原文→实体 school_id"外键；资格名单计数矩阵已废弃不输出',
     'note': (
         '体育/艺术=通过专业测试名单（官方发布）；自招=综合能力考核资格名单口径（考核前≤5倍计划，非预录取）。'
-        '收录范围=官方名单出现的全部招生高中（不再限省市属 11 所）；矩阵键=名单原文（可溯源），'
-        'high_school_ids=名单原文→高中实体 school_id，是第一批招生关联唯一外键；'
-        '值为 null 表示未收录对应高中实体，仅保留原文展示，不得名称兜底。'
-        'autonomy_plan=2026官方自主招生计划数（按校区公布），计划数≠资格名单人数≠录取人数。'
+        '收录范围=官方名单出现的全部招生高中（不再限省市属 11 所）；high_school_ids=名单原文→高中实体 school_id，'
+        '是第一批招生关联唯一外键；值为 null 表示未收录对应高中实体，仅保留原文展示，不得名称兜底。'
+        'autonomy_plan=2026官方自主招生计划数（按校区公布），计划数≠资格名单人数≠录取人数；'
+        'special_plan=2026官方体育/艺术特长生计划数（按校区+项目，含领军龙足球试点单列），'
+        '计划数=录取数口径（按计划投档）。'
     ),
     'high_schools': sorted(all_hs),
     'high_entities': high_entities,
@@ -166,14 +211,20 @@ out = {
     'autonomy_plan': autonomy_plan,
     'autonomy_plan_norm': plan_norm,
     'autonomy_plan_source': plan_raw['source_url'],
-    'matrix': {j: dict(hs) for j, hs in matrix.items()},
+    'special_plan': special_plan,
+    'special_plan_source': sp_raw['url'],
+    'special_plan_summary': sp_summary,
 }
 if previous.get('middle_school_ids'):
     out['middle_school_ids'] = previous['middle_school_ids']
 json.dump(out, open(OUT, 'w'), ensure_ascii=False, indent=1)
 print('高中招生单位数:', len(all_hs))
-print('初中学数:', len(matrix))
 print('收录记录: 体育', sum(m_sports.values()), '艺术', sum(m_arts.values()), '自招', sum(m_auto.values()))
 print('未匹配到高中实体的名单名（需人工复核）:', len(unresolved))
 for u in unresolved:
     print('  !', u)
+print('特长生计划未匹配实体:', len(special_plan_unresolved))
+for u in special_plan_unresolved:
+    print('  !', u)
+print('特长生计划审计: 体育', sp_summary['sports'], '(不含领军龙) / 艺术', sp_summary['arts'],
+      '/ 领军龙足球', sp_summary['football_special'])

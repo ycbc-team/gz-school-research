@@ -8,9 +8,11 @@
 |---|---|---|
 | `quota_matrix.json` | 2026 名额分配完整矩阵：每所初中的名额考生数 m_j、省市属/区属名额，及 21 个省市属高中校区的指标数 n_ji | 498 所初中 × 21 校区 |
 | `batch2_scores.json` | 2026 第二批次（名额分配）录取分数：每所初中被各高中校区录取的最低/末位分 | 省市属 20 校区 × 463 所初中 |
-| `special_matrix.json` | 2026 自招/体育/艺术特长名单：每所初中升入各高中校区的各类别人数 | 288 所初中 × 19 校区 |
+| `special_matrix.json` | 2026 第一批招生事实：①自主招生计划数（按校区，`autonomy_plan` + norm 索引）②体育/艺术特长生计划数（按校区+项目，`special_plan`/`special_plan_summary`）③名单原文→高中实体 school_id 外键（`high_school_ids`，供升学路径页跳转） | 自招 56 校区 / 特长生 72 校区 / 名单 116 高中 |
 
-校验：`quota_matrix.json` 列和已强校验 0 不一致（col1 省市属名额 = Σ21 校区列）；10 所民办 `sheng_quota=None` 为不参与省市属名额分配，非缺失。
+> 历史说明：第一批"资格名单计数矩阵"（每所初中升入各高中的资格人数）已废弃删除——初中第一批模块与高中第一批覆盖初中表均于 2026-09 移除，前端不再消费；`build_special_matrix.py` 不再输出 `matrix` 键，仅保留计划数与名单外键。资格名单原始计数仍可经 `build_ranking_middle.py`（初中升学信号"自招人数"列）回溯 `raw/autonomy/autonomy_qualify_2026.json`。
+
+校验：`quota_matrix.json` 列和已强校验 0 不一致（col1 省市属名额 = Σ21 校区列）；10 所民办 `sheng_quota=None` 为不参与省市属名额分配，非缺失。特长生计划总量已硬校验=官方口径（体育 1905 不含领军龙 / 艺术 1741 / 领军龙 116）。
 
 ## 政府源文档（raw/）
 
@@ -19,9 +21,14 @@
 | `raw/quota_detail.pdf` + `quota_detail.html` / `quota_summary.html` / `quota_result_notice.html` | 2026 名额分配结果（全市 31 页） |
 | `raw/batch2_scores.pdf` | 2026 第二批次录取分数原表（304 页） |
 | `raw/haizhu_quota.pdf` | 海珠区名额分配 |
-| `raw/autonomy/附件1.…自主招生…pdf`、`附件2.…申诉…docx`、`autonomy_qualify_2026.json`、`notice.html` | 2026 普通高中自主招生资格名单 |
-| `raw/special/附件1.…体育…pdf`、`附件2.…艺术…pdf`、`附件3.…申诉…docx`、`sports_2026.json`、`arts_2026.json`、`notice.html` | 2026 体育/艺术特长生通过名单 |
+| `raw/autonomy/autonomy_qualify_2026.json` | 2026 自主招生资格名单（按考生，用于初中升学信号"自招人数"计数） |
+| `raw/autonomy/plan_2026.json` | 2026 自主招生计划数汇总（56 校区，`autonomy_plan` 来源） |
+| `raw/special/附件1.2026年体育艺术类特长生布局项目及计划学校明细表.docx` | 2026 特长生计划官方明细（110 校，`build_special_plan.py` 输入） |
+| `raw/special/plan_special_2026.json` | 特长生计划解析产物（`special_plan` 来源） |
+| `raw/special/sports_2026.json` / `arts_2026.json` | 体育/艺术特长生通过专业测试名单（构建 `high_school_ids` 名单集合） |
 | `raw/quota_grid_final.json`、`raw/schoolnames.json`、`raw/headers/header_ocr*.json` | 名额分配网格解析中间结果与人工确认的列序证据 |
+
+> 已清理（2026-09）：第一批官方原始下载件（资格名单 PDF/zip、特长生测试名单 PDF/zip、申诉 docx、notice.html）无任何脚本引用，JSON 已固化，原件删除；生产脚本保留。
 
 ## 复现管线（scripts/linkage/）
 
@@ -35,8 +42,10 @@ python3 scripts/linkage/assemble_quota.py        # grid + schoolnames → quota_
 python3 scripts/linkage/parse_batch2.py          # batch2_scores.pdf → batch2_scores_all.json
 python3 scripts/linkage/build_linkage_batch2.py   # 过滤省市属 → batch2_scores.json
 
-# 自招/体育/艺术特长
-python3 scripts/linkage/build_special_matrix.py  # autonomy/special 源 → special_matrix.json
+# 第一批招生（自招计划 / 特长生计划 / 名单外键）
+python3 scripts/linkage/build_special_plan.py    # 附件1 docx → plan_special_2026.json（内置小计硬校验）
+python3 scripts/linkage/build_special_matrix.py  # 名单 + 计划源 → special_matrix.json
+python3 scripts/linkage/build_ranking_middle.py  # autonomy 资格名单 + quota_matrix + levels → ranking_middle.json
 ```
 
 历史迭代脚本（v2–v12、各 fix 轮、早期 OCR 实验）归档在 `scripts/linkage/_archive/`，仅作留痕，不再维护。

@@ -67,12 +67,6 @@ export function createQuotaApi(loaders: DataLoaders) {
     return canon ? quotaMatrix.schools.find((s) => s.school === canon) : undefined;
   }
 
-  /** 按初中名查特殊通道（special_matrix 键 = 初中名） */
-  function specialOf(schoolName: string): Record<string, { sports?: number; arts?: number; autonomy?: number }> | undefined {
-    const canon = resolveMiddle(schoolName);
-    return canon ? specialMatrix.matrix[canon] : undefined;
-  }
-
   /** 官方名单原文 → 2026 自主招生计划数（原文精确 → 归一兜底）；计划数≠资格名单人数≠录取人数 */
   function autonomyPlanOf(rawHighName: string): number | null {
     if (!rawHighName) return null;
@@ -80,6 +74,31 @@ export function createQuotaApi(loaders: DataLoaders) {
     const nk = normName(rawHighName);
     const m = specialMatrix.autonomy_plan_norm as Record<string, number> | undefined;
     return m?.[nk] ?? null;
+  }
+
+  /** 高中实体 school_id → 2026 体育/艺术特长生计划数（special_matrix.special_plan，构建期已映射实体外键） */
+  function specialPlanOf(schoolId: string | null | undefined): {
+    sports: number;
+    arts: number;
+    sportsProjects: { project: string; plan: number; note?: string }[];
+    artsProjects: { project: string; plan: number; note?: string }[];
+  } | null {
+    if (!schoolId) return null;
+    const p = (specialMatrix as Record<string, any>).special_plan?.[schoolId] as
+      | {
+          sports?: number;
+          arts?: number;
+          sports_projects?: { project: string; plan: number; note?: string }[];
+          arts_projects?: { project: string; plan: number; note?: string }[];
+        }
+      | undefined;
+    if (!p) return null;
+    return {
+      sports: p.sports ?? 0,
+      arts: p.arts ?? 0,
+      sportsProjects: p.sports_projects ?? [],
+      artsProjects: p.arts_projects ?? [],
+    };
   }
 
   /** 按初中名查第二批次录取分数（值 = 校区 → 记录） */
@@ -119,35 +138,8 @@ export function createQuotaApi(loaders: DataLoaders) {
     return top ? arr.slice(0, top) : arr;
   }
 
-  type SpecialCoverage = { school: string; school_id: string | null; sports: number; arts: number; autonomy: number };
-  /**
-   * 第一批招生的唯一业务索引：高中实体 school_id → 覆盖初中。
-   * 原始官方名称只在构建 special_matrix 时解析一次；运行时绝不从名称猜测高中实体。
-   */
-  const specialByHighId = new Map<string, SpecialCoverage[]>();
-  for (const [school, hs] of Object.entries(specialMatrix.matrix)) {
-    for (const [rawHighName, rec] of Object.entries(hs)) {
-      const highId = specialMatrix.high_school_ids?.[rawHighName];
-      if (!highId) continue; // 未收录实体：保留原文，但不伪造详情关联
-      const arr = specialByHighId.get(highId) || [];
-      arr.push({
-        school,
-        school_id: specialMatrix.middle_school_ids?.[school] ?? null,
-        sports: rec.sports ?? 0,
-        arts: rec.arts ?? 0,
-        autonomy: rec.autonomy ?? 0,
-      });
-      specialByHighId.set(highId, arr);
-    }
-  }
   function specialHighSchoolId(rawHighName: string): string | null {
     return specialMatrix.high_school_ids?.[rawHighName] ?? null;
-  }
-  function specialCoverageByHighSchoolId(highSchoolId: string | null | undefined): SpecialCoverage[] {
-    if (!highSchoolId) return [];
-    return (specialByHighId.get(highSchoolId) || [])
-      .slice()
-      .sort((a, b) => b.autonomy + b.sports + b.arts - (a.autonomy + a.sports + a.arts));
   }
 
   /** 初中名 → 名额分配摘要（模糊匹配 quota_matrix，用于小学出口列表轻量展示） */
@@ -237,8 +229,8 @@ export function createQuotaApi(loaders: DataLoaders) {
   }
 
   return {
-    linkageOf, specialOf, autonomyPlanOf, batch2Of, districtQuotaOf, districtCoverage,
-    quotaCoverage, specialHighSchoolId, specialCoverageByHighSchoolId, middleQuotaSummary,
+    linkageOf, autonomyPlanOf, specialPlanOf, batch2Of, districtQuotaOf, districtCoverage,
+    quotaCoverage, specialHighSchoolId, middleQuotaSummary,
     xiaoshengchuOf, middlePrimaryFeed,
   };
 }
