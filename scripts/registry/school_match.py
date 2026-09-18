@@ -185,7 +185,7 @@ class SchoolMatcher:
         """entities: [{name, stage, aliases?}]。一个别名可能对应多个实体（共享别名如「广铁一中铁英学校」），
         保留全部实体，由 resolve 结合 preferred_adcode 收敛，避免"后写覆盖"式错配。"""
         for e in entities:
-            rec = {"name": e["name"], "stage": e.get("stage", ""), "aliases": []}
+            rec = {"name": e["name"], "stage": e.get("stage", ""), "aliases": [], "school_id": e.get("school_id", "")}
             for k in [e["name"]] + list(e.get("aliases", []) or []):
                 # 严格全等索引（normName，与 build_entities 一致：全删括号）
                 self.exact_map.setdefault(normName(k), []).append(rec)
@@ -295,6 +295,16 @@ class SchoolMatcher:
                 n = _n_flat
         if n in self.alias_map:
             ents = self.alias_map[n]
+            # 2a0. 实体级学段过滤：preferred_stage 已指定且多候选时，优先同 stage 实体
+            # （如裸名「广州知识城中学」同时挂在北校区 middle / 南校区 high，初中记录应收敛到 middle；
+            #  单候选不受影响）
+            if preferred_stage and len(ents) > 1:
+                # POI 侧 stage 用中文（初中/高中），实体侧用英文（middle/high）
+                _stage_map = {"小学": "primary", "初中": "middle", "高中": "high"}
+                _want = _stage_map.get(preferred_stage, preferred_stage)
+                _same_stage = [e for e in ents if e["stage"] == _want]
+                if _same_stage:
+                    ents = _same_stage
             # 2a. 先精确匹配实体完整名（含校区括号，避免多校区 norm 歧义）；身份映射显式确认，跨区不拦截
             ent_names = {e["name"] for e in ents}
             c2a = [p for p in self.poi_all if p["name"] in ent_names]
@@ -311,8 +321,14 @@ class SchoolMatcher:
                 return r
             if len(c2b) > 1:
                 alias_multiple = True
-            # 2b5. 实体主校 POI 缺失时，用实体核心名前缀在同区找分校区 POI（如「华阳小学」→「华阳小学(华成校区)」）
+            # 2b5. 实体主校 POI 缺失时，用实体核心名前缀在同区找分校区 POI（如「华阳小学」→「华阳小学(华成校区)」）。
+            # 仅限实体名不带校区括号的主校/本部：带校区括号的实体已指明确切校区（如十三中文德校区 0a17f1eb、
+            # 四十一中东校区 b210556b），POI 缺失即该校区无点位，剥括号前缀反而会吸附同核心名的其它校区
+            # （文德→禺山 9b88f912、41中→40a80ebb，均无榜单数据），应走 2c 按实体 school_id 返回。
+            _campus_re = re.compile(r"[\(（][^()（）]*校区[\)）]")
             for e in ents:
+                if _campus_re.search(e["name"]):
+                    continue
                 base = bare(matchNorm(e["name"]))
                 if len(base) < 4:
                     continue
@@ -326,10 +342,17 @@ class SchoolMatcher:
                 r = _pick(cands, "变体命中")
                 if r:
                     return r
-            # 2c. 实体存在但 POI 无坐标：未给区上下文时保留原兜底；给了区上下文则继续 substring 找同区 POI
+            # 2c. 实体存在但 POI 无坐标：未给区上下文时保留原兜底；给了区上下文且实体唯一（含 2a0
+            # 学段过滤后）时直接返回实体 school_id（实体表 id 即榜单/配额主键，如十三中文德校区
+            # 0a17f1eb、四十一中东校区 b210556b——substring 反而会吸附无榜单数据的同区校区）；多候选继续找同区 POI
             if not preferred_adcode:
                 return {"poi_match": "变体命中", "matched_name": ents[0]["name"], "stage": ents[0]["stage"],
                         "district": "实体表无坐标", "school_id": ""}
+            if len(ents) == 1:
+                _e = ents[0]
+                _dist = SEVEN_DISTRICTS.get(preferred_adcode, FAR_DISTRICTS.get(preferred_adcode, "未知"))
+                return {"poi_match": "变体命中(实体无POI点位)", "matched_name": _e["name"], "stage": _e["stage"],
+                        "district": _dist, "school_id": _e["school_id"]}
         # 2d. far district keyword check（exact/alias 均未命中后才拦截远郊）
         for kw in FAR_KEYWORDS:
             if kw in name:

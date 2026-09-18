@@ -7,11 +7,6 @@
   {
     "district": "白云区",
     "level": 2,
-    "school_id": "gz-440111-c8461d5d"
-  },
-  {
-    "district": "白云区",
-    "level": 2,
     "school_id": "gz-440111-e14818fc"
   },
   {
@@ -38,6 +33,11 @@
     "district": "白云区",
     "level": 3,
     "school_id": "gz-440111-c8ae0a7c"
+  },
+  {
+    "district": "白云区",
+    "level": 4,
+    "school_id": "gz-440111-e74c2e1d"
   },
   {
     "district": "白云区",
@@ -127,6 +127,11 @@
   {
     "district": "海珠区",
     "level": 4,
+    "school_id": "gz-440105-cb432890"
+  },
+  {
+    "district": "海珠区",
+    "level": 4,
     "school_id": "gz-440105-77baeea5"
   },
   {
@@ -197,6 +202,11 @@
   {
     "district": "黄埔区",
     "level": 4,
+    "school_id": "gz-440112-ff5acfd5"
+  },
+  {
+    "district": "黄埔区",
+    "level": 4,
     "school_id": "gz-440112-8edaa2d8"
   },
   {
@@ -207,7 +217,17 @@
   {
     "district": "黄埔区",
     "level": 4,
+    "school_id": "gz-440112-badbc2ab"
+  },
+  {
+    "district": "黄埔区",
+    "level": 4,
     "school_id": "gz-440112-632bcdb7"
+  },
+  {
+    "district": "荔湾区",
+    "level": 1,
+    "school_id": "gz-440103-816b22a3"
   },
   {
     "district": "荔湾区",
@@ -231,13 +251,33 @@
   },
   {
     "district": "荔湾区",
+    "level": 2,
+    "school_id": "gz-440103-1f4697e3"
+  },
+  {
+    "district": "荔湾区",
     "level": 3,
-    "school_id": "gz-440103-2653da64"
+    "school_id": "gz-440103-2dc142ec"
   },
   {
     "district": "荔湾区",
     "level": 3,
     "school_id": "gz-440103-c5a0baa6"
+  },
+  {
+    "district": "荔湾区",
+    "level": 3,
+    "school_id": "gz-440103-3862ee98"
+  },
+  {
+    "district": "荔湾区",
+    "level": 3,
+    "school_id": "gz-440103-9b3ba6d8"
+  },
+  {
+    "district": "荔湾区",
+    "level": 4,
+    "school_id": "gz-440103-c0d6f9a0"
   },
   {
     "district": "荔湾区",
@@ -253,6 +293,11 @@
     "district": "荔湾区",
     "level": 4,
     "school_id": "gz-440103-2c188507"
+  },
+  {
+    "district": "荔湾区",
+    "level": 4,
+    "school_id": "gz-440103-2653da64"
   },
   {
     "district": "荔湾区",
@@ -377,6 +422,11 @@
   {
     "district": "天河区",
     "level": 4,
+    "school_id": "gz-440106-d40d0dbe"
+  },
+  {
+    "district": "天河区",
+    "level": 4,
     "school_id": "gz-440106-b7d476f7"
   },
   {
@@ -413,6 +463,11 @@
     "district": "越秀区",
     "level": 2,
     "school_id": "gz-440104-cc4aa5b8"
+  },
+  {
+    "district": "越秀区",
+    "level": 3,
+    "school_id": "gz-440104-32444523"
   },
   {
     "district": "越秀区",

@@ -196,7 +196,11 @@ function rankSort(a: { v: number | null; minban?: boolean }, b: { v: number | nu
 /** 内部默认排序：机构手工整理档位（data/middle/org_sort_compiled.json，school_id 由
  * scripts/build_org_sort.py 经 SchoolMatcher 匹配；对外不展示档位信息） */
 const LEVEL_OF = new Map<string, number>();
-for (const item of middleOrgSort) LEVEL_OF.set(item.school_id, item.level);
+// 同 school_id 可能出现在多档（如六中珠江鹭江 L3 / 六中逸景 L4 同记录 cb432890），取最小档（高优先级）
+for (const item of middleOrgSort) {
+  const cur = LEVEL_OF.get(item.school_id);
+  if (cur === undefined || item.level < cur) LEVEL_OF.set(item.school_id, item.level);
+}
 function levelSort(a: { s: Row; v: number | null; minban?: boolean }, b: { s: Row; v: number | null; minban?: boolean }): number {
   const la = LEVEL_OF.get(a.s.school_id ?? '') ?? 99;
   const lb = LEVEL_OF.get(b.s.school_id ?? '') ?? 99;
