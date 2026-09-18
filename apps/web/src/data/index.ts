@@ -37,13 +37,7 @@ import brandGroupsCompact from './compact/registry/brand_groups.js';
 import educationGroupsCompact from './compact/registry/education_groups.js';
 import highScores2025Compact from './compact/high/scores_2025.js';
 import highScores2026Compact from './compact/high/scores_2026.js';
-import tianheOrgSortCompact from './compact/middle/org_sort/tianhe.js';
-import panyuOrgSortCompact from './compact/middle/org_sort/panyu.js';
-import liwanOrgSortCompact from './compact/middle/org_sort/liwan.js';
-import yuexiuOrgSortCompact from './compact/middle/org_sort/yuexiu.js';
-import haizhuOrgSortCompact from './compact/middle/org_sort/haizhu.js';
-import baiyunOrgSortCompact from './compact/middle/org_sort/baiyun.js';
-import huangpuOrgSortCompact from './compact/middle/org_sort/huangpu.js';
+import orgSortCompiledCompact from './compact/middle/org_sort_compiled.js';
 
 /** 紧凑结构经 hydrate 还原后的类型断言（字段为数据真源，结构由 scripts/ 保证） */
 const cast = <T>(v: unknown): T => v as T;
@@ -112,20 +106,13 @@ export const enrollments = loaders.enrollments;
 export const brandGroups = loaders.brandGroups;
 export const entities = loaders.entities;
 
-/** 七区初中机构整理档位名单（data/middle/org_sort/*.json 真源；仅内部默认排序用，对外不展示档位信息） */
-type OrgSortEntry = {
-  meta: { name: string; source: string; district_note: string; campus_note: string };
-  levels: Array<{ level: number; label: string; schools: Array<{ name: string; short: string; note?: string; school_id: string | null }> }>;
-};
-export const middleOrgSort: Record<string, OrgSortEntry> = {
-  tianhe: cast(hydrate(tianheOrgSortCompact)),
-  panyu: cast(hydrate(panyuOrgSortCompact)),
-  liwan: cast(hydrate(liwanOrgSortCompact)),
-  yuexiu: cast(hydrate(yuexiuOrgSortCompact)),
-  haizhu: cast(hydrate(haizhuOrgSortCompact)),
-  baiyun: cast(hydrate(baiyunOrgSortCompact)),
-  huangpu: cast(hydrate(huangpuOrgSortCompact)),
-};
+/** 七区初中机构整理档位整合版（data/middle/org_sort_compiled.json，由 scripts/build_org_sort.py 经
+ * SchoolMatcher 匹配生成；仅 school_id→档位，无展示字段；仅供内部默认排序，对外不展示档位信息） */
+export const middleOrgSort = cast(hydrate(orgSortCompiledCompact)) as Array<{
+  district: string;
+  level: number;
+  school_id: string;
+}>;
 
 /* ================= 查询/常量（来自 repository，名称保持迁移前一致） ================= */
 export const {
