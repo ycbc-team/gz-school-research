@@ -1962,6 +1962,10 @@ def merge_all():
             continue
         d = json.load(open(p, encoding='utf-8'))
         merged.extend(d['records'])
+    # 名字→school_id 匹配下沉到数据层（xs_resolver.py，与 upgrade 迁移前规则一致）：
+    # upgrade 只做去重/分组组装，不再做名字匹配；运行时（xiaoshengchu_2026.json）只依赖 school_id
+    from xs_resolver import resolve_records
+    merged = resolve_records(merged)
     out_path = os.path.join(DATA, 'xiaoshengchu_all.json')
     json.dump({'year': 2026, 'records': merged},
               open(out_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
