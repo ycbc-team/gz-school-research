@@ -66,7 +66,7 @@ CO_LOCATED_SNAPSHOT = "78bd7925e8bb2651"
 # 被误标民办：公办的番禺区剑桥郡小学 vs 民办的剑桥郡加拿达外国语学校）无人感知。
 # 首次固化 2026-09-18：228 所（含剑桥郡小学误标剔除后；另新增 7 区 minban_*.md 查漏补缺
 # 来源链接共 88 所可追溯）。
-PRIVATE_MINBAN_SNAPSHOT = "9d6a610574e6b9cb"
+PRIVATE_MINBAN_SNAPSHOT = "a6b0eea972d0b62e"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
@@ -523,6 +523,34 @@ def main():
     check(_minban_digest == PRIVATE_MINBAN_SNAPSHOT,
           f"[15] 民办名单漂移: digest {_minban_digest} != 固化 {PRIVATE_MINBAN_SNAPSHOT}（民办名单变化须先排查官方来源；确认后 UPDATE_SNAPSHOT=1 显式更新）")
     print(f"[15] 民办学校名单: {len(_minban_ids)} 所（快照 {_minban_digest}，变化即感知）")
+
+    # ---- 16. 民办学校不得有公办招生/升学信息（0 容忍，有即失败）----
+    # 民办学校在公办划片/派位体系里不应有：真实地段的小学招生、公办初中招生、小升初派位。
+    # 民办招生计划（zone 含"民办：无地段，报名人数超计划电脑派位"等）属民办自主招生，放行。
+    # 出现 → 立即失败：要么民办误标（如金海岸学校被误标民办后出现公办地段），
+    # 要么民办学校被错配进公办招生/升学文件。
+    _minban_ids16 = {s["school_id"] for s in json.load(open(os.path.join(ROOT, "data/registry/minban_schools.json")))["schools"]}
+    _bad_pri, _bad_mid, _bad_xs = [], [], []
+    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/2026-*.json"))):
+        _d = json.load(open(_f))
+        for _r in _d.get("records", []):
+            if _r.get("school_id") in _minban_ids16:
+                _zone = str(_r.get("zone") or "")
+                if "民办" not in _zone:
+                    _bad_pri.append(f"{os.path.basename(_f)} | {_r.get('school')} | {_r.get('school_id')} | zone={_zone[:60]}")
+    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/middle_enrollment_2026_*.json"))):
+        _d = json.load(open(_f))
+        for _r in _d.get("records", []):
+            if _r.get("school_id") in _minban_ids16:
+                _bad_mid.append(f"{os.path.basename(_f)} | {_r.get('school', _r.get('name'))} | {_r.get('school_id')}")
+    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/xiaoshengchu_*.json"))):
+        _d = json.load(open(_f))
+        for _r in _d.get("records", []):
+            if _r.get("school_id") in _minban_ids16:
+                _bad_xs.append(f"{os.path.basename(_f)} | {_r.get('school', _r.get('name'))} | {_r.get('school_id')}")
+    for _b in _bad_pri + _bad_mid + _bad_xs:
+        check(False, f"[16] 民办学校出现公办招生/升学信息: {_b}")
+    print(f"[16] 民办学校公办招生/升学检测: 小学 {len(_bad_pri)} 异常 / 初中 {len(_bad_mid)} 异常 / 小升初 {len(_bad_xs)} 异常（民办自主招生计划放行，0 容忍）")
 
     # ---- 汇总 ----
     print(f"数据质量测试: {checks} 项检查, {len(failures)} 项失败")
