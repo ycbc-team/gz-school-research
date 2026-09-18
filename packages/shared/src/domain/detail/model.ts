@@ -279,7 +279,9 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
             isCurrent:
               !!(c.school_id && c.school_id === schoolId) ||
               normName(cn) === normName(schoolName) ||
-              normName(m.name) === normName(schoolName),
+              // 多校区成员（campuses 非空）共享成员通名 m.name，通名不代表任何具体校区：
+              // 仅单校区成员允许用通名兜底选中（否则通名打开详情页时所有校区行都命中）
+              (!m.campuses?.length && normName(m.name) === normName(schoolName)),
             link,
           };
         });

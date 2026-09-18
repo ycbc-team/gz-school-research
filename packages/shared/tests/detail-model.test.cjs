@@ -330,3 +330,25 @@ test('高中徽章/信息行：省市属·区属官方口径 + 区属不带区�
   assert.ok(t2.includes('省市属'), `省市属学校徽章应含「省市属」（实际: ${t2.join('·')}）`);
   assert.ok(m2.headText.includes('省属'), '省市属信息行应保留细粒度「省属」');
 });
+
+test('品牌关联：多校区成员通名打开不再全行选中（陶育实验学校）', () => {
+  // 回归：education 分支 isCurrent 第三条用成员通名 m.name 匹配，多校区成员（campuses 非空）
+  // 所有行共享通名 → 通名打开详情页（如搜索「广州市第一一三中学陶育实验学校」进初中 tab）
+  // 小学部与暨南校区两行都被选中。修复：仅单校区成员允许通名兜底选中。
+  const rowsOf = (stage, name, id) => {
+    const m = buildDetailModel(stage, name, repo, id);
+    return (m.brandCard?.groups || []).flatMap((g) => g.rows).filter((r) => r.name.includes('陶育'));
+  };
+  // 1. 通名打开：任何一行都不应选中（通名是聚合入口，不代表具体校区）
+  const agg = rowsOf('middle', '广州市第一一三中学陶育实验学校');
+  assert.equal(agg.length, 2, '陶育成员应平铺两校区');
+  assert.ok(agg.every((r) => !r.isCurrent), '通名打开不应选中任何校区行');
+  // 2. 小学部详情页只选小学部
+  const px = rowsOf('primary', '广州市第一一三中学陶育实验学校小学部', 'gz-440106-35cad4e6');
+  assert.equal(px.find((r) => r.name.includes('小学部'))?.isCurrent, true, '小学部详情页应选中小学部行');
+  assert.equal(px.find((r) => r.name.includes('暨南校区'))?.isCurrent, false, '小学部详情页不应选中初中部行');
+  // 3. 初中部（暨南校区）详情页只选初中部
+  const jn = rowsOf('middle', '广州市第一一三中学陶育实验学校(暨南校区)', 'gz-440106-7c81ab92');
+  assert.equal(jn.find((r) => r.name.includes('暨南校区'))?.isCurrent, true, '初中部详情页应选中暨南校区行');
+  assert.equal(jn.find((r) => r.name.includes('小学部'))?.isCurrent, false, '初中部详情页不应选中小学部行');
+});
