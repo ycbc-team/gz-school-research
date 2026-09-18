@@ -84,6 +84,32 @@ def _check_minban_official():
     print("民办官方源校验: ✓ 番禺官方招生计划解析与权威表一致（禁手改）")
 
 
+def _check_build_high_levels():
+    """重跑 build_high_levels_js.py（python）到临时目录，与入库 high 表比对。
+
+    高中学段判定链（2026-09-18 起实体表 stage 驱动）：levels.json / MIDDLE_ONLY_CAMPUSES /
+    实体表 stage 任一源改动必须重跑本脚本；重跑漂移说明 high 表被手改或脚本输出有变。
+    """
+    tmp = os.path.join(tempfile.gettempdir(), "high_levels_repro")
+    shutil.rmtree(tmp, ignore_errors=True)
+    r = subprocess.run(["python3", os.path.join(ROOT, "scripts/high/build_high_levels_js.py"), "--out-dir", tmp],
+                       capture_output=True, text=True, cwd=ROOT)
+    if r.returncode != 0:
+        print("生产脚本重跑失败：scripts/high/build_high_levels_js.py")
+        print(r.stdout[-2000:])
+        print(r.stderr[-2000:])
+        sys.exit(1)
+    with open(os.path.join(ROOT, "data/high/schools-gz.json")) as a, open(os.path.join(tmp, "schools-gz.json")) as b:
+        da, db = json.load(a), json.load(b)
+        # school_id 由下一环 build_entities 回写（其自带一致性校验），清洗层只比其余字段
+        strip = lambda d: {**d, "schools": [{k: v for k, v in s.items() if k != "school_id"} for s in d["schools"]]}
+        if strip(da) != strip(db):
+            print("产物一致性: ✗ build_high_levels 重跑产物与入库不一致（说明 high 表被手改或脚本输出有变）：")
+            print("  → 只改生产脚本/源表（levels.json / MIDDLE_ONLY_CAMPUSES / 实体表 stage），重跑并提交产物。")
+            sys.exit(1)
+    print("产物一致性: ✓ build_high_levels 重跑产物与入库完全一致")
+
+
 def _check_build_entities():
     """重跑 build_entities.mjs（node）到临时目录，与入库 entities + 3 个 POI 表比对。
 
@@ -253,6 +279,7 @@ def main():
 
     # 3) special plan + matrix（2026 特长生计划解析 + 升学通道矩阵）
     _check_special_matrix()
+    _check_build_high_levels()
     _check_build_entities()
     _check_minban_official()
 
