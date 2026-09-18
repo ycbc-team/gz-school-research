@@ -57,6 +57,16 @@ ORPHAN_SNAPSHOT = "c8b2eb1635ba4cc1"
 # 首次固化 2026-09-17：15 组候选（含省实荔湾 初中部/初中部一期/花地湾 同址北文街2号、
 #   景泰小学柯子岭校区/43号A座 等，逐一排查中，见提交说明）。
 CO_LOCATED_SNAPSHOT = "78bd7925e8bb2651"
+
+# 民办学校名单快照（sha256 前 16 位）：data/registry/minban_schools.json 民办名单权威表。
+# 民办身份由 build_entities 按此表联表生产 entities nature（表驱动，非手写 id 列表）。
+# 名单是业务事实集合（非"越小越好"）：新增民办 / 误标公办 / 漏标民办都算名单变化，
+# 必须先排查官方来源（各区教育局年检/招生计划/积分入学等，表内 source_urls 可追溯），
+# 再 UPDATE_SNAPSHOT=1 显式更新。防止"手写 id 列表"式误标（如 2026-09-18 剑桥郡小学
+# 被误标民办：公办的番禺区剑桥郡小学 vs 民办的剑桥郡加拿达外国语学校）无人感知。
+# 首次固化 2026-09-18：228 所（含剑桥郡小学误标剔除后；另新增 7 区 minban_*.md 查漏补缺
+# 来源链接共 88 所可追溯）。
+PRIVATE_MINBAN_SNAPSHOT = "9d6a610574e6b9cb"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
@@ -495,6 +505,24 @@ def main():
     check(_sp.get("arts") == 1741, f"[14] 特长生艺术计划合计 {_sp.get('arts')} != 1741（官方口径）")
     check(_sp.get("football_special") == 116, f"[14] 领军龙足球试点计划 {_sp.get('football_special')} != 116（官方口径）")
     print(f"[14] 特长生计划官方口径: 体育 {_sp.get('sports')}（不含领军龙） / 艺术 {_sp.get('arts')} / 领军龙 {_sp.get('football_special')}")
+
+    # ---- 15. 民办学校名单快照（变化即感知）----
+    _minban = json.load(open(os.path.join(ROOT, "data/registry/minban_schools.json")))
+    _minban_ids = sorted(s["school_id"] for s in _minban["schools"])
+    _minban_digest = hashlib.sha256("\n".join(_minban_ids).encode()).hexdigest()[:16]
+    if os.environ.get("UPDATE_SNAPSHOT") == "1":
+        # 与孤儿/同址同款显式更新：民办名单变化排查确认（官方来源）后写回本文件常量。
+        _mtxt = open(__file__, encoding="utf-8").read()
+        _mtxt, _mn = re.subn(r'PRIVATE_MINBAN_SNAPSHOT = "[0-9a-f]{16}"',
+                             f'PRIVATE_MINBAN_SNAPSHOT = "{_minban_digest}"', _mtxt, count=1)
+        if _mn:
+            open(__file__, "w", encoding="utf-8").write(_mtxt)
+            print(f"[15] UPDATE_SNAPSHOT=1：民办名单快照已更新 → {_minban_digest}（{len(_minban_ids)} 所）")
+        else:
+            print(f"[15] UPDATE_SNAPSHOT=1：未找到 PRIVATE_MINBAN_SNAPSHOT 常量，跳过写回")
+    check(_minban_digest == PRIVATE_MINBAN_SNAPSHOT,
+          f"[15] 民办名单漂移: digest {_minban_digest} != 固化 {PRIVATE_MINBAN_SNAPSHOT}（民办名单变化须先排查官方来源；确认后 UPDATE_SNAPSHOT=1 显式更新）")
+    print(f"[15] 民办学校名单: {len(_minban_ids)} 所（快照 {_minban_digest}，变化即感知）")
 
     # ---- 汇总 ----
     print(f"数据质量测试: {checks} 项检查, {len(failures)} 项失败")

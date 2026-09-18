@@ -22,8 +22,16 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
+// --out-dir <dir>：产物重定向到指定目录（check_groups_drift 产物一致性重跑用，不污染工作区）
+let OUT_ROOT = ROOT;
+const _arg = process.argv.indexOf('--out-dir');
+if (_arg >= 0 && process.argv[_arg + 1]) OUT_ROOT = path.resolve(process.argv[_arg + 1]);
 const read = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
-const write = (p, obj) => fs.writeFileSync(path.join(ROOT, p), JSON.stringify(obj, null, 2) + '\n');
+const write = (p, obj) => {
+  const fp = path.join(OUT_ROOT, p);
+  fs.mkdirSync(path.dirname(fp), { recursive: true });
+  fs.writeFileSync(fp, JSON.stringify(obj, null, 2) + '\n');
+};
 
 function normName(s) {
   if (!s) return '';
@@ -609,64 +617,14 @@ for (const [stage, file] of Object.entries(stageFiles)) {
   }
 }
 
-// ---- 0) 民办学校实体名单（办学性质唯一真源，2026-09-14 统一） ----
-// 民办身份统一由此表生产到 entities.json（nature='民办'）；POI 点位表 / tier1 口碑表 /
-// levels 高中表 / 2026 招生文件不再各自携带民办标识。
-// 名单来源（按 school_id / 名称别名匹配实体并去重，共 62 个）：
-//   ① data/primary/enrollments/2026-panyu.json 民办招生计划 sheet（38 个）
-//   ② data/high/levels.json nature=民办（19 所，按名称/别名/校区匹配，含同址初高中两实体）
-//   ③ 历史：tier1 口碑表法人类型=民办非企业单位（8 条，tier1 已废弃、不再作为来源，
-//      此 8 条已固化进下表 school_id，公办为默认性质）
-// 公办为默认性质，不写字段；新增民办学校时在此追加 school_id。
-const MINBAN_IDS = new Set([
-  'gz-440103-3ea667b1', 'gz-440103-4935332a', 'gz-440103-4ab42b76', 'gz-440103-5143f5a1', 'gz-440103-6c3ca7d0',
-  'gz-440103-815371aa', 'gz-440103-821faa89', 'gz-440103-84d436cd', 'gz-440103-957da59e', 'gz-440103-aa6cf7d7',
-  'gz-440103-b2c7aafd', 'gz-440103-b894cbeb', 'gz-440103-c5a0baa6', 'gz-440103-cc2ff923', 'gz-440103-e7a8679d',
-  'gz-440103-f5593d98', 'gz-440104-1f2d5df9', 'gz-440104-737bb916', 'gz-440104-cc4aa5b8', 'gz-440104-db01d10e',
-  'gz-440105-067354f4', 'gz-440105-0b2bc8c5', 'gz-440105-0b52e48d', 'gz-440105-0bb7bcc4', 'gz-440105-0c78a8e1',
-  'gz-440105-12dcb841', 'gz-440105-25137088', 'gz-440105-2e535171', 'gz-440105-33928ddd', 'gz-440105-443b73e7',
-  'gz-440105-47f6ec47', 'gz-440105-4d41d915', 'gz-440105-5a8bf708', 'gz-440105-6d9709b2', 'gz-440105-8371ce9c',
-  'gz-440105-88e4d95e', 'gz-440105-9a6566db', 'gz-440105-a1ae8780', 'gz-440105-a630438a', 'gz-440105-ae968480',
-  'gz-440105-b43b0c72', 'gz-440105-baa048f9', 'gz-440105-d30140a6', 'gz-440105-e038f3fb', 'gz-440105-e778fd4e',
-  'gz-440105-f0a0a476', 'gz-440105-f6b48b9e', 'gz-440105-fde335b7', 'gz-440106-01fd3a87', 'gz-440106-02473a1e',
-  'gz-440106-0a2c7178', 'gz-440106-0c83a9b2', 'gz-440106-0d03d513', 'gz-440106-118c9e6b', 'gz-440106-11f65b1a',
-  'gz-440106-1b9f7e62', 'gz-440106-23e66d3b', 'gz-440106-24ff78f9', 'gz-440106-3d7736c5', 'gz-440106-42297c28',
-  'gz-440106-429b917e', 'gz-440106-4534dc1a', 'gz-440106-4775be07', 'gz-440106-4fac106a', 'gz-440106-540006ea',
-  'gz-440106-682a616f', 'gz-440106-72c4c319', 'gz-440106-77787b4a', 'gz-440106-7abd2786', 'gz-440106-8d124051',
-  'gz-440106-989fdd47', 'gz-440106-9abdc5fd', 'gz-440106-a6394a7a', 'gz-440106-ae248365', 'gz-440106-b52cb528',
-  'gz-440106-b9eb24f9', 'gz-440106-bd07878c', 'gz-440106-c77276d3', 'gz-440106-c7779946', 'gz-440106-c8bf2650',
-  'gz-440106-cc1c335f', 'gz-440106-e3bbd1e0', 'gz-440106-e7f10219', 'gz-440106-eda909f7', 'gz-440106-f0ba06c2',
-  'gz-440106-fd03e039', 'gz-440111-020c5253', 'gz-440111-03ca4bd7', 'gz-440111-03e2f01b', 'gz-440111-0901ed40',
-  'gz-440111-0d08ab54', 'gz-440111-0d379efe', 'gz-440111-0fe2a45d', 'gz-440111-11210d19', 'gz-440111-13575da4',
-  'gz-440111-148947c8', 'gz-440111-15953ece', 'gz-440111-15a27204', 'gz-440111-17aab34c', 'gz-440111-2018bd49',
-  'gz-440111-2667c5ae', 'gz-440111-2abc753d', 'gz-440111-2dbed89a', 'gz-440111-2ec509e7', 'gz-440111-3028b238',
-  'gz-440111-32bb2663', 'gz-440111-381929f4', 'gz-440111-39672288', 'gz-440111-3a82b572', 'gz-440111-43281bfc',
-  'gz-440111-43437f78', 'gz-440111-43d37a48', 'gz-440111-44cd0b7c', 'gz-440111-4af73d54', 'gz-440111-50cbf803',
-  'gz-440111-565db7e9', 'gz-440111-5b14a4f5', 'gz-440111-6782d2c7', 'gz-440111-69cc1cd1', 'gz-440111-6b8ac68f',
-  'gz-440111-7137dd14', 'gz-440111-71bacd5a', 'gz-440111-7360ff6d', 'gz-440111-7b531bd6', 'gz-440111-7d12a21e',
-  'gz-440111-7e63cbbd', 'gz-440111-81f3c313', 'gz-440111-83b47043', 'gz-440111-87790ad3', 'gz-440111-87a92ab6',
-  'gz-440111-88e467ba', 'gz-440111-8ea6750c', 'gz-440111-919c20e3', 'gz-440111-9688546a', 'gz-440111-9bd31440',
-  'gz-440111-9f6fc18e', 'gz-440111-a1459fb9', 'gz-440111-a7294ae4', 'gz-440111-aca6656a', 'gz-440111-ad38690f',
-  'gz-440111-b3d8d324', 'gz-440111-b4e0e849', 'gz-440111-b5b26ace', 'gz-440111-b694e3ef', 'gz-440111-bcf22267',
-  'gz-440111-be9e574f', 'gz-440111-bf9d18d3', 'gz-440111-c03b19f7', 'gz-440111-c0e812a2', 'gz-440111-c1662288',
-  'gz-440111-c4a9b707', 'gz-440111-c5445d0e', 'gz-440111-c8ae0a7c', 'gz-440111-c9b1916c', 'gz-440111-cd94e05f',
-  'gz-440111-ce7a2db7', 'gz-440111-d3f7ac89', 'gz-440111-dad3339a', 'gz-440111-df409e86', 'gz-440111-e194def0',
-  'gz-440111-e85f7f8a', 'gz-440111-ed17a272', 'gz-440111-ed25f5e3', 'gz-440111-f08e9c24', 'gz-440111-f335b626',
-  'gz-440111-fd1c0f9d', 'gz-440111-feec64ce', 'gz-440111-ff8918f3', 'gz-440111-ff902ce9', 'gz-440112-202efa5a',
-  'gz-440112-2132c84e', 'gz-440112-21d0cd90', 'gz-440112-4517600f', 'gz-440112-4b58e8ec', 'gz-440112-4ed867c7',
-  'gz-440112-673fa2c9', 'gz-440112-705844f8', 'gz-440112-93566bfa', 'gz-440112-bffde68d', 'gz-440112-ccdabd8f',
-  'gz-440112-e085f4fa', 'gz-440112-fb457bd7', 'gz-440113-000bd12e', 'gz-440113-0670cc0e', 'gz-440113-0b94ed9c',
-  'gz-440113-166b5b5c', 'gz-440113-1963cc5e', 'gz-440113-1b3be909', 'gz-440113-23835acf', 'gz-440113-28a853f8',
-  'gz-440113-2a299f65', 'gz-440113-2b7d85fc', 'gz-440113-2ca37b61', 'gz-440113-337c0524', 'gz-440113-39879bc6',
-  'gz-440113-3b338135', 'gz-440113-3b63e590', 'gz-440113-3cc636b8', 'gz-440113-3d006240', 'gz-440113-611fa8ce',
-  'gz-440113-62cbe194', 'gz-440113-6426397c', 'gz-440113-6bf19a4c', 'gz-440113-70ea7542', 'gz-440113-757ae826',
-  'gz-440113-7997c707', 'gz-440113-7b27f226', 'gz-440113-7b2b848a', 'gz-440113-827f636b', 'gz-440113-82bf431a',
-  'gz-440113-86cfc8c7', 'gz-440113-89b309cd', 'gz-440113-8ef59a4c', 'gz-440113-8efab2cd', 'gz-440113-999fb9c0',
-  'gz-440113-a36980e5', 'gz-440113-a45e4a1a', 'gz-440113-a6aa9fb0', 'gz-440113-a6ae517b', 'gz-440113-a93513f2',
-  'gz-440113-ad8632f5', 'gz-440113-b33076d3', 'gz-440113-c181d193', 'gz-440113-c40a06e1', 'gz-440113-c5dec315',
-  'gz-440113-c9f8740e', 'gz-440113-cf01b95f', 'gz-440113-d4aecd66', 'gz-440113-d7e3e576', 'gz-440113-db326e94',
-  'gz-440113-e946f7f3'
-]);
+// ---- 0) 民办学校实体名单（办学性质唯一真源）----
+// 民办身份统一由 data/registry/minban_schools.json（官方文件汇总的民办名单表：各区教育局
+// 年检结论/招生计划/积分入学计划等，source_urls 可追溯）生产到 entities.json（nature='民办'）；
+// 公办为默认性质不写字段。不在表中的实体若有历史 nature 残留会被清除（表驱动，
+// 防"手写 id 列表"式误标扩散——如 2026-09-18 修复的剑桥郡小学被误标民办）。
+const MINBAN_IDS = new Set(
+  read('data/registry/minban_schools.json').schools.map((s) => s.school_id),
+);
 
 // ---- 2) 把 tier1 / sites 的别名挂到对应 POI 实体 ----
 function attachAlias(stage, poiName, aliasName, force = false) {
@@ -768,13 +726,16 @@ for (const [official, poi] of Object.entries(OFFICIAL_PRIMARY_ALIAS)) {
 }
 
 // ---- 3) 落盘实体（排序、aliases 去重排序）----
-// 办学性质唯一真源：仅民办写 nature='民办'（公办为默认不写字段），由 MINBAN_IDS 生产
-for (const e of entities) if (MINBAN_IDS.has(e.school_id)) e.nature = '民办';
+// 办学性质唯一真源：仅民办写 nature='民办'（公办为默认不写字段），由 minban_schools.json 联表生产
+for (const e of entities) {
+  if (MINBAN_IDS.has(e.school_id)) e.nature = '民办';
+  else delete e.nature; // 表驱动：不在民办名单 = 公办，清历史残留
+}
 for (const e of entities) e.aliases = [...e.aliases].sort((a, b) => b.length - a.length);
 entities.sort((a, b) => (a.stage + a.name).localeCompare(a.stage + a.name, 'zh'));
 write('data/registry/entities.json', {
   year: 2026,
-  note: '学校实体表（维度表）。一个 POI 点位=一个实体（校区/学部独立）；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由本脚本 MINBAN_IDS 生产。',
+  note: '学校实体表（维度表）。一个 POI 点位=一个实体（校区/学部独立）；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由 data/registry/minban_schools.json（官方文件汇总表）生产。',
   entities,
 });
 

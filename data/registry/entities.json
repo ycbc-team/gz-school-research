@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "note": "学校实体表（维度表）。一个 POI 点位=一个实体（校区/学部独立）；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由本脚本 MINBAN_IDS 生产。",
+  "note": "学校实体表（维度表）。一个 POI 点位=一个实体（校区/学部独立）；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由 data/registry/minban_schools.json（官方文件汇总表）生产。",
   "entities": [
     {
       "school_id": "gz-440105-9aac697e",
@@ -5906,8 +5906,7 @@
       "stage": "primary",
       "aliases": [
         "剑桥郡小学"
-      ],
-      "nature": "民办"
+      ]
     },
     {
       "school_id": "gz-440113-a93513f2",

@@ -10,7 +10,7 @@
 
 用法：python3 scripts/check_groups_drift.py
 """
-import json, os, subprocess, sys, tempfile, glob
+import json, os, subprocess, sys, tempfile, glob, shutil
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PRODUCT = os.path.join(ROOT, "data/registry/education_groups.json")
@@ -74,6 +74,39 @@ def _check_special_matrix():
     print("产物一致性: ✓ build_special_plan + build_special_matrix 重跑产物与入库完全一致")
 
 
+def _check_build_entities():
+    """重跑 build_entities.mjs（node）到临时目录，与入库 entities + 3 个 POI 表比对。
+
+    民办名单（minban_schools.json）与实体表/POI 的联动：源表改动必须重跑 build_entities，
+    禁止手改 entities.json；重跑漂移说明实体表被手改或民办名单表未重跑。
+    """
+    tmp = os.path.join(tempfile.gettempdir(), "entities_repro")
+    shutil.rmtree(tmp, ignore_errors=True)
+    r = subprocess.run(["node", os.path.join(ROOT, "scripts/registry/build_entities.mjs"), "--out-dir", tmp],
+                       capture_output=True, text=True, cwd=ROOT)
+    if r.returncode != 0:
+        print("生产脚本重跑失败：scripts/registry/build_entities.mjs")
+        print(r.stdout[-2000:])
+        print(r.stderr[-2000:])
+        sys.exit(1)
+    pairs = [
+        ("data/registry/entities.json", "entities"),
+        ("data/primary/schools-gz.json", "primary POI"),
+        ("data/middle/schools-gz.json", "middle POI"),
+        ("data/high/schools-gz.json", "high POI"),
+    ]
+    failed = []
+    for prod_rel, label in pairs:
+        with open(os.path.join(ROOT, prod_rel)) as a, open(os.path.join(tmp, prod_rel)) as b:
+            if json.load(a) != json.load(b):
+                failed.append(label)
+    if failed:
+        print("产物一致性: ✗ build_entities 重跑产物与入库不一致：" + ", ".join(failed))
+        print("  → 实体表/POI 被手改，或 minban_schools.json 等源表改动后未重跑 build_entities。修复须固化到生产脚本/源表后重跑并提交产物。")
+        sys.exit(1)
+    print("产物一致性: ✓ build_entities 重跑产物与入库完全一致（entities + 3 POI 表）")
+
+
 def main():
     # 1) education_groups
     tmp = os.path.join(tempfile.gettempdir(), "education_groups_repro.json")
@@ -124,6 +157,7 @@ def main():
 
     # 3) special plan + matrix（2026 特长生计划解析 + 升学通道矩阵）
     _check_special_matrix()
+    _check_build_entities()
 
 
 if __name__ == "__main__":
