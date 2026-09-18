@@ -38,6 +38,11 @@ GALLERY = {
     '05_screen_04_筛选栏半窗_状态_A': 'screen04_filter_A',
     '05_screen_05_筛选栏半窗_状态_B': 'screen05_filter_B',
     '05_screen_06_地图层': 'screen06_map',
+    '05_screen_07_学校详情卡_小学': 'screen07_detail_pri',
+    '05_screen_08_异常态_A_搜索无结果': 'state_empty_search',
+    '05_screen_09_异常态_B_网络加载失败': 'state_net_error',
+    '05_screen_10_异常态_C_筛选结果为空': 'state_filter_empty',
+    '05_screen_11_通用弹窗_清空历史确认': 'state_modal_clear',
     '09_spec_table': 'spec_table',
 }
 
@@ -194,6 +199,14 @@ for name, caption, p in manifest:
     im.save(png)
     results.append((name, caption, png, im.size))
     print(f'{name:28} {im.size}')
+
+# 收尾清理：headless Chrome 截完图不自行退出，残留进程会拖住整条后台管道
+# （表现为任务一直"运行中"）。只清理本次 OUT/prof_* 对应 profile 的 chrome，避免误杀。
+try:
+    subprocess.run(['pkill', '-9', '-f', os.path.join(OUT, 'prof_')], check=False)
+    subprocess.run(['rm', '-rf', os.path.join(OUT, 'chrome-profile')], check=False)
+except Exception:
+    pass
 
 json.dump([{'name': n, 'caption': c, 'png': p, 'size': list(s)} for n, c, p, s in results],
           open(os.path.join(OUT, 'manifest.json'), 'w'), ensure_ascii=False, indent=1)
