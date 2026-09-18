@@ -293,3 +293,20 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
   // 随实体表/POI 表联动（无品牌卡消失，miss 为空）——有意变更
   assert.equal(digest, '25d9b70539774c26', '品牌关联全量快照漂移：有实体的品牌卡渲染状态变化，需显式确认后更新');
 });
+
+test('品牌关联：校区+学部复合名实体归属教育集团（奥体小学部品牌卡）', () => {
+  // 回归：merge_groups legal_campuses 剥学部后缀后，「广州奥林匹克中学（智谷校区）小学部」
+  // 归入奥林匹克教育集团 core_poi → 小学部详情页显示品牌卡（核心校多校区平铺）
+  const ent = repo.entities.find((e) => e.school_id === 'gz-440106-a7cac9ec');
+  assert.ok(ent, '小学部实体应存在');
+  const m = buildDetailModel('primary', ent.name, repo, ent.school_id);
+  assert.equal(m.brandCard?.brand, '奥林匹克教育集团', '小学部应命中教育集团');
+  assert.equal(m.brandCardUseful, true, '核心校有非当前成员行时应渲染');
+  const coreRows = m.brandCard.groups.find((g) => g.key === 'core').rows;
+  const names = coreRows.map((r) => r.name);
+  for (const expect of ['广州奥林匹克中学（智谷校区）小学部', '广州市奥林匹克中学(黄村西路校区)', '广州奥林匹克中学(智谷校区)', '广州奥林匹克中学(高中部)']) {
+    assert.ok(names.includes(expect), `核心校应含 ${expect}（实际: ${names.join(' / ')}）`);
+  }
+  const cur = coreRows.find((r) => r.isCurrent);
+  assert.ok(cur && cur.stages.includes('小学'), '当前行应为小学部且学段含小学');
+});

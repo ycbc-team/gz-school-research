@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """合并7区partial + 2026招考办表 + brand_groups → education_groups.json"""
-import json, os, sys
+import json
+import re, os, sys
 
 BASE = "/Users/bytedance/Developer/gz_school_research"
 TODAY = "2026-09-14"
@@ -17,19 +18,27 @@ def load_json(path):
 # 实体表：法人推导（core 名/成员名 → 同法人全部校区实体）的权威来源
 _ENTITIES = load_json("data/registry/entities.json")["entities"]
 
+def _legal_key(name):
+    """法人推导 key：coreCampusName（去括号校区）后剥括号外学部后缀。
+    「广州奥林匹克中学（智谷校区）小学部」→ core「广州奥林匹克中学小学部」→ 剥「小学部」→「广州奥林匹克中学」，
+    与 core「广州奥林匹克中学」归并（校区+学部复合名实体归属法人）。"""
+    return match_norm(re.sub(r"(小学|初中|高中|中职)部$", "", core_name(name)))
+
+
 def legal_campuses(name):
     """法人推导：同一法人的全部校区实体（按 school_id 去重）。
-    key = matchNorm(coreCampusName(名))：去括号校区 + 区名/「广州市」前缀归一，
-    使「华阳小学(华成校区)」与「广州市天河区华阳小学(天润校区)」归并到「华阳小学」法人。
+    key = _legal_key(名)：去括号校区 + 剥学部后缀 + 区名/「广州市」前缀归一，
+    使「华阳小学(华成校区)」与「广州市天河区华阳小学(天润校区)」归并到「华阳小学」法人；
+    「广州奥林匹克中学（智谷校区）小学部」归并到「广州奥林匹克中学」法人。
     匹配实体 name 及其 aliases（法人通称/官方名，如「桥城中学」alias「市桥桥城中学」、
     「省实白云实验学校」alias「白云实验学校」→ 正确归入对应法人）。
     供 core_poi 补全与成员多校区匹配（成员名「华阳小学」→ 全部校区）。"""
-    key = match_norm(core_name(name))
+    key = _legal_key(name)
     seen = {}
     for e in _ENTITIES:
-        if match_norm(core_name(e["name"])) == key:
+        if _legal_key(e["name"]) == key:
             seen.setdefault(e["school_id"], e["name"])
-        elif any(match_norm(core_name(a)) == key for a in (e.get("aliases") or [])):
+        elif any(_legal_key(a) == key for a in (e.get("aliases") or [])):
             seen.setdefault(e["school_id"], e["name"])
     return [{"poi_name": n, "school_id": sid} for sid, n in seen.items()]
 
