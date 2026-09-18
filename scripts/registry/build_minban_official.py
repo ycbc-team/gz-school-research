@@ -21,22 +21,31 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 RAW = os.path.join(ROOT, 'data/primary/enrollments/_raw/panyu_2026_official.json')
+HIGH_RAW = os.path.join(ROOT, 'data/registry/_raw/gzzk_2026_minban_high.json')
 TABLE = os.path.join(ROOT, 'data/registry/minban_schools.json')
 ENTITIES = os.path.join(ROOT, 'data/registry/entities.json')
 DISTRICT = '440113'
 
-# 官方名 → 关键词（区+关键词唯一才采用）的特殊匹配
+# 官方名 → 关键词（区+关键词唯一才采用）的特殊匹配。
+# 这些官方名与实体名存在街道/镇前缀、同校多实体（小学部/中学部/招生处）等差异，
+# 精确 norm 匹配不到，须用「区+关键词唯一」匹配并带出同校全部实体。
 SPECIAL = {
     '金星小学': '金星',        # 番禺=金星学校(九年制)；白云另有金星小学，靠区约束区分
     '同心小学': '同心',        # 番禺同心小学
     '名智小学': '名智',        # 番禺名智小学
     '南村华立小学': '华立',    # 番禺华立学校
     '剑桥郡加拿达学校': '加拿达',  # 加拿达外国语学校(剑桥郡校区)
+    '洛浦厦滘学校': '厦滘',        # 实体名=厦滘学校(小学部) + 洛浦厦滘学校(中学部)，官方带洛浦街道前缀
+    '博萃德学校': '博萃德',        # 实体=广州博萃德学校 + 小学部（同校多实体全部标民办）
+    '广州市星执学校': '星执学校',  # 实体=广州市星执学校 + 小学招生处；不含星执外国语小学(另一所)
+    '化龙镇大博学校': '大博',      # 实体=大博学校(中学部) + 化龙大博学校(小学部)，官方带镇前缀
 }
 
 
 def norm(s):
-    return re.sub(r'[（(].*?[)）]', '', s).replace('广州市', '').replace('番禺区', '').replace('番禺', '').strip()
+    return (re.sub(r'[（(].*?[)）]', '', s)
+            .replace('广州市', '').replace('番禺区', '').replace('番禺', '')
+            .replace('有限公司', '').strip())
 
 
 def parse_plan_names():
@@ -55,12 +64,20 @@ def parse_plan_names():
     return names
 
 
+def parse_high_names():
+    """解析广州市中考批次民办高中名单（官方源）→ (学校名列表, source_url)。"""
+    raw = json.load(open(HIGH_RAW, encoding='utf-8'))
+    return raw['schools'], raw['source_url']
+
+
 def main():
     dry_run = '--dry-run' in sys.argv
 
-    # 1. 解析官方 sheet
+    # 1. 解析官方 sheet（义务教育民办招生计划）
     names = parse_plan_names()
     print(f'官方 sheet: {len(names)} 所')
+    high_names, high_url = parse_high_names()
+    print(f'官方民办高中名单: {len(high_names)} 所')
 
     # 2. 匹配实体（区 440113）
     entities = json.load(open(ENTITIES, encoding='utf-8'))['entities']
@@ -76,21 +93,29 @@ def main():
             if kw in e['name'] or any(kw in a for a in e.get('aliases', [])):
                 kw_idx.setdefault(kw, set()).add(e['school_id'])
 
-    official = {}  # school_id -> source_url
+    official = {}  # school_id -> set(source_urls)（可能多官方源）
     source_url = 'https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html'
     unmatched = []
     for name in names:
-        ids = idx.get(norm(name), set())
-        if not ids:
-            kw = SPECIAL.get(name)
-            if kw:
-                ids = kw_idx.get(kw, set())
+        # SPECIAL 优先：官方名在 SPECIAL 表 → 用「区+关键词唯一」匹配，
+        # 带出同校全部实体（小学部/中学部/招生处等），不依赖精确 norm（街道/镇前缀差异）。
+        kw = SPECIAL.get(name)
+        ids = kw_idx.get(kw, set()) if kw else idx.get(norm(name), set())
         if ids:
             # 同名多 id = 同校多 stage（九年制小学部+初中部等），全部标民办
             for i in ids:
-                official[i] = source_url
+                official.setdefault(i, set()).add(source_url)
         else:
             unmatched.append((name, sorted(ids)))
+
+    # 2b. 民办高中名单（番禺实体）→ 同样归入官方源
+    for name in high_names:
+        ids = idx.get(norm(name), set())
+        if ids:
+            for i in ids:
+                official.setdefault(i, set()).add(high_url)
+        else:
+            unmatched.append((f'[高中] {name}', []))
 
     print(f'匹配实体: {len(official)} 所 | 未匹配/歧义: {len(unmatched)}')
     for n, ids in unmatched:
@@ -100,7 +125,7 @@ def main():
     table = json.load(open(TABLE, encoding='utf-8'))
 
     if '--check' in sys.argv:
-        cur = {s['school_id']: s for s in table['schools'] if s.get('source_type') == 'official_panyu_plan'}
+        cur = {s['school_id']: set(s.get('source_urls', [])) for s in table['schools'] if s.get('source_type') == 'official_panyu_plan'}
         expected = dict(official)
         ok = True
         if set(cur) != set(expected):
@@ -109,9 +134,9 @@ def main():
             print(f'    表多出: {sorted(set(cur) - set(expected))}')
             print(f'    重算新增: {sorted(set(expected) - set(cur))}')
         for sid in sorted(set(cur) & set(expected)):
-            if expected[sid] not in cur[sid].get('source_urls', []):
+            if cur[sid] != expected[sid]:
                 ok = False
-                print(f'  ✗ {sid} 缺官方 source_url')
+                print(f'  ✗ {sid} source_urls 不一致：表 {sorted(cur[sid])} vs 官方 {sorted(expected[sid])}')
         if not ok:
             print('[CHECK FAIL] official 民办源被手改或官方文件变化未重跑 → 必须重跑 build_minban_official.py')
             sys.exit(1)
@@ -121,13 +146,12 @@ def main():
     existing = {s['school_id']: s for s in table['schools']}
     n_upd, n_new = 0, 0
     for sid in sorted(official):
+        urls = official[sid]  # 该 id 的官方来源集合（义务教育 sheet / 民办高中名单）
         if sid in existing:
             s = existing[sid]
-            if s.get('source_type') != 'official_panyu_plan' or source_url not in s.get('source_urls', []):
+            if s.get('source_type') != 'official_panyu_plan' or set(s.get('source_urls', [])) != urls:
                 s['source_type'] = 'official_panyu_plan'
-                urls = s.setdefault('source_urls', [])
-                if source_url not in urls:
-                    urls.append(source_url)
+                s['source_urls'] = sorted(urls)  # 替换而非追加，清除残留错误 URL
                 n_upd += 1
         else:
             table['schools'].append({
@@ -135,7 +159,7 @@ def main():
                 'name': next(e['name'] for e in entities if e['school_id'] == sid),
                 'stage': '',
                 'source_type': 'official_panyu_plan',
-                'source_urls': [source_url],
+                'source_urls': sorted(urls),
             })
             n_new += 1
 

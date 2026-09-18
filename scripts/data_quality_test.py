@@ -552,6 +552,19 @@ def main():
         check(False, f"[16] 民办学校出现公办招生/升学信息: {_b}")
     print(f"[16] 民办学校公办招生/升学检测: 小学 {len(_bad_pri)} 异常 / 初中 {len(_bad_mid)} 异常 / 小升初 {len(_bad_xs)} 异常（民办自主招生计划放行，0 容忍）")
 
+    # ---- 17. 番禺民办条目必须全部官方源（防手工名单）----
+    # 番禺有官方文件（2026 义务教育民办招生计划 sheet + 广州市中考批次民办高中名单），
+    # 民办名单必须由 build_minban_official.py 自动解析生成；md/手工不得直接追加番禺
+    # （金海岸学校误标民办即为 md 手工追加所致）。manual/legacy 的番禺条目 → 失败。
+    _panyu_entries = [s for s in json.load(open(os.path.join(ROOT, "data/registry/minban_schools.json")))["schools"]
+                      if s["school_id"].startswith("gz-440113")]
+    _panyu_manual = [f"{s['school_id']} | {s.get('name')} | {s.get('source_type')}"
+                     for s in _panyu_entries if not s.get("source_type", "").startswith("official")]
+    for _b in _panyu_manual:
+        check(False, f"[17] 番禺民办条目非官方源（番禺只能官方解析，禁止手工名单）: {_b}")
+    print(f"[17] 番禺民办条目: {len(_panyu_entries) - len(_panyu_manual)}/{len(_panyu_entries)} 官方源"
+          f"（manual/legacy {len(_panyu_manual)}，0 容忍）")
+
     # ---- 汇总 ----
     print(f"数据质量测试: {checks} 项检查, {len(failures)} 项失败")
     if failures:

@@ -1612,7 +1612,6 @@
    "stage": "middle",
    "district": null,
    "source_urls": [
-    "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html",
     "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
    "source_type": "official_panyu_plan"
@@ -1653,9 +1652,9 @@
    "stage": "primary",
    "district": null,
    "source_urls": [
-    "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html"
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
-   "source_type": "manual"
+   "source_type": "official_panyu_plan"
   },
   {
    "school_id": "gz-440113-23835acf",
@@ -1763,8 +1762,6 @@
    "stage": "primary+middle+high",
    "district": null,
    "source_urls": [
-    "https://jyj.gz.gov.cn/yw/jyyw/content/post_10271257.html",
-    "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html",
     "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
    "source_type": "official_panyu_plan"
@@ -1775,7 +1772,6 @@
    "stage": "middle",
    "district": null,
    "source_urls": [
-    "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html",
     "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
    "source_type": "official_panyu_plan"
@@ -1786,7 +1782,6 @@
    "stage": "middle",
    "district": null,
    "source_urls": [
-    "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html",
     "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
    "source_type": "official_panyu_plan"
@@ -1827,7 +1822,6 @@
    "stage": "primary+middle",
    "district": null,
    "source_urls": [
-    "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html",
     "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
    "source_type": "official_panyu_plan"
@@ -1848,9 +1842,6 @@
    "stage": "primary+middle",
    "district": null,
    "source_urls": [
-    "http://www.panyu.gov.cn/attachment/7/7353/7353189/9051745.pdf",
-    "http://www.panyu.gov.cn/attachment/7/7835/7835118/10334886.pdf",
-    "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html",
     "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
    "source_type": "official_panyu_plan"
@@ -1871,7 +1862,6 @@
    "stage": "primary",
    "district": null,
    "source_urls": [
-    "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html",
     "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
    "source_type": "official_panyu_plan"
@@ -1881,8 +1871,10 @@
    "name": "广州市衡美高级中学",
    "stage": "high",
    "district": null,
-   "source_urls": [],
-   "source_type": "manual"
+   "source_urls": [
+    "http://gzzk.gz.gov.cn/zwgk/zwdt/content/post_10910342.html"
+   ],
+   "source_type": "official_panyu_plan"
   },
   {
    "school_id": "gz-440113-89b309cd",
@@ -1929,8 +1921,10 @@
    "name": "广州市星执学校小学招生处",
    "stage": "primary",
    "district": null,
-   "source_urls": [],
-   "source_type": "manual"
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
   },
   {
    "school_id": "gz-440113-a45e4a1a",
@@ -1938,7 +1932,6 @@
    "stage": "primary",
    "district": null,
    "source_urls": [
-    "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html",
     "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
    "source_type": "official_panyu_plan"
@@ -1949,9 +1942,9 @@
    "stage": "primary",
    "district": null,
    "source_urls": [
-    "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html"
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
-   "source_type": "manual"
+   "source_type": "official_panyu_plan"
   },
   {
    "school_id": "gz-440113-a6ae517b",
@@ -1979,7 +1972,6 @@
    "stage": "primary+middle",
    "district": null,
    "source_urls": [
-    "http://gz.bendibao.com/edu/guojixuexiaolist/minban/",
     "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
    "source_type": "official_panyu_plan"
@@ -2030,9 +2022,9 @@
    "stage": "primary",
    "district": null,
    "source_urls": [
-    "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html"
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
-   "source_type": "manual"
+   "source_type": "official_panyu_plan"
   },
   {
    "school_id": "gz-440113-d4aecd66",
@@ -2050,7 +2042,6 @@
    "stage": "primary+middle",
    "district": null,
    "source_urls": [
-    "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html",
     "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
    "source_type": "official_panyu_plan"
@@ -2061,7 +2052,6 @@
    "stage": "middle",
    "district": null,
    "source_urls": [
-    "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html",
     "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
    "source_type": "official_panyu_plan"

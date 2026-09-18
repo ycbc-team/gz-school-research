@@ -87,9 +87,14 @@ def main():
     to_add = []
     already = []
     not_found = []
+    panyu_blocked = []
     for sid in sorted(all_new):
         if sid in existing:
             already.append(sid)
+        elif sid.startswith('gz-440113'):
+            # 番禺有官方文件（2026 义务教育民办 sheet + 中考批次民办高中名单），
+            # 民办名单必须由 build_minban_official.py 自动解析，禁止手工追加。
+            panyu_blocked.append(sid)
         elif sid in name_by_id:
             to_add.append(sid)
         else:
@@ -98,6 +103,10 @@ def main():
     print(f'\n补丁结果:')
     print(f'  已在权威表: {len(already)} 个')
     print(f'  待追加: {len(to_add)} 个')
+    print(f'  番禺 md 提取但被拒（番禺只能官方源）: {len(panyu_blocked)} 个')
+    if panyu_blocked:
+        for sid in sorted(panyu_blocked):
+            print(f'    BLOCKED_PANYU: {sid}  {all_new[sid]["line"][:80]}')
     print(f'  实体表未找到（需先补实体）: {len(not_found)} 个')
     if not_found:
         for sid in sorted(not_found):
