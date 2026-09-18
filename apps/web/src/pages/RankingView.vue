@@ -3,8 +3,8 @@
  * 初中升学信号明细
  * - 数据真源：data/linkage/middle_middle.json（scripts/linkage/build_ranking_middle.py 聚合，
  *   含名额分配符合资格考生数/省市属·区属指标/2026 自招名单计数/指标到校高中明细+特控率）
- * - 分组：按区（区教育局口径）或按教育集团（@gz/shared groupOfSchool，brand 优先）
- * - 指标（6 选 1）：自招绝对值 / 自招比例 / 区属指标数 / 区属指标比例 / 省市属指标比例 / 指标×高中特控率
+ * - 分组：不分组 / 按区（区教育局口径）或按教育集团（@gz/shared groupOfSchool，brand 优先）；可叠加行政区位置筛选
+ * - 指标（3 选 1）：区属指标比例 / 省市属指标比例 / 指标×高中特控率
  * - 榜单口径：所有比例均以「符合名额分配报考资格考生数（kaosheng）」为分母，
  *   消除学校规模差异（学生多则名额自然多，须看比例）
  */
@@ -70,19 +70,12 @@ function goSchool(name: string, id?: string) {
   router.push({ path: `/school/${encodeURIComponent(name)}`, query: { stage: 'middle', ...(id ? { id } : {}) } });
 }
 
-const openMenu = ref<'group' | 'metric' | null>(null);
-const groupBy = ref<'district' | 'group'>('district');
-type MetricKey = 'aut_abs' | 'aut_ratio' | 'qu_ratio' | 'sheng_ratio' | 'tekong';
-const metric = ref<MetricKey>('aut_ratio');
+const openMenu = ref<'group' | 'district' | 'metric' | null>(null);
+const groupBy = ref<'none' | 'district' | 'group'>('none');
+type MetricKey = 'qu_ratio' | 'sheng_ratio' | 'tekong';
+const metric = ref<MetricKey>('qu_ratio');
 
 const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: string }> }> = [
-  {
-    title: '自主招生（2026 资格名单）',
-    items: [
-      { v: 'aut_abs', l: '自招人数（绝对值）' },
-      { v: 'aut_ratio', l: '自招比例（÷名额分配符合资格考生数）' },
-    ],
-  },
   {
     title: '指标到校',
     items: [
@@ -97,8 +90,6 @@ const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: stri
 ];
 
 const METRIC_META: Record<MetricKey, { label: string; note: string; unit: string; digits: number }> = {
-  aut_abs: { label: '自招人数', note: '2026 年自主招生综合能力考核资格名单中，来源初中的考生人数（绝对值）。', unit: '人', digits: 0 },
-  aut_ratio: { label: '自招比例', note: '自招资格人数 ÷ 符合名额分配报考资格考生数。比例口径消除学校规模差异（学生多则名额自然多）。', unit: '%', digits: 1 },
   qu_ratio: { label: '区属指标比例', note: '区属指标数 ÷ 符合名额分配报考资格考生数。反映本区学生获得本区区属指标的机会。', unit: '%', digits: 1 },
   sheng_ratio: { label: '省市属指标比例', note: '省市属高中名额分配指标数 ÷ 符合名额分配报考资格考生数。省市属指标按符合资格考生等比例分配，全区一致。', unit: '%', digits: 1 },
   tekong: { label: '指标×特控率', note: 'Σ(区属高中给该校指标名额 × 该高中特控率) ÷ 符合名额分配报考资格考生数。反映该校符合资格考生经区属指标到校路径预计上特控（一本）线的比例；特控率为喜报/网传口径，缺失的高中名额不计。', unit: '%', digits: 1 },
@@ -159,8 +150,6 @@ const metricNote = computed(() => METRIC_META[metric.value].note);
 function metricValue(s: Row): number | null {
   const k = s.kaosheng ?? null;
   switch (metric.value) {
-    case 'aut_abs': return s.autonomy_count;
-    case 'aut_ratio': return k && s.autonomy_count != null ? (s.autonomy_count / k) * 100 : null;
     case 'qu_ratio': return k && s.qu_quota != null ? (s.qu_quota / k) * 100 : null;
     case 'sheng_ratio': return k && s.sheng_quota != null ? (s.sheng_quota / k) * 100 : null;
     case 'tekong': return s.tekong_quota_rate ?? null;
@@ -196,11 +185,34 @@ function rankSort(a: { v: number | null; minban?: boolean }, b: { v: number | nu
   return b.v - a.v;
 }
 
+/** 行政区位置筛选：默认全选，参考高中明细（未列入七区的行仅在全选时保留）。 */
+const selectedDistricts = ref(new Set(DISTRICTS.map((d) => d.adcode)));
+const districtAllOn = computed(() => selectedDistricts.value.size === DISTRICTS.length);
+function toggleDistrict(adcode: string) {
+  const next = new Set(selectedDistricts.value);
+  next.has(adcode) ? next.delete(adcode) : next.add(adcode);
+  selectedDistricts.value = next;
+}
+function flipDistricts() {
+  selectedDistricts.value = districtAllOn.value ? new Set() : new Set(DISTRICTS.map((d) => d.adcode));
+}
+const DISTRICT_TO_ADCODE = new Map(DISTRICTS.map((d) => [d.name, d.adcode]));
+function districtVisible(s: Row): boolean {
+  if (districtAllOn.value) return true;
+  const ad = DISTRICT_TO_ADCODE.get(s.district || '');
+  return ad ? selectedDistricts.value.has(ad) : false;
+}
+
+const groupLabel = computed(() => ({ none: '不分组', district: '按区', group: '按集团' })[groupBy.value]);
+
 /** 分组顺序：按区 → DISTRICTS 顺序（未列出的区按出现顺序补尾）；按集团 → 组名拼音序 */
 const districtOrder = DISTRICTS.map((d) => d.name.replace('区', ''));
 
 const groups = computed(() => {
-  const rows = schools.map((s) => ({ s, v: metricValue(s), minban: !!s.minban }));
+  const rows = schools.filter(districtVisible).map((s) => ({ s, v: metricValue(s), minban: !!s.minban }));
+  if (groupBy.value === 'none') {
+    return [{ key: 'all', title: '', items: rows.slice().sort((a, b) => rankSort(a, b)) }];
+  }
   if (groupBy.value === 'district') {
     const map = new Map<string, typeof rows>();
     for (const r of rows) {
@@ -245,7 +257,12 @@ const groups = computed(() => {
     <div class="filter-bar">
       <div class="fb-col">
         <button class="fb-btn" :class="{ on: openMenu === 'group' }" @click="openMenu = openMenu === 'group' ? null : 'group'">
-          分组<em class="fb-badge">{{ groupBy === 'district' ? '按区' : '按集团' }}</em><span class="arr">▾</span>
+          分组<em class="fb-badge">{{ groupLabel }}</em><span class="arr">▾</span>
+        </button>
+      </div>
+      <div class="fb-col">
+        <button class="fb-btn" :class="{ on: openMenu === 'district' }" @click="openMenu = openMenu === 'district' ? null : 'district'">
+          位置<em v-if="!districtAllOn" class="fb-badge">{{ selectedDistricts.size }}</em><span class="arr">▾</span>
         </button>
       </div>
       <div class="fb-col">
@@ -256,10 +273,21 @@ const groups = computed(() => {
 
       <div v-if="openMenu === 'group'" class="fb-pop">
         <div class="pop-chips">
+          <button class="pop-chip" :class="{ on: groupBy === 'none' }" @click="groupBy = 'none'">不分组</button>
           <button class="pop-chip" :class="{ on: groupBy === 'district' }" @click="groupBy = 'district'">按区</button>
           <button class="pop-chip" :class="{ on: groupBy === 'group' }" @click="groupBy = 'group'">按教育集团</button>
         </div>
         <div class="pop-foot">
+          <button class="pop-link" @click="openMenu = null">完成</button>
+        </div>
+      </div>
+
+      <div v-if="openMenu === 'district'" class="fb-pop">
+        <div class="pop-chips">
+          <button v-for="d in DISTRICTS" :key="d.adcode" class="pop-chip" :class="{ on: selectedDistricts.has(d.adcode) }" @click="toggleDistrict(d.adcode)">{{ d.name }}</button>
+        </div>
+        <div class="pop-foot">
+          <button class="pop-link" @click="flipDistricts">{{ districtAllOn ? '取消全选' : '全选' }}</button>
           <button class="pop-link" @click="openMenu = null">完成</button>
         </div>
       </div>
@@ -280,8 +308,14 @@ const groups = computed(() => {
 
     <main class="rank-body">
       <section v-for="g in groups" :key="g.key" class="rank-group">
-        <h3 class="rg-title">{{ g.title }}<em class="rg-count">{{ g.items.length }} 所 · 排名不分先后</em></h3>
+        <h3 v-if="groupBy !== 'none'" class="rg-title">{{ g.title }}<em class="rg-count">{{ g.items.length }} 所 · 排名不分先后</em></h3>
         <table class="rank-table">
+          <colgroup>
+            <col class="col-name">
+            <col class="col-val">
+            <col v-if="showAbs" class="col-sub">
+            <col class="col-sub">
+          </colgroup>
           <thead>
             <tr>
               <th class="c-name">学校</th>
@@ -333,7 +367,7 @@ const groups = computed(() => {
     </main>
 
     <footer class="foot-note">
-      数据来源：广州市招考办 2026 名额分配计划汇总表（符合名额分配报考资格考生数/指标数）· 2026 自主招生资格名单（13866 条）· 高中特控率喜报/网传口径（data/high/levels.json）。比例均为「÷ 符合名额分配报考资格考生数」，不代表学校全部应考人数。
+      数据来源：广州市招考办 2026 名额分配计划汇总表（符合名额分配报考资格考生数/指标数）· 高中特控率喜报/网传口径（data/high/levels.json）。比例均为「÷ 符合名额分配报考资格考生数」，不代表学校全部应考人数。
     </footer>
 
     <Teleport to="body">
@@ -422,7 +456,10 @@ const groups = computed(() => {
   font-size: 15px; font-weight: 700; margin: 0; padding: 12px 18px 8px;
 }
 .rg-count { font-style: normal; font-size: 11.5px; color: #8a93a3; font-weight: 500; }
-.rank-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.rank-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 13px; }
+/* 列宽统一（colgroup），保证各分组表格列对齐；col-sub 不设宽，均分剩余空间 */
+.col-name { width: 42%; }
+.col-val { width: 26%; }
 .rank-table th {
   text-align: left; font-size: 11.5px; color: #8a93a3; font-weight: 600;
   padding: 7px 10px; border-bottom: 1px solid #ecebe6;
@@ -433,7 +470,7 @@ const groups = computed(() => {
 .rank-table tbody tr:hover { background: #fafbfc; }
 .c-val { font-variant-numeric: tabular-nums; font-weight: 600; color: #1a1b1c; white-space: nowrap; }
 .c-sub { color: #6b7280; font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.c-name { max-width: 240px; }
+.c-name { overflow-wrap: anywhere; }
 
 /* 指标口径/名额分配符合资格考生数口径问号 + popup（Teleport 到 body，fixed 定位不受表格 overflow 裁剪） */
 .q-mark {
