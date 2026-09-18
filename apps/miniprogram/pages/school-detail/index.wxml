@@ -179,15 +179,15 @@
         <view wx:if="{{linkage.hasReserveNote}}" class="plan-note">本校体育特长生计划含"优秀体育后备人才"名额（上限见各项目标注）：报考条件在体育特长生基础上要求较高体育竞技水平，录取最低控制分数线不低于全市普通高中录取最低控制分数线的80%；未用完的后备人才名额滚入同项目体育特长生计划。</view>
         <view wx:if="{{linkage.hasLingjunNote}}" class="plan-note">本校为青少年足球人才培养改革试点"领军龙"学校：足球招生计划单列、面向全市，以考生足球专业成绩作为录取的主要依据，按特长生招生程序办理录取。</view>
         <view class="kv">
-          <view class="kv-row"><text>自主招生计划</text><text>{{linkage.autonomyPlan !== null && linkage.autonomyPlan !== undefined ? linkage.autonomyPlan : '—'}} 人</text></view>
-          <view class="kv-row"><text>体育特长生计划</text><text>{{linkage.sportsPlan !== null && linkage.sportsPlan !== undefined ? linkage.sportsPlan : '—'}} 人</text></view>
+          <view class="kv-row"><text>自主招生计划</text><text>{{linkage.autonomyPlan !== null && linkage.autonomyPlan !== undefined ? linkage.autonomyPlan + ' 人' : '无此录取通道'}}</text></view>
+          <view class="kv-row"><text>体育特长生计划</text><text>{{linkage.sportsPlan !== null && linkage.sportsPlan !== undefined ? linkage.sportsPlan + ' 人' : '无此录取通道'}}</text></view>
           <view wx:if="{{linkage.sportsProjects && linkage.sportsProjects.length}}" class="proj-list">
             <view wx:for="{{linkage.sportsProjects}}" wx:key="project" class="proj-row">
               <text>{{item.project}}</text><text>{{item.plan}} 人</text>
               <text wx:if="{{item.note}}" class="proj-note">{{item.note}}</text>
             </view>
           </view>
-          <view class="kv-row"><text>艺术特长生计划</text><text>{{linkage.artsPlan !== null && linkage.artsPlan !== undefined ? linkage.artsPlan : '—'}} 人</text></view>
+          <view class="kv-row"><text>艺术特长生计划</text><text>{{linkage.artsPlan !== null && linkage.artsPlan !== undefined ? linkage.artsPlan + ' 人' : '无此录取通道'}}</text></view>
           <view wx:if="{{linkage.artsProjects && linkage.artsProjects.length}}" class="proj-list">
             <view wx:for="{{linkage.artsProjects}}" wx:key="project" class="proj-row">
               <text>{{item.project}}</text><text>{{item.plan}} 人</text>

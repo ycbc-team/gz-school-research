@@ -116,14 +116,14 @@ function goCampus(item: CampusPick['items'][number]) {
       <p v-if="model.planNotes.includes('reserve')" class="plan-note">本校体育特长生计划含"优秀体育后备人才"名额（上限见各项目标注）：报考条件在体育特长生基础上要求较高体育竞技水平，录取最低控制分数线不低于全市普通高中录取最低控制分数线的80%；未用完的后备人才名额滚入同项目体育特长生计划。</p>
       <p v-if="model.planNotes.includes('lingjun')" class="plan-note">本校为青少年足球人才培养改革试点"领军龙"学校：足球招生计划单列、面向全市，以考生足球专业成绩作为录取的主要依据，按特长生招生程序办理录取。</p>
       <div class="kv">
-        <div class="kv-row"><span>自主招生计划</span><b>{{ model.autonomyPlan ?? '—' }} 人</b></div>
-        <div class="kv-row"><span>体育特长生计划</span><b>{{ model.sportsPlan ?? '—' }} 人</b></div>
+        <div class="kv-row"><span>自主招生计划</span><b>{{ model.autonomyPlan != null ? model.autonomyPlan + ' 人' : '无此录取通道' }}</b></div>
+        <div class="kv-row"><span>体育特长生计划</span><b>{{ model.sportsPlan != null ? model.sportsPlan + ' 人' : '无此录取通道' }}</b></div>
         <div v-if="model.sportsProjects && model.sportsProjects.length" class="proj-list">
           <div v-for="p in model.sportsProjects" :key="p.project" class="proj-row">
             <span>{{ p.project }}</span><span>{{ p.plan }} 人</span><span v-if="p.note" class="proj-note">{{ p.note }}</span>
           </div>
         </div>
-        <div class="kv-row"><span>艺术特长生计划</span><b>{{ model.artsPlan ?? '—' }} 人</b></div>
+        <div class="kv-row"><span>艺术特长生计划</span><b>{{ model.artsPlan != null ? model.artsPlan + ' 人' : '无此录取通道' }}</b></div>
         <div v-if="model.artsProjects && model.artsProjects.length" class="proj-list">
           <div v-for="p in model.artsProjects" :key="p.project" class="proj-row">
             <span>{{ p.project }}</span><span>{{ p.plan }} 人</span>
