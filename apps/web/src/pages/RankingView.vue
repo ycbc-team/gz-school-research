@@ -4,14 +4,14 @@
  * - 数据真源：data/linkage/middle_middle.json（scripts/linkage/build_ranking_middle.py 聚合，
  *   含名额分配符合资格考生数/省市属·区属指标/2026 自招名单计数/指标到校高中明细+特控率）
  * - 分组：不分组 / 按区（区教育局口径）或按教育集团（@gz/shared groupOfSchool，brand 优先）；可叠加行政区位置筛选
- * - 指标（3 选 1）：区属指标比例 / 省市属指标比例 / 指标×高中特控率
+ * - 指标（4 选 1）：默认（机构综合口径，名单见 data/middle/tiers_huangpu.json）/ 区属指标比例 / 省市属指标比例 / 指标×高中特控率
  * - 榜单口径：所有比例均以「符合名额分配报考资格考生数（kaosheng）」为分母，
  *   消除学校规模差异（学生多则名额自然多，须看比例）
  */
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 import { useRouter } from 'vue-router';
 import { DISTRICTS } from '@gz/shared';
-import { rankingMiddle, entities } from '../data';
+import { rankingMiddle, entities, middleTiersHuangpu } from '../data';
 
 interface Row {
   name: string;
@@ -72,10 +72,14 @@ function goSchool(name: string, id?: string) {
 
 const openMenu = ref<'group' | 'district' | 'metric' | null>(null);
 const groupBy = ref<'none' | 'district' | 'group'>('none');
-type MetricKey = 'qu_ratio' | 'sheng_ratio' | 'tekong';
-const metric = ref<MetricKey>('qu_ratio');
+type MetricKey = 'default' | 'qu_ratio' | 'sheng_ratio' | 'tekong';
+const metric = ref<MetricKey>('default');
 
 const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: string }> }> = [
+  {
+    title: '综合排序',
+    items: [{ v: 'default', l: '默认' }],
+  },
   {
     title: '指标到校',
     items: [
@@ -90,16 +94,17 @@ const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: stri
 ];
 
 const METRIC_META: Record<MetricKey, { label: string; note: string; unit: string; digits: number }> = {
+  default: { label: '默认', note: '默认排序采用机构综合口径，数值列为区属指标比例（口径同“区属指标比例”）。', unit: '%', digits: 1 },
   qu_ratio: { label: '区属指标比例', note: '区属指标数 ÷ 符合名额分配报考资格考生数。反映本区学生获得本区区属指标的机会。', unit: '%', digits: 1 },
   sheng_ratio: { label: '省市属指标比例', note: '省市属高中名额分配指标数 ÷ 符合名额分配报考资格考生数。省市属指标按符合资格考生等比例分配，全区一致。', unit: '%', digits: 1 },
   tekong: { label: '指标×特控率', note: 'Σ(区属高中给该校指标名额 × 该高中特控率) ÷ 符合名额分配报考资格考生数。反映该校符合资格考生经区属指标到校路径预计上特控（一本）线的比例；特控率为喜报/网传口径，缺失的高中名额不计。', unit: '%', digits: 1 },
 };
 
 /** 区属/省市属比例指标额外展示一列指标数绝对值 */
-const showAbs = computed(() => metric.value === 'qu_ratio' || metric.value === 'sheng_ratio');
-const absLabel = computed(() => (metric.value === 'qu_ratio' ? '区属指标数' : '省市属指标数'));
+const showAbs = computed(() => metric.value === 'default' || metric.value === 'qu_ratio' || metric.value === 'sheng_ratio');
+const absLabel = computed(() => (metric.value === 'sheng_ratio' ? '省市属指标数' : '区属指标数'));
 function absValue(s: Row): number | null {
-  return metric.value === 'qu_ratio' ? (s.qu_quota ?? null) : (s.sheng_quota ?? null);
+  return metric.value === 'sheng_ratio' ? (s.sheng_quota ?? null) : (s.qu_quota ?? null);
 }
 function fmtAbs(v: number | null): string {
   return v == null ? '—' : String(v);
@@ -145,11 +150,14 @@ const KAOSHENG_NOTE = '本列统计的是“符合名额分配报考资格的考
 
 const metricLabel = computed(() => METRIC_META[metric.value].label);
 const metricNote = computed(() => METRIC_META[metric.value].note);
+/** 表格数值列列名：默认排序时仍显示区属指标比例 */
+const columnLabel = computed(() => (metric.value === 'default' ? METRIC_META.qu_ratio.label : METRIC_META[metric.value].label));
 
 /** 指标取值（null=无数据，排序置后） */
 function metricValue(s: Row): number | null {
   const k = s.kaosheng ?? null;
   switch (metric.value) {
+    case 'default':
     case 'qu_ratio': return k && s.qu_quota != null ? (s.qu_quota / k) * 100 : null;
     case 'sheng_ratio': return k && s.sheng_quota != null ? (s.sheng_quota / k) * 100 : null;
     case 'tekong': return s.tekong_quota_rate ?? null;
@@ -185,6 +193,18 @@ function rankSort(a: { v: number | null; minban?: boolean }, b: { v: number | nu
   return b.v - a.v;
 }
 
+/** 内部默认排序：按机构手工整理名单（data/middle/tiers_huangpu.json，按 school_id 精确到校区）；对外不展示梯队信息 */
+const TIER_OF = new Map<string, number>();
+for (const t of middleTiersHuangpu.tiers) {
+  for (const s of t.schools) if (s.school_id) TIER_OF.set(s.school_id, t.tier);
+}
+function tierSort(a: { s: Row; v: number | null; minban?: boolean }, b: { s: Row; v: number | null; minban?: boolean }): number {
+  const ta = TIER_OF.get(a.s.school_id ?? '') ?? 99;
+  const tb = TIER_OF.get(b.s.school_id ?? '') ?? 99;
+  if (ta !== tb) return ta - tb;
+  return rankSort(a, b);
+}
+
 /** 行政区位置筛选：默认全选，参考高中明细（未列入七区的行仅在全选时保留）。 */
 const selectedDistricts = ref(new Set(DISTRICTS.map((d) => d.adcode)));
 const districtAllOn = computed(() => selectedDistricts.value.size === DISTRICTS.length);
@@ -210,8 +230,9 @@ const districtOrder = DISTRICTS.map((d) => d.name.replace('区', ''));
 
 const groups = computed(() => {
   const rows = schools.filter(districtVisible).map((s) => ({ s, v: metricValue(s), minban: !!s.minban }));
+  const sortFn = metric.value === 'default' ? tierSort : rankSort;
   if (groupBy.value === 'none') {
-    return [{ key: 'all', title: '', items: rows.slice().sort((a, b) => rankSort(a, b)) }];
+    return [{ key: 'all', title: '', items: rows.slice().sort(sortFn) }];
   }
   if (groupBy.value === 'district') {
     const map = new Map<string, typeof rows>();
@@ -227,7 +248,7 @@ const groups = computed(() => {
     return keys.map((k) => ({
       key: `d-${k}`,
       title: k,
-      items: map.get(k)!.slice().sort((a, b) => rankSort(a, b)),
+      items: map.get(k)!.slice().sort(sortFn),
     }));
   }
   // 按集团
@@ -241,7 +262,7 @@ const groups = computed(() => {
   return keys.map((k) => ({
     key: `g-${k}`,
     title: k,
-    items: map.get(k)!.slice().sort((a, b) => rankSort(a, b)),
+    items: map.get(k)!.slice().sort(sortFn),
   }));
 });
 </script>
@@ -320,7 +341,7 @@ const groups = computed(() => {
             <tr>
               <th class="c-name">学校</th>
               <th class="c-val">
-                {{ metricLabel }}
+                {{ columnLabel }}
                 <span
                   class="q-mark"
                   aria-label="指标口径说明"

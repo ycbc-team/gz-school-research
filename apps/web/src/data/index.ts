@@ -37,6 +37,7 @@ import brandGroupsCompact from './compact/registry/brand_groups.js';
 import educationGroupsCompact from './compact/registry/education_groups.js';
 import highScores2025Compact from './compact/high/scores_2025.js';
 import highScores2026Compact from './compact/high/scores_2026.js';
+import tiersHuangpuCompact from './compact/middle/tiers_huangpu.js';
 
 /** 紧凑结构经 hydrate 还原后的类型断言（字段为数据真源，结构由 scripts/ 保证） */
 const cast = <T>(v: unknown): T => v as T;
@@ -104,6 +105,12 @@ export const batch2Scores = loaders.batch2Scores;
 export const enrollments = loaders.enrollments;
 export const brandGroups = loaders.brandGroups;
 export const entities = loaders.entities;
+
+/** 黄埔区初中梯队名单（机构手工整理，data/middle/tiers_huangpu.json 真源；仅内部默认排序用，对外不展示） */
+export const middleTiersHuangpu = cast(hydrate(tiersHuangpuCompact)) as {
+  meta: { name: string; source: string; district_note: string; campus_note: string };
+  tiers: Array<{ tier: number; label: string; schools: Array<{ name: string; short: string; note?: string; school_id: string | null }> }>;
+};
 
 /* ================= 查询/常量（来自 repository，名称保持迁移前一致） ================= */
 export const {
