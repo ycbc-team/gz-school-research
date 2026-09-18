@@ -24,8 +24,8 @@
 | gz-440113-62cbe194 | 大博学校 | middle | https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html ；http://www.panyu.gov.cn/attachment/7/7835/7835118/10323988.pdf | 年检名单第 12 所"化龙镇大博学校"；积分入学计划标注"大博学校(民办)"。小学部 gz-440113-a6aa9fb0（化龙大博学校小学部）已标民办，中学部此前漏标；aliases 含"番禺区化龙镇大博学校" |
 | gz-440113-db326e94 | 华南碧桂园学校(中学部) | middle | https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html ；http://news.dayoo.com/gzrbrmt/202607/23/170639_54982964.htm | 年检名单第 21 所"华南碧桂园学校"；小学部 gz-440113-a45e4a1a 已标民办，中学部此前漏标 |
 | gz-440113-7b2b848a | 加拿达外国语学校(剑桥郡校区) | middle | https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html ；http://www.panyu.gov.cn/attachment/7/7836/7836414/10334887.pdf | 年检名单第 26 所"剑桥郡加拿达外国语学校"；积分入学补填计划标注"剑桥郡加拿达外国语学校（民办）"。aliases 含"番禺区剑桥郡加拿达外国语学校"。**此前完全未标**（新发现民办校）；注意与 gz-440113-611fa8ce 公办"番禺区剑桥郡小学"非同一所 |
-| gz-440113-b33076d3 | 金海岸学校 | primary | https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html ；https://www.nfnews.com/content/EynGWWGM3Z.html | 年检名单第 33 所"金海岸实验学校"的同名/简称实体（与已标 gz-440113-d7e3e576 金海岸实验学校同校异名）。南方+曾报道其收费批复。建议补标民办并后续与 d7e3e576 合并实体 |
-| gz-440113-b33076d3 | 金海岸学校 | middle | https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html | 同上，同一 school_id 的 middle 阶段行 |
+| gz-440113-b33076d3 | 金海岸学校 | primary | http://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_8334907.html ；https://www.peopleapp.com/rmharticle/30030176924 | **公办**（2026-09-18 更正）：番禺区教育局 2022 年批复开办的公办九年一贯制学校（42 班），石碁片区第一所公办九年一贯制；官方公办小学/初中招生 sheet 均有"金海岸学校"（地段/派位）。**与民办"金海岸实验学校"（gz-440113-d7e3e576）是两所不同学校，非同名简称，不得合并、不得标民办** |
+| gz-440113-b33076d3 | 金海岸学校 | middle | http://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_8334907.html | 公办（同上），middle 阶段行同判；官方公办初中 sheet 有"金海岸学校"（2 班，金海岸花园户籍派位） |
 | gz-440113-cf01b95f | 广州博萃德学校小学部 | primary | https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10911/mpost_10911898.html ；https://jyj.gz.gov.cn/gk/zfxxgkml/bmwj/qtwj/content/post_10541662.html | 年检名单第 35 所"博萃德学校"；与已标 gz-440113-3d006240（primary,middle）为同校异名实体。市教育局 2025 年审批遗留问题通知确认其为九年一贯制民办。建议补标民办并后续与 3d006240 合并 |
 
 > 说明：以上 8 行实体记录的 `nature` 字段当前为空（match_school.py 显示"公办(未标)"为缺省态），应统一补标为 `民办`。其中前 5 行为九年一贯制学校的中学部漏标；加拿达为全新发现的民办校；后 3 行为同校重复实体补标。
@@ -142,4 +142,4 @@
 - [ ] 将第一节 8 行实体（厦滘中学部、金华中学、大博中学、华南碧桂园中学部、加拿达中学部、金海岸学校 primary+middle、博萃德小学部）的 `nature` 补标为 `民办`。
 - [ ] 第二节补实体：博萃德学校 high 阶段；剑桥郡加拿达外国语学校 primary 阶段。
 - [ ] 第三节待核实：gz-440113-30628a8d 香江中学（疑增城校误植）、长颈马初中部、吉毅教育初中部 是否清理。
-- [ ] 后续实体合并：金海岸学校(b33076d3)↔金海岸实验学校(d7e3e576)；博萃德小学部(cf01b95f)↔博萃德学校(3d006240)。
+- [ ] 后续实体合并：~~金海岸学校(b33076d3)↔金海岸实验学校(d7e3e576)~~（2026-09-18 撤销：公办≠民办，两所学校不合并）；博萃德小学部(cf01b95f)↔博萃德学校(3d006240)。

@@ -214,7 +214,9 @@ def main() -> int:
                 else:
                     unmatched.append((tag, k, None, None))
             d['middle_school_ids'] = ids
-        path.write_text(json.dumps(d, ensure_ascii=False, indent=indent) + '\n', 'utf-8')
+        # quota_matrix 固定字段顺序（sort_keys），其它表保持读入序（避免无关键序噪音）
+        _sk = tag == 'quota_matrix'
+        path.write_text(json.dumps(d, ensure_ascii=False, indent=indent, sort_keys=_sk) + '\n', 'utf-8')
         print(f'[{tag}] 回填完成')
 
     # 未命中清单：7 区内（需人工桥接）与 7 区外/未知（无实体，链接不可点属正确行为）分列

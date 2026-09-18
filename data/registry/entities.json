@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "note": "学校实体表（维度表）。一个 POI 点位=一个实体（校区/学部独立）；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由本脚本 MINBAN_IDS 生产。",
+  "note": "学校实体表（维度表）。一个 POI 点位=一个实体（校区/学部独立）；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由 data/registry/minban_schools.json（官方文件汇总表）生产。",
   "entities": [
     {
       "school_id": "gz-440105-9aac697e",
@@ -923,6 +923,7 @@
       "stage": "primary",
       "aliases": [
         "番禺区化龙大博学校小学部",
+        "化龙镇大博学校",
         "化龙大博学校"
       ],
       "nature": "民办"
@@ -1151,7 +1152,8 @@
       "name": "华立学校",
       "stage": "primary",
       "aliases": [
-        "番禺区华立学校"
+        "番禺区华立学校",
+        "南村华立小学"
       ],
       "nature": "民办"
     },
@@ -1419,6 +1421,7 @@
       "stage": "primary",
       "aliases": [
         "番禺区厦滘学校小学部",
+        "洛浦厦滘学校",
         "厦滘学校"
       ],
       "nature": "民办"
@@ -2620,7 +2623,8 @@
       "stage": "primary",
       "aliases": [
         "番禺区广州博萃德学校小学部",
-        "博萃德学校小学部"
+        "博萃德学校小学部",
+        "博萃德学校"
       ],
       "nature": "民办"
     },
@@ -2746,14 +2750,6 @@
       ]
     },
     {
-      "school_id": "gz-440103-8cbe44d9",
-      "name": "广州市君诚博雅实验学校(广佛新城校区)",
-      "stage": "primary",
-      "aliases": [
-        "荔湾区君诚博雅实验学校广佛新城校区"
-      ]
-    },
-    {
       "school_id": "gz-440111-15a27204",
       "name": "广州市嘉美学校",
       "stage": "primary",
@@ -2863,14 +2859,6 @@
       "aliases": [
         "华阳教育集团高塘石小学",
         "高塘石小学"
-      ]
-    },
-    {
-      "school_id": "gz-440106-15d99a41",
-      "name": "广州市天河区同仁学校-思博教育",
-      "stage": "primary",
-      "aliases": [
-        "同仁学校-思博教育"
       ]
     },
     {
@@ -3031,15 +3019,6 @@
       "stage": "primary",
       "aliases": [
         "白云区方圆实验小学"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-a36980e5",
-      "name": "广州市星执学校小学招生处",
-      "stage": "primary",
-      "aliases": [
-        "番禺区星执学校小学招生处"
       ],
       "nature": "民办"
     },
@@ -4429,8 +4408,10 @@
       "name": "执信中学附属小学",
       "stage": "primary",
       "aliases": [
-        "番禺区执信中学附属小学"
-      ]
+        "番禺区执信中学附属小学",
+        "星执学校"
+      ],
+      "nature": "民办"
     },
     {
       "school_id": "gz-440104-75b54a5d",
@@ -5906,8 +5887,7 @@
       "stage": "primary",
       "aliases": [
         "剑桥郡小学"
-      ],
-      "nature": "民办"
+      ]
     },
     {
       "school_id": "gz-440113-a93513f2",
@@ -5956,7 +5936,8 @@
       "name": "番禺同心小学",
       "stage": "primary",
       "aliases": [
-        "番禺区番禺同心小学"
+        "番禺区番禺同心小学",
+        "同心小学"
       ],
       "nature": "民办"
     },
@@ -5965,7 +5946,8 @@
       "name": "番禺名智小学",
       "stage": "primary",
       "aliases": [
-        "番禺区番禺名智小学"
+        "番禺区番禺名智小学",
+        "名智小学"
       ],
       "nature": "民办"
     },
@@ -7110,7 +7092,8 @@
       "name": "金星学校",
       "stage": "primary",
       "aliases": [
-        "番禺区金星学校"
+        "番禺区金星学校",
+        "金星小学"
       ],
       "nature": "民办"
     },
@@ -7162,8 +7145,7 @@
       "stage": "primary",
       "aliases": [
         "番禺区金海岸学校"
-      ],
-      "nature": "民办"
+      ]
     },
     {
       "school_id": "gz-440111-83b47043",
@@ -7875,7 +7857,8 @@
       "name": "君诚博雅实验学校(滘口校区)",
       "stage": "primary",
       "aliases": [
-        "荔湾区君诚博雅实验学校滘口校区"
+        "荔湾区君诚博雅实验学校滘口校区",
+        "君诚博雅实验学校"
       ],
       "nature": "民办"
     },
@@ -7922,15 +7905,6 @@
       "aliases": [
         "荔湾区博雅中英文学校海龙校区",
         "博雅中英文学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440103-b2c7aafd",
-      "name": "君诚博雅实验学校",
-      "stage": "primary",
-      "aliases": [
-        "荔湾区君诚博雅实验学校"
       ],
       "nature": "民办"
     },
@@ -8262,7 +8236,8 @@
       "stage": "primary",
       "aliases": [
         "番禺区加拿达外国语学校剑桥郡校区",
-        "加拿达外国语学校"
+        "加拿达外国语学校",
+        "剑桥郡加拿达学校"
       ],
       "nature": "民办"
     },
@@ -8273,6 +8248,30 @@
       "aliases": [
         "白云区广东实验中学云城校区",
         "广东实验中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-5a568b43",
+      "name": "新桥学校",
+      "stage": "primary",
+      "aliases": [
+        "番禺区新桥学校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-874cc790",
+      "name": "永善学校",
+      "stage": "primary",
+      "aliases": [
+        "番禺区永善学校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-fd1d0462",
+      "name": "化龙镇中心小学",
+      "stage": "primary",
+      "aliases": [
+        "番禺区化龙镇中心小学"
       ]
     },
     {
@@ -10641,15 +10640,6 @@
       "nature": "民办"
     },
     {
-      "school_id": "gz-440103-b2c7aafd",
-      "name": "君诚博雅实验学校",
-      "stage": "middle",
-      "aliases": [
-        "荔湾区君诚博雅实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
       "school_id": "gz-440103-c5d5de44",
       "name": "西关广雅实验学校(南岸路校区)",
       "stage": "middle",
@@ -11540,8 +11530,7 @@
       "stage": "middle",
       "aliases": [
         "番禺区金海岸学校"
-      ],
-      "nature": "民办"
+      ]
     },
     {
       "school_id": "gz-440113-43d027a5",
@@ -12129,6 +12118,17 @@
       ]
     },
     {
+      "school_id": "gz-440103-3ea667b1",
+      "name": "君诚博雅实验学校(滘口校区)",
+      "stage": "middle",
+      "aliases": [
+        "荔湾区君诚博雅实验学校滘口校区",
+        "荔湾区君诚博雅实验学校",
+        "君诚博雅实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
       "school_id": "gz-440103-3aca532e",
       "name": "广东实验中学(高中部)",
       "stage": "high",
@@ -12523,15 +12523,8 @@
       "stage": "high",
       "aliases": [
         "天河区广州奥林匹克中学高中部",
-        "广州奥林匹克中学"
-      ]
-    },
-    {
-      "school_id": "gz-440106-fa9338a2",
-      "name": "广州奥林匹克中学(智谷校区)",
-      "stage": "high",
-      "aliases": [
-        "天河区广州奥林匹克中学智谷校区"
+        "广州奥林匹克中学",
+        "奥林匹克中学"
       ]
     },
     {

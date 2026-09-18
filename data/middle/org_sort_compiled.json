@@ -1,0 +1,497 @@
+[
+  {
+    "district": "白云区",
+    "level": 1,
+    "school_id": "gz-440111-a072aeb7"
+  },
+  {
+    "district": "白云区",
+    "level": 2,
+    "school_id": "gz-440111-c8461d5d"
+  },
+  {
+    "district": "白云区",
+    "level": 2,
+    "school_id": "gz-440111-e14818fc"
+  },
+  {
+    "district": "白云区",
+    "level": 2,
+    "school_id": "gz-440111-6782d2c7"
+  },
+  {
+    "district": "白云区",
+    "level": 2,
+    "school_id": "gz-440111-43437f78"
+  },
+  {
+    "district": "白云区",
+    "level": 3,
+    "school_id": "gz-440111-0d08ab54"
+  },
+  {
+    "district": "白云区",
+    "level": 3,
+    "school_id": "gz-440111-7e484346"
+  },
+  {
+    "district": "白云区",
+    "level": 3,
+    "school_id": "gz-440111-c8ae0a7c"
+  },
+  {
+    "district": "白云区",
+    "level": 4,
+    "school_id": "gz-440111-175bd68f"
+  },
+  {
+    "district": "白云区",
+    "level": 4,
+    "school_id": "gz-440111-4cf10429"
+  },
+  {
+    "district": "白云区",
+    "level": 4,
+    "school_id": "gz-440111-048815b3"
+  },
+  {
+    "district": "白云区",
+    "level": 4,
+    "school_id": "gz-440111-6becf87b"
+  },
+  {
+    "district": "白云区",
+    "level": 4,
+    "school_id": "gz-440111-0ba9a45f"
+  },
+  {
+    "district": "海珠区",
+    "level": 1,
+    "school_id": "gz-440105-41b48384"
+  },
+  {
+    "district": "海珠区",
+    "level": 1,
+    "school_id": "gz-440105-f0712355"
+  },
+  {
+    "district": "海珠区",
+    "level": 2,
+    "school_id": "gz-440105-0ffca7e3"
+  },
+  {
+    "district": "海珠区",
+    "level": 2,
+    "school_id": "gz-440105-eaf414df"
+  },
+  {
+    "district": "海珠区",
+    "level": 2,
+    "school_id": "gz-440105-ca292b2b"
+  },
+  {
+    "district": "海珠区",
+    "level": 2,
+    "school_id": "gz-440105-e76b659d"
+  },
+  {
+    "district": "海珠区",
+    "level": 2,
+    "school_id": "gz-440105-dc2408b3"
+  },
+  {
+    "district": "海珠区",
+    "level": 3,
+    "school_id": "gz-440105-12b49e3f"
+  },
+  {
+    "district": "海珠区",
+    "level": 3,
+    "school_id": "gz-440105-cb432890"
+  },
+  {
+    "district": "海珠区",
+    "level": 3,
+    "school_id": "gz-440105-e363a214"
+  },
+  {
+    "district": "海珠区",
+    "level": 3,
+    "school_id": "gz-440105-cac39935"
+  },
+  {
+    "district": "海珠区",
+    "level": 4,
+    "school_id": "gz-440105-b210556b"
+  },
+  {
+    "district": "海珠区",
+    "level": 4,
+    "school_id": "gz-440105-77baeea5"
+  },
+  {
+    "district": "海珠区",
+    "level": 4,
+    "school_id": "gz-440105-fbd67149"
+  },
+  {
+    "district": "海珠区",
+    "level": 4,
+    "school_id": "gz-440105-53bc2299"
+  },
+  {
+    "district": "海珠区",
+    "level": 4,
+    "school_id": "gz-440105-83f38819"
+  },
+  {
+    "district": "黄埔区",
+    "level": 1,
+    "school_id": "gz-440112-c7cfbe14"
+  },
+  {
+    "district": "黄埔区",
+    "level": 1,
+    "school_id": "gz-440112-06029745"
+  },
+  {
+    "district": "黄埔区",
+    "level": 2,
+    "school_id": "gz-440112-b5b864ba"
+  },
+  {
+    "district": "黄埔区",
+    "level": 2,
+    "school_id": "gz-440112-4ed867c7"
+  },
+  {
+    "district": "黄埔区",
+    "level": 2,
+    "school_id": "gz-440112-a0244635"
+  },
+  {
+    "district": "黄埔区",
+    "level": 2,
+    "school_id": "gz-440112-c80ac6ac"
+  },
+  {
+    "district": "黄埔区",
+    "level": 3,
+    "school_id": "gz-440112-3847727f"
+  },
+  {
+    "district": "黄埔区",
+    "level": 3,
+    "school_id": "gz-440112-705c66e3"
+  },
+  {
+    "district": "黄埔区",
+    "level": 3,
+    "school_id": "gz-440112-e3190fa2"
+  },
+  {
+    "district": "黄埔区",
+    "level": 3,
+    "school_id": "gz-440112-87f27cf4"
+  },
+  {
+    "district": "黄埔区",
+    "level": 4,
+    "school_id": "gz-440112-8edaa2d8"
+  },
+  {
+    "district": "黄埔区",
+    "level": 4,
+    "school_id": "gz-440112-3f877ace"
+  },
+  {
+    "district": "黄埔区",
+    "level": 4,
+    "school_id": "gz-440112-632bcdb7"
+  },
+  {
+    "district": "荔湾区",
+    "level": 1,
+    "school_id": "gz-440103-042e23a5"
+  },
+  {
+    "district": "荔湾区",
+    "level": 2,
+    "school_id": "gz-440103-b41a3512"
+  },
+  {
+    "district": "荔湾区",
+    "level": 2,
+    "school_id": "gz-440103-53cac770"
+  },
+  {
+    "district": "荔湾区",
+    "level": 2,
+    "school_id": "gz-440103-693412ae"
+  },
+  {
+    "district": "荔湾区",
+    "level": 3,
+    "school_id": "gz-440103-2653da64"
+  },
+  {
+    "district": "荔湾区",
+    "level": 3,
+    "school_id": "gz-440103-c5a0baa6"
+  },
+  {
+    "district": "荔湾区",
+    "level": 4,
+    "school_id": "gz-440104-3b870a8e"
+  },
+  {
+    "district": "荔湾区",
+    "level": 4,
+    "school_id": "gz-440103-f203d28d"
+  },
+  {
+    "district": "荔湾区",
+    "level": 4,
+    "school_id": "gz-440103-2c188507"
+  },
+  {
+    "district": "荔湾区",
+    "level": 4,
+    "school_id": "gz-440103-c9f13fde"
+  },
+  {
+    "district": "荔湾区",
+    "level": 4,
+    "school_id": "gz-440103-b0abf891"
+  },
+  {
+    "district": "荔湾区",
+    "level": 4,
+    "school_id": "gz-440103-d78c848a"
+  },
+  {
+    "district": "荔湾区",
+    "level": 4,
+    "school_id": "gz-440103-eb3cb5c6"
+  },
+  {
+    "district": "番禺区",
+    "level": 1,
+    "school_id": "gz-440113-7f18cc62"
+  },
+  {
+    "district": "番禺区",
+    "level": 1,
+    "school_id": "gz-440113-97e0acaa"
+  },
+  {
+    "district": "番禺区",
+    "level": 1,
+    "school_id": "gz-440113-8f5e4721"
+  },
+  {
+    "district": "番禺区",
+    "level": 2,
+    "school_id": "gz-440113-53650c78"
+  },
+  {
+    "district": "番禺区",
+    "level": 2,
+    "school_id": "gz-440113-acf92324"
+  },
+  {
+    "district": "番禺区",
+    "level": 2,
+    "school_id": "gz-440113-c9f8740e"
+  },
+  {
+    "district": "番禺区",
+    "level": 2,
+    "school_id": "gz-440113-999fb9c0"
+  },
+  {
+    "district": "番禺区",
+    "level": 3,
+    "school_id": "gz-440113-db326e94"
+  },
+  {
+    "district": "番禺区",
+    "level": 3,
+    "school_id": "gz-440113-8ef59a4c"
+  },
+  {
+    "district": "番禺区",
+    "level": 3,
+    "school_id": "gz-440113-37f452f3"
+  },
+  {
+    "district": "番禺区",
+    "level": 3,
+    "school_id": "gz-440113-b7541529"
+  },
+  {
+    "district": "天河区",
+    "level": 1,
+    "school_id": "gz-440106-0d1e149e"
+  },
+  {
+    "district": "天河区",
+    "level": 1,
+    "school_id": "gz-440106-867e6c05"
+  },
+  {
+    "district": "天河区",
+    "level": 2,
+    "school_id": "gz-440106-2f8a4424"
+  },
+  {
+    "district": "天河区",
+    "level": 2,
+    "school_id": "gz-440106-2e9f6f7b"
+  },
+  {
+    "district": "天河区",
+    "level": 2,
+    "school_id": "gz-440106-9bed7efb"
+  },
+  {
+    "district": "天河区",
+    "level": 2,
+    "school_id": "gz-440106-11e15e8d"
+  },
+  {
+    "district": "天河区",
+    "level": 3,
+    "school_id": "gz-440106-069ddb41"
+  },
+  {
+    "district": "天河区",
+    "level": 3,
+    "school_id": "gz-440106-01fd3a87"
+  },
+  {
+    "district": "天河区",
+    "level": 4,
+    "school_id": "gz-440106-d40d0dbe"
+  },
+  {
+    "district": "天河区",
+    "level": 4,
+    "school_id": "gz-440106-b7d476f7"
+  },
+  {
+    "district": "天河区",
+    "level": 4,
+    "school_id": "gz-440106-8f55ab34"
+  },
+  {
+    "district": "越秀区",
+    "level": 1,
+    "school_id": "gz-440104-09652aa5"
+  },
+  {
+    "district": "越秀区",
+    "level": 1,
+    "school_id": "gz-440104-d972cf95"
+  },
+  {
+    "district": "越秀区",
+    "level": 2,
+    "school_id": "gz-440104-74121d17"
+  },
+  {
+    "district": "越秀区",
+    "level": 2,
+    "school_id": "gz-440104-8a1a7b3d"
+  },
+  {
+    "district": "越秀区",
+    "level": 2,
+    "school_id": "gz-440104-ff8d7e05"
+  },
+  {
+    "district": "越秀区",
+    "level": 2,
+    "school_id": "gz-440104-cc4aa5b8"
+  },
+  {
+    "district": "越秀区",
+    "level": 3,
+    "school_id": "gz-440104-f3ca07ff"
+  },
+  {
+    "district": "越秀区",
+    "level": 3,
+    "school_id": "gz-440104-7f3031fc"
+  },
+  {
+    "district": "越秀区",
+    "level": 3,
+    "school_id": "gz-440104-b22c4eca"
+  },
+  {
+    "district": "越秀区",
+    "level": 3,
+    "school_id": "gz-440104-68535b94"
+  },
+  {
+    "district": "越秀区",
+    "level": 3,
+    "school_id": "gz-440104-191aaa35"
+  },
+  {
+    "district": "越秀区",
+    "level": 3,
+    "school_id": "gz-440104-99aef0e5"
+  },
+  {
+    "district": "越秀区",
+    "level": 4,
+    "school_id": "gz-440104-d9ec2dbb"
+  },
+  {
+    "district": "越秀区",
+    "level": 4,
+    "school_id": "gz-440104-39515a9d"
+  },
+  {
+    "district": "越秀区",
+    "level": 4,
+    "school_id": "gz-440104-0a17f1eb"
+  },
+  {
+    "district": "越秀区",
+    "level": 4,
+    "school_id": "gz-440104-819bd7a1"
+  },
+  {
+    "district": "越秀区",
+    "level": 4,
+    "school_id": "gz-440104-bc48335e"
+  },
+  {
+    "district": "越秀区",
+    "level": 4,
+    "school_id": "gz-440104-9c6632b1"
+  },
+  {
+    "district": "越秀区",
+    "level": 4,
+    "school_id": "gz-440104-10652361"
+  },
+  {
+    "district": "越秀区",
+    "level": 4,
+    "school_id": "gz-440104-1560332d"
+  },
+  {
+    "district": "越秀区",
+    "level": 4,
+    "school_id": "gz-440104-c77c73b5"
+  },
+  {
+    "district": "越秀区",
+    "level": 4,
+    "school_id": "gz-440104-d6c68349"
+  }
+]

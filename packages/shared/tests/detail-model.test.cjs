@@ -192,6 +192,30 @@ test('品牌关联：全量品牌实体对比修复前后，品牌分支新增�
   assert.deepEqual(failures, [], `品牌当前态全量回归: ${failures.join('; ')}`);
 });
 
+test('品牌关联：education 多校区成员平铺每校区一行，各自带学段 Badge 与 school_id 跳转（侨乐小学回归）', () => {
+  // 侨乐小学：华阳教育集团成员，双校区 campuses（poi_name/school_id 为空）——2026-09-18 修复前
+  // 该行 stages=[] 导致「小学」Badge 缺失；修复后平铺为两行、各自独立跳转。
+  const cases = [
+    { name: '天河区侨乐小学', schoolId: 'gz-440106-3332b6cb' },
+    { name: '广州华阳集团侨乐小学(北校区)', schoolId: 'gz-440106-95cb8bc4' },
+  ];
+  for (const c of cases) {
+    const model = buildDetailModel('primary', c.name, repo, c.schoolId);
+    assert.ok(model.brandCard, `${c.name}: 必须渲染品牌关联`);
+    const rows = model.brandCard.groups.flatMap((g) => g.rows);
+    const mine = rows.filter((r) => r.name === c.name);
+    assert.equal(mine.length, 1, `${c.name}: 平铺为独立一行`);
+    assert.ok(mine[0].stages.includes('小学'), `${c.name}: 应有「小学」学段 Badge（stages=${JSON.stringify(mine[0].stages)}）`);
+    assert.ok(mine[0].link && mine[0].link.includes(`id=${c.schoolId}`), `${c.name}: 链接应携带本校区 school_id`);
+    assert.equal(mine[0].isCurrent, true, `${c.name}: 当前查看校区行应标记 isCurrent`);
+    // 兄弟校区行独立存在且不误标当前
+    const sibling = cases.find((x) => x.schoolId !== c.schoolId);
+    const other = rows.filter((r) => r.name === sibling.name);
+    assert.equal(other.length, 1, `${c.name}: 兄弟校区也应平铺为一行`);
+    assert.equal(other[0].isCurrent, false, `${c.name}: 兄弟校区行不应标记 isCurrent`);
+  }
+});
+
 test('法人多校区：官方升学文件一个名称对应多个 school_id，聚合展示分别跳转', () => {
   // 一一三中法人行：2 个 middle 校区（乐学/东方）；金融城/元岗为纯高中（NON_MIDDLE，
   // 2026-09-17 联网核实 campus_middle_webverify_20260917.md）
@@ -265,5 +289,66 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
     .slice(0, 16);
   // 2026-09-17 同址冗余合并（build_entities DROP_CAMPUS：省实荔湾初中部一期、十三中初中部、
   // 柯子岭43号A座）后更新：品牌卡渲染名单随实体合并变化（无品牌卡消失，miss 为空）
-  assert.equal(digest, 'ae684a94aba06abb', '品牌关联全量快照漂移：有实体的品牌卡渲染状态变化，需显式确认后更新');
+  // 2026-09-18 奥林匹克修复+高中学段判定重构：智谷 high 实体消失、8 所已核实高中校区 stage 修正
+  // 随实体表/POI 表联动（无品牌卡消失，miss 为空）——有意变更
+  assert.equal(digest, '25d9b70539774c26', '品牌关联全量快照漂移：有实体的品牌卡渲染状态变化，需显式确认后更新');
+});
+
+test('品牌关联：校区+学部复合名实体归属教育集团（奥体小学部品牌卡）', () => {
+  // 回归：merge_groups legal_campuses 剥学部后缀后，「广州奥林匹克中学（智谷校区）小学部」
+  // 归入奥林匹克教育集团 core_poi → 小学部详情页显示品牌卡（核心校多校区平铺）
+  const ent = repo.entities.find((e) => e.school_id === 'gz-440106-a7cac9ec');
+  assert.ok(ent, '小学部实体应存在');
+  const m = buildDetailModel('primary', ent.name, repo, ent.school_id);
+  assert.equal(m.brandCard?.brand, '奥林匹克教育集团', '小学部应命中教育集团');
+  assert.equal(m.brandCardUseful, true, '核心校有非当前成员行时应渲染');
+  const coreRows = m.brandCard.groups.find((g) => g.key === 'core').rows;
+  const names = coreRows.map((r) => r.name);
+  for (const expect of ['广州奥林匹克中学（智谷校区）小学部', '广州市奥林匹克中学(黄村西路校区)', '广州奥林匹克中学(智谷校区)', '广州奥林匹克中学(高中部)']) {
+    assert.ok(names.includes(expect), `核心校应含 ${expect}（实际: ${names.join(' / ')}）`);
+  }
+  const cur = coreRows.find((r) => r.isCurrent);
+  assert.ok(cur && cur.stages.includes('小学'), '当前行应为小学部且学段含小学');
+});
+
+test('高中徽章/信息行：省市属·区属官方口径 + 区属不带区名', () => {
+  // 回归：徽章对应指标到校批次（省市属面向全市/区属面向本区），不再误标「省示范/市示范」；
+  // 信息行隶属区属统一「区属」（不带区名），省市属保留细粒度省属/市属
+  const target = repo.entities.find((e) => e.name.includes('天河中学') && e.stage === 'high');
+  assert.ok(target, '天河中学高中实体应存在');
+  const m = buildDetailModel('high', target.name, repo, target.school_id);
+  const texts = m.badges.map((b) => b.text);
+  assert.ok(texts.includes('区属'), `天河中学区属徽章应含「区属」（实际: ${texts.join('·')}）`);
+  assert.ok(!texts.some((t) => t.includes('市示范')), '不应再出现「市示范」徽章');
+  assert.ok(!texts.some((t) => t.includes('省示范')), '不应再出现「省示范」徽章');
+  assert.ok(m.headText.includes('国家级示范性'), '信息行应保留示范等级（国家级示范性）');
+  assert.ok(m.headText.includes('区属') && !m.headText.includes('天河区属') && !m.headText.includes('天河区区属'), '信息行隶属应归一为「区属」不带区名');
+  // 省市属学校（华附）徽章为「省市属」
+  const hf = repo.entities.find((e) => e.name.includes('华南师范大学附属中学') && e.stage === 'high');
+  const m2 = buildDetailModel('high', hf.name, repo, hf.school_id);
+  const t2 = m2.badges.map((b) => b.text);
+  assert.ok(t2.includes('省市属'), `省市属学校徽章应含「省市属」（实际: ${t2.join('·')}）`);
+  assert.ok(m2.headText.includes('省属'), '省市属信息行应保留细粒度「省属」');
+});
+
+test('品牌关联：多校区成员通名打开不再全行选中（陶育实验学校）', () => {
+  // 回归：education 分支 isCurrent 第三条用成员通名 m.name 匹配，多校区成员（campuses 非空）
+  // 所有行共享通名 → 通名打开详情页（如搜索「广州市第一一三中学陶育实验学校」进初中 tab）
+  // 小学部与暨南校区两行都被选中。修复：仅单校区成员允许通名兜底选中。
+  const rowsOf = (stage, name, id) => {
+    const m = buildDetailModel(stage, name, repo, id);
+    return (m.brandCard?.groups || []).flatMap((g) => g.rows).filter((r) => r.name.includes('陶育'));
+  };
+  // 1. 通名打开：任何一行都不应选中（通名是聚合入口，不代表具体校区）
+  const agg = rowsOf('middle', '广州市第一一三中学陶育实验学校');
+  assert.equal(agg.length, 2, '陶育成员应平铺两校区');
+  assert.ok(agg.every((r) => !r.isCurrent), '通名打开不应选中任何校区行');
+  // 2. 小学部详情页只选小学部
+  const px = rowsOf('primary', '广州市第一一三中学陶育实验学校小学部', 'gz-440106-35cad4e6');
+  assert.equal(px.find((r) => r.name.includes('小学部'))?.isCurrent, true, '小学部详情页应选中小学部行');
+  assert.equal(px.find((r) => r.name.includes('暨南校区'))?.isCurrent, false, '小学部详情页不应选中初中部行');
+  // 3. 初中部（暨南校区）详情页只选初中部
+  const jn = rowsOf('middle', '广州市第一一三中学陶育实验学校(暨南校区)', 'gz-440106-7c81ab92');
+  assert.equal(jn.find((r) => r.name.includes('暨南校区'))?.isCurrent, true, '初中部详情页应选中暨南校区行');
+  assert.equal(jn.find((r) => r.name.includes('小学部'))?.isCurrent, false, '初中部详情页不应选中小学部行');
 });

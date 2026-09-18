@@ -1680,6 +1680,12 @@
       ],
       "core_poi": [
         {
+          "name": "广州奥林匹克中学（智谷校区）小学部",
+          "poi_match": "法人推导",
+          "poi_name": "广州奥林匹克中学（智谷校区）小学部",
+          "school_id": "gz-440106-a7cac9ec"
+        },
+        {
           "name": "广州市奥林匹克中学(黄村西路校区)",
           "poi_match": "法人推导",
           "poi_name": "广州市奥林匹克中学(黄村西路校区)",
@@ -2016,8 +2022,18 @@
           "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_9214916.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "广州市第一一三中学陶育实验学校(暨南校区)",
-          "school_id": "gz-440106-7c81ab92"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "广州市第一一三中学陶育实验学校小学部",
+              "school_id": "gz-440106-35cad4e6"
+            },
+            {
+              "poi_name": "广州市第一一三中学陶育实验学校(暨南校区)",
+              "school_id": "gz-440106-7c81ab92"
+            }
+          ]
         }
       ],
       "source_urls": [
@@ -2135,6 +2151,12 @@
           "poi_match": "已锚定",
           "poi_name": "广州市真光中学(岭南校区)",
           "school_id": "gz-440103-042e23a5"
+        },
+        {
+          "name": "广州市真光中学初中部(本部校区)",
+          "poi_match": "法人推导",
+          "poi_name": "广州市真光中学初中部(本部校区)",
+          "school_id": "gz-440103-1f4697e3"
         },
         {
           "name": "广州市真光中学(芳花校区)",
@@ -3185,6 +3207,12 @@
       ],
       "core_poi": [
         {
+          "name": "广州市第八十六中学初中部",
+          "poi_match": "法人推导",
+          "poi_name": "广州市第八十六中学初中部",
+          "school_id": "gz-440112-43108516"
+        },
+        {
           "name": "广州市第八十六中学",
           "poi_match": "法人推导",
           "poi_name": "广州市第八十六中学",
@@ -3734,6 +3762,12 @@
       ],
       "core_poi": [
         {
+          "name": "广州市第六十五中学初中部(明德校区)",
+          "poi_match": "法人推导",
+          "poi_name": "广州市第六十五中学初中部(明德校区)",
+          "school_id": "gz-440111-c8461d5d"
+        },
+        {
           "name": "广州市第六十五中学(同德校区)",
           "poi_match": "法人推导",
           "poi_name": "广州市第六十五中学(同德校区)",
@@ -3750,12 +3784,6 @@
           "poi_match": "法人推导",
           "poi_name": "广州市第六十五中学(江高校区)",
           "school_id": "gz-440111-218475ea"
-        },
-        {
-          "name": "广州市第六十五中学初中部(明德校区)",
-          "poi_match": "法人推导",
-          "poi_name": "广州市第六十五中学初中部(明德校区)",
-          "school_id": "gz-440111-c8461d5d"
         },
         {
           "name": "广州市第六十五中学桃园校区",
@@ -3815,8 +3843,18 @@
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "新和学校",
-          "school_id": "gz-440111-525f949a"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "新和学校小学部",
+              "school_id": "gz-440111-183704b2"
+            },
+            {
+              "poi_name": "新和学校",
+              "school_id": "gz-440111-525f949a"
+            }
+          ]
         },
         {
           "name": "广州市白云区竹料第三中学",
@@ -4129,6 +4167,12 @@
           "poi_match": "法人推导",
           "poi_name": "广东外语外贸大学实验中学",
           "school_id": "gz-440111-7e484346"
+        },
+        {
+          "name": "广东外语外贸大学实验中学小学部",
+          "poi_match": "法人推导",
+          "poi_name": "广东外语外贸大学实验中学小学部",
+          "school_id": "gz-440111-6e11e279"
         },
         {
           "name": "广东外语外贸大学实验中学(北校区)",

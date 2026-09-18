@@ -1,0 +1,2061 @@
+{
+ "source": "民办学校名单权威表（办学性质唯一真源），分三类来源：① official_panyu_plan=番禺区教育局2026民办招生计划（官方源，build_minban_official.py 自动解析，禁手改）；② manual=minban_*.md 手工互补（各区教育局年检/招生计划/积分入学等官方文件逐条核实，apply_minban_patch.py 维护）；③ legacy=历史已标（2026-09-14 前 POI/tier1/levels 等历史来源，待逐条追溯）。公办为默认性质不在此表。build_entities 按表联表生产 entities nature。",
+ "updated": "2026-09-18",
+ "note": "2026-09-18 剔除误标：gz-440113-611fa8ce 番禺区剑桥郡小学为公办（与民办的剑桥郡加拿达外国语学校 gz-440113-7b2b848a 非同一所）。；2026-09-18 移除误标：gz-440113-b33076d3 金海岸学校为公办（番禺区教育局2022批复开办的公办九年一贯制，石碁片区第一所），与民办\"金海岸实验学校\"(gz-440113-d7e3e576)是两所不同学校，非同名简称",
+ "school_count": 226,
+ "schools": [
+  {
+   "school_id": "gz-440103-3ea667b1",
+   "name": "君诚博雅实验学校(滘口校区)",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440103-4935332a",
+   "name": "耀华中学",
+   "stage": "high",
+   "district": null,
+   "source_urls": [
+    "http://gzzk.gz.gov.cn/gkmlpt/content/10/10365/post_10365556.html；https://jyj.gz.gov.cn/yw/jyyw/content/post_10271257.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440103-4ab42b76",
+   "name": "广州市荔湾区同心学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "http://news.dayoo.com/gzrbrmt/202604/28/170614_54953789.htm；https://www.lw.gov.cn/zwgkkgzjg/zfxt/qjyj/xxgkml/content/mpost_10899845.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440103-5143f5a1",
+   "name": "广州荔湾爱莎文华学校",
+   "stage": "high",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440103-6c3ca7d0",
+   "name": "广州荔湾区新苗学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440103-815371aa",
+   "name": "荔湾区东沙博雅实验学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440103-821faa89",
+   "name": "广州市荔湾区博雅实验学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440103-84d436cd",
+   "name": "博雅中英文学校(海龙校区)",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "http://zs.gzeducms.cn/u/cms/www/file/mbcz/2026/3.pdf"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440103-957da59e",
+   "name": "海龙博雅中英文学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440103-aa6cf7d7",
+   "name": "广州荔湾爱莎国际学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://jyj.gz.gov.cn/gk/zfxxgkml/bmwj/qtwj/content/post_10541662.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440103-b894cbeb",
+   "name": "荔湾区新晖学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440103-c5a0baa6",
+   "name": "广州市荔湾区荔广实验学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440103-cc2ff923",
+   "name": "广豪学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440103-e7a8679d",
+   "name": "广州市荔湾区芳华中学",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "http://www.lw.gov.cn/zwgkkgzjg/zfxt/qjyj/xxgkml/content/post_10363541.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440103-f5593d98",
+   "name": "芳华小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440104-1f2d5df9",
+   "name": "越秀区汇泉学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440104-737bb916",
+   "name": "雄鹰学校(小学部)",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440104-cc4aa5b8",
+   "name": "广州市越秀区名德实验学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440104-db01d10e",
+   "name": "雄鹰学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-067354f4",
+   "name": "春蕾实验学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-0b2bc8c5",
+   "name": "龙涛小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-0b52e48d",
+   "name": "广州市培才高级中学",
+   "stage": "high",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-0bb7bcc4",
+   "name": "海珠康乐小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-0c78a8e1",
+   "name": "广州市海珠区育华学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html",
+    "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10788/mpost_10788511.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-12dcb841",
+   "name": "龙海小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-25137088",
+   "name": "广州市海华高级中学",
+   "stage": "high",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-2e535171",
+   "name": "华立小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html",
+    "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10788/mpost_10788511.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-33928ddd",
+   "name": "博爱学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-443b73e7",
+   "name": "海珠中学",
+   "stage": "middle+high",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/mpost_10326459.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-47f6ec47",
+   "name": "广州市海珠区华光小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-4d41d915",
+   "name": "广州贝赛思学校(琶洲)",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440105-5a8bf708",
+   "name": "金雁宏天学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-6d9709b2",
+   "name": "广州市海珠区东风第二小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-9a6566db",
+   "name": "华海双语学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html",
+    "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10788/mpost_10788511.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-a1ae8780",
+   "name": "康乐中学",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-a630438a",
+   "name": "广州海珠华洲实验学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html",
+    "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10788/mpost_10788511.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-ae968480",
+   "name": "海珠小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-b43b0c72",
+   "name": "名门珠江小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-baa048f9",
+   "name": "广州市为明学校(光大校区)",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440105-d30140a6",
+   "name": "华怡小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-e038f3fb",
+   "name": "奥通小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-e778fd4e",
+   "name": "龙华学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-f0a0a476",
+   "name": "春华学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.haizhu.gov.cn/bmml/jyj/content/post_10353858.html"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440105-f6b48b9e",
+   "name": "春晖学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440105-fde335b7",
+   "name": "广州市为明学校罗马校区(高中部)",
+   "stage": "high",
+   "district": null,
+   "source_urls": [
+    "http://gzzk.gz.gov.cn/zwgk/zwdt/content/post_10365765.html",
+    "https://www.020xue.com/slxx/wmxxgz/news/82838.shtml"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-01fd3a87",
+   "name": "广州天省实验学校",
+   "stage": "middle+high",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-02473a1e",
+   "name": "新蕾学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-0a2c7178",
+   "name": "培智学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-0c83a9b2",
+   "name": "兴华培智学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-0d03d513",
+   "name": "广州市天河同仁天兴学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-118c9e6b",
+   "name": "广州市天河区同仁艺体实验小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-11f65b1a",
+   "name": "汇景新城实验小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-1b9f7e62",
+   "name": "新昌学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-23e66d3b",
+   "name": "培艺学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-24ff78f9",
+   "name": "东风学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440106-3d7736c5",
+   "name": "广州市天河区同仁学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-42297c28",
+   "name": "广州思源学校高中部",
+   "stage": "high",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-429b917e",
+   "name": "同仁艺体实验中学(伍仙桥校区)",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-4534dc1a",
+   "name": "棠福学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-4775be07",
+   "name": "天河明珠中英文学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-4fac106a",
+   "name": "黄村中英文学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-540006ea",
+   "name": "广州市实验外语学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://www.gwdwx.com/contact.aspx>"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-682a616f",
+   "name": "东风实验小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-72c4c319",
+   "name": "广州大华中英文学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-77787b4a",
+   "name": "同仁实验学校小学部",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-7abd2786",
+   "name": "广州华美英语实验学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-8d124051",
+   "name": "广州市天河区华实学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-989fdd47",
+   "name": "志才小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)",
+    "https://huacheng.gz-cmc.com/pages/2026/06/14/b69f2bfc29144e2eadb343aa7f20255e.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-9abdc5fd",
+   "name": "东泰学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-a6394a7a",
+   "name": "广州市华美英语实验学校",
+   "stage": "high",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-ae248365",
+   "name": "凤凰中学",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-b52cb528",
+   "name": "天骄中英文学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-b9eb24f9",
+   "name": "天泽中学",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-bd07878c",
+   "name": "广州市天河区华实学校初中部",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-c77276d3",
+   "name": "新蕾五星学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-c7779946",
+   "name": "渔兴小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-c8bf2650",
+   "name": "广州思源学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440106-cc1c335f",
+   "name": "同仁艺体实验中学",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-e3bbd1e0",
+   "name": "东明荔园学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-e7f10219",
+   "name": "同仁实验学校东校区",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-eda909f7",
+   "name": "龙圣学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-f0ba06c2",
+   "name": "科韵路学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440106-fd03e039",
+   "name": "天河区成龙中学",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://huacheng.gz-cmc.com/pages/2025/04/28/SF137512336203af497a2d4737b7a847.html)"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-020c5253",
+   "name": "文星小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-03ca4bd7",
+   "name": "贤丰第二实验学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-03e2f01b",
+   "name": "贤丰实验学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-0901ed40",
+   "name": "广州市华文高级中学",
+   "stage": "high",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-0d08ab54",
+   "name": "省实白云实验学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.by.gov.cn/attachment/7/7806/7806787/10241255.pdf"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-0d379efe",
+   "name": "广州市白云区龙涛外国语实验学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-0fe2a45d",
+   "name": "龙江中学",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-11210d19",
+   "name": "元下田小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-13575da4",
+   "name": "广州白云广雅实验学校-小学部",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-148947c8",
+   "name": "广州市白云区新园小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-15953ece",
+   "name": "英才小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-15a27204",
+   "name": "广州市嘉美学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-17aab34c",
+   "name": "诚美实验小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-2018bd49",
+   "name": "广州市白云区金龙小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-2667c5ae",
+   "name": "元培实验中学",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-2abc753d",
+   "name": "启明小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-2dbed89a",
+   "name": "茶山小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-2ec509e7",
+   "name": "广州市白云区华赋学校(南校区)",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-3028b238",
+   "name": "广州市白云区博海小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-32bb2663",
+   "name": "国泰小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-381929f4",
+   "name": "同心小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-39672288",
+   "name": "东润小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-3a82b572",
+   "name": "广州市珠江高级中学",
+   "stage": "high",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-43281bfc",
+   "name": "广州市白云区东辉小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-43437f78",
+   "name": "广州市白云区华赋学校(北校区)",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440111-43d37a48",
+   "name": "锦阳小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-44cd0b7c",
+   "name": "金碧新城小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-4af73d54",
+   "name": "广州应元颐和实验学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-50cbf803",
+   "name": "嘉龙小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-565db7e9",
+   "name": "广州市方圆实验小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-5b14a4f5",
+   "name": "方正实验小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-6782d2c7",
+   "name": "广州云雅实验学校初中部",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440111-69cc1cd1",
+   "name": "春蕾小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440111-6b8ac68f",
+   "name": "天宏小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-7137dd14",
+   "name": "广州市白云区新苗小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-71bacd5a",
+   "name": "小太阳小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-7360ff6d",
+   "name": "广州市庆丰实验学校",
+   "stage": "primary+middle+high",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-7b531bd6",
+   "name": "广州市实验外语学校",
+   "stage": "primary+high",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-7d12a21e",
+   "name": "广州云雅实验学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440111-7e63cbbd",
+   "name": "广州市白云区元培实验中小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-81f3c313",
+   "name": "华赋学校北校区初中部",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440111-83b47043",
+   "name": "金源小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-87790ad3",
+   "name": "岭南花园小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-87a92ab6",
+   "name": "应元颐和实验学校初中部",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-88e467ba",
+   "name": "亚加达外国语高级中学",
+   "stage": "high",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-8ea6750c",
+   "name": "才子小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-919c20e3",
+   "name": "龙德学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-9688546a",
+   "name": "公度小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-9bd31440",
+   "name": "金升小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-9f6fc18e",
+   "name": "嘉禾新都学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-a1459fb9",
+   "name": "白云实验附属小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-a7294ae4",
+   "name": "广州成龙教育集团白云区成龙中学",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-aca6656a",
+   "name": "白云区珠江中学",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-ad38690f",
+   "name": "金晖实验学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-b3d8d324",
+   "name": "广州市白云区育贤小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-b4e0e849",
+   "name": "广州培文外国语学校初中部",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-b5b26ace",
+   "name": "白云长江小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-b694e3ef",
+   "name": "广附华联外语实验学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-bcf22267",
+   "name": "锦华小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-be9e574f",
+   "name": "京师实验学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-bf9d18d3",
+   "name": "广辉小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-c03b19f7",
+   "name": "东方小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-c0e812a2",
+   "name": "广州中黄外国语小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-c1662288",
+   "name": "江南明珠小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-c4a9b707",
+   "name": "新正小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-c5445d0e",
+   "name": "金星小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-c8ae0a7c",
+   "name": "广州市源雅学校",
+   "stage": "primary+middle+high",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-c9b1916c",
+   "name": "广州市白云区龙江小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-cd94e05f",
+   "name": "新都小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-ce7a2db7",
+   "name": "广州培文外国语学校(小学部)",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-d3f7ac89",
+   "name": "广州市白云区华新学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-dad3339a",
+   "name": "广州市白云区龙兴小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-df409e86",
+   "name": "广州市白云区蓝山小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-e194def0",
+   "name": "为民小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-e85f7f8a",
+   "name": "广云外国语学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-ed17a272",
+   "name": "华龙小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-ed25f5e3",
+   "name": "华丰小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-f08e9c24",
+   "name": "广州市白云区珠江实验学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-f335b626",
+   "name": "广州市白云区新纪元学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-fd1c0f9d",
+   "name": "龙溪小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-feec64ce",
+   "name": "广州市金华学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-ff8918f3",
+   "name": "平安小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440111-ff902ce9",
+   "name": "广州市白云区龙嘉小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440112-202efa5a",
+   "name": "黄埔国光小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://news.dayoo.com/gzrbrmt/202504/29/170639_54819585.htm"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440112-2132c84e",
+   "name": "东联学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://news.dayoo.com/gzrbrmt/202504/29/170639_54819585.htm"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440112-21d0cd90",
+   "name": "广州市黄埔国光学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://news.dayoo.com/gzrbrmt/202504/29/170639_54819585.htm"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440112-4517600f",
+   "name": "黄埔区洋城学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://news.dayoo.com/gzrbrmt/202504/29/170639_54819585.htm"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440112-4b58e8ec",
+   "name": "中黄外国语实验学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440112-4ed867c7",
+   "name": "广州市黄埔区华实学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://news.dayoo.com/gzrbrmt/202504/29/170639_54819585.htm"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440112-673fa2c9",
+   "name": "中黄外国语实验学校丰巢快递柜",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://news.dayoo.com/gzrbrmt/202504/29/170639_54819585.htm"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440112-705844f8",
+   "name": "广州市明珠高级中学",
+   "stage": "high",
+   "district": null,
+   "source_urls": [
+    "https://ep.ycwb.com/epaper/ycwb/h5/html5/2025-05/20/content_2976_707337.htm"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440112-93566bfa",
+   "name": "华外同文外国语学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://news.dayoo.com/gzrbrmt/202504/29/170639_54819585.htm"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440112-bffde68d",
+   "name": "广州新侨学校",
+   "stage": "primary+middle+high",
+   "district": null,
+   "source_urls": [
+    "https://news.dayoo.com/gzrbrmt/202504/29/170639_54819585.htm"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440112-ccdabd8f",
+   "name": "东晖学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://news.dayoo.com/gzrbrmt/202504/29/170639_54819585.htm"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440112-e085f4fa",
+   "name": "广州市天健学校",
+   "stage": "high",
+   "district": null,
+   "source_urls": [],
+   "source_type": "legacy"
+  },
+  {
+   "school_id": "gz-440112-fb457bd7",
+   "name": "南方中英文学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://news.dayoo.com/gzrbrmt/202504/29/170639_54819585.htm"
+   ],
+   "source_type": "manual"
+  },
+  {
+   "school_id": "gz-440113-000bd12e",
+   "name": "万翔学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-0670cc0e",
+   "name": "番禺区金华学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-0b94ed9c",
+   "name": "广州执鸿学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-166b5b5c",
+   "name": "新君豪中英文学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-1963cc5e",
+   "name": "祈福新邨学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-1b3be909",
+   "name": "厦滘学校(小学部)",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-23835acf",
+   "name": "华阳学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-28a853f8",
+   "name": "广州市番禺区新英才中英文学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-2a299f65",
+   "name": "番禺名智小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-2b7d85fc",
+   "name": "嘉诚学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-2ca37b61",
+   "name": "大山学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-337c0524",
+   "name": "广州南方学院番禺附属中学",
+   "stage": "primary+middle+high",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-39879bc6",
+   "name": "番禺鸿翔学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-3b338135",
+   "name": "天星学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-3b63e590",
+   "name": "广州番外外国语学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-3cc636b8",
+   "name": "广州市番禺区诺德安达学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-3d006240",
+   "name": "广州博萃德学校",
+   "stage": "primary+middle+high",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-62cbe194",
+   "name": "大博学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-6426397c",
+   "name": "番禺区洛浦厦滘学校中学部",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-6bf19a4c",
+   "name": "广州南方学院番禺附属小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-70ea7542",
+   "name": "大岭学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-757ae826",
+   "name": "新英豪中英文学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-7997c707",
+   "name": "明德广地实验学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-7b27f226",
+   "name": "金星学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-7b2b848a",
+   "name": "加拿达外国语学校(剑桥郡校区)",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-827f636b",
+   "name": "广博学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-82bf431a",
+   "name": "金华学校",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-86cfc8c7",
+   "name": "广州市衡美高级中学",
+   "stage": "high",
+   "district": null,
+   "source_urls": [
+    "http://gzzk.gz.gov.cn/zwgk/zwdt/content/post_10910342.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-89b309cd",
+   "name": "番禺同心小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-8ef59a4c",
+   "name": "祈福新邨学校",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-8efab2cd",
+   "name": "正声小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-999fb9c0",
+   "name": "广州市星执学校",
+   "stage": "middle+high",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-a45e4a1a",
+   "name": "华南碧桂园学校(小学部)",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-a6aa9fb0",
+   "name": "化龙大博学校(小学部)",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-a6ae517b",
+   "name": "星执外国语小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-a93513f2",
+   "name": "番禺区北新正华学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-ad8632f5",
+   "name": "广州市番禺区香江实验学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-c181d193",
+   "name": "祈福英语实验学校",
+   "stage": "primary+middle+high",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-c40a06e1",
+   "name": "京师奥园南奥实验学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-c5dec315",
+   "name": "华立学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-c9f8740e",
+   "name": "恒润实验学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-cf01b95f",
+   "name": "广州博萃德学校小学部",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-d4aecd66",
+   "name": "祈福英语实验小学",
+   "stage": "primary",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-d7e3e576",
+   "name": "番禺区金海岸实验学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-db326e94",
+   "name": "华南碧桂园学校(中学部)",
+   "stage": "middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-e946f7f3",
+   "name": "会江实验学校",
+   "stage": "primary+middle",
+   "district": null,
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ],
+   "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-883c58c4",
+   "name": "执信中学附属小学",
+   "stage": "",
+   "source_type": "official_panyu_plan",
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ]
+  }
+ ]
+}

@@ -10,7 +10,7 @@
 
 用法：python3 scripts/check_groups_drift.py
 """
-import json, os, subprocess, sys, tempfile, glob
+import json, os, subprocess, sys, tempfile, glob, shutil
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PRODUCT = os.path.join(ROOT, "data/registry/education_groups.json")
@@ -74,6 +74,161 @@ def _check_special_matrix():
     print("产物一致性: ✓ build_special_plan + build_special_matrix 重跑产物与入库完全一致")
 
 
+def _check_minban_official():
+    """校验民办官方源（番禺 2026 民办招生计划）重算与权威表一致——禁手改防线。"""
+    r = subprocess.run(["python3", os.path.join(ROOT, "scripts/registry/build_minban_official.py"), "--check"],
+                       capture_output=True, text=True, cwd=ROOT)
+    if r.returncode != 0:
+        print("民办官方源校验: ✗ " + (r.stdout[-1500:] or r.stderr[-1500:]).strip().replace("\n", "\n  "))
+        sys.exit(1)
+    print("民办官方源校验: ✓ 番禺官方招生计划解析与权威表一致（禁手改）")
+
+
+def _check_build_high_levels():
+    """重跑 build_high_levels_js.py（python）到临时目录，与入库 high 表比对。
+
+    高中学段判定链（2026-09-18 起实体表 stage 驱动）：levels.json / MIDDLE_ONLY_CAMPUSES /
+    实体表 stage 任一源改动必须重跑本脚本；重跑漂移说明 high 表被手改或脚本输出有变。
+    """
+    tmp = os.path.join(tempfile.gettempdir(), "high_levels_repro")
+    shutil.rmtree(tmp, ignore_errors=True)
+    r = subprocess.run(["python3", os.path.join(ROOT, "scripts/high/build_high_levels_js.py"), "--out-dir", tmp],
+                       capture_output=True, text=True, cwd=ROOT)
+    if r.returncode != 0:
+        print("生产脚本重跑失败：scripts/high/build_high_levels_js.py")
+        print(r.stdout[-2000:])
+        print(r.stderr[-2000:])
+        sys.exit(1)
+    with open(os.path.join(ROOT, "data/high/schools-gz.json")) as a, open(os.path.join(tmp, "schools-gz.json")) as b:
+        da, db = json.load(a), json.load(b)
+        # school_id 由下一环 build_entities 回写（其自带一致性校验），清洗层只比其余字段
+        strip = lambda d: {**d, "schools": [{k: v for k, v in s.items() if k != "school_id"} for s in d["schools"]]}
+        if strip(da) != strip(db):
+            print("产物一致性: ✗ build_high_levels 重跑产物与入库不一致（说明 high 表被手改或脚本输出有变）：")
+            print("  → 只改生产脚本/源表（levels.json / MIDDLE_ONLY_CAMPUSES / 实体表 stage），重跑并提交产物。")
+            sys.exit(1)
+    print("产物一致性: ✓ build_high_levels 重跑产物与入库完全一致")
+
+
+def _check_build_entities():
+    """重跑 build_entities.mjs（node）到临时目录，与入库 entities + 3 个 POI 表比对。
+
+    民办名单（minban_schools.json）与实体表/POI 的联动：源表改动必须重跑 build_entities，
+    禁止手改 entities.json；重跑漂移说明实体表被手改或民办名单表未重跑。
+    """
+    tmp = os.path.join(tempfile.gettempdir(), "entities_repro")
+    shutil.rmtree(tmp, ignore_errors=True)
+    r = subprocess.run(["node", os.path.join(ROOT, "scripts/registry/build_entities.mjs"), "--out-dir", tmp],
+                       capture_output=True, text=True, cwd=ROOT)
+    if r.returncode != 0:
+        print("生产脚本重跑失败：scripts/registry/build_entities.mjs")
+        print(r.stdout[-2000:])
+        print(r.stderr[-2000:])
+        sys.exit(1)
+    pairs = [
+        ("data/registry/entities.json", "entities"),
+        ("data/primary/schools-gz.json", "primary POI"),
+        ("data/middle/schools-gz.json", "middle POI"),
+        ("data/high/schools-gz.json", "high POI"),
+    ]
+    failed = []
+    for prod_rel, label in pairs:
+        with open(os.path.join(ROOT, prod_rel)) as a, open(os.path.join(tmp, prod_rel)) as b:
+            if json.load(a) != json.load(b):
+                failed.append(label)
+    if failed:
+        print("产物一致性: ✗ build_entities 重跑产物与入库不一致：" + ", ".join(failed))
+        print("  → 实体表/POI 被手改，或 minban_schools.json 等源表改动后未重跑 build_entities。修复须固化到生产脚本/源表后重跑并提交产物。")
+        sys.exit(1)
+    print("产物一致性: ✓ build_entities 重跑产物与入库完全一致（entities + 3 POI 表）")
+
+
+def _head(path):
+    """工作树文件 vs git HEAD 内容（产物=入库基线）。"""
+    rel = os.path.relpath(path, ROOT)
+    r = subprocess.run(["git", "-C", ROOT, "show", f"HEAD:{rel}"], capture_output=True, text=True)
+    return r.stdout
+
+
+def _check_xiaoshengchu():
+    """重跑 xiaoshengchu 生产链路（build_xiaoshengchu_all + upgrade）到工作树，与入库比对。
+
+    名字→school_id 匹配已下沉 Python 数据层（xs_resolver.py，build_xiaoshengchu_all 的
+    merge_all 调用）；upgrade 只做去重/分组组装，不再做名字匹配。覆盖
+    build_xiaoshengchu_all.py / xs_resolver.py / upgrade_xiaoshengchu.mjs 的改动感知：
+    改脚本后未重跑提交产物，或产物被手改，都会被检出。比对失败还原工作树（保留重跑前状态）。"""
+    files = [os.path.join(ROOT, "data/primary/xiaoshengchu_2026.json")]
+    orig = {f: open(f, encoding="utf-8").read() for f in files}
+    try:
+        r = subprocess.run(["python3", os.path.join(ROOT, "scripts/primary/build_xiaoshengchu_all.py"), "all_done"],
+                           capture_output=True, text=True, cwd=ROOT)
+        if r.returncode != 0:
+            print("生产脚本重跑失败：scripts/primary/build_xiaoshengchu_all.py all_done")
+            print(r.stderr[-2000:])
+            for f, c in orig.items():
+                open(f, "w", encoding="utf-8").write(c)
+            sys.exit(1)
+        r = subprocess.run(["node", os.path.join(ROOT, "scripts/registry/upgrade_xiaoshengchu.mjs")],
+                           capture_output=True, text=True, cwd=ROOT)
+        if r.returncode != 0:
+            print("生产脚本重跑失败：scripts/registry/upgrade_xiaoshengchu.mjs")
+            print(r.stderr[-2000:])
+            for f, c in orig.items():
+                open(f, "w", encoding="utf-8").write(c)
+            sys.exit(1)
+        failed = [f for f in files if open(f, encoding="utf-8").read() != _head(f)]
+        if failed:
+            for f, c in orig.items():
+                open(f, "w", encoding="utf-8").write(c)
+            print(f"产物一致性: ✗ xiaoshengchu 重跑产物与入库不一致：{', '.join(os.path.basename(f) for f in failed)}")
+            print("  → 说明 build_xiaoshengchu_all / xs_resolver / upgrade 改动后未重跑提交产物，或产物被手改。"
+                  "修复须固化到生产脚本后重跑并提交产物。")
+            sys.exit(1)
+        print("产物一致性: ✓ build_xiaoshengchu_all + upgrade 重跑产物与入库完全一致")
+    except SystemExit:
+        raise
+    except Exception:
+        for f, c in orig.items():
+            open(f, "w", encoding="utf-8").write(c)
+        raise
+
+
+def _check_backfill_ids():
+    """重跑 backfill_school_ids.py（quota_matrix/district_quota/batch2_scores/special_matrix
+    外键回填 + _school_id_unmatched 未命中清单）到工作树，与入库比对。
+
+    覆盖 backfill_school_ids.py 的改动感知：改脚本后未重跑提交产物，或产物被手改
+    （如 _school_id_unmatched 被手工增删）都会被检出。比对失败还原工作树。"""
+    names = ["quota_matrix.json", "special_matrix.json", "batch2_scores.json",
+             "district_quota.json", "_school_id_unmatched.json"]
+    files = [os.path.join(ROOT, "data/linkage", n) for n in names]
+    orig = {f: open(f, encoding="utf-8").read() for f in files}
+    try:
+        r = subprocess.run(["python3", os.path.join(ROOT, "scripts/linkage/backfill_school_ids.py")],
+                           capture_output=True, text=True, cwd=ROOT)
+        if r.returncode != 0:
+            print("生产脚本重跑失败：scripts/linkage/backfill_school_ids.py")
+            print(r.stderr[-2000:])
+            for f, c in orig.items():
+                open(f, "w", encoding="utf-8").write(c)
+            sys.exit(1)
+        failed = [f for f in files if open(f, encoding="utf-8").read() != _head(f)]
+        if failed:
+            for f, c in orig.items():
+                open(f, "w", encoding="utf-8").write(c)
+            print(f"产物一致性: ✗ backfill_school_ids 重跑产物与入库不一致：{', '.join(os.path.basename(f) for f in failed)}")
+            print("  → 说明 backfill_school_ids.py 改动后未重跑提交产物，或产物被手改。"
+                  "修复须固化到生产脚本后重跑并提交产物。")
+            sys.exit(1)
+        print("产物一致性: ✓ backfill_school_ids 重跑产物与入库完全一致（quota/district_quota/batch2/special/_unmatched）")
+    except SystemExit:
+        raise
+    except Exception:
+        for f, c in orig.items():
+            open(f, "w", encoding="utf-8").write(c)
+        raise
+
+
 def main():
     # 1) education_groups
     tmp = os.path.join(tempfile.gettempdir(), "education_groups_repro.json")
@@ -124,6 +279,15 @@ def main():
 
     # 3) special plan + matrix（2026 特长生计划解析 + 升学通道矩阵）
     _check_special_matrix()
+    _check_build_high_levels()
+    _check_build_entities()
+    _check_minban_official()
+
+    # 4) xiaoshengchu 全链路（匹配已下沉 Python 数据层 xs_resolver；upgrade 只组装）
+    _check_xiaoshengchu()
+
+    # 5) backfill_school_ids（quota_matrix/district_quota/batch2_scores/special_matrix/_unmatched）
+    _check_backfill_ids()
 
 
 if __name__ == "__main__":

@@ -49,14 +49,24 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #   （未确认校区宁缺、回孤儿待逐校确认；净消除 4 所），新增 0
 # 2026-09-17 二更：仲元二校区官方明文「二校区（初中部）」10 班 450 人（番禺招生计划），
 #   build_middle_enrollment 补挂 gz-440113-6dbdc462（原 school_id=None 过时）→ 孤儿 335→334，新增 0
-ORPHAN_SNAPSHOT = "c8b2eb1635ba4cc1"
+ORPHAN_SNAPSHOT = "ea9cd1495fe41e92"
 
-# 同段同址冗余候选快照（sha256 前 16 位）：同学段+同区+≤50m 的公办实体对。
+# 同段同址冗余候选快照（sha256 前 16 位）：同学段+同区+≤50m 的实体对（含民办）。
 # 方向：候选越少越好（每合并一对冗余实体就少一组，属纯正向改进）。
 # 与孤儿快照同款防线：新增候选立即失败，须排查后再 UPDATE_SNAPSHOT=1 显式更新。
 # 首次固化 2026-09-17：15 组候选（含省实荔湾 初中部/初中部一期/花地湾 同址北文街2号、
 #   景泰小学柯子岭校区/43号A座 等，逐一排查中，见提交说明）。
 CO_LOCATED_SNAPSHOT = "78bd7925e8bb2651"
+
+# 民办学校名单快照（sha256 前 16 位）：data/registry/minban_schools.json 民办名单权威表。
+# 民办身份由 build_entities 按此表联表生产 entities nature（表驱动，非手写 id 列表）。
+# 名单是业务事实集合（非"越小越好"）：新增民办 / 误标公办 / 漏标民办都算名单变化，
+# 必须先排查官方来源（各区教育局年检/招生计划/积分入学等，表内 source_urls 可追溯），
+# 再 UPDATE_SNAPSHOT=1 显式更新。防止"手写 id 列表"式误标（如 2026-09-18 剑桥郡小学
+# 被误标民办：公办的番禺区剑桥郡小学 vs 民办的剑桥郡加拿达外国语学校）无人感知。
+# 首次固化 2026-09-18：228 所（含剑桥郡小学误标剔除后；另新增 7 区 minban_*.md 查漏补缺
+# 来源链接共 88 所可追溯）。
+PRIVATE_MINBAN_SNAPSHOT = "c3ee85789c726b50"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
@@ -404,7 +414,7 @@ def main():
     check(_orphan_digest == ORPHAN_SNAPSHOT,
           f"[11] 孤儿学校清单漂移: digest {_orphan_digest} != 固化 {ORPHAN_SNAPSHOT}（新增孤儿须立即排查；修复孤儿后显式更新快照）")
 
-    # ---- 12. 同段同址冗余候选：同学段（primary/middle/high）+ 同区 + 坐标距离 ≤50m 的公办实体 ----
+    # ---- 12. 同段同址冗余候选：同学段（primary/middle/high）+ 同区 + 坐标距离 ≤50m 的实体（含民办）----
     # 复用「全实体坐标检测」思路（相邻点检测，曾用于发现九年一贯/完中同址多学部）：
     # 跨学段同址（小学+初中=九年一贯、初中+高中=完中）是正常办学形态，故只看同学段；
     # 同学段同址是冗余候选（如省实荔湾 初中部/初中部一期 同址北文街2号），须逐一排查
@@ -426,8 +436,6 @@ def main():
             if _ad not in _SEVEN_ADCODES:
                 continue
             _e = _ent_by_id.get(_p["school_id"])
-            if _e and _e.get("nature") == "民办":
-                continue  # 民办不受公办派位/学位房逻辑约束，同址不构成数据冗余问题
             if _p.get("lng") and _p.get("lat"):
                 _co.append((_stg, _ad, _p["school_id"], _p["name"], float(_p["lng"]), float(_p["lat"])))
     import math as _math
@@ -453,7 +461,7 @@ def main():
             if _d <= 50:
                 _co_pairs.append((round(_d, 1), _a[1], _a[0], _a[2], _a[3], _b[2], _b[3]))
     _co_pairs.sort()
-    print(f"\n[12] 同段同址冗余候选（同学段+同区+≤50m，公办）: {len(_co_pairs)} 组")
+    print(f"\n[12] 同段同址冗余候选（同学段+同区+≤50m，含民办）: {len(_co_pairs)} 组")
 
     # ---- 13. 小升初记录同组同校不得重复（upgrade 产物层去重防线）----
     # 同一小学多源名（更名残留）/多条源记录（实体合并、源表重复行）解析到同一实体后，
@@ -495,6 +503,83 @@ def main():
     check(_sp.get("arts") == 1741, f"[14] 特长生艺术计划合计 {_sp.get('arts')} != 1741（官方口径）")
     check(_sp.get("football_special") == 116, f"[14] 领军龙足球试点计划 {_sp.get('football_special')} != 116（官方口径）")
     print(f"[14] 特长生计划官方口径: 体育 {_sp.get('sports')}（不含领军龙） / 艺术 {_sp.get('arts')} / 领军龙 {_sp.get('football_special')}")
+
+    # ---- 15. 民办学校名单快照（变化即感知）----
+    _minban = json.load(open(os.path.join(ROOT, "data/registry/minban_schools.json")))
+    _minban_ids = sorted(s["school_id"] for s in _minban["schools"])
+    _minban_digest = hashlib.sha256("\n".join(_minban_ids).encode()).hexdigest()[:16]
+    if os.environ.get("UPDATE_SNAPSHOT") == "1":
+        # 与孤儿/同址同款显式更新：民办名单变化排查确认（官方来源）后写回本文件常量。
+        _mtxt = open(__file__, encoding="utf-8").read()
+        _mtxt, _mn = re.subn(r'PRIVATE_MINBAN_SNAPSHOT = "[0-9a-f]{16}"',
+                             f'PRIVATE_MINBAN_SNAPSHOT = "{_minban_digest}"', _mtxt, count=1)
+        if _mn:
+            open(__file__, "w", encoding="utf-8").write(_mtxt)
+            print(f"[15] UPDATE_SNAPSHOT=1：民办名单快照已更新 → {_minban_digest}（{len(_minban_ids)} 所）")
+        else:
+            print(f"[15] UPDATE_SNAPSHOT=1：未找到 PRIVATE_MINBAN_SNAPSHOT 常量，跳过写回")
+    check(_minban_digest == PRIVATE_MINBAN_SNAPSHOT,
+          f"[15] 民办名单漂移: digest {_minban_digest} != 固化 {PRIVATE_MINBAN_SNAPSHOT}（民办名单变化须先排查官方来源；确认后 UPDATE_SNAPSHOT=1 显式更新）")
+    print(f"[15] 民办学校名单: {len(_minban_ids)} 所（快照 {_minban_digest}，变化即感知）")
+
+    # ---- 16. 民办学校不得有公办招生/升学信息（0 容忍，有即失败）----
+    # 民办学校在公办划片/派位体系里不应有：真实地段的小学招生、公办初中招生、小升初派位。
+    # 民办招生计划（zone 含"民办：无地段，报名人数超计划电脑派位"等）属民办自主招生，放行。
+    # 出现 → 立即失败：要么民办误标（如金海岸学校被误标民办后出现公办地段），
+    # 要么民办学校被错配进公办招生/升学文件。
+    _minban_ids16 = {s["school_id"] for s in json.load(open(os.path.join(ROOT, "data/registry/minban_schools.json")))["schools"]}
+    _bad_pri, _bad_mid, _bad_xs = [], [], []
+    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/2026-*.json"))):
+        _d = json.load(open(_f))
+        for _r in _d.get("records", []):
+            if _r.get("school_id") in _minban_ids16:
+                _zone = str(_r.get("zone") or "")
+                if "民办" not in _zone:
+                    _bad_pri.append(f"{os.path.basename(_f)} | {_r.get('school')} | {_r.get('school_id')} | zone={_zone[:60]}")
+    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/middle_enrollment_2026_*.json"))):
+        _d = json.load(open(_f))
+        for _r in _d.get("records", []):
+            if _r.get("school_id") in _minban_ids16:
+                _bad_mid.append(f"{os.path.basename(_f)} | {_r.get('school', _r.get('name'))} | {_r.get('school_id')}")
+    # 综合表 data/primary/xiaoshengchu_2026.json / xiaoshengchu_all.json 也纳入；
+    # 民办"不参与公办派位"缺口记录（source_note/data_gaps/group 含"民办"）属正常民办升学说明，放行。
+    for _f in (sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/xiaoshengchu_*.json")))
+               + sorted(glob.glob(os.path.join(ROOT, "data/primary/xiaoshengchu_*.json")))):
+        _d = json.load(open(_f))
+        for _r in _d.get("records", []):
+            if _r.get("school_id") in _minban_ids16:
+                _gap_txt = str(_r.get("source_note") or "") + str(_r.get("data_gaps") or "") + str(_r.get("group") or "")
+                # 放行两类正常民办升学：①"不参与公办派位"缺口（民办/其他）；②民办小学的
+                # "地段生"升公办初中对口（白云官方对口表明确列出"XX小学（地段生）"，如方圆实验小学）
+                if "民办" in _gap_txt or "地段" in _gap_txt:
+                    continue
+                _bad_xs.append(f"{os.path.basename(_f)} | {_r.get('school', _r.get('name'))} | {_r.get('school_id')}")
+    for _b in _bad_pri + _bad_mid + _bad_xs:
+        check(False, f"[16] 民办学校出现公办招生/升学信息: {_b}")
+    print(f"[16] 民办学校公办招生/升学检测: 小学 {len(_bad_pri)} 异常 / 初中 {len(_bad_mid)} 异常 / 小升初 {len(_bad_xs)} 异常（民办自主招生计划放行，0 容忍）")
+
+    # ---- 17. 番禺民办条目必须全部官方源（防手工名单）----
+    # 番禺有官方文件（2026 义务教育民办招生计划 sheet + 广州市中考批次民办高中名单），
+    # 民办名单必须由 build_minban_official.py 自动解析生成；md/手工不得直接追加番禺
+    # （金海岸学校误标民办即为 md 手工追加所致）。manual/legacy 的番禺条目 → 失败。
+    _panyu_entries = [s for s in json.load(open(os.path.join(ROOT, "data/registry/minban_schools.json")))["schools"]
+                      if s["school_id"].startswith("gz-440113")]
+    _panyu_manual = [f"{s['school_id']} | {s.get('name')} | {s.get('source_type')}"
+                     for s in _panyu_entries if not s.get("source_type", "").startswith("official")]
+    for _b in _panyu_manual:
+        check(False, f"[17] 番禺民办条目非官方源（番禺只能官方解析，禁止手工名单）: {_b}")
+    print(f"[17] 番禺民办条目: {len(_panyu_entries) - len(_panyu_manual)}/{len(_panyu_entries)} 官方源"
+          f"（manual/legacy {len(_panyu_manual)}，0 容忍）")
+
+    # ---- 18. 实体名不得为招生/报名点位（防"招生处"点位实体回归）----
+    # 高德 POI 常采集「XX学校招生处/招生办/报名点」等非学校点位（如星执学校小学招生处
+    # a36980e5 曾误建实体，与执信中学附属小学同址），build_entities NON_SCHOOL_POI 已过滤；
+    # 此处兜底：实体表再出现点位后缀 → 失败（0 容忍）。
+    _poi_like = [f"{e['school_id']} | {e['name']}" for e in json.load(open(os.path.join(ROOT, "data/registry/entities.json")))["entities"]
+                 if any(x in e['name'] for x in ('招生处', '招生办', '报名点', '报名处', '招生点'))]
+    for _b in _poi_like:
+        check(False, f"[18] 实体名为招生/报名点位（非学校，应被 build_entities 过滤）: {_b}")
+    print(f"[18] 实体点位后缀检测: {len(_poi_like)} 异常（0 容忍，build_entities NON_SCHOOL_POI 兜底）")
 
     # ---- 汇总 ----
     print(f"数据质量测试: {checks} 项检查, {len(failures)} 项失败")

@@ -1,0 +1,21 @@
+{
+ "updated": "2026-09-18",
+ "added": 1,
+ "items": [
+  {
+   "school": "化龙镇中心小学",
+   "poi": {
+    "name": "化龙镇中心小学",
+    "lng": 113.463778,
+    "lat": 23.032587,
+    "adcode": "440113",
+    "src": "backfill",
+    "match_score": 1000,
+    "match_rule": "geo",
+    "geo_from": "广州市番禺区化龙镇工业路22号"
+   },
+   "score": 1000,
+   "note": ""
+  }
+ ]
+}
