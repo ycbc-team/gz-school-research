@@ -263,6 +263,31 @@ def _check_backfill_ids():
         raise
 
 
+def _check_government_groups():
+    """政府文件底表覆盖校验：已支持区必须与官方名单成员级对齐（缺失=0）。
+
+    底表快照在 data/registry/_raw/government/，解析器 scripts/registry/parse_government_groups.py。
+    原则（用户口径）：以政府文件为底表，脚本解析形成数据源；官方名单有而 partial 无 = 缺失须补。"""
+    script = os.path.join(ROOT, "scripts/registry/parse_government_groups.py")
+    import re as _re
+    src = open(script, encoding="utf-8").read()
+    m = _re.search(r'SOURCES = \{(.*?)\n\}', src, _re.S)
+    districts = [d for d in _re.findall(r'"([a-z]+)": \{', m.group(1)) if d != "brand_aliases"]
+    ok = True
+    for d in districts:
+        r = subprocess.run(["python3", script, d, "--exit-on-gap"],
+                           capture_output=True, text=True, cwd=ROOT)
+        tail = (r.stdout or "") + (r.stderr or "")
+        if r.returncode != 0:
+            ok = False
+            print(f"官方底表: ✗ {d} 有缺失成员")
+            print("\n".join(tail.splitlines()[-6:]))
+        else:
+            print(f"官方底表: ✓ {d} 与官方名单成员级对齐")
+    if not ok:
+        sys.exit(1)
+
+
 def main():
     # 1) education_groups
     tmp = os.path.join(tempfile.gettempdir(), "education_groups_repro.json")
@@ -325,6 +350,9 @@ def main():
 
     # 6) school_groups 公共集团映射（build_school_groups 纯 id 产物）
     _check_school_groups()
+
+    # 7) 政府文件底表覆盖（有官方底表的区必须成员级对齐）
+    _check_government_groups()
 
 
 if __name__ == "__main__":

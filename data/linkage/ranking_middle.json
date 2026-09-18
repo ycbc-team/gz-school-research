@@ -5632,8 +5632,11 @@
     },
     {
       "name": "广州市南武第二实验学校",
-      "school_id": "gz-440105-9da3d734",
-      "school_ids": null,
+      "school_id": "gz-440105-96460a76",
+      "school_ids": [
+        "gz-440105-96460a76",
+        "gz-440105-9da3d734"
+      ],
       "district": "海珠区",
       "minban": false,
       "group": {
@@ -6584,7 +6587,10 @@
     {
       "name": "广州市江南外国语学校",
       "school_id": "gz-440105-ca292b2b",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440105-ca292b2b",
+        "gz-440105-f8dbd57c"
+      ],
       "district": "海珠区",
       "minban": false,
       "group": {
@@ -21055,7 +21061,7 @@
       "district": "番禺区",
       "minban": false,
       "group": {
-        "brand": "仲元附属学校教育集团",
+        "brand": "广东仲元中学教育集团",
         "source": "education"
       },
       "kaosheng": 174,

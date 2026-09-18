@@ -5,7 +5,7 @@
   "note": "P3全量补录：区属非示范集团+小学集团以各区政府/教育局官方文件为来源；示范高中集团初中成员来自招考办2026名额分配表；8个重点品牌来自brand_groups.json。远郊4区（花都/南沙/增城/从化）集团核心校不录，跨区成员标注'远郊不在POI范围'。",
   "stats": {
     "total_groups": 86,
-    "total_members": 342,
+    "total_members": 343,
     "poi_exact": 0,
     "poi_variant": 22,
     "poi_missing_7dist": 2,
@@ -5040,6 +5040,14 @@
           "poi_match": "法人推导",
           "poi_name": "广东仲元中学莲花湾学校",
           "school_id": "gz-440113-34ff409c"
+        },
+        {
+          "name": "广东仲元中学附属学校",
+          "source_url": "http://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10033795.html",
+          "verified": "2026-09-18",
+          "poi_match": "法人推导",
+          "poi_name": "广东仲元中学附属学校",
+          "school_id": "gz-440113-b5ff857b"
         }
       ],
       "source_urls": [
