@@ -49,7 +49,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #   （未确认校区宁缺、回孤儿待逐校确认；净消除 4 所），新增 0
 # 2026-09-17 二更：仲元二校区官方明文「二校区（初中部）」10 班 450 人（番禺招生计划），
 #   build_middle_enrollment 补挂 gz-440113-6dbdc462（原 school_id=None 过时）→ 孤儿 335→334，新增 0
-ORPHAN_SNAPSHOT = "c8b2eb1635ba4cc1"
+ORPHAN_SNAPSHOT = "14ff807f45a3161c"
 
 # 同段同址冗余候选快照（sha256 前 16 位）：同学段+同区+≤50m 的公办实体对。
 # 方向：候选越少越好（每合并一对冗余实体就少一组，属纯正向改进）。
@@ -66,7 +66,7 @@ CO_LOCATED_SNAPSHOT = "78bd7925e8bb2651"
 # 被误标民办：公办的番禺区剑桥郡小学 vs 民办的剑桥郡加拿达外国语学校）无人感知。
 # 首次固化 2026-09-18：228 所（含剑桥郡小学误标剔除后；另新增 7 区 minban_*.md 查漏补缺
 # 来源链接共 88 所可追溯）。
-PRIVATE_MINBAN_SNAPSHOT = "a6b0eea972d0b62e"
+PRIVATE_MINBAN_SNAPSHOT = "8a93114717ceff81"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
@@ -543,10 +543,18 @@ def main():
         for _r in _d.get("records", []):
             if _r.get("school_id") in _minban_ids16:
                 _bad_mid.append(f"{os.path.basename(_f)} | {_r.get('school', _r.get('name'))} | {_r.get('school_id')}")
-    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/xiaoshengchu_*.json"))):
+    # 综合表 data/primary/xiaoshengchu_2026.json / xiaoshengchu_all.json 也纳入；
+    # 民办"不参与公办派位"缺口记录（source_note/data_gaps/group 含"民办"）属正常民办升学说明，放行。
+    for _f in (sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/xiaoshengchu_*.json")))
+               + sorted(glob.glob(os.path.join(ROOT, "data/primary/xiaoshengchu_*.json")))):
         _d = json.load(open(_f))
         for _r in _d.get("records", []):
             if _r.get("school_id") in _minban_ids16:
+                _gap_txt = str(_r.get("source_note") or "") + str(_r.get("data_gaps") or "") + str(_r.get("group") or "")
+                # 放行两类正常民办升学：①"不参与公办派位"缺口（民办/其他）；②民办小学的
+                # "地段生"升公办初中对口（白云官方对口表明确列出"XX小学（地段生）"，如方圆实验小学）
+                if "民办" in _gap_txt or "地段" in _gap_txt:
+                    continue
                 _bad_xs.append(f"{os.path.basename(_f)} | {_r.get('school', _r.get('name'))} | {_r.get('school_id')}")
     for _b in _bad_pri + _bad_mid + _bad_xs:
         check(False, f"[16] 民办学校出现公办招生/升学信息: {_b}")
@@ -564,6 +572,16 @@ def main():
         check(False, f"[17] 番禺民办条目非官方源（番禺只能官方解析，禁止手工名单）: {_b}")
     print(f"[17] 番禺民办条目: {len(_panyu_entries) - len(_panyu_manual)}/{len(_panyu_entries)} 官方源"
           f"（manual/legacy {len(_panyu_manual)}，0 容忍）")
+
+    # ---- 18. 实体名不得为招生/报名点位（防"招生处"点位实体回归）----
+    # 高德 POI 常采集「XX学校招生处/招生办/报名点」等非学校点位（如星执学校小学招生处
+    # a36980e5 曾误建实体，与执信中学附属小学同址），build_entities NON_SCHOOL_POI 已过滤；
+    # 此处兜底：实体表再出现点位后缀 → 失败（0 容忍）。
+    _poi_like = [f"{e['school_id']} | {e['name']}" for e in json.load(open(os.path.join(ROOT, "data/registry/entities.json")))["entities"]
+                 if any(x in e['name'] for x in ('招生处', '招生办', '报名点', '报名处', '招生点'))]
+    for _b in _poi_like:
+        check(False, f"[18] 实体名为招生/报名点位（非学校，应被 build_entities 过滤）: {_b}")
+    print(f"[18] 实体点位后缀检测: {len(_poi_like)} 异常（0 容忍，build_entities NON_SCHOOL_POI 兜底）")
 
     # ---- 汇总 ----
     print(f"数据质量测试: {checks} 项检查, {len(failures)} 项失败")
