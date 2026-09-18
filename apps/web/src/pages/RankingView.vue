@@ -257,7 +257,12 @@ const groups = computed(() => {
     if (!map.has(key)) map.set(key, []);
     map.get(key)!.push(r);
   }
-  const keys = [...map.keys()].sort((a, b) => a.localeCompare(b, 'zh'));
+  // 未入集团固定排最后（不参与拼音序）；其余组按组名拼音序
+  const keys = [...map.keys()].sort((a, b) => {
+    if (a === '未入集团') return 1;
+    if (b === '未入集团') return -1;
+    return a.localeCompare(b, 'zh');
+  });
   return keys.map((k) => ({
     key: `g-${k}`,
     title: k,

@@ -69,8 +69,28 @@ brand_groups = load('registry/brand_groups.json')['brands']
 # education: group brand + 全部成员名（core_poi/members/campuses 的 name/poi_name）
 education_groups = load('registry/education_groups.json')['groups']
 
+# school_id → 集团索引（对齐 shared 详情页 schoolIdToGroup：education 外键 + brand 有外键的 unit；
+# 详情页品牌卡能命中的 school_id，初中明细分组必须同样命中，避免前端口径分叉）
+GROUP_BY_SID = {}
+for _g in education_groups:
+    for _p in _g.get('core_poi') or []:
+        if _p.get('school_id'): GROUP_BY_SID[_p['school_id']] = (_g['brand'], 'education')
+    for _m in _g.get('members') or []:
+        if _m.get('school_id'): GROUP_BY_SID[_m['school_id']] = (_g['brand'], 'education')
+        for _c in _m.get('campuses') or []:
+            if _c.get('school_id'): GROUP_BY_SID[_c['school_id']] = (_g['brand'], 'education')
+for _g in brand_groups:
+    for _u in _g.get('units') or []:
+        for _sid in _u.get('school_ids') or []:
+            if _sid and _sid not in GROUP_BY_SID:
+                GROUP_BY_SID[_sid] = (_g['brand'], 'brand')
 
-def group_of(school_name: str):
+
+def group_of(school_name: str, school_id=None):
+    # 0. school_id 外键精确匹配（与 shared 详情页 groupOfSchool 同口径，优先于名称匹配）
+    if school_id and school_id in GROUP_BY_SID:
+        _b, _src = GROUP_BY_SID[school_id]
+        return {'brand': _b, 'source': _src}
     n = py_norm(school_name)
     # 1. brand（8 大品牌，全等）
     for g in brand_groups:
@@ -269,14 +289,14 @@ def tekong_of(high_name: str):
     return tekong_by_name.get(canon_bracket(high_name))
 
 
-def group_resolve(name: str):
-    """集团匹配：先按 quota 校区名直查；未命中则回退到历史口碑口径名（QUOTA_REVERSE）再查。"""
-    g = group_of(name)
+def group_resolve(name: str, school_id=None):
+    """集团匹配：先按 school_id 外键（对齐详情页）；未命中按 quota 校区名直查；再回退历史口碑口径名。"""
+    g = group_of(name, school_id)
     if g:
         return g
     legacy = QUOTA_REVERSE.get(name)
     if legacy:
-        return group_of(legacy)
+        return group_of(legacy, school_id)
     return None
 
 
@@ -314,7 +334,7 @@ def build_row(name: str, district: str, school_id=None, school_ids=None):
         'school_ids': school_ids,
         'district': district,
         'minban': bool(school_id and school_id in MINBAN_IDS),
-        'group': group_resolve(name),
+        'group': group_resolve(name, school_id),
         'kaosheng': kaosheng,
         'sheng_quota': sheng_quota,
         'qu_quota': qu_quota,
