@@ -839,6 +839,8 @@ for (const [k, poi] of Object.entries(REMOVED_POI_ALIAS)) {
 const EXTRA_ENTITY_ALIAS = {
   'gz-440104-0a17f1eb': ['十三中'],    // 广州市第十三中学(文德校区)：榜单记录所在（初中部实体在禺山校区 9b88f912，榜单未收录）
   'gz-440105-b210556b': ['四十一中'],  // 广州市第四十一中学(东校区)：榜单记录所在（POI 仅"广州市第四十一中学"40a80ebb，榜单未收录）
+  'gz-440111-218475ea': ['65中本部初中'],    // 广州市第六十五中学(江高校区)：机构确认本部=江高（无 POI/榜单数据，排序不生效属数据缺口）
+  'gz-440111-730c7404': ['培英中学（云城校区）'],  // 广州市培英中学(云城校区)：实体存在（stage=high），无 POI/榜单数据，排序不生效属数据缺口
 };
 for (const [sid, als] of Object.entries(EXTRA_ENTITY_ALIAS)) {
   const e = entities.find(x => x.school_id === sid);

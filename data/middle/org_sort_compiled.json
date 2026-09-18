@@ -6,6 +6,16 @@
   },
   {
     "district": "白云区",
+    "level": 1,
+    "school_id": "gz-440111-730c7404"
+  },
+  {
+    "district": "白云区",
+    "level": 2,
+    "school_id": "gz-440111-218475ea"
+  },
+  {
+    "district": "白云区",
     "level": 2,
     "school_id": "gz-440111-e14818fc"
   },
