@@ -4,8 +4,8 @@
   "source_scope": "荔湾/越秀/海珠/天河/白云/黄埔/番禺",
   "note": "P3全量补录：区属非示范集团+小学集团以各区政府/教育局官方文件为来源；示范高中集团初中成员来自招考办2026名额分配表；8个重点品牌来自brand_groups.json。远郊4区（花都/南沙/增城/从化）集团核心校不录，跨区成员标注'远郊不在POI范围'。",
   "stats": {
-    "total_groups": 85,
-    "total_members": 335,
+    "total_groups": 86,
+    "total_members": 342,
     "poi_exact": 0,
     "poi_variant": 22,
     "poi_missing_7dist": 2,
@@ -1369,6 +1369,130 @@
           "poi_match": "法人推导",
           "poi_name": "广州市第九十七中学",
           "school_id": "gz-440105-f0712355"
+        }
+      ]
+    },
+    {
+      "brand": "广州市南武教育集团",
+      "core": [
+        "广州市南武中学"
+      ],
+      "level": "区属",
+      "type": "混合学段集团",
+      "members": [
+        {
+          "name": "广州市江南外国语学校",
+          "source_url": "https://www.haizhu.gov.cn/bmml/jyj/content/mpost_9404970.html",
+          "verified": "2026-09-18",
+          "poi_match": "法人推导",
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "广州市江南外国语学校(北校区)",
+              "school_id": "gz-440105-ca292b2b"
+            },
+            {
+              "poi_name": "广州市江南外国语学校(南校区)",
+              "school_id": "gz-440105-f8dbd57c"
+            }
+          ]
+        },
+        {
+          "name": "广州市南武第二实验学校",
+          "source_url": "https://ep.ycwb.com/epaper/ycwb/h5/html5/2024-05/28/content_5_648233.htm",
+          "verified": "2026-09-18",
+          "poi_match": "法人推导",
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "广州市南武第二实验学校(南校区)",
+              "school_id": "gz-440105-9da3d734"
+            },
+            {
+              "poi_name": "广州市南武第二实验学校(北校区)",
+              "school_id": "gz-440105-96460a76"
+            }
+          ]
+        },
+        {
+          "name": "广州市南武实验学校",
+          "source_url": "https://www.haizhu.gov.cn/bmml/jyj/content/mpost_9404970.html",
+          "verified": "2026-09-18",
+          "poi_match": "法人推导",
+          "poi_name": "南武实验学校",
+          "school_id": "gz-440105-6ee54f1d"
+        },
+        {
+          "name": "广州市海珠区南武文润学校",
+          "source_url": "https://www.haizhu.gov.cn/bmml/jyj/content/mpost_9404970.html",
+          "verified": "2026-09-18",
+          "poi_match": "法人推导",
+          "poi_name": "广州市海珠区南武文润学校",
+          "school_id": "gz-440105-44b3dc01",
+          "campuses": [
+            {
+              "poi_name": "南武文润学校(小学部)",
+              "school_id": "gz-440105-5d30ae7e"
+            }
+          ]
+        },
+        {
+          "name": "广州市南武中学附属学校",
+          "source_url": "https://www.haizhu.gov.cn/bmml/jyj/content/mpost_9404970.html",
+          "verified": "2026-09-18",
+          "poi_match": "法人推导",
+          "poi_name": "广州市南武中学附属学校",
+          "school_id": "gz-440105-77baeea5"
+        },
+        {
+          "name": "广州市海珠区南武小学",
+          "source_url": "https://www.haizhu.gov.cn/bmml/jyj/content/mpost_9404970.html",
+          "verified": "2026-09-18",
+          "poi_match": "法人推导",
+          "poi_name": "南武小学",
+          "school_id": "gz-440105-303a320d",
+          "campuses": [
+            {
+              "poi_name": "广州市海珠区南武小学(北校区)",
+              "school_id": "gz-440105-d424c49e"
+            }
+          ]
+        },
+        {
+          "name": "广州市海珠区南武实验小学",
+          "source_url": "https://www.haizhu.gov.cn/bmml/jyj/content/mpost_9404970.html",
+          "verified": "2026-09-18",
+          "poi_match": "法人推导",
+          "poi_name": "南武实验小学",
+          "school_id": "gz-440105-bd4e447c"
+        }
+      ],
+      "source_urls": [
+        "https://www.haizhu.gov.cn/bmml/jyj/content/mpost_9404970.html",
+        "https://ep.ycwb.com/epaper/ycwb/h5/html5/2024-05/28/content_5_648233.htm"
+      ],
+      "note": "官方名单（海珠区教育局2023-12-27调整通知，海教办〔2023〕19号）8成员：南武中学（核心）+江南外国语+三十三中+南武实验+南武文润+南武中学附属+南武小学+南武实验小学。2024-05-27广州市第三十三中学更名广州市南武第二实验学校（南武中学托管，'六个同步'）；江南外国语/南二实/南武小学多校区全平铺；南武中学一校三区（高中部/初中部/岭南画派纪念校区）由法人推导自动锚定。",
+      "district": "海珠",
+      "core_poi": [
+        {
+          "name": "广州市南武中学",
+          "poi_match": "法人推导",
+          "poi_name": "广州市南武中学",
+          "school_id": "gz-440105-eaf414df"
+        },
+        {
+          "name": "广州市南武中学(岭南画派纪念校区)",
+          "poi_match": "法人推导",
+          "poi_name": "广州市南武中学(岭南画派纪念校区)",
+          "school_id": "gz-440105-dd2723fc"
+        },
+        {
+          "name": "广州市南武中学(高中部)",
+          "poi_match": "法人推导",
+          "poi_name": "广州市南武中学(高中部)",
+          "school_id": "gz-440105-515da9e2"
         }
       ]
     },

@@ -5636,7 +5636,10 @@
       "school_ids": null,
       "district": "海珠区",
       "minban": false,
-      "group": null,
+      "group": {
+        "brand": "广州市南武教育集团",
+        "source": "education"
+      },
       "kaosheng": 189,
       "sheng_quota": 10,
       "qu_quota": 45,
@@ -5920,7 +5923,10 @@
       ],
       "district": "海珠区",
       "minban": false,
-      "group": null,
+      "group": {
+        "brand": "广州市南武教育集团",
+        "source": "education"
+      },
       "kaosheng": 517,
       "sheng_quota": 27,
       "qu_quota": 124,
@@ -6581,7 +6587,10 @@
       "school_ids": null,
       "district": "海珠区",
       "minban": false,
-      "group": null,
+      "group": {
+        "brand": "广州市南武教育集团",
+        "source": "education"
+      },
       "kaosheng": 667,
       "sheng_quota": 34,
       "qu_quota": 160,
@@ -7352,7 +7361,10 @@
       "school_ids": null,
       "district": "海珠区",
       "minban": false,
-      "group": null,
+      "group": {
+        "brand": "广州市南武教育集团",
+        "source": "education"
+      },
       "kaosheng": 277,
       "sheng_quota": 14,
       "qu_quota": 66,
@@ -7888,7 +7900,10 @@
       "school_ids": null,
       "district": "海珠区",
       "minban": false,
-      "group": null,
+      "group": {
+        "brand": "广州市南武教育集团",
+        "source": "education"
+      },
       "kaosheng": 253,
       "sheng_quota": 13,
       "qu_quota": 61,
@@ -8263,7 +8278,10 @@
       "school_ids": null,
       "district": "海珠区",
       "minban": false,
-      "group": null,
+      "group": {
+        "brand": "广州市南武教育集团",
+        "source": "education"
+      },
       "kaosheng": 66,
       "sheng_quota": 3,
       "qu_quota": 16,

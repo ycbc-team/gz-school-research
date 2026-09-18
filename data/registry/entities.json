@@ -12205,6 +12205,22 @@
       "nature": "民办"
     },
     {
+      "school_id": "gz-440105-f8dbd57c",
+      "name": "广州市江南外国语学校(南校区)",
+      "stage": "middle",
+      "aliases": [
+        "海珠区江南外国语学校南校区"
+      ]
+    },
+    {
+      "school_id": "gz-440105-96460a76",
+      "name": "广州市南武第二实验学校(北校区)",
+      "stage": "middle",
+      "aliases": [
+        "海珠区南武第二实验学校北校区"
+      ]
+    },
+    {
       "school_id": "gz-440103-3aca532e",
       "name": "广东实验中学(高中部)",
       "stage": "high",
