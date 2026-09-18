@@ -18,7 +18,7 @@ import time
 import urllib.parse
 import urllib.request
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # 项目根（scripts/primary/ 的上三层）
 DATA = os.path.join(ROOT, "data", "primary")
 
 # 统一匹配库：norm 本体（NFKC/繁简/去广州市/删括号/去空白）收敛至 school_match.normName；
@@ -119,20 +119,37 @@ def search_school(key, school):
     out.sort(key=lambda x: -x[0])
     return out
 
+# 官方名 → 指定高德查询词（官方名单名与高德 POI 名不一致的补录，2026-09-18 高德核实）：
+#   化龙镇中心小学：2026 秋整体搬迁至复甦安置区配建学校，高德 POI「复苏小学」（复苏路38号）
+#   新桥小学：大龙街新桥村市莲路桥东大街2号，高德 POI「新桥学校」（市莲路153旁）
+#   石碁镇永善小学：石碁镇永善村义里上街4号，高德 POI「永善学校」（义里上街4号）
+PATCH_QUERIES = {
+    "化龙镇中心小学": "复苏小学",
+    "新桥小学": "新桥学校",
+    "石碁镇永善小学": "永善学校",
+}
+
 def main():
     key = load_key()
     with open(os.path.join(DATA, "enrollments", "2026-panyu.json"), encoding="utf-8") as f:
         enr = json.load(f)
+    # 支持 --only 白名单（如「python3 backfill_schools.py 化龙镇中心小学」只补该所，避免全量不可控）
+    import sys as _sys
+    only = set(_sys.argv[1:]) if len(_sys.argv) > 1 else set()
     missing = sorted(set(enr["unmatched"]))
+    if only:
+        missing = [s for s in missing if s in only]
 
     # 加载现有 POI 避免重复（数据真源为 JSON）
     with open(os.path.join(DATA, "schools-gz.json"), encoding="utf-8") as f:
         data = json.load(f)
     existing = {(s["name"], round(s["lng"], 5), round(s["lat"], 5)) for s in data["schools"]}
+    by_name = {s["name"]: s for s in data["schools"]}
 
     found, uncertain, notfound = [], [], []
     for school in missing:
-        cands = search_school(key, school)
+        query = PATCH_QUERIES.get(school, school)  # 官方名与 POI 名不一致时用指定查询词
+        cands = search_school(key, query)
         if not cands:
             notfound.append(school)
             continue
@@ -153,13 +170,19 @@ def main():
         time.sleep(0.35)
 
     # 应用：把高置信命中追加进 schools.js / schools-gz.json（避免覆盖已有）
-    added = 0
+    added, updated = 0, 0
     for f_ in found:
         if f_.get("note") == "POI 已存在":
             continue
         poi = f_["poi"]
         key_t = (poi["name"], round(poi["lng"], 5), round(poi["lat"], 5))
         if key_t in existing:
+            continue
+        # 同名 POI 已存在但无坐标（历史采集缺 loc）→ 补坐标，不追加重复
+        if poi["name"] in by_name and by_name[poi["name"]].get("lng") is None:
+            by_name[poi["name"]].update({"lng": poi["lng"], "lat": poi["lat"], "src": "backfill"})
+            existing.add(key_t)
+            updated += 1
             continue
         rec = {"name": poi["name"], "lng": poi["lng"], "lat": poi["lat"],
                "adcode": "440113", "src": "backfill",
@@ -168,7 +191,7 @@ def main():
         existing.add(key_t)
         added += 1
 
-    if added:
+    if added or updated:
         data["note"] = data.get("note", "") + "；含 backfill 补充点位"
         with open(os.path.join(DATA, "schools-gz.json"), "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, separators=(",", ":"))

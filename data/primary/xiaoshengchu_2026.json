@@ -8632,6 +8632,17 @@
       "data_gaps": null
     },
     {
+      "school_id": "gz-440113-874cc790",
+      "feed_school_ids": [
+        "gz-440113-527391ff"
+      ],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 永善村户籍（POI 缺失）",
+      "group_id": 68,
+      "data_gaps": null
+    },
+    {
       "school_id": "gz-440113-b56d3009",
       "feed_school_ids": [
         "gz-440113-527391ff"
@@ -8661,6 +8672,17 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 沙涌村户籍",
+      "group_id": 68,
+      "data_gaps": null
+    },
+    {
+      "school_id": "gz-440113-5a568b43",
+      "feed_school_ids": [
+        "gz-440113-2570c29b"
+      ],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 新桥村户籍（POI 缺失）",
       "group_id": 68,
       "data_gaps": null
     },

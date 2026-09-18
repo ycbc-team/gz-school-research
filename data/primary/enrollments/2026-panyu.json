@@ -2214,6 +2214,30 @@
    "lat": 22.919198
   },
   {
+   "school": "石碁镇永善小学",
+   "district": "石碁",
+   "plan_classes": null,
+   "zone": "永善村户籍的适龄儿童。",
+   "note": "",
+   "source": "番禺区教育局2026",
+   "school_id": "gz-440113-874cc790",
+   "poi_name": "永善学校",
+   "lng": 113.458434,
+   "lat": 22.958882
+  },
+  {
+   "school": "新桥小学",
+   "district": "石碁",
+   "plan_classes": null,
+   "zone": "新桥村户籍的适龄儿童。",
+   "note": "",
+   "source": "番禺区教育局2026",
+   "school_id": "gz-440113-5a568b43",
+   "poi_name": "新桥学校",
+   "lng": 113.421048,
+   "lat": 22.953349
+  },
+  {
    "school": "广东番禺中学实验学校",
    "district": "西片",
    "plan_classes": null,
@@ -2277,9 +2301,7 @@
   }
  ],
  "unmatched": [
-  "化龙镇中心小学",
-  "新桥小学",
-  "石碁镇永善小学"
+  "化龙镇中心小学"
  ],
  "ambiguous": [],
  "poi_leftover": [

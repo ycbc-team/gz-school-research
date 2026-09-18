@@ -598,7 +598,11 @@ for (const [stage, file] of Object.entries(stageFiles)) {
     const _st = stageFixOf(stage, p);  // 学段修正：middle 误建 → 按正确 stage 建实体（POI 数据随迁）
     const sn = normName(pn);
     // 幂等：POI 已有 school_id 时保留（历史算法产出，事实表已按此引用），无 id 才新算
-    const schoolId = p.school_id || idKey(_st, sn);
+    // 修正：idKey 曾误用 stage 作 adcode（backfill 新 POI 生成 gz-primary-xxx，番禺 POI 应为
+    // gz-440113-xxx）——对 gz-primary 前缀且 POI 有区 adcode 的 id 重算，并覆盖回填
+    const _sidRaw = p.school_id || '';
+    const _badSid = _sidRaw.startsWith('gz-primary-') && p.adcode && p.adcode !== 'primary';
+    const schoolId = _badSid ? idKey(p.adcode, sn) : (_sidRaw || idKey(p.adcode || _st, sn));
     // 同 id 去重：POI 表可能对同一 school_id 存在多条点位（如「广州市第十三中学文德校区」与
     // 「广州市第十三中学(文德校区)」两个高德 POI）——同 (stage, school_id) 只建一个实体，
     // 后续点位 aliases 并入首个（否则实体表同 id 双实体、by_id 反查被覆盖导致聚合失配）
