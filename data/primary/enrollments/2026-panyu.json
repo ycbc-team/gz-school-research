@@ -2276,6 +2276,18 @@
    "lat": 23.018177
   },
   {
+   "school": "化龙镇中心小学",
+   "district": "化龙片",
+   "plan_classes": null,
+   "zone": "东南村、塘头村、草堂村、莘汀村、水门村、化龙居委、盛龙社区户籍的适龄儿童。",
+   "note": "",
+   "source": "番禺区教育局2026",
+   "school_id": "gz-440113-fd1d0462",
+   "poi_name": "化龙镇中心小学",
+   "lng": 113.463778,
+   "lat": 23.032587
+  },
+  {
    "school": "天誉小学",
    "district": "石楼",
    "plan_classes": null,
@@ -2300,9 +2312,7 @@
    "lat": 22.944933
   }
  ],
- "unmatched": [
-  "化龙镇中心小学"
- ],
+ "unmatched": [],
  "ambiguous": [],
  "poi_leftover": [
   "三善小学",

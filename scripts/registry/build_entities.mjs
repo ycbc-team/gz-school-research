@@ -195,6 +195,9 @@ const OFFICIAL_MIDDLE_ALIAS = {
   '毓贤学校': '广州番禺区毓贤学校',
   '广州市第一一三中学陶育实验学校': '广州市第一一三中学陶育实验学校(暨南校区)',
   '广州市白云区民航学校': '广州市白云区民航学校(初中部)',
+  // 君诚博雅法人名（官方民办一览表名）：滘口校区（九年制，middle 侧配额/录取按法人名回填）
+  '广州市荔湾区君诚博雅实验学校': '君诚博雅实验学校(滘口校区)',
+  '君诚博雅实验学校': '君诚博雅实验学校(滘口校区)',
   '广东仲元中学一校区（初中部）': '广东仲元中学',
   '广东仲元中学二校区（初中部）': '广东仲元中学(第二校区)',
   '清华附中湾区学校（智谷校区）': '清华附中湾区学校',
@@ -597,12 +600,10 @@ for (const [stage, file] of Object.entries(stageFiles)) {
     const pn = POI_NAME_FIX[p.name] || p.name;  // 规范化实体名（POI 原名仅用于 idKey/回写查表）
     const _st = stageFixOf(stage, p);  // 学段修正：middle 误建 → 按正确 stage 建实体（POI 数据随迁）
     const sn = normName(pn);
-    // 幂等：POI 已有 school_id 时保留（历史算法产出，事实表已按此引用），无 id 才新算
-    // 修正：idKey 曾误用 stage 作 adcode（backfill 新 POI 生成 gz-primary-xxx，番禺 POI 应为
-    // gz-440113-xxx）——对 gz-primary 前缀且 POI 有区 adcode 的 id 重算，并覆盖回填
-    const _sidRaw = p.school_id || '';
-    const _badSid = _sidRaw.startsWith('gz-primary-') && p.adcode && p.adcode !== 'primary';
-    const schoolId = _badSid ? idKey(p.adcode, sn) : (_sidRaw || idKey(p.adcode || _st, sn));
+    // 幂等：POI 已有 school_id 时保留（历史算法产出，事实表已按此引用），无 id 才新算。
+    // idKey 用区 adcode（p.adcode）而非 stage——backfill 追加的新 POI 从源头生成区级 id，
+    // 不再出现 gz-primary- 前缀（2026-09-18 曾因误传 stage 产生，已由本源修复消除）。
+    const schoolId = p.school_id || idKey(p.adcode || _st, sn);
     // 同 id 去重：POI 表可能对同一 school_id 存在多条点位（如「广州市第十三中学文德校区」与
     // 「广州市第十三中学(文德校区)」两个高德 POI）——同 (stage, school_id) 只建一个实体，
     // 后续点位 aliases 并入首个（否则实体表同 id 双实体、by_id 反查被覆盖导致聚合失配）
@@ -649,14 +650,14 @@ for (const [sid, cfg] of Object.entries(DERIVE_MIDDLE_FROM_PRIMARY)) {
     console.log('  [派生middle未找到primary]', sid);
     continue;
   }
+  // 主循环已从派生注入的 middle POI 建立同 id 实体时跳过（防重复推入，2026-09-18 曾重复）
+  if (entities.some((e) => e.stage === 'middle' && e.school_id === sid)) {
+    console.log('  [派生middle已由主循环建立，跳过]', sid);
+    continue;
+  }
   const priPoi = (read(stageFiles.primary).schools || []).find((x) => x.school_id === sid);
   const m = { school_id: sid, name: cfg.poiName, stage: 'middle', aliases: new Set(pri.aliases) };
-  // 法人名双变体（官方民办名单名「广州市荔湾区君诚博雅实验学校」：含区名/裸名两形，
-  // backfill_school_ids 的 norm 去「广州市」后按「荔湾区君诚博雅实验学校」命中）
-  for (const v of ['荔湾区君诚博雅实验学校', '君诚博雅实验学校']) {
-    pri.aliases.add(v);
-    m.aliases.add(v);
-  }
+  // 法人名别名统一走 OFFICIAL_MIDDLE_ALIAS（与其它学校一致），不在派生段手工挂
   entities.push(m);
   poiIdByKey.set('middle|' + cfg.adcode + '|' + cfg.poiName, sid);
   entByStagePoiName.set('middle|' + normName(cfg.poiName), m);

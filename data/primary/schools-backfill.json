@@ -1,45 +1,18 @@
 {
  "updated": "2026-09-18",
- "added": 2,
+ "added": 1,
  "items": [
   {
    "school": "化龙镇中心小学",
    "poi": {
-    "name": "复苏小学",
-    "lng": 113.486532,
-    "lat": 23.036755,
+    "name": "化龙镇中心小学",
+    "lng": 113.463778,
+    "lat": 23.032587,
     "adcode": "440113",
     "src": "backfill",
     "match_score": 1000,
-    "match_rule": "exact"
-   },
-   "score": 1000,
-   "note": "POI 已存在"
-  },
-  {
-   "school": "新桥小学",
-   "poi": {
-    "name": "新桥学校",
-    "lng": 113.421048,
-    "lat": 22.953349,
-    "adcode": "440113",
-    "src": "backfill",
-    "match_score": 1000,
-    "match_rule": "exact"
-   },
-   "score": 1000,
-   "note": ""
-  },
-  {
-   "school": "石碁镇永善小学",
-   "poi": {
-    "name": "永善学校",
-    "lng": 113.458434,
-    "lat": 22.958882,
-    "adcode": "440113",
-    "src": "backfill",
-    "match_score": 1000,
-    "match_rule": "exact"
+    "match_rule": "geo",
+    "geo_from": "广州市番禺区化龙镇工业路22号"
    },
    "score": 1000,
    "note": ""

@@ -69,6 +69,27 @@ def api(key, params):
                 return {"error": str(e)}
             time.sleep(1.5)
 
+def geocode(key, address):
+    """官方地址 → (lng, lat)：geocode/geo 第一候选（formatted_address 精确匹配优先）"""
+    params = {"address": address, "city": "440113", "key": key}
+    url = "https://restapi.amap.com/v3/geocode/geo?" + urllib.parse.urlencode(params)
+    try:
+        with urllib.request.urlopen(url, timeout=20) as r:
+            d = json.load(r)
+        gs = d.get("geocodes") or []
+        for g in gs:
+            loc = (g.get("location") or "").split(",")
+            if len(loc) == 2 and g.get("formatted_address", "").endswith(address.split("市")[-1][:8]) is not False:
+                return float(loc[0]), float(loc[1])
+        if gs:
+            loc = (gs[0].get("location") or "").split(",")
+            if len(loc) == 2:
+                return float(loc[0]), float(loc[1])
+    except Exception as e:
+        print(f"  [geocode 失败] {address}: {e}")
+    return None
+
+
 def search_school(key, school):
     """按官方名检索番禺区 POI，返回排序后的候选 [(score, poi)]"""
     kws = [school, re.sub(r"学校$", "", school), re.sub(r"小学$", "", school)]
@@ -123,8 +144,9 @@ def search_school(key, school):
 #   化龙镇中心小学：2026 秋整体搬迁至复甦安置区配建学校，高德 POI「复苏小学」（复苏路38号）
 #   新桥小学：大龙街新桥村市莲路桥东大街2号，高德 POI「新桥学校」（市莲路153旁）
 #   石碁镇永善小学：石碁镇永善村义里上街4号，高德 POI「永善学校」（义里上街4号）
+# geo: 前缀 = 官方地址 → 高德 geocode 取坐标（用户指定：化龙镇中心小学新址未定，先用旧地址）
 PATCH_QUERIES = {
-    "化龙镇中心小学": "复苏小学",
+    "化龙镇中心小学": "geo:广州市番禺区化龙镇工业路22号",
     "新桥小学": "新桥学校",
     "石碁镇永善小学": "永善学校",
 }
@@ -149,6 +171,16 @@ def main():
     found, uncertain, notfound = [], [], []
     for school in missing:
         query = PATCH_QUERIES.get(school, school)  # 官方名与 POI 名不一致时用指定查询词
+        if query.startswith("geo:"):
+            loc = geocode(key, query[4:])
+            if loc:
+                poi = {"name": school, "lng": loc[0], "lat": loc[1],
+                       "adcode": "440113", "src": "backfill", "match_score": 1000,
+                       "match_rule": "geo", "geo_from": query[4:]}
+                found.append({"school": school, "poi": poi, "score": 1000, "note": ""})
+            else:
+                notfound.append(school)
+            continue
         cands = search_school(key, query)
         if not cands:
             notfound.append(school)

@@ -304,7 +304,7 @@ def main():
     for seg in (REBUILD_NOTE, SZ_GAP_NOTE):
         base = base.replace(seg, '')
     out['note'] = base.rstrip() + REBUILD_NOTE + SZ_GAP_NOTE
-    json.dump(out, open(OUT, 'w'), ensure_ascii=False, indent=1)
+    json.dump(out, open(OUT, 'w'), ensure_ascii=False, indent=1, sort_keys=True)  # 固定字段顺序，防重跑漂移
     print('保存', OUT)
 
 if __name__ == '__main__':
