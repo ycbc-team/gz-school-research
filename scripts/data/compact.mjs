@@ -91,6 +91,7 @@ const MP_SUB_TARGETS = [
   'data/registry/sites.json',
   'data/registry/brand_groups.json',
   'data/registry/education_groups.json',
+  'data/registry/school_groups.json',
 ];
 
 /* ---------- JS 字面量序列化（保留 undefined 稀疏空位） ---------- */

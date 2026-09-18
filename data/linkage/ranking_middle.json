@@ -13149,10 +13149,7 @@
       "school_ids": null,
       "district": "白云区",
       "minban": false,
-      "group": {
-        "brand": "广州市白云中学教育集团",
-        "source": "education"
-      },
+      "group": null,
       "kaosheng": 80,
       "sheng_quota": 4,
       "qu_quota": 16,
@@ -13710,7 +13707,7 @@
       "district": "白云区",
       "minban": false,
       "group": {
-        "brand": "广州市白云中学教育集团",
+        "brand": "广州培英教育集团",
         "source": "education"
       },
       "kaosheng": 160,

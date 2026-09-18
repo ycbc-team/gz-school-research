@@ -31,6 +31,7 @@ const loaders = {
   sites: load('registry/sites.json'),
   brandGroups: load('registry/brand_groups.json'),
   educationGroups: load('registry/education_groups.json'),
+  schoolGroups: load('registry/school_groups.json'),
   rankingMiddle: load('linkage/ranking_middle.json'),
 };
 const repo = createRepository(loaders);

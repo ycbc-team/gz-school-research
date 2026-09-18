@@ -18,6 +18,7 @@ const loaders = {
   sites: cast(hydrate(require('./data/registry/sites.js'))),
   brandGroups: cast(hydrate(require('./data/registry/brand_groups.js'))),
   educationGroups: cast(hydrate(require('./data/registry/education_groups.js'))),
+  schoolGroups: cast(hydrate(require('./data/registry/school_groups.js'))),
 };
 const repository = createRepository(loaders);
 

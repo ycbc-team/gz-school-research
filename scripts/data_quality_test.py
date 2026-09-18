@@ -581,6 +581,26 @@ def main():
         check(False, f"[18] 实体名为招生/报名点位（非学校，应被 build_entities 过滤）: {_b}")
     print(f"[18] 实体点位后缀检测: {len(_poi_like)} 异常（0 容忍，build_entities NON_SCHOOL_POI 兜底）")
 
+    # ---- 19. 初中明细 group 必须由公共产物 schoolGroups 支撑（纯 id 一致性）----
+    # build_ranking_middle.py 的 group 只查 data/registry/school_groups.json（纯 id）；
+    # 任何有 group 的明细行，其 school_id / school_ids 中至少一个必须命中产物且 brand 一致，
+    # 否则说明产物漏收（该学校会从集团分组丢失）。无 school_id 的行不应有 group
+    # （名称匹配已从运行时删除；如三元里中学 = entities 无实体，属待补真源的数据缺口）。
+    _sg = json.load(open(os.path.join(ROOT, "data/registry/school_groups.json")))["schoolGroups"]
+    _rm = json.load(open(os.path.join(ROOT, "data/linkage/ranking_middle.json")))["schools"]
+    _orphan = 0
+    for _s in _rm:
+        _g = _s.get("group") or {}
+        if not _g:
+            continue
+        _ids = [i for i in [_s.get("school_id")] + list(_s.get("school_ids") or []) if i and i in _sg]
+        if not _ids:
+            _orphan += 1
+            check(False, f"[19] 明细 {_s['name']} 有 group 但 school_id(s) 无 school_groups 产物支撑: {_g.get('brand')}")
+        elif _sg[_ids[0]]["brand"] != _g["brand"]:
+            check(False, f"[19] 明细 {_s['name']} 产物 brand 不一致: 产物={_sg[_ids[0]]['brand']} 明细={_g['brand']}")
+    print(f"[19] 明细分组-产物一致性: {sum(1 for s in _rm if s.get('group'))} 有 group，{_orphan} 孤儿（0 容忍）")
+
     # ---- 汇总 ----
     print(f"数据质量测试: {checks} 项检查, {len(failures)} 项失败")
     if failures:

@@ -43,6 +43,7 @@ const baseLoaders = {
   districtQuota: { data: {} },
   sites: { schools: [] },
   brandGroups: { brands: [] },
+  schoolGroups: { schoolGroups: {} },
 };
 
 const repository = createRepository(baseLoaders);
