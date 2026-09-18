@@ -112,6 +112,8 @@ const DROP_CAMPUS = [
   '广州市第十三中学初中部',
   '景泰小学柯子岭校区43号A座',
   '陶育路小学',  // 旧名（更名承继）：现为 广州市第一一三中学陶育实验学校小学部（REMOVED_POI_ALIAS 挂旧名别名）
+  '君诚博雅实验学校',  // 法人名冗余：官方只有山村/滘口两校区（2021-2026 荔湾民办一览表），无后缀 POI 0m 同址滘口校区（gz-440103-b2c7aafd），小学/初中侧由滘口校区实体承载
+  '广州市君诚博雅实验学校(广佛新城校区)',  // 高德误名：官方无此校区，地址=滘口村377（官方滘口校区地址）→ 并入滘口校区（gz-440103-3ea667b1）
 ];
 const isDropCampus = (name) => DROP_CAMPUS.includes(name);
 
@@ -626,6 +628,39 @@ for (const [stage, file] of Object.entries(stageFiles)) {
     entities.push(ent);
     poiIdByKey.set(_st + '|' + p.adcode + '|' + p.name, schoolId);
     entByStagePoiName.set(_st + '|' + sn, ent);
+  }
+}
+
+// ---- 1.4) 九年制校区派生 middle ----
+// 官方九年制校区高德只有 primary POI（未单采初中 POI），但初中侧数据（配额/排位/录取）
+// 需要 middle 实体承载（school_id 主键，primary+middle 双 stage 副本，初中消费方按 id 查实体）。
+// 依据：荔湾区政府 2021-2026 民办一览表（君诚博雅山村/滘口校区均九年制；山村 POI 缺失宁缺，
+// 不派生——无 primary POI 兜底坐标，宁可缺失不造点位）。
+const DERIVE_MIDDLE_FROM_PRIMARY = {
+  'gz-440103-3ea667b1': { poiName: '君诚博雅实验学校(滘口校区)', adcode: '440103' },
+};
+for (const [sid, cfg] of Object.entries(DERIVE_MIDDLE_FROM_PRIMARY)) {
+  const pri = entities.find((e) => e.stage === 'primary' && e.school_id === sid);
+  if (!pri) {
+    console.log('  [派生middle未找到primary]', sid);
+    continue;
+  }
+  const priPoi = (read(stageFiles.primary).schools || []).find((x) => x.school_id === sid);
+  const m = { school_id: sid, name: cfg.poiName, stage: 'middle', aliases: new Set(pri.aliases) };
+  // 法人名双变体（官方民办名单名「广州市荔湾区君诚博雅实验学校」：含区名/裸名两形，
+  // backfill_school_ids 的 norm 去「广州市」后按「荔湾区君诚博雅实验学校」命中）
+  for (const v of ['荔湾区君诚博雅实验学校', '君诚博雅实验学校']) {
+    pri.aliases.add(v);
+    m.aliases.add(v);
+  }
+  entities.push(m);
+  poiIdByKey.set('middle|' + cfg.adcode + '|' + cfg.poiName, sid);
+  entByStagePoiName.set('middle|' + normName(cfg.poiName), m);
+  // 同步注入 middle POI 表（实体=POI 1:1；坐标沿用 primary，回写段按 poiIdByKey 配 school_id）
+  const _mj = read(stageFiles.middle);
+  if (priPoi && !_mj.schools.some((x) => x.name === cfg.poiName)) {
+    _mj.schools.push({ name: cfg.poiName, adcode: cfg.adcode, lng: priPoi.lng, lat: priPoi.lat });
+    write(stageFiles.middle, _mj);
   }
 }
 

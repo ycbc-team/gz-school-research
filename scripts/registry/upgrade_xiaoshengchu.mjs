@@ -71,6 +71,9 @@ function resolveOne(idx, name, district) {
   const list = idx.get(normName(name));
   if (!list || !list.length) return null;
   if (list.length === 1) return list[0].school_id;
+  // 多命中且无区名限定（no_feed 记录 group 无区名）：不兜底 list[0]——
+  // 白云「金星小学」与番禺「金星学校」别名撞车时曾跨区错配，宁可缺失。
+  if (!district) return null;
   const hit = list.find((e) => entDistrict.get(e.school_id) === district);
   return (hit || list[0]).school_id;
 }
