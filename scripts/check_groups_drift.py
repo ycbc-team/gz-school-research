@@ -74,6 +74,16 @@ def _check_special_matrix():
     print("产物一致性: ✓ build_special_plan + build_special_matrix 重跑产物与入库完全一致")
 
 
+def _check_minban_official():
+    """校验民办官方源（番禺 2026 民办招生计划）重算与权威表一致——禁手改防线。"""
+    r = subprocess.run(["python3", os.path.join(ROOT, "scripts/registry/build_minban_official.py"), "--check"],
+                       capture_output=True, text=True, cwd=ROOT)
+    if r.returncode != 0:
+        print("民办官方源校验: ✗ " + (r.stdout[-1500:] or r.stderr[-1500:]).strip().replace("\n", "\n  "))
+        sys.exit(1)
+    print("民办官方源校验: ✓ 番禺官方招生计划解析与权威表一致（禁手改）")
+
+
 def _check_build_entities():
     """重跑 build_entities.mjs（node）到临时目录，与入库 entities + 3 个 POI 表比对。
 
@@ -158,6 +168,7 @@ def main():
     # 3) special plan + matrix（2026 特长生计划解析 + 升学通道矩阵）
     _check_special_matrix()
     _check_build_entities()
+    _check_minban_official()
 
 
 if __name__ == "__main__":

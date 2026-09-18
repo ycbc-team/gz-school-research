@@ -107,12 +107,13 @@ def main():
         print('\n[DRY-RUN 或无需追加] 未写文件。')
         return
 
-    # 4. 追加进权威表
+    # 4. 追加进权威表（手工互补区 → source_type=manual）
     for sid in to_add:
         table['schools'].append({
             'school_id': sid,
             'name': name_by_id[sid],
             'stage': '',
+            'source_type': 'manual',
             'source_urls': sorted(set(all_new[sid]['urls'])),
         })
     table['school_count'] = len(table['schools'])
