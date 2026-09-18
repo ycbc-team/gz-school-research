@@ -283,7 +283,10 @@ class SchoolMatcher:
         # 0. 远郊成员拦截：在 substring 吸附之前（exact/alias 命中之后），防「新塘镇第三中学」→「广州市第三中学」
         # 1. exact norm match in POI
         r = _pick([p for p in self.poi_all if p["norm"] == n], "精确命中")
-        if r:
+        # stage 约束：preferred_stage 已指定时，exact 命中但学段不符（如「广州市星执学校」
+        # 初中/高中 POI 精确命中，但本次是小学记录）→ 不返回，继续 alias 分支找目标学段实体
+        # （如星执学校小学部=执信附小 883c58c4），避免跨学段错挂。
+        if r and (not preferred_stage or r["stage"] == preferred_stage):
             return r
         # 2. alias match（一个别名可能对应多个实体：跨实体收集 POI 候选，同区优先收敛）
         if n not in self.alias_map:

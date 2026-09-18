@@ -2,7 +2,7 @@
  "source": "民办学校名单权威表（办学性质唯一真源），分三类来源：① official_panyu_plan=番禺区教育局2026民办招生计划（官方源，build_minban_official.py 自动解析，禁手改）；② manual=minban_*.md 手工互补（各区教育局年检/招生计划/积分入学等官方文件逐条核实，apply_minban_patch.py 维护）；③ legacy=历史已标（2026-09-14 前 POI/tier1/levels 等历史来源，待逐条追溯）。公办为默认性质不在此表。build_entities 按表联表生产 entities nature。",
  "updated": "2026-09-18",
  "note": "2026-09-18 剔除误标：gz-440113-611fa8ce 番禺区剑桥郡小学为公办（与民办的剑桥郡加拿达外国语学校 gz-440113-7b2b848a 非同一所）。；2026-09-18 移除误标：gz-440113-b33076d3 金海岸学校为公办（番禺区教育局2022批复开办的公办九年一贯制，石碁片区第一所），与民办\"金海岸实验学校\"(gz-440113-d7e3e576)是两所不同学校，非同名简称",
- "school_count": 226,
+ "school_count": 227,
  "schools": [
   {
    "school_id": "gz-440103-3ea667b1",
@@ -2055,6 +2055,15 @@
     "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
    ],
    "source_type": "official_panyu_plan"
+  },
+  {
+   "school_id": "gz-440113-883c58c4",
+   "name": "执信中学附属小学",
+   "stage": "",
+   "source_type": "official_panyu_plan",
+   "source_urls": [
+    "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
+   ]
   }
  ]
 }

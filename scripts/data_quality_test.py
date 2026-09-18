@@ -49,14 +49,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #   （未确认校区宁缺、回孤儿待逐校确认；净消除 4 所），新增 0
 # 2026-09-17 二更：仲元二校区官方明文「二校区（初中部）」10 班 450 人（番禺招生计划），
 #   build_middle_enrollment 补挂 gz-440113-6dbdc462（原 school_id=None 过时）→ 孤儿 335→334，新增 0
-ORPHAN_SNAPSHOT = "14ff807f45a3161c"
+ORPHAN_SNAPSHOT = "4b1c291e6383ba32"
 
-# 同段同址冗余候选快照（sha256 前 16 位）：同学段+同区+≤50m 的公办实体对。
+# 同段同址冗余候选快照（sha256 前 16 位）：同学段+同区+≤50m 的实体对（含民办）。
 # 方向：候选越少越好（每合并一对冗余实体就少一组，属纯正向改进）。
 # 与孤儿快照同款防线：新增候选立即失败，须排查后再 UPDATE_SNAPSHOT=1 显式更新。
 # 首次固化 2026-09-17：15 组候选（含省实荔湾 初中部/初中部一期/花地湾 同址北文街2号、
 #   景泰小学柯子岭校区/43号A座 等，逐一排查中，见提交说明）。
-CO_LOCATED_SNAPSHOT = "78bd7925e8bb2651"
+CO_LOCATED_SNAPSHOT = "3e8ceee2b8172a88"
 
 # 民办学校名单快照（sha256 前 16 位）：data/registry/minban_schools.json 民办名单权威表。
 # 民办身份由 build_entities 按此表联表生产 entities nature（表驱动，非手写 id 列表）。
@@ -66,7 +66,7 @@ CO_LOCATED_SNAPSHOT = "78bd7925e8bb2651"
 # 被误标民办：公办的番禺区剑桥郡小学 vs 民办的剑桥郡加拿达外国语学校）无人感知。
 # 首次固化 2026-09-18：228 所（含剑桥郡小学误标剔除后；另新增 7 区 minban_*.md 查漏补缺
 # 来源链接共 88 所可追溯）。
-PRIVATE_MINBAN_SNAPSHOT = "8a93114717ceff81"
+PRIVATE_MINBAN_SNAPSHOT = "c8dcb39621e1e5f8"
 POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
@@ -414,7 +414,7 @@ def main():
     check(_orphan_digest == ORPHAN_SNAPSHOT,
           f"[11] 孤儿学校清单漂移: digest {_orphan_digest} != 固化 {ORPHAN_SNAPSHOT}（新增孤儿须立即排查；修复孤儿后显式更新快照）")
 
-    # ---- 12. 同段同址冗余候选：同学段（primary/middle/high）+ 同区 + 坐标距离 ≤50m 的公办实体 ----
+    # ---- 12. 同段同址冗余候选：同学段（primary/middle/high）+ 同区 + 坐标距离 ≤50m 的实体（含民办）----
     # 复用「全实体坐标检测」思路（相邻点检测，曾用于发现九年一贯/完中同址多学部）：
     # 跨学段同址（小学+初中=九年一贯、初中+高中=完中）是正常办学形态，故只看同学段；
     # 同学段同址是冗余候选（如省实荔湾 初中部/初中部一期 同址北文街2号），须逐一排查
@@ -436,8 +436,6 @@ def main():
             if _ad not in _SEVEN_ADCODES:
                 continue
             _e = _ent_by_id.get(_p["school_id"])
-            if _e and _e.get("nature") == "民办":
-                continue  # 民办不受公办派位/学位房逻辑约束，同址不构成数据冗余问题
             if _p.get("lng") and _p.get("lat"):
                 _co.append((_stg, _ad, _p["school_id"], _p["name"], float(_p["lng"]), float(_p["lat"])))
     import math as _math
@@ -463,7 +461,7 @@ def main():
             if _d <= 50:
                 _co_pairs.append((round(_d, 1), _a[1], _a[0], _a[2], _a[3], _b[2], _b[3]))
     _co_pairs.sort()
-    print(f"\n[12] 同段同址冗余候选（同学段+同区+≤50m，公办）: {len(_co_pairs)} 组")
+    print(f"\n[12] 同段同址冗余候选（同学段+同区+≤50m，含民办）: {len(_co_pairs)} 组")
 
     # ---- 13. 小升初记录同组同校不得重复（upgrade 产物层去重防线）----
     # 同一小学多源名（更名残留）/多条源记录（实体合并、源表重复行）解析到同一实体后，

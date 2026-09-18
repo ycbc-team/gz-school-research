@@ -29,19 +29,6 @@ DISTRICT = '440113'
 # 官方名 → 关键词（区+关键词唯一才采用）的特殊匹配。
 # 这些官方名与实体名存在街道/镇前缀、同校多实体（小学部/中学部/招生处）等差异，
 # 精确 norm 匹配不到，须用「区+关键词唯一」匹配并带出同校全部实体。
-SPECIAL = {
-    '金星小学': '金星',        # 番禺=金星学校(九年制)；白云另有金星小学，靠区约束区分
-    '同心小学': '同心',        # 番禺同心小学
-    '名智小学': '名智',        # 番禺名智小学
-    '南村华立小学': '华立',    # 番禺华立学校
-    '剑桥郡加拿达学校': '加拿达',  # 加拿达外国语学校(剑桥郡校区)
-    '洛浦厦滘学校': '厦滘',        # 实体名=厦滘学校(小学部) + 洛浦厦滘学校(中学部)，官方带洛浦街道前缀
-    '博萃德学校': '博萃德',        # 实体=广州博萃德学校 + 小学部（同校多实体全部标民办）
-    '广州市星执学校': '星执学校',  # 实体=广州市星执学校 + 小学招生处；不含星执外国语小学(另一所)
-    '化龙镇大博学校': '大博',      # 实体=大博学校(中学部) + 化龙大博学校(小学部)，官方带镇前缀
-}
-
-
 def norm(s):
     return (re.sub(r'[（(].*?[)）]', '', s)
             .replace('广州市', '').replace('番禺区', '').replace('番禺', '')
@@ -86,21 +73,14 @@ def main():
     for e in district_ents:
         for n in [e['name']] + e.get('aliases', []):
             idx.setdefault(norm(n), set()).add(e['school_id'])
-    # 关键词索引（区+关键词唯一）
-    kw_idx = {}
-    for e in district_ents:
-        for kw in (SPECIAL.values()):
-            if kw in e['name'] or any(kw in a for a in e.get('aliases', [])):
-                kw_idx.setdefault(kw, set()).add(e['school_id'])
-
     official = {}  # school_id -> set(source_urls)（可能多官方源）
     source_url = 'https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html'
     unmatched = []
     for name in names:
-        # SPECIAL 优先：官方名在 SPECIAL 表 → 用「区+关键词唯一」匹配，
-        # 带出同校全部实体（小学部/中学部/招生处等），不依赖精确 norm（街道/镇前缀差异）。
-        kw = SPECIAL.get(name)
-        ids = kw_idx.get(kw, set()) if kw else idx.get(norm(name), set())
+        # 精确 norm 匹配实体表 name+aliases（官方名作为别名下沉在 build_entities 别名表，
+        # 如「洛浦厦滘学校」「化龙镇大博学校」等带街道/镇前缀的官方名）：
+        # 命中 school_id 即标民办；同名多 id = 同校多 stage/多校区实体，全部带出。
+        ids = idx.get(norm(name), set())
         if ids:
             # 同名多 id = 同校多 stage（九年制小学部+初中部等），全部标民办
             for i in ids:
