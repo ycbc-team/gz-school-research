@@ -26,10 +26,6 @@ RESOLVE_OVERRIDE = {
     # 别名都含「龙溪小学」；no_feed 记录 group 无区名 → district_of_group 为 None，宁缺，
     # 显式归位白云实体。
     '龙溪小学': ['gz-440111-fd1c0f9d'],
-    # 官方派位分组表「广州市新滘中学」未分校区，同法人两校区均须列出（贵荣+土华）。
-    # 9ffce44 去冗余别名删了土华校区「新滘中学」泛名后 resolve_many 只命中贵荣，
-    # 显式恢复 b648406「同区多校区全收」语义（不污染 entities，避免 middle_enrollment 多候选）。
-    '新滘中学': ['gz-440105-003f2037', 'gz-440105-2f31776e'],
 }
 
 
@@ -117,32 +113,46 @@ class XsResolver:
         return (hit or lst[0])['school_id']
 
     def resolve_many(self, name, district, stage):
-        """feed 初中解析：alias 精确优先（按 POI 区过滤）→ 法人 core 聚合（升学归属区过滤）。"""
+        """feed 初中解析。
+
+        官方整体名（无校区后缀）：政府源不标校区即按整体列（南武中学一校三区、南二实南北、
+        新滘双校区同型）→ 同法人同学段校区全收 = core 聚合 ∪ alias 精确（合并去重）；
+        区过滤优先 POI 物理区，POI 区不符但官方明确列出时用升学归属区兜底，均无则宁缺。
+        官方带校区名（括号）：alias 精确匹配（按 POI 区过滤），未命中宁缺——不聚合其他校区。
+        跨区同名等无法由通用规则覆盖的用 RESOLVE_OVERRIDE 显式名单。"""
         ov = RESOLVE_OVERRIDE.get(norm_xs(name))
         if ov:
             return list(ov)
         has_campus = bool(re.search(r'[（(]', name))
+        if not has_campus:
+            # 官方整体名（无校区后缀）：政府源不标校区即按整体列（南武一校三区、南二实南北、
+            # 新滘双校区同型）→ 同法人同学段校区全收 = core 聚合 ∪ alias 精确（合并去重，
+            # 不能二选一：黄埔实验初中部实体 core 带「初中部」后缀、仅 alias 含整体名）。
+            core = core_of_name(name)
+            core_hits = [e for e in self.entities if e['stage'] == stage and core_of_name(e['name']) == core]
+            alias_hits = list(self.alias_idx.get((stage, norm_xs(name))) or [])
+            cand = core_hits + [e for e in alias_hits if e not in core_hits]
+            if cand:
+                if district:
+                    # 官方名单在某区 → 优先 POI 物理区（七中桂花 POI 在白云，越秀派位不得收）
+                    by_poi = [e for e in cand if self.ent_district.get(e['school_id']) == district]
+                    if by_poi:
+                        return list(dict.fromkeys(e['school_id'] for e in by_poi))
+                    # POI 区不符但官方名单明确列出（丰宁学校 POI adcode 标越秀、升学归属荔湾）
+                    # → 升学归属区（quota_matrix 权威）兜底
+                    by_campus = [e for e in cand if self.campus_dist.get(e['school_id']) == district]
+                    if by_campus:
+                        return list(dict.fromkeys(e['school_id'] for e in by_campus))
+                    # 本区无同法人实体：宁缺不兜底
+                    return []
+                return list(dict.fromkeys(e['school_id'] for e in cand))
         picked = list(self.alias_idx.get((stage, norm_xs(name))) or [])
         if district:
             f = [e for e in picked if self.ent_district.get(e['school_id']) == district]
             picked = f if f else []
         if picked:
             return list(dict.fromkeys(e['school_id'] for e in picked))
-        if has_campus:
-            return []
-        core = core_of_name(name)
-        all_ = [e for e in self.entities if e['stage'] == stage and core_of_name(e['name']) == core]
-        if district:
-            by_own = [e for e in all_ if self.campus_dist.get(e['school_id']) == district]
-            if by_own:
-                rest = [e for e in all_
-                        if e['school_id'] not in self.campus_dist
-                        and self.ent_district.get(e['school_id']) == district]
-                return list(dict.fromkeys(e['school_id'] for e in by_own + rest))
-            by_poi = [e for e in all_ if self.ent_district.get(e['school_id']) == district]
-            if by_poi:
-                return list(dict.fromkeys(e['school_id'] for e in by_poi))
-        return list(dict.fromkeys(e['school_id'] for e in all_))
+        return []
 
     def resolve_record(self, r):
         """对一条 xiaoshengchu 记录解析 school_id / feed_school_ids / direct_feed_school_id。"""
