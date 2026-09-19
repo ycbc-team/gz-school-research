@@ -134,15 +134,16 @@ class XsResolver:
             cand = core_hits + [e for e in alias_hits if e not in core_hits]
             if cand:
                 if district:
-                    # 官方名单在某区 → 优先 POI 物理区（七中桂花 POI 在白云，越秀派位不得收）
+                    # 官方名单在某区 → POI 物理区 + 升学归属区合并（去重）：
+                    # - POI 物理区命中（常规校区）
+                    # - POI 区不符但升学归属区在名单区（跨区办学特例：七中桂花 POI 白云、
+                    #   quota_matrix 升学归属越秀——官方「广州市第七中学」整体名含桂花；
+                    #   四中丰宁 POI 越秀、官方荔湾名单明确）
                     by_poi = [e for e in cand if self.ent_district.get(e['school_id']) == district]
-                    if by_poi:
-                        return list(dict.fromkeys(e['school_id'] for e in by_poi))
-                    # POI 区不符但官方名单明确列出（丰宁学校 POI adcode 标越秀、升学归属荔湾）
-                    # → 升学归属区（quota_matrix 权威）兜底
                     by_campus = [e for e in cand if self.campus_dist.get(e['school_id']) == district]
-                    if by_campus:
-                        return list(dict.fromkeys(e['school_id'] for e in by_campus))
+                    hit = by_poi + [e for e in by_campus if e not in by_poi]
+                    if hit:
+                        return list(dict.fromkeys(e['school_id'] for e in hit))
                     # 本区无同法人实体：宁缺不兜底
                     return []
                 return list(dict.fromkeys(e['school_id'] for e in cand))
