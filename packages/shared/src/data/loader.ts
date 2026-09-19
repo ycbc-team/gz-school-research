@@ -24,6 +24,8 @@ export interface DataLoaders {
   enrollments: EnrollmentSnapshot[];
   /** 初中 2026 招生计划（7 区，初中视角：班数/招生范围/机制/派位组成员） */
   middleEnrollments: MiddleEnrollmentSnapshot[];
+  /** 极少数校区的招生计划特殊备注（school_id → 说明，如执信水荫路仅初三就读）；无备注的学校不写 */
+  middleEnrollNotes?: Record<string, string>;
   quotaMatrix: QuotaMatrix;
   specialMatrix: SpecialMatrix;
   batch2Scores: Batch2Scores;

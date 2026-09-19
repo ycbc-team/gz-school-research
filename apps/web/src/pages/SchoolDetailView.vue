@@ -63,6 +63,7 @@ const feedJuniors = computed(() => model.value.feedJuniors);
 const feedGap = computed(() => model.value.feedGap);
 const feedRows = computed(() => model.value.feedRows);
 const feedPrimarys = computed(() => model.value.feedPrimarys);
+const enrollNote = computed(() => model.value.enrollNote);
 const signalRows = computed(() => model.value.signalRows);
 const admissionRows = computed(() => model.value.admissionRows);
 const gaokaoRows = computed(() => model.value.gaokaoRows);
@@ -530,6 +531,7 @@ const brandCardUseful = computed(() =>
     <!-- 初中 tab：招生计划（2026）：班数/范围/机制 + 生源小学 -->
     <div v-if="stage === 'middle'" class="card">
       <div class="card-title">招生计划（2026）</div>
+      <p v-if="enrollNote" class="sub-note">{{ enrollNote }}</p>
 
       <!-- 机制徽章 + 班数 + 范围（来自初中招生计划表）；一校多规则时逐条渲染 -->
       <template v-if="middleEnrolls.length">

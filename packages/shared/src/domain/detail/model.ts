@@ -50,6 +50,8 @@ export interface DetailModel {
   feedRows: FeedRow[];
   /* 初中 */
   feedPrimarys: FeedPrimaryRow[];
+  /** 极少数校区的招生计划特殊备注（如执信水荫路仅初三就读；无备注为 null） */
+  enrollNote: string | null;
   /* 学校信号（历史称号/集团/喜报/录取线等源数据） */
   signalRows: DetailRow[];
   /* 高中 */
@@ -420,6 +422,9 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     feedGap,
     feedRows,
     feedPrimarys,
+    enrollNote: stage === 'middle' && poi?.school_id
+      ? (repo.middleEnrollNotes?.[poi.school_id] ?? null)
+      : null,
     signalRows,
     admissionRows,
     gaokaoRows,

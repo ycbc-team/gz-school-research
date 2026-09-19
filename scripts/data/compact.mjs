@@ -66,6 +66,7 @@ const MP_MAIN_TARGETS = [
   'data/primary/schools-gz.json',
   'data/primary/tier1_schools_all.json',
   'data/primary/xiaoshengchu_2026.json',
+  'data/primary/middle_enroll_notes.json',
   'data/middle/schools-gz.json',
   'data/middle/tier1_schools_all.json',
   'data/high/schools-gz.json',

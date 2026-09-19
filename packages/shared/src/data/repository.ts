@@ -33,6 +33,8 @@ export function createRepository(loaders: DataLoaders) {
     middleTier1Schools: Object.values(loaders.middleTier1.districts).flatMap((d) => d.schools),
     /** 实体注册表（tier1 匹配别名唯一宿主） */
     entities: loaders.entities.entities,
+    /** 初中招生计划特殊备注（极少数校区，school_id → 说明，如执信水荫路仅初三就读） */
+    middleEnrollNotes: loaders.middleEnrollNotes,
 
     /** 学段 POI 快照（学段判定/徽章等场景用） */
     schools: {

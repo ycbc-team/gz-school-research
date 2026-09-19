@@ -87,6 +87,7 @@
   <!-- 初中：生源小学 -->
   <view wx:if="{{model.stage === 'middle'}}" class="card">
     <view class="card-title">招生计划（2026）</view>
+    <view wx:if="{{model.enrollNote}}" class="sub-note">{{model.enrollNote}}</view>
     <block wx:if="{{model.feedPrimarys.length}}">
       <view class="sub-note">以下小学的 2026 对口/派位名单包含本校（由七区全量小学升学路线反查，校名全等匹配）。</view>
       <view class="feed-list">
