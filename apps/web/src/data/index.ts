@@ -39,7 +39,7 @@ import educationGroupsCompact from './compact/registry/education_groups.js';
 import schoolGroupsCompact from './compact/registry/school_groups.js';
 import highScores2025Compact from './compact/high/scores_2025.js';
 import highScores2026Compact from './compact/high/scores_2026.js';
-import orgSortCompiledCompact from './compact/middle/org_sort_compiled.js';
+import orgSortCompiledCompact from './compact/middle/org_sort/dist/compiled.js';
 
 /** 紧凑结构经 hydrate 还原后的类型断言（字段为数据真源，结构由 scripts/ 保证） */
 const cast = <T>(v: unknown): T => v as T;
@@ -110,7 +110,7 @@ export const enrollments = loaders.enrollments;
 export const brandGroups = loaders.brandGroups;
 export const entities = loaders.entities;
 
-/** 七区初中机构整理档位整合版（data/middle/org_sort_compiled.json，由 scripts/middle/build_org_sort.py 经
+/** 七区初中机构整理档位整合版（data/middle/org_sort/dist/compiled.json，由 data/middle/org_sort/scripts/build_org_sort.py 经
  * SchoolMatcher 匹配生成；仅 school_id→档位，无展示字段；仅供内部默认排序，对外不展示档位信息） */
 export const middleOrgSort = cast(hydrate(orgSortCompiledCompact)) as Array<{
   district: string;

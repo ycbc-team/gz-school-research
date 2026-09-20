@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """七区初中机构整理档位名单 → 整合产物（school_id 由 SchoolMatcher 统一匹配）。
 
-真源：data/middle/org_sort/*.json —— 机构手工整理的纯名单（区名/档位/校名/区特点，无 school_id）。
-产物：data/middle/org_sort_compiled.json —— 轻量整合版：[{district, level, school_id}, ...]，
+真源：data/middle/org_sort/src/*.json —— 机构手工整理的纯名单（区名/档位/校名/区特点，无 school_id）。
+产物：data/middle/org_sort/dist/compiled.json —— 轻量整合版：[{district, level, school_id}, ...]，
       不含 label/source/description/note 等展示字段，供前端默认排序直接消费。
 规则（宁缺毋滥）：
   - 每个校名只允许收敛出一个 school_id（SchoolMatcher 同区/同学段收敛，多候选不猜配）；
@@ -11,16 +11,16 @@
 本脚本不做业务别名（民间公认简称/校区叫法已下沉至 scripts/registry/build_entities.mjs
 的 OFFICIAL_MIDDLE_ALIAS 实体别名；此处仅保留通用变体：去括号/去"本部"修饰/数字序数化）。
 
-运行：python3 scripts/middle/build_org_sort.py
+运行：python3 data/middle/org_sort/scripts/build_org_sort.py
 """
 import json
 import os
 import re
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # scripts/middle/ → 项目根
-ORG_SORT_DIR = os.path.join(ROOT, "data", "middle", "org_sort")
-OUT = os.path.join(ROOT, "data", "middle", "org_sort_compiled.json")
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", ".."))  # org_sort/scripts/ → 项目根
+ORG_SORT_DIR = os.path.join(ROOT, "data", "middle", "org_sort", "src")
+OUT = os.path.join(ROOT, "data", "middle", "org_sort", "dist", "compiled.json")
 
 sys.path.insert(0, os.path.join(ROOT, "scripts", "registry"))
 from school_match import SchoolMatcher

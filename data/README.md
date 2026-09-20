@@ -91,7 +91,7 @@ python3 scripts/primary/build_district_enrollment.py   # 2026 招生（写 data/
 | --- | --- |
 | 外部抓取（高德 API） | `primary/schools-gz.json`、`middle/schools-gz.json`、`high/schools-gz.json`（fetch_* 脚本直写） |
 | 官方转录 | `primary/enrollments/2026-*`（小学招生计划）、`linkage/raw/*` + `primary/enrollments/_raw/*`（指标/自招/录取线/招生名单转录）、`high/scores_{2025,2026}.json`（官方录取分） |
-| 人工产物 | `primary|middle/tier1_schools_all.json`（学校信号，已判废弃待重构）、`high/levels.json`、`middle/org_sort/*`、`registry/brand_groups.json`、`registry/education_groups_2026.json`、`registry/_partial_*`、`registry/source_name_mappings.json`、`registry/minban_schools.json` |
+| 人工产物 | `primary|middle/tier1_schools_all.json`（学校信号，已判废弃待重构）、`high/levels.json`、`middle/org_sort/src/*`、`registry/brand_groups.json`、`registry/education_groups_2026.json`、`registry/_partial_*`、`registry/source_name_mappings.json`、`registry/minban_schools.json` |
 
 ### 派生层（脚本产物，勿手改；改脚本须重跑并提交）
 
@@ -106,7 +106,7 @@ python3 scripts/primary/build_district_enrollment.py   # 2026 招生（写 data/
 | `linkage/ranking_middle.json`（334 校） | build_ranking_middle.py | 详情页升学信号、排行榜、初中明细 |
 | `registry/education_groups.json` | merge_groups.py（合并 `_partial_*` + brand + education_groups_2026） | 品牌卡、初中明细分组 |
 | `registry/school_groups.json`（纯 id） | build_school_groups.py（--write-brand 回写 brand_groups） | 品牌卡、初中明细分组（运行时纯 id 匹配） |
-| `middle/org_sort_compiled.json` | scripts/middle/build_org_sort.py | 初中默认排序 |
+| `middle/org_sort/dist/compiled.json` | data/middle/org_sort/scripts/build_org_sort.py | 初中默认排序 |
 | `primary/middle_feed_snapshot.json` | build_middle_feed_snapshot.py | 初中生源全量快照测试（npm run check） |
 
 ### 运行时层
