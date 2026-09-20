@@ -6159,7 +6159,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市天河外国语学校",
     "project": "挑灯夜读眼镜",
@@ -6175,7 +6175,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市第十三中学",
     "project": "盖章辅助机器人",
@@ -6184,12 +6184,13 @@
     "coach": "王思远",
     "award": "一等奖",
     "school_ids": [
+      "gz-440104-0a17f1eb",
       "gz-440104-9b88f912"
     ]
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州外国语学校",
     "project": "智能盲人辅助眼镜",
@@ -6198,12 +6199,13 @@
     "coach": "张杰桢",
     "award": "一等奖",
     "school_ids": [
-      "gz-440112-815387d3"
+      "gz-440112-815387d3",
+      "gz-440115-a936e5d5"
     ]
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州大学附属中学",
     "project": "智能羽毛球器材共享机",
@@ -6218,7 +6220,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "北京师范大学广州实验学校",
     "project": "基于视觉识别技术与伯努利原理的乒乓球\n自动拾取机器人",
@@ -6227,6 +6229,7 @@
     "coach": "廖海静",
     "award": "一等奖",
     "school_ids": [
+      "gz-440112-0876de16",
       "gz-440112-8bbf8f06"
     ]
   },
@@ -6332,7 +6335,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "华南师范大学附属中学",
     "project": "基于北斗的空中哨兵",
@@ -6342,12 +6345,13 @@
     "award": "二等奖",
     "school_ids": [
       "gz-440106-a565a93c",
+      "gz-440106-d5983217",
       "gz-440112-3847727f"
     ]
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市培正中学",
     "project": "坐姿守护者",
@@ -6362,7 +6366,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州外国语学校",
     "project": "广式非遗—— 一种传统双皮奶半自动\n加工装置",
@@ -6371,12 +6375,13 @@
     "coach": "张杰桢",
     "award": "二等奖",
     "school_ids": [
-      "gz-440112-815387d3"
+      "gz-440112-815387d3",
+      "gz-440115-a936e5d5"
     ]
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市真光中学金道学校",
     "project": "智能小区门禁",
@@ -6390,7 +6395,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "中山大学附属中学",
     "project": "一款便携式物流分拣协助机器人",
@@ -6404,7 +6409,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "中国教育科学研究院荔湾实验学校",
     "project": "E卫先锋--基于物联网的智慧卫生间系统",
@@ -6418,7 +6423,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州中学",
     "project": "基于单片机开发的智能播种灌溉机器人",
@@ -6428,6 +6433,7 @@
     "award": "二等奖",
     "school_ids": [
       "gz-440106-15ca1554",
+      "gz-440106-3c8afb6a",
       "gz-440106-867e6c05",
       "gz-440106-a989804b",
       "gz-440106-f7cdfb7e"
@@ -6435,7 +6441,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州大学附属中学",
     "project": "智能防走丢儿童背包",
@@ -6649,7 +6655,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市番禺区恒润实验学校",
     "project": "高速公路绿化带修剪机器人",
@@ -6663,7 +6669,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市天河区棠福学校",
     "project": "基于激光测距的胡克定律实验验证装置",
@@ -6677,7 +6683,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市天河中学",
     "project": "智能视力保护仪",
@@ -6693,14 +6699,19 @@
       "gz-440106-2e9f6f7b",
       "gz-440106-2f8a4424",
       "gz-440106-3a61d518",
+      "gz-440106-3c8afb6a",
       "gz-440106-429b917e",
       "gz-440106-458838f7",
+      "gz-440106-52f7f4b7",
       "gz-440106-5a7fbf3a",
+      "gz-440106-5b430017",
+      "gz-440106-5f78f6a9",
       "gz-440106-621b20d3",
       "gz-440106-7077b270",
       "gz-440106-867e6c05",
       "gz-440106-8f55ab34",
       "gz-440106-90c47ff5",
+      "gz-440106-93897236",
       "gz-440106-a989804b",
       "gz-440106-ae248365",
       "gz-440106-b049d65a",
@@ -6708,7 +6719,9 @@
       "gz-440106-b7d476f7",
       "gz-440106-b9eb24f9",
       "gz-440106-cc1c335f",
+      "gz-440106-ced6bbff",
       "gz-440106-d40d0dbe",
+      "gz-440106-d8e69757",
       "gz-440106-dd16c13e",
       "gz-440106-ef4076c1",
       "gz-440106-f7cdfb7e",
@@ -6718,7 +6731,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市天省实验学校",
     "project": "基于毫米波人体检测模块的独居老人陪护装置",
@@ -6732,7 +6745,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "中山大学附属中学",
     "project": "一款省力型雨后操场电动刮水器",
@@ -6746,7 +6759,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市华颖外国语学校",
     "project": "绿电的产生与储存",
@@ -6760,7 +6773,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州南方学院番禺附属中学",
     "project": "基于STM32的电池爆浆提醒系统",
@@ -6774,7 +6787,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广东实验中学（白云校区）",
     "project": "水面智能救生圈",
@@ -6788,7 +6801,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州南方学院番禺附属中学",
     "project": "基于单片机的空气吉他",
@@ -6802,7 +6815,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市东风实验学校",
     "project": "基于AI的智能外卖箱",
@@ -6847,7 +6860,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市番禺区洛溪新城中学",
     "project": "团体赛",
@@ -6861,7 +6874,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市第十六中学实验学校",
     "project": "团体赛",
@@ -6875,7 +6888,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州大学附属中学",
     "project": "团体赛",
@@ -6948,7 +6961,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市为明学校",
     "project": "团体赛",
@@ -6957,12 +6970,13 @@
     "coach": "欧作超",
     "award": "二等奖",
     "school_ids": [
+      "gz-440105-fde335b7",
       "gz-440111-d4bb1fa5"
     ]
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广东实验中学越秀学校",
     "project": "团体赛",
@@ -6971,12 +6985,13 @@
     "coach": "杨雪梅",
     "award": "二等奖",
     "school_ids": [
+      "gz-440104-089a2a5b",
       "gz-440104-32444523"
     ]
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市星执学校",
     "project": "团体赛",
@@ -6990,7 +7005,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市天河区汇景实验学校",
     "project": "团体赛",
@@ -7005,7 +7020,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市天河外国语学校",
     "project": "团体赛",
@@ -7021,7 +7036,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州天省实验学校",
     "project": "团体赛",
@@ -7131,7 +7146,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州番禺区洛溪新城中学",
     "project": "团体赛",
@@ -7145,7 +7160,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广东外语外贸大学实验中学",
     "project": "团体赛",
@@ -7161,7 +7176,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市天河区汇景实验学校",
     "project": "团体赛",
@@ -7176,7 +7191,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市天河区汇景实验学校",
     "project": "团体赛",
@@ -7191,7 +7206,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市星执学校",
     "project": "团体赛",
@@ -7205,7 +7220,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市番禺区市桥桥兴中学",
     "project": "团体赛",
@@ -7219,7 +7234,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州南方学院番禺附属中学",
     "project": "团体赛",
@@ -7233,7 +7248,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2024,
     "school": "广州市星执学校",
     "project": "团体赛",
@@ -7335,7 +7350,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2025,
     "school": "广州市八一实验学校",
     "project": "个人赛",
@@ -7349,7 +7364,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2025,
     "school": "广州市白云区云雅实验学校",
     "project": "个人赛",
@@ -7364,7 +7379,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2025,
     "school": "广州市第五中学",
     "project": "个人赛",
@@ -7373,12 +7388,13 @@
     "coach": "刘丹蓉",
     "award": "二等奖",
     "school_ids": [
-      "gz-440105-0ffca7e3"
+      "gz-440105-0ffca7e3",
+      "gz-440105-aec34da3"
     ]
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2025,
     "school": "广州市天河外国语学校",
     "project": "个人赛",
@@ -7394,7 +7410,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2025,
     "school": "广州市黄埔军校纪念中学",
     "project": "个人赛",
@@ -7498,7 +7514,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2025,
     "school": "广州大学附属中学",
     "project": "团体赛",
@@ -7513,7 +7529,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2025,
     "school": "广州市白云区元培实验中学",
     "project": "团体赛",
@@ -7527,7 +7543,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2025,
     "school": "广州市天河中学",
     "project": "团体赛",
@@ -7543,14 +7559,19 @@
       "gz-440106-2e9f6f7b",
       "gz-440106-2f8a4424",
       "gz-440106-3a61d518",
+      "gz-440106-3c8afb6a",
       "gz-440106-429b917e",
       "gz-440106-458838f7",
+      "gz-440106-52f7f4b7",
       "gz-440106-5a7fbf3a",
+      "gz-440106-5b430017",
+      "gz-440106-5f78f6a9",
       "gz-440106-621b20d3",
       "gz-440106-7077b270",
       "gz-440106-867e6c05",
       "gz-440106-8f55ab34",
       "gz-440106-90c47ff5",
+      "gz-440106-93897236",
       "gz-440106-a989804b",
       "gz-440106-ae248365",
       "gz-440106-b049d65a",
@@ -7558,7 +7579,9 @@
       "gz-440106-b7d476f7",
       "gz-440106-b9eb24f9",
       "gz-440106-cc1c335f",
+      "gz-440106-ced6bbff",
       "gz-440106-d40d0dbe",
+      "gz-440106-d8e69757",
       "gz-440106-dd16c13e",
       "gz-440106-ef4076c1",
       "gz-440106-f7cdfb7e",
@@ -7568,7 +7591,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2025,
     "school": "广州市第十六中学实验学校",
     "project": "团体赛",
@@ -7582,7 +7605,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2025,
     "school": "广州市番禺区番外外国语学校",
     "project": "团体赛",
@@ -7596,7 +7619,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2025,
     "school": "广州市江南外国语学校",
     "project": "团体赛",
@@ -7611,7 +7634,7 @@
   },
   {
     "competition": "chuangke",
-    "stage": "middle",
+    "stage": "secondary",
     "year": 2025,
     "school": "广州市黄埔区华峰学校",
     "project": "团体赛",

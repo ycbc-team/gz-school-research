@@ -89,7 +89,7 @@
             "gz-440106-b711d94a",
             "gz-440106-dab5b807"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市第十三中学",
@@ -100,9 +100,10 @@
           "award": "一等奖",
           "type": "personal",
           "school_ids": [
+            "gz-440104-0a17f1eb",
             "gz-440104-9b88f912"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州外国语学校",
@@ -113,9 +114,10 @@
           "award": "一等奖",
           "type": "personal",
           "school_ids": [
-            "gz-440112-815387d3"
+            "gz-440112-815387d3",
+            "gz-440115-a936e5d5"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州大学附属中学",
@@ -129,7 +131,7 @@
             "gz-440104-b22c4eca",
             "gz-440113-8f5e4721"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州大学附属中学南沙实验学校",
@@ -140,7 +142,7 @@
           "award": "一等奖",
           "type": "personal",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "北京师范大学广州实验学校",
@@ -151,9 +153,10 @@
           "award": "一等奖",
           "type": "personal",
           "school_ids": [
+            "gz-440112-0876de16",
             "gz-440112-8bbf8f06"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市越秀区东山培正小学",
@@ -280,9 +283,10 @@
           "type": "personal",
           "school_ids": [
             "gz-440106-a565a93c",
+            "gz-440106-d5983217",
             "gz-440112-3847727f"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市贸易职业高级中学",
@@ -293,7 +297,7 @@
           "award": "二等奖",
           "type": "personal",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市培正中学",
@@ -307,7 +311,7 @@
             "gz-440104-99aef0e5",
             "gz-440104-d6c68349"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州外国语学校",
@@ -318,9 +322,10 @@
           "award": "二等奖",
           "type": "personal",
           "school_ids": [
-            "gz-440112-815387d3"
+            "gz-440112-815387d3",
+            "gz-440115-a936e5d5"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市真光中学金道学校",
@@ -333,7 +338,7 @@
           "school_ids": [
             "gz-440103-f203d28d"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "中山大学附属中学",
@@ -346,7 +351,7 @@
           "school_ids": [
             "gz-440105-e363a214"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "中国教育科学研究院荔湾实验学校",
@@ -359,7 +364,7 @@
           "school_ids": [
             "gz-440103-523446ce"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州中学",
@@ -371,11 +376,12 @@
           "type": "personal",
           "school_ids": [
             "gz-440106-15ca1554",
+            "gz-440106-3c8afb6a",
             "gz-440106-867e6c05",
             "gz-440106-a989804b",
             "gz-440106-f7cdfb7e"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州大学附属中学",
@@ -389,7 +395,7 @@
             "gz-440104-b22c4eca",
             "gz-440113-8f5e4721"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市番禺区华南碧桂园学校",
@@ -608,7 +614,7 @@
           "award": "三等奖",
           "type": "personal",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市番禺区恒润实验学校",
@@ -621,7 +627,7 @@
           "school_ids": [
             "gz-440113-c9f8740e"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市天河区棠福学校",
@@ -634,7 +640,7 @@
           "school_ids": [
             "gz-440106-4534dc1a"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市天河中学",
@@ -652,14 +658,19 @@
             "gz-440106-2e9f6f7b",
             "gz-440106-2f8a4424",
             "gz-440106-3a61d518",
+            "gz-440106-3c8afb6a",
             "gz-440106-429b917e",
             "gz-440106-458838f7",
+            "gz-440106-52f7f4b7",
             "gz-440106-5a7fbf3a",
+            "gz-440106-5b430017",
+            "gz-440106-5f78f6a9",
             "gz-440106-621b20d3",
             "gz-440106-7077b270",
             "gz-440106-867e6c05",
             "gz-440106-8f55ab34",
             "gz-440106-90c47ff5",
+            "gz-440106-93897236",
             "gz-440106-a989804b",
             "gz-440106-ae248365",
             "gz-440106-b049d65a",
@@ -667,14 +678,16 @@
             "gz-440106-b7d476f7",
             "gz-440106-b9eb24f9",
             "gz-440106-cc1c335f",
+            "gz-440106-ced6bbff",
             "gz-440106-d40d0dbe",
+            "gz-440106-d8e69757",
             "gz-440106-dd16c13e",
             "gz-440106-ef4076c1",
             "gz-440106-f7cdfb7e",
             "gz-440106-fa9338a2",
             "gz-440106-fd03e039"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市天省实验学校",
@@ -687,7 +700,7 @@
           "school_ids": [
             "gz-440106-01fd3a87"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "中山大学附属中学",
@@ -700,7 +713,7 @@
           "school_ids": [
             "gz-440105-e363a214"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市华颖外国语学校",
@@ -713,7 +726,7 @@
           "school_ids": [
             "gz-440106-dab5b807"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州南方学院番禺附属中学",
@@ -726,7 +739,7 @@
           "school_ids": [
             "gz-440113-337c0524"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广东实验中学（白云校区）",
@@ -739,7 +752,7 @@
           "school_ids": [
             "gz-440111-a3cf5a4f"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州南方学院番禺附属中学",
@@ -752,7 +765,7 @@
           "school_ids": [
             "gz-440113-337c0524"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州大学附属中学从化实验学校",
@@ -763,7 +776,7 @@
           "award": "三等奖",
           "type": "personal",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市东风实验学校",
@@ -776,7 +789,7 @@
           "school_ids": [
             "gz-440104-10652361"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "华实初级中学",
@@ -787,7 +800,7 @@
           "award": "三等奖",
           "type": "personal",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州大学附属中学从化实验学校",
@@ -798,7 +811,7 @@
           "award": "三等奖",
           "type": "personal",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市从化区棋杆中学",
@@ -809,7 +822,7 @@
           "award": "三等奖",
           "type": "personal",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市南沙区莲塘小学",
@@ -873,7 +886,7 @@
           "school_ids": [
             "gz-440113-e7ca2b33"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市信息技术职业学校",
@@ -884,7 +897,7 @@
           "award": "一等奖",
           "type": "team",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市第十六中学实验学校",
@@ -897,7 +910,7 @@
           "school_ids": [
             "gz-440104-27ecd0e4"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州大学附属中学",
@@ -911,7 +924,7 @@
             "gz-440104-b22c4eca",
             "gz-440113-8f5e4721"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市番禺区天誉小学",
@@ -998,9 +1011,10 @@
           "award": "二等奖",
           "type": "team",
           "school_ids": [
+            "gz-440105-fde335b7",
             "gz-440111-d4bb1fa5"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广东实验中学越秀学校",
@@ -1011,9 +1025,10 @@
           "award": "二等奖",
           "type": "team",
           "school_ids": [
+            "gz-440104-089a2a5b",
             "gz-440104-32444523"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市星执学校",
@@ -1026,7 +1041,7 @@
           "school_ids": [
             "gz-440113-999fb9c0"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市天河区汇景实验学校",
@@ -1040,7 +1055,7 @@
             "gz-440106-0d1e149e",
             "gz-440106-28049c58"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市天河外国语学校",
@@ -1055,7 +1070,7 @@
             "gz-440106-b711d94a",
             "gz-440106-dab5b807"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州天省实验学校",
@@ -1068,7 +1083,7 @@
           "school_ids": [
             "gz-440106-01fd3a87"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市海珠区昌岗中路小学",
@@ -1213,7 +1228,7 @@
           "award": "三等奖",
           "type": "team",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州番禺区洛溪新城中学",
@@ -1226,7 +1241,7 @@
           "school_ids": [
             "gz-440113-e7ca2b33"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广东外语外贸大学实验中学",
@@ -1241,7 +1256,7 @@
             "gz-440111-f5da4352",
             "gz-440111-f751344d"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市天河区汇景实验学校",
@@ -1255,7 +1270,7 @@
             "gz-440106-0d1e149e",
             "gz-440106-28049c58"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市天河区汇景实验学校",
@@ -1269,7 +1284,7 @@
             "gz-440106-0d1e149e",
             "gz-440106-28049c58"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市白云区云英实验学校",
@@ -1280,7 +1295,7 @@
           "award": "三等奖",
           "type": "team",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市星执学校",
@@ -1293,7 +1308,7 @@
           "school_ids": [
             "gz-440113-999fb9c0"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市番禺区市桥桥兴中学",
@@ -1306,7 +1321,7 @@
           "school_ids": [
             "gz-440113-24ea052e"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州南方学院番禺附属中学",
@@ -1319,7 +1334,7 @@
           "school_ids": [
             "gz-440113-337c0524"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市星执学校",
@@ -1332,7 +1347,7 @@
           "school_ids": [
             "gz-440113-999fb9c0"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         }
       ],
       "skipped": [
@@ -1521,7 +1536,7 @@
           "school_ids": [
             "gz-440104-68535b94"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市白云区云雅实验学校",
@@ -1535,7 +1550,7 @@
             "gz-440111-6782d2c7",
             "gz-440111-7d12a21e"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市增城区职业技术学校",
@@ -1546,7 +1561,7 @@
           "award": "二等奖",
           "type": "personal",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市第五中学",
@@ -1557,9 +1572,10 @@
           "award": "二等奖",
           "type": "personal",
           "school_ids": [
-            "gz-440105-0ffca7e3"
+            "gz-440105-0ffca7e3",
+            "gz-440105-aec34da3"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市南沙大岗中学",
@@ -1570,7 +1586,7 @@
           "award": "二等奖",
           "type": "personal",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市荔湾区外语职业高级中学",
@@ -1581,7 +1597,7 @@
           "award": "二等奖",
           "type": "personal",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市番禺区洛溪中学",
@@ -1592,7 +1608,7 @@
           "award": "三等奖",
           "type": "personal",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市天河外国语学校",
@@ -1607,7 +1623,7 @@
             "gz-440106-b711d94a",
             "gz-440106-dab5b807"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州大学附属中学从化实验学校",
@@ -1618,7 +1634,7 @@
           "award": "三等奖",
           "type": "personal",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市黄埔军校纪念中学",
@@ -1632,7 +1648,7 @@
             "gz-440112-12747882",
             "gz-440112-674f4721"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市天河区华阳小学",
@@ -1784,7 +1800,7 @@
             "gz-440104-b22c4eca",
             "gz-440113-8f5e4721"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州大学附属中学从化\n实验学校",
@@ -1795,7 +1811,7 @@
           "award": "一等奖",
           "type": "team",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市花都区秀雅学校",
@@ -1806,7 +1822,7 @@
           "award": "二等奖",
           "type": "team",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市白云区元培实验中学",
@@ -1819,7 +1835,7 @@
           "school_ids": [
             "gz-440111-2667c5ae"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市荔湾区外语职业\n高级中学",
@@ -1830,7 +1846,7 @@
           "award": "二等奖",
           "type": "team",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市天河中学",
@@ -1848,14 +1864,19 @@
             "gz-440106-2e9f6f7b",
             "gz-440106-2f8a4424",
             "gz-440106-3a61d518",
+            "gz-440106-3c8afb6a",
             "gz-440106-429b917e",
             "gz-440106-458838f7",
+            "gz-440106-52f7f4b7",
             "gz-440106-5a7fbf3a",
+            "gz-440106-5b430017",
+            "gz-440106-5f78f6a9",
             "gz-440106-621b20d3",
             "gz-440106-7077b270",
             "gz-440106-867e6c05",
             "gz-440106-8f55ab34",
             "gz-440106-90c47ff5",
+            "gz-440106-93897236",
             "gz-440106-a989804b",
             "gz-440106-ae248365",
             "gz-440106-b049d65a",
@@ -1863,14 +1884,16 @@
             "gz-440106-b7d476f7",
             "gz-440106-b9eb24f9",
             "gz-440106-cc1c335f",
+            "gz-440106-ced6bbff",
             "gz-440106-d40d0dbe",
+            "gz-440106-d8e69757",
             "gz-440106-dd16c13e",
             "gz-440106-ef4076c1",
             "gz-440106-f7cdfb7e",
             "gz-440106-fa9338a2",
             "gz-440106-fd03e039"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市第十六中学实验学校",
@@ -1883,7 +1906,7 @@
           "school_ids": [
             "gz-440104-27ecd0e4"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市番禺区番外外国语学校",
@@ -1896,7 +1919,7 @@
           "school_ids": [
             "gz-440113-3b63e590"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市增城区仙村中学",
@@ -1907,7 +1930,7 @@
           "award": "三等奖",
           "type": "team",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市江南外国语学校",
@@ -1921,7 +1944,7 @@
             "gz-440105-ca292b2b",
             "gz-440105-f8dbd57c"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市执信中学南沙学校",
@@ -1932,7 +1955,7 @@
           "award": "三等奖",
           "type": "team",
           "school_ids": [],
-          "stage": "middle"
+          "stage": "secondary"
         },
         {
           "school": "广州市黄埔区华峰学校",
@@ -1945,7 +1968,7 @@
           "school_ids": [
             "gz-440112-0aa66950"
           ],
-          "stage": "middle"
+          "stage": "secondary"
         }
       ],
       "skipped": []

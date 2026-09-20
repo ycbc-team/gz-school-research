@@ -6,7 +6,8 @@ import { entities, detailedRecords } from '../data';
 
 type Competition = 'innovation' | 'chuangke';
 type GroupBy = 'none' | 'district';
-type AwardStage = 'primary' | 'middle' | 'high';
+type AwardStage = 'primary' | 'middle' | 'high' | 'secondary';
+type SelectionStage = Exclude<AwardStage, 'secondary'>;
 interface AwardRecord { competition: Competition; stage: AwardStage; year: number; school: string; project: string; leader?: string; members?: string; award: string; school_ids: string[]; }
 interface AwardSchool { key: string; name: string; district: string; stage: AwardStage; ids: string[]; records: AwardRecord[]; }
 
@@ -18,21 +19,21 @@ const COMPETITIONS: Array<{ value: Competition; label: string }> = [
   { value: 'chuangke', label: '科技创客电视大赛' },
 ];
 const COMPETITION_LABEL = Object.fromEntries(COMPETITIONS.map((item) => [item.value, item.label])) as Record<Competition, string>;
-const STAGES: Array<{ value: AwardStage; label: string }> = [
+const STAGES: Array<{ value: SelectionStage; label: string }> = [
   { value: 'primary', label: '小学' },
   { value: 'middle', label: '初中' },
   { value: 'high', label: '高中' },
 ];
-const STAGE_LABEL = Object.fromEntries(STAGES.map((item) => [item.value, item.label])) as Record<AwardStage, string>;
+const STAGE_LABEL: Record<AwardStage, string> = { primary: '小学', middle: '初中', high: '高中', secondary: '中学组（初中+高中）' };
 const DISTRICT_BY_ADCODE = new Map(DISTRICTS.map((district) => [district.adcode, district.name]));
-const entitiesById = new Map(entities.entities.map((entity) => [entity.school_id, entity.name]));
+const entitiesById = new Map(entities.entities.map((entity) => [entity.school_id, entity]));
 
 const openMenu = ref<null | 'group' | 'district' | 'event' | 'stage'>(null);
 const groupBy = ref<GroupBy>('none');
 const eventKey = (competition: Competition, year: number) => `${competition}:${year}`;
 const allEventKeys = [...new Set(records.map((record) => eventKey(record.competition, record.year)))];
 const selectedEvents = ref(new Set(allEventKeys));
-const selectedStages = ref(new Set<AwardStage>(STAGES.map((item) => item.value)));
+const selectedStages = ref(new Set<SelectionStage>(STAGES.map((item) => item.value)));
 const selectedDistricts = ref(new Set(DISTRICTS.map((district) => district.adcode)));
 const targetSchoolId = computed(() => typeof route.query.school === 'string' ? route.query.school : '');
 const groupLabel = computed(() => groupBy.value === 'district' ? '按区' : '不分组');
@@ -70,7 +71,7 @@ function toggleCompetitionEvents(value: Competition) {
   selectedEvents.value = next;
 }
 function selectAllEvents(selected: boolean) { selectedEvents.value = selected ? new Set(allEventKeys) : new Set(); }
-function toggleStage(value: AwardStage) {
+function toggleStage(value: SelectionStage) {
   const next = new Set(selectedStages.value);
   next.has(value) ? next.delete(value) : next.add(value);
   selectedStages.value = next;
@@ -89,7 +90,9 @@ const filteredSchools = computed<AwardSchool[]>(() => {
   const map = new Map<string, AwardSchool>();
   for (const record of records) {
     if (!selectedEvents.value.has(eventKey(record.competition, record.year))) continue;
-    if (!selectedStages.value.has(record.stage)) continue;
+    if (record.stage === 'secondary'
+      ? !selectedStages.value.has('middle') && !selectedStages.value.has('high')
+      : !selectedStages.value.has(record.stage)) continue;
     const ids = record.school_ids.filter((id) => selectedDistricts.value.has(id.slice(3, 9)));
     if (!ids.length) continue;
     const key = `${record.stage}:${record.school}`;
@@ -124,12 +127,13 @@ watch(() => [route.query.competition, route.query.stage, route.query.school], ()
 watch([selectedEvents, selectedStages, selectedDistricts, groupBy], scrollToTargetSchool);
 onMounted(scrollToTargetSchool);
 
-const campusPicker = ref<{ top: number; left: number; school: AwardSchool; items: Array<{ id: string; name: string; district: string }> } | null>(null);
+const campusPicker = ref<{ top: number; left: number; school: AwardSchool; items: Array<{ id: string; name: string; stage: string; district: string }> } | null>(null);
 function openSchool(school: AwardSchool, event: MouseEvent) {
   const ids = school.ids.filter((id) => entitiesById.has(id));
   if (ids.length < 2) {
     const id = ids[0];
-    if (id) router.push({ path: `/school/${encodeURIComponent(entitiesById.get(id) || school.name)}`, query: { stage: school.stage, id } });
+    const entity = id ? entitiesById.get(id) : null;
+    if (id && entity) router.push({ path: `/school/${encodeURIComponent(entity.name)}`, query: { stage: entity.stage, id } });
     return;
   }
   const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
@@ -138,12 +142,12 @@ function openSchool(school: AwardSchool, event: MouseEvent) {
     top: rect.bottom + 6,
     left: rect.left + width > window.innerWidth - 8 ? Math.max(8, window.innerWidth - width - 8) : rect.left,
     school,
-    items: ids.map((id) => ({ id, name: entitiesById.get(id)!, district: districtOf(id) })),
+    items: ids.map((id) => ({ id, name: entitiesById.get(id)!.name, stage: entitiesById.get(id)!.stage, district: districtOf(id) })),
   };
 }
-function goCampus(item: { id: string; name: string }, school: AwardSchool) {
+function goCampus(item: { id: string; name: string; stage: string }, school: AwardSchool) {
   campusPicker.value = null;
-  router.push({ path: `/school/${encodeURIComponent(item.name)}`, query: { stage: school.stage, id: item.id } });
+  router.push({ path: `/school/${encodeURIComponent(item.name)}`, query: { stage: item.stage, id: item.id } });
 }
 
 const medalClass = (award: string) => award.includes('金') || award.includes('一等') ? 'gold' : award.includes('银') || award.includes('二等') ? 'silver' : 'bronze';
@@ -154,7 +158,7 @@ function goBack() { window.history.back(); }
   <div class="awards-page">
     <header class="top">
       <RouterLink to="/" class="back">‹ 首页</RouterLink>
-      <h1 class="page-title">白名单竞赛获奖</h1>
+      <h1 class="page-title">竞赛获奖明细</h1>
       <p class="sub-note">数据来源：广州市教育局官网公示（2024-2026）</p>
     </header>
 

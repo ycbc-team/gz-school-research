@@ -4,7 +4,7 @@
 
 输入：raw/创客大赛_{个人,团体}项目获奖名单_YYYY.xls(x)
 规则：
-  - 参赛组别列：小学组→primary，中学组→middle/high（中学组混初+高，暂只挂 middle）
+  - 参赛组别列：小学组→primary；中学组→secondary（初中+高中，不擅自拆分）
   - 带括号校区名 → 精确匹配
   - 整体名 → 一对多，该学校所有同学段校区
   - 品牌成员校排除
@@ -104,7 +104,8 @@ def core_name(s):
 
 def match_school(school, stage, ents):
     core, campus = core_name(school)
-    cands = [e for e in ents if e["stage"] == stage and (core in e["name"] or e["name"] in core)]
+    stages = {"middle", "high"} if stage == "secondary" else {stage}
+    cands = [e for e in ents if e["stage"] in stages and (core in e["name"] or e["name"] in core)]
     cands = [e for e in cands if not any(suf in e["name"] and suf not in core for suf in BRAND_SUFFIX)]
     # 区码收窄：从原始校名提取区码
     for dname, adcode in DISTRICT_ADCODE.items():
@@ -163,7 +164,7 @@ def main():
             if any(kw in rec["school"] for kw in NON_SCHOOL):
                 skipped.append({**rec, "reason": "非学校"})
                 continue
-            stage = "primary" if rec["group"].startswith("小学组") else "middle" if rec["group"].startswith("中学组") else None
+            stage = "primary" if rec["group"].startswith("小学组") else "secondary" if rec["group"].startswith("中学组") else None
             if not stage:
                 skipped.append({**rec, "reason": f"未知组别:{rec['group']}"})
                 continue
