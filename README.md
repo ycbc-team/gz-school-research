@@ -177,7 +177,7 @@ apps/web/src/data/compact/**  与  @gz/shared 构建产物（Web/小程序实际
 
 ### 高中录取分数（data/high/cutoff_score/dist/scores_{year}.json）
 
-- 真源：广州市招考办官网（gzzk.gz.gov.cn）普通高中录取分数表，官方页原始 HTML 存 `data/high/cutoff_score/raw/`（gitignore），`python3 data/high/cutoff_score/scripts/build_scores.py [--fetch]` 重下官方页并解析到 `data/high/cutoff_score/dist/`
+- 真源：广州市招考办官网（gzzk.gz.gov.cn）普通高中录取分数表，官方页原始 HTML 存 `data/high/cutoff_score/raw/`（入库跟踪），`python3 data/high/cutoff_score/scripts/fetch_scores.py` 重下官方页（仅每年批次公布时手动跑），`python3 data/high/cutoff_score/scripts/build_scores.py` 解析到 `data/high/cutoff_score/dist/`（每次 check 重跑比对）
 - 覆盖批次：第一批次（外语艺术类，末位考生分数口径）/ 第三批次 / 第四批次；2025 与 2026 两年
 - 口径：公办=户籍生最低分（另有非户籍生/外区生）；民办/中外合作=最低分数（公费班为独立条目）；外语艺术类=末位考生分数
 - 关联：`by_school_id` 按实体主键引用 `data/registry/entities.json`（官方录取表原文名经 `scripts/registry/build_entities.mjs` 的 OFFICIAL_HIGH_ALIAS 桥接 POI 名，全角校区名 ↔ 半角 POI 名系统性差异已治理）；未收录实体（远郊 7 区外 / 中外合作办学项目 / 无 POI 新校）保留在 `unmapped` 官方原文

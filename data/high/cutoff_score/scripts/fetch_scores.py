@@ -8,7 +8,7 @@
   每次 `npm run check` 由 check_groups_drift 重跑并与入库产物比对（分数清单变化即失败）。
 
 用法: python3 data/high/cutoff_score/scripts/fetch_scores.py
-依赖: 网络（curl 下载 gzzk.gz.gov.cn 官方页）；raw/ 已 gitignore（可随时重下）。
+依赖: 网络（curl 下载 gzzk.gz.gov.cn 官方页）；raw/ 已入库跟踪（官方源文件版本可控，年度更新时覆盖替换）。
 """
 import subprocess
 from pathlib import Path
