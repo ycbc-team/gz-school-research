@@ -581,6 +581,18 @@ const brandCardUseful = computed(() =>
       <p v-else-if="!middleEnrolls.length" class="empty">暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。</p>
     </div>
 
+    <!-- 创新大赛获奖 -->
+    <div v-if="awardData" class="card">
+      <div class="card-title">创新大赛获奖</div>
+      <p class="sub-note">广州市中小学生创新大赛·{{ stageLabel }}（2024-2026）</p>
+      <div v-for="yr in awardYears" :key="yr" class="award-year">
+        <span class="award-year-label">{{ yr }}</span>
+        <span v-if="awardData[yr].gold" class="medal gold">{{ awardData[yr].gold}}金</span>
+        <span v-if="awardData[yr].silver" class="medal silver">{{ awardData[yr].silver}}银</span>
+        <span v-if="awardData[yr].bronze" class="medal bronze">{{ awardData[yr].bronze}}铜</span>
+      </div>
+    </div>
+
     <!-- 初中 tab：升学通道（名额分配/自招，LinkagePanel） -->
     <template v-if="stage === 'middle'">
       <LinkagePanel :stage="'middle'" :school="schoolName" />
@@ -655,18 +667,6 @@ const brandCardUseful = computed(() =>
             <span class="tag">校区</span>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- 创新大赛获奖 -->
-    <div v-if="awardData" class="card">
-      <div class="card-title">创新大赛获奖</div>
-      <p class="sub-note">广州市中小学生创新大赛·{{ stageLabel }}（2024-2026）</p>
-      <div v-for="yr in awardYears" :key="yr" class="award-year">
-        <span class="award-year-label">{{ yr }}</span>
-        <span v-if="awardData[yr].gold" class="medal gold">{{ awardData[yr].gold}}金</span>
-        <span v-if="awardData[yr].silver" class="medal silver">{{ awardData[yr].silver}}银</span>
-        <span v-if="awardData[yr].bronze" class="medal bronze">{{ awardData[yr].bronze}}铜</span>
       </div>
     </div>
 
