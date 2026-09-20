@@ -1,0 +1,1199 @@
+{
+  "metric": "innovation_awards",
+  "competition": "广州市中小学生创新大赛·小学金点子组",
+  "stage": "primary",
+  "year": 2025,
+  "source_file": "创新大赛_小学金点子组获奖名单_2025.xls",
+  "total_records": 93,
+  "skipped": [
+    {
+      "school": "广州市番禺区星海青少年宫",
+      "reason": "非学校"
+    },
+    {
+      "school": "广州市番禺区星海青少年宫",
+      "reason": "非学校"
+    },
+    {
+      "school": "广州市番禺区星海青少年宫",
+      "reason": "非学校"
+    }
+  ],
+  "records": [
+    {
+      "school": "参赛单位",
+      "award": "奖项",
+      "district": "区属",
+      "project": "参赛项目名称",
+      "leader": "项目负责人",
+      "members": "项目成员",
+      "coach": "指导老师",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市天河区暨南大学附属实验学校",
+      "award": "金奖",
+      "district": "天河区",
+      "project": "第二代高海拔超低功耗小型全自动气象站",
+      "leader": "张妙依",
+      "members": "张妙依、 张心扬",
+      "coach": "欧阳翠红、 冯冠嘟",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市天河区天府路小学",
+      "award": "金奖",
+      "district": "天河区",
+      "project": "高速公路智能清障双子星",
+      "leader": "霍诗钰",
+      "members": "霍诗钰",
+      "coach": "梁雨轩",
+      "school_ids": [
+        "gz-440106-4dbb5b90",
+        "gz-440106-6dc5833a",
+        "gz-440106-ecfc1a19"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市天河区华阳小学（天润校区）",
+      "award": "金奖",
+      "district": "天河区",
+      "project": "“睛”彩人生 “莹”得未来--护眼机器人",
+      "leader": "倪梓睿",
+      "members": "倪梓睿、 朱浩然",
+      "coach": "邓贝",
+      "school_ids": [
+        "gz-440106-182b1ae3"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市荔湾区华侨小学汇龙学校",
+      "award": "金奖",
+      "district": "荔湾区",
+      "project": "公交守护者-下车安全预警系统",
+      "leader": "刘书恒",
+      "members": "刘书恒、 胡晟伦、 张骏然",
+      "coach": "林育珊、 曹庆晖",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市庆丰实验学校",
+      "award": "金奖",
+      "district": "白云区",
+      "project": "体感骑行安全帽",
+      "leader": "龙嘉琳",
+      "members": "龙嘉琳、 全纾函、 马骁、 李昊宸",
+      "coach": "周艳",
+      "school_ids": [
+        "gz-440111-7360ff6d"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广东实验中学荔湾学校（第二小学部）",
+      "award": "金奖",
+      "district": "荔湾区",
+      "project": "跳跳小助手——听得到也看得见的跳绳计数器",
+      "leader": "余思辰",
+      "members": "余思辰",
+      "coach": "邝启湛",
+      "school_ids": [
+        "gz-440103-6b0e7dbd",
+        "gz-440103-82b9766a",
+        "gz-440103-9f5557ad",
+        "gz-440103-b54d0b70"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市天河区体育东路小学",
+      "award": "金奖",
+      "district": "天河区",
+      "project": "智能中药储存柜",
+      "leader": "梁一骁",
+      "members": "梁一骁、 张澍、 梁一恺",
+      "coach": "欧阳仪、 李怿珍",
+      "school_ids": [
+        "gz-440106-bd76b30f",
+        "gz-440106-cdfda274",
+        "gz-440106-fafdbff4"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市天河区暨南大学附属实验学校",
+      "award": "金奖",
+      "district": "天河区",
+      "project": "机场跑道智能巡检机器人",
+      "leader": "刘北鲲",
+      "members": "刘北鲲、 周扬翕、 吴星雨、 李临渊",
+      "coach": "欧阳翠红",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市天河区华阳小学（天润校区）",
+      "award": "金奖",
+      "district": "天河区",
+      "project": "《绿能盒聚会仓》",
+      "leader": "周淼可",
+      "members": "周淼可、 梁智博",
+      "coach": "黄佳佳、 邓贝",
+      "school_ids": [
+        "gz-440106-182b1ae3"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市荔湾区华侨小学汇龙学校",
+      "award": "金奖",
+      "district": "荔湾区",
+      "project": "智能防内涝系统",
+      "leader": "梁晋菲",
+      "members": "梁晋菲",
+      "coach": "林育珊",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市天河区华景小学（北校区）",
+      "award": "金奖",
+      "district": "天河区",
+      "project": "基于物联网通讯的火灾隐患巡检机器人",
+      "leader": "黄晞哲",
+      "members": "黄晞哲、 王建博、 黄品睿",
+      "coach": "侯林英",
+      "school_ids": [
+        "gz-440106-2cd346f1"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市白云区人和镇第一小学",
+      "award": "金奖",
+      "district": "白云区",
+      "project": "智能高处取盒器",
+      "leader": "叶思睿",
+      "members": "叶思睿、 叶思妤",
+      "coach": "黄彩银、 叶少勤、 张颖",
+      "school_ids": [
+        "gz-440111-645ba6c1",
+        "gz-440111-fad0ee39"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广东实验中学荔湾学校（第二小学部）",
+      "award": "金奖",
+      "district": "荔湾区",
+      "project": "可以均匀出风且避免凝露的空调导风板",
+      "leader": "胡栩康",
+      "members": "胡栩康",
+      "coach": "莫广珍",
+      "school_ids": [
+        "gz-440103-6b0e7dbd",
+        "gz-440103-82b9766a",
+        "gz-440103-9f5557ad",
+        "gz-440103-b54d0b70"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市天河区华阳小学（天润校区）",
+      "award": "金奖",
+      "district": "天河区",
+      "project": "校园智能红领巾借用小帮手",
+      "leader": "庄依依",
+      "members": "庄依依、 黄辰逸、 张子衿",
+      "coach": "邓贝",
+      "school_ids": [
+        "gz-440106-182b1ae3"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市天河区华景小学",
+      "award": "金奖",
+      "district": "天河区",
+      "project": "智能养蚕小屋",
+      "leader": "殷墨轩",
+      "members": "殷墨轩、 李洛妍、 叶骏樟",
+      "coach": "温建山",
+      "school_ids": [
+        "gz-440106-2cd346f1",
+        "gz-440106-3f600b79"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市白云区龙涛外国语实验小学",
+      "award": "金奖",
+      "district": "白云区",
+      "project": "智能导盲车",
+      "leader": "邱楚晞",
+      "members": "邱楚晞、 周宇浩、 胡运煋",
+      "coach": "袁宇浩、 安丽娟",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市增城区南香山小学",
+      "award": "金奖",
+      "district": "增城区",
+      "project": "智能遥控黑板擦",
+      "leader": "廖晨汐",
+      "members": "廖晨汐、 郭袈铭、 王家麟、 张豫粤、 唐子姗",
+      "coach": "陈怡玲、 朱淑芳、 郭艮欢",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州奥林匹克中学",
+      "award": "金奖",
+      "district": "天河区",
+      "project": "一人一码，智慧失物招领柜",
+      "leader": "魏昭宇",
+      "members": "魏昭宇、 戴子晴、 潘令仪、 郭乔恩、 李豫桐",
+      "coach": "陈月颜、 陈芳芳、 张送英",
+      "school_ids": [
+        "gz-440106-a7cac9ec"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市番禺区市桥草河小学",
+      "award": "金奖",
+      "district": "番禺区",
+      "project": "智能护眼小管家",
+      "leader": "黎致颖",
+      "members": "黎致颖、 谢佳雯、 邹羽桐、 黄若晗、 林钲皓",
+      "coach": "侯君怡",
+      "school_ids": [
+        "gz-440113-b4549534"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广大附中番禺实验学校",
+      "award": "银奖",
+      "district": "番禺区",
+      "project": "基于北斗定位的安全智能观光巴士",
+      "leader": "梁芷熙",
+      "members": "梁芷熙、 卢锦潮、 杨牧之",
+      "coach": "毛钰滢、 余成龙、 邹翠枚",
+      "school_ids": [
+        "gz-440113-213843c2"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市天河区东圃小学",
+      "award": "银奖",
+      "district": "天河区",
+      "project": "一种停车场停车引导的方法",
+      "leader": "苏远泓",
+      "members": "苏远泓",
+      "coach": "陈旭、 许嘉达",
+      "school_ids": [
+        "gz-440106-4d4c3ab8"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市番禺区市桥沙墟二小学",
+      "award": "银奖",
+      "district": "番禺区",
+      "project": "雨衣半自动回收桶",
+      "leader": "张天颖",
+      "members": "赖家杨、 冯远航、 潘众亮、 邬天淇、 潘安林",
+      "coach": "张天颖、 林妙龙",
+      "school_ids": [
+        "gz-440113-e694f2ca"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市天河区盈彩美居小学",
+      "award": "银奖",
+      "district": "天河区",
+      "project": "“南山”——养老院智能巡检机器人",
+      "leader": "邢修源",
+      "members": "邢修源、 黄晓涵、 王浩然",
+      "coach": "钟美君",
+      "school_ids": [
+        "gz-440106-39e2039f"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市荔湾区芳村小学南漖学校",
+      "award": "银奖",
+      "district": "荔湾区",
+      "project": "南蛟（漖）一号——三人协同遥控摆臂龙舟",
+      "leader": "梁筱童",
+      "members": "梁筱童、 陈晫轩、 张柏濠、 黄宇轩、 李瑞雪",
+      "coach": "林洋坤、 刘文奇",
+      "school_ids": [
+        "gz-440103-28507a63",
+        "gz-440103-a5de21fb"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市越秀区大沙头小学",
+      "award": "银奖",
+      "district": "越秀区",
+      "project": "基于物联网的便民式借伞机",
+      "leader": "刘景云",
+      "members": "刘景云",
+      "coach": "陈海才、 黄乐妍、 梁少虹",
+      "school_ids": [
+        "gz-440104-2aa7d451"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市越秀区建设大马路小学",
+      "award": "银奖",
+      "district": "越秀区",
+      "project": "护眼宝宝",
+      "leader": "曾思为",
+      "members": "曾思为",
+      "coach": "钟海涛",
+      "school_ids": [
+        "gz-440104-1549fb3f"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市越秀区大沙头小学",
+      "award": "银奖",
+      "district": "越秀区",
+      "project": "基于人工智能的足球运动训练系统",
+      "leader": "黄睿轩",
+      "members": "黄睿轩、 关智远",
+      "coach": "陈海才、 黄乐妍、 梁少虹",
+      "school_ids": [
+        "gz-440104-2aa7d451"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市番禺区市桥沙墟二小学",
+      "award": "银奖",
+      "district": "番禺区",
+      "project": "简易版AR全息投影仪",
+      "leader": "王国成",
+      "members": "李晨睿、 李健豪",
+      "coach": "王国成、 王玲玲",
+      "school_ids": [
+        "gz-440113-e694f2ca"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市番禺区天誉小学",
+      "award": "银奖",
+      "district": "番禺区",
+      "project": "基于AI检测的智能交通引导系统",
+      "leader": "欧阳宏宇",
+      "members": "欧阳宏宇、 吴博涛、 李佳洋",
+      "coach": "杜思奇、 吴文锋、 崔丽珊",
+      "school_ids": [
+        "gz-440113-060386bb"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广东外语外贸大学附属科学城实验学校",
+      "award": "银奖",
+      "district": "黄埔区",
+      "project": "智联感知教室，守护学生成长",
+      "leader": "钟昊宸",
+      "members": "钟昊宸、 黄纯熙、 谢佳祎",
+      "coach": "马兰",
+      "school_ids": [
+        "gz-440112-e08700ea"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市天河区长征小学",
+      "award": "银奖",
+      "district": "天河区",
+      "project": "家用观赏花卉花期延长机器人",
+      "leader": "黄立谦",
+      "members": "黄立谦",
+      "coach": "尹琦",
+      "school_ids": [
+        "gz-440106-b2701f92"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市增城区南香山小学",
+      "award": "银奖",
+      "district": "增城区",
+      "project": "智能药盒",
+      "leader": "刘雅筠",
+      "members": "刘雅筠、 钟奕棋、 林嘉翰、 潘晓蕊、 邓君泽",
+      "coach": "陈怡玲、 朱淑芳、 罗庆莲",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市天河区体育东路小学",
+      "award": "银奖",
+      "district": "天河区",
+      "project": "中医智能-针灸热疗U型枕",
+      "leader": "李芊慧",
+      "members": "李芊慧、 陈奕翔、 饶卓尔",
+      "coach": "李怿珍",
+      "school_ids": [
+        "gz-440106-bd76b30f",
+        "gz-440106-cdfda274",
+        "gz-440106-fafdbff4"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市庆丰实验学校",
+      "award": "银奖",
+      "district": "白云区",
+      "project": "AI地震报警器",
+      "leader": "陈昊然",
+      "members": "谭家豪、 唐浩康、 陈昊然",
+      "coach": "唐少彬",
+      "school_ids": [
+        "gz-440111-7360ff6d"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市增城区南香山小学",
+      "award": "银奖",
+      "district": "增城区",
+      "project": "卫生间防遗忘系统",
+      "leader": "李培澜",
+      "members": "李培澜、 周元贞",
+      "coach": "朱淑芳、 陈怡玲、 罗庆莲",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市天河区体育东路小学",
+      "award": "银奖",
+      "district": "天河区",
+      "project": "基于地基的磁悬浮防震智能小屋",
+      "leader": "蔡恺成",
+      "members": "蔡恺成、 邓佳熙、 匡伯骏",
+      "coach": "苏楚缘",
+      "school_ids": [
+        "gz-440106-bd76b30f",
+        "gz-440106-cdfda274",
+        "gz-440106-fafdbff4"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市荔湾区华侨小学汇龙学校",
+      "award": "银奖",
+      "district": "荔湾区",
+      "project": "智护梯行-扶梯安全预警卫士",
+      "leader": "何迅杰",
+      "members": "何迅杰、 黄梓超、 陈雨顺",
+      "coach": "林育珊、 曹庆晖",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市番禺区恒润实验学校",
+      "award": "银奖",
+      "district": "番禺区",
+      "project": "高速公路路面机器人",
+      "leader": "简宝翔",
+      "members": "简宝翔、 唐屹",
+      "coach": "朱惠琳",
+      "school_ids": [
+        "gz-440113-c9f8740e"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市番禺区实验小学",
+      "award": "银奖",
+      "district": "番禺区",
+      "project": "智翰药识——手写药方识别配药系统",
+      "leader": "陈梓晴",
+      "members": "陈梓晴",
+      "coach": "马淑芬、 马云霞",
+      "school_ids": [
+        "gz-440113-2ad239a0",
+        "gz-440113-2f593eda",
+        "gz-440113-bb3711d6",
+        "gz-440113-c57d3d31",
+        "gz-440113-d099ba85",
+        "gz-440113-d4aecd66"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市天河区灵秀小学",
+      "award": "银奖",
+      "district": "天河区",
+      "project": "基于人脸识别的智能水杯架",
+      "leader": "刘昕辰",
+      "members": "刘昕辰、 刘宸铭",
+      "coach": "张奕宸",
+      "school_ids": [
+        "gz-440106-a52ecc01"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市荔湾区华侨小学汇龙学校",
+      "award": "银奖",
+      "district": "荔湾区",
+      "project": "商场安全守护预警系统",
+      "leader": "肖梓萱",
+      "members": "肖梓萱、 罗韵诗、 谢昊扬",
+      "coach": "林育珊、 曹庆晖",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市天河区华景小学",
+      "award": "银奖",
+      "district": "天河区",
+      "project": "婴儿保护装置",
+      "leader": "熊思甜",
+      "members": "熊思甜、 熊世涵、 张慕竹",
+      "coach": "温建山",
+      "school_ids": [
+        "gz-440106-2cd346f1",
+        "gz-440106-3f600b79"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市白云区白云实验学校",
+      "award": "银奖",
+      "district": "白云区",
+      "project": "萌萌水雾-红灯说不！",
+      "leader": "王凯",
+      "members": "王凯、 柳宇皓、 刘锦澄",
+      "coach": "李文冬、 陈柔银、 罗淇丹",
+      "school_ids": [
+        "gz-440111-0d08ab54"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市海珠外国语实验中学附属第二小学",
+      "award": "银奖",
+      "district": "海珠区",
+      "project": "智能畜禽喂食器",
+      "leader": "陈卓荣",
+      "members": "潘卓阳、 房琬儿、 张晞晨、 曾敏珊、 温瑾瑶",
+      "coach": "陈卓荣",
+      "school_ids": [
+        "gz-440105-4325dad0"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市荔湾区华侨小学汇龙学校",
+      "award": "银奖",
+      "district": "荔湾区",
+      "project": "基于ESP32与行空板的物联网校园失物招领柜",
+      "leader": "关天昊",
+      "members": "关天昊",
+      "coach": "林育珊",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市天河区东圃小学",
+      "award": "银奖",
+      "district": "天河区",
+      "project": "智能家居小屋",
+      "leader": "黄文骏",
+      "members": "黄文骏、 张晨洋",
+      "coach": "陈旭、 许嘉达",
+      "school_ids": [
+        "gz-440106-4d4c3ab8"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市番禺区大石会江实验学校",
+      "award": "铜奖",
+      "district": "番禺区",
+      "project": "智能环保家园",
+      "leader": "谭楚楚",
+      "members": "谭楚楚",
+      "coach": "邓岳莉",
+      "school_ids": [
+        "gz-440113-e946f7f3"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州奥林匹克中学",
+      "award": "铜奖",
+      "district": "天河区",
+      "project": "智能防丢文具盒项目",
+      "leader": "崔允蓝",
+      "members": "崔允蓝、 谢月灵、 李妍思",
+      "coach": "陈月颜",
+      "school_ids": [
+        "gz-440106-a7cac9ec"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市花都区新华街第一小学",
+      "award": "铜奖",
+      "district": "花都区",
+      "project": "关于走廊测速及语音预警的防撞系统",
+      "leader": "余敏",
+      "members": "严自宏、 梁晋楷、 周苏岩",
+      "coach": "余敏",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市增城区凤凰实验小学",
+      "award": "铜奖",
+      "district": "增城区",
+      "project": "智能运输车",
+      "leader": "罗梓东",
+      "members": "罗梓东、 郭涵宇、 陈逸洋",
+      "coach": "李嘉琳、 胡绍富、 夏桂芬",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市增城区南香山小学",
+      "award": "铜奖",
+      "district": "增城区",
+      "project": "学习智能助手",
+      "leader": "于婉馨",
+      "members": "于婉馨",
+      "coach": "郭艮欢、 陈怡玲、 朱淑芳",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市增城区南香山小学",
+      "award": "铜奖",
+      "district": "增城区",
+      "project": "智能笔",
+      "leader": "钟钰琪",
+      "members": "钟钰琪\t、 潘梓彤、 张楚妍、 刘韪睿、 黄依依",
+      "coach": "罗庆莲、 陈怡玲、 郭艮欢",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市天河区龙口西小学",
+      "award": "铜奖",
+      "district": "天河区",
+      "project": "“智多星”智能文具盒——用科技点亮学习，让智慧陪伴成长",
+      "leader": "官文睿",
+      "members": "官文睿、 孙泽谙、 杜亦可、 唐睿辰",
+      "coach": "朱清霞",
+      "school_ids": [
+        "gz-440106-24586ef1",
+        "gz-440106-53bc251b",
+        "gz-440106-5e40124c",
+        "gz-440106-e66204ca",
+        "gz-440106-ee85c675"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市番禺区市桥沙墟二小学",
+      "award": "铜奖",
+      "district": "番禺区",
+      "project": "蛾蚋蚊虫诱捕器",
+      "leader": "周柏乔",
+      "members": "周柏乔、 周泳娜",
+      "coach": "王国成、 张思伟",
+      "school_ids": [
+        "gz-440113-e694f2ca"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市天河区龙口西小学",
+      "award": "铜奖",
+      "district": "天河区",
+      "project": "抖腿坏习惯智能矫正器",
+      "leader": "高兴",
+      "members": "高兴",
+      "coach": "张颖彤",
+      "school_ids": [
+        "gz-440106-24586ef1",
+        "gz-440106-53bc251b",
+        "gz-440106-5e40124c",
+        "gz-440106-e66204ca",
+        "gz-440106-ee85c675"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市天河区暨南大学附属实验学校",
+      "award": "铜奖",
+      "district": "天河区",
+      "project": "智能护行 - 盲道安全助手",
+      "leader": "谢彦儒",
+      "members": "谢彦儒、 张峻、 刘城鑫、 赵稷丰",
+      "coach": "欧阳翠红、 张树林",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "华南师范大学附属小学",
+      "award": "铜奖",
+      "district": "省属",
+      "project": "智能配送机器人",
+      "leader": "周轩麒",
+      "members": "周轩麒",
+      "coach": "谭健",
+      "school_ids": [
+        "gz-440106-f11f4361"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市增城区凤凰实验小学",
+      "award": "铜奖",
+      "district": "增城区",
+      "project": "智感花盆",
+      "leader": "曹晔宇",
+      "members": "曹晔宇、 李安麓、 刘晋豪、 徐子怡",
+      "coach": "李嘉琳、 胡绍富、 夏桂芬",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市荔湾区沙面小学",
+      "award": "铜奖",
+      "district": "荔湾区",
+      "project": "小学生金点子",
+      "leader": "江华姿",
+      "members": "凌云志",
+      "coach": "江华姿、 邓庆辉",
+      "school_ids": [
+        "gz-440103-362ee1b6",
+        "gz-440103-554e0beb",
+        "gz-440103-8d072726",
+        "gz-440103-ecc193c7",
+        "gz-440103-eeee1923",
+        "gz-440103-faabf468"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市天河区华康小学",
+      "award": "铜奖",
+      "district": "天河区",
+      "project": "智能无影台灯",
+      "leader": "吴逸聪",
+      "members": "王子铭、 谢林泽",
+      "coach": "王小芳",
+      "school_ids": [
+        "gz-440106-4dc94b4b",
+        "gz-440106-ad7011bb"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市天河区华阳小学",
+      "award": "铜奖",
+      "district": "天河区",
+      "project": "智能身体舒缓修复装置",
+      "leader": "唐禹宸",
+      "members": "唐禹宸",
+      "coach": "谭超锐、 王雪岚、 方娟",
+      "school_ids": [
+        "gz-440106-0b79aecf",
+        "gz-440106-155698db",
+        "gz-440106-182b1ae3",
+        "gz-440106-e591e421"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市培英中学附属小学",
+      "award": "铜奖",
+      "district": "白云区",
+      "project": "基于Arduino控制的电骑秩序及安全智能监管系统",
+      "leader": "陈君浩",
+      "members": "陈君浩、 贾默涵、 黎振楠",
+      "coach": "陈启彪、 张一钧、 黎颖珊",
+      "school_ids": [
+        "gz-440111-d909827a"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广东省教育研究院黄埔实验学校",
+      "award": "铜奖",
+      "district": "黄埔区",
+      "project": "智能出纸",
+      "leader": "谭楚杰",
+      "members": "谭楚杰",
+      "coach": "吕根秋",
+      "school_ids": [
+        "gz-440112-22ec4fcc",
+        "gz-440112-68f9ff36"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州外国语学校附属学校",
+      "award": "铜奖",
+      "district": "南沙区",
+      "project": "火卫一号扫地灭火机器人",
+      "leader": "何淑敏",
+      "members": "张仪臻、 周道诚",
+      "coach": "何淑敏、 黎嘉荧",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广东省教育研究院黄埔实验学校",
+      "award": "铜奖",
+      "district": "黄埔区",
+      "project": "智能猫毛清洁小屋",
+      "leader": "杨子桐",
+      "members": "杨子桐、 曾凯轩",
+      "coach": "吕根秋",
+      "school_ids": [
+        "gz-440112-22ec4fcc",
+        "gz-440112-68f9ff36"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市白云区广园小学",
+      "award": "铜奖",
+      "district": "白云区",
+      "project": "无线 LED 节能电灯",
+      "leader": "肖常谊",
+      "members": "肖常谊、 陈程",
+      "coach": "李致远",
+      "school_ids": [
+        "gz-440111-53549fe6"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市天河区侨乐小学",
+      "award": "铜奖",
+      "district": "天河区",
+      "project": "“甘小灵”健康草本饮品项目",
+      "leader": "司徒子晴",
+      "members": "司徒子晴、 张睿博、 李籽韩、 刘子宸、 林尚美",
+      "coach": "林翠红、 莫燕玲、 林键煌",
+      "school_ids": [
+        "gz-440106-3332b6cb",
+        "gz-440106-95cb8bc4"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市白云区人和镇第一小学",
+      "award": "铜奖",
+      "district": "白云区",
+      "project": "智能居家",
+      "leader": "李祖贤",
+      "members": "李祖贤",
+      "coach": "黄彩银、 张颖",
+      "school_ids": [
+        "gz-440111-645ba6c1",
+        "gz-440111-fad0ee39"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市天河区东圃小学",
+      "award": "铜奖",
+      "district": "天河区",
+      "project": "AI环保节能垃圾桶",
+      "leader": "邓紫妍",
+      "members": "邓紫妍、 黎修宇、 罗文谦",
+      "coach": "陈旭、 许嘉达",
+      "school_ids": [
+        "gz-440106-4d4c3ab8"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市增城区朱村街凤秀小学",
+      "award": "铜奖",
+      "district": "增城区",
+      "project": "测隐之芯——便携式校园欺凌警报器",
+      "leader": "周均合",
+      "members": "周均合",
+      "coach": "车碧霞、徐条香",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市天河区华景小学",
+      "award": "铜奖",
+      "district": "天河区",
+      "project": "机械灵动代步车",
+      "leader": "王朝奕",
+      "members": "王朝奕",
+      "coach": "温建山",
+      "school_ids": [
+        "gz-440106-2cd346f1",
+        "gz-440106-3f600b79"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市天河区体育东路小学海明学校",
+      "award": "铜奖",
+      "district": "天河区",
+      "project": "多功能智能盲杖",
+      "leader": "朱启沁",
+      "members": "朱启沁",
+      "coach": "司徒敏",
+      "school_ids": [
+        "gz-440106-bd76b30f",
+        "gz-440106-fafdbff4"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市花都区骏威小学",
+      "award": "铜奖",
+      "district": "花都区",
+      "project": "智控城市“不夜天”——五年级创客的物联网光控系统实践",
+      "leader": "杨颢玮",
+      "members": "杨颢玮",
+      "coach": "汤晓瑜、 王柏铭",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市番禺区市桥大平小学",
+      "award": "铜奖",
+      "district": "番禺区",
+      "project": "原生态五音智能康养枕",
+      "leader": "曾家涵",
+      "members": "曾家涵、 潘诗婷",
+      "coach": "黄翠银",
+      "school_ids": [
+        "gz-440113-b8f8c7f6"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市天河区体育东路小学海明学校",
+      "award": "铜奖",
+      "district": "天河区",
+      "project": "儿童防身手表",
+      "leader": "张昊越",
+      "members": "张昊越",
+      "coach": "刘心怡",
+      "school_ids": [
+        "gz-440106-bd76b30f",
+        "gz-440106-fafdbff4"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市番禺区市桥中心小学",
+      "award": "铜奖",
+      "district": "番禺区",
+      "project": "基于人脸识别的校园雨伞共享系统",
+      "leader": "林梓宸",
+      "members": "林梓宸",
+      "coach": "钱少萍",
+      "school_ids": [
+        "gz-440113-7e40fb3a"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广东省教育研究院黄埔实验学校",
+      "award": "铜奖",
+      "district": "黄埔区",
+      "project": "仿生机器人",
+      "leader": "房子烨",
+      "members": "房子烨、 乐朝阳",
+      "coach": "吕根秋",
+      "school_ids": [
+        "gz-440112-22ec4fcc",
+        "gz-440112-68f9ff36"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市增城区天恩双语学校（第二校区）",
+      "award": "铜奖",
+      "district": "增城区",
+      "project": "科技强“芯”智慧促农",
+      "leader": "陈泳欣",
+      "members": "赵芮程",
+      "coach": "陈泳欣",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市增城区新塘镇天伦学校",
+      "award": "铜奖",
+      "district": "增城区",
+      "project": "智能家庭学习时间管理助手——“时间小管家”",
+      "leader": "黄瑞健",
+      "members": "黄瑞健、 谭楚淇、 冼珊珊",
+      "coach": "吴丽友、 钟淼君",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市庆丰实验学校",
+      "award": "铜奖",
+      "district": "白云区",
+      "project": "灵活的课程表笔筒",
+      "leader": "刘嘉明",
+      "members": "黄世杰、 刘嘉明",
+      "coach": "严娟",
+      "school_ids": [
+        "gz-440111-7360ff6d"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市增城区南香山小学",
+      "award": "铜奖",
+      "district": "增城区",
+      "project": "楼梯安全震动感应器",
+      "leader": "段尊玺",
+      "members": "段尊玺、 李胡翊",
+      "coach": "朱淑芳、 陈怡玲、 郭艮欢",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市荔湾区乐贤坊小学",
+      "award": "铜奖",
+      "district": "荔湾区",
+      "project": "AI营养师无人配餐车",
+      "leader": "邝颖斐",
+      "members": "沈雷嘉、 阮伟博、 许雯萱",
+      "coach": "周晶、 邝颖斐",
+      "school_ids": [
+        "gz-440103-16043f05",
+        "gz-440103-4e0aa3d7",
+        "gz-440103-a15d3a11"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市番禺区市桥大平小学",
+      "award": "铜奖",
+      "district": "番禺区",
+      "project": "DP智能垃圾桶",
+      "leader": "曾家好",
+      "members": "曾家好",
+      "coach": "苏欢梓",
+      "school_ids": [
+        "gz-440113-b8f8c7f6"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市天河区东圃小学",
+      "award": "铜奖",
+      "district": "天河区",
+      "project": "立杆消防栓",
+      "leader": "李明峻",
+      "members": "吴亦诺、 李明峻",
+      "coach": "陈旭、 许嘉达",
+      "school_ids": [
+        "gz-440106-4d4c3ab8"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市番禺区市桥草河小学",
+      "award": "铜奖",
+      "district": "番禺区",
+      "project": "便携防溺水法宝",
+      "leader": "黎一正",
+      "members": "黎一正、 余恒跃、 蔡沛彤、 郭宝茹、沈洢阅",
+      "coach": "侯君怡",
+      "school_ids": [
+        "gz-440113-b4549534"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市天河区体育西路小学",
+      "award": "铜奖",
+      "district": "天河区",
+      "project": "智能安全提示头盔方案",
+      "leader": "安心",
+      "members": "安心、 安知",
+      "coach": "王琳玲",
+      "school_ids": [
+        "gz-440106-d343b055",
+        "gz-440106-fee58b73"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市荔湾区康有为纪念小学五眼桥学校",
+      "award": "铜奖",
+      "district": "荔湾区",
+      "project": "岭南鲜礼",
+      "leader": "李奕朗",
+      "members": "李奕朗、 李沛钧、 黄慧财、 冯伟民",
+      "coach": "朱广樑、 钟尚健、陈月霞",
+      "school_ids": [
+        "gz-440103-ab2416ab"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市荔湾区环翠园小学",
+      "award": "铜奖",
+      "district": "荔湾区",
+      "project": "智能环保天幕",
+      "leader": "俞博蓝",
+      "members": "俞博蓝、 俞博文",
+      "coach": "赖晓东",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广东实验中学荔湾学校（第二小学部）",
+      "award": "铜奖",
+      "district": "荔湾区",
+      "project": "“视界小小守护者”AI近视防控手环",
+      "leader": "梁熙玥",
+      "members": "梁熙玥、 闫星宇、 黄睿妍、 杜泓逸、 肖可然",
+      "coach": "邝启湛",
+      "school_ids": [
+        "gz-440103-6b0e7dbd",
+        "gz-440103-82b9766a",
+        "gz-440103-9f5557ad",
+        "gz-440103-b54d0b70"
+      ],
+      "match_type": "multi"
+    }
+  ],
+  "compiled_schools": 71
+}

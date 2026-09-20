@@ -1,9 +1,10 @@
 {
   "metric": "innovation_awards",
   "competition": "广州市中小学生创新大赛·初中金种子组",
+  "stage": "middle",
   "year": 2025,
   "source_file": "创新大赛_初中金种子组获奖名单_2025.xls",
-  "total_records": 39,
+  "total_records": 40,
   "skipped": [
     {
       "school": "广州市番禺区星海青少年宫",
@@ -19,6 +20,17 @@
     }
   ],
   "records": [
+    {
+      "school": "参赛单位",
+      "award": "奖项",
+      "district": "区属",
+      "project": "参赛项目名称",
+      "leader": "项目负责人",
+      "members": "项目成员",
+      "coach": "指导老师",
+      "school_ids": [],
+      "match_type": "none"
+    },
     {
       "school": "中山大学附属中学",
       "award": "金奖",

@@ -1,24 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""广州市中小学生创新大赛初中金种子组获奖名单解析（raw → parsed → dist）。
+"""广州市中小学生创新大赛获奖名单解析（raw → parsed → dist）。
 
-输入：raw/创新大赛_初中金种子组获奖名单_YYYY.xls（每年一个文件）
+三学段：小学金点子组 / 初中金种子组 / 高中金苗子组，每年一个文件。
 规则：
-  - 名单本身即初中段，所有获奖学生均为初中生
-  - 带括号校区名 → 精确匹配该校区 middle school_id
-  - 整体名 → 一对多，该学校所有 middle 校区 school_id 都挂
+  - 名单学段确定 → 只挂对应 stage 的 school_id
+  - 带括号校区名 → 精确匹配该校区
+  - 整体名 → 一对多，该学校所有同学段校区
   - 排除少年宫/青少年宫（非学校）
-  - 区码收窄：school_id adcode 与官方区属一致
+  - 区码收窄：school_id adcode 与官方区属一致（2026 小学/高中无区属列，跳过）
   - 品牌成员校（独立法人）排除
 输出：
-  - parsed/innovation_YYYY.json  每年完整记录
-  - dist/compiled.json           聚合所有年份（school_id → 历年奖牌）
+  - parsed/innovation_{stage}_{year}.json  每年每学段完整记录
+  - dist/compiled.json                     聚合所有学段所有年份
 """
 import json
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[4]  # gz_school_research/
+ROOT = Path(__file__).resolve().parents[4]
 RAW = Path(__file__).resolve().parent.parent / "raw"
 PARSED = Path(__file__).resolve().parent.parent / "parsed"
 DIST = Path(__file__).resolve().parent.parent / "dist"
@@ -29,6 +29,9 @@ DISTRICT_ADCODE = {"荔湾": "440103", "越秀": "440104", "海珠": "440105", "
                    "南沙": "440115", "从化": "440117", "增城": "440118"}
 NON_SCHOOL = ["少年宫", "青少年宫"]
 BRAND_SUFFIX = ["附属学校", "附属实验", "实验学校", "附属小学", "附属中学", "外国语学校"]
+
+STAGE_MAP = {"小学": "primary", "初中": "middle", "高中": "high"}
+GROUP_MAP = {"小学": "金点子组", "初中": "金种子组", "高中": "金苗子组"}
 
 
 def core_name(s):
@@ -42,32 +45,37 @@ def core_name(s):
     return s, campus
 
 
-def parse_year(year, ents):
-    year = int(year)
-    import xlrd
-    xls = RAW / f"创新大赛_初中金种子组获奖名单_{year}.xls"
-    wb = xlrd.open_workbook(str(xls))
-    sh = wb.sheet_by_index(0)
-
-    # 三年列结构不同，按年份映射列索引
+def get_cols(stage, year, sh):
+    """按年份+学段返回列映射和表头行号。"""
+    if year == 2024:
+        # col1=成员, col2=负责人, col3=单位, col4=指导老师, col5=奖次, col6=项目, col7=区属
+        return {"project": 6, "school": 3, "leader": 2, "members": 1, "coach": 4, "award": 5, "district": 7}, 3
+    if year == 2025:
+        # col2=项目, col3=负责人, col4=成员, col5=单位, col6=指导老师, col7=区属, col8=奖项
+        return {"project": 2, "school": 5, "leader": 3, "members": 4, "coach": 6, "award": 8, "district": 7}, 2
     if year == 2026:
-        # col2=项目, col3=学校, col4=负责人, col5=成员, col6=指导老师, col7=奖项, col8=区属
-        COLS = {"project": 2, "school": 3, "leader": 4, "members": 5, "coach": 6, "award": 7, "district": 8}
-        header_row = 3
-    elif year == 2025:
-        # col2=项目, col3=负责人, col4=成员, col5=学校, col6=指导老师, col7=区属, col8=奖项
-        COLS = {"project": 2, "school": 5, "leader": 3, "members": 4, "coach": 6, "award": 8, "district": 7}
-        header_row = 3
-    elif year == 2024:
-        # col1=成员, col2=负责人, col3=学校, col4=指导老师, col5=奖次, col6=项目, col7=区属
-        COLS = {"project": 6, "school": 3, "leader": 2, "members": 1, "coach": 4, "award": 5, "district": 7}
-        header_row = 4
+        if stage == "初中":
+            # col2=项目, col3=学校, col4=负责人, col5=成员, col6=指导老师, col7=奖项, col8=区属
+            return {"project": 2, "school": 3, "leader": 4, "members": 5, "coach": 6, "award": 7, "district": 8}, 3
+        else:
+            # 小学/高中：col2=学校, col3=项目, col4=指导老师, col5=获奖等级, col7=负责人, col8=成员，无区属
+            return {"project": 3, "school": 2, "leader": 7, "members": 8, "coach": 4, "award": 5, "district": -1}, 2
+
+
+def parse_file(xls_path, stage_cn, ents):
+    year = int(xls_path.stem.split("_")[-1])
+    stage = STAGE_MAP[stage_cn]
+    import xlrd
+    wb = xlrd.open_workbook(str(xls_path))
+    sh = wb.sheet_by_index(0)
+    COLS, header_row = get_cols(stage_cn, year, sh)
 
     rows = []
     for r in range(header_row, sh.nrows):
         row = [str(sh.cell_value(r, c)).strip() for c in range(sh.ncols)]
         if not row[COLS["school"]]: continue
-        rows.append({"school": row[COLS["school"]], "award": row[COLS["award"]], "district": row[COLS["district"]],
+        district = row[COLS["district"]] if COLS["district"] >= 0 else ""
+        rows.append({"school": row[COLS["school"]], "award": row[COLS["award"]], "district": district,
                      "project": row[COLS["project"]], "leader": row[COLS["leader"]],
                      "members": row[COLS["members"]], "coach": row[COLS["coach"]]})
 
@@ -82,8 +90,8 @@ def parse_year(year, ents):
             sname = sname.strip()
             if not sname: continue
             core, campus = core_name(sname)
-            expect_adcode = DISTRICT_ADCODE.get(rec["district"].replace("区", ""))
-            cands = [e for e in ents if e["stage"] == "middle" and (core in e["name"] or e["name"] in core)]
+            expect_adcode = DISTRICT_ADCODE.get(rec["district"].replace("区", "")) if rec["district"] else None
+            cands = [e for e in ents if e["stage"] == stage and (core in e["name"] or e["name"] in core)]
             if expect_adcode:
                 cands = [e for e in cands if e["school_id"].split("-")[1] == expect_adcode]
             cands = [e for e in cands if not any(suf in e["name"] and suf not in core for suf in BRAND_SUFFIX)]
@@ -104,29 +112,31 @@ def parse_year(year, ents):
 
     out = {
         "metric": "innovation_awards",
-        "competition": "广州市中小学生创新大赛·初中金种子组",
+        "competition": f"广州市中小学生创新大赛·{stage_cn}{GROUP_MAP[stage_cn]}",
+        "stage": stage,
         "year": year,
-        "source_file": xls.name,
+        "source_file": xls_path.name,
         "total_records": len(rows),
         "skipped": skipped,
         "records": matched_records,
         "compiled_schools": len(by_school),
     }
     PARSED.mkdir(exist_ok=True)
-    (PARSED / f"innovation_{year}.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"[{year}] records={len(rows)} schools={len(by_school)} skipped={len(skipped)}")
-    return by_school
+    (PARSED / f"innovation_{stage}_{year}.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"[{stage_cn} {year}] records={len(rows)} schools={len(by_school)} skipped={len(skipped)}")
+    return by_school, year, stage
 
 
 def main():
     ents = json.load(open(ENTITIES))["entities"]
-    years = sorted([p.stem.split("_")[-1] for p in RAW.glob("创新大赛_初中金种子组获奖名单_*.xls")])
     all_schools = {}
-    for y in years:
-        by_school = parse_year(y, ents)
+    for xls in sorted(RAW.glob("创新大赛_*组获奖名单_*.xls")):
+        m = re.match(r"创新大赛_(小学|初中|高中)(金点子|金种子|金苗子)组获奖名单_(\d{4})", xls.name)
+        stage_cn, _, year = m.group(1), m.group(2), m.group(3)
+        by_school, yr, stage = parse_file(xls, stage_cn, ents)
         for sid, medals in by_school.items():
-            all_schools.setdefault(sid, {"years": {}})
-            all_schools[sid]["years"][y] = medals
+            all_schools.setdefault(sid, {"stages": {}})
+            all_schools[sid]["stages"].setdefault(stage, {})[yr] = medals
 
     compiled = {}
     for sid, data in all_schools.items():
@@ -134,7 +144,7 @@ def main():
 
     DIST.mkdir(exist_ok=True)
     (DIST / "compiled.json").write_text(json.dumps(compiled, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"\n聚合完成: {len(compiled)} 个 school_id, 年份={years}")
+    print(f"\n聚合完成: {len(compiled)} 个 school_id")
 
 
 if __name__ == "__main__":
