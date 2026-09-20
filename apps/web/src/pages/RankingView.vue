@@ -194,7 +194,7 @@ function rankSort(a: { v: number | null; minban?: boolean }, b: { v: number | nu
 }
 
 /** 内部默认排序：机构手工整理档位（data/middle/org_sort_compiled.json，school_id 由
- * scripts/build_org_sort.py 经 SchoolMatcher 匹配；对外不展示档位信息） */
+ * scripts/middle/build_org_sort.py 经 SchoolMatcher 匹配；对外不展示档位信息） */
 const LEVEL_OF = new Map<string, number>();
 // 同 school_id 可能出现在多档（如六中珠江鹭江 L3 / 六中逸景 L4 同记录 cb432890），取最小档（高优先级）
 for (const item of middleOrgSort) {

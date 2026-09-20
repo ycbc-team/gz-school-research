@@ -106,7 +106,7 @@ python3 scripts/primary/build_district_enrollment.py   # 2026 招生（写 data/
 | `linkage/ranking_middle.json`（334 校） | build_ranking_middle.py | 详情页升学信号、排行榜、初中明细 |
 | `registry/education_groups.json` | merge_groups.py（合并 `_partial_*` + brand + education_groups_2026） | 品牌卡、初中明细分组 |
 | `registry/school_groups.json`（纯 id） | build_school_groups.py（--write-brand 回写 brand_groups） | 品牌卡、初中明细分组（运行时纯 id 匹配） |
-| `middle/org_sort_compiled.json` | build_org_sort.py | 初中默认排序 |
+| `middle/org_sort_compiled.json` | scripts/middle/build_org_sort.py | 初中默认排序 |
 | `primary/middle_feed_snapshot.json` | build_middle_feed_snapshot.py | 初中生源全量快照测试（npm run check） |
 
 ### 运行时层

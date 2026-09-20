@@ -110,7 +110,7 @@ export const enrollments = loaders.enrollments;
 export const brandGroups = loaders.brandGroups;
 export const entities = loaders.entities;
 
-/** 七区初中机构整理档位整合版（data/middle/org_sort_compiled.json，由 scripts/build_org_sort.py 经
+/** 七区初中机构整理档位整合版（data/middle/org_sort_compiled.json，由 scripts/middle/build_org_sort.py 经
  * SchoolMatcher 匹配生成；仅 school_id→档位，无展示字段；仅供内部默认排序，对外不展示档位信息） */
 export const middleOrgSort = cast(hydrate(orgSortCompiledCompact)) as Array<{
   district: string;
