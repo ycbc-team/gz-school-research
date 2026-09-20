@@ -24,8 +24,9 @@
 ├── data/                    # 共享数据层（JSON 唯一真源，多端共用）
 │   ├── primary/             # 小学阶段数据（tier1_schools_all.json / enrollments/；点位见 poi/）
 │   ├── middle/              # 初中阶段数据（tier1_schools_all.json；点位见 poi/）
-│   ├── high/                # 高中阶段数据（levels.json / 剔除留痕；录取分见 cutoff_score/；点位见 poi/）
-│   │   └── cutoff_score/    # 高中录取分（dist/ 历年产物 · raw/ 官方源页面 · src/ 手工源 · scripts/ 解析脚本）
+│   ├── high/                # 高中阶段数据（level/src/levels.json / 剔除留痕；录取分见 cutoff_score/；点位见 poi/）
+│   │   ├── cutoff_score/    # 高中录取分（dist/ 历年产物 · raw/ 官方源页面 · src/ 手工源 · scripts/ 解析脚本）
+│   │   └── level/src/       # 学校清单/分类/指标（levels.json 人工调研源，前端直接消费）
 │   ├── poi/                  # POI 点位（dist/*_poi.json 真源，采集/清洗脚本在同目录 scripts/）
 │   └── README.md            # 数据治理约定与更新方式
 ├── scripts/                 # 共享脚本（数据采集/构建 + 小程序构建）
@@ -159,7 +160,7 @@ apps/web/src/data/compact/**  与  @gz/shared 构建产物（Web/小程序实际
 - 采集：types=141201（初中分类）+ types=141200（中学分类）+ 关键词「初中」三路翻页合并，保留初中与完全中学
 - 更新：`python3 data/poi/scripts/fetch_middle_schools.py`
 
-### 高中点位与分类指标（data/poi/dist/high_poi.json + data/high/levels.json）
+### 高中点位与分类指标（data/poi/dist/high_poi.json + data/high/level/src/levels.json）
 
 - 点位来源：高德地图 Web 服务 API，2026-09-09 快照（GCJ-02 坐标系）；types=141202（高中）+ 关键词「高中」+ types=141200（中学）三路翻页合并，剔除培训机构 / 复读 / 托管 / 职业类等，再按 90 所学校清单精确清洗（清洗版点位即 `high_poi.json`，由 data/poi/scripts/build_high_levels_js.py 写回）
 - 范围：7 区（荔湾 / 越秀 / 海珠 / 天河 / 白云 / 黄埔 / 番禺），排除远郊南沙 / 花都 / 从化 / 增城
@@ -168,7 +169,7 @@ apps/web/src/data/compact/**  与  @gz/shared 构建产物（Web/小程序实际
   - **区属示范**（43 所）= 区属国家级 / 市级示范性高中，对应民间"区重点"
   - **普通高中**（36 所）= 其余公办（省一级等）+ 民办
 - 分类依据（广州市招考办官方文件）：2026 名额分配招生学校名单、2025 第三批录取表、2025 第四批录取表
-- 客观指标（levels.json，逐校）：特控线上线率 2026 / 2025（含网传口径）、600 分以上高分段占比、本科率、隶属与示范性等级、nature（公办/民办，取官方录取表"学校性质"列）；无公开数据的学校如实标注"高考出口数据未公开"
+- 客观指标（data/high/level/src/levels.json，逐校）：特控线上线率 2026 / 2025（含网传口径）、600 分以上高分段占比、本科率、隶属与示范性等级、nature（公办/民办，取官方录取表"学校性质"列）；无公开数据的学校如实标注"高考出口数据未公开"
   - 特控率来源：2026 高考喜报（广州日报报道）+ 2025 年 51 校成绩汇总，均为喜报 / 网传口径，非官方统一发布（页面卡片已注明）
   - **中考录取分已迁出 levels**：2025/2026 两年官方分数见 `data/high/cutoff_score/dist/scores_2025.json` / `scores_2026.json`（由 `data/high/cutoff_score/scripts/build_scores.py` 从招考办官网录取表抓取，按 school_id 引用实体表），levels 不再存任何分数
 - 点位统计：126 个（含 15 个高德补点），荔湾 17 / 越秀 18 / 海珠 14 / 天河 19 / 白云 25 / 黄埔 14 / 番禺 19

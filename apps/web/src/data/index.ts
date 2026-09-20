@@ -13,7 +13,7 @@ import middleEnrollNotesCompact from './compact/primary/middle_enroll_notes.js';
 import middleSchoolsCompact from './compact/poi/dist/middle_poi.js';
 import middleTier1Compact from './compact/middle/tier1_schools_all.js';
 import highSchoolsCompact from './compact/poi/dist/high_poi.js';
-import highLevelsCompact from './compact/high/levels.js';
+import highLevelsCompact from './compact/high/level/src/levels.js';
 import enrollTianheCompact from './compact/primary/enrollments/2026-tianhe.js';
 import enrollYuexiuCompact from './compact/primary/enrollments/2026-yuexiu.js';
 import enrollHaizhuCompact from './compact/primary/enrollments/2026-haizhu.js';

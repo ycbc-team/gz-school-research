@@ -213,7 +213,7 @@ export interface HighLevelSchool {
   indicators: Record<string, string | number | null>;
 }
 
-/** data/high/levels.json */
+/** data/high/level/src/levels.json */
 export interface HighLevelsSnapshot {
   updated: string;
   title: string;

@@ -10,7 +10,7 @@ const ROOT = path.resolve(__dirname, '../../..');
 const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', file), 'utf8'));
 const loaders = {
   highSchools: load('poi/dist/high_poi.json'),
-  highLevels: load('high/levels.json'),
+  highLevels: load('high/level/src/levels.json'),
   highScores2025: load('high/cutoff_score/dist/scores_2025.json'),
   highScores2026: load('high/cutoff_score/dist/scores_2026.json'),
   entities: load('registry/entities.json'),

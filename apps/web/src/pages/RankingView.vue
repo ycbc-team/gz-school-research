@@ -396,7 +396,7 @@ const groups = computed(() => {
     </main>
 
     <footer class="foot-note">
-      数据来源：广州市招考办 2026 名额分配计划汇总表（符合名额分配报考资格考生数/指标数）· 高中特控率喜报/网传口径（data/high/levels.json）。比例均为「÷ 符合名额分配报考资格考生数」，不代表学校全部应考人数。
+      数据来源：广州市招考办 2026 名额分配计划汇总表（符合名额分配报考资格考生数/指标数）· 高中特控率喜报/网传口径（data/high/level/src/levels.json）。比例均为「÷ 符合名额分配报考资格考生数」，不代表学校全部应考人数。
     </footer>
 
     <Teleport to="body">

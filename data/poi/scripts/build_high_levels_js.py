@@ -4,7 +4,7 @@
 按 levels.json（学校清单+分类+指标）清洗高德 POI → data/poi/dist/high_poi.json（清洗版真源）。
 
 用法: python3 data/poi/scripts/build_high_levels_js.py
-依赖: data/poi/dist/high_poi.json（fetch_high_schools.py 产物）、data/high/levels.json（人工调研产物）
+依赖: data/poi/dist/high_poi.json（fetch_high_schools.py 产物）、data/high/level/src/levels.json（人工调研产物）
 """
 import json
 import re
@@ -83,7 +83,7 @@ def main():
     out_dir = HIGH
     if "--out-dir" in sys.argv:
         out_dir = Path(sys.argv[sys.argv.index("--out-dir") + 1])
-    levels = json.loads((ROOT / "data" / "high" / "levels.json").read_text(encoding="utf-8"))
+    levels = json.loads((ROOT / "data" / "high" / "level" / "src" / "levels.json").read_text(encoding="utf-8"))
     raw = json.loads((HIGH / "high_poi.json").read_text(encoding="utf-8"))
     entity_stage = load_entity_db()
 
