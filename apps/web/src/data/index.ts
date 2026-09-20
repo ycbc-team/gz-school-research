@@ -42,6 +42,7 @@ import highScores2026Compact from './compact/high/cutoff_score/dist/scores_2026.
 import orgSortCompiledCompact from './compact/middle/org_sort/dist/compiled.js';
 import innovationAwardsCompact from './compact/awards/innovation/dist/compiled.js';
 import chuangkeAwardsCompact from './compact/awards/chuangke/dist/compiled.js';
+import detailedRecordsCompact from './compact/awards/detailed_records.js';
 
 /** 紧凑结构经 hydrate 还原后的类型断言（字段为数据真源，结构由 scripts/ 保证） */
 const cast = <T>(v: unknown): T => v as T;
@@ -88,6 +89,7 @@ const loaders: DataLoaders = {
   schoolGroups: cast(hydrate(schoolGroupsCompact)),
   innovationAwards: cast(hydrate(innovationAwardsCompact)),
   chuangkeAwards: cast(hydrate(chuangkeAwardsCompact)),
+  detailedRecords: cast(hydrate(detailedRecordsCompact)),
 };
 
 /** 共享数据仓库（查询/判定/匹配业务逻辑全部来自 @gz/shared，双端单点维护） */
@@ -115,6 +117,7 @@ export const brandGroups = loaders.brandGroups;
 export const entities = loaders.entities;
 export const innovationAwards = loaders.innovationAwards || {};
 export const chuangkeAwards = loaders.chuangkeAwards || {};
+export const detailedRecords = loaders.detailedRecords || [];
 
 /** 七区初中机构整理档位整合版（data/middle/org_sort/dist/compiled.json，由 data/middle/org_sort/scripts/build_org_sort.py 经
  * SchoolMatcher 匹配生成；仅 school_id→档位，无展示字段；仅供内部默认排序，对外不展示档位信息） */

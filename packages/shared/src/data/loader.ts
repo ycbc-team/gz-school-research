@@ -66,4 +66,8 @@ export interface DataLoaders {
   };
   /** 创新大赛获奖（school_id → stages → years → 金/银/铜） */
   innovationAwards?: Record<string, { innovation_awards: { stages: Record<string, Record<string, { gold: number; silver: number; bronze: number }>> } }>;
+  /** 科技创客电视大赛获奖（school_id → stages → years → 金/银/铜） */
+  chuangkeAwards?: Record<string, { chuangke_awards: { stages: Record<string, Record<string, { gold: number; silver: number; bronze: number }>> } }>;
+  /** 竞赛获奖明细，供获奖页展示年份、项目与获奖学生 */
+  detailedRecords?: Array<Record<string, unknown>>;
 }

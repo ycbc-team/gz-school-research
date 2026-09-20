@@ -587,7 +587,7 @@ const brandCardUseful = computed(() =>
     <div v-if="awardData || chuangkeData" class="card">
       <div class="card-title">竞赛获奖</div>
       <div v-if="awardData" class="award-block">
-        <RouterLink to="/awards#innovation" class="award-name">广州市中小学生创新大赛 ›</RouterLink>
+        <RouterLink :to="'/awards#innovation-' + stage" class="award-name">广州市中小学生创新大赛 ›</RouterLink>
         <p class="sub-note">{{ stageLabel }}组（2024-2026）</p>
         <div v-for="yr in awardYears" :key="yr" class="award-year">
           <span class="award-year-label">{{ yr }}</span>
@@ -597,13 +597,13 @@ const brandCardUseful = computed(() =>
         </div>
       </div>
       <div v-if="chuangkeData" class="award-block" style="margin-top:12px">
-        <RouterLink to="/awards#chuangke" class="award-name">广州市中小学生科技创客电视大赛 ›</RouterLink>
+        <RouterLink :to="'/awards#chuangke-' + stage" class="award-name">广州市中小学生科技创客电视大赛 ›</RouterLink>
         <p class="sub-note">{{ stageLabel }}组（2025）</p>
         <div v-for="yr in Object.keys(chuangkeData).sort().reverse()" :key="yr" class="award-year">
           <span class="award-year-label">{{ yr }}</span>
-          <span v-if="chuangkeData[yr].gold" class="medal gold">{{ chuangkeData[yr].gold}}金</span>
-          <span v-if="chuangkeData[yr].silver" class="medal silver">{{ chuangkeData[yr].silver}}银</span>
-          <span v-if="chuangkeData[yr].bronze" class="medal bronze">{{ chuangkeData[yr].bronze}}铜</span>
+          <span v-if="chuangkeData[yr]?.gold" class="medal gold">{{ chuangkeData[yr]?.gold }}金</span>
+          <span v-if="chuangkeData[yr]?.silver" class="medal silver">{{ chuangkeData[yr]?.silver }}银</span>
+          <span v-if="chuangkeData[yr]?.bronze" class="medal bronze">{{ chuangkeData[yr]?.bronze }}铜</span>
         </div>
       </div>
     </div>
