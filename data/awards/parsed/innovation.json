@@ -1,0 +1,373 @@
+{
+  "metric": "innovation_awards",
+  "competition": "广州市中小学生创新大赛·初中金种子组",
+  "year": 2026,
+  "source_file": "创新大赛_初中金种子组获奖名单.xls",
+  "total_records": 38,
+  "skipped": [
+    {
+      "school": "广州市番禺区星海青少年宫",
+      "reason": "非学校（少年宫/青少年宫）"
+    },
+    {
+      "school": "广州市南沙区少年宫",
+      "reason": "非学校（少年宫/青少年宫）"
+    },
+    {
+      "school": "广州市黄埔区青少年宫",
+      "reason": "非学校（少年宫/青少年宫）"
+    }
+  ],
+  "records": [
+    {
+      "school": "广大附中花都学校",
+      "award": "金奖",
+      "district": "花都区",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广东番禺中学附属学校",
+      "award": "金奖",
+      "district": "番禺区",
+      "school_ids": [
+        "gz-440113-53650c78",
+        "gz-440113-5f62f75c"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市天河外国语学校",
+      "award": "金奖",
+      "district": "天河区",
+      "school_ids": [
+        "gz-440106-069ddb41",
+        "gz-440106-b711d94a",
+        "gz-440106-dab5b807"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市番禺区华南碧桂园学校",
+      "award": "金奖",
+      "district": "番禺区",
+      "school_ids": [
+        "gz-440113-db326e94"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "中山大学附属中学",
+      "award": "金奖",
+      "district": "海珠区",
+      "school_ids": [
+        "gz-440105-e363a214"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市铁一中学",
+      "award": "金奖",
+      "district": "市属",
+      "school_ids": [
+        "gz-440104-09652aa5",
+        "gz-440111-28c16cca",
+        "gz-440113-97e0acaa"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州大学附属中学（校本部）",
+      "award": "金奖",
+      "district": "市属",
+      "school_ids": [
+        "gz-440104-b22c4eca",
+        "gz-440105-e363a214",
+        "gz-440106-11e15e8d",
+        "gz-440106-a565a93c",
+        "gz-440112-3847727f",
+        "gz-440113-8f5e4721"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市执信中学琶洲实验学校",
+      "award": "金奖",
+      "district": "海珠区",
+      "school_ids": [
+        "gz-440105-cac39935"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "华南师范大学附属中学",
+      "award": "银奖",
+      "district": "市属",
+      "school_ids": [
+        "gz-440106-a565a93c",
+        "gz-440112-3847727f"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市天河区汇景实验学校",
+      "award": "银奖",
+      "district": "天河区",
+      "school_ids": [
+        "gz-440106-0d1e149e",
+        "gz-440106-28049c58"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市第六中学（从化校区）",
+      "award": "银奖",
+      "district": "市属",
+      "school_ids": [
+        "gz-440105-12b49e3f"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市美华中学",
+      "award": "银奖",
+      "district": "荔湾区",
+      "school_ids": [
+        "gz-440103-b0abf891"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市天河外国语学校",
+      "award": "银奖",
+      "district": "天河区",
+      "school_ids": [
+        "gz-440106-069ddb41",
+        "gz-440106-b711d94a",
+        "gz-440106-dab5b807"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市番禺区南村中学",
+      "award": "银奖",
+      "district": "番禺区",
+      "school_ids": [
+        "gz-440113-cbaa8160"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市南沙区铁英学校",
+      "award": "银奖",
+      "district": "南沙区",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "广州市番禺区洛溪新城中学",
+      "award": "银奖",
+      "district": "番禺区",
+      "school_ids": [
+        "gz-440113-e7ca2b33"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市天河外国语学校",
+      "award": "银奖",
+      "district": "天河区",
+      "school_ids": [
+        "gz-440106-069ddb41",
+        "gz-440106-b711d94a",
+        "gz-440106-dab5b807"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市黄埔军校纪念中学",
+      "award": "银奖",
+      "district": "黄埔区",
+      "school_ids": [
+        "gz-440112-12747882",
+        "gz-440112-674f4721"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广东外语外贸大学实验中学北校区",
+      "award": "铜奖",
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-7e484346"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市黄埔军校纪念中学",
+      "award": "铜奖",
+      "district": "黄埔区",
+      "school_ids": [
+        "gz-440112-12747882",
+        "gz-440112-674f4721"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市育才中学",
+      "award": "铜奖",
+      "district": "越秀区",
+      "school_ids": [
+        "gz-440104-191aaa35",
+        "gz-440104-7ec82efb"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市花都区秀雅学校",
+      "award": "铜奖",
+      "district": "花都区",
+      "school_ids": [],
+      "match_type": "none"
+    },
+    {
+      "school": "华南师范大学附属中学",
+      "award": "铜奖",
+      "district": "市属",
+      "school_ids": [
+        "gz-440106-a565a93c",
+        "gz-440112-3847727f"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广东外语外贸大学实验中学北校区",
+      "award": "铜奖",
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-7e484346"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "中黄外国语实验学校\n广州市新侨学校",
+      "award": "铜奖",
+      "district": "黄埔区",
+      "school_ids": [
+        "gz-440112-bffde68d"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "中黄外国语实验学校\n广州市新侨学校",
+      "award": "铜奖",
+      "district": "黄埔区",
+      "school_ids": [
+        "gz-440112-bffde68d"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市黄埔区苏元学校",
+      "award": "铜奖",
+      "district": "黄埔区",
+      "school_ids": [
+        "gz-440112-a0244635"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市第四中学（逸园校区）",
+      "award": "铜奖",
+      "district": "荔湾区",
+      "school_ids": [
+        "gz-440103-c0d6f9a0"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市黄埔军校纪念中学",
+      "award": "铜奖",
+      "district": "黄埔区",
+      "school_ids": [
+        "gz-440112-12747882",
+        "gz-440112-674f4721"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州大学附属中学",
+      "award": "铜奖",
+      "district": "市属",
+      "school_ids": [
+        "gz-440104-b22c4eca",
+        "gz-440105-e363a214",
+        "gz-440106-11e15e8d",
+        "gz-440106-a565a93c",
+        "gz-440112-3847727f",
+        "gz-440113-8f5e4721"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市执信中学",
+      "award": "铜奖",
+      "district": "市属",
+      "school_ids": [
+        "gz-440104-1e9bdce3",
+        "gz-440104-f3ca07ff",
+        "gz-440105-cac39935",
+        "gz-440106-22fcbcd6"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市第八十九中学",
+      "award": "铜奖",
+      "district": "天河区",
+      "school_ids": [
+        "gz-440106-8f55ab34"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广州市白云区景泰中学",
+      "award": "铜奖",
+      "district": "白云区",
+      "school_ids": [
+        "gz-440111-048815b3",
+        "gz-440111-2186a02a"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市真光中学初中部实验校区",
+      "award": "铜奖",
+      "district": "荔湾区",
+      "school_ids": [
+        "gz-440103-9b3ba6d8"
+      ],
+      "match_type": "single"
+    },
+    {
+      "school": "广东仲元中学附属学校",
+      "award": "铜奖",
+      "district": "番禺区",
+      "school_ids": [
+        "gz-440113-acf92324",
+        "gz-440113-b5ff857b"
+      ],
+      "match_type": "multi"
+    },
+    {
+      "school": "广州市番禺区沙湾象达中学",
+      "award": "铜奖",
+      "district": "番禺区",
+      "school_ids": [
+        "gz-440113-b2a39869"
+      ],
+      "match_type": "single"
+    }
+  ],
+  "compiled_schools": 40
+}
