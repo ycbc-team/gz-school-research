@@ -23,6 +23,10 @@
       "school": "广大附中花都学校",
       "award": "金奖",
       "district": "花都区",
+      "project": "户外移动专业三通道D类数字功放",
+      "leader": "吴俊希",
+      "members": "吴俊希、江羿宏",
+      "coach": "吴毕宇",
       "school_ids": [],
       "match_type": "none"
     },
@@ -30,6 +34,10 @@
       "school": "广东番禺中学附属学校",
       "award": "金奖",
       "district": "番禺区",
+      "project": "“老有所AI”团队项目名称老有所AI——社区老人AI科普公益计划",
+      "leader": "黄偲然",
+      "members": "黄偲然、侯瑞予、路畅、李滨、莫靖禹、王思睿",
+      "coach": "冯楚欣、侯文捷",
       "school_ids": [
         "gz-440113-53650c78",
         "gz-440113-5f62f75c"
@@ -40,6 +48,10 @@
       "school": "广州市天河外国语学校",
       "award": "金奖",
       "district": "天河区",
+      "project": "智感逃生窗",
+      "leader": "黄若淳",
+      "members": "黄若淳、冯睿頔、沈睿凡、谢宇涛",
+      "coach": "王卓珊、陈晓娜",
       "school_ids": [
         "gz-440106-069ddb41",
         "gz-440106-b711d94a",
@@ -51,6 +63,10 @@
       "school": "广州市番禺区华南碧桂园学校",
       "award": "金奖",
       "district": "番禺区",
+      "project": "“如意购”--智驭购物车",
+      "leader": "缪锦芬",
+      "members": "冯思睿、潘泊霖",
+      "coach": "缪锦芬、林悦",
       "school_ids": [
         "gz-440113-db326e94"
       ],
@@ -60,6 +76,10 @@
       "school": "中山大学附属中学",
       "award": "金奖",
       "district": "海珠区",
+      "project": "一款适用于体育场馆高空作业机器人",
+      "leader": "张量宇",
+      "members": "张量宇、张益铭、陈青川、徐恺睿、李俊逸、麦闻天、刘宇轩",
+      "coach": "陈水炳",
       "school_ids": [
         "gz-440105-e363a214"
       ],
@@ -69,6 +89,10 @@
       "school": "广州市铁一中学",
       "award": "金奖",
       "district": "市属",
+      "project": "云珠智助机器人——拾光·导览·守护",
+      "leader": "邬玥如",
+      "members": "邬玥如",
+      "coach": "林琳、麦嘉敏",
       "school_ids": [
         "gz-440104-09652aa5",
         "gz-440111-28c16cca",
@@ -80,12 +104,12 @@
       "school": "广州大学附属中学（校本部）",
       "award": "金奖",
       "district": "市属",
+      "project": "非遗智造丝扇工坊",
+      "leader": "陈芊言",
+      "members": "陈芊言、吴烨煊、邹君儒、林桐伊、周以安、易钧杰",
+      "coach": "蔡燕虹、萧秉涛",
       "school_ids": [
         "gz-440104-b22c4eca",
-        "gz-440105-e363a214",
-        "gz-440106-11e15e8d",
-        "gz-440106-a565a93c",
-        "gz-440112-3847727f",
         "gz-440113-8f5e4721"
       ],
       "match_type": "multi"
@@ -94,6 +118,10 @@
       "school": "广州市执信中学琶洲实验学校",
       "award": "金奖",
       "district": "海珠区",
+      "project": "“安隐护”——隐私保护型老人跌倒预警系统",
+      "leader": "杨其然",
+      "members": "杨其然、黎睿恒、魏卓逸、刁昱翔、朱浩睿、黄致远、陈艾立、许善义",
+      "coach": "王涵、张文煊",
       "school_ids": [
         "gz-440105-cac39935"
       ],
@@ -103,6 +131,10 @@
       "school": "华南师范大学附属中学",
       "award": "银奖",
       "district": "市属",
+      "project": "基于行为与生理反馈的智能戒烟辅助手环",
+      "leader": "周诺",
+      "members": "张铤、周靖朗、周诺",
+      "coach": "黄然",
       "school_ids": [
         "gz-440106-a565a93c",
         "gz-440112-3847727f"
@@ -113,6 +145,10 @@
       "school": "广州市天河区汇景实验学校",
       "award": "银奖",
       "district": "天河区",
+      "project": "智能家用水质检测仪",
+      "leader": "杨依晴",
+      "members": "杨依晴、翟璐宁、梁皓、韩青桐",
+      "coach": "崔冠利、黎韵怡",
       "school_ids": [
         "gz-440106-0d1e149e",
         "gz-440106-28049c58"
@@ -123,6 +159,10 @@
       "school": "广州市第六中学（从化校区）",
       "award": "银奖",
       "district": "市属",
+      "project": "无线电八木天线",
+      "leader": "张一鸣",
+      "members": "田仁泽、严一朵、张一鸣、耿雯煜",
+      "coach": "黄苏婷、林涵悦",
       "school_ids": [
         "gz-440105-12b49e3f"
       ],
@@ -132,6 +172,10 @@
       "school": "广州市美华中学",
       "award": "银奖",
       "district": "荔湾区",
+      "project": "智影魔方——低成本模块化智能拍摄平台",
+      "leader": "李少芬",
+      "members": "陈奕熹",
+      "coach": "李少芬、陈国铭",
       "school_ids": [
         "gz-440103-b0abf891"
       ],
@@ -141,6 +185,10 @@
       "school": "广州市天河外国语学校",
       "award": "银奖",
       "district": "天河区",
+      "project": "“瞬清”自动加热除雾眼镜",
+      "leader": "劳俊铭",
+      "members": "黄冠杰、劳俊铭、龚泽毅、陈桂峰、周瑞阳",
+      "coach": "马凤",
       "school_ids": [
         "gz-440106-069ddb41",
         "gz-440106-b711d94a",
@@ -152,6 +200,10 @@
       "school": "广州市番禺区南村中学",
       "award": "银奖",
       "district": "番禺区",
+      "project": "超高精度（±0.001℃）智能温控机组",
+      "leader": "李明泽",
+      "members": "李明泽、许燚、周海辉",
+      "coach": "陆钰珍、罗丽明",
       "school_ids": [
         "gz-440113-cbaa8160"
       ],
@@ -161,6 +213,10 @@
       "school": "广州市南沙区铁英学校",
       "award": "银奖",
       "district": "南沙区",
+      "project": "亮睛睛护脊小精灵",
+      "leader": "李书烜",
+      "members": "李书烜、麦镱珊、李锦泓、梁震轩、麦凯琳、梁洛瑶、张刘星宇、麦雨煊、陈泳言、颜淑辰",
+      "coach": "郭鸣宇、陈国华",
       "school_ids": [],
       "match_type": "none"
     },
@@ -168,6 +224,10 @@
       "school": "广州市番禺区洛溪新城中学",
       "award": "银奖",
       "district": "番禺区",
+      "project": "GreenPal-植趣伙伴",
+      "leader": "王胤欢",
+      "members": "王胤欢、陈维楷、梁启悦、李宛滢、张珑宝",
+      "coach": "郑志华",
       "school_ids": [
         "gz-440113-e7ca2b33"
       ],
@@ -177,6 +237,10 @@
       "school": "广州市天河外国语学校",
       "award": "银奖",
       "district": "天河区",
+      "project": "绿牌守卫——新能源车位专用化管控系统",
+      "leader": "黄智韬",
+      "members": "黄智韬、丘雅同、张蕙璇、宋达成、林冠宇、李怡萱、廖浩宇",
+      "coach": "陈运凯、张寅",
       "school_ids": [
         "gz-440106-069ddb41",
         "gz-440106-b711d94a",
@@ -188,6 +252,10 @@
       "school": "广州市黄埔军校纪念中学",
       "award": "银奖",
       "district": "黄埔区",
+      "project": "隧道交通预警装置",
+      "leader": "郝圻煜",
+      "members": "郝圻煜、钟俊皓、李奕鸣",
+      "coach": "吴跃辉、黄漫萍",
       "school_ids": [
         "gz-440112-12747882",
         "gz-440112-674f4721"
@@ -198,6 +266,10 @@
       "school": "广东外语外贸大学实验中学北校区",
       "award": "铜奖",
       "district": "白云区",
+      "project": "循迹护航盔——智能骑行头盔",
+      "leader": "叶禹熙",
+      "members": "陈思源、叶禹熙",
+      "coach": "温伟添、黎思德",
       "school_ids": [
         "gz-440111-7e484346"
       ],
@@ -207,6 +279,10 @@
       "school": "广州市黄埔军校纪念中学",
       "award": "铜奖",
       "district": "黄埔区",
+      "project": "楼宇火灾智能检测与灭火装置",
+      "leader": "殷翰霖",
+      "members": "殷翰霖、胡文朗、朱逸凡",
+      "coach": "吴跃辉、翁静君",
       "school_ids": [
         "gz-440112-12747882",
         "gz-440112-674f4721"
@@ -217,6 +293,10 @@
       "school": "广州市育才中学",
       "award": "铜奖",
       "district": "越秀区",
+      "project": "领头羊机器人",
+      "leader": "曾柏然",
+      "members": "沈俊褀、曹锐枫、邱实",
+      "coach": "吴清霖",
       "school_ids": [
         "gz-440104-191aaa35",
         "gz-440104-7ec82efb"
@@ -227,6 +307,10 @@
       "school": "广州市花都区秀雅学校",
       "award": "铜奖",
       "district": "花都区",
+      "project": "“袋”你玩科创——中学生隔层式手提袋设计、生产与销售",
+      "leader": "张文静",
+      "members": "李子烨、张文静、具子皓、罗浩轩",
+      "coach": "李雄彬、丁翠英",
       "school_ids": [],
       "match_type": "none"
     },
@@ -234,6 +318,10 @@
       "school": "华南师范大学附属中学",
       "award": "铜奖",
       "district": "市属",
+      "project": "智能分类式外卖快递包装回收处理装置",
+      "leader": "曾可馨",
+      "members": "王梓乔、曾可馨",
+      "coach": "许琪琪",
       "school_ids": [
         "gz-440106-a565a93c",
         "gz-440112-3847727f"
@@ -244,6 +332,10 @@
       "school": "广东外语外贸大学实验中学北校区",
       "award": "铜奖",
       "district": "白云区",
+      "project": "电梯“纤锁”安全卫士",
+      "leader": "皮峻泽",
+      "members": "皮峻泽、甄晨炫",
+      "coach": "温伟添、郑奕霖",
       "school_ids": [
         "gz-440111-7e484346"
       ],
@@ -253,6 +345,10 @@
       "school": "中黄外国语实验学校\n广州市新侨学校",
       "award": "铜奖",
       "district": "黄埔区",
+      "project": "基于边缘计算的便携式香蕉成熟度检测",
+      "leader": "罗绍怡",
+      "members": "王昭壹、王鹏博",
+      "coach": "罗绍怡、吴永梅",
       "school_ids": [
         "gz-440112-bffde68d"
       ],
@@ -262,6 +358,10 @@
       "school": "中黄外国语实验学校\n广州市新侨学校",
       "award": "铜奖",
       "district": "黄埔区",
+      "project": "基于边缘计算的便携式香蕉成熟度检测",
+      "leader": "罗绍怡",
+      "members": "王昭壹、王鹏博",
+      "coach": "罗绍怡、吴永梅",
       "school_ids": [
         "gz-440112-bffde68d"
       ],
@@ -271,6 +371,10 @@
       "school": "广州市黄埔区苏元学校",
       "award": "铜奖",
       "district": "黄埔区",
+      "project": "芯·百草园|智慧中草药主题庄园",
+      "leader": "杨玳",
+      "members": "杨玳、齐恒升",
+      "coach": "何洁铵、凌劲桦",
       "school_ids": [
         "gz-440112-a0244635"
       ],
@@ -280,6 +384,10 @@
       "school": "广州市第四中学（逸园校区）",
       "award": "铜奖",
       "district": "荔湾区",
+      "project": "基于物联网的智能种植物装置",
+      "leader": "袁锶慧",
+      "members": "陈政、袁锶慧",
+      "coach": "陈文娟",
       "school_ids": [
         "gz-440103-c0d6f9a0"
       ],
@@ -289,6 +397,10 @@
       "school": "广州市黄埔军校纪念中学",
       "award": "铜奖",
       "district": "黄埔区",
+      "project": "基于图像视觉+多感知的家庭安全系统",
+      "leader": "骆玉娇",
+      "members": "骆玉娇、庞开元、袁梦",
+      "coach": "吴跃辉、兰钰识",
       "school_ids": [
         "gz-440112-12747882",
         "gz-440112-674f4721"
@@ -299,12 +411,12 @@
       "school": "广州大学附属中学",
       "award": "铜奖",
       "district": "市属",
+      "project": "非物质文化遗产智能解说终端",
+      "leader": "梅雪钰",
+      "members": "梅雪钰、谢知言、洪宗豫、方浩翔",
+      "coach": "段杉杉、姜传星",
       "school_ids": [
         "gz-440104-b22c4eca",
-        "gz-440105-e363a214",
-        "gz-440106-11e15e8d",
-        "gz-440106-a565a93c",
-        "gz-440112-3847727f",
         "gz-440113-8f5e4721"
       ],
       "match_type": "multi"
@@ -313,10 +425,13 @@
       "school": "广州市执信中学",
       "award": "铜奖",
       "district": "市属",
+      "project": "银发经济——智宠伴老护老项目",
+      "leader": "陈妍心",
+      "members": "陈妍心、陈彦州、郑嘉宸、曹景尧、谢濡谦、郑子墨",
+      "coach": "梁志成、彭海燕",
       "school_ids": [
         "gz-440104-1e9bdce3",
         "gz-440104-f3ca07ff",
-        "gz-440105-cac39935",
         "gz-440106-22fcbcd6"
       ],
       "match_type": "multi"
@@ -325,6 +440,10 @@
       "school": "广州市第八十九中学",
       "award": "铜奖",
       "district": "天河区",
+      "project": "基于“红旗号”火星车技术的水岸生态巡检机器人创业计划",
+      "leader": "林恺桐",
+      "members": "林恺桐、纪丹弋、邝梓滢、张琳璿、张琳婧",
+      "coach": "陈裕平、邓婉玲",
       "school_ids": [
         "gz-440106-8f55ab34"
       ],
@@ -334,6 +453,10 @@
       "school": "广州市白云区景泰中学",
       "award": "铜奖",
       "district": "白云区",
+      "project": "智能循迹避障小车技术",
+      "leader": "陈君浩",
+      "members": "陈君浩、贾默涵、黎振楠",
+      "coach": "侯晓堡、张雅珍",
       "school_ids": [
         "gz-440111-048815b3",
         "gz-440111-2186a02a"
@@ -344,6 +467,10 @@
       "school": "广州市真光中学初中部实验校区",
       "award": "铜奖",
       "district": "荔湾区",
+      "project": "教室智能无尘吸尘黑板擦",
+      "leader": "何诗茹",
+      "members": "何诗茹、张涵玉",
+      "coach": "黄嘉学、邱蓉",
       "school_ids": [
         "gz-440103-9b3ba6d8"
       ],
@@ -353,6 +480,10 @@
       "school": "广东仲元中学附属学校",
       "award": "铜奖",
       "district": "番禺区",
+      "project": "ClassWidgetsIP项目组",
+      "leader": "梁开元",
+      "members": "梁开元、罗荣燊、莫博宇",
+      "coach": "黄小妹、谭传萍",
       "school_ids": [
         "gz-440113-acf92324",
         "gz-440113-b5ff857b"
@@ -363,11 +494,15 @@
       "school": "广州市番禺区沙湾象达中学",
       "award": "铜奖",
       "district": "番禺区",
+      "project": "绿动未来——环保包装创新工场",
+      "leader": "张铭浩",
+      "members": "张铭浩、高菁菁",
+      "coach": "洪婷婷、苏凤",
       "school_ids": [
         "gz-440113-b2a39869"
       ],
       "match_type": "single"
     }
   ],
-  "compiled_schools": 40
+  "compiled_schools": 39
 }

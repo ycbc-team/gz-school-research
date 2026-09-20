@@ -24,6 +24,8 @@ DISTRICT_ADCODE = {"荔湾": "440103", "越秀": "440104", "海珠": "440105", "
                    "白云": "440111", "黄埔": "440112", "番禺": "440113", "花都": "440114",
                    "南沙": "440115", "从化": "440117", "增城": "440118"}
 NON_SCHOOL = ["少年宫", "青少年宫"]
+# 品牌成员校后缀（独立法人，不是本校校区，收窄排除）
+BRAND_SUFFIX = ["附属学校", "附属实验", "实验学校", "附属小学", "附属中学", "外国语学校"]
 
 
 def core_name(s):
@@ -33,7 +35,6 @@ def core_name(s):
     campus = paren.group(1) if paren else ""
     s = re.sub(r"[（(].*?[)）]", "", s)
     s = re.sub(r"^广州市", "", s)
-    s = re.sub(r"^广州", "", s)
     for d in DISTRICT_ADCODE:
         s = re.sub(r"^" + d + r"区?", "", s)
     return s, campus
@@ -47,33 +48,34 @@ def main():
     for r in range(3, sh.nrows):
         row = [str(sh.cell_value(r, c)).strip() for c in range(sh.ncols)]
         if not row[3]: continue
-        rows.append({"school": row[3], "award": row[7], "district": row[8]})
+        rows.append({"school": row[3], "award": row[7], "district": row[8],
+                     "project": row[2], "leader": row[4], "members": row[5], "coach": row[6]})
 
     ents = json.load(open(ENTITIES))["entities"]
 
-    matched_records = []  # [{school, award, district, school_ids[]}]
+    matched_records = []
     skipped = []
     for rec in rows:
         school = rec["school"]
         if any(kw in school for kw in NON_SCHOOL):
             skipped.append({"school": school, "reason": "非学校（少年宫/青少年宫）"})
             continue
-        # 一个单元格换行多个学校，拆分
         for sname in re.split(r"[\n\r]+", school):
             sname = sname.strip()
             if not sname: continue
             core, campus = core_name(sname)
             expect_adcode = DISTRICT_ADCODE.get(rec["district"].replace("区", ""))
 
-            # 候选：name 含 core 或 core 含 name，且 stage=middle
+            # 候选：stage=middle，name 含 core 或反向
             cands = [e for e in ents if e["stage"] == "middle" and (core in e["name"] or e["name"] in core)]
-            # 区码过滤
+            # 区码收窄：官方 district → adcode 必须一致
             if expect_adcode:
                 cands = [e for e in cands if e["school_id"].split("-")[1] == expect_adcode]
-            # 带括号：优先匹配括号里的校区名
+            # 品牌成员校收窄：排除含后缀的独立法人，但 core 本身含后缀时不排除（本校名）
+            cands = [e for e in cands if not any(suf in e["name"] and suf not in core for suf in BRAND_SUFFIX)]
+            # 带括号校区名优先
             if campus:
                 cands = [e for e in cands if campus in e["name"]] or cands
-            # 去重 school_id
             sids = sorted(set(e["school_id"] for e in cands))
             rec["school_ids"] = sids
             rec["match_type"] = "single" if len(sids) == 1 else ("multi" if len(sids) > 1 else "none")
