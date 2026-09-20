@@ -446,6 +446,14 @@ const AWARD_SOURCE_ALIAS = {
   'primary|广东实验中学荔湾学校（第二小学部）': '广东实验中学荔湾学校附属第二小学',
   'primary|广州市番禺区大石富丽小学': '富丽小学',
   'primary|广州市第一中学附属环市西路小学（竹苑校区）': '环市西路小学',
+  // 特色校认定名单（2026-09-20 数据调研）：官方名单写法 → 实体
+  'middle|广州市八十六中学': '广州市第八十六中学',
+  'high|广州市八十六中学': '广州市第八十六中学',
+  'middle|广州市协和中学': '广州协和学校',
+  'high|广州市协和中学': '广州协和学校',
+  'primary|广州市协和小学': '广州市协和学校（小学部）',
+  // 注意：广州市启明学校（公办盲校，主校区天河）≠ 白云区民办启明小学，不猜配；
+  // 特教学校 POI 层未收录，保持未匹配（见 specialty_schools parsed 备注）。
 };
 
 // 教育集团成员官方名/旧名 → POI 点位名（P3 覆盖清单 2026-09-14 查证：更名/并入/承继）。
@@ -914,7 +922,7 @@ for (const e of entities) e.aliases = [...e.aliases].sort((a, b) => b.length - a
 entities.sort((a, b) => (a.stage + a.name).localeCompare(a.stage + a.name, 'zh'));
 write('data/registry/entities.json', {
   year: 2026,
-  note: '学校实体表（维度表）。一个 POI 点位=一个实体（校区/学部独立）；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由 data/registry/minban_schools.json（官方文件汇总表）生产。',
+  note: '学校实体表（由build_entities.mjs生产）。一个 POI = 一或多个实体，一个实体 = 唯一学段 + 唯一校区；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由 data/registry/minban_schools.json（官方文件汇总表）生产。',
   entities,
 });
 

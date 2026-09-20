@@ -1,0 +1,81 @@
+{
+  "business": "specialty_schools",
+  "category": "科学高中",
+  "generated_from": "采集期中间CSV（csv_to_parsed.py 迁移）",
+  "generated_at": "2026-09-20",
+  "record_count": 6,
+  "records": [
+    {
+      "school": "广东实验中学",
+      "district": "越秀区",
+      "category": "科学高中",
+      "level": "省级",
+      "batch": "首批",
+      "year": "2025",
+      "project": "2026年广东省普通高中多样化特色发展改革试点培育对象（科学特色试点）",
+      "issuer": "广东省教育厅",
+      "url": "http://news.dayoo.com/gzrbrmt/202511/14/170639_54894231.htm",
+      "remark": "2025年11月公示；省名单抽取；认定年份按公示发文年2025"
+    },
+    {
+      "school": "华南师范大学附属中学",
+      "district": "天河区",
+      "category": "科学高中",
+      "level": "省级",
+      "batch": "首批",
+      "year": "2025",
+      "project": "2026年广东省普通高中多样化特色发展改革试点培育对象（科学特色试点）",
+      "issuer": "广东省教育厅",
+      "url": "http://news.dayoo.com/gzrbrmt/202511/14/170639_54894231.htm",
+      "remark": "2025年11月公示；省名单抽取；认定年份按公示发文年2025"
+    },
+    {
+      "school": "广州市第二中学",
+      "district": "越秀区",
+      "category": "科学高中",
+      "level": "省级",
+      "batch": "首批",
+      "year": "2025",
+      "project": "2026年广东省普通高中多样化特色发展改革试点培育对象（科学特色试点）",
+      "issuer": "广东省教育厅",
+      "url": "http://news.dayoo.com/gzrbrmt/202511/14/170639_54894231.htm",
+      "remark": "2025年11月公示；省名单抽取；认定年份按公示发文年2025"
+    },
+    {
+      "school": "广州大学附属中学",
+      "district": "越秀区",
+      "category": "科学高中",
+      "level": "省级",
+      "batch": "首批",
+      "year": "2025",
+      "project": "2026年广东省普通高中多样化特色发展改革试点培育对象（科学特色试点）",
+      "issuer": "广东省教育厅",
+      "url": "http://news.dayoo.com/gzrbrmt/202511/14/170639_54894231.htm",
+      "remark": "2025年11月公示；省名单抽取；认定年份按公示发文年2025"
+    },
+    {
+      "school": "广州市执信中学",
+      "district": "越秀区",
+      "category": "科学高中",
+      "level": "省级",
+      "batch": "首批",
+      "year": "2025",
+      "project": "2026年广东省普通高中多样化特色发展改革试点培育对象（科学特色试点）",
+      "issuer": "广东省教育厅",
+      "url": "http://news.dayoo.com/gzrbrmt/202511/14/170639_54894231.htm",
+      "remark": "2025年11月公示；省名单抽取；认定年份按公示发文年2025"
+    },
+    {
+      "school": "广州市第五中学",
+      "district": "海珠区",
+      "category": "科学高中",
+      "level": "省级",
+      "batch": "首批",
+      "year": "2025",
+      "project": "2026年广东省普通高中多样化特色发展改革试点培育对象（科学特色试点）",
+      "issuer": "广东省教育厅",
+      "url": "http://news.dayoo.com/gzrbrmt/202511/14/170639_54894231.htm",
+      "remark": "2025年11月公示；省名单抽取；认定年份按公示发文年2025"
+    }
+  ]
+}
