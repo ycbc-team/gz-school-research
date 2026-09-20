@@ -587,7 +587,7 @@ const brandCardUseful = computed(() =>
     <div v-if="awardData || chuangkeData" class="card">
       <div class="card-title">竞赛获奖</div>
       <div v-if="awardData" class="award-block">
-        <RouterLink :to="{ path: '/awards', query: { competition: 'innovation', school: schoolId } }" class="award-name">广州市中小学生创新大赛 ›</RouterLink>
+        <RouterLink :to="{ path: '/awards', query: { competition: 'innovation', stage, school: schoolId } }" class="award-name">广州市中小学生创新大赛 ›</RouterLink>
         <p class="sub-note">{{ stageLabel }}组（2024-2026）</p>
         <div v-for="yr in awardYears" :key="yr" class="award-year">
           <span class="award-year-label">{{ yr }}</span>
@@ -597,7 +597,7 @@ const brandCardUseful = computed(() =>
         </div>
       </div>
       <div v-if="chuangkeData" class="award-block" style="margin-top:12px">
-        <RouterLink :to="{ path: '/awards', query: { competition: 'chuangke', school: schoolId } }" class="award-name">广州市中小学生科技创客电视大赛 ›</RouterLink>
+        <RouterLink :to="{ path: '/awards', query: { competition: 'chuangke', stage, school: schoolId } }" class="award-name">广州市中小学生科技创客电视大赛 ›</RouterLink>
         <p class="sub-note">{{ stageLabel }}组（2025）</p>
         <div v-for="yr in Object.keys(chuangkeData).sort().reverse()" :key="yr" class="award-year">
           <span class="award-year-label">{{ yr }}</span>

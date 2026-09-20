@@ -6082,6 +6082,1172 @@
   {
     "competition": "chuangke",
     "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区天府路小学",
+    "project": "高速公路智能清障双子星",
+    "leader": "霍诗钰",
+    "members": "",
+    "coach": "梁雨轩",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440106-4dbb5b90",
+      "gz-440106-6dc5833a",
+      "gz-440106-ecfc1a19"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区小北路小学",
+    "project": "基于视觉识别的升降麦克风系统",
+    "leader": "黄立航",
+    "members": "",
+    "coach": "李洪奔",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440104-1b6d4b9c",
+      "gz-440104-4ebbaf83",
+      "gz-440104-98359a64",
+      "gz-440104-d5497b4b"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "华南师范大学附属小学",
+    "project": "基于Arduino开发的智慧电梯",
+    "leader": "舒昶竣",
+    "members": "",
+    "coach": "张硕司",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440106-f11f4361"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区华阳小学",
+    "project": "基于北斗的微农小助手",
+    "leader": "高梓迪",
+    "members": "",
+    "coach": "黎娜",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440106-0b79aecf",
+      "gz-440106-155698db",
+      "gz-440106-182b1ae3",
+      "gz-440106-e591e421"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市白云区华赋学",
+    "project": "地下车库防洪系统",
+    "leader": "廖健宏",
+    "members": "",
+    "coach": "刘钦钰",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440111-2ec509e7"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市天河外国语学校",
+    "project": "挑灯夜读眼镜",
+    "leader": "余坤烨",
+    "members": "",
+    "coach": "关梦勋",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440106-069ddb41",
+      "gz-440106-b711d94a",
+      "gz-440106-dab5b807"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第十三中学",
+    "project": "盖章辅助机器人",
+    "leader": "吴昊烨",
+    "members": "",
+    "coach": "王思远",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440104-9b88f912"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州外国语学校",
+    "project": "智能盲人辅助眼镜",
+    "leader": "李智宸",
+    "members": "",
+    "coach": "张杰桢",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440112-815387d3"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州大学附属中学",
+    "project": "智能羽毛球器材共享机",
+    "leader": "魏祺育",
+    "members": "",
+    "coach": "肖恩栋",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440104-b22c4eca",
+      "gz-440113-8f5e4721"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "北京师范大学广州实验学校",
+    "project": "基于视觉识别技术与伯努利原理的乒乓球\n自动拾取机器人",
+    "leader": "罗惠恩",
+    "members": "",
+    "coach": "廖海静",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440112-8bbf8f06"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区东山培正小学",
+    "project": "基于 Arduino 的蓝牙控制水陆两栖船",
+    "leader": "张采霏",
+    "members": "",
+    "coach": "张洁莹",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-a41d6d8d"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区建设大马路小学",
+    "project": "基于Arduino的智能可测光便携式\n低功耗视力检测仪",
+    "leader": "曾思为",
+    "members": "",
+    "coach": "钟海涛",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-1549fb3f"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市实验外语学校",
+    "project": "“捡球宝”——智能羽毛球捡球机器人",
+    "leader": "蒋思毅",
+    "members": "",
+    "coach": "凌茜",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440111-7b531bd6"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广东番禺中学附属学校",
+    "project": "基于图像识别的智能种植系统",
+    "leader": "洪宇哲",
+    "members": "",
+    "coach": "陈凌锋",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440113-53650c78",
+      "gz-440113-db149c4c"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市番禺区京师奥园南奥实验学校",
+    "project": "“康侦探”——宠物健康监护系统",
+    "leader": "赖如果",
+    "members": "",
+    "coach": "朱远媚",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440113-c40a06e1"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市黄埔区怡园小学（西校区）",
+    "project": "智能毛笔清洗与维护系统",
+    "leader": "陈芷璐",
+    "members": "",
+    "coach": "古椰武",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440112-6fdd05af"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "天河区五山小学",
+    "project": "自适应管道维护机器人",
+    "leader": "陈昊聪",
+    "members": "",
+    "coach": "陈秋云",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-73e86142",
+      "gz-440106-7548682a"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "华南师范大学附属中学",
+    "project": "基于北斗的空中哨兵",
+    "leader": "曾隽皓",
+    "members": "",
+    "coach": "霍颖怡",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-a565a93c",
+      "gz-440112-3847727f"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市培正中学",
+    "project": "坐姿守护者",
+    "leader": "伍毅辰",
+    "members": "",
+    "coach": "叶红燕",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-99aef0e5",
+      "gz-440104-d6c68349"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州外国语学校",
+    "project": "广式非遗—— 一种传统双皮奶半自动\n加工装置",
+    "leader": "白梓涵",
+    "members": "",
+    "coach": "张杰桢",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440112-815387d3"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市真光中学金道学校",
+    "project": "智能小区门禁",
+    "leader": "黄彦宁",
+    "members": "",
+    "coach": "陈淑婷",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440103-f203d28d"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "中山大学附属中学",
+    "project": "一款便携式物流分拣协助机器人",
+    "leader": "徐嘉瑞",
+    "members": "",
+    "coach": "陈水炳",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-e363a214"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "中国教育科学研究院荔湾实验学校",
+    "project": "E卫先锋--基于物联网的智慧卫生间系统",
+    "leader": "张梓扬",
+    "members": "",
+    "coach": "王媛",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440103-523446ce"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州中学",
+    "project": "基于单片机开发的智能播种灌溉机器人",
+    "leader": "王嘉淦",
+    "members": "",
+    "coach": "陈华",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-15ca1554",
+      "gz-440106-867e6c05",
+      "gz-440106-a989804b",
+      "gz-440106-f7cdfb7e"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州大学附属中学",
+    "project": "智能防走丢儿童背包",
+    "leader": "马悦朗",
+    "members": "",
+    "coach": "王有平",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-b22c4eca",
+      "gz-440113-8f5e4721"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市番禺区华南碧桂园学校",
+    "project": "基于图像识别的多模态自动灭火装置",
+    "leader": "胡端洋",
+    "members": "",
+    "coach": "岑杭师",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-a45e4a1a"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "华南师范大学附属小学",
+    "project": "基于运动轨迹识别的芭蕾舞鞋",
+    "leader": "尹梓涵",
+    "members": "",
+    "coach": "叶国辉",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-f11f4361"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区体育东教育集团均和小学",
+    "project": "基于物联网的智能车棚护卫系统",
+    "leader": "张铎译",
+    "members": "",
+    "coach": "杨雅妍",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-1c0a974d"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市番禺区广州南方学院番禺附属小学",
+    "project": "语音“助手”",
+    "leader": "李承恩",
+    "members": "",
+    "coach": "沈丽佳",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-6bf19a4c"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市大沙头小学",
+    "project": "AI助农自动化识别采摘分类施肥一体系统",
+    "leader": "关智远",
+    "members": "",
+    "coach": "陈海才",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-2aa7d451"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区龙口西小学",
+    "project": "“水叮当”自动开瓶机器人",
+    "leader": "方烁政",
+    "members": "",
+    "coach": "陈芝敏",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-24586ef1",
+      "gz-440106-53bc251b",
+      "gz-440106-5e40124c",
+      "gz-440106-e66204ca",
+      "gz-440106-ee85c675"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区东风东路小学",
+    "project": "智慧公园",
+    "leader": "蔡锦昊",
+    "members": "",
+    "coach": "陈泳瑜",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-402961f4",
+      "gz-440104-7425dd47",
+      "gz-440104-ec171256",
+      "gz-440104-f815e0be"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区水荫路小学",
+    "project": "校园厕所防霸凌装置",
+    "leader": "倪绍瑀",
+    "members": "",
+    "coach": "刘雁翎",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-05b607d4",
+      "gz-440104-ea7fbd42"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市白云区华师附中实验小学",
+    "project": "智能骑行头盔",
+    "leader": "李文迪",
+    "members": "",
+    "coach": "刘金玉",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-07bdec5f",
+      "gz-440111-1d697e07",
+      "gz-440111-db31a4f7"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区东风西路小学",
+    "project": "山城自然灾害监测装置",
+    "leader": "杨骏熙",
+    "members": "",
+    "coach": "敖敏儿",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-12a17af1",
+      "gz-440104-4144068a",
+      "gz-440104-57f60d53",
+      "gz-440104-c248f5af"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市白云区华师附中实验小学",
+    "project": "智能护眼阅读辅助装置",
+    "leader": "袁锦",
+    "members": "",
+    "coach": "沈万里",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-07bdec5f",
+      "gz-440111-1d697e07",
+      "gz-440111-db31a4f7"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区中星小学",
+    "project": "控糖小助手-糖尿病人守护神",
+    "leader": "韦景缤",
+    "members": "",
+    "coach": "李小红",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-39cb8355",
+      "gz-440104-a8aeed6e"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市华景小学",
+    "project": "物联网自动控制蒸发式空气加湿器",
+    "leader": "杨政",
+    "members": "",
+    "coach": "骆晓芳",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-2cd346f1",
+      "gz-440106-3f600b79"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市番禺区恒润实验学校",
+    "project": "高速公路绿化带修剪机器人",
+    "leader": "陈冠桥",
+    "members": "",
+    "coach": "朱威",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-c9f8740e"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市天河区棠福学校",
+    "project": "基于激光测距的胡克定律实验验证装置",
+    "leader": "彭彦霖",
+    "members": "",
+    "coach": "陈林",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-4534dc1a"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市天河中学",
+    "project": "智能视力保护仪",
+    "leader": "刘灏轩",
+    "members": "",
+    "coach": "刘淑玲",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-0eb93435",
+      "gz-440106-15ca1554",
+      "gz-440106-22156e02",
+      "gz-440106-22fcbcd6",
+      "gz-440106-2e9f6f7b",
+      "gz-440106-2f8a4424",
+      "gz-440106-3a61d518",
+      "gz-440106-429b917e",
+      "gz-440106-458838f7",
+      "gz-440106-5a7fbf3a",
+      "gz-440106-621b20d3",
+      "gz-440106-7077b270",
+      "gz-440106-867e6c05",
+      "gz-440106-8f55ab34",
+      "gz-440106-90c47ff5",
+      "gz-440106-a989804b",
+      "gz-440106-ae248365",
+      "gz-440106-b049d65a",
+      "gz-440106-b0d40cc4",
+      "gz-440106-b7d476f7",
+      "gz-440106-b9eb24f9",
+      "gz-440106-cc1c335f",
+      "gz-440106-d40d0dbe",
+      "gz-440106-dd16c13e",
+      "gz-440106-ef4076c1",
+      "gz-440106-f7cdfb7e",
+      "gz-440106-fa9338a2",
+      "gz-440106-fd03e039"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市天省实验学校",
+    "project": "基于毫米波人体检测模块的独居老人陪护装置",
+    "leader": "程舜",
+    "members": "",
+    "coach": "姚敏玲",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-01fd3a87"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "中山大学附属中学",
+    "project": "一款省力型雨后操场电动刮水器",
+    "leader": "申屠凯瑞",
+    "members": "",
+    "coach": "陈水炳",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440105-e363a214"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市华颖外国语学校",
+    "project": "绿电的产生与储存",
+    "leader": "李博宏",
+    "members": "",
+    "coach": "罗璇",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-dab5b807"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州南方学院番禺附属中学",
+    "project": "基于STM32的电池爆浆提醒系统",
+    "leader": "康耀元",
+    "members": "",
+    "coach": "陈跃",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-337c0524"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广东实验中学（白云校区）",
+    "project": "水面智能救生圈",
+    "leader": "许宸阳",
+    "members": "",
+    "coach": "毛雪华",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-a3cf5a4f"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州南方学院番禺附属中学",
+    "project": "基于单片机的空气吉他",
+    "leader": "李心语",
+    "members": "",
+    "coach": "陈跃",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-337c0524"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市东风实验学校",
+    "project": "基于AI的智能外卖箱",
+    "leader": "马子宸",
+    "members": "",
+    "coach": "黎元",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-10652361"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区华阳小学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "庄依依、张子衿、黄辰逸",
+    "coach": "邓贝",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440106-0b79aecf",
+      "gz-440106-155698db",
+      "gz-440106-182b1ae3",
+      "gz-440106-e591e421"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市海珠外国语实验中学附属小学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "冯梓峰、沈靖攸、李哲瀚",
+    "coach": "黄剑慧、邓骥",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440105-119a0fc4"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市番禺区洛溪新城中学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "缪雅诗、廖宏星、张仕捷",
+    "coach": "王晓颖",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440113-e7ca2b33"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第十六中学实验学校",
+    "project": "团体赛",
+    "leader": "",
+    "members": "毕炜祥、陈玥衡、戴雯悦",
+    "coach": "李晶",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440104-27ecd0e4"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州大学附属中学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "杨程、贺锦程 、张涵涛",
+    "coach": "肖恩栋、展兴海",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440104-b22c4eca",
+      "gz-440113-8f5e4721"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市番禺区天誉小学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "吴博涛、吴睿祺、欧阳宏宇",
+    "coach": "杜思奇、崔丽珊",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440113-060386bb"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市海珠区昌岗中路小学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "曾彦莎、曾彦森、罗彤",
+    "coach": "吴进、周菁",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-0adfcd61",
+      "gz-440105-98d6d585"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广东番禺中学附属学校",
+    "project": "团体赛",
+    "leader": "",
+    "members": "吴晞辰、张晨熙、洪静妤",
+    "coach": "周雁姬、彭双",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440113-53650c78",
+      "gz-440113-db149c4c"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市为明学校",
+    "project": "团体赛",
+    "leader": "",
+    "members": "李育德、陈培丰、温思程",
+    "coach": "陈慧、巫丽清",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-baa048f9"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市为明学校",
+    "project": "团体赛",
+    "leader": "",
+    "members": "陈羽麒、何梓骞、左丰豪",
+    "coach": "欧作超",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440111-d4bb1fa5"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广东实验中学越秀学校",
+    "project": "团体赛",
+    "leader": "",
+    "members": "黎沛霖，谭牧，陈熙炜",
+    "coach": "杨雪梅",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-32444523"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市星执学校",
+    "project": "团体赛",
+    "leader": "",
+    "members": "江霖晞、张瑞航屹、谢润涵",
+    "coach": "林绮",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440113-999fb9c0"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市天河区汇景实验学校",
+    "project": "团体赛",
+    "leader": "",
+    "members": "杨懿轩、王伊辰、刘益恒",
+    "coach": "黎韵怡",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-0d1e149e",
+      "gz-440106-28049c58"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市天河外国语学校",
+    "project": "团体赛",
+    "leader": "",
+    "members": "彭皓楠、刘思彤、汤昀昕",
+    "coach": "佟垚、杨娇",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-069ddb41",
+      "gz-440106-b711d94a",
+      "gz-440106-dab5b807"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州天省实验学校",
+    "project": "团体赛",
+    "leader": "",
+    "members": "陈致杰、李承阳、侯瑞",
+    "coach": "李毅、黄同庆",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-01fd3a87"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市海珠区昌岗中路小学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "余镇铭、潘思颖、林希",
+    "coach": "周菁、吴进",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440105-0adfcd61",
+      "gz-440105-98d6d585"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区华阳小学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "林璟澄、黄庭坚、黎隽灏",
+    "coach": "孙李佳",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-0b79aecf",
+      "gz-440106-155698db",
+      "gz-440106-182b1ae3",
+      "gz-440106-e591e421"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市番禺区实验小学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "周游、李炬权、李睿桐",
+    "coach": "张丰、龙小梅",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-2ad239a0",
+      "gz-440113-2f593eda",
+      "gz-440113-bb3711d6",
+      "gz-440113-c57d3d31",
+      "gz-440113-d099ba85",
+      "gz-440113-d4aecd66"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区华阳小学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "查理、石从越、陈锐",
+    "coach": "黄佳佳",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-0b79aecf",
+      "gz-440106-155698db",
+      "gz-440106-182b1ae3",
+      "gz-440106-e591e421"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市白云区广园小学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "凌嘉谦、曾子楠、黎骏熙",
+    "coach": "梁健聪、甘启志",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-53549fe6"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市为明学校",
+    "project": "团体赛",
+    "leader": "",
+    "members": "王天祺、陈宣彤、叶诗蔓",
+    "coach": "陈慧、巫丽清",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440105-baa048f9"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州番禺区洛溪新城中学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "杨剡昭、杨文轩、王为为",
+    "coach": "黄晓梅、郭锡澄",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-e7ca2b33"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广东外语外贸大学实验中学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "丘唯一、万贻婷、骆韵琪",
+    "coach": "郑旖、叶文佳",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-7e484346",
+      "gz-440111-f5da4352",
+      "gz-440111-f751344d"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市天河区汇景实验学校",
+    "project": "团体赛",
+    "leader": "",
+    "members": "唐振原、张黎、杨岷罡",
+    "coach": "黎韵怡、李楚希",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-0d1e149e",
+      "gz-440106-28049c58"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市天河区汇景实验学校",
+    "project": "团体赛",
+    "leader": "",
+    "members": "杨岷倩、简贝涵、李安麒",
+    "coach": "黎韵怡、郭展曜",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-0d1e149e",
+      "gz-440106-28049c58"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市星执学校",
+    "project": "团体赛",
+    "leader": "",
+    "members": "毕杞桓、刘梓晖、刘梓焜",
+    "coach": "吕松、庄婉莹",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-999fb9c0"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市番禺区市桥桥兴中学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "李宥贤、何可柔、邓云熙",
+    "coach": "陈宁恩",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-24ea052e"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州南方学院番禺附属中学",
+    "project": "团体赛",
+    "leader": "",
+    "members": "王浩坤、陈晋加、王子锐",
+    "coach": "陈跃",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-337c0524"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市星执学校",
+    "project": "团体赛",
+    "leader": "",
+    "members": "杜思宇、吴瑞聪、黄俊杰",
+    "coach": "庄婉莹、吕松",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-999fb9c0"
+    ]
+  },
+  {
+    "competition": "chuangke",
+    "stage": "primary",
     "year": 2025,
     "school": "广州市越秀区建设大马路小学",
     "project": "个人赛",
@@ -6246,9 +7412,9 @@
     "stage": "primary",
     "year": 2025,
     "school": "广州市天河区华阳小学",
-    "project": "team",
-    "leader": "倪梓睿、朱浩然、曾雅闻",
-    "members": "",
+    "project": "团体赛",
+    "leader": "",
+    "members": "倪梓睿、朱浩然、曾雅闻",
     "coach": "邓贝",
     "award": "一等奖",
     "school_ids": [
@@ -6263,9 +7429,9 @@
     "stage": "primary",
     "year": 2025,
     "school": "广州市黄埔区怡园小学",
-    "project": "team",
-    "leader": "陈子训、喻铃钥、誉杰",
-    "members": "",
+    "project": "团体赛",
+    "leader": "",
+    "members": "陈子训、喻铃钥、誉杰",
     "coach": "郭万利、陈慧",
     "award": "一等奖",
     "school_ids": [
@@ -6279,9 +7445,9 @@
     "stage": "primary",
     "year": 2025,
     "school": "广州市第一中学附属环市西路小学（竹苑校区）",
-    "project": "team",
-    "leader": "唐子森、蔡颖延、胡恩铭",
-    "members": "",
+    "project": "团体赛",
+    "leader": "",
+    "members": "唐子森、蔡颖延、胡恩铭",
     "coach": "罗志荣、伍启欣",
     "award": "二等奖",
     "school_ids": [
@@ -6293,9 +7459,9 @@
     "stage": "primary",
     "year": 2025,
     "school": "广州市越秀区朝天小学",
-    "project": "team",
-    "leader": "林嘉熙、蔡宇谦、关朗",
-    "members": "",
+    "project": "团体赛",
+    "leader": "",
+    "members": "林嘉熙、蔡宇谦、关朗",
     "coach": "曾丽燕",
     "award": "二等奖",
     "school_ids": [
@@ -6307,9 +7473,9 @@
     "stage": "primary",
     "year": 2025,
     "school": "华南师范大学附属广州大学城小学",
-    "project": "team",
-    "leader": "许荇壹、刘彦熙",
-    "members": "",
+    "project": "团体赛",
+    "leader": "",
+    "members": "许荇壹、刘彦熙",
     "coach": "黄嘉华",
     "award": "三等奖",
     "school_ids": [
@@ -6321,9 +7487,9 @@
     "stage": "primary",
     "year": 2025,
     "school": "广州市海珠区南武实验小学",
-    "project": "team",
-    "leader": "严浚恩、严浚轩、廖潘承",
-    "members": "",
+    "project": "团体赛",
+    "leader": "",
+    "members": "严浚恩、严浚轩、廖潘承",
     "coach": "罗天康",
     "award": "三等奖",
     "school_ids": [
@@ -6335,9 +7501,9 @@
     "stage": "middle",
     "year": 2025,
     "school": "广州大学附属中学",
-    "project": "team",
-    "leader": "李沁怡、里酏豪",
-    "members": "",
+    "project": "团体赛",
+    "leader": "",
+    "members": "李沁怡、里酏豪",
     "coach": "徐梓峰",
     "award": "一等奖",
     "school_ids": [
@@ -6350,9 +7516,9 @@
     "stage": "middle",
     "year": 2025,
     "school": "广州市白云区元培实验中学",
-    "project": "team",
-    "leader": "彭梓瑀、林耿槟、陈嘉蕊",
-    "members": "",
+    "project": "团体赛",
+    "leader": "",
+    "members": "彭梓瑀、林耿槟、陈嘉蕊",
     "coach": "曾祥力、张咏",
     "award": "二等奖",
     "school_ids": [
@@ -6364,9 +7530,9 @@
     "stage": "middle",
     "year": 2025,
     "school": "广州市天河中学",
-    "project": "team",
-    "leader": "吴浩洋、陈廷辉、余昭彤",
-    "members": "",
+    "project": "团体赛",
+    "leader": "",
+    "members": "吴浩洋、陈廷辉、余昭彤",
     "coach": "周磊",
     "award": "二等奖",
     "school_ids": [
@@ -6405,9 +7571,9 @@
     "stage": "middle",
     "year": 2025,
     "school": "广州市第十六中学实验学校",
-    "project": "team",
-    "leader": "王晟铭、梁皓天、安鸿旭",
-    "members": "",
+    "project": "团体赛",
+    "leader": "",
+    "members": "王晟铭、梁皓天、安鸿旭",
     "coach": "李晶、许惠娟",
     "award": "三等奖",
     "school_ids": [
@@ -6419,9 +7585,9 @@
     "stage": "middle",
     "year": 2025,
     "school": "广州市番禺区番外外国语学校",
-    "project": "team",
-    "leader": "戴恺君、戴恺廷、彭振麟",
-    "members": "",
+    "project": "团体赛",
+    "leader": "",
+    "members": "戴恺君、戴恺廷、彭振麟",
     "coach": "陈金兰",
     "award": "三等奖",
     "school_ids": [
@@ -6433,9 +7599,9 @@
     "stage": "middle",
     "year": 2025,
     "school": "广州市江南外国语学校",
-    "project": "team",
-    "leader": "井昊晴、李伟宁、周圣伟奇",
-    "members": "",
+    "project": "团体赛",
+    "leader": "",
+    "members": "井昊晴、李伟宁、周圣伟奇",
     "coach": "李武坚",
     "award": "三等奖",
     "school_ids": [
@@ -6448,9 +7614,9 @@
     "stage": "middle",
     "year": 2025,
     "school": "广州市黄埔区华峰学校",
-    "project": "team",
-    "leader": "宋梓浩、余希悦、简琛又",
-    "members": "",
+    "project": "团体赛",
+    "leader": "",
+    "members": "宋梓浩、余希悦、简琛又",
     "coach": "陈春莲",
     "award": "三等奖",
     "school_ids": [

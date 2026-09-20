@@ -1,6 +1,1354 @@
 {
   "records": [
     {
+      "year": "2024",
+      "records": [
+        {
+          "school": "广州市天河区天府路小学",
+          "student": "霍诗钰",
+          "project": "高速公路智能清障双子星",
+          "group": "小学组个人",
+          "coach": "梁雨轩",
+          "award": "一等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-4dbb5b90",
+            "gz-440106-6dc5833a",
+            "gz-440106-ecfc1a19"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市越秀区小北路小学",
+          "student": "黄立航",
+          "project": "基于视觉识别的升降麦克风系统",
+          "group": "小学组个人",
+          "coach": "李洪奔",
+          "award": "一等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440104-1b6d4b9c",
+            "gz-440104-4ebbaf83",
+            "gz-440104-98359a64",
+            "gz-440104-d5497b4b"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "华南师范大学附属小学",
+          "student": "舒昶竣",
+          "project": "基于Arduino开发的智慧电梯",
+          "group": "小学组个人",
+          "coach": "张硕司",
+          "award": "一等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-f11f4361"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市天河区华阳小学",
+          "student": "高梓迪",
+          "project": "基于北斗的微农小助手",
+          "group": "小学组个人",
+          "coach": "黎娜",
+          "award": "一等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-0b79aecf",
+            "gz-440106-155698db",
+            "gz-440106-182b1ae3",
+            "gz-440106-e591e421"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市白云区华赋学",
+          "student": "廖健宏",
+          "project": "地下车库防洪系统",
+          "group": "小学组个人",
+          "coach": "刘钦钰",
+          "award": "一等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440111-2ec509e7"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市天河外国语学校",
+          "student": "余坤烨",
+          "project": "挑灯夜读眼镜",
+          "group": "中学组个人",
+          "coach": "关梦勋",
+          "award": "一等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-069ddb41",
+            "gz-440106-b711d94a",
+            "gz-440106-dab5b807"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市第十三中学",
+          "student": "吴昊烨",
+          "project": "盖章辅助机器人",
+          "group": "中学组个人",
+          "coach": "王思远",
+          "award": "一等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440104-9b88f912"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州外国语学校",
+          "student": "李智宸",
+          "project": "智能盲人辅助眼镜",
+          "group": "中学组个人",
+          "coach": "张杰桢",
+          "award": "一等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440112-815387d3"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州大学附属中学",
+          "student": "魏祺育",
+          "project": "智能羽毛球器材共享机",
+          "group": "中学组个人",
+          "coach": "肖恩栋",
+          "award": "一等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440104-b22c4eca",
+            "gz-440113-8f5e4721"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州大学附属中学南沙实验学校",
+          "student": "石浩田",
+          "project": "健影随行多功能守护仪",
+          "group": "中学组个人",
+          "coach": "秦鸿泉",
+          "award": "一等奖",
+          "type": "personal",
+          "school_ids": [],
+          "stage": "middle"
+        },
+        {
+          "school": "北京师范大学广州实验学校",
+          "student": "罗惠恩",
+          "project": "基于视觉识别技术与伯努利原理的乒乓球\n自动拾取机器人",
+          "group": "中学组个人",
+          "coach": "廖海静",
+          "award": "一等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440112-8bbf8f06"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市越秀区东山培正小学",
+          "student": "张采霏",
+          "project": "基于 Arduino 的蓝牙控制水陆两栖船",
+          "group": "小学组个人",
+          "coach": "张洁莹",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440104-a41d6d8d"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市越秀区建设大马路小学",
+          "student": "曾思为",
+          "project": "基于Arduino的智能可测光便携式\n低功耗视力检测仪",
+          "group": "小学组个人",
+          "coach": "钟海涛",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440104-1549fb3f"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市实验外语学校",
+          "student": "蒋思毅",
+          "project": "“捡球宝”——智能羽毛球捡球机器人",
+          "group": "小学组个人",
+          "coach": "凌茜",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440111-7b531bd6"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广东番禺中学附属学校",
+          "student": "洪宇哲",
+          "project": "基于图像识别的智能种植系统",
+          "group": "小学组个人",
+          "coach": "陈凌锋",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440113-53650c78",
+            "gz-440113-db149c4c"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市增城区天恩双语学校（第二校区）",
+          "student": "海嘉轩",
+          "project": "球拍伙伴",
+          "group": "小学组个人",
+          "coach": "胡宝康",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市番禺区京师奥园南奥实验学校",
+          "student": "赖如果",
+          "project": "“康侦探”——宠物健康监护系统",
+          "group": "小学组个人",
+          "coach": "朱远媚",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440113-c40a06e1"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市黄埔区怡园小学（西校区）",
+          "student": "陈芷璐",
+          "project": "智能毛笔清洗与维护系统",
+          "group": "小学组个人",
+          "coach": "古椰武",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440112-6fdd05af"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "天河区五山小学",
+          "student": "陈昊聪",
+          "project": "自适应管道维护机器人",
+          "group": "小学组个人",
+          "coach": "陈秋云",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-73e86142",
+            "gz-440106-7548682a"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市从化区街口街新城小学",
+          "student": "李信",
+          "project": "基于ESPNOW无线广播控制的多机器人篮球场刮水系统",
+          "group": "小学组个人",
+          "coach": "廖志焕",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [],
+          "stage": "primary"
+        },
+        {
+          "school": "华南师范大学附属中学",
+          "student": "曾隽皓",
+          "project": "基于北斗的空中哨兵",
+          "group": "中学组个人",
+          "coach": "霍颖怡",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-a565a93c",
+            "gz-440112-3847727f"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市贸易职业高级中学",
+          "student": "龙信潼",
+          "project": "智动导正健身哑铃",
+          "group": "中学组个人",
+          "coach": "房丽华",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市培正中学",
+          "student": "伍毅辰",
+          "project": "坐姿守护者",
+          "group": "中学组个人",
+          "coach": "叶红燕",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440104-99aef0e5",
+            "gz-440104-d6c68349"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州外国语学校",
+          "student": "白梓涵",
+          "project": "广式非遗—— 一种传统双皮奶半自动\n加工装置",
+          "group": "中学组个人",
+          "coach": "张杰桢",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440112-815387d3"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市真光中学金道学校",
+          "student": "黄彦宁",
+          "project": "智能小区门禁",
+          "group": "中学组个人",
+          "coach": "陈淑婷",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440103-f203d28d"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "中山大学附属中学",
+          "student": "徐嘉瑞",
+          "project": "一款便携式物流分拣协助机器人",
+          "group": "中学组个人",
+          "coach": "陈水炳",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440105-e363a214"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "中国教育科学研究院荔湾实验学校",
+          "student": "张梓扬",
+          "project": "E卫先锋--基于物联网的智慧卫生间系统",
+          "group": "中学组个人",
+          "coach": "王媛",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440103-523446ce"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州中学",
+          "student": "王嘉淦",
+          "project": "基于单片机开发的智能播种灌溉机器人",
+          "group": "中学组个人",
+          "coach": "陈华",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-15ca1554",
+            "gz-440106-867e6c05",
+            "gz-440106-a989804b",
+            "gz-440106-f7cdfb7e"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州大学附属中学",
+          "student": "马悦朗",
+          "project": "智能防走丢儿童背包",
+          "group": "中学组个人",
+          "coach": "王有平",
+          "award": "二等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440104-b22c4eca",
+            "gz-440113-8f5e4721"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市番禺区华南碧桂园学校",
+          "student": "胡端洋",
+          "project": "基于图像识别的多模态自动灭火装置",
+          "group": "小学组个人",
+          "coach": "岑杭师",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440113-a45e4a1a"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "华南师范大学附属小学",
+          "student": "尹梓涵",
+          "project": "基于运动轨迹识别的芭蕾舞鞋",
+          "group": "小学组个人",
+          "coach": "叶国辉",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-f11f4361"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市天河区体育东教育集团均和小学",
+          "student": "张铎译",
+          "project": "基于物联网的智能车棚护卫系统",
+          "group": "小学组个人",
+          "coach": "杨雅妍",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-1c0a974d"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市番禺区广州南方学院番禺附属小学",
+          "student": "李承恩",
+          "project": "语音“助手”",
+          "group": "小学组个人",
+          "coach": "沈丽佳",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440113-6bf19a4c"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市增城区天恩双语学校（第二校区）",
+          "student": "张博尧",
+          "project": "智慧脸谱-自助饮品站",
+          "group": "小学组个人",
+          "coach": "胡宝康",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市大沙头小学",
+          "student": "关智远",
+          "project": "AI助农自动化识别采摘分类施肥一体系统",
+          "group": "小学组个人",
+          "coach": "陈海才",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440104-2aa7d451"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市天河区龙口西小学",
+          "student": "方烁政",
+          "project": "“水叮当”自动开瓶机器人",
+          "group": "小学组个人",
+          "coach": "陈芝敏",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-24586ef1",
+            "gz-440106-53bc251b",
+            "gz-440106-5e40124c",
+            "gz-440106-e66204ca",
+            "gz-440106-ee85c675"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市越秀区东风东路小学",
+          "student": "蔡锦昊",
+          "project": "智慧公园",
+          "group": "小学组个人",
+          "coach": "陈泳瑜",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440104-402961f4",
+            "gz-440104-7425dd47",
+            "gz-440104-ec171256",
+            "gz-440104-f815e0be"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市越秀区水荫路小学",
+          "student": "倪绍瑀",
+          "project": "校园厕所防霸凌装置",
+          "group": "小学组个人",
+          "coach": "刘雁翎",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440104-05b607d4",
+            "gz-440104-ea7fbd42"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市白云区华师附中实验小学",
+          "student": "李文迪",
+          "project": "智能骑行头盔",
+          "group": "小学组个人",
+          "coach": "刘金玉",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440111-07bdec5f",
+            "gz-440111-1d697e07",
+            "gz-440111-db31a4f7"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市越秀区东风西路小学",
+          "student": "杨骏熙",
+          "project": "山城自然灾害监测装置",
+          "group": "小学组个人",
+          "coach": "敖敏儿",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440104-12a17af1",
+            "gz-440104-4144068a",
+            "gz-440104-57f60d53",
+            "gz-440104-c248f5af"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市增城区天恩双语学校（第二校区）",
+          "student": "何一言",
+          "project": "智慧停泊通",
+          "group": "小学组个人",
+          "coach": "胡宝康",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市白云区华师附中实验小学",
+          "student": "袁锦",
+          "project": "智能护眼阅读辅助装置",
+          "group": "小学组个人",
+          "coach": "沈万里",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440111-07bdec5f",
+            "gz-440111-1d697e07",
+            "gz-440111-db31a4f7"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市越秀区中星小学",
+          "student": "韦景缤",
+          "project": "控糖小助手-糖尿病人守护神",
+          "group": "小学组个人",
+          "coach": "李小红",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440104-39cb8355",
+            "gz-440104-a8aeed6e"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市华景小学",
+          "student": "杨政",
+          "project": "物联网自动控制蒸发式空气加湿器",
+          "group": "小学组个人",
+          "coach": "骆晓芳",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-2cd346f1",
+            "gz-440106-3f600b79"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广东外语外贸大学从化实验中学",
+          "student": "王嘉豪",
+          "project": "基于ESP32的带牵引绳风动救援船",
+          "group": "中学组个人",
+          "coach": "叶光怀",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市番禺区恒润实验学校",
+          "student": "陈冠桥",
+          "project": "高速公路绿化带修剪机器人",
+          "group": "中学组个人",
+          "coach": "朱威",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440113-c9f8740e"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市天河区棠福学校",
+          "student": "彭彦霖",
+          "project": "基于激光测距的胡克定律实验验证装置",
+          "group": "中学组个人",
+          "coach": "陈林",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-4534dc1a"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市天河中学",
+          "student": "刘灏轩",
+          "project": "智能视力保护仪",
+          "group": "中学组个人",
+          "coach": "刘淑玲",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-0eb93435",
+            "gz-440106-15ca1554",
+            "gz-440106-22156e02",
+            "gz-440106-22fcbcd6",
+            "gz-440106-2e9f6f7b",
+            "gz-440106-2f8a4424",
+            "gz-440106-3a61d518",
+            "gz-440106-429b917e",
+            "gz-440106-458838f7",
+            "gz-440106-5a7fbf3a",
+            "gz-440106-621b20d3",
+            "gz-440106-7077b270",
+            "gz-440106-867e6c05",
+            "gz-440106-8f55ab34",
+            "gz-440106-90c47ff5",
+            "gz-440106-a989804b",
+            "gz-440106-ae248365",
+            "gz-440106-b049d65a",
+            "gz-440106-b0d40cc4",
+            "gz-440106-b7d476f7",
+            "gz-440106-b9eb24f9",
+            "gz-440106-cc1c335f",
+            "gz-440106-d40d0dbe",
+            "gz-440106-dd16c13e",
+            "gz-440106-ef4076c1",
+            "gz-440106-f7cdfb7e",
+            "gz-440106-fa9338a2",
+            "gz-440106-fd03e039"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市天省实验学校",
+          "student": "程舜",
+          "project": "基于毫米波人体检测模块的独居老人陪护装置",
+          "group": "中学组个人",
+          "coach": "姚敏玲",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-01fd3a87"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "中山大学附属中学",
+          "student": "申屠凯瑞",
+          "project": "一款省力型雨后操场电动刮水器",
+          "group": "中学组个人",
+          "coach": "陈水炳",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440105-e363a214"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市华颖外国语学校",
+          "student": "李博宏",
+          "project": "绿电的产生与储存",
+          "group": "中学组个人",
+          "coach": "罗璇",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440106-dab5b807"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州南方学院番禺附属中学",
+          "student": "康耀元",
+          "project": "基于STM32的电池爆浆提醒系统",
+          "group": "中学组个人",
+          "coach": "陈跃",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440113-337c0524"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广东实验中学（白云校区）",
+          "student": "许宸阳",
+          "project": "水面智能救生圈",
+          "group": "中学组个人",
+          "coach": "毛雪华",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440111-a3cf5a4f"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州南方学院番禺附属中学",
+          "student": "李心语",
+          "project": "基于单片机的空气吉他",
+          "group": "中学组个人",
+          "coach": "陈跃",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440113-337c0524"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州大学附属中学从化实验学校",
+          "student": "林金洋",
+          "project": "多传感器融合机器人故障自诊断系统",
+          "group": "中学组个人",
+          "coach": "庾浣冰",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市东风实验学校",
+          "student": "马子宸",
+          "project": "基于AI的智能外卖箱",
+          "group": "中学组个人",
+          "coach": "黎元",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [
+            "gz-440104-10652361"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "华实初级中学",
+          "student": "曹翌",
+          "project": "集预警和报警一体的管涌检测仪",
+          "group": "中学组个人",
+          "coach": "郭奕红",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [],
+          "stage": "middle"
+        },
+        {
+          "school": "广州大学附属中学从化实验学校",
+          "student": "谢昊瑜",
+          "project": "基于视觉识别的校园防霸凌装置",
+          "group": "中学组个人",
+          "coach": "李烜",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市从化区棋杆中学",
+          "student": "廖子轩",
+          "project": "基于语音识别的粤语对话练习装置",
+          "group": "中学组个人",
+          "coach": "利颖宜",
+          "award": "三等奖",
+          "type": "personal",
+          "school_ids": [],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市南沙区莲塘小学",
+          "student": "罗文轩，何俊帆、谢培鋆",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "李浩鑫、陈佳茵",
+          "award": "一等奖",
+          "type": "team",
+          "school_ids": [],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市天河区华阳小学",
+          "student": "庄依依、张子衿、黄辰逸",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "邓贝",
+          "award": "一等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440106-0b79aecf",
+            "gz-440106-155698db",
+            "gz-440106-182b1ae3",
+            "gz-440106-e591e421"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市海珠外国语实验中学附属小学",
+          "student": "冯梓峰、沈靖攸、李哲瀚",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "黄剑慧、邓骥",
+          "award": "一等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440105-119a0fc4"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市执信中学南沙学校",
+          "student": "周宇涛、张义盟、石珞宁",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "陈冰卿、龚林",
+          "award": "一等奖",
+          "type": "team",
+          "school_ids": [],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市番禺区洛溪新城中学",
+          "student": "缪雅诗、廖宏星、张仕捷",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "王晓颖",
+          "award": "一等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440113-e7ca2b33"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市信息技术职业学校",
+          "student": "胡皓沿,林炜晋,徐建柏",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "钟艳华、冯敬益",
+          "award": "一等奖",
+          "type": "team",
+          "school_ids": [],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市第十六中学实验学校",
+          "student": "毕炜祥、陈玥衡、戴雯悦",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "李晶",
+          "award": "一等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440104-27ecd0e4"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州大学附属中学",
+          "student": "杨程、贺锦程 、张涵涛",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "肖恩栋、展兴海",
+          "award": "一等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440104-b22c4eca",
+            "gz-440113-8f5e4721"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市番禺区天誉小学",
+          "student": "吴博涛、吴睿祺、欧阳宏宇",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "杜思奇、崔丽珊",
+          "award": "二等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440113-060386bb"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市海珠区昌岗中路小学",
+          "student": "曾彦莎、曾彦森、罗彤",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "吴进、周菁",
+          "award": "二等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440105-0adfcd61",
+            "gz-440105-98d6d585"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广东外语外贸大学从化实验小学",
+          "student": "陈锐轩 吴俊宇 李皓月",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "陈丽欢",
+          "award": "二等奖",
+          "type": "team",
+          "school_ids": [],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市白云区白云外国语小学",
+          "student": "曾彦楠、甘世博、高钰雯",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "张彩云、谢家乐",
+          "award": "二等奖",
+          "type": "team",
+          "school_ids": [],
+          "stage": "primary"
+        },
+        {
+          "school": "广东番禺中学附属学校",
+          "student": "吴晞辰、张晨熙、洪静妤",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "周雁姬、彭双",
+          "award": "二等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440113-53650c78",
+            "gz-440113-db149c4c"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市为明学校",
+          "student": "李育德、陈培丰、温思程",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "陈慧、巫丽清",
+          "award": "二等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440105-baa048f9"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市为明学校",
+          "student": "陈羽麒、何梓骞、左丰豪",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "欧作超",
+          "award": "二等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440111-d4bb1fa5"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广东实验中学越秀学校",
+          "student": "黎沛霖，谭牧，陈熙炜",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "杨雪梅",
+          "award": "二等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440104-32444523"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市星执学校",
+          "student": "江霖晞、张瑞航屹、谢润涵",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "林绮",
+          "award": "二等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440113-999fb9c0"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市天河区汇景实验学校",
+          "student": "杨懿轩、王伊辰、刘益恒",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "黎韵怡",
+          "award": "二等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440106-0d1e149e",
+            "gz-440106-28049c58"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市天河外国语学校",
+          "student": "彭皓楠、刘思彤、汤昀昕",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "佟垚、杨娇",
+          "award": "二等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440106-069ddb41",
+            "gz-440106-b711d94a",
+            "gz-440106-dab5b807"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州天省实验学校",
+          "student": "陈致杰、李承阳、侯瑞",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "李毅、黄同庆",
+          "award": "二等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440106-01fd3a87"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市海珠区昌岗中路小学",
+          "student": "余镇铭、潘思颖、林希",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "周菁、吴进",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440105-0adfcd61",
+            "gz-440105-98d6d585"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市天河区华阳小学",
+          "student": "林璟澄、黄庭坚、黎隽灏",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "孙李佳",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440106-0b79aecf",
+            "gz-440106-155698db",
+            "gz-440106-182b1ae3",
+            "gz-440106-e591e421"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市番禺区实验小学",
+          "student": "周游、李炬权、李睿桐",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "张丰、龙小梅",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440113-2ad239a0",
+            "gz-440113-2f593eda",
+            "gz-440113-bb3711d6",
+            "gz-440113-c57d3d31",
+            "gz-440113-d099ba85",
+            "gz-440113-d4aecd66"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市白云区白云外国语小学",
+          "student": "郭程皓、张铭翰、林梓铉",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "谢家乐、刘宇航",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市白云区白云外国语小学",
+          "student": "罗昊淼、黄浩然、李逸飞",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "刘宇航，张彩云",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市天河区华阳小学",
+          "student": "查理、石从越、陈锐",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "黄佳佳",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440106-0b79aecf",
+            "gz-440106-155698db",
+            "gz-440106-182b1ae3",
+            "gz-440106-e591e421"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市白云区广园小学",
+          "student": "凌嘉谦、曾子楠、黎骏熙",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "梁健聪、甘启志",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440111-53549fe6"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市为明学校",
+          "student": "王天祺、陈宣彤、叶诗蔓",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "陈慧、巫丽清",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440105-baa048f9"
+          ],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市白云区白云外国语小学",
+          "student": "王宗祖、陈立达、郑立夫",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "谢家乐、吴玉梅",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市南沙区南沙小学",
+          "student": "莫楚尧、莫子扬、罗翊轩",
+          "project": "团体赛",
+          "group": "小学组团体",
+          "coach": "梁铭雄、陈燕纯",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [],
+          "stage": "primary"
+        },
+        {
+          "school": "广州市白云区云英实验学校",
+          "student": "张凯文、李思蓉、苏奕栩",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "谢燕雯",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [],
+          "stage": "middle"
+        },
+        {
+          "school": "广州番禺区洛溪新城中学",
+          "student": "杨剡昭、杨文轩、王为为",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "黄晓梅、郭锡澄",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440113-e7ca2b33"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广东外语外贸大学实验中学",
+          "student": "丘唯一、万贻婷、骆韵琪",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "郑旖、叶文佳",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440111-7e484346",
+            "gz-440111-f5da4352",
+            "gz-440111-f751344d"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市天河区汇景实验学校",
+          "student": "唐振原、张黎、杨岷罡",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "黎韵怡、李楚希",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440106-0d1e149e",
+            "gz-440106-28049c58"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市天河区汇景实验学校",
+          "student": "杨岷倩、简贝涵、李安麒",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "黎韵怡、郭展曜",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440106-0d1e149e",
+            "gz-440106-28049c58"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市白云区云英实验学校",
+          "student": "刘畅、李卉敏、林灿斌",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "何姿帆",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市星执学校",
+          "student": "毕杞桓、刘梓晖、刘梓焜",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "吕松、庄婉莹",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440113-999fb9c0"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市番禺区市桥桥兴中学",
+          "student": "李宥贤、何可柔、邓云熙",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "陈宁恩",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440113-24ea052e"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州南方学院番禺附属中学",
+          "student": "王浩坤、陈晋加、王子锐",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "陈跃",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440113-337c0524"
+          ],
+          "stage": "middle"
+        },
+        {
+          "school": "广州市星执学校",
+          "student": "杜思宇、吴瑞聪、黄俊杰",
+          "project": "团体赛",
+          "group": "中学组团体",
+          "coach": "庄婉莹、吕松",
+          "award": "三等奖",
+          "type": "team",
+          "school_ids": [
+            "gz-440113-999fb9c0"
+          ],
+          "stage": "middle"
+        }
+      ],
+      "skipped": [
+        {
+          "school": "广州市番禺区星海青少年宫",
+          "student": "张坤健",
+          "project": "基于物联网技术的雨天积水街道漏电检测\n自动报警装置",
+          "group": "小学组个人",
+          "coach": "李强",
+          "award": "一等奖",
+          "type": "personal",
+          "reason": "非学校"
+        }
+      ]
+    },
+    {
       "year": "2025",
       "records": [
         {
@@ -289,6 +1637,7 @@
         {
           "school": "广州市天河区华阳小学",
           "student": "倪梓睿、朱浩然、曾雅闻",
+          "project": "团体赛",
           "group": "小学组",
           "coach": "邓贝",
           "award": "一等奖",
@@ -304,6 +1653,7 @@
         {
           "school": "广州市黄埔区怡园小学",
           "student": "陈子训、喻铃钥、誉杰",
+          "project": "团体赛",
           "group": "小学组",
           "coach": "郭万利、陈慧",
           "award": "一等奖",
@@ -318,6 +1668,7 @@
         {
           "school": "广州市南沙区莲塘小学",
           "student": "何煜轩、谢培鋆、刘梓骏",
+          "project": "团体赛",
           "group": "小学组",
           "coach": "李浩鑫、陈佳茵",
           "award": "二等奖",
@@ -328,6 +1679,7 @@
         {
           "school": "广州市增城区凤凰实验小学",
           "student": "曹晔宇、徐子怡、刘晋豪",
+          "project": "团体赛",
           "group": "小学组",
           "coach": "李嘉琳、夏桂芬",
           "award": "二等奖",
@@ -338,6 +1690,7 @@
         {
           "school": "广州市第一中学附属环市西路小学（竹苑校区）",
           "student": "唐子森、蔡颖延、胡恩铭",
+          "project": "团体赛",
           "group": "小学组",
           "coach": "罗志荣、伍启欣",
           "award": "二等奖",
@@ -350,6 +1703,7 @@
         {
           "school": "广州市越秀区朝天小学",
           "student": "林嘉熙、蔡宇谦、关朗",
+          "project": "团体赛",
           "group": "小学组",
           "coach": "曾丽燕",
           "award": "二等奖",
@@ -362,6 +1716,7 @@
         {
           "school": "华南师范大学附属广州大学城小学",
           "student": "许荇壹、刘彦熙",
+          "project": "团体赛",
           "group": "小学组",
           "coach": "黄嘉华",
           "award": "三等奖",
@@ -374,6 +1729,7 @@
         {
           "school": "广州市白云区白云外国语小学",
           "student": "郑立夫、房以诺、吴启睿",
+          "project": "团体赛",
           "group": "小学组",
           "coach": "谢家乐、郑静华",
           "award": "三等奖",
@@ -384,6 +1740,7 @@
         {
           "school": "广州市海珠区南武实验小学",
           "student": "严浚恩、严浚轩、廖潘承",
+          "project": "团体赛",
           "group": "小学组",
           "coach": "罗天康",
           "award": "三等奖",
@@ -396,6 +1753,7 @@
         {
           "school": "广州市花都区花东镇中心小学",
           "student": "陈泰来、黄梓昊、黄子锐",
+          "project": "团体赛",
           "group": "小学组",
           "coach": "陈志醒、黄璜",
           "award": "三等奖",
@@ -406,6 +1764,7 @@
         {
           "school": "广州市从化区流溪中学\n实验小学",
           "student": "刘恺谦、连凯威、张曦",
+          "project": "团体赛",
           "group": "小学组",
           "coach": "麦茵",
           "award": "三等奖",
@@ -416,6 +1775,7 @@
         {
           "school": "广州大学附属中学",
           "student": "李沁怡、里酏豪",
+          "project": "团体赛",
           "group": "中学组",
           "coach": "徐梓峰",
           "award": "一等奖",
@@ -429,6 +1789,7 @@
         {
           "school": "广州大学附属中学从化\n实验学校",
           "student": "肖著腾、林金洋、林知衡",
+          "project": "团体赛",
           "group": "中学组",
           "coach": "庾浣冰",
           "award": "一等奖",
@@ -439,6 +1800,7 @@
         {
           "school": "广州市花都区秀雅学校",
           "student": "唐雅萱、谢濠杰、 黄靖萱",
+          "project": "团体赛",
           "group": "中学组",
           "coach": "朱锦华、 李雄彬",
           "award": "二等奖",
@@ -449,6 +1811,7 @@
         {
           "school": "广州市白云区元培实验中学",
           "student": "彭梓瑀、林耿槟、陈嘉蕊",
+          "project": "团体赛",
           "group": "中学组",
           "coach": "曾祥力、张咏",
           "award": "二等奖",
@@ -461,6 +1824,7 @@
         {
           "school": "广州市荔湾区外语职业\n高级中学",
           "student": "梁俊杰、练庆佳、张成妹",
+          "project": "团体赛",
           "group": "中学组",
           "coach": "彭东海、刘志远",
           "award": "二等奖",
@@ -471,6 +1835,7 @@
         {
           "school": "广州市天河中学",
           "student": "吴浩洋、陈廷辉、余昭彤",
+          "project": "团体赛",
           "group": "中学组",
           "coach": "周磊",
           "award": "二等奖",
@@ -510,6 +1875,7 @@
         {
           "school": "广州市第十六中学实验学校",
           "student": "王晟铭、梁皓天、安鸿旭",
+          "project": "团体赛",
           "group": "中学组",
           "coach": "李晶、许惠娟",
           "award": "三等奖",
@@ -522,6 +1888,7 @@
         {
           "school": "广州市番禺区番外外国语学校",
           "student": "戴恺君、戴恺廷、彭振麟",
+          "project": "团体赛",
           "group": "中学组",
           "coach": "陈金兰",
           "award": "三等奖",
@@ -534,6 +1901,7 @@
         {
           "school": "广州市增城区仙村中学",
           "student": "刘盈溢、钟毅、何凯滢",
+          "project": "团体赛",
           "group": "中学组",
           "coach": "何冠球、李桂花",
           "award": "三等奖",
@@ -544,6 +1912,7 @@
         {
           "school": "广州市江南外国语学校",
           "student": "井昊晴、李伟宁、周圣伟奇",
+          "project": "团体赛",
           "group": "中学组",
           "coach": "李武坚",
           "award": "三等奖",
@@ -557,6 +1926,7 @@
         {
           "school": "广州市执信中学南沙学校",
           "student": "李沁哲、林立然、林澍杰",
+          "project": "团体赛",
           "group": "中学组",
           "coach": "陈垚、龚林",
           "award": "三等奖",
@@ -567,6 +1937,7 @@
         {
           "school": "广州市黄埔区华峰学校",
           "student": "宋梓浩、余希悦、简琛又",
+          "project": "团体赛",
           "group": "中学组",
           "coach": "陈春莲",
           "award": "三等奖",
