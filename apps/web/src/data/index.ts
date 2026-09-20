@@ -5,15 +5,15 @@
  * 小程序端对应实现见 apps/miniprogram/utils/data.js（同一紧凑编译，CJS 产物）。
  */
 import { hydrate, createRepository, buildPoints, type DataLoaders, type MapPointFull } from '@gz/shared';
-import primarySchoolsCompact from './compact/primary/schools-gz.js';
+import primarySchoolsCompact from './compact/poi/dist/primary_poi.js';
 import primaryTier1Compact from './compact/primary/tier1_schools_all.js';
 import entitiesCompact from './compact/registry/entities.js';
 import xiaoshengchu2026Compact from './compact/primary/xiaoshengchu_2026.js';
 import middleEnrollNotesCompact from './compact/primary/middle_enroll_notes.js';
-import middleSchoolsCompact from './compact/middle/schools-gz.js';
+import middleSchoolsCompact from './compact/poi/dist/middle_poi.js';
 import middleTier1Compact from './compact/middle/tier1_schools_all.js';
-import highSchoolsCompact from './compact/high/schools-gz.js';
-import highLevelsCompact from './compact/high/levels.js';
+import highSchoolsCompact from './compact/poi/dist/high_poi.js';
+import highLevelsCompact from './compact/high/level/src/levels.js';
 import enrollTianheCompact from './compact/primary/enrollments/2026-tianhe.js';
 import enrollYuexiuCompact from './compact/primary/enrollments/2026-yuexiu.js';
 import enrollHaizhuCompact from './compact/primary/enrollments/2026-haizhu.js';
@@ -37,9 +37,12 @@ import sitesRegistryCompact from './compact/registry/sites.js';
 import brandGroupsCompact from './compact/registry/brand_groups.js';
 import educationGroupsCompact from './compact/registry/education_groups.js';
 import schoolGroupsCompact from './compact/registry/school_groups.js';
-import highScores2025Compact from './compact/high/scores_2025.js';
-import highScores2026Compact from './compact/high/scores_2026.js';
-import orgSortCompiledCompact from './compact/middle/org_sort_compiled.js';
+import highScores2025Compact from './compact/high/cutoff_score/dist/scores_2025.js';
+import highScores2026Compact from './compact/high/cutoff_score/dist/scores_2026.js';
+import orgSortCompiledCompact from './compact/middle/org_sort/dist/compiled.js';
+import innovationAwardsCompact from './compact/awards/innovation/dist/compiled.js';
+import chuangkeAwardsCompact from './compact/awards/chuangke/dist/compiled.js';
+import detailedRecordsCompact from './compact/awards/dist/detailed_records.js';
 
 /** 紧凑结构经 hydrate 还原后的类型断言（字段为数据真源，结构由 scripts/ 保证） */
 const cast = <T>(v: unknown): T => v as T;
@@ -84,6 +87,9 @@ const loaders: DataLoaders = {
   brandGroups: cast(hydrate(brandGroupsCompact)),
   educationGroups: cast(hydrate(educationGroupsCompact)),
   schoolGroups: cast(hydrate(schoolGroupsCompact)),
+  innovationAwards: cast(hydrate(innovationAwardsCompact)),
+  chuangkeAwards: cast(hydrate(chuangkeAwardsCompact)),
+  detailedRecords: cast(hydrate(detailedRecordsCompact)),
 };
 
 /** 共享数据仓库（查询/判定/匹配业务逻辑全部来自 @gz/shared，双端单点维护） */
@@ -109,8 +115,11 @@ export const batch2Scores = loaders.batch2Scores;
 export const enrollments = loaders.enrollments;
 export const brandGroups = loaders.brandGroups;
 export const entities = loaders.entities;
+export const innovationAwards = loaders.innovationAwards || {};
+export const chuangkeAwards = loaders.chuangkeAwards || {};
+export const detailedRecords = loaders.detailedRecords || [];
 
-/** 七区初中机构整理档位整合版（data/middle/org_sort_compiled.json，由 scripts/build_org_sort.py 经
+/** 七区初中机构整理档位整合版（data/middle/org_sort/dist/compiled.json，由 data/middle/org_sort/scripts/build_org_sort.py 经
  * SchoolMatcher 匹配生成；仅 school_id→档位，无展示字段；仅供内部默认排序，对外不展示档位信息） */
 export const middleOrgSort = cast(hydrate(orgSortCompiledCompact)) as Array<{
   district: string;

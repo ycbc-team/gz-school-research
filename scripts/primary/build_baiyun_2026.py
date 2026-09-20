@@ -147,7 +147,7 @@ def extract_records(xlsx_path):
 
 
 def match_and_write(records):
-    with open(os.path.join(DATA, "schools-gz.json"), encoding="utf-8") as f:
+    with open(os.path.join(ROOT, "data", "poi", "dist", "primary_poi.json"), encoding="utf-8") as f:
         data = json.load(f)
     poi_pool = [s for s in data.get("schools", []) if s.get("adcode") == ADCODE]
     BAD_POI = ("建设中", "在建", "工地", "装修", "筹备", "规划", "选址", "暂停营业", "鲸go")

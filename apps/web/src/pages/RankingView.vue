@@ -4,7 +4,7 @@
  * - 数据真源：data/linkage/middle_middle.json（scripts/linkage/build_ranking_middle.py 聚合，
  *   含名额分配符合资格考生数/省市属·区属指标/2026 自招名单计数/指标到校高中明细+特控率）
  * - 分组：不分组 / 按区（区教育局口径）或按教育集团（@gz/shared groupOfSchool，brand 优先）；可叠加行政区位置筛选
- * - 指标（4 选 1）：默认（机构综合口径，school_id 名单见 data/middle/org_sort_compiled.json，真源 data/middle/org_sort/*.json）/ 区属指标比例 / 省市属指标比例 / 指标×高中特控率
+ * - 指标（4 选 1）：默认（机构综合口径，school_id 名单见 data/middle/org_sort/dist/compiled.json，真源 data/middle/org_sort/src/*.json）/ 区属指标比例 / 省市属指标比例 / 指标×高中特控率
  * - 榜单口径：所有比例均以「符合名额分配报考资格考生数（kaosheng）」为分母，
  *   消除学校规模差异（学生多则名额自然多，须看比例）
  */
@@ -193,8 +193,8 @@ function rankSort(a: { v: number | null; minban?: boolean }, b: { v: number | nu
   return b.v - a.v;
 }
 
-/** 内部默认排序：机构手工整理档位（data/middle/org_sort_compiled.json，school_id 由
- * scripts/build_org_sort.py 经 SchoolMatcher 匹配；对外不展示档位信息） */
+/** 内部默认排序：机构手工整理档位（data/middle/org_sort/dist/compiled.json，school_id 由
+ * data/middle/org_sort/scripts/build_org_sort.py 经 SchoolMatcher 匹配；对外不展示档位信息） */
 const LEVEL_OF = new Map<string, number>();
 // 同 school_id 可能出现在多档（如六中珠江鹭江 L3 / 六中逸景 L4 同记录 cb432890），取最小档（高优先级）
 for (const item of middleOrgSort) {
@@ -396,7 +396,7 @@ const groups = computed(() => {
     </main>
 
     <footer class="foot-note">
-      数据来源：广州市招考办 2026 名额分配计划汇总表（符合名额分配报考资格考生数/指标数）· 高中特控率喜报/网传口径（data/high/levels.json）。比例均为「÷ 符合名额分配报考资格考生数」，不代表学校全部应考人数。
+      数据来源：广州市招考办 2026 名额分配计划汇总表（符合名额分配报考资格考生数/指标数）· 高中特控率喜报/网传口径（data/high/level/src/levels.json）。比例均为「÷ 符合名额分配报考资格考生数」，不代表学校全部应考人数。
     </footer>
 
     <Teleport to="body">

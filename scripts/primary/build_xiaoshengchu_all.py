@@ -2,7 +2,7 @@
 """广州 7 区全量小学升学路线（xiaoshengchu）构建。
 
 匹配策略（用户确认）：不用部分匹配/归一化猜测，用「官方名 → POI 名列表」显式别名全量匹配。
-每个官方校名展开为该项目在高德 POI（schools-gz.json）中的全部校区记录，匹配 = 精确相等。
+每个官方校名展开为该项目在高德 POI（data/poi/dist/primary_poi.json）中的全部校区记录，匹配 = 精确相等。
 POI 库无对应 → 记 data_gaps 缺口（民办/特教/并校残留/官方未单列），不猜测归属。
 
 数据源（全部官方 2026）：
@@ -47,7 +47,7 @@ def load_entities_primary():
 
 
 def load_poi():
-    d = json.load(open(os.path.join(DATA, 'schools-gz.json'), encoding='utf-8'))
+    d = json.load(open(os.path.join(ROOT, 'data', 'poi', 'dist', 'primary_poi.json'), encoding='utf-8'))
     return d['schools'] if isinstance(d, dict) and 'schools' in d else d
 
 

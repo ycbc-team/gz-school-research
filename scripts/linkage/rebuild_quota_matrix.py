@@ -95,7 +95,7 @@ class SidResolver:
             pass
         self.pois = []
         try:
-            sg = json.load(open(os.path.join(ROOT, 'data/middle/schools-gz.json'), encoding='utf-8'))
+            sg = json.load(open(os.path.join(ROOT, 'data/poi/dist/middle_poi.json'), encoding='utf-8'))
             self.pois = sg.get('schools', sg) if isinstance(sg, dict) else sg
         except Exception:
             pass

@@ -249,6 +249,10 @@ for b in dbrand.get("brands", []):
             "poi_match": "已锚定" if u.get("school_ids") else "待比对",
             "poi_name": (u.get("poi_names") or [""])[0] if u.get("school_ids") else "",
             "school_id": u.get("school_ids", [""])[0] if u.get("school_ids") else "",
+            # 品牌单位保留完整实体外键（如「黄埔铁英」= 中学+小学两个实体）：
+            # education 分支据此按实体学段补 Badge、并保证跳转只指向可解析实体，
+            # 避免只留首 id 导致学部 Badge 丢失（2026-09-20 黄埔铁英初中 Badge 回归）
+            "school_ids": u.get("school_ids") or [],
             "poi_match_name": poi_match_name,
             "legal": u.get("legal",""),
             "relation": role
@@ -283,9 +287,9 @@ from school_match import SchoolMatcher
 
 ADCODE_OF = {"荔湾":"440103","越秀":"440104","海珠":"440105","天河":"440106","白云":"440111","黄埔":"440112","番禺":"440113"}
 _matcher = SchoolMatcher.load(
-    poi_paths=[(os.path.join(BASE, "data/primary/schools-gz.json"), "小学"),
-               (os.path.join(BASE, "data/middle/schools-gz.json"), "初中"),
-               (os.path.join(BASE, "data/high/schools-gz.json"), "高中")],
+    poi_paths=[(os.path.join(BASE, "data/poi/dist/primary_poi.json"), "小学"),
+               (os.path.join(BASE, "data/poi/dist/middle_poi.json"), "初中"),
+               (os.path.join(BASE, "data/poi/dist/high_poi.json"), "高中")],
     entities_path=os.path.join(BASE, "data/registry/entities.json"))
 
 pending = []  # (group, member)

@@ -70,9 +70,9 @@ class XsResolver:
                     self.alias_idx[(e['stage'], k)].append(e)
         # school_id -> 区名（POI join，与 upgrade entDistrict 一致）
         self.ent_district = {}
-        for stage, file in [('primary', 'data/primary/schools-gz.json'),
-                            ('middle', 'data/middle/schools-gz.json'),
-                            ('high', 'data/high/schools-gz.json')]:
+        for stage, file in [('primary', 'data/poi/dist/primary_poi.json'),
+                            ('middle', 'data/poi/dist/middle_poi.json'),
+                            ('high', 'data/poi/dist/high_poi.json')]:
             try:
                 poi = json.load(open(os.path.join(ROOT, file), encoding='utf-8'))
             except FileNotFoundError:

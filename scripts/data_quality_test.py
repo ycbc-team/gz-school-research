@@ -51,7 +51,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #   （未确认校区宁缺、回孤儿待逐校确认；净消除 4 所），新增 0
 # 2026-09-17 二更：仲元二校区官方明文「二校区（初中部）」10 班 450 人（番禺招生计划），
 #   build_middle_enrollment 补挂 gz-440113-6dbdc462（原 school_id=None 过时）→ 孤儿 335→334，新增 0
-ORPHAN_SNAPSHOT = "375a1b683d89fb58"
+ORPHAN_SNAPSHOT = "0b3466f1acad9fcf"
 
 # 同段同址冗余候选快照（sha256 前 16 位）：同学段+同区+≤50m 的实体对（含民办）。
 # 方向：候选越少越好（每合并一对冗余实体就少一组，属纯正向改进）。
@@ -69,7 +69,7 @@ CO_LOCATED_SNAPSHOT = "78bd7925e8bb2651"
 # 首次固化 2026-09-18：228 所（含剑桥郡小学误标剔除后；另新增 7 区 minban_*.md 查漏补缺
 # 来源链接共 88 所可追溯）。
 PRIVATE_MINBAN_SNAPSHOT = "c3ee85789c726b50"
-POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
+POI_PATHS = ["data/poi/dist/primary_poi.json", "data/poi/dist/middle_poi.json", "data/poi/dist/high_poi.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
 failures = []
@@ -238,7 +238,7 @@ def main():
                    zip(POI_PATHS, ("小学", "初中", "高中"))],
         entities_path=os.path.join(ROOT, "data/registry/entities.json"))
     _poi_all = _matcher.poi_all
-    for lib, stage in (("data/primary/schools-gz.json", "小学"), ("data/middle/schools-gz.json", "初中"), ("data/high/schools-gz.json", "高中")):
+    for lib, stage in (("data/poi/dist/primary_poi.json", "小学"), ("data/poi/dist/middle_poi.json", "初中"), ("data/poi/dist/high_poi.json", "高中")):
         d = json.load(open(os.path.join(ROOT, lib)))
         for s in d.get("schools", []):
             r = _matcher.resolve(s["name"],
@@ -373,8 +373,8 @@ def main():
     # 法人行 school_ids 也算「有升学」：校区实体升学信息聚合在法人行（school_ids 数组），
     # 避免主 id 归一（法人行主 id 指向本部后）把校区实体误判为无升学孤儿。
     _qm_school_ids = {i for s in json.load(open(os.path.join(ROOT, "data/linkage/quota_matrix.json"))).get("schools", []) for i in (s.get("school_ids") or [])}
-    _sc26 = json.load(open(os.path.join(ROOT, "data/high/scores_2026.json"))).get("by_school_id", {})
-    _sc25 = json.load(open(os.path.join(ROOT, "data/high/scores_2025.json"))).get("by_school_id", {})
+    _sc26 = json.load(open(os.path.join(ROOT, "data/high/cutoff_score/dist/scores_2026.json"))).get("by_school_id", {})
+    _sc25 = json.load(open(os.path.join(ROOT, "data/high/cutoff_score/dist/scores_2025.json"))).get("by_school_id", {})
     _orphans = []
     # 孤儿排查只看 7 区（荔湾/越秀/海珠/天河/白云/黄埔/番禺）公办学校：
     # 远郊（花都/从化/增城/南沙）与无 adcode 市属实体本就无招生/升学采集，不属于异常排查范围。
@@ -424,9 +424,9 @@ def main():
     #  由人工确认后决定保留或合并，并把修正固化到 POI/实体构建脚本，禁止手改）。
     # 快照防线同孤儿：候选清单 digest 固化，新增候选立即失败（防止悄悄引入新冗余点位）。
     _POI_FILES = {
-        "primary": os.path.join(ROOT, "data/primary/schools-gz.json"),
-        "middle": os.path.join(ROOT, "data/middle/schools-gz.json"),
-        "high": os.path.join(ROOT, "data/high/schools-gz.json"),
+        "primary": os.path.join(ROOT, "data/poi/dist/primary_poi.json"),
+        "middle": os.path.join(ROOT, "data/poi/dist/middle_poi.json"),
+        "high": os.path.join(ROOT, "data/poi/dist/high_poi.json"),
     }
     _ent_by_id = {e["school_id"]: e for e in entities}
     _co = []

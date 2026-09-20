@@ -53,7 +53,7 @@ export interface Batch2Scores {
   middle_school_ids?: Record<string, string>;
 }
 
-/** 高中统招录取分数记录（data/high/scores_{year}.json，官方招考办发布；按 school_id 引用实体表） */
+/** 高中统招录取分数记录（data/high/cutoff_score/dist/scores_{year}.json，官方招考办发布；按 school_id 引用实体表） */
 export interface HighScoreRecord {
   /** 官方招生单位原文名（含校区/班型，如「华南师范大学附属中学（石牌校区）」「广州市为明学校（盛景校区）」） */
   official_name: string;
@@ -131,6 +131,9 @@ export interface EducationGroupMember {
   poi_match?: string;
   poi_name?: string;
   school_id?: string;
+  /** 品牌组合并入 education 时保留的完整实体外键（如「黄埔铁英」= 中学+小学两个实体）；
+   * 运行时学段兜底与跳转判定使用，避免只保留首 id 导致学部 Badge 丢失 */
+  school_ids?: string[];
   /** 多校区索引：成员校在 POI 里有多个校区时，列出所有校区（poi_match="多校区索引"时使用） */
   campuses?: Array<{ poi_name: string; school_id: string }>;
 }

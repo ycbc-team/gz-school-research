@@ -22,19 +22,16 @@
 │   └── shared/              # @gz/shared 双端共享核心包（TS：类型 + 纯逻辑，零平台依赖）
 │       └── src/             # types / const / geo / stats / support
 ├── data/                    # 共享数据层（JSON 唯一真源，多端共用）
-│   ├── primary/             # 小学阶段数据（schools-gz.json / tier1_schools_all.json / enrollments/）
-│   ├── middle/              # 初中阶段数据（schools-gz.json / tier1_schools_all.json）
-│   ├── high/                # 高中阶段数据（schools-gz.json 清洗版 / levels.json / scores_{year}.json 官方录取分 / 剔除留痕）
+│   ├── primary/             # 小学阶段数据（tier1_schools_all.json / enrollments/；点位见 poi/）
+│   ├── middle/              # 初中阶段数据（tier1_schools_all.json；点位见 poi/）
+│   ├── high/                # 高中阶段数据（level/src/levels.json / 剔除留痕；录取分见 cutoff_score/；点位见 poi/）
+│   │   ├── cutoff_score/    # 高中录取分（dist/ 历年产物 · raw/ 官方源页面 · src/ 手工源 · scripts/ 解析脚本）
+│   │   └── level/src/       # 学校清单/分类/指标（levels.json 人工调研源，前端直接消费）
+│   ├── poi/                  # POI 点位（dist/*_poi.json 真源，采集/清洗脚本在同目录 scripts/）
 │   └── README.md            # 数据治理约定与更新方式
 ├── scripts/                 # 共享脚本（数据采集/构建 + 小程序构建）
-│   ├── fetch_schools.py     # 小学点位采集（写 json 真源）
-│   ├── fetch_middle_schools.py  # 初中点位采集
-│   ├── fetch_high_schools.py    # 高中原始采集
-│   ├── build_high_levels_js.py  # 高中清洗点位（按 levels.json 清洗并写回 json 真源）
-│   ├── build_scores.py          # 高中录取分抓取（招考办官网 2025/2026 录取表 → scores_{year}.json，零依赖）
 │   ├── registry/build_entities.mjs  # 实体注册表（school_id 主键 + 官方名/别名桥接）
 │   ├── build_district_enrollment.py  # 五区小学招生数据
-│   ├── backfill_schools.py  # 小学缺校补位
 │   └── miniprogram/build.mjs  # 小程序构建（shared cjs + data json → 小程序包）
 ├── docs/                    # 调研报告、分析文档
 ├── .env                     # 本地密钥（git 忽略，不入库）
@@ -144,43 +141,43 @@ apps/web/src/data/compact/**  与  @gz/shared 构建产物（Web/小程序实际
    - **广大附"65"复核修正（2026-09-15 第四轮，按用户查证）**：上轮"高中自招计划 65"表述有误，更正如下——
      1. **官方招生单位不分校区，但办学地点在大学城**：官方 2026 高中招生（招生总计划 812、自招计划 **102**、名额分配 406、第三批录取线 732/738、自招资格名单 461 人）全部以法人"广州大学附属中学"一个单位发布（gzzk 官方汇总表/录取表原文）。黄华路校区自 2017 年起为**纯初中部**（高中部全在大学城校区，官方多来源佐证），故"65"与高中招生无关。
      2. **65 的真实口径**：番禺校区（大学城）初中升入广大附中高中的**自招资格人数**（官方资格名单：番禺 65 / 越秀 24），是"中考-第一批"表的数据，不是高中招生计划。
-     3. **数据根修正（非点对点）**：黄华路高中 POI（data/high/schools-gz.json）删除；实体 b22c4eca 撤销 high 学部、移除法人名别名（法人名"广州大学附属中学"改挂大学城实体 8f5e4721，官方分数 scores 2025/2026 改挂 8f5e4721）；levels 广大附中 district 越秀→番禺。由此高中明细只剩"广州大学附属中学(大学城校区)"一行（番禺区），黄华路详情页只剩初中 tab，任何官方名单名跳转均落大学城高中。上轮临时加的 findExactLoose / resolvePoiName 多校区规则 / 高中行归并三处复杂逻辑已全部回退，保持代码简单。
+     3. **数据根修正（非点对点）**：黄华路高中 POI（data/poi/dist/high_poi.json）删除；实体 b22c4eca 撤销 high 学部、移除法人名别名（法人名"广州大学附属中学"改挂大学城实体 8f5e4721，官方分数 scores 2025/2026 改挂 8f5e4721）；levels 广大附中 district 越秀→番禺。由此高中明细只剩"广州大学附属中学(大学城校区)"一行（番禺区），黄华路详情页只剩初中 tab，任何官方名单名跳转均落大学城高中。上轮临时加的 findExactLoose / resolvePoiName 多校区规则 / 高中行归并三处复杂逻辑已全部回退，保持代码简单。
 
 ## 数据
 
-### 小学点位数据（data/primary/schools-gz.json）
+### 小学点位数据（data/poi/dist/primary_poi.json）
 
 - 来源：高德地图 Web 服务 API，2026-09-08 快照（GCJ-02 坐标系）
 - 共 915 所：荔湾 75 / 越秀 78 / 海珠 120 / 天河 115 / 白云 227 / 黄埔 101 / 番禺 199
 - 已合并同校重复 POI；番禺含 backfill 补充点
 - 通过翻页采集突破单区 100 条上限
-- 更新：`python3 scripts/primary/fetch_schools.py`（需 `.env` 中的 `AMAP_WEB_KEY`）
+- 更新：`python3 data/poi/scripts/fetch_schools.py`（需 `.env` 中的 `AMAP_WEB_KEY`）
 
-### 初中点位数据（data/middle/schools-gz.json）
+### 初中点位数据（data/poi/dist/middle_poi.json）
 
 - 来源：高德地图 Web 服务 API，2026-09-09 快照（GCJ-02 坐标系）
 - 范围：7 区（荔湾 / 越秀 / 海珠 / 天河 / 白云 / 黄埔 / 番禺），排除远郊南沙 / 花都 / 从化 / 增城
 - 采集：types=141201（初中分类）+ types=141200（中学分类）+ 关键词「初中」三路翻页合并，保留初中与完全中学
-- 更新：`python3 scripts/middle/fetch_middle_schools.py`
+- 更新：`python3 data/poi/scripts/fetch_middle_schools.py`
 
-### 高中点位与分类指标（data/high/）
+### 高中点位与分类指标（data/poi/dist/high_poi.json + data/high/level/src/levels.json）
 
-- 点位来源：高德地图 Web 服务 API，2026-09-09 快照（GCJ-02 坐标系）；types=141202（高中）+ 关键词「高中」+ types=141200（中学）三路翻页合并，剔除培训机构 / 复读 / 托管 / 职业类等，再按 90 所学校清单精确清洗（清洗版点位即 `schools-gz.json`，由 build_high_levels_js.py 写回）
+- 点位来源：高德地图 Web 服务 API，2026-09-09 快照（GCJ-02 坐标系）；types=141202（高中）+ 关键词「高中」+ types=141200（中学）三路翻页合并，剔除培训机构 / 复读 / 托管 / 职业类等，再按 90 所学校清单精确清洗（清洗版点位即 `high_poi.json`，由 data/poi/scripts/build_high_levels_js.py 写回）
 - 范围：7 区（荔湾 / 越秀 / 海珠 / 天河 / 白云 / 黄埔 / 番禺），排除远郊南沙 / 花都 / 从化 / 增城
 - 分类口径（替换民间"市重点 / 区重点"的官方称谓）：
   - **省市属示范**（11 所）= 省属或市属示范性高中（国家级示范 / 市示范 / 市属优质，含市属名额分配新增校），对应民间"市重点"
   - **区属示范**（43 所）= 区属国家级 / 市级示范性高中，对应民间"区重点"
   - **普通高中**（36 所）= 其余公办（省一级等）+ 民办
 - 分类依据（广州市招考办官方文件）：2026 名额分配招生学校名单、2025 第三批录取表、2025 第四批录取表
-- 客观指标（levels.json，逐校）：特控线上线率 2026 / 2025（含网传口径）、600 分以上高分段占比、本科率、隶属与示范性等级、nature（公办/民办，取官方录取表"学校性质"列）；无公开数据的学校如实标注"高考出口数据未公开"
+- 客观指标（data/high/level/src/levels.json，逐校）：特控线上线率 2026 / 2025（含网传口径）、600 分以上高分段占比、本科率、隶属与示范性等级、nature（公办/民办，取官方录取表"学校性质"列）；无公开数据的学校如实标注"高考出口数据未公开"
   - 特控率来源：2026 高考喜报（广州日报报道）+ 2025 年 51 校成绩汇总，均为喜报 / 网传口径，非官方统一发布（页面卡片已注明）
-  - **中考录取分已迁出 levels**：2025/2026 两年官方分数见 `data/high/scores_2025.json` / `scores_2026.json`（由脚本从招考办官网录取表抓取，按 school_id 引用实体表），levels 不再存任何分数
+  - **中考录取分已迁出 levels**：2025/2026 两年官方分数见 `data/high/cutoff_score/dist/scores_2025.json` / `scores_2026.json`（由 `data/high/cutoff_score/scripts/build_scores.py` 从招考办官网录取表抓取，按 school_id 引用实体表），levels 不再存任何分数
 - 点位统计：126 个（含 15 个高德补点），荔湾 17 / 越秀 18 / 海珠 14 / 天河 19 / 白云 25 / 黄埔 14 / 番禺 19
-- 更新：`python3 scripts/high/fetch_high_schools.py`（原始 POI）→ `python3 scripts/high/build_high_levels_js.py`（按 levels.json 清洗点位并写回 json 真源）；录取分链路见「高中录取分数（data/high/scores_{year}.json）」一节
+- 更新：`python3 data/poi/scripts/fetch_high_schools.py`（原始 POI）→ `python3 data/poi/scripts/build_high_levels_js.py`（按 levels.json 清洗点位并写回 data/poi/dist/high_poi.json）；录取分链路见「高中录取分数（data/high/cutoff_score/dist/scores_{year}.json）」一节
 
-### 高中录取分数（data/high/scores_{year}.json）
+### 高中录取分数（data/high/cutoff_score/dist/scores_{year}.json）
 
-- 真源：广州市招考办官网（gzzk.gz.gov.cn）普通高中录取分数表，脚本抓取解析（零第三方依赖，`python3 scripts/high/build_scores.py [--fetch]` 重下官方页）
+- 真源：广州市招考办官网（gzzk.gz.gov.cn）普通高中录取分数表，官方页原始 HTML 存 `data/high/cutoff_score/raw/`（入库跟踪），`python3 data/high/cutoff_score/scripts/fetch_scores.py` 重下官方页（仅每年批次公布时手动跑），`python3 data/high/cutoff_score/scripts/build_scores.py` 解析到 `data/high/cutoff_score/dist/`（每次 check 重跑比对）
 - 覆盖批次：第一批次（外语艺术类，末位考生分数口径）/ 第三批次 / 第四批次；2025 与 2026 两年
 - 口径：公办=户籍生最低分（另有非户籍生/外区生）；民办/中外合作=最低分数（公费班为独立条目）；外语艺术类=末位考生分数
 - 关联：`by_school_id` 按实体主键引用 `data/registry/entities.json`（官方录取表原文名经 `scripts/registry/build_entities.mjs` 的 OFFICIAL_HIGH_ALIAS 桥接 POI 名，全角校区名 ↔ 半角 POI 名系统性差异已治理）；未收录实体（远郊 7 区外 / 中外合作办学项目 / 无 POI 新校）保留在 `unmapped` 官方原文
@@ -233,7 +230,7 @@ apps/web/src/data/compact/**  与  @gz/shared 构建产物（Web/小程序实际
 - [x] 7 区高中点位采集（2026-09-09 快照，126 点，90 所学校）
 - [x] 官方口径分类（省市属示范 11 / 区属示范 43 / 普通高中 36，依据招考办名额分配名单与录取表）
 - [x] 逐校客观指标（特控线上线率 / 高分段 / 本科率，喜报与网传口径已注明）
-- [x] **中考录取分官方链路**（2025/2026 两年，脚本抓取招考办录取表 → scores_{year}.json，school_id 引用实体表；levels 移除人工录入分数，补 nature 民办标志，页面同屏两年展示）
+- [x] **中考录取分官方链路**（2025/2026 两年，脚本抓取招考办录取表 → cutoff_score/dist/scores_{year}.json，school_id 引用实体表；levels 移除人工录入分数，补 nature 民办标志，页面同屏两年展示）
 - [x] 三学段合并地图（七类配色 + 筛选 + 高中信息卡）
 - [ ] 个别学校指标核实（"网传 / 未公开"项逐条回查官方渠道）
 

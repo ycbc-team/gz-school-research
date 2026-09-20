@@ -6,7 +6,7 @@
 
 | 文件 | 用途 |
 | --- | --- |
-| `schools-gz.json` | 原始快照数据，可复核（schools + districts 结构） |
+| `../poi/dist/primary_poi.json` | 小学点位真源（原 schools-gz.json，2026-09 起移入 poi/dist） |
 | `schools.js` | 浏览器端直接用 `<script>` 加载（写入 `window.GZ_SCHOOLS`），内容与 JSON 一致 |
 | `enrollments/2026-panyu.json` | 番禺区 2026 年小学招生计划与地段数据（官方 xls 解析，试点） |
 | `enrollments/2026-panyu.js` | 同上，浏览器端加载（写入 `window.GZ_ENROLL_PANYU`） |
@@ -39,7 +39,7 @@
 ## 更新方式
 
 ```bash
-python3 scripts/primary/fetch_schools.py          # 基础点位，需项目根 .env 中的 AMAP_WEB_KEY
+python3 data/poi/scripts/fetch_schools.py          # 基础点位，需项目根 .env 中的 AMAP_WEB_KEY（写 ../poi/dist/primary_poi.json）
 python3 scripts/build_panyu_enrollment.py # 番禺招生数据，解析官方 xls 附件
 ```
 
@@ -58,8 +58,8 @@ python3 scripts/build_panyu_enrollment.py # 番禺招生数据，解析官方 xl
 ### 更新顺序（注意）
 
 ```bash
-python3 scripts/primary/fetch_schools.py           # 全量基础点位（会覆盖 schools.js，丢失 backfill 补充）
-python3 scripts/primary/backfill_schools.py        # 缺校补位（重新执行以保留补充点位）
+python3 data/poi/scripts/fetch_schools.py           # 全量基础点位（会覆盖 primary_poi.json，丢失 backfill 补充）
+python3 data/poi/scripts/backfill_schools.py        # 缺校补位（重新执行以保留补充点位）
 python3 scripts/build_panyu_enrollment.py  # 番禺招生数据绑定
 ```
 

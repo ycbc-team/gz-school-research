@@ -5384,6 +5384,9 @@
           "poi_match": "已锚定",
           "poi_name": "广州市铁一中学(白云校区)",
           "school_id": "gz-440111-28c16cca",
+          "school_ids": [
+            "gz-440111-28c16cca"
+          ],
           "poi_match_name": "广州市铁一中学(白云校区)",
           "legal": "same",
           "relation": "市属校区（白云）"
@@ -5395,6 +5398,10 @@
           "poi_match": "已锚定",
           "poi_name": "",
           "school_id": "gz-440112-c80ac6ac",
+          "school_ids": [
+            "gz-440112-c80ac6ac",
+            "gz-440112-adb9c303"
+          ],
           "poi_match_name": "广州市黄埔区铁英学校（黄埔铁英）",
           "legal": "independent",
           "relation": "区属成员校（黄埔）"
@@ -5406,6 +5413,9 @@
           "poi_match": "已锚定",
           "poi_name": "",
           "school_id": "gz-440113-43d027a5",
+          "school_ids": [
+            "gz-440113-43d027a5"
+          ],
           "poi_match_name": "广州市番禺区广铁一中铁英学校(东校区)",
           "legal": "independent",
           "relation": "区属成员校（番禺东）"
@@ -5417,6 +5427,9 @@
           "poi_match": "已锚定",
           "poi_name": "",
           "school_id": "gz-440113-94c76638",
+          "school_ids": [
+            "gz-440113-94c76638"
+          ],
           "poi_match_name": "广州市番禺区广铁一中铁英学校(西校区)",
           "legal": "independent",
           "relation": "区属成员校（番禺西）"
@@ -5428,6 +5441,7 @@
           "poi_match": "远郊不在POI范围",
           "poi_name": "",
           "school_id": "",
+          "school_ids": [],
           "legal": "independent",
           "relation": "区属成员校（南沙，铁一委托管理，五统一五同步）"
         }

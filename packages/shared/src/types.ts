@@ -30,7 +30,7 @@ export interface DistrictBoundary {
   boundary: number[][][];
 }
 
-/** data/{primary,middle,high}/schools-gz.json */
+/** data/poi/dist/{primary,middle,high}_poi.json */
 export interface SchoolsSnapshot {
   updated: string;
   source: string;
@@ -213,7 +213,7 @@ export interface HighLevelSchool {
   indicators: Record<string, string | number | null>;
 }
 
-/** data/high/levels.json */
+/** data/high/level/src/levels.json */
 export interface HighLevelsSnapshot {
   updated: string;
   title: string;

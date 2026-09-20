@@ -5,7 +5,7 @@
   （黄埔区教育局《2026年黄埔区义务教育学校招生工作实施细则》
    附件4 招生地段划分表 + 附件6 招生计划表，官网扫描件 OCR 转录）
 
-POI 真源: data/primary/schools-gz.json (adcode=440112)
+POI 真源: data/poi/dist/primary_poi.json (adcode=440112)
 输出: data/primary/enrollments/2026-huangpu.json
 匹配规则复用 scripts/primary/build_district_enrollment.py。
 """
@@ -47,7 +47,7 @@ HP_NAME_MAP = {
 
 def main():
     raw = json.load(open(RAW, encoding="utf-8"))
-    with open(os.path.join(DATA, "schools-gz.json"), encoding="utf-8") as f:
+    with open(os.path.join(ROOT, "data", "poi", "dist", "primary_poi.json"), encoding="utf-8") as f:
         poi_data = json.load(f)
     pool = [s for s in poi_data.get("schools", []) if s.get("adcode") == ADCODE]
     BAD = ("建设中", "在建", "工地", "装修", "筹备", "规划", "选址", "劳动教育基地")

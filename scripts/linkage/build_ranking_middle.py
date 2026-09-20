@@ -7,7 +7,7 @@
 - data/linkage/quota_matrix.json             指标到校（496 所；以 7 区学校为候选底：
                                               kaosheng 考生数 / sheng_quota 省市属 / qu_quota 区属 / sz 高中名额明细 / district / school_id）
 - data/linkage/raw/autonomy/autonomy_qualify_2026.json  自主招生资格名单（按来源初中计数）
-- data/high/levels.json                      高中特控率（indicators.tekong_2026/tekong_2025，文本口径，只读）
+- data/high/level/src/levels.json             高中特控率（indicators.tekong_2026/tekong_2025，文本口径，只读）
 
 输出：
 - data/linkage/ranking_middle.json          每所初中：考生数/省市属指标/区属指标/自招数/指标到校高中明细（含特控率）
@@ -88,7 +88,7 @@ def group_of(school_id=None, school_ids=None):
 # ---------------- 载入 ----------------
 quota = load('linkage/quota_matrix.json')
 autonomy = load('linkage/raw/autonomy/autonomy_qualify_2026.json')
-levels = load('high/levels.json')
+levels = load('high/level/src/levels.json')
 district_quota = load('linkage/district_quota.json')
 # 民办身份唯一真源：registry/entities.json（nature='民办'；公办不写字段）
 MINBAN_IDS = {e['school_id'] for e in load('registry/entities.json').get('entities', []) if e.get('nature') == '民办'}
@@ -337,7 +337,7 @@ result = {
     'source': {
         'quota': '广州市招考办《2026年广州市名额分配招生学校招生总计划和名额分配计划汇总表》（7区全量初中）',
         'autonomy': '2026年广州市普通高中学校自主招生综合能力考核资格考生名单（13866条）',
-        'tekong': 'data/high/levels.json indicators.tekong_2026/tekong_2025（喜报/网传口径）',
+        'tekong': 'data/high/level/src/levels.json indicators.tekong_2026/tekong_2025（喜报/网传口径）',
     },
     'schools': out_schools,
 }

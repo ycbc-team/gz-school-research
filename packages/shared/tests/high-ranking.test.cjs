@@ -9,10 +9,10 @@ const { buildHighRankingGroups, buildHighRankingRows } = require('../dist/cjs/in
 const ROOT = path.resolve(__dirname, '../../..');
 const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', file), 'utf8'));
 const loaders = {
-  highSchools: load('high/schools-gz.json'),
-  highLevels: load('high/levels.json'),
-  highScores2025: load('high/scores_2025.json'),
-  highScores2026: load('high/scores_2026.json'),
+  highSchools: load('poi/dist/high_poi.json'),
+  highLevels: load('high/level/src/levels.json'),
+  highScores2025: load('high/cutoff_score/dist/scores_2025.json'),
+  highScores2026: load('high/cutoff_score/dist/scores_2026.json'),
   entities: load('registry/entities.json'),
 };
 
@@ -55,7 +55,9 @@ test('高中明细 VM：全量校区展示快照必须显式更新', () => {
   // 2026-09-18 高中学段判定重构（build_high_levels_js 改由实体表 stage 驱动）：智谷校区剔除（小学+初中不招高中）；
   // 8 所已核实高中校区（盘福/执信二沙岛/41中东/41中南/75燕塘东/白云北/白云南/二中科学城）school 规范名补齐，
   // 示范性标注从「未标注」恢复为省市属/区属示范——有意变更
-  assert.equal(digest, '924460f6f1e2a1c8e26b033249ed16ec52761dd6b66f68fbc38e6dca3ce8bb38', '任一高中校区的简称、分类、政策标签或录取线口径变更，都必须确认并更新全量快照');
+  // 2026-09-20 cutoff_score 目录重构后重跑 build_scores.py（entities 更新后新匹配 3 校：
+  // 二中科学城/新侨/博萃德从 unmapped 提升为实体匹配），高中明细新增 3 行——有意变更
+  assert.equal(digest, 'cd905ffd894e6f216b8bc94a21cb20ef97f78659ec6e0817f94b061b33c0da32', '任一高中校区的简称、分类、政策标签或录取线口径变更，都必须确认并更新全量快照');
 });
 
 test('高中明细 VM：支持不分组、七区位置筛选与多年份排序', () => {

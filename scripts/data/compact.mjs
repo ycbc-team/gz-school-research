@@ -60,19 +60,21 @@ function walkJson(dir) {
 const WEB_TARGETS = walkJson(DATA_SRC)
   .filter((p) => !p.split(sep).some((seg) => seg === 'raw' || seg === '_raw'))
   .map((p) => relative(ROOT, p))
-  .filter((rel) => !basename(rel).startsWith('_partial_'));
+  .filter((rel) => !basename(rel).startsWith('_partial_'))
+  .filter((rel) => !rel.split(sep).includes('src') || rel.startsWith('data/high/level/'));
+  // src 为源数据目录，仅 dist 产物打包；high/level/src 例外：levels.json 人工源即前端消费（无 dist 构建）
 // 小程序主包数据（地图页 + 首页/支撑度消费）：POI/tier1/levels/招生/实体/升学路线/官方录取分
 const MP_MAIN_TARGETS = [
-  'data/primary/schools-gz.json',
+  'data/poi/dist/primary_poi.json',
   'data/primary/tier1_schools_all.json',
   'data/primary/xiaoshengchu_2026.json',
   'data/primary/middle_enroll_notes.json',
-  'data/middle/schools-gz.json',
+  'data/poi/dist/middle_poi.json',
   'data/middle/tier1_schools_all.json',
-  'data/high/schools-gz.json',
-  'data/high/levels.json',
-  'data/high/scores_2025.json',
-  'data/high/scores_2026.json',
+  'data/poi/dist/high_poi.json',
+  'data/high/level/src/levels.json',
+  'data/high/cutoff_score/dist/scores_2025.json',
+  'data/high/cutoff_score/dist/scores_2026.json',
   'data/primary/enrollments/2026-tianhe.json',
   'data/primary/enrollments/2026-yuexiu.json',
   'data/primary/enrollments/2026-haizhu.json',

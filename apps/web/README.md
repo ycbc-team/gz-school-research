@@ -37,6 +37,6 @@ npm run build:web   # 构建到 apps/web/dist
 
 ## 数据引用约定
 
-- 数据真源：项目根 `data/` 下 JSON（`data/primary/schools-gz.json` 等），新增页面一律从
+- 数据真源：项目根 `data/` 下 JSON（`data/poi/dist/primary_poi.json` 等），新增页面一律从
   `src/data/` 加载层读取，禁止引入 `window.GZ_*` 全局变量。
 - 旧版页面（`apps/web/map`、`support.html`、`legacy/`）及 js 兼容产物已删除，历史见 git。

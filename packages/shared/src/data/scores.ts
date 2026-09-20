@@ -1,5 +1,5 @@
 /**
- * 高中统招录取分数查询（data/high/scores_{year}.json 官方真源，按 school_id 引用实体表）。
+ * 高中统招录取分数查询（data/high/cutoff_score/dist/scores_{year}.json 官方真源，按 school_id 引用实体表）。
  *
  * 查询入口：
  * - scoresBySchoolId(school_id)        —— 单校区实体 → 两年记录（地图信息卡：POI 点位自带 school_id）

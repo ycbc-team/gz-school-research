@@ -9,7 +9,7 @@ def base_name(n):
     return re.sub(r'（[^）]*）', '', n).replace('（','(').replace('）',')').split('(')[0].strip()
 
 poi = {}
-for stage, f in [('high', 'data/high/schools-gz.json'), ('middle', 'data/middle/schools-gz.json')]:
+for stage, f in [('high', 'data/poi/dist/high_poi.json'), ('middle', 'data/poi/dist/middle_poi.json')]:
     for s in json.load(open(f))['schools']:
         poi[s['name']] = (stage, s.get('district',''), s['lng'], s['lat'])
 

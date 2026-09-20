@@ -22,7 +22,9 @@
 
 # Node / monorepo
 node_modules/
-dist/
+apps/web/dist/
+apps/miniprogram/dist/
+packages/shared/dist/
 *.tsbuildinfo
 .pnpm-store/
 
@@ -38,9 +40,6 @@ project.private.config.json
 data/linkage/raw/headers/*.png
 data/linkage/raw/*.png
 data/linkage/raw/*.preview
-
-# 高中录取分官方页原始 HTML（scripts/high/build_scores.py --fetch 可重新抓取；真源只存 JSON）
-data/high/raw/
 
 # 小升初升学事实表中间产物（build_xiaoshengchu_all.py 按区重建后 merge_all 汇总；
 # 真源只存升级后的 data/primary/xiaoshengchu_2026.json，见 2060d6c）

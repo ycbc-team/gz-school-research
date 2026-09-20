@@ -25,7 +25,7 @@ spec.loader.exec_module(build_mod)
 def recompute():
     xs = build_mod.load("data/primary/xiaoshengchu_2026.json")
     entities = build_mod.load("data/registry/entities.json")
-    middle = build_mod.load("data/middle/schools-gz.json")
+    middle = build_mod.load("data/poi/dist/middle_poi.json")
     entity_by_id = {e["school_id"]: e["name"] for e in entities["entities"]}
     group_by_id = {g["id"]: g["name"] for g in xs["groups"]}
     feeds = {}

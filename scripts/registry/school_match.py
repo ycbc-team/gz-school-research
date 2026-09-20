@@ -199,10 +199,73 @@ class SchoolMatcher:
                     self.alias_map.setdefault(k2, []).append(rec)
 
     # ---------- 匹配 ----------
-    def resolve(self, name, preferred_adcode=None, preferred_stage=None):
+    def resolve_all(self, name, preferred_adcode=None, preferred_stage=None):
+        """返回官方裸名对应的全部同法人校区。
+
+        先以单校区策略确认该名称确实属于学校实体，再仅按
+        ``matchNorm(coreCampusName(...))`` 全等扩展。带校区限定的名称始终
+        只返回其精确实体；不会因「外国语学校」等泛词做子串扩张。
+        """
+        one = self.resolve(name, preferred_adcode, preferred_stage, strategy="single")
+        stage_map = {"小学": "primary", "初中": "middle", "高中": "high"}
+        wanted_stage = stage_map.get(preferred_stage, preferred_stage)
+
+        def entities_for(records):
+            seen = set()
+            out = []
+            for e in records:
+                if wanted_stage and e["stage"] != wanted_stage:
+                    continue
+                if e["school_id"] in seen:
+                    continue
+                seen.add(e["school_id"])
+                out.append(e)
+            return out
+
+        # 先取准确名称/别名索引；resolve 的 matched_name 是无 POI 实体时的
+        # 唯一可回连信息，也一并纳入。
+        candidates = list(self.exact_map.get(normName(name), []))
+        candidates += list(self.alias_map.get(matchNorm(name), []))
+        if one and one.get("school_id"):
+            candidates += [e for es in self.exact_map.values() for e in es if e["school_id"] == one["school_id"]]
+        elif one and one.get("matched_name"):
+            candidates += [e for es in self.exact_map.values() for e in es if e["name"] == one["matched_name"]]
+        candidates = entities_for(candidates)
+
+        # 只有未写校区的官方名称才能展开同法人校区。这里的
+        # matchNorm(coreCampusName) 全等本身就是确认条件（例如「小北路小学」
+        # 对应四个同法人校区）；不需要先强行收敛出一个单校区。
+        has_campus = bool(re.search(r"[（(].+?[）)]", name or ""))
+        if not has_campus:
+            core = matchNorm(coreCampusName(name))
+            if len(core) >= 4:
+                all_entities = [e for es in self.exact_map.values() for e in es]
+                candidates += [
+                    e for e in all_entities
+                    if (not wanted_stage or e["stage"] == wanted_stage)
+                    and matchNorm(coreCampusName(e["name"])) == core
+                ]
+                candidates = entities_for(candidates)
+
+        def result(e):
+            adcode = e["school_id"].split("-")[1] if e.get("school_id") else ""
+            district = SEVEN_DISTRICTS.get(adcode, FAR_DISTRICTS.get(adcode, "实体表无坐标"))
+            return {"poi_match": "多校区命中", "matched_name": e["name"], "stage": e["stage"],
+                    "district": district, "school_id": e["school_id"]}
+
+        results = [result(e) for e in candidates]
+        if results:
+            return results
+        return [one] if one and one.get("school_id") else []
+
+    def resolve(self, name, preferred_adcode=None, preferred_stage=None, strategy="single"):
         """任意校名 → 匹配结果 dict（poi_match/matched_name/stage/district/school_id）或 None（无法收敛/缺失）。
         preferred_adcode：行政区匹配（构建某区招生计划时传入该区 adcode，命中候选优先取同区 POI）；
         preferred_stage：学段匹配（初中计划优先初中部，避免选到高中部）。"""
+        if strategy in {"all", "multi", "campuses"}:
+            return self.resolve_all(name, preferred_adcode, preferred_stage)
+        if strategy != "single":
+            raise ValueError(f"unknown matching strategy: {strategy}")
         n = matchNorm(name)
         alias_multiple = False  # alias 命中多候选且无法收敛 → substring 禁用泛词吸附（防核心校裸名吸附集团成员）
 
@@ -466,9 +529,9 @@ if __name__ == "__main__":
     if "--stage" in sys.argv:
         stage = sys.argv[sys.argv.index("--stage") + 1]
     matcher = SchoolMatcher.load(
-        poi_paths=[(os.path.join(BASE, "data/primary/schools-gz.json"), "小学"),
-                   (os.path.join(BASE, "data/middle/schools-gz.json"), "初中"),
-                   (os.path.join(BASE, "data/high/schools-gz.json"), "高中")],
+        poi_paths=[(os.path.join(BASE, "data/poi/dist/primary_poi.json"), "小学"),
+                   (os.path.join(BASE, "data/poi/dist/middle_poi.json"), "初中"),
+                   (os.path.join(BASE, "data/poi/dist/high_poi.json"), "高中")],
         entities_path=os.path.join(BASE, "data/registry/entities.json"))
     r = matcher.resolve(name, preferred_adcode=adcode, preferred_stage=stage)
     print(json.dumps({"name": name, **r} if r else {"name": name, "result": None}, ensure_ascii=False, indent=2))

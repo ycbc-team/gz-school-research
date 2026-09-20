@@ -25,9 +25,9 @@ const loadTier1 = (f) => {
 };
 const middleTier1 = loadTier1('middle/tier1_schools_all.json');
 const primaryTier1 = loadTier1('primary/tier1_schools_all.json');
-const middlePois = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/middle/schools-gz.json'), 'utf8')).schools;
-const primaryPois = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/primary/schools-gz.json'), 'utf8')).schools;
-const highPois = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/high/schools-gz.json'), 'utf8')).schools;
+const middlePois = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/poi/dist/middle_poi.json'), 'utf8')).schools;
+const primaryPois = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/poi/dist/primary_poi.json'), 'utf8')).schools;
+const highPois = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/poi/dist/high_poi.json'), 'utf8')).schools;
 const brandGroups = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/registry/brand_groups.json'), 'utf8')).brands;
 const entities = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/registry/entities.json'), 'utf8')).entities;
 
