@@ -217,6 +217,33 @@ test('品牌关联：education 多校区成员平铺每校区一行，各自带�
   }
 });
 
+test('品牌关联：education 成员 school_id 外键补学段 Badge（黄埔铁英初中部回归）', () => {
+  // 黄埔铁英 = 广铁一中教育集团托管成员（独立法人），brand 单位含中学+小学两个实体外键
+  // （gz-440112-c80ac6ac / gz-440112-adb9c303）。merge_groups 并入 education 源后此前只保留
+  // 首 id 且 poi_name 为空 → education 分支 POI 名联查失败 → 初中/小学 Badge 全部消失（2026-09-20）。
+  // 修复：merge 保留完整 school_ids，education 分支按实体学段兜底补 Badge。
+  const m = buildDetailModel('middle', '广铁一中铁英中学', repo, 'gz-440112-c80ac6ac');
+  assert.ok(m.brandCard, '铁英中学详情页必须渲染品牌关联');
+  const rows = m.brandCard.groups.flatMap((g) => g.rows);
+  const hp = rows.find((r) => r.name === '广州市黄埔区铁英学校（黄埔铁英）');
+  assert.ok(hp, '铁英中学详情页品牌卡应含黄埔铁英行');
+  assert.ok(hp.stages.includes('初中'), `黄埔铁英行应有「初中」Badge（stages=${JSON.stringify(hp.stages)}）`);
+  assert.ok(hp.stages.includes('小学'), `黄埔铁英为九年一贯，还应有「小学」Badge（stages=${JSON.stringify(hp.stages)}）`);
+  assert.equal(hp.isCurrent, true, '铁英中学详情页当前行应标记 isCurrent');
+  assert.ok(hp.link && hp.link.includes('id=gz-440112-c80ac6ac'), '黄埔铁英行链接应携带初中 school_id');
+});
+
+test('品牌关联：7 区外远郊成员不可点击跳转（南沙铁英回归）', () => {
+  // 南沙铁英在 7 区范围外（无实体无 POI，merge 标注「远郊不在POI范围」）。
+  // 修复前 education 分支对任意非空成员名生成链接 → 点击落入空详情页（availableStages=[]）；
+  // 修复：无外键且名不可解析的成员只作信息行（link=null）。
+  const m = buildDetailModel('middle', '广铁一中铁英中学', repo, 'gz-440112-c80ac6ac');
+  const rows = m.brandCard.groups.flatMap((g) => g.rows);
+  const ns = rows.find((r) => r.name === '广州市南沙区铁英学校');
+  assert.ok(ns, '品牌卡应保留南沙铁英信息行（铁一官网「1+3」托管口径）');
+  assert.equal(ns.link, null, '南沙铁英无实体无 POI，不得生成可点击跳转');
+});
+
 test('法人多校区：官方升学文件一个名称对应多个 school_id，聚合展示分别跳转', () => {
   // 一一三中法人行：2 个 middle 校区（乐学/东方）；金融城/元岗为纯高中（NON_MIDDLE，
   // 2026-09-17 联网核实 campus_middle_webverify_20260917.md）
@@ -279,6 +306,13 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
     // 组内有非当前成员行（真增量信息）时必须渲染（useful）
     if (!m.brandCardUseful && m.brandCard.groups.some((g) => g.rows.some((r) => !r.isCurrent))) {
       miss.push(`${e.name} 有非当前成员行但 useful=false`);
+    }
+    // 行级不变量：可点击行必须有学段 Badge（有外键实体或有 POI 命中）；
+    // 无外键且名不可解析的 7 区外/建设中成员必须不可点击（防空跳详情页，南沙铁英回归）
+    for (const g of m.brandCard.groups) {
+      for (const r of g.rows) {
+        if (r.link && r.stages.length === 0) miss.push(`${e.name} 品牌卡行「${r.name}」有链接但无学段 Badge`);
+      }
     }
   }
   assert.deepEqual(miss, [], `品牌卡消失/未渲染: ${miss.join('; ')}`);

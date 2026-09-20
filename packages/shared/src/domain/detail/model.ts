@@ -262,13 +262,29 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
         return campusList.map((c) => {
           const cn = c.poi_name || m.name;
           const campusStages = campusStageOf(cn);
-          const stages: string[] = campusStages;
-          const finalStage = campusStages.includes('初中') ? 'middle'
-            : campusStages.includes('高中') ? 'high'
-            : campusStages.includes('小学') ? 'primary'
-            : stage;
-          const link = cn
-            ? `/school/${encodeURIComponent(cn)}?stage=${finalStage || 'primary'}${c.school_id ? `&id=${c.school_id}` : ''}`
+          // 该成员行的全部外键：merge_groups 对品牌组保留了完整 school_ids
+          // （如「黄埔铁英」= 中学+小学两个实体），普通成员用单 school_id
+          const idList: string[] = m.school_ids && m.school_ids.length
+            ? m.school_ids
+            : (c.school_id ? [c.school_id] : []);
+          // 学段兜底：POI 名未命中（poi_name 缺失/为成员通名）但外键实体存在时，
+          // 按实体学段补 Badge（与 brand 分支同款；防「黄埔铁英」等品牌成员 Badge 消失）
+          const stages: string[] = [...campusStages];
+          for (const s of ['primary', 'middle', 'high'] as SchoolStage[]) {
+            if (!stages.includes(STAGE_SHORT[s]) && idList.some((id) => repo.entities.some((e) => e.school_id === id && e.stage === s))) {
+              stages.push(STAGE_SHORT[s]);
+            }
+          }
+          const stageKey = [stage, ...(['primary', 'middle', 'high'] as SchoolStage[]).filter((s) => s !== stage)]
+            .find((k: SchoolStage) => stages.includes(STAGE_SHORT[k])) || null;
+          // 跳转必须可解析：外键实体命中，或成员名/POI 名能解析到在册实体。
+          // 7 区外远郊成员（南沙铁英/增城/英德等，无实体无 POI）只作信息行，不生成可点击跳转
+          const linkedEntity = stageKey
+            ? idList.map((id) => repo.entities.find((e) => e.school_id === id && e.stage === stageKey)).find(Boolean)
+            : null;
+          const resolvable = !!linkedEntity || idList.length > 0 || !!repo.resolvePoiName(cn);
+          const link = cn && resolvable
+            ? `/school/${encodeURIComponent(linkedEntity?.name || cn)}?stage=${stageKey || 'primary'}${linkedEntity ? `&id=${linkedEntity.school_id}` : (c.school_id ? `&id=${c.school_id}` : '')}`
             : null;
           return {
             name: m.campuses && m.campuses.length ? cn : m.name,

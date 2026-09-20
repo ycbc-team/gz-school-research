@@ -131,6 +131,9 @@ export interface EducationGroupMember {
   poi_match?: string;
   poi_name?: string;
   school_id?: string;
+  /** 品牌组合并入 education 时保留的完整实体外键（如「黄埔铁英」= 中学+小学两个实体）；
+   * 运行时学段兜底与跳转判定使用，避免只保留首 id 导致学部 Badge 丢失 */
+  school_ids?: string[];
   /** 多校区索引：成员校在 POI 里有多个校区时，列出所有校区（poi_match="多校区索引"时使用） */
   campuses?: Array<{ poi_name: string; school_id: string }>;
 }

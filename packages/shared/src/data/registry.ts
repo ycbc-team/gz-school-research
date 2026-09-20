@@ -164,6 +164,7 @@ export function createRegistryApi(loaders: DataLoaders) {
           ...g.members.map((m) => ({
             name: m.name,
             role: '成员校',
+            school_ids: m.school_ids,
             poi_names: m.campuses?.length ? m.campuses.map((c: { poi_name: string }) => c.poi_name) : m.poi_name ? [m.poi_name] : undefined,
             poi_name: m.poi_name,
             school_id: m.school_id,
