@@ -3,11 +3,11 @@
 
 范围：7 区（荔湾/越秀/海珠/天河/白云/黄埔/番禺），与小学同口径，排除远郊南沙/花都/从化/增城。
 
-用法: python3 scripts/middle/fetch_middle_schools.py
+用法: python3 data/poi/scripts/fetch_middle_schools.py
 依赖: 项目根 .env 中的 AMAP_WEB_KEY（Web 服务类型 Key）
 数据源: 高德地图 Web 服务 API（place/text 与 config/district）
 输出:
-  data/middle/schools-gz.json  唯一数据真源（JSON）
+  data/poi/dist/middle_poi.json  唯一数据真源（JSON）
 
 初中采集特殊点（相对小学）：
 - 广州大量初中名为「XX中学」或为完全中学（初高中一体），仅查 types=141201 会漏。
@@ -28,7 +28,7 @@ import time
 import urllib.parse
 import urllib.request
 
-BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # 项目根（scripts/middle/ 的上三层）
+BASE = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", ".."))  # 项目根（data/poi/scripts/ 的上四层）
 ROOT = BASE
 
 DISTRICTS = [
@@ -190,16 +190,16 @@ def main():
         result["schools"].extend(schools)
         time.sleep(0.4)
 
-    data_dir = os.path.join(BASE, "data", "middle")
+    data_dir = os.path.join(BASE, "data", "poi", "dist")
     os.makedirs(data_dir, exist_ok=True)
-    with open(os.path.join(data_dir, "schools-gz.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(data_dir, "middle_poi.json"), "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, separators=(",", ":"))
 
     total = len(result["schools"])
     per = {name: sum(1 for s in result["schools"] if s["adcode"] == adcode) for name, adcode in districts}
     print(f"\n完成: 共 {total} 所初中/完全中学")
     print("各区: " + ", ".join(f"{n} {per[n]}" for n, _ in districts))
-    print(f"输出: {os.path.join(data_dir, 'schools-gz.json')}")
+    print(f"输出: {os.path.join(data_dir, 'middle_poi.json')}")
 
 
 if __name__ == "__main__":

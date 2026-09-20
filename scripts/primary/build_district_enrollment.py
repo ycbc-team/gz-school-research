@@ -382,9 +382,9 @@ def load_unified_matcher():
     sys.path.insert(0, os.path.join(ROOT, "scripts", "registry"))
     from school_match import SchoolMatcher
     return SchoolMatcher.load(
-        poi_paths=[(os.path.join(DATA, "schools-gz.json"), "小学"),
-                   (os.path.join(ROOT, "data", "middle", "schools-gz.json"), "初中"),
-                   (os.path.join(ROOT, "data", "high", "schools-gz.json"), "高中")],
+        poi_paths=[(os.path.join(ROOT, "data", "poi", "dist", "primary_poi.json"), "小学"),
+                   (os.path.join(ROOT, "data", "poi", "dist", "middle_poi.json"), "初中"),
+                   (os.path.join(ROOT, "data", "poi", "dist", "high_poi.json"), "高中")],
         entities_path=os.path.join(ROOT, "data", "registry", "entities.json"))
 
 
@@ -411,8 +411,8 @@ def resolve_fallback(matcher, school, adcode, poi_pool, stage="小学"):
 
 
 def match_and_write(district_key, records, source, source_url):
-    # 数据真源为 data/primary/schools-gz.json（JSON 唯一真源）
-    with open(os.path.join(DATA, "schools-gz.json"), encoding="utf-8") as f:
+    # 数据真源为 data/poi/dist/primary_poi.json（JSON 唯一真源）
+    with open(os.path.join(ROOT, "data", "poi", "dist", "primary_poi.json"), encoding="utf-8") as f:
         data = json.load(f)
     poi_pool = [s for s in data.get("schools", []) if s.get("adcode") == DISTRICTS[district_key]["adcode"]]
     # 排除泛名/在建类 POI（如「学校」「建设中」）

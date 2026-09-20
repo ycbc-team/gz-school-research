@@ -56,7 +56,7 @@ lines = []
 lines.append('# 教育集团成员覆盖清单（P1）')
 lines.append('')
 lines.append('> 比对范围：`data/registry/education_groups_2026.json`（招考办2026名额分配表，43核心校 + 118成员校 = 161校）')
-lines.append('> 比对基准：POI 三层 `data/middle/schools-gz.json`（475初中）/ `data/primary/schools-gz.json`（931小学）/ `data/high/schools-gz.json`（126高中）')
+lines.append('> 比对基准：POI 三层 `data/poi/dist/middle_poi.json`（475初中）/ `data/poi/dist/primary_poi.json`（931小学）/ `data/poi/dist/high_poi.json`（126高中）')
 lines.append('> 匹配方法：normName 全等匹配（去"广州市"前缀、括号统一后去括号、去空白）+ 校区/区名变体复核 + 高德逐校核实')
 lines.append('> 数据来源：广州市招考办 http://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html （2026-05-12）')
 lines.append('')

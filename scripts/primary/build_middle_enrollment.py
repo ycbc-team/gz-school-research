@@ -25,9 +25,9 @@ sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
 from school_match import SchoolMatcher as _SchoolMatcher
 
 _MATCHER = _SchoolMatcher.load(
-    poi_paths=[(os.path.join(ROOT, "data/primary/schools-gz.json"), "小学"),
-               (os.path.join(ROOT, "data/middle/schools-gz.json"), "初中"),
-               (os.path.join(ROOT, "data/high/schools-gz.json"), "高中")],
+    poi_paths=[(os.path.join(ROOT, "data/poi/dist/primary_poi.json"), "小学"),
+               (os.path.join(ROOT, "data/poi/dist/middle_poi.json"), "初中"),
+               (os.path.join(ROOT, "data/poi/dist/high_poi.json"), "高中")],
     entities_path=os.path.join(ROOT, "data/registry/entities.json"))
 
 def match_school_id(name, adcode=None):

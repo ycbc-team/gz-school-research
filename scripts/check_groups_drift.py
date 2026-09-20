@@ -92,14 +92,14 @@ def _check_build_high_levels():
     """
     tmp = os.path.join(tempfile.gettempdir(), "high_levels_repro")
     shutil.rmtree(tmp, ignore_errors=True)
-    r = subprocess.run(["python3", os.path.join(ROOT, "scripts/high/build_high_levels_js.py"), "--out-dir", tmp],
+    r = subprocess.run(["python3", os.path.join(ROOT, "data/poi/scripts/build_high_levels_js.py"), "--out-dir", tmp],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
-        print("生产脚本重跑失败：scripts/high/build_high_levels_js.py")
+        print("生产脚本重跑失败：data/poi/scripts/build_high_levels_js.py")
         print(r.stdout[-2000:])
         print(r.stderr[-2000:])
         sys.exit(1)
-    with open(os.path.join(ROOT, "data/high/schools-gz.json")) as a, open(os.path.join(tmp, "schools-gz.json")) as b:
+    with open(os.path.join(ROOT, "data/poi/dist/high_poi.json")) as a, open(os.path.join(tmp, "high_poi.json")) as b:
         da, db = json.load(a), json.load(b)
         # school_id 由下一环 build_entities 回写（其自带一致性校验），清洗层只比其余字段
         strip = lambda d: {**d, "schools": [{k: v for k, v in s.items() if k != "school_id"} for s in d["schools"]]}
@@ -127,9 +127,9 @@ def _check_build_entities():
         sys.exit(1)
     pairs = [
         ("data/registry/entities.json", "entities"),
-        ("data/primary/schools-gz.json", "primary POI"),
-        ("data/middle/schools-gz.json", "middle POI"),
-        ("data/high/schools-gz.json", "high POI"),
+        ("data/poi/dist/primary_poi.json", "primary POI"),
+        ("data/poi/dist/middle_poi.json", "middle POI"),
+        ("data/poi/dist/high_poi.json", "high POI"),
     ]
     failed = []
     for prod_rel, label in pairs:

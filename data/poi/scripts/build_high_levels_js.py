@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """构建高中数据真源：
-按 levels.json（学校清单+分类+指标）清洗高德 POI → data/high/schools-gz.json（清洗版真源）。
+按 levels.json（学校清单+分类+指标）清洗高德 POI → data/poi/dist/high_poi.json（清洗版真源）。
 
-用法: python3 scripts/high/build_high_levels_js.py
-依赖: data/high/schools-gz.json（fetch_high_schools.py 产物）、data/high/levels.json（人工调研产物）
+用法: python3 data/poi/scripts/build_high_levels_js.py
+依赖: data/poi/dist/high_poi.json（fetch_high_schools.py 产物）、data/high/levels.json（人工调研产物）
 """
 import json
 import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent.parent
-HIGH = ROOT / "data" / "high"
+ROOT = Path(__file__).resolve().parent.parent.parent.parent
+HIGH = ROOT / "data" / "poi" / "dist"
 
 DISTRICT_ADCODE = {
     "荔湾区": "440103", "越秀区": "440104", "海珠区": "440105",
@@ -83,8 +83,8 @@ def main():
     out_dir = HIGH
     if "--out-dir" in sys.argv:
         out_dir = Path(sys.argv[sys.argv.index("--out-dir") + 1])
-    levels = json.loads((HIGH / "levels.json").read_text(encoding="utf-8"))
-    raw = json.loads((HIGH / "schools-gz.json").read_text(encoding="utf-8"))
+    levels = json.loads((ROOT / "data" / "high" / "levels.json").read_text(encoding="utf-8"))
+    raw = json.loads((HIGH / "high_poi.json").read_text(encoding="utf-8"))
     entity_stage = load_entity_db()
 
     # 1) 建立学校索引：campus 规范名 -> school（按 norm 后的 key）
@@ -150,7 +150,7 @@ def main():
         "note": "高中点位（含完全中学），已按实体表学段判定清洗（MIDDLE_ONLY 防线 + 实体表 stage），保留校名+校区；school 字段为规范校名",
         "schools": points,
     }
-    (out_dir / "schools-gz.json").write_text(
+    (out_dir / "high_poi.json").write_text(
         json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n",
         encoding="utf-8",
     )
@@ -163,7 +163,7 @@ def main():
     sup = sum(1 for p in points if p.get("supplement"))
     print(f"点位: {len(points)}（含补点 {sup}）")
     print("各区: " + ", ".join(f"{k} {v}" for k, v in sorted(per.items())))
-    print(f"剔除留痕: {len(dropped)} 条（见 schools-gz.json 复核）")
+    print(f"剔除留痕: {len(dropped)} 条（见 high_poi.json 复核）")
     with open(out_dir / "schools_dropped_review.txt", "w", encoding="utf-8") as f:
         for name, why in sorted(dropped):
             f.write(f"{why}\t{name}\n")

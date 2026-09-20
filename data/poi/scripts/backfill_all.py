@@ -3,7 +3,7 @@
 只补 7 个中心城区（与现有采集口径一致），远郊四区跳过。"""
 import json, os, re, time, urllib.parse, urllib.request
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", ".."))  # 项目根（data/poi/scripts/ 的上四层）
 KEY=[l.split('=',1)[1].strip() for l in open(os.path.join(ROOT,'.env')) if l.startswith('AMAP_WEB_KEY=')][0]
 SEVEN = ['荔湾','越秀','海珠','天河','白云','黄埔','番禺']
 FAR = ['花都','从化','增城','南沙']
@@ -19,7 +19,7 @@ def norm(s):
     return s.strip()
 
 qm = json.load(open(os.path.join(ROOT,'data/linkage/quota_matrix.json')))['schools']
-poi_path = os.path.join(ROOT,'data/middle/schools-gz.json')
+poi_path = os.path.join(ROOT,'data/poi/dist/middle_poi.json')
 poi = json.load(open(poi_path))
 existing_norms = {norm(s['name']) for s in poi['schools']}
 existing_names = {s['name'] for s in poi['schools']}

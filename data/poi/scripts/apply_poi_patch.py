@@ -30,7 +30,7 @@ def id_key(adcode, poi_name):
 poi_data = {}
 poi_by_name_stage = {}  # (norm_name, stage) -> poi
 for stage in ['primary', 'middle', 'high']:
-    path = os.path.join(ROOT, f'data/{stage}/schools-gz.json')
+    path = os.path.join(ROOT, f'data/poi/dist/{stage}_poi.json')
     with open(path) as f:
         d = json.load(f)
     poi_data[stage] = d
@@ -239,7 +239,7 @@ for item in PENDING:
 # ============================================================
 # 1. 写入 POI 数据
 for stage in ['primary', 'middle', 'high']:
-    path = os.path.join(ROOT, f'data/{stage}/schools-gz.json')
+    path = os.path.join(ROOT, f'data/poi/dist/{stage}_poi.json')
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(poi_data[stage], f, ensure_ascii=False, indent=2)
 

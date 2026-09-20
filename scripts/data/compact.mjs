@@ -64,13 +64,13 @@ const WEB_TARGETS = walkJson(DATA_SRC)
   .filter((rel) => !rel.split(sep).includes('src')); // src 为源数据目录，仅 dist 产物打包
 // 小程序主包数据（地图页 + 首页/支撑度消费）：POI/tier1/levels/招生/实体/升学路线/官方录取分
 const MP_MAIN_TARGETS = [
-  'data/primary/schools-gz.json',
+  'data/poi/dist/primary_poi.json',
   'data/primary/tier1_schools_all.json',
   'data/primary/xiaoshengchu_2026.json',
   'data/primary/middle_enroll_notes.json',
-  'data/middle/schools-gz.json',
+  'data/poi/dist/middle_poi.json',
   'data/middle/tier1_schools_all.json',
-  'data/high/schools-gz.json',
+  'data/poi/dist/high_poi.json',
   'data/high/levels.json',
   'data/high/scores_2025.json',
   'data/high/scores_2026.json',

@@ -20,9 +20,9 @@ def load_poi(path):
     d = load_json(path)
     return {norm_name(s['name']): s for s in d.get('schools', [])}
 
-middle = load_poi('data/middle/schools-gz.json')
-primary = load_poi('data/primary/schools-gz.json')
-high = load_poi('data/high/schools-gz.json')
+middle = load_poi('data/poi/dist/middle_poi.json')
+primary = load_poi('data/poi/dist/primary_poi.json')
+high = load_poi('data/poi/dist/high_poi.json')
 all_poi = {'初中': middle, '小学': primary, '高中': high}
 
 SEVEN = {'荔湾区', '越秀区', '海珠区', '天河区', '白云区', '黄埔区', '番禺区'}

@@ -283,9 +283,9 @@ from school_match import SchoolMatcher
 
 ADCODE_OF = {"荔湾":"440103","越秀":"440104","海珠":"440105","天河":"440106","白云":"440111","黄埔":"440112","番禺":"440113"}
 _matcher = SchoolMatcher.load(
-    poi_paths=[(os.path.join(BASE, "data/primary/schools-gz.json"), "小学"),
-               (os.path.join(BASE, "data/middle/schools-gz.json"), "初中"),
-               (os.path.join(BASE, "data/high/schools-gz.json"), "高中")],
+    poi_paths=[(os.path.join(BASE, "data/poi/dist/primary_poi.json"), "小学"),
+               (os.path.join(BASE, "data/poi/dist/middle_poi.json"), "初中"),
+               (os.path.join(BASE, "data/poi/dist/high_poi.json"), "高中")],
     entities_path=os.path.join(BASE, "data/registry/entities.json"))
 
 pending = []  # (group, member)

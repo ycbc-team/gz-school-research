@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """补位搜索：对官方名单中有、但高德 POI 未收录的学校逐校检索，尽量补点。
 
-用法: python3 scripts/primary/backfill_schools.py
+用法: python3 data/poi/scripts/backfill_schools.py
 依赖: 项目根 .env 的 AMAP_WEB_KEY
 数据流:
   1. 读取 data/primary/enrollments/2026-panyu.json 的 unmatched（官方有、高德无）
   2. 逐校调高德 place/text 检索（city=440113，不限分类）
-  3. 高置信命中 → 合并进 data/primary/schools-gz.json（唯一真源，追加，src=backfill 标记）
+  3. 高置信命中 → 合并进 data/poi/dist/primary_poi.json（唯一真源，追加，src=backfill 标记）
      并存 data/primary/schools-backfill.json 留痕
   4. 之后重跑 scripts/primary/build_district_enrollment.py panyu 完成绑定
 """
@@ -18,8 +18,9 @@ import time
 import urllib.parse
 import urllib.request
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # 项目根（scripts/primary/ 的上三层）
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", ".."))  # 项目根（data/poi/scripts/ 的上四层）
 DATA = os.path.join(ROOT, "data", "primary")
+POI_DIR = os.path.join(ROOT, "data", "poi", "dist")
 
 # 统一匹配库：norm 本体（NFKC/繁简/去广州市/删括号/去空白）收敛至 school_match.normName；
 # 番禺采集特有的输入清洗（去区名/镇）保留在本地，不再重复定义 norm 逻辑
@@ -163,7 +164,7 @@ def main():
         missing = [s for s in missing if s in only]
 
     # 加载现有 POI 避免重复（数据真源为 JSON）
-    with open(os.path.join(DATA, "schools-gz.json"), encoding="utf-8") as f:
+    with open(os.path.join(POI_DIR, "primary_poi.json"), encoding="utf-8") as f:
         data = json.load(f)
     existing = {(s["name"], round(s["lng"], 5), round(s["lat"], 5)) for s in data["schools"]}
     by_name = {s["name"]: s for s in data["schools"]}
@@ -201,7 +202,7 @@ def main():
             uncertain.append({"school": school, "reason": f"分数低({score})", "poi": p.get("name")})
         time.sleep(0.35)
 
-    # 应用：把高置信命中追加进 schools.js / schools-gz.json（避免覆盖已有）
+    # 应用：把高置信命中追加进 primary_poi.json（避免覆盖已有）
     added, updated = 0, 0
     for f_ in found:
         if f_.get("note") == "POI 已存在":
@@ -225,12 +226,12 @@ def main():
 
     if added or updated:
         data["note"] = data.get("note", "") + "；含 backfill 补充点位"
-        with open(os.path.join(DATA, "schools-gz.json"), "w", encoding="utf-8") as f:
+        with open(os.path.join(POI_DIR, "primary_poi.json"), "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
         with open(os.path.join(DATA, "schools-backfill.json"), "w", encoding="utf-8") as f:
             json.dump({"updated": time.strftime("%Y-%m-%d"), "added": added, "items": found},
                       f, ensure_ascii=False, indent=1)
-        print(f"\n已追加 {added} 个补充点位 → data/primary/schools-gz.json")
+        print(f"\n已追加 {added} 个补充点位 → data/poi/dist/primary_poi.json")
 
     print(f"命中: {len(found)} / 存疑: {len(uncertain)} / 未找到: {len(notfound)}")
     print("\n== 命中 ==")

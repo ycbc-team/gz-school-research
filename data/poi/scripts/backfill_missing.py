@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """补录交叉校验发现的 10 所缺失初中 POI（九年一贯制/民办/新校，初中 type 搜不到）。
-按校名直查高德 place/text，命中后追加到 data/middle/schools-gz.json。"""
+按校名直查高德 place/text，命中后追加到 data/poi/dist/middle_poi.json。"""
 import json, os, time, urllib.parse, urllib.request
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", ".."))  # 项目根（data/poi/scripts/ 的上四层）
 def load_key():
     for line in open(os.path.join(ROOT, '.env')):
         if line.startswith('AMAP_WEB_KEY='):
@@ -31,7 +31,7 @@ def search(name):
     u = 'https://restapi.amap.com/v3/place/text?' + urllib.parse.urlencode(p)
     return json.load(urllib.request.urlopen(u, timeout=20))['pois'] or []
 
-path = os.path.join(ROOT, 'data/middle/schools-gz.json')
+path = os.path.join(ROOT, 'data/poi/dist/middle_poi.json')
 data = json.load(open(path))
 existing = {s['name'] for s in data['schools']}
 added = []

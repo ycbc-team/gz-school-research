@@ -3,7 +3,7 @@
  * 学校注册表构建（范式：POI 点位表 — Entity 实体表 — Fact 事实表 三分离）。
  *
  * 三表职责（无冗余）：
- *   POI 点位表 data/<stage>/schools-gz.json
+ *   POI 点位表 data/poi/dist/<stage>_poi.json
  *     { name(地图标签), lng, lat, adcode, school_id }   —— 点位固有属性：坐标、所在区
  *   Entity 实体表 data/registry/entities.json
  *     { school_id, name(标准名), stage, aliases[] }      —— 身份：标准名 + 全部叫法
@@ -68,9 +68,9 @@ function poiNameAliases(poiName, adcode) {
   return out;
 }
 const stageFiles = {
-  primary: 'data/primary/schools-gz.json',
-  middle: 'data/middle/schools-gz.json',
-  high: 'data/high/schools-gz.json',
+  primary: 'data/poi/dist/primary_poi.json',
+  middle: 'data/poi/dist/middle_poi.json',
+  high: 'data/poi/dist/high_poi.json',
 };
 
 // 纯高中校区（初中不办学）：middle 表不得保留（业务事实，人工/官方核对后固化）。

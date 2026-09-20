@@ -5,14 +5,14 @@
  * 小程序端对应实现见 apps/miniprogram/utils/data.js（同一紧凑编译，CJS 产物）。
  */
 import { hydrate, createRepository, buildPoints, type DataLoaders, type MapPointFull } from '@gz/shared';
-import primarySchoolsCompact from './compact/primary/schools-gz.js';
+import primarySchoolsCompact from './compact/poi/dist/primary_poi.js';
 import primaryTier1Compact from './compact/primary/tier1_schools_all.js';
 import entitiesCompact from './compact/registry/entities.js';
 import xiaoshengchu2026Compact from './compact/primary/xiaoshengchu_2026.js';
 import middleEnrollNotesCompact from './compact/primary/middle_enroll_notes.js';
-import middleSchoolsCompact from './compact/middle/schools-gz.js';
+import middleSchoolsCompact from './compact/poi/dist/middle_poi.js';
 import middleTier1Compact from './compact/middle/tier1_schools_all.js';
-import highSchoolsCompact from './compact/high/schools-gz.js';
+import highSchoolsCompact from './compact/poi/dist/high_poi.js';
 import highLevelsCompact from './compact/high/levels.js';
 import enrollTianheCompact from './compact/primary/enrollments/2026-tianhe.js';
 import enrollYuexiuCompact from './compact/primary/enrollments/2026-yuexiu.js';

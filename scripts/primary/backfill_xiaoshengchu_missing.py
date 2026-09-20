@@ -2,15 +2,15 @@
 """补全 xiaoshengchu 构建中"官方有、POI 无"的学校（2026-09-10）。
 
 来源：scripts/primary/build_xiaoshengchu_all.py 各区 MAP 的空列表条目（官方 2026 文件在册、POI 库缺失）。
-策略（显式全量匹配，沿用 scripts/primary/backfill_schools.py 评分体系）：
+策略（显式全量匹配，沿用 data/poi/scripts/backfill_schools.py 评分体系）：
   A. 高德 place/text 逐校检索（city=对应区 adcode），评分 ≥900 直接采用；
-  B. 高德未命中但 data/middle/schools-gz.json 有同法人记录 → 复用其坐标补 primary 记录（src=from_middle）；
+  B. 高德未命中但 data/poi/dist/middle_poi.json 有同法人记录 → 复用其坐标补 primary 记录（src=from_middle）；
   C. 均未命中 → 输出待核清单（人工处理，不写入）。
 特例：沙步小学（2026 并入铁铮学校）、知识城南安置区（二期）小学（暂定名）→ 跳过并注明。
 
 输出：
   data/primary/schools-backfill.json  追加 items（留痕）
-  data/primary/schools-gz.json        追加 POI（src=backfill/from_middle）
+  data/poi/dist/primary_poi.json        追加 POI（src=backfill/from_middle）
 用法: python3 scripts/primary/backfill_xiaoshengchu_missing.py [--dry-run]
 """
 import json
@@ -143,9 +143,9 @@ def main():
     dry = "--dry-run" in sys.argv
     key = load_key()
     backfill = json.load(open(os.path.join(DATA, "schools-backfill.json"), encoding="utf-8"))
-    schools = json.load(open(os.path.join(DATA, "schools-gz.json"), encoding="utf-8"))
+    schools = json.load(open(os.path.join(ROOT, "data", "poi", "dist", "primary_poi.json"), encoding="utf-8"))
     poi_names = {s["name"] for s in schools["schools"]}
-    mids = {s["name"]: s for s in json.load(open(os.path.join(DATA, "..", "middle", "schools-gz.json"), encoding="utf-8"))["schools"]}
+    mids = {s["name"]: s for s in json.load(open(os.path.join(ROOT, "data", "poi", "dist", "middle_poi.json"), encoding="utf-8"))["schools"]}
 
     missing = extract_missing()
     print(f"[补全] 官方有、POI 无共 {len(missing)} 所")
@@ -217,7 +217,7 @@ def main():
             print("待核清单:", json.dumps(pending, ensure_ascii=False))
         return
     schools["schools"].sort(key=lambda s: s["name"])
-    json.dump(schools, open(os.path.join(DATA, "schools-gz.json"), "w", encoding="utf-8"),
+    json.dump(schools, open(os.path.join(ROOT, "data", "poi", "dist", "primary_poi.json"), "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
     if added or from_middle:
         backfill.setdefault("items", [])

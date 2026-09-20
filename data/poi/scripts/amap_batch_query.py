@@ -5,7 +5,7 @@
 再与实体表/POI 数据比对给出"可补/疑似/无结果"分类。
 
 用法:
-  python3 scripts/registry/amap_batch_query.py <input.json> [--output output.json]
+  python3 data/poi/scripts/amap_batch_query.py <input.json> [--output output.json]
 
 输入 JSON 格式:
 {
@@ -88,14 +88,14 @@ def search_amap(key, keywords, adcode, offset=10):
     return results
 
 # 统一匹配库：norm 收敛至 school_match.matchNorm（含前导区名剥/去广州市/保留校区括号，泛词保护）
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "scripts", "registry"))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), "scripts", "registry"))
 from school_match import matchNorm as norm
 
 def load_existing_poi():
     """加载所有学段现有 POI。"""
     all_poi = []
     for stage in ["primary", "middle", "high"]:
-        path = os.path.join(ROOT, f"data/{stage}/schools-gz.json")
+        path = os.path.join(ROOT, f"data/poi/dist/{stage}_poi.json")
         with open(path) as f:
             data = json.load(f)
         for s in data.get("schools", []):

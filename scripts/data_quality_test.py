@@ -69,7 +69,7 @@ CO_LOCATED_SNAPSHOT = "78bd7925e8bb2651"
 # 首次固化 2026-09-18：228 所（含剑桥郡小学误标剔除后；另新增 7 区 minban_*.md 查漏补缺
 # 来源链接共 88 所可追溯）。
 PRIVATE_MINBAN_SNAPSHOT = "c3ee85789c726b50"
-POI_PATHS = ["data/primary/schools-gz.json", "data/middle/schools-gz.json", "data/high/schools-gz.json"]
+POI_PATHS = ["data/poi/dist/primary_poi.json", "data/poi/dist/middle_poi.json", "data/poi/dist/high_poi.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
 failures = []
@@ -238,7 +238,7 @@ def main():
                    zip(POI_PATHS, ("小学", "初中", "高中"))],
         entities_path=os.path.join(ROOT, "data/registry/entities.json"))
     _poi_all = _matcher.poi_all
-    for lib, stage in (("data/primary/schools-gz.json", "小学"), ("data/middle/schools-gz.json", "初中"), ("data/high/schools-gz.json", "高中")):
+    for lib, stage in (("data/poi/dist/primary_poi.json", "小学"), ("data/poi/dist/middle_poi.json", "初中"), ("data/poi/dist/high_poi.json", "高中")):
         d = json.load(open(os.path.join(ROOT, lib)))
         for s in d.get("schools", []):
             r = _matcher.resolve(s["name"],
@@ -424,9 +424,9 @@ def main():
     #  由人工确认后决定保留或合并，并把修正固化到 POI/实体构建脚本，禁止手改）。
     # 快照防线同孤儿：候选清单 digest 固化，新增候选立即失败（防止悄悄引入新冗余点位）。
     _POI_FILES = {
-        "primary": os.path.join(ROOT, "data/primary/schools-gz.json"),
-        "middle": os.path.join(ROOT, "data/middle/schools-gz.json"),
-        "high": os.path.join(ROOT, "data/high/schools-gz.json"),
+        "primary": os.path.join(ROOT, "data/poi/dist/primary_poi.json"),
+        "middle": os.path.join(ROOT, "data/poi/dist/middle_poi.json"),
+        "high": os.path.join(ROOT, "data/poi/dist/high_poi.json"),
     }
     _ent_by_id = {e["school_id"]: e for e in entities}
     _co = []

@@ -52,8 +52,8 @@ def load_poi(path, stage):
             for s in d.get("schools", [])]
 
 poi_all = []
-for p, st in [("data/primary/schools-gz.json", "小学"), ("data/middle/schools-gz.json", "初中"),
-              ("data/high/schools-gz.json", "高中")]:
+for p, st in [("data/poi/dist/primary_poi.json", "小学"), ("data/poi/dist/middle_poi.json", "初中"),
+              ("data/poi/dist/high_poi.json", "高中")]:
     poi_all += load_poi(p, st)
 
 def dist_km(l1, l2):

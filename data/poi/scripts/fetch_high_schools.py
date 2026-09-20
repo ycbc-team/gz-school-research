@@ -1,11 +1,26 @@
 #!/usr/bin/env python3
-"""采集广州七区小学 POI 与区边界，输出项目共享数据目录 data/primary/。
+# -*- coding: utf-8 -*-
+"""采集广州七区高中 POI 与区边界，输出项目共享数据目录 data/high/。
 
-用法: python3 scripts/primary/fetch_schools.py
+范围：7 区（荔湾/越秀/海珠/天河/白云/黄埔/番禺），与小学/初中同口径，排除远郊南沙/花都/从化/增城。
+
+用法: python3 data/poi/scripts/fetch_high_schools.py
 依赖: 项目根 .env 中的 AMAP_WEB_KEY（Web 服务类型 Key）
 数据源: 高德地图 Web 服务 API（place/text 与 config/district）
 输出:
-  data/primary/schools-gz.json  唯一数据真源（JSON）
+  data/poi/dist/high_poi.json  唯一数据真源（JSON；build_high_levels_js.py 会覆盖为清洗版点位）
+
+高中采集特殊点（相对初中）：
+- 广州高中命名混杂：纯高中多为「XX高级中学/XX高中」，完全中学多为「XX中学」，
+  还有以「XX学校」命名的民办完中（POI 分类难覆盖，另行在 levels 数据补充）。
+- 三路查询合并去重：
+  1. types=141202（高中分类）——最准
+  2. keywords=高中——兜底名称含「高中」的
+  3. types=141200（中学分类）——捕获「XX中学」命名的完全中学/纯高中
+- 过滤：保留名称含「高中/高级中学」的；保留名称含「中学」但不含
+  「初中/小学/职业/技工/特殊」的（即完全中学与高中）；剔除培训机构/
+  辅导/托管/复读/国际课程中心等非学历教育 POI 与职业类学校。
+- 去重：按 (name, round(lng,5), round(lat,5))，同校多门点合并。
 """
 import json
 import os
@@ -15,7 +30,7 @@ import time
 import urllib.parse
 import urllib.request
 
-BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # 项目根（scripts/primary/ 的上三层）
+BASE = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", ".."))  # 项目根（data/poi/scripts/ 的上四层）
 ROOT = BASE
 
 DISTRICTS = [
@@ -27,6 +42,43 @@ DISTRICTS = [
     ("黄埔区", "440112"),
     ("番禺区", "440113"),
 ]
+
+# 非学历教育 / 非高中 POI 特征词（名称命中即剔除）
+NON_SCHOOL = [
+    "培训", "辅导", "托辅", "托管", "自习", "成长中心", "学习中心",
+    "学习规划", "教育咨询", "教育科技", "教育文化",
+    "复读", "补习", "家教", "奥数", "研学", "留学", "出国", "考研",
+    "成人", "电大", "函授", "夜校", "驾校", "幼儿园", "早教", "文具", "书店",
+    "少年宫", "活动中心", "体育馆",
+    "职业", "职中", "职校", "技工", "技校", "中专", "中职", "特殊教育",
+    "聋人", "盲人", "培智", "工读",
+]
+
+# 名称未写「初中部」但已由招生校区口径确认不招收高中生的校区。高德 POI 常笼统标为「中学」，
+# 不能仅凭名称规则判断；此表也须在 build_high_levels_js.py 同步执行，防止清洗阶段回灌。
+MIDDLE_ONLY_CAMPUSES = {
+    "广州市真光中学(芳花校区)",
+    "广州市真光中学(岭南校区)",
+    "广州市西关培英中学(西校区)",
+    "广州市第十三中学(禺山校区)",
+    "广东外语外贸大学实验中学(北校区)",
+    "广东仲元中学(第二校区)",
+    "广州市南武中学",
+    "广州奥林匹克中学(智谷校区)",  # 智谷=小学+初中，不招高中生（2026-09-18 用户确认）
+}
+
+
+def is_high_candidate(name):
+    """高中候选名称过滤；供采集与回归用例共用。"""
+    if not name or name in MIDDLE_ONLY_CAMPUSES:
+        return False
+    if any(b in name for b in NON_SCHOOL):
+        return False
+    if "初中" in name and "高中" not in name:
+        return False
+    if "小学" in name:
+        return False
+    return "高中" in name or "高级中学" in name or "中学" in name
 
 
 def load_key():
@@ -53,13 +105,7 @@ def api(url):
 
 
 def fetch_pois(key, adcode):
-    """翻页采集某区小学 POI。
-
-    查询方式（合并去重）：
-      1. types=141203（高德「小学」分类）——分类最准，含「XX学校(小学部)」等
-      2. keywords=小学 —— 兜底补充名称含「小学」但未归入该分类的
-    无 100 条上限：高德单次搜索可按 offset/page 翻页，实际返回数远超 100。
-    """
+    """翻页采集某区高中 POI（三路查询合并）。"""
     out = []
 
     def collect(params):
@@ -88,29 +134,18 @@ def fetch_pois(key, adcode):
             page += 1
             time.sleep(0.4)
 
-    collect({"key": key, "types": "141203", "city": adcode, "citylimit": "true"})
+    # 三路合并：高中分类 / 关键词「高中」/ 中学分类
+    collect({"key": key, "types": "141202", "city": adcode, "citylimit": "true"})
     time.sleep(0.4)
-    collect({"key": key, "keywords": "小学", "city": adcode, "citylimit": "true"})
+    collect({"key": key, "keywords": "高中", "city": adcode, "citylimit": "true"})
+    time.sleep(0.4)
+    collect({"key": key, "types": "141200", "city": adcode, "citylimit": "true"})
 
-    # 只保留小学/学校类 POI：名称含「小学/学校/附小/小学部」且非培训机构
-    NON_SCHOOL = ["培训", "托辅", "托管", "辅导", "自习", "成长中心", "学习中心",
-                  "学习规划", "国际教育", "教育咨询", "文具", "书店", "幼儿园",
-                  "工地", "城门楼", "教师楼", "智云书房", "博通教育", "知了托管",
-                  "玩具店", "童趣园", "感统", "口才"]
-    # 状态词 POI（高德对在建/装修/停业点位会加后缀），原样入库会污染校名匹配，一律剔除
-    STATUS_NOISE = ["建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办",
-                    "装修", "装修中", "暂停营业", "停业", "选址"]
+    # 过滤：高中 + 完全中学（有高中部的「XX中学」），剔除纯初中/职业/机构
     keep, seen = [], set()
     for s in out:
         n = s["name"]
-        if not n:
-            continue
-        if not ("小学" in n or "学校" in n or "附小" in n or "小学部" in n):
-            continue
-        if any(b in n for b in NON_SCHOOL):
-            continue
-        if any(b in n for b in STATUS_NOISE):
-            print(f"  [filter] 状态词POI剔除: {n}")
+        if not is_high_candidate(n):
             continue
         k = (n, round(s["lng"], 5), round(s["lat"], 5))
         if k in seen:
@@ -147,13 +182,14 @@ def fetch_boundary(key, name):
 
 def main():
     key = load_key()
-    # 可选参数：只采集指定区（如 python3 fetch_schools.py 440113）
+    # 可选参数：只采集指定区（如 python3 fetch_high_schools.py 440118）
     only = {a for a in sys.argv[1:] if re.fullmatch(r"\d{6}", a)}
     districts = [d for d in DISTRICTS if not only or d[1] in only]
     result = {
-        "updated": time.strftime("%Y-%m-%d"),
+        "updated": "2026-09-09",
         "source": "高德地图 Web 服务 API (place/text + config/district)",
-        "note": "小学分类(types=141203)翻页采集 + 关键词补充，无 100 条限制",
+        "note": "高中分类(types=141202)+关键词「高中」+中学分类(types=141200)三路翻页采集合并，"
+                "保留高中与完全中学，剔除纯初中/职业类/培训机构，无 100 条限制",
         "districts": [],
         "schools": [],
     }
@@ -167,16 +203,16 @@ def main():
         result["schools"].extend(schools)
         time.sleep(0.4)
 
-    data_dir = os.path.join(BASE, "data", "primary")
+    data_dir = os.path.join(BASE, "data", "poi", "dist")
     os.makedirs(data_dir, exist_ok=True)
-    with open(os.path.join(data_dir, "schools-gz.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(data_dir, "high_poi.json"), "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, separators=(",", ":"))
 
     total = len(result["schools"])
     per = {name: sum(1 for s in result["schools"] if s["adcode"] == adcode) for name, adcode in districts}
-    print(f"\n完成: 共 {total} 所小学")
+    print(f"\n完成: 共 {total} 所高中/完全中学")
     print("各区: " + ", ".join(f"{n} {per[n]}" for n, _ in districts))
-    print(f"输出: {os.path.join(data_dir, 'schools-gz.json')}")
+    print(f"输出: {os.path.join(data_dir, 'high_poi.json')}（随后由 build_high_levels_js.py 覆盖为清洗版）")
 
 
 if __name__ == "__main__":

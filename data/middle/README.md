@@ -12,7 +12,7 @@
 
 | 文件 | 用途 |
 | --- | --- |
-| `schools-gz.json` | 原始快照数据，可复核（schools + districts 结构） |
+| `../poi/dist/middle_poi.json` | 初中点位真源（原 schools-gz.json，2026-09 起移入 poi/dist） |
 | `schools.js` | 浏览器端直接用 `<script>` 加载（写入 `window.GZ_MIDDLE_SCHOOLS`） |
 | `tier1_schools_all.json` | 第一梯队核验源数据（名单 + 网传来源 + 客观数据 + 判定） |
 | `tier1.js` | 浏览器端加载（写入 `window.GZ_MIDDLE_TIER1`），由 build_middle_tier1_js.py 生成 |
@@ -42,6 +42,6 @@
 ## 更新方式
 
 ```bash
-python3 scripts/middle/fetch_middle_schools.py    # 初中点位采集
+python3 data/poi/scripts/fetch_middle_schools.py    # 初中点位采集（写 ../poi/dist/middle_poi.json）
 python3 scripts/build_middle_tier1_js.py   # 梯队数据构建
 ```

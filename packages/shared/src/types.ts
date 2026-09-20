@@ -30,7 +30,7 @@ export interface DistrictBoundary {
   boundary: number[][][];
 }
 
-/** data/{primary,middle,high}/schools-gz.json */
+/** data/poi/dist/{primary,middle,high}_poi.json */
 export interface SchoolsSnapshot {
   updated: string;
   source: string;

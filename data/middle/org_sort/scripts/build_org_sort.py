@@ -101,7 +101,7 @@ def variants(name: str):
 
 def main():
     matcher = SchoolMatcher.load(
-        poi_paths=[(os.path.join(ROOT, "data", "middle", "schools-gz.json"), "初中")],
+        poi_paths=[(os.path.join(ROOT, "data", "poi", "dist", "middle_poi.json"), "初中")],
         entities_path=os.path.join(ROOT, "data", "registry", "entities.json"))
 
     compiled = []

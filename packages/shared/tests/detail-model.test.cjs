@@ -13,11 +13,11 @@ const { createRepository, buildDetailModel, buildLinkageModel, normName } = requ
 const ROOT = path.resolve(__dirname, '../../..');
 const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', file), 'utf8'));
 const loaders = {
-  primarySchools: load('primary/schools-gz.json'),
+  primarySchools: load('poi/dist/primary_poi.json'),
   primaryTier1: load('primary/tier1_schools_all.json'),
-  middleSchools: load('middle/schools-gz.json'),
+  middleSchools: load('poi/dist/middle_poi.json'),
   middleTier1: load('middle/tier1_schools_all.json'),
-  highSchools: load('high/schools-gz.json'),
+  highSchools: load('poi/dist/high_poi.json'),
   highLevels: load('high/levels.json'),
   enrollments: ['tianhe', 'yuexiu', 'haizhu', 'liwan', 'panyu', 'baiyun', 'huangpu'].map((d) => load(`primary/enrollments/2026-${d}.json`)),
   quotaMatrix: load('linkage/quota_matrix.json'),
