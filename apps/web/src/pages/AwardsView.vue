@@ -77,6 +77,7 @@ function toggleStage(value: SelectionStage) {
   selectedStages.value = next;
 }
 function selectAllStages(selected: boolean) { selectedStages.value = selected ? new Set(STAGES.map((item) => item.value)) : new Set(); }
+function medalRank(award: string) { return award.includes('金') || award.includes('一等') ? 'gold' : award.includes('银') || award.includes('二等') ? 'silver' : 'bronze'; }
 function schoolDomId(key: string) { return `award-school-${encodeURIComponent(key)}`; }
 const targetSchool = computed(() => filteredSchools.value.find((school) => school.ids.includes(targetSchoolId.value)));
 function scrollToTargetSchool() {
@@ -88,6 +89,7 @@ function scrollToTargetSchool() {
 
 const filteredSchools = computed<AwardSchool[]>(() => {
   const map = new Map<string, AwardSchool>();
+  let latestYear = 0;
   for (const record of records) {
     if (!selectedEvents.value.has(eventKey(record.competition, record.year))) continue;
     if (record.stage === 'secondary'
@@ -95,13 +97,35 @@ const filteredSchools = computed<AwardSchool[]>(() => {
       : !selectedStages.value.has(record.stage)) continue;
     const ids = record.school_ids.filter((id) => selectedDistricts.value.has(id.slice(3, 9)));
     if (!ids.length) continue;
+    latestYear = Math.max(latestYear, record.year);
     const key = `${record.stage}:${record.school}`;
     const school = map.get(key) || { key, name: record.school, district: districtOf(ids[0]!), stage: record.stage, ids: [], records: [] };
     school.ids = [...new Set([...school.ids, ...ids])];
     school.records.push(record);
     map.set(key, school);
   }
-  return [...map.values()].sort((a, b) => a.name.localeCompare(b.name, 'zh'));
+  const medalCounts = (school: AwardSchool, year?: number) => {
+    const counts = { gold: 0, silver: 0, bronze: 0, total: 0 };
+    for (const record of school.records) {
+      if (year !== undefined && record.year !== year) continue;
+      counts[medalRank(record.award)] += 1;
+      counts.total += 1;
+    }
+    return counts;
+  };
+  const medalOrder = { gold: 0, silver: 1, bronze: 2 } as const;
+  for (const school of map.values()) {
+    school.records.sort((a, b) => b.year - a.year || medalOrder[medalRank(a.award)] - medalOrder[medalRank(b.award)]);
+  }
+  return [...map.values()].sort((a, b) => {
+    const currentA = medalCounts(a, latestYear);
+    const currentB = medalCounts(b, latestYear);
+    for (const key of ['gold', 'silver', 'bronze'] as const) {
+      if (currentB[key] !== currentA[key]) return currentB[key] - currentA[key];
+    }
+    const totalDiff = medalCounts(b).total - medalCounts(a).total;
+    return totalDiff || a.name.localeCompare(b.name, 'zh');
+  });
 });
 const groups = computed(() => {
   if (groupBy.value === 'none') return [{ key: 'all', title: '', schools: filteredSchools.value }];
@@ -150,7 +174,7 @@ function goCampus(item: { id: string; name: string; stage: string }, school: Awa
   router.push({ path: `/school/${encodeURIComponent(item.name)}`, query: { stage: item.stage, id: item.id } });
 }
 
-const medalClass = (award: string) => award.includes('金') || award.includes('一等') ? 'gold' : award.includes('银') || award.includes('二等') ? 'silver' : 'bronze';
+const medalClass = medalRank;
 function goBack() { window.history.back(); }
 </script>
 
