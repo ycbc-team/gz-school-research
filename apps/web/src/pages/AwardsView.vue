@@ -4,7 +4,7 @@ import { innovationAwards, chuangkeAwards, entities } from '../data';
 
 const entsById = computed(() => {
   const m: Record<string, string> = {};
-  for (const e of entities) m[e.school_id] = e.name;
+  for (const e of entities.entities) m[e.school_id] = e.name;
   return m;
 });
 
