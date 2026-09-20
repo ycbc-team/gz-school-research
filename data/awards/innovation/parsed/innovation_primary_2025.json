@@ -39,8 +39,10 @@
       "leader": "张妙依",
       "members": "张妙依、 张心扬",
       "coach": "欧阳翠红、 冯冠嘟",
-      "school_ids": [],
-      "match_type": "none"
+      "school_ids": [
+        "gz-440106-11e15e8d"
+      ],
+      "match_type": "single"
     },
     {
       "school": "广州市天河区天府路小学",
@@ -78,8 +80,10 @@
       "leader": "刘书恒",
       "members": "刘书恒、 胡晟伦、 张骏然",
       "coach": "林育珊、 曹庆晖",
-      "school_ids": [],
-      "match_type": "none"
+      "school_ids": [
+        "gz-440103-193e8ac3"
+      ],
+      "match_type": "single"
     },
     {
       "school": "广州市庆丰实验学校",
@@ -103,12 +107,9 @@
       "members": "余思辰",
       "coach": "邝启湛",
       "school_ids": [
-        "gz-440103-6b0e7dbd",
-        "gz-440103-82b9766a",
-        "gz-440103-9f5557ad",
         "gz-440103-b54d0b70"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市天河区体育东路小学",
@@ -119,11 +120,9 @@
       "members": "梁一骁、 张澍、 梁一恺",
       "coach": "欧阳仪、 李怿珍",
       "school_ids": [
-        "gz-440106-bd76b30f",
-        "gz-440106-cdfda274",
         "gz-440106-fafdbff4"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市天河区暨南大学附属实验学校",
@@ -133,8 +132,10 @@
       "leader": "刘北鲲",
       "members": "刘北鲲、 周扬翕、 吴星雨、 李临渊",
       "coach": "欧阳翠红",
-      "school_ids": [],
-      "match_type": "none"
+      "school_ids": [
+        "gz-440106-11e15e8d"
+      ],
+      "match_type": "single"
     },
     {
       "school": "广州市天河区华阳小学（天润校区）",
@@ -157,8 +158,10 @@
       "leader": "梁晋菲",
       "members": "梁晋菲",
       "coach": "林育珊",
-      "school_ids": [],
-      "match_type": "none"
+      "school_ids": [
+        "gz-440103-193e8ac3"
+      ],
+      "match_type": "single"
     },
     {
       "school": "广州市天河区华景小学（北校区）",
@@ -196,12 +199,9 @@
       "members": "胡栩康",
       "coach": "莫广珍",
       "school_ids": [
-        "gz-440103-6b0e7dbd",
-        "gz-440103-82b9766a",
-        "gz-440103-9f5557ad",
         "gz-440103-b54d0b70"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市天河区华阳小学（天润校区）",
@@ -238,8 +238,10 @@
       "leader": "邱楚晞",
       "members": "邱楚晞、 周宇浩、 胡运煋",
       "coach": "袁宇浩、 安丽娟",
-      "school_ids": [],
-      "match_type": "none"
+      "school_ids": [
+        "gz-440111-0d379efe"
+      ],
+      "match_type": "single"
     },
     {
       "school": "广州市增城区南香山小学",
@@ -261,7 +263,7 @@
       "members": "魏昭宇、 戴子晴、 潘令仪、 郭乔恩、 李豫桐",
       "coach": "陈月颜、 陈芳芳、 张送英",
       "school_ids": [
-        "gz-440106-a7cac9ec"
+        "gz-440106-d8e69757"
       ],
       "match_type": "single"
     },
@@ -339,10 +341,9 @@
       "members": "梁筱童、 陈晫轩、 张柏濠、 黄宇轩、 李瑞雪",
       "coach": "林洋坤、 刘文奇",
       "school_ids": [
-        "gz-440103-28507a63",
         "gz-440103-a5de21fb"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市越秀区大沙头小学",
@@ -405,9 +406,10 @@
       "members": "欧阳宏宇、 吴博涛、 李佳洋",
       "coach": "杜思奇、 吴文锋、 崔丽珊",
       "school_ids": [
+        "gz-440112-4991e638",
         "gz-440113-060386bb"
       ],
-      "match_type": "single"
+      "match_type": "multi"
     },
     {
       "school": "广东外语外贸大学附属科学城实验学校",
@@ -455,11 +457,9 @@
       "members": "李芊慧、 陈奕翔、 饶卓尔",
       "coach": "李怿珍",
       "school_ids": [
-        "gz-440106-bd76b30f",
-        "gz-440106-cdfda274",
         "gz-440106-fafdbff4"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市庆丰实验学校",
@@ -494,11 +494,9 @@
       "members": "蔡恺成、 邓佳熙、 匡伯骏",
       "coach": "苏楚缘",
       "school_ids": [
-        "gz-440106-bd76b30f",
-        "gz-440106-cdfda274",
         "gz-440106-fafdbff4"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市荔湾区华侨小学汇龙学校",
@@ -508,8 +506,10 @@
       "leader": "何迅杰",
       "members": "何迅杰、 黄梓超、 陈雨顺",
       "coach": "林育珊、 曹庆晖",
-      "school_ids": [],
-      "match_type": "none"
+      "school_ids": [
+        "gz-440103-193e8ac3"
+      ],
+      "match_type": "single"
     },
     {
       "school": "广州市番禺区恒润实验学校",
@@ -533,14 +533,9 @@
       "members": "陈梓晴",
       "coach": "马淑芬、 马云霞",
       "school_ids": [
-        "gz-440113-2ad239a0",
-        "gz-440113-2f593eda",
-        "gz-440113-bb3711d6",
-        "gz-440113-c57d3d31",
-        "gz-440113-d099ba85",
-        "gz-440113-d4aecd66"
+        "gz-440113-d099ba85"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市天河区灵秀小学",
@@ -563,8 +558,10 @@
       "leader": "肖梓萱",
       "members": "肖梓萱、 罗韵诗、 谢昊扬",
       "coach": "林育珊、 曹庆晖",
-      "school_ids": [],
-      "match_type": "none"
+      "school_ids": [
+        "gz-440103-193e8ac3"
+      ],
+      "match_type": "single"
     },
     {
       "school": "广州市天河区华景小学",
@@ -614,8 +611,10 @@
       "leader": "关天昊",
       "members": "关天昊",
       "coach": "林育珊",
-      "school_ids": [],
-      "match_type": "none"
+      "school_ids": [
+        "gz-440103-193e8ac3"
+      ],
+      "match_type": "single"
     },
     {
       "school": "广州市天河区东圃小学",
@@ -652,7 +651,7 @@
       "members": "崔允蓝、 谢月灵、 李妍思",
       "coach": "陈月颜",
       "school_ids": [
-        "gz-440106-a7cac9ec"
+        "gz-440106-d8e69757"
       ],
       "match_type": "single"
     },
@@ -755,8 +754,10 @@
       "leader": "谢彦儒",
       "members": "谢彦儒、 张峻、 刘城鑫、 赵稷丰",
       "coach": "欧阳翠红、 张树林",
-      "school_ids": [],
-      "match_type": "none"
+      "school_ids": [
+        "gz-440106-11e15e8d"
+      ],
+      "match_type": "single"
     },
     {
       "school": "华南师范大学附属小学",
@@ -791,8 +792,6 @@
       "members": "凌云志",
       "coach": "江华姿、 邓庆辉",
       "school_ids": [
-        "gz-440103-362ee1b6",
-        "gz-440103-554e0beb",
         "gz-440103-8d072726",
         "gz-440103-ecc193c7",
         "gz-440103-eeee1923",
@@ -865,8 +864,10 @@
       "leader": "何淑敏",
       "members": "张仪臻、 周道诚",
       "coach": "何淑敏、 黎嘉荧",
-      "school_ids": [],
-      "match_type": "none"
+      "school_ids": [
+        "gz-440112-3c310bc1"
+      ],
+      "match_type": "single"
     },
     {
       "school": "广东省教育研究院黄埔实验学校",
@@ -970,10 +971,9 @@
       "members": "朱启沁",
       "coach": "司徒敏",
       "school_ids": [
-        "gz-440106-bd76b30f",
-        "gz-440106-fafdbff4"
+        "gz-440106-bd76b30f"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市花都区骏威小学",
@@ -1008,10 +1008,9 @@
       "members": "张昊越",
       "coach": "刘心怡",
       "school_ids": [
-        "gz-440106-bd76b30f",
-        "gz-440106-fafdbff4"
+        "gz-440106-bd76b30f"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市番禺区市桥中心小学",
@@ -1095,7 +1094,6 @@
       "members": "沈雷嘉、 阮伟博、 许雯萱",
       "coach": "周晶、 邝颖斐",
       "school_ids": [
-        "gz-440103-16043f05",
         "gz-440103-4e0aa3d7",
         "gz-440103-a15d3a11"
       ],
@@ -1187,13 +1185,10 @@
       "members": "梁熙玥、 闫星宇、 黄睿妍、 杜泓逸、 肖可然",
       "coach": "邝启湛",
       "school_ids": [
-        "gz-440103-6b0e7dbd",
-        "gz-440103-82b9766a",
-        "gz-440103-9f5557ad",
         "gz-440103-b54d0b70"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     }
   ],
-  "compiled_schools": 71
+  "compiled_schools": 63
 }

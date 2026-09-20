@@ -27,10 +27,9 @@
       "members": "肖宇婷",
       "coach": "邝绮琳、段杉杉",
       "school_ids": [
-        "gz-440104-b22c4eca",
         "gz-440113-8f5e4721"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市番禺区市桥桥城中学",
@@ -54,9 +53,10 @@
       "members": "牛紫钰、鄞仍远、郑天乐、谢昊霖",
       "coach": "杨丽彬、黄靖元",
       "school_ids": [
+        "gz-440106-d40d0dbe",
         "gz-440106-fa9338a2"
       ],
-      "match_type": "single"
+      "match_type": "multi"
     },
     {
       "school": "广州市南沙区滨海实验学校",
@@ -91,10 +91,9 @@
       "members": "李峻毅、刘泰成、何子彦",
       "coach": "孟萌",
       "school_ids": [
-        "gz-440111-43437f78",
-        "gz-440111-81f3c313"
+        "gz-440111-43437f78"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广东实验中学",
@@ -105,12 +104,7 @@
       "members": "陈钧浩、冼靖棠、谢雨桐、王烨文",
       "coach": "贺文亮",
       "school_ids": [
-        "gz-440103-53cac770",
-        "gz-440103-ff7538dc",
-        "gz-440104-32444523",
         "gz-440104-7c4a905f",
-        "gz-440105-f88edb06",
-        "gz-440106-0eb93435",
         "gz-440111-a3cf5a4f"
       ],
       "match_type": "multi"
@@ -150,10 +144,9 @@
       "members": "陈骊霏、岑泽琪、陈鸣宇、刘云天、彭皓泽、王博楷、龙芷馨、吴芊桦、陈思涵、王晟安",
       "coach": "温曼君、章敏杰",
       "school_ids": [
-        "gz-440104-b22c4eca",
-        "gz-440113-8f5e4721"
+        "gz-440104-b22c4eca"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市南沙区滨海实验学校",
@@ -176,7 +169,7 @@
       "coach": "凌舒愉、杨辉",
       "school_ids": [
         "gz-440104-74121d17",
-        "gz-440104-7b6a95bd"
+        "gz-440111-82856abf"
       ],
       "match_type": "multi"
     },
@@ -248,10 +241,9 @@
       "members": "金俊江、孙浩谦",
       "coach": "杜碧嘉",
       "school_ids": [
-        "gz-440104-b22c4eca",
-        "gz-440113-8f5e4721"
+        "gz-440104-b22c4eca"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市第十八中学",
@@ -262,10 +254,9 @@
       "members": "方梓涵、石挺瑞",
       "coach": "卢燕萍、郑康辉",
       "school_ids": [
-        "gz-440106-3a61d518",
         "gz-440106-ef4076c1"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市番禺区大龙中学",
@@ -305,7 +296,7 @@
       "coach": "凌舒愉、周启斌",
       "school_ids": [
         "gz-440104-74121d17",
-        "gz-440104-7b6a95bd"
+        "gz-440111-82856abf"
       ],
       "match_type": "multi"
     },
@@ -347,10 +338,8 @@
       "members": "温开宸、胡晋铭",
       "coach": "朱茵仪",
       "school_ids": [
-        "gz-440106-15ca1554",
         "gz-440106-867e6c05",
-        "gz-440106-a989804b",
-        "gz-440106-f7cdfb7e"
+        "gz-440106-a989804b"
       ],
       "match_type": "multi"
     },
@@ -402,10 +391,9 @@
       "members": "阮靖恒、唐颂淇、吴嘉睿、陈宇昕",
       "coach": "卢燕萍、郑康辉",
       "school_ids": [
-        "gz-440106-3a61d518",
         "gz-440106-ef4076c1"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市第二中学南沙天元学校",
@@ -471,5 +459,5 @@
       "match_type": "single"
     }
   ],
-  "compiled_schools": 35
+  "compiled_schools": 27
 }

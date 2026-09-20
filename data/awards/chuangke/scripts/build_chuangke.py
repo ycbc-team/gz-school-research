@@ -14,6 +14,7 @@
 """
 import json
 import re
+import sys
 from pathlib import Path
 from xml.etree import ElementTree as ET
 from zipfile import ZipFile
@@ -24,11 +25,13 @@ PARSED = Path(__file__).resolve().parent.parent / "parsed"
 DIST = Path(__file__).resolve().parent.parent / "dist"
 ENTITIES = ROOT / "data/registry/entities.json"
 
+sys.path.insert(0, str(ROOT / "scripts" / "registry"))
+from school_match import SchoolMatcher
+
 DISTRICT_ADCODE = {"荔湾": "440103", "越秀": "440104", "海珠": "440105", "天河": "440106",
                    "白云": "440111", "黄埔": "440112", "番禺": "440113", "花都": "440114",
                    "南沙": "440115", "从化": "440117", "增城": "440118"}
 NON_SCHOOL = ["少年宫", "青少年宫"]
-BRAND_SUFFIX = ["附属学校", "附属实验", "实验学校", "附属小学", "附属中学", "外国语学校"]
 XLSX_NS = "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}"
 
 
@@ -91,32 +94,20 @@ def header_table(rows):
     return rows[header_index + 1:], value
 
 
-def core_name(s):
-    s = s.replace("（", "(").replace("）", ")").replace(" ", "").strip()
-    paren = re.search(r"[（(](.+?)[)）]", s)
-    campus = paren.group(1) if paren else ""
-    s = re.sub(r"[（(].*?[)）]", "", s)
-    s = re.sub(r"^广州市", "", s)
-    for d in DISTRICT_ADCODE:
-        s = re.sub(r"^" + d + r"区?", "", s)
-    return s, campus
-
-
-def match_school(school, stage, ents):
-    core, campus = core_name(school)
-    stages = {"middle", "high"} if stage == "secondary" else {stage}
-    cands = [e for e in ents if e["stage"] in stages and (core in e["name"] or e["name"] in core)]
-    cands = [e for e in cands if not any(suf in e["name"] and suf not in core for suf in BRAND_SUFFIX)]
-    # 区码收窄：从原始校名提取区码
+def match_school(school, stage, matcher):
+    stage_names = ("小学",) if stage == "primary" else ("初中", "高中")
+    adcode = None
     for dname, adcode in DISTRICT_ADCODE.items():
         if dname in school:
-            cands_in_dist = [e for e in cands if adcode in e["school_id"]]
-            if cands_in_dist:
-                cands = cands_in_dist
             break
-    if campus:
-        cands = [e for e in cands if campus in e["name"]] or cands
-    return sorted(set(e["school_id"] for e in cands))
+    else:
+        adcode = None
+    hits = []
+    for stage_name in stage_names:
+        hits.extend(matcher.resolve(
+            school, preferred_adcode=adcode, preferred_stage=stage_name, strategy="all"
+        ))
+    return sorted({hit["school_id"] for hit in hits if hit.get("school_id")})
 
 
 def parse_personal(year, ents):
@@ -149,6 +140,14 @@ def parse_team(year, ents):
 
 def main():
     ents = json.load(open(ENTITIES))["entities"]
+    matcher = SchoolMatcher.load(
+        poi_paths=[
+            (ROOT / "data/poi/dist/primary_poi.json", "小学"),
+            (ROOT / "data/poi/dist/middle_poi.json", "初中"),
+            (ROOT / "data/poi/dist/high_poi.json", "高中"),
+        ],
+        entities_path=ENTITIES,
+    )
     years = sorted(set(
         re.search(r"(\d{4})", p.name).group(1)
         for p in RAW.glob("创客大赛_*获奖名单_*.*") if p.suffix.lower() in {".xls", ".xlsx"}
@@ -168,7 +167,7 @@ def main():
             if not stage:
                 skipped.append({**rec, "reason": f"未知组别:{rec['group']}"})
                 continue
-            sids = match_school(rec["school"], stage, ents)
+            sids = match_school(rec["school"], stage, matcher)
             rec["school_ids"] = sids
             rec["stage"] = stage
             matched.append(rec)

@@ -86,8 +86,7 @@
           "type": "personal",
           "school_ids": [
             "gz-440106-069ddb41",
-            "gz-440106-b711d94a",
-            "gz-440106-dab5b807"
+            "gz-440106-b711d94a"
           ],
           "stage": "secondary"
         },
@@ -206,8 +205,7 @@
           "award": "二等奖",
           "type": "personal",
           "school_ids": [
-            "gz-440113-53650c78",
-            "gz-440113-db149c4c"
+            "gz-440113-53650c78"
           ],
           "stage": "primary"
         },
@@ -282,7 +280,6 @@
           "award": "二等奖",
           "type": "personal",
           "school_ids": [
-            "gz-440106-a565a93c",
             "gz-440106-d5983217",
             "gz-440112-3847727f"
           ],
@@ -308,8 +305,7 @@
           "award": "二等奖",
           "type": "personal",
           "school_ids": [
-            "gz-440104-99aef0e5",
-            "gz-440104-d6c68349"
+            "gz-440104-99aef0e5"
           ],
           "stage": "secondary"
         },
@@ -375,11 +371,9 @@
           "award": "二等奖",
           "type": "personal",
           "school_ids": [
-            "gz-440106-15ca1554",
             "gz-440106-3c8afb6a",
             "gz-440106-867e6c05",
-            "gz-440106-a989804b",
-            "gz-440106-f7cdfb7e"
+            "gz-440106-a989804b"
           ],
           "stage": "secondary"
         },
@@ -500,8 +494,6 @@
           "type": "personal",
           "school_ids": [
             "gz-440104-402961f4",
-            "gz-440104-7425dd47",
-            "gz-440104-ec171256",
             "gz-440104-f815e0be"
           ],
           "stage": "primary"
@@ -651,41 +643,9 @@
           "award": "三等奖",
           "type": "personal",
           "school_ids": [
-            "gz-440106-0eb93435",
-            "gz-440106-15ca1554",
-            "gz-440106-22156e02",
-            "gz-440106-22fcbcd6",
-            "gz-440106-2e9f6f7b",
             "gz-440106-2f8a4424",
-            "gz-440106-3a61d518",
-            "gz-440106-3c8afb6a",
-            "gz-440106-429b917e",
-            "gz-440106-458838f7",
-            "gz-440106-52f7f4b7",
-            "gz-440106-5a7fbf3a",
-            "gz-440106-5b430017",
-            "gz-440106-5f78f6a9",
-            "gz-440106-621b20d3",
-            "gz-440106-7077b270",
-            "gz-440106-867e6c05",
-            "gz-440106-8f55ab34",
-            "gz-440106-90c47ff5",
             "gz-440106-93897236",
-            "gz-440106-a989804b",
-            "gz-440106-ae248365",
-            "gz-440106-b049d65a",
-            "gz-440106-b0d40cc4",
-            "gz-440106-b7d476f7",
-            "gz-440106-b9eb24f9",
-            "gz-440106-cc1c335f",
-            "gz-440106-ced6bbff",
-            "gz-440106-d40d0dbe",
-            "gz-440106-d8e69757",
-            "gz-440106-dd16c13e",
-            "gz-440106-ef4076c1",
-            "gz-440106-f7cdfb7e",
-            "gz-440106-fa9338a2",
-            "gz-440106-fd03e039"
+            "gz-440106-dd16c13e"
           ],
           "stage": "secondary"
         },
@@ -935,6 +895,7 @@
           "award": "二等奖",
           "type": "team",
           "school_ids": [
+            "gz-440112-4991e638",
             "gz-440113-060386bb"
           ],
           "stage": "primary"
@@ -948,7 +909,6 @@
           "award": "二等奖",
           "type": "team",
           "school_ids": [
-            "gz-440105-0adfcd61",
             "gz-440105-98d6d585"
           ],
           "stage": "primary"
@@ -972,7 +932,9 @@
           "coach": "张彩云、谢家乐",
           "award": "二等奖",
           "type": "team",
-          "school_ids": [],
+          "school_ids": [
+            "gz-440111-620f7d31"
+          ],
           "stage": "primary"
         },
         {
@@ -984,8 +946,7 @@
           "award": "二等奖",
           "type": "team",
           "school_ids": [
-            "gz-440113-53650c78",
-            "gz-440113-db149c4c"
+            "gz-440113-53650c78"
           ],
           "stage": "primary"
         },
@@ -1052,8 +1013,7 @@
           "award": "二等奖",
           "type": "team",
           "school_ids": [
-            "gz-440106-0d1e149e",
-            "gz-440106-28049c58"
+            "gz-440106-0d1e149e"
           ],
           "stage": "secondary"
         },
@@ -1067,8 +1027,7 @@
           "type": "team",
           "school_ids": [
             "gz-440106-069ddb41",
-            "gz-440106-b711d94a",
-            "gz-440106-dab5b807"
+            "gz-440106-b711d94a"
           ],
           "stage": "secondary"
         },
@@ -1094,7 +1053,6 @@
           "award": "三等奖",
           "type": "team",
           "school_ids": [
-            "gz-440105-0adfcd61",
             "gz-440105-98d6d585"
           ],
           "stage": "primary"
@@ -1124,12 +1082,7 @@
           "award": "三等奖",
           "type": "team",
           "school_ids": [
-            "gz-440113-2ad239a0",
-            "gz-440113-2f593eda",
-            "gz-440113-bb3711d6",
-            "gz-440113-c57d3d31",
-            "gz-440113-d099ba85",
-            "gz-440113-d4aecd66"
+            "gz-440113-d099ba85"
           ],
           "stage": "primary"
         },
@@ -1141,7 +1094,9 @@
           "coach": "谢家乐、刘宇航",
           "award": "三等奖",
           "type": "team",
-          "school_ids": [],
+          "school_ids": [
+            "gz-440111-620f7d31"
+          ],
           "stage": "primary"
         },
         {
@@ -1152,7 +1107,9 @@
           "coach": "刘宇航，张彩云",
           "award": "三等奖",
           "type": "team",
-          "school_ids": [],
+          "school_ids": [
+            "gz-440111-620f7d31"
+          ],
           "stage": "primary"
         },
         {
@@ -1205,7 +1162,9 @@
           "coach": "谢家乐、吴玉梅",
           "award": "三等奖",
           "type": "team",
-          "school_ids": [],
+          "school_ids": [
+            "gz-440111-620f7d31"
+          ],
           "stage": "primary"
         },
         {
@@ -1227,7 +1186,9 @@
           "coach": "谢燕雯",
           "award": "三等奖",
           "type": "team",
-          "school_ids": [],
+          "school_ids": [
+            "gz-440111-e66f2c52"
+          ],
           "stage": "secondary"
         },
         {
@@ -1267,8 +1228,7 @@
           "award": "三等奖",
           "type": "team",
           "school_ids": [
-            "gz-440106-0d1e149e",
-            "gz-440106-28049c58"
+            "gz-440106-0d1e149e"
           ],
           "stage": "secondary"
         },
@@ -1281,8 +1241,7 @@
           "award": "三等奖",
           "type": "team",
           "school_ids": [
-            "gz-440106-0d1e149e",
-            "gz-440106-28049c58"
+            "gz-440106-0d1e149e"
           ],
           "stage": "secondary"
         },
@@ -1294,7 +1253,9 @@
           "coach": "何姿帆",
           "award": "三等奖",
           "type": "team",
-          "school_ids": [],
+          "school_ids": [
+            "gz-440111-e66f2c52"
+          ],
           "stage": "secondary"
         },
         {
@@ -1387,7 +1348,9 @@
           "coach": "曾嘉龙",
           "award": "一等奖",
           "type": "personal",
-          "school_ids": [],
+          "school_ids": [
+            "gz-440112-3c310bc1"
+          ],
           "stage": "primary"
         },
         {
@@ -1452,7 +1415,9 @@
           "coach": "马兰",
           "award": "三等奖",
           "type": "personal",
-          "school_ids": [],
+          "school_ids": [
+            "gz-440112-e08700ea"
+          ],
           "stage": "primary"
         },
         {
@@ -1463,7 +1428,9 @@
           "coach": "吕咏高",
           "award": "三等奖",
           "type": "personal",
-          "school_ids": [],
+          "school_ids": [
+            "gz-440111-e66f2c52"
+          ],
           "stage": "primary"
         },
         {
@@ -1607,7 +1574,9 @@
           "coach": "陈凯如",
           "award": "三等奖",
           "type": "personal",
-          "school_ids": [],
+          "school_ids": [
+            "gz-440113-e7ca2b33"
+          ],
           "stage": "secondary"
         },
         {
@@ -1620,8 +1589,7 @@
           "type": "personal",
           "school_ids": [
             "gz-440106-069ddb41",
-            "gz-440106-b711d94a",
-            "gz-440106-dab5b807"
+            "gz-440106-b711d94a"
           ],
           "stage": "secondary"
         },
@@ -1750,7 +1718,9 @@
           "coach": "谢家乐、郑静华",
           "award": "三等奖",
           "type": "team",
-          "school_ids": [],
+          "school_ids": [
+            "gz-440111-620f7d31"
+          ],
           "stage": "primary"
         },
         {
@@ -1857,41 +1827,9 @@
           "award": "二等奖",
           "type": "team",
           "school_ids": [
-            "gz-440106-0eb93435",
-            "gz-440106-15ca1554",
-            "gz-440106-22156e02",
-            "gz-440106-22fcbcd6",
-            "gz-440106-2e9f6f7b",
             "gz-440106-2f8a4424",
-            "gz-440106-3a61d518",
-            "gz-440106-3c8afb6a",
-            "gz-440106-429b917e",
-            "gz-440106-458838f7",
-            "gz-440106-52f7f4b7",
-            "gz-440106-5a7fbf3a",
-            "gz-440106-5b430017",
-            "gz-440106-5f78f6a9",
-            "gz-440106-621b20d3",
-            "gz-440106-7077b270",
-            "gz-440106-867e6c05",
-            "gz-440106-8f55ab34",
-            "gz-440106-90c47ff5",
             "gz-440106-93897236",
-            "gz-440106-a989804b",
-            "gz-440106-ae248365",
-            "gz-440106-b049d65a",
-            "gz-440106-b0d40cc4",
-            "gz-440106-b7d476f7",
-            "gz-440106-b9eb24f9",
-            "gz-440106-cc1c335f",
-            "gz-440106-ced6bbff",
-            "gz-440106-d40d0dbe",
-            "gz-440106-d8e69757",
-            "gz-440106-dd16c13e",
-            "gz-440106-ef4076c1",
-            "gz-440106-f7cdfb7e",
-            "gz-440106-fa9338a2",
-            "gz-440106-fd03e039"
+            "gz-440106-dd16c13e"
           ],
           "stage": "secondary"
         },

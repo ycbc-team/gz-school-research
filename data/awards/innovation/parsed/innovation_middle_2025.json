@@ -119,12 +119,9 @@
       "members": "眭跃馨、 刘泽昕、 刘泓睿、任子木曦、 黄诗涵、 陈玥怡、",
       "coach": "余天谌",
       "school_ids": [
-        "gz-440106-15ca1554",
-        "gz-440106-867e6c05",
-        "gz-440106-a989804b",
-        "gz-440106-f7cdfb7e"
+        "gz-440106-3c8afb6a"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市南沙区滨海实验学校",
@@ -146,11 +143,9 @@
       "members": "郭可、 刘国庆、 罗恩、 冯诗淇",
       "coach": "余世娟、 马毅勇",
       "school_ids": [
-        "gz-440112-06029745",
-        "gz-440112-0cb5a402",
-        "gz-440112-43108516"
+        "gz-440112-0cb5a402"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州奥林匹克中学",
@@ -161,9 +156,10 @@
       "members": "王子龙、 黄梓颢、 刘斯铭",
       "coach": "杨丽彬、 黄靖元",
       "school_ids": [
+        "gz-440106-d40d0dbe",
         "gz-440106-fa9338a2"
       ],
-      "match_type": "single"
+      "match_type": "multi"
     },
     {
       "school": "广州市第八十六中学",
@@ -174,11 +170,9 @@
       "members": "林泓安、 张胡郢越、 林正朗、 李润阳",
       "coach": "余世娟、 马毅勇",
       "school_ids": [
-        "gz-440112-06029745",
-        "gz-440112-0cb5a402",
-        "gz-440112-43108516"
+        "gz-440112-0cb5a402"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市第八十九中学",
@@ -215,10 +209,8 @@
       "members": "黄映菲",
       "coach": "陈紫红、 李祺忭、 吴珍",
       "school_ids": [
-        "gz-440106-15ca1554",
         "gz-440106-867e6c05",
-        "gz-440106-a989804b",
-        "gz-440106-f7cdfb7e"
+        "gz-440106-a989804b"
       ],
       "match_type": "multi"
     },
@@ -231,10 +223,9 @@
       "members": "刘渝墨、 吴思瀚、 高梓淇",
       "coach": "叶紫荆",
       "school_ids": [
-        "gz-440113-acf92324",
         "gz-440113-b5ff857b"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州中学",
@@ -245,10 +236,8 @@
       "members": "温开宸、 马海生",
       "coach": "朱茵仪",
       "school_ids": [
-        "gz-440106-15ca1554",
         "gz-440106-867e6c05",
-        "gz-440106-a989804b",
-        "gz-440106-f7cdfb7e"
+        "gz-440106-a989804b"
       ],
       "match_type": "multi"
     },
@@ -274,10 +263,9 @@
       "members": "卢启鸣、 吴芷洋、 罗荣燊、 卢煦鸣",
       "coach": "黄小妹、 王家欣",
       "school_ids": [
-        "gz-440113-acf92324",
         "gz-440113-b5ff857b"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市增城区仙村中学",
@@ -299,10 +287,9 @@
       "members": "林哲瀚、 马旭",
       "coach": "杨硕",
       "school_ids": [
-        "gz-440104-b22c4eca",
-        "gz-440113-8f5e4721"
+        "gz-440104-b22c4eca"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市第四中学丰宁学校",
@@ -312,8 +299,10 @@
       "leader": "纪庭瑶",
       "members": "纪庭瑶、 林鑫、 欧桓燊、 关心悦",
       "coach": "关国成、 李耀华、 许建荣",
-      "school_ids": [],
-      "match_type": "none"
+      "school_ids": [
+        "gz-440104-3b870a8e"
+      ],
+      "match_type": "single"
     },
     {
       "school": "广州市增城区仙村中学",
@@ -399,8 +388,10 @@
       "leader": "欧阳伊帆",
       "members": "欧阳伊帆、赖凯仪、张峻钦、林梓诚",
       "coach": "李耀华、 关国成、 许建荣",
-      "school_ids": [],
-      "match_type": "none"
+      "school_ids": [
+        "gz-440104-3b870a8e"
+      ],
+      "match_type": "single"
     },
     {
       "school": "广州市增城区仙村中学",
@@ -505,5 +496,5 @@
       "match_type": "single"
     }
   ],
-  "compiled_schools": 22
+  "compiled_schools": 20
 }

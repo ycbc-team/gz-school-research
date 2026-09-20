@@ -286,6 +286,7 @@ const OFFICIAL_MIDDLE_ALIAS = {
   // 越秀区（校区官方叫法 → 越秀路名校区）
   '广东华侨中学（越秀校区）': '广东华侨中学(起义路校区)',
   '广州大学附属中学（越秀校区）': '广州大学附属中学(黄华路校区)',
+  '广州大学附属中学（校本部）': '广州大学附属中学(黄华路校区)',
   '广州大学附属中学': '广州大学附属中学(黄华路校区)',  // 越秀派位裸名→黄华路（完中本部；录取分由 OFFICIAL_HIGH_ALIAS 挂大学城）
   '广州市执信中学（越秀校区）': '广州市执信中学(执信路校区)',
   '广州市第二中学（越秀校区）': '广州市第二中学(应元路校区)',
@@ -437,6 +438,14 @@ const REMOVED_POI_ALIAS = {
   'middle|广东华侨中学起义路校区初中部': '广东华侨中学(起义路校区)',
   'high|广州市南海中学(高中部)': '广州市南海中学',
   'primary|陶育路小学': '广州市第一一三中学陶育实验学校小学部',  // 旧名→更名承继（2026-09-17 用户确认）
+};
+
+// 白名单赛事原始附件的官方学校名 → 当前 POI 实体。仅记录经实体名可确认的
+// 更名/学部称谓差异；远郊且实体库不存在的学校保持未匹配，不能猜配到市内学校。
+const AWARD_SOURCE_ALIAS = {
+  'primary|广东实验中学荔湾学校（第二小学部）': '广东实验中学荔湾学校附属第二小学',
+  'primary|广州市番禺区大石富丽小学': '富丽小学',
+  'primary|广州市第一中学附属环市西路小学（竹苑校区）': '环市西路小学',
 };
 
 // 教育集团成员官方名/旧名 → POI 点位名（P3 覆盖清单 2026-09-14 查证：更名/并入/承继）。
@@ -835,6 +844,11 @@ for (const [k, poi] of Object.entries(REMOVED_POI_ALIAS)) {
   const [stage, official] = k.split('|');
   if (attachAlias(stage, poi, official)) aliasHit++;
   else console.log('  [被删点位别名未命中POI]', official, '->', poi);
+}
+for (const [k, poi] of Object.entries(AWARD_SOURCE_ALIAS)) {
+  const [stage, official] = k.split('|');
+  if (attachAlias(stage, poi, official)) aliasHit++;
+  else console.log('  [赛事别名未命中POI]', official, '->', poi);
 }
 // 无 POI 点位的实体（school_id 即榜单/配额主键）补充口碑简称：SchoolMatcher 走 alias→2c 直接返回实体。
 // 与 attachAlias 不同，此类实体在 POI 表无对应点位，需按 school_id 直接追加（不走 POI 名挂载）。
