@@ -42,7 +42,7 @@ import highScores2026Compact from './compact/high/cutoff_score/dist/scores_2026.
 import orgSortCompiledCompact from './compact/middle/org_sort/dist/compiled.js';
 import innovationAwardsCompact from './compact/awards/innovation/dist/compiled.js';
 import chuangkeAwardsCompact from './compact/awards/chuangke/dist/compiled.js';
-import detailedRecordsCompact from './compact/awards/detailed_records.js';
+import detailedRecordsCompact from './compact/awards/dist/detailed_records.js';
 
 /** 紧凑结构经 hydrate 还原后的类型断言（字段为数据真源，结构由 scripts/ 保证） */
 const cast = <T>(v: unknown): T => v as T;

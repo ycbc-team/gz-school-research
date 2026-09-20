@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
-OUT = ROOT / "data/awards/detailed_records.json"
+OUT = ROOT / "data/awards/dist/detailed_records.json"
 INNOVATION = ROOT / "data/awards/innovation/parsed"
 CHUANGKE = ROOT / "data/awards/chuangke/parsed/chuangke.json"
 
@@ -41,6 +41,7 @@ def main():
                 "school_ids": record["school_ids"],
             })
 
+    OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(details, ensure_ascii=False, indent=2) + "\n", "utf-8")
     print(f"[detailed-records] {len(details)} 条")
 

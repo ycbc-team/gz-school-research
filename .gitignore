@@ -22,7 +22,9 @@
 
 # Node / monorepo
 node_modules/
-dist/
+apps/web/dist/
+apps/miniprogram/dist/
+packages/shared/dist/
 *.tsbuildinfo
 .pnpm-store/
 
