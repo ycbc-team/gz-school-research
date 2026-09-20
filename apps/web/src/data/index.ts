@@ -42,6 +42,7 @@ import highScores2026Compact from './compact/high/cutoff_score/dist/scores_2026.
 import orgSortCompiledCompact from './compact/middle/org_sort/dist/compiled.js';
 import innovationAwardsCompact from './compact/awards/innovation/dist/compiled.js';
 import chuangkeAwardsCompact from './compact/awards/chuangke/dist/compiled.js';
+import scienceLiteracyAwardsCompact from './compact/awards/science_literacy/dist/compiled.js';
 import detailedRecordsCompact from './compact/awards/dist/detailed_records.js';
 
 /** 紧凑结构经 hydrate 还原后的类型断言（字段为数据真源，结构由 scripts/ 保证） */
@@ -89,6 +90,7 @@ const loaders: DataLoaders = {
   schoolGroups: cast(hydrate(schoolGroupsCompact)),
   innovationAwards: cast(hydrate(innovationAwardsCompact)),
   chuangkeAwards: cast(hydrate(chuangkeAwardsCompact)),
+  scienceLiteracyAwards: cast(hydrate(scienceLiteracyAwardsCompact)),
   detailedRecords: cast(hydrate(detailedRecordsCompact)),
 };
 
@@ -117,6 +119,7 @@ export const brandGroups = loaders.brandGroups;
 export const entities = loaders.entities;
 export const innovationAwards = loaders.innovationAwards || {};
 export const chuangkeAwards = loaders.chuangkeAwards || {};
+export const scienceLiteracyAwards = loaders.scienceLiteracyAwards || {};
 export const detailedRecords = loaders.detailedRecords || [];
 
 /** 七区初中机构整理档位整合版（data/middle/org_sort/dist/compiled.json，由 data/middle/org_sort/scripts/build_org_sort.py 经

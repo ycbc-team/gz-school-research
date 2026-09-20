@@ -1,0 +1,3452 @@
+{
+  "metric": "science_literacy_awards",
+  "competition": "广州市中小学生科学素养大赛",
+  "year": 2025,
+  "source_file": "附件1 2025年广州市中小学生科学素养大赛各赛项获奖公示名单.xlsx",
+  "total_records": 272,
+  "skipped": [],
+  "records": [
+    {
+      "category": "科学探究",
+      "district": "南沙区",
+      "school": "广州市南沙区金隆小学",
+      "group": "小学组",
+      "student": "蒙想 蒙畅",
+      "coach": "刘艳",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "黄埔区",
+      "school": "广州市黄埔区怡园小学",
+      "group": "小学组",
+      "student": "誉杰 严翌宸",
+      "coach": "陈慧",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440112-23b184e9",
+        "gz-440112-49401733",
+        "gz-440112-6fdd05af"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "天河区",
+      "school": "广州市天河区龙岗路小学",
+      "group": "小学组",
+      "student": "郑悦潼、郑悦雯",
+      "coach": "黎春燕",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-ac6650f4"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "初中组",
+      "student": "董思齐、李昕",
+      "coach": "陈珂、李霞",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-e32237e4"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "海珠区",
+      "school": "广州市五中滨江学校",
+      "group": "初中组",
+      "student": "林煜基、杨俊轩",
+      "coach": "梁倩、陈绎",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440105-06994d39"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "市属",
+      "school": "广州市铁一中学",
+      "group": "初中组",
+      "student": "吕咚芸、聂柔、郭峻铮",
+      "coach": "麦嘉敏",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440104-09652aa5",
+        "gz-440111-28c16cca",
+        "gz-440113-97e0acaa"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "白云区",
+      "school": "广州市培英中学",
+      "group": "高中组",
+      "student": "洪锦潞、李思颖",
+      "coach": "何展东、黄睿",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440103-a3ee807c",
+        "gz-440111-730c7404"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科学探究",
+      "district": "天河区",
+      "school": "广州市第七十五中学",
+      "group": "高中组",
+      "student": "叶可莹、张若杨",
+      "coach": "游远",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-5b430017",
+        "gz-440106-621b20d3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科学探究",
+      "district": "市属",
+      "school": "广州协和学校",
+      "group": "高中组",
+      "student": "陈子悦、郑茜文",
+      "coach": "王娟、李丽",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440103-e281e7d0"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "荔湾区",
+      "school": "广州市荔湾区沙面小学",
+      "group": "小学组",
+      "student": "张依馨",
+      "coach": "梁美欣",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440103-8d072726",
+        "gz-440103-ecc193c7",
+        "gz-440103-eeee1923",
+        "gz-440103-faabf468"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "白云区",
+      "school": "广州市白云区东辉小学",
+      "group": "小学组",
+      "student": "杨宇航",
+      "coach": "刘萃芬",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440111-43281bfc"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "天河区",
+      "school": "广州市天河区天府路小学",
+      "group": "小学组",
+      "student": "赵剪瞳",
+      "coach": "黄树婷",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-4dbb5b90",
+        "gz-440106-6dc5833a",
+        "gz-440106-ecfc1a19"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "黄埔区",
+      "school": "广州石化中学",
+      "group": "初中组",
+      "student": "邝龙豪",
+      "coach": "张楠",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440112-8edaa2d8"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "荔湾区",
+      "school": "广州市第四中学花地学校",
+      "group": "初中组",
+      "student": "吴骏浩",
+      "coach": "梅睿敏",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440103-958c2ab9"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "番禺区",
+      "school": "广州市番禺区实验中学",
+      "group": "初中组",
+      "student": "李俊轩",
+      "coach": "赖能",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440113-e121d1b3"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "市属",
+      "school": "广州市第六中学（花都校区）",
+      "group": "高中组",
+      "student": "张茜",
+      "coach": "杨莹",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "市属",
+      "school": "广东广雅中学",
+      "group": "高中组",
+      "student": "许宏益",
+      "coach": "兰文琦",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440103-bb7f78f0"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "荔湾区",
+      "school": "广州市荔湾区外语职业高级中学",
+      "group": "高中组",
+      "student": "马晓柔",
+      "coach": "罗冬瑜",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "科普讲解",
+      "district": "黄埔区",
+      "school": "广州市黄埔区玉泉学校",
+      "group": "小学组",
+      "student": "麦睿雅",
+      "coach": "谢桥红",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440112-12b0184b"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "南沙区",
+      "school": "广州市南沙区湾区实验学校（小学部）",
+      "group": "小学组",
+      "student": "杨斯斯",
+      "coach": "陈婷婷",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "番禺区",
+      "school": "广州市番禺区石楼镇中心小学",
+      "group": "小学组",
+      "student": "郭萌晞",
+      "coach": "莫维珍",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440113-8f09e6a7"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "黄埔区",
+      "school": "广东外语外贸大学附属黄埔实验学校",
+      "group": "初中组",
+      "student": "石育豪",
+      "coach": "杨超",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440112-cf50e275"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "增城区",
+      "school": "广州市增城区荔城街第三中学",
+      "group": "初中组",
+      "student": "陈信",
+      "coach": "陈华星",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "黄埔区",
+      "school": "广州市黄埔区新港中学",
+      "group": "初中组",
+      "student": "唐可馨",
+      "coach": "肖建伟",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440112-632bcdb7"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "天河区",
+      "school": "广州市第七十五中学",
+      "group": "高中组",
+      "student": "祖丽哈加依·帕塔尔",
+      "coach": "刘秋怡",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-5b430017",
+        "gz-440106-621b20d3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普讲解",
+      "district": "增城区",
+      "school": "广州市增城区应元学校",
+      "group": "高中组",
+      "student": "詹博慧",
+      "coach": "林彩洁",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "科普讲解",
+      "district": "黄埔区",
+      "school": "北京师范大学广州实验学校",
+      "group": "高中组",
+      "student": "李坤",
+      "coach": "余洁娴",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440112-0876de16"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科技展演",
+      "district": "黄埔区",
+      "school": "广州市黄埔区玉泉学校",
+      "group": "小学组",
+      "student": "麦睿雅、杨雨泽、麦炜东、宋雄凯、赵彦达、魏彤",
+      "coach": "陈桦宇、黄颍雯、李彩平",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440112-12b0184b"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "番禺区",
+      "school": "广州市番禺区沙湾中心小学",
+      "group": "小学组",
+      "student": "陆瑶、吴樾琪、彭小睿、梁曦允、郑沛颖、郑羽蕊、何泳祐",
+      "coach": "何施婷、梁海彤、梁滢",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440113-e0eeec62"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "荔湾区",
+      "school": "广州市荔湾区沙面小学",
+      "group": "小学组",
+      "student": "王子越、李彦谊、戴嘉彤、马歆然",
+      "coach": "林洁婷",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440103-8d072726",
+        "gz-440103-ecc193c7",
+        "gz-440103-eeee1923",
+        "gz-440103-faabf468"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "花都区",
+      "school": "广州市花都区秀雅学校",
+      "group": "初中组",
+      "student": "李子烨、翟姝尧、成意菓、杨梦菲、侯雅霏、黄安娜、庞梦涵、骆彦橦",
+      "coach": "李雄彬、丁翠英、张嘉欣",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科技展演",
+      "district": "天河区",
+      "school": "广州中学",
+      "group": "初中组",
+      "student": "陈方格",
+      "coach": "钟剑锋",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科技展演",
+      "district": "黄埔区",
+      "school": "广州石化中学",
+      "group": "初中组",
+      "student": "庞琳茵、洪林坚、丁振宁、贺莹茵、陈慧仪、何韵诗",
+      "coach": "张楠、陈宇飘、于碧鹏",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440112-8edaa2d8"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科技展演",
+      "district": "市属",
+      "school": "广州市第六中学（花都校区）",
+      "group": "高中组",
+      "student": "卢紫荧、李周欣悦、梁子妍、李思涵、莫梓茹、赵硕颀、朱香凝、梁舒童",
+      "coach": "丛帅、林双双",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "科技展演",
+      "district": "天河区",
+      "school": "广州市第七十五中学",
+      "group": "高中组",
+      "student": "木牙赛尔·库尔班、古丽孜巴·肉孜买买提、莱孜娜·阿力木江、孙诚禧、柔鲜古丽·约麦尔阿卜拉、排则莱提·买提尼亚孜、艾尔发尼·吐尔迪",
+      "coach": "刘秋怡、娄青燕",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-5b430017",
+        "gz-440106-621b20d3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科技展演",
+      "district": "白云区",
+      "school": "广州市白云区颜乐天纪念中学",
+      "group": "高中组",
+      "student": "胡锦坤、敬诗曼、杨天艺、颜浩轩、戴俊杰、李博宇、梁家豪、冯芷妍",
+      "coach": "陈娇",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440111-35536ebb"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "从化区",
+      "school": "广州南方学院附属小学",
+      "group": "小学组",
+      "student": "丁子淳",
+      "coach": "黄睿",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "荔湾区",
+      "school": "广州市荔湾区乐贤坊小学龙津学校",
+      "group": "小学组",
+      "student": "吴悦菲",
+      "coach": "梁敏玲",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440103-16043f05"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "海珠区",
+      "school": "广州市海珠区宝玉直实验小学",
+      "group": "小学组",
+      "student": "欧阳挚",
+      "coach": "翟千秀",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440105-0b34687e",
+        "gz-440105-ed9be985"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "白云区",
+      "school": "广州市白云中学华赋学校",
+      "group": "初中组",
+      "student": "邝楚恩",
+      "coach": "孟萌",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440111-43437f78"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "海珠区",
+      "school": "广州市南武中学附属学校",
+      "group": "初中组",
+      "student": "韦成熙",
+      "coach": "胡桂华",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440105-77baeea5"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "从化区",
+      "school": "广州市从化区鳌头中学",
+      "group": "初中组",
+      "student": "屈沛颖",
+      "coach": "刘会文",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "增城区",
+      "school": "广州市增城区第一中学",
+      "group": "高中组",
+      "student": "陈诺",
+      "coach": "黎钊辉",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "黄埔区",
+      "school": "广州市明珠高级中学",
+      "group": "高中组",
+      "student": "周靖瑶",
+      "coach": "区子锋",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440112-705844f8"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "黄埔区",
+      "school": "广州市明珠高级中学",
+      "group": "高中组",
+      "student": "谢怡珺",
+      "coach": "区子锋",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440112-705844f8"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科学探究",
+      "district": "荔湾区",
+      "school": "广州市荔湾区乐贤坊小学",
+      "group": "小学组",
+      "student": "黎彦麟、黎芊彤",
+      "coach": "黄海妹",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440103-4e0aa3d7",
+        "gz-440103-a15d3a11"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "天河区",
+      "school": "广州市天河区天府路小学",
+      "group": "小学组",
+      "student": "彭欣琦、赵静娴",
+      "coach": "黄树婷",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-4dbb5b90",
+        "gz-440106-6dc5833a",
+        "gz-440106-ecfc1a19"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "增城区",
+      "school": "华南师范大学附属中学增城学校",
+      "group": "小学组",
+      "student": "赖可维、赖建仰",
+      "coach": "蓝佳明、萧丽房",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "荔湾区",
+      "school": "广州市第四中学附属耀华小学",
+      "group": "小学组",
+      "student": "孙梦梵、郑浩博",
+      "coach": "梁雁鸣",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440103-6ae1c1c0"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "花都区",
+      "school": "广州市花都区狮岭镇育华小学",
+      "group": "小学组",
+      "student": "张峻熙、唐骏逸",
+      "coach": "陈婧怡、江嘉卫",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "增城区",
+      "school": "广州市增城区天恩双语学校（第二校区）",
+      "group": "小学组",
+      "student": "林子琪、吴睿诚",
+      "coach": "陈泳欣",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "天河区",
+      "school": "广州天省实验学校",
+      "group": "初中组",
+      "student": "毛怿、张景运",
+      "coach": "陈杜君、张艳侠",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-01fd3a87"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "南沙区",
+      "school": "广州外国语学校附属学校",
+      "group": "初中组",
+      "student": "陈励欣、文乐琳",
+      "coach": "吕洋、赖洁常",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440112-3c310bc1"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "白云区",
+      "school": "广州市培英中学",
+      "group": "初中组",
+      "student": "陈昱丞、刘易斯",
+      "coach": "蔡月玲、苏国庆",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440103-a3ee807c",
+        "gz-440111-6271c94b"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "增城区",
+      "school": "广州市增城区正果中学",
+      "group": "初中组",
+      "student": "陈俊宇、卢嘉骏",
+      "coach": "李依倬、麦锐均",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "海珠区",
+      "school": "广州市五中滨江学校",
+      "group": "初中组",
+      "student": "何睿翎、陈沂骏",
+      "coach": "梁倩、曾晓怡",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-06994d39"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "从化区",
+      "school": "广州大学附属中学从化实验学校",
+      "group": "初中组",
+      "student": "赵景晨",
+      "coach": "段孟环",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "南沙区",
+      "school": "广州市央美现代高级中学",
+      "group": "高中组",
+      "student": "林俊昊、潘锡兆",
+      "coach": "林澍楠",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "科学探究",
+      "district": "天河区",
+      "school": "广州市第一一三中学",
+      "group": "高中组",
+      "student": "彭以当、牛贝尔",
+      "coach": "黄玉秋",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-5f78f6a9",
+        "gz-440106-ced6bbff"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科学探究",
+      "district": "黄埔区",
+      "school": "广州市黄埔区苏元学校",
+      "group": "高中组",
+      "student": "徐墨涵、唐宇迪",
+      "coach": "宋沂秋",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440112-8bf29a28"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科学探究",
+      "district": "白云区",
+      "school": "广州市白云中学高中部",
+      "group": "高中组",
+      "student": "谢叡衡 、杨子贤",
+      "coach": "许冬梅",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "科学探究",
+      "district": "市属",
+      "school": "广东广雅中学",
+      "group": "高中组",
+      "student": "李知行、罗云悠",
+      "coach": "石子欣",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440103-bb7f78f0"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "南沙区",
+      "school": "广州市南沙区高新小学",
+      "group": "小学组",
+      "student": "许楚阳",
+      "coach": "吴锦添",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "番禺区",
+      "school": "广州市番禺区天峰小学",
+      "group": "小学组",
+      "student": "邓熙桐",
+      "coach": "陈敏洁",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440113-a5d5f364"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "番禺区",
+      "school": "广州市番禺区市桥北城小学",
+      "group": "小学组",
+      "student": "夏果",
+      "coach": "黄路",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440113-9c76c8fa"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "荔湾区",
+      "school": "广州市荔湾区沙面小学",
+      "group": "小学组",
+      "student": "崔铭善",
+      "coach": "陈华",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440103-8d072726",
+        "gz-440103-ecc193c7",
+        "gz-440103-eeee1923",
+        "gz-440103-faabf468"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "黄埔区",
+      "school": "广东外语外贸大学附属知识城实验小学（北校区）",
+      "group": "小学组",
+      "student": "陈锐怡",
+      "coach": "彭娇",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440112-284e5309"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "天河区",
+      "school": "广州市天河中学猎德实验学校",
+      "group": "小学组",
+      "student": "周远怀",
+      "coach": "戴荣明",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-8b3ee7d2"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "花都区",
+      "school": "广州市花都区秀全外国语学校",
+      "group": "初中组",
+      "student": "裴诗雨",
+      "coach": "李青霖",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "海珠区",
+      "school": "广州市海珠外国语实验中学附属学校",
+      "group": "初中组",
+      "student": "侯灿君",
+      "coach": "吉蝶婵",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-06e6439a"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "天河区",
+      "school": "广州市泰安中学",
+      "group": "初中组",
+      "student": "杨书语",
+      "coach": "王薇薇",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-22156e02"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "天河区",
+      "school": "广州市泰安中学",
+      "group": "初中组",
+      "student": "黄奕瀚",
+      "coach": "詹晓玲",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-22156e02"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "黄埔区",
+      "school": "广州石化中学",
+      "group": "初中组",
+      "student": "黄思瑜",
+      "coach": "陈娇",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440112-8edaa2d8"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "增城区",
+      "school": "广州市执信中学增城实验学校",
+      "group": "初中组",
+      "student": "黎可欣",
+      "coach": "杨欢",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "海珠区",
+      "school": "广州市海珠外国语实验中学",
+      "group": "高中组",
+      "student": "许琳峰",
+      "coach": "李雪玲",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-e76b659d"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "白云区",
+      "school": "广州市第六十五中学",
+      "group": "高中组",
+      "student": "伍凯琳",
+      "coach": "周浩",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-218475ea",
+        "gz-440111-4ebb4316",
+        "gz-440111-c7b90869"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "从化区",
+      "school": "广州市从化区流溪中学",
+      "group": "高中组",
+      "student": "李喆",
+      "coach": "廖汝佳",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "市属",
+      "school": "广州市第六中学（海珠校区）",
+      "group": "高中组",
+      "student": "林照泉",
+      "coach": "冯雯殷",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-12b49e3f"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "黄埔区",
+      "school": "北京师范大学广州实验学校",
+      "group": "高中组",
+      "student": "陈奕均",
+      "coach": "黄天浩",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440112-0876de16"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "越秀区",
+      "school": "广州市育才中学",
+      "group": "高中组",
+      "student": "邓颖钰",
+      "coach": "梁丽梅",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440104-7ec82efb"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普讲解",
+      "district": "白云区",
+      "school": "广州市白云区外国语小学",
+      "group": "小学组",
+      "student": "李沛杨",
+      "coach": "苑晓菁",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-620f7d31"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "黄埔区",
+      "school": "广州市黄埔区玉泉学校",
+      "group": "小学组",
+      "student": "甘立惟",
+      "coach": "谢桥红",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440112-12b0184b"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "天河区",
+      "school": "广州市天河区天府路小学",
+      "group": "小学组",
+      "student": "霍诗钰",
+      "coach": "徐小丽",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-4dbb5b90",
+        "gz-440106-6dc5833a",
+        "gz-440106-ecfc1a19"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "花都区",
+      "school": "广州市花都区黄广凤凰北小学",
+      "group": "小学组",
+      "student": "朱勤添",
+      "coach": "李淑丽",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "白云区",
+      "school": "广州市白云区江高镇中心小学",
+      "group": "小学组",
+      "student": "龙梓桦",
+      "coach": "关钰灵",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-f9ef2295"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "花都区",
+      "school": "广州市花都区骏威小学",
+      "group": "小学组",
+      "student": "张晋伟",
+      "coach": "刘冠男",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "海珠区",
+      "school": "广州市第九十七中学",
+      "group": "初中组",
+      "student": "陈书涵",
+      "coach": "洪丹梅",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-ed868139",
+        "gz-440105-f0712355"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "天河区",
+      "school": "广州市第七十五中学",
+      "group": "初中组",
+      "student": "周梓彤",
+      "coach": "李丽梅",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-5a7fbf3a",
+        "gz-440106-621b20d3"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "番禺区",
+      "school": "广州市星执学校",
+      "group": "初中组",
+      "student": "江霖晞",
+      "coach": "林绮",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440113-999fb9c0"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "南沙区",
+      "school": "广州市南沙区滨海实验学校",
+      "group": "初中组",
+      "student": "徐子墨",
+      "coach": "胡婉茵",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "增城区",
+      "school": "广州市增城区新塘镇第三中学",
+      "group": "初中组",
+      "student": "刘钰燕",
+      "coach": "钟瑞玲",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "天河区",
+      "school": "广州市第一一三中学",
+      "group": "初中组",
+      "student": "钱思博",
+      "coach": "侯银平",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-b049d65a"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "白云区",
+      "school": "广州市第六十五中学",
+      "group": "高中组",
+      "student": "李越",
+      "coach": "何锦兴",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-218475ea",
+        "gz-440111-4ebb4316",
+        "gz-440111-c7b90869"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普讲解",
+      "district": "市属",
+      "school": "广东广雅中学",
+      "group": "高中组",
+      "student": "姚立洋",
+      "coach": "兰文琦",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440103-bb7f78f0"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普讲解",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "高中组",
+      "student": "许诗研",
+      "coach": "陆兴亮",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-8bc01096"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普讲解",
+      "district": "市属",
+      "school": "广州市第六中学（花都校区）",
+      "group": "高中组",
+      "student": "洪珺杰",
+      "coach": "卓金鑫",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "科普讲解",
+      "district": "南沙区",
+      "school": "广州市央美现代高级中学",
+      "group": "高中组",
+      "student": "陈婷婷",
+      "coach": "林澍楠",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "科普讲解",
+      "district": "天河区",
+      "school": "广州市第七十五中学",
+      "group": "高中组",
+      "student": "杨智艺",
+      "coach": "王永春",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-5b430017",
+        "gz-440106-621b20d3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科技展演",
+      "district": "从化区",
+      "school": "广州市从化区鳌头镇中心小学",
+      "group": "小学组",
+      "student": "罗文俊、曾宇城、黄见阳、潘锦城",
+      "coach": "罗欧、蔡艾圻",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "荔湾区",
+      "school": "中国教育科学研究院荔湾实验学校",
+      "group": "小学组",
+      "student": "潘卓然、劳竣泓、邹文珺、傅莺羽",
+      "coach": "王媛、蓝嘉琪、谢雄鹏",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440103-523446ce"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "天河区",
+      "school": "广州市天河区体育东教育集团均和小学",
+      "group": "小学组",
+      "student": "凌翊洋",
+      "coach": "钟文婷",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-1c0a974d"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "天河区",
+      "school": "广州市天河区同仁艺体实验小学",
+      "group": "小学组",
+      "student": "唐子骏、张雅馨、张瑾彤、张雅涵、李乐瑶、王梓硕",
+      "coach": "林悦欣、张袆、李芳",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-118c9e6b"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "海珠区",
+      "school": "广州市海珠区江南新村第一小学",
+      "group": "小学组",
+      "student": "陈芳如雪",
+      "coach": "任君静",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-03249aab",
+        "gz-440105-5f57ea62"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "越秀区",
+      "school": "广州市越秀区水荫路小学",
+      "group": "小学组",
+      "student": "余泓妙",
+      "coach": "朱颖",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440104-05b607d4",
+        "gz-440104-ea7fbd42"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "越秀区",
+      "school": "广州市越秀区第七中学",
+      "group": "初中组",
+      "student": "余泓锦",
+      "coach": "童立志",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科技展演",
+      "district": "白云区",
+      "school": "广州市白云区珠江实验学校",
+      "group": "初中组",
+      "student": "王译可、谭致琳",
+      "coach": "黎汝婷、陈海婷、张晓莉",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-f08e9c24"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科技展演",
+      "district": "黄埔区",
+      "school": "广州市黄埔区玉泉学校",
+      "group": "初中组",
+      "student": "王嘉艺",
+      "coach": "龚洁如\n宁怡",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440112-12b0184b"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科技展演",
+      "district": "荔湾区",
+      "school": "广州市第四中学津园校区",
+      "group": "初中组",
+      "student": "冯国恒",
+      "coach": "梁昊",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440103-3862ee98"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科技展演",
+      "district": "天河区",
+      "school": "广州天河外国语智谷学校",
+      "group": "初中组",
+      "student": "林映彤、邱妍欣",
+      "coach": "刘超",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-d042314d"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科技展演",
+      "district": "白云区",
+      "school": "广州市培英中学（初中部）",
+      "group": "初中组",
+      "student": "陈曦",
+      "coach": "刘平、高菁",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-2d42f392"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科技展演",
+      "district": "白云区",
+      "school": "广州市第六十五中学",
+      "group": "高中组",
+      "student": "贺思媛、张家源、谢敏诠、卢子慧、朱晓曦",
+      "coach": "王越、周浩、何锦兴",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-218475ea",
+        "gz-440111-4ebb4316",
+        "gz-440111-c7b90869"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科技展演",
+      "district": "南沙区",
+      "school": "广州市央美现代高级中学",
+      "group": "高中组",
+      "student": "刘宸、张欣雯、凌心怡、郭诗晴",
+      "coach": "林澍楠",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "海珠区",
+      "school": "广州市海珠区江南新村第一小学",
+      "group": "小学组",
+      "student": "罗俊阳",
+      "coach": "杨丽丝",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-03249aab",
+        "gz-440105-5f57ea62"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "南沙区",
+      "school": "广州市南沙区南沙小学时代南湾校区",
+      "group": "小学组",
+      "student": "王梓涛",
+      "coach": "王文宣",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "增城区",
+      "school": "广州市增城区凤凰实验小学",
+      "group": "小学组",
+      "student": "钟子晋",
+      "coach": "李嘉琳",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "番禺区",
+      "school": "广州市番禺区化龙镇中心小学",
+      "group": "小学组",
+      "student": "李悦萱",
+      "coach": "梁卓荣",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440113-fd1d0462"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "白云区",
+      "school": "广州市白云区华赋学校",
+      "group": "小学组",
+      "student": "孔梓琪",
+      "coach": "刘泽华",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-2ec509e7"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "黄埔区",
+      "school": "广州市黄埔区玉泉学校",
+      "group": "小学组",
+      "student": "陶昀",
+      "coach": "廖楚婷",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440112-12b0184b"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "增城区",
+      "school": "广州市增城区荔城街第三中学",
+      "group": "初中组",
+      "student": "詹禹钒",
+      "coach": "陈嘉敏",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "增城区",
+      "school": "广州增城外国语实验中学",
+      "group": "初中组",
+      "student": "段语墨",
+      "coach": "萧彩霞",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "越秀区",
+      "school": "广州市育才中学",
+      "group": "初中组",
+      "student": "张喜善",
+      "coach": "吴清霖",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440104-191aaa35",
+        "gz-440104-7ec82efb"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "黄埔区",
+      "school": "广州石化中学",
+      "group": "初中组",
+      "student": "吴巧宜",
+      "coach": "陈娇",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440112-8edaa2d8"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "天河区",
+      "school": "广州市天河中学",
+      "group": "初中组",
+      "student": "李思禹",
+      "coach": "钟子英",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-2f8a4424",
+        "gz-440106-dd16c13e"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "黄埔区",
+      "school": "广州石化中学",
+      "group": "初中组",
+      "student": "陈铭浩",
+      "coach": "张楠",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440112-8edaa2d8"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "增城区",
+      "school": "广州市增城区应元学校",
+      "group": "高中组",
+      "student": "高翊博",
+      "coach": "林彩洁",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "市属",
+      "school": "广州市第六中学（从化校区）",
+      "group": "高中组",
+      "student": "陆子聪",
+      "coach": "刘卓明",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "从化区",
+      "school": "广州市从化区第五中学",
+      "group": "高中组",
+      "student": "何洁欣",
+      "coach": "潘建英",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "白云区",
+      "school": "广州市第六十五中学",
+      "group": "高中组",
+      "student": "冯俊聪",
+      "coach": "张贝薇",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-218475ea",
+        "gz-440111-4ebb4316",
+        "gz-440111-c7b90869"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "白云区",
+      "school": "广州市白云中学高中部",
+      "group": "高中组",
+      "student": "陈啸宇",
+      "coach": "许冬梅",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "荔湾区",
+      "school": "广州市荔湾区外语职业高级中学",
+      "group": "高中组",
+      "student": "余晓桐",
+      "coach": "马顺祥",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "科学探究",
+      "district": "南沙区",
+      "school": "广州市南沙区金隆小学",
+      "group": "小学组",
+      "student": "王德仁",
+      "coach": "隆天缘",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "番禺区",
+      "school": "广州市番禺区罗家桥虹小学",
+      "group": "小学组",
+      "student": "李若水、李清墨",
+      "coach": "谢洁玲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-27fbce5f"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "黄埔区",
+      "school": "广州市黄埔区玉泉学校",
+      "group": "小学组",
+      "student": "李梓毅",
+      "coach": "林九灵、曹欣欣",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-12b0184b"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "海珠区",
+      "school": "广州市海珠区新港路小学",
+      "group": "小学组",
+      "student": "李思翰",
+      "coach": "李晓雨",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-0c129848",
+        "gz-440105-8250cba3"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "番禺区",
+      "school": "广州市番禺区钟村中心小学",
+      "group": "小学组",
+      "student": "季逸宸、庄天逸",
+      "coach": "白超航、蔡燕妹",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-acbdd815"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "海珠区",
+      "school": "广州市海珠区菩提路小学",
+      "group": "小学组",
+      "student": "梁宝瑶",
+      "coach": "彭丹利",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-65a05c45",
+        "gz-440105-f55ff85b"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "从化区",
+      "school": "广州市从化区流溪中学实验小学",
+      "group": "小学组",
+      "student": "利雨桥、吴镇江",
+      "coach": "陈彦霖、黎泽林",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "越秀区",
+      "school": "东风西路小学",
+      "group": "小学组",
+      "student": "刘承昊",
+      "coach": "邓全伟",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-12a17af1",
+        "gz-440104-4144068a",
+        "gz-440104-57f60d53",
+        "gz-440104-c248f5af"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "白云区",
+      "school": "广州市白云区华师附中实验小学",
+      "group": "小学组",
+      "student": "冯浩",
+      "coach": "黎建强",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-07bdec5f",
+        "gz-440111-1d697e07",
+        "gz-440111-db31a4f7"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "从化区",
+      "school": "广州市从化区街口街团星小学",
+      "group": "小学组",
+      "student": "肖泽成、郭梓潼",
+      "coach": "李俊英",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "越秀区",
+      "school": "广州市越秀区先烈中路小学",
+      "group": "小学组",
+      "student": "林加钦、林加和",
+      "coach": "陈翠婵",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-b5f37ad3"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "白云区",
+      "school": "广州市白云区龙归学校小学部",
+      "group": "小学组",
+      "student": "郑梓涵",
+      "coach": "李荣文",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-27e6c92d"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科学探究",
+      "district": "增城区",
+      "school": "广州市增城区新塘镇沙埔中学",
+      "group": "初中组",
+      "student": "牛泓铭、魏炜",
+      "coach": "牛志海、霍健强",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "番禺区",
+      "school": "广州市星执学校",
+      "group": "初中组",
+      "student": "江霖晞、欧阳鋆馨",
+      "coach": "林绮",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-999fb9c0"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "黄埔区",
+      "school": "广州市玉岩中学",
+      "group": "初中组",
+      "student": "刘逸思、王天瑜",
+      "coach": "黄晓芝",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-ff5acfd5"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "黄埔区",
+      "school": "广州市第一二三中学",
+      "group": "初中组",
+      "student": "唐源、潘灼熙",
+      "coach": "周静",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-c7cfbe14"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "荔湾区",
+      "school": "广州市真光中学金道学校",
+      "group": "初中组",
+      "student": "覃振濠",
+      "coach": "陈淑婷",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-f203d28d"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "南沙区",
+      "school": "广州外国语学校附属学校",
+      "group": "初中组",
+      "student": "樊欣琪、何冰",
+      "coach": "王霞、吕洋",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-3c310bc1"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "天河区",
+      "school": "广州天河外国语智谷学校",
+      "group": "初中组",
+      "student": "李澍羲",
+      "coach": "刘超",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-d042314d"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "番禺区",
+      "school": "广州市星执学校",
+      "group": "初中组",
+      "student": "罗羽轩、杨铭",
+      "coach": "林绮",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-999fb9c0"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "白云区",
+      "school": "广州市白云区江高镇第二初级中学",
+      "group": "初中组",
+      "student": "梁文沣、王一鸣",
+      "coach": "江德坤",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-d3ffec78"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科学探究",
+      "district": "市属",
+      "school": "广东华侨中学",
+      "group": "初中组",
+      "student": "李亦贤、李明翰",
+      "coach": "陈美玲、余惠如",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-1560332d",
+        "gz-440111-99d97ada"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "海珠区",
+      "school": "广州市海珠区聚德西路小学",
+      "group": "小学组",
+      "student": "陈骏",
+      "coach": "王楚梅",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-a0156453"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "市属",
+      "school": "广州协和学校",
+      "group": "小学组",
+      "student": "骆熹旻",
+      "coach": "江慧勤",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-33b32c4c"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "从化区",
+      "school": "广州市从化区良口镇第二小学",
+      "group": "小学组",
+      "student": "张梓健",
+      "coach": "曾靖",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "海珠区",
+      "school": "广州市海珠区聚德西路小学",
+      "group": "小学组",
+      "student": "赖紫娴",
+      "coach": "王楚梅",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-a0156453"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "增城区",
+      "school": "广州市增城开发区小学",
+      "group": "小学组",
+      "student": "潘文睿",
+      "coach": "谭佩莹",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "花都区",
+      "school": "广州市花都区骏威小学",
+      "group": "小学组",
+      "student": "曾宪昱",
+      "coach": "付丽华",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "花都区",
+      "school": "广州市花都区骏威小学",
+      "group": "小学组",
+      "student": "胡卓妍",
+      "coach": "王林",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "南沙区",
+      "school": "广州市南沙区顺平小学",
+      "group": "小学组",
+      "student": "陈嘉丽",
+      "coach": "孔玉妤",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "白云区",
+      "school": "广州市白云区望岗小学",
+      "group": "小学组",
+      "student": "李玫静",
+      "coach": "赖锱",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-e09d8e9b"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "从化区",
+      "school": "广州市从化区太平镇第三中心小学",
+      "group": "小学组",
+      "student": "廖铭潞",
+      "coach": "张霭镟",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "黄埔区",
+      "school": "湖南师范大学附属黄埔实验学校",
+      "group": "小学组",
+      "student": "魏健宸",
+      "coach": "张梅",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-40be421c"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "增城区",
+      "school": "广州市黄广附属学校",
+      "group": "小学组",
+      "student": "邝敬洋",
+      "coach": "高少玲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440100-c243364a"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "越秀区",
+      "school": "广州市越秀区旧部前小学",
+      "group": "小学组",
+      "student": "胡祐铭",
+      "coach": "关巧敏",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-4a2cb348"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "越秀区",
+      "school": "广州市越秀区旧部前小学",
+      "group": "小学组",
+      "student": "王顺平",
+      "coach": "卢坚武",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-4a2cb348"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普征文",
+      "district": "花都区",
+      "school": "广州市花都区秀全外国语学校",
+      "group": "初中组",
+      "student": "欧阳天朗",
+      "coach": "茹施华",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "南沙区",
+      "school": "广州市南沙区滨海实验学校",
+      "group": "初中组",
+      "student": "罗圣杰",
+      "coach": "胡婉茵",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "从化区",
+      "school": "广州市从化区神岗中学",
+      "group": "初中组",
+      "student": "陆晓莹",
+      "coach": "罗碧丽",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "荔湾区",
+      "school": "广州市第一中学红岩学校",
+      "group": "初中组",
+      "student": "刘诗萍",
+      "coach": "吴华萍",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-f05eda96"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "番禺区",
+      "school": "广州市番禺区市桥星海中学",
+      "group": "初中组",
+      "student": "石子昱",
+      "coach": "刘杰敏",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-37f452f3"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "南沙区",
+      "school": "广州市南沙区滨海实验学校",
+      "group": "初中组",
+      "student": "陈怡洁​",
+      "coach": "胡婉茵",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "增城区",
+      "school": "广州市执信中学增城实验学校",
+      "group": "初中组",
+      "student": "钟深宇",
+      "coach": "黄琳",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "从化区",
+      "school": "广州市从化区从化中学",
+      "group": "初中组",
+      "student": "彭瑜",
+      "coach": "王露莹",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "市属",
+      "school": "广州大学附属中学",
+      "group": "初中组",
+      "student": "杨诗琪",
+      "coach": "蔡燕虹",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-b22c4eca",
+        "gz-440113-8f5e4721"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "白云区",
+      "school": "广州市白云区江高镇第二初级中学",
+      "group": "初中组",
+      "student": "梁婧宜",
+      "coach": "黄健",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-d3ffec78"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "市属",
+      "school": "广州市第六中学（从化校区）",
+      "group": "初中组",
+      "student": "黎钰萍",
+      "coach": "黄泽宇",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "白云区",
+      "school": "广州市白云区江高镇第二初级中学",
+      "group": "初中组",
+      "student": "龚婉雯",
+      "coach": "郭美云",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-d3ffec78"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普征文",
+      "district": "南沙区",
+      "school": "广州市央美现代高级中学",
+      "group": "高中组",
+      "student": "张世杰",
+      "coach": "林澍楠",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "天河区",
+      "school": "广州市第七十五中学",
+      "group": "高中组",
+      "student": "欧阳杏炘",
+      "coach": "万牡华",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-5b430017",
+        "gz-440106-621b20d3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "白云区",
+      "school": "广州市第六十五中学",
+      "group": "高中组",
+      "student": "马熙悦",
+      "coach": "周浩",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-218475ea",
+        "gz-440111-4ebb4316",
+        "gz-440111-c7b90869"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "越秀区",
+      "school": "广州市育才中学",
+      "group": "高中组",
+      "student": "茹悦洋",
+      "coach": "凌徐",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-7ec82efb"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "高中组",
+      "student": "李紫嫣",
+      "coach": "李霞",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-8bc01096"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "番禺区",
+      "school": "广州市禺山高级中学",
+      "group": "高中组",
+      "student": "周子蔓",
+      "coach": "石玲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-6cf93097"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "增城区",
+      "school": "广州市增城区第一中学",
+      "group": "高中组",
+      "student": "万卓治",
+      "coach": "黎钊辉",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "天河区",
+      "school": "广州市第七十五中学",
+      "group": "高中组",
+      "student": "董世博",
+      "coach": "娄青燕",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-5b430017",
+        "gz-440106-621b20d3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "从化区",
+      "school": "广州市从化区流溪中学",
+      "group": "高中组",
+      "student": "邓铭瑜",
+      "coach": "周辉松",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "科普征文",
+      "district": "荔湾区",
+      "school": "广州市荔湾区外语职业高级中学",
+      "group": "高中组",
+      "student": "蔡逸佳",
+      "coach": "叶剑瑜",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "科普讲解",
+      "district": "番禺区",
+      "school": "广州市番禺区市桥中心小学",
+      "group": "小学组",
+      "student": "区馨文",
+      "coach": "吴烨",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-7e40fb3a"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "海珠区",
+      "school": "广州市海珠区江南新村第一小学",
+      "group": "小学组",
+      "student": "许善",
+      "coach": "杨丽丝",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-03249aab",
+        "gz-440105-5f57ea62"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "荔湾区",
+      "school": "广州市荔湾区西关培正小学(恩宁校区)",
+      "group": "小学组",
+      "student": "翟沛康",
+      "coach": "蔡敏君",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-702beeb4"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "荔湾区",
+      "school": "广州市荔湾区乐贤坊小学龙津学校",
+      "group": "小学组",
+      "student": "钱依辰",
+      "coach": "梁敏玲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-16043f05"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "从化区",
+      "school": "广州市从化区街口街新城小学",
+      "group": "小学组",
+      "student": "陈楚熙",
+      "coach": "王思铭",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "天河区",
+      "school": "广州市天河区前进小学",
+      "group": "小学组",
+      "student": "席子乔",
+      "coach": "邓秀丹",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-576b72fe"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "从化区",
+      "school": "广州市从化区雅居乐小学",
+      "group": "小学组",
+      "student": "赖映羽",
+      "coach": "邝嘉琳",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "市属",
+      "school": "广州协和学校",
+      "group": "小学组",
+      "student": "陈含璋",
+      "coach": "陈哲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-33b32c4c"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "小学组",
+      "student": "朱启晗",
+      "coach": "郭晋波",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-e32237e4"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "增城区",
+      "school": "广州市增城区科教城小学",
+      "group": "小学组",
+      "student": "朱彦达",
+      "coach": "陈晓红",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "增城区",
+      "school": "广州市增城区天恩双语学校（第二校区）",
+      "group": "小学组",
+      "student": "徐子雅",
+      "coach": "姚美华",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "海珠区",
+      "school": "广州市海珠区菩提路小学",
+      "group": "小学组",
+      "student": "朱可佳",
+      "coach": "罗卓斯",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-65a05c45",
+        "gz-440105-f55ff85b"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "越秀区",
+      "school": "广州市越秀区先烈中路小学",
+      "group": "小学组",
+      "student": "廖俊宇",
+      "coach": "古远安",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-b5f37ad3"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "南沙区",
+      "school": "广州市南沙区金洲小学",
+      "group": "小学组",
+      "student": "杨韵滢",
+      "coach": "钟月婵",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科普讲解",
+      "district": "花都区",
+      "school": "广州市黄广中学",
+      "group": "初中组",
+      "student": "李嘉琪",
+      "coach": "刘莹莹",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440114-b5e09ee8"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "南沙区",
+      "school": "广州市执信中学南沙学校",
+      "group": "初中组",
+      "student": "黄隽茹",
+      "coach": "周春宏",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "市属",
+      "school": "广州大学附属中学",
+      "group": "初中组",
+      "student": "郑瀚",
+      "coach": "萧秉涛",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-b22c4eca",
+        "gz-440113-8f5e4721"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "海珠区",
+      "school": "广州市南武第二实验学校",
+      "group": "初中组",
+      "student": "杜卉苓",
+      "coach": "黄琳",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-96460a76",
+        "gz-440105-9da3d734"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "从化区",
+      "school": "广州天省实验（从化）学校",
+      "group": "初中组",
+      "student": "于海悦",
+      "coach": "钟诗雅",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "荔湾区",
+      "school": "广州市第四中学花地学校",
+      "group": "初中组",
+      "student": "陈炜琪",
+      "coach": "梅睿敏",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-958c2ab9"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "白云区",
+      "school": "广州市培英中学",
+      "group": "初中组",
+      "student": "徐语妍",
+      "coach": "曹志兴",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-a3ee807c",
+        "gz-440111-6271c94b"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "荔湾区",
+      "school": "广州市美华中学",
+      "group": "初中组",
+      "student": "詹晓晓",
+      "coach": "黄海璇",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-b0abf891"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "番禺区",
+      "school": "广东仲元中学莲花湾学校",
+      "group": "初中组",
+      "student": "陈灏睿",
+      "coach": "林梓妮",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-34ff409c"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "白云区",
+      "school": "广州市培英中学",
+      "group": "初中组",
+      "student": "杨谨睿",
+      "coach": "曹志兴",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-a3ee807c",
+        "gz-440111-6271c94b"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "花都区",
+      "school": "广州市花都区花广金狮学校",
+      "group": "初中组",
+      "student": "韩宇辰",
+      "coach": "欧阳君",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "市属",
+      "school": "广州市第六中学（花都校区）",
+      "group": "初中组",
+      "student": "黄凯辉",
+      "coach": "罗佩华",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "从化区",
+      "school": "广州市从化区第五中学",
+      "group": "初中组",
+      "student": "李芷珊",
+      "coach": "陆真",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "科普讲解",
+      "district": "黄埔区",
+      "school": "广州市黄埔区苏元学校",
+      "group": "高中组",
+      "student": "余悦颍",
+      "coach": "宋沂秋",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-8bf29a28"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普讲解",
+      "district": "番禺区",
+      "school": "广州市禺山高级中学",
+      "group": "高中组",
+      "student": "林可宜",
+      "coach": "石玲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-6cf93097"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科普讲解",
+      "district": "番禺区",
+      "school": "广州市禺山高级中学",
+      "group": "高中组",
+      "student": "王颖儿",
+      "coach": "石玲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-6cf93097"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "科技展演",
+      "district": "黄埔区",
+      "school": "广州市黄埔区科学城小学（南校区）",
+      "group": "小学组",
+      "student": "柳近彤",
+      "coach": "吴兰妮",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-8b4292d7"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "白云区",
+      "school": "广州市白云区汇侨第一小学",
+      "group": "小学组",
+      "student": "张益铭",
+      "coach": "曹静芳",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-50352c96",
+        "gz-440111-5d802050"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "白云区",
+      "school": "广州市白云区蓝山小学",
+      "group": "小学组",
+      "student": "陈姝涵、李淼",
+      "coach": "罗文晖",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-df409e86"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "番禺区",
+      "school": "广州市番禺区罗家桥虹小学",
+      "group": "小学组",
+      "student": "麦馨语、麦馨怡、秦雅丽",
+      "coach": "谢洁玲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-27fbce5f"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "南沙区",
+      "school": "广州市南沙区金洲小学",
+      "group": "小学组",
+      "student": "吴芯柔、梁华城、邓思颖、冼绮淇、林锶妤、冼昊杨",
+      "coach": "袁晓君、黎翠当",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "市属",
+      "school": "广州协和学校",
+      "group": "小学组",
+      "student": "徐睿强、伍骏轩、张兆豪",
+      "coach": "黄显仁、郭宇鹏",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-33b32c4c"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "从化区",
+      "school": "广州市从化区城郊街向阳小学",
+      "group": "小学组",
+      "student": "罗靖雯",
+      "coach": "苏馥芬",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "科技展演",
+      "district": "荔湾区",
+      "school": "广州市第一中学红岩学校",
+      "group": "初中组",
+      "student": "黄轩、赖安琪、文锦铃、林子妮、韦臻",
+      "coach": "吴华萍",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-f05eda96"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "科技展演",
+      "district": "番禺区",
+      "school": "广州市番禺区洛溪新城中学",
+      "group": "初中组",
+      "student": "陈子怡、陈怡晨、黄振烯",
+      "coach": "陈莉萍",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-e7ca2b33"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "越秀区",
+      "school": "文德路小学",
+      "group": "小学组",
+      "student": "张梦桐",
+      "coach": "温奕逊",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-00e3fd36",
+        "gz-440104-284b2f82"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "增城区",
+      "school": "广州市增城开发区小学",
+      "group": "小学组",
+      "student": "唐楚翔",
+      "coach": "丘帝宋",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "从化区",
+      "school": "广州市从化区流溪中学实验小学",
+      "group": "小学组",
+      "student": "韦芷妍",
+      "coach": "罗燕妍",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "天河区",
+      "school": "广州市华美英语实验学校",
+      "group": "小学组",
+      "student": "王一伊",
+      "coach": "林小彤",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-7abd2786"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "花都区",
+      "school": "广州市花都区新华街第五小学",
+      "group": "小学组",
+      "student": "谭锦曦",
+      "coach": "何静剑",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "番禺区",
+      "school": "广州市番禺区天峰小学",
+      "group": "小学组",
+      "student": "李彦",
+      "coach": "黄小丽",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-a5d5f364"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "市属",
+      "school": "广州协和学校",
+      "group": "小学组",
+      "student": "龚宇翔",
+      "coach": "邹玉兰",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-33b32c4c"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "南沙区",
+      "school": "广州市南沙区大岗小学",
+      "group": "小学组",
+      "student": "王千予",
+      "coach": "劳可筠",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "小学组",
+      "student": "张清辰",
+      "coach": "郭晋波",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-e32237e4"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "荔湾区",
+      "school": "广州市荔湾区广雅小学",
+      "group": "小学组",
+      "student": "蔡佩妍",
+      "coach": "吴敏静",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-5d3549b8",
+        "gz-440103-9c2a7fdf"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "白云区",
+      "school": "广州市白云区中黄外国语小学",
+      "group": "小学组",
+      "student": "杨宸宇",
+      "coach": "孙国萍",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-c0e812a2"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "越秀区",
+      "school": "广州市八一希望学校",
+      "group": "小学组",
+      "student": "洪睿雪",
+      "coach": "何咏如",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-9bc8be8d"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "天河区",
+      "school": "广州市天河区沐陂小学",
+      "group": "小学组",
+      "student": "丁予",
+      "coach": "赖敏莲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-c351d016"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "黄埔区",
+      "school": "广州市黄埔区玉泉学校",
+      "group": "小学组",
+      "student": "李吉劭",
+      "coach": "廖楚婷",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-12b0184b"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "AI绘画",
+      "district": "南沙区",
+      "school": "广州市南沙区滨海实验学校",
+      "group": "初中组",
+      "student": "武钰程",
+      "coach": "胡婉茵",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "市属",
+      "school": "广东广雅中学",
+      "group": "初中组",
+      "student": "方梓辰",
+      "coach": "韦晓琳",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-bb7f78f0"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "花都区",
+      "school": "广州市花都区狮岭中学",
+      "group": "初中组",
+      "student": "安广峻",
+      "coach": "刘海燕",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "天河区",
+      "school": "广州市天河外国语学校",
+      "group": "初中组",
+      "student": "郭祉延",
+      "coach": "王卓珊",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-069ddb41",
+        "gz-440106-b711d94a"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "市属",
+      "school": "广州市第六中学（花都校区）",
+      "group": "初中组",
+      "student": "何志棋",
+      "coach": "单睿龙",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "花都区",
+      "school": "广州市黄广中学",
+      "group": "初中组",
+      "student": "夏桐铠",
+      "coach": "刘莹莹",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440114-b5e09ee8"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "市属",
+      "school": "广州市铁一中学",
+      "group": "初中组",
+      "student": "邓培磊",
+      "coach": "麦嘉敏",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-09652aa5",
+        "gz-440111-28c16cca",
+        "gz-440113-97e0acaa"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "越秀区",
+      "school": "广州市第十中学",
+      "group": "初中组",
+      "student": "周继言",
+      "coach": "宋冰清",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-819bd7a1"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "番禺区",
+      "school": "广州市番禺区金海岸实验学校",
+      "group": "初中组",
+      "student": "李梓晴",
+      "coach": "陈锡山",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-d7e3e576"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "南沙区",
+      "school": "广州市南沙第一中学",
+      "group": "初中组",
+      "student": "黄柏宁",
+      "coach": "冯洁卿",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "荔湾区",
+      "school": "广州市第四中学花地学校",
+      "group": "初中组",
+      "student": "陈雨彤",
+      "coach": "张光怡",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-958c2ab9"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "市属",
+      "school": "广州大学附属中学",
+      "group": "初中组",
+      "student": "王梓涵",
+      "coach": "萧秉涛",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-b22c4eca",
+        "gz-440113-8f5e4721"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "海珠区",
+      "school": "广州市海珠区六中珠江中学",
+      "group": "初中组",
+      "student": "陈思羽",
+      "coach": "罗彦",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-cb432890",
+        "gz-440105-e58a8300"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "荔湾区",
+      "school": "广州市真光中学初中部实验校区",
+      "group": "初中组",
+      "student": "陈思妍",
+      "coach": "邱蓉",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-9b3ba6d8"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "白云区",
+      "school": "广州市白云区珠江实验学校",
+      "group": "初中组",
+      "student": "蒋涵",
+      "coach": "张晓莉",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-f08e9c24"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "从化区",
+      "school": "广州市从化区鳌头中学",
+      "group": "初中组",
+      "student": "徐莉娜",
+      "coach": "胡元广",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "番禺区",
+      "school": "广州市星执学校",
+      "group": "初中组",
+      "student": "罗丹玥",
+      "coach": "傅颖",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-999fb9c0"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "AI绘画",
+      "district": "市属",
+      "school": "广州市第六中学（海珠校区）",
+      "group": "高中组",
+      "student": "杨杨兰执",
+      "coach": "上官兴星",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-12b49e3f"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "番禺区",
+      "school": "广州市禺山高级中学",
+      "group": "高中组",
+      "student": "周奕彤",
+      "coach": "石玲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-6cf93097"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "天河区",
+      "school": "广州市第七十五中学",
+      "group": "高中组",
+      "student": "杨紫瞳",
+      "coach": "娄青燕",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-5b430017",
+        "gz-440106-621b20d3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "荔湾区",
+      "school": "广州市荔湾区外语职业高级中学",
+      "group": "高中组",
+      "student": "廖瑜熙",
+      "coach": "石雯",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "海珠区",
+      "school": "广州市海珠外国语实验中学",
+      "group": "高中组",
+      "student": "顾学程",
+      "coach": "李雪玲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-e76b659d"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "海珠区",
+      "school": "广州市海珠外国语实验中学",
+      "group": "高中组",
+      "student": "李琮瑜",
+      "coach": "李雪玲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-e76b659d"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "从化区",
+      "school": "广州市从化区第五中学",
+      "group": "高中组",
+      "student": "傅可莹",
+      "coach": "潘建英",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "南沙区",
+      "school": "广州市南沙第一中学",
+      "group": "高中组",
+      "student": "陈柔希",
+      "coach": "江海燕",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "南沙区",
+      "school": "广州市南沙第一中学",
+      "group": "高中组",
+      "student": "郭锶敏",
+      "coach": "江海燕",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "天河区",
+      "school": "广州市第七十五中学",
+      "group": "高中组",
+      "student": "甘梓涵",
+      "coach": "王永春",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-5b430017",
+        "gz-440106-621b20d3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "越秀区",
+      "school": "广州市育才中学",
+      "group": "高中组",
+      "student": "刘文卉",
+      "coach": "吴清霖",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-7ec82efb"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "越秀区",
+      "school": "广州市育才中学",
+      "group": "高中组",
+      "student": "冯子珊",
+      "coach": "连晓兰",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-7ec82efb"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "番禺区",
+      "school": "广州市禺山高级中学",
+      "group": "高中组",
+      "student": "张烘铭",
+      "coach": "石玲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-6cf93097"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "AI绘画",
+      "district": "市属",
+      "school": "广州市纺织服装职业学校",
+      "group": "高中组",
+      "student": "潘楚源",
+      "coach": "李伟明",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    }
+  ],
+  "compiled_schools": 148
+}

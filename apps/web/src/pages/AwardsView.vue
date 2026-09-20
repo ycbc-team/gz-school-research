@@ -4,7 +4,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { DISTRICTS } from '@gz/shared';
 import { entities, detailedRecords } from '../data';
 
-type Competition = 'innovation' | 'chuangke';
+type Competition = 'innovation' | 'chuangke' | 'science_literacy';
 type GroupBy = 'none' | 'district';
 type AwardStage = 'primary' | 'middle' | 'high' | 'secondary';
 type SelectionStage = Exclude<AwardStage, 'secondary'>;
@@ -17,6 +17,7 @@ const records = detailedRecords as unknown as AwardRecord[];
 const COMPETITIONS: Array<{ value: Competition; label: string }> = [
   { value: 'innovation', label: '创新大赛' },
   { value: 'chuangke', label: '科技创客电视大赛' },
+  { value: 'science_literacy', label: '科学素养大赛' },
 ];
 const COMPETITION_LABEL = Object.fromEntries(COMPETITIONS.map((item) => [item.value, item.label])) as Record<Competition, string>;
 const STAGES: Array<{ value: SelectionStage; label: string }> = [
@@ -141,7 +142,7 @@ const groups = computed(() => {
 
 watch(() => [route.query.competition, route.query.stage, route.query.school], () => {
   const requested = route.query.competition;
-  if (requested === 'innovation' || requested === 'chuangke') {
+  if (requested === 'innovation' || requested === 'chuangke' || requested === 'science_literacy') {
     selectedEvents.value = new Set(yearsOf(requested).map((itemYear) => eventKey(requested, itemYear)));
   }
   const requestedStage = route.query.stage;
@@ -157,7 +158,9 @@ function openSchool(school: AwardSchool, event: MouseEvent) {
   if (ids.length < 2) {
     const id = ids[0];
     const entity = id ? entitiesById.get(id) : null;
-    if (id && entity) router.push({ path: `/school/${encodeURIComponent(entity.name)}`, query: { stage: entity.stage, id } });
+    // 同一法人可能在实体表中同时有初高中记录并共用 school_id（如广州石化中学）。
+    // 这里必须以获奖名单的学段为准，否则 Map 的最后一条实体会把初中奖项跳到高中详情。
+    if (id && entity) router.push({ path: `/school/${encodeURIComponent(entity.name)}`, query: { stage: school.stage, id } });
     return;
   }
   const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
@@ -166,7 +169,7 @@ function openSchool(school: AwardSchool, event: MouseEvent) {
     top: rect.bottom + 6,
     left: rect.left + width > window.innerWidth - 8 ? Math.max(8, window.innerWidth - width - 8) : rect.left,
     school,
-    items: ids.map((id) => ({ id, name: entitiesById.get(id)!.name, stage: entitiesById.get(id)!.stage, district: districtOf(id) })),
+    items: ids.map((id) => ({ id, name: entitiesById.get(id)!.name, stage: school.stage, district: districtOf(id) })),
   };
 }
 function goCampus(item: { id: string; name: string; stage: string }, school: AwardSchool) {

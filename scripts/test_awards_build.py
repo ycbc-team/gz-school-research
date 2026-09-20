@@ -22,7 +22,8 @@ GUANGFU_HUANGHUA = "gz-440104-b22c4eca"
 SNAPSHOT = {
     "innovation": {"records": 522, "matched": 392, "digest": "06e62dfd2dfb991450236c908df191a0deb604f499a33e609711b951f34512f6"},
     "chuangke": {"years": 2, "records": 145, "matched": 112, "digest": "773b3536ff6bacdc6d8e4c2989a067713d72ed09cc5fd11d264fcc5a38a57c39"},
-    "details": {"records": 504, "digest": "dcc69febe7981be700d2da9379341395010024a4515850e9a4cb8b637fdf3024"},
+    "science_literacy": {"records": 272, "matched": 185},
+    "details": {"records": 689, "digest": "a2585590c2c39686a6095e2266126af16175d16d20d00d0958478bace26cd7aa"},
 }
 
 
@@ -52,11 +53,13 @@ def main():
             })
     chuangke = json.loads((ROOT / "data/awards/chuangke/parsed/chuangke.json").read_text("utf-8"))["records"]
     details = json.loads((ROOT / "data/awards/dist/detailed_records.json").read_text("utf-8"))
+    science = json.loads((ROOT / "data/awards/science_literacy/parsed/science_literacy_2025.json").read_text("utf-8"))
 
     actual = {
         "innovation": {"records": len(innovation), "matched": sum(bool(x["school_ids"]) for x in innovation), "digest": digest(innovation)},
         "chuangke": {"years": len(chuangke), "records": sum(len(y["records"]) for y in chuangke),
                      "matched": sum(bool(r["school_ids"]) for y in chuangke for r in y["records"]), "digest": digest(chuangke)},
+        "science_literacy": {"records": len(science["records"]), "matched": sum(bool(r["school_ids"]) for r in science["records"])},
         "details": {"records": len(details), "digest": digest(details)},
     }
     ok = True
@@ -88,7 +91,11 @@ def main():
     if not (bool(guangfu) and all(r["school_ids"] == [GUANGFU_HUANGHUA] for r in guangfu)):
         ok = fail("广大附中校本部别名未指向黄华路校区") and ok
 
-    print(f"竞赛构建回归: {len(innovation)} 条创新 + {actual['chuangke']['records']} 条创客，{'通过' if ok else '失败'}")
+    science_details = find("science_literacy", "广州市铁一中学", year=2025)
+    if not science_details or not all(r["stage"] in {"primary", "middle", "high"} for r in science_details):
+        ok = fail("科学素养大赛学生获奖明细未进入详情产物") and ok
+
+    print(f"竞赛构建回归: {len(innovation)} 条创新 + {actual['chuangke']['records']} 条创客 + {actual['science_literacy']['matched']} 条科学素养，{'通过' if ok else '失败'}")
     sys.exit(0 if ok else 1)
 
 

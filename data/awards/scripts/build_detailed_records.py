@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / "data/awards/dist/detailed_records.json"
 INNOVATION = ROOT / "data/awards/innovation/parsed"
 CHUANGKE = ROOT / "data/awards/chuangke/parsed/chuangke.json"
+SCIENCE_LITERACY = ROOT / "data/awards/science_literacy/parsed/science_literacy_2025.json"
 
 
 def main():
@@ -39,6 +40,19 @@ def main():
                 "members": record.get("student", "") if record.get("type") == "team" else "",
                 "coach": record.get("coach", ""), "award": record.get("award", ""),
                 "school_ids": record["school_ids"],
+            })
+
+    if SCIENCE_LITERACY.exists():
+        doc = json.loads(SCIENCE_LITERACY.read_text("utf-8"))
+        for record in doc.get("records", []):
+            if not record.get("school_ids"):
+                continue
+            details.append({
+                "competition": "science_literacy", "stage": record["stage"],
+                "year": int(doc["year"]), "school": record["school"],
+                "project": record.get("category", ""), "leader": record.get("student", ""),
+                "members": record.get("student", ""), "coach": record.get("coach", ""),
+                "award": record.get("award", ""), "school_ids": record["school_ids"],
             })
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
