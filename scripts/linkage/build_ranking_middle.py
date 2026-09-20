@@ -69,48 +69,19 @@ brand_groups = load('registry/brand_groups.json')['brands']
 # education: group brand + 全部成员名（core_poi/members/campuses 的 name/poi_name）
 education_groups = load('registry/education_groups.json')['groups']
 
-# school_id → 集团索引（对齐 shared 详情页 schoolIdToGroup：education 外键 + brand 有外键的 unit；
-# 详情页品牌卡能命中的 school_id，初中明细分组必须同样命中，避免前端口径分叉）
-GROUP_BY_SID = {}
-for _g in education_groups:
-    for _p in _g.get('core_poi') or []:
-        if _p.get('school_id'): GROUP_BY_SID[_p['school_id']] = (_g['brand'], 'education')
-    for _m in _g.get('members') or []:
-        if _m.get('school_id'): GROUP_BY_SID[_m['school_id']] = (_g['brand'], 'education')
-        for _c in _m.get('campuses') or []:
-            if _c.get('school_id'): GROUP_BY_SID[_c['school_id']] = (_g['brand'], 'education')
-for _g in brand_groups:
-    for _u in _g.get('units') or []:
-        for _sid in _u.get('school_ids') or []:
-            if _sid and _sid not in GROUP_BY_SID:
-                GROUP_BY_SID[_sid] = (_g['brand'], 'brand')
+# 公共 school_id → 集团映射（scripts/registry/build_school_groups.py 构建的纯 id 产物；
+# 与详情页 groupOfSchool 共用同一份，运行时不再做名称匹配，避免口径分叉）
+SCHOOL_GROUPS = load('registry/school_groups.json')['schoolGroups']
 
 
-def group_of(school_name: str, school_id=None):
-    # 0. school_id 外键精确匹配（与 shared 详情页 groupOfSchool 同口径，优先于名称匹配）
-    if school_id and school_id in GROUP_BY_SID:
-        _b, _src = GROUP_BY_SID[school_id]
-        return {'brand': _b, 'source': _src}
-    n = py_norm(school_name)
-    # 1. brand（8 大品牌，全等）
-    for g in brand_groups:
-        for u in g.get('units', []):
-            cands = [u.get('name')] + (u.get('poi_names') or [])
-            if any(py_norm(c) == n for c in cands if c):
-                return {'brand': g['brand'], 'source': 'brand'}
-    # 2. education（85 集团，loose 全等；'（本部）' 类括号残留需第二层去括号内容）
-    ln = py_loose(school_name)
-    ln2 = py_loose2(school_name)
-    for g in education_groups:
-        names = []
-        for p in g.get('core_poi') or []:
-            names += [p.get('name'), p.get('poi_name')]
-        for m in g.get('members') or []:
-            names += [m.get('name'), m.get('poi_name')]
-            for c in m.get('campuses') or []:
-                names += [c.get('name'), c.get('poi_name')]
-        if any(py_loose(x) == ln or (ln2 and py_loose2(x) == ln2) for x in names if x):
-            return {'brand': g['brand'], 'source': 'education'}
+def group_of(school_id=None, school_ids=None):
+    """集团归属：纯 school_id 匹配公共产物（schoolGroups，与详情页 groupOfSchool 同一真源）。
+    school_ids = 多校区法人行校区实体数组：任一个 id 命中产物即归属该集团
+    （如 quota 行「广州市第八十六中学」主 id 为分校实体不在产物，但 school_ids 含主校实体 → 命中）。"""
+    for sid in [school_id] + list(school_ids or []):
+        if sid and sid in SCHOOL_GROUPS:
+            _b, _src = SCHOOL_GROUPS[sid]['brand'], SCHOOL_GROUPS[sid]['source']
+            return {'brand': _b, 'source': _src}
     return None
 
 
@@ -289,15 +260,9 @@ def tekong_of(high_name: str):
     return tekong_by_name.get(canon_bracket(high_name))
 
 
-def group_resolve(name: str, school_id=None):
-    """集团匹配：先按 school_id 外键（对齐详情页）；未命中按 quota 校区名直查；再回退历史口碑口径名。"""
-    g = group_of(name, school_id)
-    if g:
-        return g
-    legacy = QUOTA_REVERSE.get(name)
-    if legacy:
-        return group_of(legacy, school_id)
-    return None
+def group_resolve(school_id=None, school_ids=None):
+    """集团匹配：纯 id 查公共产物（schoolGroups，与详情页同源）。"""
+    return group_of(school_id, school_ids)
 
 
 # ---------------- 聚合 ----------------
@@ -334,7 +299,7 @@ def build_row(name: str, district: str, school_id=None, school_ids=None):
         'school_ids': school_ids,
         'district': district,
         'minban': bool(school_id and school_id in MINBAN_IDS),
-        'group': group_resolve(name, school_id),
+        'group': group_resolve(school_id, school_ids),
         'kaosheng': kaosheng,
         'sheng_quota': sheng_quota,
         'qu_quota': qu_quota,

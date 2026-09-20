@@ -17,7 +17,7 @@ import {
   repository, primarySchools, middleSchools, highSchools, primaryTier1, middleTier1,
   highLevels, tier1Schools, middleTier1Schools, entities, matchEnrollment,
   middleQuotaSummary, middlePrimaryFeed, middleEnrollmentsOf, xiaoshengchuOf, schoolBadges, scoresOfSchool,
-  isComprehensive, brandGroupOf, groupOfSchool, resolvePoiName, resolveSchoolIdOf,
+  isComprehensive, groupOfSchool, resolvePoiName, resolveSchoolIdOf,
   type BrandUnit,
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
@@ -63,6 +63,7 @@ const feedJuniors = computed(() => model.value.feedJuniors);
 const feedGap = computed(() => model.value.feedGap);
 const feedRows = computed(() => model.value.feedRows);
 const feedPrimarys = computed(() => model.value.feedPrimarys);
+const enrollNote = computed(() => model.value.enrollNote);
 const signalRows = computed(() => model.value.signalRows);
 const admissionRows = computed(() => model.value.admissionRows);
 const gaokaoRows = computed(() => model.value.gaokaoRows);
@@ -354,8 +355,7 @@ const brandCard = computed<{ brand: string; note?: string; sourceUrls: string[];
   }
 
   /* ---- source=brand：8 个重点品牌（带法人关系/口碑标注，现有逻辑） ---- */
-  const g = brandGroupOf(schoolName.value);
-  if (!g) return null;
+  // grp 已由 groupOfSchool 统一解析（schoolGroups 产物 → brand 原文展开 members）
   /** unit 核心名：先去「（别名）」内容再归一，用于与 POI 名精确匹配（如「广东实验中学天河学校（省实天河）」→「广东实验中学天河学校」；注意 normName 已去括号字符，须先剥别名） */
   const unitCoreNorm = (n: string): string => normName(n.replace(/[（(][^）)]*[）)]/g, ''));
   /** 该 unit 对应 POI 是否为新开办待成绩（note 含「新开办」），是则不进 tier1 */
@@ -364,7 +364,7 @@ const brandCard = computed<{ brand: string; note?: string; sourceUrls: string[];
     return list.some((s) => normName(s.name) === un && !!s.note && s.note.includes('新开办'));
   };
   const rows: BrandRow[] = [];
-  for (const u of g.units as BrandUnit[]) {
+  for (const u of grp.members as BrandUnit[]) {
     const unitNorm = unitCoreNorm(u.name);
     const newM = newOpeningOf('middle', unitNorm);
     const newP = newOpeningOf('primary', unitNorm);
@@ -432,7 +432,7 @@ const brandCard = computed<{ brand: string; note?: string; sourceUrls: string[];
   const indepRows = rows.filter((r) => r.legal === 'independent');
   if (sameRows.length) groups.push({ key: 'same', title: '同一法人单位（品牌本体/分校区）', rows: sameRows });
   if (indepRows.length) groups.push({ key: 'independent', title: '独立法人单位（品牌合作）', rows: indepRows });
-  return { brand: g.brand, note: g.brand_note, sourceUrls: [], groups };
+  return { brand: grp.brand, note: grp.note, sourceUrls: [], groups };
 });
 /** 品牌关联有兄弟校区才展示（只剩自己则不显示该模块） */
 const brandCardUseful = computed(() =>
@@ -531,6 +531,7 @@ const brandCardUseful = computed(() =>
     <!-- 初中 tab：招生计划（2026）：班数/范围/机制 + 生源小学 -->
     <div v-if="stage === 'middle'" class="card">
       <div class="card-title">招生计划（2026）</div>
+      <p v-if="enrollNote" class="sub-note">{{ enrollNote }}</p>
 
       <!-- 机制徽章 + 班数 + 范围（来自初中招生计划表）；一校多规则时逐条渲染 -->
       <template v-if="middleEnrolls.length">

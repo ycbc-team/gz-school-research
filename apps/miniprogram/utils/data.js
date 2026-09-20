@@ -36,6 +36,7 @@ const baseLoaders = {
   ],
   entities: cast(hydrate(require('../data/registry/entities.js'))),
   xiaoshengchu: cast(hydrate(require('../data/primary/xiaoshengchu_2026.js'))),
+  middleEnrollNotes: cast(hydrate(require('../data/primary/middle_enroll_notes.js'))),
   // ---- 详情域空壳（分包 pages/school-detail/data/ 提供真实数据） ----
   quotaMatrix: { schools: [], districts: [] },
   specialMatrix: { high_schools: [], matrix: {} },
@@ -43,6 +44,7 @@ const baseLoaders = {
   districtQuota: { data: {} },
   sites: { schools: [] },
   brandGroups: { brands: [] },
+  schoolGroups: { schoolGroups: {} },
 };
 
 const repository = createRepository(baseLoaders);

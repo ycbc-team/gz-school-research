@@ -9,6 +9,7 @@ import primarySchoolsCompact from './compact/primary/schools-gz.js';
 import primaryTier1Compact from './compact/primary/tier1_schools_all.js';
 import entitiesCompact from './compact/registry/entities.js';
 import xiaoshengchu2026Compact from './compact/primary/xiaoshengchu_2026.js';
+import middleEnrollNotesCompact from './compact/primary/middle_enroll_notes.js';
 import middleSchoolsCompact from './compact/middle/schools-gz.js';
 import middleTier1Compact from './compact/middle/tier1_schools_all.js';
 import highSchoolsCompact from './compact/high/schools-gz.js';
@@ -35,6 +36,7 @@ import districtQuotaCompact from './compact/linkage/district_quota.js';
 import sitesRegistryCompact from './compact/registry/sites.js';
 import brandGroupsCompact from './compact/registry/brand_groups.js';
 import educationGroupsCompact from './compact/registry/education_groups.js';
+import schoolGroupsCompact from './compact/registry/school_groups.js';
 import highScores2025Compact from './compact/high/scores_2025.js';
 import highScores2026Compact from './compact/high/scores_2026.js';
 import orgSortCompiledCompact from './compact/middle/org_sort_compiled.js';
@@ -77,9 +79,11 @@ const loaders: DataLoaders = {
   districtQuota: cast(hydrate(districtQuotaCompact)),
   entities: cast(hydrate(entitiesCompact)),
   xiaoshengchu: cast(hydrate(xiaoshengchu2026Compact)),
+  middleEnrollNotes: cast(hydrate(middleEnrollNotesCompact)),
   sites: cast(hydrate(sitesRegistryCompact)),
   brandGroups: cast(hydrate(brandGroupsCompact)),
   educationGroups: cast(hydrate(educationGroupsCompact)),
+  schoolGroups: cast(hydrate(schoolGroupsCompact)),
 };
 
 /** 共享数据仓库（查询/判定/匹配业务逻辑全部来自 @gz/shared，双端单点维护） */
@@ -136,7 +140,6 @@ export const {
   resolveSchoolIdOf,
   resolveSite,
   resolvePoiName,
-  brandGroupOf,
   groupOfSchool,
   tier1Schools,
   middleTier1Schools,

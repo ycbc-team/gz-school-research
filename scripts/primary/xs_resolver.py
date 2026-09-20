@@ -113,32 +113,47 @@ class XsResolver:
         return (hit or lst[0])['school_id']
 
     def resolve_many(self, name, district, stage):
-        """feed 初中解析：alias 精确优先（按 POI 区过滤）→ 法人 core 聚合（升学归属区过滤）。"""
+        """feed 初中解析。
+
+        官方整体名（无校区后缀）：政府源不标校区即按整体列（南武中学一校三区、南二实南北、
+        新滘双校区同型）→ 同法人同学段校区全收 = core 聚合 ∪ alias 精确（合并去重）；
+        区过滤优先 POI 物理区，POI 区不符但官方明确列出时用升学归属区兜底，均无则宁缺。
+        官方带校区名（括号）：alias 精确匹配（按 POI 区过滤），未命中宁缺——不聚合其他校区。
+        跨区同名等无法由通用规则覆盖的用 RESOLVE_OVERRIDE 显式名单。"""
         ov = RESOLVE_OVERRIDE.get(norm_xs(name))
         if ov:
             return list(ov)
         has_campus = bool(re.search(r'[（(]', name))
+        if not has_campus:
+            # 官方整体名（无校区后缀）：政府源不标校区即按整体列（南武一校三区、南二实南北、
+            # 新滘双校区同型）→ 同法人同学段校区全收 = core 聚合 ∪ alias 精确（合并去重，
+            # 不能二选一：黄埔实验初中部实体 core 带「初中部」后缀、仅 alias 含整体名）。
+            core = core_of_name(name)
+            core_hits = [e for e in self.entities if e['stage'] == stage and core_of_name(e['name']) == core]
+            alias_hits = list(self.alias_idx.get((stage, norm_xs(name))) or [])
+            cand = core_hits + [e for e in alias_hits if e not in core_hits]
+            if cand:
+                if district:
+                    # 官方名单在某区 → POI 物理区 + 升学归属区合并（去重）：
+                    # - POI 物理区命中（常规校区）
+                    # - POI 区不符但升学归属区在名单区（跨区办学特例：七中桂花 POI 白云、
+                    #   quota_matrix 升学归属越秀——官方「广州市第七中学」整体名含桂花；
+                    #   四中丰宁 POI 越秀、官方荔湾名单明确）
+                    by_poi = [e for e in cand if self.ent_district.get(e['school_id']) == district]
+                    by_campus = [e for e in cand if self.campus_dist.get(e['school_id']) == district]
+                    hit = by_poi + [e for e in by_campus if e not in by_poi]
+                    if hit:
+                        return list(dict.fromkeys(e['school_id'] for e in hit))
+                    # 本区无同法人实体：宁缺不兜底
+                    return []
+                return list(dict.fromkeys(e['school_id'] for e in cand))
         picked = list(self.alias_idx.get((stage, norm_xs(name))) or [])
         if district:
             f = [e for e in picked if self.ent_district.get(e['school_id']) == district]
             picked = f if f else []
         if picked:
             return list(dict.fromkeys(e['school_id'] for e in picked))
-        if has_campus:
-            return []
-        core = core_of_name(name)
-        all_ = [e for e in self.entities if e['stage'] == stage and core_of_name(e['name']) == core]
-        if district:
-            by_own = [e for e in all_ if self.campus_dist.get(e['school_id']) == district]
-            if by_own:
-                rest = [e for e in all_
-                        if e['school_id'] not in self.campus_dist
-                        and self.ent_district.get(e['school_id']) == district]
-                return list(dict.fromkeys(e['school_id'] for e in by_own + rest))
-            by_poi = [e for e in all_ if self.ent_district.get(e['school_id']) == district]
-            if by_poi:
-                return list(dict.fromkeys(e['school_id'] for e in by_poi))
-        return list(dict.fromkeys(e['school_id'] for e in all_))
+        return []
 
     def resolve_record(self, r):
         """对一条 xiaoshengchu 记录解析 school_id / feed_school_ids / direct_feed_school_id。"""

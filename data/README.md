@@ -80,3 +80,43 @@ python3 scripts/primary/build_district_enrollment.py   # 2026 招生（写 data/
 - **P2（已完成）**：8 品牌组官方来源交叉核实，写回 `brand_groups.json`（新增 25 成员，单测 12/12 通过）
 - **P3（未完成）**：区属非示范集团 + 小学集团全量按各区文件补录
 - **P4（未完成）**：年度更新机制（每年 5 月招考办新表发布后刷新）
+
+## 数据依赖链（2026-09-20 记录）
+
+数据流总览：**源头（外部抓取/官方转录/人工）→ 构建脚本 → data/ 产物 → compact.mjs 编译 → Web/小程序运行时**。全链以 school_id 外键关联，`registry/entities.json` 是唯一维度表枢纽。
+
+### 源头层（无上游脚本写入 = 真源）
+
+| 类型 | 文件 |
+| --- | --- |
+| 外部抓取（高德 API） | `primary/schools-gz.json`、`middle/schools-gz.json`、`high/schools-gz.json`（fetch_* 脚本直写） |
+| 官方转录 | `primary/enrollments/2026-*`（小学招生计划）、`linkage/raw/*` + `primary/enrollments/_raw/*`（指标/自招/录取线/招生名单转录）、`high/scores_{2025,2026}.json`（官方录取分） |
+| 人工产物 | `primary|middle/tier1_schools_all.json`（学校信号，已判废弃待重构）、`high/levels.json`、`middle/org_sort/*`、`registry/brand_groups.json`、`registry/education_groups_2026.json`、`registry/_partial_*`、`registry/source_name_mappings.json`、`registry/minban_schools.json` |
+
+### 派生层（脚本产物，勿手改；改脚本须重跑并提交）
+
+| 产物 | 生产脚本 | 下游 |
+| --- | --- | --- |
+| `registry/entities.json` | build_entities.mjs | 全链 school_id 外键维度表 |
+| `registry/sites.json` | build_sites.py | 高中点位/实体 |
+| `primary/enrollments/xiaoshengchu_<区>.json` + `primary/xiaoshengchu_all.json` | build_xiaoshengchu_all.py + xs_resolver.py | 升学路线 |
+| `primary/xiaoshengchu_2026.json`（facts） | upgrade_xiaoshengchu.mjs | 小学升学路线、初中生源反查（middlePrimaryFeed）、生源快照测试 |
+| `primary/enrollments/middle_enrollment_2026_<区>.json` | build_middle_enrollment.py | 详情页初中招生计划 |
+| `linkage/quota_matrix.json` / `special_matrix.json` / `district_quota.json` / `batch2_scores.json` | rebuild_quota_matrix / build_special_* / build_district_quota / build_linkage_batch2（+ backfill_school_ids 回填 id） | 升学通道、排行榜 |
+| `linkage/ranking_middle.json`（334 校） | build_ranking_middle.py | 详情页升学信号、排行榜、初中明细 |
+| `registry/education_groups.json` | merge_groups.py（合并 `_partial_*` + brand + education_groups_2026） | 品牌卡、初中明细分组 |
+| `registry/school_groups.json`（纯 id） | build_school_groups.py（--write-brand 回写 brand_groups） | 品牌卡、初中明细分组（运行时纯 id 匹配） |
+| `middle/org_sort_compiled.json` | build_org_sort.py | 初中默认排序 |
+| `primary/middle_feed_snapshot.json` | build_middle_feed_snapshot.py | 初中生源全量快照测试（npm run check） |
+
+### 运行时层
+
+- `scripts/data/compact.mjs`：data/ 全部 JSON → `apps/web/src/data/compact/*` + `apps/miniprogram/data/*`（git 忽略，构建生成）
+- `packages/shared`：src → build.mjs → dist（cjs/esm），Web/小程序同构业务层（createRepository 组装 loaders）
+- 前端消费：地图点位/信息卡、详情页（招生/升学/品牌卡/信号）、排行榜、初中明细
+
+### 关键约束
+
+- `entities.json`、`xiaoshengchu_2026.json`、`school_groups.json` 为公共枢纽，改动影响面最大
+- tier1（学校信号）自 2026-09-17 判定废弃：entities 对 tier1 的别名挂载已移除，仅存 tier1→entities 反查；重构不波及其他链
+- 一致性保障：`npm run check`（check_groups_drift 用 git HEAD 比对全部生产脚本重跑产物 + check_middle_feed_snapshot 全量生源快照）

@@ -66,6 +66,7 @@ const MP_MAIN_TARGETS = [
   'data/primary/schools-gz.json',
   'data/primary/tier1_schools_all.json',
   'data/primary/xiaoshengchu_2026.json',
+  'data/primary/middle_enroll_notes.json',
   'data/middle/schools-gz.json',
   'data/middle/tier1_schools_all.json',
   'data/high/schools-gz.json',
@@ -91,6 +92,7 @@ const MP_SUB_TARGETS = [
   'data/registry/sites.json',
   'data/registry/brand_groups.json',
   'data/registry/education_groups.json',
+  'data/registry/school_groups.json',
 ];
 
 /* ---------- JS 字面量序列化（保留 undefined 稀疏空位） ---------- */

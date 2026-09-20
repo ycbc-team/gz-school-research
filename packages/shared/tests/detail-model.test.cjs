@@ -31,6 +31,7 @@ const loaders = {
   sites: load('registry/sites.json'),
   brandGroups: load('registry/brand_groups.json'),
   educationGroups: load('registry/education_groups.json'),
+  schoolGroups: load('registry/school_groups.json'),
   rankingMiddle: load('linkage/ranking_middle.json'),
 };
 const repo = createRepository(loaders);
@@ -291,7 +292,9 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
   // 柯子岭43号A座）后更新：品牌卡渲染名单随实体合并变化（无品牌卡消失，miss 为空）
   // 2026-09-18 奥林匹克修复+高中学段判定重构：智谷 high 实体消失、8 所已核实高中校区 stage 修正
   // 随实体表/POI 表联动（无品牌卡消失，miss 为空）——有意变更
-  assert.equal(digest, '25d9b70539774c26', '品牌关联全量快照漂移：有实体的品牌卡渲染状态变化，需显式确认后更新');
+    // 2026-09-18 南武教育集团入册（海珠区教育局2023-12-27调整通知）：新增12条品牌卡渲染（南武中学三校区/江南外国语南北/南二实南北/南武实验/文润/附属/南武小学北/南武实验小学），REMOVED=0，无品牌卡消失——有意变更
+    // 2026-09-18 番禺仲元附属加入仲元集团（官方2024-12仍属成员校）：附属学校品牌卡主归属仲元集团（多集团展示逻辑不变），ADDED=0 REMOVED=0——有意变更
+  assert.equal(digest, 'd99c4422556d3656', '品牌关联全量快照漂移：有实体的品牌卡渲染状态变化，需显式确认后更新');
 });
 
 test('品牌关联：校区+学部复合名实体归属教育集团（奥体小学部品牌卡）', () => {

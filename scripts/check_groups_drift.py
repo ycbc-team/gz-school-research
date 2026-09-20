@@ -193,6 +193,40 @@ def _check_xiaoshengchu():
         raise
 
 
+def _check_school_groups():
+    """重跑 build_school_groups.py（公共 school_id→集团映射，纯 id 产物）到工作树，与入库比对。
+
+    覆盖 build_school_groups.py 的改动感知：改脚本/education 外键/entities 反查源后未重跑提交产物，
+    或产物被手改都会被检出。brand_groups.json 的 --write-brand 写回是一次性数据层补全
+    （依赖 entities 反查，幂等累积），不在本复现范围；比对失败还原工作树。"""
+    files = [os.path.join(ROOT, "data/registry/school_groups.json")]
+    orig = {f: open(f, encoding="utf-8").read() for f in files}
+    try:
+        r = subprocess.run(["python3", os.path.join(ROOT, "scripts/registry/build_school_groups.py")],
+                           capture_output=True, text=True, cwd=ROOT)
+        if r.returncode != 0:
+            print("生产脚本重跑失败：scripts/registry/build_school_groups.py")
+            print(r.stderr[-2000:])
+            for f, c in orig.items():
+                open(f, "w", encoding="utf-8").write(c)
+            sys.exit(1)
+        failed = [f for f in files if open(f, encoding="utf-8").read() != orig[f]]
+        if failed:
+            for f, c in orig.items():
+                open(f, "w", encoding="utf-8").write(c)
+            print(f"产物一致性: ✗ build_school_groups 重跑产物与工作树不一致：{', '.join(os.path.basename(f) for f in failed)}")
+            print("  → 说明 build_school_groups.py/education 外键/entities 反查源改动后未重跑提交产物。"
+                  "修复须固化到生产脚本后重跑并提交产物。")
+            sys.exit(1)
+        print("产物一致性: ✓ build_school_groups 重跑产物与入库完全一致（school_groups.json）")
+    except SystemExit:
+        raise
+    except Exception:
+        for f, c in orig.items():
+            open(f, "w", encoding="utf-8").write(c)
+        raise
+
+
 def _check_backfill_ids():
     """重跑 backfill_school_ids.py（quota_matrix/district_quota/batch2_scores/special_matrix
     外键回填 + _school_id_unmatched 未命中清单）到工作树，与入库比对。
@@ -227,6 +261,31 @@ def _check_backfill_ids():
         for f, c in orig.items():
             open(f, "w", encoding="utf-8").write(c)
         raise
+
+
+def _check_government_groups():
+    """政府文件底表覆盖校验：已支持区必须与官方名单成员级对齐（缺失=0）。
+
+    底表快照在 data/registry/_raw/government/，解析器 scripts/registry/parse_government_groups.py。
+    原则（用户口径）：以政府文件为底表，脚本解析形成数据源；官方名单有而 partial 无 = 缺失须补。"""
+    script = os.path.join(ROOT, "scripts/registry/parse_government_groups.py")
+    import re as _re
+    src = open(script, encoding="utf-8").read()
+    m = _re.search(r'SOURCES = \{(.*?)\n\}', src, _re.S)
+    districts = [d for d in _re.findall(r'"([a-z]+)": \{', m.group(1)) if d != "brand_aliases"]
+    ok = True
+    for d in districts:
+        r = subprocess.run(["python3", script, d, "--exit-on-gap"],
+                           capture_output=True, text=True, cwd=ROOT)
+        tail = (r.stdout or "") + (r.stderr or "")
+        if r.returncode != 0:
+            ok = False
+            print(f"官方底表: ✗ {d} 有缺失成员")
+            print("\n".join(tail.splitlines()[-6:]))
+        else:
+            print(f"官方底表: ✓ {d} 与官方名单成员级对齐")
+    if not ok:
+        sys.exit(1)
 
 
 def main():
@@ -288,6 +347,12 @@ def main():
 
     # 5) backfill_school_ids（quota_matrix/district_quota/batch2_scores/special_matrix/_unmatched）
     _check_backfill_ids()
+
+    # 6) school_groups 公共集团映射（build_school_groups 纯 id 产物）
+    _check_school_groups()
+
+    # 7) 政府文件底表覆盖（有官方底表的区必须成员级对齐）
+    _check_government_groups()
 
 
 if __name__ == "__main__":

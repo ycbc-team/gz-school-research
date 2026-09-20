@@ -25,6 +25,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 新增/名单变化→数据回退或误伤，必须先排查来源再更新，禁止直接更新快照掩盖。
 # 存量孤儿逐一排查修复（修复一所 → 重跑 → 显式更新此快照）；孤儿新增/变化立即失败。
 # 首次固化 2026-09-16：primary 256 + middle 166 + high 2（详见 outputs/orphan_schools_20260916.md）
+# 2026-09-18 更新：南武教育集团入册补 2 个校区 POI（江南外国语南校区、南二实北校区，高德官方点位），
+#   招生/升学真源未单列校区 → 孤儿 +2（预期新增，非回归）
 # 2026-09-16 更新：小学缺口修复 9 所（荔湾文昌小学、越秀八一/知用/七中实验、白云新和/云湖/棠景、
 #   黄埔华中师范、番禺沙北）→ 孤儿 221→212，消除 9、新增 0（纯正向）
 # 2026-09-16 更新：初中缺口修复 4 所（白云六十五中桃园/明德、培英科技城、培英实验云景；
@@ -49,7 +51,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #   （未确认校区宁缺、回孤儿待逐校确认；净消除 4 所），新增 0
 # 2026-09-17 二更：仲元二校区官方明文「二校区（初中部）」10 班 450 人（番禺招生计划），
 #   build_middle_enrollment 补挂 gz-440113-6dbdc462（原 school_id=None 过时）→ 孤儿 335→334，新增 0
-ORPHAN_SNAPSHOT = "ea9cd1495fe41e92"
+ORPHAN_SNAPSHOT = "375a1b683d89fb58"
 
 # 同段同址冗余候选快照（sha256 前 16 位）：同学段+同区+≤50m 的实体对（含民办）。
 # 方向：候选越少越好（每合并一对冗余实体就少一组，属纯正向改进）。
@@ -580,6 +582,26 @@ def main():
     for _b in _poi_like:
         check(False, f"[18] 实体名为招生/报名点位（非学校，应被 build_entities 过滤）: {_b}")
     print(f"[18] 实体点位后缀检测: {len(_poi_like)} 异常（0 容忍，build_entities NON_SCHOOL_POI 兜底）")
+
+    # ---- 19. 初中明细 group 必须由公共产物 schoolGroups 支撑（纯 id 一致性）----
+    # build_ranking_middle.py 的 group 只查 data/registry/school_groups.json（纯 id）；
+    # 任何有 group 的明细行，其 school_id / school_ids 中至少一个必须命中产物且 brand 一致，
+    # 否则说明产物漏收（该学校会从集团分组丢失）。无 school_id 的行不应有 group
+    # （名称匹配已从运行时删除；如三元里中学 = entities 无实体，属待补真源的数据缺口）。
+    _sg = json.load(open(os.path.join(ROOT, "data/registry/school_groups.json")))["schoolGroups"]
+    _rm = json.load(open(os.path.join(ROOT, "data/linkage/ranking_middle.json")))["schools"]
+    _orphan = 0
+    for _s in _rm:
+        _g = _s.get("group") or {}
+        if not _g:
+            continue
+        _ids = [i for i in [_s.get("school_id")] + list(_s.get("school_ids") or []) if i and i in _sg]
+        if not _ids:
+            _orphan += 1
+            check(False, f"[19] 明细 {_s['name']} 有 group 但 school_id(s) 无 school_groups 产物支撑: {_g.get('brand')}")
+        elif _sg[_ids[0]]["brand"] != _g["brand"]:
+            check(False, f"[19] 明细 {_s['name']} 产物 brand 不一致: 产物={_sg[_ids[0]]['brand']} 明细={_g['brand']}")
+    print(f"[19] 明细分组-产物一致性: {sum(1 for s in _rm if s.get('group'))} 有 group，{_orphan} 孤儿（0 容忍）")
 
     # ---- 汇总 ----
     print(f"数据质量测试: {checks} 项检查, {len(failures)} 项失败")
