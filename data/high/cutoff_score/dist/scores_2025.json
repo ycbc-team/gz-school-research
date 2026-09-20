@@ -1274,6 +1274,30 @@
     "gongfei": false
    }
   ],
+  "gz-440112-b56cfdce": [
+   {
+    "official_name": "广州市第二中学",
+    "nature": "公办",
+    "scope": "全市",
+    "huji": 724,
+    "feihuji": 724,
+    "waiqu": null,
+    "batch": 3,
+    "kind": "public",
+    "gongfei": false
+   }
+  ],
+  "gz-440112-bffde68d": [
+   {
+    "official_name": "广州市新侨学校",
+    "nature": "民办",
+    "scope": "全市",
+    "min_score": 487,
+    "batch": 4,
+    "kind": "private",
+    "gongfei": false
+   }
+  ],
   "gz-440112-e085f4fa": [
    {
     "official_name": "广州市天健学校",
@@ -1348,6 +1372,17 @@
     "nature": "民办",
     "scope": "全市",
     "min_score": 487,
+    "batch": 4,
+    "kind": "private",
+    "gongfei": false
+   }
+  ],
+  "gz-440113-3d006240": [
+   {
+    "official_name": "广州市博萃德学校",
+    "nature": "民办",
+    "scope": "全市",
+    "min_score": null,
     "batch": 4,
     "kind": "private",
     "gongfei": false
@@ -2399,26 +2434,6 @@
    "nature": "民办",
    "scope": "全市",
    "min_score": 498,
-   "batch": 4,
-   "kind": "private",
-   "gongfei": false
-  },
-  {
-   "official_name": "广州市新侨学校",
-   "raw_name": "广州市新侨学校",
-   "nature": "民办",
-   "scope": "全市",
-   "min_score": 487,
-   "batch": 4,
-   "kind": "private",
-   "gongfei": false
-  },
-  {
-   "official_name": "广州市博萃德学校",
-   "raw_name": "广州市博萃德学校",
-   "nature": "民办",
-   "scope": "全市",
-   "min_score": null,
    "batch": 4,
    "kind": "private",
    "gongfei": false

@@ -24,12 +24,11 @@
 ├── data/                    # 共享数据层（JSON 唯一真源，多端共用）
 │   ├── primary/             # 小学阶段数据（tier1_schools_all.json / enrollments/；点位见 poi/）
 │   ├── middle/              # 初中阶段数据（tier1_schools_all.json；点位见 poi/）
-│   ├── high/                # 高中阶段数据（levels.json / scores_{year}.json 官方录取分 / 剔除留痕；点位见 poi/）
-│   ├── poi/                  # POI 点位（dist/*_poi.json 真源，采集/清洗脚本在 scripts/）
+│   ├── high/                # 高中阶段数据（levels.json / 剔除留痕；录取分见 cutoff_score/；点位见 poi/）
+│   │   └── cutoff_score/    # 高中录取分（dist/ 历年产物 · raw/ 官方源页面 · src/ 手工源 · scripts/ 解析脚本）
+│   ├── poi/                  # POI 点位（dist/*_poi.json 真源，采集/清洗脚本在同目录 scripts/）
 │   └── README.md            # 数据治理约定与更新方式
 ├── scripts/                 # 共享脚本（数据采集/构建 + 小程序构建）
-│   ├── poi/scripts/         # POI 采集与清洗（fetch_*_schools.py / backfill_* / build_high_levels_js.py → data/poi/dist/）
-│   ├── build_scores.py          # 高中录取分抓取（招考办官网 2025/2026 录取表 → scores_{year}.json，零依赖）
 │   ├── registry/build_entities.mjs  # 实体注册表（school_id 主键 + 官方名/别名桥接）
 │   ├── build_district_enrollment.py  # 五区小学招生数据
 │   └── miniprogram/build.mjs  # 小程序构建（shared cjs + data json → 小程序包）
@@ -171,13 +170,13 @@ apps/web/src/data/compact/**  与  @gz/shared 构建产物（Web/小程序实际
 - 分类依据（广州市招考办官方文件）：2026 名额分配招生学校名单、2025 第三批录取表、2025 第四批录取表
 - 客观指标（levels.json，逐校）：特控线上线率 2026 / 2025（含网传口径）、600 分以上高分段占比、本科率、隶属与示范性等级、nature（公办/民办，取官方录取表"学校性质"列）；无公开数据的学校如实标注"高考出口数据未公开"
   - 特控率来源：2026 高考喜报（广州日报报道）+ 2025 年 51 校成绩汇总，均为喜报 / 网传口径，非官方统一发布（页面卡片已注明）
-  - **中考录取分已迁出 levels**：2025/2026 两年官方分数见 `data/high/scores_2025.json` / `scores_2026.json`（由脚本从招考办官网录取表抓取，按 school_id 引用实体表），levels 不再存任何分数
+  - **中考录取分已迁出 levels**：2025/2026 两年官方分数见 `data/high/cutoff_score/dist/scores_2025.json` / `scores_2026.json`（由 `data/high/cutoff_score/scripts/build_scores.py` 从招考办官网录取表抓取，按 school_id 引用实体表），levels 不再存任何分数
 - 点位统计：126 个（含 15 个高德补点），荔湾 17 / 越秀 18 / 海珠 14 / 天河 19 / 白云 25 / 黄埔 14 / 番禺 19
-- 更新：`python3 data/poi/scripts/fetch_high_schools.py`（原始 POI）→ `python3 data/poi/scripts/build_high_levels_js.py`（按 levels.json 清洗点位并写回 data/poi/dist/high_poi.json）；录取分链路见「高中录取分数（data/high/scores_{year}.json）」一节
+- 更新：`python3 data/poi/scripts/fetch_high_schools.py`（原始 POI）→ `python3 data/poi/scripts/build_high_levels_js.py`（按 levels.json 清洗点位并写回 data/poi/dist/high_poi.json）；录取分链路见「高中录取分数（data/high/cutoff_score/dist/scores_{year}.json）」一节
 
-### 高中录取分数（data/high/scores_{year}.json）
+### 高中录取分数（data/high/cutoff_score/dist/scores_{year}.json）
 
-- 真源：广州市招考办官网（gzzk.gz.gov.cn）普通高中录取分数表，脚本抓取解析（零第三方依赖，`python3 scripts/high/build_scores.py [--fetch]` 重下官方页）
+- 真源：广州市招考办官网（gzzk.gz.gov.cn）普通高中录取分数表，官方页原始 HTML 存 `data/high/cutoff_score/raw/`（gitignore），`python3 data/high/cutoff_score/scripts/build_scores.py [--fetch]` 重下官方页并解析到 `data/high/cutoff_score/dist/`
 - 覆盖批次：第一批次（外语艺术类，末位考生分数口径）/ 第三批次 / 第四批次；2025 与 2026 两年
 - 口径：公办=户籍生最低分（另有非户籍生/外区生）；民办/中外合作=最低分数（公费班为独立条目）；外语艺术类=末位考生分数
 - 关联：`by_school_id` 按实体主键引用 `data/registry/entities.json`（官方录取表原文名经 `scripts/registry/build_entities.mjs` 的 OFFICIAL_HIGH_ALIAS 桥接 POI 名，全角校区名 ↔ 半角 POI 名系统性差异已治理）；未收录实体（远郊 7 区外 / 中外合作办学项目 / 无 POI 新校）保留在 `unmapped` 官方原文
@@ -230,7 +229,7 @@ apps/web/src/data/compact/**  与  @gz/shared 构建产物（Web/小程序实际
 - [x] 7 区高中点位采集（2026-09-09 快照，126 点，90 所学校）
 - [x] 官方口径分类（省市属示范 11 / 区属示范 43 / 普通高中 36，依据招考办名额分配名单与录取表）
 - [x] 逐校客观指标（特控线上线率 / 高分段 / 本科率，喜报与网传口径已注明）
-- [x] **中考录取分官方链路**（2025/2026 两年，脚本抓取招考办录取表 → scores_{year}.json，school_id 引用实体表；levels 移除人工录入分数，补 nature 民办标志，页面同屏两年展示）
+- [x] **中考录取分官方链路**（2025/2026 两年，脚本抓取招考办录取表 → cutoff_score/dist/scores_{year}.json，school_id 引用实体表；levels 移除人工录入分数，补 nature 民办标志，页面同屏两年展示）
 - [x] 三学段合并地图（七类配色 + 筛选 + 高中信息卡）
 - [ ] 个别学校指标核实（"网传 / 未公开"项逐条回查官方渠道）
 

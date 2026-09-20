@@ -53,7 +53,7 @@ export interface Batch2Scores {
   middle_school_ids?: Record<string, string>;
 }
 
-/** 高中统招录取分数记录（data/high/scores_{year}.json，官方招考办发布；按 school_id 引用实体表） */
+/** 高中统招录取分数记录（data/high/cutoff_score/dist/scores_{year}.json，官方招考办发布；按 school_id 引用实体表） */
 export interface HighScoreRecord {
   /** 官方招生单位原文名（含校区/班型，如「华南师范大学附属中学（石牌校区）」「广州市为明学校（盛景校区）」） */
   official_name: string;

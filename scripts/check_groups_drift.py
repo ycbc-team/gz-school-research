@@ -84,6 +84,35 @@ def _check_minban_official():
     print("民办官方源校验: ✓ 番禺官方招生计划解析与权威表一致（禁手改）")
 
 
+def _check_build_scores():
+    """重跑 build_scores.py 到临时目录，与入库 cutoff_score/dist 比对（防手改产物/解析漂移）。"""
+    tmp = os.path.join(tempfile.gettempdir(), "scores_repro")
+    shutil.rmtree(tmp, ignore_errors=True)
+    r = subprocess.run(["python3", os.path.join(ROOT, "data/high/cutoff_score/scripts/build_scores.py"), "--out-dir", tmp],
+                       capture_output=True, text=True, cwd=ROOT)
+    if r.returncode != 0:
+        print("生产脚本重跑失败：data/high/cutoff_score/scripts/build_scores.py")
+        print(r.stdout[-2000:])
+        print(r.stderr[-2000:])
+        sys.exit(1)
+    failed = []
+    for year in ("2025", "2026"):
+        _f = f"scores_{year}.json"
+        _replay_p = os.path.join(tmp, _f)
+        _in_repo = os.path.join(ROOT, "data", "high", "cutoff_score", "dist", _f)
+        if not os.path.exists(_replay_p) or not os.path.exists(_in_repo):
+            failed.append(f"{_f}(缺文件)")
+            continue
+        with open(_replay_p, encoding="utf-8") as a, open(_in_repo, encoding="utf-8") as b:
+            if a.read() != b.read():
+                failed.append(_f)
+    if failed:
+        print(f"产物一致性: ✗ build_scores 重跑产物与入库不一致（{', '.join(failed)}）：")
+        print("  → 只改生产脚本/源表（cutoff_score/raw 官方页 / registry/entities.json），重跑并提交产物，禁止手改产物。")
+        sys.exit(1)
+    print("产物一致性: ✓ build_scores 重跑产物与入库完全一致（2025/2026）")
+
+
 def _check_build_high_levels():
     """重跑 build_high_levels_js.py（python）到临时目录，与入库 high 表比对。
 
@@ -339,6 +368,7 @@ def main():
     # 3) special plan + matrix（2026 特长生计划解析 + 升学通道矩阵）
     _check_special_matrix()
     _check_build_high_levels()
+    _check_build_scores()
     _check_build_entities()
     _check_minban_official()
 

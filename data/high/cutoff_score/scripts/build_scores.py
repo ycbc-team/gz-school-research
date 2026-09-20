@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""解析广州市招考办官方中考录取分数（HTML 表格）→ data/high/scores_{year}.json 真源。
+"""解析广州市招考办官方中考录取分数（HTML 表格）→ data/high/cutoff_score/dist/scores_{year}.json 真源。
+
+与 fetch_scores.py 分拆（2026-09-20）：
+- fetch_scores.py：下载官方 HTML 到 raw/，仅每年录取批次公布时手动跑一次，不进入 check。
+- build_scores.py：解析 raw/ HTML → 匹配实体 → dist/scores_{year}.json。
+  每次 `npm run check` 由 check_groups_drift 重跑本脚本并与入库产物比对，
+  分数清单（by_school_id 匹配）有任何变化都会失败——防手改产物/解析漂移/实体表变化静默漏更。
 
 覆盖批次：
 - 第一批次（外语、艺术类）：广州外国语学校（统一计划）、广州市艺术中学等
@@ -12,12 +18,12 @@
   未命中（远郊 7 区外、中外合作办学项目、项目未收录学校/校区）落在 unmapped，
   保留官方原文，供后续扩展。
 
-用法: python3 scripts/high/build_scores.py [--fetch]
-  --fetch  重新下载官方页面到 data/high/raw/（默认只解析本地已保存页面）
+用法: python3 data/high/cutoff_score/scripts/build_scores.py [--out-dir DIR]
+  --out-dir  产物输出目录（默认 dist/；check_groups_drift 重跑比对用）
 
 输出:
-  data/high/scores_2025.json  2025 年官方录取分数（真源）
-  data/high/scores_2026.json  2026 年官方录取分数（真源）
+  data/high/cutoff_score/dist/scores_2025.json  2025 年官方录取分数（真源）
+  data/high/cutoff_score/dist/scores_2026.json  2026 年官方录取分数（真源）
 
 解析约定：
 - 民办/中外合作官方只发布「最低分数」（无户籍/非户籍之分），公费班为独立条目（名称含「（公费班）」）。
@@ -26,57 +32,19 @@
 """
 import json
 import re
-import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent.parent
-RAW = ROOT / "data" / "high" / "raw"
-OUT = ROOT / "data" / "high"
+# 官方页面清单（文件名/批次/标题/URL）由 fetch_scores.py 权威定义，本脚本只消费文件名
+from fetch_scores import PAGES
+
+ROOT = Path(__file__).resolve().parent.parent.parent.parent.parent
+RAW = ROOT / "data" / "high" / "cutoff_score" / "raw"
+OUT = ROOT / "data" / "high" / "cutoff_score" / "dist"
 
 # 统一匹配库：norm 本体收敛至 school_match.normName（原 norm_name 定义已删，规则与 build_entities/support 一致）
 sys.path.insert(0, str(ROOT / "scripts" / "registry"))
 from school_match import normName as norm_name
-
-# year -> [(batch, 页面文件, 官方标题, 官方URL)]
-PAGES = {
-    2025: [
-        (1, "scores_2025_batch1.html",
-         "2025年广州市高中阶段学校招生录取分数（第一批次招生学校）",
-         "https://gzzk.gz.gov.cn/gkmlpt/content/10/10363/post_10363521.html"),
-        (3, "scores_2025_batch3.html",
-         "2025年广州市高中阶段学校招生录取分数（第三批次招生学校）",
-         "http://gzzk.gz.gov.cn/zwgk/zwdt/content/post_10365139.html"),
-        (4, "scores_2025_batch4.html",
-         "2025年广州市高中阶段学校招生录取分数（第四批次普通高中和综合高中）",
-         "http://gzzk.gz.gov.cn/gkmlpt/content/10/10365/mpost_10365556.html"),
-    ],
-    2026: [
-        (1, "scores_2026_batch1.html",
-         "2026年广州市高中阶段学校招生录取分数（第一批次招生学校）",
-         "http://gzzk.gz.gov.cn/zkzz/zkxx/lnfs/content/post_10908006.html"),
-        (3, "scores_2026_batch3.html",
-         "2026年广州市高中阶段学校招生录取分数（第三批次招生学校）",
-         "http://gzzk.gz.gov.cn/zwgk/zkyw/content/post_10909610.html"),
-        (4, "scores_2026_batch4.html",
-         "2026年广州市高中阶段学校招生录取分数（第四批次高中）",
-         "http://gzzk.gz.gov.cn/gkmlpt/content/10/10910/post_10910162.html"),
-    ],
-}
-
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
-
-
-def fetch_pages():
-    RAW.mkdir(parents=True, exist_ok=True)
-    for year, pages in PAGES.items():
-        for batch, fname, _title, url in pages:
-            dst = RAW / fname
-            subprocess.run(
-                ["curl", "-sL", "-A", UA, "-o", str(dst), url], check=True)
-            print(f"fetched {fname} ({dst.stat().st_size} bytes)")
-
 
 def clean_html(h: str) -> str:
     h = re.sub(r"<script.*?</script>", "", h, flags=re.S)
@@ -242,8 +210,9 @@ def build(year: int):
 
 
 def main():
-    if "--fetch" in sys.argv:
-        fetch_pages()
+    out_dir = OUT
+    if "--out-dir" in sys.argv:
+        out_dir = Path(sys.argv[sys.argv.index("--out-dir") + 1])
     idx = load_entity_index()
     for year in (2025, 2026):
         records = build(year)
@@ -271,7 +240,8 @@ def main():
             "by_school_id": dict(sorted(by_sid.items())),
             "unmapped": unmapped,
         }
-        out = OUT / f"scores_{year}.json"
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out = out_dir / f"scores_{year}.json"
         # 入库格式 = 1 空格缩进（与既有产物一致，保证重跑 == 入库的格式确定性）
         out.write_text(
             json.dumps(payload, ensure_ascii=False, indent=1) + "\n",

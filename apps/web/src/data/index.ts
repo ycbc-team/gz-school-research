@@ -37,8 +37,8 @@ import sitesRegistryCompact from './compact/registry/sites.js';
 import brandGroupsCompact from './compact/registry/brand_groups.js';
 import educationGroupsCompact from './compact/registry/education_groups.js';
 import schoolGroupsCompact from './compact/registry/school_groups.js';
-import highScores2025Compact from './compact/high/scores_2025.js';
-import highScores2026Compact from './compact/high/scores_2026.js';
+import highScores2025Compact from './compact/high/cutoff_score/dist/scores_2025.js';
+import highScores2026Compact from './compact/high/cutoff_score/dist/scores_2026.js';
 import orgSortCompiledCompact from './compact/middle/org_sort/dist/compiled.js';
 
 /** 紧凑结构经 hydrate 还原后的类型断言（字段为数据真源，结构由 scripts/ 保证） */
