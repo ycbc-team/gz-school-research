@@ -14,7 +14,7 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[3]  # gz_school_research/
+ROOT = Path(__file__).resolve().parents[4]  # gz_school_research/
 RAW = Path(__file__).resolve().parent.parent / "raw"
 PARSED = Path(__file__).resolve().parent.parent / "parsed"
 DIST = Path(__file__).resolve().parent.parent / "dist"
@@ -107,9 +107,9 @@ def main():
         "compiled_schools": len(compiled),
     }
     PARSED.mkdir(exist_ok=True)
-    (PARSED / "innovation.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    (PARSED / "innovation_2026.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     DIST.mkdir(exist_ok=True)
-    (DIST / "compiled.json").write_text(json.dumps(compiled, ensure_ascii=False, indent=2), encoding="utf-8")
+    (DIST / "compiled_2026.json").write_text(json.dumps(compiled, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"records={len(rows)} compiled_schools={len(compiled)} skipped={len(skipped)}")
     no_match = [r["school"] for r in matched_records if not r["school_ids"]]
     print("未匹配:", no_match)
