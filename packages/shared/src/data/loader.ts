@@ -64,4 +64,6 @@ export interface DataLoaders {
       tekong_quota_rate?: number | null;
     }>;
   };
+  /** 创新大赛获奖（school_id → stages → years → 金/银/铜） */
+  innovationAwards?: Record<string, { innovation_awards: { stages: Record<string, Record<string, { gold: number; silver: number; bronze: number }>> } }>;
 }

@@ -19,6 +19,7 @@ import {
   middleQuotaSummary, middlePrimaryFeed, middleEnrollmentsOf, xiaoshengchuOf, schoolBadges, scoresOfSchool,
   isComprehensive, groupOfSchool, resolvePoiName, resolveSchoolIdOf,
   type BrandUnit,
+  innovationAwards,
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
@@ -70,6 +71,9 @@ const gaokaoRows = computed(() => model.value.gaokaoRows);
 const brandCard = computed(() => model.value.brandCard);
 const brandCardUseful = computed(() => model.value.brandCardUseful);
 const campuses = computed(() => model.value.campuses);
+/** 创新大赛获奖：按当前 school_id 查，有则展示金/银/铜（分学段分年份） */
+const awardData = computed(() => innovationAwards[schoolId.value]?.innovation_awards?.stages?.[stage.value]);
+const awardYears = computed(() => awardData.value ? Object.keys(awardData.value).sort().reverse() : []);
 /** 初中 tab：2026 招生计划（一校多规则：同一初中可对应多区/多机制入学，逐条渲染），按当前学段 POI school_id 外键查 */
 const middleEnrolls = computed(() => {
   if (stage.value !== 'middle') return [];
@@ -654,6 +658,18 @@ const brandCardUseful = computed(() =>
       </div>
     </div>
 
+    <!-- 创新大赛获奖 -->
+    <div v-if="awardData" class="card">
+      <div class="card-title">创新大赛获奖</div>
+      <p class="sub-note">广州市中小学生创新大赛·{{ stageLabel }}（2024-2026）</p>
+      <div v-for="yr in awardYears" :key="yr" class="award-year">
+        <span class="award-year-label">{{ yr }}</span>
+        <span v-if="awardData[yr].gold" class="medal gold">{{ awardData[yr].gold}}金</span>
+        <span v-if="awardData[yr].silver" class="medal silver">{{ awardData[yr].silver}}银</span>
+        <span v-if="awardData[yr].bronze" class="medal bronze">{{ awardData[yr].bronze}}铜</span>
+      </div>
+    </div>
+
     <footer class="d-foot">
       <button class="back" @click="goBack">← 返回</button>
     <button class="back" style="margin-left:12px;" @click="viewOnMap">在地图中查看</button>
@@ -666,6 +682,12 @@ const brandCardUseful = computed(() =>
 .detail { max-width: 720px; margin: 0 auto; }
 .back { display: inline-block; color: #1a6bd6; text-decoration: none; font-size: 13px; margin-bottom: 10px; background: none; border: none; cursor: pointer; font-family: inherit; padding: 0; }
 .back:hover { text-decoration: underline; }
+.award-year { display: flex; align-items: center; gap: 8px; padding: 6px 0; }
+.award-year-label { font-size: 13px; font-weight: 600; color: #374151; min-width: 40px; }
+.medal { font-size: 12px; font-weight: 700; color: #fff; border-radius: 4px; padding: 2px 8px; }
+.medal.gold { background: #d4a017; }
+.medal.silver { background: #6b7280; }
+.medal.bronze { background: #b45309; }
 .d-head { margin-bottom: 14px; }
 .stage-tabs { display: flex; gap: 8px; margin: 0 0 14px; }
 .stage-tab { padding: 6px 16px; border: 1px solid #d9d9d9; border-radius: 999px; background: #fff; cursor: pointer; font-size: 14px; }
