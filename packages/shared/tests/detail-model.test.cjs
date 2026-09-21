@@ -337,6 +337,82 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
   assert.equal(digest, 'd99c4422556d3656', '品牌关联全量快照漂移：有实体的品牌卡渲染状态变化，需显式确认后更新');
 });
 
+test('品牌关联：逐集团学校名单快照（education 86 + brand 8，集团变化精确定位）', () => {
+  // 每个集团独立快照（school_id 名单）于 snapshots/group_roster.json：core_poi + members
+  // 及成员 campuses（brand 为 units[].school_ids）。任一集团名单增删 → 该集团断言失败并打印
+  // 增/删明细，可精确定位到集团。2026-09-21 后缀式校区统一归并（school_match.legalCampuses）
+  // 后初建：东风东+2（天伦/锦城花园）、沙面+2（岭南/悦江）、六十五中+1（桃园）、宝玉直+1（宝贤）、
+  // 西关外国语+1（文昌南）等 12 个后缀式校区进入 education 名单，均由本快照感知。
+  // 更新快照：重跑「node -e 生成逻辑」（与 collectEdu/collectBrand 一致，见 git 历史）。
+  const snap = JSON.parse(fs.readFileSync(path.join(__dirname, 'snapshots/group_roster.json'), 'utf8'));
+  const edu = load('registry/education_groups.json').groups;
+  const brand = (load('registry/brand_groups.json').brands || []);
+  const collectEdu = (g) => {
+    const ids = new Set();
+    for (const p of g.core_poi || []) if (p.school_id) ids.add(p.school_id);
+    for (const m of g.members || []) {
+      if (m.school_id) ids.add(m.school_id);
+      for (const c of m.campuses || []) if (c.school_id) ids.add(c.school_id);
+    }
+    return [...ids].sort();
+  };
+  const collectBrand = (b) => {
+    const ids = new Set();
+    for (const u of b.units || []) for (const sid of u.school_ids || []) if (sid) ids.add(sid);
+    return [...ids].sort();
+  };
+  const cur = new Map();
+  for (const g of edu) cur.set(`edu|${g.brand}`, collectEdu(g));
+  for (const b of brand) cur.set(`brand|${b.brand}`, collectBrand(b));
+  const diffs = [];
+  for (const [key, ids] of cur) {
+    const nm = key.slice(key.indexOf('|') + 1);
+    const prev = key.startsWith('edu|') ? snap.education[nm] : snap.brand[nm];
+    if (!prev) { diffs.push(`${key}: 快照无此集团（新增集团）`); continue; }
+    const added = ids.filter((x) => !prev.includes(x));
+    const removed = prev.filter((x) => !ids.includes(x));
+    if (added.length || removed.length) diffs.push(`${key}: 新增[${added.join(',')}] 移除[${removed.join(',')}]`);
+  }
+  for (const [sec, map] of [['edu', snap.education], ['brand', snap.brand]]) {
+    for (const nm of Object.keys(map)) {
+      if (!cur.has(`${sec}|${nm}`)) diffs.push(`${sec}|${nm}: 集团已消失`);
+    }
+  }
+  assert.deepEqual(diffs, [], `集团名单快照漂移（${diffs.length} 处）：\n${diffs.join('\n')}`);
+
+  // 名单闭环：名单内 school_id 实体存在、schoolGroups 映射无孤儿。一个实体可属多个集团
+  //（如东山培正小学=东山培正集团核心+培正集团成员、黄石学校=白云中学集团+培英集团成员、
+  // 仲元附属学校=仲元附属集团核心+仲元中学集团成员），schoolGroups 仅存一条映射，
+  // 故 edu 映射允许为该实体所属的任一集团；brand 单归属实体必须映射回品牌（edu 收录时 education 优先）。
+  const sg = load('registry/school_groups.json').schoolGroups;
+  const entById = new Map(repo.entities.map((e) => [e.school_id, e]));
+  const belongsTo = new Map(); // sid -> Set(所属集团名，含 edu + brand)
+  for (const [key, ids] of cur) {
+    const nm = key.slice(key.indexOf('|') + 1);
+    for (const sid of ids) {
+      if (!belongsTo.has(sid)) belongsTo.set(sid, new Set());
+      belongsTo.get(sid).add(nm);
+    }
+  }
+  const problems = [];
+  for (const [key, ids] of cur) {
+    const nm = key.slice(key.indexOf('|') + 1);
+    const isEdu = key.startsWith('edu|');
+    for (const sid of ids) {
+      const e = entById.get(sid);
+      if (!e) { problems.push(`${key}: ${sid} 无实体`); continue; }
+      const g = sg[sid];
+      if (!g) { problems.push(`${key}: ${e.name}(${sid}) 不在 schoolGroups 映射`); continue; }
+      const owned = belongsTo.get(sid) || new Set();
+      if (isEdu && !owned.has(g.brand)) problems.push(`${key}: ${e.name}(${sid}) 映射到 ${g.brand}（不属于 ${[...owned].join('/')}）`);
+      if (!isEdu && !owned.has(g.brand)) problems.push(`${key}: ${e.name}(${sid}) 映射到 ${g.brand}（不属于 ${[...owned].join('/')}）`);
+      const m = buildDetailModel(e.stage, e.name, repo, sid);
+      if (!m.brandCard) problems.push(`${key}: ${e.name}(${sid}) 品牌卡未渲染`);
+    }
+  }
+  assert.deepEqual(problems, [], `集团名单闭环问题（${problems.length} 处）：\n${problems.join('\n')}`);
+});
+
 test('品牌关联：校区+学部复合名实体归属教育集团（奥体小学部品牌卡）', () => {
   // 回归：merge_groups legal_campuses 剥学部后缀后，「广州奥林匹克中学（智谷校区）小学部」
   // 归入奥林匹克教育集团 core_poi → 小学部详情页显示品牌卡（核心校多校区平铺）
