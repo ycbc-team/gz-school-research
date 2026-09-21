@@ -62,12 +62,12 @@ def main():
             ok = got == expect
         if not ok:
             failures.append(f"{name} -> {got}（应为 {expect}）")
-    print(f"匹配器回归: {len(CASES)} 用例, {len(failures)} 失败")
     if failures:
+        print(f"✗ 匹配器回归: {len(CASES)} 用例, {len(failures)} 失败")
         for f in failures:
             print(f"  ✗ {f}")
         sys.exit(1)
-    print("  ✓ 全部通过")
+    print("✓ POI 匹配器回归通过")
 
 if __name__ == "__main__":
     main()

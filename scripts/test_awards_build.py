@@ -39,10 +39,15 @@ def fail(message):
 
 def main():
     # parsed → dist：仅重建前端消费的白名单竞赛详情，不读取原始 xls 文件。
-    subprocess.run(
+    r = subprocess.run(
         [sys.executable, str(ROOT / "data/awards/scripts/build_detailed_records.py")],
-        cwd=ROOT, check=True,
+        cwd=ROOT, capture_output=True, text=True,
     )
+    if r.returncode != 0:
+        print("  ✗ 竞赛详情产物重建失败（build_detailed_records.py）")
+        print(r.stdout[-2000:])
+        print(r.stderr[-2000:])
+        sys.exit(r.returncode)
     innovation = []
     for path in sorted((ROOT / "data/awards/innovation/parsed").glob("innovation_*.json")):
         doc = json.loads(path.read_text("utf-8"))
@@ -97,8 +102,11 @@ def main():
     if not science_details or not all(r["stage"] in {"primary", "middle", "high"} for r in science_details):
         ok = fail("科学素养大赛学生获奖明细未进入详情产物") and ok
 
-    print(f"竞赛构建回归: {len(innovation)} 条创新 + {actual['chuangke']['records']} 条创客 + {actual['science_literacy']['matched']} 条科学素养，{'通过' if ok else '失败'}")
-    sys.exit(0 if ok else 1)
+    if not ok:
+        print(f"✗ 竞赛构建回归: {len(innovation)} 条创新 + {actual['chuangke']['records']} 条创客 + "
+              f"{actual['science_literacy']['matched']} 条科学素养，失败")
+        sys.exit(1)
+    print("✓ 竞赛构建回归通过")
 
 
 if __name__ == "__main__":

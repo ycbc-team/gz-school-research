@@ -17,11 +17,22 @@ PRODUCT = os.path.join(ROOT, "data/registry/group/dist/education_groups.json")
 MID_OUT = os.path.join(ROOT, "data/primary/enrollments")
 _MID_GLOB = "middle_enrollment_2026_*.json"
 
+# 各子检查通过时的一行概要：全部通过时只打印一行结论；任一失败时才逐项输出。
+_ok_lines = []
+
+
+def _flush_ok():
+    """失败时把已通过的子检查概要行先打出来，便于定位失败发生在哪一项。"""
+    if _ok_lines:
+        print("\n".join(_ok_lines))
+        _ok_lines.clear()
+
 
 def _replay(script, *args):
     r = subprocess.run(["python3", os.path.join(ROOT, script), *args],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
+        _flush_ok()
         print(f"生产脚本重跑失败：{script}")
         print(r.stdout[-2000:])
         print(r.stderr[-2000:])
@@ -42,12 +53,13 @@ def _check_middle_enrollment():
             if json.load(a) != json.load(b):
                 diffs.append(base)
     if diffs:
+        _flush_ok()
         print("产物一致性: ✗ middle_enrollment 重跑产物与入库不一致（说明产物被手改或脚本输出有变）：")
         for x in diffs:
             print(f"    DIFF {x}")
         print("  → 手改产物会被重跑覆盖（铁律：只改生产脚本），请固化修正到脚本后重跑并提交产物。")
         sys.exit(1)
-    print(f"产物一致性: ✓ build_middle_enrollment 重跑产物与入库完全一致（{len(glob.glob(os.path.join(MID_OUT, _MID_GLOB)))} 区）")
+    _ok_lines.append(f"产物一致性: ✓ build_middle_enrollment 重跑产物与入库完全一致（{len(glob.glob(os.path.join(MID_OUT, _MID_GLOB)))} 区）")
 
 
 def _check_special_matrix():
@@ -68,10 +80,11 @@ def _check_special_matrix():
             if json.load(a) != json.load(b):
                 failed.append(label)
     if failed:
+        _flush_ok()
         print(f"产物一致性: ✗ 重跑产物与入库不一致：{', '.join(failed)}（解析/映射漂移或手改产物）")
         print("  → 修复须固化到生产脚本后重跑并提交产物，禁止手改产物。")
         sys.exit(1)
-    print("产物一致性: ✓ build_special_plan + build_special_matrix 重跑产物与入库完全一致")
+    _ok_lines.append("产物一致性: ✓ build_special_plan + build_special_matrix 重跑产物与入库完全一致")
 
 
 def _check_minban_official():
@@ -79,9 +92,10 @@ def _check_minban_official():
     r = subprocess.run(["python3", os.path.join(ROOT, "data/registry/private/scripts/build_minban_official.py"), "--check"],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
+        _flush_ok()
         print("民办官方源校验: ✗ " + (r.stdout[-1500:] or r.stderr[-1500:]).strip().replace("\n", "\n  "))
         sys.exit(1)
-    print("民办官方源校验: ✓ 番禺官方招生计划解析与权威表一致（禁手改）")
+    _ok_lines.append("民办官方源校验: ✓ 番禺官方招生计划解析与权威表一致（禁手改）")
 
 
 def _check_build_scores():
@@ -91,6 +105,7 @@ def _check_build_scores():
     r = subprocess.run(["python3", os.path.join(ROOT, "data/high/cutoff_score/scripts/build_scores.py"), "--out-dir", tmp],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
+        _flush_ok()
         print("生产脚本重跑失败：data/high/cutoff_score/scripts/build_scores.py")
         print(r.stdout[-2000:])
         print(r.stderr[-2000:])
@@ -107,10 +122,11 @@ def _check_build_scores():
             if a.read() != b.read():
                 failed.append(_f)
     if failed:
+        _flush_ok()
         print(f"产物一致性: ✗ build_scores 重跑产物与入库不一致（{', '.join(failed)}）：")
         print("  → 只改生产脚本/源表（cutoff_score/raw 官方页 / registry/entities.json），重跑并提交产物，禁止手改产物。")
         sys.exit(1)
-    print("产物一致性: ✓ build_scores 重跑产物与入库完全一致（2025/2026）")
+    _ok_lines.append("产物一致性: ✓ build_scores 重跑产物与入库完全一致（2025/2026）")
 
 
 def _check_build_high_levels():
@@ -124,6 +140,7 @@ def _check_build_high_levels():
     r = subprocess.run(["python3", os.path.join(ROOT, "data/poi/scripts/build_high_levels_js.py"), "--out-dir", tmp],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
+        _flush_ok()
         print("生产脚本重跑失败：data/poi/scripts/build_high_levels_js.py")
         print(r.stdout[-2000:])
         print(r.stderr[-2000:])
@@ -133,10 +150,11 @@ def _check_build_high_levels():
         # school_id 由下一环 build_entities 回写（其自带一致性校验），清洗层只比其余字段
         strip = lambda d: {**d, "schools": [{k: v for k, v in s.items() if k != "school_id"} for s in d["schools"]]}
         if strip(da) != strip(db):
+            _flush_ok()
             print("产物一致性: ✗ build_high_levels 重跑产物与入库不一致（说明 high 表被手改或脚本输出有变）：")
             print("  → 只改生产脚本/源表（level/src/levels.json / MIDDLE_ONLY_CAMPUSES / 实体表 stage），重跑并提交产物。")
             sys.exit(1)
-    print("产物一致性: ✓ build_high_levels 重跑产物与入库完全一致")
+    _ok_lines.append("产物一致性: ✓ build_high_levels 重跑产物与入库完全一致")
 
 
 def _check_build_entities():
@@ -150,6 +168,7 @@ def _check_build_entities():
     r = subprocess.run(["python3", os.path.join(ROOT, "data/registry/entity/scripts/build_entities.py"), "--out-dir", tmp],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
+        _flush_ok()
         print("生产脚本重跑失败：data/registry/entity/scripts/build_entities.py")
         print(r.stdout[-2000:])
         print(r.stderr[-2000:])
@@ -166,10 +185,11 @@ def _check_build_entities():
             if json.load(a) != json.load(b):
                 failed.append(label)
     if failed:
+        _flush_ok()
         print("产物一致性: ✗ build_entities 重跑产物与入库不一致：" + ", ".join(failed))
         print("  → 实体表/POI 被手改，或 minban_schools.json 等源表改动后未重跑 build_entities。修复须固化到生产脚本/源表后重跑并提交产物。")
         sys.exit(1)
-    print("产物一致性: ✓ build_entities 重跑产物与入库完全一致（entities + 3 POI 表）")
+    _ok_lines.append("产物一致性: ✓ build_entities 重跑产物与入库完全一致（entities + 3 POI 表）")
 
 
 def _head(path):
@@ -192,6 +212,7 @@ def _check_xiaoshengchu():
         r = subprocess.run(["python3", os.path.join(ROOT, "scripts/primary/build_xiaoshengchu_all.py"), "all_done"],
                            capture_output=True, text=True, cwd=ROOT)
         if r.returncode != 0:
+            _flush_ok()
             print("生产脚本重跑失败：scripts/primary/build_xiaoshengchu_all.py all_done")
             print(r.stderr[-2000:])
             for f, c in orig.items():
@@ -200,6 +221,7 @@ def _check_xiaoshengchu():
         r = subprocess.run(["node", os.path.join(ROOT, "scripts/registry/upgrade_xiaoshengchu.mjs")],
                            capture_output=True, text=True, cwd=ROOT)
         if r.returncode != 0:
+            _flush_ok()
             print("生产脚本重跑失败：scripts/registry/upgrade_xiaoshengchu.mjs")
             print(r.stderr[-2000:])
             for f, c in orig.items():
@@ -207,13 +229,14 @@ def _check_xiaoshengchu():
             sys.exit(1)
         failed = [f for f in files if open(f, encoding="utf-8").read() != _head(f)]
         if failed:
+            _flush_ok()
             for f, c in orig.items():
                 open(f, "w", encoding="utf-8").write(c)
             print(f"产物一致性: ✗ xiaoshengchu 重跑产物与入库不一致：{', '.join(os.path.basename(f) for f in failed)}")
             print("  → 说明 build_xiaoshengchu_all / xs_resolver / upgrade 改动后未重跑提交产物，或产物被手改。"
                   "修复须固化到生产脚本后重跑并提交产物。")
             sys.exit(1)
-        print("产物一致性: ✓ build_xiaoshengchu_all + upgrade 重跑产物与入库完全一致")
+        _ok_lines.append("产物一致性: ✓ build_xiaoshengchu_all + upgrade 重跑产物与入库完全一致")
     except SystemExit:
         raise
     except Exception:
@@ -234,6 +257,7 @@ def _check_school_groups():
         r = subprocess.run(["python3", os.path.join(ROOT, "data/registry/group/scripts/build_school_groups.py")],
                            capture_output=True, text=True, cwd=ROOT)
         if r.returncode != 0:
+            _flush_ok()
             print("生产脚本重跑失败：data/registry/group/scripts/build_school_groups.py")
             print(r.stderr[-2000:])
             for f, c in orig.items():
@@ -241,13 +265,14 @@ def _check_school_groups():
             sys.exit(1)
         failed = [f for f in files if open(f, encoding="utf-8").read() != orig[f]]
         if failed:
+            _flush_ok()
             for f, c in orig.items():
                 open(f, "w", encoding="utf-8").write(c)
             print(f"产物一致性: ✗ build_school_groups 重跑产物与工作树不一致：{', '.join(os.path.basename(f) for f in failed)}")
             print("  → 说明 build_school_groups.py/education 外键/entities 反查源改动后未重跑提交产物。"
                   "修复须固化到生产脚本后重跑并提交产物。")
             sys.exit(1)
-        print("产物一致性: ✓ build_school_groups 重跑产物与入库完全一致（school_groups.json）")
+        _ok_lines.append("产物一致性: ✓ build_school_groups 重跑产物与入库完全一致（school_groups.json）")
     except SystemExit:
         raise
     except Exception:
@@ -270,6 +295,7 @@ def _check_backfill_ids():
         r = subprocess.run(["python3", os.path.join(ROOT, "scripts/linkage/backfill_school_ids.py")],
                            capture_output=True, text=True, cwd=ROOT)
         if r.returncode != 0:
+            _flush_ok()
             print("生产脚本重跑失败：scripts/linkage/backfill_school_ids.py")
             print(r.stderr[-2000:])
             for f, c in orig.items():
@@ -277,13 +303,14 @@ def _check_backfill_ids():
             sys.exit(1)
         failed = [f for f in files if open(f, encoding="utf-8").read() != _head(f)]
         if failed:
+            _flush_ok()
             for f, c in orig.items():
                 open(f, "w", encoding="utf-8").write(c)
             print(f"产物一致性: ✗ backfill_school_ids 重跑产物与入库不一致：{', '.join(os.path.basename(f) for f in failed)}")
             print("  → 说明 backfill_school_ids.py 改动后未重跑提交产物，或产物被手改。"
                   "修复须固化到生产脚本后重跑并提交产物。")
             sys.exit(1)
-        print("产物一致性: ✓ backfill_school_ids 重跑产物与入库完全一致（quota/district_quota/batch2/special/_unmatched）")
+        _ok_lines.append("产物一致性: ✓ backfill_school_ids 重跑产物与入库完全一致（quota/district_quota/batch2/special/_unmatched）")
     except SystemExit:
         raise
     except Exception:
@@ -309,11 +336,13 @@ def _check_government_groups():
         tail = (r.stdout or "") + (r.stderr or "")
         if r.returncode != 0:
             ok = False
+            _flush_ok()
             print(f"官方底表: ✗ {d} 有缺失成员")
             print("\n".join(tail.splitlines()[-6:]))
         else:
-            print(f"官方底表: ✓ {d} 与官方名单成员级对齐")
+            _ok_lines.append(f"官方底表: ✓ {d} 与官方名单成员级对齐")
     if not ok:
+        _flush_ok()
         sys.exit(1)
 
 
@@ -327,7 +356,7 @@ def main():
         prod = json.load(f)
 
     if repro == prod:
-        print(f"产物一致性: ✓ 重跑产物与入库产物完全一致（{prod.get('stats', {}).get('total_members', '?')} 成员）")
+        _ok_lines.append(f"产物一致性: ✓ 重跑产物与入库产物完全一致（{prod.get('stats', {}).get('total_members', '?')} 成员）")
     else:
         # 差异分类
         rb = {g["brand"]: g for g in repro.get("groups", [])}
@@ -383,6 +412,9 @@ def main():
 
     # 7) 政府文件底表覆盖（有官方底表的区必须成员级对齐）
     _check_government_groups()
+
+    # 全部通过：只输出一行结论（各子检查概要仅在失败时逐项打印）
+    print("✓ 产物漂移一致性通过")
 
 
 if __name__ == "__main__":

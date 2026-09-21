@@ -84,8 +84,7 @@ def main():
                 if row not in b:
                     print(f"    + {row['primary']} ({row['group']})")
         sys.exit(1)
-    total = sum(1 for v in cur.values() if v)
-    print(f"初中生源小学快照: ✓ {len(cur)} 个初中 POI 与基线一致（有生源小学 {total} 个）")
+    print("✓ 初中生源快照通过")
 
 
 if __name__ == "__main__":

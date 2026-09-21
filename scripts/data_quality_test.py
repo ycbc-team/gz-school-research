@@ -98,6 +98,8 @@ def load_entities():
     return json.load(open(os.path.join(ROOT, "data/registry/entity/dist/entities.json"))).get("entities", [])
 
 def main():
+    # 各序号检查的一行概要（[11]-[19]）：通过时全部隐藏，失败时才逐项输出
+    _section_lines = []
     # ---- 1. POI 库不得含状态词 ----
     for p in POI_PATHS:
         d = json.load(open(os.path.join(ROOT, p)))
@@ -398,9 +400,8 @@ def main():
         if _lacks:
             _orphans.append((_e["school_id"].split("-")[1] if _e.get("school_id") else "?", _e["name"], _e["school_id"], _e["stage"], "+".join(_lacks)))
     _orphans.sort()
-    print(f"\n[11] 孤儿学校（公办且无招生或无升学，待逐校排查）: {len(_orphans)} 所")
-    for _o in _orphans:
-        print(f"      {_o[0]} | {_o[1]} | {_o[2]} | {_o[3]} | {_o[4]}")
+    _orphan_lines = [f"      {_o[0]} | {_o[1]} | {_o[2]} | {_o[3]} | {_o[4]}" for _o in _orphans]
+    _section_lines.append(f"[11] 孤儿学校（公办且无招生或无升学，待逐校排查）: {len(_orphans)} 所")
     _orphan_digest = hashlib.sha256("\n".join(f"{o[0]}|{o[1]}|{o[2]}|{o[4]}" for o in _orphans).encode()).hexdigest()[:16]
     if os.environ.get("UPDATE_SNAPSHOT") == "1":
         # 注释承诺的显式更新机制：把当前孤儿清单 digest 写回本文件 ORPHAN_SNAPSHOT 常量。
@@ -413,7 +414,8 @@ def main():
             print(f"[11] UPDATE_SNAPSHOT=1：孤儿快照已更新 → {_orphan_digest}")
         else:
             print(f"[11] UPDATE_SNAPSHOT=1：未找到 ORPHAN_SNAPSHOT 常量，跳过写回")
-    check(_orphan_digest == ORPHAN_SNAPSHOT,
+    _orphan_ok = _orphan_digest == ORPHAN_SNAPSHOT
+    check(_orphan_ok,
           f"[11] 孤儿学校清单漂移: digest {_orphan_digest} != 固化 {ORPHAN_SNAPSHOT}（新增孤儿须立即排查；修复孤儿后显式更新快照）")
 
     # ---- 12. 同段同址冗余候选：同学段（primary/middle/high）+ 同区 + 坐标距离 ≤50m 的实体（含民办）----
@@ -463,7 +465,7 @@ def main():
             if _d <= 50:
                 _co_pairs.append((round(_d, 1), _a[1], _a[0], _a[2], _a[3], _b[2], _b[3]))
     _co_pairs.sort()
-    print(f"\n[12] 同段同址冗余候选（同学段+同区+≤50m，含民办）: {len(_co_pairs)} 组")
+    _section_lines.append(f"[12] 同段同址冗余候选（同学段+同区+≤50m，含民办）: {len(_co_pairs)} 组")
 
     # ---- 13. 小升初记录同组同校不得重复（upgrade 产物层去重防线）----
     # 同一小学多源名（更名残留）/多条源记录（实体合并、源表重复行）解析到同一实体后，
@@ -482,10 +484,9 @@ def main():
             check(False, f"[13] 小升初同组同校重复: group_id={_k[0]} school_id={_sid}（{_xs_keys[_k]} 与后续行）")
         else:
             _xs_keys[_k] = _r.get("source_note", "")[:24]
-    print(f"[13] 小升初同组同校重复检查: {len(_xs_keys)} 唯一组，无重复")
+    _section_lines.append(f"[13] 小升初同组同校重复检查: {len(_xs_keys)} 唯一组，无重复")
 
-    for _p in _co_pairs:
-        print(f"      {_p[0]:6.1f}m | {_p[1]} {_p[2]} | {_p[3]} {_p[4]}  <->  {_p[5]} {_p[6]}")
+    _co_lines = [f"      {_p[0]:6.1f}m | {_p[1]} {_p[2]} | {_p[3]} {_p[4]}  <->  {_p[5]} {_p[6]}" for _p in _co_pairs]
     _co_digest = hashlib.sha256("\n".join(f"{p[1]}|{p[2]}|{p[3]}|{p[5]}|{p[6]}" for p in _co_pairs).encode()).hexdigest()[:16]
     if os.environ.get("UPDATE_SNAPSHOT") == "1":
         _txt = open(__file__, encoding="utf-8").read()
@@ -496,7 +497,8 @@ def main():
             print(f"[12] UPDATE_SNAPSHOT=1：同址候选快照已更新 → {_co_digest}")
         else:
             print(f"[12] UPDATE_SNAPSHOT=1：未找到 CO_LOCATED_SNAPSHOT 常量，跳过写回")
-    check(_co_digest == CO_LOCATED_SNAPSHOT,
+    _co_ok = _co_digest == CO_LOCATED_SNAPSHOT
+    check(_co_ok,
           f"[12] 同段同址候选漂移: digest {_co_digest} != 固化 {CO_LOCATED_SNAPSHOT}（新增同址冗余候选须立即排查；修复后显式更新快照）")
 
     # ---- 14. 2026 特长生计划官方口径（体育1905不含领军龙 / 艺术1741 / 领军龙116） ----
@@ -504,7 +506,7 @@ def main():
     check(_sp.get("sports") == 1905, f"[14] 特长生体育计划合计 {_sp.get('sports')} != 1905（官方口径，不含领军龙）")
     check(_sp.get("arts") == 1741, f"[14] 特长生艺术计划合计 {_sp.get('arts')} != 1741（官方口径）")
     check(_sp.get("football_special") == 116, f"[14] 领军龙足球试点计划 {_sp.get('football_special')} != 116（官方口径）")
-    print(f"[14] 特长生计划官方口径: 体育 {_sp.get('sports')}（不含领军龙） / 艺术 {_sp.get('arts')} / 领军龙 {_sp.get('football_special')}")
+    _section_lines.append(f"[14] 特长生计划官方口径: 体育 {_sp.get('sports')}（不含领军龙） / 艺术 {_sp.get('arts')} / 领军龙 {_sp.get('football_special')}")
 
     # ---- 15. 民办学校名单快照（变化即感知）----
     _minban = json.load(open(os.path.join(ROOT, "data/registry/private/dist/minban_schools.json")))
@@ -522,7 +524,7 @@ def main():
             print(f"[15] UPDATE_SNAPSHOT=1：未找到 PRIVATE_MINBAN_SNAPSHOT 常量，跳过写回")
     check(_minban_digest == PRIVATE_MINBAN_SNAPSHOT,
           f"[15] 民办名单漂移: digest {_minban_digest} != 固化 {PRIVATE_MINBAN_SNAPSHOT}（民办名单变化须先排查官方来源；确认后 UPDATE_SNAPSHOT=1 显式更新）")
-    print(f"[15] 民办学校名单: {len(_minban_ids)} 所（快照 {_minban_digest}，变化即感知）")
+    _section_lines.append(f"[15] 民办学校名单: {len(_minban_ids)} 所（快照 {_minban_digest}，变化即感知）")
 
     # ---- 16. 民办学校不得有公办招生/升学信息（0 容忍，有即失败）----
     # 民办学校在公办划片/派位体系里不应有：真实地段的小学招生、公办初中招生、小升初派位。
@@ -558,7 +560,7 @@ def main():
                 _bad_xs.append(f"{os.path.basename(_f)} | {_r.get('school', _r.get('name'))} | {_r.get('school_id')}")
     for _b in _bad_pri + _bad_mid + _bad_xs:
         check(False, f"[16] 民办学校出现公办招生/升学信息: {_b}")
-    print(f"[16] 民办学校公办招生/升学检测: 小学 {len(_bad_pri)} 异常 / 初中 {len(_bad_mid)} 异常 / 小升初 {len(_bad_xs)} 异常（民办自主招生计划放行，0 容忍）")
+    _section_lines.append(f"[16] 民办学校公办招生/升学检测: 小学 {len(_bad_pri)} 异常 / 初中 {len(_bad_mid)} 异常 / 小升初 {len(_bad_xs)} 异常（民办自主招生计划放行，0 容忍）")
 
     # ---- 17. 番禺民办条目必须全部官方源（防手工名单）----
     # 番禺有官方文件（2026 义务教育民办招生计划 sheet + 广州市中考批次民办高中名单），
@@ -570,7 +572,7 @@ def main():
                      for s in _panyu_entries if not s.get("source_type", "").startswith("official")]
     for _b in _panyu_manual:
         check(False, f"[17] 番禺民办条目非官方源（番禺只能官方解析，禁止手工名单）: {_b}")
-    print(f"[17] 番禺民办条目: {len(_panyu_entries) - len(_panyu_manual)}/{len(_panyu_entries)} 官方源"
+    _section_lines.append(f"[17] 番禺民办条目: {len(_panyu_entries) - len(_panyu_manual)}/{len(_panyu_entries)} 官方源"
           f"（manual/legacy {len(_panyu_manual)}，0 容忍）")
 
     # ---- 18. 实体名不得为招生/报名点位（防"招生处"点位实体回归）----
@@ -581,7 +583,7 @@ def main():
                  if any(x in e['name'] for x in ('招生处', '招生办', '报名点', '报名处', '招生点'))]
     for _b in _poi_like:
         check(False, f"[18] 实体名为招生/报名点位（非学校，应被 build_entities 过滤）: {_b}")
-    print(f"[18] 实体点位后缀检测: {len(_poi_like)} 异常（0 容忍，build_entities NON_SCHOOL_POI 兜底）")
+    _section_lines.append(f"[18] 实体点位后缀检测: {len(_poi_like)} 异常（0 容忍，build_entities NON_SCHOOL_POI 兜底）")
 
     # ---- 19. 初中明细 group 必须由公共产物 schoolGroups 支撑（纯 id 一致性）----
     # build_ranking_middle.py 的 group 只查 data/registry/group/dist/school_groups.json（纯 id）；
@@ -601,15 +603,22 @@ def main():
             check(False, f"[19] 明细 {_s['name']} 有 group 但 school_id(s) 无 school_groups 产物支撑: {_g.get('brand')}")
         elif _sg[_ids[0]]["brand"] != _g["brand"]:
             check(False, f"[19] 明细 {_s['name']} 产物 brand 不一致: 产物={_sg[_ids[0]]['brand']} 明细={_g['brand']}")
-    print(f"[19] 明细分组-产物一致性: {sum(1 for s in _rm if s.get('group'))} 有 group，{_orphan} 孤儿（0 容忍）")
+    _section_lines.append(f"[19] 明细分组-产物一致性: {sum(1 for s in _rm if s.get('group'))} 有 group，{_orphan} 孤儿（0 容忍）")
 
-    # ---- 汇总 ----
-    print(f"数据质量测试: {checks} 项检查, {len(failures)} 项失败")
+    # ---- 汇总：通过时只输出一行结论；失败时逐项输出各序号概要 + 明细 + 失败项 ----
     if failures:
+        print("\n".join(_section_lines))
+        if not _orphan_ok:
+            print()
+            print("\n".join(_orphan_lines))
+        if not _co_ok:
+            print()
+            print("\n".join(_co_lines))
+        print(f"\n数据质量测试: {checks} 项检查, {len(failures)} 项失败")
         for f in failures:
             print(f"  ✗ {f}")
         sys.exit(1)
-    print("  ✓ 全部通过")
+    print("✓ 数据质量测试通过")
 
 if __name__ == "__main__":
     main()
