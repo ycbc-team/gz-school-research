@@ -117,6 +117,7 @@ def build_detail_sheet(wb, records):
 
 def build_school_summary_sheet(wb):
     dist = json.loads((DIST / "specialty_schools.json").read_text("utf-8"))
+    pool = dist["recognition"]
     ws = wb.create_sheet("学校汇总")
     headers = ["学校名称", "所在区", "school_id", "匹配状态", "认定数",
                "认定类别", "认定级别", "最早年份", "最近年份"]
@@ -124,7 +125,7 @@ def build_school_summary_sheet(wb):
     style_header(ws, 1, len(headers))
 
     schools = sorted(dist["schools"], key=lambda s: (
-        0 if s["school_ids"] else 1,
+        0 if s["ids"] else 1,
         s["school"],
     ))
 
@@ -133,33 +134,29 @@ def build_school_summary_sheet(wb):
                     "440115":"南沙区","440117":"从化区","440118":"增城区"}
 
     for i, s in enumerate(schools, 2):
-        recs = s.get("recognitions", [])
+        recs = [pool[idx] for idx in s.get("rec", []) if idx < len(pool)]
         cats = sorted(set(r.get("category", "") for r in recs))
         levels = sorted(set(r.get("level", "") for r in recs))
         years = [int(r["year"]) for r in recs if str(r.get("year", "")).isdigit()]
-        # Try to get district from first recognition
-        district = ""
-        for r in recs:
-            if r.get("remark", "").find("区") >= 0:
-                pass
         # Get district from school_id adcode if matched
-        if s["school_ids"]:
-            sid = s["school_ids"][0]
+        district = ""
+        if s["ids"]:
+            sid = s["ids"][0]
             adcode = sid.split("-")[1] if "-" in sid else ""
             district = DISTRICT_MAP.get(adcode, "")
 
         ws.append([
             s["school"],
             district,
-            ", ".join(s["school_ids"]) if s["school_ids"] else "",
-            "已匹配" if s["school_ids"] else "未匹配",
+            ", ".join(s["ids"]) if s["ids"] else "",
+            "已匹配" if s["ids"] else "未匹配",
             len(recs),
             "、".join(cats),
             "、".join(levels),
             min(years) if years else "",
             max(years) if years else "",
         ])
-        if not s["school_ids"]:
+        if not s["ids"]:
             ws.cell(row=i, column=4).fill = PatternFill("solid", fgColor="FCE4D6")
         for c in range(1, len(headers) + 1):
             ws.cell(row=i, column=c).font = CELL_FONT
@@ -241,10 +238,11 @@ def build_doc_sheet(wb, records):
     write_kv("民办/新办学校", "约4所（广外附设外语学校、湖南师大黄埔实验学校等）")
     write_blank()
 
-    write_section("五、已修复的匹配问题")
-    write_kv("写法差异", "广州市八十六中学 → 已添加alias至实体广州市第八十六中学（gz-440112-0cb5a402）")
-    write_kv("区属标注错误", "广州市协和中学/协和小学（原标白云区→修正为荔湾区，匹配广州协和学校 gz-440103-e281e7d0）")
-    write_kv("区属标注错误", "广州市启明学校（原标越秀区→修正为白云区，匹配启明小学 gz-440111-2abc753d）")
+    write_section("五、已修复的匹配问题（二轮）")
+    write_kv("写法差异", "广州市八十六中学 → AWARD_SOURCE_ALIAS 别名至实体广州市第八十六中学（gz-440112-0cb5a402），middle/high 两学段")
+    write_kv("区属标注错误", "广州市协和中学（原标白云区→修正荔湾区，匹配广州协和学校中学实体 gz-440103-e281e7d0）；广州协和学校（校园足球，原标白云区→修正荔湾区）")
+    write_kv("协和小学挂错实体", "第一轮曾挂中学实体，已改挂小学部实体 广州市协和学校（小学部）（gz-440103-33b32c4c）")
+    write_kv("启明学校错配", "第一轮曾错配白云民办启明小学，已撤销：启明学校为公办特教盲校（主校区天河），POI 层未收录，保持未匹配并在备注说明")
     write_blank()
 
     write_section("六、待补充批次")
