@@ -7308,11 +7308,2468 @@
   {
     "competition": "science_literacy",
     "stage": "primary",
+    "year": 2024,
+    "school": "广州市黄埔区怡园小学",
+    "project": "《伏羲月球基地》",
+    "leader": "誉杰",
+    "members": "誉杰",
+    "coach": "刘锦豪",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440112-23b184e9",
+      "gz-440112-49401733",
+      "gz-440112-6fdd05af"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "中国教育科学研究院荔湾实验学校",
+    "project": "《E卫先锋--基于物联网的智慧卫生间系统》",
+    "leader": "张梓扬",
+    "members": "张梓扬",
+    "coach": "王媛",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440103-523446ce"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州中学",
+    "project": "《智能控制的水环境治理装置研发与应用实践》",
+    "leader": "周琳茜、夏梓源、黄浩程",
+    "members": "周琳茜、夏梓源、黄浩程",
+    "coach": "钟凯雯、吴珍",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440106-867e6c05",
+      "gz-440106-a989804b"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市白云中学",
+    "project": "《电动车自燃预警及防护系统》",
+    "leader": "方锦泽",
+    "members": "方锦泽",
+    "coach": "高伟光",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440111-15fa03a9",
+      "gz-440111-5849b586",
+      "gz-440111-e74c2e1d"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第七十五中学",
+    "project": "《万能清洁小妙招》",
+    "leader": "拜合提努尔、穆妮热、古丽则娅",
+    "members": "拜合提努尔、穆妮热、古丽则娅",
+    "coach": "林影彤、刘莹",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440106-5b430017",
+      "gz-440106-621b20d3"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区华阳小学",
+    "project": "《电磁环形加速实验》",
+    "leader": "周淼可、梁智博、王泽元",
+    "members": "周淼可、梁智博、王泽元",
+    "coach": "赖玲玲",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-0b79aecf",
+      "gz-440106-155698db",
+      "gz-440106-182b1ae3",
+      "gz-440106-e591e421"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区五一小学",
+    "project": "《探究饮料糖含量，倡议饮水健康》",
+    "leader": "戚越、金子尧、袁紫依",
+    "members": "戚越、金子尧、袁紫依",
+    "coach": "刘洋",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-3bc362f9"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市番禺区天誉小学",
+    "project": "《基于物联网智能远程操控自适应空气净化窗》",
+    "leader": "吴博涛、吴睿祺、欧阳宏宇",
+    "members": "吴博涛、吴睿祺、欧阳宏宇",
+    "coach": "杜思奇",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440112-4991e638",
+      "gz-440113-060386bb"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区大沙头小学",
+    "project": "《AI助农自动化识别采摘分类施肥一体系统》",
+    "leader": "关智远",
+    "members": "关智远",
+    "coach": "陈海才",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-2aa7d451"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市海珠区昌岗中路小学",
+    "project": "《自适应灭火材料的智能灭火器》",
+    "leader": "邓远涛、雷派、陈瑞禧",
+    "members": "邓远涛、雷派、陈瑞禧",
+    "coach": "吴进、郑子良",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-98d6d585"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第一一三中学",
+    "project": "《生活中自行车（电动自行车）骑行安全监测预警装置的设计》",
+    "leader": "高逸晨",
+    "members": "高逸晨",
+    "coach": "陈贤桦",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-2e9f6f7b",
+      "gz-440106-b049d65a"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第十六中学实验学校",
+    "project": "《教室信息屏+噪音监测装置》",
+    "leader": "钟永豪、蒋知言、梁家豪",
+    "members": "钟永豪、蒋知言、梁家豪",
+    "coach": "李晶、韩俊皊",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-27ecd0e4"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市为明学校",
+    "project": "《基于物联网的种植大棚调节装置》",
+    "leader": "陈羽麒、何梓骞、左丰豪",
+    "members": "陈羽麒、何梓骞、左丰豪",
+    "coach": "陈慧",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440111-d4bb1fa5"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市白云区新市中学",
+    "project": "《AI电子称》",
+    "leader": "黄沛宏、胡家乐",
+    "members": "黄沛宏、胡家乐",
+    "coach": "叶小莹",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440111-f3edc7ba"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州中学",
+    "project": "《智慧农业系统之机器识别—以小番茄为例》",
+    "leader": "郑丁铭、何姿慧",
+    "members": "郑丁铭、何姿慧",
+    "coach": "陈李彦仪",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-3c8afb6a"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第十六中学",
+    "project": "《气动反冲车实验探究》",
+    "leader": "方茵琳、李芷杨、游智瑞",
+    "members": "方茵琳、李芷杨、游智瑞",
+    "coach": "雷娇燕",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-8a1a7b3d",
+      "gz-440106-52f7f4b7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第十六中学",
+    "project": "《不一样的彩虹——锰的特性与应用》",
+    "leader": "谢乐同、邓芷柔",
+    "members": "谢乐同、邓芷柔",
+    "coach": "胡绮妙",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-8a1a7b3d",
+      "gz-440106-52f7f4b7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第六十五中学",
+    "project": "《静电打乒乓》",
+    "leader": "吴浩睿、何致远",
+    "members": "吴浩睿、何致远",
+    "coach": "何锦兴、全山",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440111-218475ea",
+      "gz-440111-4ebb4316",
+      "gz-440111-c7b90869"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第五中学",
+    "project": "《“河流冲积扇的形成过程”模拟实验》",
+    "leader": "胡耀文、杨文宇、赵子悠",
+    "members": "胡耀文、杨文宇、赵子悠",
+    "coach": "韩冬、杜淑丹",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-0ffca7e3",
+      "gz-440105-aec34da3"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区旧部前小学",
+    "project": "《月球基地》",
+    "leader": "李悦、魏瑞泽",
+    "members": "李悦、魏瑞泽",
+    "coach": "陈倩倩",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-4a2cb348"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市荔湾区乐贤坊小学龙津学校",
+    "project": "《萌萌制冷头盔》",
+    "leader": "陈嘉轩、叶思远",
+    "members": "陈嘉轩、叶思远",
+    "coach": "梁敏玲",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-16043f05"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州外国语学校附属学校",
+    "project": "《基于语音识别的智能导盲杖》",
+    "leader": "张恩瑞、李健铭",
+    "members": "张恩瑞、李健铭",
+    "coach": "何淑敏",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440112-3c310bc1"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市海珠区实验小学",
+    "project": "《水污染治理沙盘作品》",
+    "leader": "詹炜烨",
+    "members": "詹炜烨",
+    "coach": "谭金爱",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440105-2fd44dc2",
+      "gz-440105-6299c301"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市白云区长红小学",
+    "project": "《液压式升降机》",
+    "leader": "邝睿祺、李满豪、何嘉卉",
+    "members": "邝睿祺、李满豪、何嘉卉",
+    "coach": "何佳俊、周丽湘",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-130d875a"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市真光中学附属培真小学",
+    "project": "《水面垃圾清理机器人》",
+    "leader": "郭睿平、郭睿安",
+    "members": "郭睿平、郭睿安",
+    "coach": "林乐欣",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-039a7621"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市白云区云雅实验学校",
+    "project": "《萌宠氛围灯》",
+    "leader": "李治成、吕敏学、陈羽昕",
+    "members": "李治成、吕敏学、陈羽昕",
+    "coach": "许荣添、梁剑伟",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-6782d2c7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第三中学",
+    "project": "《模拟鼹鼠挖洞探讨流体压强与流速关系》",
+    "leader": "曾加、刘峻霆",
+    "members": "曾加、刘峻霆",
+    "coach": "姚丹、林淑敏",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-d9ec2dbb"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市南武实验学校",
+    "project": "《科技小实验-消化与吸收》",
+    "leader": "马誉维、张铭峻、黄玥滢",
+    "members": "马誉维、张铭峻、黄玥滢",
+    "coach": "梁春梅",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440105-6ee54f1d"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广东省教育研究院黄埔实验学校",
+    "project": "《基于物联网的服药提醒药盒》",
+    "leader": "刘思博、王冠智",
+    "members": "刘思博、王冠智",
+    "coach": "吕根秋、张勇攀",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440112-22ec4fcc",
+      "gz-440112-96610f39"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市培英中学",
+    "project": "《自制便携式应急小空调》",
+    "leader": "欧柔冰、吴梓滢、钟文添",
+    "members": "欧柔冰、吴梓滢、钟文添",
+    "coach": "江嘉敏、杜丽川",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-a3ee807c",
+      "gz-440111-6271c94b"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广东省教育研究院黄埔实验学校",
+    "project": "《树屋》",
+    "leader": "方天奕",
+    "members": "方天奕",
+    "coach": "陈灿、张勇攀",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440112-22ec4fcc",
+      "gz-440112-96610f39"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第四中学",
+    "project": "《智能博物馆》",
+    "leader": "李泽群",
+    "members": "李泽群",
+    "coach": "黄文忠、谢敏娜",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-3862ee98",
+      "gz-440103-4cda3f9e",
+      "gz-440103-816b22a3",
+      "gz-440103-c0d6f9a0"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市番禺区广铁一中铁英学校",
+    "project": "《废弃茶叶巧利用——利用生物净水的研究》",
+    "leader": "方羽航",
+    "members": "方羽航",
+    "coach": "程碧露",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-43d027a5",
+      "gz-440113-94c76638"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "清华附中湾区学校",
+    "project": "《一种快速等温扩增的肉类掺假筛选试剂盒》",
+    "leader": "刘璇、李籽橙、冼蓓乐",
+    "members": "刘璇、李籽橙、冼蓓乐",
+    "coach": "李霞、马泽慧",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-31895452",
+      "gz-440106-e32237e4"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "清华附中湾区学校",
+    "project": "《冬虫夏草的真伪鉴定探究》",
+    "leader": "胡宸巍、林凡迪",
+    "members": "胡宸巍、林凡迪",
+    "coach": "李霞、陈珂",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-31895452",
+      "gz-440106-e32237e4"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第一中学",
+    "project": "《智能作业本自动识别与收集系统》",
+    "leader": "陈汇",
+    "members": "陈汇",
+    "coach": "麦智升",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-c62eab6a"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第四中学",
+    "project": "《一种基于麦克纳姆轮的全向避震底盘》",
+    "leader": "陈昊蓝、包林毅",
+    "members": "陈昊蓝、包林毅",
+    "coach": "黄文忠、周宇鹏",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-8920aa01"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第五中学",
+    "project": "《“植被保持水土的作用”模拟实验》",
+    "leader": "施乔尹、李昱辰",
+    "members": "施乔尹、李昱辰",
+    "coach": "黄晓蕾、杜淑丹",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440105-0ffca7e3",
+      "gz-440105-aec34da3"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "清华附中湾区学校",
+    "project": "《培育一种可以检测甲醛的发光植物》",
+    "leader": "王锴元、黄子涵、易澳然",
+    "members": "王锴元、黄子涵、易澳然",
+    "coach": "马泽慧、陈珂",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-31895452",
+      "gz-440106-8bc01096"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "清华附中湾区学校",
+    "project": "《水华治理——培育光控智能溶藻菌》",
+    "leader": "钟朗、吴逊怡、蔡一萱",
+    "members": "钟朗、吴逊怡、蔡一萱",
+    "coach": "马泽慧、李霞",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-31895452",
+      "gz-440106-8bc01096"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州实验中学",
+    "project": "《智能作业收缴系统》",
+    "leader": "曾子琪、胡茗溦、吴雨桐",
+    "members": "曾子琪、胡茗溦、吴雨桐",
+    "coach": "吴旭帆、马洁",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440112-87f27cf4"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州实验中学",
+    "project": "《雨水自动回收灌溉器》",
+    "leader": "许家乐、林梓源",
+    "members": "许家乐、林梓源",
+    "coach": "周斌、张盛兰",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440112-87f27cf4"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市荔湾区乐贤坊小学龙津学校",
+    "project": "《未来稻路：科学家袁隆平的创新精神引领》",
+    "leader": "吴悦菲",
+    "members": "吴悦菲",
+    "coach": "梁敏玲",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440103-16043f05"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市海珠区实验小学",
+    "project": "《以科学家奉献精神为指引》",
+    "leader": "林烨涵",
+    "members": "林烨涵",
+    "coach": "刘广",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440105-2fd44dc2",
+      "gz-440105-6299c301"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第七中学",
+    "project": "《奉献的光照亮深中通道》",
+    "leader": "郑皓恺",
+    "members": "郑皓恺",
+    "coach": "刘伟光",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440104-74121d17",
+      "gz-440111-82856abf"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州中学",
+    "project": "《赓续科学家精神，迈上中国梦征程》",
+    "leader": "黄一芳",
+    "members": "黄一芳",
+    "coach": "陈李彦仪",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440106-3c8afb6a"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市荔湾区蒋光鼐纪念小学三元坊学校",
+    "project": "《了不起的科学家》",
+    "leader": "王佳悦",
+    "members": "王佳悦",
+    "coach": "张莉娜",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440103-a5b0f405"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区旧部前小学",
+    "project": "《启明之星，耀我前行》",
+    "leader": "蓝可晴",
+    "members": "蓝可晴",
+    "coach": "江珊",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-4a2cb348"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区骏景小学",
+    "project": "《与国同梦，追光前行》",
+    "leader": "杨昊润",
+    "members": "杨昊润",
+    "coach": "周敏儿",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-4ca3816f"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区天府路小学",
+    "project": "《奉献之美》",
+    "leader": "赵剪瞳",
+    "members": "赵剪瞳",
+    "coach": "黄树婷",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-4dbb5b90",
+      "gz-440106-6dc5833a",
+      "gz-440106-ecfc1a19"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市番禺区市桥金山谷学校",
+    "project": "《科学家精神（征文与绘画类）》",
+    "leader": "郭梦妍",
+    "members": "郭梦妍",
+    "coach": "梁颖思",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440113-f890218e"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州中学",
+    "project": "《像稻穗那样》",
+    "leader": "寻冰弦",
+    "members": "寻冰弦",
+    "coach": "陈明",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-867e6c05",
+      "gz-440106-a989804b"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市南武实验学校",
+    "project": "《我们的航空奠基人》",
+    "leader": "程梦菲",
+    "members": "程梦菲",
+    "coach": "江靖",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-6ee54f1d"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市南武实验学校",
+    "project": "《中国航天-钱学森》",
+    "leader": "叶芷瑜",
+    "members": "叶芷瑜",
+    "coach": "周婕",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-6ee54f1d"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州奥林匹克中学",
+    "project": "《执育人初心，铸时代脊梁》",
+    "leader": "陆晋戎",
+    "members": "陆晋戎",
+    "coach": "程璐",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-d8e69757"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第十六中学",
+    "project": "《两面》",
+    "leader": "吴镇旭",
+    "members": "吴镇旭",
+    "coach": "巴佳燕",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-8a1a7b3d",
+      "gz-440106-52f7f4b7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "清华附中湾区学校",
+    "project": "《行科学之精神，弄时代之新浪》",
+    "leader": "芦宸铭",
+    "members": "芦宸铭",
+    "coach": "李志雄",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-31895452",
+      "gz-440106-8bc01096"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市海珠区培红小学",
+    "project": "《我敬佩的科学家》",
+    "leader": "许思霖",
+    "members": "许思霖",
+    "coach": "梁志冬",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440105-546af63c"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区五羊小学",
+    "project": "《大海洋的好朋友“器鱼-28”》",
+    "leader": "汤梓睿",
+    "members": "汤梓睿",
+    "coach": "余婷",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-d9540a45"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市白云区云雅实验学校",
+    "project": "《扼杀“饥荒”的梦魇》",
+    "leader": "高雅",
+    "members": "高雅",
+    "coach": "陈立",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-6782d2c7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市白云区加禾小学",
+    "project": "《我心中的科学小种子》",
+    "leader": "邓璞润",
+    "members": "邓璞润",
+    "coach": "陈丽霞",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-04e2c749"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市白云区华赋学校",
+    "project": "《“粤绣”与AI科技的碰撞之美》",
+    "leader": "詹蕙妍",
+    "members": "詹蕙妍",
+    "coach": "孟萌",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-43437f78"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州奥林匹克中学",
+    "project": "《种子》",
+    "leader": "吴玮婷",
+    "members": "吴玮婷",
+    "coach": "姚爱华",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-d40d0dbe",
+      "gz-440106-fa9338a2"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "中黄外国语实验学校",
+    "project": "《科学家精神（征文与绘画类）》",
+    "leader": "丁飞",
+    "members": "丁飞",
+    "coach": "罗钰桢",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440112-673fa2c9"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第十六中学实验学校",
+    "project": "《创新之光：邓稼先与科学梦想》",
+    "leader": "程玮轩",
+    "members": "程玮轩",
+    "coach": "夏雯",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-27ecd0e4"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广大附中实验中学",
+    "project": "《谁是最伟大的人》",
+    "leader": "胡雅萱",
+    "members": "胡雅萱",
+    "coach": "苏墁",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-0078267c",
+      "gz-440111-b95f2597"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广东省教育研究院黄埔实验学校",
+    "project": "《遨游浩瀚逐梦九天》",
+    "leader": "刘雅源",
+    "members": "刘雅源",
+    "coach": "周岭峰",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440112-22ec4fcc",
+      "gz-440112-96610f39"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "清华附中湾区学校",
+    "project": "《一稻济世，万家足粮——致敬我心目中的科学家袁隆平》",
+    "leader": "朱嘉怡",
+    "members": "朱嘉怡",
+    "coach": "李霞",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-31895452",
+      "gz-440106-e32237e4"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "清华附中湾区学校",
+    "project": "《牢记中国肝胆之父吴孟超，弘扬科学家爱国主义精神》",
+    "leader": "吴卓权",
+    "members": "吴卓权",
+    "coach": "李霞",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-31895452",
+      "gz-440106-e32237e4"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第十六中学",
+    "project": "《心归敦煌-樊锦诗》",
+    "leader": "崔钰茜",
+    "members": "崔钰茜",
+    "coach": "王敏",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-8a1a7b3d",
+      "gz-440106-52f7f4b7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州大同中学",
+    "project": "《心系祖国，民族英雄》",
+    "leader": "陈俊嘉",
+    "members": "陈俊嘉",
+    "coach": "袁荣晓",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-2b28ed6a"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第六十五中学",
+    "project": "《伟大的蘑菇云——原子弹之父邓稼先》",
+    "leader": "黄朝峰",
+    "members": "黄朝峰",
+    "coach": "王越",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-218475ea",
+      "gz-440111-4ebb4316",
+      "gz-440111-c7b90869"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "清华附中湾区学校",
+    "project": "《承继五四之火，续燃科学之焰》",
+    "leader": "邹承道",
+    "members": "邹承道",
+    "coach": "李志雄",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-31895452",
+      "gz-440106-8bc01096"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市海珠区实验小学",
+    "project": "二声部表演《飞跃太空》",
+    "leader": "李昊阳、肖妤朵、严如雪、徐奕朗",
+    "members": "李昊阳、肖妤朵、严如雪、徐奕朗",
+    "coach": "李婉奕、邱文洁",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440105-2fd44dc2",
+      "gz-440105-6299c301"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市西关外国语学校附属流花小学",
+    "project": "舞蹈《折飞机的小男孩》",
+    "leader": "冯国恒",
+    "members": "冯国恒",
+    "coach": "刘书航",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440103-f51bffec"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市骏景中学",
+    "project": "《疍家蚬妹》",
+    "leader": "林子言",
+    "members": "林子言",
+    "coach": "陈洁",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440106-b7d476f7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市广大附中实验中学",
+    "project": "《红高粱，青纱帐》",
+    "leader": "毛芷萱",
+    "members": "毛芷萱",
+    "coach": "陈晓萍",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440111-0078267c",
+      "gz-440111-b95f2597"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第十六中学",
+    "project": "《我的服装我最美》",
+    "leader": "黄奕涵",
+    "members": "黄奕涵",
+    "coach": "黄洁兰",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440104-8964385d",
+      "gz-440104-8a1a7b3d"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第十六中学",
+    "project": "《军营飞来一只百灵》",
+    "leader": "廖栩冉",
+    "members": "廖栩冉",
+    "coach": "邢星",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440104-8a1a7b3d",
+      "gz-440106-52f7f4b7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第七十五中学",
+    "project": "《神探故事之利用大气压伪造自杀现场》",
+    "leader": "潘奕瑾、袁越茗、郑嘉晞",
+    "members": "潘奕瑾、袁越茗、郑嘉晞",
+    "coach": "游远",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440106-5b430017",
+      "gz-440106-621b20d3"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市白云区平沙培英学校",
+    "project": "《科学点亮未来》",
+    "leader": "彭瑜洋、郑懿宸、廖宇涵、廖乔、汪子棋、许熙然、邱文岑、梁梦嫣、黎碧滢、王涵菡、朱文熙",
+    "members": "彭瑜洋、郑懿宸、廖宇涵、廖乔、汪子棋、许熙然、邱文岑、梁梦嫣、黎碧滢、王涵菡、朱文熙",
+    "coach": "唐鹏飞、康平、魏婉仪、刘礼兰、黎颖瑶",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440111-175bd68f"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市荔湾区乐贤坊小学龙津学校",
+    "project": "舞蹈《花间意》",
+    "leader": "朱茵妍",
+    "members": "朱茵妍",
+    "coach": "梁敏玲",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440103-16043f05"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市海珠区江南新村第一小学",
+    "project": "《科技歌曲》",
+    "leader": "陈芳如雪",
+    "members": "陈芳如雪",
+    "coach": "任君静",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-03249aab",
+      "gz-440105-5f57ea62"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区棠下小学",
+    "project": "《科技创新引领强国未来》",
+    "leader": "项意闲、杨芷玥、许晟琬、许晟琰、陈昌昊、刘纪元",
+    "members": "项意闲、杨芷玥、许晟琬、许晟琰、陈昌昊、刘纪元",
+    "coach": "李家贤、徐师铃、伍洁婷",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-34cffe8f"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区华景小学",
+    "project": "《台风的形成》",
+    "leader": "林子懿、林子嘉、罗翼遥、李睿汐、李承翰、梁熙童",
+    "members": "林子懿、林子嘉、罗翼遥、李睿汐、李承翰、梁熙童",
+    "coach": "卢颖",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-2cd346f1",
+      "gz-440106-3f600b79"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第二十六中学",
+    "project": "《我的先辈叫红嫂》",
+    "leader": "周欣雅",
+    "members": "周欣雅",
+    "coach": "陈建婷",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-352e2fc7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市骏景中学",
+    "project": "《桃花笺》",
+    "leader": "张雅雯",
+    "members": "张雅雯",
+    "coach": "陈洁",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-b7d476f7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市海珠区六中珠江中学",
+    "project": "《蓝色梦想》",
+    "leader": "陈果",
+    "members": "陈果",
+    "coach": "袁颖华",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-cb432890",
+      "gz-440105-e58a8300"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "清华附中湾区学校",
+    "project": "《莲池》",
+    "leader": "邓喻馨、刁梓凤、池梓晴、吴婧诗、尹紫蘅、林润、刘菲儿、李昕窈、谭海晴、邓可靖、赵雅覃、曾纤嵛、陈慰涵、谢思韵、梁宝仪",
+    "members": "邓喻馨、刁梓凤、池梓晴、吴婧诗、尹紫蘅、林润、刘菲儿、李昕窈、谭海晴、邓可靖、赵雅覃、曾纤嵛、陈慰涵、谢思韵、梁宝仪",
+    "coach": "丁艳、汤安琪",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-31895452",
+      "gz-440106-e32237e4"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市西关外国语学校",
+    "project": "《爱国，奉献》",
+    "leader": "麦诗婕、孟子珺、孟子珊、梁晶容、黄心悦、吴彦汶、刘狄、雷绰妍、何雨旸",
+    "members": "麦诗婕、孟子珺、孟子珊、梁晶容、黄心悦、吴彦汶、刘狄、雷绰妍、何雨旸",
+    "coach": "王邦彦、周琦",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440103-6bd45d68"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第五中学",
+    "project": "《青春追梦》",
+    "leader": "叶晋扬、马明恺、林丹婷、李钟畅",
+    "members": "叶晋扬、马明恺、林丹婷、李钟畅",
+    "coach": "柯松青",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-0ffca7e3",
+      "gz-440105-aec34da3"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市番禺区石楼中学",
+    "project": "《领潮博鳌》",
+    "leader": "王俊健、伍振宇、郭梓杨、李周原、韩梓阳、黄梓健、杨渊统、杨植铣、袁宇晨、许展朗、李文涛、丁文浩、周磊、罗智健、林盛健",
+    "members": "王俊健、伍振宇、郭梓杨、李周原、韩梓阳、黄梓健、杨渊统、杨植铣、袁宇晨、许展朗、李文涛、丁文浩、周磊、罗智健、林盛健",
+    "coach": "唐姣、苏阳芳",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440113-443448d2"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区朝天小学",
+    "project": "《人人讲安全，个个会应急》",
+    "leader": "曹柏晞、温祥锐、何铠瑶、曾锐洋、刘一萱、杨芸颖",
+    "members": "曹柏晞、温祥锐、何铠瑶、曾锐洋、刘一萱、杨芸颖",
+    "coach": "杜海麟、陈健华、曾丽燕",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-9f1371be"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区沙涌南小学",
+    "project": "《同心共模》",
+    "leader": "钟芷焓、吴晋扬、罗添乐、雷浩恩",
+    "members": "钟芷焓、吴晋扬、罗添乐、雷浩恩",
+    "coach": "刘洁婷、王菊、周妙艳",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-6d749319"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市白云区长红小学",
+    "project": "《我们的科学梦》",
+    "leader": "陈梓淇、莫莉妍、廖佳钰、张家宇、张梓贺、陈嘉城、姚佳宜、黄梓茵、许曼琦、李思潼、林雅涵、陈恺浚、刘思远、陈伟彬、朱家伟",
+    "members": "陈梓淇、莫莉妍、廖佳钰、张家宇、张梓贺、陈嘉城、姚佳宜、黄梓茵、许曼琦、李思潼、林雅涵、陈恺浚、刘思远、陈伟彬、朱家伟",
+    "coach": "黎润京、何佳俊、周丽湘、黎文兰、罗娟花",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-130d875a"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市番禺区天誉小学",
+    "project": "《童谣在我心》",
+    "leader": "陈昱妍、钟思睿、范芷瑶、李梓晴、赵芷晴、杨钰瑾、夏语谣、杨焱晰、郭闵敏、李炘曈、邓帛萱、张钰滢、王依辰、陈芷莹、李诗瑶",
+    "members": "陈昱妍、钟思睿、范芷瑶、李梓晴、赵芷晴、杨钰瑾、夏语谣、杨焱晰、郭闵敏、李炘曈、邓帛萱、张钰滢、王依辰、陈芷莹、李诗瑶",
+    "coach": "崔丽珊、黎文杰、黎丽华、雷子晴、古丽欣",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440112-4991e638",
+      "gz-440113-060386bb"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市番禺区天誉小学",
+    "project": "《红星闪闪》",
+    "leader": "黄紫淇、费歆瑶、张梓熙、张景雯、戴煊晴、李紫涵、刘紫墨、李加悦、钟意琦",
+    "members": "黄紫淇、费歆瑶、张梓熙、张景雯、戴煊晴、李紫涵、刘紫墨、李加悦、钟意琦",
+    "coach": "崔丽珊、雷子晴、古丽欣、黎丽华、黎文杰",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440112-4991e638",
+      "gz-440113-060386bb"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市培正中学矿泉学校",
+    "project": "《浮光追梦》",
+    "leader": "林嘉宜、林子瑄、郑洇晴、钟雨彤、郑锦婷、王妍欣、何佳晞",
+    "members": "林嘉宜、林子瑄、郑洇晴、钟雨彤、郑锦婷、王妍欣、何佳晞",
+    "coach": "张琪、谭颖妍",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-d6c68349"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广大附中实验中学",
+    "project": "《一抹红》",
+    "leader": "王梦晨",
+    "members": "王梦晨",
+    "coach": "李佳怡、范巧玲",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-0078267c",
+      "gz-440111-b95f2597"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "中国教育科学研究院荔湾实验学校",
+    "project": "《科学家精神——如愿》",
+    "leader": "陈羽乔、黄语乔、邝纪润、陈澄澄、郑家希、沈楚岚、孙玮骏、吴悦溪、吴梓埼、黄妍莹、周祉言、范云天、隋沅芷、董馨伊、黄梓锋",
+    "members": "陈羽乔、黄语乔、邝纪润、陈澄澄、郑家希、沈楚岚、孙玮骏、吴悦溪、吴梓埼、黄妍莹、周祉言、范云天、隋沅芷、董馨伊、黄梓锋",
+    "coach": "杜学君、谷瑶兰、巫巧、王媛",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-523446ce"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第一中学十甫学校",
+    "project": "《科技走向未来》",
+    "leader": "江艺、危俊昊、徐海悦、叶海琪、李烨明、吴芯茹、陈伟国、陈纬豪、蔡焱坤、陈卓滢",
+    "members": "江艺、危俊昊、徐海悦、叶海琪、李烨明、吴芯茹、陈伟国、陈纬豪、蔡焱坤、陈卓滢",
+    "coach": "钟海英、曹敏",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-81794a0d"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市番禺区石楼镇第二中学",
+    "project": "《觉醒年代》",
+    "leader": "吴希彤、王馨仪、蔡静娴、王语涵、陈俞彤、毛、晨、刘惜文、陈羲璇、颜斯琦、罗、绮、郑予媛、陈思源",
+    "members": "吴希彤、王馨仪、蔡静娴、王语涵、陈俞彤、毛、晨、刘惜文、陈羲璇、颜斯琦、罗、绮、郑予媛、陈思源",
+    "coach": "麦柏荣、杨俏妍",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-67864b8b"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市番禺区广铁一中铁英学校",
+    "project": "《万水千山》",
+    "leader": "徐锴洵",
+    "members": "徐锴洵",
+    "coach": "许敏倩",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-43d027a5",
+      "gz-440113-94c76638"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第七十五中学",
+    "project": "《守月》",
+    "leader": "宋妍",
+    "members": "宋妍",
+    "coach": "蒋筱彤",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-5b430017",
+      "gz-440106-621b20d3"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第十六中学",
+    "project": "《灯火里的中国》",
+    "leader": "徐知予、胡颖霖",
+    "members": "徐知予、胡颖霖",
+    "coach": "雷娇燕",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-8a1a7b3d",
+      "gz-440106-52f7f4b7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市西关外国语学校",
+    "project": "《匠心育人，重温热血》",
+    "leader": "许静怡、赵雅茹、黄俊哲、廖书瑜、林煊国、刘果、陈珑允、谭镇洋、张心韵、卓敬谦、杨佳欣、戴庄涛、洪浩程、许静怡、方梓涛、",
+    "members": "许静怡、赵雅茹、黄俊哲、廖书瑜、林煊国、刘果、陈珑允、谭镇洋、张心韵、卓敬谦、杨佳欣、戴庄涛、洪浩程、许静怡、方梓涛、",
+    "coach": "陈嘉妮、赵亮、骆秋炎",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-6bd45d68"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第五中学",
+    "project": "《在阳光路上》",
+    "leader": "招慧、黄紫璇、赵梓瑜、邱乙诺、徐卓凡、王卓然",
+    "members": "招慧、黄紫璇、赵梓瑜、邱乙诺、徐卓凡、王卓然",
+    "coach": "陆洁",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440105-0ffca7e3",
+      "gz-440105-aec34da3"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市番禺区石楼中学",
+    "project": "《月光泪》",
+    "leader": "罗思阳",
+    "members": "罗思阳",
+    "coach": "唐姣、李珍娜",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-443448d2"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市黄埔区怡园小学",
+    "project": "《科普讲解（主持讲解朗诵类）》",
+    "leader": "鲁弈辰",
+    "members": "鲁弈辰",
+    "coach": "刘锦豪",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440112-23b184e9",
+      "gz-440112-49401733",
+      "gz-440112-6fdd05af"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市黄埔区怡园小学",
+    "project": "《科普讲解（主持讲解朗诵类）》",
+    "leader": "廖果儿",
+    "members": "廖果儿",
+    "coach": "刘锦豪",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440112-23b184e9",
+      "gz-440112-49401733",
+      "gz-440112-6fdd05af"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区龙口西小学",
+    "project": "《白云顶端写诗篇追梦少年创未来》",
+    "leader": "何韵伊",
+    "members": "何韵伊",
+    "coach": "沈凝霞",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440106-24586ef1",
+      "gz-440106-53bc251b",
+      "gz-440106-5e40124c",
+      "gz-440106-e66204ca",
+      "gz-440106-ee85c675"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市天河区汇景实验学校",
+    "project": "《见证自然之美》",
+    "leader": "罗舒桐",
+    "members": "罗舒桐",
+    "coach": "詹惠华",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440106-0d1e149e"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市培英中学",
+    "project": "《生活中的电学》",
+    "leader": "涂睿涵",
+    "members": "涂睿涵",
+    "coach": "江嘉敏",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440103-a3ee807c",
+      "gz-440111-6271c94b"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第四中学",
+    "project": "《科学家的故事——钱学森》",
+    "leader": "曲之睿",
+    "members": "曲之睿",
+    "coach": "蔡俊杰",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440103-3862ee98",
+      "gz-440103-4cda3f9e",
+      "gz-440103-816b22a3",
+      "gz-440103-c0d6f9a0"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第十六中学",
+    "project": "《喷气式飞机发动机原理讲解》",
+    "leader": "林居正、廖意诚",
+    "members": "林居正、廖意诚",
+    "coach": "陈广滨",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440104-8a1a7b3d",
+      "gz-440106-52f7f4b7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第七十五中学",
+    "project": "《以科技之光照耀强国之路》",
+    "leader": "杨智艺",
+    "members": "杨智艺",
+    "coach": "游远",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440106-5b430017",
+      "gz-440106-621b20d3"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市荔湾区蒋光鼐纪念小学三元坊学校",
+    "project": "《科学之光，梦想之翼》",
+    "leader": "李昭颐",
+    "members": "李昭颐",
+    "coach": "张莉娜",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440103-a5b0f405"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市海珠区知信小学",
+    "project": "《归国》",
+    "leader": "严若安",
+    "members": "严若安",
+    "coach": "林锶灵",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-75e59f1d"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "白云外国语小学",
+    "project": "《我的太空梦》",
+    "leader": "刘胤琦",
+    "members": "刘胤琦",
+    "coach": "谢家乐",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440111-620f7d31"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市白云区龙归学校",
+    "project": "《中国工程院院士瓜类育种专家——吴明珠》",
+    "leader": "刘雨菡",
+    "members": "刘雨菡",
+    "coach": "谭巧菁",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440111-27e6c92d",
+      "gz-440111-9c7a2c45"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第十六中学实验学校",
+    "project": "《越秀公园》",
+    "leader": "董子嫣",
+    "members": "董子嫣",
+    "coach": "李和峰",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-27ecd0e4"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第七中学",
+    "project": "《脚踏实地，望星空，星辰大海是征途》",
+    "leader": "夏静琳",
+    "members": "夏静琳",
+    "coach": "范承保",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-74121d17",
+      "gz-440111-82856abf"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市南武中学",
+    "project": "《科技小主持》",
+    "leader": "何洛诗",
+    "members": "何洛诗",
+    "coach": "董兆津",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-dd2723fc",
+      "gz-440105-eaf414df"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第十六中学",
+    "project": "《使用公筷的重要性》",
+    "leader": "郑云婕、郑子淇",
+    "members": "郑云婕、郑子淇",
+    "coach": "陈广滨",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-8a1a7b3d",
+      "gz-440106-52f7f4b7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州奥林匹克中学",
+    "project": "《献身科技，筑强国之梦》",
+    "leader": "何家清",
+    "members": "何家清",
+    "coach": "程璐",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-d8e69757"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第四中学",
+    "project": "《以奉献精神，打造国防“千里眼”科学家故事朗诵》",
+    "leader": "谭紫滢",
+    "members": "谭紫滢",
+    "coach": "陈明偲",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440103-8920aa01"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州实验中学",
+    "project": "《神舟十九号：协同铸就的星辰之梦》",
+    "leader": "黄佩婷、王嘉桦、邹郑豪、吴林翰",
+    "members": "黄佩婷、王嘉桦、邹郑豪、吴林翰",
+    "coach": "徐鸿佳",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440112-87f27cf4"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区东山实验小学",
+    "project": "《如何治理水污染》",
+    "leader": "王采妮",
+    "members": "王采妮",
+    "coach": "曾晓丽",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-4d534f13",
+      "gz-440104-8d568c2d"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市海珠区昌岗中路小学",
+    "project": "《绿色未来之路》",
+    "leader": "梁莜婧、谭皓谦",
+    "members": "梁莜婧、谭皓谦",
+    "coach": "黄梓茵、吴进",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440105-98d6d585"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市荔湾区汇龙学校",
+    "project": "《两弹元勋邓稼先》",
+    "leader": "李心悠",
+    "members": "李心悠",
+    "coach": "林育珊",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-193e8ac3"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市番禺区市桥富都小学",
+    "project": "《广州市番禺区市桥富都小学科普讲解陈梓晴作品》",
+    "leader": "陈梓晴",
+    "members": "陈梓晴",
+    "coach": "陈惠珠",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-b14ead20"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区五山小学",
+    "project": "《新时代我们要追的星》",
+    "leader": "刘魏禹",
+    "members": "刘魏禹",
+    "coach": "李淑君",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-73e86142",
+      "gz-440106-7548682a"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区旧部前小学",
+    "project": "《少年科学家讲堂》",
+    "leader": "余浚丰",
+    "members": "余浚丰",
+    "coach": "陈倩倩",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-4a2cb348"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州天省实验学校",
+    "project": "《科梦启航，智创未来》",
+    "leader": "周景煊",
+    "members": "周景煊",
+    "coach": "聂千捷",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-01fd3a87"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市海珠区六中珠江中学",
+    "project": "《人脸识别技术详解》",
+    "leader": "林绰瑶",
+    "members": "林绰瑶",
+    "coach": "袁颖华",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440105-cb432890",
+      "gz-440105-e58a8300"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广东省教育研究院黄埔实验学校",
+    "project": "《运载火箭与卫星技术家孙家栋》",
+    "leader": "李慧珊",
+    "members": "李慧珊",
+    "coach": "陈斌洁",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440112-22ec4fcc",
+      "gz-440112-96610f39"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "中国教育科学研究院荔湾实验学校",
+    "project": "《海底的吸管》",
+    "leader": "林择延",
+    "members": "林择延",
+    "coach": "王媛",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-523446ce"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "清华附中湾区学校",
+    "project": "《“奇妙发现：科普探险之旅”》",
+    "leader": "李籽橙",
+    "members": "李籽橙",
+    "coach": "陈珂、李霞",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-31895452",
+      "gz-440106-e32237e4"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "清华附中湾区学校",
+    "project": "《“传承科学家精神，践行爱国使命”》",
+    "leader": "林雨霏",
+    "members": "林雨霏",
+    "coach": "陈珂",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-31895452",
+      "gz-440106-e32237e4"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第四中学",
+    "project": "《创新之光，照耀未来》",
+    "leader": "曹旖琳",
+    "members": "曹旖琳",
+    "coach": "陈明偲",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-8920aa01"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第五中学",
+    "project": "《岭南历史地理，在他手里开出了“一枝花”——“曾昭璇精神”焕发高扬》",
+    "leader": "冯瑜洋",
+    "members": "冯瑜洋",
+    "coach": "马松智、杜淑丹",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440105-0ffca7e3",
+      "gz-440105-aec34da3"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第五中学",
+    "project": "《“呦呦”鹿鸣笃志之蒿惠苍生——屠呦呦奉献一生谱华章》",
+    "leader": "王梓涵",
+    "members": "王梓涵",
+    "coach": "张淼、杜淑丹",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440105-0ffca7e3",
+      "gz-440105-aec34da3"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市海珠区实验小学",
+    "project": "信息科技素养",
+    "leader": "黄恩宁、莫子淼、吴晨曦",
+    "members": "黄恩宁、莫子淼、吴晨曦",
+    "coach": "郑贤、潘亮佳、张汉华",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440105-2fd44dc2",
+      "gz-440105-6299c301"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市天河区五一小学、广州市天河区华阳小学、广州市天河第一小学",
+    "project": "信息科技素养",
+    "leader": "金师成、陶梓涵、胡诗雨",
+    "members": "金师成、陶梓涵、胡诗雨",
+    "coach": "赵洪君、高小芳、肖杰",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440106-0b79aecf",
+      "gz-440106-155698db",
+      "gz-440106-182b1ae3",
+      "gz-440106-269a9629",
+      "gz-440106-3bc362f9",
+      "gz-440106-4a26a58c",
+      "gz-440106-b69bcbc4",
+      "gz-440106-e591e421"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "华南师范大学附属中学",
+    "project": "信息科技素养",
+    "leader": "周子轩、袁一果、林煜明",
+    "members": "周子轩、袁一果、林煜明",
+    "coach": "杜嘉华、梁泽贤、徐晨皓",
+    "award": "一等奖",
+    "school_ids": [
+      "gz-440112-3847727f"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市海珠区实验小学",
+    "project": "信息科技素养",
+    "leader": "邓乐安、罗嘉为、陈政谦",
+    "members": "邓乐安、罗嘉为、陈政谦",
+    "coach": "郑贤、潘亮佳、张汉华",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-2fd44dc2",
+      "gz-440105-6299c301"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "华南农业大学附属小学、广州市天河区灵秀小学、广州市天河区暨南大学附属实验学校",
+    "project": "信息科技素养",
+    "leader": "韩青桐、杨子卿、危家远",
+    "members": "韩青桐、杨子卿、危家远",
+    "coach": "周澍杰、张奕宸、欧阳翠红",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440106-11e15e8d",
+      "gz-440106-617fa509",
+      "gz-440106-a52ecc01"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区小北路小学",
+    "project": "信息科技素养",
+    "leader": "贺钰茗、刘玺君、向子珅",
+    "members": "贺钰茗、刘玺君、向子珅",
+    "coach": "李洪奔",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-1b6d4b9c",
+      "gz-440104-4ebbaf83",
+      "gz-440104-98359a64",
+      "gz-440104-d5497b4b"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "华南师范大学附属中学",
+    "project": "信息科技素养",
+    "leader": "林琅、廖翔、白成预",
+    "members": "林琅、廖翔、白成预",
+    "coach": "杜嘉华、梁泽贤、徐晨皓",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440112-3847727f"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第七中学",
+    "project": "信息科技素养",
+    "leader": "欧阳罡、邱彦青、罗悦容",
+    "members": "欧阳罡、邱彦青、罗悦容",
+    "coach": "刘伟光",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440104-74121d17",
+      "gz-440111-82856abf"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市白云区华赋学校",
+    "project": "信息科技素养",
+    "leader": "李俊浩、朱御枫、曾宇帆",
+    "members": "李俊浩、朱御枫、曾宇帆",
+    "coach": "孟萌",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440111-43437f78"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市江南外国语学校（北校区）",
+    "project": "信息科技素养",
+    "leader": "邓宇然、陈梓峒、赖奎达",
+    "members": "邓宇然、陈梓峒、赖奎达",
+    "coach": "朱博明、李武坚",
+    "award": "二等奖",
+    "school_ids": [
+      "gz-440105-ca292b2b"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市白云区京溪小学",
+    "project": "信息科技素养",
+    "leader": "杜正元、成梓昊、苏俊宇",
+    "members": "杜正元、成梓昊、苏俊宇",
+    "coach": "伍世达、伍翠萍、郭灿阳",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-162f6ce2",
+      "gz-440111-88b4ce7e",
+      "gz-440111-ae3faca7",
+      "gz-440111-aec60b7c"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市荔湾区汇龙小学",
+    "project": "信息科技素养",
+    "leader": "黄治博、谭景鸿、周煜梵",
+    "members": "黄治博、谭景鸿、周煜梵",
+    "coach": "林育珊、陈碧瑜、陈铭俊",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-193e8ac3"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州大学附属小学",
+    "project": "信息科技素养",
+    "leader": "韦安佑、陈乐辰、林奕朗",
+    "members": "韦安佑、陈乐辰、林奕朗",
+    "coach": "李钰",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-4a147600",
+      "gz-440113-d3d3956a"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市越秀区大沙头小学",
+    "project": "信息科技素养",
+    "leader": "谢宗熹",
+    "members": "谢宗熹",
+    "coach": "陈海才、梁少虹、黄乐妍",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-2aa7d451"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市番禺区市桥德兴小学",
+    "project": "信息科技素养",
+    "leader": "陈昕",
+    "members": "陈昕",
+    "coach": "梁永根",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440113-dccc5e5f"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
+    "year": 2024,
+    "school": "广州市白云区华师附中实验小学",
+    "project": "信息科技素养",
+    "leader": "李文迪、王腾、邓凯鑫",
+    "members": "李文迪、王腾、邓凯鑫",
+    "coach": "陈丽欢",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440105-6299c301",
+      "gz-440111-07bdec5f",
+      "gz-440111-1d697e07",
+      "gz-440111-db31a4f7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市白云区华赋学校",
+    "project": "信息科技素养",
+    "leader": "沈安东、王紫澍",
+    "members": "沈安东、王紫澍",
+    "coach": "康冬丽",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440111-43437f78"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州中学、广州市第一一三中学、广州市天河区华实学校",
+    "project": "信息科技素养",
+    "leader": "吴梓灏、宋勤悦、杨沛霖",
+    "members": "吴梓灏、宋勤悦、杨沛霖",
+    "coach": "钟俊锋、肖丽丽、肖杰",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-2e9f6f7b",
+      "gz-440106-867e6c05",
+      "gz-440106-a989804b",
+      "gz-440106-b049d65a",
+      "gz-440106-bd07878c",
+      "gz-440112-4ed867c7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市南武实验学校",
+    "project": "信息科技素养",
+    "leader": "冯源、黄炜乔、莫浩轩",
+    "members": "冯源、黄炜乔、莫浩轩",
+    "coach": "袁慧明、罗福源、黄桂梅",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440105-6ee54f1d"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州奥林匹克中学、广州市第一一三中学、广州奥林匹克中学",
+    "project": "信息科技素养",
+    "leader": "张智宸、吴宇轩、黄月君",
+    "members": "张智宸、吴宇轩、黄月君",
+    "coach": "潘泽衡、韩庆凯、龙惠英",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-2e9f6f7b",
+      "gz-440106-b049d65a",
+      "gz-440106-d40d0dbe",
+      "gz-440106-fa9338a2"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市第十六中学实验学校",
+    "project": "信息科技素养",
+    "leader": "张轩齐、贾靖同、王博远",
+    "members": "张轩齐、贾靖同、王博远",
+    "coach": "许亚格、梁衍桥",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-27ecd0e4"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "middle",
+    "year": 2024,
+    "school": "广州市荔广实验学校",
+    "project": "信息科技素养",
+    "leader": "刘昶、张彦博、余浩宇",
+    "members": "刘昶、张彦博、余浩宇",
+    "coach": "徐蔚蔚",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-c5a0baa6"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州中学",
+    "project": "信息科技素养",
+    "leader": "邓宇轩",
+    "members": "邓宇轩",
+    "coach": "杨远时",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440106-3c8afb6a"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第十六中学",
+    "project": "信息科技素养",
+    "leader": "钟林昌、刘曦桐、吴齐宇",
+    "members": "钟林昌、刘曦桐、吴齐宇",
+    "coach": "巴佳燕",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440104-8a1a7b3d",
+      "gz-440106-52f7f4b7"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "high",
+    "year": 2024,
+    "school": "广州市第四中学",
+    "project": "信息科技素养",
+    "leader": "冯思翰、康韩睿、余骁航",
+    "members": "冯思翰、康韩睿、余骁航",
+    "coach": "蔡俊杰、曾利娴、黄文忠",
+    "award": "三等奖",
+    "school_ids": [
+      "gz-440103-8920aa01"
+    ]
+  },
+  {
+    "competition": "science_literacy",
+    "stage": "primary",
     "year": 2025,
     "school": "广州市黄埔区怡园小学",
     "project": "科学探究",
-    "leader": "誉杰 严翌宸",
-    "members": "誉杰 严翌宸",
+    "leader": "誉杰严翌宸",
+    "members": "誉杰严翌宸",
     "coach": "陈慧",
     "award": "一等奖",
     "school_ids": [
@@ -8417,7 +10874,7 @@
     "project": "科技展演",
     "leader": "王嘉艺",
     "members": "王嘉艺",
-    "coach": "龚洁如\n宁怡",
+    "coach": "龚洁如宁怡",
     "award": "二等奖",
     "school_ids": [
       "gz-440112-12b0184b"

@@ -22,8 +22,8 @@ GUANGFU_HUANGHUA = "gz-440104-b22c4eca"
 SNAPSHOT = {
     "innovation": {"records": 522, "matched": 392, "digest": "06e62dfd2dfb991450236c908df191a0deb604f499a33e609711b951f34512f6"},
     "chuangke": {"years": 2, "records": 145, "matched": 112, "digest": "773b3536ff6bacdc6d8e4c2989a067713d72ed09cc5fd11d264fcc5a38a57c39"},
-    "science_literacy": {"records": 272, "matched": 185},
-    "details": {"records": 689, "digest": "a2585590c2c39686a6095e2266126af16175d16d20d00d0958478bace26cd7aa"},
+    "science_literacy": {"records": 531, "matched": 352},
+    "details": {"records": 856, "digest": "c66934823511383ea489ec7ff6dffc96350212127bc39246756e3abfb35d1484"},
 }
 
 
@@ -53,13 +53,15 @@ def main():
             })
     chuangke = json.loads((ROOT / "data/awards/chuangke/parsed/chuangke.json").read_text("utf-8"))["records"]
     details = json.loads((ROOT / "data/awards/dist/detailed_records.json").read_text("utf-8"))
-    science = json.loads((ROOT / "data/awards/science_literacy/parsed/science_literacy_2025.json").read_text("utf-8"))
+    science = []
+    for path in sorted((ROOT / "data/awards/science_literacy/parsed").glob("science_literacy_*.json")):
+        science.extend(json.loads(path.read_text("utf-8"))["records"])
 
     actual = {
         "innovation": {"records": len(innovation), "matched": sum(bool(x["school_ids"]) for x in innovation), "digest": digest(innovation)},
         "chuangke": {"years": len(chuangke), "records": sum(len(y["records"]) for y in chuangke),
                      "matched": sum(bool(r["school_ids"]) for y in chuangke for r in y["records"]), "digest": digest(chuangke)},
-        "science_literacy": {"records": len(science["records"]), "matched": sum(bool(r["school_ids"]) for r in science["records"])},
+        "science_literacy": {"records": len(science), "matched": sum(bool(r["school_ids"]) for r in science)},
         "details": {"records": len(details), "digest": digest(details)},
     }
     ok = True

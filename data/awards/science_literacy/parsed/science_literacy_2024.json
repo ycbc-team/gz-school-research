@@ -1,0 +1,3340 @@
+{
+  "metric": "science_literacy_awards",
+  "competition": "广州市中小学生科学素养大赛",
+  "year": 2024,
+  "source_file": [
+    "2024_附件1  2024年广州市中小学生科学素养大赛科学探究（实践类）赛项获奖公布名单.xls",
+    "2024_附件2  2024年广州市中小学生科学素养大赛科学家精神（征文与绘画类）赛项获奖公布名单.xls",
+    "2024_附件3  2024年广州市中小学生科学素养大赛科技展演舞蹈、唱歌与情景剧演绎）赛项获奖公布名单.xls",
+    "2024_附件4  2024年广州市中小学生科学素养大赛科普讲解（主持讲解朗诵类）赛项获奖公布名单.xls",
+    "2024_附件5 2024年广州市中小学生科学素养大赛信息科技素养（计算思维类）赛项获奖公布名单 .xls"
+  ],
+  "total_records": 259,
+  "skipped": [
+    {
+      "category": "《基于智能识别系统的暖心公交站》",
+      "district": "南沙区",
+      "school": "广州市南沙区少年宫",
+      "group": "初中组",
+      "student": "郭梓楷、黄偲洋、王嘉曦",
+      "coach": "陈芷敏、曹耀森",
+      "award": "一等奖",
+      "reason": "非学校"
+    },
+    {
+      "category": "《基于Wi-Fi互联和语音交互的非遗舞龙装置》",
+      "district": "南沙区",
+      "school": "广州市南沙区少年宫",
+      "group": "小学组",
+      "student": "覃彬可、陈骏轩",
+      "coach": "陈芷敏、曹耀森",
+      "award": "二等奖",
+      "reason": "非学校"
+    }
+  ],
+  "records": [
+    {
+      "category": "《“棚小乐”花卉智能温室大棚》",
+      "district": "从化区",
+      "school": "广东外语外贸大学从化实验小学",
+      "group": "小学组",
+      "student": "陈锐轩、李皓月、吴俊宇",
+      "coach": "陈丽欢",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《伏羲月球基地》",
+      "district": "黄埔区",
+      "school": "广州市黄埔区怡园小学",
+      "group": "小学组",
+      "student": "誉杰",
+      "coach": "刘锦豪",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440112-23b184e9",
+        "gz-440112-49401733",
+        "gz-440112-6fdd05af"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《科技创造小发明（梦境）》",
+      "district": "花都区",
+      "school": "广州市花都区新华街第九小学",
+      "group": "小学组",
+      "student": "徐若琳、骆钧睿、梁益宁",
+      "coach": "王丹、唐慧娟",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《E卫先锋--基于物联网的智慧卫生间系统》",
+      "district": "荔湾区",
+      "school": "中国教育科学研究院荔湾实验学校",
+      "group": "初中组",
+      "student": "张梓扬",
+      "coach": "王媛",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440103-523446ce"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《智能控制的水环境治理装置研发与应用实践》",
+      "district": "天河区",
+      "school": "广州中学",
+      "group": "初中组",
+      "student": "周琳茜、夏梓源、黄浩程",
+      "coach": "钟凯雯、吴珍",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《校园气象站》",
+      "district": "南沙区",
+      "school": "广州市南沙麒麟中学",
+      "group": "高中组",
+      "student": "杜佩微、曹颖",
+      "coach": "黄瑶芬",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《电动车自燃预警及防护系统》",
+      "district": "白云区",
+      "school": "广州市白云中学",
+      "group": "高中组",
+      "student": "方锦泽",
+      "coach": "高伟光",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440111-15fa03a9",
+        "gz-440111-5849b586",
+        "gz-440111-e74c2e1d"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《万能清洁小妙招》",
+      "district": "天河区",
+      "school": "广州市第七十五中学",
+      "group": "高中组",
+      "student": "拜合提努尔、穆妮热、古丽则娅",
+      "coach": "林影彤、刘莹",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-5b430017",
+        "gz-440106-621b20d3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《电磁环形加速实验》",
+      "district": "天河区",
+      "school": "广州市天河区华阳小学",
+      "group": "小学组",
+      "student": "周淼可、梁智博、王泽元",
+      "coach": "赖玲玲",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-0b79aecf",
+        "gz-440106-155698db",
+        "gz-440106-182b1ae3",
+        "gz-440106-e591e421"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《探究饮料糖含量，倡议饮水健康》",
+      "district": "天河区",
+      "school": "广州市天河区五一小学",
+      "group": "小学组",
+      "student": "戚越、金子尧、袁紫依",
+      "coach": "刘洋",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-3bc362f9"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《基于物联网智能远程操控自适应空气净化窗》",
+      "district": "番禺区",
+      "school": "广州市番禺区天誉小学",
+      "group": "小学组",
+      "student": "吴博涛、吴睿祺、欧阳宏宇",
+      "coach": "杜思奇",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440112-4991e638",
+        "gz-440113-060386bb"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《AI助农自动化识别采摘分类施肥一体系统》",
+      "district": "越秀区",
+      "school": "广州市越秀区大沙头小学",
+      "group": "小学组",
+      "student": "关智远",
+      "coach": "陈海才",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440104-2aa7d451"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《自适应灭火材料的智能灭火器》",
+      "district": "海珠区",
+      "school": "广州市海珠区昌岗中路小学",
+      "group": "小学组",
+      "student": "邓远涛、雷派、陈瑞禧",
+      "coach": "吴进、郑子良",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-98d6d585"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《聆音树》",
+      "district": "南沙区",
+      "school": "广州市南沙第一中学",
+      "group": "初中组",
+      "student": "邓籽妍、谢卓轩、卢弈璇",
+      "coach": "彭永宁",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《生活中自行车（电动自行车）骑行安全监测预警装置的设计》",
+      "district": "天河区",
+      "school": "广州市第一一三中学",
+      "group": "初中组",
+      "student": "高逸晨",
+      "coach": "陈贤桦",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-b049d65a"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《教室信息屏+噪音监测装置》",
+      "district": "越秀区",
+      "school": "广州市第十六中学实验学校",
+      "group": "初中组",
+      "student": "钟永豪、蒋知言、梁家豪",
+      "coach": "李晶、韩俊皊",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440104-27ecd0e4"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《基于物联网的种植大棚调节装置》",
+      "district": "海珠区",
+      "school": "广州市为明学校",
+      "group": "初中组",
+      "student": "陈羽麒、何梓骞、左丰豪",
+      "coach": "陈慧",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-d4bb1fa5"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《绿色广东的生态密码--簕菜扦插生根品质的优化与实践》",
+      "district": "增城区",
+      "school": "广州市增城区增城中学",
+      "group": "初中组",
+      "student": "刘岳霖",
+      "coach": "黎业登",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《AI电子称》",
+      "district": "白云区",
+      "school": "广州市白云区新市中学",
+      "group": "初中组",
+      "student": "黄沛宏、胡家乐",
+      "coach": "叶小莹",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-f3edc7ba"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《智慧农业系统之机器识别—以小番茄为例》",
+      "district": "天河区",
+      "school": "广州中学",
+      "group": "高中组",
+      "student": "郑丁铭、何姿慧",
+      "coach": "陈李彦仪",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-3c8afb6a"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《引力与恒星系统模拟》",
+      "district": "南沙区",
+      "school": "广州市央美现代高级中学有限公司",
+      "group": "高中组",
+      "student": "于捷、侯建宇",
+      "coach": "林澍楠",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《气动反冲车实验探究》",
+      "district": "越秀区",
+      "school": "广州市第十六中学",
+      "group": "高中组",
+      "student": "方茵琳、李芷杨、游智瑞",
+      "coach": "雷娇燕",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440104-8a1a7b3d",
+        "gz-440106-52f7f4b7"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《不一样的彩虹——锰的特性与应用》",
+      "district": "越秀区",
+      "school": "广州市第十六中学",
+      "group": "高中组",
+      "student": "谢乐同、邓芷柔",
+      "coach": "胡绮妙",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440104-8a1a7b3d",
+        "gz-440106-52f7f4b7"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《静电打乒乓》",
+      "district": "白云区",
+      "school": "广州市第六十五中学",
+      "group": "高中组",
+      "student": "吴浩睿、何致远",
+      "coach": "何锦兴、全山",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-218475ea",
+        "gz-440111-4ebb4316",
+        "gz-440111-c7b90869"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《“河流冲积扇的形成过程”模拟实验》",
+      "district": "海珠区",
+      "school": "广州市第五中学",
+      "group": "高中组",
+      "student": "胡耀文、杨文宇、赵子悠",
+      "coach": "韩冬、杜淑丹",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-0ffca7e3",
+        "gz-440105-aec34da3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《月球基地》",
+      "district": "越秀区",
+      "school": "广州市越秀区旧部前小学",
+      "group": "小学组",
+      "student": "李悦、魏瑞泽",
+      "coach": "陈倩倩",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-4a2cb348"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《萌萌制冷头盔》",
+      "district": "荔湾区",
+      "school": "广州市荔湾区乐贤坊小学龙津学校",
+      "group": "小学组",
+      "student": "陈嘉轩、叶思远",
+      "coach": "梁敏玲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-16043f05"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《基于语音识别的智能导盲杖》",
+      "district": "南沙区",
+      "school": "广州外国语学校附属学校",
+      "group": "小学组",
+      "student": "张恩瑞、李健铭",
+      "coach": "何淑敏",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-3c310bc1"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《科技小实验（自制酒精火箭）》",
+      "district": "花都区",
+      "school": "广州市花都区狮岭镇育华小学",
+      "group": "小学组",
+      "student": "蔡正阳",
+      "coach": "陈婧怡",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《水面垃圾清理机器人》",
+      "district": "从化区",
+      "school": "广东外语外贸大学从化实验小学",
+      "group": "小学组",
+      "student": "王杜铭、陈宇辰",
+      "coach": "陈丽欢",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《智慧脸谱-自助饮品站和球拍伙伴》",
+      "district": "增城区",
+      "school": "广州市增城区天恩双语学校（第二校区）",
+      "group": "小学组",
+      "student": "海嘉轩、张博尧",
+      "coach": "胡宝康",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《水污染治理沙盘作品》",
+      "district": "海珠区",
+      "school": "广州市海珠区实验小学",
+      "group": "小学组",
+      "student": "詹炜烨",
+      "coach": "谭金爱",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-2fd44dc2",
+        "gz-440105-6299c301"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《液压式升降机》",
+      "district": "白云区",
+      "school": "广州市白云区长红小学",
+      "group": "小学组",
+      "student": "邝睿祺、李满豪、何嘉卉",
+      "coach": "何佳俊、周丽湘",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-130d875a"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《水面垃圾清理机器人》",
+      "district": "荔湾区",
+      "school": "广州市真光中学附属培真小学",
+      "group": "小学组",
+      "student": "郭睿平、郭睿安",
+      "coach": "林乐欣",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-039a7621"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《萌宠氛围灯》",
+      "district": "白云区",
+      "school": "广州市白云区云雅实验学校",
+      "group": "小学组",
+      "student": "李治成、吕敏学、陈羽昕",
+      "coach": "许荣添、梁剑伟",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-6782d2c7"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《模拟鼹鼠挖洞探讨流体压强与流速关系》",
+      "district": "越秀区",
+      "school": "广州市第三中学",
+      "group": "初中组",
+      "student": "曾加、刘峻霆",
+      "coach": "姚丹、林淑敏",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-d9ec2dbb"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《科技小实验-消化与吸收》",
+      "district": "海珠区",
+      "school": "广州市南武实验学校",
+      "group": "初中组",
+      "student": "马誉维、张铭峻、黄玥滢",
+      "coach": "梁春梅",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-6ee54f1d"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《基于物联网的服药提醒药盒》",
+      "district": "黄埔区",
+      "school": "广东省教育研究院黄埔实验学校",
+      "group": "初中组",
+      "student": "刘思博、王冠智",
+      "coach": "吕根秋、张勇攀",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-22ec4fcc",
+        "gz-440112-96610f39"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《自制便携式应急小空调》",
+      "district": "白云区",
+      "school": "广州市培英中学",
+      "group": "初中组",
+      "student": "欧柔冰、吴梓滢、钟文添",
+      "coach": "江嘉敏、杜丽川",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-a3ee807c",
+        "gz-440111-6271c94b"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《树屋》",
+      "district": "黄埔区",
+      "school": "广东省教育研究院黄埔实验学校",
+      "group": "初中组",
+      "student": "方天奕",
+      "coach": "陈灿、张勇攀",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-22ec4fcc",
+        "gz-440112-96610f39"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《智能博物馆》",
+      "district": "荔湾区",
+      "school": "广州市第四中学",
+      "group": "初中组",
+      "student": "李泽群",
+      "coach": "黄文忠、谢敏娜",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-3862ee98",
+        "gz-440103-4cda3f9e",
+        "gz-440103-816b22a3",
+        "gz-440103-c0d6f9a0"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《废弃茶叶巧利用——利用生物净水的研究》",
+      "district": "番禺区",
+      "school": "广州市番禺区广铁一中铁英学校",
+      "group": "初中组",
+      "student": "方羽航",
+      "coach": "程碧露",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-43d027a5",
+        "gz-440113-94c76638"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《智能小风扇》",
+      "district": "从化区",
+      "school": "广州市从化区流溪中学",
+      "group": "初中组",
+      "student": "陈烨、庾云生、罗懿",
+      "coach": "谢冁翕",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《语音饮水机》",
+      "district": "从化区",
+      "school": "广州市从化区流溪中学",
+      "group": "初中组",
+      "student": "余卓衡、肖同洲、黄迪",
+      "coach": "林志增",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《一种快速等温扩增的肉类掺假筛选试剂盒》",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "初中组",
+      "student": "刘璇、李籽橙、冼蓓乐",
+      "coach": "李霞、马泽慧",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-e32237e4"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《冬虫夏草的真伪鉴定探究》",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "初中组",
+      "student": "胡宸巍、林凡迪",
+      "coach": "李霞、陈珂",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-e32237e4"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《人工智能语音控制系统》",
+      "district": "花都区",
+      "school": "广州市花都区邝维煜纪念中学",
+      "group": "初中组",
+      "student": "刘蕊彤、陈语欣、何建燊",
+      "coach": "张国祥、陈满华",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《温湿度控制系统》",
+      "district": "花都区",
+      "school": "广州市花都区邝维煜纪念中学",
+      "group": "初中组",
+      "student": "叶安琪、罗雍焯、骆成志",
+      "coach": "张国祥、陈满华",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《智能作业本自动识别与收集系统》",
+      "district": "荔湾区",
+      "school": "广州市第一中学",
+      "group": "高中组",
+      "student": "陈汇",
+      "coach": "麦智升",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-c62eab6a"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《一种基于麦克纳姆轮的全向避震底盘》",
+      "district": "荔湾区",
+      "school": "广州市第四中学",
+      "group": "高中组",
+      "student": "陈昊蓝、包林毅",
+      "coach": "黄文忠、周宇鹏",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-8920aa01"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《“植被保持水土的作用”模拟实验》",
+      "district": "海珠区",
+      "school": "广州市第五中学",
+      "group": "高中组",
+      "student": "施乔尹、李昱辰",
+      "coach": "黄晓蕾、杜淑丹",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-0ffca7e3",
+        "gz-440105-aec34da3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《儿童防丢失报警器》",
+      "district": "从化区",
+      "school": "广州市从化区流溪中学",
+      "group": "高中组",
+      "student": "邝友乐、朱湘钰、李依名",
+      "coach": "林志增",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《培育一种可以检测甲醛的发光植物》",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "高中组",
+      "student": "王锴元、黄子涵、易澳然",
+      "coach": "马泽慧、陈珂",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-8bc01096"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《水华治理——培育光控智能溶藻菌》",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "高中组",
+      "student": "钟朗、吴逊怡、蔡一萱",
+      "coach": "马泽慧、李霞",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-8bc01096"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《自制暖宝宝》",
+      "district": "花都区",
+      "school": "广州市花都区邝维煜纪念中学",
+      "group": "高中组",
+      "student": "李尘熙、丘俊涵、利志朗",
+      "coach": "陈满华、阮栎婷",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《特斯拉线圈-人造闪电》",
+      "district": "花都区",
+      "school": "广州市花都区邝维煜纪念中学",
+      "group": "高中组",
+      "student": "张开宇、范文骏、王明澳",
+      "coach": "翁益娇、钟敏娴",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《智能作业收缴系统》",
+      "district": "黄埔区",
+      "school": "广州实验中学",
+      "group": "高中组",
+      "student": "曾子琪、胡茗溦、吴雨桐",
+      "coach": "吴旭帆、马洁",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-87f27cf4"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《雨水自动回收灌溉器》",
+      "district": "黄埔区",
+      "school": "广州实验中学",
+      "group": "高中组",
+      "student": "许家乐、林梓源",
+      "coach": "周斌、张盛兰",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-87f27cf4"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《海洋污染净化器———望潮号》",
+      "district": "从化区",
+      "school": "广东外语外贸大学从化实验小学",
+      "group": "小学组",
+      "student": "陈奕",
+      "coach": "赖慧怡",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《未来稻路：科学家袁隆平的创新精神引领》",
+      "district": "荔湾区",
+      "school": "广州市荔湾区乐贤坊小学龙津学校",
+      "group": "小学组",
+      "student": "吴悦菲",
+      "coach": "梁敏玲",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440103-16043f05"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《以科学家奉献精神为指引》",
+      "district": "海珠区",
+      "school": "广州市海珠区实验小学",
+      "group": "小学组",
+      "student": "林烨涵",
+      "coach": "刘广",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440105-2fd44dc2",
+        "gz-440105-6299c301"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《航天之旅》",
+      "district": "从化区",
+      "school": "广州市从化区第三中学",
+      "group": "初中组",
+      "student": "邝晓晴",
+      "coach": "吴诺诗",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《科学育人精神（绘画）》",
+      "district": "花都区",
+      "school": "广州市花都区花城街长岗初级中学",
+      "group": "初中组",
+      "student": "邓珺羽",
+      "coach": "胡惠贤",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《奉献的光照亮深中通道》",
+      "district": "越秀区",
+      "school": "广州市第七中学",
+      "group": "初中组",
+      "student": "郑皓恺",
+      "coach": "刘伟光",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440104-74121d17",
+        "gz-440111-82856abf"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《青蒿济世，科研报国》",
+      "district": "市属",
+      "school": "广州市纺织服装职业学校",
+      "group": "高中组",
+      "student": "杨荞瑜",
+      "coach": "谭心湄",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《赓续科学家精神，迈上中国梦征程》",
+      "district": "天河区",
+      "school": "广州中学",
+      "group": "高中组",
+      "student": "黄一芳",
+      "coach": "陈李彦仪",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-3c8afb6a"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《科脉承古：未来之眼回望千年智慧》",
+      "district": "市属",
+      "school": "广州市纺织服装职业学校",
+      "group": "高中组",
+      "student": "赵浩然",
+      "coach": "黄思云",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《了不起的科学家》",
+      "district": "荔湾区",
+      "school": "广州市荔湾区蒋光鼐纪念小学三元坊学校",
+      "group": "小学组",
+      "student": "王佳悦",
+      "coach": "张莉娜",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440103-a5b0f405"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《启明之星，耀我前行》",
+      "district": "越秀区",
+      "school": "广州市越秀区旧部前小学",
+      "group": "小学组",
+      "student": "蓝可晴",
+      "coach": "江珊",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440104-4a2cb348"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《一起走向未来》",
+      "district": "南沙区",
+      "school": "广州市南沙区金隆小学",
+      "group": "小学组",
+      "student": "黄郡宸",
+      "coach": "李梦",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《与国同梦，追光前行》",
+      "district": "天河区",
+      "school": "广州市天河区骏景小学",
+      "group": "小学组",
+      "student": "杨昊润",
+      "coach": "周敏儿",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-4ca3816f"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《奉献之美》",
+      "district": "天河区",
+      "school": "广州市天河区天府路小学",
+      "group": "小学组",
+      "student": "赵剪瞳",
+      "coach": "黄树婷",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-4dbb5b90",
+        "gz-440106-6dc5833a",
+        "gz-440106-ecfc1a19"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《太空种植基地》",
+      "district": "花都区",
+      "school": "广州市花都区狮岭镇育华小学",
+      "group": "小学组",
+      "student": "徐文涛",
+      "coach": "陈婧怡",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《科学家精神（征文与绘画类）》",
+      "district": "番禺区",
+      "school": "广州市番禺区市桥金山谷学校",
+      "group": "初中组",
+      "student": "郭梦妍",
+      "coach": "梁颖思",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440113-f890218e"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《像稻穗那样》",
+      "district": "天河区",
+      "school": "广州中学",
+      "group": "初中组",
+      "student": "寻冰弦",
+      "coach": "陈明",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《璀璨星光，照亮育人之路》",
+      "district": "从化区",
+      "school": "广州市从化区第三中学",
+      "group": "初中组",
+      "student": "黄云卿",
+      "coach": "吴诺诗",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《我们的航空奠基人》",
+      "district": "海珠区",
+      "school": "广州市南武实验学校",
+      "group": "初中组",
+      "student": "程梦菲",
+      "coach": "江靖",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-6ee54f1d"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《品药鉴人间壮科闻世界》",
+      "district": "南沙区",
+      "school": "广州市南沙潭山中学",
+      "group": "初中组",
+      "student": "潘阳",
+      "coach": "吴洁咏",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《中国航天-钱学森》",
+      "district": "海珠区",
+      "school": "广州市南武实验学校",
+      "group": "初中组",
+      "student": "叶芷瑜",
+      "coach": "周婕",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-6ee54f1d"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《执育人初心，铸时代脊梁》",
+      "district": "天河区",
+      "school": "广州奥林匹克中学",
+      "group": "高中组",
+      "student": "陆晋戎",
+      "coach": "程璐",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-d8e69757"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《未来的交汇；人类与科技的创新》",
+      "district": "南沙区",
+      "school": "广州市央美现代高级中学有限公司",
+      "group": "高中组",
+      "student": "陈逸朗",
+      "coach": "林澍楠",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《两面》",
+      "district": "越秀区",
+      "school": "广州市第十六中学",
+      "group": "高中组",
+      "student": "吴镇旭",
+      "coach": "巴佳燕",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440104-8a1a7b3d",
+        "gz-440106-52f7f4b7"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《科技翱翔梦筑梦科技城》",
+      "district": "市属",
+      "school": "广州市城市建设职业学校",
+      "group": "高中组",
+      "student": "蔡彤彤",
+      "coach": "陈春艳",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《太空科技改变生活》",
+      "district": "从化区",
+      "school": "广州市从化区流溪中学",
+      "group": "高中组",
+      "student": "罗乐仪",
+      "coach": "梁海漫",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《行科学之精神，弄时代之新浪》",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "高中组",
+      "student": "芦宸铭",
+      "coach": "李志雄",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-8bc01096"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《我敬佩的科学家》",
+      "district": "海珠区",
+      "school": "广州市海珠区培红小学",
+      "group": "小学组",
+      "student": "许思霖",
+      "coach": "梁志冬",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-546af63c"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《科学家精神（绘画）》",
+      "district": "增城区",
+      "school": "广州市增城区天恩双语学校（第二校区）",
+      "group": "小学组",
+      "student": "赵芮程",
+      "coach": "陈泳欣",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《薪火传承》",
+      "district": "南沙区",
+      "school": "广州市南沙区高新小学",
+      "group": "小学组",
+      "student": "张宸瑄",
+      "coach": "郭玉银",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《科学家精神（征文与绘画类）》",
+      "district": "花都区",
+      "school": "广州市花都区狮岭镇育华小学",
+      "group": "小学组",
+      "student": "吉骏熙",
+      "coach": "陈雯冰",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《共和国勋章获得者黄旭华的科学家精神》",
+      "district": "从化区",
+      "school": "广东外语外贸大学从化实验小学",
+      "group": "小学组",
+      "student": "文一帆",
+      "coach": "赖慧怡",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《大海洋的好朋友“器鱼-28”》",
+      "district": "越秀区",
+      "school": "广州市越秀区五羊小学",
+      "group": "小学组",
+      "student": "汤梓睿",
+      "coach": "余婷",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-d9540a45"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《扼杀“饥荒”的梦魇》",
+      "district": "白云区",
+      "school": "广州市白云区云雅实验学校",
+      "group": "小学组",
+      "student": "高雅",
+      "coach": "陈立",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-6782d2c7"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《我心中的科学小种子》",
+      "district": "白云区",
+      "school": "广州市白云区加禾小学",
+      "group": "小学组",
+      "student": "邓璞润",
+      "coach": "陈丽霞",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-04e2c749"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《我的航天梦》",
+      "district": "增城区",
+      "school": "广州市增城区新塘镇大敦小学",
+      "group": "小学组",
+      "student": "吴彦琳",
+      "coach": "梁晓彤",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《“粤绣”与AI科技的碰撞之美》",
+      "district": "白云区",
+      "school": "广州市白云区华赋学校",
+      "group": "初中组",
+      "student": "詹蕙妍",
+      "coach": "孟萌",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-43437f78"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《种子》",
+      "district": "天河区",
+      "school": "广州奥林匹克中学",
+      "group": "初中组",
+      "student": "吴玮婷",
+      "coach": "姚爱华",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-d40d0dbe",
+        "gz-440106-fa9338a2"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《科学家精神（征文与绘画类）》",
+      "district": "黄埔区",
+      "school": "中黄外国语实验学校",
+      "group": "初中组",
+      "student": "丁飞",
+      "coach": "罗钰桢",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-673fa2c9"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《学习创新实践，培养科学精神（征文）》",
+      "district": "花都区",
+      "school": "广州市花都区花城街长岗初级中学",
+      "group": "初中组",
+      "student": "廖彦清",
+      "coach": "郭燕萍",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《创新之光：邓稼先与科学梦想》",
+      "district": "越秀区",
+      "school": "广州市第十六中学实验学校",
+      "group": "初中组",
+      "student": "程玮轩",
+      "coach": "夏雯",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-27ecd0e4"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《绮梦星域，机甲序曲》",
+      "district": "南沙区",
+      "school": "广州市南沙区金沙学校",
+      "group": "初中组",
+      "student": "金怡帆",
+      "coach": "蓝洋",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《科学家精神（绘画）》",
+      "district": "增城区",
+      "school": "广州增城外国语实验中学",
+      "group": "初中组",
+      "student": "何钰樱",
+      "coach": "陈碧芬",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《谁是最伟大的人》",
+      "district": "白云区",
+      "school": "广大附中实验中学",
+      "group": "初中组",
+      "student": "胡雅萱",
+      "coach": "苏墁",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-0078267c",
+        "gz-440111-b95f2597"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《遨游浩瀚逐梦九天》",
+      "district": "黄埔区",
+      "school": "广东省教育研究院黄埔实验学校",
+      "group": "初中组",
+      "student": "刘雅源",
+      "coach": "周岭峰",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-22ec4fcc",
+        "gz-440112-96610f39"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《一稻济世，万家足粮——致敬我心目中的科学家袁隆平》",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "初中组",
+      "student": "朱嘉怡",
+      "coach": "李霞",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-e32237e4"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《牢记中国肝胆之父吴孟超，弘扬科学家爱国主义精神》",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "初中组",
+      "student": "吴卓权",
+      "coach": "李霞",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-e32237e4"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《时代光辉：筑梦者的足迹》",
+      "district": "市属",
+      "school": "广州市城市建设职业学校",
+      "group": "高中组",
+      "student": "古雪梅",
+      "coach": "李志鸿",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《脚踏实地，砥砺前行》",
+      "district": "增城区",
+      "school": "广州市增城区第一中学",
+      "group": "高中组",
+      "student": "吴思学",
+      "coach": "罗妙凤",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《探索与奉献的交响乐》",
+      "district": "南沙区",
+      "school": "广州市南沙区东涌中学",
+      "group": "高中组",
+      "student": "卢映彤",
+      "coach": "梁志群",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《心归敦煌-樊锦诗》",
+      "district": "越秀区",
+      "school": "广州市第十六中学",
+      "group": "高中组",
+      "student": "崔钰茜",
+      "coach": "王敏",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-8a1a7b3d",
+        "gz-440106-52f7f4b7"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《心系祖国，民族英雄》",
+      "district": "白云区",
+      "school": "广州大同中学",
+      "group": "高中组",
+      "student": "陈俊嘉",
+      "coach": "袁荣晓",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-2b28ed6a"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《伟大的蘑菇云——原子弹之父邓稼先》",
+      "district": "白云区",
+      "school": "广州市第六十五中学",
+      "group": "高中组",
+      "student": "黄朝峰",
+      "coach": "王越",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-218475ea",
+        "gz-440111-4ebb4316",
+        "gz-440111-c7b90869"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《承继五四之火，续燃科学之焰》",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "高中组",
+      "student": "邹承道",
+      "coach": "李志雄",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-8bc01096"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《赤子心•家国情》",
+      "district": "市属",
+      "school": "广州市旅游商务职业学校",
+      "group": "高中组",
+      "student": "李树宸",
+      "coach": "冮强",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《弘扬科学家精神，做新时代追梦人》",
+      "district": "市属",
+      "school": "广州市旅游商务职业学校",
+      "group": "高中组",
+      "student": "林敏丽",
+      "coach": "冮强",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "二声部表演《飞跃太空》",
+      "district": "海珠区",
+      "school": "广州市海珠区实验小学",
+      "group": "小学组",
+      "student": "李昊阳、肖妤朵、严如雪、徐奕朗",
+      "coach": "李婉奕、邱文洁",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440105-2fd44dc2",
+        "gz-440105-6299c301"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《破阵乐》",
+      "district": "南沙区",
+      "school": "广东第二师范学院附属南沙麒麟小学",
+      "group": "小学组",
+      "student": "郭晓彤",
+      "coach": "周艺诗、麦丽香",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "舞蹈《折飞机的小男孩》",
+      "district": "荔湾区",
+      "school": "广州市西关外国语学校附属流花小学",
+      "group": "小学组",
+      "student": "冯国恒",
+      "coach": "刘书航",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440103-f51bffec"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《疍家蚬妹》",
+      "district": "天河区",
+      "school": "广州市骏景中学",
+      "group": "初中组",
+      "student": "林子言",
+      "coach": "陈洁",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-b7d476f7"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《红高粱，青纱帐》",
+      "district": "白云区",
+      "school": "广州市广大附中实验中学",
+      "group": "初中组",
+      "student": "毛芷萱",
+      "coach": "陈晓萍",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440111-0078267c",
+        "gz-440111-b95f2597"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《我的服装我最美》",
+      "district": "越秀区",
+      "school": "广州市第十六中学",
+      "group": "初中组",
+      "student": "黄奕涵",
+      "coach": "黄洁兰",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440104-8964385d",
+        "gz-440104-8a1a7b3d"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《军营飞来一只百灵》",
+      "district": "越秀区",
+      "school": "广州市第十六中学",
+      "group": "高中组",
+      "student": "廖栩冉",
+      "coach": "邢星",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440104-8a1a7b3d",
+        "gz-440106-52f7f4b7"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《骄傲的少年》",
+      "district": "市属",
+      "school": "广州市城市建设职业学校",
+      "group": "高中组",
+      "student": "余曼婷、钟雪、洪淑佳、黄韵菲、蓝星、李泽豪、张雅怡、梁婷锨、钟欣苡、陈筱莹、谢玮、黄铱淇、柯佳贝、冼俊扬、张人上",
+      "coach": "袁丹妮、吴天颖、潘穗梅、吴强、刘昕",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《神探故事之利用大气压伪造自杀现场》",
+      "district": "天河区",
+      "school": "广州市第七十五中学",
+      "group": "高中组",
+      "student": "潘奕瑾、袁越茗、郑嘉晞",
+      "coach": "游远",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-5b430017",
+        "gz-440106-621b20d3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《科学点亮未来》",
+      "district": "白云区",
+      "school": "广州市白云区平沙培英学校",
+      "group": "小学组",
+      "student": "彭瑜洋、郑懿宸、廖宇涵、廖乔、汪子棋、许熙然、邱文岑、梁梦嫣、黎碧滢、王涵菡、朱文熙",
+      "coach": "唐鹏飞、康平、魏婉仪、刘礼兰、黎颖瑶",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-175bd68f"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《舞动科技》",
+      "district": "南沙区",
+      "school": "广州市南沙区滨海实验学校",
+      "group": "小学组",
+      "student": "张翰文",
+      "coach": "苏丽娜",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "舞蹈《花间意》",
+      "district": "荔湾区",
+      "school": "广州市荔湾区乐贤坊小学龙津学校",
+      "group": "小学组",
+      "student": "朱茵妍",
+      "coach": "梁敏玲",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440103-16043f05"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《科技歌曲》",
+      "district": "海珠区",
+      "school": "广州市海珠区江南新村第一小学",
+      "group": "小学组",
+      "student": "陈芳如雪",
+      "coach": "任君静",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-03249aab",
+        "gz-440105-5f57ea62"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《科技创新引领强国未来》",
+      "district": "天河区",
+      "school": "广州市天河区棠下小学",
+      "group": "小学组",
+      "student": "项意闲、杨芷玥、许晟琬、许晟琰、陈昌昊、刘纪元",
+      "coach": "李家贤、徐师铃、伍洁婷",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-34cffe8f"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《台风的形成》",
+      "district": "天河区",
+      "school": "广州市天河区华景小学",
+      "group": "小学组",
+      "student": "林子懿、林子嘉、罗翼遥、李睿汐、李承翰、梁熙童",
+      "coach": "卢颖",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-2cd346f1",
+        "gz-440106-3f600b79"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《我的先辈叫红嫂》",
+      "district": "海珠区",
+      "school": "广州市第二十六中学",
+      "group": "初中组",
+      "student": "周欣雅",
+      "coach": "陈建婷",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-352e2fc7"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《桃花笺》",
+      "district": "天河区",
+      "school": "广州市骏景中学",
+      "group": "初中组",
+      "student": "张雅雯",
+      "coach": "陈洁",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-b7d476f7"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《蓝色梦想》",
+      "district": "海珠区",
+      "school": "广州市海珠区六中珠江中学",
+      "group": "初中组",
+      "student": "陈果",
+      "coach": "袁颖华",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-cb432890",
+        "gz-440105-e58a8300"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《雄伟国风》",
+      "district": "南沙区",
+      "school": "广州市南沙潭山中学",
+      "group": "初中组",
+      "student": "陈诗琦、梁凯淇、李沁、黄妙璇、冯芷晴、陈文静、李凯倩、丘雨萱",
+      "coach": "彭金莲",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《相亲相爱》",
+      "district": "南沙区",
+      "school": "广州市南沙潭山中学",
+      "group": "初中组",
+      "student": "方雨莹、郭蘅叶、梁泺研",
+      "coach": "吴洁咏",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《莲池》",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "初中组",
+      "student": "邓喻馨、刁梓凤、池梓晴、吴婧诗、尹紫蘅、林润、刘菲儿、李昕窈、谭海晴、邓可靖、赵雅覃、曾纤嵛、陈慰涵、谢思韵、梁宝仪",
+      "coach": "丁艳、汤安琪",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-e32237e4"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《爱国，奉献》",
+      "district": "荔湾区",
+      "school": "广州市西关外国语学校",
+      "group": "高中组",
+      "student": "麦诗婕、孟子珺、孟子珊、梁晶容、黄心悦、吴彦汶、刘狄、雷绰妍、何雨旸",
+      "coach": "王邦彦、周琦",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440103-6bd45d68"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《青春追梦》",
+      "district": "海珠区",
+      "school": "广州市第五中学",
+      "group": "高中组",
+      "student": "叶晋扬、马明恺、林丹婷、李钟畅",
+      "coach": "柯松青",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-0ffca7e3",
+        "gz-440105-aec34da3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《领潮博鳌》",
+      "district": "番禺区",
+      "school": "广州市番禺区石楼中学",
+      "group": "高中组",
+      "student": "王俊健、伍振宇、郭梓杨、李周原、韩梓阳、黄梓健、杨渊统、杨植铣、袁宇晨、许展朗、李文涛、丁文浩、周磊、罗智健、林盛健",
+      "coach": "唐姣、苏阳芳",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440113-443448d2"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "小组唱《有我》",
+      "district": "从化区",
+      "school": "广州市从化区流溪中学",
+      "group": "高中组",
+      "student": "黄凯、王逸涵、陈启悦、欧瑞恒",
+      "coach": "李雨媚",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《云中来信》",
+      "district": "花都区",
+      "school": "广州市花都区邝维煜纪念中学",
+      "group": "高中组",
+      "student": "黄子滢、曾俊楷、彭亮博、钟兴、董静雨、危伟钊、刘月姣、刘葳、林嘉瑞、梁嘉轩、吴轶、杨镇宇、钟晨希、李颖颖、梁家铭",
+      "coach": "邵宁宁、陈秋云、李雅慧、郁彬、黄润带",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "舞蹈《盛开》",
+      "district": "市属",
+      "school": "广州市旅游商务职业学校",
+      "group": "高中组",
+      "student": "江翎瑶、叶丽敏、蔡萬瑩、程思甜、彭心怡、区舜栩、黄雅彤、袁雅宜、王紫璇、秦芷欣、曾泳源、曾珈楹、刘嘉慧、岑林欣、杨依锃",
+      "coach": "卫洁昕、黄振坤",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《给我一个拥抱》",
+      "district": "从化区",
+      "school": "广东外语外贸大学从化实验小学",
+      "group": "小学组",
+      "student": "李梓萱",
+      "coach": "赖慧怡",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《人人讲安全，个个会应急》",
+      "district": "越秀区",
+      "school": "广州市越秀区朝天小学",
+      "group": "小学组",
+      "student": "曹柏晞、温祥锐、何铠瑶、曾锐洋、刘一萱、杨芸颖",
+      "coach": "杜海麟、陈健华、曾丽燕",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-9f1371be"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《同心共模》",
+      "district": "越秀区",
+      "school": "广州市越秀区沙涌南小学",
+      "group": "小学组",
+      "student": "钟芷焓、吴晋扬、罗添乐、雷浩恩",
+      "coach": "刘洁婷、王菊、周妙艳",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-6d749319"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《我们的科学梦》",
+      "district": "白云区",
+      "school": "广州市白云区长红小学",
+      "group": "小学组",
+      "student": "陈梓淇、莫莉妍、廖佳钰、张家宇、张梓贺、陈嘉城、姚佳宜、黄梓茵、许曼琦、李思潼、林雅涵、陈恺浚、刘思远、陈伟彬、朱家伟",
+      "coach": "黎润京、何佳俊、周丽湘、黎文兰、罗娟花",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-130d875a"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《童谣在我心》",
+      "district": "番禺区",
+      "school": "广州市番禺区天誉小学",
+      "group": "小学组",
+      "student": "陈昱妍、钟思睿、范芷瑶、李梓晴、赵芷晴、杨钰瑾、夏语谣、杨焱晰、郭闵敏、李炘曈、邓帛萱、张钰滢、王依辰、陈芷莹、李诗瑶",
+      "coach": "崔丽珊、黎文杰、黎丽华、雷子晴、古丽欣",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-4991e638",
+        "gz-440113-060386bb"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《红星闪闪》",
+      "district": "番禺区",
+      "school": "广州市番禺区天誉小学",
+      "group": "小学组",
+      "student": "黄紫淇、费歆瑶、张梓熙、张景雯、戴煊晴、李紫涵、刘紫墨、李加悦、钟意琦",
+      "coach": "崔丽珊、雷子晴、古丽欣、黎丽华、黎文杰",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-4991e638",
+        "gz-440113-060386bb"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《没有祖国哪有我》",
+      "district": "花都区",
+      "school": "广州市花都区育才学校",
+      "group": "小学组",
+      "student": "陈安怡、席天浩、张欣妍、翁晨琳、曾维锋、单煜源",
+      "coach": "沈志旋、黄泽青",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《浮光追梦》",
+      "district": "越秀区",
+      "school": "广州市培正中学矿泉学校",
+      "group": "初中组",
+      "student": "林嘉宜、林子瑄、郑洇晴、钟雨彤、郑锦婷、王妍欣、何佳晞",
+      "coach": "张琪、谭颖妍",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-d6c68349"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《一抹红》",
+      "district": "白云区",
+      "school": "广大附中实验中学",
+      "group": "初中组",
+      "student": "王梦晨",
+      "coach": "李佳怡、范巧玲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-0078267c",
+        "gz-440111-b95f2597"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《科学家精神——如愿》",
+      "district": "荔湾区",
+      "school": "中国教育科学研究院荔湾实验学校",
+      "group": "初中组",
+      "student": "陈羽乔、黄语乔、邝纪润、陈澄澄、郑家希、沈楚岚、孙玮骏、吴悦溪、吴梓埼、黄妍莹、周祉言、范云天、隋沅芷、董馨伊、黄梓锋",
+      "coach": "杜学君、谷瑶兰、巫巧、王媛",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-523446ce"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《科技走向未来》",
+      "district": "荔湾区",
+      "school": "广州市第一中学十甫学校",
+      "group": "初中组",
+      "student": "江艺、危俊昊、徐海悦、叶海琪、李烨明、吴芯茹、陈伟国、陈纬豪、蔡焱坤、陈卓滢",
+      "coach": "钟海英、曹敏",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-81794a0d"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《觉醒年代》",
+      "district": "番禺区",
+      "school": "广州市番禺区石楼镇第二中学",
+      "group": "初中组",
+      "student": "吴希彤、王馨仪、蔡静娴、王语涵、陈俞彤、毛、晨、刘惜文、陈羲璇、颜斯琦、罗、绮、郑予媛、陈思源",
+      "coach": "麦柏荣、杨俏妍",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-67864b8b"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《万水千山》",
+      "district": "番禺区",
+      "school": "广州市番禺区广铁一中铁英学校",
+      "group": "初中组",
+      "student": "徐锴洵",
+      "coach": "许敏倩",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-43d027a5",
+        "gz-440113-94c76638"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "街舞《稻花香里的酷爱国》",
+      "district": "从化区",
+      "school": "广州市从化区流溪中学",
+      "group": "初中组",
+      "student": "徐志豪",
+      "coach": "谢梦华",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《强军战歌》",
+      "district": "花都区",
+      "school": "广州市花都区育才学校",
+      "group": "初中组",
+      "student": "张曦文",
+      "coach": "沈志旋、黄泽青",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《万疆》",
+      "district": "花都区",
+      "school": "广州市花都区育才学校",
+      "group": "初中组",
+      "student": "李雨馨",
+      "coach": "沈志旋、黄泽青",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《守月》",
+      "district": "天河区",
+      "school": "广州市第七十五中学",
+      "group": "高中组",
+      "student": "宋妍",
+      "coach": "蒋筱彤",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-5b430017",
+        "gz-440106-621b20d3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《灯火里的中国》",
+      "district": "越秀区",
+      "school": "广州市第十六中学",
+      "group": "高中组",
+      "student": "徐知予、胡颖霖",
+      "coach": "雷娇燕",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-8a1a7b3d",
+        "gz-440106-52f7f4b7"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《匠心育人，重温热血》",
+      "district": "荔湾区",
+      "school": "广州市西关外国语学校",
+      "group": "高中组",
+      "student": "许静怡、赵雅茹、黄俊哲、廖书瑜、林煊国、刘果、陈珑允、谭镇洋、张心韵、卓敬谦、杨佳欣、戴庄涛、洪浩程、许静怡、方梓涛、",
+      "coach": "陈嘉妮、赵亮、骆秋炎",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-6bd45d68"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《在阳光路上》",
+      "district": "海珠区",
+      "school": "广州市第五中学",
+      "group": "高中组",
+      "student": "招慧、黄紫璇、赵梓瑜、邱乙诺、徐卓凡、王卓然",
+      "coach": "陆洁",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-0ffca7e3",
+        "gz-440105-aec34da3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《月光泪》",
+      "district": "番禺区",
+      "school": "广州市番禺区石楼中学",
+      "group": "高中组",
+      "student": "罗思阳",
+      "coach": "唐姣、李珍娜",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-443448d2"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "独唱《灯火里的中国》",
+      "district": "从化区",
+      "school": "广州市从化区流溪中学",
+      "group": "高中组",
+      "student": "吴绮彤",
+      "coach": "李雨媚",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《星际漫步》",
+      "district": "花都区",
+      "school": "广州市花都区邝维煜纪念中学",
+      "group": "高中组",
+      "student": "拿都心灵、江梓晴、朱宝含、梁诗婷、王紫晴、祝梦昕、吴燕彤、张泽曼、欧阳铭泽、吴心颖、王依晨、刘子皓、潘恩彤、罗美彩、何锐洲",
+      "coach": "李雅慧、曾结冰、陈秋云、邵宁宁、郁彬",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "舞蹈《刺勒川》",
+      "district": "市属",
+      "school": "广州市旅游商务职业学校",
+      "group": "高中组",
+      "student": "程思甜、区舜栩、彭心怡、秦芷欣、曾泳源、岑林欣、刘嘉慧、曾珈楹、杨依锃、袁雅宜、江翎瑶、张钰敏、王紫璇、黄雅彤、姚欣妮",
+      "coach": "卫洁昕、冯玮",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《科普讲解（主持讲解朗诵类）》",
+      "district": "黄埔区",
+      "school": "广州市黄埔区怡园小学",
+      "group": "小学组",
+      "student": "鲁弈辰",
+      "coach": "刘锦豪",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440112-23b184e9",
+        "gz-440112-49401733",
+        "gz-440112-6fdd05af"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《科普讲解（主持讲解朗诵类）》",
+      "district": "黄埔区",
+      "school": "广州市黄埔区怡园小学",
+      "group": "小学组",
+      "student": "廖果儿",
+      "coach": "刘锦豪",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440112-23b184e9",
+        "gz-440112-49401733",
+        "gz-440112-6fdd05af"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《白云顶端写诗篇追梦少年创未来》",
+      "district": "天河区",
+      "school": "广州市天河区龙口西小学",
+      "group": "小学组",
+      "student": "何韵伊",
+      "coach": "沈凝霞",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-24586ef1",
+        "gz-440106-53bc251b",
+        "gz-440106-5e40124c",
+        "gz-440106-e66204ca",
+        "gz-440106-ee85c675"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《见证自然之美》",
+      "district": "天河区",
+      "school": "广州市天河区汇景实验学校",
+      "group": "初中组",
+      "student": "罗舒桐",
+      "coach": "詹惠华",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-0d1e149e"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《生活中的电学》",
+      "district": "白云区",
+      "school": "广州市培英中学",
+      "group": "初中组",
+      "student": "涂睿涵",
+      "coach": "江嘉敏",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440103-a3ee807c",
+        "gz-440111-6271c94b"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《科学家的故事——钱学森》",
+      "district": "荔湾区",
+      "school": "广州市第四中学",
+      "group": "初中组",
+      "student": "曲之睿",
+      "coach": "蔡俊杰",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440103-3862ee98",
+        "gz-440103-4cda3f9e",
+        "gz-440103-816b22a3",
+        "gz-440103-c0d6f9a0"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《喷气式飞机发动机原理讲解》",
+      "district": "越秀区",
+      "school": "广州市第十六中学",
+      "group": "高中组",
+      "student": "林居正、廖意诚",
+      "coach": "陈广滨",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440104-8a1a7b3d",
+        "gz-440106-52f7f4b7"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《以科技之光照耀强国之路》",
+      "district": "天河区",
+      "school": "广州市第七十五中学",
+      "group": "高中组",
+      "student": "杨智艺",
+      "coach": "游远",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-5b430017",
+        "gz-440106-621b20d3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《中国科技闪耀巴黎奥运》",
+      "district": "南沙区",
+      "school": "广州市央美现代高级中学有限公司",
+      "group": "高中组",
+      "student": "朱籽昕",
+      "coach": "覃晓凤、林澍楠",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《科学之光，梦想之翼》",
+      "district": "荔湾区",
+      "school": "广州市荔湾区蒋光鼐纪念小学三元坊学校",
+      "group": "小学组",
+      "student": "李昭颐",
+      "coach": "张莉娜",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440103-a5b0f405"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《稻田里的中国梦》",
+      "district": "南沙区",
+      "school": "广州市南沙区金隆小学",
+      "group": "小学组",
+      "student": "冯圣雅",
+      "coach": "蔡文洁",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《归国》",
+      "district": "海珠区",
+      "school": "广州市海珠区知信小学",
+      "group": "小学组",
+      "student": "严若安",
+      "coach": "林锶灵",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-75e59f1d"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《我的太空梦》",
+      "district": "白云区",
+      "school": "白云外国语小学",
+      "group": "小学组",
+      "student": "刘胤琦",
+      "coach": "谢家乐",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-620f7d31"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《邓稼先的选择》",
+      "district": "南沙区",
+      "school": "广州市南沙区高新小学",
+      "group": "小学组",
+      "student": "李文博",
+      "coach": "陈力强、徐子晴",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《中国工程院院士瓜类育种专家——吴明珠》",
+      "district": "白云区",
+      "school": "广州市白云区龙归学校",
+      "group": "小学组",
+      "student": "刘雨菡",
+      "coach": "谭巧菁",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-27e6c92d",
+        "gz-440111-9c7a2c45"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《越秀公园》",
+      "district": "越秀区",
+      "school": "广州市第十六中学实验学校",
+      "group": "初中组",
+      "student": "董子嫣",
+      "coach": "李和峰",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440104-27ecd0e4"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《科技创新，引领未来》",
+      "district": "南沙区",
+      "school": "广州市南沙第一中学",
+      "group": "初中组",
+      "student": "王子涛",
+      "coach": "郭欣",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《脚踏实地，望星空，星辰大海是征途》",
+      "district": "越秀区",
+      "school": "广州市第七中学",
+      "group": "初中组",
+      "student": "夏静琳",
+      "coach": "范承保",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440104-74121d17",
+        "gz-440111-82856abf"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《创新之光，引领科技未来》",
+      "district": "南沙区",
+      "school": "广州市南沙大岗中学",
+      "group": "初中组",
+      "student": "黄文雅",
+      "coach": "肖春宇、李小丰",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《嫦娥六号，华之乐章，梦之交响》",
+      "district": "从化区",
+      "school": "广州市从化区第三中学",
+      "group": "初中组",
+      "student": "石金烔",
+      "coach": "吴诺诗",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《科技小主持》",
+      "district": "海珠区",
+      "school": "广州市南武中学",
+      "group": "初中组",
+      "student": "何洛诗",
+      "coach": "董兆津",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-dd2723fc",
+        "gz-440105-eaf414df"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《使用公筷的重要性》",
+      "district": "越秀区",
+      "school": "广州市第十六中学",
+      "group": "高中组",
+      "student": "郑云婕、郑子淇",
+      "coach": "陈广滨",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440104-8a1a7b3d",
+        "gz-440106-52f7f4b7"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《科学奉献，青春践行——中职生的时代使命》",
+      "district": "市属",
+      "school": "广州市城市建设职业学校",
+      "group": "高中组",
+      "student": "朱志宇",
+      "coach": "陈春艳、李志鸿、陈远燕",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《“科学家精神：中职生成长路上的璀璨灯塔”》",
+      "district": "市属",
+      "school": "广州市城市建设职业学校",
+      "group": "高中组",
+      "student": "刘欣雨",
+      "coach": "李志鸿、陈春艳、陈远燕",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《献身科技，筑强国之梦》",
+      "district": "天河区",
+      "school": "广州奥林匹克中学",
+      "group": "高中组",
+      "student": "何家清",
+      "coach": "程璐",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-d8e69757"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《以奉献精神，打造国防“千里眼”科学家故事朗诵》",
+      "district": "荔湾区",
+      "school": "广州市第四中学",
+      "group": "高中组",
+      "student": "谭紫滢",
+      "coach": "陈明偲",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440103-8920aa01"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《神舟十九号：协同铸就的星辰之梦》",
+      "district": "黄埔区",
+      "school": "广州实验中学",
+      "group": "高中组",
+      "student": "黄佩婷、王嘉桦、邹郑豪、吴林翰",
+      "coach": "徐鸿佳",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440112-87f27cf4"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《如何治理水污染》",
+      "district": "越秀区",
+      "school": "广州市越秀区东山实验小学",
+      "group": "小学组",
+      "student": "王采妮",
+      "coach": "曾晓丽",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-4d534f13",
+        "gz-440104-8d568c2d"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《绿色未来之路》",
+      "district": "海珠区",
+      "school": "广州市海珠区昌岗中路小学",
+      "group": "小学组",
+      "student": "梁莜婧、谭皓谦",
+      "coach": "黄梓茵、吴进",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-98d6d585"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《两弹元勋邓稼先》",
+      "district": "荔湾区",
+      "school": "广州市荔湾区汇龙学校",
+      "group": "小学组",
+      "student": "李心悠",
+      "coach": "林育珊",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-193e8ac3"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《朗诵（我的偶像）》",
+      "district": "花都区",
+      "school": "广州市花都区黄广凤凰北小学",
+      "group": "小学组",
+      "student": "朱勤添",
+      "coach": "叶名夏",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《黄大年的爱国精神》",
+      "district": "从化区",
+      "school": "广东外语外贸大学从化实验小学",
+      "group": "小学组",
+      "student": "邓婉淇",
+      "coach": "陈丽欢",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《朗诵（人造太阳）》",
+      "district": "花都区",
+      "school": "广州市花都区狮岭镇育华小学",
+      "group": "小学组",
+      "student": "陈乐歆",
+      "coach": "江嘉卫、陈婧怡",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《伶仃洋下的桥梁梦：探秘深中通道》",
+      "district": "从化区",
+      "school": "广东外语外贸大学从化实验小学",
+      "group": "小学组",
+      "student": "李鸿毅",
+      "coach": "陈丽欢",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《禾下乘凉梦一梦逐一生》",
+      "district": "增城区",
+      "school": "广州市增城区新蕾学校",
+      "group": "小学组",
+      "student": "孔祥润",
+      "coach": "周爱英",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《广州市番禺区市桥富都小学科普讲解陈梓晴作品》",
+      "district": "番禺区",
+      "school": "广州市番禺区市桥富都小学",
+      "group": "小学组",
+      "student": "陈梓晴",
+      "coach": "陈惠珠",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-b14ead20"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《新时代我们要追的星》",
+      "district": "天河区",
+      "school": "广州市天河区五山小学",
+      "group": "小学组",
+      "student": "刘魏禹",
+      "coach": "李淑君",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-73e86142",
+        "gz-440106-7548682a"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《少年科学家讲堂》",
+      "district": "越秀区",
+      "school": "广州市越秀区旧部前小学",
+      "group": "小学组",
+      "student": "余浚丰",
+      "coach": "陈倩倩",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-4a2cb348"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "《中国航天之父圆科技强国梦》",
+      "district": "增城区",
+      "school": "广州市增城区华南师范大学附属新塘学校",
+      "group": "小学组",
+      "student": "李圆圆",
+      "coach": "陈佩珊",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "《弘扬科学家爱国精神，共筑科技强国梦》",
+      "district": "从化区",
+      "school": "广州市从化区第三中学",
+      "group": "初中组",
+      "student": "邝晴晴",
+      "coach": "吴诺诗",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《科梦启航，智创未来》",
+      "district": "天河区",
+      "school": "广州天省实验学校",
+      "group": "初中组",
+      "student": "周景煊",
+      "coach": "聂千捷",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-01fd3a87"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《人脸识别技术详解》",
+      "district": "海珠区",
+      "school": "广州市海珠区六中珠江中学",
+      "group": "初中组",
+      "student": "林绰瑶",
+      "coach": "袁颖华",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-cb432890",
+        "gz-440105-e58a8300"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《科普讲解（主持讲解朗诵类）》",
+      "district": "黄埔区",
+      "school": "广州市黄埔区华实初级中学",
+      "group": "初中组",
+      "student": "秦羽晨",
+      "coach": "郭奕红",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《运载火箭与卫星技术家孙家栋》",
+      "district": "黄埔区",
+      "school": "广东省教育研究院黄埔实验学校",
+      "group": "初中组",
+      "student": "李慧珊",
+      "coach": "陈斌洁",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440112-22ec4fcc",
+        "gz-440112-96610f39"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《海底的吸管》",
+      "district": "荔湾区",
+      "school": "中国教育科学研究院荔湾实验学校",
+      "group": "初中组",
+      "student": "林择延",
+      "coach": "王媛",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-523446ce"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《“奇妙发现：科普探险之旅”》",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "初中组",
+      "student": "李籽橙",
+      "coach": "陈珂、李霞",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-e32237e4"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《“传承科学家精神，践行爱国使命”》",
+      "district": "市属",
+      "school": "清华附中湾区学校",
+      "group": "初中组",
+      "student": "林雨霏",
+      "coach": "陈珂",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-31895452",
+        "gz-440106-e32237e4"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "《科技之光，熠熠生辉》",
+      "district": "花都区",
+      "school": "广州市花都区邝维煜纪念中学",
+      "group": "初中组",
+      "student": "林晓清",
+      "coach": "侯月友、陈艳",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《科技创造人生》",
+      "district": "花都区",
+      "school": "广州市花都区邝维煜纪念中学",
+      "group": "初中组",
+      "student": "刘孜圣",
+      "coach": "侯月友",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "《创新之光，照耀未来》",
+      "district": "荔湾区",
+      "school": "广州市第四中学",
+      "group": "高中组",
+      "student": "曹旖琳",
+      "coach": "陈明偲",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-8920aa01"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《岭南历史地理，在他手里开出了“一枝花”——“曾昭璇精神”焕发高扬》",
+      "district": "海珠区",
+      "school": "广州市第五中学",
+      "group": "高中组",
+      "student": "冯瑜洋",
+      "coach": "马松智、杜淑丹",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-0ffca7e3",
+        "gz-440105-aec34da3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《“呦呦”鹿鸣笃志之蒿惠苍生——屠呦呦奉献一生谱华章》",
+      "district": "海珠区",
+      "school": "广州市第五中学",
+      "group": "高中组",
+      "student": "王梓涵",
+      "coach": "张淼、杜淑丹",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-0ffca7e3",
+        "gz-440105-aec34da3"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "《智慧城市，美好生活——5G技术在城市治理中的应用》",
+      "district": "从化区",
+      "school": "广州市从化区流溪中学",
+      "group": "高中组",
+      "student": "张灵娣、李思颖",
+      "coach": "谢冁翕",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《科学巨擘钱学森：他的伟大源于爱国》",
+      "district": "花都区",
+      "school": "广州市花都区邝维煜纪念中学",
+      "group": "高中组",
+      "student": "马思婷",
+      "coach": "李佩雯、蓝靖",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《青蒿治疟，孜孜以求——屠呦呦的故事》",
+      "district": "花都区",
+      "school": "广州市花都区邝维煜纪念中学",
+      "group": "高中组",
+      "student": "肖柳逸",
+      "coach": "邹甜成、姚葵娣",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《用创新传承非遗》",
+      "district": "市属",
+      "school": "广州市旅游商务职业学校",
+      "group": "高中组",
+      "student": "张紫惟",
+      "coach": "冮强、孙红、任巧珍",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "《科技赋能，助力国货出圈》",
+      "district": "市属",
+      "school": "广州市旅游商务职业学校",
+      "group": "高中组",
+      "student": "张雅榆",
+      "coach": "冮强、孙红、张永彪",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "海珠区",
+      "school": "广州市海珠区实验小学",
+      "group": "小学组",
+      "student": "黄恩宁、莫子淼、吴晨曦",
+      "coach": "郑贤、潘亮佳、张汉华",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440105-2fd44dc2",
+        "gz-440105-6299c301"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "南沙区",
+      "school": "广州市南沙区金隆小学",
+      "group": "小学组",
+      "student": "林宸峰、严景焕、汤晓原",
+      "coach": "冯敏仪、黄毓霞、林兰",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "天河区",
+      "school": "广州市天河区五一小学、广州市天河区华阳小学、广州市天河第一小学",
+      "group": "小学组",
+      "student": "金师成、陶梓涵、胡诗雨",
+      "coach": "赵洪君、高小芳、肖杰",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440106-0b79aecf",
+        "gz-440106-155698db",
+        "gz-440106-182b1ae3",
+        "gz-440106-269a9629",
+        "gz-440106-3bc362f9",
+        "gz-440106-4a26a58c",
+        "gz-440106-b69bcbc4",
+        "gz-440106-e591e421"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "省属",
+      "school": "华南师范大学附属中学",
+      "group": "初中组",
+      "student": "周子轩、袁一果、林煜明",
+      "coach": "杜嘉华、梁泽贤、徐晨皓",
+      "award": "一等奖",
+      "school_ids": [
+        "gz-440112-3847727f"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "南沙区",
+      "school": "广州大学附属中学南沙实验学校",
+      "group": "初中组",
+      "student": "曾致瑾、杨晨、曾致瑜",
+      "coach": "李鹏程",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "花都区",
+      "school": "广州市花都区花广学校",
+      "group": "初中组",
+      "student": "胡锦崴、马润行、江振宇",
+      "coach": "周捷",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "花都区",
+      "school": "广州市花都区秀全中学",
+      "group": "高中组",
+      "student": "张华轩、何宇谦、李戴钊",
+      "coach": "施伟华、钟文彬、崔天洛",
+      "award": "一等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "海珠区",
+      "school": "广州市海珠区实验小学",
+      "group": "小学组",
+      "student": "邓乐安、罗嘉为、陈政谦",
+      "coach": "郑贤、潘亮佳、张汉华",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-2fd44dc2",
+        "gz-440105-6299c301"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "南沙区",
+      "school": "广州市南沙区莲塘小学",
+      "group": "小学组",
+      "student": "黄元辰、杨益帆、陈梓锐",
+      "coach": "李浩鑫",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "花都区",
+      "school": "广州市花都区骏威小学",
+      "group": "小学组",
+      "student": "全天佑、徐柏涵",
+      "coach": "贺丹、卢晓燕",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "天河区",
+      "school": "华南农业大学附属小学、广州市天河区灵秀小学、广州市天河区暨南大学附属实验学校",
+      "group": "小学组",
+      "student": "韩青桐、杨子卿、危家远",
+      "coach": "周澍杰、张奕宸、欧阳翠红",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440106-11e15e8d",
+        "gz-440106-617fa509",
+        "gz-440106-a52ecc01"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "花都区",
+      "school": "广州市花都区花广学校",
+      "group": "小学组",
+      "student": "陈逸阳、李桐、李懿珈",
+      "coach": "高娜、陈俊鑫",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "越秀区",
+      "school": "广州市越秀区小北路小学",
+      "group": "小学组",
+      "student": "贺钰茗、刘玺君、向子珅",
+      "coach": "李洪奔",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440104-1b6d4b9c",
+        "gz-440104-4ebbaf83",
+        "gz-440104-98359a64",
+        "gz-440104-d5497b4b"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "省属",
+      "school": "华南师范大学附属中学",
+      "group": "初中组",
+      "student": "林琅、廖翔、白成预",
+      "coach": "杜嘉华、梁泽贤、徐晨皓",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440112-3847727f"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "越秀区",
+      "school": "广州市第七中学",
+      "group": "初中组",
+      "student": "欧阳罡、邱彦青、罗悦容",
+      "coach": "刘伟光",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440104-74121d17",
+        "gz-440111-82856abf"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "白云区",
+      "school": "广州市白云区华赋学校",
+      "group": "初中组",
+      "student": "李俊浩、朱御枫、曾宇帆",
+      "coach": "孟萌",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440111-43437f78"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "南沙区",
+      "school": "广州大学附属中学(南沙)实验学校",
+      "group": "初中组",
+      "student": "黄子腾、罗燊、陈仕浩",
+      "coach": "李鹏程",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "花都区",
+      "school": "广州市花都区秀全中学",
+      "group": "初中组",
+      "student": "叶燊阳、李志轩、刁烽辉",
+      "coach": "梁敏仪、钟文彬、崔天洛",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "海珠区",
+      "school": "广州市江南外国语学校（北校区）",
+      "group": "初中组",
+      "student": "邓宇然、陈梓峒、赖奎达",
+      "coach": "朱博明、李武坚",
+      "award": "二等奖",
+      "school_ids": [
+        "gz-440105-ca292b2b"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "花都区",
+      "school": "广州市花都区邝维煜纪念中学",
+      "group": "高中组",
+      "student": "陈星桦、周钟信、刘昊儒",
+      "coach": "李雪、崔天洛、罗欣翔",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "南沙区",
+      "school": "广州市南沙东涌中学",
+      "group": "高中组",
+      "student": "郭俊贤、赵家雄",
+      "coach": "孙明霞、熊翠梅、赖燕玲",
+      "award": "二等奖",
+      "school_ids": [],
+      "stage": "high"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "白云区",
+      "school": "广州市白云区京溪小学",
+      "group": "小学组",
+      "student": "杜正元、成梓昊、苏俊宇",
+      "coach": "伍世达、伍翠萍、郭灿阳",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-162f6ce2",
+        "gz-440111-88b4ce7e",
+        "gz-440111-ae3faca7",
+        "gz-440111-aec60b7c"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "荔湾区",
+      "school": "广州市荔湾区汇龙小学",
+      "group": "小学组",
+      "student": "黄治博、谭景鸿、周煜梵",
+      "coach": "林育珊、陈碧瑜、陈铭俊",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-193e8ac3"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "番禺区",
+      "school": "广州大学附属小学",
+      "group": "小学组",
+      "student": "韦安佑、陈乐辰、林奕朗",
+      "coach": "李钰",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-4a147600",
+        "gz-440113-d3d3956a"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "越秀区",
+      "school": "广州市越秀区大沙头小学",
+      "group": "小学组",
+      "student": "谢宗熹",
+      "coach": "陈海才、梁少虹、黄乐妍",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-2aa7d451"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "番禺区",
+      "school": "广州市番禺区市桥德兴小学",
+      "group": "小学组",
+      "student": "陈昕",
+      "coach": "梁永根",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440113-dccc5e5f"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "从化区",
+      "school": "广州市白云区华师附中实验小学",
+      "group": "小学组",
+      "student": "李文迪、王腾、邓凯鑫",
+      "coach": "陈丽欢",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-6299c301",
+        "gz-440111-07bdec5f",
+        "gz-440111-1d697e07",
+        "gz-440111-db31a4f7"
+      ],
+      "stage": "primary"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "白云区",
+      "school": "广州市白云区华赋学校",
+      "group": "初中组",
+      "student": "沈安东、王紫澍",
+      "coach": "康冬丽",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440111-43437f78"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "天河区",
+      "school": "广州中学、广州市第一一三中学、广州市天河区华实学校",
+      "group": "初中组",
+      "student": "吴梓灏、宋勤悦、杨沛霖",
+      "coach": "钟俊锋、肖丽丽、肖杰",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b",
+        "gz-440106-b049d65a",
+        "gz-440106-bd07878c",
+        "gz-440112-4ed867c7"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "海珠区",
+      "school": "广州市南武实验学校",
+      "group": "初中组",
+      "student": "冯源、黄炜乔、莫浩轩",
+      "coach": "袁慧明、罗福源、黄桂梅",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440105-6ee54f1d"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "天河区",
+      "school": "广州奥林匹克中学、广州市第一一三中学、广州奥林匹克中学",
+      "group": "初中组",
+      "student": "张智宸、吴宇轩、黄月君",
+      "coach": "潘泽衡、韩庆凯、龙惠英",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-b049d65a",
+        "gz-440106-d40d0dbe",
+        "gz-440106-fa9338a2"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "越秀区",
+      "school": "广州市第十六中学实验学校",
+      "group": "初中组",
+      "student": "张轩齐、贾靖同、王博远",
+      "coach": "许亚格、梁衍桥",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-27ecd0e4"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "荔湾区",
+      "school": "广州市荔广实验学校",
+      "group": "初中组",
+      "student": "刘昶、张彦博、余浩宇",
+      "coach": "徐蔚蔚",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-c5a0baa6"
+      ],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "从化区",
+      "school": "广州市从化区流溪中学",
+      "group": "初中组",
+      "student": "肖楚航、黄智琪、廖岚馨",
+      "coach": "张晓峰、高永飞、周辉松",
+      "award": "三等奖",
+      "school_ids": [],
+      "stage": "middle"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "天河区",
+      "school": "广州中学",
+      "group": "高中组",
+      "student": "邓宇轩",
+      "coach": "杨远时",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440106-3c8afb6a"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "越秀区",
+      "school": "广州市第十六中学",
+      "group": "高中组",
+      "student": "钟林昌、刘曦桐、吴齐宇",
+      "coach": "巴佳燕",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440104-8a1a7b3d",
+        "gz-440106-52f7f4b7"
+      ],
+      "stage": "high"
+    },
+    {
+      "category": "信息科技素养",
+      "district": "荔湾区",
+      "school": "广州市第四中学",
+      "group": "高中组",
+      "student": "冯思翰、康韩睿、余骁航",
+      "coach": "蔡俊杰、曾利娴、黄文忠",
+      "award": "三等奖",
+      "school_ids": [
+        "gz-440103-8920aa01"
+      ],
+      "stage": "high"
+    }
+  ],
+  "compiled_schools": 141
+}

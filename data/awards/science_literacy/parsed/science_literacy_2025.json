@@ -2,7 +2,9 @@
   "metric": "science_literacy_awards",
   "competition": "广州市中小学生科学素养大赛",
   "year": 2025,
-  "source_file": "附件1 2025年广州市中小学生科学素养大赛各赛项获奖公示名单.xlsx",
+  "source_file": [
+    "附件1 2025年广州市中小学生科学素养大赛各赛项获奖公示名单.xlsx"
+  ],
   "total_records": 272,
   "skipped": [],
   "records": [
@@ -11,7 +13,7 @@
       "district": "南沙区",
       "school": "广州市南沙区金隆小学",
       "group": "小学组",
-      "student": "蒙想 蒙畅",
+      "student": "蒙想蒙畅",
       "coach": "刘艳",
       "award": "一等奖",
       "school_ids": [],
@@ -22,7 +24,7 @@
       "district": "黄埔区",
       "school": "广州市黄埔区怡园小学",
       "group": "小学组",
-      "student": "誉杰 严翌宸",
+      "student": "誉杰严翌宸",
       "coach": "陈慧",
       "award": "一等奖",
       "school_ids": [
@@ -781,7 +783,7 @@
       "district": "白云区",
       "school": "广州市白云中学高中部",
       "group": "高中组",
-      "student": "谢叡衡 、杨子贤",
+      "student": "谢叡衡、杨子贤",
       "coach": "许冬梅",
       "award": "二等奖",
       "school_ids": [],
@@ -1370,7 +1372,7 @@
       "school": "广州市黄埔区玉泉学校",
       "group": "初中组",
       "student": "王嘉艺",
-      "coach": "龚洁如\n宁怡",
+      "coach": "龚洁如宁怡",
       "award": "二等奖",
       "school_ids": [
         "gz-440112-12b0184b"

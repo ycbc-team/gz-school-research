@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / "data/awards/dist/detailed_records.json"
 INNOVATION = ROOT / "data/awards/innovation/parsed"
 CHUANGKE = ROOT / "data/awards/chuangke/parsed/chuangke.json"
-SCIENCE_LITERACY = ROOT / "data/awards/science_literacy/parsed/science_literacy_2025.json"
+SCIENCE_LITERACY = ROOT / "data/awards/science_literacy/parsed"
 
 
 def main():
@@ -42,8 +42,8 @@ def main():
                 "school_ids": record["school_ids"],
             })
 
-    if SCIENCE_LITERACY.exists():
-        doc = json.loads(SCIENCE_LITERACY.read_text("utf-8"))
+    for science_path in sorted(SCIENCE_LITERACY.glob("science_literacy_*.json")):
+        doc = json.loads(science_path.read_text("utf-8"))
         for record in doc.get("records", []):
             if not record.get("school_ids"):
                 continue

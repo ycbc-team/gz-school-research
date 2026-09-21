@@ -22,6 +22,7 @@ import {
   innovationAwards,
   chuangkeAwards,
   scienceLiteracyAwards,
+  detailedRecords,
   specialtySchools,
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
@@ -82,6 +83,14 @@ const chuangkeData = computed(() => chuangkeAwards[schoolId.value]?.chuangke_awa
 const chuangkeGroupLabel = computed(() => chuangkeStage.value === 'secondary' ? '中学组（初中+高中）' : stageLabel.value);
 const scienceLiteracyData = computed(() => scienceLiteracyAwards[schoolId.value]?.science_literacy_awards?.stages?.[stage.value]);
 const awardYears = computed(() => awardData.value ? Object.keys(awardData.value).sort().reverse() : []);
+const awardRecords = detailedRecords as Array<{ competition?: string; year?: number }>;
+function competitionYearsLabel(competition: string) {
+  const years = [...new Set(awardRecords.filter((record) => record.competition === competition && Number.isFinite(record.year)).map((record) => record.year as number))].sort((a, b) => a - b);
+  return years.length > 1 ? `${years[0]}-${years[years.length - 1]}` : (years[0] || '');
+}
+const innovationYearsLabel = computed(() => competitionYearsLabel('innovation'));
+const chuangkeYearsLabel = computed(() => competitionYearsLabel('chuangke'));
+const scienceLiteracyYearsLabel = computed(() => competitionYearsLabel('science_literacy'));
 /** 特色校称号（官方认定·省市各级）：按当前 school_id 或校名匹配 dist 聚合，展开 recognition 池 */
 const specialtyEntry = computed(() => {
   const doc = specialtySchools;
@@ -634,7 +643,7 @@ const brandCardUseful = computed(() =>
       <div class="card-title">竞赛获奖</div>
       <div v-if="awardData" class="award-block">
         <RouterLink :to="{ path: '/awards', query: { competition: 'innovation', stage, school: schoolId } }" class="award-name">广州市中小学生创新大赛 ›</RouterLink>
-        <p class="sub-note">{{ stageLabel }}组（2024-2026）</p>
+        <p class="sub-note">{{ stageLabel }}组（{{ innovationYearsLabel }}）</p>
         <div v-for="yr in awardYears" :key="yr" class="award-year">
           <span class="award-year-label">{{ yr }}</span>
           <span v-if="awardData[yr] && awardData[yr].gold" class="medal gold">{{ awardData[yr].gold}}金</span>
@@ -644,7 +653,7 @@ const brandCardUseful = computed(() =>
       </div>
       <div v-if="chuangkeData" class="award-block" style="margin-top:12px">
         <RouterLink :to="{ path: '/awards', query: { competition: 'chuangke', stage, school: schoolId } }" class="award-name">广州市中小学生科技创客电视大赛 ›</RouterLink>
-        <p class="sub-note">{{ chuangkeGroupLabel }}（2024-2025）</p>
+        <p class="sub-note">{{ chuangkeGroupLabel }}（{{ chuangkeYearsLabel }}）</p>
         <div v-for="yr in Object.keys(chuangkeData).sort().reverse()" :key="yr" class="award-year">
           <span class="award-year-label">{{ yr }}</span>
           <span v-if="chuangkeData[yr]?.gold" class="medal gold">{{ chuangkeData[yr]?.gold }}个一等奖</span>
@@ -654,7 +663,7 @@ const brandCardUseful = computed(() =>
       </div>
       <div v-if="scienceLiteracyData" class="award-block" style="margin-top:12px">
         <RouterLink :to="{ path: '/awards', query: { competition: 'science_literacy', stage, school: schoolId } }" class="award-name">广州市中小学生科学素养大赛 ›</RouterLink>
-        <p class="sub-note">{{ stageLabel }}组（2025）</p>
+        <p class="sub-note">{{ stageLabel }}组（{{ scienceLiteracyYearsLabel }}）</p>
         <div v-for="yr in Object.keys(scienceLiteracyData).sort().reverse()" :key="yr" class="award-year">
           <span class="award-year-label">{{ yr }}</span>
           <span v-if="scienceLiteracyData[yr]?.gold" class="medal gold">{{ scienceLiteracyData[yr]?.gold }}个一等奖</span>
