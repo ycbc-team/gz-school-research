@@ -51,7 +51,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #   （未确认校区宁缺、回孤儿待逐校确认；净消除 4 所），新增 0
 # 2026-09-17 二更：仲元二校区官方明文「二校区（初中部）」10 班 450 人（番禺招生计划），
 #   build_middle_enrollment 补挂 gz-440113-6dbdc462（原 school_id=None 过时）→ 孤儿 335→334，新增 0
-ORPHAN_SNAPSHOT = "0b3466f1acad9fcf"
+ORPHAN_SNAPSHOT = "5ca25cde9506f8ac"
 
 # 同段同址冗余候选快照（sha256 前 16 位）：同学段+同区+≤50m 的实体对（含民办）。
 # 方向：候选越少越好（每合并一对冗余实体就少一组，属纯正向改进）。
@@ -359,7 +359,7 @@ def main():
     #   2. 判断依据永远是「孤儿清单 diff」，不是数量本身：数量不变≠没变化。
     # 快照机制（与品牌卡全量回归同款）：孤儿清单 sha256 digest 固化——存量孤儿供排查
     # （每修复一所须显式更新快照），孤儿新增/变化立即失败（数据回退防线）。
-    _orphan_files = glob.glob(os.path.join(ROOT, "data/primary/transition/parsed/2026-*.json"))
+    _orphan_files = glob.glob(os.path.join(ROOT, "data/primary/enrollment/parsed/2026-*.json"))
     _pri_enroll_ids = set()
     for _f in _orphan_files:
         for _r in json.load(open(_f)).get("records", []):
@@ -533,7 +533,7 @@ def main():
     # 要么民办学校被错配进公办招生/升学文件。
     _minban_ids16 = {s["school_id"] for s in json.load(open(os.path.join(ROOT, "data/registry/private/dist/minban_schools.json")))["schools"]}
     _bad_pri, _bad_mid, _bad_xs = [], [], []
-    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/transition/parsed/2026-*.json"))):
+    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollment/parsed/2026-*.json"))):
         _d = json.load(open(_f))
         for _r in _d.get("records", []):
             if _r.get("school_id") in _minban_ids16:

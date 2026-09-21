@@ -15,7 +15,7 @@ import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-DATA = os.path.join(ROOT, "data", "primary", "transition")
+DATA = os.path.join(ROOT, "data", "primary", "enrollment")
 RAW = os.path.join(DATA, "raw")
 OUT = os.path.join(DATA, "parsed", "_transcripts", "tianhe_2026.json")
 OCR_TOOL = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ocr", "vision_ocr.py")

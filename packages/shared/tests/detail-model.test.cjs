@@ -19,7 +19,7 @@ const loaders = {
   middleTier1: load('middle/tier1_schools_all.json'),
   highSchools: load('poi/dist/high_poi.json'),
   highLevels: load('high/level/src/levels.json'),
-  enrollments: ['tianhe', 'yuexiu', 'haizhu', 'liwan', 'panyu', 'baiyun', 'huangpu'].map((d) => load(`primary/transition/parsed/2026-${d}.json`)),
+  enrollments: ['tianhe', 'yuexiu', 'haizhu', 'liwan', 'panyu', 'baiyun', 'huangpu'].map((d) => load(`primary/enrollment/parsed/2026-${d}.json`)),
   quotaMatrix: load('linkage/quota_matrix.json'),
   specialMatrix: load('linkage/special_matrix.json'),
   batch2Scores: load('linkage/batch2_scores.json'),

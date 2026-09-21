@@ -13,7 +13,7 @@ import re
 import subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-DATA = os.path.join(ROOT, "data", "primary", "transition")
+DATA = os.path.join(ROOT, "data", "primary", "enrollment")
 NEW = os.path.join(DATA, "parsed", "_transcripts", "haizhu_2026.json")
 OUT = os.path.join(DATA, "docs", "haizhu_zone_diff_20260921.md")
 

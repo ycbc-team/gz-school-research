@@ -231,6 +231,10 @@ def main():
                 _flat = n.replace("(", "").replace(")", "")
                 if _flat != n:
                     ids = idx.get(_flat, set())
+            if not ids:
+                # 官方名带校区括号（如「广州市海珠外国语实验中学（校本部）」）而实体无括号：
+                # normName 删括号精确键回退（多校区 norm 撞车宁缺，不走错配）
+                ids = idx_exact.get(norm_name(r["name"]), set())
             if len(ids) > 1:
                 # matchNorm 剥区后歧义（如「白云艺术中学」→「艺术中学」越秀/白云两家）：
                 # 回退 normName 精确键（带区名），仅唯一候选可挂；仍歧义则宁缺不跨区错挂

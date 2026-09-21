@@ -41,11 +41,6 @@ data/linkage/raw/headers/*.png
 data/linkage/raw/*.png
 data/linkage/raw/*.preview
 
-# 小升初升学事实表中间产物（build_xiaoshengchu_all.py 按区重建后 merge_all 汇总；
-# 真源只存升级后的 data/primary/transition/dist/xiaoshengchu_2026.json）
-data/primary/transition/dist/xiaoshengchu_*.json
-data/primary/transition/dist/xiaoshengchu_all.json
-
 # Web 紧凑数据产物（由 scripts/data/compact.mjs 从 data/ JSON 编译，加载后 hydrate 还原）
 apps/web/src/data/compact/
 

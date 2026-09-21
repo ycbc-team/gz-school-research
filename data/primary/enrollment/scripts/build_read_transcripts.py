@@ -14,7 +14,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
-OUT_DIR = os.path.join(ROOT, "data", "primary", "transition", "parsed", "_transcripts")
+OUT_DIR = os.path.join(ROOT, "data", "primary", "enrollment", "parsed", "_transcripts")
 TRANSCRIPT_DIR = os.path.join(HERE, "read_transcripts")
 
 

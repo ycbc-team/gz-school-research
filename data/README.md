@@ -13,7 +13,7 @@
 
 | 目录 | 学段 | 主要文件 |
 | --- | --- | --- |
-| `primary/` | 小学 | `tier1_schools_all.json`（第一梯队核验）、`enrollments/`（2026 招生数据）；点位见 `poi/` |
+| `primary/` | 小学 | `enrollment/`（小学招生，raw/parsed/scripts/src/docs 分层）、`transition/`（小升初+初中招生）、`tier1_schools_all.json`（第一梯队核验）；点位见 `poi/` |
 | `middle/` | 初中 | `tier1_schools_all.json`（初中第一梯队核验）；点位见 `poi/` |
 | `high/` | 高中 | `level/src/levels.json`（学校清单/分类/指标）；`cutoff_score/`（录取分：`dist/` 历年产物 / `raw/` 官方源页面 / `src/` 手工源 / `scripts/` 解析脚本）；点位见 `poi/` |
 | `poi/` | 跨学段 | `dist/primary_poi.json`（931 所）/ `dist/middle_poi.json`（475 所）/ `dist/high_poi.json`（清洗后 126 所）；采集/补点脚本在 `poi/scripts/`，查询留痕 `poi/raw/amap_query_*.json` |
@@ -44,7 +44,7 @@ python3 data/poi/scripts/build_high_levels_js.py # 高中清洗点位（写回 d
 python3 data/high/cutoff_score/scripts/build_scores.py # 高中录取分解析（官方页 raw/ → dist/scores_{year}.json 真源）
 
 # 招生
-python3 data/primary/transition/scripts/build_district_enrollment.py <区>   # 2026 招生（raw 原文件→parsed/_transcripts→parsed/2026-<区>.json）
+python3 data/primary/enrollment/scripts/build_primary_2026.py <区>   # 2026 小学招生 B 层（parsed/_transcripts→parsed/2026-<区>.json，SchoolMatcher 匹配实体表）
 ```
 
 密钥仅存于项目根 `.env`（`AMAP_WEB_KEY`），代码与页面不出现明文凭据。
@@ -79,7 +79,7 @@ python3 data/primary/transition/scripts/build_district_enrollment.py <区>   # 2
 | 类型 | 文件 |
 | --- | --- |
 | 外部抓取（高德 API） | `poi/dist/primary_poi.json`、`poi/dist/middle_poi.json`、`poi/dist/high_poi.json`（fetch_* 脚本直写） |
-| 官方转录 | `primary/transition/parsed/2026-*`（小学招生计划）、`primary/transition/parsed/_transcripts/*`（各区官方文件 A 层转录）、`linkage/raw/*`（指标/自招/录取线/招生名单转录）、`high/cutoff_score/dist/scores_{2025,2026}.json`（官方录取分） |
+| 官方转录 | `primary/enrollment/parsed/2026-*`（小学招生计划）、`primary/enrollment/parsed/_transcripts/*`（各区官方文件 A 层转录）、`linkage/raw/*`（指标/自招/录取线/招生名单转录）、`high/cutoff_score/dist/scores_{2025,2026}.json`（官方录取分） |
 | 人工产物 | `primary|middle/tier1_schools_all.json`（学校信号，已判废弃待重构）、`high/level/src/levels.json`、`middle/org_sort/src/*`、`registry/group/src/brand_groups.json`、`registry/group/parsed/education_groups_2026.json`、`registry/group/parsed/_partial_*`、`registry/private/src/minban_*.md` |
 
 ### 派生层（脚本产物，勿手改；改脚本须重跑并提交）
@@ -95,7 +95,7 @@ python3 data/primary/transition/scripts/build_district_enrollment.py <区>   # 2
 | `registry/group/dist/education_groups.json` | merge_groups.py（合并 parsed `_partial_*` + src/brand_groups + parsed/education_groups_2026） | 品牌卡、初中明细分组 |
 | `registry/group/dist/school_groups.json`（纯 id） | build_school_groups.py（--write-brand 回写 src/brand_groups） | 品牌卡、初中明细分组（运行时纯 id 匹配） |
 | `middle/org_sort/dist/compiled.json` | data/middle/org_sort/scripts/build_org_sort.py | 初中默认排序 |
-| `primary/middle_feed_snapshot.json` | build_middle_feed_snapshot.py | 初中生源全量快照测试（npm run check） |
+| `primary/transition/dist/middle_feed_snapshot.json` | build_middle_feed_snapshot.py | 初中生源全量快照测试（npm run check） |
 
 ### 运行时层
 

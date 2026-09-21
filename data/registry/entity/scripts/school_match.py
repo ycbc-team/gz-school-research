@@ -181,12 +181,12 @@ def matchNorm(name):
     s = re.sub(r"(越秀|海珠|天河|荔湾|白云|黄埔|番禺|南沙|增城|从化|花都|萝岗)区", r"\1", s)
     # 前导区名剥离：成员名常带区名前缀而 POI 名不带；剩余过短或为纯泛词（含修饰型泛词）时保留（泛词毁名保护）
     for _d in ("白云", "越秀", "海珠", "天河", "荔湾", "黄埔", "番禺", "萝岗"):
-        if s.startswith(_d) and len(s) - len(_d) >= 4 and not _is_generic_core(s[len(_d):]):
+        if s.startswith(_d) and len(s) - len(_d) >= 4 and not _is_generic_core(re.sub(r"[\(\[].*$", "", s[len(_d):])):
             s = s[len(_d):]
             break
     # 前导"广州"是校名成分（「广州中学」剥成「中学」是泛词毁名），仅在剩余非纯泛词时剥离
     # （「广州大学附属中学」→「大学附属中学」对齐；「广州实验小学」→「实验小学」同样受保护；须在区名剥离后）
-    if s.startswith("广州") and len(s) - 2 >= 4 and not _is_generic_core(s[2:]):
+    if s.startswith("广州") and len(s) - 2 >= 4 and not _is_generic_core(re.sub(r"[\(\[].*$", "", s[2:])):
         s = s[2:]
     s = re.sub(r"\s+", "", s)
     return s
@@ -220,10 +220,11 @@ class SchoolMatcher:
                 # 严格全等索引（normName，与 build_entities 一致：全删括号）
                 self.exact_map.setdefault(normName(k), []).append(rec)
                 self.loose_map.setdefault(looseNorm(k), []).append(rec)
-                # 变体索引（matchNorm，保留校区括号）
+                # 别名索引主键：normName（全删括号+去广州市）——与查询端一致，符合「去括号匹配」；
+                # matchNorm 键（保留校区括号+剥区）为兼容旧键保留
+                self.alias_map.setdefault(normName(k), []).append(rec)
                 key = matchNorm(k)
                 self.alias_map.setdefault(key, []).append(rec)
-                # matchNorm 保留校区括号（如「(本部)」）而 build_entities 全删：补一个去括号 key 对齐
                 k2 = key.replace("(", "").replace(")", "")
                 if k2 != key:
                     self.alias_map.setdefault(k2, []).append(rec)
@@ -252,14 +253,15 @@ class SchoolMatcher:
                 out.append(e)
             return out
 
-        # 先取准确名称/别名索引；resolve 的 matched_name 是无 POI 实体时的
-        # 唯一可回连信息，也一并纳入。
+        # 先取准确名称/别名索引。不采用 one（single）的 school_id/matched_name 回连扩展：
+        # one 的 substring 错配（如「海珠中路小学」→「先烈中路小学」）会污染多校区展开；
+        # coreCampusName 全等展开已覆盖"无校区名→校区实体"的全部合法路径。
         candidates = list(self.exact_map.get(normName(name), []))
+        # 别名查询：normName（全删括号，去广州市）优先——与 build_entities 挂载别名一致，
+        # 避免 matchNorm 保留校区括号+剥区毁名（「白云中学(棠景校区)」剥成「中学(棠景校区)」）失配；
+        # matchNorm 兜底兼容既有键。
+        candidates += list(self.alias_map.get(normName(name), []))
         candidates += list(self.alias_map.get(matchNorm(name), []))
-        if one and one.get("school_id"):
-            candidates += [e for es in self.exact_map.values() for e in es if e["school_id"] == one["school_id"]]
-        elif one and one.get("matched_name"):
-            candidates += [e for es in self.exact_map.values() for e in es if e["name"] == one["matched_name"]]
         candidates = entities_for(candidates)
 
         # 只有未写校区的官方名称才能展开同法人校区。这里的
@@ -365,7 +367,9 @@ class SchoolMatcher:
                 # 同区无候选：仅当成员名含"其他区"区名（如白云名单里的培英鹤洞校区→荔湾）才回退全局唯一
                 own_name = name.replace("广州市", "")
                 self_dist = SEVEN_DISTRICTS.get(preferred_adcode, "")
-                has_other = any(k in own_name for k in ("越秀", "海珠", "天河", "荔湾", "白云", "黄埔", "番禺", "萝岗") if k != self_dist)
+                # 区名检测要求「XX区」完整形式：路/街名含区名（如「海珠中路小学」的「海珠」是路名）
+                # 不构成跨区指认；跨区校区（如白云名单里的培英鹤洞→荔湾）由「鹤洞」类关键词/显式映射承接
+                has_other = any((k + "区") in own_name for k in ("越秀", "海珠", "天河", "荔湾", "白云", "黄埔", "番禺", "萝岗") if k != self_dist)
                 if has_other:
                     r = by_stage(cands)
                     if r:
@@ -397,10 +401,18 @@ class SchoolMatcher:
         if r and (not preferred_stage or r["stage"] == preferred_stage):
             return r
         # 2. alias match（一个别名可能对应多个实体：跨实体收集 POI 候选，同区优先收敛）
+        # 优先 normName 形态（去括号+去广州市，与索引主键一致）；再回退 matchNorm/去括号
+        _n_norm = normName(name)
+        if _n_norm in self.alias_map:
+            n = _n_norm
         if n not in self.alias_map:
             _n_flat = n.replace("(", "").replace(")", "")
             if _n_flat != n and _n_flat in self.alias_map:
                 n = _n_flat
+        if n not in self.alias_map:
+            _n_no_guang = n.replace("广州市", "")
+            if _n_no_guang != n and _n_no_guang in self.alias_map:
+                n = _n_no_guang
         if n in self.alias_map:
             ents = self.alias_map[n]
             # 2a0. 实体级学段过滤：preferred_stage 已指定且多候选时，优先同 stage 实体
@@ -416,7 +428,7 @@ class SchoolMatcher:
             # 2a. 先精确匹配实体完整名（含校区括号，避免多校区 norm 歧义）；身份映射显式确认，跨区不拦截
             ent_names = {e["name"] for e in ents}
             c2a = [p for p in self.poi_all if p["name"] in ent_names]
-            r = _pick(c2a, "变体命中", district_guard=False)
+            r = _pick(c2a, "别名命中", district_guard=False)
             if r:
                 return r
             if len(c2a) > 1:
@@ -424,7 +436,7 @@ class SchoolMatcher:
             # 2b. 再按 norm 匹配
             ent_norms = {matchNorm(e["name"]) for e in ents}
             c2b = [p for p in self.poi_all if p["norm"] in ent_norms]
-            r = _pick(c2b, "变体命中", district_guard=False)
+            r = _pick(c2b, "别名命中", district_guard=False)
             if r:
                 return r
             if len(c2b) > 1:
@@ -447,7 +459,7 @@ class SchoolMatcher:
                         if suff:
                             cands = suff
                             break
-                r = _pick(cands, "变体命中")
+                r = _pick(cands, "别名命中")
                 if r:
                     return r
             # 2c. 实体存在但 POI 无坐标：未给区上下文时保留原兜底；给了区上下文且实体唯一（含 2a0
@@ -482,6 +494,11 @@ class SchoolMatcher:
                     continue
                 if any(bare(p["name"]).endswith(k) for k in _NON_SCHOOL):
                     continue
+                # 带「校区」括号输入（如「西关培正小学（如意坊校区）」）的 substring 吸附：
+                # POI 名必须也带括号（如意坊校区实体缺失时宁缺，不得吸附无括号本部 POI）；
+                # 学部括号（小学部/初中部）不受此限（「华侨外国语学校（小学部）」可匹配本部 POI）
+                if n != n_bare and "校区" in n and "(" not in p["norm"] and "（" not in p["norm"]:
+                    continue
                 p_bare = bare(p["norm"])
                 p_core = strip_generic(p_bare)
                 if p_core in _WEAK_CORE:
@@ -496,7 +513,9 @@ class SchoolMatcher:
                 if len(n_bare) >= 4 and n_bare != n_core and n_bare in p_bare:
                     bare_cands.append(p)  # 「第七中学实验学校(小学部)」→「第七中学实验学校」精确包含，
                     # 与弱泛词候选（「八一实验学校」泛词剥离后可能吸附「八一希望学校」）隔离
-                elif (not alias_multiple or len(n_core) >= 4) and len(n_core) >= 2 and n_core not in _WEAK_CORE and (n_core in p_bare or n_core in p["norm"]):
+                elif (not alias_multiple or len(n_core) >= 4) and len(n_core) >= 3 and n_core not in _WEAK_CORE and (n_core in p_bare or n_core in p["norm"]):
+                    a_cands.append((p, p_core))
+                elif len(n_core) < 3 and len(n_bare) >= 4 and n_bare in p_bare:
                     a_cands.append((p, p_core))
                 elif (not alias_multiple or len(n_core) >= 4) and len(p_core) >= 2 and p_core in n:
                     b_cands.append((p, p_core))

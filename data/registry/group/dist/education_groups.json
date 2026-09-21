@@ -7,8 +7,8 @@
     "total_groups": 86,
     "total_members": 343,
     "poi_exact": 0,
-    "poi_variant": 22,
-    "poi_missing_7dist": 2,
+    "poi_variant": 19,
+    "poi_missing_7dist": 3,
     "poi_far": 8
   },
   "groups": [
@@ -3779,7 +3779,7 @@
           "name": "广州市白云区云英实验学校",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "变体命中",
+          "poi_match": "法人推导",
           "poi_name": "广州市白云区云英实验附属小学",
           "school_id": "gz-440111-e66f2c52"
         },
@@ -4087,8 +4087,18 @@
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "广州市白云区龙岗学校",
-          "school_id": "gz-440111-effbfa28"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "龙岗学校-龙岗小学",
+              "school_id": "gz-440111-e16cd8e1"
+            },
+            {
+              "poi_name": "广州市白云区龙岗学校",
+              "school_id": "gz-440111-effbfa28"
+            }
+          ]
         },
         {
           "name": "广州市白云区集贤小学",
@@ -5086,8 +5096,18 @@
           "source_url": "https://static.nfnews.com/content/202404/11/c8776592.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "横沙小学",
-          "school_id": "gz-440112-6e178b7a"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "横沙学校",
+              "school_id": "gz-440111-53d3305b"
+            },
+            {
+              "poi_name": "横沙小学",
+              "school_id": "gz-440112-6e178b7a"
+            }
+          ]
         }
       ],
       "source_urls": [
@@ -5306,6 +5326,14 @@
       "type": "九年一贯集团",
       "members": [
         {
+          "name": "广州大学附属中学番禺实验学校",
+          "source_url": "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_9157738.html",
+          "verified": "2026-09-14",
+          "poi_match": "7区内真实缺失",
+          "poi_name": "",
+          "school_id": ""
+        },
+        {
           "name": "广州市番禺区番广附万博学校",
           "source_url": "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10425301.html",
           "verified": "2026-09-14",
@@ -5326,14 +5354,6 @@
       "source_urls": [
         "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_9157738.html",
         "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10425301.html"
-      ],
-      "core_poi": [
-        {
-          "name": "番禺中学实验学校",
-          "poi_match": "法人推导",
-          "poi_name": "番禺中学实验学校",
-          "school_id": "gz-440113-95be9ccc"
-        }
       ]
     },
     {

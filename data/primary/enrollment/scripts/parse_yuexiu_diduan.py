@@ -17,7 +17,7 @@ import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-DATA = os.path.join(ROOT, "data", "primary", "transition")
+DATA = os.path.join(ROOT, "data", "primary", "enrollment")
 PARSED = os.path.join(DATA, "parsed", "_transcripts")
 RAW = os.path.join(DATA, "raw")
 OUT = os.path.join(DATA, "parsed", "_transcripts", "yuexiu_2026.json")

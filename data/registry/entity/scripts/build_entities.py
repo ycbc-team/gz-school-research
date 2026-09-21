@@ -997,6 +997,63 @@ for official, poi in OFFICIAL_HIGH_ALIAS.items():
 # 官方划片表小学名（OFFICIAL_PRIMARY_ALIAS）：force=true 全挂（含多校区共享裸名）。
 # 与高中录取表不同——划片表按小学法人名公布，多校区是并列关系（如「华阳小学」4 校区都招生），
 # build_tianhe 需按官方名解析出全部校区实体；检查 [3] 已按共享裸名集合豁免。
+
+# 2026-09-21 招生业务（enrollment）校区级官方名桥接：官方地段/计划表的校区短名/更名
+# 与 POI 校区名不一致（历史 _anchors 手工锚定曾错配，如「东风东路小学（锦城校区）」曾被锚到
+# 天伦校区 ec171256 → 本表显式挂锦城花园校区 7425dd47，由实体表别名机制接管，不再手工锚定）。
+PRIMARY_CAMPUS_ALIAS = {
+    # 越秀
+    "小北路小学（小北校区）": "小北路小学(小北路校区)",
+    "东风东路小学（锦城校区）": "东风东路小学锦城花园校区",
+    # 海珠
+    "宝玉直实验小学（南边校区）": "广州市海珠区宝玉直实验小学(南边路校区)",
+    "逸景第一小学（逸景校区）": "逸景第一小学(本校区)",
+    "实验小学（穗花校区）": "海珠区实验小学",
+    "第二实验小学（北校区）": "海珠区第二实验小学",
+    # 天河
+    "五一小学（校本部）": "五一小学",
+    "侨乐小学（北校区）": "广州华阳集团侨乐小学(北校区)",
+    # 荔湾
+    "广州市第一中学附属环市西路小学（绿森林校区）": "荔湾区环市西路小学(绿森林校区)",
+    "广州市荔湾区西关培正小学（恩宁校区）": "西关培正小学",
+    "广州市荔湾区乐贤坊小学（校本部）": "乐贤坊小学",
+    "广州市荔湾区康有为纪念小学（校本部）": "广州市荔湾区康有为纪念小学(白鹅潭校区)",
+    # 番禺
+    "化龙镇复甦小学": "复苏小学",
+    "石碁镇茂生小学": "茂生纪念学校",
+    "石碁镇韵琴小学": "南浦韵琴小学",
+    "南村镇锦绣香江学校": "番禺区锦绣香江学校",
+    "市桥东沙小学": "东沙小学",
+    # 白云
+    "大岡小学": "大冈小学",
+    "广州市白云区横沙小学": "横沙学校",
+    "广州市白云区张村中心小学": "石井张村中心小学",
+    "广州市白云区白云广附云湖实验学校": "广州市白云区白云广附云湖实验学校小学部",
+    "广州市白云区龙岗学校": "龙岗学校-龙岗小学",
+    "广州市白云区新和学校": "新和学校小学部",
+    "广州市白云区人和镇第一小学（鸦湖校区）": "人和镇第一小学(鸦湖校区)",
+    "广州市白云区龙归学校（珑璟校区）": "龙归学校（珑璟校区）",
+    # 天河（南校区=本部无括号实体；北校区=华阳集团侨乐北）
+    "侨乐小学（南校区）": "天河区侨乐小学",
+    # 海珠（北校区=本部，南校区=江海校区）
+    "第二实验小学（南校区）": "海珠区第二实验小学(江海校区)",
+    # 白云（棠景校区官方名 → 小学部实体）
+    "广州市白云中学（棠景校区）": "广州市白云中学棠景校区小学部",
+    # 白云（金广实验学校御金沙校区 = 金广实验小学，官方名与 POI 名不一致）
+    "广州市白云区金广实验学校（御金沙校区）": "金广实验小学",
+    # 越秀（养正小学 = 王圣堂温浩根养正学校，官方名与 POI 名不一致）
+    "养正小学": "王圣堂温浩根养正学校",
+    # 天河（汇景实验学校（汇景校区）小学部 = 小学部实体）
+    "汇景实验学校（汇景校区）小学部": "汇景实验学校（小学部）",
+    # 番禺（官方名带「镇」/ 异体字，实体名不同）
+    "化龙镇第二小学": "化龙第二小学",
+    "小谷围街穗石小学": "穂石小学",
+    # 白云（金广实验学校裸名 = 金广实验小学，匹配器回归用例）
+    "金广实验学校": "金广实验小学",
+    # 白云（集团成员官方名「云英实验学校」→ 实体「云英实验附属小学」）
+    "广州市白云区云英实验学校": "广州市白云区云英实验附属小学",
+}
+
 for official, poi in OFFICIAL_PRIMARY_ALIAS.items():
     lst = poi if isinstance(poi, list) else [poi]
     for p in lst:
@@ -1004,6 +1061,14 @@ for official, poi in OFFICIAL_PRIMARY_ALIAS.items():
             aliasHit += 1
         else:
             print('  [官方小学别名未命中POI]', official, '->', p)
+
+# 校区级官方名桥接（PRIMARY_CAMPUS_ALIAS）：force=false——校区/更名名不共享纯名，
+# 走纯名先占保护，仅挂载到指明确切校区实体
+for official, poi in PRIMARY_CAMPUS_ALIAS.items():
+    if attachAlias('primary', poi, official):
+        aliasHit += 1
+    else:
+        print('  [小学校区别名未命中POI]', official, '->', poi)
 
 # ---- 3) 落盘实体（排序、aliases 去重排序）----
 # 办学性质唯一真源：仅民办写 nature='民办'（公办为默认不写字段），由 minban_schools.json 联表生产
@@ -1073,6 +1138,11 @@ _CONSUMER_KEEP_ALIASES = {
     'gz-440113-db326e94': ['番禺区华南碧桂园学校'],
 }
 _DISTRICT_BY_ADCODE = {k: v.rstrip('区') for k, v in AD_DISTRICT.items()}
+# PRIMARY_CAMPUS_ALIAS 显式挂载的官方别名（校区/更名桥接）：消费必需，瘦身不得剔除
+_PCA_ALIAS_VALUES = set()
+for _official, _poi in PRIMARY_CAMPUS_ALIAS.items():
+    for _v in withDistrictVariants(normName(_official)):
+        _PCA_ALIAS_VALUES.add(_v)
 # 预计算：matchNorm key → 实体 school_id 集（判断剥区后是否歧义——歧义时区名是消歧键，必须保留）
 _slim_key_owners = defaultdict(set)
 for _e in entities:
@@ -1087,6 +1157,10 @@ for e in entities:
             _rm = (_a.startswith(_own + '区')
                    and not any(matchNorm(_a).startswith(d) for d in _DISTRICT_NAMES))
             if _rm:
+                # PRIMARY_CAMPUS_ALIAS 显式挂载（官方招生名桥接，消费必需）
+                if _a in _PCA_ALIAS_VALUES:
+                    _kept.append(_a)
+                    continue
                 # 消费必需别名（官方录取名单名带区、实体 name 无区，见 _CONSUMER_KEEP_ALIASES）
                 if _a in _CONSUMER_KEEP_ALIASES.get(e.get('school_id'), ()):
                     _kept.append(_a)

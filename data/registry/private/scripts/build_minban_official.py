@@ -2,7 +2,7 @@
 """
 番禺区民办学校名单——官方源自动解析（不允许手工维护）。
 
-来源：data/primary/transition/parsed/_transcripts/panyu_2026_official.json
+来源：data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json
   《2026年番禺区义务教育阶段学校招生计划、招生地段及条件》→ "民办招生计划" sheet（39 所）。
 
 规则：
@@ -20,7 +20,7 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-RAW = os.path.join(ROOT, 'data/primary/transition/parsed/_transcripts/panyu_2026_official.json')
+RAW = os.path.join(ROOT, 'data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json')
 HIGH_RAW = os.path.join(ROOT, 'data/registry/private/raw/gzzk_2026_minban_high.json')
 TABLE = os.path.join(ROOT, 'data/registry/private/dist/minban_schools.json')
 ENTITIES = os.path.join(ROOT, 'data/registry/entity/dist/entities.json')

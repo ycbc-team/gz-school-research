@@ -22033,10 +22033,7 @@
       "school_ids": null,
       "district": "番禺区",
       "minban": false,
-      "group": {
-        "brand": "番广实验教育集团",
-        "source": "education"
-      },
+      "group": null,
       "kaosheng": 142,
       "sheng_quota": 7,
       "qu_quota": 39,

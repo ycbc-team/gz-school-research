@@ -17,7 +17,8 @@ mechanism 枚举（区级定义，UI 据此渲染）:
 import json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-RAW = os.path.join(ROOT, "data", "primary", "transition", "parsed", "_transcripts")
+RAW = os.path.join(ROOT, "data", "primary", "transition", "parsed", "_transcripts")  # 初中转录（未迁）
+RAW_PANYU = os.path.join(ROOT, "data", "primary", "enrollment", "parsed", "_transcripts")  # 番禺官方转录（已迁小学招生）
 OUT = os.path.join(ROOT, "data", "primary", "enrollments")
 
 # 复用项目统一的 POI 匹配服务（data/registry/entity/scripts/school_match.py，实体表别名优先 + 行政区/学段收敛，不另起 norm 逻辑）
@@ -60,7 +61,7 @@ MECHANISMS = {
 
 # ---------- 番禺 ----------
 def build_panyu():
-    d = json.load(open(os.path.join(RAW, "panyu_2026_official.json")))
+    d = json.load(open(os.path.join(RAW_PANYU, "panyu_2026_official.json")))
     rows = d["sheets"]["公办初中招生范围、计划"]
     src_url = d["source"]
     recs = []
