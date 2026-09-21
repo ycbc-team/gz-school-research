@@ -5,7 +5,8 @@ import re
 import os
 
 REPO = "/Users/bytedance/Developer/gz_school_research"
-MINBAN_DIR = os.path.join(REPO, "scripts/registry")
+# minban_*.md（民办采集）已随三业务拆分迁至 data/registry/private/src/（2026-09-21）
+MINBAN_DIR = os.path.join(REPO, "data", "registry", "private", "src")
 
 DISTRICTS = [
     ("440103", "荔湾", "liwan"),
@@ -90,7 +91,7 @@ def main():
         'need_entity': all_need_entity,
         'need_verify': all_need_verify,
     }
-    outpath = os.path.join(MINBAN_DIR, 'pending_items.json')
+    outpath = os.path.join(REPO, 'data', 'registry', 'entity', 'parsed', 'pending_items.json')
     with open(outpath, 'w', encoding='utf-8') as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
     print(f'\n已写入 {outpath}')

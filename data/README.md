@@ -17,7 +17,7 @@
 | `middle/` | 初中 | `tier1_schools_all.json`（初中第一梯队核验）；点位见 `poi/` |
 | `high/` | 高中 | `level/src/levels.json`（学校清单/分类/指标）；`cutoff_score/`（录取分：`dist/` 历年产物 / `raw/` 官方源页面 / `src/` 手工源 / `scripts/` 解析脚本）；点位见 `poi/` |
 | `poi/` | 跨学段 | `dist/primary_poi.json`（931 所）/ `dist/middle_poi.json`（475 所）/ `dist/high_poi.json`（清洗后 126 所）；采集脚本在 `poi/scripts/` |
-| `registry/` | 跨学段 | `education_groups_2026.json`（招考办 2026 集团名额分配表，43 核心校/118 成员）、`brand_groups.json`（8 品牌组成员清单，含法人关系/来源 URL）、`sites.json` |
+| `registry/` | 跨学段 | 三个业务子目录：`entity/`（实体表，全链 school_id 维度枢纽）、`group/`（教育集团/品牌关联）、`private/`（民办名单真源）；详见各子目录 README |
 
 ## 坐标系
 
@@ -64,28 +64,15 @@ python3 scripts/primary/build_district_enrollment.py   # 2026 招生（写 data/
 
 ## 教育集团 Registry（registry/）
 
-跨学段的教育集团名录与品牌组成员清单，供详情页「品牌关联」板块与覆盖核对使用。
+跨学段的教育集团/品牌/民办业务已按**三个业务子目录**组织，业务级 README 就近维护：
 
-### `education_groups_2026.json`
-- 来源：广州市招考办《2026年广州市成立教育集团的示范性普通高中面向集团的直接名额分配情况》（2026-05-12，http://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html ）
-- 内容：43 个集团核心校（省市属 7 + 区属 36）、118 条集团内初中成员关系
-- 局限：仅含「示范性高中 + 集团内初中」口径；小学段成员与区属非示范集团不在表内
-
-### `brand_groups.json`
-- 用途：详情页「品牌关联」板块数据源，列出 8 个重点品牌组（清华附中湾区/广铁一中/省实/广雅/执信/二中/广大附/华附）的校区与独立法人成员校
-- 字段：`units[].name`（规范校名）、`role`（角色说明）、`legal`（same=同法人 / independent=独立法人 / entrusted=托管共建）、`poi_names`（POI 名别名，用于全等匹配）、`source_url`（官方来源 URL）
-- P2 核实（2026-09-10）：8 品牌组经官网/招考办/区政府文件/主流媒体交叉核实，新增 25 个成员单位，全部附来源 URL + 法人关系标注
-
-### 教育集团齐全化任务状态
-- **P0（已完成）**：招考办 2026 表落盘 `education_groups_2026.json`
-- **P1（已完成）**：161 校覆盖比对，产出 `docs/education-groups-coverage/集团成员覆盖清单_P1.md`（精确命中 49 / 变体命中 45 / 7 区内真实缺失 2 / 远郊不在范围 65）
-- **P2（已完成）**：8 品牌组官方来源交叉核实，写回 `brand_groups.json`（新增 25 成员，单测 12/12 通过）
-- **P3（未完成）**：区属非示范集团 + 小学集团全量按各区文件补录
-- **P4（未完成）**：年度更新机制（每年 5 月招考办新表发布后刷新）
+- `registry/entity/README.md` — 实体表（全链 school_id 维度枢纽，POI—Entity—Fact 三分离范式）
+- `registry/group/README.md` — 教育集团/品牌关联（政府源→成员→校区解析、锚点表规则、P0–P4 任务状态）
+- `registry/private/README.md` — 民办名单真源（官方源自动解析 + 7 区采集、改表须重跑 build_entities）
 
 ## 数据依赖链（2026-09-20 记录）
 
-数据流总览：**源头（外部抓取/官方转录/人工）→ 构建脚本 → data/ 产物 → compact.mjs 编译 → Web/小程序运行时**。全链以 school_id 外键关联，`registry/entities.json` 是唯一维度表枢纽。
+数据流总览：**源头（外部抓取/官方转录/人工）→ 构建脚本 → data/ 产物 → compact.mjs 编译 → Web/小程序运行时**。全链以 school_id 外键关联，`registry/entity/dist/entities.json` 是唯一维度表枢纽。
 
 ### 源头层（无上游脚本写入 = 真源）
 
@@ -93,21 +80,21 @@ python3 scripts/primary/build_district_enrollment.py   # 2026 招生（写 data/
 | --- | --- |
 | 外部抓取（高德 API） | `poi/dist/primary_poi.json`、`poi/dist/middle_poi.json`、`poi/dist/high_poi.json`（fetch_* 脚本直写） |
 | 官方转录 | `primary/enrollments/2026-*`（小学招生计划）、`linkage/raw/*` + `primary/enrollments/_raw/*`（指标/自招/录取线/招生名单转录）、`high/cutoff_score/dist/scores_{2025,2026}.json`（官方录取分） |
-| 人工产物 | `primary|middle/tier1_schools_all.json`（学校信号，已判废弃待重构）、`high/level/src/levels.json`、`middle/org_sort/src/*`、`registry/brand_groups.json`、`registry/education_groups_2026.json`、`registry/_partial_*`、`registry/minban_schools.json` |
+| 人工产物 | `primary|middle/tier1_schools_all.json`（学校信号，已判废弃待重构）、`high/level/src/levels.json`、`middle/org_sort/src/*`、`registry/group/src/brand_groups.json`、`registry/group/parsed/education_groups_2026.json`、`registry/group/parsed/_partial_*`、`registry/private/src/minban_*.md` |
 
 ### 派生层（脚本产物，勿手改；改脚本须重跑并提交）
 
 | 产物 | 生产脚本 | 下游 |
 | --- | --- | --- |
-| `registry/entities.json` | build_entities.py | 全链 school_id 外键维度表 |
-| `registry/sites.json` | build_sites.py | 高中点位/实体 |
+| `registry/entity/dist/entities.json` | build_entities.py | 全链 school_id 外键维度表 |
+| `registry/entity/dist/sites.json` | build_sites.py | 高中/完中站点表（31 所） |
 | `primary/enrollments/xiaoshengchu_<区>.json` + `primary/xiaoshengchu_all.json` | build_xiaoshengchu_all.py + xs_resolver.py | 升学路线 |
 | `primary/xiaoshengchu_2026.json`（facts） | upgrade_xiaoshengchu.mjs | 小学升学路线、初中生源反查（middlePrimaryFeed）、生源快照测试 |
 | `primary/enrollments/middle_enrollment_2026_<区>.json` | build_middle_enrollment.py | 详情页初中招生计划 |
 | `linkage/quota_matrix.json` / `special_matrix.json` / `district_quota.json` / `batch2_scores.json` | rebuild_quota_matrix / build_special_* / build_district_quota / build_linkage_batch2（+ backfill_school_ids 回填 id） | 升学通道、排行榜 |
 | `linkage/ranking_middle.json`（334 校） | build_ranking_middle.py | 详情页升学信号、排行榜、初中明细 |
-| `registry/education_groups.json` | merge_groups.py（合并 `_partial_*` + brand + education_groups_2026） | 品牌卡、初中明细分组 |
-| `registry/school_groups.json`（纯 id） | build_school_groups.py（--write-brand 回写 brand_groups） | 品牌卡、初中明细分组（运行时纯 id 匹配） |
+| `registry/group/dist/education_groups.json` | merge_groups.py（合并 parsed `_partial_*` + src/brand_groups + parsed/education_groups_2026） | 品牌卡、初中明细分组 |
+| `registry/group/dist/school_groups.json`（纯 id） | build_school_groups.py（--write-brand 回写 src/brand_groups） | 品牌卡、初中明细分组（运行时纯 id 匹配） |
 | `middle/org_sort/dist/compiled.json` | data/middle/org_sort/scripts/build_org_sort.py | 初中默认排序 |
 | `primary/middle_feed_snapshot.json` | build_middle_feed_snapshot.py | 初中生源全量快照测试（npm run check） |
 
