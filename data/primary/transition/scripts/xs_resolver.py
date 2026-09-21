@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 """xiaoshengchu 名字→school_id 匹配解析（数据层）。
 
-从 upgrade_xiaoshengchu.mjs 迁移的 Python 版：小升初记录的小学 school_id / 对口初中
-feed_school_ids / 直升 direct_feed_school_id 全部在数据层（Python）解析，upgrade 只做
-去重与分组维表组装，不再做名字匹配——运行时（xiaoshengchu_2026.json）只依赖 school_id。
-
-规则与迁移前 upgrade_xiaoshengchu.mjs 完全一致（norm/法人 core 聚合/区过滤/RESOLVE_OVERRIDE），
-迁移后 xiaoshengchu_2026.json 产物逐条不变（产物确定性靠 check 比对保证）。
+匹配统一收敛到 SchoolMatcher（data/registry/entity/scripts/school_match.py）：
+  - resolve_one（小学记录/直升初中）→ SchoolMatcher.resolve（single：同区唯一→同区同阶段→主 POI→全局唯一→缺失）
+  - resolve_many（feed 初中）→ SchoolMatcher.resolve_all：
+      带校区名（官方含括号校区限定）→ 精准匹配，只返回命中的校区实体，宁缺毋滥；
+      无校区名（官方只写法人名）→ 泛匹配，返回同一法人的全部校区实体（按 POI 物理区 + 政策区过滤）。
+  - 跨区办学特例（政策区 ≠ POI 物理区，如七中桂花 POI 白云/政策越秀）由
+    SchoolMatcher.POLICY_DISTRICT（quota_matrix 数据驱动白名单）承接；
+    跨区同名/实体合并等显式锚定由 SchoolMatcher.RESOLVE_OVERRIDE 承接——
+    业务不再各自适配特殊学校（原 RESOLVE_OVERRIDE 已迁入 SchoolMatcher）。
 """
 import json
 import os
@@ -14,38 +17,14 @@ import re
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))), 'data', 'registry', 'entity', 'scripts'))
-from school_match import normName as _sm_normName, matchNorm as _sm_matchNorm  # noqa: E402  统一校名归一（entity 域统一 py 后唯一真源）
-from collections import defaultdict
+from school_match import SchoolMatcher  # noqa: E402  统一校名匹配（entity 域唯一真源）
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 
-AD = {'440103': '荔湾区', '440104': '越秀区', '440105': '海珠区', '440106': '天河区',
-      '440111': '白云区', '440112': '黄埔区', '440113': '番禺区'}
-
-# 点位合并覆盖（实体删除/合并后旧 POI 名须归并到保留实体）：与 upgrade RESOLVE_OVERRIDE 一致
-RESOLVE_OVERRIDE = {
-    '景泰小学柯子岭校区43号A座': ['gz-440111-9e34191e'],
-    # 跨区同名：白云「龙溪小学」(民办, fd1c0f9d) 与 荔湾「西关实验小学龙溪学校」(公办, 53fbb2c8)
-    # 别名都含「龙溪小学」；no_feed 记录 group 无区名 → district_of_group 为 None，宁缺，
-    # 显式归位白云实体。
-    '龙溪小学': ['gz-440111-fd1c0f9d'],
-}
-
-
-def norm_xs(s):
-    """统一校名归一：收敛至 school_match.normName（entity 域统一 py 后唯一真源）。
-    历史实现「去开头广州市 + 删括号 + 删空白」与 school_match 的「全局去广州市」有
-    语义差异（内部含「广州市」的官方名/别名会失配），2026-09-21 统一后消除。"""
-    return _sm_normName(s)
-
-
-def core_of_name(raw):
-    """法人名归一：去括号校区/学部后缀 + 去「广州市」前缀；保留「X区」区名前缀。"""
-    s = str(raw or '').replace('（', '(').replace('）', ')')
-    s = re.sub(r'\([^()]*\)', '', s)
-    s = re.sub(r'^广州市', '', s)
-    s = re.sub(r'\s+', '', s)
-    return s
+# district（「X区」）→ adcode（SchoolMatcher 收敛键）
+DISTRICT_ADCODE = {'荔湾区': '440103', '越秀区': '440104', '海珠区': '440105', '天河区': '440106',
+                   '白云区': '440111', '黄埔区': '440112', '番禺区': '440113'}
+STAGE_CN = {'primary': '小学', 'middle': '初中', 'high': '高中'}
 
 
 def district_of_group(g):
@@ -57,148 +36,23 @@ def district_of_group(g):
 
 class XsResolver:
     def __init__(self):
-        self.entities = json.load(open(os.path.join(ROOT, 'data/registry/entity/dist/entities.json'),
-                                       encoding='utf-8'))['entities']
-        # stage + norm(name/alias) -> [entity]（normName 精确；含去括号互认键）
-        self.alias_idx = defaultdict(list)
-        # stage + matchNorm(name/alias) -> [entity]（区归一+前导区名剥离；独立索引，
-        # 防 matchNorm 键与 normName 键同实体重复入 alias_idx，触发「多命中宁缺」——玉岩实验学校回归）
-        self.match_norm_idx = defaultdict(list)
-
-        def _add(idx, key, e):
-            if key:
-                lst = idx[(e['stage'], key)]
-                if all(x['school_id'] != e['school_id'] for x in lst):
-                    lst.append(e)
-
-        for e in self.entities:
-            for a in set([e['name']] + (e.get('aliases') or [])):
-                k = norm_xs(a)
-                if k:
-                    _add(self.alias_idx, k, e)
-                    # 2026-09-21 别名瘦身：补「去括号」互认键——查询官方名带括号、
-                    # 实体 name/别名无括号（如「六中珠江中学(逸景校区)」↔「六中珠江中学逸景校区」），
-                    # 只去符号不剥区，不改变法人聚合边界
-                    _flat = k.replace('(', '').replace(')', '')
-                    if _flat != k:
-                        _add(self.alias_idx, _flat, e)
-                    # 2026-09-21 区名变体兜底：实体表不再挂「XX区+名」自动别名，
-                    # SchoolMatcher.matchNorm（区归一「XX区」→「XX」+ 前导区名剥离）可全等
-                    # 桥接官方「广州市白云区石井中学」↔ 实体「石井中学」；查键为空时才用，
-                    # district 过滤（by_poi/by_campus）兜住跨区同名收敛。
-                    # 键==normName 键也须入 match_norm_idx：查询名可能带区（如「白云区平沙培英学校」）
-                    # 走剥区后同键查询，省略会导致无索引可查——平沙培英学校回归
-                    _mk = _sm_matchNorm(a)
-                    if _mk:
-                        _add(self.match_norm_idx, _mk, e)
-        # school_id -> 区名（POI join，与 upgrade entDistrict 一致）
-        self.ent_district = {}
-        for stage, file in [('primary', 'data/poi/dist/primary_poi.json'),
-                            ('middle', 'data/poi/dist/middle_poi.json'),
-                            ('high', 'data/poi/dist/high_poi.json')]:
-            try:
-                poi = json.load(open(os.path.join(ROOT, file), encoding='utf-8'))
-            except FileNotFoundError:
-                continue
-            for p in poi.get('schools') or []:
-                if p.get('school_id'):
-                    self.ent_district[p['school_id']] = AD.get(str(p.get('adcode')), '')
-        # 校区 → 升学归属区（quota_matrix 权威）：法人行 school_ids 共同标注
-        self.campus_dist = {}
-        try:
-            qm = json.load(open(os.path.join(ROOT, 'data/linkage/quota_matrix.json'),
-                                encoding='utf-8'))
-        except FileNotFoundError:
-            qm = {'schools': []}
-        for s in qm.get('schools') or []:
-            if not s.get('district'):
-                continue
-            if s.get('school_id'):
-                self.campus_dist[s['school_id']] = s['district']
-            for sid in s.get('school_ids') or []:
-                self.campus_dist[sid] = s['district']
-
-    def _lookup(self, stage, name, prefer_match_norm=False):
-        """别名索引查键：normName 精确 → 去括号兜底（不剥区）→ matchNorm 区归一/剥离兜底。
-        带校区官方名（prefer_match_norm）先查 matchNorm 键——保留校区括号，唯一命中校区
-        实体（如「六中珠江中学(万胜围校区)」→ 万胜围校区实体），避免法人本部共享别名抢占。"""
-        k = norm_xs(name)
-        _mk = _sm_matchNorm(name) if (name or '').strip() else ''
-        if prefer_match_norm and _mk:
-            lst = self.match_norm_idx.get((stage, _mk))
-            if lst:
-                return lst
-        lst = self.alias_idx.get((stage, k))
-        if not lst:
-            _flat = k.replace('(', '').replace(')', '')
-            if _flat != k:
-                lst = self.alias_idx.get((stage, _flat))
-        # matchNorm 兜底不设 _mk != k 守卫：查询键即使与 normName 键相同，match_norm_idx
-        # 仍含独立候选（如官方「六中珠江中学」→ cb432890 逸景校区 name「海珠区六中珠江中学」
-        # matchNorm 剥区后同键；alias_idx 无此键，跳过即丢逸景校区——2026 官方逸景+万胜围两校区）
-        if not lst and _mk:
-            lst = self.match_norm_idx.get((stage, _mk))
-        return lst
+        self.matcher = SchoolMatcher.load(
+            poi_paths=[(os.path.join(ROOT, 'data/poi/dist/primary_poi.json'), '小学'),
+                       (os.path.join(ROOT, 'data/poi/dist/middle_poi.json'), '初中'),
+                       (os.path.join(ROOT, 'data/poi/dist/high_poi.json'), '高中')],
+            entities_path=os.path.join(ROOT, 'data/registry/entity/dist/entities.json'))
 
     def resolve_one(self, name, district, stage):
-        """小学/直升记录定位：跨区同名按 district 取唯一实体（宁缺不兜底 list[0]）。"""
-        ov = RESOLVE_OVERRIDE.get(norm_xs(name))
-        if ov:
-            return ov[0]
-        lst = self._lookup(stage, name)
-        if not lst:
-            return None
-        if len(lst) == 1:
-            return lst[0]['school_id']
-        # 多命中且无区名限定（no_feed 记录 group 无区名）：不兜底——白云「金星小学」与
-        # 番禺「金星学校」别名撞车时曾跨区错配，宁可缺失。
-        if not district:
-            return None
-        hit = next((e for e in lst if self.ent_district.get(e['school_id']) == district), None)
-        return (hit or lst[0])['school_id']
+        """小学/直升记录定位：SchoolMatcher.resolve 单校区收敛（同区唯一，宁缺不跨区错配）。"""
+        ad = DISTRICT_ADCODE.get(district) if district else None
+        r = self.matcher.resolve(name, preferred_adcode=ad, preferred_stage=STAGE_CN.get(stage))
+        return r.get('school_id') if r and r.get('school_id') else None
 
     def resolve_many(self, name, district, stage):
-        """feed 初中解析。
-
-        官方整体名（无校区后缀）：政府源不标校区即按整体列（南武中学一校三区、南二实南北、
-        新滘双校区同型）→ 同法人同学段校区全收 = core 聚合 ∪ alias 精确（合并去重）；
-        区过滤优先 POI 物理区，POI 区不符但官方明确列出时用升学归属区兜底，均无则宁缺。
-        官方带校区名（括号）：alias 精确匹配（按 POI 区过滤），未命中宁缺——不聚合其他校区。
-        跨区同名等无法由通用规则覆盖的用 RESOLVE_OVERRIDE 显式名单。"""
-        ov = RESOLVE_OVERRIDE.get(norm_xs(name))
-        if ov:
-            return list(ov)
-        has_campus = bool(re.search(r'[（(]', name))
-        if not has_campus:
-            # 官方整体名（无校区后缀）：政府源不标校区即按整体列（南武一校三区、南二实南北、
-            # 新滘双校区同型）→ 同法人同学段校区全收 = core 聚合 ∪ alias 精确（合并去重，
-            # 不能二选一：黄埔实验初中部实体 core 带「初中部」后缀、仅 alias 含整体名）。
-            core = core_of_name(name)
-            core_hits = [e for e in self.entities if e['stage'] == stage and core_of_name(e['name']) == core]
-            alias_hits = list(self._lookup(stage, name) or [])
-            cand = core_hits + [e for e in alias_hits if e not in core_hits]
-            if cand:
-                if district:
-                    # 官方名单在某区 → POI 物理区 + 升学归属区合并（去重）：
-                    # - POI 物理区命中（常规校区）
-                    # - POI 区不符但升学归属区在名单区（跨区办学特例：七中桂花 POI 白云、
-                    #   quota_matrix 升学归属越秀——官方「广州市第七中学」整体名含桂花；
-                    #   四中丰宁 POI 越秀、官方荔湾名单明确）
-                    by_poi = [e for e in cand if self.ent_district.get(e['school_id']) == district]
-                    by_campus = [e for e in cand if self.campus_dist.get(e['school_id']) == district]
-                    hit = by_poi + [e for e in by_campus if e not in by_poi]
-                    if hit:
-                        return list(dict.fromkeys(e['school_id'] for e in hit))
-                    # 本区无同法人实体：宁缺不兜底
-                    return []
-                return list(dict.fromkeys(e['school_id'] for e in cand))
-        picked = list(self._lookup(stage, name, prefer_match_norm=has_campus) or [])
-        if district:
-            f = [e for e in picked if self.ent_district.get(e['school_id']) == district]
-            picked = f if f else []
-        if picked:
-            return list(dict.fromkeys(e['school_id'] for e in picked))
-        return []
+        """feed 初中解析：SchoolMatcher.resolve_all——带校区名精准宁缺、法人名全校区泛匹配+区过滤。"""
+        ad = DISTRICT_ADCODE.get(district) if district else None
+        rs = self.matcher.resolve_all(name, preferred_adcode=ad, preferred_stage=STAGE_CN.get(stage))
+        return [e['school_id'] for e in rs if e.get('school_id')]
 
     def resolve_record(self, r):
         """对一条 xiaoshengchu 记录解析 school_id / feed_school_ids / direct_feed_school_id。"""
@@ -233,9 +87,14 @@ def resolve_records(records):
 
 
 if __name__ == '__main__':
-    # 自检：解析结果与当前 xiaoshengchu_2026.json 比对（迁移一致性验证）
-    recs = json.load(open(os.path.join(ROOT, 'data/primary/transition/dist/xiaoshengchu_all.json'),
-                          encoding='utf-8'))['records']
+    # 自检：解析结果与当前 xiaoshengchu_2026.json 比对（迁移一致性验证）。
+    # 输入与 merge_all 一致（各区 per-district rec 结构，含 name）——all.json 是解析产物无 name，
+    # 不能作自检输入。
+    recs = []
+    for key in ['yuexiu', 'liwan', 'baiyun', 'panyu', 'haizhu', 'tianhe', 'huangpu']:
+        p = os.path.join(ROOT, 'data/primary/transition/dist', f'xiaoshengchu_{key}.json')
+        if os.path.exists(p):
+            recs.extend(json.load(open(p, encoding='utf-8'))['records'])
     resolved = resolve_records(recs)
     cur = json.load(open(os.path.join(ROOT, 'data/primary/transition/dist/xiaoshengchu_2026.json'),
                          encoding='utf-8'))

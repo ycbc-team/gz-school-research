@@ -198,13 +198,32 @@ class SchoolMatcher:
     收敛顺序（与 match_poi.match_school 一致）：
       同区唯一 → 同区同阶段唯一 → 主 POI 唯一 → 全局唯一（显式跨区放行）→ 缺失。
     宁可缺失、不跨区错配：多候选且无法收敛到唯一时返回 None（调用方以显式 school_id 锚定补救）。
+
+    两种匹配能力（resolve / resolve_all 语义）：
+      - 精准匹配：带校区名（含括号校区限定）只返回命中的校区实体；无/多候选宁缺，不回落其它校区。
+      - 泛匹配：官方只写法人名（无校区限定）时返回同一法人的全部校区实体。
+    跨区办学特例（政策区 ≠ POI 物理区）由 POLICY_DISTRICT（quota_matrix 数据驱动白名单）内建承接，
+    显式锚定（实体合并/跨区同名）由 RESOLVE_OVERRIDE 内建承接——各业务无需再单独适配。
     """
+
+    # 升学归属区白名单：school_id → 政策区（「XX区」）。数据源 data/linkage/quota_matrix.json
+    # （官方升学文件法人行，school_ids 全体标法人所属区），加载失败优雅降级为空。
+    # 如「广州市第七中学(桂花校区)」POI 白云、政策越秀——官方越秀名单含桂花时须命中。
+    POLICY_DISTRICT = None
+
+    # 显式锚定白名单（normName(name) → school_id 列表）：实体合并后旧 POI 名归并、
+    # 跨区同名无法由通用规则收敛等场景，全部业务共用（原 xs_resolver RESOLVE_OVERRIDE 迁入）。
+    RESOLVE_OVERRIDE = {
+        '景泰小学柯子岭校区43号A座': ['gz-440111-9e34191e'],
+        '龙溪小学': ['gz-440111-fd1c0f9d'],  # 跨区同名：白云民办「龙溪小学」≠ 荔湾公办「西关实验小学龙溪学校」
+    }
 
     def __init__(self):
         self.poi_all = []            # [{"name","norm","adcode","stage","school_id"}]
         self.alias_map = {}          # matchNorm alias -> [entity]
         self.exact_map = {}          # normName(name/alias) -> [entity]（严格全等）
         self.loose_map = {}          # looseNorm(name/alias) -> [entity]
+        self.by_id = {}              # school_id -> entity rec（显式锚定/回连用）
 
     # ---------- 索引构建 ----------
     def add_poi(self, name, adcode="", stage="", school_id=""):
@@ -216,6 +235,8 @@ class SchoolMatcher:
         保留全部实体，由 resolve 结合 preferred_adcode 收敛，避免"后写覆盖"式错配。"""
         for e in entities:
             rec = {"name": e["name"], "stage": e.get("stage", ""), "aliases": [], "school_id": e.get("school_id", "")}
+            if rec["school_id"]:
+                self.by_id[rec["school_id"]] = rec
             for k in [e["name"]] + list(e.get("aliases", []) or []):
                 # 严格全等索引（normName，与 build_entities 一致：全删括号）
                 self.exact_map.setdefault(normName(k), []).append(rec)
@@ -229,15 +250,68 @@ class SchoolMatcher:
                 if k2 != key:
                     self.alias_map.setdefault(k2, []).append(rec)
 
+    # ---------- 政策区白名单与显式锚定 ----------
+    @classmethod
+    def _load_policy_district(cls):
+        """懒加载 quota_matrix 政策区白名单（school_id → 政策区）；数据缺失降级为空。"""
+        cls.POLICY_DISTRICT = {}
+        try:
+            qm = json.load(open(os.path.join(BASE, 'data/linkage/quota_matrix.json'), encoding='utf-8'))
+        except (FileNotFoundError, json.JSONDecodeError):
+            return
+        for s in qm.get('schools', []):
+            d = s.get('district')
+            if not d:
+                continue
+            if s.get('school_id'):
+                cls.POLICY_DISTRICT[s['school_id']] = d
+            for sid in s.get('school_ids') or []:
+                cls.POLICY_DISTRICT[sid] = d
+
+    @staticmethod
+    def _adcode_of(e):
+        """实体 school_id 的物理区 adcode（gz-440105-xxx → 440105）。"""
+        sid = e.get('school_id') or ''
+        parts = sid.split('-')
+        return parts[1] if len(parts) >= 3 else ''
+
+    def _policy_adcode(self, e):
+        """实体的政策区 adcode（升学归属区白名单；无则空）。"""
+        if self.POLICY_DISTRICT is None:
+            self._load_policy_district()
+        d = (self.POLICY_DISTRICT or {}).get(e.get('school_id'))
+        return DISTRICT_CODE.get((d or '').replace('区', ''), '') if d else ''
+
+    def _result(self, e):
+        adcode = e["school_id"].split("-")[1] if e.get("school_id") else ""
+        district = SEVEN_DISTRICTS.get(adcode, FAR_DISTRICTS.get(adcode, "实体表无坐标"))
+        return {"poi_match": "多校区命中", "matched_name": e["name"], "stage": e["stage"],
+                "district": district, "school_id": e["school_id"]}
+
+    def _override_hits(self, name):
+        """显式锚定白名单命中 → [result]（全部业务共用，跨区亦成立）；未命中 None。"""
+        ov = self.RESOLVE_OVERRIDE.get(normName(name))
+        if not ov:
+            return None
+        out = []
+        for sid in ov:
+            e = self.by_id.get(sid)
+            if e:
+                out.append(self._result(e))
+        return out or None
+
     # ---------- 匹配 ----------
     def resolve_all(self, name, preferred_adcode=None, preferred_stage=None):
-        """返回官方裸名对应的全部同法人校区。
+        """返回官方名对应的全部同法人校区（泛匹配）；带校区限定的名称只返回其精确实体（精准匹配，宁缺毋滥）。
+        if not name:
+            return []
 
-        先以单校区策略确认该名称确实属于学校实体，再仅按
-        ``matchNorm(coreCampusName(...))`` 全等扩展。带校区限定的名称始终
-        只返回其精确实体；不会因「外国语学校」等泛词做子串扩张。
+        无校区限定（政策只写法人名）：按 ``matchNorm(coreCampusName(...))`` 全等展开同一法人的
+        全部校区实体（如「小北路小学」→ 四个同法人校区）；带 preferred_adcode 时按
+        「POI 物理区 + 政策区白名单」过滤，本区无则宁缺 []。
+        带校区限定（含括号校区/学部）：只返回精确命中的校区实体；无唯一命中返回 []——
+        不回落 single 策略（substring 可能错配「海珠中路小学」→「先烈中路小学」），也不返回其它校区。
         """
-        one = self.resolve(name, preferred_adcode, preferred_stage, strategy="single")
         stage_map = {"小学": "primary", "初中": "middle", "高中": "high"}
         wanted_stage = stage_map.get(preferred_stage, preferred_stage)
 
@@ -253,51 +327,56 @@ class SchoolMatcher:
                 out.append(e)
             return out
 
-        # 先取准确名称/别名索引。不采用 one（single）的 school_id/matched_name 回连扩展：
-        # one 的 substring 错配（如「海珠中路小学」→「先烈中路小学」）会污染多校区展开；
-        # coreCampusName 全等展开已覆盖"无校区名→校区实体"的全部合法路径。
-        candidates = list(self.exact_map.get(normName(name), []))
-        # 别名查询：normName（全删括号，去广州市）优先——与 build_entities 挂载别名一致，
-        # 避免 matchNorm 保留校区括号+剥区毁名（「白云中学(棠景校区)」剥成「中学(棠景校区)」）失配；
-        # matchNorm 兜底兼容既有键。
-        candidates += list(self.alias_map.get(normName(name), []))
-        candidates += list(self.alias_map.get(matchNorm(name), []))
-        candidates = entities_for(candidates)
+        # 显式锚定白名单（跨区同名/实体合并）：优先于一切规则，跨区亦成立
+        ov = self._override_hits(name)
+        if ov:
+            return ov
 
-        # 只有未写校区的官方名称才能展开同法人校区。这里的
-        # matchNorm(coreCampusName) 全等本身就是确认条件（例如「小北路小学」
-        # 对应四个同法人校区）；不需要先强行收敛出一个单校区。
         has_campus = bool(re.search(r"[（(].+?[）)]", name or ""))
-        if not has_campus:
-            core = matchNorm(coreCampusName(name))
-            if len(core) >= 4:
-                all_entities = [e for es in self.exact_map.values() for e in es]
-                candidates += [
-                    e for e in all_entities
-                    if (not wanted_stage or e["stage"] == wanted_stage)
-                    and matchNorm(coreCampusName(e["name"])) == core
-                ]
-                candidates = entities_for(candidates)
+        candidates = entities_for(list(self.exact_map.get(normName(name), [])) +
+                                  list(self.alias_map.get(normName(name), [])) +
+                                  list(self.alias_map.get(matchNorm(name), [])))
 
-        def result(e):
-            adcode = e["school_id"].split("-")[1] if e.get("school_id") else ""
-            district = SEVEN_DISTRICTS.get(adcode, FAR_DISTRICTS.get(adcode, "实体表无坐标"))
-            return {"poi_match": "多校区命中", "matched_name": e["name"], "stage": e["stage"],
-                    "district": district, "school_id": e["school_id"]}
+        # 带校区限定：精准匹配，宁缺毋滥——只返回唯一命中的校区实体
+        if has_campus:
+            if preferred_adcode:
+                f = [e for e in candidates if self._adcode_of(e) == preferred_adcode]
+                f += [e for e in candidates if e not in f and self._policy_adcode(e) == preferred_adcode]
+                candidates = f
+            return [self._result(e) for e in candidates] if len(candidates) == 1 else []
 
-        results = [result(e) for e in candidates]
-        if results:
-            return results
-        return [one] if one and one.get("school_id") else []
+        # 无校区限定：全部同法人校区展开（法人行公布即适用全部校区）
+        core = matchNorm(coreCampusName(name))
+        if len(core) >= 4:
+            all_entities = [e for es in self.exact_map.values() for e in es]
+            candidates += [
+                e for e in all_entities
+                if (not wanted_stage or e["stage"] == wanted_stage)
+                and matchNorm(coreCampusName(e["name"])) == core
+            ]
+            candidates = entities_for(candidates)
+
+        # 区过滤：POI 物理区命中优先；物理区不符但政策区（升学归属）命中保留；均无宁缺 []
+        if preferred_adcode:
+            f = [e for e in candidates if self._adcode_of(e) == preferred_adcode]
+            f += [e for e in candidates if e not in f and self._policy_adcode(e) == preferred_adcode]
+            candidates = f
+        return [self._result(e) for e in candidates]
 
     def resolve(self, name, preferred_adcode=None, preferred_stage=None, strategy="single"):
         """任意校名 → 匹配结果 dict（poi_match/matched_name/stage/district/school_id）或 None（无法收敛/缺失）。
         preferred_adcode：行政区匹配（构建某区招生计划时传入该区 adcode，命中候选优先取同区 POI）；
         preferred_stage：学段匹配（初中计划优先初中部，避免选到高中部）。"""
+        if not name:
+            return None
         if strategy in {"all", "multi", "campuses"}:
             return self.resolve_all(name, preferred_adcode, preferred_stage)
         if strategy != "single":
             raise ValueError(f"unknown matching strategy: {strategy}")
+        # 显式锚定白名单（跨区同名/实体合并）：优先于一切规则
+        ov = self._override_hits(name)
+        if ov:
+            return ov[0]
         # 输入自带区名前缀 → 提取为 preferred_adcode 约束（school_id 的 adcode 承担区定位，
         # 匹配键不依赖区名；调用方未传 adcode 时自动提取，如「白云区XXX」）。
         # 仅提取开头区名；泛词场景（如「海珠区实验小学」）同样提取，由 preferred_adcode

@@ -6564,6 +6564,11 @@
         "primary": "广州市育才学校"
       },
       {
+        "direct_feed": "广州市育才中学(西校区)",
+        "group": "越秀区小升初第一组（多校划片·电脑派位）",
+        "primary": "广州市育才学校"
+      },
+      {
         "direct_feed": null,
         "group": "越秀区小升初第一组（多校划片·电脑派位）",
         "primary": "水荫路小学"
@@ -15720,7 +15725,48 @@
       }
     ],
     "gz-440106-fd03e039": [],
-    "gz-440111-0078267c": [],
+    "gz-440111-0078267c": [
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "广州市白云区金沙小学(东校区)"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "金沙小学(南校区)"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "金沙小学(校本部)"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "横沙学校"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "沙凤小学"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "沙凤小学(北校区)"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "金广实验小学"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "广州市白云区金沙第二小学"
+      }
+    ],
     "gz-440111-014a9fb2": [
       {
         "direct_feed": null,
@@ -15977,6 +16023,21 @@
       {
         "direct_feed": null,
         "group": "白云区小升初对口（单校划片）",
+        "primary": "景泰小学(景泰校区)"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "景泰小学(柯子岭校区)"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "广州市培英中学附属小学"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
         "primary": "夏茅小学"
       },
       {
@@ -16018,7 +16079,33 @@
         "primary": "罗岗村小学"
       }
     ],
-    "gz-440111-292274e7": [],
+    "gz-440111-292274e7": [
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "江夏小学"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "马务小学"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "黄石学校(祥景校区)"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "黄石学校(黄石校区)"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "广州市方圆实验小学"
+      }
+    ],
     "gz-440111-297970b9": [
       {
         "direct_feed": null,
@@ -16143,7 +16230,18 @@
     ],
     "gz-440111-4af73d54": [],
     "gz-440111-4bbd4f92": [],
-    "gz-440111-4c9a3eaa": [],
+    "gz-440111-4c9a3eaa": [
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "永兴小学"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "龙归学校(小学部)"
+      }
+    ],
     "gz-440111-4cf10429": [
       {
         "direct_feed": null,
@@ -16305,7 +16403,28 @@
       }
     ],
     "gz-440111-7360ff6d": [],
-    "gz-440111-78d61733": [],
+    "gz-440111-78d61733": [
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（多校（分校区））",
+        "primary": "竹料第一小学"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（多校（分校区））",
+        "primary": "竹料第二小学(竹三校区)"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（多校（分校区））",
+        "primary": "竹料第三小学"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片；多校（分校区））",
+        "primary": "竹料第四小学"
+      }
+    ],
     "gz-440111-7a3148c4": [
       {
         "direct_feed": null,
@@ -18185,6 +18304,11 @@
     "gz-440112-a0244635": [
       {
         "direct_feed": null,
+        "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+        "primary": "萝峰小学（东校区）"
+      },
+      {
+        "direct_feed": "广州市黄埔区苏元学校(西校区)",
         "group": "黄埔区公办初中电脑派位第4组（多校划片）",
         "primary": "萝峰小学（东校区）"
       },
