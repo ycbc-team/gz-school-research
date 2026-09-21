@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """从 coverage_result.json 生成 P1 覆盖清单 Markdown 文档，
 并入人工复核结论（同校异名、区字差异、简称变体等）。"""
-import json, os
+import json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 data = json.load(open(os.path.join(ROOT, 'data/registry/group/dist/coverage_result.json'), encoding='utf-8'))
@@ -135,7 +135,7 @@ lines.append('4. **完全中学**：部分核心校同时列为成员校（如�
 lines.append('5. **数据来源**：集团关系来自广州市招考办2026-05-12官方表；POI 坐标来自高德地图 Web 服务 API。')
 lines.append('')
 
-out_dir = os.path.join(ROOT, 'docs/education-groups-coverage')
+out_dir = os.path.join(ROOT, 'data', 'registry', 'group', 'docs', 'coverage')
 os.makedirs(out_dir, exist_ok=True)
 out_path = os.path.join(out_dir, '集团成员覆盖清单_P1.md')
 with open(out_path, 'w', encoding='utf-8') as f:

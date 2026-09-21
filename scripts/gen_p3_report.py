@@ -185,7 +185,7 @@ lines.append("- 教育联盟不录（白云13个教育联盟、番禺4个教育�
 lines.append("- 不用POI名称正则反推集团（用户明确禁止B方案）")
 lines.append("")
 
-out_path = os.path.join(BASE, "docs/education-groups-coverage/集团成员覆盖清单_P3.md")
+out_path = os.path.join(BASE, "data/registry/group/docs/coverage/集团成员覆盖清单_P3.md")
 with open(out_path, "w") as f:
     f.write("\n".join(lines))
 print(f"已写入 {out_path}")

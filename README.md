@@ -236,9 +236,9 @@ apps/web/src/data/compact/**  与  @gz/shared 构建产物（Web/小程序实际
 
 ### 教育集团齐全化
 - [x] **P0** 招考办 2026 集团名额分配表落盘（`data/registry/group/parsed/education_groups_2026.json`，43 核心校 / 118 成员关系，官方源 http://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html ）
-- [x] **P1** 集团成员覆盖比对（`docs/education-groups-coverage/集团成员覆盖清单_P1.md`，161 校逐一比对 POI 三层：精确命中 49 / 变体命中 45 / 7 区内真实缺失 2 / 远郊不在范围 65）
+- [x] **P1** 集团成员覆盖比对（`data/registry/group/docs/coverage/集团成员覆盖清单_P1.md`，161 校逐一比对 POI 三层：精确命中 49 / 变体命中 45 / 7 区内真实缺失 2 / 远郊不在范围 65）
 - [x] **P2** 8 品牌组官方来源交叉核实（`data/registry/group/src/brand_groups.json`，新增 25 个成员单位，全部附来源 URL + 法人关系标注；单测 12/12 通过，快照已更新）
-- [x] **P3** 区属非示范集团 + 小学集团全量（7区85个教育集团/334所成员校，`data/registry/group/dist/education_groups.json`，覆盖清单见 `docs/education-groups-coverage/集团成员覆盖清单_P3.md`；POI精确命中157/变体命中167/7区内缺失2/远郊8；缺失2所=三元里中学（已补录实体，2026-09-15）+广龙地块配建学校（建设中））
+- [x] **P3** 区属非示范集团 + 小学集团全量（7区85个教育集团/334所成员校，`data/registry/group/dist/education_groups.json`，覆盖清单见 `data/registry/group/docs/coverage/集团成员覆盖清单_P3.md`；POI精确命中157/变体命中167/7区内缺失2/远郊8；缺失2所=三元里中学（已补录实体，2026-09-15）+广龙地块配建学校（建设中））
 - [ ] **P4** 年度更新机制（每年 5 月招考办新表发布后跑更新脚本）
 
 ## 安全约定
