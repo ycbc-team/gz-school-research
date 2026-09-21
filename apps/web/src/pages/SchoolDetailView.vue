@@ -117,6 +117,8 @@ function extractArtsProject(noteT?: string): string | null {
   }
   return found.length ? found.join('；') : null;
 }
+/** 称号级别排序权重：国家级 > 省级 > 市级 */
+const LEVEL_ORDER: Record<string, number> = { '国家级': 0, '省级': 1, '市级': 2 };
 const specialtyRows = computed(() => {
   const entry = specialtyEntry.value;
   if (!entry || !entry.rec.length) return [];
@@ -127,7 +129,9 @@ const specialtyRows = computed(() => {
       const note = entry.notes?.find((x) => x.i === i);
       return { ...r, artsProject: extractArtsProject(note?.t) };
     })
-    .filter((x): x is NonNullable<typeof x> => !!x);
+    .filter((x): x is NonNullable<typeof x> => !!x)
+    .filter((r) => !r.stage || r.stage === stage.value)
+    .sort((a, b) => (LEVEL_ORDER[a.level] ?? 99) - (LEVEL_ORDER[b.level] ?? 99));
 });
 /** 初中 tab：2026 招生计划（一校多规则：同一初中可对应多区/多机制入学，逐条渲染），按当前学段 POI school_id 外键查 */
 const middleEnrolls = computed(() => {

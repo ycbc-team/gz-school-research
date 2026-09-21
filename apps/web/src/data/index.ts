@@ -138,6 +138,7 @@ export const specialtySchools = cast(hydrate(specialtySchoolsCompact)) as {
     project: string;
     issuer: string;
     url: string;
+    stage?: string;
   }>;
   schools: Array<{
     school: string;

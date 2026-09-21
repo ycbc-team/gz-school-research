@@ -30,6 +30,13 @@ DISTRICT_ADCODE = {"荔湾": "440103", "越秀": "440104", "海珠": "440105", "
 
 GAP_RE = re.compile(r"未匹配registry（([^）]+)）")
 
+# 称号适用学段：project 名称含"普通高中" → 仅高中；其余"中小学"类跨小初高不标注
+def recognition_stage(rec):
+    """返回该称号适用的学段标记：'high'=仅高中；None=跨小初高（默认）。"""
+    if "普通高中" in rec.get("project", ""):
+        return "high"
+    return None
+
 
 def split_remark(remark):
     """备注拆为 (gap, note)：未匹配原因单独成 gap，其余源备注为 note。"""
@@ -79,9 +86,13 @@ def main():
                int(rec["year"]) if str(rec.get("year", "")).isdigit() else rec.get("year", ""),
                rec["project"], rec["issuer"], rec["url"])
         if key not in pool_idx:
+            entry = {"category": key[0], "level": key[1], "batch": key[2], "year": key[3],
+                     "project": key[4], "issuer": key[5], "url": key[6]}
+            stg = recognition_stage(rec)
+            if stg:
+                entry["stage"] = stg
             pool_idx[key] = len(pool)
-            pool.append({"category": key[0], "level": key[1], "batch": key[2], "year": key[3],
-                         "project": key[4], "issuer": key[5], "url": key[6]})
+            pool.append(entry)
         return pool_idx[key]
 
     for p in sorted((SPECIALTY / "parsed").glob("*.json")):
