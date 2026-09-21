@@ -61,8 +61,9 @@ const WEB_TARGETS = walkJson(DATA_SRC)
   .filter((p) => !p.split(sep).some((seg) => seg === 'raw' || seg === '_raw'))
   .map((p) => relative(ROOT, p))
   .filter((rel) => !basename(rel).startsWith('_partial_'))
-  .filter((rel) => !rel.split(sep).includes('src') || rel.startsWith('data/high/level/') || (rel.startsWith('data/registry/group/src/') && basename(rel) === 'brand_groups.json'))
+  .filter((rel) => !rel.split(sep).includes('src') || rel.startsWith('data/high/level/') || (rel.startsWith('data/registry/group/src/') && basename(rel) === 'brand_groups.json') || (rel.startsWith('data/primary/transition/src/') && basename(rel) === 'middle_enroll_notes.json'))
   // src 为源数据目录，仅 dist 产物打包；high/level/src 例外：levels.json 人工源即前端消费（无 dist 构建）；
+  // transition/src 例外：middle_enroll_notes.json 手工录取备注即详情页招生视图消费（无 dist 构建）；
   // registry/src 例外：brand_groups.json 手工源即详情页「品牌关联」运行时消费（无 dist 构建）；
   // 同目录的 groups_anchors 等构建期表，不进前端（source_name_mappings 已退役，2026-09-21）
   .filter((rel) => !['groups_anchors.json', 'pending_items.json', 'coverage_result.json'].includes(basename(rel)));
@@ -72,7 +73,7 @@ const MP_MAIN_TARGETS = [
   'data/poi/dist/primary_poi.json',
   'data/primary/tier1_schools_all.json',
   'data/primary/transition/dist/xiaoshengchu_2026.json',
-  'data/primary/middle_enroll_notes.json',
+  'data/primary/transition/src/middle_enroll_notes.json',
   'data/poi/dist/middle_poi.json',
   'data/middle/tier1_schools_all.json',
   'data/poi/dist/high_poi.json',
@@ -226,6 +227,7 @@ const SRC_REMAP = {
   'primary/transition/parsed/2026-tianhe': 'primary/enrollments/2026-tianhe',
   'primary/transition/parsed/2026-yuexiu': 'primary/enrollments/2026-yuexiu',
   'primary/transition/dist/schools-backfill': 'primary/schools-backfill',
+  'primary/transition/src/middle_enroll_notes': 'primary/middle_enroll_notes',
   'primary/transition/dist/middle_feed_snapshot': 'primary/middle_feed_snapshot',
 };
 const relRaw = relative(DATA_SRC, abs); // 真源 rel（含 .json，注释/统计用）

@@ -10,10 +10,10 @@
 | --- | --- |
 | `raw/` | 政府官方源文件（xlsx/pdf/docx/xls）与转录 json（原 `enrollments/_raw` 迁入） |
 | `parsed/` | raw 解析后的唯一真源 `2026-<区>.json`（小学招生/地段表，供构建消费） |
-| `src/` | 手工维护源文件（`_anchors.json` 官方校名→school_id 锚点） |
+| `src/` | 手工维护源文件（`_anchors.json` 官方校名→school_id 锚点、`middle_enroll_notes.json` 初中录取备注） |
 | `scripts/` | 生产脚本：解析（build_district_enrollment/build_baiyun_2026/build_huangpu）、构建（build_xiaoshengchu_all + xs_resolver）、升级（upgrade_xiaoshengchu.mjs）、回填（backfill_xiaoshengchu_missing）、快照（build/check_middle_feed_snapshot） |
 | `dist/` | 最终运行时产物：`xiaoshengchu_<区>.json`、`xiaoshengchu_all.json`、`xiaoshengchu_2026.json`、`middle_feed_snapshot.json`、`schools-backfill.json` |
-| `docs/` | 业务文档（如 `xiaoshengchu_unmatched_fix_20260914.md`） |
+| `docs/` | 业务文档（`xiaoshengchu_unmatched_fix_20260914.md`、`对口初中名匹配缺口清单.md`） |
 
 ## 构建链路
 
