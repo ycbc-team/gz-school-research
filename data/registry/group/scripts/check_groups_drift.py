@@ -63,28 +63,20 @@ def _check_middle_enrollment():
 
 
 def _check_special_matrix():
-    """重跑 build_special_plan + build_special_matrix 到临时文件，与入库比对（防解析漂移/手改产物）。"""
-    tmp = tempfile.gettempdir()
-    plan_tmp = os.path.join(tmp, "plan_special_repro.json")
-    matrix_tmp = os.path.join(tmp, "special_matrix_repro.json")
-    _replay("scripts/linkage/build_special_plan.py", plan_tmp)
-    # previous 用入库产物：backfill 生成的初中外键只存在于入库，重跑到新文件会丢失
-    _replay("scripts/linkage/build_special_matrix.py", matrix_tmp, os.path.join(ROOT, "data/linkage/special_matrix.json"))
-    pairs = [
-        (os.path.join(ROOT, "data/linkage/raw/special/plan_special_2026.json"), plan_tmp, "plan_special_2026"),
-        (os.path.join(ROOT, "data/linkage/special_matrix.json"), matrix_tmp, "special_matrix"),
-    ]
-    failed = []
-    for prod, repro, label in pairs:
-        with open(prod) as a, open(repro) as b:
-            if json.load(a) != json.load(b):
-                failed.append(label)
-    if failed:
+    """特长生/自招矩阵业务快照测试（2026-09-21 用户拍板：替代字节全等"重跑 vs 入库"）。
+
+    字节全等"重跑 vs 入库"在入库被 bug 污染时自我一致通过（白云艺术中学 matchNorm 化
+    后变 null 即现场证据）；快照测试对比"重跑产物的业务信息"与独立基线
+    （data/linkage/special_matrix_snapshot.json，含名单→实体 / 计划数 / 项目清单），
+    业务信息变化显式暴露，须 --update-snapshot 显式更新基线（数据变更=正常迭代）。"""
+    r = subprocess.run(["python3", os.path.join(ROOT, "scripts/linkage/check_special_matrix_snapshot.py")],
+                       capture_output=True, text=True, cwd=ROOT)
+    if r.returncode != 0:
         _flush_ok()
-        print(f"产物一致性: ✗ 重跑产物与入库不一致：{', '.join(failed)}（解析/映射漂移或手改产物）")
-        print("  → 修复须固化到生产脚本后重跑并提交产物，禁止手改产物。")
+        print(r.stdout[-2500:])
+        print(r.stderr[-1500:])
         sys.exit(1)
-    _ok_lines.append("产物一致性: ✓ build_special_plan + build_special_matrix 重跑产物与入库完全一致")
+    _ok_lines.append("业务快照: ✓ special_matrix 业务信息与基线全等（名单→实体/计划数/项目，独立基线）")
 
 
 def _check_minban_official():
