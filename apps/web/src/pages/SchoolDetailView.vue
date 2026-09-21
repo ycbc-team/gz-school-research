@@ -101,6 +101,22 @@ const specialtyEntry = computed(() => {
   const n = normName(schoolName.value);
   return doc.schools.find((s) => normName(s.school) === n) || null;
 });
+/** 从 note.t 混合备注中提取"传承项目/艺术项目"具体内容（区推断/脚本来源/公示时间等采集备注丢弃） */
+function extractArtsProject(noteT?: string): string | null {
+  if (!noteT) return null;
+  const parts = noteT.split(/[;；]/).map((s) => s.trim()).filter(Boolean);
+  const found: string[] = [];
+  for (const p of parts) {
+    if (p.startsWith('传承项目:')) {
+      const v = p.slice('传承项目:'.length).trim();
+      if (v) found.push('传承项目：' + v);
+    } else if (p.startsWith('艺术项目:')) {
+      const v = p.slice('艺术项目:'.length).trim();
+      if (v) found.push('艺术项目：' + v);
+    }
+  }
+  return found.length ? found.join('；') : null;
+}
 const specialtyRows = computed(() => {
   const entry = specialtyEntry.value;
   if (!entry || !entry.rec.length) return [];
@@ -109,7 +125,7 @@ const specialtyRows = computed(() => {
       const r = specialtySchools.recognition[i];
       if (!r) return null;
       const note = entry.notes?.find((x) => x.i === i);
-      return { ...r, gap: note?.g, note: note?.t };
+      return { ...r, artsProject: extractArtsProject(note?.t) };
     })
     .filter((x): x is NonNullable<typeof x> => !!x);
 });
@@ -517,24 +533,17 @@ const brandCardUseful = computed(() =>
       <div class="kv">
         <div class="kv-row"><span>学段</span><b>{{ stageLabel }}</b></div>
         <div class="kv-row"><span>所属区</span><b>{{ districtOf }}</b></div>
-        <div class="kv-row" v-if="poi?.lng"><span>坐标</span><b>{{ poi.lng.toFixed(5) }}, {{ poi.lat.toFixed(5) }}</b></div>
-        <div class="kv-row" v-if="legalEntityText !== '—'"><span>法人实体</span><b>{{ legalEntityText }}</b></div>
-      </div>
-    </div>
-
-    <!-- 特色校称号（官方认定：省市各级科创/美育/体育/心理等） -->
-    <div v-if="specialtyRows.length" class="card">
-      <div class="card-title">特色校称号（官方认定）</div>
-      <div class="title-note-row">
-        <span class="title-note">省市各级教育部门认定名单，每条均为官方公示文件。</span>
-      </div>
-      <div class="kv">
-        <div v-for="(r, idx) in specialtyRows" :key="idx" class="kv-row">
-          <span>{{ r.project }}</span>
+        <div v-if="specialtyRows.length" class="kv-row specialty-row">
+          <span>学校特色</span>
           <b>
-            <span class="badge" :class="r.level === '国家级' ? 'b-national' : (r.level === '省级' ? 'b-province' : 'b-city')">{{ r.level }}</span>
-            <template v-if="r.category">&nbsp;{{ r.category }}</template>
-            <template v-if="r.batch">&nbsp;{{ r.batch }}{{ typeof r.year === 'number' ? '（' + r.year + '）' : '' }}</template>
+            <div v-for="(r, idx) in specialtyRows" :key="idx" class="specialty-line">
+              <a v-if="r.url" :href="r.url" target="_blank" rel="noopener noreferrer" class="specialty-link">
+                {{ r.project }}<template v-if="r.artsProject">（{{ r.artsProject }}）</template>
+              </a>
+              <template v-else>
+                {{ r.project }}<template v-if="r.artsProject">（{{ r.artsProject }}）</template>
+              </template>
+            </div>
           </b>
         </div>
       </div>
@@ -833,6 +842,13 @@ const brandCardUseful = computed(() =>
 .kv-row > span { flex: none; width: 100px; color: #6b7280; font-size: 11.5px; }
 .kv-row > b { font-weight: 600; line-height: 1.6; }
 .kv-row > b.strong { color: #1a1b1c; }
+
+/* 学校特色：多行称号列表，label 顶对齐 */
+.specialty-row { align-items: flex-start; }
+.specialty-row > span { padding-top: 2px; }
+.specialty-line { line-height: 1.7; }
+.specialty-link { color: inherit; text-decoration: none; }
+.specialty-link:hover { text-decoration: underline; }
 
 .zone-block { margin-top: 10px; }
 .zone-label { font-size: 11px; color: #6b7280; font-weight: 600; margin-bottom: 4px; }
