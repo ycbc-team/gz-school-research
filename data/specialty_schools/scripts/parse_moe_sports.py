@@ -49,7 +49,7 @@ def is_gz_school(name):
 def load_gz_entity_names():
     """项目实体注册表（entities.json）中广州（adcode 4401xx）学校名集合，用于二次确认省属/裸名学校。"""
     try:
-        ents = json.loads((ROOT / "data/registry/entities.json").read_text("utf-8"))["entities"]
+        ents = json.loads((ROOT / "data/registry/entity/dist/entities.json").read_text("utf-8"))["entities"]
     except Exception:
         return set()
     gz = set()

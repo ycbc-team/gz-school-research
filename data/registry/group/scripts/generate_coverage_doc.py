@@ -3,8 +3,8 @@
 并入人工复核结论（同校异名、区字差异、简称变体等）。"""
 import json, os
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-data = json.load(open(os.path.join(ROOT, 'scripts/registry/coverage_result.json'), encoding='utf-8'))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+data = json.load(open(os.path.join(ROOT, 'data/registry/group/dist/coverage_result.json'), encoding='utf-8'))
 
 # 人工复核修正：将 v3 脚本的"未命中"中实际覆盖的学校标注为变体命中
 # key = norm_name, value = (修正后状态, 命中层, POI名, 备注)
@@ -20,7 +20,7 @@ MANUAL_FIX = {
 }
 
 # 统一匹配库：norm 本体收敛至 school_match.normName
-sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+sys.path.insert(0, os.path.join(ROOT, "data/registry/entity/scripts"))
 from school_match import normName as norm_name
 
 def get_final_status(item):
@@ -55,7 +55,7 @@ for g in data['groups']:
 lines = []
 lines.append('# 教育集团成员覆盖清单（P1）')
 lines.append('')
-lines.append('> 比对范围：`data/registry/education_groups_2026.json`（招考办2026名额分配表，43核心校 + 118成员校 = 161校）')
+lines.append('> 比对范围：`data/registry/group/parsed/education_groups_2026.json`（招考办2026名额分配表，43核心校 + 118成员校 = 161校）')
 lines.append('> 比对基准：POI 三层 `data/poi/dist/middle_poi.json`（475初中）/ `data/poi/dist/primary_poi.json`（931小学）/ `data/poi/dist/high_poi.json`（126高中）')
 lines.append('> 匹配方法：normName 全等匹配（去"广州市"前缀、括号统一后去括号、去空白）+ 校区/区名变体复核 + 高德逐校核实')
 lines.append('> 数据来源：广州市招考办 http://gzzk.gz.gov.cn/gkmlpt/content/10/10809/post_10809470.html （2026-05-12）')

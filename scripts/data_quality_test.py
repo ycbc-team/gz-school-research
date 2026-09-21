@@ -60,7 +60,7 @@ ORPHAN_SNAPSHOT = "0b3466f1acad9fcf"
 #   景泰小学柯子岭校区/43号A座 等，逐一排查中，见提交说明）。
 CO_LOCATED_SNAPSHOT = "78bd7925e8bb2651"
 
-# 民办学校名单快照（sha256 前 16 位）：data/registry/minban_schools.json 民办名单权威表。
+# 民办学校名单快照（sha256 前 16 位）：data/registry/private/dist/minban_schools.json 民办名单权威表。
 # 民办身份由 build_entities 按此表联表生产 entities nature（表驱动，非手写 id 列表）。
 # 名单是业务事实集合（非"越小越好"）：新增民办 / 误标公办 / 漏标民办都算名单变化，
 # 必须先排查官方来源（各区教育局年检/招生计划/积分入学等，表内 source_urls 可追溯），
@@ -92,10 +92,10 @@ def load_poi_ids():
     return ids
 
 def load_groups():
-    return json.load(open(os.path.join(ROOT, "data/registry/education_groups.json"))).get("groups", [])
+    return json.load(open(os.path.join(ROOT, "data/registry/group/dist/education_groups.json"))).get("groups", [])
 
 def load_entities():
-    return json.load(open(os.path.join(ROOT, "data/registry/entities.json"))).get("entities", [])
+    return json.load(open(os.path.join(ROOT, "data/registry/entity/dist/entities.json"))).get("entities", [])
 
 def main():
     # ---- 1. POI 库不得含状态词 ----
@@ -230,13 +230,13 @@ def main():
 
     # ---- 7. 全量 POI 自我匹配：统一匹配服务对每个 POI 用自身 adcode+学段必须解析回自身 school_id ----
     # 校名匹配规则的核心回归（防"修复A引入B"）：任何 POI 被别的 POI 抢名/被泛名吸走都会在此失败
-    # 统一入口：scripts/registry/school_match.py（项目唯一匹配库，含行政区/学段收敛）
-    sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+    # 统一入口：data/registry/entity/scripts/school_match.py（项目唯一匹配库，含行政区/学段收敛）
+    sys.path.insert(0, os.path.join(ROOT, "data/registry/entity/scripts"))
     from school_match import SchoolMatcher
     _matcher = SchoolMatcher.load(
         poi_paths=[(os.path.join(ROOT, p), st) for p, st in
                    zip(POI_PATHS, ("小学", "初中", "高中"))],
-        entities_path=os.path.join(ROOT, "data/registry/entities.json"))
+        entities_path=os.path.join(ROOT, "data/registry/entity/dist/entities.json"))
     _poi_all = _matcher.poi_all
     for lib, stage in (("data/poi/dist/primary_poi.json", "小学"), ("data/poi/dist/middle_poi.json", "初中"), ("data/poi/dist/high_poi.json", "高中")):
         d = json.load(open(os.path.join(ROOT, lib)))
@@ -507,7 +507,7 @@ def main():
     print(f"[14] 特长生计划官方口径: 体育 {_sp.get('sports')}（不含领军龙） / 艺术 {_sp.get('arts')} / 领军龙 {_sp.get('football_special')}")
 
     # ---- 15. 民办学校名单快照（变化即感知）----
-    _minban = json.load(open(os.path.join(ROOT, "data/registry/minban_schools.json")))
+    _minban = json.load(open(os.path.join(ROOT, "data/registry/private/dist/minban_schools.json")))
     _minban_ids = sorted(s["school_id"] for s in _minban["schools"])
     _minban_digest = hashlib.sha256("\n".join(_minban_ids).encode()).hexdigest()[:16]
     if os.environ.get("UPDATE_SNAPSHOT") == "1":
@@ -529,7 +529,7 @@ def main():
     # 民办招生计划（zone 含"民办：无地段，报名人数超计划电脑派位"等）属民办自主招生，放行。
     # 出现 → 立即失败：要么民办误标（如金海岸学校被误标民办后出现公办地段），
     # 要么民办学校被错配进公办招生/升学文件。
-    _minban_ids16 = {s["school_id"] for s in json.load(open(os.path.join(ROOT, "data/registry/minban_schools.json")))["schools"]}
+    _minban_ids16 = {s["school_id"] for s in json.load(open(os.path.join(ROOT, "data/registry/private/dist/minban_schools.json")))["schools"]}
     _bad_pri, _bad_mid, _bad_xs = [], [], []
     for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/2026-*.json"))):
         _d = json.load(open(_f))
@@ -564,7 +564,7 @@ def main():
     # 番禺有官方文件（2026 义务教育民办招生计划 sheet + 广州市中考批次民办高中名单），
     # 民办名单必须由 build_minban_official.py 自动解析生成；md/手工不得直接追加番禺
     # （金海岸学校误标民办即为 md 手工追加所致）。manual/legacy 的番禺条目 → 失败。
-    _panyu_entries = [s for s in json.load(open(os.path.join(ROOT, "data/registry/minban_schools.json")))["schools"]
+    _panyu_entries = [s for s in json.load(open(os.path.join(ROOT, "data/registry/private/dist/minban_schools.json")))["schools"]
                       if s["school_id"].startswith("gz-440113")]
     _panyu_manual = [f"{s['school_id']} | {s.get('name')} | {s.get('source_type')}"
                      for s in _panyu_entries if not s.get("source_type", "").startswith("official")]
@@ -577,18 +577,18 @@ def main():
     # 高德 POI 常采集「XX学校招生处/招生办/报名点」等非学校点位（如星执学校小学招生处
     # a36980e5 曾误建实体，与执信中学附属小学同址），build_entities NON_SCHOOL_POI 已过滤；
     # 此处兜底：实体表再出现点位后缀 → 失败（0 容忍）。
-    _poi_like = [f"{e['school_id']} | {e['name']}" for e in json.load(open(os.path.join(ROOT, "data/registry/entities.json")))["entities"]
+    _poi_like = [f"{e['school_id']} | {e['name']}" for e in json.load(open(os.path.join(ROOT, "data/registry/entity/dist/entities.json")))["entities"]
                  if any(x in e['name'] for x in ('招生处', '招生办', '报名点', '报名处', '招生点'))]
     for _b in _poi_like:
         check(False, f"[18] 实体名为招生/报名点位（非学校，应被 build_entities 过滤）: {_b}")
     print(f"[18] 实体点位后缀检测: {len(_poi_like)} 异常（0 容忍，build_entities NON_SCHOOL_POI 兜底）")
 
     # ---- 19. 初中明细 group 必须由公共产物 schoolGroups 支撑（纯 id 一致性）----
-    # build_ranking_middle.py 的 group 只查 data/registry/school_groups.json（纯 id）；
+    # build_ranking_middle.py 的 group 只查 data/registry/group/dist/school_groups.json（纯 id）；
     # 任何有 group 的明细行，其 school_id / school_ids 中至少一个必须命中产物且 brand 一致，
     # 否则说明产物漏收（该学校会从集团分组丢失）。无 school_id 的行不应有 group
     # （名称匹配已从运行时删除；如三元里中学 = entities 无实体，属待补真源的数据缺口）。
-    _sg = json.load(open(os.path.join(ROOT, "data/registry/school_groups.json")))["schoolGroups"]
+    _sg = json.load(open(os.path.join(ROOT, "data/registry/group/dist/school_groups.json")))["schoolGroups"]
     _rm = json.load(open(os.path.join(ROOT, "data/linkage/ranking_middle.json")))["schools"]
     _orphan = 0
     for _s in _rm:

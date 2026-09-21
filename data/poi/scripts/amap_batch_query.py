@@ -88,7 +88,7 @@ def search_amap(key, keywords, adcode, offset=10):
     return results
 
 # 统一匹配库：norm 收敛至 school_match.matchNorm（含前导区名剥/去广州市/保留校区括号，泛词保护）
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), "scripts", "registry"))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), "data", "registry", "entity", "scripts"))
 from school_match import matchNorm as norm
 
 def load_existing_poi():

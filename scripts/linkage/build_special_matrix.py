@@ -3,7 +3,7 @@
 """构建升学通道矩阵：初中 × 高中（体育/艺术/自招考核资格）
 - 输入：data/linkage/raw/special/sports_2026.json、arts_2026.json
        data/linkage/raw/autonomy/autonomy_qualify_2026.json
-       data/registry/entities.json（高中实体别名表，用于名字匹配与审计）
+       data/registry/entity/dist/entities.json（高中实体别名表，用于名字匹配与审计）
 - 输出：data/linkage/special_matrix.json
 口径：全部有名单的高中（含区属/中职，不再限省市属 11 所）；
       自招为考核资格名单口径（非预录取）。
@@ -17,10 +17,10 @@ import sys, re, collections, os
 BASE = 'data/linkage/raw'
 
 # 统一匹配库：norm 本体收敛至 school_match.normName（原"复刻 shared normName"定义已删）
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "registry"))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "registry", "entity", "scripts"))
 from school_match import normName as norm
 OUT = sys.argv[1] if len(sys.argv) > 1 else 'data/linkage/special_matrix.json'
-SOURCE_MAP = 'data/registry/source_name_mappings.json'
+SOURCE_MAP = 'data/registry/entity/src/source_name_mappings.json'
 SOURCE = 'gzzk-special-2026'
 
 
@@ -42,7 +42,7 @@ def strip_project(project: str) -> str:
 
 
 # ---------------- 高中实体别名表（entities.json stage=high，名字匹配唯一宿主） ----------------
-entities = json.load(open('data/registry/entities.json'))['entities']
+entities = json.load(open('data/registry/entity/dist/entities.json'))['entities']
 entity_by_id = {e['school_id']: e for e in entities if e.get('stage') == 'high'}
 source_mappings = json.load(open(SOURCE_MAP)).get('mappings', [])
 source_id_by_raw_name = {

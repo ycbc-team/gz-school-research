@@ -12,8 +12,8 @@
 """
 import json, os, subprocess, sys, tempfile, glob, shutil
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PRODUCT = os.path.join(ROOT, "data/registry/education_groups.json")
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+PRODUCT = os.path.join(ROOT, "data/registry/group/dist/education_groups.json")
 MID_OUT = os.path.join(ROOT, "data/primary/enrollments")
 _MID_GLOB = "middle_enrollment_2026_*.json"
 
@@ -76,7 +76,7 @@ def _check_special_matrix():
 
 def _check_minban_official():
     """校验民办官方源（番禺 2026 民办招生计划）重算与权威表一致——禁手改防线。"""
-    r = subprocess.run(["python3", os.path.join(ROOT, "scripts/registry/build_minban_official.py"), "--check"],
+    r = subprocess.run(["python3", os.path.join(ROOT, "data/registry/private/scripts/build_minban_official.py"), "--check"],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
         print("民办官方源校验: ✗ " + (r.stdout[-1500:] or r.stderr[-1500:]).strip().replace("\n", "\n  "))
@@ -147,15 +147,15 @@ def _check_build_entities():
     """
     tmp = os.path.join(tempfile.gettempdir(), "entities_repro")
     shutil.rmtree(tmp, ignore_errors=True)
-    r = subprocess.run(["node", os.path.join(ROOT, "scripts/registry/build_entities.mjs"), "--out-dir", tmp],
+    r = subprocess.run(["node", os.path.join(ROOT, "data/registry/entity/scripts/build_entities.mjs"), "--out-dir", tmp],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
-        print("生产脚本重跑失败：scripts/registry/build_entities.mjs")
+        print("生产脚本重跑失败：data/registry/entity/scripts/build_entities.mjs")
         print(r.stdout[-2000:])
         print(r.stderr[-2000:])
         sys.exit(1)
     pairs = [
-        ("data/registry/entities.json", "entities"),
+        ("data/registry/entity/dist/entities.json", "entities"),
         ("data/poi/dist/primary_poi.json", "primary POI"),
         ("data/poi/dist/middle_poi.json", "middle POI"),
         ("data/poi/dist/high_poi.json", "high POI"),
@@ -228,13 +228,13 @@ def _check_school_groups():
     覆盖 build_school_groups.py 的改动感知：改脚本/education 外键/entities 反查源后未重跑提交产物，
     或产物被手改都会被检出。brand_groups.json 的 --write-brand 写回是一次性数据层补全
     （依赖 entities 反查，幂等累积），不在本复现范围；比对失败还原工作树。"""
-    files = [os.path.join(ROOT, "data/registry/school_groups.json")]
+    files = [os.path.join(ROOT, "data/registry/group/dist/school_groups.json")]
     orig = {f: open(f, encoding="utf-8").read() for f in files}
     try:
-        r = subprocess.run(["python3", os.path.join(ROOT, "scripts/registry/build_school_groups.py")],
+        r = subprocess.run(["python3", os.path.join(ROOT, "data/registry/group/scripts/build_school_groups.py")],
                            capture_output=True, text=True, cwd=ROOT)
         if r.returncode != 0:
-            print("生产脚本重跑失败：scripts/registry/build_school_groups.py")
+            print("生产脚本重跑失败：data/registry/group/scripts/build_school_groups.py")
             print(r.stderr[-2000:])
             for f, c in orig.items():
                 open(f, "w", encoding="utf-8").write(c)
@@ -295,9 +295,9 @@ def _check_backfill_ids():
 def _check_government_groups():
     """政府文件底表覆盖校验：已支持区必须与官方名单成员级对齐（缺失=0）。
 
-    底表快照在 data/registry/_raw/government/，解析器 scripts/registry/parse_government_groups.py。
+    底表快照在 data/registry/group/raw/government/，解析器 scripts/registry/parse_government_groups.py。
     原则（用户口径）：以政府文件为底表，脚本解析形成数据源；官方名单有而 partial 无 = 缺失须补。"""
-    script = os.path.join(ROOT, "scripts/registry/parse_government_groups.py")
+    script = os.path.join(ROOT, "data/registry/group/scripts/parse_government_groups.py")
     import re as _re
     src = open(script, encoding="utf-8").read()
     m = _re.search(r'SOURCES = \{(.*?)\n\}', src, _re.S)
@@ -320,7 +320,7 @@ def _check_government_groups():
 def main():
     # 1) education_groups
     tmp = os.path.join(tempfile.gettempdir(), "education_groups_repro.json")
-    _replay("scripts/merge_groups.py", tmp)
+    _replay("data/registry/group/scripts/merge_groups.py", tmp)
     with open(tmp) as f:
         repro = json.load(f)
     with open(PRODUCT) as f:
@@ -358,7 +358,7 @@ def main():
             print(f"    WRONG {x}")
         for x in gained[:30]:
             print(f"    GAINED {x}")
-        print("  → 请在改源后重跑 `python3 scripts/merge_groups.py` 并提交产物；"
+        print("  → 请在改源后重跑 `python3 data/registry/group/scripts/merge_groups.py` 并提交产物；"
               "如需确认差异为有意修正，请将修正固化到源（partial/brand_groups/entities）后重跑。")
         sys.exit(1)
 

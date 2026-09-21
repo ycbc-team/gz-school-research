@@ -2,20 +2,20 @@
 """
 民办名单来源标注：把 minban_*.md（手工互补区）与历史遗留分开标注。
 
-- manual：scripts/registry/minban_*.md 中出现的 school_id（排除"公办/勿混淆/非同一所/排除/转公"段，
+- manual：data/registry/private/src/minban_*.md 中出现的 school_id（排除"公办/勿混淆/非同一所/排除/转公"段，
   如番禺剑桥郡小学为公办不得标 manual）。
 - legacy：既不在官方源（official_*）也不在 md 的历史已标条目（2026-09-14 前 POI/tier1/levels
   等历史来源，来源待逐条追溯）。
 
-用法：python3 scripts/registry/annotate_minban_sources.py [--dry-run]
+用法：python3 data/registry/private/scripts/annotate_minban_sources.py [--dry-run]
 """
 import json
 import re
 import os
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-TABLE = os.path.join(ROOT, 'data/registry/minban_schools.json')
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+TABLE = os.path.join(ROOT, 'data/registry/private/dist/minban_schools.json')
 MINBAN_DIR = os.path.join(ROOT, 'scripts/registry')
 SID_RE = re.compile(r'gz-\d{6}-[0-9a-f]{8}')
 EXCLUDE_WORDS = ('公办', '勿混淆', '非同一所', '排除', '转公')

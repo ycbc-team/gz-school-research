@@ -20,15 +20,15 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 RAW = os.path.join(ROOT, "data", "primary", "enrollments", "_raw")
 OUT = os.path.join(ROOT, "data", "primary", "enrollments")
 
-# 复用项目统一的 POI 匹配服务（scripts/registry/school_match.py，实体表别名优先 + 行政区/学段收敛，不另起 norm 逻辑）
-sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+# 复用项目统一的 POI 匹配服务（data/registry/entity/scripts/school_match.py，实体表别名优先 + 行政区/学段收敛，不另起 norm 逻辑）
+sys.path.insert(0, os.path.join(ROOT, "data/registry/entity/scripts"))
 from school_match import SchoolMatcher as _SchoolMatcher
 
 _MATCHER = _SchoolMatcher.load(
     poi_paths=[(os.path.join(ROOT, "data/poi/dist/primary_poi.json"), "小学"),
                (os.path.join(ROOT, "data/poi/dist/middle_poi.json"), "初中"),
                (os.path.join(ROOT, "data/poi/dist/high_poi.json"), "高中")],
-    entities_path=os.path.join(ROOT, "data/registry/entities.json"))
+    entities_path=os.path.join(ROOT, "data/registry/entity/dist/entities.json"))
 
 def match_school_id(name, adcode=None):
     """官方名单校名 → POI school_id；未命中返回 None。统一走 school_match 管道（实体表别名优先）。
@@ -260,7 +260,7 @@ BUILDERS = {
 }
 
 if __name__ == "__main__":
-    _entities = json.load(open(os.path.join(ROOT, "data/registry/entities.json")))
+    _entities = json.load(open(os.path.join(ROOT, "data/registry/entity/dist/entities.json")))
 
     # 法人行挂 school_ids（与 quota_matrix 口径一致）：政府招生文件按法人单位公布
     # （一条「广州市第十六中学」覆盖多个校区，无独立校区行），校区实体须经法人行

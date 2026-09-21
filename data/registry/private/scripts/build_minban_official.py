@@ -12,18 +12,18 @@
 - 输出的 school_id 以 source_type="official_panyu_plan" 写入 minban_schools.json；
   官方源条目由本脚本生成，重跑覆盖，禁止手改（官方文件更新 → 重跑本脚本即可感知）。
 
-用法：python3 scripts/registry/build_minban_official.py [--dry-run]
+用法：python3 data/registry/private/scripts/build_minban_official.py [--dry-run]
 """
 import json
 import re
 import os
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 RAW = os.path.join(ROOT, 'data/primary/enrollments/_raw/panyu_2026_official.json')
-HIGH_RAW = os.path.join(ROOT, 'data/registry/_raw/gzzk_2026_minban_high.json')
-TABLE = os.path.join(ROOT, 'data/registry/minban_schools.json')
-ENTITIES = os.path.join(ROOT, 'data/registry/entities.json')
+HIGH_RAW = os.path.join(ROOT, 'data/registry/private/raw/gzzk_2026_minban_high.json')
+TABLE = os.path.join(ROOT, 'data/registry/private/dist/minban_schools.json')
+ENTITIES = os.path.join(ROOT, 'data/registry/entity/dist/entities.json')
 DISTRICT = '440113'
 
 # 官方名 → 关键词（区+关键词唯一才采用）的特殊匹配。
@@ -161,7 +161,7 @@ def main():
         return
     json.dump(table, open(TABLE, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(f'\n已写入 {TABLE} → 共 {table["school_count"]} 所')
-    print('后续：node scripts/registry/build_entities.mjs 重跑产物')
+    print('后续：node data/registry/entity/scripts/build_entities.mjs 重跑产物')
 
 
 if __name__ == '__main__':

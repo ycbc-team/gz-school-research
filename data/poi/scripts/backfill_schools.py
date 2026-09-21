@@ -24,7 +24,7 @@ POI_DIR = os.path.join(ROOT, "data", "poi", "dist")
 
 # 统一匹配库：norm 本体（NFKC/繁简/去广州市/删括号/去空白）收敛至 school_match.normName；
 # 番禺采集特有的输入清洗（去区名/镇）保留在本地，不再重复定义 norm 逻辑
-sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+sys.path.insert(0, os.path.join(ROOT, "data/registry/entity/scripts"))
 from school_match import normName as _normName, fold_unicode as _fold
 
 PREFIXES = ["市桥", "钟村", "石壁", "大石", "洛浦", "南村镇", "化龙镇", "新造镇",

@@ -13,7 +13,7 @@ const loaders = {
   highLevels: load('high/level/src/levels.json'),
   highScores2025: load('high/cutoff_score/dist/scores_2025.json'),
   highScores2026: load('high/cutoff_score/dist/scores_2026.json'),
-  entities: load('registry/entities.json'),
+  entities: load('registry/entity/dist/entities.json'),
 };
 
 test('高中明细 VM：仅七区、保留两年录取线，并按 2026 分数降序', () => {

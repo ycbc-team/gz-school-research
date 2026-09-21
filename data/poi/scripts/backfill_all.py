@@ -10,7 +10,7 @@ FAR = ['花都','从化','增城','南沙']
 
 # 统一匹配库：norm 本体收敛至 looseNorm（normName+剥学部/校区后缀）；
 # 前导"广州/广东/广大附中"为采集输入清洗（别名对齐），保留在本地
-sys.path.insert(0, os.path.join(ROOT, 'scripts', 'registry'))
+sys.path.insert(0, os.path.join(ROOT, 'data', 'registry', "entity", 'scripts'))
 from school_match import looseNorm as _looseNorm
 
 def norm(s):

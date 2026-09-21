@@ -4,14 +4,14 @@ import json, os
 from collections import Counter, defaultdict
 
 BASE = "/Users/bytedance/Developer/gz_school_research"
-d = json.load(open(os.path.join(BASE, "data/registry/education_groups.json")))
+d = json.load(open(os.path.join(BASE, "data/registry/group/dist/education_groups.json")))
 groups = d["groups"]
 stats = d["stats"]
 
 lines = []
 lines.append("# 教育集团成员覆盖清单（P3）")
 lines.append("")
-lines.append("> 比对范围：`data/registry/education_groups.json`（7区教育集团全量版，区教育局官方口径+招考办2026名额分配表+品牌组）")
+lines.append("> 比对范围：`data/registry/group/dist/education_groups.json`（7区教育集团全量版，区教育局官方口径+招考办2026名额分配表+品牌组）")
 lines.append(f"> 比对基准：POI 三层 `data/poi/dist/primary_poi.json`（960小学）/ `data/poi/dist/middle_poi.json` / `data/poi/dist/high_poi.json`（126高中）")
 lines.append("> 匹配方法：normName 全等匹配（去\"广州市\"前缀、括号统一后去括号、去空白）+ entities.json 别名表复核 + 校区/区名变体复核")
 lines.append("> 数据来源：各区政府/区教育局官网文件（见各集团 source_urls）；示范高中集团初中成员来自招考办2026名额分配表；8个重点品牌来自 brand_groups.json")

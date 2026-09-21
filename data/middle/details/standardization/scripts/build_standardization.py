@@ -18,7 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[4]  # gz_school_research/
 RAW = Path(__file__).resolve().parent.parent / "raw"
 PARSED = Path(__file__).resolve().parent.parent / "parsed"
-ENTITIES = ROOT / "data/registry/entities.json"
+ENTITIES = ROOT / "data/registry/entity/dist/entities.json"
 
 # 初中学段（含九年制/完全中学/十二年制——都有初中段）
 MIDDLE_TYPES = {"初中", "九年制", "九年一贯制", "完全中学", "十二年制", "十二年一贯制"}

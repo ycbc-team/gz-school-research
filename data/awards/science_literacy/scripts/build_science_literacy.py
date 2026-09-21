@@ -12,8 +12,8 @@ ROOT = Path(__file__).resolve().parents[4]
 RAW = Path(__file__).resolve().parent.parent / "raw"
 PARSED = Path(__file__).resolve().parent.parent / "parsed"
 DIST = Path(__file__).resolve().parent.parent / "dist"
-ENTITIES = ROOT / "data/registry/entities.json"
-sys.path.insert(0, str(ROOT / "scripts" / "registry"))
+ENTITIES = ROOT / "data/registry/entity/dist/entities.json"
+sys.path.insert(0, str(ROOT / "data" / "registry" / "entity" / "scripts"))
 from school_match import SchoolMatcher
 
 XLSX_NS = "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}"

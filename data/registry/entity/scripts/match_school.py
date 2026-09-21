@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 校名匹配工具：给定区 adcode 和校名（官方名单中的原始名），在 entities.json 中查找匹配实体。
-用法: python3 scripts/registry/match_school.py <adcode> "<校名>" [--stage primary|middle|high]
+用法: python3 data/registry/entity/scripts/match_school.py <adcode> "<校名>" [--stage primary|middle|high]
 输出: 匹配到的实体列表（school_id, name, stage, aliases, nature），无匹配则输出 NO_MATCH。
 
 匹配规则（按优先级）：
@@ -14,11 +14,11 @@ import re
 import sys
 import os
 
-REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ENTITIES_PATH = os.path.join(REPO, 'data/registry/entities.json')
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+ENTITIES_PATH = os.path.join(REPO, 'data/registry/entity/dist/entities.json')
 
 # 统一匹配库：norm 本体收敛至 school_match.normName（NFKC/繁简/去广州市/删括号/去空白）
-sys.path.insert(0, os.path.join(REPO, 'scripts/registry'))
+sys.path.insert(0, os.path.join(REPO, 'data/registry/entity/scripts'))
 from school_match import normName as _normName
 
 # 区 adcode -> 区名

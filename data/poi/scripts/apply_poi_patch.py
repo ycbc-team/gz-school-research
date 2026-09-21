@@ -18,7 +18,7 @@ import copy
 ROOT = "/Users/bytedance/Developer/gz_school_research"
 
 # 统一匹配库：norm 本体收敛至 school_match.normName（NFKC/繁简/去广州市/删括号/去空白）
-sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+sys.path.insert(0, os.path.join(ROOT, "data/registry/entity/scripts"))
 from school_match import normName as norm_name
 
 def id_key(adcode, poi_name):
@@ -39,7 +39,7 @@ for stage in ['primary', 'middle', 'high']:
         poi_by_name_stage[key] = s
 
 # 加载实体
-with open(os.path.join(ROOT, 'data/registry/entities.json')) as f:
+with open(os.path.join(ROOT, 'data/registry/entity/dist/entities.json')) as f:
     entities_data = json.load(f)
 entities = entities_data['entities']
 ent_by_id_stage = {}  # (school_id, stage) -> entity
@@ -245,11 +245,11 @@ for stage in ['primary', 'middle', 'high']:
 
 # 2. 写入 entities.json（保持排序）
 entities.sort(key=lambda e: (e['stage'] + e['name']).encode('utf-8'))
-with open(os.path.join(ROOT, 'data/registry/entities.json'), 'w', encoding='utf-8') as f:
+with open(os.path.join(ROOT, 'data/registry/entity/dist/entities.json'), 'w', encoding='utf-8') as f:
     json.dump(entities_data, f, ensure_ascii=False, indent=2)
 
 # 3. 更新 MINBAN_IDS
-build_path = os.path.join(ROOT, 'scripts/registry/build_entities.mjs')
+build_path = os.path.join(ROOT, 'data/registry/entity/scripts/build_entities.mjs')
 with open(build_path) as f:
     build_content = f.read()
 

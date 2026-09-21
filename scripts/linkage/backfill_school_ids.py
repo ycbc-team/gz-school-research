@@ -5,7 +5,7 @@
 
 背景：quota_matrix / special_matrix / batch2_scores / district_quota 的键是官方名单原文校名
 （PDF 视觉提取），与 POI 名存在「学部后缀 / 校区叫法 / 括号全半角」差异，且从未走实体桥接——
-历史遗留的「用名字识别」链路。本脚本按实体表（data/registry/entities.json 的 name+aliases）
+历史遗留的「用名字识别」链路。本脚本按实体表（data/registry/entity/dist/entities.json 的 name+aliases）
 回填 school_id：
 - quota_matrix.schools[].school_id（初中）
 - special_matrix / batch2_scores / district_quota 顶层 middle_school_ids（初中名 → school_id）
@@ -30,13 +30,13 @@ ROOT = Path(__file__).resolve().parents[2]
 CITY7 = {'荔湾区', '越秀区', '海珠区', '天河区', '白云区', '黄埔区', '番禺区'}
 
 # 统一匹配库：norm/loose 收敛至 school_match.normName/looseNorm（原本地定义已删，规则与 shared support.ts 一致）
-sys.path.insert(0, str(ROOT / 'scripts' / 'registry'))
+sys.path.insert(0, str(ROOT / 'data' / 'registry' / "entity" / 'scripts'))
 from school_match import normName as norm
 from school_match import looseNorm as loose
 
 
 def main() -> int:
-    entities = json.loads((ROOT / 'data/registry/entities.json').read_text('utf-8'))
+    entities = json.loads((ROOT / 'data/registry/entity/dist/entities.json').read_text('utf-8'))
     idx_norm = defaultdict(list)
     idx_loose = defaultdict(list)
     for e in entities['entities']:

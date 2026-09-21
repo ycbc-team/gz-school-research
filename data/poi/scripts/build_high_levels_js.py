@@ -42,7 +42,7 @@ MIDDLE_ONLY_CAMPUSES = {
 
 
 # 统一匹配库：norm 收敛至 school_match.normName（对称 key 比较，原本地定义已删）
-sys.path.insert(0, str(ROOT / "scripts" / "registry"))
+sys.path.insert(0, str(ROOT / "data" / "registry" / "entity" / "scripts"))
 from school_match import normName as norm
 
 
@@ -62,7 +62,7 @@ def load_entity_db():
     global ENTITY_DB
     if ENTITY_DB is not None:
         return ENTITY_DB
-    path = ROOT / "data" / "registry" / "entities.json"
+    path = ROOT / "data" / "registry" / "entity" / "dist" / "entities.json"
     db = json.loads(path.read_text(encoding="utf-8"))
     items = db["entities"] if isinstance(db, dict) and "entities" in db else db
     ENTITY_DB = {}

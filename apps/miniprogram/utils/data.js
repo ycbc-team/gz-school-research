@@ -34,7 +34,7 @@ const baseLoaders = {
     cast(hydrate(require('../data/primary/enrollments/2026-baiyun.js'))),
     cast(hydrate(require('../data/primary/enrollments/2026-huangpu.js'))),
   ],
-  entities: cast(hydrate(require('../data/registry/entities.js'))),
+  entities: cast(hydrate(require('../data/registry/entity/dist/entities.js'))),
   xiaoshengchu: cast(hydrate(require('../data/primary/xiaoshengchu_2026.js'))),
   middleEnrollNotes: cast(hydrate(require('../data/primary/middle_enroll_notes.js'))),
   // ---- 详情域空壳（分包 pages/school-detail/data/ 提供真实数据） ----

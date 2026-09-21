@@ -10,7 +10,7 @@
    setdefault 不覆盖已有），让品牌数据层自洽（成员行可跳转）
 3. 同一 school_id 同时命中 education 与 brand：education 优先（与 shared groupOfSchool 现序一致）
 
-产物：data/registry/school_groups.json
+产物：data/registry/group/dist/school_groups.json
   {"schoolGroups": {"<school_id>": {"brand": "...", "source": "education|brand"}}}
 纯 id 映射，运行时不感知任何名字。
 
@@ -18,7 +18,7 @@
 - brand units 反查失败清单（区外校等 entities 表不覆盖 → 需人工补 school_ids 外键）
 - education 源内无 school_id 的成员（数据源自身缺口）
 
-用法：python3 scripts/registry/build_school_groups.py [--write-brand]
+用法：python3 data/registry/group/scripts/build_school_groups.py [--write-brand]
   --write-brand: 把反查成功的 school_id 写回 brand_groups.json（数据层补全，默认只报告不写）
 """
 import argparse
@@ -27,13 +27,13 @@ import os
 import re
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 REG = os.path.join(ROOT, "data", "registry")
 
-EDU_PATH = os.path.join(REG, "education_groups.json")
-BRAND_PATH = os.path.join(REG, "brand_groups.json")
-ENT_PATH = os.path.join(REG, "entities.json")
-OUT_PATH = os.path.join(REG, "school_groups.json")
+EDU_PATH = os.path.join(REG, "group", "dist", "education_groups.json")
+BRAND_PATH = os.path.join(REG, "group", "src", "brand_groups.json")
+ENT_PATH = os.path.join(REG, "entity", "dist", "entities.json")
+OUT_PATH = os.path.join(REG, "group", "dist", "school_groups.json")
 
 
 def load(p):

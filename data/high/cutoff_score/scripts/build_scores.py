@@ -13,7 +13,7 @@
 - 第三批次（公办：户籍生/非户籍生/外区生；民办+中外合作：最低分数）
 - 第四批次（公办：户籍生/非户籍生；民办+中外合作：最低分数）
 
-事实表按 school_id 引用学校实体（data/registry/entities.json，dimension 表）：
+事实表按 school_id 引用学校实体（data/registry/entity/dist/entities.json，dimension 表）：
   官方招生单位名 → 实体 name/aliases 全等匹配（norm 后）→ school_id。
   未命中（远郊 7 区外、中外合作办学项目、项目未收录学校/校区）落在 unmapped，
   保留官方原文，供后续扩展。
@@ -43,7 +43,7 @@ RAW = ROOT / "data" / "high" / "cutoff_score" / "raw"
 OUT = ROOT / "data" / "high" / "cutoff_score" / "dist"
 
 # 统一匹配库：norm 本体收敛至 school_match.normName（原 norm_name 定义已删，规则与 build_entities/support 一致）
-sys.path.insert(0, str(ROOT / "scripts" / "registry"))
+sys.path.insert(0, str(ROOT / "data" / "registry" / "entity" / "scripts"))
 from school_match import normName as norm_name
 
 def clean_html(h: str) -> str:
@@ -190,7 +190,7 @@ def parse_file(fname: str, batch: int):
 
 def load_entity_index():
     """实体表（dimension）name/aliases → school_id（norm 全等，与 build_entities.mjs 同规则）。"""
-    ents = json.loads((ROOT / "data" / "registry" / "entities.json").read_text(encoding="utf-8"))["entities"]
+    ents = json.loads((ROOT / "data" / "registry" / "entity" / "dist" / "entities.json").read_text(encoding="utf-8"))["entities"]
     idx = {}
     for e in ents:
         if e.get("stage") != "high":

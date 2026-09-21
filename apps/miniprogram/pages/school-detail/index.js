@@ -15,10 +15,10 @@ const loaders = {
   specialMatrix: cast(hydrate(require('./data/linkage/special_matrix.js'))),
   batch2Scores: cast(hydrate(require('./data/linkage/batch2_scores.js'))),
   districtQuota: cast(hydrate(require('./data/linkage/district_quota.js'))),
-  sites: cast(hydrate(require('./data/registry/sites.js'))),
-  brandGroups: cast(hydrate(require('./data/registry/brand_groups.js'))),
-  educationGroups: cast(hydrate(require('./data/registry/education_groups.js'))),
-  schoolGroups: cast(hydrate(require('./data/registry/school_groups.js'))),
+  sites: cast(hydrate(require('./data/registry/entity/dist/sites.js'))),
+  brandGroups: cast(hydrate(require('./data/registry/group/src/brand_groups.js'))),
+  educationGroups: cast(hydrate(require('./data/registry/group/dist/education_groups.js'))),
+  schoolGroups: cast(hydrate(require('./data/registry/group/dist/school_groups.js'))),
 };
 const repository = createRepository(loaders);
 

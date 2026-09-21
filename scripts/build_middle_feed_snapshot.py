@@ -21,7 +21,7 @@ def load(rel):
 
 def main():
     xs = load("data/primary/xiaoshengchu_2026.json")
-    entities = load("data/registry/entities.json")
+    entities = load("data/registry/entity/dist/entities.json")
     middle = load("data/poi/dist/middle_poi.json")
 
     entity_by_id = {e["school_id"]: e["name"] for e in entities["entities"]}

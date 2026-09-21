@@ -2,7 +2,7 @@
 """
 POI 匹配 CLI（薄封装）。
 
-匹配实现已收敛至 scripts/registry/school_match.py（项目唯一校名匹配库：
+匹配实现已收敛至 data/registry/entity/scripts/school_match.py（项目唯一校名匹配库：
 normName/looseNorm/matchNorm 三档 + SchoolMatcher 统一服务，含行政区/学段收敛）。
 本文件只保留命令行入口，逻辑不在本地重复定义。
 
@@ -12,7 +12,7 @@ normName/looseNorm/matchNorm 三档 + SchoolMatcher 统一服务，含行政区/
 """
 import json, os, sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "scripts", "registry"))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "registry", "entity", "scripts"))
 from school_match import SchoolMatcher
 
 BASE = "/Users/bytedance/Developer/gz_school_research"
@@ -28,7 +28,7 @@ def main():
         poi_paths=[(os.path.join(BASE, "data/poi/dist/primary_poi.json"), "小学"),
                    (os.path.join(BASE, "data/poi/dist/middle_poi.json"), "初中"),
                    (os.path.join(BASE, "data/poi/dist/high_poi.json"), "高中")],
-        entities_path=os.path.join(BASE, "data/registry/entities.json"))
+        entities_path=os.path.join(BASE, "data/registry/entity/dist/entities.json"))
     results = []
     for name in names:
         r = matcher.resolve(name)

@@ -7,7 +7,7 @@
 
   一、norm 三档（对应不同匹配强度，规则与 shared 侧保持一致）：
     - normName   严格全等：全角括号→半角→去「广州市」前缀→删括号→去空白
-                  （与 scripts/registry/build_entities.mjs 及 packages/shared/src/support.ts 的 normName 一致）
+                  （与 data/registry/entity/scripts/build_entities.mjs 及 packages/shared/src/support.ts 的 normName 一致）
     - looseNorm  normName + 去尾部(初中部|高中部|小学部|校区|分校|学校|部)
                   （与 packages/shared/src/support.ts looseNorm、scripts/linkage/backfill_school_ids.py loose 一致）
     - matchNorm  泛词保护：状态/泛化括号剥、保留校区括号、区名归一、前导区名剥（纯泛词保护）、
@@ -28,7 +28,7 @@
 """
 import json, os, re, sys, unicodedata
 
-BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 
 SEVEN_DISTRICTS = {"440103":"荔湾","440104":"越秀","440105":"海珠","440106":"天河","440111":"白云","440112":"黄埔","440113":"番禺"}
 FAR_DISTRICTS = {"440114":"花都","440115":"南沙","440117":"从化","440118":"增城"}
@@ -59,7 +59,7 @@ def fold_unicode(s):
 
 def normName(s):
     """严格全等归一：全角括号→半角 → 去「广州市」前缀 → 删括号 → 去空白。
-    与 scripts/registry/build_entities.mjs 及 packages/shared/src/support.ts 的 normName 完全一致。"""
+    与 data/registry/entity/scripts/build_entities.mjs 及 packages/shared/src/support.ts 的 normName 完全一致。"""
     if not s:
         return ""
     return (str(s).replace("（", "(").replace("）", ")")
@@ -561,7 +561,7 @@ if __name__ == "__main__":
         poi_paths=[(os.path.join(BASE, "data/poi/dist/primary_poi.json"), "小学"),
                    (os.path.join(BASE, "data/poi/dist/middle_poi.json"), "初中"),
                    (os.path.join(BASE, "data/poi/dist/high_poi.json"), "高中")],
-        entities_path=os.path.join(BASE, "data/registry/entities.json"))
+        entities_path=os.path.join(BASE, "data/registry/entity/dist/entities.json"))
     r = matcher.resolve(name, preferred_adcode=adcode, preferred_stage=stage)
     print(json.dumps({"name": name, **r} if r else {"name": name, "result": None}, ensure_ascii=False, indent=2))
 

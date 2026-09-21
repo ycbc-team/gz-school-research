@@ -169,7 +169,7 @@ def split_ocr_attachments(text):
 def load_gz_entity_names():
     """entities.json 中广州学校名（去"广州市"前缀）集合，用于 p1 省属/无前缀校二次确认。"""
     try:
-        ents = json.loads((ROOT / "data/registry/entities.json").read_text("utf-8"))["entities"]
+        ents = json.loads((ROOT / "data/registry/entity/dist/entities.json").read_text("utf-8"))["entities"]
     except Exception:
         return set()
     gz = set()

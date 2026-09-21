@@ -89,7 +89,7 @@ class SidResolver:
     def __init__(self):
         self.ents = []
         try:
-            reg = json.load(open(os.path.join(ROOT, 'data/registry/entities.json'), encoding='utf-8'))
+            reg = json.load(open(os.path.join(ROOT, 'data/registry/entity/dist/entities.json'), encoding='utf-8'))
             self.ents = reg.get('entities', reg) if isinstance(reg, dict) else reg
         except Exception:
             pass

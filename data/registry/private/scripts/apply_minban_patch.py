@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-汇总 7 区民办学校采集结果（scripts/registry/minban_*.md），把"第一节（实体已存在、
-补标 nature=民办）"的 school_id 追加进民办名单权威表 data/registry/minban_schools.json。
+汇总 7 区民办学校采集结果（data/registry/private/src/minban_*.md），把"第一节（实体已存在、
+补标 nature=民办）"的 school_id 追加进民办名单权威表 data/registry/private/dist/minban_schools.json。
 
 注意：本脚本只更新民办名单权威表（源表），不直接写 entities.json——
 entities.json 是 build_entities.mjs 的产物，改表后必须重跑生产脚本生成。
 
 用法:
-  python3 scripts/registry/apply_minban_patch.py [--dry-run]
+  python3 data/registry/private/scripts/apply_minban_patch.py [--dry-run]
   # dry-run 通过后：
-  python3 scripts/registry/apply_minban_patch.py
-  node scripts/registry/build_entities.mjs        # 重跑产物（nature 由表联表生产）
+  python3 data/registry/private/scripts/apply_minban_patch.py
+  node data/registry/entity/scripts/build_entities.mjs   # 重跑产物（nature 由表联表生产）
   python3 scripts/data_quality_test.py            # 民办名单快照变化需 UPDATE_SNAPSHOT=1 显式更新
 """
 import json
@@ -18,9 +18,9 @@ import re
 import os
 import sys
 
-REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ENTITIES_PATH = os.path.join(REPO, 'data/registry/entities.json')
-MINBAN_TABLE = os.path.join(REPO, 'data/registry/minban_schools.json')
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+ENTITIES_PATH = os.path.join(REPO, 'data/registry/entity/dist/entities.json')
+MINBAN_TABLE = os.path.join(REPO, 'data/registry/private/dist/minban_schools.json')
 MINBAN_DIR = os.path.join(REPO, 'scripts/registry')
 
 DISTRICTS = {
@@ -131,7 +131,7 @@ def main():
     print(f'\n已写入 {MINBAN_TABLE}：追加 {len(to_add)} 所 → 共 {table["school_count"]} 所')
 
     print('\n后续（铁律：产物由生产脚本生成，禁止手改 entities.json）:')
-    print('  node scripts/registry/build_entities.mjs        # 重跑产物（nature 由表联表生产）')
+    print('  node data/registry/entity/scripts/build_entities.mjs   # 重跑产物（nature 由表联表生产）')
     print('  python3 scripts/data_quality_test.py            # 民办名单快照变化需 UPDATE_SNAPSHOT=1 显式更新')
 
 

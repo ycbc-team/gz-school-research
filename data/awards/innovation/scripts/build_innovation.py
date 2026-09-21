@@ -23,11 +23,11 @@ ROOT = Path(__file__).resolve().parents[4]
 RAW = Path(__file__).resolve().parent.parent / "raw"
 PARSED = Path(__file__).resolve().parent.parent / "parsed"
 DIST = Path(__file__).resolve().parent.parent / "dist"
-ENTITIES = ROOT / "data/registry/entities.json"
+ENTITIES = ROOT / "data/registry/entity/dist/entities.json"
 
 # 获奖名单与学校实体的归属统一走项目 SchoolMatcher，避免此处的局部
 # 字符串包含规则把「天河外国语学校」误吸附到其它「外国语学校」。
-sys.path.insert(0, str(ROOT / "scripts" / "registry"))
+sys.path.insert(0, str(ROOT / "data" / "registry" / "entity" / "scripts"))
 from school_match import SchoolMatcher
 
 DISTRICT_ADCODE = {"荔湾": "440103", "越秀": "440104", "海珠": "440105", "天河": "440106",

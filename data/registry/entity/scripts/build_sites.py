@@ -42,5 +42,5 @@ out = {
     'purpose': '自动生成：法人→多校区两层。poi_name 即地图点位；aliases 待手工补坊间/政府别名。',
     'schools': schools,
 }
-json.dump(out, open('data/registry/sites.json','w'), ensure_ascii=False, indent=2)
+json.dump(out, open('data/registry/entity/dist/sites.json','w'), ensure_ascii=False, indent=2)
 print(f"生成 {len(schools)} 个法人 / {sum(len(s['sites']) for s in schools)} 个 site")

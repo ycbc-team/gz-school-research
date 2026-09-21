@@ -61,8 +61,12 @@ const WEB_TARGETS = walkJson(DATA_SRC)
   .filter((p) => !p.split(sep).some((seg) => seg === 'raw' || seg === '_raw'))
   .map((p) => relative(ROOT, p))
   .filter((rel) => !basename(rel).startsWith('_partial_'))
-  .filter((rel) => !rel.split(sep).includes('src') || rel.startsWith('data/high/level/'));
-  // src 为源数据目录，仅 dist 产物打包；high/level/src 例外：levels.json 人工源即前端消费（无 dist 构建）
+  .filter((rel) => !rel.split(sep).includes('src') || rel.startsWith('data/high/level/') || (rel.startsWith('data/registry/group/src/') && basename(rel) === 'brand_groups.json'))
+  // src 为源数据目录，仅 dist 产物打包；high/level/src 例外：levels.json 人工源即前端消费（无 dist 构建）；
+  // registry/src 例外：brand_groups.json 手工源即详情页「品牌关联」运行时消费（无 dist 构建）；
+  // 同目录的 groups_anchors/source_name_mappings 为构建期表，不进前端
+  .filter((rel) => !['groups_anchors.json', 'pending_items.json', 'coverage_result.json'].includes(basename(rel)));
+  // 构建期内部表不进前端包：groups_anchors（merge_groups 锚点）/ pending_items（实体待办）/ coverage_result（集团覆盖检查产物）
 // 小程序主包数据（地图页 + 首页/支撑度消费）：POI/tier1/levels/招生/实体/升学路线/官方录取分
 const MP_MAIN_TARGETS = [
   'data/poi/dist/primary_poi.json',
@@ -82,7 +86,7 @@ const MP_MAIN_TARGETS = [
   'data/primary/enrollments/2026-panyu.json',
   'data/primary/enrollments/2026-baiyun.json',
   'data/primary/enrollments/2026-huangpu.json',
-  'data/registry/entities.json',
+  'data/registry/entity/dist/entities.json',
 ];
 // 小程序分包数据（school-detail 详情页专用）：升学通道/身份/品牌/教育集团
 // （官方录取分 scores 已在主包加载，详情页经 baseLoaders 继承，无需重复编译）
@@ -91,10 +95,10 @@ const MP_SUB_TARGETS = [
   'data/linkage/special_matrix.json',
   'data/linkage/batch2_scores.json',
   'data/linkage/district_quota.json',
-  'data/registry/sites.json',
-  'data/registry/brand_groups.json',
-  'data/registry/education_groups.json',
-  'data/registry/school_groups.json',
+  'data/registry/entity/dist/sites.json',
+  'data/registry/group/src/brand_groups.json',
+  'data/registry/group/dist/education_groups.json',
+  'data/registry/group/dist/school_groups.json',
 ];
 
 /* ---------- JS 字面量序列化（保留 undefined 稀疏空位） ---------- */

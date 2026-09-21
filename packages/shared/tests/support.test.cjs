@@ -28,8 +28,8 @@ const primaryTier1 = loadTier1('primary/tier1_schools_all.json');
 const middlePois = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/poi/dist/middle_poi.json'), 'utf8')).schools;
 const primaryPois = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/poi/dist/primary_poi.json'), 'utf8')).schools;
 const highPois = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/poi/dist/high_poi.json'), 'utf8')).schools;
-const brandGroups = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/registry/brand_groups.json'), 'utf8')).brands;
-const entities = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/registry/entities.json'), 'utf8')).entities;
+const brandGroups = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/registry/group/src/brand_groups.json'), 'utf8')).brands;
+const entities = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/registry/entity/dist/entities.json'), 'utf8')).entities;
 
 const mTable = buildAliasTable(middleTier1, entities);
 const pTable = buildAliasTable(primaryTier1, entities);

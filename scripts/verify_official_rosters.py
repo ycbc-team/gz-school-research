@@ -10,17 +10,17 @@
   - EXTRA      ：实体表有 middle 但官方名录无对应（参考信息：天河表只覆盖完中、
                  荔湾表只覆盖公办初中，超出范围属正常；若属表内范围则是疑似多余/错配）
 
-匹配用 scripts/registry/school_match.py 的统一归一化（normName/looseNorm/coreCampusName），
+匹配用 data/registry/entity/scripts/school_match.py 的统一归一化（normName/looseNorm/coreCampusName），
 与品牌关联/backfill 同语义，避免各自为政。
 用法：python3 scripts/verify_official_rosters.py  （输出 outputs/official_roster_verify_20260917.md）
 """
 import json, glob, os, re, sys
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'registry'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'registry', "entity", 'scripts'))
 from school_match import normName, looseNorm, coreCampusName
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROSTER_DIR = os.path.join(ROOT, 'data/linkage/official_rosters')
-ENTITIES = os.path.join(ROOT, 'data/registry/entities.json')
+ENTITIES = os.path.join(ROOT, 'data/registry/entity/dist/entities.json')
 OUT = os.path.join(ROOT, 'outputs/official_roster_verify_20260917.md')
 
 # 校区级匹配：官方名中带括号校区（如"(本部校区)"）与实体名校区对齐
@@ -139,7 +139,7 @@ def main():
 
     header = ["# 区级官方名录 × 实体表 全量校验", "",
               "校验基线：`data/linkage/official_rosters/*.json`（官方政府/教育局公开页面采集）",
-              "对比对象：`data/registry/entities.json`（实体表，同区 middle/high）",
+              "对比对象：`data/registry/entity/dist/entities.json`（实体表，同区 middle/high）",
               "匹配语义：`school_match.normName / looseNorm / coreCampusName`（与品牌关联/backfill 同源）",
               "生成命令：`python3 scripts/verify_official_rosters.py`", "",
               "## 汇总", "", "| 名录 | 行数 | MISSING | ONLY_HIGH |", "|---|---|---|---|"]

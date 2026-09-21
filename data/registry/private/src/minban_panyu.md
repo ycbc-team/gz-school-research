@@ -2,7 +2,7 @@
 
 > 生成时间：2026-09-14
 > 数据基准：番禺区教育局《2025年度番禺区民办学校年检结论》（2026-07-22 公示，36 所民办中小学全部"合格"）；2025/2026 年广州市中考第四/三批次民办高中录取名单；2025 年番禺区积分制入学学位计划（标注"民办"）
-> 实体表：`data/registry/entities.json`（番禺区共 312 条：primary 200 / middle 93 / high 19，255 个唯一 school_id）
+> 实体表：`data/registry/entity/dist/entities.json`（番禺区共 312 条：primary 200 / middle 93 / high 19，255 个唯一 school_id）
 > 现状：已标 `nature=民办` 共 68 行 / 41 个唯一 school_id。本次为查漏补缺，不重复确认已标校。
 
 ## 核心结论

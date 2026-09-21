@@ -59,7 +59,7 @@ def district_of_group(g):
 
 class XsResolver:
     def __init__(self):
-        self.entities = json.load(open(os.path.join(ROOT, 'data/registry/entities.json'),
+        self.entities = json.load(open(os.path.join(ROOT, 'data/registry/entity/dist/entities.json'),
                                        encoding='utf-8'))['entities']
         # stage + norm(name/alias) -> [entity]
         self.alias_idx = defaultdict(list)

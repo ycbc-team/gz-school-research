@@ -6,10 +6,10 @@
 """
 import json, os, re
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 
 # 统一匹配库：norm 本体收敛至 school_match.normName
-sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+sys.path.insert(0, os.path.join(ROOT, "data/registry/entity/scripts"))
 from school_match import normName as norm_name
 
 def load_json(path):
@@ -123,7 +123,7 @@ def check_school(name):
         result['status'] = '未命中'
     return result
 
-groups_data = load_json('data/registry/education_groups_2026.json')
+groups_data = load_json('data/registry/group/parsed/education_groups_2026.json')
 results = []
 stats = {'精确命中': 0, '变体命中': 0, '未命中': 0, '远郊不在范围': 0}
 miss_seven = []
@@ -173,7 +173,7 @@ print(f'\n=== 远郊不在 POI 范围（{len(miss_outer)} 所）===')
 for s in miss_outer:
     print(f'  [{s["role"]}][{s["district"]}] {s["name"]}')
 
-out_path = os.path.join(ROOT, 'scripts/registry/coverage_result.json')
+out_path = os.path.join(ROOT, 'data/registry/group/dist/coverage_result.json')
 with open(out_path, 'w', encoding='utf-8') as f:
     json.dump({'summary': stats, 'groups': results,
                'miss_seven': miss_seven, 'miss_outer': miss_outer},

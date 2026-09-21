@@ -20,7 +20,7 @@ const { normName } = require('../dist/cjs/support.js');
 const ROOT = path.resolve(__dirname, '../../..');
 const load = (rel) => JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
 
-const entities = load('data/registry/entities.json').entities;
+const entities = load('data/registry/entity/dist/entities.json').entities;
 const middlePois = load('data/poi/dist/middle_poi.json').schools;
 const primaryPois = load('data/poi/dist/primary_poi.json').schools;
 const highPois = load('data/poi/dist/high_poi.json').schools;
@@ -28,9 +28,9 @@ const highLevels = load('data/high/level/src/levels.json').schools;
 const districtQuota = load('data/linkage/district_quota.json').data;
 const quotaMatrix = load('data/linkage/quota_matrix.json');
 const specialMatrix = load('data/linkage/special_matrix.json');
-const sourceNameMappings = load('data/registry/source_name_mappings.json').mappings;
+const sourceNameMappings = load('data/registry/entity/src/source_name_mappings.json').mappings;
 const schoolnames = load('data/linkage/raw/schoolnames.json');
-const brandGroups = load('data/registry/brand_groups.json').brands;
+const brandGroups = load('data/registry/group/src/brand_groups.json').brands;
 
 /** 归一化后的校名集合（POI + entities 并集），用于引用校验 */
 const nameSet = new Set();

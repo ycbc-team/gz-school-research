@@ -34,7 +34,7 @@ DATA = ROOT / 'data'
 
 # 统一匹配库：norm 本体收敛至 school_match（py_norm→normName、py_loose→looseNorm）；
 # py_loose2（去括号内容+剥后缀）为 education 兜底的本地增强，保留
-sys.path.insert(0, str(ROOT / 'scripts' / 'registry'))
+sys.path.insert(0, str(ROOT / 'data' / 'registry' / "entity" / 'scripts'))
 from school_match import normName as py_norm
 from school_match import looseNorm as py_loose
 
@@ -65,13 +65,13 @@ def py_loose2(s: str) -> str:
     return re.sub(r'(初中部|高中部|小学部|校区|分校|学校|部)$', '', n).strip()
 
 
-brand_groups = load('registry/brand_groups.json')['brands']
+brand_groups = load('registry/group/src/brand_groups.json')['brands']
 # education: group brand + 全部成员名（core_poi/members/campuses 的 name/poi_name）
-education_groups = load('registry/education_groups.json')['groups']
+education_groups = load('registry/group/dist/education_groups.json')['groups']
 
-# 公共 school_id → 集团映射（scripts/registry/build_school_groups.py 构建的纯 id 产物；
+# 公共 school_id → 集团映射（data/registry/group/scripts/build_school_groups.py 构建的纯 id 产物；
 # 与详情页 groupOfSchool 共用同一份，运行时不再做名称匹配，避免口径分叉）
-SCHOOL_GROUPS = load('registry/school_groups.json')['schoolGroups']
+SCHOOL_GROUPS = load('registry/group/dist/school_groups.json')['schoolGroups']
 
 
 def group_of(school_id=None, school_ids=None):
@@ -91,7 +91,7 @@ autonomy = load('linkage/raw/autonomy/autonomy_qualify_2026.json')
 levels = load('high/level/src/levels.json')
 district_quota = load('linkage/district_quota.json')
 # 民办身份唯一真源：registry/entities.json（nature='民办'；公办不写字段）
-MINBAN_IDS = {e['school_id'] for e in load('registry/entities.json').get('entities', []) if e.get('nature') == '民办'}
+MINBAN_IDS = {e['school_id'] for e in load('registry/entity/dist/entities.json').get('entities', []) if e.get('nature') == '民办'}
 
 # ---------------- 自招按来源初中计数 ----------------
 aut_cnt = Counter(a['school_junior'] for a in autonomy)

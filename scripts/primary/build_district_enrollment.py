@@ -95,7 +95,7 @@ def strip_prefix(n):
 
 # 统一匹配库：norm 本体（NFKC/繁简/去广州市/删括号/去空白）收敛至 school_match.normName；
 # 区名/镇/小学校等输入清洗保留在本地（各区官方表特有前缀）
-sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+sys.path.insert(0, os.path.join(ROOT, "data/registry/entity/scripts"))
 from school_match import normName as _normName, fold_unicode as _fold
 
 

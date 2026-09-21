@@ -3,7 +3,7 @@
 """政府文件底表解析器：官方文件 → 集团/成员清单 → 对照 partial 数据源。
 
 原则（用户口径）：以政府文件为底表（不逐个找），脚本解析官方文件形成数据源，
-diff 出缺失集团/缺失成员，宁缺不兜底。产物落 data/registry/_raw/government/。
+diff 出缺失集团/缺失成员，宁缺不兜底。产物落 data/registry/group/raw/government/。
 
 当前支持：
   - yuexiu：越秀区「669」学区化集团化办学新格局一览表（2026-06-26 官方发布）
@@ -11,7 +11,7 @@ diff 出缺失集团/缺失成员，宁缺不兜底。产物落 data/registry/_r
     为 广州市越秀区/广州市增城区/英德市/广州市。
 
 用法：
-  python3 scripts/registry/parse_government_groups.py yuexiu [--update-partial]
+  python3 data/registry/group/scripts/parse_government_groups.py yuexiu [--update-partial]
     --update-partial：把官方成员中缺失的写回 partial（带 school_id 反查，缺实体则跳过并列入报告）
 """
 import argparse
@@ -20,10 +20,10 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-RAW = ROOT / "data/registry/_raw/government"
-PARTIAL = ROOT / "data/registry/_partial_{}_groups.json"
-ENTITIES = ROOT / "data/registry/entities.json"
+ROOT = Path(__file__).resolve().parents[4]
+RAW = ROOT / "data/registry/group/raw/government"
+PARTIAL = ROOT / "data/registry/group/parsed/_partial_{}_groups.json"
+ENTITIES = ROOT / "data/registry/entity/dist/entities.json"
 
 SOURCES = {
     "yuexiu": {
@@ -120,7 +120,7 @@ def main():
         raise NotImplementedError(args.district)
 
     ents = load_entities()
-    partial_path = ROOT / f"data/registry/_partial_{args.district}_groups.json"
+    partial_path = ROOT / f"data/registry/group/parsed/_partial_{args.district}_groups.json"
     partial = json.load(open(partial_path))
 
     # 覆盖报告

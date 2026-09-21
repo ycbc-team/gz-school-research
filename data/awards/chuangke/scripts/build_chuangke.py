@@ -23,9 +23,9 @@ ROOT = Path(__file__).resolve().parents[4]
 RAW = Path(__file__).resolve().parent.parent / "raw"
 PARSED = Path(__file__).resolve().parent.parent / "parsed"
 DIST = Path(__file__).resolve().parent.parent / "dist"
-ENTITIES = ROOT / "data/registry/entities.json"
+ENTITIES = ROOT / "data/registry/entity/dist/entities.json"
 
-sys.path.insert(0, str(ROOT / "scripts" / "registry"))
+sys.path.insert(0, str(ROOT / "data" / "registry" / "entity" / "scripts"))
 from school_match import SchoolMatcher
 
 DISTRICT_ADCODE = {"荔湾": "440103", "越秀": "440104", "海珠": "440105", "天河": "440106",

@@ -7,7 +7,7 @@ BASE = "/Users/bytedance/Developer/gz_school_research"
 TODAY = "2026-09-14"
 
 # 统一匹配库：brandNorm=品牌/集团名容错（原本文件 norm 定义已收敛至此，不再本地重复）
-sys.path.insert(0, os.path.join(BASE, "scripts/registry"))
+sys.path.insert(0, os.path.join(BASE, "data/registry/entity/scripts"))
 from school_match import brandNorm as norm
 from school_match import coreCampusName as core_name
 from school_match import matchNorm as match_norm
@@ -17,23 +17,23 @@ def load_json(path):
     return json.load(open(os.path.join(BASE, path)))
 
 # 实体表：法人推导（core 名/成员名 → 同法人全部校区实体）的权威来源
-_ENTITIES = load_json("data/registry/entities.json")["entities"]
+_ENTITIES = load_json("data/registry/entity/dist/entities.json")["entities"]
 
 # 法人推导统一实现：school_match.legalCampuses（括号式校区剥括号全等 + 无括号后缀式
 # 「<法人><校区名>校区」前缀归并，含 aliases 法人通称），此处不再本地实现以免漂移。
 # 1. 加载7区partial
 partials = {}
 district_files = {
-    "越秀": "data/registry/_partial_yuexiu_groups.json",
-    "海珠": "data/registry/_partial_haizhu_groups.json",
-    "天河": "data/registry/_partial_tianhe_groups.json",
-    "荔湾": "data/registry/_partial_liwan_groups.json",
-    "黄埔": "data/registry/_partial_huangpu_groups.json",
-    "白云": "data/registry/_partial_baiyun_groups.json",
-    "番禺": "data/registry/_partial_panyu_groups.json",
+    "越秀": "data/registry/group/parsed/_partial_yuexiu_groups.json",
+    "海珠": "data/registry/group/parsed/_partial_haizhu_groups.json",
+    "天河": "data/registry/group/parsed/_partial_tianhe_groups.json",
+    "荔湾": "data/registry/group/parsed/_partial_liwan_groups.json",
+    "黄埔": "data/registry/group/parsed/_partial_huangpu_groups.json",
+    "白云": "data/registry/group/parsed/_partial_baiyun_groups.json",
+    "番禺": "data/registry/group/parsed/_partial_panyu_groups.json",
 }
 all_groups = []
-anchors = load_json("scripts/groups_anchors.json") if os.path.exists(os.path.join(BASE, "scripts/groups_anchors.json")) else {"members": {}, "core_poi": {}}
+anchors = load_json("data/registry/group/src/groups_anchors.json") if os.path.exists(os.path.join(BASE, "data/registry/group/src/groups_anchors.json")) else {"members": {}, "core_poi": {}}
 member_anchors = anchors.get("members", {})
 core_anchors = anchors.get("core_poi", {})
 for dist, fpath in district_files.items():
@@ -87,7 +87,7 @@ def apply_member_anchors(g):
 print(f"7区partial合计: {len(all_groups)}集团")
 
 # 2. 加载2026表，合并7区示范高中集团的初中成员
-d2026 = load_json("data/registry/education_groups_2026.json")
+d2026 = load_json("data/registry/group/parsed/education_groups_2026.json")
 far_keywords = ["花都","南沙","增城","从化"]
 seven_districts = ["荔湾","越秀","海珠","天河","白云","黄埔","番禺"]
 
@@ -181,7 +181,7 @@ for g2026 in d2026["groups"]:
 print(f"2026表合并: 补充{merged_2026}个集团的初中成员, 新建{new_from_2026}个集团")
 
 # 3. 加载brand_groups，合并8个重点品牌
-dbrand = load_json("data/registry/brand_groups.json")
+dbrand = load_json("data/registry/group/src/brand_groups.json")
 brand_added = 0
 for b in dbrand.get("brands", []):
     brand_name = b["brand"]
@@ -269,7 +269,7 @@ _matcher = SchoolMatcher.load(
     poi_paths=[(os.path.join(BASE, "data/poi/dist/primary_poi.json"), "小学"),
                (os.path.join(BASE, "data/poi/dist/middle_poi.json"), "初中"),
                (os.path.join(BASE, "data/poi/dist/high_poi.json"), "高中")],
-    entities_path=os.path.join(BASE, "data/registry/entities.json"))
+    entities_path=os.path.join(BASE, "data/registry/entity/dist/entities.json"))
 
 pending = []  # (group, member)
 for g in all_groups:
@@ -403,7 +403,7 @@ for _g in all_groups:
     _g["members"] = _kept
 print(f"核心校成员去重: 移除{core_dup_removed}行 core 兼 member")
 
-OUT_PATH = sys.argv[1] if len(sys.argv) > 1 else os.path.join(BASE, "data/registry/education_groups.json")
+OUT_PATH = sys.argv[1] if len(sys.argv) > 1 else os.path.join(BASE, "data/registry/group/dist/education_groups.json")
 # education 源不带静态 stage：学段统一按校区/学部实体联表查询（2026-09-17 用户口径，
 # 静态 stage 曾致十六中水荫校区误标初中；成员校/核心校学段以实体表为准，查不到则空）
 for _g in out.get("groups", []):

@@ -5,7 +5,7 @@
  * 三表职责（无冗余）：
  *   POI 点位表 data/poi/dist/<stage>_poi.json
  *     { name(地图标签), lng, lat, adcode, school_id }   —— 点位固有属性：坐标、所在区
- *   Entity 实体表 data/registry/entities.json
+ *   Entity 实体表 data/registry/entity/dist/entities.json
  *     { school_id, name(标准名), stage, aliases[] }      —— 身份：标准名 + 全部叫法
  *   Fact 事实表 data/primary/xiaoshengchu_2026.json
  *     { school_id, group, feed_school_ids[], direct_feed_school_id, source_url, source_note, data_gaps }
@@ -15,13 +15,13 @@
  *   district 不在 entity 存（由 POI.adcode join 得到）；fact 不存 official_name/district（官方原文在 source_note）。
  *
  * 别名（全等，非模糊）：实体 aliases 收齐该 POI 在官方文件/口碑表中的所有叫法。
- * 用法：node scripts/registry/build_entities.mjs   （幂等，可重复跑）
+ * 用法：node data/registry/entity/scripts/build_entities.mjs   （幂等，可重复跑）
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 
-const ROOT = path.resolve(import.meta.dirname, '..', '..');
+const ROOT = path.resolve(import.meta.dirname, '..', '..', '..', '..');
 // --out-dir <dir>：产物重定向到指定目录（check_groups_drift 产物一致性重跑用，不污染工作区）
 let OUT_ROOT = ROOT;
 const _arg = process.argv.indexOf('--out-dir');
@@ -781,12 +781,12 @@ for (const [sid, cfg] of Object.entries(DERIVE_MIDDLE_FROM_PRIMARY)) {
 }
 
 // ---- 0) 民办学校实体名单（办学性质唯一真源）----
-// 民办身份统一由 data/registry/minban_schools.json（官方文件汇总的民办名单表：各区教育局
+// 民办身份统一由 data/registry/private/dist/minban_schools.json（官方文件汇总的民办名单表：各区教育局
 // 年检结论/招生计划/积分入学计划等，source_urls 可追溯）生产到 entities.json（nature='民办'）；
 // 公办为默认性质不写字段。不在表中的实体若有历史 nature 残留会被清除（表驱动，
 // 防"手写 id 列表"式误标扩散——如 2026-09-18 修复的剑桥郡小学被误标民办）。
 const MINBAN_IDS = new Set(
-  read('data/registry/minban_schools.json').schools.map((s) => s.school_id),
+  read('data/registry/private/dist/minban_schools.json').schools.map((s) => s.school_id),
 );
 
 // ---- 2) 把 tier1 / sites 的别名挂到对应 POI 实体 ----
@@ -821,7 +821,7 @@ function attachAlias(stage, poiName, aliasName, force = false) {
 // 挂上「第十六中学本部」别名，属网传数据错误；本部限定名改由 OFFICIAL_HIGH_ALIAS/
 // OFFICIAL_MIDDLE_ALIAS 官方录取表桥接，多校区承载走锚点表/显式映射）
 // sites.json：31 所高中，sites[].poi_name 命中的，挂 sites 别名
-const sites = read('data/registry/sites.json');
+const sites = read('data/registry/entity/dist/sites.json');
 for (const ent of sites.schools || []) {
   const stage = (ent.stages && ent.stages[0]) || 'high';
   const common = normName(ent.name);
@@ -920,9 +920,9 @@ for (const e of entities) {
 }
 for (const e of entities) e.aliases = [...e.aliases].sort((a, b) => b.length - a.length);
 entities.sort((a, b) => (a.stage + a.name).localeCompare(a.stage + a.name, 'zh'));
-write('data/registry/entities.json', {
+write('data/registry/entity/dist/entities.json', {
   year: 2026,
-  note: '学校实体表（由build_entities.mjs生产）。一个 POI = 一或多个实体，一个实体 = 唯一学段 + 唯一校区；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由 data/registry/minban_schools.json（官方文件汇总表）生产。',
+  note: '学校实体表（由build_entities.mjs生产）。一个 POI = 一或多个实体，一个实体 = 唯一学段 + 唯一校区；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由 data/registry/private/dist/minban_schools.json（官方文件汇总表）生产。',
   entities,
 });
 

@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "note": "学校实体表（由build_entities.mjs生产）。一个 POI = 一或多个实体，一个实体 = 唯一学段 + 唯一校区；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由 data/registry/minban_schools.json（官方文件汇总表）生产。",
+  "note": "学校实体表（由build_entities.mjs生产）。一个 POI = 一或多个实体，一个实体 = 唯一学段 + 唯一校区；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由 data/registry/private/dist/minban_schools.json（官方文件汇总表）生产。",
   "entities": [
     {
       "school_id": "gz-440105-9aac697e",

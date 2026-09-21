@@ -36,7 +36,7 @@ SKIP = {  # 无需补 POI：官方撤并/2026 新校（暂定名）
 }
 
 # 统一匹配库：norm 本体收敛至 school_match.normName；番禺采集输入清洗（去区名/镇/小学校）保留在本地
-sys.path.insert(0, os.path.join(ROOT, "scripts/registry"))
+sys.path.insert(0, os.path.join(ROOT, "data/registry/entity/scripts"))
 from school_match import normName as _normName, fold_unicode as _fold
 
 
