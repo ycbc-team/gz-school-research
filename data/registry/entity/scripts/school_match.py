@@ -21,9 +21,7 @@
 
 用法：
     from school_match import SchoolMatcher, normName, looseNorm, matchNorm
-    m = SchoolMatcher()
-    m.add_poi(name, adcode, stage, school_id)
-    m.add_entities([{"name":..., "stage":..., "aliases":[...]}, ...])
+    m = SchoolMatcher.load()  # 只依赖实体表（data/registry/entity/dist/entities.json），无需传 POI 表
     r = m.resolve("广州市白云区星悦实验学校(初中部)", stage="初中", adcode="440111")
 """
 import json, os, re, sys, unicodedata
@@ -193,7 +191,7 @@ def matchNorm(name):
 
 
 class SchoolMatcher:
-    """统一校名匹配服务：索引 = 实体表（normName 全等 + matchNorm 变体 + alias 去括号 key）+ POI 表（带 stage/adcode）。
+    """统一校名匹配服务：索引只依赖实体表（name/aliases 已全覆盖 POI 名，school_id 承载 adcode）。
 
     收敛顺序（与 match_poi.match_school 一致）：
       同区唯一 → 同区同阶段唯一 → 主 POI 唯一 → 全局唯一（显式跨区放行）→ 缺失。
@@ -211,25 +209,21 @@ class SchoolMatcher:
     # 如「广州市第七中学(桂花校区)」POI 白云、政策越秀——官方越秀名单含桂花时须命中。
     POLICY_DISTRICT = None
 
-    # 显式锚定白名单（normName(name) → school_id 列表）：实体合并后旧 POI 名归并、
-    # 跨区同名无法由通用规则收敛等场景，全部业务共用（原 xs_resolver RESOLVE_OVERRIDE 迁入）。
+    # 显式锚定白名单（normName(name) → school_id 列表）：跨区同名无法由通用规则收敛等场景，
+    # 全部业务共用（原 xs_resolver RESOLVE_OVERRIDE 迁入）。POI 层已剔除的点位名
+    # （如「景泰小学柯子岭校区43号A座」）不得残留为匹配规则。
     RESOLVE_OVERRIDE = {
-        '景泰小学柯子岭校区43号A座': ['gz-440111-9e34191e'],
         '龙溪小学': ['gz-440111-fd1c0f9d'],  # 跨区同名：白云民办「龙溪小学」≠ 荔湾公办「西关实验小学龙溪学校」
     }
 
     def __init__(self):
-        self.poi_all = []            # [{"name","norm","adcode","stage","school_id"}]
-        self.alias_map = {}          # matchNorm alias -> [entity]
+        self.all_entities = []       # 实体全量（substring 变体匹配遍历用）
+        self.alias_map = {}          # normName/matchNorm(name/alias) -> [entity]
         self.exact_map = {}          # normName(name/alias) -> [entity]（严格全等）
         self.loose_map = {}          # looseNorm(name/alias) -> [entity]
         self.by_id = {}              # school_id -> entity rec（显式锚定/回连用）
 
     # ---------- 索引构建 ----------
-    def add_poi(self, name, adcode="", stage="", school_id=""):
-        self.poi_all.append({"name": name, "norm": matchNorm(name), "adcode": adcode,
-                             "stage": stage, "school_id": school_id})
-
     def add_entities(self, entities):
         """entities: [{name, stage, aliases?}]。一个别名可能对应多个实体（共享别名如「广铁一中铁英学校」），
         保留全部实体，由 resolve 结合 preferred_adcode 收敛，避免"后写覆盖"式错配。"""
@@ -237,6 +231,7 @@ class SchoolMatcher:
             rec = {"name": e["name"], "stage": e.get("stage", ""), "aliases": [], "school_id": e.get("school_id", "")}
             if rec["school_id"]:
                 self.by_id[rec["school_id"]] = rec
+            self.all_entities.append(rec)
             for k in [e["name"]] + list(e.get("aliases", []) or []):
                 # 严格全等索引（normName，与 build_entities 一致：全删括号）
                 self.exact_map.setdefault(normName(k), []).append(rec)
@@ -392,10 +387,18 @@ class SchoolMatcher:
         def bare(s):
             return re.sub(r"[\(（][^()（）]*[\)）]", "", s)
 
+        _STAGE_WANT = {"小学": "primary", "初中": "middle", "高中": "high"}  # 中文 → 实体英文
+        _STAGE_CN = {"primary": "小学", "middle": "初中", "high": "高中"}  # 实体英文 → 中文输出
+
         def _mk(p, poi_match):
             district = SEVEN_DISTRICTS.get(p["adcode"], FAR_DISTRICTS.get(p["adcode"], "未知"))
-            return {"poi_match": poi_match, "matched_name": p["name"], "stage": p["stage"],
+            return {"poi_match": poi_match, "matched_name": p["name"],
+                    "stage": _STAGE_CN.get(p["stage"], p["stage"]),
                     "district": district, "school_id": p["school_id"]}
+
+        def _ent(e):
+            """实体 → _pick 候选（补 adcode；school_id 前缀承载物理区）。"""
+            return {**e, "adcode": self._adcode_of(e)}
 
         def _pick(cands, poi_match, district_guard=True):
             """收敛：先按 school_id 去重（同址多学部 POI 在初中/高中库各一份，视为同一候选），
@@ -405,18 +408,19 @@ class SchoolMatcher:
             跨区也成立（如白云培英集团核心校「广州市培英中学」本部在荔湾鹤洞校区）；模糊防错配只约束 substring 吸附。"""
             if not cands:
                 return None
+            _want = _STAGE_WANT.get(preferred_stage) if preferred_stage else None
             seen = {}
             for c in cands:
                 if c["school_id"] not in seen:
                     seen[c["school_id"]] = c
-                elif preferred_stage and c["stage"] == preferred_stage and seen[c["school_id"]]["stage"] != preferred_stage:
-                    # 同 id 多学部 POI（九年制/完中在小学/初中/高中库各一份）：保留与目标学段一致的副本
+                elif _want and c["stage"] == _want and seen[c["school_id"]]["stage"] != _want:
+                    # 同 id 多学段实体（九年制/完中 primary/middle/high 各一条）：保留与目标学段一致的副本
                     seen[c["school_id"]] = c
             cands = list(seen.values())
 
             def by_stage(cs):
-                if preferred_stage:
-                    st = [c for c in cs if c["stage"] == preferred_stage]
+                if _want:
+                    st = [c for c in cs if c["stage"] == _want]
                     if len(st) == 1:
                         return st[0]
                 return None
@@ -470,10 +474,14 @@ class SchoolMatcher:
             return None
 
         # 0. 远郊成员拦截：在 substring 吸附之前（exact/alias 命中之后），防「新塘镇第三中学」→「广州市第三中学」
-        # 1. exact norm match in POI（输入无括号写法时去括号比对，
-        #   如「万松园小学云桂校区」→ POI「万松园小学(云桂校区)」；去括号后仍要求全等，
-        #   不引入 substring 吸附——「万松园小学」不会匹配「万松园小学(云桂校区)」）
-        r = _pick([p for p in self.poi_all if p["norm"] == n or (n and p["norm"].replace("(", "").replace(")", "") == n.replace("(", "").replace(")", ""))], "精确命中")
+        # 1. exact 命中：实体表 name/aliases 的 normName 全等（全删括号+去广州市）。
+        #   「万松园小学云桂校区」→ 实体「万松园小学(云桂校区)」；全等要求，不引入 substring 吸附——
+        #   「万松园小学」不会匹配「万松园小学(云桂校区)」
+        #   「原始名全等」优先：POI 主校点位名 == 实体 name 时，不被校区/分部的共享别名抢占
+        #   （「五一小学」→ 主校 3bc362f9，而非红英校区别名「五一小学」）
+        _exact_ents = self.alias_map.get(normName(name), [])
+        _named = [e for e in _exact_ents if e.get("name") == name]
+        r = _pick([_ent(e) for e in (_named or _exact_ents)], "精确命中")
         # stage 约束：preferred_stage 已指定时，exact 命中但学段不符（如「广州市星执学校」
         # 初中/高中 POI 精确命中，但本次是小学记录）→ 不返回，继续 alias 分支找目标学段实体
         # （如星执学校小学部=执信附小 883c58c4），避免跨学段错挂。
@@ -504,26 +512,17 @@ class SchoolMatcher:
                 _same_stage = [e for e in ents if e["stage"] == _want]
                 if _same_stage:
                     ents = _same_stage
-            # 2a. 先精确匹配实体完整名（含校区括号，避免多校区 norm 歧义）；身份映射显式确认，跨区不拦截
-            ent_names = {e["name"] for e in ents}
-            c2a = [p for p in self.poi_all if p["name"] in ent_names]
+            # 2a. 别名命中的实体即候选（实体表唯一真源，name 已含 POI 名）；身份映射显式确认，跨区不拦截
+            c2a = [_ent(e) for e in ents]
             r = _pick(c2a, "别名命中", district_guard=False)
             if r:
                 return r
             if len(c2a) > 1:
                 alias_multiple = True
-            # 2b. 再按 norm 匹配
-            ent_norms = {matchNorm(e["name"]) for e in ents}
-            c2b = [p for p in self.poi_all if p["norm"] in ent_norms]
-            r = _pick(c2b, "别名命中", district_guard=False)
-            if r:
-                return r
-            if len(c2b) > 1:
-                alias_multiple = True
-            # 2b5. 实体主校 POI 缺失时，用实体核心名前缀在同区找分校区 POI（如「华阳小学」→「华阳小学(华成校区)」）。
+            # 2b5. 实体主校无同名校区分校区时，用实体核心名前缀在同区找分校区实体（如「华阳小学」→「华阳小学(华成校区)」）。
             # 仅限实体名不带校区括号的主校/本部：带校区括号的实体已指明确切校区（如十三中文德校区 0a17f1eb、
-            # 四十一中东校区 b210556b），POI 缺失即该校区无点位，剥括号前缀反而会吸附同核心名的其它校区
-            # （文德→禺山 9b88f912、41中→40a80ebb，均无榜单数据），应走 2c 按实体 school_id 返回。
+            # 四十一中东校区 b210556b），剥括号前缀反而会吸附同核心名的其它校区
+            # （文德→禺山 9b88f912、41中→40a80ebb），应走 2c 按实体 school_id 返回。
             _campus_re = re.compile(r"[\(（][^()（）]*校区[\)）]")
             for e in ents:
                 if _campus_re.search(e["name"]):
@@ -531,14 +530,16 @@ class SchoolMatcher:
                 base = bare(matchNorm(e["name"]))
                 if len(base) < 4:
                     continue
-                cands = [p for p in self.poi_all if p["norm"].startswith(base) and (not preferred_adcode or p["adcode"] == preferred_adcode)]
+                cands = [x for x in self.all_entities
+                         if matchNorm(x["name"]).startswith(base)
+                         and (not preferred_adcode or self._adcode_of(x) == preferred_adcode)]
                 for _kw in ("初中部", "小学部", "高中部"):
                     if _kw in matchNorm(e["name"]) and len(cands) > 1:
-                        suff = [c for c in cands if _kw in c["norm"]]
+                        suff = [c for c in cands if _kw in matchNorm(c["name"])]
                         if suff:
                             cands = suff
                             break
-                r = _pick(cands, "别名命中")
+                r = _pick([_ent(c) for c in cands], "别名命中")
                 if r:
                     return r
             # 2c. 实体存在但 POI 无坐标：未给区上下文时保留原兜底；给了区上下文且实体唯一（含 2a0
@@ -568,7 +569,10 @@ class SchoolMatcher:
             _NON_SCHOOL = ("充电站", "停车场", "广场", "大厦", "中心", "公园", "小区", "花园", "银行", "医院", "超市", "餐厅", "酒店", "公司", "商厦")
             a_cands, b_cands = [], []  # A支=成员核心在POI（专属高）；B支=POI核心在成员（按位置收敛）
             bare_cands = []            # 去括号核心精确包含（学部括号等场景），单独优先收敛
-            for p in self.poi_all:
+            for _x in self.all_entities:
+                # 实体表即候选源（name 已含 POI 名，school_id 承载 adcode/stage）；构造兼容候选
+                p = {"name": _x["name"], "norm": matchNorm(_x["name"]), "adcode": self._adcode_of(_x),
+                     "stage": _x["stage"], "school_id": _x["school_id"]}
                 if not p["norm"]:
                     continue
                 if any(bare(p["name"]).endswith(k) for k in _NON_SCHOOL):
@@ -644,17 +648,13 @@ class SchoolMatcher:
 
     # ---------- 便捷工厂 ----------
     @classmethod
-    def load(cls, poi_paths=None, entities_path=None):
-        """从数据文件构建：poi_paths=[(path, stage)]，entities_path=entities.json 路径。"""
+    def load(cls, entities_path=None):
+        """从实体表构建（唯一真源：name/aliases 已全覆盖 POI 名，school_id 承载 adcode，
+        无需再传 POI 表）。entities_path 缺省用默认路径 data/registry/entity/dist/entities.json。"""
         m = cls()
-        if poi_paths:
-            for path, stage in poi_paths:
-                d = json.load(open(path, encoding="utf-8"))
-                for s in d.get("schools", []):
-                    m.add_poi(s["name"], s.get("adcode", ""), stage, s.get("school_id", ""))
-        if entities_path:
-            d = json.load(open(entities_path, encoding="utf-8"))
-            m.add_entities(d.get("entities", []))
+        path = entities_path or os.path.join(BASE, "data/registry/entity/dist/entities.json")
+        d = json.load(open(path, encoding="utf-8"))
+        m.add_entities(d.get("entities", []))
         return m
 
 
@@ -667,11 +667,7 @@ if __name__ == "__main__":
         adcode = sys.argv[sys.argv.index("--adcode") + 1]
     if "--stage" in sys.argv:
         stage = sys.argv[sys.argv.index("--stage") + 1]
-    matcher = SchoolMatcher.load(
-        poi_paths=[(os.path.join(BASE, "data/poi/dist/primary_poi.json"), "小学"),
-                   (os.path.join(BASE, "data/poi/dist/middle_poi.json"), "初中"),
-                   (os.path.join(BASE, "data/poi/dist/high_poi.json"), "高中")],
-        entities_path=os.path.join(BASE, "data/registry/entity/dist/entities.json"))
+    matcher = SchoolMatcher.load()
     r = matcher.resolve(name, preferred_adcode=adcode, preferred_stage=stage)
     print(json.dumps({"name": name, **r} if r else {"name": name, "result": None}, ensure_ascii=False, indent=2))
 

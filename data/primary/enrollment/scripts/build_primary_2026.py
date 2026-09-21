@@ -44,11 +44,7 @@ SOURCE_URLS = {
 
 
 def load_matcher():
-    return SchoolMatcher.load(
-        poi_paths=[(os.path.join(ROOT, "data", "poi", "dist", "primary_poi.json"), "小学"),
-                   (os.path.join(ROOT, "data", "poi", "dist", "middle_poi.json"), "初中"),
-                   (os.path.join(ROOT, "data", "poi", "dist", "high_poi.json"), "高中")],
-        entities_path=os.path.join(ROOT, "data", "registry", "entity", "dist", "entities.json"))
+    return SchoolMatcher.load()
 
 
 def _poi_for(matcher, school, adcode, poi_pool, r):

@@ -235,11 +235,7 @@ def main():
     # 统一入口：data/registry/entity/scripts/school_match.py（项目唯一匹配库，含行政区/学段收敛）
     sys.path.insert(0, os.path.join(ROOT, "data/registry/entity/scripts"))
     from school_match import SchoolMatcher
-    _matcher = SchoolMatcher.load(
-        poi_paths=[(os.path.join(ROOT, p), st) for p, st in
-                   zip(POI_PATHS, ("小学", "初中", "高中"))],
-        entities_path=os.path.join(ROOT, "data/registry/entity/dist/entities.json"))
-    _poi_all = _matcher.poi_all
+    _matcher = SchoolMatcher.load()
     for lib, stage in (("data/poi/dist/primary_poi.json", "小学"), ("data/poi/dist/middle_poi.json", "初中"), ("data/poi/dist/high_poi.json", "高中")):
         d = json.load(open(os.path.join(ROOT, lib)))
         for s in d.get("schools", []):
@@ -260,8 +256,16 @@ def main():
             if sid:
                 check(sid in poi_ids, f"[8/{d['district']}] 招生记录 school_id 悬空: {r['school']} -> {sid}")
                 if sid not in CROSS_DISTRICT_OK:
-                    po = _poi_all
-                    adc = next((p["adcode"] for p in po if p["school_id"] == sid), None)
+                    # POI 真实 adcode（石龙中学等 school_id 前缀 440100 市属、POI 在白云 440111，
+                    # 以 POI 表为准——school_id 前缀 ≠ POI adcode 的个别历史数据不误报）
+                    _poi_ad = None
+                    for _lib in ("data/poi/dist/primary_poi.json", "data/poi/dist/middle_poi.json", "data/poi/dist/high_poi.json"):
+                        _d = json.load(open(os.path.join(ROOT, _lib)))
+                        _hit = next((p["adcode"] for p in _d.get("schools", []) if p.get("school_id") == sid), None)
+                        if _hit:
+                            _poi_ad = _hit
+                            break
+                    adc = _poi_ad
                     expect_ad = {"番禺区": "440113", "越秀区": "440104", "海珠区": "440105",
                                  "荔湾区": "440103", "天河区": "440106", "白云区": "440111", "黄埔区": "440112"}[d["district"]]
                     check(adc == expect_ad, f"[8/{d['district']}] 招生记录跨区挂错: {r['school']} -> {sid} (POI 区 {adc} ≠ {expect_ad})")

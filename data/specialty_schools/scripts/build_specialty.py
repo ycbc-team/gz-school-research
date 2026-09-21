@@ -66,14 +66,7 @@ def build_stage_index():
 
 
 def main():
-    matcher = SchoolMatcher.load(
-        poi_paths=[
-            (ROOT / "data/poi/dist/primary_poi.json", "小学"),
-            (ROOT / "data/poi/dist/middle_poi.json", "初中"),
-            (ROOT / "data/poi/dist/high_poi.json", "高中"),
-        ],
-        entities_path=ENTITIES,
-    )
+    matcher = SchoolMatcher.load()
     sid_stage = build_stage_index()
 
     pool = []            # [{category,level,batch,year,project,issuer,url}]

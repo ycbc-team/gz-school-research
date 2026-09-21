@@ -36,11 +36,7 @@ def district_of_group(g):
 
 class XsResolver:
     def __init__(self):
-        self.matcher = SchoolMatcher.load(
-            poi_paths=[(os.path.join(ROOT, 'data/poi/dist/primary_poi.json'), '小学'),
-                       (os.path.join(ROOT, 'data/poi/dist/middle_poi.json'), '初中'),
-                       (os.path.join(ROOT, 'data/poi/dist/high_poi.json'), '高中')],
-            entities_path=os.path.join(ROOT, 'data/registry/entity/dist/entities.json'))
+        self.matcher = SchoolMatcher.load()
 
     def resolve_one(self, name, district, stage):
         """小学/直升记录定位：SchoolMatcher.resolve 单校区收敛（同区唯一，宁缺不跨区错配）。"""

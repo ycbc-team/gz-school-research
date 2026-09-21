@@ -118,14 +118,7 @@ def parse_file(xls_path, stage_cn, ents, matcher):
 
 def main():
     ents = json.load(open(ENTITIES))["entities"]
-    matcher = SchoolMatcher.load(
-        poi_paths=[
-            (ROOT / "data/poi/dist/primary_poi.json", "小学"),
-            (ROOT / "data/poi/dist/middle_poi.json", "初中"),
-            (ROOT / "data/poi/dist/high_poi.json", "高中"),
-        ],
-        entities_path=ENTITIES,
-    )
+    matcher = SchoolMatcher.load()
     all_schools = {}
     for xls in sorted(RAW.glob("创新大赛_*组获奖名单_*.xls")):
         m = re.match(r"创新大赛_(小学|初中|高中)(金点子|金种子|金苗子)组获奖名单_(\d{4})", xls.name)

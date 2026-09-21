@@ -25,11 +25,7 @@ OUT = os.path.join(ROOT, "data", "primary", "enrollments")
 sys.path.insert(0, os.path.join(ROOT, "data/registry/entity/scripts"))
 from school_match import SchoolMatcher as _SchoolMatcher
 
-_MATCHER = _SchoolMatcher.load(
-    poi_paths=[(os.path.join(ROOT, "data/poi/dist/primary_poi.json"), "小学"),
-               (os.path.join(ROOT, "data/poi/dist/middle_poi.json"), "初中"),
-               (os.path.join(ROOT, "data/poi/dist/high_poi.json"), "高中")],
-    entities_path=os.path.join(ROOT, "data/registry/entity/dist/entities.json"))
+_MATCHER = _SchoolMatcher.load()
 
 def match_school_id(name, adcode=None):
     """官方名单校名 → POI school_id；未命中返回 None。统一走 school_match 管道（实体表别名优先）。
