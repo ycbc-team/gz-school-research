@@ -2872,7 +2872,9 @@
    "stage": "middle"
   },
   "gz-440106-0a2c7178#primary": {
-   "aliases": [],
+   "aliases": [
+    "天河区培智学校"
+   ],
    "name": "培智学校",
    "stage": "primary"
   },
@@ -3049,7 +3051,9 @@
    "stage": "primary"
   },
   "gz-440106-24ff78f9#primary": {
-   "aliases": [],
+   "aliases": [
+    "天河区东风学校"
+   ],
    "name": "东风学校",
    "stage": "primary"
   },
@@ -8411,7 +8415,9 @@
    "stage": "primary"
   },
   "gz-440113-8ef59a4c#middle": {
-   "aliases": [],
+   "aliases": [
+    "番禺区祈福新邨学校"
+   ],
    "name": "祈福新邨学校",
    "stage": "middle"
   },

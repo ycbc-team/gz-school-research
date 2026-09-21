@@ -1309,7 +1309,9 @@
       "school_id": "gz-440106-0a2c7178",
       "name": "培智学校",
       "stage": "primary",
-      "aliases": [],
+      "aliases": [
+        "天河区培智学校"
+      ],
       "nature": "民办"
     },
     {
@@ -6544,7 +6546,9 @@
       "school_id": "gz-440106-24ff78f9",
       "name": "东风学校",
       "stage": "primary",
-      "aliases": [],
+      "aliases": [
+        "天河区东风学校"
+      ],
       "nature": "民办"
     },
     {
@@ -9732,7 +9736,9 @@
       "school_id": "gz-440113-8ef59a4c",
       "name": "祈福新邨学校",
       "stage": "middle",
-      "aliases": [],
+      "aliases": [
+        "番禺区祈福新邨学校"
+      ],
       "nature": "民办"
     },
     {
