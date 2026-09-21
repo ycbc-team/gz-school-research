@@ -7,13 +7,12 @@
 
 | 层 | 内容 |
 | --- | --- |
-| `raw/` | `amap_query_input.json` / `amap_query_results.json`（高德 Web 服务 API 点位查询的原始输入与返回，一次性补点工作留痕） |
 | `scripts/` | 见下方「构建与脚本」 |
 | `dist/` | `entities.json`（实体表，**禁手改**）、`sites.json`（高中/完中站点表，31 所） |
 
 > 归属说明：
 > - 民办采集的待补实体/待核实清单（`pending_items.json`）与提取工具（`extract_pending.py`）归位 `private/`（民办业务，见 `data/registry/private/README.md`）。
-> - POI 补点脚本 `amap_batch_query.py` / `apply_poi_patch.py` 在 `data/poi/scripts/`（POI 采集层）。
+> - POI 采集/补点全部归位 `data/poi/`：查询输入输出 `raw/amap_query_*.json`、脚本 `amap_batch_query.py` / `apply_poi_patch.py` 在 `scripts/`。
 > - 历史 `src/source_name_mappings.json` 已退役（2026-09-21）：71 条官方名→id 桥接由 school_match norm 自动命中，3 条裸名歧义下沉 `linkage/build_special_matrix.py` 的 `SPECIAL_NAME_FIX` 显式归位。
 
 ## 构建与脚本

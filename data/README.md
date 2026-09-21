@@ -16,7 +16,7 @@
 | `primary/` | 小学 | `tier1_schools_all.json`（第一梯队核验）、`enrollments/`（2026 招生数据）；点位见 `poi/` |
 | `middle/` | 初中 | `tier1_schools_all.json`（初中第一梯队核验）；点位见 `poi/` |
 | `high/` | 高中 | `level/src/levels.json`（学校清单/分类/指标）；`cutoff_score/`（录取分：`dist/` 历年产物 / `raw/` 官方源页面 / `src/` 手工源 / `scripts/` 解析脚本）；点位见 `poi/` |
-| `poi/` | 跨学段 | `dist/primary_poi.json`（931 所）/ `dist/middle_poi.json`（475 所）/ `dist/high_poi.json`（清洗后 126 所）；采集脚本在 `poi/scripts/` |
+| `poi/` | 跨学段 | `dist/primary_poi.json`（931 所）/ `dist/middle_poi.json`（475 所）/ `dist/high_poi.json`（清洗后 126 所）；采集/补点脚本在 `poi/scripts/`，查询留痕 `poi/raw/amap_query_*.json` |
 | `registry/` | 跨学段 | 三个业务子目录：`entity/`（实体表，全链 school_id 维度枢纽）、`group/`（教育集团/品牌关联）、`private/`（民办名单真源）；详见各子目录 README |
 
 ## 坐标系
