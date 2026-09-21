@@ -1,0 +1,1397 @@
+[
+  {
+    "key": "football_2015",
+    "category": "体育-校园足球",
+    "level": "国家级",
+    "batch": "第一批",
+    "year": 2015,
+    "project": "全国青少年校园足球特色学校",
+    "issuer": "教育部",
+    "source_file": "moe_2015_football_schools.xls",
+    "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
+    "records": [
+      {
+        "raw_name": "海珠区后乐园街小学",
+        "line": 5874,
+        "category": "小学"
+      },
+      {
+        "raw_name": "海珠区江南新村第二小学",
+        "line": 5875,
+        "category": "小学"
+      },
+      {
+        "raw_name": "广州市玉岩中学",
+        "line": 5876,
+        "category": "完全中学"
+      },
+      {
+        "raw_name": "越秀区净慧体校",
+        "line": 5877,
+        "category": "小学"
+      },
+      {
+        "raw_name": "广州市执信中学",
+        "line": 5878,
+        "category": "完全中学"
+      },
+      {
+        "raw_name": "广州市环市西路小学",
+        "line": 5879,
+        "category": "小学"
+      },
+      {
+        "raw_name": "广州市荔湾区坑口小学",
+        "line": 5880,
+        "category": "小学"
+      },
+      {
+        "raw_name": "广州市南沙第一中学",
+        "line": 5881,
+        "category": "完全中学"
+      },
+      {
+        "raw_name": "广州市南武中学",
+        "line": 5882,
+        "category": "完全中学"
+      },
+      {
+        "raw_name": "广州市培英中学",
+        "line": 5883,
+        "category": "高中"
+      },
+      {
+        "raw_name": "广州市培正中学",
+        "line": 5884,
+        "category": "完全中学"
+      },
+      {
+        "raw_name": "广州市天河区高塘石小学",
+        "line": 5885,
+        "category": "小学"
+      },
+      {
+        "raw_name": "广州市天河区渔沙坦小学",
+        "line": 5886,
+        "category": "小学"
+      },
+      {
+        "raw_name": "广州市天河中学猎德实验学校",
+        "line": 5887,
+        "category": "9年一贯制学校"
+      },
+      {
+        "raw_name": "广州大学附属中学",
+        "line": 5888,
+        "category": "完全中学"
+      },
+      {
+        "raw_name": "白云区鹤边镇泰小学",
+        "line": 5889,
+        "category": "小学"
+      },
+      {
+        "raw_name": "广州市白云区嘉禾中学",
+        "line": 5890,
+        "category": "初中"
+      },
+      {
+        "raw_name": "广州市白云区清湖小学",
+        "line": 5891,
+        "category": "12年一贯制学校"
+      },
+      {
+        "raw_name": "广州市白云区颜乐天纪念中学",
+        "line": 5892,
+        "category": "12年一贯制学校"
+      },
+      {
+        "raw_name": "广州市第二中学",
+        "line": 5893,
+        "category": "高中"
+      },
+      {
+        "raw_name": "广州市第四十四中学",
+        "line": 5894,
+        "category": "完全中学"
+      },
+      {
+        "raw_name": "广州市第五中学",
+        "line": 5895,
+        "category": "完全中学"
+      },
+      {
+        "raw_name": "广州市第一中学",
+        "line": 5896,
+        "category": "完全中学"
+      },
+      {
+        "raw_name": "广州市番禺区沙湾镇中心小学",
+        "line": 5897,
+        "category": "小学"
+      },
+      {
+        "raw_name": "广州市番禺区石楼镇海鸥学校",
+        "line": 5898,
+        "category": "9年一贯制学校"
+      },
+      {
+        "raw_name": "广州市番禺区石楼中学",
+        "line": 5899,
+        "category": "完全中学"
+      },
+      {
+        "raw_name": "广州市番禺区市桥北城小学",
+        "line": 5900,
+        "category": "小学"
+      },
+      {
+        "raw_name": "广州市番禺区市桥星海中学",
+        "line": 5901,
+        "category": "初中"
+      },
+      {
+        "raw_name": "广州市华侨外国语学校",
+        "line": 5902,
+        "category": "9年一贯制学校"
+      },
+      {
+        "raw_name": "广州市黄埔区沙步小学",
+        "line": 5903,
+        "category": "小学"
+      },
+      {
+        "raw_name": "广州市交通运输职业学校",
+        "line": 5904,
+        "category": "小学"
+      },
+      {
+        "raw_name": "从化市流溪小学",
+        "line": 5905,
+        "category": "小学"
+      },
+      {
+        "raw_name": "广东省从化市从化中学",
+        "line": 5906,
+        "category": "完全中学"
+      },
+      {
+        "raw_name": "广州市花都区新华第六小学",
+        "line": 5907,
+        "category": "小学"
+      },
+      {
+        "raw_name": "增城市荔城街荔景中学",
+        "line": 5908,
+        "category": "初中"
+      },
+      {
+        "raw_name": "增城市荔江小学",
+        "line": 5909,
+        "category": "小学"
+      },
+      {
+        "raw_name": "增城市新塘镇群星小学",
+        "line": 5910,
+        "category": "小学"
+      },
+      {
+        "raw_name": "广东实验中学",
+        "line": 5872
+      },
+      {
+        "raw_name": "华南师范大学附属中学",
+        "line": 5873
+      }
+    ],
+    "unclear_city": [
+      {
+        "raw_name": "仁化县实验学校",
+        "line": 5993
+      },
+      {
+        "raw_name": "始兴县实验小学",
+        "line": 5994
+      },
+      {
+        "raw_name": "丰顺县汤坑镇第三小学",
+        "line": 5996
+      },
+      {
+        "raw_name": "广东省丰顺县汤坑中学",
+        "line": 5997
+      },
+      {
+        "raw_name": "五华县横陂镇第一小学",
+        "line": 5999
+      },
+      {
+        "raw_name": "五华县华城镇第一小学",
+        "line": 6000
+      },
+      {
+        "raw_name": "五华县田家炳中学",
+        "line": 6001
+      },
+      {
+        "raw_name": "广东省兴宁市实验学校",
+        "line": 6002
+      },
+      {
+        "raw_name": "兴宁市龙田中学",
+        "line": 6003
+      },
+      {
+        "raw_name": "广东梅县东山中学",
+        "line": 6004
+      },
+      {
+        "raw_name": "梅县区高级中学",
+        "line": 6005
+      },
+      {
+        "raw_name": "兴宁市叶塘中心小学",
+        "line": 6009
+      },
+      {
+        "raw_name": "平远县第一小学",
+        "line": 6011
+      },
+      {
+        "raw_name": "蕉岭县镇平中学",
+        "line": 6015
+      },
+      {
+        "raw_name": "龙门县地派中学",
+        "line": 6022
+      },
+      {
+        "raw_name": "龙门县蓝田瑶族乡中心小学",
+        "line": 6023
+      },
+      {
+        "raw_name": "龙门县龙城第三小学",
+        "line": 6024
+      },
+      {
+        "raw_name": "龙门县龙城第一中学",
+        "line": 6025
+      },
+      {
+        "raw_name": "龙门县龙城街道花围小学",
+        "line": 6026
+      },
+      {
+        "raw_name": "龙门县龙田第一小学",
+        "line": 6027
+      },
+      {
+        "raw_name": "龙门县龙田中学",
+        "line": 6028
+      },
+      {
+        "raw_name": "龙门县路溪学校",
+        "line": 6029
+      },
+      {
+        "raw_name": "龙门县麻榨镇中心小学",
+        "line": 6030
+      },
+      {
+        "raw_name": "龙门县麻榨中学",
+        "line": 6031
+      },
+      {
+        "raw_name": "龙门县南昆山学校",
+        "line": 6032
+      },
+      {
+        "raw_name": "龙门县平陵实验学校",
+        "line": 6033
+      },
+      {
+        "raw_name": "龙门县平陵镇中心小学",
+        "line": 6034
+      },
+      {
+        "raw_name": "龙门县平陵中学",
+        "line": 6035
+      },
+      {
+        "raw_name": "龙门县沙迳中心小学",
+        "line": 6036
+      },
+      {
+        "raw_name": "龙门县沙迳中学",
+        "line": 6037
+      },
+      {
+        "raw_name": "龙门县铁岗学校",
+        "line": 6038
+      },
+      {
+        "raw_name": "龙门县永汉镇第二小学",
+        "line": 6039
+      },
+      {
+        "raw_name": "龙门县永汉镇永强学校",
+        "line": 6040
+      },
+      {
+        "raw_name": "龙门县永汉镇中心小学",
+        "line": 6041
+      },
+      {
+        "raw_name": "龙门县永汉中学",
+        "line": 6042
+      },
+      {
+        "raw_name": "龙门县左潭学校",
+        "line": 6043
+      },
+      {
+        "raw_name": "广东省遂溪县第二中学",
+        "line": 6071
+      },
+      {
+        "raw_name": "遂溪县城月镇城月中心小学",
+        "line": 6072
+      },
+      {
+        "raw_name": "遂溪县城月镇竹叶塘小学",
+        "line": 6073
+      },
+      {
+        "raw_name": "吴川市梅菉中心小学",
+        "line": 6074
+      },
+      {
+        "raw_name": "吴川市板桥中学",
+        "line": 6075
+      },
+      {
+        "raw_name": "吴川市第一中学",
+        "line": 6076
+      },
+      {
+        "raw_name": "吴川市黄坡镇唐禄初级中学",
+        "line": 6077
+      },
+      {
+        "raw_name": "吴川市建兴小学",
+        "line": 6078
+      },
+      {
+        "raw_name": "吴川市林屋中学",
+        "line": 6079
+      },
+      {
+        "raw_name": "吴川市塘尾街道高屋小学",
+        "line": 6080
+      },
+      {
+        "raw_name": "吴川市塘尾中学",
+        "line": 6081
+      },
+      {
+        "raw_name": "吴川市塘缀中心小学",
+        "line": 6082
+      },
+      {
+        "raw_name": "吴川市兰石中心小学",
+        "line": 6083
+      },
+      {
+        "raw_name": "吴川市黄坡镇中心小学",
+        "line": 6084
+      },
+      {
+        "raw_name": "雷州市雷城街道第四小学",
+        "line": 6087
+      },
+      {
+        "raw_name": "雷州市白沙镇第二初级中学",
+        "line": 6095
+      },
+      {
+        "raw_name": "雷州市北和镇汇文小学",
+        "line": 6096
+      },
+      {
+        "raw_name": "四会市黄田学校",
+        "line": 6097
+      },
+      {
+        "raw_name": "德庆县德城镇第一小学",
+        "line": 6102
+      },
+      {
+        "raw_name": "封开县杏花中学",
+        "line": 6103
+      },
+      {
+        "raw_name": "高要市大湾镇初级中学",
+        "line": 6104
+      },
+      {
+        "raw_name": "广宁县江屯镇中心小学",
+        "line": 6105
+      },
+      {
+        "raw_name": "广东省怀集县桥头镇初级中学",
+        "line": 6106
+      },
+      {
+        "raw_name": "怀集县冷坑镇第二小学",
+        "line": 6107
+      },
+      {
+        "raw_name": "连山壮族瑶族自治县民族小学",
+        "line": 6114
+      },
+      {
+        "raw_name": "阳山县第一小学",
+        "line": 6117
+      },
+      {
+        "raw_name": "佛冈县第一中学",
+        "line": 6119
+      },
+      {
+        "raw_name": "广东省英德市望埠镇中心小学",
+        "line": 6121
+      },
+      {
+        "raw_name": "惠东县平山第一小学",
+        "line": 6122
+      },
+      {
+        "raw_name": "惠来县澳角学校",
+        "line": 6125
+      },
+      {
+        "raw_name": "惠来县慈云世铿中学",
+        "line": 6126
+      },
+      {
+        "raw_name": "惠来粤东中学",
+        "line": 6127
+      },
+      {
+        "raw_name": "揭东县第一中学",
+        "line": 6128
+      },
+      {
+        "raw_name": "揭西县东园镇桃围小学",
+        "line": 6130
+      },
+      {
+        "raw_name": "揭西县灰寨镇灰寨小学",
+        "line": 6131
+      },
+      {
+        "raw_name": "普宁市流沙南街道马栅学校",
+        "line": 6149
+      },
+      {
+        "raw_name": "普宁市麒麟镇径水小学",
+        "line": 6150
+      },
+      {
+        "raw_name": "普宁市兴文中学",
+        "line": 6151
+      },
+      {
+        "raw_name": "普宁市育英中学",
+        "line": 6152
+      },
+      {
+        "raw_name": "郁南县西江实验学校",
+        "line": 6153
+      },
+      {
+        "raw_name": "罗定市泷州中学",
+        "line": 6155
+      }
+    ],
+    "confirmed_by_registry": [
+      "广东实验中学",
+      "华南师范大学附属中学"
+    ]
+  },
+  {
+    "key": "football_2023",
+    "category": "体育-校园足球",
+    "level": "国家级",
+    "batch": "2023年",
+    "year": 2023,
+    "project": "全国青少年校园足球特色学校",
+    "issuer": "教育部",
+    "source_file": "moe_2023_football.xlsx",
+    "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
+    "records": [
+      {
+        "raw_name": "广州市荔湾区西关实验小学",
+        "line": 3810,
+        "district": "荔湾区"
+      },
+      {
+        "raw_name": "广东实验中学荔湾学校第二小学部",
+        "line": 3811,
+        "district": "荔湾区"
+      },
+      {
+        "raw_name": "广州市何香凝纪念学校",
+        "line": 3812,
+        "district": "荔湾区"
+      },
+      {
+        "raw_name": "广州市越秀区铁一小学",
+        "line": 3813,
+        "district": "越秀区"
+      },
+      {
+        "raw_name": "广州市越秀区杨箕小学",
+        "line": 3814,
+        "district": "越秀区"
+      },
+      {
+        "raw_name": "广州市越秀区汇泉学校",
+        "line": 3815,
+        "district": "越秀区"
+      },
+      {
+        "raw_name": "广州市越秀区旧部前小学",
+        "line": 3816,
+        "district": "越秀区"
+      },
+      {
+        "raw_name": "广州市第十中学",
+        "line": 3817,
+        "district": "越秀区"
+      },
+      {
+        "raw_name": "广州市天河区前进小学",
+        "line": 3818,
+        "district": "天河区"
+      },
+      {
+        "raw_name": "广州市天河区车陂小学",
+        "line": 3819,
+        "district": "天河区"
+      },
+      {
+        "raw_name": "广州市天河区黄村小学",
+        "line": 3820,
+        "district": "天河区"
+      },
+      {
+        "raw_name": "广东华侨中学",
+        "line": 3821,
+        "district": "白云区"
+      },
+      {
+        "raw_name": "广州市白云区同德小学",
+        "line": 3822,
+        "district": "白云区"
+      },
+      {
+        "raw_name": "广州市白云区鸦岗小学",
+        "line": 3823,
+        "district": "白云区"
+      },
+      {
+        "raw_name": "广州市白云区神山第二小学",
+        "line": 3824,
+        "district": "白云区"
+      },
+      {
+        "raw_name": "广州市白云区石湖小学",
+        "line": 3825,
+        "district": "白云区"
+      },
+      {
+        "raw_name": "广州市黄埔区玉树小学",
+        "line": 3826,
+        "district": "黄埔区"
+      },
+      {
+        "raw_name": "广州市黄埔区华外同文外国语学校（小学部）",
+        "line": 3827,
+        "district": "黄埔区"
+      },
+      {
+        "raw_name": "广州市黄埔区玉鸣小学",
+        "line": 3828,
+        "district": "黄埔区"
+      },
+      {
+        "raw_name": "广州市番禺区天誉小学",
+        "line": 3829,
+        "district": "番禺区"
+      },
+      {
+        "raw_name": "广州市番禺区大石小学",
+        "line": 3830,
+        "district": "番禺区"
+      },
+      {
+        "raw_name": "广州市星执学校",
+        "line": 3831,
+        "district": "番禺区"
+      },
+      {
+        "raw_name": "广州市番禺区京师奥园南奥实验学校",
+        "line": 3832,
+        "district": "番禺区"
+      },
+      {
+        "raw_name": "广州市花都区新雅街尚雅小学",
+        "line": 3833,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区花山镇和郁小学",
+        "line": 3834,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区秀全街红棉小学",
+        "line": 3835,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区狮岭镇冠华第二小学",
+        "line": 3836,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区花山镇悦贤小学",
+        "line": 3837,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "华南师范大学附属花都学校",
+        "line": 3838,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市南沙区湾区实验学校",
+        "line": 3839,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州大学附属中学南沙实验学校",
+        "line": 3840,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市南沙区金隆小学",
+        "line": 3841,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市南沙区九比小学",
+        "line": 3842,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市南沙潭山中学",
+        "line": 3843,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市从化区街口街沙贝小学",
+        "line": 3844,
+        "district": "从化区"
+      },
+      {
+        "raw_name": "广东外语外贸大学从化实验中学",
+        "line": 3845,
+        "district": "从化区"
+      },
+      {
+        "raw_name": "广州市增城区香江学校",
+        "line": 3846,
+        "district": "增城区"
+      },
+      {
+        "raw_name": "广州市增城区派潭镇中心小学",
+        "line": 3847,
+        "district": "增城区"
+      },
+      {
+        "raw_name": "广州市增城区荔湖小学",
+        "line": 3848,
+        "district": "增城区"
+      },
+      {
+        "raw_name": "广州市增城区派潭中学",
+        "line": 3849,
+        "district": "增城区"
+      },
+      {
+        "raw_name": "广州市增城区凤凰城中英文学校",
+        "line": 3850,
+        "district": "增城区"
+      },
+      {
+        "raw_name": "广州市执信中学琶洲实验学校",
+        "line": 3851,
+        "district": "海珠区"
+      },
+      {
+        "raw_name": "广州市城市建设职业学校",
+        "line": 3852,
+        "district": "海珠区"
+      },
+      {
+        "raw_name": "广州市海珠外国语实验中学附属学校",
+        "line": 3853,
+        "district": "海珠区"
+      },
+      {
+        "raw_name": "广州市海珠外国语实验中学",
+        "line": 3854,
+        "district": "海珠区"
+      }
+    ],
+    "unclear_city": [],
+    "confirmed_by_registry": []
+  },
+  {
+    "key": "football_2024",
+    "category": "体育-校园足球",
+    "level": "国家级",
+    "batch": "2024年度",
+    "year": 2024,
+    "project": "全国青少年校园足球特色学校",
+    "issuer": "教育部",
+    "source_file": "moe_2024_football.txt",
+    "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
+    "records": [
+      {
+        "raw_name": "广州市南沙区港湾小学",
+        "line": 4267,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市越秀区育才学校",
+        "line": 4567,
+        "district": "越秀区"
+      },
+      {
+        "raw_name": "广州市第七中学",
+        "line": 4568,
+        "district": "越秀区"
+      },
+      {
+        "raw_name": "广州市越秀区八旗二马路小学",
+        "line": 4569,
+        "district": "越秀区"
+      },
+      {
+        "raw_name": "广州市越秀区五羊小学",
+        "line": 4570,
+        "district": "越秀区"
+      },
+      {
+        "raw_name": "广州市越秀区永曜北小学",
+        "line": 4571,
+        "district": "越秀区"
+      },
+      {
+        "raw_name": "广州市越秀区小北路小学",
+        "line": 4572,
+        "district": "越秀区"
+      },
+      {
+        "raw_name": "广州市海珠外国语实验中学附属小学",
+        "line": 4573,
+        "district": "海珠区"
+      },
+      {
+        "raw_name": "广州市海珠区实验小学",
+        "line": 4574,
+        "district": "海珠区"
+      },
+      {
+        "raw_name": "广州市海珠区前进路小学",
+        "line": 4575,
+        "district": "海珠区"
+      },
+      {
+        "raw_name": "广州市荔湾区芳村小学",
+        "line": 4576,
+        "district": "荔湾区"
+      },
+      {
+        "raw_name": "广州协和学校",
+        "line": 4577,
+        "district": "荔湾区"
+      },
+      {
+        "raw_name": "广州市天河区奥体东小学",
+        "line": 4578,
+        "district": "天河区"
+      },
+      {
+        "raw_name": "广州市轻工职业学校",
+        "line": 4579,
+        "district": "天河区"
+      },
+      {
+        "raw_name": "广州市白云区沙凤小学",
+        "line": 4580,
+        "district": "白云区"
+      },
+      {
+        "raw_name": "广州彭加木纪念中学",
+        "line": 4581,
+        "district": "白云区"
+      },
+      {
+        "raw_name": "广州市白云区金沙第二小学",
+        "line": 4582,
+        "district": "白云区"
+      },
+      {
+        "raw_name": "广州市黄埔区天誉小学",
+        "line": 4583,
+        "district": "黄埔区"
+      },
+      {
+        "raw_name": "广州市花都区花东镇迳口初级中学",
+        "line": 4584,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区圆玄中学",
+        "line": 4585,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区华万学校",
+        "line": 4586,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区实验中学",
+        "line": 4587,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广大附中花都学校",
+        "line": 4588,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区邝维煜纪念中学附属雅正学校",
+        "line": 4589,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区育才学校",
+        "line": 4590,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区狮岭镇中心小学",
+        "line": 4591,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区雅瑶中学",
+        "line": 4592,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区花山镇新和小学",
+        "line": 4593,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区炭步镇第二初级中学",
+        "line": 4594,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区新华街第八小学",
+        "line": 4595,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区新华街第四小学",
+        "line": 4596,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市番禺区市桥金山谷学校",
+        "line": 4597,
+        "district": "番禺区"
+      },
+      {
+        "raw_name": "广州市番禺区石楼镇第二中学",
+        "line": 4598,
+        "district": "番禺区"
+      },
+      {
+        "raw_name": "广州市番禺区钟村第二小学",
+        "line": 4599,
+        "district": "番禺区"
+      },
+      {
+        "raw_name": "广州市南沙区莲塘小学",
+        "line": 4600,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市南沙区梅沙实验小学",
+        "line": 4601,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "华南师范大学附属南沙中学",
+        "line": 4602,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市南沙区东涌第二小学",
+        "line": 4603,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州外国语学校附属学校",
+        "line": 4604,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广东第二师范学院附属南沙珠江学校",
+        "line": 4605,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市从化区城郊街向阳小学",
+        "line": 4606,
+        "district": "从化区"
+      },
+      {
+        "raw_name": "广州市从化区第五中学",
+        "line": 4607,
+        "district": "从化区"
+      },
+      {
+        "raw_name": "广州市香江中学",
+        "line": 4608,
+        "district": "增城区"
+      },
+      {
+        "raw_name": "广州市增城区新塘中学",
+        "line": 4609,
+        "district": "增城区"
+      },
+      {
+        "raw_name": "广州市增城区增江小学",
+        "line": 4610,
+        "district": "增城区"
+      },
+      {
+        "raw_name": "广州市增城区新康小学",
+        "line": 4611,
+        "district": "增城区"
+      },
+      {
+        "raw_name": "广州市增城区小楼镇中心小学",
+        "line": 4612,
+        "district": "增城区"
+      }
+    ],
+    "unclear_city": [],
+    "confirmed_by_registry": []
+  },
+  {
+    "key": "football_2025",
+    "category": "体育-校园足球",
+    "level": "国家级",
+    "batch": "2025年",
+    "year": 2025,
+    "project": "全国青少年校园足球特色学校",
+    "issuer": "教育部",
+    "source_file": "moe_2025_football.txt",
+    "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
+    "records": [
+      {
+        "raw_name": "华南师范大学附属南沙凤亭小学",
+        "line": 3615,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州英豪学校",
+        "line": 3616,
+        "district": "从化区"
+      },
+      {
+        "raw_name": "广州市黄埔区丰乐初级中学",
+        "line": 3617,
+        "district": "黄埔区"
+      },
+      {
+        "raw_name": "广州市增城区新塘镇鹤泉小学",
+        "line": 3618,
+        "district": "增城区"
+      },
+      {
+        "raw_name": "广州市南沙区铁英学校",
+        "line": 3619,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市花都区狮岭中学",
+        "line": 3620,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市白云区白云实验学校",
+        "line": 3621,
+        "district": "白云区"
+      },
+      {
+        "raw_name": "广州市南沙区莲溪小学",
+        "line": 3622,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广东省教育研究院黄埔实验学校",
+        "line": 3623,
+        "district": "黄埔区"
+      },
+      {
+        "raw_name": "广州市信息技术职业学校",
+        "line": 3624,
+        "district": "越秀区"
+      },
+      {
+        "raw_name": "广州市番禺区天峰小学",
+        "line": 3630,
+        "district": "番禺区"
+      },
+      {
+        "raw_name": "广州南方学院番禺附属中学",
+        "line": 3631,
+        "district": "番禺区"
+      },
+      {
+        "raw_name": "广州市花都区花山镇华侨初级中学",
+        "line": 3632,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市番禺区市桥桥城中学",
+        "line": 3633,
+        "district": "番禺区"
+      },
+      {
+        "raw_name": "广州市南沙区金沙学校",
+        "line": 3634,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市第二中学南沙天元学校",
+        "line": 3635,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市番禺区广铁一中铁英学校",
+        "line": 3636,
+        "district": "番禺区"
+      },
+      {
+        "raw_name": "广东外语外贸大学附属南沙学校",
+        "line": 3637,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市天河第一小学",
+        "line": 3638,
+        "district": "天河区"
+      },
+      {
+        "raw_name": "广州市南沙区大塘小学",
+        "line": 3639,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市花都区秀全外国语学校",
+        "line": 3640,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区秀全街学府路小学",
+        "line": 3641,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区狮岭镇狮峰初级中学",
+        "line": 3642,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区花东镇杨荷小学",
+        "line": 3643,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区新雅街新雅小学",
+        "line": 3644,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区狮岭镇军田小学",
+        "line": 3645,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区狮岭镇育华小学",
+        "line": 3646,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区骏威小学",
+        "line": 3647,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区花东学校",
+        "line": 3648,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区颐和学校",
+        "line": 3649,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区花广学校",
+        "line": 3650,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区狮岭镇冠华小学",
+        "line": 3651,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市花都区炭步镇鸭湖小学",
+        "line": 3652,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "广州市海华高级中学",
+        "line": 3653,
+        "district": "海珠区"
+      },
+      {
+        "raw_name": "广州市海珠区第三实验小学",
+        "line": 3654,
+        "district": "海珠区"
+      },
+      {
+        "raw_name": "广州市海珠区南燕小学",
+        "line": 3655,
+        "district": "海珠区"
+      },
+      {
+        "raw_name": "广州市从化区街口街新城小学",
+        "line": 3656,
+        "district": "从化区"
+      },
+      {
+        "raw_name": "广州市南沙区东盛小学",
+        "line": 3657,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市南外实验学校",
+        "line": 3662,
+        "district": "南沙区"
+      },
+      {
+        "raw_name": "广州市白云行知职业技术学校",
+        "line": 3663,
+        "district": "白云区"
+      },
+      {
+        "raw_name": "广州市花都区狮岭镇振兴第二小学",
+        "line": 3664,
+        "district": "花都区"
+      },
+      {
+        "raw_name": "华南师范大学附属永宁实验小学",
+        "line": 3687,
+        "district": "增城区"
+      },
+      {
+        "raw_name": "广州市增城区暨南大学附属崇德小学",
+        "line": 3729,
+        "district": "增城区"
+      },
+      {
+        "raw_name": "广州市第六十五中学",
+        "line": 3730,
+        "district": "白云区"
+      },
+      {
+        "raw_name": "广州市白云区夏良小学",
+        "line": 3731,
+        "district": "白云区"
+      }
+    ],
+    "unclear_city": [],
+    "confirmed_by_registry": []
+  },
+  {
+    "key": "basketball_2017",
+    "category": "体育-篮球",
+    "level": "国家级",
+    "batch": "第一批",
+    "year": 2017,
+    "project": "全国青少年校园篮球特色学校",
+    "issuer": "教育部",
+    "source_file": "moe_2017_basketball_batch1.docx",
+    "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+    "records": [
+      {
+        "raw_name": "广州市越秀区东风西路小学",
+        "line": 0,
+        "category": "A"
+      },
+      {
+        "raw_name": "广州市海珠区梅园西路小学",
+        "line": 0,
+        "category": "A"
+      },
+      {
+        "raw_name": "广州市荔湾区林凤娥小学",
+        "line": 0,
+        "category": "A"
+      },
+      {
+        "raw_name": "广州市天河区天府路小学",
+        "line": 0,
+        "category": "A"
+      },
+      {
+        "raw_name": "广州市白云区黄边小学",
+        "line": 0,
+        "category": "A"
+      },
+      {
+        "raw_name": "广州市黄埔区荔园小学",
+        "line": 0,
+        "category": "A"
+      },
+      {
+        "raw_name": "广州市番禺区市桥实验小学",
+        "line": 0,
+        "category": "A"
+      },
+      {
+        "raw_name": "广州市花都区新华街第四小学",
+        "line": 0,
+        "category": "A"
+      },
+      {
+        "raw_name": "广州市南沙区南沙小学",
+        "line": 0,
+        "category": "A"
+      },
+      {
+        "raw_name": "广州市增城区荔江小学",
+        "line": 0,
+        "category": "A"
+      },
+      {
+        "raw_name": "广州市从化区太平镇第二中心小学",
+        "line": 0,
+        "category": "A"
+      },
+      {
+        "raw_name": "广州市协和小学",
+        "line": 0,
+        "category": "A"
+      },
+      {
+        "raw_name": "广州市第一中学",
+        "line": 0,
+        "category": "D"
+      },
+      {
+        "raw_name": "广州市第八十六中学",
+        "line": 0,
+        "category": "D"
+      },
+      {
+        "raw_name": "广州中学",
+        "line": 0,
+        "category": "D"
+      },
+      {
+        "raw_name": "广州市花都区新华街云山学校",
+        "line": 0,
+        "category": "E"
+      },
+      {
+        "raw_name": "广州市越秀区育才实验学校",
+        "line": 0,
+        "category": "B"
+      },
+      {
+        "raw_name": "广州市番禺区大石富丽中学",
+        "line": 0,
+        "category": "B"
+      },
+      {
+        "raw_name": "广州市番禺区钟村中学",
+        "line": 0,
+        "category": "B"
+      },
+      {
+        "raw_name": "广州市海珠区五中滨江学校",
+        "line": 0,
+        "category": "B"
+      },
+      {
+        "raw_name": "广州市天河中学",
+        "line": 0,
+        "category": "D"
+      },
+      {
+        "raw_name": "广东番禺中学",
+        "line": 0,
+        "category": "C"
+      },
+      {
+        "raw_name": "广州市玉岩中学",
+        "line": 0,
+        "category": "D"
+      },
+      {
+        "raw_name": "广州市花都区新华中学",
+        "line": 0,
+        "category": "C"
+      },
+      {
+        "raw_name": "广州市执信中学",
+        "line": 0,
+        "category": "B"
+      },
+      {
+        "raw_name": "广州市铁一中学",
+        "line": 0,
+        "category": "B"
+      }
+    ],
+    "unclear_city": [],
+    "confirmed_by_registry": []
+  }
+]

@@ -1,9 +1,9 @@
 {
   "business": "specialty_schools",
   "category": "多类别",
-  "generated_from": "采集期中间CSV（csv_to_parsed.py 迁移）",
+  "generated_from": "scripts/parse_moe_sports.py --apply（脚本化解析：足球2015/2023/2024/2025+篮球2017 替换硬编码批次，冰雪49条保留）",
   "generated_at": "2026-09-20",
-  "record_count": 250,
+  "record_count": 251,
   "records": [
     {
       "school": "广州市星执学校",
@@ -13,7 +13,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -25,7 +25,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -37,7 +37,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -49,7 +49,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -61,7 +61,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -73,7 +73,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -85,7 +85,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -97,7 +97,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -109,7 +109,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -121,7 +121,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "未匹配registry（远郊区POI覆盖缺口）"
     },
@@ -133,7 +133,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -145,7 +145,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "未匹配registry（远郊区POI覆盖缺口）"
     },
@@ -157,7 +157,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -169,7 +169,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "未匹配registry（远郊区POI覆盖缺口）"
     },
@@ -181,7 +181,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "未匹配registry（远郊区POI覆盖缺口）"
     },
@@ -193,7 +193,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -205,7 +205,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "未匹配registry（远郊区POI覆盖缺口）"
     },
@@ -217,7 +217,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -229,7 +229,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -241,7 +241,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -253,7 +253,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -265,7 +265,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "未匹配registry（中心区POI遗漏）"
     },
@@ -277,7 +277,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -289,7 +289,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -301,7 +301,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -313,7 +313,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -325,7 +325,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -337,7 +337,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -349,7 +349,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -361,7 +361,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -373,7 +373,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "未匹配registry（远郊区POI覆盖缺口）"
     },
@@ -385,7 +385,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": ""
     },
@@ -397,7 +397,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "未匹配registry（远郊区POI覆盖缺口）"
     },
@@ -409,7 +409,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "未匹配registry（远郊区POI覆盖缺口）"
     },
@@ -421,7 +421,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "未匹配registry（远郊区POI覆盖缺口）"
     },
@@ -433,7 +433,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "未匹配registry（远郊区POI覆盖缺口）"
     },
@@ -445,7 +445,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "未匹配registry（远郊区POI覆盖缺口）"
     },
@@ -457,7 +457,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "未匹配registry（远郊区POI覆盖缺口）"
     },
@@ -469,7 +469,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统特色学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "未匹配registry（远郊区POI覆盖缺口）"
     },
@@ -481,7 +481,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统示范学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "示范学校（同时为特色学校）"
     },
@@ -493,7 +493,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统示范学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "示范学校（同时为特色学校）"
     },
@@ -505,7 +505,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统示范学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "示范学校（同时为特色学校）;未匹配registry（远郊区POI覆盖缺口）"
     },
@@ -517,7 +517,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统示范学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "示范学校（同时为特色学校）"
     },
@@ -529,7 +529,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统示范学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "示范学校（同时为特色学校）"
     },
@@ -541,7 +541,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统示范学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "示范学校（同时为特色学校）"
     },
@@ -553,7 +553,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统示范学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "示范学校（同时为特色学校）"
     },
@@ -565,7 +565,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统示范学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "示范学校（同时为特色学校）"
     },
@@ -577,7 +577,7 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统示范学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "示范学校（同时为特色学校）"
     },
@@ -589,37 +589,13 @@
       "batch": "首批",
       "year": "2023",
       "project": "广东省青少年校园冰雪体育传统示范学校",
-      "issuer": "广东省教育厅",
+      "issuer": "广州市教育局",
       "url": "https://jyj.gz.gov.cn/attachment/7/7517/7517371/9357006.pdf",
       "remark": "示范学校（同时为特色学校）;未匹配registry（中心区POI遗漏）"
     },
     {
-      "school": "广东实验中学",
-      "district": "越秀区",
-      "category": "体育-校园足球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2015",
-      "project": "全国青少年校园足球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
-    },
-    {
-      "school": "华南师范大学附属中学",
-      "district": "天河区",
-      "category": "体育-校园足球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2015",
-      "project": "全国青少年校园足球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
-    },
-    {
       "school": "海珠区后乐园街小学",
-      "district": "海珠区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -627,11 +603,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5874）"
     },
     {
       "school": "海珠区江南新村第二小学",
-      "district": "海珠区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -639,11 +615,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5875）"
     },
     {
       "school": "广州市玉岩中学",
-      "district": "黄埔区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -651,11 +627,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5876）"
     },
     {
       "school": "越秀区净慧体校",
-      "district": "越秀区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -663,11 +639,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": "未匹配registry（体校（POI层未覆盖））"
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5877）"
     },
     {
       "school": "广州市执信中学",
-      "district": "越秀区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -675,11 +651,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5878）"
     },
     {
       "school": "广州市环市西路小学",
-      "district": "荔湾区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -687,11 +663,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5879）"
     },
     {
       "school": "广州市荔湾区坑口小学",
-      "district": "荔湾区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -699,11 +675,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5880）"
     },
     {
       "school": "广州市南沙第一中学",
-      "district": "南沙区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -711,11 +687,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5881）"
     },
     {
       "school": "广州市南武中学",
-      "district": "海珠区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -723,11 +699,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5882）"
     },
     {
       "school": "广州市培英中学",
-      "district": "白云区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -735,11 +711,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5883）"
     },
     {
       "school": "广州市培正中学",
-      "district": "越秀区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -747,11 +723,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5884）"
     },
     {
       "school": "广州市天河区高塘石小学",
-      "district": "天河区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -759,11 +735,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5885）"
     },
     {
       "school": "广州市天河区渔沙坦小学",
-      "district": "天河区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -771,11 +747,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5886）"
     },
     {
       "school": "广州市天河中学猎德实验学校",
-      "district": "天河区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -783,11 +759,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5887）"
     },
     {
       "school": "广州大学附属中学",
-      "district": "越秀区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -795,11 +771,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5888）"
     },
     {
       "school": "白云区鹤边镇泰小学",
-      "district": "白云区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -807,11 +783,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5889）"
     },
     {
       "school": "广州市白云区嘉禾中学",
-      "district": "白云区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -819,11 +795,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5890）"
     },
     {
       "school": "广州市白云区清湖小学",
-      "district": "白云区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -831,11 +807,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5891）"
     },
     {
       "school": "广州市白云区颜乐天纪念中学",
-      "district": "白云区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -843,11 +819,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5892）"
     },
     {
       "school": "广州市第二中学",
-      "district": "越秀区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -855,11 +831,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5893）"
     },
     {
       "school": "广州市第四十四中学",
-      "district": "海珠区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -867,11 +843,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": "未匹配registry（中心区POI遗漏）"
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5894）"
     },
     {
       "school": "广州市第五中学",
-      "district": "越秀区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -879,11 +855,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5895）"
     },
     {
       "school": "广州市第一中学",
-      "district": "荔湾区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -891,11 +867,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5896）"
     },
     {
       "school": "广州市番禺区沙湾镇中心小学",
-      "district": "番禺区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -903,11 +879,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": "未匹配registry（中心区POI遗漏）"
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5897）"
     },
     {
       "school": "广州市番禺区石楼镇海鸥学校",
-      "district": "番禺区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -915,11 +891,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5898）"
     },
     {
       "school": "广州市番禺区石楼中学",
-      "district": "番禺区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -927,11 +903,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5899）"
     },
     {
       "school": "广州市番禺区市桥北城小学",
-      "district": "番禺区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -939,11 +915,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5900）"
     },
     {
       "school": "广州市番禺区市桥星海中学",
-      "district": "番禺区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -951,11 +927,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5901）"
     },
     {
       "school": "广州市华侨外国语学校",
-      "district": "越秀区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -963,11 +939,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5902）"
     },
     {
       "school": "广州市黄埔区沙步小学",
-      "district": "黄埔区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -975,11 +951,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": "未匹配registry（中心区POI遗漏）"
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5903）"
     },
     {
       "school": "广州市交通运输职业学校",
-      "district": "白云区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -987,11 +963,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": "未匹配registry（职业/师范学校（POI层未覆盖））"
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5904）"
     },
     {
       "school": "从化市流溪小学",
-      "district": "从化区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -999,11 +975,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5905）"
     },
     {
       "school": "广东省从化市从化中学",
-      "district": "从化区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -1011,11 +987,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5906）"
     },
     {
       "school": "广州市花都区新华第六小学",
-      "district": "花都区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -1023,11 +999,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5907）"
     },
     {
       "school": "增城市荔城街荔景中学",
-      "district": "增城区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -1035,11 +1011,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5908）"
     },
     {
       "school": "增城市荔江小学",
-      "district": "增城区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -1047,11 +1023,11 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5909）"
     },
     {
       "school": "增城市新塘镇群星小学",
-      "district": "增城区",
+      "district": "",
       "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
@@ -1059,307 +1035,31 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5910）"
     },
     {
-      "school": "广州市越秀区东风西路小学",
-      "district": "越秀区",
-      "category": "体育-篮球",
+      "school": "广东实验中学",
+      "district": "",
+      "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
+      "year": "2015",
+      "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5872）"
     },
     {
-      "school": "广州市海珠区梅园西路小学",
-      "district": "海珠区",
-      "category": "体育-篮球",
+      "school": "华南师范大学附属中学",
+      "district": "",
+      "category": "体育-校园足球",
       "level": "国家级",
       "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
+      "year": "2015",
+      "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市荔湾区林凤娥小学",
-      "district": "荔湾区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市天河区天府路小学",
-      "district": "天河区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市白云区黄边小学",
-      "district": "白云区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市黄埔区荔园小学",
-      "district": "黄埔区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市番禺区市桥实验小学",
-      "district": "番禺区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市花都区新华街第四小学",
-      "district": "花都区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
-    },
-    {
-      "school": "广州市南沙区南沙小学",
-      "district": "南沙区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
-    },
-    {
-      "school": "广州市增城区荔江小学",
-      "district": "增城区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
-    },
-    {
-      "school": "广州市从化区太平镇第二中心小学",
-      "district": "从化区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
-    },
-    {
-      "school": "广州市协和小学",
-      "district": "荔湾区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": "区属修正(白云区→荔湾区)"
-    },
-    {
-      "school": "广州市第一中学",
-      "district": "荔湾区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市第八十六中学",
-      "district": "黄埔区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州中学",
-      "district": "天河区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市花都区新华街云山学校",
-      "district": "花都区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
-    },
-    {
-      "school": "广州市越秀区育才实验学校",
-      "district": "越秀区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市番禺区大石富丽中学",
-      "district": "番禺区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市番禺区钟村中学",
-      "district": "番禺区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市海珠区五中滨江学校",
-      "district": "海珠区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市天河中学",
-      "district": "天河区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市玉岩中学",
-      "district": "黄埔区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市花都区新华中学",
-      "district": "花都区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
-    },
-    {
-      "school": "广州市执信中学",
-      "district": "越秀区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
-    },
-    {
-      "school": "广州市铁一中学",
-      "district": "越秀区",
-      "category": "体育-篮球",
-      "level": "国家级",
-      "batch": "第一批",
-      "year": "2017",
-      "project": "全国青少年校园篮球特色学校",
-      "issuer": "教育部",
-      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
-      "remark": ""
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201509/t20150907_206023.html",
+      "remark": "由官方附件脚本解析（moe_2015_football_schools.xls 行5873）"
     },
     {
       "school": "广州市荔湾区西关实验小学",
@@ -1371,7 +1071,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3810）"
     },
     {
       "school": "广东实验中学荔湾学校第二小学部",
@@ -1383,7 +1083,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3811）"
     },
     {
       "school": "广州市何香凝纪念学校",
@@ -1395,7 +1095,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3812）"
     },
     {
       "school": "广州市越秀区铁一小学",
@@ -1407,7 +1107,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3813）"
     },
     {
       "school": "广州市越秀区杨箕小学",
@@ -1419,7 +1119,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3814）"
     },
     {
       "school": "广州市越秀区汇泉学校",
@@ -1431,7 +1131,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3815）"
     },
     {
       "school": "广州市越秀区旧部前小学",
@@ -1443,7 +1143,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3816）"
     },
     {
       "school": "广州市第十中学",
@@ -1455,7 +1155,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3817）"
     },
     {
       "school": "广州市天河区前进小学",
@@ -1467,7 +1167,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3818）"
     },
     {
       "school": "广州市天河区车陂小学",
@@ -1479,7 +1179,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3819）"
     },
     {
       "school": "广州市天河区黄村小学",
@@ -1491,7 +1191,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3820）"
     },
     {
       "school": "广东华侨中学",
@@ -1503,7 +1203,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3821）"
     },
     {
       "school": "广州市白云区同德小学",
@@ -1515,7 +1215,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3822）"
     },
     {
       "school": "广州市白云区鸦岗小学",
@@ -1527,7 +1227,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3823）"
     },
     {
       "school": "广州市白云区神山第二小学",
@@ -1539,7 +1239,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3824）"
     },
     {
       "school": "广州市白云区石湖小学",
@@ -1551,7 +1251,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3825）"
     },
     {
       "school": "广州市黄埔区玉树小学",
@@ -1563,7 +1263,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3826）"
     },
     {
       "school": "广州市黄埔区华外同文外国语学校（小学部）",
@@ -1575,7 +1275,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3827）"
     },
     {
       "school": "广州市黄埔区玉鸣小学",
@@ -1587,7 +1287,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3828）"
     },
     {
       "school": "广州市番禺区天誉小学",
@@ -1599,7 +1299,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3829）"
     },
     {
       "school": "广州市番禺区大石小学",
@@ -1611,7 +1311,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3830）"
     },
     {
       "school": "广州市星执学校",
@@ -1623,7 +1323,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3831）"
     },
     {
       "school": "广州市番禺区京师奥园南奥实验学校",
@@ -1635,7 +1335,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3832）"
     },
     {
       "school": "广州市花都区新雅街尚雅小学",
@@ -1647,7 +1347,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3833）"
     },
     {
       "school": "广州市花都区花山镇和郁小学",
@@ -1659,7 +1359,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3834）"
     },
     {
       "school": "广州市花都区秀全街红棉小学",
@@ -1671,7 +1371,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3835）"
     },
     {
       "school": "广州市花都区狮岭镇冠华第二小学",
@@ -1683,7 +1383,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3836）"
     },
     {
       "school": "广州市花都区花山镇悦贤小学",
@@ -1695,7 +1395,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3837）"
     },
     {
       "school": "华南师范大学附属花都学校",
@@ -1707,7 +1407,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3838）"
     },
     {
       "school": "广州市南沙区湾区实验学校",
@@ -1719,7 +1419,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3839）"
     },
     {
       "school": "广州大学附属中学南沙实验学校",
@@ -1731,7 +1431,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3840）"
     },
     {
       "school": "广州市南沙区金隆小学",
@@ -1743,7 +1443,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3841）"
     },
     {
       "school": "广州市南沙区九比小学",
@@ -1755,7 +1455,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3842）"
     },
     {
       "school": "广州市南沙潭山中学",
@@ -1767,7 +1467,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3843）"
     },
     {
       "school": "广州市从化区街口街沙贝小学",
@@ -1779,7 +1479,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3844）"
     },
     {
       "school": "广东外语外贸大学从化实验中学",
@@ -1791,7 +1491,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3845）"
     },
     {
       "school": "广州市增城区香江学校",
@@ -1803,7 +1503,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3846）"
     },
     {
       "school": "广州市增城区派潭镇中心小学",
@@ -1815,7 +1515,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3847）"
     },
     {
       "school": "广州市增城区荔湖小学",
@@ -1827,7 +1527,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3848）"
     },
     {
       "school": "广州市增城区派潭中学",
@@ -1839,7 +1539,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3849）"
     },
     {
       "school": "广州市增城区凤凰城中英文学校",
@@ -1851,7 +1551,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3850）"
     },
     {
       "school": "广州市执信中学琶洲实验学校",
@@ -1863,7 +1563,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3851）"
     },
     {
       "school": "广州市城市建设职业学校",
@@ -1875,7 +1575,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": "未匹配registry（职业/师范学校（POI层未覆盖））"
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3852）"
     },
     {
       "school": "广州市海珠外国语实验中学附属学校",
@@ -1887,7 +1587,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3853）"
     },
     {
       "school": "广州市海珠外国语实验中学",
@@ -1899,7 +1599,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202406/t20240628_1138312.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2023_football.xlsx 行3854）"
     },
     {
       "school": "广州市南沙区港湾小学",
@@ -1911,7 +1611,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4267）"
     },
     {
       "school": "广州市越秀区育才学校",
@@ -1923,7 +1623,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4567）"
     },
     {
       "school": "广州市第七中学",
@@ -1935,7 +1635,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4568）"
     },
     {
       "school": "广州市越秀区八旗二马路小学",
@@ -1947,7 +1647,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4569）"
     },
     {
       "school": "广州市越秀区五羊小学",
@@ -1959,7 +1659,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4570）"
     },
     {
       "school": "广州市越秀区永曜北小学",
@@ -1971,7 +1671,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4571）"
     },
     {
       "school": "广州市越秀区小北路小学",
@@ -1983,7 +1683,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4572）"
     },
     {
       "school": "广州市海珠外国语实验中学附属小学",
@@ -1995,7 +1695,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4573）"
     },
     {
       "school": "广州市海珠区实验小学",
@@ -2007,7 +1707,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4574）"
     },
     {
       "school": "广州市海珠区前进路小学",
@@ -2019,7 +1719,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4575）"
     },
     {
       "school": "广州市荔湾区芳村小学",
@@ -2031,7 +1731,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4576）"
     },
     {
       "school": "广州协和学校",
@@ -2043,7 +1743,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "区属修正(白云区→荔湾区);协和学校位于荔湾区西村"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4577）"
     },
     {
       "school": "广州市天河区奥体东小学",
@@ -2055,7 +1755,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4578）"
     },
     {
       "school": "广州市轻工职业学校",
@@ -2067,7 +1767,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（职业/师范学校（POI层未覆盖））"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4579）"
     },
     {
       "school": "广州市白云区沙凤小学",
@@ -2079,7 +1779,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4580）"
     },
     {
       "school": "广州彭加木纪念中学",
@@ -2091,7 +1791,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4581）"
     },
     {
       "school": "广州市白云区金沙第二小学",
@@ -2103,7 +1803,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4582）"
     },
     {
       "school": "广州市黄埔区天誉小学",
@@ -2115,7 +1815,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4583）"
     },
     {
       "school": "广州市花都区花东镇迳口初级中学",
@@ -2127,7 +1827,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4584）"
     },
     {
       "school": "广州市花都区圆玄中学",
@@ -2139,7 +1839,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4585）"
     },
     {
       "school": "广州市花都区华万学校",
@@ -2151,7 +1851,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4586）"
     },
     {
       "school": "广州市花都区实验中学",
@@ -2163,7 +1863,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4587）"
     },
     {
       "school": "广大附中花都学校",
@@ -2175,7 +1875,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4588）"
     },
     {
       "school": "广州市花都区邝维煜纪念中学附属雅正学校",
@@ -2187,7 +1887,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4589）"
     },
     {
       "school": "广州市花都区育才学校",
@@ -2199,7 +1899,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4590）"
     },
     {
       "school": "广州市花都区狮岭镇中心小学",
@@ -2211,7 +1911,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4591）"
     },
     {
       "school": "广州市花都区雅瑶中学",
@@ -2223,7 +1923,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4592）"
     },
     {
       "school": "广州市花都区花山镇新和小学",
@@ -2235,7 +1935,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4593）"
     },
     {
       "school": "广州市花都区炭步镇第二初级中学",
@@ -2247,7 +1947,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4594）"
     },
     {
       "school": "广州市花都区新华街第八小学",
@@ -2259,7 +1959,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4595）"
     },
     {
       "school": "广州市花都区新华街第四小学",
@@ -2271,7 +1971,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4596）"
     },
     {
       "school": "广州市番禺区市桥金山谷学校",
@@ -2283,7 +1983,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4597）"
     },
     {
       "school": "广州市番禺区石楼镇第二中学",
@@ -2295,7 +1995,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4598）"
     },
     {
       "school": "广州市番禺区钟村第二小学",
@@ -2307,7 +2007,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4599）"
     },
     {
       "school": "广州市南沙区莲塘小学",
@@ -2319,7 +2019,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4600）"
     },
     {
       "school": "广州市南沙区梅沙实验小学",
@@ -2331,7 +2031,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4601）"
     },
     {
       "school": "华南师范大学附属南沙中学",
@@ -2343,7 +2043,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4602）"
     },
     {
       "school": "广州市南沙区东涌第二小学",
@@ -2355,7 +2055,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4603）"
     },
     {
       "school": "广州外国语学校附属学校",
@@ -2367,7 +2067,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4604）"
     },
     {
       "school": "广东第二师范学院附属南沙珠江学校",
@@ -2379,7 +2079,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4605）"
     },
     {
       "school": "广州市从化区城郊街向阳小学",
@@ -2391,7 +2091,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4606）"
     },
     {
       "school": "广州市从化区第五中学",
@@ -2403,7 +2103,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4607）"
     },
     {
       "school": "广州市香江中学",
@@ -2415,7 +2115,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4608）"
     },
     {
       "school": "广州市增城区新塘中学",
@@ -2427,7 +2127,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4609）"
     },
     {
       "school": "广州市增城区增江小学",
@@ -2439,7 +2139,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4610）"
     },
     {
       "school": "广州市增城区新康小学",
@@ -2451,7 +2151,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4611）"
     },
     {
       "school": "广州市增城区小楼镇中心小学",
@@ -2463,7 +2163,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3276/202506/t20250612_1193900.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2024_football.txt 行4612）"
     },
     {
       "school": "华南师范大学附属南沙凤亭小学",
@@ -2475,7 +2175,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3615）"
     },
     {
       "school": "广州英豪学校",
@@ -2487,7 +2187,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3616）"
     },
     {
       "school": "广州市黄埔区丰乐初级中学",
@@ -2499,7 +2199,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3617）"
     },
     {
       "school": "广州市增城区新塘镇鹤泉小学",
@@ -2511,7 +2211,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3618）"
     },
     {
       "school": "广州市南沙区铁英学校",
@@ -2523,7 +2223,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3619）"
     },
     {
       "school": "广州市花都区狮岭中学",
@@ -2535,7 +2235,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3620）"
     },
     {
       "school": "广州市白云区白云实验学校",
@@ -2547,7 +2247,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3621）"
     },
     {
       "school": "广州市南沙区莲溪小学",
@@ -2559,7 +2259,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3622）"
     },
     {
       "school": "广东省教育研究院黄埔实验学校",
@@ -2571,7 +2271,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3623）"
     },
     {
       "school": "广州市信息技术职业学校",
@@ -2583,7 +2283,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（职业/师范学校（POI层未覆盖））"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3624）"
     },
     {
       "school": "广州市番禺区天峰小学",
@@ -2595,7 +2295,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3630）"
     },
     {
       "school": "广州南方学院番禺附属中学",
@@ -2607,7 +2307,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3631）"
     },
     {
       "school": "广州市花都区花山镇华侨初级中学",
@@ -2619,7 +2319,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3632）"
     },
     {
       "school": "广州市番禺区市桥桥城中学",
@@ -2631,7 +2331,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3633）"
     },
     {
       "school": "广州市南沙区金沙学校",
@@ -2643,7 +2343,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3634）"
     },
     {
       "school": "广州市第二中学南沙天元学校",
@@ -2655,7 +2355,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3635）"
     },
     {
       "school": "广州市番禺区广铁一中铁英学校",
@@ -2667,7 +2367,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3636）"
     },
     {
       "school": "广东外语外贸大学附属南沙学校",
@@ -2679,7 +2379,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3637）"
     },
     {
       "school": "广州市天河第一小学",
@@ -2691,7 +2391,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3638）"
     },
     {
       "school": "广州市南沙区大塘小学",
@@ -2703,7 +2403,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3639）"
     },
     {
       "school": "广州市花都区秀全外国语学校",
@@ -2715,7 +2415,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3640）"
     },
     {
       "school": "广州市花都区秀全街学府路小学",
@@ -2727,7 +2427,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3641）"
     },
     {
       "school": "广州市花都区狮岭镇狮峰初级中学",
@@ -2739,7 +2439,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3642）"
     },
     {
       "school": "广州市花都区花东镇杨荷小学",
@@ -2751,7 +2451,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3643）"
     },
     {
       "school": "广州市花都区新雅街新雅小学",
@@ -2763,7 +2463,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3644）"
     },
     {
       "school": "广州市花都区狮岭镇军田小学",
@@ -2775,7 +2475,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3645）"
     },
     {
       "school": "广州市花都区狮岭镇育华小学",
@@ -2787,7 +2487,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3646）"
     },
     {
       "school": "广州市花都区骏威小学",
@@ -2799,7 +2499,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3647）"
     },
     {
       "school": "广州市花都区花东学校",
@@ -2811,7 +2511,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3648）"
     },
     {
       "school": "广州市花都区颐和学校",
@@ -2823,7 +2523,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3649）"
     },
     {
       "school": "广州市花都区花广学校",
@@ -2835,7 +2535,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3650）"
     },
     {
       "school": "广州市花都区狮岭镇冠华小学",
@@ -2847,7 +2547,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3651）"
     },
     {
       "school": "广州市花都区炭步镇鸭湖小学",
@@ -2859,7 +2559,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3652）"
     },
     {
       "school": "广州市海华高级中学",
@@ -2871,7 +2571,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3653）"
     },
     {
       "school": "广州市海珠区第三实验小学",
@@ -2883,7 +2583,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3654）"
     },
     {
       "school": "广州市海珠区南燕小学",
@@ -2895,7 +2595,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3655）"
     },
     {
       "school": "广州市从化区街口街新城小学",
@@ -2907,7 +2607,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3656）"
     },
     {
       "school": "广州市南沙区东盛小学",
@@ -2919,7 +2619,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3657）"
     },
     {
       "school": "广州市南外实验学校",
@@ -2931,7 +2631,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3662）"
     },
     {
       "school": "广州市白云行知职业技术学校",
@@ -2943,7 +2643,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（职业/师范学校（POI层未覆盖））"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3663）"
     },
     {
       "school": "广州市花都区狮岭镇振兴第二小学",
@@ -2955,7 +2655,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3664）"
     },
     {
       "school": "华南师范大学附属永宁实验小学",
@@ -2967,7 +2667,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3687）"
     },
     {
       "school": "广州市增城区暨南大学附属崇德小学",
@@ -2979,7 +2679,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": "未匹配registry（远郊区POI覆盖缺口）"
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3729）"
     },
     {
       "school": "广州市第六十五中学",
@@ -2991,7 +2691,7 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3730）"
     },
     {
       "school": "广州市白云区夏良小学",
@@ -3003,7 +2703,319 @@
       "project": "全国青少年校园足球特色学校",
       "issuer": "教育部",
       "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/202604/t20260402_1432741.html",
-      "remark": ""
+      "remark": "由官方附件脚本解析（moe_2025_football.txt 行3731）"
+    },
+    {
+      "school": "广州市越秀区东风西路小学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市海珠区梅园西路小学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市荔湾区林凤娥小学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市天河区天府路小学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市白云区黄边小学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市黄埔区荔园小学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市番禺区市桥实验小学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市花都区新华街第四小学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市南沙区南沙小学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市增城区荔江小学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市从化区太平镇第二中心小学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市协和小学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市第一中学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市第八十六中学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州中学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市花都区新华街云山学校",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市越秀区育才实验学校",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市番禺区大石富丽中学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市番禺区钟村中学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市海珠区五中滨江学校",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市天河中学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广东番禺中学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市玉岩中学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市花都区新华中学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市执信中学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
+    },
+    {
+      "school": "广州市铁一中学",
+      "district": "",
+      "category": "体育-篮球",
+      "level": "国家级",
+      "batch": "第一批",
+      "year": "2017",
+      "project": "全国青少年校园篮球特色学校",
+      "issuer": "教育部",
+      "url": "http://www.moe.gov.cn/srcsite/A17/moe_938/s3273/201711/t20171120_319504.html",
+      "remark": "由官方附件脚本解析（moe_2017_basketball_batch1.docx 官方附件）"
     }
   ]
 }

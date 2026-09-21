@@ -1,7 +1,7 @@
 {
   "business": "specialty_schools",
   "category": "省级美育/艺术教育+中华优秀传统文化传承",
-  "generated_from": "采集期中间CSV provincial_arts.csv（手动迁移）",
+  "generated_from": "采集期中间CSV（手动迁移）；5批次（首批艺术/第二三四批传承/四五批艺术）已由 scripts/parse_gd_edu_pdf.py 从官方PDF脚本解析+OCR核对，audit_specialty.py 断言一致",
   "generated_at": "2026-09-20",
   "record_count": 105,
   "records": [
