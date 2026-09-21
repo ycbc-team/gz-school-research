@@ -1,0 +1,18 @@
+<view class="page">
+  <view class="hero">
+    <view class="kicker">政策 · 数据说明</view>
+    <view class="title">招生政策与数据口径</view>
+    <view class="sub">2026 招生季 · 数据共享自项目 data/（JSON 唯一真源）</view>
+  </view>
+
+  <view class="note">
+    本页为政策 tab 的骨架页，详细政策内容（各区招生细则、批次规则等）<b>待补充</b>；下方为数据口径与免责说明。
+  </view>
+
+  <view class="sec" wx:for="{{sections}}" wx:key="title">
+    <view class="sec-title">{{item.title}}</view>
+    <view class="card">
+      <view class="line" wx:for="{{item.items}}" wx:for-item="t" wx:key="*this">{{t}}</view>
+    </view>
+  </view>
+</view>

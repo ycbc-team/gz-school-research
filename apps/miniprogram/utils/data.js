@@ -22,7 +22,7 @@ const baseLoaders = {
   middleSchools: cast(hydrate(require('../data/poi/dist/middle_poi.js'))),
   middleTier1: cast(hydrate(require('../data/middle/tier1_schools_all.js'))),
   highSchools: cast(hydrate(require('../data/poi/dist/high_poi.js'))),
-  highLevels: cast(hydrate(require('../data/high/levels.js'))),
+  highLevels: cast(hydrate(require('../data/high/level/src/levels.js'))),
   highScores2025: cast(hydrate(require('../data/high/cutoff_score/dist/scores_2025.js'))),
   highScores2026: cast(hydrate(require('../data/high/cutoff_score/dist/scores_2026.js'))),
   enrollments: [

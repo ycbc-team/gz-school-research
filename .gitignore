@@ -31,6 +31,7 @@ packages/shared/dist/
 # 微信小程序构建产物（由 scripts/miniprogram/build.mjs 从 data/ JSON 与 packages/shared 生成）
 apps/miniprogram/shared/
 apps/miniprogram/data/
+apps/miniprogram/assets/markers-index/
 apps/miniprogram/miniprogram_npm/
 
 # 微信开发者工具个人配置
@@ -51,3 +52,7 @@ apps/web/src/data/compact/
 
 # 小程序分包紧凑数据产物（同主包，由 build:mp 生成）
 apps/miniprogram/pages/school-detail/data/
+
+# WorkBuddy 运行时数据 / 本地 app 配置（项目数据，不进 git）
+.workbuddy/
+.wbapp_*.genie
