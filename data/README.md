@@ -93,7 +93,7 @@ python3 scripts/primary/build_district_enrollment.py   # 2026 招生（写 data/
 | --- | --- |
 | 外部抓取（高德 API） | `poi/dist/primary_poi.json`、`poi/dist/middle_poi.json`、`poi/dist/high_poi.json`（fetch_* 脚本直写） |
 | 官方转录 | `primary/enrollments/2026-*`（小学招生计划）、`linkage/raw/*` + `primary/enrollments/_raw/*`（指标/自招/录取线/招生名单转录）、`high/cutoff_score/dist/scores_{2025,2026}.json`（官方录取分） |
-| 人工产物 | `primary|middle/tier1_schools_all.json`（学校信号，已判废弃待重构）、`high/level/src/levels.json`、`middle/org_sort/src/*`、`registry/brand_groups.json`、`registry/education_groups_2026.json`、`registry/_partial_*`、`registry/source_name_mappings.json`、`registry/minban_schools.json` |
+| 人工产物 | `primary|middle/tier1_schools_all.json`（学校信号，已判废弃待重构）、`high/level/src/levels.json`、`middle/org_sort/src/*`、`registry/brand_groups.json`、`registry/education_groups_2026.json`、`registry/_partial_*`、`registry/minban_schools.json` |
 
 ### 派生层（脚本产物，勿手改；改脚本须重跑并提交）
 

@@ -28,7 +28,6 @@ const highLevels = load('data/high/level/src/levels.json').schools;
 const districtQuota = load('data/linkage/district_quota.json').data;
 const quotaMatrix = load('data/linkage/quota_matrix.json');
 const specialMatrix = load('data/linkage/special_matrix.json');
-const sourceNameMappings = load('data/registry/entity/src/source_name_mappings.json').mappings;
 const schoolnames = load('data/linkage/raw/schoolnames.json');
 const brandGroups = load('data/registry/group/src/brand_groups.json').brands;
 
@@ -152,20 +151,9 @@ test('brand_groups 成员 school_id 在 entities 里存在', () => {
 });
 
 /* ========== 六、第一批招生 ID 关系 ========== */
-test('第一批来源名映射唯一，且全部指向高中实体', () => {
-  const highIds = new Set(entities.filter((e) => e.stage === 'high').map((e) => e.school_id));
-  const seen = new Set();
-  const bad = [];
-  for (const row of sourceNameMappings) {
-    if (!row.source || !row.raw_name || !row.school_id) bad.push(`字段不完整: ${JSON.stringify(row)}`);
-    const key = `${row.source}|${row.raw_name}`;
-    if (seen.has(key)) bad.push(`重复映射: ${key}`);
-    seen.add(key);
-    if (!highIds.has(row.school_id)) bad.push(`非高中实体: ${key} -> ${row.school_id}`);
-  }
-  assert.deepEqual(bad, [], `来源名映射不合法: ${bad.join('; ')}`);
-});
-
+// source_name_mappings 已于 2026-09-21 退役：71 条由 school_match norm 自动命中，
+// 3 条裸名歧义（广东华侨/天河外国语/二中）下沉 build_special_matrix SPECIAL_NAME_FIX 显式归位；
+// 第一批招生高中 ID 有效由下方「第一批招生 ID 外键异常」测试继续覆盖。
 test('第一批招生高中原文均有显式 ID 状态，已确认实体不得丢失 ID', () => {
   const highIds = new Set(entities.filter((e) => e.stage === 'high').map((e) => e.school_id));
   const ids = specialMatrix.high_school_ids || {};

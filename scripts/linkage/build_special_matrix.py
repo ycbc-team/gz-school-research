@@ -20,7 +20,6 @@ BASE = 'data/linkage/raw'
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "registry", "entity", "scripts"))
 from school_match import normName as norm
 OUT = sys.argv[1] if len(sys.argv) > 1 else 'data/linkage/special_matrix.json'
-SOURCE_MAP = 'data/registry/entity/src/source_name_mappings.json'
 SOURCE = 'gzzk-special-2026'
 
 
@@ -44,12 +43,6 @@ def strip_project(project: str) -> str:
 # ---------------- 高中实体别名表（entities.json stage=high，名字匹配唯一宿主） ----------------
 entities = json.load(open('data/registry/entity/dist/entities.json'))['entities']
 entity_by_id = {e['school_id']: e for e in entities if e.get('stage') == 'high'}
-source_mappings = json.load(open(SOURCE_MAP)).get('mappings', [])
-source_id_by_raw_name = {
-    r['raw_name']: r['school_id']
-    for r in source_mappings
-    if r.get('source') == SOURCE and r.get('raw_name') and r.get('school_id')
-}
 high_aliases: dict[str, list[dict]] = collections.defaultdict(list)  # 归一化别名 → 高中实体候选
 for e in entities:
     if e.get('stage') != 'high':
@@ -65,10 +58,10 @@ def resolve_entity(name: str):
 
     这是唯一允许用名称解析第一批招生单位的构建期入口。候选必须收敛到唯一
     school_id；未命中或歧义一律返回 None，留在审计输出，禁止取第一个候选。
+    统一先套 SPECIAL_NAME_FIX（裸名多校区歧义显式归位；2026-09-21 由
+    source_name_mappings 退役迁移），所有调用点（high_entities/自招/特长生）一致受益。
     """
-    mapped_id = source_id_by_raw_name.get(name)
-    if mapped_id:
-        return entity_by_id.get(mapped_id)
+    name = SPECIAL_NAME_FIX.get(name, name)
     candidates = {e['school_id']: e for e in high_aliases.get(norm(name), [])}
     return next(iter(candidates.values())) if len(candidates) == 1 else None
 
@@ -81,6 +74,10 @@ HIGH_NAME_FIX = {
 # 特长生计划表学校名 → 招生高中（校区）原文（领军龙单列无括号名，显式修复、可审计）
 SPECIAL_NAME_FIX = {
     '华南师范大学附属中学': '华南师范大学附属中学（石牌校区）',  # 领军龙男足单列，主校区石牌
+    # —— 裸名多校区歧义显式归位（2026-09-21 由 source_name_mappings 退役迁移，历史已确认）——
+    '广东华侨中学': '广东华侨中学(起义路校区)',                # 特长生按起义路（完中本部）
+    '广州市天河外国语学校': '广州市天河外国语学校（智慧城校区）',  # 特长生按智慧城
+    '广州市第二中学': '广州市第二中学(应元路校区)',            # 特长生按应元路（本部）
 }
 
 

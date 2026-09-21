@@ -64,7 +64,7 @@ const WEB_TARGETS = walkJson(DATA_SRC)
   .filter((rel) => !rel.split(sep).includes('src') || rel.startsWith('data/high/level/') || (rel.startsWith('data/registry/group/src/') && basename(rel) === 'brand_groups.json'))
   // src 为源数据目录，仅 dist 产物打包；high/level/src 例外：levels.json 人工源即前端消费（无 dist 构建）；
   // registry/src 例外：brand_groups.json 手工源即详情页「品牌关联」运行时消费（无 dist 构建）；
-  // 同目录的 groups_anchors/source_name_mappings 为构建期表，不进前端
+  // 同目录的 groups_anchors 等构建期表，不进前端（source_name_mappings 已退役，2026-09-21）
   .filter((rel) => !['groups_anchors.json', 'pending_items.json', 'coverage_result.json'].includes(basename(rel)));
   // 构建期内部表不进前端包：groups_anchors（merge_groups 锚点）/ pending_items（实体待办）/ coverage_result（集团覆盖检查产物）
 // 小程序主包数据（地图页 + 首页/支撑度消费）：POI/tier1/levels/招生/实体/升学路线/官方录取分
