@@ -90,8 +90,22 @@ def resolve_records(matcher, school, adcode, poi_pool):
 
 
 # ---------- 各区 transcripts → records ----------
+def _norm_plan(plan):
+    """班数归一：str 数字（openpyxl/xlrd 常读成 str）/ float / int → int；空/非数字 → None"""
+    if isinstance(plan, bool) or plan is None:
+        return None
+    if isinstance(plan, float):
+        return int(plan) if plan == int(plan) else None
+    if isinstance(plan, int):
+        return plan
+    if isinstance(plan, str):
+        t = plan.strip()
+        return int(t) if t.isdigit() else None
+    return None
+
+
 def rec(school, district, plan=None, zone="", note="", phone=""):
-    return {"school": school, "district": district, "plan_classes": plan,
+    return {"school": school, "district": district, "plan_classes": _norm_plan(plan),
             "zone": zone, "note": note, "phone": phone, "source": f"{district}教育局2026"}
 
 
@@ -120,10 +134,7 @@ def load_records(district_key):
             plan = sh[r][2]
             zone = str(sh[r][3]).strip()
             note = str(sh[r][4]).strip()
-            out.append(rec(school, district,
-                           int(plan) if isinstance(plan, float) and plan == int(plan)
-                           else (plan if isinstance(plan, (int, float)) else None),
-                           zone, note))
+            out.append(rec(school, district, plan, zone, note))
         return out, t.get("title", "番禺区教育局2026")
     raise KeyError(dk)
 

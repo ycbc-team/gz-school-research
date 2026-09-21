@@ -572,6 +572,7 @@ const brandCardUseful = computed(() =>
       <div class="card-title">招生计划（2026）</div>
       <div v-if="enrollment" class="kv">
         <div class="kv-row"><span>计划班数</span><b>{{ enrollment.plan_classes ?? '—' }} 个班</b></div>
+        <div class="kv-row" v-if="enrollment.plan_count"><span>计划人数</span><b>{{ enrollment.plan_count }} 人</b></div>
         <div class="kv-row" v-if="enrollment.nature"><span>办学性质</span><b>{{ enrollment.nature }}</b></div>
         <div class="kv-row" v-if="enrollment.source"><span>数据来源</span><b>{{ enrollment.source }}</b></div>
         <div v-if="enrollment.zone" class="zone-block">

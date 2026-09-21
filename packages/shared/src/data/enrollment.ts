@@ -19,6 +19,7 @@ export interface EnrollmentMatch {
   school_id: string;
   poi_name: string;
   plan_classes?: number | null;
+  plan_count?: number | null;
   nature?: string;
   zone?: string;
   note?: string;
@@ -28,9 +29,28 @@ export interface EnrollmentMatch {
 
 export function createEnrollmentApi(loaders: DataLoaders) {
   const enrollments = loaders.enrollments;
-  const ENROLL_FLAT = enrollments.flatMap((e) => e.records);
+  // records（公办）+ minban（民办招生计划）统一进索引；民办带 nature='民办' 与 plan_count
+  const ENROLL_FLAT = enrollments.flatMap((e) => [
+    ...e.records,
+    ...(e.minban || []).map((m) => ({
+      ...m,
+      school_id: m.school_id || '',
+      poi_name: m.poi_name || m.school,
+      nature: '民办',
+      source: e.source,
+    })),
+  ]);
   const enrollByExact = new Map<string, (typeof ENROLL_FLAT)[number]>();
   const enrollByNorm = new Map<string, (typeof ENROLL_FLAT)[number]>();
+  // 民办记录仅进 exact/norm（官方名在实体表精确匹配过），不进 fuzzy 池防模糊串扰公办
+  const fuzzyPool = enrollments.flatMap((e) => e.records);
+  const enrollFuzzyByNorm = new Map<string, (typeof ENROLL_FLAT)[number]>();
+  for (const r of fuzzyPool) {
+    const nk = normSchoolName(r.school);
+    if (nk && !enrollFuzzyByNorm.has(nk)) enrollFuzzyByNorm.set(nk, r);
+    const nk2 = normSchoolName(r.poi_name);
+    if (nk2 && !enrollFuzzyByNorm.has(nk2)) enrollFuzzyByNorm.set(nk2, r);
+  }
   for (const r of ENROLL_FLAT) {
     if (!enrollByExact.has(r.school)) enrollByExact.set(r.school, r);
     if (r.poi_name && !enrollByExact.has(r.poi_name)) enrollByExact.set(r.poi_name, r);
@@ -41,7 +61,7 @@ export function createEnrollmentApi(loaders: DataLoaders) {
     if (nk2 && !enrollByNorm.has(nk2)) enrollByNorm.set(nk2, r);
   }
 
-  /** 按小学名（POI 名）匹配 2026 招生计划：精确 → 归一 → 包含兜底 */
+  /** 按小学名（POI 名）匹配 2026 招生计划：精确 → 归一 → 包含兜底（民办计划同样命中） */
   function matchEnrollment(schoolName: string): EnrollmentMatch | null {
     const exact = enrollByExact.get(schoolName);
     if (exact) return { ...exact, matchedBy: 'exact' };
@@ -50,9 +70,9 @@ export function createEnrollmentApi(loaders: DataLoaders) {
       const n = enrollByNorm.get(nk);
       if (n) return { ...n, matchedBy: 'norm' };
     }
-    // 包含兜底：归一后互为子串（如 POI「沙面小学(凯粤湾校区)」↔ 计划「沙面小学凯粤湾校区」）
+    // 包含兜底（仅公办）：归一后互为子串（如 POI「沙面小学(凯粤湾校区)」↔ 计划「沙面小学凯粤湾校区」）
     const core = nk || schoolName;
-    for (const [k, r] of enrollByNorm) {
+    for (const [k, r] of enrollFuzzyByNorm) {
       if (k.length >= 4 && (k.includes(core) || core.includes(k))) return { ...r, matchedBy: 'fuzzy' };
     }
     return null;

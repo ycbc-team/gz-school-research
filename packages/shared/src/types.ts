@@ -230,10 +230,24 @@ export interface EnrollmentRecord {
   /** 匹配用 POI 名变体（norm 后与 POI name 全等；原字段名曾误作 school_id） */
   poi_name: string;
   plan_classes?: number | null;
+  /** 民办招生计划人数（民办无地段，仅班数/人数；公办无此列） */
+  plan_count?: number | null;
   zone?: string;
   note?: string;
   phone?: string;
   source: string;
+}
+
+/** 民办小学招生计划记录（enrollment dist 产物 minban 段）：无招生地段，仅计划班数/人数 */
+export interface EnrollmentMinbanRecord {
+  school: string;
+  district: string;
+  plan_classes?: number | null;
+  plan_count?: number | null;
+  school_id?: string;
+  poi_name?: string;
+  lng?: number | null;
+  lat?: number | null;
 }
 
 export interface EnrollmentAmbiguous {
@@ -249,6 +263,8 @@ export interface EnrollmentSnapshot {
   source: string;
   source_url: string;
   records: EnrollmentRecord[];
+  /** 民办小学招生计划（独立段：无地段，仅计划班数/人数；当前仅番禺官方文件公布） */
+  minban?: EnrollmentMinbanRecord[];
   unmatched: string[];
   ambiguous: EnrollmentAmbiguous[];
   poi_leftover: string[];
