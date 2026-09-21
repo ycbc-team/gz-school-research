@@ -140,11 +140,40 @@ def load_records(district_key):
 
 
 def load_minban(district_key):
-    """民办小学招生计划（当前仅番禺官方文件含民办招生计划 sheet）。
+    """民办小学招生计划（番禺 sheet / 海珠官方计划表）。
     民办不划地段（报名超计划摇号），故只取 班数/人数 计划 + 实体匹配，不进公办 records。
     """
-    if district_key != "panyu":
-        return []
+    if district_key == "panyu":
+        return _minban_panyu()
+    if district_key == "haizhu":
+        return _minban_haizhu()
+    return []
+
+
+def _minban_haizhu():
+    """海珠：2026年义务教育阶段民办中小学招生计划表（raw/haizhu_2026_minban_plan.png）"""
+    t = json.load(open(os.path.join(TRANSCRIPTS, "haizhu_2026_minban.json"), encoding="utf-8"))
+    matcher = load_matcher()
+    out, unresolved = [], []
+    for s in t["schools"]:
+        if s.get("plan_classes") is None:
+            continue  # 无小学计划（康乐中学/海珠中学仅初中）→ 归初中招生
+        ent = matcher.resolve(s["school"], preferred_adcode=ADCODES["haizhu"], preferred_stage="小学")
+        if not ent:
+            ent = matcher.resolve(s["school"], preferred_adcode=ADCODES["haizhu"])
+        if not ent:
+            unresolved.append(s["school"])
+            continue
+        out.append({"school": s["school"], "district": "海珠区",
+                    "plan_classes": s.get("plan_classes"), "plan_count": s.get("plan_count"),
+                    "school_id": ent.get("school_id"), "poi_name": ent.get("matched_name", ""),
+                    "lng": ent.get("lng"), "lat": ent.get("lat")})
+    if unresolved:
+        print(f"  [海珠民办未匹配] {len(unresolved)}: {unresolved}")
+    return out
+
+
+def _minban_panyu():
     t = json.load(open(os.path.join(TRANSCRIPTS, "panyu_2026_official.json"), encoding="utf-8"))
     rows = t["sheets"].get("民办招生计划", [])
     head_i = next((i for i, r in enumerate(rows) if len(r) > 1 and "学校名称" in str(r[1])), None)
@@ -153,7 +182,7 @@ def load_minban(district_key):
     data = [r for r in rows[head_i + 2:] if len(r) >= 6 and str(r[1]).strip()]
     matcher = load_matcher()
     with open(os.path.join(ROOT, "data", "poi", "dist", "primary_poi.json"), encoding="utf-8") as f:
-        poi_pool = [s for s in json.load(f).get("schools", []) if s.get("adcode") == ADCODES[district_key]]
+        poi_pool = [s for s in json.load(f).get("schools", []) if s.get("adcode") == ADCODES["panyu"]]
     out, unresolved = [], []
     for r in data:
         name = str(r[1]).strip()
@@ -161,8 +190,8 @@ def load_minban(district_key):
         plan_cnt = str(r[3]).strip()
         if plan_cls in ("", "/", "0"):
             continue  # 无小学计划（仅初中）→ 归初中招生，不进小学产物
-        ent = matcher.resolve(name, preferred_adcode=ADCODES[district_key], preferred_stage="小学") \
-            or matcher.resolve(name, preferred_adcode=ADCODES[district_key])
+        ent = matcher.resolve(name, preferred_adcode=ADCODES["panyu"], preferred_stage="小学") \
+            or matcher.resolve(name, preferred_adcode=ADCODES["panyu"])
         if not ent:
             unresolved.append(name)
             continue
@@ -214,6 +243,53 @@ def build(district_key):
             r["poi_name"] = poi["name"]
             r["lng"], r["lat"] = poi["lng"], poi["lat"]
             matched.append(r)
+
+    # 海珠公办：计划表（班）按校区/整校挂到匹配后记录（地段表无班数，官方另发招生计划表）。
+    # 匹配策略：去「广州市」前缀 + 括号统一；带校区名 → 校区名全等/前缀匹配（南边路校区↔南边校区）；
+    # 无校区名（本部记录=整校）→ 该法人 plan 多条时挂合计（南武小学=南5+北4=9），单条直挂。
+    if district_key == "haizhu":
+        _hz_plan = json.load(open(os.path.join(TRANSCRIPTS, "haizhu_2026_plan.json"), encoding="utf-8"))
+        _plan_map, _plan_campus = {}, {}
+        _strip = lambda n: re.sub(r"^(?:广州市?)?海珠区", "", n)
+        for _s in _hz_plan["schools"]:
+            _k = re.sub(r"[（(]", "(", _strip(_s["school"])).replace("）", ")")
+            _plan_map.setdefault(_k, []).append(_s["plan_classes"])
+            _cm = re.search(r"\(([^()]*校区)\)", _k)
+            if _cm:
+                _plan_campus.setdefault(re.sub(r"\([^()]*\)", "", _k), []).append(
+                    (_cm.group(1), _s["plan_classes"]))
+        def _norm(n):
+            return re.sub(r"[（(]", "(", _strip(n)).replace("）", ")")
+        for _r in matched:
+            _school = _norm(_r.get("school") or "")
+            _poi = _norm(_r.get("poi_name") or "")
+            _m = re.search(r"\(([^()]*)\)", _poi)
+            _base = re.sub(r"\([^()]*\)", "", _poi)
+            # 1) 官方原文精确（与计划表同源：第二实验小学（南校区）↔ 计划表原文）
+            if _school in _plan_map:
+                _v = _plan_map[_school]
+                _r["plan_classes"] = sum(_v) if len(_v) > 1 else _v[0]
+                continue
+            # 2) poi 校区精确（南武小学北校区 → 4；南边路校区 ↔ 南边校区）
+            if _m and _base in _plan_campus:
+                for _cname, _cls in _plan_campus[_base]:
+                    if _cname in _m.group(1) or _m.group(1) in _cname:
+                        _r["plan_classes"] = _cls
+                        break
+                if _r.get("plan_classes"):
+                    continue
+            # 3) poi 精确（含校区名，如 万松园小学(云桂校区) ↔ 整校 4）
+            if _poi in _plan_map:
+                _v = _plan_map[_poi]
+                _r["plan_classes"] = sum(_v) if len(_v) > 1 else _v[0]
+                continue
+            # 4) 官方名整校合计（本部记录：南武小学 = 南5+北4=9）
+            if _school in _plan_campus:
+                _r["plan_classes"] = sum(c for _, c in _plan_campus[_school])
+                continue
+            # 5) poi 校区 + 官方整校单条（龙潭小学(龙潭立交) ↔ 2）
+            if _m and _base in _plan_map and len(_plan_map[_base]) == 1:
+                _r["plan_classes"] = _plan_map[_base][0]
 
     matched_names = {r["school"] for r in matched}
     unmatched = [r["school"] for r in records if r["school"] not in matched_names]

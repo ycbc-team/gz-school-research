@@ -7,7 +7,7 @@
   {
    "school": "赤岗小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "赤岗街：①竹园社区；②赤塘社区的部分；③石榴岗社区的部分。",
    "note": "",
    "phone": "",
@@ -20,7 +20,7 @@
   {
    "school": "新港中路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "赤岗街：①七所社区；②汇美社区；③新鸿社区的部分。",
    "note": "",
    "phone": "",
@@ -33,7 +33,7 @@
   {
    "school": "金影小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "赤岗街：①珠影社区；②鸿运社区；③赤塘社区的部分；\n江海街：①金影社区；②敦和社区的部分；③金穗社区的部分。",
    "note": "",
    "phone": "",
@@ -46,7 +46,7 @@
   {
    "school": "聚德东小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "江海街：①坚真社区；②富文社区；③新村社区；④聚德东社区；⑤石榴岗社区的部分；⑥金丰社区的部分。",
    "note": "",
    "phone": "",
@@ -59,7 +59,7 @@
   {
    "school": "聚德西路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "江海街：①聚德西社区；②金丰社区的部分；\n赤岗街：①石榴岗社区的部分。",
    "note": "",
    "phone": "",
@@ -72,7 +72,7 @@
   {
    "school": "赤岗东小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "赤岗街：①金星社区的部分；②石榴岗社区的部分；\n江海街：①新安社区；②台涌社区；③马骝岗社区。",
    "note": "",
    "phone": "",
@@ -85,7 +85,7 @@
   {
    "school": "赤沙小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "官洲街：①学院社区；②赤沙西北约社区；③赤沙东南约社区；④琶洲南社区。",
    "note": "",
    "phone": "",
@@ -98,7 +98,7 @@
   {
    "school": "仑头小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "官洲街：①仑头东社区；②仑头西社区。",
    "note": "",
    "phone": "",
@@ -111,7 +111,7 @@
   {
    "school": "广东实验中学琶洲学校",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 2,
    "zone": "官洲街：①琶洲西区社区。",
    "note": "",
    "phone": "",
@@ -124,7 +124,7 @@
   {
    "school": "第二实验小学（南校区）",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "赤岗街：①毛纺社区；②七星岗社区的部分；③赤塘社区的部分；④石榴岗社区的部分；⑤金星社区的部分；\n琶洲街：①磨碟沙南社区。",
    "note": "",
    "phone": "",
@@ -137,7 +137,7 @@
   {
    "school": "第二实验小学（北校区）",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "赤岗街：①珠江帝景社区；②新鸿社区的部分。",
    "note": "",
    "phone": "",
@@ -150,7 +150,7 @@
   {
    "school": "客村小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "江海街：①桂田社区；②江贝社区；\n赤岗街：①客村社区；②鹭江社区的部分；\n凤阳街：①敦和社区的部分；②和平社区的部分。",
    "note": "",
    "phone": "",
@@ -163,7 +163,7 @@
   {
    "school": "大江苑小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "赤岗街：①大江涌社区；②大江苑社区；③愉景雅苑社区；④南贤社区。",
    "note": "",
    "phone": "",
@@ -176,7 +176,7 @@
   {
    "school": "凤江小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "凤阳街：①鹭江社区；②汇源社区；③康乐西社区；④康乐中社区；⑤康乐东社区；⑥凤和社区；⑦敦和社区的部分；\n赤岗街：①鹭江社区的部分；\n新港街：①海洋社区的部分；②海康社区的部分。",
    "note": "",
    "phone": "",
@@ -189,7 +189,7 @@
   {
    "school": "第三实验小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "琶洲街：①南园居社区；②雅郡花园社区；③杨青社区的部分。",
    "note": "",
    "phone": "",
@@ -202,7 +202,7 @@
   {
    "school": "执信中学琶洲实验学校",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "琶洲街：①琶洲东北社区；②琶洲西南社区。",
    "note": "",
    "phone": "",
@@ -215,7 +215,7 @@
   {
    "school": "黄埔小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 2,
    "zone": "琶洲街：①石基社区；②黄埔南社区；③黄埔北社区；④杨青社区的部分。",
    "note": "",
    "phone": "",
@@ -228,7 +228,7 @@
   {
    "school": "新洲小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 2,
    "zone": "琶洲街：①广渔社区；②新洲社区。",
    "note": "",
    "phone": "",
@@ -241,7 +241,7 @@
   {
    "school": "绿翠小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "赤岗街：①丽园社区；②江景社区；③下渡社区的部分；\n新港街：①海康社区的部分。",
    "note": "",
    "phone": "",
@@ -254,7 +254,7 @@
   {
    "school": "逸景第一小学（逸景校区）",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 6,
    "zone": "凤阳街：①逸景东社区；②逸景西社区。",
    "note": "",
    "phone": "",
@@ -267,7 +267,7 @@
   {
    "school": "逸景第一小学（金穗校区）",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "江海街：①金穗社区的部分；②敦和社区的部分；\n凤阳街：①叠彩园社区；②和平社区的部分。",
    "note": "",
    "phone": "",
@@ -280,7 +280,7 @@
   {
    "school": "知信小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "赤岗街：①赤岗社区；②七星岗社区的部分；\n琶洲街：①磨碟沙北社区。",
    "note": "",
    "phone": "",
@@ -293,7 +293,7 @@
   {
    "school": "卫国尧纪念小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "南洲街：①新鱼社区；②环秀坊社区；③西村社区；④水基社区的部分。",
    "note": "",
    "phone": "",
@@ -306,7 +306,7 @@
   {
    "school": "三滘小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "南洲街：①后滘社区；②池滘社区。",
    "note": "",
    "phone": "",
@@ -319,7 +319,7 @@
   {
    "school": "土华小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 2,
    "zone": "华洲街：①土华社区；②华泰社区；③洪福社区。",
    "note": "",
    "phone": "",
@@ -332,7 +332,7 @@
   {
    "school": "瀛洲小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "华洲街：①小洲社区；②瀛园社区；③瀛豪社区。",
    "note": "",
    "phone": "",
@@ -345,7 +345,7 @@
   {
    "school": "晓港湾小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 6,
    "zone": "瑞宝街：①锦绣名居社区；②晓港湾社区；③瑞宝花园社区；④名苑社区；⑤宝通社区；⑥侨诚社区。",
    "note": "",
    "phone": "",
@@ -358,7 +358,7 @@
   {
    "school": "晓港湾小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 6,
    "zone": "瑞宝街：①锦绣名居社区；②晓港湾社区；③瑞宝花园社区；④名苑社区；⑤宝通社区；⑥侨诚社区。",
    "note": "",
    "phone": "",
@@ -371,7 +371,7 @@
   {
    "school": "瑞宝小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "瑞宝街：①南约社区；②北约社区；③东约社区；④万华社区；⑤和辉社区；⑥英豪社区的部分。",
    "note": "",
    "phone": "",
@@ -384,7 +384,7 @@
   {
    "school": "瑞宝小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "瑞宝街：①南约社区；②北约社区；③东约社区；④万华社区；⑤和辉社区；⑥英豪社区的部分。",
    "note": "",
    "phone": "",
@@ -397,7 +397,7 @@
   {
    "school": "东风小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "江海街：①大塘东社区；②大塘西社区；\n南洲街：①桥南社区；②上涌西约社区；③上涌中约社区；④上涌东约社区。",
    "note": "",
    "phone": "",
@@ -410,7 +410,7 @@
   {
    "school": "龙潭小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 2,
    "zone": "华洲街：①龙潭社区；②万年社区；③西环社区。",
    "note": "",
    "phone": "",
@@ -423,7 +423,7 @@
   {
    "school": "南武文润学校",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "南洲街：①水基社区的部分。",
    "note": "",
    "phone": "",
@@ -436,7 +436,7 @@
   {
    "school": "南武小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 9,
    "zone": "瑞宝街：①南洲社区；②英豪社区的部分；\n南洲街：①西滘社区。",
    "note": "",
    "phone": "",
@@ -449,7 +449,7 @@
   {
    "school": "南武小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "瑞宝街：①南洲社区；②英豪社区的部分；\n南洲街：①西滘社区。",
    "note": "",
    "phone": "",
@@ -462,7 +462,7 @@
   {
    "school": "南武实验小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "南洲街：①大沙社区；②珠江御景湾社区。",
    "note": "",
    "phone": "",
@@ -475,7 +475,7 @@
   {
    "school": "实验小学（穗花校区）",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "昌岗街：①穗花南社区；②穗花北社区。",
    "note": "",
    "phone": "",
@@ -488,7 +488,7 @@
   {
    "school": "实验小学（富基校区）",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "滨江街：①怡安社区；②小港社区；③益丰社区的部分。",
    "note": "",
    "phone": "",
@@ -501,7 +501,7 @@
   {
    "school": "晓港东马路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 2,
    "zone": "昌岗街：①晓港东社区；②晓港中社区的部分；\n新港街：①攀桂社区的部分。",
    "note": "",
    "phone": "",
@@ -514,7 +514,7 @@
   {
    "school": "晓港西马路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "昌岗街：①细岗东社区；②晓西社区；③青晖社区；④跃进南社区；⑤跃进北社区的部分；⑥晓港中社区的部分；⑦晓园东社区的部分。",
    "note": "",
    "phone": "",
@@ -527,7 +527,7 @@
   {
    "school": "昌岗东路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "新港街：①银禧社区；\n昌岗街：①细岗西社区；②昌岗东社区；③跃进北社区的部分；④晓园东社区的部分。",
    "note": "",
    "phone": "",
@@ -540,7 +540,7 @@
   {
    "school": "昌岗东路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "新港街：①银禧社区；\n昌岗街：①细岗西社区；②昌岗东社区；③跃进北社区的部分；④晓园东社区的部分。",
    "note": "",
    "phone": "",
@@ -553,7 +553,7 @@
   {
    "school": "晓园小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "凤阳街：①泰宁社区；②润翠社区；③富康社区；④凤阳社区；⑤金马社区；\n昌岗街：①晓园新社区。",
    "note": "",
    "phone": "",
@@ -566,7 +566,7 @@
   {
    "school": "海富小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "昌岗街：①江南大道南社区；②海富花园社区；③江南雅居社区；④昌岗中社区的部分。",
    "note": "",
    "phone": "",
@@ -579,7 +579,7 @@
   {
    "school": "五凤小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "凤阳街：①西畔里社区；②五凤社区；③五村社区；④旧凤凰社区。",
    "note": "",
    "phone": "",
@@ -592,7 +592,7 @@
   {
    "school": "五凤小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "凤阳街：①西畔里社区；②五凤社区；③五村社区；④旧凤凰社区。",
    "note": "",
    "phone": "",
@@ -605,7 +605,7 @@
   {
    "school": "新港路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 6,
    "zone": "新港街：①立新社区；②穗华社区；③南景社区；④海洋社区的部分；⑤海康社区的部分；⑥怡乐社区的部分；⑦攀桂社区的部分。",
    "note": "",
    "phone": "",
@@ -618,7 +618,7 @@
   {
    "school": "新港路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "新港街：①立新社区；②穗华社区；③南景社区；④海洋社区的部分；⑤海康社区的部分；⑥怡乐社区的部分；⑦攀桂社区的部分。",
    "note": "",
    "phone": "",
@@ -631,7 +631,7 @@
   {
    "school": "绿翠现代实验学校",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 2,
    "zone": "新港街：①祈乐社区；②怡乐社区的部分。",
    "note": "",
    "phone": "",
@@ -644,7 +644,7 @@
   {
    "school": "怡乐路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "新港街：①江怡社区；②嘉仕社区；③中大社区。",
    "note": "",
    "phone": "",
@@ -657,7 +657,7 @@
   {
    "school": "万松园小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "江南中街：①南园西社区；②万寿社区；③南园东社区；④万松园社区的部分；⑤得胜社区的部分；⑥聚龙社区的部分。",
    "note": "",
    "phone": "",
@@ -670,7 +670,7 @@
   {
    "school": "万松园小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "江南中街：①南园西社区；②万寿社区；③南园东社区；④万松园社区的部分；⑤得胜社区的部分；⑥聚龙社区的部分。",
    "note": "",
    "phone": "",
@@ -683,7 +683,7 @@
   {
    "school": "大元帅府小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "滨江街：①海运社区；②江湾社区；③海城社区；④仲恺社区；⑤远安社区；⑥涛景社区；\n素社街：①郭墩社区。",
    "note": "",
    "phone": "",
@@ -696,7 +696,7 @@
   {
    "school": "大元帅府小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "滨江街：①海运社区；②江湾社区；③海城社区；④仲恺社区；⑤远安社区；⑥涛景社区；\n素社街：①郭墩社区。",
    "note": "",
    "phone": "",
@@ -709,7 +709,7 @@
   {
    "school": "大元帅府小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "滨江街：①海运社区；②江湾社区；③海城社区；④仲恺社区；⑤远安社区；⑥涛景社区；\n素社街：①郭墩社区。",
    "note": "",
    "phone": "",
@@ -722,7 +722,7 @@
   {
    "school": "滨江东路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "新港街：①金雅社区的部分；\n素社街：①海联北社区；②桥东社区的部分；\n滨江街：①海景社区。",
    "note": "",
    "phone": "",
@@ -735,7 +735,7 @@
   {
    "school": "第四实验小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "新港街：①半岛社区；②金雅社区的部分；\n赤岗街：①下渡社区的部分。",
    "note": "",
    "phone": "",
@@ -748,7 +748,7 @@
   {
    "school": "海珠外国语实验中学附属小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 2,
    "zone": "素社街：①素社东社区；②怡海社区的部分。",
    "note": "",
    "phone": "",
@@ -761,7 +761,7 @@
   {
    "school": "前进路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "素社街：①素社中社区；②万寿北社区；③蟠龙社区；④基立新村社区；⑤基立南社区的部分；⑥金汇社区的部分。",
    "note": "",
    "phone": "",
@@ -774,7 +774,7 @@
   {
    "school": "基立道小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "素社街：①稔岗社区；②金汇社区的部分；③基立南社区的部分；\n江南中街：①万松园社区的部分。",
    "note": "",
    "phone": "",
@@ -787,7 +787,7 @@
   {
    "school": "基立道小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "素社街：①稔岗社区；②金汇社区的部分；③基立南社区的部分；\n江南中街：①万松园社区的部分。",
    "note": "",
    "phone": "",
@@ -800,7 +800,7 @@
   {
    "school": "海联路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 2,
    "zone": "素社街：①海印南社区；②怡海社区的部分；③桥东社区的部分。",
    "note": "",
    "phone": "",
@@ -813,7 +813,7 @@
   {
    "school": "江南大道中小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "海幢街：①南村社区；②永龙社区；\n江南中街：①复兴社区；②贵德东社区；③江宝社区；④万松园社区的部分；\n滨江街：①益丰社区的部分。",
    "note": "",
    "phone": "",
@@ -826,7 +826,7 @@
   {
    "school": "菩提路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 6,
    "zone": "沙园街：①华苑社区；②广重社区；③广船社区；④荔福社区的部分；⑤光大花园南社区的部分。",
    "note": "",
    "phone": "",
@@ -839,7 +839,7 @@
   {
    "school": "菩提路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 6,
    "zone": "沙园街：①华苑社区；②广重社区；③广船社区；④荔福社区的部分；⑤光大花园南社区的部分。",
    "note": "",
    "phone": "",
@@ -852,7 +852,7 @@
   {
    "school": "昌岗中路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 8,
    "zone": "沙园街：①橡胶新村社区；②奋勇社区的部分；\n昌岗街：①慎德里社区的部分；②昌岗中社区的部分；③汇源社区的部分；\n南石头街：①翠城社区的部分。",
    "note": "",
    "phone": "",
@@ -865,7 +865,7 @@
   {
    "school": "石溪劬劳小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "瑞宝街：①工业大道南社区；②石溪社区；③富全社区。",
    "note": "",
    "phone": "",
@@ -878,7 +878,7 @@
   {
    "school": "金碧第一小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 7,
    "zone": "瑞宝街：①金碧西社区；②金碧东社区；③金碧南社区。",
    "note": "",
    "phone": "",
@@ -891,7 +891,7 @@
   {
    "school": "红棉小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "南石头街：①沙溪社区；②红棉社区；③百合社区；④顺意社区；\n凤阳街：①南珠社区。",
    "note": "",
    "phone": "",
@@ -904,7 +904,7 @@
   {
    "school": "培红小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "南石头街：①南箕社区；②保利社区。",
    "note": "",
    "phone": "",
@@ -917,7 +917,7 @@
   {
    "school": "宝玉直实验星悦小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "南石头街：①邓岗社区；②纸南社区；③纸北社区；④泉塘社区；⑤翠城社区的部分；⑥星汇湾社区的部分。",
    "note": "",
    "phone": "",
@@ -930,7 +930,7 @@
   {
    "school": "南燕小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "南石头街：①南景园社区；②晓燕湾社区。",
    "note": "",
    "phone": "",
@@ -943,7 +943,7 @@
   {
    "school": "海珠外国语实验中学附属第二小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "南石头街：①石岗社区；\n瑞宝街：①大干围社区。",
    "note": "",
    "phone": "",
@@ -956,7 +956,7 @@
   {
    "school": "宝玉直实验小学（光大校区）",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 8,
    "zone": "沙园街：①光大花园北社区；②光大花园南社区的部分。",
    "note": "",
    "phone": "",
@@ -969,7 +969,7 @@
   {
    "school": "宝玉直实验小学（南边校区）",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "南石头街：①庄头社区；②棣园社区；③翠城社区的部分；④星汇湾社区的部分。",
    "note": "",
    "phone": "",
@@ -982,7 +982,7 @@
   {
    "school": "宝玉直实验第二小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "龙凤街：①革新社区；②新民社区；③金沙社区的部分。",
    "note": "",
    "phone": "",
@@ -995,7 +995,7 @@
   {
    "school": "宝玉直小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "海幢街：①宝玉直社区；②宝贤社区；③宏宇社区；④仁厚直社区；\n龙凤街：①世昌社区的部分。",
    "note": "",
    "phone": "",
@@ -1008,7 +1008,7 @@
   {
    "school": "江南新村第一小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "江南中街：①紫来社区；②聚源社区；③紫龙社区；④青凤社区；⑤青葵社区；⑥得胜社区的部分；⑦聚龙社区的部分；⑧紫金社区的部分；\n昌岗街：①信和社区；②隔山社区。",
    "note": "",
    "phone": "",
@@ -1021,7 +1021,7 @@
   {
    "school": "江南新村第一小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "江南中街：①紫来社区；②聚源社区；③紫龙社区；④青凤社区；⑤青葵社区；⑥得胜社区的部分；⑦聚龙社区的部分；⑧紫金社区的部分；\n昌岗街：①信和社区；②隔山社区。",
    "note": "",
    "phone": "",
@@ -1034,7 +1034,7 @@
   {
    "school": "江南新村第二小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 4,
    "zone": "江南中街：①杏园社区；②紫金社区的部分；\n海幢街：①杏坛社区。",
    "note": "",
    "phone": "",
@@ -1047,7 +1047,7 @@
   {
    "school": "鹤鸣五巷小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "龙凤街：①龙导社区；②鹤洲社区；③凤宁社区；④状元社区；⑤鹤兴社区；\n南华西街：①龙武里社区；②兆龙里社区；③聚龙社区。",
    "note": "",
    "phone": "",
@@ -1060,7 +1060,7 @@
   {
    "school": "汇源大街小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "昌岗街：①朝圣社区；②慎德里社区的部分；③汇源社区的部分；\n沙园街：①沙园新村社区；②港海社区；③奋勇社区的部分；④荔福社区的部分。",
    "note": "",
    "phone": "",
@@ -1073,7 +1073,7 @@
   {
    "school": "邓世昌纪念小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "龙凤街：①马涌社区；②康隆社区；③龙田社区；④昌盛社区的部分；⑤世昌社区的部分。",
    "note": "",
    "phone": "",
@@ -1086,7 +1086,7 @@
   {
    "school": "同福中路第一小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "海幢街：①寺前社区；\n龙凤街：①环珠社区；②仁和社区；\n南华西街：①敬和里社区；②福安社区；③鳌洲社区。",
    "note": "",
    "phone": "",
@@ -1099,7 +1099,7 @@
   {
    "school": "同福中路第一小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "海幢街：①寺前社区；\n龙凤街：①环珠社区；②仁和社区；\n南华西街：①敬和里社区；②福安社区；③鳌洲社区。",
    "note": "",
    "phone": "",
@@ -1112,7 +1112,7 @@
   {
    "school": "同福中路第一小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "海幢街：①寺前社区；\n龙凤街：①环珠社区；②仁和社区；\n南华西街：①敬和里社区；②福安社区；③鳌洲社区。",
    "note": "",
    "phone": "",
@@ -1125,7 +1125,7 @@
   {
    "school": "海珠镇泰实验小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "海幢街：①堑口社区；②福仁社区；③同庆社区；④蒙圣社区；⑤南华中社区；⑥百睦社区。",
    "note": "",
    "phone": "",
@@ -1138,7 +1138,7 @@
   {
    "school": "海珠镇泰实验小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "海幢街：①堑口社区；②福仁社区；③同庆社区；④蒙圣社区；⑤南华中社区；⑥百睦社区。",
    "note": "",
    "phone": "",
@@ -1151,7 +1151,7 @@
   {
    "school": "后乐园街小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 3,
    "zone": "南华西街：①海天社区；②洲头咀社区；③厚德社区；④后乐园社区；⑤德和新社区；⑥永兴社区。",
    "note": "",
    "phone": "",
@@ -1164,7 +1164,7 @@
   {
    "school": "梅园西路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "龙凤街：①荔福社区；②凤凰社区；③梅园南社区；④富力社区；⑤金沙社区的部分；⑥昌盛社区的部分。",
    "note": "",
    "phone": "",
@@ -1177,7 +1177,7 @@
   {
    "school": "梅园西路小学",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 5,
    "zone": "龙凤街：①荔福社区；②凤凰社区；③梅园南社区；④富力社区；⑤金沙社区的部分；⑥昌盛社区的部分。",
    "note": "",
    "phone": "",
@@ -1190,7 +1190,7 @@
   {
    "school": "启能学校",
    "district": "海珠区",
-   "plan_classes": null,
+   "plan_classes": 1,
    "zone": "海珠区户籍、持《残疾人证》，且具有一定的学习和自理能力的中重度适龄未入学残疾儿童。",
    "note": "",
    "phone": "",
@@ -1243,5 +1243,156 @@
   "龙涛小学"
  ],
  "map_fail": [],
- "minban": []
+ "minban": [
+  {
+   "school": "广州市海珠区海珠小学",
+   "district": "海珠区",
+   "plan_classes": 5,
+   "plan_count": 225,
+   "school_id": "gz-440105-ae968480",
+   "poi_name": "海珠小学",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市海珠区龙华学校",
+   "district": "海珠区",
+   "plan_classes": 2,
+   "plan_count": 90,
+   "school_id": "gz-440105-e778fd4e",
+   "poi_name": "龙华学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市海珠区龙涛小学",
+   "district": "海珠区",
+   "plan_classes": 5,
+   "plan_count": 225,
+   "school_id": "gz-440105-0b2bc8c5",
+   "poi_name": "龙涛小学",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市海珠区奥通小学",
+   "district": "海珠区",
+   "plan_classes": 3,
+   "plan_count": 135,
+   "school_id": "gz-440105-e038f3fb",
+   "poi_name": "奥通小学",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市海珠区华光小学",
+   "district": "海珠区",
+   "plan_classes": 7,
+   "plan_count": 266,
+   "school_id": "gz-440105-47f6ec47",
+   "poi_name": "广州市海珠区华光小学",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市海珠区名门珠江小学",
+   "district": "海珠区",
+   "plan_classes": 3,
+   "plan_count": 135,
+   "school_id": "gz-440105-b43b0c72",
+   "poi_name": "名门珠江小学",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市海珠区贝赛思学校",
+   "district": "海珠区",
+   "plan_classes": 3,
+   "plan_count": 135,
+   "school_id": "gz-440105-4d41d915",
+   "poi_name": "广州贝赛思学校(琶洲)",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市海珠区春蕾实验小学",
+   "district": "海珠区",
+   "plan_classes": 6,
+   "plan_count": 270,
+   "school_id": "gz-440105-067354f4",
+   "poi_name": "春蕾实验学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市海珠区春晖小学",
+   "district": "海珠区",
+   "plan_classes": 6,
+   "plan_count": 270,
+   "school_id": "gz-440105-f6b48b9e",
+   "poi_name": "春晖学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市海珠区华洲实验学校",
+   "district": "海珠区",
+   "plan_classes": 4,
+   "plan_count": 180,
+   "school_id": "gz-440105-a630438a",
+   "poi_name": "广州海珠华洲实验学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市海珠区育华学校",
+   "district": "海珠区",
+   "plan_classes": 6,
+   "plan_count": 270,
+   "school_id": "gz-440105-0c78a8e1",
+   "poi_name": "广州市海珠区育华学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市海珠区华立学校（大沙）",
+   "district": "海珠区",
+   "plan_classes": 2,
+   "plan_count": 90,
+   "school_id": "gz-440105-2e535171",
+   "poi_name": "华立小学",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市海珠区华立学校（赤沙）",
+   "district": "海珠区",
+   "plan_classes": 8,
+   "plan_count": 360,
+   "school_id": "gz-440105-e2de50d2",
+   "poi_name": "广州市海珠区赤沙小学",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市海珠区华海双语学校",
+   "district": "海珠区",
+   "plan_classes": 3,
+   "plan_count": 75,
+   "school_id": "gz-440105-9a6566db",
+   "poi_name": "华海双语学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市为明学校",
+   "district": "海珠区",
+   "plan_classes": 6,
+   "plan_count": 200,
+   "school_id": "gz-440105-baa048f9",
+   "poi_name": "广州市为明学校(光大校区)",
+   "lng": null,
+   "lat": null
+  }
+ ]
 }

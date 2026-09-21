@@ -142,7 +142,9 @@
   "gz-440103-26cf2268#primary": {
    "aliases": [
     "康有为纪念小学",
-    "康有为纪念小学白鹅潭校区"
+    "康有为纪念小学校本部",
+    "康有为纪念小学白鹅潭校区",
+    "荔湾区康有为纪念小学校本部"
    ],
    "name": "广州市荔湾区康有为纪念小学(白鹅潭校区)",
    "stage": "primary"
@@ -434,7 +436,8 @@
   },
   "gz-440103-6dbe752e#primary": {
    "aliases": [
-    "环市西路小学绿森林校区"
+    "环市西路小学绿森林校区",
+    "第一中学附属环市西路小学绿森林校区"
    ],
    "name": "荔湾区环市西路小学(绿森林校区)",
    "stage": "primary"
@@ -447,7 +450,10 @@
    "stage": "primary"
   },
   "gz-440103-702beeb4#primary": {
-   "aliases": [],
+   "aliases": [
+    "荔湾区西关培正小学恩宁校区",
+    "西关培正小学恩宁校区"
+   ],
    "name": "西关培正小学",
    "stage": "primary"
   },
@@ -624,7 +630,10 @@
    "stage": "primary"
   },
   "gz-440103-a15d3a11#primary": {
-   "aliases": [],
+   "aliases": [
+    "乐贤坊小学校本部",
+    "荔湾区乐贤坊小学校本部"
+   ],
    "name": "乐贤坊小学",
    "stage": "primary"
   },
@@ -1249,7 +1258,9 @@
    "stage": "primary"
   },
   "gz-440104-4ebbaf83#primary": {
-   "aliases": [],
+   "aliases": [
+    "小北路小学小北校区"
+   ],
    "name": "小北路小学(小北路校区)",
    "stage": "primary"
   },
@@ -1298,7 +1309,9 @@
    "stage": "high"
   },
   "gz-440104-682141d8#primary": {
-   "aliases": [],
+   "aliases": [
+    "养正小学"
+   ],
    "name": "王圣堂温浩根养正学校",
    "stage": "primary"
   },
@@ -1350,7 +1363,9 @@
    "stage": "middle"
   },
   "gz-440104-7425dd47#primary": {
-   "aliases": [],
+   "aliases": [
+    "东风东路小学锦城校区"
+   ],
    "name": "东风东路小学锦城花园校区",
    "stage": "primary"
   },
@@ -1832,6 +1847,7 @@
   },
   "gz-440105-0b34687e#primary": {
    "aliases": [
+    "宝玉直实验小学南边校区",
     "宝玉直实验小学南边路校区"
    ],
    "name": "广州市海珠区宝玉直实验小学(南边路校区)",
@@ -1982,7 +1998,8 @@
   },
   "gz-440105-2fd44dc2#primary": {
    "aliases": [
-    "实验小学"
+    "实验小学",
+    "实验小学穗花校区"
    ],
    "name": "海珠区实验小学",
    "stage": "primary"
@@ -1999,6 +2016,7 @@
   },
   "gz-440105-32173950#primary": {
    "aliases": [
+    "第二实验小学南校区",
     "第二实验小学江海校区"
    ],
    "name": "海珠区第二实验小学(江海校区)",
@@ -2319,7 +2337,8 @@
   },
   "gz-440105-94dfa7d6#primary": {
    "aliases": [
-    "第二实验小学"
+    "第二实验小学",
+    "第二实验小学北校区"
    ],
    "name": "海珠区第二实验小学",
    "stage": "primary"
@@ -2744,7 +2763,9 @@
    "stage": "middle"
   },
   "gz-440105-ec2b47c2#primary": {
-   "aliases": [],
+   "aliases": [
+    "逸景第一小学逸景校区"
+   ],
    "name": "逸景第一小学(本校区)",
    "stage": "primary"
   },
@@ -3200,7 +3221,8 @@
   },
   "gz-440106-3332b6cb#primary": {
    "aliases": [
-    "侨乐小学"
+    "侨乐小学",
+    "侨乐小学南校区"
    ],
    "name": "天河区侨乐小学",
    "stage": "primary"
@@ -3259,6 +3281,7 @@
   },
   "gz-440106-3bc362f9#primary": {
    "aliases": [
+    "五一小学校本部",
     "天河区五一小学"
    ],
    "name": "五一小学",
@@ -3721,6 +3744,7 @@
   "gz-440106-95cb8bc4#primary": {
    "aliases": [
     "侨乐小学",
+    "侨乐小学北校区",
     "华阳集团侨乐小学"
    ],
    "name": "广州华阳集团侨乐小学(北校区)",
@@ -4179,7 +4203,8 @@
   },
   "gz-440106-efcdec9d#primary": {
    "aliases": [
-    "汇景实验学校"
+    "汇景实验学校",
+    "汇景实验学校汇景校区小学部"
    ],
    "name": "汇景实验学校（小学部）",
    "stage": "primary"
@@ -4498,7 +4523,10 @@
    "stage": "primary"
   },
   "gz-440111-183704b2#primary": {
-   "aliases": [],
+   "aliases": [
+    "新和学校",
+    "白云区新和学校"
+   ],
    "name": "新和学校小学部",
    "stage": "primary"
   },
@@ -4656,7 +4684,9 @@
    "stage": "primary"
   },
   "gz-440111-2bb2adc7#primary": {
-   "aliases": [],
+   "aliases": [
+    "大岡小学"
+   ],
    "name": "大冈小学",
    "stage": "primary"
   },
@@ -4970,7 +5000,10 @@
    "stage": "primary"
   },
   "gz-440111-53d3305b#primary": {
-   "aliases": [],
+   "aliases": [
+    "横沙小学",
+    "白云区横沙小学"
+   ],
    "name": "横沙学校",
    "stage": "primary"
   },
@@ -5542,7 +5575,10 @@
    "stage": "primary"
   },
   "gz-440111-9ac6ff52#primary": {
-   "aliases": [],
+   "aliases": [
+    "张村中心小学",
+    "白云区张村中心小学"
+   ],
    "name": "石井张村中心小学",
    "stage": "primary"
   },
@@ -5709,6 +5745,8 @@
   },
   "gz-440111-acfb7ee3#primary": {
    "aliases": [
+    "白云区白云广附云湖实验学校",
+    "白云广附云湖实验学校",
     "白云广附云湖实验学校小学部"
    ],
    "name": "广州市白云区白云广附云湖实验学校小学部",
@@ -5821,6 +5859,7 @@
   },
   "gz-440111-bac34523#primary": {
    "aliases": [
+    "白云中学棠景校区",
     "白云区白云中学棠景校区小学部"
    ],
    "name": "广州市白云中学棠景校区小学部",
@@ -6166,7 +6205,10 @@
    "stage": "middle"
   },
   "gz-440111-e16cd8e1#primary": {
-   "aliases": [],
+   "aliases": [
+    "白云区龙岗学校",
+    "龙岗学校"
+   ],
    "name": "龙岗学校-龙岗小学",
    "stage": "primary"
   },
@@ -6207,7 +6249,9 @@
   },
   "gz-440111-e66f2c52#primary": {
    "aliases": [
-    "云英实验附属小学"
+    "云英实验学校",
+    "云英实验附属小学",
+    "白云区云英实验学校"
    ],
    "name": "广州市白云区云英实验附属小学",
    "stage": "primary"
@@ -6347,7 +6391,11 @@
    "stage": "middle"
   },
   "gz-440111-f501b6b5#primary": {
-   "aliases": [],
+   "aliases": [
+    "白云区金广实验学校御金沙校区",
+    "金广实验学校",
+    "金广实验学校御金沙校区"
+   ],
    "name": "金广实验小学",
    "stage": "primary"
   },
@@ -6388,7 +6436,9 @@
    "stage": "primary"
   },
   "gz-440111-fad0ee39#primary": {
-   "aliases": [],
+   "aliases": [
+    "白云区人和镇第一小学鸦湖校区"
+   ],
    "name": "人和镇第一小学(鸦湖校区)",
    "stage": "primary"
   },
@@ -8435,7 +8485,9 @@
    "stage": "primary"
   },
   "gz-440113-71a3afa8#primary": {
-   "aliases": [],
+   "aliases": [
+    "化龙镇第二小学"
+   ],
    "name": "化龙第二小学",
    "stage": "primary"
   },
@@ -8612,6 +8664,7 @@
   },
   "gz-440113-8a0b2cb9#primary": {
    "aliases": [
+    "南村镇锦绣香江学校",
     "锦绣香江学校"
    ],
    "name": "番禺区锦绣香江学校",
@@ -8906,7 +8959,9 @@
    "stage": "primary"
   },
   "gz-440113-b33149c7#primary": {
-   "aliases": [],
+   "aliases": [
+    "化龙镇复甦小学"
+   ],
    "name": "复苏小学",
    "stage": "primary"
   },
@@ -8926,7 +8981,9 @@
    "stage": "primary"
   },
   "gz-440113-b56d3009#primary": {
-   "aliases": [],
+   "aliases": [
+    "石碁镇韵琴小学"
+   ],
    "name": "南浦韵琴小学",
    "stage": "primary"
   },
@@ -8941,7 +8998,9 @@
    "stage": "primary"
   },
   "gz-440113-b5ffc00d#primary": {
-   "aliases": [],
+   "aliases": [
+    "小谷围街穗石小学"
+   ],
    "name": "穂石小学",
    "stage": "primary"
   },
@@ -9053,7 +9112,9 @@
    "stage": "primary"
   },
   "gz-440113-c77d76e6#primary": {
-   "aliases": [],
+   "aliases": [
+    "石碁镇茂生小学"
+   ],
    "name": "茂生纪念学校",
    "stage": "primary"
   },
@@ -9134,7 +9195,9 @@
    "stage": "primary"
   },
   "gz-440113-d798904c#primary": {
-   "aliases": [],
+   "aliases": [
+    "市桥东沙小学"
+   ],
    "name": "东沙小学",
    "stage": "primary"
   },

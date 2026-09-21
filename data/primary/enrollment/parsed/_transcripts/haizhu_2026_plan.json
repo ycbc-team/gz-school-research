@@ -1,0 +1,328 @@
+{
+ "district": "海珠区",
+ "year": 2026,
+ "source": "海珠区教育局《2026年海珠区公办小学招生计划表》（官网正文图，Vision OCR）",
+ "note": "招生计划（班）；仅班数，官方未公布人数",
+ "schools": [
+  {
+   "school": "赤岗小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "石溪劬劳小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "新港中路小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "金碧第一小学",
+   "plan_classes": 7
+  },
+  {
+   "school": "金影小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "红棉小学",
+   "plan_classes": 5
+  },
+  {
+   "school": "聚德东小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "培红小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "聚德西路小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "宝玉直实验星悦小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "赤岗东小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "江南新村第一小学",
+   "plan_classes": 5
+  },
+  {
+   "school": "赤沙小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "江南新村第二小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "北山小学",
+   "plan_classes": 2
+  },
+  {
+   "school": "鹤鸣五巷小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "仑头小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "汇源大街小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "客村小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "邓世昌纪念小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "大江苑小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "同福中路第一小学",
+   "plan_classes": 5
+  },
+  {
+   "school": "凤江小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "海珠镇泰实验小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "执信中学琶洲实验学校",
+   "plan_classes": 4
+  },
+  {
+   "school": "南武小学（南校区）",
+   "plan_classes": 5
+  },
+  {
+   "school": "黄埔小学",
+   "plan_classes": 2
+  },
+  {
+   "school": "南武小学（北校区）",
+   "plan_classes": 4
+  },
+  {
+   "school": "新洲小学",
+   "plan_classes": 2
+  },
+  {
+   "school": "后乐园街小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "绿翠小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "梅园西路小学",
+   "plan_classes": 5
+  },
+  {
+   "school": "卫国尧纪念小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "海联路小学",
+   "plan_classes": 2
+  },
+  {
+   "school": "三滘小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "逸景第一小学（逸景校区）",
+   "plan_classes": 6
+  },
+  {
+   "school": "土华小学",
+   "plan_classes": 2
+  },
+  {
+   "school": "逸景第一小学（金穗校区）",
+   "plan_classes": 3
+  },
+  {
+   "school": "晓港湾小学",
+   "plan_classes": 6
+  },
+  {
+   "school": "第二实验小学（北校区）",
+   "plan_classes": 4
+  },
+  {
+   "school": "瑞宝小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "第二实验小学（南校区）",
+   "plan_classes": 3
+  },
+  {
+   "school": "东风小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "第三实验小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "龙潭小学",
+   "plan_classes": 2
+  },
+  {
+   "school": "知信小学",
+   "plan_classes": 5
+  },
+  {
+   "school": "实验小学（穗花校区）",
+   "plan_classes": 5
+  },
+  {
+   "school": "瀛洲小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "实验小学（富基校区）",
+   "plan_classes": 5
+  },
+  {
+   "school": "南武文润学校",
+   "plan_classes": 3
+  },
+  {
+   "school": "晓港东马路小学",
+   "plan_classes": 2
+  },
+  {
+   "school": "南武实验小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "晓港西马路小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "南燕小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "昌岗东路小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "宝玉直实验小学（光大校区）",
+   "plan_classes": 8
+  },
+  {
+   "school": "晓园小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "宝玉直实验小学（南边路校区）",
+   "plan_classes": 3
+  },
+  {
+   "school": "海富小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "宝玉直小学",
+   "plan_classes": 5
+  },
+  {
+   "school": "五凤小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "大元帅府小学",
+   "plan_classes": 5
+  },
+  {
+   "school": "新港路小学（新苑校区）",
+   "plan_classes": 3
+  },
+  {
+   "school": "滨江东路小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "新港路小学（东校区）",
+   "plan_classes": 3
+  },
+  {
+   "school": "绿翠现代实验学校",
+   "plan_classes": 2
+  },
+  {
+   "school": "怡乐路小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "海珠外国语实验中学附属小学",
+   "plan_classes": 2
+  },
+  {
+   "school": "万松园小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "海珠外国语实验中学附属第二小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "前进路小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "第四实验小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "基立道小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "南武中学附属学校",
+   "plan_classes": 2
+  },
+  {
+   "school": "江南大道中小学",
+   "plan_classes": 3
+  },
+  {
+   "school": "宝玉直实验第二小学",
+   "plan_classes": 4
+  },
+  {
+   "school": "菩提路小学",
+   "plan_classes": 6
+  },
+  {
+   "school": "广东实验中学琶洲学校",
+   "plan_classes": 2
+  },
+  {
+   "school": "昌岗中路小学",
+   "plan_classes": 8
+  },
+  {
+   "school": "启能学校",
+   "plan_classes": 1
+  }
+ ]
+}
