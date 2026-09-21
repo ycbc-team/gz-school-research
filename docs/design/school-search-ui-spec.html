@@ -9,7 +9,7 @@
   /* 知性蓝 Intellectual Blue */
   --ib-50:#F2F6FE; --ib-100:#E2EBFB; --ib-200:#C3D5F6; --ib-300:#98B6EC;
   --ib-400:#6B92DE; --ib-500:#2F5CD6; --ib-600:#254BAE; --ib-700:#1C3885; --ib-800:#142653;
-  /* 学段分色：小学蓝 / 初中橙 / 高中绿（高区分度，仅用于地图点位与图例） */
+  /* 学段分色（UI 自定，不沿用项目老代码 STAGE_COLOR 的紫/红/绿）：小学蓝 #2F5CD6 / 初中橙 #E8850C / 高中绿 #0F9D58；仅用于地图点位与图例；多学段点位按所含学段扇形拼圆（2 学段各半圆 / 3 学段各 1/3 圆） */
   --pri:#2F5CD6;   /* 小学 */
   --mid:#E8850C;   /* 初中 */
   --high:#0F9D58;  /* 高中 */
@@ -120,9 +120,9 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 /* ---------- 画框 ---------- */
 #screens .frames{display:grid;grid-template-columns:repeat(auto-fill,minmax(376px,1fr));gap:40px 32px}
 .frame{display:flex;flex-direction:column;align-items:center}
-.frame .cap{width:375px;margin-bottom:12px;display:flex;align-items:baseline;gap:8px}
-.frame .cap b{font-size:14.5px;font-weight:600}
-.frame .cap span{font-size:12px;color:var(--ink-500)}
+.frame .cap{width:375px;margin-bottom:12px}
+.frame .cap b{font-size:14.5px;font-weight:600;display:block}
+.frame .cap span{font-size:12px;color:var(--ink-500);display:block;margin-top:3px}
 .phone{width:375px;height:812px;border-radius:34px;background:var(--white);border:1px solid var(--line);box-shadow:var(--sh-lg);overflow:hidden;position:relative;display:flex;flex-direction:column;flex:none}
 .frame .anno{margin-top:14px;width:375px;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .frame .anno b{font-size:12px;color:var(--ib-600);display:block;margin-bottom:5px}
@@ -142,13 +142,19 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .esub em{font-style:normal;color:var(--ib-600);font-weight:600}
 .mtoast{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:240px;background:rgba(255,255,255,.97);border-radius:16px;box-shadow:var(--sh-md);padding:22px 20px;text-align:center;z-index:7}
 .mtoast .eicon{width:64px;height:64px;margin:0 auto 12px}
+.mtoast .mclose{position:absolute;top:6px;right:6px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--ink-400)}
 .sbody .estate{height:100%}
-.modal{position:absolute;left:26px;right:26px;top:50%;transform:translateY(-50%);z-index:11;background:var(--white);border-radius:16px;padding:24px 20px 16px;text-align:center;box-shadow:0 18px 50px rgba(8,14,28,.30)}
+.modal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:240px;z-index:11;background:var(--white);border-radius:16px;padding:24px 20px 16px;text-align:center;box-shadow:0 18px 50px rgba(8,14,28,.30)}
 .modal .mt{font-size:16px;font-weight:600;color:var(--ink-900)}
 .modal .md{font-size:13px;color:var(--ink-500);line-height:1.65;margin:8px 0 18px}
 .modal .mbtns{display:flex;gap:10px}
 .modal .mbtn{flex:1;height:44px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:600;border:1px solid var(--line);color:var(--ink-700);background:var(--white)}
 .modal .mbtn.danger{background:#E5484D;border-color:#E5484D;color:#fff}
+
+/* 通用组件演示（第 01 节）：Toast 轻提示 */
+.toastdemo{background:var(--bg);border:1px solid var(--line-2);border-radius:12px;padding:18px 16px 12px;text-align:center}
+.toastdemo .td-toast{display:inline-block;background:rgba(0,0,0,.78);color:#fff;font-size:13px;border-radius:999px;padding:10px 18px}
+.toastdemo .td-note{margin-top:10px;font-size:11.5px;color:var(--ink-400)}
 
 /* 状态栏 */
 .sbar{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;font-size:13px;font-weight:600;flex:none}
@@ -191,12 +197,15 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .tabbar .tab.on .ic::after{background:#fff}
 
 /* ============ 02 / 03 搜索页 ============ */
-.searchhead{height:56px;flex:none;display:flex;align-items:center;gap:9px;padding:0 98px 0 12px;border-bottom:1px solid var(--line-2)}
+.searchhead{height:44px;flex:none;display:flex;align-items:center;gap:9px;padding:0 98px 0 12px;border-bottom:1px solid var(--line-2)}
 .searchhead .back{width:40px;height:40px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-900);flex:none}
-.searchhead .sip{flex:1;height:36px;border-radius:999px;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;padding:0 12px;font-size:13.5px;color:var(--ink-400);gap:6px}
+.searchhead .sip{flex:1;height:32px;border-radius:999px;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;padding:0 12px;font-size:13.5px;color:var(--ink-400);gap:6px}
 .searchhead .sip.typed{background:var(--white);border-color:var(--ib-300);color:var(--ink-900);box-shadow:0 0 0 3px rgba(47,92,214,.08)}
 .searchhead .sgo{height:32px;padding:0 14px;border-radius:999px;background:#DCE2EC;color:#98A2B6;font-size:13px;font-weight:600;display:flex;align-items:center;flex:none}
 .searchhead .sgo.on{background:var(--ib-500);color:#fff;box-shadow:var(--sh-blue)}
+/* 搜索按钮出现动效：默认态隐藏（无占位），有输入后淡入+左移 8px 出现，搜索框同步平滑变窄 */
+.sip{transition:flex .22s cubic-bezier(.4,0,.2,1),width .22s cubic-bezier(.4,0,.2,1)}
+.sgo{transition:opacity .18s ease,transform .18s ease}
 .sbody{flex:1;overflow:hidden;padding-bottom:6px}
 .sblock{margin:12px 16px 0;border:1px solid var(--line);border-radius:14px;padding:12px 14px 4px}
 .shd{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
@@ -228,9 +237,9 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .mask{position:absolute;inset:0;background:rgba(16,24,43,.42);z-index:8}
 .sheet{position:absolute;left:0;right:0;bottom:0;z-index:9;background:var(--white);border-radius:20px 20px 0 0;box-shadow:0 -8px 30px rgba(16,24,43,.16);display:flex;flex-direction:column;max-height:82%}
 .sheet .handle{width:36px;height:4px;border-radius:2px;background:var(--line);margin:8px auto 12px}
-.sheet .sheettop{display:flex;align-items:center;gap:9px;padding:0 14px 12px}
+.sheet .sheettop{display:flex;align-items:center;gap:9px;padding:12px 14px 12px}
 .sheet .sheettop .back{width:40px;height:40px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-900);flex:none}
-.sheet .sheettop .sip{flex:1;height:36px;border-radius:999px;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;padding:0 13px;font-size:13.5px;color:var(--ink-400);gap:6px}
+.sheet .sheettop .sip{flex:1;height:32px;border-radius:999px;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;padding:0 13px;font-size:13.5px;color:var(--ink-400);gap:6px}
 .sheet .sheettop .sgo-lite{height:32px;padding:0 14px;border-radius:999px;border:1px solid var(--ib-200);color:var(--ib-600);background:var(--white);font-size:13px;font-weight:600;display:flex;align-items:center;flex:none}
 /* 半窗内的维度胶囊：与上方搜索栏同一左右边距 → 等宽对齐 */
 .sheet .dims{display:flex;gap:8px;padding:0 14px 12px;border-bottom:1px solid var(--line-2)}
@@ -254,6 +263,9 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 /* 真实地图底图：OSM 越秀区局部（中心=育才中学东校区，约 1.65 × 3.58 km），© OpenStreetMap contributors */
 .mapattr{position:absolute;right:6px;bottom:6px;z-index:1;font-size:8.5px;color:var(--ink-500);background:rgba(255,255,255,.72);border-radius:4px;padding:1px 5px;white-space:nowrap}
 .floatbar{position:absolute;left:0;right:0;top:50px;z-index:6;padding:0 14px;display:flex;flex-direction:column;gap:10px}
+.floatbar .brandrow{height:32px;display:flex;align-items:center;padding-right:98px;font-size:16px;font-weight:600;color:var(--ink-900);letter-spacing:.2px}
+.topcover{position:absolute;top:0;left:0;right:0;height:90px;background:#fff;z-index:4;border-bottom:1px solid var(--line-2)}
+.floatbar .sbox{margin-top:9px}
 .floatbar .sbox{background:rgba(255,255,255,.97);border-color:rgba(255,255,255,.9);box-shadow:0 4px 16px rgba(8,14,28,.24);color:var(--ink-400);height:42px}
 .floatbar .chip{background:rgba(255,255,255,.94);border-color:transparent;box-shadow:0 3px 10px rgba(8,14,28,.20)}
 /* 点位：白描边 + 学段分色，浅色底图上更清晰 */
@@ -277,7 +289,7 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .cardbot .cbtop .nm{flex:1;font-size:16px;font-weight:600;line-height:1.35}
 .cardbot .cbtags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
 .cardbot .cbclose{position:absolute;top:10px;right:12px;width:30px;height:30px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-500)}
-.cardbot .cardbot .cbpreview{position:relative;margin-top:16px;max-height:96px;overflow:hidden}
+.cardbot .cbpreview{position:relative;margin-top:22px;max-height:96px;overflow:hidden}
 .cardbot .cbpreview .dmod{margin-top:16px;padding-top:12px;border-top:1px solid var(--line-2)}
 .cardbot .cbpreview .dmod:first-child{margin-top:0;padding-top:14px;border-top:1px solid var(--line-2)}
 .cardbot .cbpreview .dmod-h b{font-size:14.5px;font-weight:700;color:var(--ink-700)}
@@ -336,7 +348,11 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
 .capsule .capbtn{flex:1;height:100%;display:flex;align-items:center;justify-content:center;color:#4b5563}
 .capsule .capbtn+.capbtn{border-left:1px solid rgba(0,0,0,.12)}
 .capsule svg{display:block}
-.floatbar .sbox{margin-right:96px}
+
+.req-ref{margin:0 0 8px;padding:8px 12px;background:#F4F7FF;border-left:3px solid var(--ib-500,#2F5CD6);border-radius:6px;font-size:12.5px;color:#5A6B85;line-height:1.6}
+.req-ref code{background:#E7EDFB;padding:1px 5px;border-radius:4px;font-size:12px;color:#2F5CD6}
+.doc-role{margin:0 0 16px;padding:12px 16px;background:#F4F7FF;border:1px solid #D8E2FB;border-radius:10px;font-size:13px;color:#3A4A66;line-height:1.7}
+.doc-role code{background:#E7EDFB;padding:1px 5px;border-radius:4px;color:#2F5CD6}
 </style>
 </head>
 <body>
@@ -354,8 +370,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       <span>画框 375 × 812</span><span>纯 HTML / CSS</span><span>无脚本依赖</span><span>主题色 #2F5CD6</span><span>标签四类色</span>
     </div>
     <div class="note">
-      <b>本轮范围：</b>共 <b>7 屏</b> ＋ <b>异常状态 3 态（08–10）＋ 通用弹窗（11）</b> —— 首页（地图层）／搜索页（默认态）／搜索页（联想词态）／筛选栏半窗（选中「行政区」）／筛选栏半窗（切换「学段」）／地图层／<b>学校详情卡（小学）</b>。
-      其中<b>首页与地图层均为「整张地图铺满全屏 + 搜索框／筛选栏／图例区悬浮 + 底部导航栏置底」</b>的同一套结构；地图背景取自<b>育才中学（东校区）周边真实地图（示意）</b>，点位按真实相对位置落位，产品默认视野为广州中心城区中轴线（珠江新城—广州塔一带）。
+      <div class="doc-role">本文档为 UI/UE 设计规范，描述界面视觉、交互、组件、动效与状态；对应的产品功能需求（功能、业务规则、用户场景）见同级文件 <code>school-search-prd.md</code>。</div>
+<b>本轮范围：</b>共 <b>7 屏</b> ＋ <b>异常状态 3 态（08–10）＋ 通用弹窗（11）</b> —— 首页（地图层）／搜索页（默认态）／搜索页（联想词态）／筛选栏半窗（选中「行政区」）／筛选栏半窗（切换「学段」）／地图层／<b>学校详情卡（小学）</b>。
+      其中<b>首页与地图层均为「整张地图铺满全屏 + 顶部小程序名行（白底常驻盖地图）／搜索框／筛选栏／图例区悬浮 + 底部导航栏置底」</b>的同一套结构；地图背景取自<b>育才中学（东校区）周边真实地图（示意）</b>，点位按真实相对位置落位，产品默认视野为广州中心城区中轴线（珠江新城—广州塔一带）。
       均按原型稿中实际出现的元素绘制。其余页面（学校详情长图·初中／高中、品牌关联·多学段 tab 页、政策 tab 等）待指定后再出。
     </div>
   </div>
@@ -454,15 +471,228 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       <span><i style="background:#E9F6FB"></i>学段</span>
       <span><i style="background:#F1EDFD"></i>示范等级</span>
       <span><i style="background:#E9F7F0"></i>办学性质</span>
-      <span style="color:var(--ink-400)">· 共 4 类，与原型表一致；地图点位 / 图例仍沿用学段分色（小学蓝／初中橙／高中绿），与标签色分开使用</span>
+      <span style="color:var(--ink-400)">· 共 4 类，与原型表一致；地图点位 / 图例仍沿用学段分色（小学蓝 #2F5CD6／初中橙 #E8850C／高中绿 #0F9D58），与标签色分开使用</span>
+    </div>
+  </div>
+
+  <!-- Toast 轻提示（全局通用） -->
+  <div class="card" style="margin-top:20px">
+    <h3 class="blk">通用 · Toast 轻提示</h3>
+    <p class="mini" style="margin-bottom:14px">
+      全局唯一的轻提示通道，用于<b>不阻断操作</b>的瞬间反馈（如在学校详情卡上点击当前查看的学校时提示「已在当前学校」）。
+      样式统一：<b>半透明黑底 rgba(0,0,0,.78)、白字 13px、圆角 999、padding 10×18</b>；出现位置<b>屏幕居中偏下</b>；约 <b>1.5s 自动淡出</b>；
+      <b>不阻断操作、不加遮罩、全屏同时只存在一个</b>。地图筛选空态的异常弹窗（异常态 C）不属 Toast，走下方「异常态与全局弹窗」规范。
+    </p>
+    <div class="toastdemo">
+      <span class="td-toast">已在当前学校</span>
+      <div class="td-note">示例：详情卡上点击当前查看的学校 → Toast「已在当前学校」（约 1.5s 自动淡出）</div>
+    </div>
+  </div>
+
+  <!-- 异常态与全局弹窗（全局通用） -->
+  <div class="card" style="margin-top:20px">
+    <h3 class="blk">通用 · 异常态与全局弹窗</h3>
+    <p class="mini" style="margin-bottom:14px">
+      异常态是<b>全局交互</b>，不绑定单一页面，按发生场景分三类呈现；确认弹窗与弹窗类异常态共用一套<b>全局弹窗统一规格</b>。
+      下方四屏即各场景的<b>应用示例</b>：08（异常态 A）／09（异常态 B）／10（异常态 C）／11（弹窗基准示例）。
+    </p>
+    <div class="tagdemo">
+      <div class="taggrp">① 全屏空状态／异常态（08 异常态 A · 搜索无结果；09 异常态 B · 网络加载失败）</div>
+      <p class="mini" style="margin-bottom:12px">
+        整页（或整内容区）替换为空状态，四要素<b>纵向居中</b>：<b>插画</b>（灰底圆形 88px ＋ 线性图标，不用图片）→ 下方<b>说明标题</b>（15.5/600）→ 下方<b>补充说明</b>（12.5 次级色）→ 下方<b>主操作按钮</b>（高 38 胶囊）。
+        顶部导航与右上角胶囊保持可用。A 主操作「清空并重新搜索」（描边 ghost）；B 主操作「重新加载」（知性蓝实心），连续 2 次失败在按钮下追加「反馈问题」入口。
+      </p>
+      <div class="taggrp">② 弹窗类异常态（轻量失败 / 需确认场景）</div>
+      <p class="mini" style="margin-bottom:12px">
+        失败只影响单次操作、无需整页替换时，用<b>统一居中弹窗</b>呈现异常：<b>无插画</b>，结构同全局弹窗 —— 标题（如「操作未完成」16/600 居中）＋ 说明（失败原因 / 建议，13 次级色居中）＋ 按钮
+        （单枚「重试」或「知道了」；需用户选择时双枚「取消 ＋ 重试」，等宽高 44 r=999）。主按钮用知性蓝（重试 / 知道了），错误警示场景可用警示红 #E5484D；弹窗期间背后页面不可滚动。
+      </p>
+      <div class="taggrp">③ 地图异常弹窗（10 异常态 C · 筛选结果为空）</div>
+      <p class="mini" style="margin-bottom:12px">
+        地图场景不整页替换时，同样用<b>全局弹窗统一规格</b>（240 宽）在地图中央呈现：标题 ＋ 说明 ＋ 主操作「重置筛选」，右上角加<b>关闭按钮「×」</b>——
+        点「×」或「重置筛选」关闭弹窗、恢复地图操作（<b>不依赖「点弹窗外关闭」</b>）。地图场景<b>不加遮罩</b>，弹窗期间缩放 / 拖动手势仍可用。
+      </p>
+      <div class="taggrp">全局弹窗统一规格（确认弹窗与弹窗类异常态共用，11 屏为基准示例）</div>
+      <p class="mini" style="margin-bottom:0">
+        <b>宽度全稿统一为一档 = 240px</b>（对齐地图异常弹窗；确认弹窗 / 弹窗类异常态 / 地图异常弹窗共用此档），居中、白底、r=16、大投影；标题 16/600 居中、正文 13px 次级色居中；
+        按钮两枚等宽、高 44、r=999 —— 取消（白底描边）＋ 主操作（<b>破坏性操作用警示红 #E5484D</b>，非破坏性确认与重试类用知性蓝）；
+        遮罩黑 42%、<b>点遮罩不关闭</b>、弹窗期间背景不可滚动；动效淡入 ＋ 轻微放大 150–200ms，关闭反向淡出。
+      </p>
+    </div>
+  </div>
+<div class="frames" style="margin-top:20px">
+    <!-- 08 异常态 A · 搜索无结果 -->
+    <div class="frame">
+      <div class="cap"><b>08 异常态 A · 搜索无结果</b><span>空状态 · 精确／模糊／别名均无匹配（本稿补充）</span></div>
+      <div class="phone">
+          <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+        <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+        <div class="searchhead">
+          <span class="back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <div class="sip typed">东风东风</div>
+          <span class="sgo on">搜索</span>
+        </div>
+        <div class="sbody">
+          <div class="estate">
+            <div class="eicon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path><path d="M8.5 11h5"></path></svg></div>
+            <div class="et">未找到相关学校</div>
+            <div class="ed">没有找到与「东风东风」匹配的学校<br>试试换个关键词，或放宽筛选条件</div>
+            <span class="ebtn ghost">清空并重新搜索</span>
+          </div>
+        </div>
+      </div>
+      <div class="anno">
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「08 异常态 A · 搜索无结果」</p>
+        <b>异常态 A · 搜索无结果（应用示例）</b>
+ <p>
+· 本屏即上方 ① 全屏空状态／异常态 在搜索页的应用：四要素「插画 ＋ 标题 ＋ 说明 ＋ 主操作『清空并重新搜索』」纵向居中。<br>
+· 空状态下隐藏历史记录区／推荐搜索区，避免信息互相干扰。
+ </p>
+      </div>
+    </div>
+
+    <!-- 09 异常态 B · 网络加载失败 -->
+    <div class="frame">
+      <div class="cap"><b>09 异常态 B · 网络加载失败</b><span>详情长图 · 接口超时／请求失败（本稿补充）</span></div>
+      <div class="phone">
+          <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+        <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+        <div class="dtop">
+          <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <span class="tt">学校详情</span>
+          <span class="close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+        </div>
+        <div class="estate">
+          <div class="eicon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 5.6-2.8M12.7 15.2a6 6 0 0 0-3.4.4"></path><path d="M2.5 9a15 15 0 0 1 8-3.8M14 8.6A15 15 0 0 1 21.5 9"></path><circle cx="12" cy="18.5" r="0.6" fill="currentColor"></circle><path d="M4 4l16 16"></path></svg></div>
+          <div class="et">网络开小差了</div>
+          <div class="ed">详情数据加载失败<br>请检查网络后重试</div>
+          <span class="ebtn">重新加载</span>
+          <div class="esub">多次失败？<em>反馈问题</em></div>
+        </div>
+      </div>
+      <div class="anno">
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「09 异常态 B · 网络加载失败」</p>
+        <b>异常态 B · 网络加载失败（应用示例）</b>
+ <p>
+· 本屏即上方 ① 全屏空状态／异常态 在详情长图的应用：内容区替换为「插画 ＋ 标题 ＋ 说明 ＋ 『重新加载』」，顶部导航保持可用。<br>
+· 加载中：该模块展示骨架屏（浅灰圆角占位块）；超 10s 未返回自动转失败态。<br>
+· 连续 2 次失败：按钮下方追加「反馈问题」文字入口。
+ </p>
+      </div>
+    </div>
+
+    <!-- 10 异常态 C · 筛选结果为空 -->
+    <div class="frame">
+      <div class="cap"><b>10 异常态 C · 筛选结果为空</b><span>地图层 · 无匹配点位弹窗提示（本稿补充）</span></div>
+      <div class="phone mapmode">
+          <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+        <div class="mapfull">
+          <div class="legendbox">
+            <div class="lg"><i style="background:#2F5CD6"></i>小学</div>
+            <div class="lg"><i style="background:#E8850C"></i>初中</div>
+            <div class="lg"><i style="background:#0F9D58"></i>高中</div>
+            <div class="lg"><i style="background:conic-gradient(#2F5CD6 0 33%,#E8850C 33% 66%,#0F9D58 66% 100%)"></i>多学段</div>
+          </div>
+          <span class="mapattr">© OpenStreetMap</span>
+        </div>
+        <div class="mtoast">
+          <span class="mclose"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+          <div class="eicon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path><path d="M8.5 11h5"></path></svg></div>
+          <div class="et">当前筛选下无匹配学校</div>
+          <div class="ed">试试取消部分筛选条件<br>或扩大行政区范围</div>
+          <span class="ebtn" style="margin-top:16px">重置筛选</span>
+        </div>
+        <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+        <div class="topcover"></div>
+        <div class="floatbar">
+          <div class="brandrow">广州学途</div>
+          <div class="sbox">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
+            搜索广州小初高学校
+          </div>
+          <div class="filterrow">
+            <span class="chip">行政区 <i class="caret"></i></span>
+            <span class="chip">学段 <i class="caret"></i></span>
+            <span class="chip">办学性质 <i class="caret"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="anno">
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「10 异常态 C · 筛选结果为空」</p>
+        <b>异常态 C · 筛选结果为空（应用示例）</b>
+ <p>
+· 本屏即上方 ③ 地图异常弹窗 的应用：地图中央弹窗（240 宽，同全局弹窗统一规格）＋右上角关闭按钮「×」＋主操作「重置筛选」；点「×」或「重置筛选」关闭，地图不加遮罩、缩放 / 拖动手势仍可用。<br>
+· 同规则适用于首页地图层；搜索结果页同类情况复用异常态 A 的空状态布局。
+ </p>
+      </div>
+    </div>
+
+    <!-- 11 通用弹窗 · 清空历史确认 -->
+    <div class="frame">
+      <div class="cap"><b>11 通用弹窗 · 清空历史确认</b><span>搜索页「清空」二次确认 · 通用对话框样式（本稿补充）</span></div>
+      <div class="phone">
+          <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+        <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+        <div class="searchhead">
+          <span class="back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <div class="sip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
+            支持广州小初高学校搜索
+          </div>
+          
+        </div>
+        <div class="sbody">
+          <div class="sblock">
+            <div class="shd"><b>历史记录</b><span class="clr">清空</span></div>
+            <div class="pillwrap">
+              <span class="pill">广州市第六中学（海珠校区）</span>
+              <span class="pill">东风东路小学（东风广场校区）</span>
+              <span class="pill">东风东路小学</span>
+              <span class="pill">东风东路小学（锦城校区）</span>
+            </div>
+          </div>
+          <div class="sblock">
+            <div class="shd"><b>快速搜索省市属高中（排名不分先后）</b></div>
+            <div class="slist">
+              <div class="srow"><span class="nm">广州市第六中学（海珠校区）</span></div>
+              <div class="srow"><span class="nm">广东实验中学</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="mask"></div>
+        <div class="modal">
+          <div class="mt">清空历史记录</div>
+          <div class="md">确定要清空全部历史搜索记录吗？<br>清空后不可恢复</div>
+          <div class="mbtns"><span class="mbtn">取消</span><span class="mbtn danger">清空</span></div>
+        </div>
+      </div>
+      <div class="anno">
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「11 通用弹窗 · 清空历史确认」</p>
+        <b>通用弹窗 · 二次确认对话框（原型未列，本稿补充口径）</b>
+        <p>
+          · 触发：搜索页点「清空」弹出本弹窗；后续所有<em>破坏性／不可逆操作</em>（清空历史、重置全部筛选等）复用同一样式，不再各自定义。<br>
+          · 结构与规格：统一按上方 <em>全局弹窗统一规格</em> 执行 —— 居中对话框，宽 240px（<em>全稿唯一弹窗宽度档</em>，与地图异常弹窗同档）、圆角 16、白底 + 大投影；标题 16/600 居中 + 正文 13px 次级色居中。<br>
+          · 本屏按钮取值：两枚等宽、高 44、r=999 —— 左「取消」白底描边；右为<em>破坏性主按钮，用警示红 #E5484D</em>（非破坏性确认与重试类用知性蓝）。<br>
+          · 遮罩：黑 42% 透明；<em>点击遮罩不关闭弹窗</em>（须显式点「取消／清空」），避免误触；弹窗期间背后页面不可滚动。<br>
+          · 动效：淡入 + 轻微放大（150–200ms），关闭反向淡出。
+        </p>
+        <div class="ixn">
+        <b>交互描述</b>
+        <p>
+          1）点历史记录区「清空」→ 弹出本弹窗，同时收起键盘。<br>
+          2）点「清空」→ 清空全部历史词条、关闭弹窗并隐藏历史记录区（推荐搜索区自动上移）。<br>
+          3）点「取消」或系统返回键 → 仅关闭弹窗，历史记录保留原状。
+        </p>
+      </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ 02 具体页面 ============ -->
 <section class="wrap" id="screens">
-  <div class="sec-head"><span class="sec-num">02</span><h2>具体页面 · 7 屏 ＋ 异常状态组</h2></div>
-  <p class="sec-desc">严格对原型画板中的画框绘制，仅补出同一屏的必要状态（搜索页的联想词态、筛选半窗切换维度后的状态、地图层点选点位后的详情卡）。</p>
+  <div class="sec-head"><span class="sec-num">02</span><h2>具体页面 · 8 屏</h2></div>
+  <p class="sec-desc">严格对原型画板中的画框绘制，仅补出同一屏的必要状态（搜索页的联想词态、筛选半窗切换维度后的状态、地图层点选点位后的详情卡、搜索执行后回到首页的定位态）。异常状态组（08–11）已上移至第 01 节「通用 · 异常态与全局弹窗」。</p>
 
   <div class="frames">
 
@@ -485,11 +715,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="lg"><i style="background:#2F5CD6"></i>小学</div>
             <div class="lg"><i style="background:#E8850C"></i>初中</div>
             <div class="lg"><i style="background:#0F9D58"></i>高中</div>
+            <div class="lg"><i style="background:conic-gradient(#2F5CD6 0 33%,#E8850C 33% 66%,#0F9D58 66% 100%)"></i>多学段</div>
           </div>
           <span class="mapattr">© OpenStreetMap</span>
         </div>
         <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+        <div class="topcover"></div>
         <div class="floatbar">
+          <div class="brandrow">广州学途</div>
           <div class="sbox">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
             搜索广州小初高学校
@@ -505,14 +738,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
       </div>
       <div class="anno">
-        <b>对应原型 · 首页画框</b>
-        <p>
-          · 原型中「首页」是<em>画框标题</em>（在手机框外），框内<em>整块都是地图背景</em>，铺满全屏含状态栏；本稿用<em>真实地图底图</em>并按真实位置预置学校点位。<br>
-          · <em>搜索框</em>：悬浮于地图之上，占位「搜索广州小初高学校」，点击弹出搜索页。<br>
-          · <em>筛选栏</em>：3 个悬浮胶囊入口 —— <em>行政区／学段／办学性质</em>，点击下拉出筛选半窗。<br>
-          · <em>图例区</em>：左下角悬浮三色图例卡（小学蓝／初中橙／高中绿）；<em>导航栏</em>：<b>置底通栏</b>（贴屏幕底缘、非悬浮，符合小程序原生 tabBar 规范），两项 首页／政策。<br>
-          · 悬浮层统一白底 96% 透明 + 投影，均不占页面版式。
-        </p>
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「01 首页（地图层）」</p>
         <div class="ixn">
         <b>交互描述</b>
         <p>
@@ -522,7 +748,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           4）点击学校点位 → 底部弹出半窗学校卡（默认 25% 高），点位呈选中态（06）。<br>
           5）底部导航：首页／政策 两个 tab，<b>置底通栏固定于屏幕底缘</b>（小程序原生 tabBar 规范，含底部安全区高度），点击切换、当前项高亮。
         </p>
-          <p>6）右上角常驻<em>小程序系统胶囊（··· 更多 ／ ⊕ 退出小程序）</em>，覆盖全部页面（地图层、搜索页、详情页、异常态），为微信原生非自定义元素；搜索页中搜索框与胶囊同行右对齐。</p>
+          <p>6）右上角常驻<em>小程序系统胶囊（··· 更多 ／ ⊕ 退出小程序）</em>，覆盖全部页面（地图层、搜索页、详情页、异常态），为微信原生非自定义元素；首页/地图层顶部第一行为「小程序名 + 胶囊」，白底常驻盖住地图（非悬浮）；搜索框下移一行、全宽悬浮于地图；搜索页搜索框与胶囊同行且同高（32px）齐平。</p>
       </div>
       </div>
     </div>
@@ -570,14 +796,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
       </div>
       <div class="anno">
-        <b>对应原型 · 搜索页交互说明</b>
-        <p>
-          · 入口：点击首页搜索框弹出搜索页；模块＝<em>搜索栏 ＋ 历史记录区 ＋ 推荐搜索区 ＋ 键盘区</em>。<br>
-          · 搜索栏：返回按钮、默认搜索词（支持广州小初高学校搜索）、搜索按钮；<em>无输入时搜索按钮置灰不可点</em>。<br>
-          · <em>返回按钮</em>为 40×40 圆形控件（浅底 + 描边 + 20 线性箭头），点击区 ≥ 40。<br>
-          · 历史记录区：有搜索词条时才展示；按搜索时间由近及远；<em>以胶囊平铺、自动换行的方式呈现</em>（一条一个圈），不再是整行一条的列表；右侧「清空」点击后弹窗确认（弹窗样式见 11 屏）。<br>
-          · 推荐搜索区：展示省市属高中，排名不分先后。
-        </p>
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「02 搜索页 · 默认态」</p>
         <div class="ixn">
         <b>交互描述</b>
         <p>
@@ -585,7 +804,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           2）搜索栏：默认展示占位词「支持广州小初高学校搜索」，键盘输入后占位词被输入内容替换。<br>
           3）历史记录区：有历史词条才展示，词条按搜索时间倒序；点「清空」弹出二次确认弹窗（样式见 11 屏）：「取消」关闭弹窗、历史保留；「清空」清空全部词条并隐藏本区。<br>
           4）推荐搜索区：位于历史记录区下方，展示省市属高中，按拼音首字母排序。<br>
-          5）进入页面自动唤起键盘区。
+          5）进入页面自动唤起键盘区。<br>
+          6）执行搜索：点击「搜索」按钮或任一联想词条 → <em>有结果</em>时关闭搜索页回到首页，地图<em>定位到结果学校、点位呈选中态并自动拉起详情卡半窗</em>（见 06B）；<em>无结果</em>时进入空状态（见第 01 节「通用 · 异常态与全局弹窗」08 屏）。
         </p>
       </div>
       </div>
@@ -622,13 +842,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
       </div>
       <div class="anno">
-        <b>对应原型 · 联想词条区</b>
-        <p>
-          · 键盘输入文字后，默认搜索词删除，替换为输入内容；<em>有输入时搜索按钮变为可点击</em>（知性蓝主按钮）。<br>
-          · 关联词条区<em>直接盖在页面上、铺满全页</em>，词条多时支持上下滑动。<br>
-          · 词条<em>右侧显示标签</em>，标签类型为<em>行政区 ／ 学段</em>（按标签色系着色：蓝／青）。<br>
-          · 支持精确搜索与模糊搜索、别名搜索。
-        </p>
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「03 搜索页 · 联想词态」</p>
         <div class="ixn">
         <b>交互描述</b>
         <p>
@@ -636,7 +850,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           2）排序规则：模糊结果按关联度排序；同关联度按行政区排序（荔湾&gt;越秀&gt;海珠&gt;天河&gt;白云&gt;黄埔&gt;番禺）；同行政区按学段（小学&gt;初中&gt;高中）。<br>
           3）词条右侧展示学校标签（行政区、学段）。<br>
           4）词条区直接盖在页面上、铺满全页，词条多时支持上下滑动。<br>
-          5）搜索按钮：无输入置灰不可点，有输入后变主色可点；点击搜索按钮或任一词条 → 执行搜索。
+          5）搜索按钮：无输入不展示；开始输入后流畅出现（淡入 + 左移约 180ms、搜索框同步变窄约 220ms），知性蓝可点；点击搜索按钮或任一词条 → 执行搜索。
         </p>
       </div>
       </div>
@@ -652,11 +866,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="lg"><i style="background:#2F5CD6"></i>小学</div>
             <div class="lg"><i style="background:#E8850C"></i>初中</div>
             <div class="lg"><i style="background:#0F9D58"></i>高中</div>
+            <div class="lg"><i style="background:conic-gradient(#2F5CD6 0 33%,#E8850C 33% 66%,#0F9D58 66% 100%)"></i>多学段</div>
           </div>
           <span class="mapattr">© OpenStreetMap</span>
         </div>
         <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+        <div class="topcover"></div>
         <div class="floatbar">
+          <div class="brandrow">广州学途</div>
           <div class="sbox">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
             搜索广州小初高学校
@@ -700,12 +917,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
       </div>
       <div class="anno">
-        <b>对应原型 · 筛选栏交互说明</b>
-        <p>
-          · 点击筛选栏按钮下拉半窗（本稿按约定将半窗置于<em>底部</em>）；半窗内为<em>搜索入口 ＋ 维度 ＋ 选项</em>；半窗<em>不可上滑展开</em>，故<em>无顶部拖拽 handle</em>，顶部直接为搜索入口行。<br>
-          · <em>半窗同一时刻只展示「当前选中维度」的选项</em>：当前选中「行政区」，下方即只列行政区选项，不并列展示全部维度。<br>
-          · 选项<em>默认全选</em>；支持多选；左下角为快捷「全不选」，右下角「确认」收起半窗。
-        </p>
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「04 筛选栏半窗 · 状态 A（行政区）」</p>
         <div class="ixn">
         <b>交互描述</b>
         <p>
@@ -728,11 +940,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="lg"><i style="background:#2F5CD6"></i>小学</div>
             <div class="lg"><i style="background:#E8850C"></i>初中</div>
             <div class="lg"><i style="background:#0F9D58"></i>高中</div>
+            <div class="lg"><i style="background:conic-gradient(#2F5CD6 0 33%,#E8850C 33% 66%,#0F9D58 66% 100%)"></i>多学段</div>
           </div>
           <span class="mapattr">© OpenStreetMap</span>
         </div>
         <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+        <div class="topcover"></div>
         <div class="floatbar">
+          <div class="brandrow">广州学途</div>
           <div class="sbox">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
             搜索广州小初高学校
@@ -783,13 +998,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
       </div>
       <div class="anno">
-        <b>切换维度后的同一半窗</b>
-        <p>
-          · 点「学段」chips：该 chips 变为<em>展开中</em>态，下方<em>行政区选项整组替换为学段选项</em>。<br>
-          · 学段选项按交互稿<em>分组竖排</em>：每组一个标题、组内选项平铺 —— 小学 → [小学]；初中 → [初中]；高中 → [省市属示范][区属示范][其他学校]。<br>
-          · 已选状态<em>各维度各自保留</em>，切换维度不清空已选；「全不选」只作用于当前维度。<br>
-          · 点「办学性质」同理，切换为 公办／民办。
-        </p>
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「05 筛选栏半窗 · 状态 B（学段）」</p>
         <div class="ixn">
         <b>交互描述</b>
         <p>
@@ -819,11 +1028,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="lg"><i style="background:#2F5CD6"></i>小学</div>
             <div class="lg"><i style="background:#E8850C"></i>初中</div>
             <div class="lg"><i style="background:#0F9D58"></i>高中</div>
+            <div class="lg"><i style="background:conic-gradient(#2F5CD6 0 33%,#E8850C 33% 66%,#0F9D58 66% 100%)"></i>多学段</div>
           </div>
           <span class="mapattr">© OpenStreetMap</span>
         </div>
         <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+        <div class="topcover"></div>
         <div class="floatbar">
+          <div class="brandrow">广州学途</div>
           <div class="sbox">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
             搜索广州小初高学校
@@ -868,12 +1080,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
       </div>
       <div class="anno">
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「06 地图层（点位选中 / 详情卡）」</p>
         <b>对应原型 · 地图层交互说明</b>
         <p>
           · 地图层是<em>一整张地图背景</em>，铺满全屏（含状态栏区域）。本稿底图为<em>真实地图示意</em>（OpenStreetMap 越秀区局部，约 1.65 × 3.58 km，示意中心取<em>育才中学（东校区）</em>水均南街一带）；<em>产品实际默认视野为广州中心城区中轴线（珠江新城—广州塔一带）</em>，并非固定展示本稿示例区域。<br>
           · 点位为<em>真实学校</em>按实际位置落点：小学 4（东风东路小学本部／越秀区育才学校／东风东锦城校区／铁一小学）、初中 1（东风实验学校）、高中 4（育才东／西校区、铁一中学、培正中学）。<br>
           · <em>搜索框与筛选栏为悬浮层</em>，浮在地图之上：白底 96% 透明 + 投影，不占页面版式。<br>
-          · 左下角为<em>学校类型图例</em>；点击具体学校，<em>底部展示学校详情卡</em>，选中点位放大高亮并弹<em>名称气泡</em>。<br>
+          · 左下角为<em>学校类型图例</em>（小学蓝／初中橙／高中绿／多学段）；同一学校实体含多个学段时合并为<em>一个多学段点位</em>，按所含学段以扇形拼圆：小学+初中=蓝橙各半圆，小学+初中+高中=三色各 1/3 圆（圆心同点）。点击具体学校，<em>底部展示学校详情卡</em>，选中点位放大高亮并弹<em>名称气泡</em>。<br>
           · <em>半窗学校卡（卡体总高约 206px，即 812 屏的 25%）</em>：右上 ✕ 关闭、校名 + 行政区／学段／办学性质三标签；下方<em>直接复用详情长图内容</em>，按半窗高度自动截取可视部分（顶部模块，如「学校信号」），底部<em>渐隐遮罩</em>；「展开详情」胶囊<em>叠于渐隐区之上</em>（右下角，不单独占行）；点击／上滑即展开为全屏长图（07 屏）。<br>
           · <em>详情卡为最上层</em>：整层盖住底部区域，<em>底部导航 tab 被遮挡在卡片之下</em>（收起卡片后才露出）。
         </p>
@@ -887,6 +1100,87 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           5）搜索框／筛选栏为悬浮层，交互同首页。
         </p>
       </div>
+      </div>
+    </div>
+
+    <div class="frame">
+      <div class="cap"><b>06B 搜索执行后 · 回到首页定位态</b><span>搜索结果定位 · 点位选中 · 自动拉起详情卡半窗</span></div>
+      <div class="phone mapmode">
+          <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+        <div class="mapfull">
+          <span class="dot h" style="left:187px;top:340px"></span>
+          <span class="dot h" style="left:126px;top:414px"></span>
+          <span class="dot h" style="left:299px;top:477px"></span>
+          <span class="dot p" style="left:166px;top:306px"></span>
+          <span class="dot p" style="left:318px;top:324px"></span>
+          <span class="dot p" style="left:175px;top:464px"></span>
+          <span class="dot m" style="left:218px;top:256px"></span>
+          <span class="dot p on" style="left:97px;top:301px"></span>
+          <span class="dlabel" style="left:97px;top:301px">东风东路小学（本部）</span>
+          <div class="legend" style="bottom:188px">
+            <div class="lg"><i style="background:#2F5CD6"></i>小学</div>
+            <div class="lg"><i style="background:#E8850C"></i>初中</div>
+            <div class="lg"><i style="background:#0F9D58"></i>高中</div>
+            <div class="lg"><i style="background:conic-gradient(#2F5CD6 0 33%,#E8850C 33% 66%,#0F9D58 66% 100%)"></i>多学段</div>
+          </div>
+          <span class="mapattr">© OpenStreetMap</span>
+        </div>
+        <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+        <div class="topcover"></div>
+        <div class="floatbar">
+          <div class="brandrow">广州学途</div>
+          <div class="sbox">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
+            搜索广州小初高学校
+          </div>
+          <div class="filterrow">
+            <span class="chip">行政区 <i class="caret"></i></span>
+            <span class="chip">学段 <i class="caret"></i></span>
+            <span class="chip">办学性质 <i class="caret"></i></span>
+          </div>
+        </div>
+        <div class="bottomdock">
+          <div class="navdock inline">
+            <span class="np on">首页</span><span class="np">政策</span>
+          </div>
+          <div class="cardbot">
+            <div class="handle"></div>
+            <span class="cbclose"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+            <div class="cbtop">
+              <span class="nm">东风东路小学（本部）</span>
+            </div>
+            <div class="cbtags">
+              <span class="tag m tag-dist">越秀区</span>
+              <span class="tag m tag-stage">小学</span>
+              <span class="tag m tag-nature">公办</span>
+            </div>
+            <div class="cbpreview">
+              <div class="dmod">
+                <div class="dmod-h"><b>学校信号</b><span>民间口径，非官方评价，仅供参考</span></div>
+                <div class="kv"><span class="k">学位预警</span><span class="v">2025、2026 连续两年发布学位预警提示</span></div>
+                <div class="kv"><span class="k">省一级</span><span class="v">广东省一级学校</span></div>
+                <div class="kv"><span class="k">多维印证</span><span class="v">民间口碑长期稳定在第一梯队</span></div>
+              </div>
+              <div class="dmod">
+                <div class="dmod-h"><b>招生计划（2026年）</b></div>
+                <div class="kv"><span class="k">计划班数</span><span class="v">10 个班</span></div>
+                <div class="kv"><span class="k">数据来源</span><span class="v">越秀区教育局《2026 年义务教育学校招生计划》</span></div>
+              </div>
+              <div class="cbfade"></div>
+            </div>
+            <span class="cbmore">展开详情</span>
+          </div>
+        </div>
+      </div>
+      <div class="anno">
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「06B 搜索执行后 · 回到首页定位态」</p>
+        <b>搜索执行后 · 回到首页定位态（视觉规范）</b>
+ <p>
+· 结果学校点位呈选中态：放大高亮 + 名称气泡（视觉同 06 点选点位）。<br>
+· 自动拉起详情卡半窗（默认约 25% 屏高），与直接点击点位进入的视觉完全一致。<br>
+· 详情卡内其他学校名为可点击链接样式（知性蓝 + ›）；点击当前学校触发 toast——屏幕居中偏下半透明黑底白字圆角胶囊，约 1.5s 自动淡出，不阻断操作、不加遮罩。<br>
+· 过渡动效：地图自动定位缩放 → 点位高亮 → 半窗卡淡入上滑。
+ </p>
       </div>
     </div>
 
@@ -962,14 +1256,16 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
       </div>
       <div class="anno">
-        <b>学校详情长图 · 小学（按交互稿模块清单，确认后再做初中／高中）</b>
-        <p>
-          · 入口：地图层点选点位 → <em>半窗学校卡</em>（06 屏，默认约 25% 高）→ 上滑或点右下角「展开详情」→ 本<em>全屏长图页</em>；全屏页下滑可回到半窗卡，点返回／关闭或卡片外空白关闭。<br>
-          · 显示模块（交互稿口径）：<em>学校信号</em>（学位预警／省一级／多维印证；「民间口径」小字只在模块标题<em>右侧</em>，模块下方无免责行）→ <em>招生计划 2026</em>（计划班数／数据来源／招生地段；无具体信息的字段不展示）→ <em>升学路线参考 2026</em>（仅对口学校名，<em>不带标签</em>；学校名为<em>可点击链接</em>——知性蓝 + 「›」，点击跳转地图定位）→ <em>所在区机制</em>（xx 区招生细则）→ <em>教育集团</em>（<em>三级层级</em>：模块标题为一级；「所属集团／同一法人单位／独立法人单位」为二级（左侧色条小标题）；方框内容为三级（灰底圆角盒、整体缩进））。<br>
-          · 集团模块交互：集团内各成员校<em>学校名均为可点击链接</em>（知性蓝 +「›」，点击跳转回地图并定位到新学校）；仅当前查看校保留「当前查看」标识，<em>不再使用「地图查看」胶囊</em>；同品牌多校时优先展示当前学校，其余按同行政区 &gt; 拼音首字母排列。<br>
-          · 页面为<em>可滚动长页</em>，画框随内容自然加高（大长图）；顶部「‹ 学校详情 ✕」常驻。<br>
-          · 内容除校名／标签外均为<em>示意数据</em>（各模块免责行已标注），待真实数据接入后替换；版式确认后按同版式做初中（学校信号／招生计划／中考成绩／教育集团）与高中（高考信息／招生计划／中考录取情况／教育集团）。
-        </p>
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「07 学校详情卡 · 小学（长图）」</p>
+        <b>学校详情长图 · 小学（视觉规范）</b>
+ <p>
+· 全屏长图详情页模块自上而下：学校信号 → 招生计划 2026 → 升学路线参考 2026 → 所在区招生细则 2026 → 教育集团。<br>
+· 学校信号：标题右侧附「民间口径」小字；模块下方无免责行。<br>
+· 招生计划：计划班数／数据来源／招生地段；无信息字段不展示。<br>
+· 升学路线参考：仅对口学校名（不带标签），学校名为可点击链接（知性蓝 + ›）。<br>
+· 教育集团：三级层级——模块标题（一级）；成员类型「所属集团／同一法人单位／独立法人单位」（二级，左侧色条小标题）；成员校（三级，灰底圆角盒、整体缩进）。<br>
+· 链接视觉：知性蓝 + ›；点击当前学校的 toast 见规范表「Toast 轻提示」行。
+ </p>
         <div class="ixn">
         <b>交互描述（交互稿口径）</b>
         <p>
@@ -978,170 +1274,6 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           3）展示信息：卡片顶部区 = 官方学校名 + 标签（行政区／学段／办学性质）；下方详情区按学校所属学段展示不同信息模块，模块之间有分隔线。<br>
           4）多学段学校：优先显示 高中&gt;初中&gt;小学，详情页展开后默认高亮高中 tab，可切换其他学级 tab。<br>
           5）可点击元素：升学路线／教育集团模块内的学校名（蓝色 + 「›」）→ 跳转地图并定位到该学校。
-        </p>
-      </div>
-
-
-    <!-- 08 异常态 A · 搜索无结果 -->
-    <div class="frame">
-      <div class="cap"><b>08 异常态 A · 搜索无结果</b><span>空状态 · 精确／模糊／别名均无匹配（本稿补充）</span></div>
-      <div class="phone">
-          <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
-        <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
-        <div class="searchhead">
-          <span class="back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
-          <div class="sip typed">东风东风</div>
-          <span class="sgo on">搜索</span>
-        </div>
-        <div class="sbody">
-          <div class="estate">
-            <div class="eicon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path><path d="M8.5 11h5"></path></svg></div>
-            <div class="et">未找到相关学校</div>
-            <div class="ed">没有找到与「东风东风」匹配的学校<br>试试换个关键词，或放宽筛选条件</div>
-            <span class="ebtn ghost">清空并重新搜索</span>
-          </div>
-        </div>
-      </div>
-      <div class="anno">
-        <b>异常态 A · 搜索无结果（原型未列，本稿补充口径）</b>
-        <p>
-          · 触发：精确 + 模糊 + 别名三种匹配均无结果时，词条区替换为空状态。<br>
-          · 结构：<em>插画 + 标题 + 说明 + 主操作</em> 四要素；插画为灰底圆形 + 线性图标（88px），不使用插画图片，保证与主题一致。<br>
-          · 主操作「清空并重新搜索」：清空输入词并重置全部筛选条件，回到搜索页默认态。<br>
-          · 空状态下历史记录区／推荐搜索区不展示，避免与空态信息互相干扰。
-        </p>
-      </div>
-    </div>
-
-    <!-- 09 异常态 B · 网络加载失败 -->
-    <div class="frame">
-      <div class="cap"><b>09 异常态 B · 网络加载失败</b><span>详情长图 · 接口超时／请求失败（本稿补充）</span></div>
-      <div class="phone">
-          <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
-        <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
-        <div class="dtop">
-          <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
-          <span class="tt">学校详情</span>
-          <span class="close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
-        </div>
-        <div class="estate">
-          <div class="eicon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 5.6-2.8M12.7 15.2a6 6 0 0 0-3.4.4"></path><path d="M2.5 9a15 15 0 0 1 8-3.8M14 8.6A15 15 0 0 1 21.5 9"></path><circle cx="12" cy="18.5" r="0.6" fill="currentColor"></circle><path d="M4 4l16 16"></path></svg></div>
-          <div class="et">网络开小差了</div>
-          <div class="ed">详情数据加载失败<br>请检查网络后重试</div>
-          <span class="ebtn">重新加载</span>
-          <div class="esub">多次失败？<em>反馈问题</em></div>
-        </div>
-      </div>
-      <div class="anno">
-        <b>异常态 B · 网络加载失败（原型未列，本稿补充口径）</b>
-        <p>
-          · 触发：详情／列表接口超时或返回失败时，<em>内容区</em>替换为本态；顶部导航保持可用（返回／关闭不受影响）。<br>
-          · 主操作「重新加载」：<em>局部重试</em>，仅重新请求失败的模块，不整页刷新。<br>
-          · 连续 2 次重试仍失败 → 按钮下方追加「反馈问题」文字入口。<br>
-          · 加载中状态：请求期间该模块展示<em>骨架屏</em>（浅灰圆角占位块），超 10s 未返回自动转为本态。
-        </p>
-      </div>
-    </div>
-
-    <!-- 10 异常态 C · 筛选结果为空 -->
-    <div class="frame">
-      <div class="cap"><b>10 异常态 C · 筛选结果为空</b><span>地图层 · 无匹配点位浮层提示（本稿补充）</span></div>
-      <div class="phone mapmode">
-          <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
-        <div class="mapfull">
-          <div class="legendbox">
-            <div class="lg"><i style="background:#2F5CD6"></i>小学</div>
-            <div class="lg"><i style="background:#E8850C"></i>初中</div>
-            <div class="lg"><i style="background:#0F9D58"></i>高中</div>
-          </div>
-          <span class="mapattr">© OpenStreetMap</span>
-        </div>
-        <div class="mtoast">
-          <div class="eicon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path><path d="M8.5 11h5"></path></svg></div>
-          <div class="et">当前筛选下无匹配学校</div>
-          <div class="ed">试试取消部分筛选条件<br>或扩大行政区范围</div>
-          <span class="ebtn" style="margin-top:16px">重置筛选</span>
-        </div>
-        <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
-        <div class="floatbar">
-          <div class="sbox">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
-            搜索广州小初高学校
-          </div>
-          <div class="filterrow">
-            <span class="chip">行政区 <i class="caret"></i></span>
-            <span class="chip">学段 <i class="caret"></i></span>
-            <span class="chip">办学性质 <i class="caret"></i></span>
-          </div>
-        </div>
-      </div>
-      <div class="anno">
-        <b>异常态 C · 筛选结果为空（原型未列，本稿补充口径）</b>
-        <p>
-          · 触发：筛选条件组合在当前地图视野内无匹配点位时，地图中央弹出<em>半透明浮层</em>。<br>
-          · 浮层不遮挡地图手势（缩放／拖动仍可用），用户可先调整视野再决定是否重置。<br>
-          · 主操作「重置筛选」：恢复全部维度默认全选并收起浮层；点浮层外区域仅关闭浮层、保留当前筛选。<br>
-          · 同一规则适用于首页地图层；搜索结果页如遇同类情况，复用异常态 A 的空状态。
-        </p>
-      </div>
-    </div>
-      </div>
-    </div>
-
-    <!-- 11 通用弹窗 · 清空历史确认 -->
-    <div class="frame">
-      <div class="cap"><b>11 通用弹窗 · 清空历史确认</b><span>搜索页「清空」二次确认 · 通用对话框样式（本稿补充）</span></div>
-      <div class="phone">
-          <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
-        <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
-        <div class="searchhead">
-          <span class="back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
-          <div class="sip">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
-            支持广州小初高学校搜索
-          </div>
-          
-        </div>
-        <div class="sbody">
-          <div class="sblock">
-            <div class="shd"><b>历史记录</b><span class="clr">清空</span></div>
-            <div class="pillwrap">
-              <span class="pill">广州市第六中学（海珠校区）</span>
-              <span class="pill">东风东路小学（东风广场校区）</span>
-              <span class="pill">东风东路小学</span>
-              <span class="pill">东风东路小学（锦城校区）</span>
-            </div>
-          </div>
-          <div class="sblock">
-            <div class="shd"><b>快速搜索省市属高中（排名不分先后）</b></div>
-            <div class="slist">
-              <div class="srow"><span class="nm">广州市第六中学（海珠校区）</span></div>
-              <div class="srow"><span class="nm">广东实验中学</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="mask"></div>
-        <div class="modal">
-          <div class="mt">清空历史记录</div>
-          <div class="md">确定要清空全部历史搜索记录吗？<br>清空后不可恢复</div>
-          <div class="mbtns"><span class="mbtn">取消</span><span class="mbtn danger">清空</span></div>
-        </div>
-      </div>
-      <div class="anno">
-        <b>通用弹窗 · 二次确认对话框（原型未列，本稿补充口径）</b>
-        <p>
-          · 触发：搜索页点「清空」弹出本弹窗；后续所有<em>破坏性／不可逆操作</em>（清空历史、重置全部筛选等）复用同一样式，不再各自定义。<br>
-          · 结构：居中对话框，宽 = 屏宽 − 52（约 312px）、圆角 16、白底 + 大投影；<em>标题 16/600 居中</em> + <em>正文 13px 次级色居中</em>。<br>
-          · 按钮：两枚等宽、高 44、r=999 —— 左「取消」白底描边；右为<em>破坏性主按钮，用警示红 #E5484D</em>（非破坏性确认场景主按钮用知性蓝）。<br>
-          · 遮罩：黑 42% 透明；<em>点击遮罩不关闭弹窗</em>（须显式点「取消／清空」），避免误触；弹窗期间背后页面不可滚动。<br>
-          · 动效：淡入 + 轻微放大（150–200ms），关闭反向淡出。
-        </p>
-        <div class="ixn">
-        <b>交互描述</b>
-        <p>
-          1）点历史记录区「清空」→ 弹出本弹窗，同时收起键盘。<br>
-          2）点「清空」→ 清空全部历史词条、关闭弹窗并隐藏历史记录区（推荐搜索区自动上移）。<br>
-          3）点「取消」或系统返回键 → 仅关闭弹窗，历史记录保留原状。
         </p>
       </div>
       </div>
@@ -1163,22 +1295,23 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <tr><td>筛选半窗</td><td>底部半窗，含搜索入口 + 维度 + 选项</td><td>同一时刻<b>只展示当前选中维度的选项组</b>；切维度即整组替换，各维度已选状态各自保留；「全不选」只作用于当前维度；顶部圆角 20、最大高度 82%；<b>无拖拽 handle</b>（不可上滑展开），选项区底部与操作栏间距 18；点搜索入口跳转搜索页（返回回首页、半窗保持收起）</td></tr>
         <tr><td>筛选选项</td><td>半窗内，默认全选</td><td>胶囊 高 34；选中 #F2F6FE 底 + #98B6EC 描边 + #254BAE 字并加粗；未选白底描边。学段维度按交互稿<b>分组竖排</b>：组标题 13/600 + 组内胶囊平铺（小学／初中各 1 项；高中组含 省市属示范・区属示范・其他学校）</td></tr>
         <tr><td>全不选 / 确认</td><td>半窗底部</td><td>「全不选」次按钮 高 44 描边；「确认」主按钮 高 44 通栏 r=999 知性蓝 #2F5CD6 实心</td></tr>
-        <tr><td>搜索按钮</td><td>搜索栏右侧</td><td>无输入置灰 #DCE2EC/#98A2B6 不可点；有输入变知性蓝主按钮 #2F5CD6</td></tr>
+        <tr><td>搜索按钮</td><td>搜索栏右侧</td><td>无输入不展示；有输入后淡入 + 左移约 180ms 流畅出现、搜索框同步变窄约 220ms，知性蓝主按钮 #2F5CD6</td></tr>
+         <tr><td>Toast 轻提示</td><td>屏幕居中偏下（全局通用，规范见第 01 节「通用 · Toast 轻提示」）</td><td>半透明黑底 rgba(0,0,0,.78)、白字 13px、圆角 999、padding 10×18；「已在当前学校」等轻提示约 1.5s 自动淡出，不阻断操作、不加遮罩、全屏同时只存在一个</td></tr>
                 <tr><td>返回按钮</td><td>搜索页 / 筛选半窗左上角</td><td><b>40×40 圆形</b>控件：浅底 #F5F7FB + 1px #E3E8F0 描边，内置 20×20 线性箭头（描边 2.4），点击区 ≥ 40</td></tr>
         <tr><td>历史记录</td><td>搜索页 · 默认态</td><td><b>胶囊平铺</b>（<span class="mono">flex-wrap</span> 自动换行，一条一个圈），不再整行一条；胶囊 高 32、r=999、#F5F7FB 底 + #E3E8F0 描边、12.5px；超长名称单行省略</td></tr>
         <tr><td>联想词条</td><td>有输入时，铺满全页的关联词条区</td><td>行高 48，词条名 14 用 #10182B 单行省略；右侧两枚小标签显示<b>标签类型</b>（行政区／学段）；列表可上下滑</td></tr>
         <tr><td>标签（Tag）</td><td>列表词条 / 学校卡 / 详情信息行</td><td><b>一类一色相，底色浅调 + 文字深调，无描边</b>，共 4 类：行政区 #EEF3FE/#3A62C8；学段 #E9F6FB/#1F7A9B；示范等级 #F1EDFD/#5B49C9；办学性质 #E9F7F0/#1F7A55</td></tr>
         <tr><td>标签尺寸</td><td>小标签 / 中标签</td><td>小：高 19、r=5、10.5px／600（列表词条右侧）；中：高 24、r=6、12px／500（学校卡、详情信息行）</td></tr>
         <tr><td>地图层</td><td>首页 / 地图层，两屏同一套结构</td><td><b>真实地图底图</b>（OpenStreetMap 越秀区局部；示意中心＝育才中学（东校区）一带，<b>产品默认视野＝广州中心城区中轴线（珠江新城—广州塔一带）</b>）铺满全屏（含状态栏区域）；<b>搜索框、筛选栏、图例区为悬浮层</b>（底部导航栏置底通栏，见「导航栏」行），白 96–97% + 投影 <span class="mono">0 4px 16px rgba(8,14,28,.24)</span>，浮于地图之上，不占页面版式；右下角地图来源角标</td></tr>
-        <tr><td>地图点位</td><td>地图层，按真实位置落点</td><td>直径 16 白描边圆点 + 投影；学段分色（小学蓝／初中橙／高中绿）；选中放大至 22 并加蓝色光晕 + <b>名称气泡</b>（白底圆角、下方小箭头）。示例点位：东风东路小学本部／越秀区育才学校／东风东锦城校区／铁一小学／东风实验学校／育才东·西校区／铁一中学</td></tr>
-        <tr><td>图例区</td><td>首页 / 地图层左下角</td><td>白底 96% 透明图例卡（r=12），三行：小学蓝 #2F5CD6／初中橙 #E8850C／高中绿 #0F9D58；字号 11.5、色点直径 9</td></tr>
+        <tr><td>地图点位</td><td>地图层，按真实位置落点</td><td>直径 16 白描边圆点 + 投影；学段分色（小学蓝 #2F5CD6／初中橙 #E8850C／高中绿 #0F9D58）；<b>多学段点位</b>按所含学段以扇形拼圆（2 学段各半圆、3 学段各 1/3 圆）；选中放大至 22 并加蓝色光晕 + <b>名称气泡</b>（白底圆角、下方小箭头）。示例点位：东风东路小学本部／越秀区育才学校／东风东锦城校区／铁一小学／东风实验学校／育才东·西校区／铁一中学</td></tr>
+        <tr><td>图例区</td><td>首页 / 地图层左下角</td><td>白底 96% 透明图例卡（r=12），四行：小学蓝 #2F5CD6／初中橙 #E8850C／高中绿 #0F9D58／<b>多学段</b>（三色按所含学段扇形拼圆：2 学段各半圆、3 学段各 1/3 圆）；字号 11.5、色点直径 9</td></tr>
         <tr><td>半窗学校卡</td><td>地图层底部（点选点位后弹出，默认约 25% 高）</td><td>白底 + 上投影、上圆角 18，顶部拖拽 handle，<b>右上 ✕ 关闭</b>；校名 16/600 + 行政区／学段／办学性质三中标签；下方<em>直接复用详情长图内容</em>，按半窗高度自动截取可视部分（顶部模块），底部<em>渐隐遮罩</em>，「展开详情」胶囊（白底描边 + 投影）<b>叠于渐隐区之上、不单独占行</b>（卡体总高约 206px＝25%）。上滑或点「展开详情」→ 全屏长图页；<b>层级最上层，底部导航栏压在卡片之下</b></td></tr>
         <tr><td>学校详情长图</td><td>半窗卡上滑后全屏（07 屏）</td><td>顶部「‹ 学校详情 ✕」；模块自上而下：<b>学校信号</b>（学位预警／省一级／多维印证；「民间口径」小字仅模块标题右侧，模块下无免责行）→ <b>招生计划（2026年）</b>（计划班数／数据来源／招生地段，无数据字段不展示）→ <b>升学路线参考（2026年）</b>（仅对口学校名、不带标签，学校名为<b>可点击链接</b>：知性蓝 + 「›」，点击跳转地图定位）→ <b>xx 区招生细则（2026）</b> → <b>教育集团</b>（<b>三级层级</b>：模块标题一级；所属集团／同一法人单位（本体/分校区）／独立法人单位（合作）为二级（左侧色条小标题）；方框内容为三级（灰底圆角盒缩进），校名为可点击链接（蓝 +「›」，点击跳转地图定位）+ 学段标签；当前查看校仅加「当前查看」标识（无「地图查看」胶囊））；点击学校名跳转地图定位；模块间分隔线；画框随内容加高（大长图）</td></tr>
         <tr><td>学校详情卡</td><td>学校卡上滑展开（首版仅小学，确认后复用至初中／高中）</td><td>白底上圆角 20 + 上投影，handle；头部 校名 18/600 ＋ 关注（星）／关闭（×）36 圆形控件；<b>四类中标签</b>；关键信息行（地址／联系电话／创办时间，mk 灰 60 宽 + mv 正文）；「办学规模」四格数据块（数字 15 知性蓝 + 9.5px 注释）；「荣誉与特色」中标签组；底部「加入关注」描边按钮 ＋「查看完整详情」通栏主按钮</td></tr>
         <tr><td>导航栏</td><td>首页 / 地图层底部，两项</td><td><b>置底通栏（小程序原生 tabBar 规范）</b>：宽 100%、高 56 + 底部安全区、白底 + 顶部 1px 分隔线，无圆角、无投影、非悬浮；内含两枚 tab 高 40 —— 首页 / 政策；选中 #F2F6FE 底胶囊 + #C3D5F6 描边 + #254BAE 字并加粗，未选透明底 + #64708C 字</td></tr>
-        <tr><td>空状态</td><td>搜索无结果（08 A）／筛选结果为空（10 C）</td><td>四要素结构：灰底圆形插画 88px + 标题 15.5/600 + 说明 12.5 次级色 + 主操作胶囊按钮；搜索空态主操作「清空并重新搜索」（清输入 + 重置筛选）；地图筛选空态用<b>半透明浮层</b>（240 宽、白 97%、r=16）居中提示，<b>不遮挡地图手势</b>，主操作「重置筛选」恢复默认全选</td></tr>
+        <tr><td>空状态</td><td>搜索无结果（08 A）／筛选结果为空（10 C）</td><td>四要素结构：灰底圆形插画 88px + 标题 15.5/600 + 说明 12.5 次级色 + 主操作胶囊按钮；搜索空态主操作「清空并重新搜索」（清输入 + 重置筛选）；地图筛选空态用<b>异常弹窗</b>（240 宽，同全局弹窗统一规格）居中提示，右上角「×」可关闭、地图不加遮罩且手势仍可用，主操作「重置筛选」恢复默认全选</td></tr>
         <tr><td>网络异常</td><td>详情页／列表接口超时或失败（09 B）</td><td>标题「网络开小差了」+ 说明 + 主按钮「重新加载」；<b>局部重试</b>只重拉失败模块、不整页刷新；连续 2 次失败追加「反馈问题」入口；请求期展示<b>骨架屏</b>（浅灰圆角占位块），超 10s 未返回自动转网络异常态</td></tr>
-        <tr><td>确认弹窗</td><td>搜索页「清空」等破坏性操作二次确认（11 屏）</td><td>居中对话框：宽 屏宽−52、r=16、白底 + 投影；标题 16/600 居中、正文 13 次级色居中；按钮两枚等宽 高 44 r=999 —— 取消（白底描边）+ 主操作；<b>破坏性主按钮用警示红 #E5484D</b>，非破坏性确认用知性蓝；遮罩黑 42%，<b>点遮罩不关闭</b>，弹窗期间背景不可滚动；动效 淡入+轻微放大 150–200ms</td></tr><tr><td>小程序胶囊</td><td>全屏右上角系统导航（覆盖所有页面）</td><td>微信小程序原生胶囊：圆角矩形（87×32，r=16）白底 82% + 1px 浅灰描边 + 投影，内分两钮——左「··· 更多」、右「⊕ 退出小程序」；两钮间 1px 竖分隔。z-index 最高、非自定义元素，<b>所有页面（地图层／搜索页／详情页／异常态）统一常驻右上角</b>；搜索页（02/03）搜索框与之同行右对齐，自定义顶栏右侧预留 98px 安全位避免遮挡。点击「···」唤起微信转发/收藏等系统菜单，点击「⊕」退出小程序回微信会话。</td></tr>
+        <tr><td>确认弹窗</td><td>搜索页「清空」等破坏性操作二次确认（11 屏）</td><td>统一按第 01 节「通用 · 异常态与全局弹窗 · 全局弹窗统一规格」执行：宽 240px（<b>全稿唯一弹窗宽度档</b>，与地图异常弹窗同档）、r=16、白底 + 投影；标题 16/600 居中、正文 13 次级色居中；按钮两枚等宽 高 44 r=999 —— 取消（白底描边）+ 主操作；<b>破坏性主按钮用警示红 #E5484D</b>，非破坏性确认与重试类用知性蓝；遮罩黑 42%，<b>点遮罩不关闭</b>，弹窗期间背景不可滚动；动效 淡入+轻微放大 150–200ms</td></tr><tr><td>小程序胶囊</td><td>全屏右上角系统导航（覆盖所有页面）</td><td>微信小程序原生胶囊：圆角矩形（87×32，r=16）白底 82% + 1px 浅灰描边 + 投影，内分两钮——左「··· 更多」、右「⊕ 退出小程序」；两钮间 1px 竖分隔。z-index 最高、非自定义元素，<b>所有页面（地图层／搜索页／详情页／异常态）统一常驻右上角</b>；首页/地图层顶部第一行左侧为小程序名、右侧为胶囊，白底常驻盖住地图；搜索框位于第二行全宽悬浮；搜索页（02/03）搜索框与胶囊同行且同高 32px 齐平，自定义顶栏右侧预留 98px 安全位避免遮挡。点击「···」唤起微信转发/收藏等系统菜单，点击「⊕」退出小程序回微信会话。</td></tr>
       </tbody>
     </table>
   </div>
