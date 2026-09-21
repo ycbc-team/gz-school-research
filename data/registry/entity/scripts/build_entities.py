@@ -78,23 +78,16 @@ AD_DISTRICT = {
     '440103': '荔湾区', '440104': '越秀区', '440105': '海珠区',
     '440106': '天河区', '440111': '白云区', '440112': '黄埔区', '440113': '番禺区',
 }
-# POI 名 → 别名变体：自身 norm 名 + 带区名前缀 + 去区名前缀（官方文件常不带区名，如「石楼中学」对应 POI「番禺区石楼中学」）
+# POI 名 → 别名变体。
+# 不再生成区名变体：SchoolMatcher.matchNorm 已做区名归一（「XX区」→「XX」）+ 前导区名剥离
+# （剩余 ≥4 且非泛词才剥）+ preferred_adcode 收敛——官方名带不带「XX区」都能全等命中
+# 实体 name（match_school.normalize 同样剥区前缀）。区名变体别名冗余，且随 entities.json
+# 打进小程序包占体积。真实别名（更名/校区名/跨源叫法差异）由下方手工别名表提供。
 DIST = re.compile(r'^(荔湾|越秀|海珠|天河|白云|黄埔|番禺)区')
 
 
 def poiNameAliases(poiName, adcode):
-    base = normName(poiName)
-    out = []
-    dist = AD_DISTRICT.get(adcode)
-    if dist:
-        if DIST.search(base):
-            out.append(DIST.sub('', base))      # 去区名
-        else:
-            out.append(dist + base)             # 加区名
-    # 自身 norm（== name）不入 aliases：索引侧（upgrade aliasIndex / SchoolMatcher /
-    # 前端 registry 等）均已 name+aliases 双索引，自身名冗余只会增大实体表体积
-    # （entities.json 会打进小程序包）。区名变体才是真实别名，保留。
-    return out
+    return []
 
 
 stageFiles = {
@@ -1009,6 +1002,7 @@ PRIMARY_CAMPUS_ALIAS = {
     "宝玉直实验小学（南边校区）": "广州市海珠区宝玉直实验小学(南边路校区)",
     "逸景第一小学（逸景校区）": "逸景第一小学(本校区)",
     "实验小学（穗花校区）": "海珠区实验小学",
+    "实验小学（富基校区）": "广州市海珠区实验小学(富基校区)",
     "第二实验小学（北校区）": "海珠区第二实验小学",
     # 天河
     "五一小学（校本部）": "五一小学",
@@ -1104,6 +1098,7 @@ _CONSUMER_KEEP_ALIASES = {
     'gz-440111-175bd68f': ['白云区平沙培英学校'],
     'gz-440111-2186a02a': ['白云区景泰中学分校区原白云区南悦中学'],
     'gz-440111-297970b9': ['白云区石井中学'],
+    'gz-440111-92e78967': ['白云区白云广附云湖实验学校'],  # 官方初中计划名带区，实体 name 无区（白云广附云湖实验学校，middle）
     'gz-440111-2d42f392': ['白云区培英实验学校云景校区'],
     'gz-440111-33d95662': ['白云区广东第二师范学院实验中学'],
     'gz-440111-35536ebb': ['白云区颜乐天纪念中学'],
@@ -1138,6 +1133,16 @@ _CONSUMER_KEEP_ALIASES = {
     'gz-440113-db326e94': ['番禺区华南碧桂园学校'],
 }
 _DISTRICT_BY_ADCODE = {k: v.rstrip('区') for k, v in AD_DISTRICT.items()}
+# 消费必需别名直接注入（官方录取名单名带区、实体 name 无区——xs_resolver/backfill 按
+# normName 精确查询别名、不剥区，规则化兜底无法覆盖）。白名单由上方定义生成，
+# 显式挂载不依赖 poiNameAliases，下方瘦身保留逻辑会继续豁免。
+for _sid, _als in _CONSUMER_KEEP_ALIASES.items():
+    for _e in entities:
+        if _e['school_id'] == _sid:
+            for _a in _als:
+                alias_add(_e['aliases'], _a)
+            break
+
 # PRIMARY_CAMPUS_ALIAS 显式挂载的官方别名（校区/更名桥接）：消费必需，瘦身不得剔除
 _PCA_ALIAS_VALUES = set()
 for _official, _poi in PRIMARY_CAMPUS_ALIAS.items():

@@ -14,7 +14,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))), 'data', 'registry', 'entity', 'scripts'))
-from school_match import normName as _sm_normName  # noqa: E402  统一校名归一（entity 域统一 py 后唯一真源）
+from school_match import normName as _sm_normName, matchNorm as _sm_matchNorm  # noqa: E402  统一校名归一（entity 域统一 py 后唯一真源）
 from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
@@ -59,19 +59,38 @@ class XsResolver:
     def __init__(self):
         self.entities = json.load(open(os.path.join(ROOT, 'data/registry/entity/dist/entities.json'),
                                        encoding='utf-8'))['entities']
-        # stage + norm(name/alias) -> [entity]
+        # stage + norm(name/alias) -> [entity]（normName 精确；含去括号互认键）
         self.alias_idx = defaultdict(list)
+        # stage + matchNorm(name/alias) -> [entity]（区归一+前导区名剥离；独立索引，
+        # 防 matchNorm 键与 normName 键同实体重复入 alias_idx，触发「多命中宁缺」——玉岩实验学校回归）
+        self.match_norm_idx = defaultdict(list)
+
+        def _add(idx, key, e):
+            if key:
+                lst = idx[(e['stage'], key)]
+                if all(x['school_id'] != e['school_id'] for x in lst):
+                    lst.append(e)
+
         for e in self.entities:
             for a in set([e['name']] + (e.get('aliases') or [])):
                 k = norm_xs(a)
                 if k:
-                    self.alias_idx[(e['stage'], k)].append(e)
+                    _add(self.alias_idx, k, e)
                     # 2026-09-21 别名瘦身：补「去括号」互认键——查询官方名带括号、
                     # 实体 name/别名无括号（如「六中珠江中学(逸景校区)」↔「六中珠江中学逸景校区」），
                     # 只去符号不剥区，不改变法人聚合边界
                     _flat = k.replace('(', '').replace(')', '')
                     if _flat != k:
-                        self.alias_idx[(e['stage'], _flat)].append(e)
+                        _add(self.alias_idx, _flat, e)
+                    # 2026-09-21 区名变体兜底：实体表不再挂「XX区+名」自动别名，
+                    # SchoolMatcher.matchNorm（区归一「XX区」→「XX」+ 前导区名剥离）可全等
+                    # 桥接官方「广州市白云区石井中学」↔ 实体「石井中学」；查键为空时才用，
+                    # district 过滤（by_poi/by_campus）兜住跨区同名收敛。
+                    # 键==normName 键也须入 match_norm_idx：查询名可能带区（如「白云区平沙培英学校」）
+                    # 走剥区后同键查询，省略会导致无索引可查——平沙培英学校回归
+                    _mk = _sm_matchNorm(a)
+                    if _mk:
+                        _add(self.match_norm_idx, _mk, e)
         # school_id -> 区名（POI join，与 upgrade entDistrict 一致）
         self.ent_district = {}
         for stage, file in [('primary', 'data/poi/dist/primary_poi.json'),
@@ -99,14 +118,23 @@ class XsResolver:
             for sid in s.get('school_ids') or []:
                 self.campus_dist[sid] = s['district']
 
-    def _lookup(self, stage, name):
-        """别名索引查键：normName 精确 → 去括号兜底（不剥区，防法人聚合边界变化）。"""
+    def _lookup(self, stage, name, prefer_match_norm=False):
+        """别名索引查键：normName 精确 → 去括号兜底（不剥区）→ matchNorm 区归一/剥离兜底。
+        带校区官方名（prefer_match_norm）先查 matchNorm 键——保留校区括号，唯一命中校区
+        实体（如「六中珠江中学(万胜围校区)」→ 万胜围校区实体），避免法人本部共享别名抢占。"""
         k = norm_xs(name)
+        _mk = _sm_matchNorm(name) if (name or '').strip() else ''
+        if prefer_match_norm and _mk:
+            lst = self.match_norm_idx.get((stage, _mk))
+            if lst:
+                return lst
         lst = self.alias_idx.get((stage, k))
         if not lst:
             _flat = k.replace('(', '').replace(')', '')
             if _flat != k:
                 lst = self.alias_idx.get((stage, _flat))
+        if not lst and _mk and _mk != k:
+            lst = self.match_norm_idx.get((stage, _mk))
         return lst
 
     def resolve_one(self, name, district, stage):
@@ -161,7 +189,7 @@ class XsResolver:
                     # 本区无同法人实体：宁缺不兜底
                     return []
                 return list(dict.fromkeys(e['school_id'] for e in cand))
-        picked = list(self._lookup(stage, name) or [])
+        picked = list(self._lookup(stage, name, prefer_match_norm=has_campus) or [])
         if district:
             f = [e for e in picked if self.ent_district.get(e['school_id']) == district]
             picked = f if f else []
