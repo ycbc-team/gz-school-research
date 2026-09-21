@@ -1,7 +1,7 @@
 {
  "year": 2026,
  "district": "白云区",
- "source": "白云区教育局 2026 公办初中招生计划（raw/baiyun_2026_juniors.json）",
+ "source": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
  "source_url": null,
  "mechanisms": {
   "single_zone": {
@@ -57,7 +57,7 @@
   {
    "school": "广州市三元里中学",
    "school_id": null,
-   "plan_classes": null,
+   "plan_classes": 0,
    "scope": "三元里小学（不含北校区）、羊城铁路总公司广州铁路第五小学",
    "mechanism": "single_zone",
    "mechanism_note": "因涉拆迁，2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排。",

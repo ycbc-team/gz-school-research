@@ -21,7 +21,7 @@ import openpyxl
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 DATA = os.path.join(ROOT, "data", "primary")
 OUT_DIR = os.path.join(DATA, "parsed")
-RAW_DIR = os.path.join(DATA, "raw")
+RAW_DIR = os.path.join(DATA, "parsed", "_transcripts")
 
 # 复用五区通用匹配规则
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))

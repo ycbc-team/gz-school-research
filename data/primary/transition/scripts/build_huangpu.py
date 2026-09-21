@@ -17,7 +17,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.d
 sys.path.insert(0, os.path.join(ROOT, "scripts", "primary"))
 DATA = os.path.join(ROOT, "data", "primary")
 OUT = os.path.join(DATA, "parsed", "2026-huangpu.json")
-RAW = os.path.join(DATA, "raw", "huangpu_2026.json")
+RAW = os.path.join(DATA, "parsed", "_transcripts", "huangpu_2026.json")
 
 # 复用既有匹配函数与规则
 import build_district_enrollment as bde

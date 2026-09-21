@@ -205,7 +205,7 @@ def rank_candidates(rec_school, poi_list):
 def parse_yuexiu(txt_path):
     # TXT 缺失时回退 _raw/yuexiu_2026.json（转录产物），保证本地可重跑
     if not os.path.exists(txt_path):
-        raw = json.load(open(os.path.join(DATA, "raw", "yuexiu_2026.json"), encoding="utf-8"))
+        raw = json.load(open(os.path.join(DATA, "parsed", "_transcripts", "yuexiu_2026.json"), encoding="utf-8"))
         return [{
             "school": s["school"], "district": "越秀区",
             "plan_classes": s.get("plan_classes"), "zone": s.get("zone", ""),
@@ -315,7 +315,7 @@ def parse_liwan():
 
 # ---------- 海珠/天河（OCR 转录） ----------
 def parse_raw(district_key):
-    raw = json.load(open(os.path.join(DATA, "raw", f"{district_key}_2026.json"), encoding="utf-8"))
+    raw = json.load(open(os.path.join(DATA, "parsed", "_transcripts", f"{district_key}_2026.json"), encoding="utf-8"))
     records = []
     for s in raw["schools"]:
         records.append({
@@ -336,7 +336,7 @@ def parse_panyu(xls_path):
                   for sh in wb.sheets()}
     else:
         # xls 缺失时复用 _raw 解析产物（同构：sheets 二维数组），保证本地可重跑
-        raw = json.load(open(os.path.join(DATA, "raw", "panyu_2026_official.json"), encoding="utf-8"))
+        raw = json.load(open(os.path.join(DATA, "parsed", "_transcripts", "panyu_2026_official.json"), encoding="utf-8"))
         sheets = raw["sheets"]
     records = []
     sh = sheets.get("公办小学招生地段、计划", [])
