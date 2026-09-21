@@ -3,16 +3,18 @@
 **定位**：全链 school_id 外键的维度表枢纽。范式为 **POI 点位表 — Entity 实体表 — Fact 事实表** 三分离：
 一个 POI（校区/学部）= 一个 Entity，1:1，`school_id` 即主键；集团/教育集团关系由 `group/` 业务另表承载。
 
-## 目录结构（五层）
+## 目录结构
 
 | 层 | 内容 |
 | --- | --- |
-| `raw/` | `amap_query_input.json` / `amap_query_results.json`（高德 Web 服务 API 点位查询的原始输入与返回） |
-| `parsed/` | `pending_items.json`（待补实体/待核实清单，由 `extract_pending.py` 从民办采集 md 提取） |
+| `raw/` | `amap_query_input.json` / `amap_query_results.json`（高德 Web 服务 API 点位查询的原始输入与返回，一次性补点工作留痕） |
 | `scripts/` | 见下方「构建与脚本」 |
 | `dist/` | `entities.json`（实体表，**禁手改**）、`sites.json`（高中/完中站点表，31 所） |
 
-> 历史 `src/source_name_mappings.json` 已退役（2026-09-21）：71 条官方名→id 桥接由 school_match norm 自动命中，3 条裸名歧义下沉 `linkage/build_special_matrix.py` 的 `SPECIAL_NAME_FIX` 显式归位。
+> 归属说明：
+> - 民办采集的待补实体/待核实清单（`pending_items.json`）与提取工具（`extract_pending.py`）归位 `private/`（民办业务，见 `data/registry/private/README.md`）。
+> - POI 补点脚本 `amap_batch_query.py` / `apply_poi_patch.py` 在 `data/poi/scripts/`（POI 采集层）。
+> - 历史 `src/source_name_mappings.json` 已退役（2026-09-21）：71 条官方名→id 桥接由 school_match norm 自动命中，3 条裸名歧义下沉 `linkage/build_special_matrix.py` 的 `SPECIAL_NAME_FIX` 显式归位。
 
 ## 构建与脚本
 
@@ -22,7 +24,6 @@
 | `build_sites.py` | 站点表构建：高中/完中 POI 按 base 名归组成法人 → 多 site | `python3 data/registry/entity/scripts/build_sites.py` |
 | `school_match.py` | **全项目唯一校名匹配库**：`normName/looseNorm/coreCampusName/legalKey/legalCampuses` + `SchoolMatcher`，全项目 26+ 个脚本 import | 被各业务脚本 import，不单独运行 |
 | `match_school.py` | 命令行查实体工具：给定区 adcode + 校名查 entities.json | `python3 data/registry/entity/scripts/match_school.py <adcode> "<校名>" [--stage ...]` |
-| `extract_pending.py` | 从 `private/src/minban_*.md` 提取"需补实体/待核实"清单 → `parsed/pending_items.json` | `python3 data/registry/entity/scripts/extract_pending.py` |
 
 ## 产物与下游
 

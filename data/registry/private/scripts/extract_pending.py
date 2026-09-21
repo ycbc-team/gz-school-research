@@ -91,7 +91,7 @@ def main():
         'need_entity': all_need_entity,
         'need_verify': all_need_verify,
     }
-    outpath = os.path.join(REPO, 'data', 'registry', 'entity', 'parsed', 'pending_items.json')
+    outpath = os.path.join(REPO, 'data', 'registry', 'private', 'parsed', 'pending_items.json')
     with open(outpath, 'w', encoding='utf-8') as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
     print(f'\n已写入 {outpath}')
