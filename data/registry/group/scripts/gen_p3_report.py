@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""从 education_groups.json 生成 P3 覆盖清单 Markdown"""
+"""从 education_groups.json 生成 P3 覆盖清单 Markdown。
+
+警告：P3 文档在生成后有人工补充章节（「六、高德复查与改名承继核实」等），
+重跑会覆盖丢失人工内容。仅在明确需要重建统计部分时运行，且跑前先备份/合并人工章节。
+"""
 import json, os
 from collections import Counter, defaultdict
 

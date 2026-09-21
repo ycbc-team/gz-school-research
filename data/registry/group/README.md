@@ -27,6 +27,7 @@
 - **统一匹配，禁止人为补括号别名**：校区匹配一律走 `school_match.legalKey/legalCampuses`（第一层 legalKey 全等、第二层「法人核心名以校区结尾且以法人 key 开头」归并），12 个后缀式校区由此自动进入覆盖。
 - **锚点表只承载「一对多」**（成员名→多个校区 POI）；单校区锚定全部下沉实体表别名（`build_entities.py` 的 `GROUP_MEMBER_ALIAS`）。产物确定性由 `test_match_poi` golden + `check_groups_drift` 保证。
 - **禁手改 `dist/`**：手改会被重跑覆盖且被 drift 检查检出。更名/并入/承继等事实固化进实体别名或锚点表。
+- **P3 文档含生成后人工章节，重跑 `gen_p3_report.py` 会覆盖丢失**；仅重建统计时运行，先备份/合并人工章节。
 - 每次集团名单变更**必须**同步更新逐集团快照测试（`packages/shared/tests/snapshots/group_roster.json`，86 教育集团 + 8 品牌，逐集团 diff 感知）。
 
 ## 数据源
