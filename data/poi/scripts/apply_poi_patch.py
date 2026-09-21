@@ -249,7 +249,7 @@ with open(os.path.join(ROOT, 'data/registry/entity/dist/entities.json'), 'w', en
     json.dump(entities_data, f, ensure_ascii=False, indent=2)
 
 # 3. 更新 MINBAN_IDS
-build_path = os.path.join(ROOT, 'data/registry/entity/scripts/build_entities.mjs')
+build_path = os.path.join(ROOT, 'data/registry/entity/scripts/build_entities.py')
 with open(build_path) as f:
     build_content = f.read()
 

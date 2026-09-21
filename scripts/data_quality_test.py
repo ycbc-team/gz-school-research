@@ -131,7 +131,7 @@ def main():
     # （resolve by_main 优先无括号主 POI）→ 只要冲突实体中存在无括号主名即放行；
     # 仅当冲突双方都带校区括号（无主 POI 可收敛，如「广钢校区」vs「岭南校区」裸名撞）才报错。
     entities = load_entities()
-    # 官方划片表小学名共享裸名豁免（与 build_entities.mjs OFFICIAL_PRIMARY_ALIAS 多校区裸名键同步）：
+    # 官方划片表小学名共享裸名豁免（与 build_entities.py OFFICIAL_PRIMARY_ALIAS 多校区裸名键同步）：
     # 官方文件按小学法人名（裸名）公布，同区多校区并列招生是业务事实（华阳小学 4 校区、龙口西 5 校区等），
     # 匹配器/构建脚本按官方名解析出全部校区实体，不构成匹配歧义。新增共享裸名需同步更新本集合。
     _PRIMARY_SHARED_PLAIN = {'华康小学', '华阳小学', '龙口西小学', '华景小学', '天府路小学', '员村小学',

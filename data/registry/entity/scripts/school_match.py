@@ -7,7 +7,7 @@
 
   一、norm 三档（对应不同匹配强度，规则与 shared 侧保持一致）：
     - normName   严格全等：全角括号→半角→去「广州市」前缀→删括号→去空白
-                  （与 data/registry/entity/scripts/build_entities.mjs 及 packages/shared/src/support.ts 的 normName 一致）
+                  （与 data/registry/entity/scripts/build_entities.py 及 packages/shared/src/support.ts 的 normName 一致）
     - looseNorm  normName + 去尾部(初中部|高中部|小学部|校区|分校|学校|部)
                   （与 packages/shared/src/support.ts looseNorm、scripts/linkage/backfill_school_ids.py loose 一致）
     - matchNorm  泛词保护：状态/泛化括号剥、保留校区括号、区名归一、前导区名剥（纯泛词保护）、
@@ -59,7 +59,7 @@ def fold_unicode(s):
 
 def normName(s):
     """严格全等归一：全角括号→半角 → 去「广州市」前缀 → 删括号 → 去空白。
-    与 data/registry/entity/scripts/build_entities.mjs 及 packages/shared/src/support.ts 的 normName 完全一致。"""
+    与 data/registry/entity/scripts/build_entities.py 及 packages/shared/src/support.ts 的 normName 完全一致。"""
     if not s:
         return ""
     return (str(s).replace("（", "(").replace("）", ")")

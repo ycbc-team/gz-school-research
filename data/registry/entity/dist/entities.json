@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "note": "学校实体表（由build_entities.mjs生产）。一个 POI = 一或多个实体，一个实体 = 唯一学段 + 唯一校区；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由 data/registry/private/dist/minban_schools.json（官方文件汇总表）生产。",
+  "note": "学校实体表（由build_entities.py生产）。一个 POI = 一或多个实体，一个实体 = 唯一学段 + 唯一校区；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由 data/registry/private/dist/minban_schools.json（官方文件汇总表）生产。",
   "entities": [
     {
       "school_id": "gz-440105-9aac697e",
@@ -9585,8 +9585,8 @@
       "name": "广州市白云区景泰中学白云湖校区",
       "stage": "middle",
       "aliases": [
-        "白云区景泰中学分校区原广州市白云区南悦中学",
-        "景泰中学分校区原广州市白云区南悦中学",
+        "白云区景泰中学分校区原白云区南悦中学",
+        "景泰中学分校区原白云区南悦中学",
         "景泰中学白云湖校区",
         "白云区南悦中学",
         "景泰中学",
@@ -10948,7 +10948,7 @@
       "name": "广州市华颖外国语学校",
       "stage": "middle",
       "aliases": [
-        "华颖外国语学校广州市华颖中学",
+        "华颖外国语学校华颖中学",
         "天河区华颖外国语学校"
       ]
     },

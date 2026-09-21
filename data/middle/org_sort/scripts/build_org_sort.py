@@ -8,7 +8,7 @@
   - 每个校名只允许收敛出一个 school_id（SchoolMatcher 同区/同学段收敛，多候选不猜配）；
   - 匹配不上的条目不写入产物，逐条输出到 STDOUT，由人工确认后补实体别名或放弃；
   - 不跨区错配：preferred_adcode 取名单所在区，跨区回退仅限 SchoolMatcher 显式放行。
-本脚本不做业务别名（民间公认简称/校区叫法已下沉至 data/registry/entity/scripts/build_entities.mjs
+本脚本不做业务别名（民间公认简称/校区叫法已下沉至 data/registry/entity/scripts/build_entities.py
 的 OFFICIAL_MIDDLE_ALIAS 实体别名；此处仅保留通用变体：去括号/去"本部"修饰/数字序数化）。
 
 运行：python3 data/middle/org_sort/scripts/build_org_sort.py
@@ -37,7 +37,7 @@ DISTRICT_ADCODE = {
 }
 
 # 注意：本项目不在业务脚本内置别名/锚定（曾用 ORG_SORT_ANCHORS，2026-09-18 起全部下沉到
-# data/registry/entity/scripts/build_entities.mjs 的 OFFICIAL_MIDDLE_ALIAS 实体别名，供所有链路共用）。
+# data/registry/entity/scripts/build_entities.py 的 OFFICIAL_MIDDLE_ALIAS 实体别名，供所有链路共用）。
 
 # 显式宁缺：名单名对应校区在实体/榜单确认不存在，且通用变体（去括号等）会错配到其它校区。
 # 这不是业务别名，而是排除错配（宁缺毋滥的一部分）。

@@ -99,7 +99,7 @@ python3 scripts/primary/build_district_enrollment.py   # 2026 招生（写 data/
 
 | 产物 | 生产脚本 | 下游 |
 | --- | --- | --- |
-| `registry/entities.json` | build_entities.mjs | 全链 school_id 外键维度表 |
+| `registry/entities.json` | build_entities.py | 全链 school_id 外键维度表 |
 | `registry/sites.json` | build_sites.py | 高中点位/实体 |
 | `primary/enrollments/xiaoshengchu_<区>.json` + `primary/xiaoshengchu_all.json` | build_xiaoshengchu_all.py + xs_resolver.py | 升学路线 |
 | `primary/xiaoshengchu_2026.json`（facts） | upgrade_xiaoshengchu.mjs | 小学升学路线、初中生源反查（middlePrimaryFeed）、生源快照测试 |

@@ -140,17 +140,17 @@ def _check_build_high_levels():
 
 
 def _check_build_entities():
-    """重跑 build_entities.mjs（node）到临时目录，与入库 entities + 3 个 POI 表比对。
+    """重跑 build_entities.py（python）到临时目录，与入库 entities + 3 个 POI 表比对。
 
     民办名单（minban_schools.json）与实体表/POI 的联动：源表改动必须重跑 build_entities，
     禁止手改 entities.json；重跑漂移说明实体表被手改或民办名单表未重跑。
     """
     tmp = os.path.join(tempfile.gettempdir(), "entities_repro")
     shutil.rmtree(tmp, ignore_errors=True)
-    r = subprocess.run(["node", os.path.join(ROOT, "data/registry/entity/scripts/build_entities.mjs"), "--out-dir", tmp],
+    r = subprocess.run(["python3", os.path.join(ROOT, "data/registry/entity/scripts/build_entities.py"), "--out-dir", tmp],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
-        print("生产脚本重跑失败：data/registry/entity/scripts/build_entities.mjs")
+        print("生产脚本重跑失败：data/registry/entity/scripts/build_entities.py")
         print(r.stdout[-2000:])
         print(r.stderr[-2000:])
         sys.exit(1)

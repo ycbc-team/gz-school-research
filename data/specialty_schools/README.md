@@ -94,7 +94,7 @@ issuer（发文单位）/ url（官方来源）/ remark（区推断等备注）`
 
 ## 匹配修复记录（2026-09-20，二轮）
 
-别名一律通过生产脚本 `scripts/registry/build_entities.mjs` 的 `AWARD_SOURCE_ALIAS`
+别名一律通过生产脚本 `scripts/registry/build_entities.py` 的 `AWARD_SOURCE_ALIAS`
 常量配置后重跑生成（`entities.json` 为构建产物，直接改会被覆盖）；`parsed` 区属与
 实体实际区属不符时修正 parsed 并留备注。
 

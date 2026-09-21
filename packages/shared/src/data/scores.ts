@@ -61,7 +61,7 @@ export function createScoresApi(loaders: DataLoaders) {
     return out;
   }
 
-  /** POI/校区名（norm 全等）→ school_id（实体表 name/aliases，与 build_entities.mjs 同规则） */
+  /** POI/校区名（norm 全等）→ school_id（实体表 name/aliases，与 build_entities.py 同规则） */
   function resolveSchoolId(name: string): string | null {
     const n = normName(name);
     for (const e of loaders.entities.entities) {
@@ -77,7 +77,7 @@ export function createScoresApi(loaders: DataLoaders) {
   return { scoresBySchoolId, scoresOfSchool, resolveSchoolId };
 }
 
-/** 与 scripts/registry/build_entities.mjs 一致的 norm（全角括号→半角→去「广州市」前缀→去括号→去空白） */
+/** 与 scripts/registry/build_entities.py 一致的 norm（全角括号→半角→去「广州市」前缀→去括号→去空白） */
 export function normName(s: string): string {
   return (s || '')
     .replace(/（/g, '(')

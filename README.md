@@ -30,7 +30,7 @@
 │   ├── poi/                  # POI 点位（dist/*_poi.json 真源，采集/清洗脚本在同目录 scripts/）
 │   └── README.md            # 数据治理约定与更新方式
 ├── scripts/                 # 共享脚本（数据采集/构建 + 小程序构建）
-│   ├── entity/scripts/build_entities.mjs  # 实体注册表（school_id 主键 + 官方名/别名桥接）
+│   ├── entity/scripts/build_entities.py  # 实体注册表（school_id 主键 + 官方名/别名桥接）
 │   ├── build_district_enrollment.py  # 五区小学招生数据
 │   └── miniprogram/build.mjs  # 小程序构建（shared cjs + data json → 小程序包）
 ├── docs/                    # 调研报告、分析文档
@@ -180,7 +180,7 @@ apps/web/src/data/compact/**  与  @gz/shared 构建产物（Web/小程序实际
 - 真源：广州市招考办官网（gzzk.gz.gov.cn）普通高中录取分数表，官方页原始 HTML 存 `data/high/cutoff_score/raw/`（入库跟踪），`python3 data/high/cutoff_score/scripts/fetch_scores.py` 重下官方页（仅每年批次公布时手动跑），`python3 data/high/cutoff_score/scripts/build_scores.py` 解析到 `data/high/cutoff_score/dist/`（每次 check 重跑比对）
 - 覆盖批次：第一批次（外语艺术类，末位考生分数口径）/ 第三批次 / 第四批次；2025 与 2026 两年
 - 口径：公办=户籍生最低分（另有非户籍生/外区生）；民办/中外合作=最低分数（公费班为独立条目）；外语艺术类=末位考生分数
-- 关联：`by_school_id` 按实体主键引用 `data/registry/entity/dist/entities.json`（官方录取表原文名经 `data/registry/entity/scripts/build_entities.mjs` 的 OFFICIAL_HIGH_ALIAS 桥接 POI 名，全角校区名 ↔ 半角 POI 名系统性差异已治理）；未收录实体（远郊 7 区外 / 中外合作办学项目 / 无 POI 新校）保留在 `unmapped` 官方原文
+- 关联：`by_school_id` 按实体主键引用 `data/registry/entity/dist/entities.json`（官方录取表原文名经 `data/registry/entity/scripts/build_entities.py` 的 OFFICIAL_HIGH_ALIAS 桥接 POI 名，全角校区名 ↔ 半角 POI 名系统性差异已治理）；未收录实体（远郊 7 区外 / 中外合作办学项目 / 无 POI 新校）保留在 `unmapped` 官方原文
 - 展示：地图卡与详情页同屏展示 2025/2026 两年录取线；levels 的 nature（公办/民办）随官方"学校性质"列联动，民办不再误标"户籍生"口径
 - 已核验：levels 旧版 89 校人工录入分数与官方 2025 表逐校比对全部一致（唯一差异=海珠外国语江海校区未被 levels 收录，数据保留在 unmapped）；2026 抽查（华附 739/南武 683/十三中 625/西关培英 607/广州外国语 712/北师大实验 672/为明 500 等）与官方原文一致
 

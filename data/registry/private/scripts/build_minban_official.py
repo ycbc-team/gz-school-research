@@ -161,7 +161,7 @@ def main():
         return
     json.dump(table, open(TABLE, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(f'\n已写入 {TABLE} → 共 {table["school_count"]} 所')
-    print('后续：node data/registry/entity/scripts/build_entities.mjs 重跑产物')
+    print('后续：node data/registry/entity/scripts/build_entities.py 重跑产物')
 
 
 if __name__ == '__main__':

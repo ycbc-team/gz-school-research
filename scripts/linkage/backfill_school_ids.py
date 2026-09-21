@@ -16,7 +16,7 @@
    先精确 norm，未命中再用 loose；两者均为全等匹配，不会误配。
 
 未命中（7 区外无实体 / 7 区内需人工桥接）落盘 data/linkage/_school_id_unmatched.json，
-原文保留、不伪造 id；7 区内清单待人工确认后补进 build_entities.mjs 的 OFFICIAL_ALIASES 或实体 aliases。
+原文保留、不伪造 id；7 区内清单待人工确认后补进 build_entities.py 的 OFFICIAL_ALIASES 或实体 aliases。
 
 运行：python3 scripts/linkage/backfill_school_ids.py
 """
@@ -224,7 +224,7 @@ def main() -> int:
     outside = sorted({n for _, n, dist, is7 in unmatched if is7 is not True})
     (ROOT / 'data/linkage/_school_id_unmatched.json').write_text(
         json.dumps({
-            'note': '升学通道官方名未命中实体表：7 区内需人工桥接（补进 build_entities.mjs 别名）；7 区外无 POI 实体，链接不可点属正确行为，原文保留展示。',
+            'note': '升学通道官方名未命中实体表：7 区内需人工桥接（补进 build_entities.py 别名）；7 区外无 POI 实体，链接不可点属正确行为，原文保留展示。',
             'updated': '2026-09-12',
             'inside7_unmatched': inside,
             'outside7_or_unknown': outside,

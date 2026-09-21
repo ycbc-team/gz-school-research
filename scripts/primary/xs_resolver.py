@@ -12,6 +12,9 @@ import json
 import os
 import re
 import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'data', 'registry', 'entity', 'scripts'))
+from school_match import normName as _sm_normName  # noqa: E402  统一校名归一（entity 域统一 py 后唯一真源）
 from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -30,15 +33,10 @@ RESOLVE_OVERRIDE = {
 
 
 def norm_xs(s):
-    """与 upgrade_xiaoshengchu.mjs normName 逐字符一致：全角括号→半角 → 去开头「广州市」
-    → 删半角括号 → 删全部空白。"""
-    if not s:
-        return ''
-    s = str(s).replace('（', '(').replace('）', ')')
-    s = re.sub(r'^广州市', '', s)
-    s = re.sub(r'[()]', '', s)
-    s = re.sub(r'\s+', '', s)
-    return s
+    """统一校名归一：收敛至 school_match.normName（entity 域统一 py 后唯一真源）。
+    历史实现「去开头广州市 + 删括号 + 删空白」与 school_match 的「全局去广州市」有
+    语义差异（内部含「广州市」的官方名/别名会失配），2026-09-21 统一后消除。"""
+    return _sm_normName(s)
 
 
 def core_of_name(raw):

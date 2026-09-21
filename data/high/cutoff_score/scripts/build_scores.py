@@ -189,7 +189,7 @@ def parse_file(fname: str, batch: int):
 
 
 def load_entity_index():
-    """实体表（dimension）name/aliases → school_id（norm 全等，与 build_entities.mjs 同规则）。"""
+    """实体表（dimension）name/aliases → school_id（norm 全等，与 build_entities.py 同规则）。"""
     ents = json.loads((ROOT / "data" / "registry" / "entity" / "dist" / "entities.json").read_text(encoding="utf-8"))["entities"]
     idx = {}
     for e in ents:
