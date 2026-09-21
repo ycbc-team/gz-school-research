@@ -533,6 +533,7 @@ const brandCardUseful = computed(() =>
       <div class="kv">
         <div class="kv-row"><span>学段</span><b>{{ stageLabel }}</b></div>
         <div class="kv-row"><span>所属区</span><b>{{ districtOf }}</b></div>
+        <div v-if="brandCard?.brand" class="kv-row"><span>教育集团</span><b>{{ brandCard.brand }}</b></div>
         <div v-if="specialtyRows.length" class="kv-row specialty-row">
           <span>学校特色</span>
           <b>
