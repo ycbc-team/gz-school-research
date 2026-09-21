@@ -282,7 +282,8 @@ OFFICIAL_MIDDLE_ALIAS = {
     '广州市番禺区市桥桥城中学': '桥城中学',
     '广州市番禺区市桥沙头中学': '沙头中学',
     '广州市番禺区市桥象圣中学': '象圣中学',
-    '广州市番禺区广铁一中铁英学校': '广州市番禺区广铁一中铁英学校(西校区)',
+    # 官方名单名 = 法人：东/西校区都挂（2026-09-21 修正：此前仅挂西校区，官方名只匹配西校区不对称）
+    '广州市番禺区广铁一中铁英学校': ('广州市番禺区广铁一中铁英学校(东校区)', '广州市番禺区广铁一中铁英学校(西校区)'),
     '广州市番禺区毓贤学校': '广州番禺区毓贤学校',
     '广州市番禺区沙湾华阳学校': '华阳学校',
     '广州市番禺区沙湾象达中学': '象达中学',
@@ -911,7 +912,7 @@ for (stage, base), poiNames in _site_groups.items():
         # 旧 sites.json 的 site.aliases 字段全空（从未人工补充），无等价循环
 
 # 共享法人别名表（sites.json 废弃迁移 2026-09-21）：key=法人纯名，value=POI 校区名。
-# 语义：法人名同时归属全部校区实体（与 OFFICIAL_*_ALIAS 一对一不同，此处为一对多）。
+# 语义：法人名同时归属全部校区实体（OFFICIAL_*_ALIAS 亦支持 tuple 一对多，本表与带区名官方名互补）。
 # 仅用于含“学校”等非纯名后缀、不参与先占歧义的共享别名（703 行注释既定意图）。
 # 铁英 POI 名现为半角括号，自动归组（仅剥全角）不再命中，故走本表显式挂载。
 SHARED_LEGAL_ALIAS = {
@@ -926,10 +927,12 @@ for _alias, _poi_names in SHARED_LEGAL_ALIAS.items():
 # 人工核对的官方初中名 → POI 实体
 aliasHit = 0
 for official, poi in OFFICIAL_MIDDLE_ALIAS.items():
-    if attachAlias('middle', poi, official):
-        aliasHit += 1
-    else:
-        print('  [别名未命中POI]', official, '->', poi)
+    poi_list = poi if isinstance(poi, tuple) else (poi,)
+    for _poi in poi_list:
+        if attachAlias('middle', _poi, official):
+            aliasHit += 1
+        else:
+            print('  [别名未命中POI]', official, '->', _poi)
 # 官方初中裸名 → 初中部校区实体（force=true 绕过纯名先占，见 FORCED_MIDDLE_ALIAS 注释）
 for official, poi in FORCED_MIDDLE_ALIAS.items():
     if attachAlias('middle', poi, official, True):
