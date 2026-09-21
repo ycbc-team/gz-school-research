@@ -44,7 +44,7 @@ python3 data/poi/scripts/build_high_levels_js.py # 高中清洗点位（写回 d
 python3 data/high/cutoff_score/scripts/build_scores.py # 高中录取分解析（官方页 raw/ → dist/scores_{year}.json 真源）
 
 # 招生
-python3 scripts/primary/build_district_enrollment.py   # 2026 招生（写 data/primary/enrollments/*.json 真源）
+python3 data/primary/transition/scripts/build_district_enrollment.py <区>   # 2026 招生（raw 原文件→parsed/_transcripts→parsed/2026-<区>.json）
 ```
 
 密钥仅存于项目根 `.env`（`AMAP_WEB_KEY`），代码与页面不出现明文凭据。
@@ -79,7 +79,7 @@ python3 scripts/primary/build_district_enrollment.py   # 2026 招生（写 data/
 | 类型 | 文件 |
 | --- | --- |
 | 外部抓取（高德 API） | `poi/dist/primary_poi.json`、`poi/dist/middle_poi.json`、`poi/dist/high_poi.json`（fetch_* 脚本直写） |
-| 官方转录 | `primary/enrollments/2026-*`（小学招生计划）、`linkage/raw/*` + `primary/enrollments/_raw/*`（指标/自招/录取线/招生名单转录）、`high/cutoff_score/dist/scores_{2025,2026}.json`（官方录取分） |
+| 官方转录 | `primary/transition/parsed/2026-*`（小学招生计划）、`primary/transition/parsed/_transcripts/*`（各区官方文件 A 层转录）、`linkage/raw/*`（指标/自招/录取线/招生名单转录）、`high/cutoff_score/dist/scores_{2025,2026}.json`（官方录取分） |
 | 人工产物 | `primary|middle/tier1_schools_all.json`（学校信号，已判废弃待重构）、`high/level/src/levels.json`、`middle/org_sort/src/*`、`registry/group/src/brand_groups.json`、`registry/group/parsed/education_groups_2026.json`、`registry/group/parsed/_partial_*`、`registry/private/src/minban_*.md` |
 
 ### 派生层（脚本产物，勿手改；改脚本须重跑并提交）
@@ -87,8 +87,8 @@ python3 scripts/primary/build_district_enrollment.py   # 2026 招生（写 data/
 | 产物 | 生产脚本 | 下游 |
 | --- | --- | --- |
 | `registry/entity/dist/entities.json` | build_entities.py | 全链 school_id 外键维度表 |
-| `primary/enrollments/xiaoshengchu_<区>.json` + `primary/xiaoshengchu_all.json` | build_xiaoshengchu_all.py + xs_resolver.py | 升学路线 |
-| `primary/xiaoshengchu_2026.json`（facts） | upgrade_xiaoshengchu.mjs | 小学升学路线、初中生源反查（middlePrimaryFeed）、生源快照测试 |
+| `primary/transition/dist/xiaoshengchu_<区>.json` + `primary/transition/dist/xiaoshengchu_all.json` | build_xiaoshengchu_all.py + xs_resolver.py | 升学路线（区级/all 为中间产物，已 gitignore） |
+| `primary/transition/dist/xiaoshengchu_2026.json`（facts） | upgrade_xiaoshengchu.mjs | 小学升学路线、初中生源反查（middlePrimaryFeed）、生源快照测试 |
 | `primary/enrollments/middle_enrollment_2026_<区>.json` | build_middle_enrollment.py | 详情页初中招生计划 |
 | `linkage/quota_matrix.json` / `special_matrix.json` / `district_quota.json` / `batch2_scores.json` | rebuild_quota_matrix / build_special_* / build_district_quota / build_linkage_batch2（+ backfill_school_ids 回填 id） | 升学通道、排行榜 |
 | `linkage/ranking_middle.json`（334 校） | build_ranking_middle.py | 详情页升学信号、排行榜、初中明细 |

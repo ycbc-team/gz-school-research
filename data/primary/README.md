@@ -11,7 +11,7 @@
 | --- | --- | --- |
 | `transition/` | 小升初升学路线（xiaoshengchu） | 官方源/解析产物/构建脚本/运行时产物，详见 `transition/README.md` |
 | `enrollments/` | 公办初中招生计划 | `middle_enrollment_2026_<区>.json`（7 区），构建脚本 `scripts/primary/build_middle_enrollment.py` |
-| `tier1_schools_all.json` | 口碑学校（第一梯队小学） | 网传/公开信息整理；实体分类见 `scripts/primary/build_entity_classification.py` |
+| `tier1_schools_all.json` | 口碑学校（第一梯队小学） | 网传/公开信息整理（前端 compact 消费） |
 
 ## 说明
 

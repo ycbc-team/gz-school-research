@@ -42,7 +42,7 @@ data/linkage/raw/*.png
 data/linkage/raw/*.preview
 
 # 小升初升学事实表中间产物（build_xiaoshengchu_all.py 按区重建后 merge_all 汇总；
-# 真源只存升级后的 data/primary/xiaoshengchu_2026.json，见 2060d6c）
+# 真源只存升级后的 data/primary/transition/dist/xiaoshengchu_2026.json）
 data/primary/transition/dist/xiaoshengchu_*.json
 data/primary/transition/dist/xiaoshengchu_all.json
 
