@@ -22,6 +22,7 @@ import {
   innovationAwards,
   chuangkeAwards,
   scienceLiteracyAwards,
+  specialtySchools,
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
@@ -81,6 +82,28 @@ const chuangkeData = computed(() => chuangkeAwards[schoolId.value]?.chuangke_awa
 const chuangkeGroupLabel = computed(() => chuangkeStage.value === 'secondary' ? '中学组（初中+高中）' : stageLabel.value);
 const scienceLiteracyData = computed(() => scienceLiteracyAwards[schoolId.value]?.science_literacy_awards?.stages?.[stage.value]);
 const awardYears = computed(() => awardData.value ? Object.keys(awardData.value).sort().reverse() : []);
+/** 特色校称号（官方认定·省市各级）：按当前 school_id 或校名匹配 dist 聚合，展开 recognition 池 */
+const specialtyEntry = computed(() => {
+  const doc = specialtySchools;
+  if (schoolId.value) {
+    const byId = doc.schools.find((s) => s.ids.includes(schoolId.value));
+    if (byId) return byId;
+  }
+  const n = normName(schoolName.value);
+  return doc.schools.find((s) => normName(s.school) === n) || null;
+});
+const specialtyRows = computed(() => {
+  const entry = specialtyEntry.value;
+  if (!entry || !entry.rec.length) return [];
+  return entry.rec
+    .map((i) => {
+      const r = specialtySchools.recognition[i];
+      if (!r) return null;
+      const note = entry.notes?.find((x) => x.i === i);
+      return { ...r, gap: note?.g, note: note?.t };
+    })
+    .filter((x): x is NonNullable<typeof x> => !!x);
+});
 /** 初中 tab：2026 招生计划（一校多规则：同一初中可对应多区/多机制入学，逐条渲染），按当前学段 POI school_id 外键查 */
 const middleEnrolls = computed(() => {
   if (stage.value !== 'middle') return [];
@@ -490,6 +513,24 @@ const brandCardUseful = computed(() =>
       </div>
     </div>
 
+    <!-- 特色校称号（官方认定：省市各级科创/美育/体育/心理等） -->
+    <div v-if="specialtyRows.length" class="card">
+      <div class="card-title">特色校称号（官方认定）</div>
+      <div class="title-note-row">
+        <span class="title-note">省市各级教育部门认定名单，每条均为官方公示文件。</span>
+      </div>
+      <div class="kv">
+        <div v-for="(r, idx) in specialtyRows" :key="idx" class="kv-row">
+          <span>{{ r.project }}</span>
+          <b>
+            <span class="badge" :class="r.level === '国家级' ? 'b-national' : (r.level === '省级' ? 'b-province' : 'b-city')">{{ r.level }}</span>
+            <template v-if="r.category">&nbsp;{{ r.category }}</template>
+            <template v-if="r.batch">&nbsp;{{ r.batch }}{{ typeof r.year === 'number' ? '（' + r.year + '）' : '' }}</template>
+          </b>
+        </div>
+      </div>
+    </div>
+
     <!-- 学校信号（历史称号/集团/喜报/录取线等源数据，民间口径非官方评价） -->
     <div v-if="signalRows.length" class="card">
       <div class="card-title">学校信号</div>
@@ -737,6 +778,9 @@ const brandCardUseful = computed(() =>
 .badge.b-tier { background: #e11d48; }
 .badge.b-license { background: #4b5563; }
 .badge.b-hcity { background: #b45309; }
+.badge.b-national { background: #9f1239; }
+.badge.b-province { background: #1d4ed8; }
+.badge.b-city { background: #047857; }
 .badge.b-hdist { background: #0f766e; }
 .badge.b-minban { background: #9333ea; }
 .badge.b-full { background: #e11d48; }

@@ -146,7 +146,13 @@ test('品牌关联：全量品牌实体对比修复前后，品牌分支新增�
   // 2026-09-17 校区办学联网核实后为 57：41中东/盘福等 9 所校区 stage 修正（middle→high/primary，
   // 见 CAMPUS_STAGE_FIX，campus_middle_webverify_20260917.md），学段变更后不再计入 brand 覆盖
   //（详情页按正确学段渲染品牌卡）。
-  assert.equal(eligible.length, 57, '品牌实体覆盖范围变更，请审阅当前态回归结果');
+  // 2026-09-21 后缀式校区统一归并 + 锚点表瘦身（55→4）后为 55：
+  //   a) 省实荔湾花地湾 2 校区（花地湾校区 + 小学部）由 brand/广东实验中学教育集团 转入
+  //      education/广东实验中学荔湾学校教育集团（法人推导补全 core_poi 后 education 索引优先），
+  //      归属更准确，不再计入 brand 覆盖（-2）；
+  //   b) 后缀式校区统一规则（school_match.legalCampuses「<法人><校区名>校区」前缀归并）另使
+  //      12 个后缀式校区进入 education 覆盖（+12，见 school_groups 增量），brand 覆盖不受影响。
+  assert.equal(eligible.length, 55, '品牌实体覆盖范围变更，请审阅当前态回归结果');
   const failures = [];
   for (const entity of eligible) {
     const group = repo.groupOfSchool(entity.name, entity.school_id);

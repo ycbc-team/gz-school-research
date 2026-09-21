@@ -11,6 +11,7 @@ sys.path.insert(0, os.path.join(BASE, "scripts/registry"))
 from school_match import brandNorm as norm
 from school_match import coreCampusName as core_name
 from school_match import matchNorm as match_norm
+from school_match import legalCampuses as legal_campuses
 
 def load_json(path):
     return json.load(open(os.path.join(BASE, path)))
@@ -18,30 +19,8 @@ def load_json(path):
 # 实体表：法人推导（core 名/成员名 → 同法人全部校区实体）的权威来源
 _ENTITIES = load_json("data/registry/entities.json")["entities"]
 
-def _legal_key(name):
-    """法人推导 key：coreCampusName（去括号校区）后剥括号外学部后缀。
-    「广州奥林匹克中学（智谷校区）小学部」→ core「广州奥林匹克中学小学部」→ 剥「小学部」→「广州奥林匹克中学」，
-    与 core「广州奥林匹克中学」归并（校区+学部复合名实体归属法人）。"""
-    return match_norm(re.sub(r"(小学|初中|高中|中职)部$", "", core_name(name)))
-
-
-def legal_campuses(name):
-    """法人推导：同一法人的全部校区实体（按 school_id 去重）。
-    key = _legal_key(名)：去括号校区 + 剥学部后缀 + 区名/「广州市」前缀归一，
-    使「华阳小学(华成校区)」与「广州市天河区华阳小学(天润校区)」归并到「华阳小学」法人；
-    「广州奥林匹克中学（智谷校区）小学部」归并到「广州奥林匹克中学」法人。
-    匹配实体 name 及其 aliases（法人通称/官方名，如「桥城中学」alias「市桥桥城中学」、
-    「省实白云实验学校」alias「白云实验学校」→ 正确归入对应法人）。
-    供 core_poi 补全与成员多校区匹配（成员名「华阳小学」→ 全部校区）。"""
-    key = _legal_key(name)
-    seen = {}
-    for e in _ENTITIES:
-        if _legal_key(e["name"]) == key:
-            seen.setdefault(e["school_id"], e["name"])
-        elif any(_legal_key(a) == key for a in (e.get("aliases") or [])):
-            seen.setdefault(e["school_id"], e["name"])
-    return [{"poi_name": n, "school_id": sid} for sid, n in seen.items()]
-
+# 法人推导统一实现：school_match.legalCampuses（括号式校区剥括号全等 + 无括号后缀式
+# 「<法人><校区名>校区」前缀归并，含 aliases 法人通称），此处不再本地实现以免漂移。
 # 1. 加载7区partial
 partials = {}
 district_files = {
@@ -75,7 +54,7 @@ for dist, fpath in district_files.items():
         have = {cp.get("school_id") for cp in anchored if cp.get("school_id")}
         derived = []
         for core in g.get("core") or []:
-            for cp in legal_campuses(core):
+            for cp in legal_campuses(core, _ENTITIES):
                 if cp["school_id"] not in have:
                     derived.append({"name": cp["poi_name"], "poi_match": "法人推导",
                                     "poi_name": cp["poi_name"], "school_id": cp["school_id"]})
@@ -263,7 +242,7 @@ for b in dbrand.get("brands", []):
     brand_core_poi = [
         {"name": cp["poi_name"], "poi_match": "法人推导",
          "poi_name": cp["poi_name"], "school_id": cp["school_id"]}
-        for cp in legal_campuses(core_school)
+        for cp in legal_campuses(core_school, _ENTITIES)
     ]
     all_groups.append({
         "brand": group_brand,
@@ -309,7 +288,7 @@ if pending:
         was_variant = m.get("poi_match") == "变体命中"
         # 法人推导优先：成员名 → 同法人全部校区实体（如「华阳小学」→ 华成/天河东/林和东/天润），
         # 避免无本部实体时落进包含匹配误挂其它学校（此前「华阳小学」→ 高塘石小学）
-        legal = legal_campuses(mname)
+        legal = legal_campuses(mname, _ENTITIES)
         if legal:
             if len(legal) == 1:
                 m["poi_match"] = "法人推导"

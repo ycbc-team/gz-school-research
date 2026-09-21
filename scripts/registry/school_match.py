@@ -125,6 +125,35 @@ def coreCampusName(name):
     return re.sub(r"[（(][^）)]*[）)]", "", name or "").strip()
 
 
+def legalKey(name):
+    """法人推导 key：法人核心名再剥括号外学部后缀（「XX初中部/高中部/小学部/中职部」）。
+    merge_groups 法人推导与 SchoolMatcher 多校区展开共用，避免两处实现漂移。"""
+    return matchNorm(re.sub(r"(小学|初中|高中|中职)部$", "", coreCampusName(name)))
+
+
+def legalCampuses(name, entities):
+    """法人推导：返回同一法人的全部校区实体（[{"poi_name","school_id"}]，按 school_id 去重）。
+
+    第一层：legalKey 全等（实体 name 或 aliases，括号式校区经 coreCampusName 剥括号后在此命中）。
+    第二层（无括号后缀式校区统一归并规则）：实体核心名剥括号后以「校区」结尾、
+    且以法人 key 开头、校区名部分 >= 2 字 → 归并为同法人校区。
+    「东风东路小学锦城花园校区」→「东风东路小学」、「沙面小学岭南校区」→「沙面小学」等，
+    凡「<法人><校区名>校区」形态一律自动归并，替代「手工给后缀式校区实体补括号式别名」的做法。
+    """
+    key = legalKey(name)
+    seen = {}
+    for e in entities:
+        if legalKey(e["name"]) == key:
+            seen.setdefault(e["school_id"], e["name"])
+        elif any(legalKey(a) == key for a in (e.get("aliases") or [])):
+            seen.setdefault(e["school_id"], e["name"])
+        else:
+            en = matchNorm(coreCampusName(e["name"]))
+            if en.endswith("校区") and en.startswith(key) and len(en) >= len(key) + 3:
+                seen.setdefault(e["school_id"], e["name"])
+    return [{"poi_name": n, "school_id": sid} for sid, n in seen.items()]
+
+
 def _is_generic_core(s: str) -> bool:
     """剩余核心剥掉序数/修饰词后是否落入泛词表（区名/「广州」剥离会毁名 → 不应剥离）。
     「实验小学」→剥「实验」→「小学」∈泛词 → 保护（避免海珠/黄埔/番禺区实验小学归一成「实验小学」）；
