@@ -28,6 +28,7 @@ import json
 import os
 import re
 import sys
+from collections import defaultdict
 
 from school_match import normName  # norm 统一收敛至统一匹配库（同目录）
 
@@ -880,26 +881,47 @@ def attachAlias(stage, poiName, aliasName, force=False):
 # 不得被数据管线依赖——别名挂载段已移除（历史：tier1 school_ids 曾把「广州市第十六中学(水荫校区)」
 # 挂上「第十六中学本部」别名，属网传数据错误；本部限定名改由 OFFICIAL_HIGH_ALIAS/
 # OFFICIAL_MIDDLE_ALIAS 官方录取表桥接，多校区承载走锚点表/显式映射）
-# sites.json：31 所高中，sites[].poi_name 命中的，挂 sites 别名
-sites = read('data/registry/entity/dist/sites.json')
-for ent in sites.get('schools') or []:
-    stage = (ent.get('stages') or ['high'])[0]
-    common = normName(ent.get('name'))
-    # 多校区纯名通用名（如「执信中学」→ 执信路/天河/水荫多校区）：不挂 common，避免同区纯名被多实体共用
-    # （多校区由锚点表/搜索 sites 列表承载；校区专属别名照挂）
+# ---- 法人→多校区别名挂载（2026-09-21 起内联，替代已废弃的 build_sites.py + sites.json）----
+# 归组逻辑与旧 build_sites 完全一致：带括号 POI 名按 base 名归组，组内 >= 2 视为多校区法人；
+# 数据源=入库 POI 表（磁盘最终版，与 build_sites 当时读取一致），POI 名只用于归组不产生新表。
+def _site_base(p):
+    idx = p.rfind('（')
+    return p[:idx] if idx > 0 else p
+
+_site_groups = defaultdict(list)
+for _st in ('high', 'middle'):
+    for _p in (read(stageFiles[_st]).get('schools') or []):
+        _nm = _p.get('name') or ''
+        if '(' in _nm or '（' in _nm:
+            _site_groups[(_st, _site_base(_nm))].append(_nm)
+for (stage, base), poiNames in _site_groups.items():
+    if len(poiNames) < 2:
+        continue
+    common = normName(base)
     isPlainCommon = isPlainAlias(common)
-    for poi in ent.get('sites') or []:
-        e = entByStagePoiName.get(stage + '|' + normName(poi.get('poi_name')))
+    # 多校区纯名通用名（如「执信中学」→ 执信路/天河/水荫多校区）：不挂 common，避免同区纯名被多实体共用
+    for poiName in sorted(poiNames):
+        e = entByStagePoiName.get(stage + '|' + normName(poiName))
         if e is None:
             continue
-        if not (len(ent.get('sites') or []) > 1 and isPlainCommon):
+        if not (len(poiNames) > 1 and isPlainCommon):
             for v in withDistrictVariants(common):
                 if v != normName(e['name']):
                     alias_add(e['aliases'], v)
-        for a in ent.get('aliases') or []:
-            for v in withDistrictVariants(normName(a)):
-                if v != normName(e['name']):
-                    alias_add(e['aliases'], v)
+        # 旧 sites.json 的 site.aliases 字段全空（从未人工补充），无等价循环
+
+# 共享法人别名表（sites.json 废弃迁移 2026-09-21）：key=法人纯名，value=POI 校区名。
+# 语义：法人名同时归属全部校区实体（与 OFFICIAL_*_ALIAS 一对一不同，此处为一对多）。
+# 仅用于含“学校”等非纯名后缀、不参与先占歧义的共享别名（703 行注释既定意图）。
+# 铁英 POI 名现为半角括号，自动归组（仅剥全角）不再命中，故走本表显式挂载。
+SHARED_LEGAL_ALIAS = {
+    '广铁一中铁英学校': ('广州市番禺区广铁一中铁英学校(东校区)', '广州市番禺区广铁一中铁英学校(西校区)'),
+}
+for _alias, _poi_names in SHARED_LEGAL_ALIAS.items():
+    for _pn in _poi_names:
+        _e = entByStagePoiName.get('middle|' + normName(_pn))
+        if _e:
+            alias_add(_e['aliases'], _alias)
 
 # 人工核对的官方初中名 → POI 实体
 aliasHit = 0

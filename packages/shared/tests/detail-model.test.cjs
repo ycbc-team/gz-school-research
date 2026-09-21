@@ -28,7 +28,6 @@ const loaders = {
   highScores2026: load('high/cutoff_score/dist/scores_2026.json'),
   entities: load('registry/entity/dist/entities.json'),
   xiaoshengchu: load('primary/xiaoshengchu_2026.json'),
-  sites: load('registry/entity/dist/sites.json'),
   brandGroups: load('registry/group/src/brand_groups.json'),
   educationGroups: load('registry/group/dist/education_groups.json'),
   schoolGroups: load('registry/group/dist/school_groups.json'),

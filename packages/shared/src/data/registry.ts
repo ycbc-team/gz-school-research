@@ -1,25 +1,14 @@
 /**
- * 身份与品牌域：学校身份注册表（resolveSite）+ 实体解析（resolvePoiName）+ 品牌关联（groupOfSchool）。
+ * 身份与品牌域：实体解析（resolvePoiName）+ 品牌关联（groupOfSchool）。
  * 品牌关联 = 查公共 school_id → 集团映射（schoolGroups 产物，py 数据层构建），运行时纯 id 匹配，
  * 不再做任何按名匹配（名称匹配已收敛到 scripts/registry/build_school_groups.py 构建期）。
  */
 import { normName, looseNorm } from '../support.js';
 import type { DataLoaders } from './loader.js';
-import type { BrandGroup, Site, EducationGroup } from './types.js';
+import type { BrandGroup, EducationGroup } from './types.js';
 
 export function createRegistryApi(loaders: DataLoaders) {
-  const registrySites: Site[] = loaders.sites.schools.flatMap((s) => s.sites);
   const entities = loaders.entities.entities;
-  /** 任意来源名 → site（poi_name / gov_names / aliases 全量精确匹配） */
-  function resolveSite(anyName: string): Site | null {
-    if (!anyName) return null;
-    for (const s of registrySites) {
-      if (s.poi_name === anyName) return s;
-      if ((s.gov_names || []).includes(anyName)) return s;
-      if ((s.aliases || []).includes(anyName)) return s;
-    }
-    return null;
-  }
 
   /**
    * 任意校名（官方名单/口碑/POI 变体）→ 实体 POI 名（entities.name）。
@@ -181,5 +170,5 @@ export function createRegistryApi(loaders: DataLoaders) {
     return brandGroupResult(bg);
   }
 
-  return { resolveSite, resolvePoiName, resolveSchoolIdOf, groupOfSchool, brandGroups: loaders.brandGroups };
+  return { resolvePoiName, resolveSchoolIdOf, groupOfSchool, brandGroups: loaders.brandGroups };
 }

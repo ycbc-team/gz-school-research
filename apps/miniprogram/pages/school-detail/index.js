@@ -1,7 +1,7 @@
 /**
  * 学校详情页（三学段统一）：数据模型来自 @gz/shared buildDetailModel + buildLinkageModel，
  * 与 Web 详情页同一套业务逻辑，本页只做平台适配与 WXML 渲染。
- * 本页位于分包：主包 baseLoaders（utils/data.js）+ 本分包 data/（linkage/sites/brandGroups/
+ * 本页位于分包：主包 baseLoaders（utils/data.js）+ 本分包 data/（linkage/brandGroups/
  * educationGroups 7 个紧凑模块）合并为全量 loaders 后 createRepository。
  */
 const { shared, baseLoaders } = require('../../utils/data.js');
@@ -15,7 +15,6 @@ const loaders = {
   specialMatrix: cast(hydrate(require('./data/linkage/special_matrix.js'))),
   batch2Scores: cast(hydrate(require('./data/linkage/batch2_scores.js'))),
   districtQuota: cast(hydrate(require('./data/linkage/district_quota.js'))),
-  sites: cast(hydrate(require('./data/registry/entity/dist/sites.js'))),
   brandGroups: cast(hydrate(require('./data/registry/group/src/brand_groups.js'))),
   educationGroups: cast(hydrate(require('./data/registry/group/dist/education_groups.js'))),
   schoolGroups: cast(hydrate(require('./data/registry/group/dist/school_groups.js'))),

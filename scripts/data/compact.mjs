@@ -89,13 +89,13 @@ const MP_MAIN_TARGETS = [
   'data/registry/entity/dist/entities.json',
 ];
 // 小程序分包数据（school-detail 详情页专用）：升学通道/身份/品牌/教育集团
+// （sites.json 已于 2026-09-21 废弃：法人别名挂载内联 build_entities，无运行时消费）
 // （官方录取分 scores 已在主包加载，详情页经 baseLoaders 继承，无需重复编译）
 const MP_SUB_TARGETS = [
   'data/linkage/quota_matrix.json',
   'data/linkage/special_matrix.json',
   'data/linkage/batch2_scores.json',
   'data/linkage/district_quota.json',
-  'data/registry/entity/dist/sites.json',
   'data/registry/group/src/brand_groups.json',
   'data/registry/group/dist/education_groups.json',
   'data/registry/group/dist/school_groups.json',

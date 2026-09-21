@@ -4,7 +4,7 @@
  * 经 hydrate 还原为原 JSON 结构），组装 DataLoaders 注入 createRepository。
  * 构建产物勿手改。
  *
- * 主包/分包拆分：地图页消费的主包数据 15 个在此加载；详情页专用数据（linkage/sites/brandGroups/
+ * 主包/分包拆分：地图页消费的主包数据 15 个在此加载；详情页专用数据（linkage/brandGroups/
  * educationGroups 7 个）在 pages/school-detail 分包，由详情页 require 分包模块后
  * 与 baseLoaders 合并为全量 loaders 再 createRepository（buildDetailModel/buildLinkageModel 消费）。
  * 主包 repository 的详情域方法（quota/special/batch2/coverage/brand 等）因空壳数据返回空，地图页不消费。
@@ -42,7 +42,6 @@ const baseLoaders = {
   specialMatrix: { high_schools: [], matrix: {} },
   batch2Scores: { data: {} },
   districtQuota: { data: {} },
-  sites: { schools: [] },
   brandGroups: { brands: [] },
   schoolGroups: { schoolGroups: {} },
 };

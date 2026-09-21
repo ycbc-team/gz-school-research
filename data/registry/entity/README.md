@@ -8,7 +8,7 @@
 | 层 | 内容 |
 | --- | --- |
 | `scripts/` | 见下方「构建与脚本」 |
-| `dist/` | `entities.json`（实体表，**禁手改**）、`sites.json`（高中/完中站点表，31 所） |
+| `dist/` | `entities.json`（实体表，**禁手改**） |
 
 > 归属说明：
 > - 民办采集的待补实体/待核实清单（`pending_items.json`）与提取工具（`extract_pending.py`）归位 `private/`（民办业务，见 `data/registry/private/README.md`）。
@@ -20,7 +20,6 @@
 | 脚本 | 职责 | 用法 |
 | --- | --- | --- |
 | `build_entities.py` | 实体表构建：POI→Entity 1:1，挂官方名/校区/更名别名，民办 nature 由 `private/dist/minban_schools.json` 联表生产，回写 POI 表 school_id 并清假学校点位 | `python3 data/registry/entity/scripts/build_entities.py`（幂等；`--out-dir <dir>` 供 drift 检查重放） |
-| `build_sites.py` | 站点表构建：高中/完中 POI 按 base 名归组成法人 → 多 site | `python3 data/registry/entity/scripts/build_sites.py` |
 | `school_match.py` | **全项目唯一校名匹配库**：`normName/looseNorm/coreCampusName/legalKey/legalCampuses` + `SchoolMatcher`，全项目 26+ 个脚本 import | 被各业务脚本 import，不单独运行 |
 | `match_school.py` | 命令行查实体工具：给定区 adcode + 校名查 entities.json | `python3 data/registry/entity/scripts/match_school.py <adcode> "<校名>" [--stage ...]` |
 
@@ -29,7 +28,8 @@
 | 产物 | 说明 | 下游 |
 | --- | --- | --- |
 | `dist/entities.json` | 实体表（1554 实体，school_id 主键 + name/stage/aliases/nature） | **全链枢纽**：xiaoshengchu、配额、录取分、详情页、SchoolMatcher 等全部按 school_id 引用 |
-| `dist/sites.json` | 高中/完中站点表（31 所，法人粒度） | 高中点位、搜索站点列表 |
+
+> 历史 `dist/sites.json` + `build_sites.py` 已废弃（2026-09-21）：site id 自成一派（非 school_id）、与 POI/entities 三层冗余、无有效运行时消费；法人→多校区别名挂载已内联 `build_entities.py`（`_site_groups` 归组 + 铁英共享别名显式迁移），产物与废弃前完全等价。
 
 ## 维护约束
 

@@ -90,16 +90,6 @@ export interface HighScores {
   unmapped: Array<Record<string, unknown>>;
 }
 
-/** 学校身份注册表（site 粒度） */
-export interface Site {
-  id: string;
-  poi_name: string;
-  district: string;
-  stage: string;
-  gov_names?: string[];
-  aliases?: string[];
-}
-
 /** 品牌关联 */
 export interface BrandUnit {
   name: string;

@@ -33,7 +33,6 @@ import rankingMiddleCompact from './compact/linkage/ranking_middle.js';
 import specialMatrixCompact from './compact/linkage/special_matrix.js';
 import batch2ScoresCompact from './compact/linkage/batch2_scores.js';
 import districtQuotaCompact from './compact/linkage/district_quota.js';
-import sitesRegistryCompact from './compact/registry/entity/dist/sites.js';
 import brandGroupsCompact from './compact/registry/group/src/brand_groups.js';
 import educationGroupsCompact from './compact/registry/group/dist/education_groups.js';
 import schoolGroupsCompact from './compact/registry/group/dist/school_groups.js';
@@ -85,7 +84,6 @@ const loaders: DataLoaders = {
   entities: cast(hydrate(entitiesCompact)),
   xiaoshengchu: cast(hydrate(xiaoshengchu2026Compact)),
   middleEnrollNotes: cast(hydrate(middleEnrollNotesCompact)),
-  sites: cast(hydrate(sitesRegistryCompact)),
   brandGroups: cast(hydrate(brandGroupsCompact)),
   educationGroups: cast(hydrate(educationGroupsCompact)),
   schoolGroups: cast(hydrate(schoolGroupsCompact)),
@@ -178,7 +176,6 @@ export const {
   scoresBySchoolId,
   resolveSchoolId,
   resolveSchoolIdOf,
-  resolveSite,
   resolvePoiName,
   groupOfSchool,
   tier1Schools,
@@ -196,7 +193,6 @@ export type {
   Batch2Scores,
   HighScoreRecord,
   HighScores,
-  Site,
   BrandUnit,
   BrandGroup,
   SchoolBadge,
