@@ -18,7 +18,9 @@ BASE = 'data/linkage/raw'
 
 # 统一匹配库：norm 本体收敛至 school_match.normName（原"复刻 shared normName"定义已删）
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "registry", "entity", "scripts"))
-from school_match import normName as norm
+from school_match import matchNorm, normName as norm  # 归一收敛至统一匹配库：剥区名 + 去括号变体
+# （2026-09-21 别名瘦身后「区+名字」形态不再生成；带区名名单名由 matchNorm 剥区兜底，
+#  仍保持「实体表高中别名唯一收敛」语义——法人名多校区宁缺，由实体别名表精确归位）
 OUT = sys.argv[1] if len(sys.argv) > 1 else 'data/linkage/special_matrix.json'
 SOURCE = 'gzzk-special-2026'
 
@@ -44,13 +46,20 @@ def strip_project(project: str) -> str:
 entities = json.load(open('data/registry/entity/dist/entities.json'))['entities']
 entity_by_id = {e['school_id']: e for e in entities if e.get('stage') == 'high'}
 high_aliases: dict[str, list[dict]] = collections.defaultdict(list)  # 归一化别名 → 高中实体候选
+high_aliases_exact: dict[str, list[dict]] = collections.defaultdict(list)  # normName（带区精确）键，剥区歧义回退用
 for e in entities:
     if e.get('stage') != 'high':
         continue
     for a in [e['name']] + (e.get('aliases') or []):
-        na = norm(a)
+        na = matchNorm(a)
         if na:
             high_aliases[na].append(e)
+            _flat = na.replace('(', '').replace(')', '')
+            if _flat != na:
+                high_aliases[_flat].append(e)
+        _na = norm(a)
+        if _na:
+            high_aliases_exact[_na].append(e)
 
 
 def resolve_entity(name: str):
@@ -62,7 +71,16 @@ def resolve_entity(name: str):
     source_name_mappings 退役迁移），所有调用点（high_entities/自招/特长生）一致受益。
     """
     name = SPECIAL_NAME_FIX.get(name, name)
-    candidates = {e['school_id']: e for e in high_aliases.get(norm(name), [])}
+    n = matchNorm(name)
+    candidates = {e['school_id']: e for e in high_aliases.get(n, [])}
+    if not candidates:
+        _flat = n.replace('(', '').replace(')', '')
+        if _flat != n:
+            candidates = {e['school_id']: e for e in high_aliases.get(_flat, [])}
+    if len(candidates) > 1:
+        # 剥区歧义回退 normName 精确键（带区名）：如「广州市白云艺术中学」matchNorm「艺术中学」
+        # 撞越秀/白云两家 → normName「白云艺术中学」唯一收敛（2026-09-21 别名瘦身暴露）
+        candidates = {e['school_id']: e for e in high_aliases_exact.get(norm(name), [])}
     return next(iter(candidates.values())) if len(candidates) == 1 else None
 
 

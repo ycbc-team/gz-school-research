@@ -30,7 +30,7 @@ import re
 import sys
 from collections import defaultdict
 
-from school_match import normName  # norm 统一收敛至统一匹配库（同目录）
+from school_match import normName, matchNorm  # norm 统一收敛至统一匹配库（同目录）
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 # --out-dir <dir>：产物重定向到指定目录（check_groups_drift 产物一致性重跑用，不污染工作区）
@@ -1012,6 +1012,92 @@ for e in entities:
         e['nature'] = '民办'
     else:
         e.pop('nature', None)  # 表驱动：不在民办名单 = 公办，清历史残留
+# 别名瘦身（2026-09-21）：剔除「区==adcode」且非泛词保护的「区+名字」别名。
+# 区名定位已由 school_id 的 adcode 承担（SchoolMatcher 输入区名 → preferred_adcode 收敛；
+# 仅区!=adcode 的跨区引用才需保留带区别名）；「无括号写法」由匹配器 exact 去括号比对兜底。
+# 泛词保护保留（matchNorm 剥区后剩泛词、区名不剥，如「海珠区实验小学」——区名是消歧键）；
+# 裸区名开头（如「白云中学」「番禺同心小学」校名成分）不剔，防误伤。
+_DISTRICT_NAMES = ('荔湾', '越秀', '海珠', '天河', '白云', '黄埔', '番禺', '花都', '南沙', '从化', '增城', '萝岗')
+# 消费必需别名（2026-09-21 瘦身保留）：xiaoshengchu feed / backfill（quota/batch2/district_quota）
+# 官方录取名单名带「区+名字」形态，实体 name 无区名或带括号校区/初中部后缀，xs_resolver 与
+# backfill 按 normName 精确查别名、不剥区（剥区会改法人聚合边界，曾致 936 条级漂移；backfill
+# 剥区兜底仅收 school_id 唯一候选且区一致）。去括号互认已由下游兜底，区名前缀无法规则去除——
+# 显式保留这 48 个别名（46 实体），其余 1261 个「区==adcode」别名仍剔除。清单由
+# `git show HEAD:data/registry/entity/dist/entities.json` 反查回归失败名生成，勿删。
+_CONSUMER_KEEP_ALIASES = {
+    'gz-440103-693412ae': ['荔湾区西关广雅实验学校东风西校区'],
+    'gz-440103-7207525c': ['荔湾区西关广雅实验学校大坦沙校区'],
+    'gz-440103-815371aa': ['荔湾区博雅实验学校'],
+    'gz-440103-c5d5de44': ['荔湾区西关广雅实验学校南岸路校区'],
+    'gz-440104-db01d10e': ['越秀区雄鹰学校'],
+    'gz-440105-b53da186': ['海珠区劬劳中学'],
+    'gz-440105-cb432890': ['海珠区六中珠江中学万胜围校区', '海珠区六中珠江中学逸景校区'],
+    'gz-440105-e58a8300': ['海珠区六中珠江中学万胜围校区'],
+    'gz-440111-048815b3': ['白云区景泰中学'],
+    'gz-440111-0ba9a45f': ['白云区同和中学'],
+    'gz-440111-0cf700fb': ['白云区广州空港实验中学东校区'],
+    'gz-440111-175bd68f': ['白云区平沙培英学校'],
+    'gz-440111-2186a02a': ['白云区景泰中学分校区原白云区南悦中学'],
+    'gz-440111-297970b9': ['白云区石井中学'],
+    'gz-440111-2d42f392': ['白云区培英实验学校云景校区'],
+    'gz-440111-33d95662': ['白云区广东第二师范学院实验中学'],
+    'gz-440111-35536ebb': ['白云区颜乐天纪念中学'],
+    'gz-440111-35860c30': ['白云区广州空港实验中学西校区'],
+    'gz-440111-43437f78': ['白云区华赋学校'],
+    'gz-440111-4ab20f44': ['白云区六中实验中学空港校区'],
+    'gz-440111-525f949a': ['白云区新和学校'],
+    'gz-440111-5c7a7c4a': ['白云区民航学校'],
+    'gz-440111-609bfcf4': ['白云区江村中学'],
+    'gz-440111-6782d2c7': ['白云区云雅实验学校'],
+    'gz-440111-87a92ab6': ['白云区应元颐和实验学校'],
+    'gz-440111-9c7a2c45': ['白云区龙归学校', '白云区龙归学校珑璟校区'],
+    'gz-440111-a53c68e3': ['白云区黄石学校'],
+    'gz-440111-a7294ae4': ['白云区成龙中学'],
+    'gz-440111-b2b78162': ['白云区竹料第三中学'],
+    'gz-440111-b4e0e849': ['白云区广州培文外国语学校'],
+    'gz-440111-b95f2597': ['白云区广大附中实验中学'],
+    'gz-440111-d2a4a882': ['白云区嘉禾中学'],
+    'gz-440111-d3ffec78': ['白云区江高镇第二初级中学'],
+    'gz-440111-d4c4285e': ['白云区广州空港实验中学本部'],
+    'gz-440111-e6300e34': ['白云区东平学校'],
+    'gz-440111-fd1c1c12': ['白云区竹料第一中学'],
+    'gz-440112-4b58e8ec': ['黄埔区中黄外国语实验学校'],
+    'gz-440112-673fa2c9': ['黄埔区中黄外国语实验学校'],
+    'gz-440112-8bf29a28': ['广州市黄埔区苏元学校'],
+    'gz-440112-a0244635': ['黄埔区苏元学校'],
+    'gz-440113-3d006240': ['番禺区博萃德学校'],
+    'gz-440113-43d027a5': ['番禺区广铁一中铁英学校'],
+    'gz-440113-62cbe194': ['番禺区化龙镇大博学校'],
+    'gz-440113-6426397c': ['番禺区洛浦厦滘学校'],
+    'gz-440113-94c76638': ['番禺区广铁一中铁英学校'],
+    'gz-440113-db326e94': ['番禺区华南碧桂园学校'],
+}
+_DISTRICT_BY_ADCODE = {k: v.rstrip('区') for k, v in AD_DISTRICT.items()}
+# 预计算：matchNorm key → 实体 school_id 集（判断剥区后是否歧义——歧义时区名是消歧键，必须保留）
+_slim_key_owners = defaultdict(set)
+for _e in entities:
+    for _k in ([matchNorm(_e['name'])] + [matchNorm(_a) for _a in (e.get('aliases') or [])]):
+        if _k:
+            _slim_key_owners[_k].add(_e['school_id'])
+for e in entities:
+    _own = _DISTRICT_BY_ADCODE.get((e.get('school_id') or '').split('-')[1] if '-' in (e.get('school_id') or '') else '', '')
+    if _own:
+        _kept = []
+        for _a in e['aliases']:
+            _rm = (_a.startswith(_own + '区')
+                   and not any(matchNorm(_a).startswith(d) for d in _DISTRICT_NAMES))
+            if _rm:
+                # 消费必需别名（官方录取名单名带区、实体 name 无区，见 _CONSUMER_KEEP_ALIASES）
+                if _a in _CONSUMER_KEEP_ALIASES.get(e.get('school_id'), ()):
+                    _kept.append(_a)
+                    continue
+                # 剥区后无区形态撞其他实体 → 区名消歧必要，保留（如「白云艺术中学」→「艺术中学」越秀/白云两家）
+                _bare = matchNorm(_a)
+                if len(_slim_key_owners.get(_bare, ())) > 1:
+                    _kept.append(_a)
+                continue
+            _kept.append(_a)
+        e['aliases'] = _kept
 for e in entities:
     e['aliases'] = sorted(e['aliases'], key=len, reverse=True)  # 稳定：同长度保持插入序（与 mjs Set+sort 等价）
 # 实体保持 POI 表遍历插入序（primary→middle→high）。mjs 原 sort 为 a.localeCompare(a) 笔误（比较自身，

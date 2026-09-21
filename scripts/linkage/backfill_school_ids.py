@@ -33,16 +33,26 @@ CITY7 = {'荔湾区', '越秀区', '海珠区', '天河区', '白云区', '黄�
 sys.path.insert(0, str(ROOT / 'data' / 'registry' / "entity" / 'scripts'))
 from school_match import normName as norm
 from school_match import looseNorm as loose
+from school_match import matchNorm as mnorm
 
 
 def main() -> int:
     entities = json.loads((ROOT / 'data/registry/entity/dist/entities.json').read_text('utf-8'))
     idx_norm = defaultdict(list)
     idx_loose = defaultdict(list)
+    idx_mnorm = defaultdict(list)
     for e in entities['entities']:
         for k in [e['name']] + (e.get('aliases') or []):
             idx_norm[norm(k)].append(e)
             idx_loose[loose(k)].append(e)
+            # 2026-09-21 别名瘦身兜底：matchNorm（剥区名）键 + 去括号变体——
+            # 官方名带「X区」前缀、实体 name 无区名（如「广州市天河区科韵路学校」→ name「科韵路学校」）
+            _mk = mnorm(k)
+            if _mk:
+                idx_mnorm[_mk].append(e)
+                _flat = _mk.replace('(', '').replace(')', '')
+                if _flat != _mk:
+                    idx_mnorm[_flat].append(e)
 
     # 法人聚合：官方升学文件按法人单位公布（不分校区），一个法人名对应同 stage 全部校区实体。
     # 由实体表 name 去括号校区后缀推导（如「广州市第一一三中学(乐学校区)」→ 法人「广州市第一一三中学」），
@@ -94,6 +104,9 @@ def main() -> int:
         "广州市第十三中学": "gz-440104-0a17f1eb",  # 文德校区=初中部校区；同校区双 POI 实体（文德/初中部），锚入库值
         "广州市黄埔区铁英中学": "gz-440112-c80ac6ac",  # 官方名（广铁一中铁英学校）与实体名差异
         "广州铁一中学（番禺校区）": "gz-440113-97e0acaa",  # 官方名带全角括号校区，实体无对应 alias
+        "广州市黄埔区苏元学校": "gz-440112-a0244635",  # 同区同 stage 双候选（a0244635/8bf29a28），锚 HEAD 入库值
+        "广州市番禺区广铁一中铁英学校": "gz-440113-94c76638",  # 法人整体名多校区（东/西），锚西校区主实体（HEAD 入库值）
+        "广州市白云区广东第二师范学院实验中学": "gz-440111-014a9fb2",  # 同区同法人双候选（33d95662/014a9fb2），锚 HEAD 入库值
     }
 
     def resolve(name: str, stage: str, adcode: str = None):
@@ -145,6 +158,26 @@ def main() -> int:
             return next(iter(pn.values()))
         if len(pl) == 1:
             return next(iter(pl.values()))
+        # 剥区兜底（2026-09-21）：norm/loose 未命中时 matchNorm 剥区名全等匹配；
+        # 仅全局唯一候选可取（官方名「X区+裸名」→ 唯一裸名实体）；跨区同名多候选
+        # （如「培智学校」天河/越秀/白云）宁缺——区消歧信息已丢，不能按 stage 收敛
+        # （曾把天河培智错配白云 middle），仍走 _school_id_unmatched 人工桥接
+        m = mnorm(name)
+        dm = dedup(idx_mnorm.get(m) or idx_mnorm.get(m.replace('(', '').replace(')', '')))
+        if dm:
+            # 按 school_id 判唯一：一贯制学校同 id 双 stage 实体（小学部/初中部）是同一学校，
+            # 不算多候选；跨区同名（如「培智学校」天河/越秀/白云）才宁缺
+            _by_sid = {e['school_id']: e for e in dm.values()}
+            if len(_by_sid) == 1:
+                e = next(iter(_by_sid.values()))
+                # 区一致性校验：官方名带区名且可解析时，候选实体 adcode 必须同区——
+                # 防「广州市海珠区华立学校」剥区后误配番禺「华立学校」（HEAD 宁缺不配）
+                _d = re.search(r'(荔湾|越秀|海珠|天河|白云|黄埔|番禺|花都|南沙|从化|增城)区', name)
+                if _d and not e['school_id'].startswith(f"gz-{AD_MAP.get(_d.group(0), '')}-"):
+                    return None
+                if e['stage'] == stage:
+                    return e
+                return next((x for x in dm.values() if x['stage'] == stage), e)
         return None
 
     unmatched = []  # (表, 官方名, 区, 是否7区内)

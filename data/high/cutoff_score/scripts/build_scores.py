@@ -44,7 +44,7 @@ OUT = ROOT / "data" / "high" / "cutoff_score" / "dist"
 
 # 统一匹配库：norm 本体收敛至 school_match.normName（原 norm_name 定义已删，规则与 build_entities/support 一致）
 sys.path.insert(0, str(ROOT / "data" / "registry" / "entity" / "scripts"))
-from school_match import normName as norm_name
+from school_match import matchNorm, normName as norm_name
 
 def clean_html(h: str) -> str:
     h = re.sub(r"<script.*?</script>", "", h, flags=re.S)
@@ -192,12 +192,19 @@ def load_entity_index():
     """实体表（dimension）name/aliases → school_id（norm 全等，与 build_entities.py 同规则）。"""
     ents = json.loads((ROOT / "data" / "registry" / "entity" / "dist" / "entities.json").read_text(encoding="utf-8"))["entities"]
     idx = {}
+    idx_exact = {}
     for e in ents:
         if e.get("stage") != "high":
             continue
         for k in [e["name"]] + e.get("aliases", []):
-            idx.setdefault(norm_name(k), set()).add(e["school_id"])
-    return idx
+            nk = matchNorm(k)
+            if nk:
+                idx.setdefault(nk, set()).add(e["school_id"])
+                _flat = nk.replace("(", "").replace(")", "")
+                if _flat != nk:
+                    idx.setdefault(_flat, set()).add(e["school_id"])
+            idx_exact.setdefault(norm_name(k), set()).add(e["school_id"])
+    return idx, idx_exact
 
 
 def build(year: int):
@@ -213,12 +220,21 @@ def main():
     out_dir = OUT
     if "--out-dir" in sys.argv:
         out_dir = Path(sys.argv[sys.argv.index("--out-dir") + 1])
-    idx = load_entity_index()
+    idx, idx_exact = load_entity_index()
     for year in (2025, 2026):
         records = build(year)
         by_sid, unmapped = {}, []
         for r in records:
-            ids = idx.get(norm_name(r["name"]), set())
+            n = matchNorm(r["name"])
+            ids = idx.get(n, set())
+            if not ids:
+                _flat = n.replace("(", "").replace(")", "")
+                if _flat != n:
+                    ids = idx.get(_flat, set())
+            if len(ids) > 1:
+                # matchNorm 剥区后歧义（如「白云艺术中学」→「艺术中学」越秀/白云两家）：
+                # 回退 normName 精确键（带区名），仅唯一候选可挂；仍歧义则宁缺不跨区错挂
+                ids = idx_exact.get(norm_name(r["name"]), set())
             rec = {k: v for k, v in r.items() if k not in ("name", "raw_name")}
             if not ids:
                 unmapped.append({"official_name": r["name"], "raw_name": r["raw_name"], **rec})

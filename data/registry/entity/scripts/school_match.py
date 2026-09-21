@@ -32,6 +32,7 @@ BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.d
 
 SEVEN_DISTRICTS = {"440103":"荔湾","440104":"越秀","440105":"海珠","440106":"天河","440111":"白云","440112":"黄埔","440113":"番禺"}
 FAR_DISTRICTS = {"440114":"花都","440115":"南沙","440117":"从化","440118":"增城"}
+DISTRICT_CODE = {v: k for k, v in {**SEVEN_DISTRICTS, **FAR_DISTRICTS}.items()}
 FAR_KEYWORDS = ["花都","南沙","增城","从化","英德","清远","佛山","东莞","韶关","梅州","河源","惠州","汕头","湛江","肇庆","江门","阳江","茂名","揭阳","潮州","汕尾","云浮","珠海","中山"]
 
 # 括号内是"校区/学部/地址类"限定词时保留（影响校区区分）；状态词与泛化词不参与匹配
@@ -295,6 +296,15 @@ class SchoolMatcher:
             return self.resolve_all(name, preferred_adcode, preferred_stage)
         if strategy != "single":
             raise ValueError(f"unknown matching strategy: {strategy}")
+        # 输入自带区名前缀 → 提取为 preferred_adcode 约束（school_id 的 adcode 承担区定位，
+        # 匹配键不依赖区名；调用方未传 adcode 时自动提取，如「白云区XXX」）。
+        # 仅提取开头区名；泛词场景（如「海珠区实验小学」）同样提取，由 preferred_adcode
+        # 收敛替代「区名参与匹配键」的旧消歧方式。
+        if preferred_adcode is None:
+            for _d, _code in DISTRICT_CODE.items():
+                if name.startswith(_d + '区') or name.startswith(_d):
+                    preferred_adcode = _code
+                    break
         n = matchNorm(name)
         alias_multiple = False  # alias 命中多候选且无法收敛 → substring 禁用泛词吸附（防核心校裸名吸附集团成员）
 
@@ -377,8 +387,10 @@ class SchoolMatcher:
             return None
 
         # 0. 远郊成员拦截：在 substring 吸附之前（exact/alias 命中之后），防「新塘镇第三中学」→「广州市第三中学」
-        # 1. exact norm match in POI
-        r = _pick([p for p in self.poi_all if p["norm"] == n], "精确命中")
+        # 1. exact norm match in POI（输入无括号写法时去括号比对，
+        #   如「万松园小学云桂校区」→ POI「万松园小学(云桂校区)」；去括号后仍要求全等，
+        #   不引入 substring 吸附——「万松园小学」不会匹配「万松园小学(云桂校区)」）
+        r = _pick([p for p in self.poi_all if p["norm"] == n or (n and p["norm"].replace("(", "").replace(")", "") == n.replace("(", "").replace(")", ""))], "精确命中")
         # stage 约束：preferred_stage 已指定时，exact 命中但学段不符（如「广州市星执学校」
         # 初中/高中 POI 精确命中，但本次是小学记录）→ 不返回，继续 alias 分支找目标学段实体
         # （如星执学校小学部=执信附小 883c58c4），避免跨学段错挂。

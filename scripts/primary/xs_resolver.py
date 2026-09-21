@@ -66,6 +66,12 @@ class XsResolver:
                 k = norm_xs(a)
                 if k:
                     self.alias_idx[(e['stage'], k)].append(e)
+                    # 2026-09-21 别名瘦身：补「去括号」互认键——查询官方名带括号、
+                    # 实体 name/别名无括号（如「六中珠江中学(逸景校区)」↔「六中珠江中学逸景校区」），
+                    # 只去符号不剥区，不改变法人聚合边界
+                    _flat = k.replace('(', '').replace(')', '')
+                    if _flat != k:
+                        self.alias_idx[(e['stage'], _flat)].append(e)
         # school_id -> 区名（POI join，与 upgrade entDistrict 一致）
         self.ent_district = {}
         for stage, file in [('primary', 'data/poi/dist/primary_poi.json'),
@@ -93,12 +99,22 @@ class XsResolver:
             for sid in s.get('school_ids') or []:
                 self.campus_dist[sid] = s['district']
 
+    def _lookup(self, stage, name):
+        """别名索引查键：normName 精确 → 去括号兜底（不剥区，防法人聚合边界变化）。"""
+        k = norm_xs(name)
+        lst = self.alias_idx.get((stage, k))
+        if not lst:
+            _flat = k.replace('(', '').replace(')', '')
+            if _flat != k:
+                lst = self.alias_idx.get((stage, _flat))
+        return lst
+
     def resolve_one(self, name, district, stage):
         """小学/直升记录定位：跨区同名按 district 取唯一实体（宁缺不兜底 list[0]）。"""
         ov = RESOLVE_OVERRIDE.get(norm_xs(name))
         if ov:
             return ov[0]
-        lst = self.alias_idx.get((stage, norm_xs(name)))
+        lst = self._lookup(stage, name)
         if not lst:
             return None
         if len(lst) == 1:
@@ -128,7 +144,7 @@ class XsResolver:
             # 不能二选一：黄埔实验初中部实体 core 带「初中部」后缀、仅 alias 含整体名）。
             core = core_of_name(name)
             core_hits = [e for e in self.entities if e['stage'] == stage and core_of_name(e['name']) == core]
-            alias_hits = list(self.alias_idx.get((stage, norm_xs(name))) or [])
+            alias_hits = list(self._lookup(stage, name) or [])
             cand = core_hits + [e for e in alias_hits if e not in core_hits]
             if cand:
                 if district:
@@ -145,7 +161,7 @@ class XsResolver:
                     # 本区无同法人实体：宁缺不兜底
                     return []
                 return list(dict.fromkeys(e['school_id'] for e in cand))
-        picked = list(self.alias_idx.get((stage, norm_xs(name))) or [])
+        picked = list(self._lookup(stage, name) or [])
         if district:
             f = [e for e in picked if self.ent_district.get(e['school_id']) == district]
             picked = f if f else []
