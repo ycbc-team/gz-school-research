@@ -91,34 +91,19 @@ def _check_minban_official():
 
 
 def _check_build_scores():
-    """重跑 build_scores.py 到临时目录，与入库 cutoff_score/dist 比对（防手改产物/解析漂移）。"""
-    tmp = os.path.join(tempfile.gettempdir(), "scores_repro")
-    shutil.rmtree(tmp, ignore_errors=True)
-    r = subprocess.run(["python3", os.path.join(ROOT, "data/high/cutoff_score/scripts/build_scores.py"), "--out-dir", tmp],
+    """录取分数线业务快照测试（2026-09-21 由 special_matrix 快照模式推广）。
+
+    替代字节全等"重跑 vs 入库"（入库被 bug 污染时自我一致通过）；对比重跑产物的
+    [学校: 分数线/批次] 业务快照与独立基线（data/high/cutoff_score/dist/scores_snapshot.json），
+    分数/批次变化显式暴露，须 --update-snapshot 显式更新基线（数据变更=正常迭代）。"""
+    r = subprocess.run(["python3", os.path.join(ROOT, "data/high/cutoff_score/scripts/check_scores_snapshot.py")],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
         _flush_ok()
-        print("生产脚本重跑失败：data/high/cutoff_score/scripts/build_scores.py")
-        print(r.stdout[-2000:])
-        print(r.stderr[-2000:])
+        print(r.stdout[-2500:])
+        print(r.stderr[-1500:])
         sys.exit(1)
-    failed = []
-    for year in ("2025", "2026"):
-        _f = f"scores_{year}.json"
-        _replay_p = os.path.join(tmp, _f)
-        _in_repo = os.path.join(ROOT, "data", "high", "cutoff_score", "dist", _f)
-        if not os.path.exists(_replay_p) or not os.path.exists(_in_repo):
-            failed.append(f"{_f}(缺文件)")
-            continue
-        with open(_replay_p, encoding="utf-8") as a, open(_in_repo, encoding="utf-8") as b:
-            if a.read() != b.read():
-                failed.append(_f)
-    if failed:
-        _flush_ok()
-        print(f"产物一致性: ✗ build_scores 重跑产物与入库不一致（{', '.join(failed)}）：")
-        print("  → 只改生产脚本/源表（cutoff_score/raw 官方页 / registry/entities.json），重跑并提交产物，禁止手改产物。")
-        sys.exit(1)
-    _ok_lines.append("产物一致性: ✓ build_scores 重跑产物与入库完全一致（2025/2026）")
+    _ok_lines.append("业务快照: ✓ 录取分数线与基线全等（2025/2026 校×批次，独立基线）")
 
 
 def _check_build_high_levels():
@@ -150,38 +135,21 @@ def _check_build_high_levels():
 
 
 def _check_build_entities():
-    """重跑 build_entities.py（python）到临时目录，与入库 entities + 3 个 POI 表比对。
+    """实体/POI 关联业务快照测试（2026-09-21 由 special_matrix 快照模式推广）。
 
-    民办名单（minban_schools.json）与实体表/POI 的联动：源表改动必须重跑 build_entities，
-    禁止手改 entities.json；重跑漂移说明实体表被手改或民办名单表未重跑。
-    """
-    tmp = os.path.join(tempfile.gettempdir(), "entities_repro")
-    shutil.rmtree(tmp, ignore_errors=True)
-    r = subprocess.run(["python3", os.path.join(ROOT, "data/registry/entity/scripts/build_entities.py"), "--out-dir", tmp],
+    替代字节全等"重跑 vs 入库"（入库被 bug 污染时自我一致通过）；对比重跑产物的
+    实体核心信息（school_id → name/stage/aliases + 3 表 POI school_id 关联）与独立基线
+    （data/registry/entity/dist/entities_snapshot.json），实体/别名/关联变化显式暴露，
+    须 --update-snapshot 显式更新基线（数据变更=正常迭代；坐标等噪音不入快照）。
+    民办名单（minban_schools.json）与实体表/POI 的联动仍受本检查约束。"""
+    r = subprocess.run(["python3", os.path.join(ROOT, "data/registry/entity/scripts/check_entities_snapshot.py")],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
         _flush_ok()
-        print("生产脚本重跑失败：data/registry/entity/scripts/build_entities.py")
-        print(r.stdout[-2000:])
-        print(r.stderr[-2000:])
+        print(r.stdout[-2500:])
+        print(r.stderr[-1500:])
         sys.exit(1)
-    pairs = [
-        ("data/registry/entity/dist/entities.json", "entities"),
-        ("data/poi/dist/primary_poi.json", "primary POI"),
-        ("data/poi/dist/middle_poi.json", "middle POI"),
-        ("data/poi/dist/high_poi.json", "high POI"),
-    ]
-    failed = []
-    for prod_rel, label in pairs:
-        with open(os.path.join(ROOT, prod_rel)) as a, open(os.path.join(tmp, prod_rel)) as b:
-            if json.load(a) != json.load(b):
-                failed.append(label)
-    if failed:
-        _flush_ok()
-        print("产物一致性: ✗ build_entities 重跑产物与入库不一致：" + ", ".join(failed))
-        print("  → 实体表/POI 被手改，或 minban_schools.json 等源表改动后未重跑 build_entities。修复须固化到生产脚本/源表后重跑并提交产物。")
-        sys.exit(1)
-    _ok_lines.append("产物一致性: ✓ build_entities 重跑产物与入库完全一致（entities + 3 POI 表）")
+    _ok_lines.append("业务快照: ✓ 实体/POI 关联与基线全等（1554 实体 + 3 表 POI，独立基线）")
 
 
 def _head(path):

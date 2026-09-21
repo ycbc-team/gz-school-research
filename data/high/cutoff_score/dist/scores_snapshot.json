@@ -1,0 +1,3316 @@
+{
+ "2025": {
+  "gz-440103-04c54db8": [
+   {
+    "batch": 3,
+    "feihuji": 667,
+    "gongfei": false,
+    "huji": 667,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市真光中学（广钢校区）",
+    "scope": "全市",
+    "waiqu": 667
+   }
+  ],
+  "gz-440103-2b8081bc": [
+   {
+    "batch": 3,
+    "feihuji": 690,
+    "gongfei": false,
+    "huji": 689,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市真光中学（校本部）",
+    "scope": "全市",
+    "waiqu": 689
+   }
+  ],
+  "gz-440103-3aca532e": [
+   {
+    "batch": 3,
+    "feihuji": 728,
+    "gongfei": false,
+    "huji": 727,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东实验中学（荔湾校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440103-4935332a": [
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 578,
+    "nature": "民办",
+    "official_name": "广州市耀华学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440103-6bd45d68": [
+   {
+    "batch": 3,
+    "feihuji": 623,
+    "gongfei": false,
+    "huji": 610,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市西关外国语学校",
+    "scope": "全市",
+    "waiqu": 612
+   }
+  ],
+  "gz-440103-882931a0": [
+   {
+    "batch": 3,
+    "feihuji": 629,
+    "gongfei": false,
+    "huji": 631,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市真光中学（汾水校区）",
+    "scope": "全市",
+    "waiqu": 650
+   }
+  ],
+  "gz-440103-8920aa01": [
+   {
+    "batch": 3,
+    "feihuji": 630,
+    "gongfei": false,
+    "huji": 627,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第四中学",
+    "scope": "全市",
+    "waiqu": 627
+   }
+  ],
+  "gz-440103-a3ee807c": [
+   {
+    "batch": 3,
+    "feihuji": 686,
+    "gongfei": false,
+    "huji": 667,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市培英中学（鹤洞校区）",
+    "scope": "全市",
+    "waiqu": 678
+   }
+  ],
+  "gz-440103-bb7f78f0": [
+   {
+    "batch": 3,
+    "feihuji": 720,
+    "gongfei": false,
+    "huji": 719,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东广雅中学（荔湾校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440103-c62eab6a": [
+   {
+    "batch": 3,
+    "feihuji": 629,
+    "gongfei": false,
+    "huji": 628,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第一中学",
+    "scope": "全市",
+    "waiqu": 633
+   }
+  ],
+  "gz-440103-c9f13fde": [
+   {
+    "batch": 3,
+    "feihuji": 633,
+    "gongfei": false,
+    "huji": 587,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市南海中学",
+    "scope": "全市",
+    "waiqu": 599
+   }
+  ],
+  "gz-440103-d78c848a": [
+   {
+    "batch": 4,
+    "feihuji": 642,
+    "gongfei": false,
+    "huji": 604,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市西关培英中学",
+    "scope": "老三区",
+    "waiqu": null
+   }
+  ],
+  "gz-440103-e281e7d0": [
+   {
+    "batch": 3,
+    "feihuji": 689,
+    "gongfei": false,
+    "huji": 667,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州协和学校",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440104-09652aa5": [
+   {
+    "batch": 3,
+    "feihuji": 718,
+    "gongfei": false,
+    "huji": 717,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市铁一中学（越秀校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440104-0a17f1eb": [
+   {
+    "batch": 4,
+    "feihuji": 643,
+    "gongfei": false,
+    "huji": 616,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第十三中学",
+    "scope": "老三区",
+    "waiqu": null
+   }
+  ],
+  "gz-440104-0f6e9cb0": [
+   {
+    "batch": 1,
+    "feihuji_last": 489,
+    "gongfei": false,
+    "huji_last": 488,
+    "kind": "lang_art",
+    "nature": "公办",
+    "official_name": "广州市艺术中学（越秀校区）（美术类）",
+    "scope": "全市"
+   }
+  ],
+  "gz-440104-1560332d": [
+   {
+    "batch": 3,
+    "feihuji": 665,
+    "gongfei": false,
+    "huji": 627,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东华侨中学",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440104-2a1f2eaf": [
+   {
+    "batch": 3,
+    "feihuji": 673,
+    "gongfei": false,
+    "huji": 668,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第七中学（校本部）",
+    "scope": "全市",
+    "waiqu": 674
+   }
+  ],
+  "gz-440104-32444523": [
+   {
+    "batch": 3,
+    "feihuji": 641,
+    "gongfei": false,
+    "huji": 627,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东实验中学越秀学校",
+    "scope": "全市",
+    "waiqu": 630
+   }
+  ],
+  "gz-440104-7ec82efb": [
+   {
+    "batch": 3,
+    "feihuji": 630,
+    "gongfei": false,
+    "huji": 628,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市育才中学",
+    "scope": "全市",
+    "waiqu": 667
+   }
+  ],
+  "gz-440104-7f3031fc": [
+   {
+    "batch": 3,
+    "feihuji": 724,
+    "gongfei": false,
+    "huji": 724,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第二中学",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440104-8a1a7b3d": [
+   {
+    "batch": 3,
+    "feihuji": 708,
+    "gongfei": false,
+    "huji": 707,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第十六中学（校本部）",
+    "scope": "全市",
+    "waiqu": 708
+   }
+  ],
+  "gz-440104-99aef0e5": [
+   {
+    "batch": 3,
+    "feihuji": 688,
+    "gongfei": false,
+    "huji": 689,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市培正中学",
+    "scope": "全市",
+    "waiqu": 693
+   }
+  ],
+  "gz-440104-9c6632b1": [
+   {
+    "batch": 3,
+    "feihuji": 628,
+    "gongfei": false,
+    "huji": 616,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第十七中学",
+    "scope": "全市",
+    "waiqu": 616
+   }
+  ],
+  "gz-440104-d9ec2dbb": [
+   {
+    "batch": 3,
+    "feihuji": 665,
+    "gongfei": false,
+    "huji": 663,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第三中学",
+    "scope": "全市",
+    "waiqu": 663
+   }
+  ],
+  "gz-440104-f3ca07ff": [
+   {
+    "batch": 3,
+    "feihuji": 725,
+    "gongfei": false,
+    "huji": 723,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市执信中学（执信路校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440105-0b52e48d": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 628,
+    "nature": "民办",
+    "official_name": "广州市培才高级中学",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 547,
+    "nature": "民办",
+    "official_name": "广州市培才高级中学",
+    "scope": "全市"
+   }
+  ],
+  "gz-440105-0ffca7e3": [
+   {
+    "batch": 3,
+    "feihuji": 711,
+    "gongfei": false,
+    "huji": 711,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第五中学（校本部）",
+    "scope": "全市",
+    "waiqu": 711
+   }
+  ],
+  "gz-440105-12b49e3f": [
+   {
+    "batch": 3,
+    "feihuji": 714,
+    "gongfei": false,
+    "huji": 712,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第六中学（海珠校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440105-25137088": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 667,
+    "nature": "民办",
+    "official_name": "广州市海华高级中学",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 489,
+    "nature": "民办",
+    "official_name": "广州市海华高级中学",
+    "scope": "全市"
+   }
+  ],
+  "gz-440105-40a80ebb": [
+   {
+    "batch": 3,
+    "feihuji": 630,
+    "gongfei": false,
+    "huji": 609,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第四十一中学",
+    "scope": "全市",
+    "waiqu": 631
+   }
+  ],
+  "gz-440105-443b73e7": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 589,
+    "nature": "民办",
+    "official_name": "广州市海珠中学",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 547,
+    "nature": "民办",
+    "official_name": "广州市海珠中学",
+    "scope": "全市"
+   }
+  ],
+  "gz-440105-515da9e2": [
+   {
+    "batch": 3,
+    "feihuji": 674,
+    "gongfei": false,
+    "huji": 673,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市南武中学（校本部）",
+    "scope": "全市",
+    "waiqu": 678
+   }
+  ],
+  "gz-440105-aec34da3": [
+   {
+    "batch": 3,
+    "feihuji": 668,
+    "gongfei": false,
+    "huji": 670,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第五中学（金碧校区）",
+    "scope": "全市",
+    "waiqu": 670
+   }
+  ],
+  "gz-440105-dd2723fc": [
+   {
+    "batch": 1,
+    "feihuji_last": 667,
+    "gongfei": false,
+    "huji_last": 627,
+    "kind": "lang_art",
+    "nature": "公办",
+    "official_name": "广州市南武中学（岭南画派纪念校区）",
+    "scope": "老三区"
+   },
+   {
+    "batch": 3,
+    "feihuji": 627,
+    "gongfei": false,
+    "huji": 627,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市南武中学（岭南画派纪念校区）",
+    "scope": "老三区",
+    "waiqu": null
+   }
+  ],
+  "gz-440105-e76b659d": [
+   {
+    "batch": 3,
+    "feihuji": 667,
+    "gongfei": false,
+    "huji": 667,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市海珠外国语实验中学（校本部）",
+    "scope": "全市",
+    "waiqu": 667
+   }
+  ],
+  "gz-440105-ed868139": [
+   {
+    "batch": 3,
+    "feihuji": 600,
+    "gongfei": false,
+    "huji": 589,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第九十七中学（江南新苑校区）",
+    "scope": "全市",
+    "waiqu": 605
+   }
+  ],
+  "gz-440105-f0712355": [
+   {
+    "batch": 3,
+    "feihuji": 659,
+    "gongfei": false,
+    "huji": 659,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第九十七中学（校本部）",
+    "scope": "全市",
+    "waiqu": 668
+   }
+  ],
+  "gz-440105-fde335b7": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 628,
+    "nature": "民办",
+    "official_name": "广州市为明学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 547,
+    "nature": "民办",
+    "official_name": "广州市为明学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440106-01fd3a87": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 699,
+    "nature": "民办",
+    "official_name": "广州天省实验学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 3,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 648,
+    "nature": "民办",
+    "official_name": "广州天省实验学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440106-069ddb41": [
+   {
+    "batch": 3,
+    "feihuji": 710,
+    "gongfei": false,
+    "huji": 707,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市天河外国语学校（智慧城校区）",
+    "scope": "全市",
+    "waiqu": 707
+   }
+  ],
+  "gz-440106-22fcbcd6": [
+   {
+    "batch": 3,
+    "feihuji": 720,
+    "gongfei": false,
+    "huji": 720,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市执信中学（天河校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440106-31895452": [
+   {
+    "batch": 3,
+    "feihuji": 707,
+    "gongfei": false,
+    "huji": 698,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "清华附中湾区学校",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440106-3c8afb6a": [
+   {
+    "batch": 3,
+    "feihuji": 694,
+    "gongfei": false,
+    "huji": 693,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州中学",
+    "scope": "全市",
+    "waiqu": 694
+   }
+  ],
+  "gz-440106-42297c28": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 627,
+    "nature": "民办",
+    "official_name": "广州思源学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 487,
+    "nature": "民办",
+    "official_name": "广州思源学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440106-52f7f4b7": [
+   {
+    "batch": 3,
+    "feihuji": 673,
+    "gongfei": false,
+    "huji": 666,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第十六中学（水荫校区）",
+    "scope": "全市",
+    "waiqu": 670
+   }
+  ],
+  "gz-440106-5f78f6a9": [
+   {
+    "batch": 3,
+    "feihuji": 668,
+    "gongfei": false,
+    "huji": 667,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第一一三中学",
+    "scope": "全市",
+    "waiqu": 670
+   }
+  ],
+  "gz-440106-621b20d3": [
+   {
+    "batch": 3,
+    "feihuji": 627,
+    "gongfei": false,
+    "huji": 627,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第七十五中学",
+    "scope": "全市",
+    "waiqu": 628
+   }
+  ],
+  "gz-440106-8bc01096": [
+   {
+    "batch": 3,
+    "feihuji": 707,
+    "gongfei": false,
+    "huji": 698,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "清华附中湾区学校",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440106-8f55ab34": [
+   {
+    "batch": 3,
+    "feihuji": 639,
+    "gongfei": false,
+    "huji": 639,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第八十九中学",
+    "scope": "全市",
+    "waiqu": 642
+   }
+  ],
+  "gz-440106-93897236": [
+   {
+    "batch": 3,
+    "feihuji": 666,
+    "gongfei": false,
+    "huji": 666,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市天河中学",
+    "scope": "全市",
+    "waiqu": 666
+   }
+  ],
+  "gz-440106-a6394a7a": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 634,
+    "nature": "民办",
+    "official_name": "广州市华美英语实验学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 3,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 487,
+    "nature": "民办",
+    "official_name": "广州市华美英语实验学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440106-b711d94a": [
+   {
+    "batch": 3,
+    "feihuji": 717,
+    "gongfei": false,
+    "huji": 714,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市天河外国语学校（珠江新城校区）",
+    "scope": "全市",
+    "waiqu": 715
+   }
+  ],
+  "gz-440106-d5983217": [
+   {
+    "batch": 3,
+    "feihuji": 741,
+    "gongfei": false,
+    "huji": 740,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "华南师范大学附属中学（石牌校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440106-d8e69757": [
+   {
+    "batch": 3,
+    "feihuji": 627,
+    "gongfei": false,
+    "huji": 627,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州奥林匹克中学",
+    "scope": "全市",
+    "waiqu": 628
+   }
+  ],
+  "gz-440111-0901ed40": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 667,
+    "nature": "民办",
+    "official_name": "广州市华文高级中学",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 507,
+    "nature": "民办",
+    "official_name": "广州市华文高级中学",
+    "scope": "全市"
+   }
+  ],
+  "gz-440111-218475ea": [
+   {
+    "batch": 3,
+    "feihuji": 670,
+    "gongfei": false,
+    "huji": 667,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第六十五中学（江高校区）",
+    "scope": "全市",
+    "waiqu": 667
+   }
+  ],
+  "gz-440111-28c16cca": [
+   {
+    "batch": 3,
+    "feihuji": 708,
+    "gongfei": false,
+    "huji": 707,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市铁一中学（白云校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440111-2b28ed6a": [
+   {
+    "batch": 3,
+    "feihuji": 667,
+    "gongfei": false,
+    "huji": 635,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州大同中学",
+    "scope": "全市",
+    "waiqu": 637
+   }
+  ],
+  "gz-440111-33d95662": [
+   {
+    "batch": 4,
+    "feihuji": 612,
+    "gongfei": false,
+    "huji": 547,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市白云区广东第二师范学院实验中学",
+    "scope": "白云区",
+    "waiqu": null
+   }
+  ],
+  "gz-440111-35536ebb": [
+   {
+    "batch": 4,
+    "feihuji": 603,
+    "gongfei": false,
+    "huji": 554,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市白云区颜乐天纪念中学",
+    "scope": "白云区",
+    "waiqu": null
+   }
+  ],
+  "gz-440111-3a82b572": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 648,
+    "nature": "民办",
+    "official_name": "广州市珠江高级中学",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 487,
+    "nature": "民办",
+    "official_name": "广州市珠江高级中学",
+    "scope": "全市"
+   }
+  ],
+  "gz-440111-4ebb4316": [
+   {
+    "batch": 3,
+    "feihuji": 657,
+    "gongfei": false,
+    "huji": 627,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第六十五中学（江府校区）",
+    "scope": "全市",
+    "waiqu": 629
+   }
+  ],
+  "gz-440111-730c7404": [
+   {
+    "batch": 3,
+    "feihuji": 707,
+    "gongfei": false,
+    "huji": 707,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市培英中学（白云新城校区）",
+    "scope": "全市",
+    "waiqu": 709
+   }
+  ],
+  "gz-440111-7360ff6d": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 667,
+    "nature": "民办",
+    "official_name": "广州市庆丰实验学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 3,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 548,
+    "nature": "民办",
+    "official_name": "广州市庆丰实验学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440111-7b531bd6": [
+   {
+    "batch": 3,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 609,
+    "nature": "民办",
+    "official_name": "广州市实验外语学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440111-7e484346": [
+   {
+    "batch": 3,
+    "feihuji": 651,
+    "gongfei": false,
+    "huji": 627,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东外语外贸大学实验中学",
+    "scope": "全市",
+    "waiqu": 627
+   }
+  ],
+  "gz-440111-82856abf": [
+   {
+    "batch": 3,
+    "feihuji": 645,
+    "gongfei": false,
+    "huji": 629,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第七中学（桂花校区）",
+    "scope": "全市",
+    "waiqu": 642
+   }
+  ],
+  "gz-440111-88e467ba": [
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 487,
+    "nature": "民办",
+    "official_name": "广州市亚加达外国语高级中学",
+    "scope": "全市"
+   }
+  ],
+  "gz-440111-99d97ada": [
+   {
+    "batch": 3,
+    "feihuji": 665,
+    "gongfei": false,
+    "huji": 627,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东华侨中学",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440111-a3cf5a4f": [
+   {
+    "batch": 3,
+    "feihuji": 729,
+    "gongfei": false,
+    "huji": 729,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东实验中学（白云校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440111-b50dea4b": [
+   {
+    "batch": 4,
+    "feihuji": 618,
+    "gongfei": false,
+    "huji": 564,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第六十六中学",
+    "scope": "白云区",
+    "waiqu": null
+   }
+  ],
+  "gz-440111-c08e69db": [
+   {
+    "batch": 4,
+    "feihuji": 601,
+    "gongfei": false,
+    "huji": 547,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市白云艺术中学",
+    "scope": "白云区",
+    "waiqu": null
+   }
+  ],
+  "gz-440111-c7b90869": [
+   {
+    "batch": 3,
+    "feihuji": 631,
+    "gongfei": false,
+    "huji": 631,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第六十五中学（同德校区）",
+    "scope": "全市",
+    "waiqu": 634
+   }
+  ],
+  "gz-440111-c8ae0a7c": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 683,
+    "nature": "民办",
+    "official_name": "广州市源雅学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 487,
+    "nature": "民办",
+    "official_name": "广州市源雅学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440111-d28d78f9": [
+   {
+    "batch": 3,
+    "feihuji": 629,
+    "gongfei": false,
+    "huji": 601,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州彭加木纪念中学",
+    "scope": "全市",
+    "waiqu": 601
+   }
+  ],
+  "gz-440111-d4c4285e": [
+   {
+    "batch": 3,
+    "feihuji": 628,
+    "gongfei": false,
+    "huji": 587,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市白云区广州空港实验中学",
+    "scope": "全市",
+    "waiqu": 588
+   }
+  ],
+  "gz-440111-e74c2e1d": [
+   {
+    "batch": 3,
+    "feihuji": 649,
+    "gongfei": false,
+    "huji": 627,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市白云中学",
+    "scope": "全市",
+    "waiqu": 627
+   }
+  ],
+  "gz-440112-0876de16": [
+   {
+    "batch": 3,
+    "feihuji": 667,
+    "gongfei": false,
+    "huji": 667,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "北京师范大学广州实验学校",
+    "scope": "全市",
+    "waiqu": 667
+   }
+  ],
+  "gz-440112-0cb5a402": [
+   {
+    "batch": 3,
+    "feihuji": 697,
+    "gongfei": false,
+    "huji": 697,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第八十六中学",
+    "scope": "全市",
+    "waiqu": 698
+   }
+  ],
+  "gz-440112-203c6d64": [
+   {
+    "batch": 3,
+    "feihuji": 667,
+    "gongfei": false,
+    "huji": 652,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市黄埔区开元学校",
+    "scope": "全市",
+    "waiqu": 657
+   }
+  ],
+  "gz-440112-204541b5": [
+   {
+    "batch": 1,
+    "feihuji_last": 488,
+    "gongfei": false,
+    "huji_last": 488,
+    "kind": "lang_art",
+    "nature": "公办",
+    "official_name": "广州市艺术中学（黄埔校区）（传媒）",
+    "scope": "全市"
+   },
+   {
+    "batch": 1,
+    "feihuji_last": 550,
+    "gongfei": false,
+    "huji_last": 522,
+    "kind": "lang_art",
+    "nature": "公办",
+    "official_name": "广州市艺术中学（黄埔校区）（美术类）",
+    "scope": "全市"
+   }
+  ],
+  "gz-440112-3847727f": [
+   {
+    "batch": 3,
+    "feihuji": 728,
+    "gongfei": false,
+    "huji": 727,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "华南师范大学附属中学（知识城校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440112-705844f8": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 661,
+    "nature": "民办",
+    "official_name": "广州市明珠高级中学有限公司",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 508,
+    "nature": "民办",
+    "official_name": "广州市明珠高级中学有限公司",
+    "scope": "全市"
+   }
+  ],
+  "gz-440112-87f27cf4": [
+   {
+    "batch": 3,
+    "feihuji": 672,
+    "gongfei": false,
+    "huji": 672,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州实验中学",
+    "scope": "全市",
+    "waiqu": 691
+   }
+  ],
+  "gz-440112-8b4292d7": [
+   {
+    "batch": 3,
+    "feihuji": 657,
+    "gongfei": false,
+    "huji": 645,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州科学城中学",
+    "scope": "全市",
+    "waiqu": 645
+   }
+  ],
+  "gz-440112-8bf29a28": [
+   {
+    "batch": 3,
+    "feihuji": 667,
+    "gongfei": false,
+    "huji": 667,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市黄埔区苏元学校",
+    "scope": "全市",
+    "waiqu": 670
+   }
+  ],
+  "gz-440112-8edaa2d8": [
+   {
+    "batch": 4,
+    "feihuji": 634,
+    "gongfei": false,
+    "huji": 586,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州石化中学",
+    "scope": "黄埔区",
+    "waiqu": null
+   }
+  ],
+  "gz-440112-9d315f50": [
+   {
+    "batch": 4,
+    "feihuji": 644,
+    "gongfei": false,
+    "huji": 590,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州开发区外国语学校",
+    "scope": "黄埔区",
+    "waiqu": null
+   }
+  ],
+  "gz-440112-b56cfdce": [
+   {
+    "batch": 3,
+    "feihuji": 724,
+    "gongfei": false,
+    "huji": 724,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第二中学",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440112-bffde68d": [
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 487,
+    "nature": "民办",
+    "official_name": "广州市新侨学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440112-e085f4fa": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 670,
+    "nature": "民办",
+    "official_name": "广州市天健学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 490,
+    "nature": "民办",
+    "official_name": "广州市天健学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440112-ec15555e": [
+   {
+    "batch": 4,
+    "feihuji": 622,
+    "gongfei": false,
+    "huji": 550,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州知识城中学",
+    "scope": "黄埔区",
+    "waiqu": null
+   }
+  ],
+  "gz-440112-ff5acfd5": [
+   {
+    "batch": 3,
+    "feihuji": 705,
+    "gongfei": false,
+    "huji": 705,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市玉岩中学",
+    "scope": "全市",
+    "waiqu": 705
+   }
+  ],
+  "gz-440113-2570c29b": [
+   {
+    "batch": 3,
+    "feihuji": 627,
+    "gongfei": false,
+    "huji": 587,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区大龙中学",
+    "scope": "全市",
+    "waiqu": 587
+   }
+  ],
+  "gz-440113-337c0524": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 637,
+    "nature": "民办",
+    "official_name": "广州南方学院番禺附属中学",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 487,
+    "nature": "民办",
+    "official_name": "广州南方学院番禺附属中学",
+    "scope": "全市"
+   }
+  ],
+  "gz-440113-3d006240": [
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": null,
+    "nature": "民办",
+    "official_name": "广州市博萃德学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440113-443448d2": [
+   {
+    "batch": 4,
+    "feihuji": 608,
+    "gongfei": false,
+    "huji": 520,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区石楼中学",
+    "scope": "番禺区",
+    "waiqu": null
+   }
+  ],
+  "gz-440113-527391ff": [
+   {
+    "batch": 4,
+    "feihuji": 608,
+    "gongfei": false,
+    "huji": 538,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区石碁中学",
+    "scope": "番禺区",
+    "waiqu": null
+   }
+  ],
+  "gz-440113-5f62f75c": [
+   {
+    "batch": 3,
+    "feihuji": 667,
+    "gongfei": false,
+    "huji": 667,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东番禺中学",
+    "scope": "全市",
+    "waiqu": 696
+   }
+  ],
+  "gz-440113-6cf93097": [
+   {
+    "batch": 3,
+    "feihuji": 638,
+    "gongfei": false,
+    "huji": 621,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市禺山高级中学",
+    "scope": "全市",
+    "waiqu": 623
+   }
+  ],
+  "gz-440113-809482e2": [
+   {
+    "batch": 4,
+    "feihuji": 604,
+    "gongfei": false,
+    "huji": 527,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区石北中学",
+    "scope": "番禺区",
+    "waiqu": null
+   }
+  ],
+  "gz-440113-83a6a219": [
+   {
+    "batch": 3,
+    "feihuji": 629,
+    "gongfei": false,
+    "huji": 587,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东第二师范学院番禺附属中学",
+    "scope": "全市",
+    "waiqu": 587
+   }
+  ],
+  "gz-440113-86cfc8c7": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 590,
+    "nature": "民办",
+    "official_name": "广州市衡美高级中学有限公司",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 488,
+    "nature": "民办",
+    "official_name": "广州市衡美高级中学有限公司",
+    "scope": "全市"
+   }
+  ],
+  "gz-440113-8f5e4721": [
+   {
+    "batch": 3,
+    "feihuji": 733,
+    "gongfei": false,
+    "huji": 732,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州大学附属中学",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440113-97e0acaa": [
+   {
+    "batch": 3,
+    "feihuji": 708,
+    "gongfei": false,
+    "huji": 708,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市铁一中学（番禺校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440113-999fb9c0": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 670,
+    "nature": "民办",
+    "official_name": "广州市星执学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 487,
+    "nature": "民办",
+    "official_name": "广州市星执学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440113-acf92324": [
+   {
+    "batch": 3,
+    "feihuji": 703,
+    "gongfei": false,
+    "huji": 702,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东仲元中学",
+    "scope": "全市",
+    "waiqu": 703
+   }
+  ],
+  "gz-440113-c181d193": [
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 487,
+    "nature": "民办",
+    "official_name": "广州市番禺区祈福英语实验学校（国内班）",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 490,
+    "nature": "民办",
+    "official_name": "广州市番禺区祈福英语实验学校（港澳台班）",
+    "scope": "全市"
+   }
+  ],
+  "gz-440113-cbaa8160": [
+   {
+    "batch": 4,
+    "feihuji": 603,
+    "gongfei": false,
+    "huji": 535,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区南村中学",
+    "scope": "番禺区",
+    "waiqu": null
+   }
+  ],
+  "gz-440113-e121d1b3": [
+   {
+    "batch": 3,
+    "feihuji": 627,
+    "gongfei": false,
+    "huji": 627,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区实验中学",
+    "scope": "全市",
+    "waiqu": 660
+   }
+  ],
+  "gz-440113-e7ca2b33": [
+   {
+    "batch": 3,
+    "feihuji": 627,
+    "gongfei": false,
+    "huji": 587,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区洛溪新城中学",
+    "scope": "全市",
+    "waiqu": 589
+   }
+  ],
+  "gz-440113-fe0cfa1f": [
+   {
+    "batch": 3,
+    "feihuji": 667,
+    "gongfei": false,
+    "huji": 651,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区象贤中学",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440115-a936e5d5": [
+   {
+    "batch": 1,
+    "feihuji_last": 733,
+    "gongfei": false,
+    "huji_last": 733,
+    "kind": "lang_art",
+    "nature": "公办",
+    "official_name": "广州外国语学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 3,
+    "feihuji": 705,
+    "gongfei": false,
+    "huji": 700,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州外国语学校",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ]
+ },
+ "2026": {
+  "gz-440103-04c54db8": [
+   {
+    "batch": 3,
+    "feihuji": 672,
+    "gongfei": false,
+    "huji": 672,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市真光中学（广钢校区）",
+    "scope": "全市",
+    "waiqu": 672
+   }
+  ],
+  "gz-440103-2b8081bc": [
+   {
+    "batch": 3,
+    "feihuji": 690,
+    "gongfei": false,
+    "huji": 690,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市真光中学（校本部）",
+    "scope": "全市",
+    "waiqu": 691
+   }
+  ],
+  "gz-440103-3aca532e": [
+   {
+    "batch": 3,
+    "feihuji": 740,
+    "gongfei": false,
+    "huji": 740,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东实验中学（荔湾校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440103-4935332a": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 669,
+    "nature": "民办",
+    "official_name": "广州市耀华学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 414,
+    "nature": "民办",
+    "official_name": "广州市耀华学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440103-6bd45d68": [
+   {
+    "batch": 3,
+    "feihuji": 632,
+    "gongfei": false,
+    "huji": 632,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市西关外国语学校",
+    "scope": "全市",
+    "waiqu": 632
+   }
+  ],
+  "gz-440103-882931a0": [
+   {
+    "batch": 3,
+    "feihuji": 610,
+    "gongfei": false,
+    "huji": 592,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市真光中学（汾水校区）",
+    "scope": "全市",
+    "waiqu": 619
+   }
+  ],
+  "gz-440103-8920aa01": [
+   {
+    "batch": 3,
+    "feihuji": 667,
+    "gongfei": false,
+    "huji": 667,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第四中学",
+    "scope": "全市",
+    "waiqu": 667
+   }
+  ],
+  "gz-440103-a3ee807c": [
+   {
+    "batch": 3,
+    "feihuji": 673,
+    "gongfei": false,
+    "huji": 673,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市培英中学（鹤洞校区）",
+    "scope": "全市",
+    "waiqu": 685
+   }
+  ],
+  "gz-440103-bb7f78f0": [
+   {
+    "batch": 3,
+    "feihuji": 733,
+    "gongfei": false,
+    "huji": 733,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东广雅中学（荔湾校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440103-c62eab6a": [
+   {
+    "batch": 3,
+    "feihuji": 656,
+    "gongfei": false,
+    "huji": 655,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第一中学",
+    "scope": "全市",
+    "waiqu": 672
+   }
+  ],
+  "gz-440103-c9f13fde": [
+   {
+    "batch": 3,
+    "feihuji": 607,
+    "gongfei": false,
+    "huji": 606,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市南海中学",
+    "scope": "全市",
+    "waiqu": 611
+   }
+  ],
+  "gz-440103-d78c848a": [
+   {
+    "batch": 4,
+    "feihuji": 622,
+    "gongfei": false,
+    "huji": 607,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市西关培英中学",
+    "scope": "老三区",
+    "waiqu": null
+   }
+  ],
+  "gz-440103-e281e7d0": [
+   {
+    "batch": 3,
+    "feihuji": 686,
+    "gongfei": false,
+    "huji": 685,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州协和学校",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440104-028e64d6": [
+   {
+    "batch": 3,
+    "feihuji": 668,
+    "gongfei": false,
+    "huji": 666,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第七中学（麓湖校区）",
+    "scope": "全市",
+    "waiqu": 672
+   }
+  ],
+  "gz-440104-09652aa5": [
+   {
+    "batch": 3,
+    "feihuji": 696,
+    "gongfei": false,
+    "huji": 638,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市铁一中学（越秀校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440104-0a17f1eb": [
+   {
+    "batch": 4,
+    "feihuji": 625,
+    "gongfei": false,
+    "huji": 625,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第十三中学",
+    "scope": "老三区",
+    "waiqu": null
+   }
+  ],
+  "gz-440104-0f6e9cb0": [
+   {
+    "batch": 1,
+    "feihuji_last": 492,
+    "gongfei": false,
+    "huji_last": 492,
+    "kind": "lang_art",
+    "nature": "公办",
+    "official_name": "广州市艺术中学（越秀校区）（美术）",
+    "scope": "全市"
+   }
+  ],
+  "gz-440104-1560332d": [
+   {
+    "batch": 3,
+    "feihuji": 672,
+    "gongfei": false,
+    "huji": 637,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东华侨中学",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440104-2a1f2eaf": [
+   {
+    "batch": 3,
+    "feihuji": 713,
+    "gongfei": false,
+    "huji": 712,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第七中学（校本部）",
+    "scope": "全市",
+    "waiqu": 714
+   }
+  ],
+  "gz-440104-32444523": [
+   {
+    "batch": 3,
+    "feihuji": 632,
+    "gongfei": false,
+    "huji": 632,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东实验中学越秀学校",
+    "scope": "全市",
+    "waiqu": 633
+   }
+  ],
+  "gz-440104-7ec82efb": [
+   {
+    "batch": 3,
+    "feihuji": 662,
+    "gongfei": false,
+    "huji": 661,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市育才中学",
+    "scope": "全市",
+    "waiqu": 661
+   }
+  ],
+  "gz-440104-7f3031fc": [
+   {
+    "batch": 3,
+    "feihuji": 738,
+    "gongfei": false,
+    "huji": 737,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第二中学",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440104-8a1a7b3d": [
+   {
+    "batch": 3,
+    "feihuji": 713,
+    "gongfei": false,
+    "huji": 712,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第十六中学（校本部）",
+    "scope": "全市",
+    "waiqu": 714
+   }
+  ],
+  "gz-440104-99aef0e5": [
+   {
+    "batch": 3,
+    "feihuji": 691,
+    "gongfei": false,
+    "huji": 690,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市培正中学",
+    "scope": "全市",
+    "waiqu": 690
+   }
+  ],
+  "gz-440104-9c6632b1": [
+   {
+    "batch": 3,
+    "feihuji": 632,
+    "gongfei": false,
+    "huji": 632,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第十七中学",
+    "scope": "全市",
+    "waiqu": 637
+   }
+  ],
+  "gz-440104-d9ec2dbb": [
+   {
+    "batch": 3,
+    "feihuji": 678,
+    "gongfei": false,
+    "huji": 677,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第三中学",
+    "scope": "全市",
+    "waiqu": 677
+   }
+  ],
+  "gz-440104-f3ca07ff": [
+   {
+    "batch": 3,
+    "feihuji": 733,
+    "gongfei": false,
+    "huji": 732,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市执信中学（执信路校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440105-0b52e48d": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 635,
+    "nature": "民办",
+    "official_name": "广州市培才高级中学",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 552,
+    "nature": "民办",
+    "official_name": "广州市培才高级中学",
+    "scope": "全市"
+   }
+  ],
+  "gz-440105-0ffca7e3": [
+   {
+    "batch": 3,
+    "feihuji": 705,
+    "gongfei": false,
+    "huji": 705,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第五中学（校本部）",
+    "scope": "全市",
+    "waiqu": 706
+   }
+  ],
+  "gz-440105-12b49e3f": [
+   {
+    "batch": 3,
+    "feihuji": 727,
+    "gongfei": false,
+    "huji": 726,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第六中学（海珠校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440105-25137088": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 669,
+    "nature": "民办",
+    "official_name": "广州市海华高级中学",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 412,
+    "nature": "民办",
+    "official_name": "广州市海华高级中学",
+    "scope": "全市"
+   }
+  ],
+  "gz-440105-40a80ebb": [
+   {
+    "batch": 3,
+    "feihuji": 629,
+    "gongfei": false,
+    "huji": 621,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第四十一中学",
+    "scope": "全市",
+    "waiqu": 632
+   }
+  ],
+  "gz-440105-443b73e7": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 625,
+    "nature": "民办",
+    "official_name": "广州市海珠中学",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 454,
+    "nature": "民办",
+    "official_name": "广州市海珠中学",
+    "scope": "全市"
+   }
+  ],
+  "gz-440105-515da9e2": [
+   {
+    "batch": 3,
+    "feihuji": 684,
+    "gongfei": false,
+    "huji": 683,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市南武中学（校本部）",
+    "scope": "全市",
+    "waiqu": 685
+   }
+  ],
+  "gz-440105-aec34da3": [
+   {
+    "batch": 3,
+    "feihuji": 634,
+    "gongfei": false,
+    "huji": 637,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第五中学（金碧校区）",
+    "scope": "全市",
+    "waiqu": 637
+   }
+  ],
+  "gz-440105-dd2723fc": [
+   {
+    "batch": 1,
+    "feihuji_last": 607,
+    "gongfei": false,
+    "huji_last": 592,
+    "kind": "lang_art",
+    "nature": "公办",
+    "official_name": "广州市南武中学（岭南画派纪念校区）",
+    "scope": "老三区"
+   },
+   {
+    "batch": 3,
+    "feihuji": 593,
+    "gongfei": false,
+    "huji": 592,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市南武中学（岭南画派纪念校区）",
+    "scope": "老三区",
+    "waiqu": null
+   }
+  ],
+  "gz-440105-e76b659d": [
+   {
+    "batch": 3,
+    "feihuji": 672,
+    "gongfei": false,
+    "huji": 672,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市海珠外国语实验中学（校本部）",
+    "scope": "全市",
+    "waiqu": 676
+   }
+  ],
+  "gz-440105-ed868139": [
+   {
+    "batch": 3,
+    "feihuji": 637,
+    "gongfei": false,
+    "huji": 615,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第九十七中学（江南新苑校区）",
+    "scope": "全市",
+    "waiqu": 617
+   }
+  ],
+  "gz-440105-f0712355": [
+   {
+    "batch": 3,
+    "feihuji": 646,
+    "gongfei": false,
+    "huji": 645,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第九十七中学（校本部）",
+    "scope": "全市",
+    "waiqu": 674
+   }
+  ],
+  "gz-440105-fde335b7": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 633,
+    "nature": "民办",
+    "official_name": "广州市为明学校（盛景校区）",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 500,
+    "nature": "民办",
+    "official_name": "广州市为明学校（盛景校区）",
+    "scope": "全市"
+   }
+  ],
+  "gz-440106-01fd3a87": [
+   {
+    "batch": 3,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 664,
+    "nature": "民办",
+    "official_name": "广州天省实验学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 716,
+    "nature": "民办",
+    "official_name": "广州天省实验学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440106-069ddb41": [
+   {
+    "batch": 3,
+    "feihuji": 713,
+    "gongfei": false,
+    "huji": 712,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市天河外国语学校（智慧城校区）",
+    "scope": "全市",
+    "waiqu": 712
+   }
+  ],
+  "gz-440106-22fcbcd6": [
+   {
+    "batch": 3,
+    "feihuji": 731,
+    "gongfei": false,
+    "huji": 731,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市执信中学（天河校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440106-31895452": [
+   {
+    "batch": 3,
+    "feihuji": 712,
+    "gongfei": false,
+    "huji": 710,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "清华附中湾区学校（智慧城校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440106-3c8afb6a": [
+   {
+    "batch": 3,
+    "feihuji": 708,
+    "gongfei": false,
+    "huji": 708,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州中学",
+    "scope": "全市",
+    "waiqu": 712
+   }
+  ],
+  "gz-440106-42297c28": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 592,
+    "nature": "民办",
+    "official_name": "广州思源学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 413,
+    "nature": "民办",
+    "official_name": "广州思源学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440106-52f7f4b7": [
+   {
+    "batch": 3,
+    "feihuji": 642,
+    "gongfei": false,
+    "huji": 632,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第十六中学（水荫校区）",
+    "scope": "全市",
+    "waiqu": 636
+   }
+  ],
+  "gz-440106-5f78f6a9": [
+   {
+    "batch": 3,
+    "feihuji": 673,
+    "gongfei": false,
+    "huji": 672,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第一一三中学（金融城校区）",
+    "scope": "全市",
+    "waiqu": 673
+   }
+  ],
+  "gz-440106-621b20d3": [
+   {
+    "batch": 3,
+    "feihuji": 633,
+    "gongfei": false,
+    "huji": 632,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第七十五中学",
+    "scope": "全市",
+    "waiqu": 632
+   }
+  ],
+  "gz-440106-8bc01096": [
+   {
+    "batch": 3,
+    "feihuji": 714,
+    "gongfei": false,
+    "huji": 712,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "清华附中湾区学校（智谷校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440106-8f55ab34": [
+   {
+    "batch": 3,
+    "feihuji": 645,
+    "gongfei": false,
+    "huji": 645,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第八十九中学",
+    "scope": "全市",
+    "waiqu": 645
+   }
+  ],
+  "gz-440106-93897236": [
+   {
+    "batch": 3,
+    "feihuji": 676,
+    "gongfei": false,
+    "huji": 676,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市天河中学",
+    "scope": "全市",
+    "waiqu": 680
+   }
+  ],
+  "gz-440106-a6394a7a": [
+   {
+    "batch": 3,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 412,
+    "nature": "民办",
+    "official_name": "广州市华美英语实验学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 658,
+    "nature": "民办",
+    "official_name": "广州市华美英语实验学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440106-b711d94a": [
+   {
+    "batch": 3,
+    "feihuji": 732,
+    "gongfei": false,
+    "huji": 708,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市天河外国语学校（珠江新城校区）",
+    "scope": "全市",
+    "waiqu": 712
+   }
+  ],
+  "gz-440106-ced6bbff": [
+   {
+    "batch": 3,
+    "feihuji": 637,
+    "gongfei": false,
+    "huji": 633,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第一一三中学（元岗校区）",
+    "scope": "全市",
+    "waiqu": 654
+   }
+  ],
+  "gz-440106-d5983217": [
+   {
+    "batch": 3,
+    "feihuji": 741,
+    "gongfei": false,
+    "huji": 739,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "华南师范大学附属中学（石牌校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440106-d8e69757": [
+   {
+    "batch": 3,
+    "feihuji": 632,
+    "gongfei": false,
+    "huji": 632,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州奥林匹克中学",
+    "scope": "全市",
+    "waiqu": 632
+   }
+  ],
+  "gz-440111-0901ed40": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 672,
+    "nature": "民办",
+    "official_name": "广州市华文高级中学",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 570,
+    "nature": "民办",
+    "official_name": "广州市华文高级中学",
+    "scope": "全市"
+   }
+  ],
+  "gz-440111-218475ea": [
+   {
+    "batch": 3,
+    "feihuji": 687,
+    "gongfei": false,
+    "huji": 672,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第六十五中学（江高校区）",
+    "scope": "全市",
+    "waiqu": 696
+   }
+  ],
+  "gz-440111-28c16cca": [
+   {
+    "batch": 3,
+    "feihuji": 712,
+    "gongfei": false,
+    "huji": 712,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市铁一中学（白云校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440111-2b28ed6a": [
+   {
+    "batch": 3,
+    "feihuji": 637,
+    "gongfei": false,
+    "huji": 635,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州大同中学",
+    "scope": "全市",
+    "waiqu": 640
+   }
+  ],
+  "gz-440111-33d95662": [
+   {
+    "batch": 4,
+    "feihuji": 593,
+    "gongfei": false,
+    "huji": 552,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市白云区广东第二师范学院实验中学",
+    "scope": "白云区",
+    "waiqu": null
+   }
+  ],
+  "gz-440111-35536ebb": [
+   {
+    "batch": 3,
+    "feihuji": 617,
+    "gongfei": false,
+    "huji": 578,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市白云区颜乐天纪念中学",
+    "scope": "全市",
+    "waiqu": 592
+   }
+  ],
+  "gz-440111-3a82b572": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 662,
+    "nature": "民办",
+    "official_name": "广州市珠江高级中学",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 492,
+    "nature": "民办",
+    "official_name": "广州市珠江高级中学",
+    "scope": "全市"
+   }
+  ],
+  "gz-440111-4ebb4316": [
+   {
+    "batch": 3,
+    "feihuji": 668,
+    "gongfei": false,
+    "huji": 646,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第六十五中学（江府校区）",
+    "scope": "全市",
+    "waiqu": 653
+   }
+  ],
+  "gz-440111-730c7404": [
+   {
+    "batch": 3,
+    "feihuji": 712,
+    "gongfei": false,
+    "huji": 712,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市培英中学（白云新城校区）",
+    "scope": "全市",
+    "waiqu": 714
+   }
+  ],
+  "gz-440111-7360ff6d": [
+   {
+    "batch": 3,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 459,
+    "nature": "民办",
+    "official_name": "广州市庆丰实验学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 643,
+    "nature": "民办",
+    "official_name": "广州市庆丰实验学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440111-7b531bd6": [
+   {
+    "batch": 3,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 592,
+    "nature": "民办",
+    "official_name": "广州市实验外语学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440111-7e484346": [
+   {
+    "batch": 3,
+    "feihuji": 632,
+    "gongfei": false,
+    "huji": 632,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东外语外贸大学实验中学",
+    "scope": "全市",
+    "waiqu": 632
+   }
+  ],
+  "gz-440111-88e467ba": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 592,
+    "nature": "民办",
+    "official_name": "广州市亚加达外国语高级中学",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 412,
+    "nature": "民办",
+    "official_name": "广州市亚加达外国语高级中学",
+    "scope": "全市"
+   }
+  ],
+  "gz-440111-99d97ada": [
+   {
+    "batch": 3,
+    "feihuji": 672,
+    "gongfei": false,
+    "huji": 637,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东华侨中学",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440111-a3cf5a4f": [
+   {
+    "batch": 3,
+    "feihuji": 721,
+    "gongfei": false,
+    "huji": 720,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东实验中学（白云校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440111-b50dea4b": [
+   {
+    "batch": 4,
+    "feihuji": 605,
+    "gongfei": false,
+    "huji": 559,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第六十六中学",
+    "scope": "白云区",
+    "waiqu": null
+   }
+  ],
+  "gz-440111-c08e69db": [
+   {
+    "batch": 4,
+    "feihuji": 589,
+    "gongfei": false,
+    "huji": 520,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市白云艺术中学",
+    "scope": "白云区",
+    "waiqu": null
+   }
+  ],
+  "gz-440111-c7b90869": [
+   {
+    "batch": 3,
+    "feihuji": 672,
+    "gongfei": false,
+    "huji": 632,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第六十五中学（同德校区）",
+    "scope": "全市",
+    "waiqu": 642
+   }
+  ],
+  "gz-440111-c8ae0a7c": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 713,
+    "nature": "民办",
+    "official_name": "广州市源雅学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 577,
+    "nature": "民办",
+    "official_name": "广州市源雅学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440111-d28d78f9": [
+   {
+    "batch": 3,
+    "feihuji": 599,
+    "gongfei": false,
+    "huji": 592,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州彭加木纪念中学",
+    "scope": "全市",
+    "waiqu": 592
+   }
+  ],
+  "gz-440111-d4c4285e": [
+   {
+    "batch": 3,
+    "feihuji": 630,
+    "gongfei": false,
+    "huji": 599,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市白云区广州空港实验中学",
+    "scope": "全市",
+    "waiqu": 601
+   }
+  ],
+  "gz-440111-e74c2e1d": [
+   {
+    "batch": 3,
+    "feihuji": 632,
+    "gongfei": false,
+    "huji": 619,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市白云中学",
+    "scope": "全市",
+    "waiqu": 632
+   }
+  ],
+  "gz-440112-0876de16": [
+   {
+    "batch": 3,
+    "feihuji": 672,
+    "gongfei": false,
+    "huji": 672,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "北京师范大学广州实验学校",
+    "scope": "全市",
+    "waiqu": 672
+   }
+  ],
+  "gz-440112-0cb5a402": [
+   {
+    "batch": 3,
+    "feihuji": 700,
+    "gongfei": false,
+    "huji": 698,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第八十六中学",
+    "scope": "全市",
+    "waiqu": 701
+   }
+  ],
+  "gz-440112-203c6d64": [
+   {
+    "batch": 3,
+    "feihuji": 672,
+    "gongfei": false,
+    "huji": 672,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市黄埔区开元学校",
+    "scope": "全市",
+    "waiqu": 672
+   }
+  ],
+  "gz-440112-204541b5": [
+   {
+    "batch": 1,
+    "feihuji_last": 504,
+    "gongfei": false,
+    "huji_last": 493,
+    "kind": "lang_art",
+    "nature": "公办",
+    "official_name": "广州市艺术中学（黄埔校区）（音乐）",
+    "scope": "全市"
+   },
+   {
+    "batch": 1,
+    "feihuji_last": 514,
+    "gongfei": false,
+    "huji_last": 492,
+    "kind": "lang_art",
+    "nature": "公办",
+    "official_name": "广州市艺术中学（黄埔校区）（美术）",
+    "scope": "全市"
+   },
+   {
+    "batch": 1,
+    "feihuji_last": 563,
+    "gongfei": false,
+    "huji_last": 542,
+    "kind": "lang_art",
+    "nature": "公办",
+    "official_name": "广州市艺术中学（黄埔校区）（书法）",
+    "scope": "全市"
+   },
+   {
+    "batch": 1,
+    "feihuji_last": 494,
+    "gongfei": false,
+    "huji_last": 499,
+    "kind": "lang_art",
+    "nature": "公办",
+    "official_name": "广州市艺术中学（黄埔校区）（舞蹈）",
+    "scope": "全市"
+   },
+   {
+    "batch": 1,
+    "feihuji_last": 573,
+    "gongfei": false,
+    "huji_last": 500,
+    "kind": "lang_art",
+    "nature": "公办",
+    "official_name": "广州市艺术中学（黄埔校区）（播音主持）",
+    "scope": "全市"
+   }
+  ],
+  "gz-440112-3847727f": [
+   {
+    "batch": 3,
+    "feihuji": 735,
+    "gongfei": false,
+    "huji": 735,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "华南师范大学附属中学（知识城校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440112-705844f8": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 644,
+    "nature": "民办",
+    "official_name": "广州市明珠高级中学有限公司",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 466,
+    "nature": "民办",
+    "official_name": "广州市明珠高级中学有限公司",
+    "scope": "全市"
+   }
+  ],
+  "gz-440112-87f27cf4": [
+   {
+    "batch": 3,
+    "feihuji": 682,
+    "gongfei": false,
+    "huji": 682,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州实验中学",
+    "scope": "全市",
+    "waiqu": 684
+   }
+  ],
+  "gz-440112-8b4292d7": [
+   {
+    "batch": 3,
+    "feihuji": 672,
+    "gongfei": false,
+    "huji": 672,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州科学城中学",
+    "scope": "全市",
+    "waiqu": 673
+   }
+  ],
+  "gz-440112-8bf29a28": [
+   {
+    "batch": 3,
+    "feihuji": 672,
+    "gongfei": false,
+    "huji": 672,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市黄埔区苏元学校",
+    "scope": "全市",
+    "waiqu": 672
+   }
+  ],
+  "gz-440112-8edaa2d8": [
+   {
+    "batch": 4,
+    "feihuji": 626,
+    "gongfei": false,
+    "huji": 589,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州石化中学",
+    "scope": "黄埔区",
+    "waiqu": null
+   }
+  ],
+  "gz-440112-9d315f50": [
+   {
+    "batch": 4,
+    "feihuji": 628,
+    "gongfei": false,
+    "huji": 599,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州开发区外国语学校",
+    "scope": "黄埔区",
+    "waiqu": null
+   }
+  ],
+  "gz-440112-b56cfdce": [
+   {
+    "batch": 3,
+    "feihuji": 738,
+    "gongfei": false,
+    "huji": 737,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市第二中学",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440112-bffde68d": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 724,
+    "nature": "民办",
+    "official_name": "广州市新侨学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 420,
+    "nature": "民办",
+    "official_name": "广州市新侨学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440112-e085f4fa": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 632,
+    "nature": "民办",
+    "official_name": "广州市天健学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 414,
+    "nature": "民办",
+    "official_name": "广州市天健学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440112-ec15555e": [
+   {
+    "batch": 4,
+    "feihuji": 609,
+    "gongfei": false,
+    "huji": 552,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州知识城中学",
+    "scope": "黄埔区",
+    "waiqu": null
+   }
+  ],
+  "gz-440112-ff5acfd5": [
+   {
+    "batch": 3,
+    "feihuji": 712,
+    "gongfei": false,
+    "huji": 712,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市玉岩中学",
+    "scope": "全市",
+    "waiqu": 712
+   }
+  ],
+  "gz-440113-2570c29b": [
+   {
+    "batch": 3,
+    "feihuji": 631,
+    "gongfei": false,
+    "huji": 593,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区大龙中学",
+    "scope": "全市",
+    "waiqu": 594
+   }
+  ],
+  "gz-440113-337c0524": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 640,
+    "nature": "民办",
+    "official_name": "广州南方学院番禺附属中学",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 413,
+    "nature": "民办",
+    "official_name": "广州南方学院番禺附属中学",
+    "scope": "全市"
+   }
+  ],
+  "gz-440113-3d006240": [
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 412,
+    "nature": "民办",
+    "official_name": "广州市博萃德学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440113-443448d2": [
+   {
+    "batch": 4,
+    "feihuji": 569,
+    "gongfei": false,
+    "huji": 552,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区石楼中学",
+    "scope": "番禺区",
+    "waiqu": null
+   }
+  ],
+  "gz-440113-527391ff": [
+   {
+    "batch": 4,
+    "feihuji": 602,
+    "gongfei": false,
+    "huji": 589,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区石碁中学",
+    "scope": "番禺区",
+    "waiqu": null
+   }
+  ],
+  "gz-440113-5f62f75c": [
+   {
+    "batch": 3,
+    "feihuji": 679,
+    "gongfei": false,
+    "huji": 672,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东番禺中学",
+    "scope": "全市",
+    "waiqu": 673
+   }
+  ],
+  "gz-440113-6cf93097": [
+   {
+    "batch": 3,
+    "feihuji": 635,
+    "gongfei": false,
+    "huji": 632,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市禺山高级中学",
+    "scope": "全市",
+    "waiqu": 633
+   }
+  ],
+  "gz-440113-809482e2": [
+   {
+    "batch": 4,
+    "feihuji": 592,
+    "gongfei": false,
+    "huji": 552,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区石北中学",
+    "scope": "番禺区",
+    "waiqu": null
+   }
+  ],
+  "gz-440113-83a6a219": [
+   {
+    "batch": 3,
+    "feihuji": 628,
+    "gongfei": false,
+    "huji": 596,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东第二师范学院番禺附属中学",
+    "scope": "全市",
+    "waiqu": 597
+   }
+  ],
+  "gz-440113-86cfc8c7": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 607,
+    "nature": "民办",
+    "official_name": "广州市衡美高级中学有限公司",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 412,
+    "nature": "民办",
+    "official_name": "广州市衡美高级中学有限公司",
+    "scope": "全市"
+   }
+  ],
+  "gz-440113-8f5e4721": [
+   {
+    "batch": 3,
+    "feihuji": 738,
+    "gongfei": false,
+    "huji": 738,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州大学附属中学",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440113-97e0acaa": [
+   {
+    "batch": 3,
+    "feihuji": 710,
+    "gongfei": false,
+    "huji": 710,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市铁一中学（番禺校区）",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ],
+  "gz-440113-999fb9c0": [
+   {
+    "batch": 3,
+    "gongfei": true,
+    "kind": "private",
+    "min_score": 673,
+    "nature": "民办",
+    "official_name": "广州市星执学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 486,
+    "nature": "民办",
+    "official_name": "广州市星执学校",
+    "scope": "全市"
+   }
+  ],
+  "gz-440113-acf92324": [
+   {
+    "batch": 3,
+    "feihuji": 709,
+    "gongfei": false,
+    "huji": 709,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广东仲元中学",
+    "scope": "全市",
+    "waiqu": 713
+   }
+  ],
+  "gz-440113-c181d193": [
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 413,
+    "nature": "民办",
+    "official_name": "广州市番禺区祈福英语实验学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 4,
+    "gongfei": false,
+    "kind": "private",
+    "min_score": 417,
+    "nature": "民办",
+    "official_name": "广州市番禺区祈福英语实验学校（港澳台班）",
+    "scope": "全市"
+   }
+  ],
+  "gz-440113-cbaa8160": [
+   {
+    "batch": 4,
+    "feihuji": 603,
+    "gongfei": false,
+    "huji": 580,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区南村中学",
+    "scope": "番禺区",
+    "waiqu": null
+   }
+  ],
+  "gz-440113-e121d1b3": [
+   {
+    "batch": 3,
+    "feihuji": 649,
+    "gongfei": false,
+    "huji": 633,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区实验中学",
+    "scope": "全市",
+    "waiqu": 638
+   }
+  ],
+  "gz-440113-e7ca2b33": [
+   {
+    "batch": 3,
+    "feihuji": 596,
+    "gongfei": false,
+    "huji": 592,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区洛溪新城中学",
+    "scope": "全市",
+    "waiqu": 592
+   }
+  ],
+  "gz-440113-fe0cfa1f": [
+   {
+    "batch": 3,
+    "feihuji": 666,
+    "gongfei": false,
+    "huji": 666,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市番禺区象贤中学",
+    "scope": "全市",
+    "waiqu": 667
+   }
+  ],
+  "gz-440115-a936e5d5": [
+   {
+    "batch": 1,
+    "feihuji_last": 731,
+    "gongfei": false,
+    "huji_last": 731,
+    "kind": "lang_art",
+    "nature": "公办",
+    "official_name": "广州外国语学校",
+    "scope": "全市"
+   },
+   {
+    "batch": 3,
+    "feihuji": 713,
+    "gongfei": false,
+    "huji": 712,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州外国语学校",
+    "scope": "全市",
+    "waiqu": null
+   }
+  ]
+ },
+ "note": "录取分数线业务快照（非产物字节）。更新：--update-snapshot。",
+ "updated": "2026-09-21"
+}
