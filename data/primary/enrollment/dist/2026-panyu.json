@@ -1383,6 +1383,19 @@
    "lat": 22.973767
   },
   {
+   "school": "石楼镇海鸥学校",
+   "district": "石楼",
+   "plan_classes": 6,
+   "zone": "海心村、沙北村、江鸥村、沙南村户籍的适龄儿童。",
+   "note": "",
+   "phone": "",
+   "source": "石楼教育局2026",
+   "school_id": "gz-440113-d34ce178",
+   "poi_name": "沙北小学",
+   "lng": 113.521926,
+   "lat": 22.919198
+  },
+  {
    "school": "石楼镇南派小学",
    "district": "石楼",
    "plan_classes": 3,
@@ -1955,9 +1968,7 @@
    "lat": 22.908182
   }
  ],
- "unmatched": [
-  "石楼镇海鸥学校"
- ],
+ "unmatched": [],
  "ambiguous": [],
  "poi_leftover": [
   "万翔学校",
@@ -1996,7 +2007,6 @@
   "明德广地实验学校",
   "星执外国语小学",
   "正声小学",
-  "沙北小学",
   "洛溪新城小学分校",
   "番禺区北新正华学校",
   "番禺区金海岸实验学校",
@@ -2120,8 +2130,8 @@
    "district": "",
    "plan_classes": 2,
    "plan_count": 48,
-   "school_id": "gz-440113-3d006240",
-   "poi_name": "广州博萃德学校",
+   "school_id": "gz-440113-cf01b95f",
+   "poi_name": "广州博萃德学校小学部",
    "lng": null,
    "lat": null
   },

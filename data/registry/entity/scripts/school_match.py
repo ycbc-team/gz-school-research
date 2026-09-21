@@ -356,7 +356,20 @@ class SchoolMatcher:
             f = [e for e in candidates if self._adcode_of(e) == preferred_adcode]
             f += [e for e in candidates if e not in f and self._policy_adcode(e) == preferred_adcode]
             candidates = f
-        return [self._result(e) for e in candidates]
+        if candidates:
+            return [self._result(e) for e in candidates]
+        # 单值回落兜底（2026-09-21 修复 3067133 回归：resolve_all 只走 exact/alias/全等展开，
+        # 无区前缀裸名/镇街前缀名（如「市桥东兴小学」→「东兴小学」「毓贤学校」→「番禺区毓贤学校」）
+        # 全部失配——旧版候选空时 return [one] 兜底被删，入库产物即该行为）。
+        # 仅无校区限定且 exact/alias/全等展开零候选时启用；resolve 单值仍走完整
+        # exact/alias/substring 分支（海珠中路小学等无实体名宁缺，不强行吸附）。
+        if not has_campus:
+            one = self.resolve(name, preferred_adcode, preferred_stage, strategy="single")
+            if one and one.get("school_id"):
+                return [one]
+        return []
+
+    def resolve(self, name, preferred_adcode=None, preferred_stage=None, strategy="single"):        return []
 
     def resolve(self, name, preferred_adcode=None, preferred_stage=None, strategy="single"):
         """任意校名 → 匹配结果 dict（poi_match/matched_name/stage/district/school_id）或 None（无法收敛/缺失）。

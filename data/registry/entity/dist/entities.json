@@ -323,7 +323,9 @@
       "school_id": "gz-440113-2264148c",
       "name": "丽江小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "丽江学校"
+      ]
     },
     {
       "school_id": "gz-440103-a15d3a11",
@@ -492,7 +494,10 @@
       "school_id": "gz-440111-311a2ef8",
       "name": "人和镇第五小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "白云区人和镇第五小学凤和校区",
+        "人和镇第五小学凤和校区"
+      ]
     },
     {
       "school_id": "gz-440111-908072a9",
@@ -755,7 +760,9 @@
       "school_id": "gz-440112-351c1a84",
       "name": "华中师范大学黄埔实验学校",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "双沙旧村改造项目复建区AP0609024S十五号地块学校暂定名"
+      ]
     },
     {
       "school_id": "gz-440111-ed25f5e3",
@@ -1508,7 +1515,10 @@
       "school_id": "gz-440106-6dc5833a",
       "name": "天府路小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "天河区天府路小学东方、翠湖校区",
+        "天府路小学东方、翠湖校区"
+      ]
     },
     {
       "school_id": "gz-440106-4dbb5b90",
@@ -1843,7 +1853,9 @@
       "school_id": "gz-440112-284e5309",
       "name": "广东外语外贸大学附属知识城实验小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "广东外语外贸大学附属知识城实验小学北校区"
+      ]
     },
     {
       "school_id": "gz-440112-abe35401",
@@ -3353,7 +3365,9 @@
       "school_id": "gz-440112-e1ec9724",
       "name": "广州开发区第二小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "广州开发区第二小学南校区"
+      ]
     },
     {
       "school_id": "gz-440112-2fd7c889",
@@ -3405,7 +3419,9 @@
       "school_id": "gz-440113-7cdbe028",
       "name": "广州番禺区毓贤学校",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "毓贤学校"
+      ]
     },
     {
       "school_id": "gz-440111-13575da4",
@@ -3452,7 +3468,9 @@
       "school_id": "gz-440112-64ab063c",
       "name": "广州石化小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "广州石化小学东校区"
+      ]
     },
     {
       "school_id": "gz-440112-0f409071",
@@ -3771,7 +3789,10 @@
       "school_id": "gz-440111-0b5419e2",
       "name": "新楼村梁庆贤学校",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "白云区新楼小学",
+        "新楼小学"
+      ]
     },
     {
       "school_id": "gz-440111-c4a9b707",
@@ -4358,7 +4379,10 @@
       "school_id": "gz-440113-d34ce178",
       "name": "沙北小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "番禺区石楼镇海鸥学校",
+        "石楼镇海鸥学校"
+      ]
     },
     {
       "school_id": "gz-440113-49465723",
@@ -4701,7 +4725,9 @@
       "school_id": "gz-440112-40be421c",
       "name": "湖南师范大学附属黄埔实验学校北校区",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "湖南师范大学附属黄埔实验学校"
+      ]
     },
     {
       "school_id": "gz-440111-fdf2f84b",
@@ -4921,7 +4947,10 @@
       "school_id": "gz-440111-6f991ca4",
       "name": "白云六中实验小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "白云区六中实验小学北校区",
+        "六中实验小学北校区"
+      ]
     },
     {
       "school_id": "gz-440111-c6ba2aa0",
@@ -5179,7 +5208,9 @@
       "school_id": "gz-440112-16ca808f",
       "name": "科学城小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "科学城小学南校区"
+      ]
     },
     {
       "school_id": "gz-440112-dbb48335",
@@ -5564,7 +5595,10 @@
       "school_id": "gz-440103-60b47bca",
       "name": "西关实验小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "荔湾区西关实验小学光复校区",
+        "西关实验小学光复校区"
+      ]
     },
     {
       "school_id": "gz-440103-80510bfa",
@@ -5789,7 +5823,9 @@
       "name": "金广实验小学",
       "stage": "primary",
       "aliases": [
+        "白云区金广实验学校金域蓝湾校区",
         "白云区金广实验学校御金沙校区",
+        "金广实验学校金域蓝湾校区",
         "金广实验学校御金沙校区",
         "金广实验学校"
       ]
@@ -5968,7 +6004,9 @@
       "school_id": "gz-440112-e0419ae0",
       "name": "长岭居小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "长岭居小学西校区"
+      ]
     },
     {
       "school_id": "gz-440112-80a45eec",
@@ -9610,6 +9648,7 @@
       "name": "海鸥学校",
       "stage": "middle",
       "aliases": [
+        "番禺区石楼镇海鸥学校",
         "石楼镇海鸥学校"
       ]
     },
