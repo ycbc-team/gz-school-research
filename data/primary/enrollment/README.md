@@ -7,12 +7,13 @@
 ```
 enrollment/
 ├── raw/        政府源文件（原文件只读归档，含 xls/xlsx/pdf/png/doc/docx）
-├── parsed/     解析产物
-│   ├── _transcripts/   A 层转录（parse_*.py 从 raw 提取的结构化 JSON，可审计可重跑）
-│   └── 2026-<区>.json  B 层最终匹配产物（build_primary_2026.py 输出）
+├── parsed/     解析层（A 层转录产物，可审计可重跑）
+│   └── _transcripts/   parse_*.py 从 raw 提取的结构化 JSON
+├── dist/       最终运行时产物（B 层，build_primary_2026.py 输出）
+│   └── 2026-<区>.json   含 records（公办）/ minban（民办小学招生计划）/ unmatched / ambiguous
 ├── scripts/    生产脚本
-│   ├── parse_*.py         A 层：raw → _transcripts（openpyxl/docx/OCR）
-│   ├── build_primary_2026.py  B 层：_transcripts → 2026-<区>.json（SchoolMatcher 匹配实体表）
+│   ├── parse_*.py         A 层：raw → parsed/_transcripts（openpyxl/docx/OCR）
+│   ├── build_primary_2026.py  B 层：_transcripts → dist/2026-<区>.json（SchoolMatcher 匹配实体表）
 │   ├── audit_*.py         转录抽查（与 WebFetch/pdftotext 交叉比对）
 │   ├── read_transcripts/  各区转录复现/核查脚本
 │   └── ocr/               扫描件 OCR（vision_ocr.py）
@@ -30,13 +31,24 @@ raw/ 政府源文件
 parsed/_transcripts/*.json
   │  B 层（build_primary_2026.py，纯 SchoolMatcher 匹配 data/registry/entity）
   ▼
-parsed/2026-<区>.json   ← 消费产物
+dist/2026-<区>.json   ← 消费产物（最终运行时产物层）
 ```
 
 ### A 层（转录）
 每个 parse_*.py 从 `raw/` 原文件读取，输出 `parsed/_transcripts/<区>_2026.json`。扫描件（海珠 png、天河/黄埔 PDF）走 `scripts/ocr/vision_ocr.py`，产出后用 `audit_*.py` 与 WebFetch/pdftotext 等交叉比对。
 
 ### B 层（匹配）
+### minban（民办小学招生计划）
+
+官方文件「民办招生计划」sheet 只有**计划班数/人数、无招生地段**（民办不划地段，报名超计划摇号），
+故不进公办 records，作为独立 `minban` 段输出（当前仅番禺官方文件公布民办计划）：
+
+- 字段：`school / district / plan_classes / plan_count / school_id / poi_name / lng / lat`
+- 小学一年级计划为 `/` 的民办（2026 不招小学一年级，如祈福英语实验学校、南方学院番禺附属中学）不纳入
+- 匹配同样走 SchoolMatcher（实体表），未命中宁缺
+
+### B 层匹配
+
 `build_primary_2026.py` 以转录为源，逐个学校名调 `SchoolMatcher.resolve / resolve_all`：
 
 - **带校区名**的记录 → `resolve` 单校区匹配；

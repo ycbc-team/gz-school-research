@@ -2013,5 +2013,367 @@
   "金华学校",
   "金星学校"
  ],
- "map_fail": []
+ "map_fail": [],
+ "minban": [
+  {
+   "school": "新英豪中英文学校",
+   "district": "市桥 城区",
+   "plan_classes": 5,
+   "plan_count": 207,
+   "school_id": "gz-440113-757ae826",
+   "poi_name": "新英豪中英文学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "金星小学",
+   "district": "",
+   "plan_classes": 3,
+   "plan_count": 128,
+   "school_id": "gz-440113-7b27f226",
+   "poi_name": "金星学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "同心小学",
+   "district": "",
+   "plan_classes": 3,
+   "plan_count": 128,
+   "school_id": "gz-440113-89b309cd",
+   "poi_name": "番禺同心小学",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "番外外国语学校",
+   "district": "",
+   "plan_classes": 4,
+   "plan_count": 110,
+   "school_id": "gz-440113-3b63e590",
+   "poi_name": "广州番外外国语学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "祈福英语实验小学",
+   "district": "西片",
+   "plan_classes": 7,
+   "plan_count": 216,
+   "school_id": "gz-440113-d4aecd66",
+   "poi_name": "祈福英语实验小学",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "祈福新邨学校",
+   "district": "",
+   "plan_classes": 8,
+   "plan_count": 324,
+   "school_id": "gz-440113-1963cc5e",
+   "poi_name": "祈福新邨学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "京师奥园南奥实验学校",
+   "district": "",
+   "plan_classes": 4,
+   "plan_count": 140,
+   "school_id": "gz-440113-c40a06e1",
+   "poi_name": "京师奥园南奥实验学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "正声小学",
+   "district": "",
+   "plan_classes": 5,
+   "plan_count": 165,
+   "school_id": "gz-440113-8efab2cd",
+   "poi_name": "正声小学",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广博学校",
+   "district": "",
+   "plan_classes": 4,
+   "plan_count": 162,
+   "school_id": "gz-440113-827f636b",
+   "poi_name": "广博学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "鸿翔学校",
+   "district": "",
+   "plan_classes": 3,
+   "plan_count": 124,
+   "school_id": "gz-440113-39879bc6",
+   "poi_name": "番禺鸿翔学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "博萃德学校",
+   "district": "",
+   "plan_classes": 2,
+   "plan_count": 48,
+   "school_id": "gz-440113-3d006240",
+   "poi_name": "广州博萃德学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州市星执学校",
+   "district": "北片",
+   "plan_classes": 6,
+   "plan_count": 155,
+   "school_id": "gz-440113-883c58c4",
+   "poi_name": "执信中学附属小学",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "大石大山学校",
+   "district": "",
+   "plan_classes": 5,
+   "plan_count": 207,
+   "school_id": "gz-440113-2ca37b61",
+   "poi_name": "大山学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "大石会江实验学校",
+   "district": "",
+   "plan_classes": 6,
+   "plan_count": 256,
+   "school_id": "gz-440113-e946f7f3",
+   "poi_name": "会江实验学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "洛浦厦滘学校",
+   "district": "",
+   "plan_classes": 6,
+   "plan_count": 256,
+   "school_id": "gz-440113-1b3be909",
+   "poi_name": "厦滘学校(小学部)",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "星执外国语小学",
+   "district": "",
+   "plan_classes": 4,
+   "plan_count": 114,
+   "school_id": "gz-440113-a6ae517b",
+   "poi_name": "星执外国语小学",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "名智小学",
+   "district": "",
+   "plan_classes": 4,
+   "plan_count": 171,
+   "school_id": "gz-440113-2a299f65",
+   "poi_name": "番禺名智小学",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "恒润实验学校",
+   "district": "",
+   "plan_classes": 6,
+   "plan_count": 180,
+   "school_id": "gz-440113-c9f8740e",
+   "poi_name": "恒润实验学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "执鸿学校",
+   "district": "",
+   "plan_classes": 4,
+   "plan_count": 114,
+   "school_id": "gz-440113-0b94ed9c",
+   "poi_name": "广州执鸿学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "华南碧桂园学校",
+   "district": "南村",
+   "plan_classes": 6,
+   "plan_count": 209,
+   "school_id": "gz-440113-a45e4a1a",
+   "poi_name": "华南碧桂园学校(小学部)",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "广州南方学院番禺附属小学",
+   "district": "",
+   "plan_classes": 6,
+   "plan_count": 216,
+   "school_id": "gz-440113-6bf19a4c",
+   "poi_name": "广州南方学院番禺附属小学",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "南村华立小学",
+   "district": "",
+   "plan_classes": 4,
+   "plan_count": 165,
+   "school_id": "gz-440113-c5dec315",
+   "poi_name": "华立学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "明德广地实验学校",
+   "district": "",
+   "plan_classes": 2,
+   "plan_count": 90,
+   "school_id": "gz-440113-7997c707",
+   "poi_name": "明德广地实验学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "剑桥郡加拿达学校",
+   "district": "",
+   "plan_classes": 3,
+   "plan_count": 82,
+   "school_id": "gz-440113-7b2b848a",
+   "poi_name": "加拿达外国语学校(剑桥郡校区)",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "诺德安达学校",
+   "district": "",
+   "plan_classes": 6,
+   "plan_count": 138,
+   "school_id": "gz-440113-3cc636b8",
+   "poi_name": "广州市番禺区诺德安达学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "化龙镇大博学校",
+   "district": "化龙片",
+   "plan_classes": 4,
+   "plan_count": 160,
+   "school_id": "gz-440113-a6aa9fb0",
+   "poi_name": "化龙大博学校(小学部)",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "大岭学校",
+   "district": "石楼",
+   "plan_classes": 2,
+   "plan_count": 81,
+   "school_id": "gz-440113-70ea7542",
+   "poi_name": "大岭学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "新君豪中英文学校",
+   "district": "石碁",
+   "plan_classes": 2,
+   "plan_count": 81,
+   "school_id": "gz-440113-166b5b5c",
+   "poi_name": "新君豪中英文学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "新英才中英文学校",
+   "district": "",
+   "plan_classes": 5,
+   "plan_count": 191,
+   "school_id": "gz-440113-28a853f8",
+   "poi_name": "广州市番禺区新英才中英文学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "天星学校",
+   "district": "",
+   "plan_classes": 3,
+   "plan_count": 132,
+   "school_id": "gz-440113-3b338135",
+   "poi_name": "天星学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "金海岸实验学校",
+   "district": "",
+   "plan_classes": 4,
+   "plan_count": 120,
+   "school_id": "gz-440113-d7e3e576",
+   "poi_name": "番禺区金海岸实验学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "金华学校",
+   "district": "",
+   "plan_classes": 7,
+   "plan_count": 283,
+   "school_id": "gz-440113-82bf431a",
+   "poi_name": "金华学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "嘉诚学校",
+   "district": "",
+   "plan_classes": 3,
+   "plan_count": 121,
+   "school_id": "gz-440113-2b7d85fc",
+   "poi_name": "嘉诚学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "北新正华学校",
+   "district": "",
+   "plan_classes": 3,
+   "plan_count": 110,
+   "school_id": "gz-440113-a93513f2",
+   "poi_name": "番禺区北新正华学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "万翔学校",
+   "district": "沙湾",
+   "plan_classes": 4,
+   "plan_count": 162,
+   "school_id": "gz-440113-000bd12e",
+   "poi_name": "万翔学校",
+   "lng": null,
+   "lat": null
+  },
+  {
+   "school": "沙湾华阳学校",
+   "district": "",
+   "plan_classes": 3,
+   "plan_count": 91,
+   "school_id": "gz-440113-23835acf",
+   "poi_name": "华阳学校",
+   "lng": null,
+   "lat": null
+  }
+ ]
 }

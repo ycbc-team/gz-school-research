@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""统一构建 7 区小学招生 parsed/2026-<区>.json（B 层，全新方式）。
+"""统一构建 7 区小学招生 dist/2026-<区>.json（B 层，全新方式）。
 
 数据源：parsed/_transcripts/*.json（A 层转录，复现脚本见 parse_*）
 匹配：registry/entity 统一 SchoolMatcher（实体表 school_id + 别名机制 + 区/学段收敛 + 去括号）。
       业务侧不再维护 _anchors/NAME_MAP 等手工映射表（2026-09-21 用户定：手工匹配可能出错，
       映射问题一律到实体表别名层解决；此处只做 SchoolMatcher 解析 + POI 定位 + 校区冲突防护）。
-输出：parsed/2026-<区>.json（与旧版格式一致：year/district/source/source_url/records/unmatched/ambiguous/poi_leftover/map_fail）
+输出：dist/2026-<区>.json（最终运行时产物，与旧版格式一致：
+      year/district/source/source_url/records/unmatched/ambiguous/poi_leftover/map_fail，
+      另含 minban 段（民办小学招生计划：班数/人数，无地段；当前仅番禺官方文件公布民办计划）。
+      parsed/ 只保留 A 层转录 _transcripts/（解析层）。
 用法：python3 data/primary/enrollment/scripts/build_primary_2026.py <区:yuexiu|liwan|haizhu|tianhe|panyu|baiyun|huangpu|all>
 """
 import json
@@ -16,7 +19,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 TRANSCRIPTS = os.path.join(ROOT, "data", "primary", "enrollment", "parsed", "_transcripts")
-OUT_DIR = os.path.join(ROOT, "data", "primary", "enrollment", "parsed")
+OUT_DIR = os.path.join(ROOT, "data", "primary", "enrollment", "dist")
 
 sys.path.insert(0, os.path.join(ROOT, "data", "registry", "entity", "scripts"))
 from school_match import SchoolMatcher  # noqa: E402
@@ -125,6 +128,44 @@ def load_records(district_key):
     raise KeyError(dk)
 
 
+def load_minban(district_key):
+    """民办小学招生计划（当前仅番禺官方文件含民办招生计划 sheet）。
+    民办不划地段（报名超计划摇号），故只取 班数/人数 计划 + 实体匹配，不进公办 records。
+    """
+    if district_key != "panyu":
+        return []
+    t = json.load(open(os.path.join(TRANSCRIPTS, "panyu_2026_official.json"), encoding="utf-8"))
+    rows = t["sheets"].get("民办招生计划", [])
+    head_i = next((i for i, r in enumerate(rows) if len(r) > 1 and "学校名称" in str(r[1])), None)
+    if head_i is None:
+        return []
+    data = [r for r in rows[head_i + 2:] if len(r) >= 6 and str(r[1]).strip()]
+    matcher = load_matcher()
+    with open(os.path.join(ROOT, "data", "poi", "dist", "primary_poi.json"), encoding="utf-8") as f:
+        poi_pool = [s for s in json.load(f).get("schools", []) if s.get("adcode") == ADCODES[district_key]]
+    out, unresolved = [], []
+    for r in data:
+        name = str(r[1]).strip()
+        plan_cls = str(r[2]).strip()
+        plan_cnt = str(r[3]).strip()
+        if plan_cls in ("", "/", "0"):
+            continue  # 无小学计划（仅初中）→ 归初中招生，不进小学产物
+        ent = matcher.resolve(name, preferred_adcode=ADCODES[district_key], preferred_stage="小学") \
+            or matcher.resolve(name, preferred_adcode=ADCODES[district_key])
+        if not ent:
+            unresolved.append(name)
+            continue
+        rec = {"school": name, "district": str(r[0]).strip().replace("\n", ""),
+               "plan_classes": int(plan_cls) if plan_cls.isdigit() else None,
+               "plan_count": int(plan_cnt) if plan_cnt.isdigit() else None,
+               "school_id": ent.get("school_id"), "poi_name": ent.get("matched_name", ""),
+               "lng": ent.get("lng"), "lat": ent.get("lat")}
+        out.append(rec)
+    if unresolved:
+        print(f"  [民办未匹配] {len(unresolved)}: {unresolved}")
+    return out
+
+
 def build(district_key):
     records, source = load_records(district_key)
     adcode = ADCODES[district_key]
@@ -171,6 +212,7 @@ def build(district_key):
         "source": source, "source_url": SOURCE_URLS[district_key],
         "records": matched, "unmatched": sorted(set(unmatched)),
         "ambiguous": ambiguous, "poi_leftover": sorted(set(poi_leftover)), "map_fail": [],
+        "minban": load_minban(district_key),
     }
     with open(os.path.join(OUT_DIR, f"2026-{district_key}.json"), "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=1)
