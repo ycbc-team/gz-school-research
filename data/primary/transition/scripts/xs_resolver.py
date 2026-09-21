@@ -133,7 +133,10 @@ class XsResolver:
             _flat = k.replace('(', '').replace(')', '')
             if _flat != k:
                 lst = self.alias_idx.get((stage, _flat))
-        if not lst and _mk and _mk != k:
+        # matchNorm 兜底不设 _mk != k 守卫：查询键即使与 normName 键相同，match_norm_idx
+        # 仍含独立候选（如官方「六中珠江中学」→ cb432890 逸景校区 name「海珠区六中珠江中学」
+        # matchNorm 剥区后同键；alias_idx 无此键，跳过即丢逸景校区——2026 官方逸景+万胜围两校区）
+        if not lst and _mk:
             lst = self.match_norm_idx.get((stage, _mk))
         return lst
 
