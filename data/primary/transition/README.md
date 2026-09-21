@@ -1,20 +1,42 @@
-# 7 区全量升学路线（xiaoshengchu）数据源清单
+# 小升初（xiaoshengchu）升学路线业务数据
 
-> 更新：2026-09-10（7 区全量构建完成 + POI 高德补全 29 所）。目的：记录 schools-gz 全量小学构建 xiaoshengchu 的官方数据源、解析产物与已知缺口。
+> 更新：2026-09-21（数据归位 `data/primary/transition/`，按 `raw / parsed / src / scripts / dist / docs` 规整，业务级 README）。
+> 目的：记录广州 7 区全量小学构建 xiaoshengchu 的官方数据源、解析产物与已知缺口。
 > 构建规则见 `data/linkage/README.md` 第五节"xiaoshengchu 数据约束规则"。
-> 构建脚本：`scripts/primary/build_xiaoshengchu_all.py`（每区显式别名全量映射，别名+依据见脚本常量注释）。
+
+## 目录结构
+
+| 目录 | 内容 |
+| --- | --- |
+| `raw/` | 政府官方源文件（xlsx/pdf/docx/xls）与转录 json（原 `enrollments/_raw` 迁入） |
+| `parsed/` | raw 解析后的唯一真源 `2026-<区>.json`（小学招生/地段表，供构建消费） |
+| `src/` | 手工维护源文件（`_anchors.json` 官方校名→school_id 锚点） |
+| `scripts/` | 生产脚本：解析（build_district_enrollment/build_baiyun_2026/build_huangpu）、构建（build_xiaoshengchu_all + xs_resolver）、升级（upgrade_xiaoshengchu.mjs）、回填（backfill_xiaoshengchu_missing）、快照（build/check_middle_feed_snapshot） |
+| `dist/` | 最终运行时产物：`xiaoshengchu_<区>.json`、`xiaoshengchu_all.json`、`xiaoshengchu_2026.json`、`middle_feed_snapshot.json`、`schools-backfill.json` |
+| `docs/` | 业务文档（如 `xiaoshengchu_unmatched_fix_20260914.md`） |
+
+## 构建链路
+
+```bash
+python3 data/primary/transition/scripts/build_district_enrollment.py <区>   # 可选：raw → parsed/2026-<区>.json
+python3 data/primary/transition/scripts/build_xiaoshengchu_all.py all_done  # parsed/raw → dist/xiaoshengchu_<区>.json + dist/xiaoshengchu_all.json
+node    data/primary/transition/scripts/upgrade_xiaoshengchu.mjs           # dist/xiaoshengchu_all.json → dist/xiaoshengchu_2026.json（运行时真源）
+```
+
+check 链（`data/registry/group/scripts/check_groups_drift.py` 的 `_check_xiaoshengchu`）自动重跑
+build + upgrade 并与入库比对，防脚本改动未重跑产物/产物被手改。
 
 ## 就绪状态总览（构建完成）
 
 | 区 | 官方数据源（2026） | 解析产物（本次保留） | 机制 | 覆盖 POI | 官方有而 POI 缺失 |
 |---|---|---|---|---|---|
-| 越秀 | 2026 细则 post_10790590 + 2022 分组表 post_8301356 | `_raw/2026-yuexiu.json`（2022 表） | 11 组电脑派位（每组 10 初中） | 74 | 桂花岗小学（高德两轮未命中，待核） |
-| 荔湾 | 2026 公办初中招生方案 post_10791678 附件3 | `_raw/liwan_2026_a3.docx` → `_raw/liwan_2026_groups.json`（14 组） | 14 组电脑派位 | 72 | 无（协和/如意坊/沙涌/双桥/花地湾已补全或映射） |
+| 越秀 | 2026 细则 post_10790590 + 2022 分组表 post_8301356 | `raw/yuexiu_2026.json`（2022 表） | 11 组电脑派位（每组 10 初中） | 74 | 桂花岗小学（高德两轮未命中，待核） |
+| 荔湾 | 2026 公办初中招生方案 post_10791678 附件3 | `raw/liwan_2026_a3.docx` → `raw/liwan_2026_groups.json`（14 组） | 14 组电脑派位 | 72 | 无（协和/如意坊/沙涌/双桥/花地湾已补全或映射） |
 | 海珠 | 2026 初中招生问答 mpost_10799155 附件1 + 计划表 mpost_10788494 | HZ_GROUPS（10 组）/HZ_DIRECT（14 条）固化于脚本 | 10 组电脑派位 + 部分对口直升 | 97 | 大塘小学、北山小学（高德两轮未命中，待核） |
-| 天河 | 2026 招生细则 PDF（附件6 初中划片 22 所 + 附件7 企事业办 + 附件8 民办 + 附件10 电脑派位 8 校） | `_raw/tianhe_2026_official.pdf`（37MB，文字层完整，web_fetch 直接抽取，无需 OCR） | 单校划片对口直升 + 九年制直升 + 附件10 自主报名电脑派位 | 104 | 无（汇景/华颖/猎德/奥中智谷已补全） |
-| 白云 | 2026 招生计划 post_10791741 附表2 公办初中 | `_raw/baiyun_2026_official.xlsx` → `_raw/baiyun_2026_juniors.json`（59 初中） | 单校划片为主 + 多校分片/摇号 | 164 | 花城实验学校、江高镇中心小学、星悦实验学校小学部（高德两轮未命中，待核） |
-| 黄埔 | 2026 招生细则 PDF 附件5（电脑派位 7 组 + 对口直升 22 组） | `_raw/huangpu_2026_official.pdf`（19MB，文字层完整，web_fetch 直接抽取，无需 OCR） | 多校划片电脑派位 7 组 + 对口直升 22 组并行 | 93 | 铁铮学校（2026 新校）、九龙第一小学、凤尾小学（高德两轮未命中，待核）；沙步小学/知识城南暂定名（2026 口径跳过） |
-| 番禺 | 2026《招生计划、招生地段及条件》官方 xls | `_raw/panyu_2026_official.xls` → `_raw/panyu_2026_official.json`（小学地段 160 行/初中 62 行/民办 44 行/电话 12 行） | 逐校地段↔初中范围人工判定 + 市桥城区电脑派位 | 153 | 化龙镇中心小学、石碁镇永善小学、新桥小学（高德两轮未命中，待核） |
+| 天河 | 2026 招生细则 PDF（附件6 初中划片 22 所 + 附件7 企事业办 + 附件8 民办 + 附件10 电脑派位 8 校） | `raw/tianhe_2026_official.pdf`（37MB，文字层完整，web_fetch 直接抽取，无需 OCR） | 单校划片对口直升 + 九年制直升 + 附件10 自主报名电脑派位 | 104 | 无（汇景/华颖/猎德/奥中智谷已补全） |
+| 白云 | 2026 招生计划 post_10791741 附表2 公办初中 | `raw/baiyun_2026_official.xlsx` → `raw/baiyun_2026_juniors.json`（59 初中） | 单校划片为主 + 多校分片/摇号 | 164 | 花城实验学校、江高镇中心小学、星悦实验学校小学部（高德两轮未命中，待核） |
+| 黄埔 | 2026 招生细则 PDF 附件5（电脑派位 7 组 + 对口直升 22 组） | `raw/huangpu_2026_official.pdf`（19MB，文字层完整，web_fetch 直接抽取，无需 OCR） | 多校划片电脑派位 7 组 + 对口直升 22 组并行 | 93 | 铁铮学校（2026 新校）、九龙第一小学、凤尾小学（高德两轮未命中，待核）；沙步小学/知识城南暂定名（2026 口径跳过） |
+| 番禺 | 2026《招生计划、招生地段及条件》官方 xls | `raw/panyu_2026_official.xls` → `raw/panyu_2026_official.json`（小学地段 160 行/初中 62 行/民办 44 行/电话 12 行） | 逐校地段↔初中范围人工判定 + 市桥城区电脑派位 | 153 | 化龙镇中心小学、石碁镇永善小学、新桥小学（高德两轮未命中，待核） |
 
 合计 954 条记录（schools-gz 960 所中的小学类 POI，含校区拆分与民办/特教/待核条目；L3 南沙/增城/花都/从化明确不做）。
 
@@ -42,8 +64,8 @@
 
 ## 已保留解析产物（勿删）
 
-`data/primary/enrollments/_raw/` 下：liwan_2026_groups.json、liwan_2026_a3.docx、baiyun_2026_juniors.json、baiyun_2026_official.xlsx、panyu_2026_official.json、panyu_2026_official.xls、tianhe_2026_official.pdf、huangpu_2026_official.pdf。
-另有历史小学地段产物 `2026-tianhe.json`、`2026-huangpu.json`（仅小学地段表，初中无历史产物，本次已重新解析）。
+`raw/` 下：liwan_2026_groups.json、liwan_2026_a3.docx、baiyun_2026_juniors.json、baiyun_2026_official.xlsx、panyu_2026_official.json、panyu_2026_official.xls、tianhe_2026_official.pdf、huangpu_2026_official.pdf。
+另有历史小学地段产物 `parsed/2026-tianhe.json`、`parsed/2026-huangpu.json`（仅小学地段表，初中无历史产物，本次已重新解析）。
 
 ## 已知缺口（待核清单）
 

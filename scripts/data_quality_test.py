@@ -359,7 +359,7 @@ def main():
     #   2. 判断依据永远是「孤儿清单 diff」，不是数量本身：数量不变≠没变化。
     # 快照机制（与品牌卡全量回归同款）：孤儿清单 sha256 digest 固化——存量孤儿供排查
     # （每修复一所须显式更新快照），孤儿新增/变化立即失败（数据回退防线）。
-    _orphan_files = glob.glob(os.path.join(ROOT, "data/primary/enrollments/2026-*.json"))
+    _orphan_files = glob.glob(os.path.join(ROOT, "data/primary/transition/parsed/2026-*.json"))
     _pri_enroll_ids = set()
     for _f in _orphan_files:
         for _r in json.load(open(_f)).get("records", []):
@@ -369,7 +369,7 @@ def main():
         for _r in json.load(open(_f)).get("records", []):
             if _r.get("school_id"): _mid_enroll_ids.add(_r["school_id"])
             for _s in _r.get("school_ids") or []: _mid_enroll_ids.add(_s)
-    _xs_ids = {r.get("school_id") for r in json.load(open(os.path.join(ROOT, "data/primary/xiaoshengchu_2026.json"))).get("records", []) if r.get("school_id")}
+    _xs_ids = {r.get("school_id") for r in json.load(open(os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_2026.json"))).get("records", []) if r.get("school_id")}
     _rm_ids = {s.get("school_id") for s in json.load(open(os.path.join(ROOT, "data/linkage/ranking_middle.json"))).get("schools", []) if s.get("school_id")}
     _qm_names = {s.get("school") for s in json.load(open(os.path.join(ROOT, "data/linkage/quota_matrix.json"))).get("schools", []) if s.get("school")}
     # 法人行 school_ids 也算「有升学」：校区实体升学信息聚合在法人行（school_ids 数组），
@@ -473,7 +473,7 @@ def main():
     # 该检查锁定「upgrade_xiaoshengchu.mjs 已按 (group, school_id) 去重」这一不变量：
     # 任何源头新增同名/多记录，产物重复立即失败（如陶育路小学→陶育实验学校小学部
     # 合并后曾出现两条同校记录，2026-09-17 修复）。
-    _xs_records = json.load(open(os.path.join(ROOT, "data/primary/xiaoshengchu_2026.json"))).get("records", [])
+    _xs_records = json.load(open(os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_2026.json"))).get("records", [])
     _xs_keys = {}
     for _r in _xs_records:
         _sid = _r.get("school_id")
@@ -533,7 +533,7 @@ def main():
     # 要么民办学校被错配进公办招生/升学文件。
     _minban_ids16 = {s["school_id"] for s in json.load(open(os.path.join(ROOT, "data/registry/private/dist/minban_schools.json")))["schools"]}
     _bad_pri, _bad_mid, _bad_xs = [], [], []
-    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/2026-*.json"))):
+    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/transition/parsed/2026-*.json"))):
         _d = json.load(open(_f))
         for _r in _d.get("records", []):
             if _r.get("school_id") in _minban_ids16:
@@ -545,10 +545,9 @@ def main():
         for _r in _d.get("records", []):
             if _r.get("school_id") in _minban_ids16:
                 _bad_mid.append(f"{os.path.basename(_f)} | {_r.get('school', _r.get('name'))} | {_r.get('school_id')}")
-    # 综合表 data/primary/xiaoshengchu_2026.json / xiaoshengchu_all.json 也纳入；
+    # 综合表 data/primary/transition/dist/xiaoshengchu_2026.json / xiaoshengchu_all.json 也纳入；
     # 民办"不参与公办派位"缺口记录（source_note/data_gaps/group 含"民办"）属正常民办升学说明，放行。
-    for _f in (sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/xiaoshengchu_*.json")))
-               + sorted(glob.glob(os.path.join(ROOT, "data/primary/xiaoshengchu_*.json")))):
+    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_*.json"))):
         _d = json.load(open(_f))
         for _r in _d.get("records", []):
             if _r.get("school_id") in _minban_ids16:

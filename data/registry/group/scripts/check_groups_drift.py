@@ -166,23 +166,23 @@ def _check_xiaoshengchu():
     merge_all 调用）；upgrade 只做去重/分组组装，不再做名字匹配。覆盖
     build_xiaoshengchu_all.py / xs_resolver.py / upgrade_xiaoshengchu.mjs 的改动感知：
     改脚本后未重跑提交产物，或产物被手改，都会被检出。比对失败还原工作树（保留重跑前状态）。"""
-    files = [os.path.join(ROOT, "data/primary/xiaoshengchu_2026.json")]
+    files = [os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_2026.json")]
     orig = {f: open(f, encoding="utf-8").read() for f in files}
     try:
-        r = subprocess.run(["python3", os.path.join(ROOT, "scripts/primary/build_xiaoshengchu_all.py"), "all_done"],
+        r = subprocess.run(["python3", os.path.join(ROOT, "data/primary/transition/scripts/build_xiaoshengchu_all.py"), "all_done"],
                            capture_output=True, text=True, cwd=ROOT)
         if r.returncode != 0:
             _flush_ok()
-            print("生产脚本重跑失败：scripts/primary/build_xiaoshengchu_all.py all_done")
+            print("生产脚本重跑失败：data/primary/transition/scripts/build_xiaoshengchu_all.py all_done")
             print(r.stderr[-2000:])
             for f, c in orig.items():
                 open(f, "w", encoding="utf-8").write(c)
             sys.exit(1)
-        r = subprocess.run(["node", os.path.join(ROOT, "scripts/registry/upgrade_xiaoshengchu.mjs")],
+        r = subprocess.run(["node", os.path.join(ROOT, "data/primary/transition/scripts/upgrade_xiaoshengchu.mjs")],
                            capture_output=True, text=True, cwd=ROOT)
         if r.returncode != 0:
             _flush_ok()
-            print("生产脚本重跑失败：scripts/registry/upgrade_xiaoshengchu.mjs")
+            print("生产脚本重跑失败：data/primary/transition/scripts/upgrade_xiaoshengchu.mjs")
             print(r.stderr[-2000:])
             for f, c in orig.items():
                 open(f, "w", encoding="utf-8").write(c)

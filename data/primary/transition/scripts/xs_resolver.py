@@ -13,11 +13,11 @@ import os
 import re
 import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'data', 'registry', 'entity', 'scripts'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))), 'data', 'registry', 'entity', 'scripts'))
 from school_match import normName as _sm_normName  # noqa: E402  统一校名归一（entity 域统一 py 后唯一真源）
 from collections import defaultdict
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 
 AD = {'440103': '荔湾区', '440104': '越秀区', '440105': '海珠区', '440106': '天河区',
       '440111': '白云区', '440112': '黄埔区', '440113': '番禺区'}
@@ -203,10 +203,10 @@ def resolve_records(records):
 
 if __name__ == '__main__':
     # 自检：解析结果与当前 xiaoshengchu_2026.json 比对（迁移一致性验证）
-    recs = json.load(open(os.path.join(ROOT, 'data/primary/xiaoshengchu_all.json'),
+    recs = json.load(open(os.path.join(ROOT, 'data/primary/transition/dist/xiaoshengchu_all.json'),
                           encoding='utf-8'))['records']
     resolved = resolve_records(recs)
-    cur = json.load(open(os.path.join(ROOT, 'data/primary/xiaoshengchu_2026.json'),
+    cur = json.load(open(os.path.join(ROOT, 'data/primary/transition/dist/xiaoshengchu_2026.json'),
                          encoding='utf-8'))
     groups = cur['groups']
     cur_recs = []

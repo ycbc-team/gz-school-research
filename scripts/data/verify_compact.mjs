@@ -64,7 +64,28 @@ let fail = 0;
 let total = 0;
 
 function checkOne(rel, restored, trim) {
-  const jsonPath = join(DATA, rel + '.json');
+  /** 产物 rel → 真源路径（与 compact.mjs SRC_REMAP 相反；找真源用 remap 前路径） */
+const SRC_REMAP_INV = Object.fromEntries(Object.entries({
+  'primary/xiaoshengchu_2026': 'primary/transition/dist/xiaoshengchu_2026',
+  'primary/xiaoshengchu_all': 'primary/transition/dist/xiaoshengchu_all',
+  'primary/enrollments/xiaoshengchu_baiyun': 'primary/transition/dist/xiaoshengchu_baiyun',
+  'primary/enrollments/xiaoshengchu_haizhu': 'primary/transition/dist/xiaoshengchu_haizhu',
+  'primary/enrollments/xiaoshengchu_huangpu': 'primary/transition/dist/xiaoshengchu_huangpu',
+  'primary/enrollments/xiaoshengchu_liwan': 'primary/transition/dist/xiaoshengchu_liwan',
+  'primary/enrollments/xiaoshengchu_panyu': 'primary/transition/dist/xiaoshengchu_panyu',
+  'primary/enrollments/xiaoshengchu_tianhe': 'primary/transition/dist/xiaoshengchu_tianhe',
+  'primary/enrollments/xiaoshengchu_yuexiu': 'primary/transition/dist/xiaoshengchu_yuexiu',
+  'primary/enrollments/2026-baiyun': 'primary/transition/parsed/2026-baiyun',
+  'primary/enrollments/2026-haizhu': 'primary/transition/parsed/2026-haizhu',
+  'primary/enrollments/2026-huangpu': 'primary/transition/parsed/2026-huangpu',
+  'primary/enrollments/2026-liwan': 'primary/transition/parsed/2026-liwan',
+  'primary/enrollments/2026-panyu': 'primary/transition/parsed/2026-panyu',
+  'primary/enrollments/2026-tianhe': 'primary/transition/parsed/2026-tianhe',
+  'primary/enrollments/2026-yuexiu': 'primary/transition/parsed/2026-yuexiu',
+  'primary/schools-backfill': 'primary/transition/dist/schools-backfill',
+  'primary/middle_feed_snapshot': 'primary/transition/dist/middle_feed_snapshot',
+}).map(([k, v]) => [v, k]));
+const jsonPath = join(DATA, (SRC_REMAP_INV[rel] ?? rel) + '.json');
   if (!exists(jsonPath)) return;
   const original = JSON.parse(readFileSync(jsonPath, 'utf8'));
   const expected = trim ? trimKeys(original, trim) : original;

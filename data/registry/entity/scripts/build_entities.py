@@ -7,7 +7,7 @@
     { name(地图标签), lng, lat, adcode, school_id }   —— 点位固有属性：坐标、所在区
   Entity 实体表 data/registry/entity/dist/entities.json
     { school_id, name(标准名), stage, aliases[] }      —— 身份：标准名 + 全部叫法
-  Fact 事实表 data/primary/xiaoshengchu_2026.json
+  Fact 事实表 data/primary/transition/dist/xiaoshengchu_2026.json
     { school_id, group, feed_school_ids[], direct_feed_school_id, source_url, source_note, data_gaps }
 
 粒度：每个 POI（校区/学部）= 一个 Entity，1:1，school_id 即主键。

@@ -19,9 +19,9 @@ import sys
 import zipfile
 from xml.etree import ElementTree as ET
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 DATA = os.path.join(ROOT, "data", "primary")
-OUT_DIR = os.path.join(DATA, "enrollments")
+OUT_DIR = os.path.join(DATA, "parsed")
 TMP = "/tmp/gzsrc"
 
 NS = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
@@ -205,7 +205,7 @@ def rank_candidates(rec_school, poi_list):
 def parse_yuexiu(txt_path):
     # TXT 缺失时回退 _raw/yuexiu_2026.json（转录产物），保证本地可重跑
     if not os.path.exists(txt_path):
-        raw = json.load(open(os.path.join(OUT_DIR, "_raw", "yuexiu_2026.json"), encoding="utf-8"))
+        raw = json.load(open(os.path.join(DATA, "raw", "yuexiu_2026.json"), encoding="utf-8"))
         return [{
             "school": s["school"], "district": "越秀区",
             "plan_classes": s.get("plan_classes"), "zone": s.get("zone", ""),
@@ -315,7 +315,7 @@ def parse_liwan():
 
 # ---------- 海珠/天河（OCR 转录） ----------
 def parse_raw(district_key):
-    raw = json.load(open(os.path.join(OUT_DIR, "_raw", f"{district_key}_2026.json"), encoding="utf-8"))
+    raw = json.load(open(os.path.join(DATA, "raw", f"{district_key}_2026.json"), encoding="utf-8"))
     records = []
     for s in raw["schools"]:
         records.append({
@@ -336,7 +336,7 @@ def parse_panyu(xls_path):
                   for sh in wb.sheets()}
     else:
         # xls 缺失时复用 _raw 解析产物（同构：sheets 二维数组），保证本地可重跑
-        raw = json.load(open(os.path.join(OUT_DIR, "_raw", "panyu_2026_official.json"), encoding="utf-8"))
+        raw = json.load(open(os.path.join(DATA, "raw", "panyu_2026_official.json"), encoding="utf-8"))
         sheets = raw["sheets"]
     records = []
     sh = sheets.get("公办小学招生地段、计划", [])
@@ -379,13 +379,12 @@ def parse_panyu(xls_path):
 
 def load_unified_matcher():
     """统一校名匹配库（school_match.SchoolMatcher）：POI 三学段 + 实体表。供各区 build 脚本复用。"""
-    sys.path.insert(0, os.path.join(ROOT, "scripts", "registry"))
     from school_match import SchoolMatcher
     return SchoolMatcher.load(
         poi_paths=[(os.path.join(ROOT, "data", "poi", "dist", "primary_poi.json"), "小学"),
                    (os.path.join(ROOT, "data", "poi", "dist", "middle_poi.json"), "初中"),
                    (os.path.join(ROOT, "data", "poi", "dist", "high_poi.json"), "高中")],
-        entities_path=os.path.join(ROOT, "data", "registry", "entities.json"))
+        entities_path=os.path.join(ROOT, "data", "registry", "entity", "dist", "entities.json"))
 
 
 def resolve_fallback(matcher, school, adcode, poi_pool, stage="小学"):
@@ -424,7 +423,7 @@ def match_and_write(district_key, records, source, source_url):
     # 历史锚定基线（data/primary/enrollments/_anchors.json）：HEAD 各区 records 的
     # 「政府文件校名 → 实体 school_id」人工修正映射。重跑时锚定优先于一切规则，
     # 防止「省实荔湾第一小学部」「万松园小学」「康有为校本部」等历史修正被规则漂移覆盖。
-    _anchors = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "_anchors.json"), encoding="utf-8"))
+    _anchors = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))), "_anchors.json"), encoding="utf-8"))
 
     bindings = []  # (score, rec_idx, poi)
     map_fail = []

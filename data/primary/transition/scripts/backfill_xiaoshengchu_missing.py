@@ -22,9 +22,9 @@ import urllib.parse
 import urllib.request
 import ast
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-DATA = os.path.join(ROOT, "data", "primary")
-BUILD = os.path.join(ROOT, "scripts", "primary", "build_xiaoshengchu_all.py")
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+DATA = os.path.join(ROOT, "data", "primary", "transition")
+BUILD = os.path.join(ROOT, "data", "primary", "transition", "scripts", "build_xiaoshengchu_all.py")
 
 ADCODES = {
     'YX_MAP': '440104', 'LW_MAP': '440103', 'BW_MAP': '440111', 'PY_MAP': '440113',
@@ -142,7 +142,7 @@ def extract_missing():
 def main():
     dry = "--dry-run" in sys.argv
     key = load_key()
-    backfill = json.load(open(os.path.join(DATA, "schools-backfill.json"), encoding="utf-8"))
+    backfill = json.load(open(os.path.join(DATA, "dist", "schools-backfill.json"), encoding="utf-8"))
     schools = json.load(open(os.path.join(ROOT, "data", "poi", "dist", "primary_poi.json"), encoding="utf-8"))
     poi_names = {s["name"] for s in schools["schools"]}
     mids = {s["name"]: s for s in json.load(open(os.path.join(ROOT, "data", "poi", "dist", "middle_poi.json"), encoding="utf-8"))["schools"]}
@@ -225,7 +225,7 @@ def main():
                                "score": x["score"], "match_rule": x["match_rule"],
                                "note": x["note"]} for x in added + from_middle]
         backfill["updated"] = "2026-09-10"
-        json.dump(backfill, open(os.path.join(DATA, "schools-backfill.json"), "w", encoding="utf-8"),
+        json.dump(backfill, open(os.path.join(DATA, "dist", "schools-backfill.json"), "w", encoding="utf-8"),
                   ensure_ascii=False, indent=1)
     print(f"\n[补全] 高德新增 {len(added)}、中学层复用 {len(from_middle)}、待核 {len(pending)}")
     if pending:

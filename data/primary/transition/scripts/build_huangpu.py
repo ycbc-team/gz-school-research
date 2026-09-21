@@ -13,11 +13,11 @@ import json
 import os
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 sys.path.insert(0, os.path.join(ROOT, "scripts", "primary"))
 DATA = os.path.join(ROOT, "data", "primary")
-OUT = os.path.join(DATA, "enrollments", "2026-huangpu.json")
-RAW = os.path.join(DATA, "enrollments", "_raw", "huangpu_2026.json")
+OUT = os.path.join(DATA, "parsed", "2026-huangpu.json")
+RAW = os.path.join(DATA, "raw", "huangpu_2026.json")
 
 # 复用既有匹配函数与规则
 import build_district_enrollment as bde
@@ -63,7 +63,7 @@ def main():
         })
 
     # 历史锚定基线（政府文件校名 → 实体 school_id 的人工修正映射），重跑时优先于规则
-    _anchors = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "_anchors.json"), encoding="utf-8"))
+    _anchors = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))), "_anchors.json"), encoding="utf-8"))
     _matcher = bde.load_unified_matcher()
 
     bindings = []

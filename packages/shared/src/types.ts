@@ -162,7 +162,7 @@ export interface XiaoshengchuGroup {
   data_gaps: string | null;
 }
 
-/** 真源事实记录（data/primary/xiaoshengchu_2026.json 的 records，school_id 引用实体） */
+/** 真源事实记录（data/primary/transition/dist/xiaoshengchu_2026.json 的 records，school_id 引用实体） */
 export interface XiaoshengchuFactRecord {
   school_id: string;
   group_id: number;
@@ -190,7 +190,7 @@ export interface XiaoshengchuRecord {
   data_gaps: string | null;
 }
 
-/** data/primary/xiaoshengchu_2026.json */
+/** data/primary/transition/dist/xiaoshengchu_2026.json */
 export interface XiaoshengchuSnapshot {
   year: number;
   note: string;
@@ -242,7 +242,7 @@ export interface EnrollmentAmbiguous {
   compete_with: string;
 }
 
-/** data/primary/enrollments/2026-*.json */
+/** data/primary/transition/parsed/2026-*.json */
 export interface EnrollmentSnapshot {
   year: number;
   district: string;

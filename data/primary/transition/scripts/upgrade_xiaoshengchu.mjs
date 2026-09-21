@@ -20,11 +20,11 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-const ROOT = path.resolve(import.meta.dirname, '..', '..');
+const ROOT = path.resolve(import.meta.dirname, '..', '..', '..', '..');
 const read = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 const write = (p, o) => fs.writeFileSync(path.join(ROOT, p), JSON.stringify(o, null, 2) + '\n');
 
-const src = read('data/primary/xiaoshengchu_all.json');
+const src = read('data/primary/transition/dist/xiaoshengchu_all.json');
 let primaryHit = 0, feedHit = 0, feedMiss = 0;
 const outRecords = src.records.map((r) => {
   // school_id/feed_school_ids/direct_feed_school_id 由 Python xs_resolver 解析
@@ -74,7 +74,7 @@ const records = deduped.map(({ group, source_url, data_gaps, ...fact }) => {
   }
   return { ...fact, group_id: groupId, data_gaps: dataGaps };
 });
-write('data/primary/xiaoshengchu_2026.json', {
+write('data/primary/transition/dist/xiaoshengchu_2026.json', {
   year: 2026,
   note: '2026 小学→初中升学事实表。学校一律用 school_id 引用（见 entities.json）；feed_school_ids 为对口初中实体 id，feed_unresolved 为 POI 未收录的官方名（显式缺口，不模糊）。district 由 POI join。',
   groups,

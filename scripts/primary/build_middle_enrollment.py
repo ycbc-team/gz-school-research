@@ -4,9 +4,9 @@
 输出: data/primary/enrollments/middle_enrollment_2026_<district>.json
 
 数据源（按区）:
-  番禺 panyu : _raw/panyu_2026_official.json "公办初中招生范围、计划" sheet
-  白云 baiyun: _raw/baiyun_2026_juniors.json
-  荔湾 liwan : _raw/liwan_2026_groups.json（派位组）
+  番禺 panyu : raw/panyu_2026_official.json "公办初中招生范围、计划" sheet
+  白云 baiyun: raw/baiyun_2026_juniors.json
+  荔湾 liwan : raw/liwan_2026_groups.json（派位组）
   越秀/海珠/天河/黄埔: xiaoshengchu_<district>.json 反推（班数/范围 raw 未抽，留空）
 
 mechanism 枚举（区级定义，UI 据此渲染）:
@@ -17,7 +17,7 @@ mechanism 枚举（区级定义，UI 据此渲染）:
 import json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-RAW = os.path.join(ROOT, "data", "primary", "enrollments", "_raw")
+RAW = os.path.join(ROOT, "data", "primary", "transition", "raw")
 OUT = os.path.join(ROOT, "data", "primary", "enrollments")
 
 # 复用项目统一的 POI 匹配服务（data/registry/entity/scripts/school_match.py，实体表别名优先 + 行政区/学段收敛，不另起 norm 逻辑）
@@ -157,7 +157,7 @@ def build_baiyun():
         })
     return {
         "year": 2026, "district": "白云区",
-        "source": "白云区教育局 2026 公办初中招生计划（_raw/baiyun_2026_juniors.json）",
+        "source": "白云区教育局 2026 公办初中招生计划（raw/baiyun_2026_juniors.json）",
         "source_url": None,
         "mechanisms": MECHANISMS,
         "records": recs,
@@ -190,7 +190,7 @@ def build_liwan():
         recs.append(r)
     return {
         "year": 2026, "district": "荔湾区",
-        "source": "荔湾区教育局 2026 公办初中招生派位组表（_raw/liwan_2026_groups.json）",
+        "source": "荔湾区教育局 2026 公办初中招生派位组表（raw/liwan_2026_groups.json）",
         "source_url": None,
         "mechanisms": MECHANISMS,
         "records": recs,
@@ -198,7 +198,7 @@ def build_liwan():
 
 # ---------- 从 xiaoshengchu 反推（越秀/海珠/天河/黄埔） ----------
 def build_from_xiaoshengchu(district_key, district_name, adcode):
-    xs = json.load(open(os.path.join(OUT, f"xiaoshengchu_{district_key}.json")))
+    xs = json.load(open(os.path.join(ROOT, "data", "primary", "transition", "dist", f"xiaoshengchu_{district_key}.json")))
     # 初中名 -> 记录
     rec_map = {}
     # 派位组：group 名 -> 成员初中列表

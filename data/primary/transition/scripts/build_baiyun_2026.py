@@ -18,13 +18,13 @@ import sys
 
 import openpyxl
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 DATA = os.path.join(ROOT, "data", "primary")
-OUT_DIR = os.path.join(DATA, "enrollments")
-RAW_DIR = os.path.join(OUT_DIR, "_raw")
+OUT_DIR = os.path.join(DATA, "parsed")
+RAW_DIR = os.path.join(DATA, "raw")
 
 # 复用五区通用匹配规则
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 from build_district_enrollment import (  # noqa: E402
     norm_school, rank_candidates,
 )
@@ -155,7 +155,7 @@ def match_and_write(records):
 
     import build_district_enrollment as bde
     _matcher = bde.load_unified_matcher()
-    _anchors = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "_anchors.json"), encoding="utf-8"))
+    _anchors = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))), "_anchors.json"), encoding="utf-8"))
 
     bindings = []
     map_fail = []

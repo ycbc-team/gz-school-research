@@ -11,19 +11,19 @@ import json
 import os
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SNAPSHOT = os.path.join(ROOT, "data/primary/middle_feed_snapshot.json")
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+SNAPSHOT = os.path.join(ROOT, "data/primary/transition/dist/middle_feed_snapshot.json")
 
 import importlib.util  # noqa: E402
 
 spec = importlib.util.spec_from_file_location("build_middle_feed_snapshot",
-                                              os.path.join(ROOT, "scripts/build_middle_feed_snapshot.py"))
+                                              os.path.join(ROOT, "data/primary/transition/scripts/build_middle_feed_snapshot.py"))
 build_mod = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(build_mod)
 
 
 def recompute():
-    xs = build_mod.load("data/primary/xiaoshengchu_2026.json")
+    xs = build_mod.load("data/primary/transition/dist/xiaoshengchu_2026.json")
     entities = build_mod.load("data/registry/entity/dist/entities.json")
     middle = build_mod.load("data/poi/dist/middle_poi.json")
     entity_by_id = {e["school_id"]: e["name"] for e in entities["entities"]}

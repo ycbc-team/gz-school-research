@@ -16,27 +16,27 @@ POI 库无对应 → 记 data_gaps 缺口（民办/特教/并校残留/官方未
 - 黄埔：2026 招生细则附件5 小升初电脑随机派位及对口直升分组表（派位7组+直升22组）
 
 用法：python3 scripts/primary/build_xiaoshengchu_all.py <区:yuexiu|liwan|baiyun|panyu|haizhu|tianhe|huangpu|all_done>
-输出：data/primary/enrollments/xiaoshengchu_<区>.json + data/primary/xiaoshengchu_all.json（汇总）
+输出：data/primary/transition/dist/xiaoshengchu_<区>.json + data/primary/transition/dist/xiaoshengchu_all.json（汇总）
 """
 import json
 import os
 import re
 import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'data', 'registry', "entity", 'scripts'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))), 'data', 'registry', "entity", 'scripts'))
 from school_match import normName, resolve_primary_entities  # noqa: E402  统一校名匹配（实体表别名+规则）
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-DATA = os.path.join(ROOT, 'data', 'primary')
-RAW = os.path.join(DATA, 'enrollments', '_raw')
-OUT_DIR = os.path.join(DATA, 'enrollments')
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+DATA = os.path.join(ROOT, 'data', 'primary', 'transition')
+RAW = os.path.join(DATA, 'raw')
+OUT_DIR = os.path.join(DATA, 'dist')
 
 
 def load_entities_primary():
     """primary 实体 + POI join 区码（district 由 POI.adcode 提供）。"""
     poi_by_sid = {p['school_id']: p for p in load_poi() if p.get('school_id')}
     out = []
-    for e in json.load(open(os.path.join(ROOT, 'data', 'registry', 'entities.json'), encoding='utf-8'))['entities']:
+    for e in json.load(open(os.path.join(ROOT, 'data', 'registry', 'entity', 'dist', 'entities.json'), encoding='utf-8'))['entities']:
         if e['stage'] != 'primary':
             continue
         p = poi_by_sid.get(e['school_id'])
@@ -1966,7 +1966,7 @@ def merge_all():
     # upgrade 只做去重/分组组装，不再做名字匹配；运行时（xiaoshengchu_2026.json）只依赖 school_id
     from xs_resolver import resolve_records
     merged = resolve_records(merged)
-    out_path = os.path.join(DATA, 'xiaoshengchu_all.json')
+    out_path = os.path.join(DATA, 'dist', 'xiaoshengchu_all.json')
     json.dump({'year': 2026, 'records': merged},
               open(out_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(f'[汇总] 共 {len(merged)} 条记录 → {out_path}')

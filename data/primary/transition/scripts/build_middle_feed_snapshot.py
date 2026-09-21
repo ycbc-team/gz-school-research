@@ -11,7 +11,7 @@ Python 复刻：xiaoshengchu 事实表反查 + entities 小学名校名解析）
 import json
 import os
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 
 
 def load(rel):
@@ -20,7 +20,7 @@ def load(rel):
 
 
 def main():
-    xs = load("data/primary/xiaoshengchu_2026.json")
+    xs = load("data/primary/transition/dist/xiaoshengchu_2026.json")
     entities = load("data/registry/entity/dist/entities.json")
     middle = load("data/poi/dist/middle_poi.json")
 
@@ -54,7 +54,7 @@ def main():
         "note": "全部初中 POI → 生源小学（详情页招生计划视图基线；由 build_middle_feed_snapshot.py 生成，勿手改）",
         "schools": {p["school_id"]: feeds.get(p["school_id"], []) for p in middle["schools"] if p.get("school_id")},
     }
-    out = os.path.join(ROOT, "data/primary/middle_feed_snapshot.json")
+    out = os.path.join(ROOT, "data/primary/transition/dist/middle_feed_snapshot.json")
     with open(out, "w", encoding="utf-8") as f:
         json.dump(snapshot, f, ensure_ascii=False, indent=2, sort_keys=True)
     n = sum(1 for v in snapshot["schools"].values() if v)

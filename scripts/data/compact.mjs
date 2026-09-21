@@ -26,7 +26,7 @@ const OUT_ESM = process.argv[4] || join(ROOT, 'apps', 'web', 'src', 'data', 'com
 
 /** 高重复值字段 → 字典化（值唯一数少才启用）；listDicts 为数组元素字典（如 feed_school_ids 实体 id 列表） */
 const DICT_SPEC = {
-  'data/primary/xiaoshengchu_2026.json': {
+  'data/primary/transition/dist/xiaoshengchu_2026.json': {
     dicts: ['group', 'source_url'],
     listDicts: ['feed_school_ids'],
   },
@@ -39,7 +39,7 @@ const DICT_SPEC = {
  */
 const MP_TRIM = {
   // 主包地图页/信息卡不消费 source_note（~90KB）与 source_url（详情页分包用全量产物）
-  'data/primary/xiaoshengchu_2026.json': ['source_note', 'source_url'],
+  'data/primary/transition/dist/xiaoshengchu_2026.json': ['source_note', 'source_url'],
 };
 
 /**
@@ -71,7 +71,7 @@ const WEB_TARGETS = walkJson(DATA_SRC)
 const MP_MAIN_TARGETS = [
   'data/poi/dist/primary_poi.json',
   'data/primary/tier1_schools_all.json',
-  'data/primary/xiaoshengchu_2026.json',
+  'data/primary/transition/dist/xiaoshengchu_2026.json',
   'data/primary/middle_enroll_notes.json',
   'data/poi/dist/middle_poi.json',
   'data/middle/tier1_schools_all.json',
@@ -79,13 +79,13 @@ const MP_MAIN_TARGETS = [
   'data/high/level/src/levels.json',
   'data/high/cutoff_score/dist/scores_2025.json',
   'data/high/cutoff_score/dist/scores_2026.json',
-  'data/primary/enrollments/2026-tianhe.json',
-  'data/primary/enrollments/2026-yuexiu.json',
-  'data/primary/enrollments/2026-haizhu.json',
-  'data/primary/enrollments/2026-liwan.json',
-  'data/primary/enrollments/2026-panyu.json',
-  'data/primary/enrollments/2026-baiyun.json',
-  'data/primary/enrollments/2026-huangpu.json',
+  'data/primary/transition/parsed/2026-tianhe.json',
+  'data/primary/transition/parsed/2026-yuexiu.json',
+  'data/primary/transition/parsed/2026-haizhu.json',
+  'data/primary/transition/parsed/2026-liwan.json',
+  'data/primary/transition/parsed/2026-panyu.json',
+  'data/primary/transition/parsed/2026-baiyun.json',
+  'data/primary/transition/parsed/2026-huangpu.json',
   'data/registry/entity/dist/entities.json',
 ];
 // 小程序分包数据（school-detail 详情页专用）：升学通道/身份/品牌/教育集团
@@ -204,7 +204,32 @@ for (const dir of [OUT_CJS_MAIN, OUT_CJS_SUB, OUT_ESM]) {
 /** 编译单个真源文件到目标目录，fmt: 'cjs' | 'esm'；opts.trim 仅主包列裁剪 */
 function emit(file, outDir, fmt, opts = {}) {
   const abs = join(ROOT, file);
-  const relPath = relative(DATA_SRC, abs);
+  /**
+ * 数据源归位 data/primary/transition 后，产物 rel 保持历史稳定（前端 import 不变）：
+ * 输入真源路径 → 输出 rel 路径（相对 data/）
+ */
+const SRC_REMAP = {
+  'primary/transition/dist/xiaoshengchu_2026': 'primary/xiaoshengchu_2026',
+  'primary/transition/dist/xiaoshengchu_all': 'primary/xiaoshengchu_all',
+  'primary/transition/dist/xiaoshengchu_baiyun': 'primary/enrollments/xiaoshengchu_baiyun',
+  'primary/transition/dist/xiaoshengchu_haizhu': 'primary/enrollments/xiaoshengchu_haizhu',
+  'primary/transition/dist/xiaoshengchu_huangpu': 'primary/enrollments/xiaoshengchu_huangpu',
+  'primary/transition/dist/xiaoshengchu_liwan': 'primary/enrollments/xiaoshengchu_liwan',
+  'primary/transition/dist/xiaoshengchu_panyu': 'primary/enrollments/xiaoshengchu_panyu',
+  'primary/transition/dist/xiaoshengchu_tianhe': 'primary/enrollments/xiaoshengchu_tianhe',
+  'primary/transition/dist/xiaoshengchu_yuexiu': 'primary/enrollments/xiaoshengchu_yuexiu',
+  'primary/transition/parsed/2026-baiyun': 'primary/enrollments/2026-baiyun',
+  'primary/transition/parsed/2026-haizhu': 'primary/enrollments/2026-haizhu',
+  'primary/transition/parsed/2026-huangpu': 'primary/enrollments/2026-huangpu',
+  'primary/transition/parsed/2026-liwan': 'primary/enrollments/2026-liwan',
+  'primary/transition/parsed/2026-panyu': 'primary/enrollments/2026-panyu',
+  'primary/transition/parsed/2026-tianhe': 'primary/enrollments/2026-tianhe',
+  'primary/transition/parsed/2026-yuexiu': 'primary/enrollments/2026-yuexiu',
+  'primary/transition/dist/schools-backfill': 'primary/schools-backfill',
+  'primary/transition/dist/middle_feed_snapshot': 'primary/middle_feed_snapshot',
+};
+const relRaw = relative(DATA_SRC, abs); // 真源 rel（含 .json，注释/统计用）
+const relPath = (SRC_REMAP[relRaw.replace(/\.json$/, '')] ?? relRaw.replace(/\.json$/, '')) + '.json'; // 输出 rel（remap 后保持历史路径）
   const json = JSON.parse(readFileSync(abs, 'utf8'));
   const spec = DICT_SPEC[file] || {};
   const compact = compileValue(json, {
@@ -216,9 +241,9 @@ function emit(file, outDir, fmt, opts = {}) {
   const out = join(outDir, relPath.replace(/\.json$/, '.js'));
   mkdirSync(dirname(out), { recursive: true });
   if (fmt === 'cjs') {
-    writeFileSync(out, '// 由 scripts/data/compact.mjs 从 data/' + relPath + ' 编译（紧凑列式），勿手改\nmodule.exports = ' + literal + ';\n', 'utf8');
+    writeFileSync(out, '// 由 scripts/data/compact.mjs 从 data/' + relRaw + ' 编译（紧凑列式），勿手改\nmodule.exports = ' + literal + ';\n', 'utf8');
   } else {
-    writeFileSync(out, '// 由 scripts/data/compact.mjs 从 data/' + relPath + ' 编译（紧凑列式），勿手改\nconst data = ' + literal + ';\nexport default data;\n', 'utf8');
+    writeFileSync(out, '// 由 scripts/data/compact.mjs 从 data/' + relRaw + ' 编译（紧凑列式），勿手改\nconst data = ' + literal + ';\nexport default data;\n', 'utf8');
     writeFileSync(out.replace(/\.js$/, '.d.ts'), 'declare const data: unknown;\nexport default data;\n', 'utf8');
   }
   return { file: relPath, jsonKB: readFileSync(abs, 'utf8').length / 1024, jsKB: readFileSync(out, 'utf8').length / 1024 };
