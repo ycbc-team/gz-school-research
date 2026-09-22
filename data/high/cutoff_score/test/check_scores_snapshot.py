@@ -21,7 +21,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 DIST = os.path.join(ROOT, "data/high/cutoff_score/dist")
-SNAPSHOT = os.path.join(DIST, "scores_snapshot.json")
+SNAPSHOT = os.path.join(ROOT, "data/high/cutoff_score/test/snapshots/scores_snapshot.json")
 BUILD = os.path.join(ROOT, "data/high/cutoff_score/scripts/build_scores.py")
 TMP = os.path.join(__import__("tempfile").gettempdir(), "scores_snapshot_repro")
 YEARS = ("2025", "2026")

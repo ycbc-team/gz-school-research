@@ -4,11 +4,11 @@ import importlib.util
 import pathlib
 import unittest
 
-HERE = pathlib.Path(__file__).resolve().parent
+SCRIPTS = pathlib.Path(__file__).resolve().parent.parent / "scripts"  # 被测模块在 poi/scripts/
 
 
 def load(name):
-    spec = importlib.util.spec_from_file_location(name, HERE / f"{name}.py")
+    spec = importlib.util.spec_from_file_location(name, SCRIPTS / f"{name}.py")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module

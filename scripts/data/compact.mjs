@@ -228,7 +228,6 @@ const SRC_REMAP = {
   'primary/enrollment/dist/2026-yuexiu': 'primary/enrollments/2026-yuexiu',
   'primary/transition/dist/schools-backfill': 'primary/schools-backfill',
   'primary/transition/src/middle_enroll_notes': 'primary/middle_enroll_notes',
-  'primary/transition/dist/middle_feed_snapshot': 'primary/middle_feed_snapshot',
 };
 const relRaw = relative(DATA_SRC, abs); // 真源 rel（含 .json，注释/统计用）
 const relPath = (SRC_REMAP[relRaw.replace(/\.json$/, '')] ?? relRaw.replace(/\.json$/, '')) + '.json'; // 输出 rel（remap 后保持历史路径）

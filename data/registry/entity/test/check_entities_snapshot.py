@@ -21,7 +21,7 @@ import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-SNAPSHOT = os.path.join(ROOT, "data/registry/entity/dist/entities_snapshot.json")
+SNAPSHOT = os.path.join(ROOT, "data/registry/entity/test/snapshots/entities_snapshot.json")
 BUILD = os.path.join(ROOT, "data/registry/entity/scripts/build_entities.py")
 TMP = os.path.join(__import__("tempfile").gettempdir(), "entities_snapshot_repro")
 POI_STAGES = ("primary", "middle", "high")

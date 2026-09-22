@@ -54,7 +54,7 @@ def main():
         "note": "全部初中 POI → 生源小学（详情页招生计划视图基线；由 build_middle_feed_snapshot.py 生成，勿手改）",
         "schools": {p["school_id"]: feeds.get(p["school_id"], []) for p in middle["schools"] if p.get("school_id")},
     }
-    out = os.path.join(ROOT, "data/primary/transition/dist/middle_feed_snapshot.json")
+    out = os.path.join(ROOT, "data/primary/transition/test/snapshots/middle_feed_snapshot.json")
     with open(out, "w", encoding="utf-8") as f:
         json.dump(snapshot, f, ensure_ascii=False, indent=2, sort_keys=True)
     n = sum(1 for v in snapshot["schools"].values() if v)

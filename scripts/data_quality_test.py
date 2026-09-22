@@ -420,7 +420,7 @@ def main():
     # 快照（2026-09-22 由 digest 改为文件清单 diff——digest 只能报「变了」看不出哪所
     # 学校增删；基线存 data/registry/entity/dist/orphans_snapshot.json，漂移逐条列出
     # +新增 / -移除。新增孤儿须立即排查来源，修复后 UPDATE_SNAPSHOT=1 显式更新基线。
-    _ORPHAN_SNAP = os.path.join(ROOT, "data/registry/entity/dist/orphans_snapshot.json")
+    _ORPHAN_SNAP = os.path.join(ROOT, "data/registry/entity/test/snapshots/orphans_snapshot.json")
     if os.environ.get("UPDATE_SNAPSHOT") == "1":
         json.dump(_orphan_rows, open(_ORPHAN_SNAP, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         print(f"[11] UPDATE_SNAPSHOT=1：孤儿快照已写入 {os.path.relpath(_ORPHAN_SNAP, ROOT)}（{len(_orphan_rows)} 所）")
@@ -506,7 +506,7 @@ def main():
     _co_rows = [f"{_p[1]}|{_p[2]}|{_p[3]}|{_p[5]}|{_p[6]}" for _p in _co_pairs]
     # 快照（2026-09-22 由 digest 改为文件清单 diff）：基线存
     # data/registry/entity/dist/co_located_snapshot.json，漂移逐条列出 +新增 / -移除。
-    _CO_SNAP = os.path.join(ROOT, "data/registry/entity/dist/co_located_snapshot.json")
+    _CO_SNAP = os.path.join(ROOT, "data/registry/entity/test/snapshots/co_located_snapshot.json")
     if os.environ.get("UPDATE_SNAPSHOT") == "1":
         json.dump(_co_rows, open(_CO_SNAP, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         print(f"[12] UPDATE_SNAPSHOT=1：同址候选快照已写入 {os.path.relpath(_CO_SNAP, ROOT)}（{len(_co_rows)} 组）")
@@ -529,7 +529,7 @@ def main():
     _minban_ids = sorted(s["school_id"] for s in _minban["schools"])
     # 快照（2026-09-22 由 digest 改为文件清单 diff）：基线存
     # data/registry/private/dist/minban_snapshot.json，漂移逐条列出 +新增 / -移除。
-    _MINBAN_SNAP = os.path.join(ROOT, "data/registry/private/dist/minban_snapshot.json")
+    _MINBAN_SNAP = os.path.join(ROOT, "data/registry/private/test/snapshots/minban_snapshot.json")
     if os.environ.get("UPDATE_SNAPSHOT") == "1":
         json.dump(_minban_ids, open(_MINBAN_SNAP, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         print(f"[15] UPDATE_SNAPSHOT=1：民办名单快照已写入 {os.path.relpath(_MINBAN_SNAP, ROOT)}（{len(_minban_ids)} 所）")

@@ -12,12 +12,12 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-SNAPSHOT = os.path.join(ROOT, "data/primary/transition/dist/middle_feed_snapshot.json")
+SNAPSHOT = os.path.join(ROOT, "data/primary/transition/test/snapshots/middle_feed_snapshot.json")
 
 import importlib.util  # noqa: E402
 
 spec = importlib.util.spec_from_file_location("build_middle_feed_snapshot",
-                                              os.path.join(ROOT, "data/primary/transition/scripts/build_middle_feed_snapshot.py"))
+                                              os.path.join(ROOT, "data/primary/transition/test/build_middle_feed_snapshot.py"))
 build_mod = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(build_mod)
 

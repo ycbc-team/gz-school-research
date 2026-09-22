@@ -23,8 +23,8 @@ import os
 import subprocess
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SNAPSHOT = os.path.join(ROOT, "data/linkage/special_matrix_snapshot.json")
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))  # data/linkage/test → ROOT
+SNAPSHOT = os.path.join(ROOT, "data/linkage/test/snapshots/special_matrix_snapshot.json")
 PROD = os.path.join(ROOT, "data/linkage/special_matrix.json")
 TMP = os.path.join(__import__("tempfile").gettempdir(), "special_matrix_repro.json")
 PLAN_TMP = os.path.join(__import__("tempfile").gettempdir(), "plan_special_repro.json")

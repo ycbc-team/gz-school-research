@@ -69,7 +69,7 @@ def _check_special_matrix():
     后变 null 即现场证据）；快照测试对比"重跑产物的业务信息"与独立基线
     （data/linkage/special_matrix_snapshot.json，含名单→实体 / 计划数 / 项目清单），
     业务信息变化显式暴露，须 --update-snapshot 显式更新基线（数据变更=正常迭代）。"""
-    r = subprocess.run(["python3", os.path.join(ROOT, "scripts/linkage/check_special_matrix_snapshot.py")],
+    r = subprocess.run(["python3", os.path.join(ROOT, "data/linkage/test/check_special_matrix_snapshot.py")],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
         _flush_ok()
@@ -96,7 +96,7 @@ def _check_build_scores():
     替代字节全等"重跑 vs 入库"（入库被 bug 污染时自我一致通过）；对比重跑产物的
     [学校: 分数线/批次] 业务快照与独立基线（data/high/cutoff_score/dist/scores_snapshot.json），
     分数/批次变化显式暴露，须 --update-snapshot 显式更新基线（数据变更=正常迭代）。"""
-    r = subprocess.run(["python3", os.path.join(ROOT, "data/high/cutoff_score/scripts/check_scores_snapshot.py")],
+    r = subprocess.run(["python3", os.path.join(ROOT, "data/high/cutoff_score/test/check_scores_snapshot.py")],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
         _flush_ok()
@@ -142,7 +142,7 @@ def _check_build_entities():
     （data/registry/entity/dist/entities_snapshot.json），实体/别名/关联变化显式暴露，
     须 --update-snapshot 显式更新基线（数据变更=正常迭代；坐标等噪音不入快照）。
     民办名单（minban_schools.json）与实体表/POI 的联动仍受本检查约束。"""
-    r = subprocess.run(["python3", os.path.join(ROOT, "data/registry/entity/scripts/check_entities_snapshot.py")],
+    r = subprocess.run(["python3", os.path.join(ROOT, "data/registry/entity/test/check_entities_snapshot.py")],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
         _flush_ok()

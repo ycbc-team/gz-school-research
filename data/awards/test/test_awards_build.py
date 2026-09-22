@@ -10,7 +10,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[3]  # data/awards/test → ROOT
 HUAYING = "gz-440106-dab5b807"
 TIANHE_FOREIGN = {"gz-440106-069ddb41", "gz-440106-b711d94a"}
 XIAOBEI = {"gz-440104-d5497b4b", "gz-440104-98359a64", "gz-440104-4ebbaf83", "gz-440104-1b6d4b9c"}
