@@ -13400,7 +13400,7 @@
    "data_gaps": null
   },
   {
-   "school_id": "gz-440112-61ff74b5",
+   "school_id": "gz-440112-7fa7476a",
    "group": "黄埔区公办初中电脑派位第6组（多校划片）",
    "feed_school_ids": [
     "gz-440112-0aa66950",
@@ -14096,7 +14096,7 @@
    "data_gaps": "官方 2026 年招生文件未单列（名称疑为早期记录），待核。"
   },
   {
-   "school_id": "gz-440112-30388f7c",
+   "school_id": "gz-440112-cf50e275",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
    "feed_unresolved": [],
@@ -14146,7 +14146,7 @@
    "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
   },
   {
-   "school_id": "gz-440112-e129e117",
+   "school_id": null,
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
    "feed_unresolved": [],
@@ -14186,7 +14186,7 @@
    "data_gaps": "民办（附件8 #6 国光学校）。"
   },
   {
-   "school_id": "gz-440112-e129e117",
+   "school_id": "gz-440112-68f9ff36",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
    "feed_unresolved": [],
@@ -14196,7 +14196,7 @@
    "data_gaps": "官方 2026 年招生文件未单列\"黄埔实验学校\"，待核。"
   },
   {
-   "school_id": "gz-440112-e129e117",
+   "school_id": null,
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
    "feed_unresolved": [],

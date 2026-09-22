@@ -154,6 +154,15 @@ DROP_CAMPUS = [
     '西村小学',            # 已撤并
     '黄埔利民艺体实验学校',  # 已终止办学注销
     '黄埔区莲塘中小学生劳动教育基地',  # 非招生办学（劳动实践研学基地）
+    # 2026-09-22 用户确认：
+    # 玉泉学校（本部=南校区）只有初中不招小学 → 仅小学段剔（middle 保留，官方附件7 玉泉学校 24 班）
+    'primary|玉泉学校',
+    # 黄埔实验学校小学部 = 广东省教育研究院黄埔实验学校（小学部）= 黄埔区玉山学校（南、北校区一起招生）
+    '黄埔实验学校小学部',
+    # 2017 官方地段（用户提供 0410310219yn.pdf）：25 东区小学（笔岗+东区社区）→ 2026 广东外语外贸大学附属黄埔实验学校承继
+    '广州市黄埔区东区小学',
+    # 2017 官方地段：40 禾丰小学（禾丰居委）→ 2026 开元学校（西校区）承继（含禾丰社区）
+    '广州市黄埔区禾丰小学',
     '黄埔海地实验学校',      # 原校名停用（2026 官方小学/民办表均无；26 南岗小学招海地社区）
     # 2026-09-22 用户确认：广州市第四十七中汇景实验学校（47 中汇景实验）为旧名，
     # 现官方全称「广州市天河区汇景实验学校」（九年一贯，中学部即初中部）——
@@ -178,7 +187,10 @@ DROP_CAMPUS = [
 ]
 
 
-def isDropCampus(name):
+def isDropCampus(name, stage=None):
+    # 条目支持 'primary|POI名' stage 限定（如玉泉学校本部仅小学段剔）；无前缀则全表剔
+    if stage and (stage + '|' + name) in DROP_CAMPUS:
+        return True
     return name in DROP_CAMPUS
 
 
@@ -519,6 +531,12 @@ REMOVED_POI_ALIAS = {
     # 2026-09-22 用户确认撤并承继：佛塱学校→何棠下小学（佛塱校区）、埔心学校→何棠下小学（埔心校区）；
     # 埔心有官方佐证（附件4 82 何棠下小学含埔心行政村），佛塱按用户指示（官方 94 佛塱行政村归九龙第一小学）
     'primary|佛塱学校': '何棠下小学',
+    # 2026-09-22 用户确认：黄埔实验学校小学部 = 广东省教育研究院黄埔实验学校（小学部，南校区）
+    'primary|黄埔实验学校小学部': '广东省教育研究院黄埔实验学校',
+    # 2026-09-22 官方承继：东区小学（2017 序号25 笔岗+东区社区）→ 广东外语外贸大学附属黄埔实验学校（2026 附件4 62 同地段）
+    'primary|广州市黄埔区东区小学': '广东外语外贸大学附属黄埔实验学校',
+    # 2026-09-22 官方承继：禾丰小学（2017 序号40 禾丰居委）→ 开元学校（西校区）（2026 附件4 48 含禾丰社区）
+    'primary|广州市黄埔区禾丰小学': '开元学校（西校区）',
     'primary|埔心学校': '何棠下小学',
     # 2026-09-22 用户确认：47 中汇景实验（旧名）→ 天河区汇景实验学校（现官方全称，中学部即初中部）
     'middle|广州市第四十七中汇景实验学校(中学部)': '广州市天河区汇景实验学校',
@@ -814,7 +832,7 @@ for _stage, _file in stageFiles.items():
     _j = read(_file)
     _pois = _j.get('schools', _j) if isinstance(_j, dict) else _j
     for p in _pois:
-        if isNonSchoolPoi(p.get('name')) or isNonMiddleCampus(_stage, p.get('name')) or isDropCampus(p.get('name')):
+        if isNonSchoolPoi(p.get('name')) or isNonMiddleCampus(_stage, p.get('name')) or isDropCampus(p.get('name'), _stage):
             continue
         _st = stageFixOf(_stage, p)  # 学段修正：middle 误建 → 按正确 stage 统计
         pn0 = POI_NAME_FIX.get(p.get('name'), p.get('name'))  # 规范化实体名（统计与建实体口径一致）
@@ -829,7 +847,7 @@ for _stage, _file in stageFiles.items():
     _j = read(_file)
     _pois = _j.get('schools', _j) if isinstance(_j, dict) else _j
     for p in _pois:
-        if isNonSchoolPoi(p.get('name')) or isNonMiddleCampus(_stage, p.get('name')) or isDropCampus(p.get('name')):
+        if isNonSchoolPoi(p.get('name')) or isNonMiddleCampus(_stage, p.get('name')) or isDropCampus(p.get('name'), _stage):
             continue
         pn = POI_NAME_FIX.get(p.get('name'), p.get('name'))  # 规范化实体名（POI 原名仅用于 idKey/回写查表）
         _st = stageFixOf(_stage, p)  # 学段修正：middle 误建 → 按正确 stage 建实体（POI 数据随迁）
@@ -1004,6 +1022,11 @@ for k, poi in REMOVED_POI_ALIAS.items():
         aliasHit += 1
     else:
         print('  [被删点位别名未命中POI]', official, '->', poi)
+# 2017 官方裸名承继（用户提供 2017 地段表：东区小学/禾丰小学；2026 官方承接校挂旧名）
+if attachAlias('primary', '广东外语外贸大学附属黄埔实验学校', '东区小学', True):
+    aliasHit += 1
+if attachAlias('primary', '开元学校（西校区）', '禾丰小学', True):
+    aliasHit += 1
 # 金盆学校（民间俗称 POI，实体经 POI_NAME_FIX 归为「良田第三小学(金盆校区)」，点位保留）：
 # POI 原名挂为实体别名，否则 §7 POI 自我匹配 resolve("金盆学校") 回不到自身（gz-440111-7f478da2）
 if attachAlias('primary', '良田第三小学(金盆校区)', '金盆学校'):
@@ -1023,6 +1046,7 @@ EXTRA_ENTITY_ALIAS = {
     'gz-440105-b210556b': ['四十一中'],  # 广州市第四十一中学(东校区)：榜单记录所在（POI 仅"广州市第四十一中学"40a80ebb，榜单未收录）
     'gz-440111-218475ea': ['65中本部初中'],    # 广州市第六十五中学(江高校区)：机构确认本部=江高（无 POI/榜单数据，排序不生效属数据缺口）
     'gz-440111-730c7404': ['培英中学（云城校区）'],  # 广州市培英中学(云城校区)：实体存在（stage=high），无 POI/榜单数据，排序不生效属数据缺口
+    'gz-440112-68f9ff36': ['黄埔区玉山学校'],  # 广东省教育研究院黄埔实验学校：旧名（用户 2026-09-22 确认 = 黄埔区玉山学校）
 }
 for sid, als in EXTRA_ENTITY_ALIAS.items():
     e = next((x for x in entities if x['school_id'] == sid), None)
@@ -1321,7 +1345,7 @@ for stage, file in stageFiles.items():
     kept = []
     seenPoiSid = set()  # 同 (stage, school_id) 重复点位去重（实体表同 id 唯一）
     for p in (j.get('schools', j) if isinstance(j, dict) else j):
-        if isNonMiddleCampus(stage, p.get('name')) or isDropCampus(p.get('name')):
+        if isNonMiddleCampus(stage, p.get('name')) or isDropCampus(p.get('name'), stage):
             continue  # 纯高中校区/冗余点位删除
         _st = stageFixOf(stage, p)
         if _st != stage:  # 学段修正：从本表迁出（如 middle→high/primary），目标表追加

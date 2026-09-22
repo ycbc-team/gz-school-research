@@ -1843,7 +1843,9 @@
       "school_id": "gz-440112-cf50e275",
       "name": "广东外语外贸大学附属黄埔实验学校",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "东区小学"
+      ]
     },
     {
       "school_id": "gz-440106-0eb93435",
@@ -1933,7 +1935,10 @@
       "school_id": "gz-440112-68f9ff36",
       "name": "广东省教育研究院黄埔实验学校",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "黄埔实验学校小学部",
+        "玉山学校"
+      ]
     },
     {
       "school_id": "gz-440112-22ec4fcc",
@@ -3215,14 +3220,6 @@
       "nature": "民办"
     },
     {
-      "school_id": "gz-440112-30388f7c",
-      "name": "广州市黄埔区东区小学",
-      "stage": "primary",
-      "aliases": [
-        "东区小学"
-      ]
-    },
-    {
       "school_id": "gz-440112-4c58f86c",
       "name": "广州市黄埔区东荟花园小学(东校区)",
       "stage": "primary",
@@ -3295,14 +3292,6 @@
       "stage": "primary",
       "aliases": [
         "玉树小学"
-      ]
-    },
-    {
-      "school_id": "gz-440112-61ff74b5",
-      "name": "广州市黄埔区禾丰小学",
-      "stage": "primary",
-      "aliases": [
-        "禾丰小学"
       ]
     },
     {
@@ -4741,12 +4730,6 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440112-12b0184b",
-      "name": "玉泉学校",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440112-04db6ee7",
       "name": "玉泉学校东校区",
       "stage": "primary",
@@ -6112,12 +6095,6 @@
       "nature": "民办"
     },
     {
-      "school_id": "gz-440112-e129e117",
-      "name": "黄埔实验学校小学部",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440105-91815d7d",
       "name": "黄埔小学",
       "stage": "primary",
@@ -6791,7 +6768,9 @@
       "school_id": "gz-440112-7fa7476a",
       "name": "开元学校（西校区）",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "禾丰小学"
+      ]
     },
     {
       "school_id": "gz-440112-11ed4c6c",
