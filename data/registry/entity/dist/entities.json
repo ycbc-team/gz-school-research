@@ -46,12 +46,6 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440113-31556d10",
-      "name": "三善小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440105-1d12ba8a",
       "name": "三滘小学",
       "stage": "primary",
@@ -551,12 +545,6 @@
       "stage": "primary",
       "aliases": [],
       "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-4872edf9",
-      "name": "低涌小学",
-      "stage": "primary",
-      "aliases": []
     },
     {
       "school_id": "gz-440106-fafdbff4",
@@ -2060,12 +2048,6 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440113-db149c4c",
-      "name": "广东番禺中学附属学校-番中附小",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440112-68f9ff36",
       "name": "广东省教育研究院黄埔实验学校",
       "stage": "primary",
@@ -2873,14 +2855,6 @@
       "stage": "primary",
       "aliases": [
         "番广附创新城学校"
-      ]
-    },
-    {
-      "school_id": "gz-440113-2492082f",
-      "name": "广州市番禺区石楼镇赤山东小学",
-      "stage": "primary",
-      "aliases": [
-        "石楼镇赤山东小学"
       ]
     },
     {
@@ -4221,12 +4195,6 @@
       ]
     },
     {
-      "school_id": "gz-440113-bb3711d6",
-      "name": "明德实验小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440111-c5b02b25",
       "name": "明德小学(富康校区)",
       "stage": "primary",
@@ -5401,18 +5369,6 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440113-5a4d80a3",
-      "name": "石楼镇沙南小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-073678d5",
-      "name": "石楼镇胜洲小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440111-19852a22",
       "name": "石湖小学",
       "stage": "primary",
@@ -5740,12 +5696,6 @@
     {
       "school_id": "gz-440112-8e7fbeef",
       "name": "茅岗小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-3bee02e6",
-      "name": "茭塘小学",
       "stage": "primary",
       "aliases": []
     },

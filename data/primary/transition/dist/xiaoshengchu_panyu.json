@@ -14,17 +14,6 @@
    "data_gaps": null
   },
   {
-   "name": "广东番禺中学附属学校-番中附小",
-   "group": "番禺区小升初对口（单校（小区配建））",
-   "feed_junior_highs": [
-    "广东番禺中学附属学校"
-   ],
-   "direct_feed": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 桥南街保利香逸等8小区业主子女",
-   "data_gaps": null
-  },
-  {
    "name": "市桥北城小学",
    "group": "番禺区小升初对口（市桥城区电脑派位（多校））",
    "feed_junior_highs": [
@@ -1503,18 +1492,6 @@
    "data_gaps": null
   },
   {
-   "name": "傍东小学(后门)",
-   "group": "番禺区小升初对口（多校（股民/非股民））",
-   "feed_junior_highs": [
-    "广东仲元中学二校区（初中部）",
-    "大龙中学"
-   ],
-   "direct_feed": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 傍江东村股民及股民子女→仲元二校区优先；余下→大龙中学",
-   "data_gaps": null
-  },
-  {
    "name": "金山学校",
    "group": "番禺区小升初对口（单校）",
    "feed_junior_highs": [
@@ -1835,15 +1812,6 @@
    "data_gaps": "民办学校（九年制），不参与公办派位"
   },
   {
-   "name": "三善小学",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "2026官方公办小学表未列（沙湾三善村），待核"
-  },
-  {
    "name": "京师奥园南奥实验学校",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
@@ -1862,13 +1830,13 @@
    "data_gaps": "民办学校（九年制），不参与公办派位"
   },
   {
-   "name": "低涌小学",
+   "name": "加拿达外国语学校(剑桥郡校区)",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
    "direct_feed": null,
    "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
    "source_note": "民办/其他。",
-   "data_gaps": "2026官方公办小学表未列（低涌村户籍初中对口石碁第四中学），待核"
+   "data_gaps": "民办学校（九年制），不参与公办派位"
   },
   {
    "name": "化龙大博学校(小学部)",
@@ -2006,15 +1974,6 @@
    "data_gaps": "民办学校，不参与公办派位"
   },
   {
-   "name": "广州市番禺区石楼镇赤山东小学",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "2026官方公办小学表未列（赤山东村户籍初中对口石楼中学，官方表并入赤岗小学地段），待核"
-  },
-  {
    "name": "广州市番禺区诺德安达学校",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
@@ -2085,15 +2044,6 @@
    "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
    "source_note": "民办/其他。",
    "data_gaps": "民办学校，不参与公办派位"
-  },
-  {
-   "name": "明德实验小学",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "民办小学（明德广地实验学校系），不参与公办派位"
   },
   {
    "name": "明德广地实验学校",
@@ -2168,24 +2118,6 @@
    "data_gaps": "民办学校，不参与公办派位"
   },
   {
-   "name": "石楼镇沙南小学",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "2026官方公办小学表未列（沙南村户籍初中对口海鸥学校），待核"
-  },
-  {
-   "name": "石楼镇胜洲小学",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "2026官方公办小学表未列（胜洲村户籍初中对口石楼二中），待核"
-  },
-  {
    "name": "祈福新邨学校",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
@@ -2202,24 +2134,6 @@
    "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
    "source_note": "民办/其他。",
    "data_gaps": "民办学校（九年制），不参与公办派位"
-  },
-  {
-   "name": "祈福英语实验小学",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "民办小学，不参与公办派位"
-  },
-  {
-   "name": "茭塘小学",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "2026官方公办小学表未列（石楼茭塘村，初中对口仲元莲花湾学校），待核"
   },
   {
    "name": "金华学校",

@@ -6261,18 +6261,6 @@
    "data_gaps": null
   },
   {
-   "school_id": "gz-440113-db149c4c",
-   "group": "番禺区小升初对口（单校（小区配建））",
-   "feed_school_ids": [
-    "gz-440113-53650c78"
-   ],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 桥南街保利香逸等8小区业主子女",
-   "data_gaps": null
-  },
-  {
    "school_id": "gz-440113-9c76c8fa",
    "group": "番禺区小升初对口（市桥城区电脑派位（多校））",
    "feed_school_ids": [
@@ -7881,19 +7869,6 @@
    "data_gaps": null
   },
   {
-   "school_id": null,
-   "group": "番禺区小升初对口（多校（股民/非股民））",
-   "feed_school_ids": [
-    "gz-440113-6dbdc462",
-    "gz-440113-2570c29b"
-   ],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 傍江东村股民及股民子女→仲元二校区优先；余下→大龙中学",
-   "data_gaps": null
-  },
-  {
    "school_id": "gz-440113-6925d386",
    "group": "番禺区小升初对口（单校）",
    "feed_school_ids": [
@@ -8243,16 +8218,6 @@
    "data_gaps": "民办学校（九年制），不参与公办派位"
   },
   {
-   "school_id": "gz-440113-31556d10",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "2026官方公办小学表未列（沙湾三善村），待核"
-  },
-  {
    "school_id": "gz-440113-c40a06e1",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -8273,14 +8238,14 @@
    "data_gaps": "民办学校（九年制），不参与公办派位"
   },
   {
-   "school_id": "gz-440113-4872edf9",
+   "school_id": "gz-440113-7b2b848a",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
    "feed_unresolved": [],
    "direct_feed_school_id": null,
    "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
    "source_note": "民办/其他。",
-   "data_gaps": "2026官方公办小学表未列（低涌村户籍初中对口石碁第四中学），待核"
+   "data_gaps": "民办学校（九年制），不参与公办派位"
   },
   {
    "school_id": "gz-440113-a6aa9fb0",
@@ -8433,16 +8398,6 @@
    "data_gaps": "民办学校，不参与公办派位"
   },
   {
-   "school_id": "gz-440113-2492082f",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "2026官方公办小学表未列（赤山东村户籍初中对口石楼中学，官方表并入赤岗小学地段），待核"
-  },
-  {
    "school_id": "gz-440113-3cc636b8",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -8521,16 +8476,6 @@
    "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
    "source_note": "民办/其他。",
    "data_gaps": "民办学校，不参与公办派位"
-  },
-  {
-   "school_id": "gz-440113-bb3711d6",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "民办小学（明德广地实验学校系），不参与公办派位"
   },
   {
    "school_id": "gz-440113-7997c707",
@@ -8613,26 +8558,6 @@
    "data_gaps": "民办学校，不参与公办派位"
   },
   {
-   "school_id": "gz-440113-5a4d80a3",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "2026官方公办小学表未列（沙南村户籍初中对口海鸥学校），待核"
-  },
-  {
-   "school_id": "gz-440113-073678d5",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "2026官方公办小学表未列（胜洲村户籍初中对口石楼二中），待核"
-  },
-  {
    "school_id": "gz-440113-1963cc5e",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -8651,26 +8576,6 @@
    "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
    "source_note": "民办/其他。",
    "data_gaps": "民办学校（九年制），不参与公办派位"
-  },
-  {
-   "school_id": "gz-440113-c181d193",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "民办小学，不参与公办派位"
-  },
-  {
-   "school_id": "gz-440113-3bee02e6",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "2026官方公办小学表未列（石楼茭塘村，初中对口仲元莲花湾学校），待核"
   },
   {
    "school_id": "gz-440113-82bf431a",
