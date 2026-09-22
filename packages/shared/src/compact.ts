@@ -59,3 +59,34 @@ export function hydrate<T>(x: T): T {
   for (const k of Object.keys(obj)) out[k] = hydrate(obj[k]);
   return out as T;
 }
+
+/**
+ * 小学招生 C 层合并产物还原：dist/2026-all.json（{year, districts: {区名: meta},
+ * records/minban 每行带 district}，无 school 名——按 school_id 联查实体表/POI 表）。
+ * 此处按 district 还原为 EnrollmentSnapshot[]（区元数据 + 该区 records/minban）。
+ */
+export interface MergedEnrollments {
+  year: number;
+  districts: Record<string, Record<string, unknown>>;
+  records: CompactArray;
+  minban: CompactArray;
+}
+export function splitEnrollments<T>(merged: MergedEnrollments): T[] {
+  const districts = hydrate(merged.districts) as Record<string, Record<string, unknown>>;
+  const records = hydrate(merged.records) as unknown as Array<Record<string, unknown>>;
+  const minban = hydrate(merged.minban) as unknown as Array<Record<string, unknown>>;
+  // 按 adcode 分组（records.district 保留原值：番禺为片区名），还原后删除 adcode 过滤列
+  const adToDistrict = new Map<string, string>();
+  for (const [district, m] of Object.entries(districts)) {
+    const ad = m.adcode as string;
+    if (ad) adToDistrict.set(ad, district);
+  }
+  return Object.entries(districts).map(([district, m]) => ({
+    ...m,
+    district,
+    records: records.filter((r) => adToDistrict.get(r.adcode as string) === district)
+      .map(({ adcode: _a, ...rest }) => rest),
+    minban: minban.filter((r) => adToDistrict.get(r.adcode as string) === district)
+      .map(({ adcode: _a, ...rest }) => rest),
+  })) as unknown as T[];
+}

@@ -9,7 +9,7 @@ const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const { createRepository, buildDetailModel, buildLinkageModel, normName } = require('../dist/cjs/index.js');
+const { createRepository, buildDetailModel, buildLinkageModel, normName, splitEnrollments } = require('../dist/cjs/index.js');
 const { diffSnapshots, formatDiff } = require('./helpers/snapshot-diff.cjs');
 const ROOT = path.resolve(__dirname, '../../..');
 const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', file), 'utf8'));
@@ -20,7 +20,7 @@ const loaders = {
   middleTier1: load('middle/tier1_schools_all.json'),
   highSchools: load('poi/dist/high_poi.json'),
   highLevels: load('high/level/src/levels.json'),
-  enrollments: ['tianhe', 'yuexiu', 'haizhu', 'liwan', 'panyu', 'baiyun', 'huangpu'].map((d) => load(`primary/enrollment/dist/2026-${d}.json`)),
+  enrollments: splitEnrollments(load('primary/enrollment/dist/2026-all.json')),
   quotaMatrix: load('linkage/quota_matrix.json'),
   specialMatrix: load('linkage/special_matrix.json'),
   batch2Scores: load('linkage/batch2_scores.json'),

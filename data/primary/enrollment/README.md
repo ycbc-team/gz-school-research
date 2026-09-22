@@ -7,10 +7,13 @@
 ```
 enrollment/
 ├── raw/        政府源文件（原文件只读归档：xls/xlsx/pdf/png/doc/docx）
-├── parsed/     解析层（A 层转录产物，可审计可重跑）
-│   └── _transcripts/   parse_*.py 从 raw 提取的结构化 JSON（含 OCR 缓存 ocr/）
-├── dist/       最终运行时产物（B 层，build_primary_2026.py 输出）
-│   └── 2026-<区>.json   含 records（公办）/ minban（民办小学招生计划）/ unmatched / ambiguous
+├── parsed/     解析层（可审计可重跑）
+│   ├── _transcripts/   A 层：parse_*.py 从 raw 提取的结构化 JSON（含 OCR 缓存 ocr/）
+│   └── dist/           B 层：build_primary_2026.py 输出 2026-<区>.json
+│                      （匹配产物，保留 school/poi_name/lng/lat 等调试字段）
+├── src/        手工源文件（业务确认口径，如 leftover_notes.json 招生区域承接说明表）
+├── dist/       C 层最终运行时产物（build_enrollment_all.py 合并输出）
+│   └── 2026-all.json   records/minban 瘦身（无 school 名，按 school_id 联查实体表/POI 表）
 ├── scripts/    生产脚本
 │   ├── parse_*.py         A 层：raw → parsed/_transcripts（openpyxl/docx/OCR）
 │   ├── build_primary_2026.py  B 层：_transcripts → dist/2026-<区>.json（SchoolMatcher 匹配实体表）
@@ -22,7 +25,7 @@ enrollment/
 └── README.md
 ```
 
-## 流水线
+## 流水线（ABC 三层，2026-09-22）
 
 ```
 raw/ 政府源文件
@@ -31,7 +34,10 @@ raw/ 政府源文件
 parsed/_transcripts/*.json
   │  B 层（build_primary_2026.py，纯 SchoolMatcher 匹配 data/registry/entity）
   ▼
-dist/2026-<区>.json   ← 消费产物（最终运行时产物层）
+parsed/dist/2026-<区>.json   ← B 层匹配产物（保留 school/poi_name/lng/lat 调试字段）
+  │  C 层（build_enrollment_all.py 合并瘦身）
+  ▼
+dist/2026-all.json           ← 最终运行时产物（无 school 名，按 school_id 联查）
 ```
 
 ## 数据源（官方 2026-04-28 前后发布）
@@ -144,6 +150,25 @@ dist/2026-<区>.json   ← 消费产物（最终运行时产物层）
 
 未匹配/歧义均为 0；`poi_leftover` 为实体表有、官方未招生记录的 POI（正常，非错误）。
 
+### records 字段口径（2026-09-22 C 层）
+
+C 层 `dist/2026-all.json` 的 records 只存 `school_id` + 招生特有字段
+（`plan_classes/zone/note/phone/source`）+ `district`（区标识，番禺为片区名，另有 `adcode` 分组，
+compact 还原后删除）+ 无 `school/poi_name/lng/lat`——名称/坐标按 school_id 从实体表/POI 表联查
+（实体表 `data/registry/entity/dist/entities.json`、POI `data/poi/dist/primary_poi.json`）。
+**调试看 B 层** `parsed/dist/2026-<区>.json`（含 school/poi_name/lng/lat 全字段）。
+官方招生名（如「黄埔区CPPQ-A4-2地块…暂定名」）留底在 `parsed/_transcripts/<区>_2026.json`（A 层转录）。
+
+> TODO（官方名统一展示）：理论上对用户展示用官方名比 POI 名更准确，但官方名不带校区
+> 不能直接用（如「九龙第二小学」官方 3 行对应 3 个校区），统一展示方案待定。
+
+### 招生区域承接说明（src/leftover_notes.json）
+
+原校 2026 官方无招生计划但保留遗留学生升学（如东区小学/禾丰小学）：src 表维护
+`原校 school_id → 承接说明`，B 层为原校生成一条 `plan_classes=null`、`zone=承接说明` 的
+记录（详情页招生区域直接展示「2026 年起招生区域已改由X承接招生」），原校同时从
+`poi_leftover` 移除；孤儿判定豁免同表（原校非孤儿）。
+
 ## 测试
 
 `test/check_enrollment_snapshot.py`：重跑 B 层到临时目录，与独立基线 `test/snapshots/enrollment_snapshot.json`
@@ -153,9 +178,10 @@ dist/2026-<区>.json   ← 消费产物（最终运行时产物层）
 ## 重跑
 
 ```bash
-# 全部：A 层（转录）+ B 层（匹配）
+# 全部：A 层（转录）+ B 层（匹配）+ C 层（合并瘦身）
 # A 层命令见上（parse_*.py + build_read_transcripts.py）
-python3 data/primary/enrollment/scripts/build_primary_2026.py all
+python3 data/primary/enrollment/scripts/build_primary_2026.py all   # B 层 → parsed/dist/2026-<区>.json
+python3 data/primary/enrollment/scripts/build_enrollment_all.py     # C 层 → dist/2026-all.json
 # 单区 B 层（转录已存在时）
 python3 data/primary/enrollment/scripts/build_primary_2026.py yuexiu
 ```

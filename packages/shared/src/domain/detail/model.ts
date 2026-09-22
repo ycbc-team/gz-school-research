@@ -41,7 +41,7 @@ export interface DetailModel {
   poi: { lng: number; lat: number } | null;
   /* 小学 */
   enrollment: {
-    school: string; plan_classes?: number | null; plan_count?: number | null; nature?: string;
+    school_id: string; plan_classes?: number | null; plan_count?: number | null; nature?: string;
     zone?: string; note?: string; district?: string; source?: string; matchedBy: string;
   } | null;
   primaryMechanism: string | null;

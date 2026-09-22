@@ -400,8 +400,8 @@ def main():
     # 避免主 id 归一（法人行主 id 指向本部后）把校区实体误判为无升学孤儿。
     _qm_school_ids = {i for s in json.load(open(os.path.join(ROOT, "data/linkage/quota_matrix.json"))).get("schools", []) for i in (s.get("school_ids") or [])}
     _sc26 = json.load(open(os.path.join(ROOT, "data/high/cutoff_score/dist/scores_2026.json"))).get("by_school_id", {})
-    # 招生遗留信息表（enrollment/src，业务人工确认）：招生区域已改由他校承接、保留遗留学生升学
-    # → 有在册遗留学生即非孤儿（如东区小学/禾丰小学 2026 官方无招生但有升学遗留）
+    # 招生区域承接说明表（enrollment/src，业务人工确认）：原校保留遗留学生升学
+    # → 原校非孤儿（如东区小学/禾丰小学 2026 官方无招生但有升学遗留，dist 有 zone=note 记录）
     _LEFT_NOTE_SIDS = set(json.load(open(os.path.join(ROOT, "data/primary/enrollment/src/leftover_notes.json"), encoding="utf-8")).keys())
     _sc25 = json.load(open(os.path.join(ROOT, "data/high/cutoff_score/dist/scores_2025.json"))).get("by_school_id", {})
     _orphans = []

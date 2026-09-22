@@ -25,46 +25,61 @@ import tempfile
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 SNAPSHOT = os.path.join(ROOT, "data/primary/enrollment/test/snapshots/enrollment_snapshot.json")
 BUILD = os.path.join(ROOT, "data/primary/enrollment/scripts/build_primary_2026.py")
-DISTRICTS = ["yuexiu", "liwan", "haizhu", "tianhe", "panyu", "baiyun", "huangpu"]
+BUILD_ALL = os.path.join(ROOT, "data/primary/enrollment/scripts/build_enrollment_all.py")
 DISTRICT_NAMES = {"yuexiu": "越秀区", "liwan": "荔湾区", "haizhu": "海珠区", "tianhe": "天河区",
                   "panyu": "番禺区", "baiyun": "白云区", "huangpu": "黄埔区"}
-# 噪音字段：坐标/来源 URL 不入快照
-RECORD_FIELDS = ("district", "plan_classes", "zone", "note", "phone", "school_id", "poi_name")
-MINBAN_FIELDS = ("district", "plan_classes", "plan_count", "school_id", "poi_name")
+ADCODES = {"yuexiu": "440104", "liwan": "440103", "haizhu": "440105", "tianhe": "440106",
+           "panyu": "440113", "baiyun": "440111", "huangpu": "440112"}
+# 噪音字段：坐标/来源 URL 不入快照；2026-09-22 ABC 分层后快照打 C 层产物
+# （dist/2026-all.json，无 school 名——按 school_id 联查实体表/POI 表），行键 = school_id
+RECORD_FIELDS = ("school_id", "plan_classes", "zone", "note", "phone")
+MINBAN_FIELDS = ("school_id", "plan_classes", "plan_count")
 
 
 def extract() -> dict:
-    """重跑 build_primary_2026.py all --out-dir TMP → 各区结构化快照。"""
-    tmp = tempfile.mkdtemp(prefix="enrollment_snapshot_")
+    """重跑 B 层（build_primary_2026.py all）→ C 层（build_enrollment_all.py）→ 按 adcode 分组快照。"""
+    tmp_b = tempfile.mkdtemp(prefix="enrollment_snapshot_b_")
+    tmp_c = tempfile.mkdtemp(prefix="enrollment_snapshot_c_")
     try:
-        r = subprocess.run(["python3", BUILD, "all", "--out-dir", tmp],
+        r = subprocess.run(["python3", BUILD, "all", "--out-dir", tmp_b],
                            capture_output=True, text=True, cwd=ROOT)
         if r.returncode != 0:
             print("生产脚本重跑失败：build_primary_2026.py")
             print(r.stdout[-2000:])
             print(r.stderr[-2000:])
             sys.exit(1)
+        r2 = subprocess.run(["python3", BUILD_ALL, "--b-dir", tmp_b, "--out-dir", tmp_c],
+                            capture_output=True, text=True, cwd=ROOT)
+        if r2.returncode != 0:
+            print("生产脚本重跑失败：build_enrollment_all.py")
+            print(r2.stdout[-2000:])
+            print(r2.stderr[-2000:])
+            sys.exit(1)
+        j = json.load(open(os.path.join(tmp_c, "2026-all.json"), encoding="utf-8"))
         districts = {}
-        for k in DISTRICTS:
-            p = os.path.join(tmp, f"2026-{k}.json")
-            j = json.load(open(p, encoding="utf-8"))
+        for district, m in j["districts"].items():
+            ad = m["adcode"]
             records = {}
-            for r0 in j.get("records", []):
-                # 同校名多校区记录（resolve_all 展开）以 school#poi_name 区分，避免互相覆盖
-                records[f"{r0['school']}#{r0.get('poi_name') or ''}"] = {f: r0.get(f) for f in RECORD_FIELDS}
+            for r0 in j["records"]:
+                if r0["adcode"] != ad:
+                    continue
+                # 行键 = school_id（唯一外键；同校多校区记录各有独立 school_id，不会互相覆盖）
+                records[r0["school_id"]] = {f: r0.get(f) for f in RECORD_FIELDS}
             minban = {}
-            for m in j.get("minban", []):
-                minban[f"{m['school']}#{m.get('poi_name') or ''}"] = {f: m.get(f) for f in MINBAN_FIELDS}
-            districts[DISTRICT_NAMES[k]] = {
+            for m0 in j["minban"]:
+                if m0["adcode"] != ad:
+                    continue
+                minban[m0["school_id"]] = {f: m0.get(f) for f in MINBAN_FIELDS}
+            districts[district] = {
                 "records": records,
                 "minban": minban,
-                "unmatched": sorted(j.get("unmatched", [])),
-                "ambiguous": sorted(
-                    f"{a['school']}↔{a['poi']}" for a in j.get("ambiguous", [])),
+                "unmatched": sorted(m.get("unmatched", [])),
+                "ambiguous": sorted(m.get("ambiguous", [])),
             }
         return {"districts": districts}
     finally:
-        shutil.rmtree(tmp, ignore_errors=True)
+        shutil.rmtree(tmp_b, ignore_errors=True)
+        shutil.rmtree(tmp_c, ignore_errors=True)
 
 
 def diff_dict(old: dict, new: dict, path: str, limit: int = 30) -> list:

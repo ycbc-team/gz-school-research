@@ -19,7 +19,10 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 TRANSCRIPTS = os.path.join(ROOT, "data", "primary", "enrollment", "parsed", "_transcripts")
-OUT_DIR = os.path.join(ROOT, "data", "primary", "enrollment", "dist")
+# B 层产物目录（parsed/dist，2026-09-22 起 ABC 三层分层）：
+# A 层 raw → parsed/_transcripts（转录）；B 层转录 → 匹配产物（保留 school/poi_name/lng/lat 等调试字段）；
+# C 层 scripts/build_enrollment_all.py 把各区 B 层合并为 dist/2026-all.json（瘦身无 school，运行时消费）
+OUT_DIR = os.path.join(ROOT, "data", "primary", "enrollment", "parsed", "dist")
 
 sys.path.insert(0, os.path.join(ROOT, "data", "registry", "entity", "scripts"))
 from school_match import SchoolMatcher  # noqa: E402
@@ -47,7 +50,9 @@ def load_matcher():
     return SchoolMatcher.load()
 
 
-# 招生遗留信息表（src 手工维护，业务确认）：school_id → note（招生区域已改由他校承接，保留遗留学生升学）
+# 招生区域承接说明表（src 手工维护，业务确认）：原校 school_id → note
+# 原校 2026 官方无招生计划，但保留遗留学生升学：dist 生成一条 zone=note 的记录，
+# 详情页招生区域直接展示「招生区域已改由X承接」；原校同时从 poi_leftover 移除
 _LEFT_NOTE = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../src/leftover_notes.json"), encoding="utf-8"))
 
 # 民办权威名单（registry/private 业务产物）：poi_leftover 清洗用——
@@ -303,7 +308,20 @@ def build(district_key):
     unmatched = [r["school"] for r in records if r["school"] not in matched_names]
     # 民办 POI 无地段招生属正常（报名超计划摇号），不计入"有 POI 无招生"清单（用户 2026-09-22 定）
     poi_leftover = [s["name"] for s in poi_pool
-                    if s["name"] not in used and s.get("school_id") not in MINBAN_SCHOOL_IDS]
+                    if s["name"] not in used and s.get("school_id") not in MINBAN_SCHOOL_IDS
+                    and s.get("school_id") not in _LEFT_NOTE]
+    # 原校（2026 官方无招生但保留遗留学生升学）注入 zone=note 记录（B 层保留 school/POI 名调试）；
+    # C 层（build_enrollment_all.py）瘦身为 school_id + 招生字段，名称/坐标按 id 联查实体表/POI 表
+    for _sid, _note in _LEFT_NOTE.items():
+        if _sid.startswith(f"gz-{adcode}") and not any(_r.get("school_id") == _sid for _r in matched):
+            _poi0 = next((s for s in poi_pool if s.get("school_id") == _sid), None)
+            matched.append({"school": (_poi0 or {}).get("name", ""),
+                            "district": DISTRICT_NAMES[district_key],
+                            "plan_classes": None, "zone": _note,
+                            "note": "", "phone": "", "source": source,
+                            "school_id": _sid,
+                            "poi_name": (_poi0 or {}).get("name", ""),
+                            "lng": (_poi0 or {}).get("lng"), "lat": (_poi0 or {}).get("lat")})
     result = {
         "year": 2026, "district": DISTRICT_NAMES[district_key],
         "source": source, "source_url": SOURCE_URLS[district_key],
@@ -311,6 +329,7 @@ def build(district_key):
         "ambiguous": ambiguous, "poi_leftover": sorted(set(poi_leftover)), "map_fail": [],
         "minban": load_minban(district_key),
     }
+    os.makedirs(OUT_DIR, exist_ok=True)
     with open(os.path.join(OUT_DIR, f"2026-{district_key}.json"), "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=1)
     print(f"[{DISTRICT_NAMES[district_key]}] 官方记录 {len(records)} | 匹配 {len(matched)} / 未匹配 {len(unmatched)} / 歧义 {len(ambiguous)} / POI无记录 {len(poi_leftover)}")
@@ -337,15 +356,3 @@ if __name__ == "__main__":
             print("未知区。可选:", list(ADCODES), "或 all")
             sys.exit(1)
         build(k)
-
-    # 招生遗留信息表（src 手工维护，业务确认）→ 独立汇总产物（按 adcode 分组）：
-    # 不内嵌各区产物（note 是跨区展示的说明，各区 dist 保持纯招生数据）
-    _ln_by_ad = {}
-    for _sid, _note in _LEFT_NOTE.items():
-        _ad = _sid.split("-")[1] if _sid.startswith("gz-") else "?"
-        _ln_by_ad.setdefault(_ad, {})[_sid] = _note
-    # 汇总始终输出 src 全量（按 adcode 分组），与本次 build 范围无关：
-    # 单区调试 build 不应破坏跨区汇总（消费方按区读取说明）
-    _ln_out = os.path.join(OUT_DIR, "leftover_notes.json")
-    json.dump(_ln_by_ad, open(_ln_out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print(f"招生遗留信息表（按区 {sorted(_ln_by_ad)} 分组）→ {os.path.relpath(_ln_out, ROOT)}")

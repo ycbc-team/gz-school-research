@@ -66,7 +66,8 @@ const WEB_TARGETS = walkJson(DATA_SRC)
   // transition/src 例外：middle_enroll_notes.json 手工录取备注即详情页招生视图消费（无 dist 构建）；
   // registry/src 例外：brand_groups.json 手工源即详情页「品牌关联」运行时消费（无 dist 构建）；
   // 同目录的 groups_anchors 等构建期表，不进前端（source_name_mappings 已退役，2026-09-21）
-  .filter((rel) => !['groups_anchors.json', 'pending_items.json', 'coverage_result.json'].includes(basename(rel)));
+  .filter((rel) => !['groups_anchors.json', 'pending_items.json', 'coverage_result.json'].includes(basename(rel)))
+  .filter((rel) => !(rel.startsWith('data/primary/enrollment/dist/2026-') && !rel.endsWith('2026-all.json')));
   // 构建期内部表不进前端包：groups_anchors（merge_groups 锚点）/ pending_items（民办待补/待核实清单）/ coverage_result（集团覆盖检查产物）
 // 小程序主包数据（地图页 + 首页/支撑度消费）：POI/tier1/levels/招生/实体/升学路线/官方录取分
 const MP_MAIN_TARGETS = [
@@ -80,15 +81,10 @@ const MP_MAIN_TARGETS = [
   'data/high/level/src/levels.json',
   'data/high/cutoff_score/dist/scores_2025.json',
   'data/high/cutoff_score/dist/scores_2026.json',
-  'data/primary/enrollment/dist/2026-tianhe.json',
-  'data/primary/enrollment/dist/2026-yuexiu.json',
-  'data/primary/enrollment/dist/2026-haizhu.json',
-  'data/primary/enrollment/dist/2026-liwan.json',
-  'data/primary/enrollment/dist/2026-panyu.json',
-  'data/primary/enrollment/dist/2026-baiyun.json',
-  'data/primary/enrollment/dist/2026-huangpu.json',
   'data/registry/entity/dist/entities.json',
+  'data/primary/enrollment/dist/2026-all.json',
 ];
+// 小学招生 C 层合并产物（dist/2026-all.json）通用编译为 enrollments/2026-all.js
 // 小程序分包数据（school-detail 详情页专用）：升学通道/身份/品牌/教育集团
 // （sites.json 已于 2026-09-21 废弃：法人别名挂载内联 build_entities，无运行时消费）
 // （官方录取分 scores 已在主包加载，详情页经 baseLoaders 继承，无需重复编译）
@@ -226,6 +222,7 @@ const SRC_REMAP = {
   'primary/enrollment/dist/2026-panyu': 'primary/enrollments/2026-panyu',
   'primary/enrollment/dist/2026-tianhe': 'primary/enrollments/2026-tianhe',
   'primary/enrollment/dist/2026-yuexiu': 'primary/enrollments/2026-yuexiu',
+  'primary/enrollment/dist/2026-all': 'primary/enrollments/2026-all',
   'primary/transition/dist/schools-backfill': 'primary/schools-backfill',
   'primary/transition/src/middle_enroll_notes': 'primary/middle_enroll_notes',
 };
@@ -249,6 +246,7 @@ const relPath = (SRC_REMAP[relRaw.replace(/\.json$/, '')] ?? relRaw.replace(/\.j
   }
   return { file: relPath, jsonKB: readFileSync(abs, 'utf8').length / 1024, jsKB: readFileSync(out, 'utf8').length / 1024 };
 }
+
 
 const stats = [];
 for (const file of MP_MAIN_TARGETS) stats.push(emit(file, OUT_CJS_MAIN, 'cjs', { trim: MP_TRIM[file] }));
