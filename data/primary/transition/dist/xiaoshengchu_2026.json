@@ -6826,7 +6826,7 @@
       "data_gaps": "民办小学，不参与公办派位"
     },
     {
-      "school_id": "gz-440111-70a10d6c",
+      "school_id": "gz-440111-e09d8e9b",
       "feed_school_ids": [],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -7150,7 +7150,7 @@
       "data_gaps": "2026官方初中对口表未列（民办），待核"
     },
     {
-      "school_id": "gz-440111-2d602d16",
+      "school_id": "gz-440111-76eef049",
       "feed_school_ids": [],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -7294,7 +7294,7 @@
       "data_gaps": "2026官方初中对口表未列（黄石街陈田小学），待核"
     },
     {
-      "school_id": "gz-440111-2644c1ce",
+      "school_id": "gz-440111-4af73d54",
       "feed_school_ids": [],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -9522,15 +9522,6 @@
       "source_note": "民办/其他。",
       "group_id": 73,
       "data_gaps": "民办学校（九年制），不参与公办派位"
-    },
-    {
-      "school_id": "gz-440113-d4aecd66",
-      "feed_school_ids": [],
-      "feed_unresolved": [],
-      "direct_feed_school_id": null,
-      "source_note": "民办/其他。",
-      "group_id": 80,
-      "data_gaps": "民办小学，不参与公办派位"
     },
     {
       "school_id": "gz-440113-3bee02e6",
@@ -13006,17 +12997,6 @@
       "data_gaps": null
     },
     {
-      "school_id": "gz-440106-92a92613",
-      "feed_school_ids": [
-        "gz-440106-9bed7efb"
-      ],
-      "feed_unresolved": [],
-      "direct_feed_school_id": null,
-      "source_note": "2026年天河区义务教育阶段学校招生工作细则（穗天教〔2026〕2号）附件6《2026年天河区公办初中划片范围及招生计划表》（单校划片对口直升为主、多校划片电脑派位为补充；附件10 为8所校自主报名电脑派位）。 天河区单校划片，小学毕业生免试直升对口初中。 另可自主报名附件10电脑派位：华附初中部、华颖外国语初中部、省实天河初中部（报名人数超计划则电脑派位）。",
-      "group_id": 128,
-      "data_gaps": null
-    },
-    {
       "school_id": "gz-440106-05ed1da2",
       "feed_school_ids": [
         "gz-440106-11e15e8d"
@@ -14259,17 +14239,6 @@
     },
     {
       "school_id": "gz-440112-e3190fa2",
-      "feed_school_ids": [
-        "gz-440112-e3190fa2"
-      ],
-      "feed_unresolved": [],
-      "direct_feed_school_id": "gz-440112-e3190fa2",
-      "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：会元学校（九年制学校内部直升）。",
-      "group_id": 154,
-      "data_gaps": null
-    },
-    {
-      "school_id": "gz-440112-48db116a",
       "feed_school_ids": [
         "gz-440112-e3190fa2"
       ],

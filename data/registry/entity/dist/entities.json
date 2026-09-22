@@ -518,12 +518,6 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440112-48db116a",
-      "name": "会元学校-小学部",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440113-e946f7f3",
       "name": "会江实验学校",
       "stage": "primary",
@@ -826,7 +820,8 @@
       "name": "华南理工大学附属实验学校(小学部)",
       "stage": "primary",
       "aliases": [
-        "华南理工大学附属实验学校"
+        "华南理工大学附属实验学校",
+        "华工附小"
       ]
     },
     {
@@ -843,14 +838,6 @@
       "name": "华峰学校",
       "stage": "primary",
       "aliases": []
-    },
-    {
-      "school_id": "gz-440106-92a92613",
-      "name": "华工附小",
-      "stage": "primary",
-      "aliases": [
-        "华南理工大学附属实验学校小学部"
-      ]
     },
     {
       "school_id": "gz-440111-db31a4f7",
@@ -1426,14 +1413,6 @@
       "stage": "primary",
       "aliases": [],
       "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-70a10d6c",
-      "name": "大岭东街望岗小学北(鲸go)",
-      "stage": "primary",
-      "aliases": [
-        "大岭东街望岗小学北"
-      ]
     },
     {
       "school_id": "gz-440113-70ea7542",
@@ -3275,6 +3254,7 @@
       "name": "广州市黄埔区会元学校",
       "stage": "primary",
       "aliases": [
+        "会元学校-小学部",
         "会元学校"
       ]
     },
@@ -4062,7 +4042,9 @@
       "school_id": "gz-440111-e09d8e9b",
       "name": "望岗小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "大岭东街望岗小学北"
+      ]
     },
     {
       "school_id": "gz-440104-9f1371be",
@@ -5158,14 +5140,9 @@
       "school_id": "gz-440113-c181d193",
       "name": "祈福英语实验学校",
       "stage": "primary",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-d4aecd66",
-      "name": "祈福英语实验小学",
-      "stage": "primary",
-      "aliases": [],
+      "aliases": [
+        "祈福英语实验小学"
+      ],
       "nature": "民办"
     },
     {
@@ -5183,12 +5160,6 @@
     {
       "school_id": "gz-440111-2e4ba466",
       "name": "神山镇沙龙小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-2d602d16",
-      "name": "祥景花园小学",
       "stage": "primary",
       "aliases": []
     },
@@ -6053,12 +6024,6 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440111-2644c1ce",
-      "name": "颐和实验学校",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440111-2659ed44",
       "name": "颐和实验小学",
       "stage": "primary",
@@ -6214,7 +6179,9 @@
       "school_id": "gz-440111-76eef049",
       "name": "黄石学校(祥景校区)",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "祥景花园小学"
+      ]
     },
     {
       "school_id": "gz-440111-a53c68e3",
@@ -8093,16 +8060,6 @@
       "nature": "民办"
     },
     {
-      "school_id": "gz-440111-87a92ab6",
-      "name": "应元颐和实验学校初中部",
-      "stage": "middle",
-      "aliases": [
-        "白云区应元颐和实验学校",
-        "应元颐和实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
       "school_id": "gz-440111-81f3c313",
       "name": "华赋学校北校区初中部",
       "stage": "middle",
@@ -8413,12 +8370,6 @@
       "aliases": [
         "广东省教育研究院黄埔实验学校"
       ]
-    },
-    {
-      "school_id": "gz-440112-84bb98f2",
-      "name": "万科幸福誉会元学校初中部",
-      "stage": "middle",
-      "aliases": []
     },
     {
       "school_id": "gz-440112-ff5acfd5",
@@ -9443,7 +9394,9 @@
       "name": "广州应元颐和实验学校",
       "stage": "middle",
       "aliases": [
-        "应元颐和实验学校"
+        "应元颐和实验学校初中部",
+        "应元颐和实验学校",
+        "颐和实验学校"
       ],
       "nature": "民办"
     },
@@ -9633,6 +9586,7 @@
       "name": "广州市黄埔区会元学校",
       "stage": "middle",
       "aliases": [
+        "万科幸福誉会元学校初中部",
         "会元学校"
       ]
     },
