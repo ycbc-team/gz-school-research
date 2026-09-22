@@ -19,5 +19,16 @@
     "navigationBarTextStyle": "black",
     "backgroundColor": "#F4F3EE"
   },
+  "tabBar": {
+    "custom": true,
+    "color": "#8A93A6",
+    "selectedColor": "#2F5CD6",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/policy/policy", "text": "政策" }
+    ]
+  },
   "sitemapLocation": "sitemap.json"
 }

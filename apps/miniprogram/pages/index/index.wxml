@@ -47,12 +47,6 @@
     <view class="lg"><view class="lg-dot lg-multi"></view>多学段</view>
   </view>
 
-  <!-- 底部悬浮导航 dock -->
-  <view class="navdock {{card?'dock-hidden':''}}">
-    <view class="np on">首页</view>
-    <view class="np" bindtap="goPolicy">政策</view>
-  </view>
-
   <!-- 学校卡（点选点位后，最上层，盖住导航栏） -->
   <view wx:if="{{card}}" class="cardbot {{cardExpanded?'expanded':''}}">
     <view class="handle" catchtouchstart="cardTouchStart" catchtouchend="cardTouchEnd" bindtap="onHandleTap"></view>

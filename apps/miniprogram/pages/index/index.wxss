@@ -89,7 +89,7 @@
 .chip.on-soft { background: #F2F6FE; color: #254BAE; font-weight: 600; }
 /* 注：筛选胶囊不显示任何数量角标（UI 稿 01 帧修正：与维度名混淆、视觉杂乱） */
 
-/* 图例区：必须整体位于底部悬浮导航之上（UI 稿 .legendbox bottom:88px） */
+/* 图例区：必须整体位于底部 tabBar 之上（UI 稿 .legendbox bottom:88px） */
 .legend {
   position: absolute; left: 28rpx;
   bottom: calc(env(safe-area-inset-bottom) + 176rpx);
@@ -108,31 +108,9 @@
 .legend .lg-dot { width: 18rpx; height: 18rpx; border-radius: 50%; flex: none; }
 .legend .lg-multi { background: conic-gradient(#2F5CD6 0 33.33%, #E8850C 33.33% 66.66%, #0F9D58 66.66% 100%); }
 
-/* 底部悬浮导航 dock */
-.navdock {
-  position: absolute; left: 24rpx; right: 24rpx;
-  bottom: calc(env(safe-area-inset-bottom) + 28rpx);
-  height: 116rpx; border-radius: 36rpx;
-  background: rgba(255,255,255,.97);
-  box-shadow: 0 16rpx 48rpx rgba(8,14,28,.26);
-  display: flex; align-items: center; gap: 20rpx;
-  padding: 0 24rpx; z-index: 7;
-  transition: opacity .2s ease;
-}
-.navdock.dock-hidden { opacity: 0; pointer-events: none; }
-.navdock .np {
-  flex: 1; height: 80rpx; border-radius: 999px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 28rpx; color: #64708C;
-  background: #fff; border: 1rpx solid #E3E8F0;
-}
-.navdock .np.on {
-  background: #F2F6FE; border-color: #C3D5F6; color: #254BAE; font-weight: 600;
-}
-
-/* 学校卡（最上层，盖住导航） */
+/* 学校卡（最上层，盖住 tabBar；弹出时由 JS 隐藏自定义 tabBar，详情卡/筛选半窗均覆盖底部导航栏） */
 .cardbot {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 8;
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 200;
   background: #fff; border-radius: 36rpx 36rpx 0 0;
   padding: 10rpx 32rpx 28rpx;
   box-shadow: 0 -12rpx 44rpx rgba(8,14,28,.22);
@@ -184,10 +162,10 @@
 .tag-nat { background: #E9F7F0; color: #1F7A55; }
 
 /* 筛选半窗 */
-.bglayer { position: absolute; inset: 0; z-index: 9; display: flex; flex-direction: column; }
-.mask { position: absolute; inset: 0; background: rgba(16,24,43,.42); z-index: 8; }
+.bglayer { position: absolute; inset: 0; z-index: 300; display: flex; flex-direction: column; }
+.mask { position: absolute; inset: 0; background: rgba(16,24,43,.42); z-index: 150; }
 .sheet {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 9;
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 160; /* 高于 .mask(150)，半窗内容不被遮罩压暗 */
   background: #fff; border-radius: 40rpx 40rpx 0 0;
   box-shadow: 0 -16rpx 60rpx rgba(16,24,43,.16);
   display: flex; flex-direction: column; max-height: 82%;
@@ -238,7 +216,7 @@
 }
 
 /* 搜索页（全屏层） */
-.searchpage { position: absolute; inset: 0; background: #F5F7FB; z-index: 20; display: flex; flex-direction: column; }
+.searchpage { position: absolute; inset: 0; background: #F5F7FB; z-index: 400; display: flex; flex-direction: column; }
 /* 头行高 44px（=88rpx，与 UI 稿 .searchhead 一致），搜索框 32px 垂直居中 → 与右上角微信胶囊
    同行且同高齐平。行首 top 由 inline style 的 searchHeadTop 控制（= 胶囊 top − 6px），
    右侧 padding 由 searchHeadRight 控制（= 屏宽 − 胶囊左缘 + 4px）。 */
@@ -316,7 +294,7 @@
 /* 筛选结果为空 · 地图中央浮层（UI 稿异常态 C：半透明浮层、不遮挡手势） */
 .fempty {
   position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-  width: 480rpx; z-index: 8;
+  width: 480rpx; z-index: 150;
   background: rgba(255,255,255,.97); border-radius: 32rpx;
   box-shadow: 0 8rpx 32rpx rgba(8,14,28,.24);
   padding: 44rpx 36rpx 40rpx;

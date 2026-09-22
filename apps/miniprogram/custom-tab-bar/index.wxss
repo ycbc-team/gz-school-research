@@ -1,0 +1,30 @@
+/* 底部导航栏（对齐 UI 稿 .navdock：置底通栏、白底、1px 顶部分隔线、无圆角无投影） */
+.tabbar {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  z-index: 100;
+  box-sizing: border-box;
+  height: calc(112rpx + env(safe-area-inset-bottom)); /* 56px + 底部安全区 */
+  padding: 0 24rpx;
+  padding-bottom: env(safe-area-inset-bottom);
+  display: flex; align-items: center; gap: 20rpx; /* 两枚 tab 等宽，间隔 10px */
+  background: #FFFFFF;
+  border-top: 1rpx solid #EFF2F7; /* --line-2 */
+  /* 无圆角、无投影（UI 稿规范表「导航栏」行） */
+}
+/* 每枚 tab = 高 40px 的胶囊，选中态为 #F2F6FE 底胶囊 + #C3D5F6 描边 + #254BAE 加粗字 */
+.tab {
+  flex: 1;
+  height: 80rpx; /* 40px */
+  border-radius: 999rpx;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28rpx; /* 14px（UI 稿 .navdock .np） */
+  color: #64708C; /* --ink-500 未选 */
+  background: transparent;
+  border: 1rpx solid transparent;
+}
+.tab.on {
+  background: #F2F6FE; /* --ib-50 */
+  border-color: #C3D5F6; /* --ib-200 */
+  color: #254BAE; /* --ib-600 */
+  font-weight: 600;
+}

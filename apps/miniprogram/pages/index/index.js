@@ -113,6 +113,24 @@ Page({
     this.setData({ recommends: this.recommends.map((r) => ({ name: r.name })) });
   },
 
+  onShow() {
+    const tab = this.getTabBar && this.getTabBar();
+    if (tab) {
+      tab.setData({ selected: 0 });
+      tab.setData({ hidden: !!(this.data.card || this.data.menu) });
+    }
+  },
+  onHide() {
+    const tab = this.getTabBar && this.getTabBar();
+    if (tab) tab.setData({ hidden: false });
+  },
+  // 弹窗（详情卡 / 筛选半窗 / 搜索页）需覆盖底部导航栏：自定义 tabBar 是独立组件层，
+  // 页面内 z-index 压不过它，故弹出时直接隐藏 tabBar，关闭时恢复。
+  setTabBarHidden(hidden) {
+    const tab = this.getTabBar && this.getTabBar();
+    if (tab) tab.setData({ hidden: !!hidden });
+  },
+
   onReady() {
     this.mapCtx = wx.createMapContext('gzmap', this);
   },
@@ -241,9 +259,6 @@ Page({
     this.setData(patch);
   },
 
-  /* ---------- 底部悬浮导航 ---------- */
-  goPolicy() { wx.navigateTo({ url: '/pages/policy/policy' }); },
-
   /* ---------- 筛选半窗 ---------- */
   openSheet(e) {
     const dim = e.currentTarget.dataset.dim;
@@ -251,14 +266,16 @@ Page({
     if (!this.data.menu) this.draft = this.committedState();
     this.setData({ menu: dim });
     this.syncDraftView();
+    this.setTabBarHidden(true);
   },
   switchDim(e) {
     const dim = e.currentTarget.dataset.dim;
     if (this.data.menu === dim) { this.closeSheet(); return; }
     this.setData({ menu: dim });
     this.syncDraftView();
+    this.setTabBarHidden(true);
   },
-  closeSheet() { this.setData({ menu: '' }); this.draft = this.committedState(); this.syncDraftView(); this.applyChipLabels(); },
+  closeSheet() { this.setData({ menu: '' }); this.draft = this.committedState(); this.syncDraftView(); this.applyChipLabels(); this.setTabBarHidden(false); },
   toggleDistrict(e) { this.draft = toggleDistrict(this.draft, e.currentTarget.dataset.adcode); this.syncDraftView(); },
   toggleStage(e) {
     const s = e.currentTarget.dataset.stage;
@@ -317,8 +334,9 @@ Page({
   /* ---------- 搜索页 ---------- */
   openSearch() {
     this.setData({ searchVisible: true, searchFocus: true, kw: '', assocs: [], history: this.loadHistory() });
+    this.setTabBarHidden(true);
   },
-  closeSearch() { this.setData({ searchVisible: false, searchFocus: false }); },
+  closeSearch() { this.setData({ searchVisible: false, searchFocus: false }); this.setTabBarHidden(!!(this.data.card || this.data.menu)); },
   onSearchInput(e) {
     const kw = e.detail.value;
     this.setData({ kw, assocs: kw ? this.buildAssocs(kw) : [] });
@@ -494,6 +512,7 @@ Page({
     const nat = pt.natureOf[main] || 'public';
     tags.push({ key: 'nat', cls: 'nat', text: nat === 'private' ? '民办' : '公办' });
     this.setData({ card: { name: pt.name, tags }, cardExpanded: false });
+    this.setTabBarHidden(true);
   },
   // 学校卡：25% ↔ 全屏 展开/收起（原型：上滑展开、下滑或返回收起、关闭按钮/点击地图外关闭）
   expandCard() { if (this.data.card) this.setData({ cardExpanded: true }); },
@@ -507,7 +526,7 @@ Page({
     if (dy < -40) this.expandCard();
     else if (dy > 40 && this.data.cardExpanded) this.collapseCard();
   },
-  closeCard() { this.setData({ card: null, activeMarkerId: null, cardExpanded: false }); this.renderMarkers(); },
+  closeCard() { this.setData({ card: null, activeMarkerId: null, cardExpanded: false }); this.renderMarkers(); this.setTabBarHidden(false); },
   onMapTap(e) {
     if (this.ignoreNextMapTap || (e && e.detail && e.detail.markerId !== undefined)) { this.ignoreNextMapTap = false; clearTimeout(this.ignoreMapTapTimer); return; }
     // 点浮层外区域：仅关闭筛选空态浮层、保留当前筛选（UI 稿异常态 C）
