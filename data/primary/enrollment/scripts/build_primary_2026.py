@@ -308,7 +308,15 @@ def build(district_key):
 
 
 if __name__ == "__main__":
-    target = sys.argv[1] if len(sys.argv) > 1 else "all"
+    args = sys.argv[1:]
+    if "--out-dir" in args:
+        i = args.index("--out-dir")
+        if i + 1 >= len(args):
+            print("--out-dir 需带目录路径")
+            sys.exit(1)
+        OUT_DIR = args[i + 1]
+        del args[i:i + 2]
+    target = args[0] if args else "all"
     keys = list(ADCODES) if target == "all" else [target]
     for k in keys:
         if k not in ADCODES:
