@@ -51,6 +51,7 @@
 .zone-text {
   background: #f7f6f2; border-radius: 12rpx; padding: 14rpx 18rpx;
   font-size: 24rpx; color: #444; line-height: 1.7;
+  white-space: pre-line; /* zone 树结构含 \n 换行，保留层级缩进 */
 }
 
 .feed-list { display: flex; flex-direction: column; gap: 12rpx; }

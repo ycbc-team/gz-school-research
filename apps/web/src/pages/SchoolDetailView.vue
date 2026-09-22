@@ -886,6 +886,7 @@ const brandCardUseful = computed(() =>
 .zone-block p {
   margin: 0; background: #f7f6f2; border-radius: 8px; padding: 8px 10px;
   font-size: 12px; color: #444; line-height: 1.7;
+  white-space: pre-line; /* zone 树结构含 \n 换行，保留层级缩进 */
 }
 
 .feed-list { display: flex; flex-direction: column; gap: 6px; }
