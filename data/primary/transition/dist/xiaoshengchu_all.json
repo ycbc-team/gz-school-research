@@ -3643,20 +3643,6 @@
    "data_gaps": null
   },
   {
-   "school_id": "gz-440111-048815b3",
-   "group": "白云区小升初对口（单校划片）",
-   "feed_school_ids": [
-    "gz-440111-ea6a6495",
-    "gz-440111-048815b3",
-    "gz-440111-2186a02a"
-   ],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 培英附小部分户籍生（摇号产生）；景泰小学（柯子岭地段人户一致地段生）；培英附小部分户籍生（摇号产生）",
-   "data_gaps": null
-  },
-  {
    "school_id": "gz-440111-d909827a",
    "group": "白云区小升初对口（单校划片）",
    "feed_school_ids": [
@@ -3967,7 +3953,7 @@
    "data_gaps": null
   },
   {
-   "school_id": "gz-440111-7e484346",
+   "school_id": "gz-440111-c553e806",
    "group": "白云区小升初对口（单校划片）",
    "feed_school_ids": [
     "gz-440111-f5da4352"
@@ -4028,18 +4014,6 @@
   },
   {
    "school_id": "gz-440111-abb00177",
-   "group": "白云区小升初对口（单校划片）",
-   "feed_school_ids": [
-    "gz-440111-0f9c1ce8"
-   ],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 庆丰实验学校（庆丰、兴隆围地段学生）",
-   "data_gaps": null
-  },
-  {
-   "school_id": "gz-440111-0f54fc98",
    "group": "白云区小升初对口（单校划片）",
    "feed_school_ids": [
     "gz-440111-0f9c1ce8"
@@ -4373,7 +4347,20 @@
    "data_gaps": null
   },
   {
-   "school_id": "gz-440111-f501b6b5",
+   "school_id": "gz-440111-6f87dc56",
+   "group": "白云区小升初对口（单校划片）",
+   "feed_school_ids": [
+    "gz-440111-b95f2597",
+    "gz-440111-0078267c"
+   ],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
+   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
+   "data_gaps": null
+  },
+  {
+   "school_id": "gz-440111-eb640c74",
    "group": "白云区小升初对口（单校划片）",
    "feed_school_ids": [
     "gz-440111-b95f2597",
@@ -5081,19 +5068,6 @@
    "data_gaps": null
   },
   {
-   "school_id": "gz-440111-7c8e56b1",
-   "group": "白云区小升初对口（单校划片）",
-   "feed_school_ids": [
-    "gz-440111-0cf700fb",
-    "gz-440111-d4c4285e"
-   ],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "data_gaps": null
-  },
-  {
    "school_id": "gz-440111-9f1c9750",
    "group": "白云区小升初对口（单校划片）",
    "feed_school_ids": [
@@ -5331,19 +5305,6 @@
   },
   {
    "school_id": "gz-440111-9588f926",
-   "group": "白云区小升初对口（部分毕业生（多校））",
-   "feed_school_ids": [
-    "gz-440111-b5668c2e",
-    "gz-440111-06bfc806"
-   ],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 （太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）；（太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）",
-   "data_gaps": null
-  },
-  {
-   "school_id": "gz-440111-026c9ce6",
    "group": "白云区小升初对口（部分毕业生（多校））",
    "feed_school_ids": [
     "gz-440111-b5668c2e",
@@ -5644,6 +5605,18 @@
    "data_gaps": null
   },
   {
+   "school_id": "gz-440111-88372834",
+   "group": "白云区小升初对口（单校划片）",
+   "feed_school_ids": [
+    "gz-440111-2ed8a6e2"
+   ],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
+   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
+   "data_gaps": null
+  },
+  {
    "school_id": "gz-440111-c03b19f7",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -5655,16 +5628,6 @@
   },
   {
    "school_id": "gz-440111-39672288",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "民办小学，不参与公办派位"
-  },
-  {
-   "school_id": "gz-440111-e5d6c5a1",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
    "feed_unresolved": [],
@@ -5754,16 +5717,6 @@
    "data_gaps": "民办小学，不参与公办派位"
   },
   {
-   "school_id": "gz-440111-d9b352f9",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "官方对口表为\"南村小学\"（对口七十中）；POI\"南村学校\"疑为南村小学更名（九年制），待核"
-  },
-  {
    "school_id": "gz-440111-381929f4",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -5802,16 +5755,6 @@
    "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
    "source_note": "民办/其他。",
    "data_gaps": "民办小学，不参与公办派位"
-  },
-  {
-   "school_id": "gz-440111-e09d8e9b",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "POI 名称含店铺信息，非学校实体，待核"
   },
   {
    "school_id": "gz-440111-6b8ac68f",
@@ -6094,16 +6037,6 @@
    "data_gaps": "民办小学，不参与公办派位"
   },
   {
-   "school_id": "gz-440104-66d8a730",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "2026官方初中对口表未列（白云区桂花岗小学），待核"
-  },
-  {
    "school_id": "gz-440111-c1662288",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -6162,26 +6095,6 @@
    "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
    "source_note": "民办/其他。",
    "data_gaps": "2026官方初中对口表未列（民办），待核"
-  },
-  {
-   "school_id": "gz-440111-76eef049",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "民办小学，不参与公办派位"
-  },
-  {
-   "school_id": "gz-440111-72767b6f",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "民办小学，不参与公办派位"
   },
   {
    "school_id": "gz-440111-15953ece",
@@ -6284,26 +6197,6 @@
    "data_gaps": "民办小学，不参与公办派位"
   },
   {
-   "school_id": "gz-440111-7f478da2",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "民办学校，不参与公办派位"
-  },
-  {
-   "school_id": "gz-440111-7f478da2",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "POI 名称含方位词，疑为重复记录，待核"
-  },
-  {
    "school_id": "gz-440111-bcf22267",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -6322,26 +6215,6 @@
    "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
    "source_note": "民办/其他。",
    "data_gaps": "民办小学，不参与公办派位"
-  },
-  {
-   "school_id": "gz-440111-7080b3ad",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "2026官方初中对口表未列（黄石街陈田小学），待核"
-  },
-  {
-   "school_id": "gz-440111-4af73d54",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "POI 名与官方民办小学\"颐和实验小学\"不一致，疑为应元颐和实验学校（初中），待核"
   },
   {
    "school_id": "gz-440111-9a67da9e",
@@ -6372,6 +6245,16 @@
    "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
    "source_note": "民办/其他。",
    "data_gaps": "民办小学，不参与公办派位"
+  },
+  {
+   "school_id": "gz-440111-7f478da2",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校，不参与公办派位"
   },
   {
    "school_id": "gz-440113-53650c78",

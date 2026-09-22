@@ -4447,12 +4447,6 @@
       ],
       "core_poi": [
         {
-          "name": "广东外语外贸大学实验中学",
-          "poi_match": "法人推导",
-          "poi_name": "广东外语外贸大学实验中学",
-          "school_id": "gz-440111-7e484346"
-        },
-        {
           "name": "广东外语外贸大学实验中学小学部",
           "poi_match": "法人推导",
           "poi_name": "广东外语外贸大学实验中学小学部",
@@ -4463,6 +4457,12 @@
           "poi_match": "法人推导",
           "poi_name": "广东外语外贸大学实验中学（陈田西校区）小学部",
           "school_id": "gz-440111-c553e806"
+        },
+        {
+          "name": "广东外语外贸大学实验中学",
+          "poi_match": "法人推导",
+          "poi_name": "广东外语外贸大学实验中学",
+          "school_id": "gz-440111-7e484346"
         },
         {
           "name": "广东外语外贸大学实验中学(北校区)",
@@ -4578,12 +4578,6 @@
         "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html"
       ],
       "core_poi": [
-        {
-          "name": "金广实验小学",
-          "poi_match": "法人推导",
-          "poi_name": "金广实验小学",
-          "school_id": "gz-440111-f501b6b5"
-        },
         {
           "name": "金广实验学校(御金沙校区)",
           "poi_match": "法人推导",
@@ -4994,14 +4988,6 @@
           "poi_match": "法人推导",
           "poi_name": "马务小学",
           "school_id": "gz-440111-e9a84742"
-        },
-        {
-          "name": "广州市白云区陈田小学",
-          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
-          "verified": "2026-09-14",
-          "poi_match": "法人推导",
-          "poi_name": "陈田小学",
-          "school_id": "gz-440111-7080b3ad"
         }
       ],
       "source_urls": [

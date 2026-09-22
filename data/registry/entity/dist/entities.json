@@ -259,12 +259,6 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440111-e5d6c5a1",
-      "name": "中八小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440103-1d4da3dd",
       "name": "中国教育科学研究院荔湾实验学校小学部",
       "stage": "primary",
@@ -459,12 +453,6 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440111-7c8e56b1",
-      "name": "人和第六小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440111-645ba6c1",
       "name": "人和镇第一小学",
       "stage": "primary",
@@ -509,7 +497,9 @@
       "school_id": "gz-440111-6c463f28",
       "name": "人和镇第六小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "人和第六小学"
+      ]
     },
     {
       "school_id": "gz-440111-369dffe8",
@@ -984,22 +974,12 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440111-8e8c1cd4",
-      "name": "南方中英文小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-d9b352f9",
-      "name": "南村学校",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440111-79a8e86f",
       "name": "南村小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "南村学校"
+      ]
     },
     {
       "school_id": "gz-440113-f7272e24",
@@ -1442,13 +1422,9 @@
       "school_id": "gz-440111-9588f926",
       "name": "大沥小学",
       "stage": "primary",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-026c9ce6",
-      "name": "大沥小学西",
-      "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "大沥小学西"
+      ]
     },
     {
       "school_id": "gz-440111-3a8dded4",
@@ -1786,12 +1762,6 @@
     {
       "school_id": "gz-440113-b5ff857b",
       "name": "广东仲元中学附属学校",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-7e484346",
-      "name": "广东外语外贸大学实验中学",
       "stage": "primary",
       "aliases": []
     },
@@ -2890,7 +2860,8 @@
       "name": "广州市白云区神山第二小学",
       "stage": "primary",
       "aliases": [
-        "神山第二小学"
+        "神山第二小学",
+        "中八小学"
       ]
     },
     {
@@ -3550,12 +3521,6 @@
       "aliases": [
         "开元学校东校区"
       ]
-    },
-    {
-      "school_id": "gz-440111-0f54fc98",
-      "name": "张村中心小学教育联盟红星小学",
-      "stage": "primary",
-      "aliases": []
     },
     {
       "school_id": "gz-440106-78aa2e37",
@@ -5152,12 +5117,6 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440111-72767b6f",
-      "name": "积德花园小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440113-b5ffc00d",
       "name": "穂石小学",
       "stage": "primary",
@@ -5207,7 +5166,9 @@
       "school_id": "gz-440111-abb00177",
       "name": "红星小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "张村中心小学教育联盟红星小学"
+      ]
     },
     {
       "school_id": "gz-440105-33326ac8",
@@ -5740,14 +5701,6 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440111-f501b6b5",
-      "name": "金广实验小学",
-      "stage": "primary",
-      "aliases": [
-        "金广实验学校"
-      ]
-    },
-    {
       "school_id": "gz-440105-16c497f1",
       "name": "金影小学",
       "stage": "primary",
@@ -5944,12 +5897,6 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440111-7080b3ad",
-      "name": "陈田小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440104-194c5aee",
       "name": "雅荷塘小学",
       "stage": "primary",
@@ -5977,7 +5924,8 @@
       "school_id": "gz-440111-2659ed44",
       "name": "颐和实验小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [],
+      "nature": "民办"
     },
     {
       "school_id": "gz-440112-7f51c626",
@@ -6699,7 +6647,8 @@
       "name": "金广实验学校(金域蓝湾校区)",
       "stage": "primary",
       "aliases": [
-        "白云区金广实验学校金域蓝湾校区"
+        "白云区金广实验学校金域蓝湾校区",
+        "金广实验学校"
       ]
     },
     {
@@ -6726,7 +6675,9 @@
       "school_id": "gz-440111-c553e806",
       "name": "广东外语外贸大学实验中学（陈田西校区）小学部",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "陈田小学"
+      ]
     },
     {
       "school_id": "gz-440111-7d253468",
@@ -6749,7 +6700,8 @@
       "name": "广州市白云区星悦实验学校",
       "stage": "primary",
       "aliases": [
-        "星悦实验学校"
+        "星悦实验学校",
+        "金广实验小学"
       ]
     },
     {

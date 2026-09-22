@@ -16260,7 +16260,12 @@
       {
         "direct_feed": null,
         "group": "白云区小升初对口（单校划片）",
-        "primary": "金广实验小学"
+        "primary": "金广实验学校(金域蓝湾校区)"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "金广实验学校(御金沙校区)"
       },
       {
         "direct_feed": null,
@@ -16290,11 +16295,6 @@
         "direct_feed": null,
         "group": "白云区小升初对口（单校划片）",
         "primary": "景泰小学(柯子岭校区)"
-      },
-      {
-        "direct_feed": null,
-        "group": "白云区小升初对口（单校划片）",
-        "primary": "景泰中学"
       },
       {
         "direct_feed": null,
@@ -16342,11 +16342,6 @@
         "direct_feed": null,
         "group": "白云区小升初对口（部分毕业生（多校））",
         "primary": "大沥小学"
-      },
-      {
-        "direct_feed": null,
-        "group": "白云区小升初对口（部分毕业生（多校））",
-        "primary": "大沥小学西"
       },
       {
         "direct_feed": null,
@@ -16440,11 +16435,6 @@
       {
         "direct_feed": null,
         "group": "白云区小升初对口（单校划片）",
-        "primary": "人和第六小学"
-      },
-      {
-        "direct_feed": null,
-        "group": "白云区小升初对口（单校划片）",
         "primary": "广州市第七十三中学·小学部"
       }
     ],
@@ -16460,11 +16450,6 @@
         "direct_feed": null,
         "group": "白云区小升初对口（单校划片）",
         "primary": "红星小学"
-      },
-      {
-        "direct_feed": null,
-        "group": "白云区小升初对口（单校划片）",
-        "primary": "张村中心小学教育联盟红星小学"
       },
       {
         "direct_feed": null,
@@ -16535,11 +16520,6 @@
         "direct_feed": null,
         "group": "白云区小升初对口（单校划片）",
         "primary": "景泰小学(柯子岭校区)"
-      },
-      {
-        "direct_feed": null,
-        "group": "白云区小升初对口（单校划片）",
-        "primary": "景泰中学"
       },
       {
         "direct_feed": null,
@@ -16651,7 +16631,13 @@
         "primary": "广州市白云区云英实验附属小学"
       }
     ],
-    "gz-440111-2ed8a6e2": [],
+    "gz-440111-2ed8a6e2": [
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "广州市白云区星悦实验学校"
+      }
+    ],
     "gz-440111-35536ebb": [
       {
         "direct_feed": null,
@@ -17313,11 +17299,6 @@
       {
         "direct_feed": null,
         "group": "白云区小升初对口（部分毕业生（多校））",
-        "primary": "大沥小学西"
-      },
-      {
-        "direct_feed": null,
-        "group": "白云区小升初对口（部分毕业生（多校））",
         "primary": "沙亭岗小学"
       },
       {
@@ -17366,7 +17347,12 @@
       {
         "direct_feed": null,
         "group": "白云区小升初对口（单校划片）",
-        "primary": "金广实验小学"
+        "primary": "金广实验学校(金域蓝湾校区)"
+      },
+      {
+        "direct_feed": null,
+        "group": "白云区小升初对口（单校划片）",
+        "primary": "金广实验学校(御金沙校区)"
       },
       {
         "direct_feed": null,
@@ -17535,11 +17521,6 @@
         "direct_feed": null,
         "group": "白云区小升初对口（单校划片）",
         "primary": "人和镇第六小学"
-      },
-      {
-        "direct_feed": null,
-        "group": "白云区小升初对口（单校划片）",
-        "primary": "人和第六小学"
       }
     ],
     "gz-440111-e128c24f": [
@@ -17661,11 +17642,6 @@
       {
         "direct_feed": null,
         "group": "白云区小升初对口（单校划片）",
-        "primary": "景泰中学"
-      },
-      {
-        "direct_feed": null,
-        "group": "白云区小升初对口（单校划片）",
         "primary": "广州市培英中学附属小学"
       }
     ],
@@ -17699,7 +17675,7 @@
       {
         "direct_feed": null,
         "group": "白云区小升初对口（单校划片）",
-        "primary": "广东外语外贸大学实验中学"
+        "primary": "广东外语外贸大学实验中学（陈田西校区）小学部"
       },
       {
         "direct_feed": null,
