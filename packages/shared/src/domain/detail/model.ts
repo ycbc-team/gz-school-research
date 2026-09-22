@@ -44,7 +44,6 @@ export interface DetailModel {
     school_id: string; plan_classes?: number | null; plan_count?: number | null; nature?: string;
     zone?: string; note?: string; district?: string; source?: string; matchedBy: string;
   } | null;
-  primaryMechanism: string | null;
   feedJuniors: { group: string | null; feed_junior_highs: string[]; direct_feed: string | null; source_note?: string } | null;
   feedGap: string | null;
   feedRows: FeedRow[];
@@ -142,14 +141,6 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     const byName = repo.entities.find((x) => normName(x.name) === normName(schoolName) && x.nature === '民办');
     if (byName?.nature) return byName.nature;
     return undefined;
-  })();
-  const primaryMechanism = (() => {
-    if (stage !== 'primary' || !poi) return null;
-    const d = repo.primaryTier1.districts;
-    for (const k of Object.keys(d)) {
-      if (schoolName.includes(k) && d[k]) return (d[k] as { xiaoshengchu_mechanism?: string | null }).xiaoshengchu_mechanism || null;
-    }
-    return null;
   })();
   const xsRecord = stage === 'primary' ? repo.xiaoshengchuOf(poi?.school_id ?? null) : null;
   const feedJuniors = (() => {
@@ -433,7 +424,6 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     legalEntityText,
     poi: poi ? { lng: poi.lng, lat: poi.lat } : null,
     enrollment: enrollment ? { ...enrollment, nature: entityNature || '公办' } : null,
-    primaryMechanism,
     feedJuniors,
     feedGap,
     feedRows,
