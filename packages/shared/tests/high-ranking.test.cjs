@@ -5,6 +5,7 @@ const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 const { buildHighRankingGroups, buildHighRankingRows } = require('../dist/cjs/index.js');
+const { diffSnapshots, formatDiff } = require('./helpers/snapshot-diff.cjs');
 
 const ROOT = path.resolve(__dirname, '../../..');
 const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', file), 'utf8'));
@@ -45,19 +46,26 @@ test('高中明细 VM：全量学校的政策标签与简称均不混淆', () =>
 });
 
 test('高中明细 VM：全量校区展示快照必须显式更新', () => {
-  const snapshot = buildHighRankingRows(loaders)
+  // 2026-09-22 由 sha256 digest 改为行映射快照 diff：digest 只能报「变了」，
+  // 看不出哪所学校的简称/分类/标签/分数线变化；现按 schoolId 存
+  // snapshots/high_rows_snapshot.json，漂移逐条列出 +新增 / -移除 / ~变更(旧→新)。
+  // 更新：UPDATE_SNAPSHOT=1 npm test。
+  const rows = buildHighRankingRows(loaders)
     .map(({ schoolId, name, displayName, category, affiliation, score2025, score2026 }) => ({ schoolId, name, displayName, category, affiliation, score2025, score2026 }))
     .sort((a, b) => String(a.schoolId).localeCompare(String(b.schoolId), 'zh'));
-  const digest = crypto.createHash('sha256').update(JSON.stringify(snapshot)).digest('hex');
-  // 2026-09-17 校区办学联网核实更新：CAMPUS_STAGE_FIX 使 9 所校区实体从 middle 迁入高中表
-  //（盘福/41中东等，见 campus_middle_webverify_20260917.md），高中明细新增校区行——有意变更
-  // 再更新：十三中文德校区修正（CAMPUS_STAGE_FIX 增补，高中/北校不再误建初中实体），高中明细行随迁
-  // 2026-09-18 高中学段判定重构（build_high_levels_js 改由实体表 stage 驱动）：智谷校区剔除（小学+初中不招高中）；
-  // 8 所已核实高中校区（盘福/执信二沙岛/41中东/41中南/75燕塘东/白云北/白云南/二中科学城）school 规范名补齐，
-  // 示范性标注从「未标注」恢复为省市属/区属示范——有意变更
-  // 2026-09-20 cutoff_score 目录重构后重跑 build_scores.py（entities 更新后新匹配 3 校：
-  // 二中科学城/新侨/博萃德从 unmapped 提升为实体匹配），高中明细新增 3 行——有意变更
-  assert.equal(digest, 'cd905ffd894e6f216b8bc94a21cb20ef97f78659ec6e0817f94b061b33c0da32', '任一高中校区的简称、分类、政策标签或录取线口径变更，都必须确认并更新全量快照');
+  const rowMap = {};
+  for (const r of rows) rowMap[r.schoolId] = { name: r.name, displayName: r.displayName, category: r.category, affiliation: r.affiliation, score2025: r.score2025, score2026: r.score2026 };
+  const SNAP = path.join(__dirname, 'snapshots', 'high_rows_snapshot.json');
+  if (process.env.UPDATE_SNAPSHOT === '1') {
+    fs.mkdirSync(path.dirname(SNAP), { recursive: true });
+    fs.writeFileSync(SNAP, JSON.stringify(rowMap, null, 2) + '\n');
+    console.log(`[snapshot] 已更新 ${SNAP}（${rows.length} 行高中校区）`);
+    return;
+  }
+  assert.ok(fs.existsSync(SNAP), `快照不存在：${SNAP}。首次运行请执行 UPDATE_SNAPSHOT=1 npm test 生成基线。`);
+  const base = JSON.parse(fs.readFileSync(SNAP, 'utf8'));
+  const diff = diffSnapshots(base, rowMap);
+  assert.deepEqual(diff.lines, [], `高中校区行快照漂移（${formatDiff(diff)}）：\n${diff.lines.join('\n')}`);
 });
 
 test('高中明细 VM：支持不分组、七区位置筛选与多年份排序', () => {

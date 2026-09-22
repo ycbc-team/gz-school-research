@@ -1,0 +1,2247 @@
+{
+  "gz-440103-04c54db8": {
+    "name": "广州市真光中学(广钢校区)",
+    "displayName": "真光中学(广钢校区)",
+    "category": "区属示范",
+    "affiliation": "荔湾区属",
+    "score2025": [
+      {
+        "name": "广州市真光中学（广钢校区）",
+        "text": "667",
+        "value": 667,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市真光中学（广钢校区）",
+        "text": "672",
+        "value": 672,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440103-2b8081bc": {
+    "name": "广州市真光中学(本部校区)",
+    "displayName": "真光中学(本部校区)",
+    "category": "区属示范",
+    "affiliation": "荔湾区属",
+    "score2025": [
+      {
+        "name": "广州市真光中学（校本部）",
+        "text": "689",
+        "value": 689,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市真光中学（校本部）",
+        "text": "690",
+        "value": 690,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440103-3aca532e": {
+    "name": "广东实验中学(高中部)",
+    "displayName": "广东实验中学(高中部)",
+    "category": "省市属示范",
+    "affiliation": "省属",
+    "score2025": [
+      {
+        "name": "广东实验中学（荔湾校区）",
+        "text": "727",
+        "value": 727,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广东实验中学（荔湾校区）",
+        "text": "740",
+        "value": 740,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440103-4935332a": {
+    "name": "耀华中学",
+    "displayName": "耀华中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440103-5143f5a1": {
+    "name": "广州荔湾爱莎文华学校",
+    "displayName": "荔湾爱莎文华学校",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440103-6bd45d68": {
+    "name": "广州市西关外国语学校(高中部)",
+    "displayName": "西关外国语学校(高中部)",
+    "category": "区属示范",
+    "affiliation": "荔湾区属",
+    "score2025": [
+      {
+        "name": "广州市西关外国语学校",
+        "text": "610",
+        "value": 610,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市西关外国语学校",
+        "text": "632",
+        "value": 632,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440103-882931a0": {
+    "name": "广州市真光中学(汾水校区)",
+    "displayName": "真光中学(汾水校区)",
+    "category": "区属示范",
+    "affiliation": "荔湾区属",
+    "score2025": [
+      {
+        "name": "广州市真光中学（汾水校区）",
+        "text": "631",
+        "value": 631,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市真光中学（汾水校区）",
+        "text": "592",
+        "value": 592,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440103-8920aa01": {
+    "name": "广州市第四中学(高中部锐园校区)",
+    "displayName": "第四中学(高中部锐园校区)",
+    "category": "区属示范",
+    "affiliation": "荔湾区属",
+    "score2025": [
+      {
+        "name": "广州市第四中学",
+        "text": "627",
+        "value": 627,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第四中学",
+        "text": "667",
+        "value": 667,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440103-a3ee807c": {
+    "name": "广州市培英中学(鹤洞校区)",
+    "displayName": "培英中学(鹤洞校区)",
+    "category": "区属示范",
+    "affiliation": "白云区属",
+    "score2025": [
+      {
+        "name": "广州市培英中学（鹤洞校区）",
+        "text": "667",
+        "value": 667,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市培英中学（鹤洞校区）",
+        "text": "673",
+        "value": 673,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440103-bb7f78f0": {
+    "name": "广东广雅中学(荔湾校区)",
+    "displayName": "广雅中学(荔湾校区)",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "广东广雅中学（荔湾校区）",
+        "text": "719",
+        "value": 719,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广东广雅中学（荔湾校区）",
+        "text": "733",
+        "value": 733,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440103-c62eab6a": {
+    "name": "广州市第一中学(高中部)",
+    "displayName": "第一中学(高中部)",
+    "category": "区属示范",
+    "affiliation": "荔湾区属",
+    "score2025": [
+      {
+        "name": "广州市第一中学",
+        "text": "628",
+        "value": 628,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第一中学",
+        "text": "655",
+        "value": 655,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440103-c9f13fde": {
+    "name": "广州市南海中学",
+    "displayName": "南海中学",
+    "category": "区属示范",
+    "affiliation": "荔湾区属",
+    "score2025": [
+      {
+        "name": "广州市南海中学",
+        "text": "587",
+        "value": 587,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市南海中学",
+        "text": "606",
+        "value": 606,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440103-d78c848a": {
+    "name": "广州市西关培英中学",
+    "displayName": "西关培英中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州市西关培英中学",
+        "text": "604",
+        "value": 604,
+        "batch": 4
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市西关培英中学",
+        "text": "607",
+        "value": 607,
+        "batch": 4
+      }
+    ]
+  },
+  "gz-440103-e281e7d0": {
+    "name": "广州协和学校",
+    "displayName": "协和学校",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "广州协和学校",
+        "text": "667",
+        "value": 667,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州协和学校",
+        "text": "685",
+        "value": 685,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440104-028e64d6": {
+    "name": "广州市第七中学(麓湖校区)",
+    "displayName": "第七中学(麓湖校区)",
+    "category": "区属示范",
+    "affiliation": "越秀区属",
+    "score2025": [],
+    "score2026": [
+      {
+        "name": "广州市第七中学（麓湖校区）",
+        "text": "666",
+        "value": 666,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440104-089a2a5b": {
+    "name": "广东实验中学越秀学校(盘福校区)",
+    "displayName": "实验中学越秀学校(盘福校区)",
+    "category": "区属示范",
+    "affiliation": "越秀区属",
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440104-09652aa5": {
+    "name": "广州市铁一中学(越秀校区)",
+    "displayName": "铁一中学(越秀校区)",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "广州市铁一中学（越秀校区）",
+        "text": "717",
+        "value": 717,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市铁一中学（越秀校区）",
+        "text": "638",
+        "value": 638,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440104-0a17f1eb": {
+    "name": "广州市第十三中学文德校区",
+    "displayName": "第十三中学文德校区",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州市第十三中学",
+        "text": "616",
+        "value": 616,
+        "batch": 4
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第十三中学",
+        "text": "625",
+        "value": 625,
+        "batch": 4
+      }
+    ]
+  },
+  "gz-440104-0f6e9cb0": {
+    "name": "广州市艺术中学",
+    "displayName": "艺术中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440104-1560332d": {
+    "name": "广东华侨中学(起义路校区)",
+    "displayName": "华侨中学(起义路校区)",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "广东华侨中学",
+        "text": "627",
+        "value": 627,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广东华侨中学",
+        "text": "637",
+        "value": 637,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440104-2a1f2eaf": {
+    "name": "广州市第七中学(高中部)",
+    "displayName": "第七中学(高中部)",
+    "category": "区属示范",
+    "affiliation": "越秀区属",
+    "score2025": [
+      {
+        "name": "广州市第七中学（校本部）",
+        "text": "668",
+        "value": 668,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第七中学（校本部）",
+        "text": "712",
+        "value": 712,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440104-32444523": {
+    "name": "广东实验中学越秀学校(天胜校区)",
+    "displayName": "实验中学越秀学校(天胜校区)",
+    "category": "区属示范",
+    "affiliation": "越秀区属",
+    "score2025": [
+      {
+        "name": "广东实验中学越秀学校",
+        "text": "627",
+        "value": 627,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广东实验中学越秀学校",
+        "text": "632",
+        "value": 632,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440104-63c59c98": {
+    "name": "广州市执信中学(二沙岛国际校区)",
+    "displayName": "执信中学(二沙岛国际校区)",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440104-7ec82efb": {
+    "name": "广州市育才中学(西校区)",
+    "displayName": "育才中学(西校区)",
+    "category": "区属示范",
+    "affiliation": "越秀区属",
+    "score2025": [
+      {
+        "name": "广州市育才中学",
+        "text": "628",
+        "value": 628,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市育才中学",
+        "text": "661",
+        "value": 661,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440104-7f3031fc": {
+    "name": "广州市第二中学(应元路校区)",
+    "displayName": "第二中学(应元路校区)",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "广州市第二中学",
+        "text": "724",
+        "value": 724,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第二中学",
+        "text": "737",
+        "value": 737,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440104-8a1a7b3d": {
+    "name": "广州市第十六中学",
+    "displayName": "第十六中学",
+    "category": "区属示范",
+    "affiliation": "越秀区属",
+    "score2025": [
+      {
+        "name": "广州市第十六中学（校本部）",
+        "text": "707",
+        "value": 707,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第十六中学（校本部）",
+        "text": "712",
+        "value": 712,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440104-99aef0e5": {
+    "name": "培正中学",
+    "displayName": "培正中学",
+    "category": "区属示范",
+    "affiliation": "越秀区属",
+    "score2025": [
+      {
+        "name": "广州市培正中学",
+        "text": "689",
+        "value": 689,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市培正中学",
+        "text": "690",
+        "value": 690,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440104-9c6632b1": {
+    "name": "广州市第十七中学",
+    "displayName": "第十七中学",
+    "category": "区属示范",
+    "affiliation": "越秀区属",
+    "score2025": [
+      {
+        "name": "广州市第十七中学",
+        "text": "616",
+        "value": 616,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第十七中学",
+        "text": "632",
+        "value": 632,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440104-d9ec2dbb": {
+    "name": "广州市第三中学",
+    "displayName": "第三中学",
+    "category": "区属示范",
+    "affiliation": "越秀区属",
+    "score2025": [
+      {
+        "name": "广州市第三中学",
+        "text": "663",
+        "value": 663,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第三中学",
+        "text": "677",
+        "value": 677,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440104-f3ca07ff": {
+    "name": "广州市执信中学(执信路校区)",
+    "displayName": "执信中学(执信路校区)",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "广州市执信中学（执信路校区）",
+        "text": "723",
+        "value": 723,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市执信中学（执信路校区）",
+        "text": "732",
+        "value": 732,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440105-0b52e48d": {
+    "name": "广州市培才高级中学",
+    "displayName": "培才高级中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440105-0ffca7e3": {
+    "name": "广州市第五中学",
+    "displayName": "第五中学",
+    "category": "区属示范",
+    "affiliation": "海珠区属",
+    "score2025": [
+      {
+        "name": "广州市第五中学（校本部）",
+        "text": "711",
+        "value": 711,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第五中学（校本部）",
+        "text": "705",
+        "value": 705,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440105-12b49e3f": {
+    "name": "广州市第六中学",
+    "displayName": "第六中学",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "广州市第六中学（海珠校区）",
+        "text": "712",
+        "value": 712,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第六中学（海珠校区）",
+        "text": "726",
+        "value": 726,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440105-13585057": {
+    "name": "广州市第四十一中学(南校区)",
+    "displayName": "第四十一中学(南校区)",
+    "category": "区属示范",
+    "affiliation": "海珠区属",
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440105-25137088": {
+    "name": "广州市海华高级中学",
+    "displayName": "海华高级中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440105-40a80ebb": {
+    "name": "广州市第四十一中学",
+    "displayName": "第四十一中学",
+    "category": "区属示范",
+    "affiliation": "海珠区属",
+    "score2025": [
+      {
+        "name": "广州市第四十一中学",
+        "text": "609",
+        "value": 609,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第四十一中学",
+        "text": "621",
+        "value": 621,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440105-443b73e7": {
+    "name": "海珠中学",
+    "displayName": "海珠中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440105-515da9e2": {
+    "name": "广州市南武中学(高中部)",
+    "displayName": "南武中学(高中部)",
+    "category": "区属示范",
+    "affiliation": "海珠区属",
+    "score2025": [
+      {
+        "name": "广州市南武中学（校本部）",
+        "text": "673",
+        "value": 673,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市南武中学（校本部）",
+        "text": "683",
+        "value": 683,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440105-aec34da3": {
+    "name": "广州市第五中学(金碧校区)",
+    "displayName": "第五中学(金碧校区)",
+    "category": "区属示范",
+    "affiliation": "海珠区属",
+    "score2025": [
+      {
+        "name": "广州市第五中学（金碧校区）",
+        "text": "670",
+        "value": 670,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第五中学（金碧校区）",
+        "text": "637",
+        "value": 637,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440105-b210556b": {
+    "name": "广州市第四十一中学(东校区)",
+    "displayName": "第四十一中学(东校区)",
+    "category": "区属示范",
+    "affiliation": "海珠区属",
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440105-dd2723fc": {
+    "name": "广州市南武中学(岭南画派纪念校区)",
+    "displayName": "南武中学(岭南画派纪念校区)",
+    "category": "区属示范",
+    "affiliation": "海珠区属",
+    "score2025": [
+      {
+        "name": "广州市南武中学（岭南画派纪念校区）",
+        "text": "627",
+        "value": 627,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市南武中学（岭南画派纪念校区）",
+        "text": "592",
+        "value": 592,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440105-e76b659d": {
+    "name": "广州市海珠外国语实验中学",
+    "displayName": "海珠外国语实验中学",
+    "category": "区属示范",
+    "affiliation": "海珠区属",
+    "score2025": [
+      {
+        "name": "广州市海珠外国语实验中学（校本部）",
+        "text": "667",
+        "value": 667,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市海珠外国语实验中学（校本部）",
+        "text": "672",
+        "value": 672,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440105-ed868139": {
+    "name": "广州市第九十七中学(江南新苑校区)",
+    "displayName": "第九十七中学(江南新苑校区)",
+    "category": "区属示范",
+    "affiliation": "海珠区属",
+    "score2025": [
+      {
+        "name": "广州市第九十七中学（江南新苑校区）",
+        "text": "589",
+        "value": 589,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第九十七中学（江南新苑校区）",
+        "text": "615",
+        "value": 615,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440105-f0712355": {
+    "name": "广州市第九十七中学",
+    "displayName": "第九十七中学",
+    "category": "区属示范",
+    "affiliation": "海珠区属",
+    "score2025": [
+      {
+        "name": "广州市第九十七中学（校本部）",
+        "text": "659",
+        "value": 659,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第九十七中学（校本部）",
+        "text": "645",
+        "value": 645,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440105-fde335b7": {
+    "name": "广州市为明学校罗马校区(高中部)",
+    "displayName": "为明学校罗马校区(高中部)",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440106-01fd3a87": {
+    "name": "广州天省实验学校",
+    "displayName": "天省实验学校",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440106-069ddb41": {
+    "name": "广州市天河外国语学校（智慧城校区）",
+    "displayName": "天河外国语学校（智慧城校区）",
+    "category": "区属示范",
+    "affiliation": "天河区属",
+    "score2025": [
+      {
+        "name": "广州市天河外国语学校（智慧城校区）",
+        "text": "707",
+        "value": 707,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市天河外国语学校（智慧城校区）",
+        "text": "712",
+        "value": 712,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440106-22fcbcd6": {
+    "name": "执信中学(天河校区)",
+    "displayName": "执信中学(天河校区)",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "广州市执信中学（天河校区）",
+        "text": "720",
+        "value": 720,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市执信中学（天河校区）",
+        "text": "731",
+        "value": 731,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440106-31895452": {
+    "name": "清华附中湾区学校（智慧城校区）",
+    "displayName": "清华附中湾区学校（智慧城校区）",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "清华附中湾区学校",
+        "text": "698",
+        "value": 698,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "清华附中湾区学校（智慧城校区）",
+        "text": "710",
+        "value": 710,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440106-3c8afb6a": {
+    "name": "广州中学(凤凰校区)",
+    "displayName": "广州中学(凤凰校区)",
+    "category": "区属示范",
+    "affiliation": "天河区属",
+    "score2025": [
+      {
+        "name": "广州中学",
+        "text": "693",
+        "value": 693,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州中学",
+        "text": "708",
+        "value": 708,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440106-42297c28": {
+    "name": "广州思源学校高中部",
+    "displayName": "思源学校高中部",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440106-52f7f4b7": {
+    "name": "广州市第十六中学(水荫校区)",
+    "displayName": "第十六中学(水荫校区)",
+    "category": "区属示范",
+    "affiliation": "越秀区属",
+    "score2025": [
+      {
+        "name": "广州市第十六中学（水荫校区）",
+        "text": "666",
+        "value": 666,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第十六中学（水荫校区）",
+        "text": "632",
+        "value": 632,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440106-5b430017": {
+    "name": "广州市第七十五中学(燕塘东校区)",
+    "displayName": "第七十五中学(燕塘东校区)",
+    "category": "区属示范",
+    "affiliation": "天河区属",
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440106-5f78f6a9": {
+    "name": "广州市第一一三中学(金融城校区)",
+    "displayName": "第一一三中学(金融城校区)",
+    "category": "区属示范",
+    "affiliation": "天河区属",
+    "score2025": [
+      {
+        "name": "广州市第一一三中学",
+        "text": "667",
+        "value": 667,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第一一三中学（金融城校区）",
+        "text": "672",
+        "value": 672,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440106-621b20d3": {
+    "name": "广州市第七十五中学(天平架校区)",
+    "displayName": "第七十五中学(天平架校区)",
+    "category": "区属示范",
+    "affiliation": "天河区属",
+    "score2025": [
+      {
+        "name": "广州市第七十五中学",
+        "text": "627",
+        "value": 627,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第七十五中学",
+        "text": "632",
+        "value": 632,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440106-8bc01096": {
+    "name": "清华附中湾区学校（智谷校区）",
+    "displayName": "清华附中湾区学校（智谷校区）",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "清华附中湾区学校",
+        "text": "698",
+        "value": 698,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "清华附中湾区学校（智谷校区）",
+        "text": "712",
+        "value": 712,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440106-8f55ab34": {
+    "name": "广州市第八十九中学",
+    "displayName": "第八十九中学",
+    "category": "区属示范",
+    "affiliation": "天河区属",
+    "score2025": [
+      {
+        "name": "广州市第八十九中学",
+        "text": "639",
+        "value": 639,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第八十九中学",
+        "text": "645",
+        "value": 645,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440106-93897236": {
+    "name": "广州市天河中学(珠江新城校区)",
+    "displayName": "天河中学(珠江新城校区)",
+    "category": "区属示范",
+    "affiliation": "天河区属",
+    "score2025": [
+      {
+        "name": "广州市天河中学",
+        "text": "666",
+        "value": 666,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市天河中学",
+        "text": "676",
+        "value": 676,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440106-a6394a7a": {
+    "name": "广州市华美英语实验学校",
+    "displayName": "华美英语实验学校",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440106-b711d94a": {
+    "name": "广州市天河外国语学校（珠江新城校区）",
+    "displayName": "天河外国语学校（珠江新城校区）",
+    "category": "区属示范",
+    "affiliation": "天河区属",
+    "score2025": [
+      {
+        "name": "广州市天河外国语学校（珠江新城校区）",
+        "text": "714",
+        "value": 714,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市天河外国语学校（珠江新城校区）",
+        "text": "708",
+        "value": 708,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440106-ced6bbff": {
+    "name": "广州市第一一三中学(元岗校区)",
+    "displayName": "第一一三中学(元岗校区)",
+    "category": "区属示范",
+    "affiliation": "天河区属",
+    "score2025": [],
+    "score2026": [
+      {
+        "name": "广州市第一一三中学（元岗校区）",
+        "text": "633",
+        "value": 633,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440106-d5983217": {
+    "name": "华南师范大学附属中学(石牌校区)",
+    "displayName": "华南师范大学附属中学(石牌校区)",
+    "category": "省市属示范",
+    "affiliation": "省属",
+    "score2025": [
+      {
+        "name": "华南师范大学附属中学（石牌校区）",
+        "text": "740",
+        "value": 740,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "华南师范大学附属中学（石牌校区）",
+        "text": "739",
+        "value": 739,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440106-d8e69757": {
+    "name": "广州奥林匹克中学(高中部)",
+    "displayName": "奥林匹克中学(高中部)",
+    "category": "区属示范",
+    "affiliation": "天河区属",
+    "score2025": [
+      {
+        "name": "广州奥林匹克中学",
+        "text": "627",
+        "value": 627,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州奥林匹克中学",
+        "text": "632",
+        "value": 632,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440111-0901ed40": {
+    "name": "广州市华文高级中学",
+    "displayName": "华文高级中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440111-0cf700fb": {
+    "name": "广州空港实验中学(东校区)",
+    "displayName": "空港实验中学(东校区)",
+    "category": "区属示范",
+    "affiliation": "白云区属",
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440111-15fa03a9": {
+    "name": "广州市白云中学(南区)",
+    "displayName": "白云中学(南区)",
+    "category": "区属示范",
+    "affiliation": "白云区属",
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440111-218475ea": {
+    "name": "广州市第六十五中学(江高校区)",
+    "displayName": "第六十五中学(江高校区)",
+    "category": "区属示范",
+    "affiliation": "白云区属",
+    "score2025": [
+      {
+        "name": "广州市第六十五中学（江高校区）",
+        "text": "667",
+        "value": 667,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第六十五中学（江高校区）",
+        "text": "672",
+        "value": 672,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440111-28c16cca": {
+    "name": "广州市铁一中学(白云校区)",
+    "displayName": "铁一中学(白云校区)",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "广州市铁一中学（白云校区）",
+        "text": "707",
+        "value": 707,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市铁一中学（白云校区）",
+        "text": "712",
+        "value": 712,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440111-2b28ed6a": {
+    "name": "广州大同中学(高中部)",
+    "displayName": "大同中学(高中部)",
+    "category": "区属示范",
+    "affiliation": "白云区属",
+    "score2025": [
+      {
+        "name": "广州大同中学",
+        "text": "635",
+        "value": 635,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州大同中学",
+        "text": "635",
+        "value": 635,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440111-33d95662": {
+    "name": "广东第二师范学院实验中学(高中部)",
+    "displayName": "第二师范学院实验中学(高中部)",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州市白云区广东第二师范学院实验中学",
+        "text": "547",
+        "value": 547,
+        "batch": 4
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市白云区广东第二师范学院实验中学",
+        "text": "552",
+        "value": 552,
+        "batch": 4
+      }
+    ]
+  },
+  "gz-440111-35536ebb": {
+    "name": "颜乐天纪念中学",
+    "displayName": "颜乐天纪念中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州市白云区颜乐天纪念中学",
+        "text": "554",
+        "value": 554,
+        "batch": 4
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市白云区颜乐天纪念中学",
+        "text": "578",
+        "value": 578,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440111-3a82b572": {
+    "name": "广州市珠江高级中学",
+    "displayName": "珠江高级中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440111-4ebb4316": {
+    "name": "广州市第六十五中学(江府校区)",
+    "displayName": "第六十五中学(江府校区)",
+    "category": "区属示范",
+    "affiliation": "白云区属",
+    "score2025": [
+      {
+        "name": "广州市第六十五中学（江府校区）",
+        "text": "627",
+        "value": 627,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第六十五中学（江府校区）",
+        "text": "646",
+        "value": 646,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440111-5849b586": {
+    "name": "广州市白云中学(北区)",
+    "displayName": "白云中学(北区)",
+    "category": "区属示范",
+    "affiliation": "白云区属",
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440111-730c7404": {
+    "name": "广州市培英中学(云城校区)",
+    "displayName": "培英中学(云城校区)",
+    "category": "区属示范",
+    "affiliation": "白云区属",
+    "score2025": [
+      {
+        "name": "广州市培英中学（白云新城校区）",
+        "text": "707",
+        "value": 707,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市培英中学（白云新城校区）",
+        "text": "712",
+        "value": 712,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440111-7360ff6d": {
+    "name": "广州市庆丰实验学校",
+    "displayName": "庆丰实验学校",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440111-7b531bd6": {
+    "name": "广州市实验外语学校",
+    "displayName": "实验外语学校",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440111-7e484346": {
+    "name": "广东外语外贸大学实验中学",
+    "displayName": "外语外贸大学实验中学",
+    "category": "区属示范",
+    "affiliation": "白云区属",
+    "score2025": [
+      {
+        "name": "广东外语外贸大学实验中学",
+        "text": "627",
+        "value": 627,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广东外语外贸大学实验中学",
+        "text": "632",
+        "value": 632,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440111-82856abf": {
+    "name": "广州市第七中学(桂花校区)",
+    "displayName": "第七中学(桂花校区)",
+    "category": "区属示范",
+    "affiliation": "越秀区属",
+    "score2025": [
+      {
+        "name": "广州市第七中学（桂花校区）",
+        "text": "629",
+        "value": 629,
+        "batch": 3
+      }
+    ],
+    "score2026": []
+  },
+  "gz-440111-88e467ba": {
+    "name": "亚加达外国语高级中学",
+    "displayName": "亚加达外国语高级中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440111-99d97ada": {
+    "name": "广东华侨中学(金沙洲校区)",
+    "displayName": "华侨中学(金沙洲校区)",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "广东华侨中学",
+        "text": "627",
+        "value": 627,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广东华侨中学",
+        "text": "637",
+        "value": 637,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440111-a3cf5a4f": {
+    "name": "广东实验中学(白云校区)",
+    "displayName": "广东实验中学(白云校区)",
+    "category": "省市属示范",
+    "affiliation": "省属",
+    "score2025": [
+      {
+        "name": "广东实验中学（白云校区）",
+        "text": "729",
+        "value": 729,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广东实验中学（白云校区）",
+        "text": "720",
+        "value": 720,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440111-b50dea4b": {
+    "name": "广州市第六十六中学",
+    "displayName": "第六十六中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州市第六十六中学",
+        "text": "564",
+        "value": 564,
+        "batch": 4
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第六十六中学",
+        "text": "559",
+        "value": 559,
+        "batch": 4
+      }
+    ]
+  },
+  "gz-440111-c08e69db": {
+    "name": "广州市白云艺术中学",
+    "displayName": "白云艺术中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州市白云艺术中学",
+        "text": "547",
+        "value": 547,
+        "batch": 4
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市白云艺术中学",
+        "text": "520",
+        "value": 520,
+        "batch": 4
+      }
+    ]
+  },
+  "gz-440111-c7b90869": {
+    "name": "广州市第六十五中学(同德校区)",
+    "displayName": "第六十五中学(同德校区)",
+    "category": "区属示范",
+    "affiliation": "白云区属",
+    "score2025": [
+      {
+        "name": "广州市第六十五中学（同德校区）",
+        "text": "631",
+        "value": 631,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第六十五中学（同德校区）",
+        "text": "632",
+        "value": 632,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440111-c8ae0a7c": {
+    "name": "广州市源雅学校",
+    "displayName": "源雅学校",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440111-d28d78f9": {
+    "name": "广州彭加木纪念中学",
+    "displayName": "彭加木纪念中学",
+    "category": "区属示范",
+    "affiliation": "白云区属",
+    "score2025": [
+      {
+        "name": "广州彭加木纪念中学",
+        "text": "601",
+        "value": 601,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州彭加木纪念中学",
+        "text": "592",
+        "value": 592,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440111-d4c4285e": {
+    "name": "广州空港实验中学(校本部)",
+    "displayName": "空港实验中学(校本部)",
+    "category": "区属示范",
+    "affiliation": "白云区属",
+    "score2025": [
+      {
+        "name": "广州市白云区广州空港实验中学",
+        "text": "587",
+        "value": 587,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市白云区广州空港实验中学",
+        "text": "599",
+        "value": 599,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440111-e74c2e1d": {
+    "name": "广州市白云中学",
+    "displayName": "白云中学",
+    "category": "区属示范",
+    "affiliation": "白云区属",
+    "score2025": [
+      {
+        "name": "广州市白云中学",
+        "text": "627",
+        "value": 627,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市白云中学",
+        "text": "619",
+        "value": 619,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440112-0876de16": {
+    "name": "北京师范大学广州实验学校-中学部",
+    "displayName": "北京师范大学广州实验学校-中学部",
+    "category": "区属示范",
+    "affiliation": "黄埔区属",
+    "score2025": [
+      {
+        "name": "北京师范大学广州实验学校",
+        "text": "667",
+        "value": 667,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "北京师范大学广州实验学校",
+        "text": "672",
+        "value": 672,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440112-0cb5a402": {
+    "name": "广州市第八十六中学",
+    "displayName": "第八十六中学",
+    "category": "区属示范",
+    "affiliation": "黄埔区属",
+    "score2025": [
+      {
+        "name": "广州市第八十六中学",
+        "text": "697",
+        "value": 697,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第八十六中学",
+        "text": "698",
+        "value": 698,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440112-203c6d64": {
+    "name": "广州市黄埔区开元学校",
+    "displayName": "黄埔区开元学校",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州市黄埔区开元学校",
+        "text": "652",
+        "value": 652,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市黄埔区开元学校",
+        "text": "672",
+        "value": 672,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440112-204541b5": {
+    "name": "广州市艺术中学黄埔校区",
+    "displayName": "艺术中学黄埔校区",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440112-3847727f": {
+    "name": "华南师范大学附属中学(知识城校区)",
+    "displayName": "华南师范大学附属中学(知识城校区)",
+    "category": "省市属示范",
+    "affiliation": "省属",
+    "score2025": [
+      {
+        "name": "华南师范大学附属中学（知识城校区）",
+        "text": "727",
+        "value": 727,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "华南师范大学附属中学（知识城校区）",
+        "text": "735",
+        "value": 735,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440112-705844f8": {
+    "name": "广州市明珠高级中学",
+    "displayName": "明珠高级中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440112-87f27cf4": {
+    "name": "广州实验中学",
+    "displayName": "广州实验中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州实验中学",
+        "text": "672",
+        "value": 672,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州实验中学",
+        "text": "682",
+        "value": 682,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440112-8b4292d7": {
+    "name": "广州科学城中学",
+    "displayName": "科学城中学",
+    "category": "区属示范",
+    "affiliation": "黄埔区属",
+    "score2025": [
+      {
+        "name": "广州科学城中学",
+        "text": "645",
+        "value": 645,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州科学城中学",
+        "text": "672",
+        "value": 672,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440112-8bf29a28": {
+    "name": "广州市黄埔区苏元学校",
+    "displayName": "黄埔区苏元学校",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州市黄埔区苏元学校",
+        "text": "667",
+        "value": 667,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市黄埔区苏元学校",
+        "text": "672",
+        "value": 672,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440112-8edaa2d8": {
+    "name": "广州石化中学",
+    "displayName": "石化中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州石化中学",
+        "text": "586",
+        "value": 586,
+        "batch": 4
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州石化中学",
+        "text": "589",
+        "value": 589,
+        "batch": 4
+      }
+    ]
+  },
+  "gz-440112-9d315f50": {
+    "name": "广州开发区外国语学校",
+    "displayName": "开发区外国语学校",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州开发区外国语学校",
+        "text": "590",
+        "value": 590,
+        "batch": 4
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州开发区外国语学校",
+        "text": "599",
+        "value": 599,
+        "batch": 4
+      }
+    ]
+  },
+  "gz-440112-b56cfdce": {
+    "name": "广州市第二中学(科学城校区)",
+    "displayName": "第二中学(科学城校区)",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "广州市第二中学",
+        "text": "724",
+        "value": 724,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市第二中学",
+        "text": "737",
+        "value": 737,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440112-bffde68d": {
+    "name": "广州新侨学校",
+    "displayName": "新侨学校",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440112-e085f4fa": {
+    "name": "广州市天健学校",
+    "displayName": "天健学校",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440112-ec15555e": {
+    "name": "广州知识城中学(南校区)",
+    "displayName": "知识城中学(南校区)",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州知识城中学",
+        "text": "550",
+        "value": 550,
+        "batch": 4
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州知识城中学",
+        "text": "552",
+        "value": 552,
+        "batch": 4
+      }
+    ]
+  },
+  "gz-440112-ff5acfd5": {
+    "name": "玉岩中学",
+    "displayName": "玉岩中学",
+    "category": "区属示范",
+    "affiliation": "黄埔区属",
+    "score2025": [
+      {
+        "name": "广州市玉岩中学",
+        "text": "705",
+        "value": 705,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市玉岩中学",
+        "text": "712",
+        "value": 712,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440113-2570c29b": {
+    "name": "广州市番禺区大龙中学",
+    "displayName": "番禺区大龙中学",
+    "category": "区属示范",
+    "affiliation": "番禺区属",
+    "score2025": [
+      {
+        "name": "广州市番禺区大龙中学",
+        "text": "587",
+        "value": 587,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市番禺区大龙中学",
+        "text": "593",
+        "value": 593,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440113-337c0524": {
+    "name": "广州南方学院番禺附属中学",
+    "displayName": "南方学院番禺附属中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440113-3d006240": {
+    "name": "广州博萃德学校",
+    "displayName": "博萃德学校",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440113-443448d2": {
+    "name": "番禺区石楼中学",
+    "displayName": "番禺区石楼中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州市番禺区石楼中学",
+        "text": "520",
+        "value": 520,
+        "batch": 4
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市番禺区石楼中学",
+        "text": "552",
+        "value": 552,
+        "batch": 4
+      }
+    ]
+  },
+  "gz-440113-527391ff": {
+    "name": "石碁中学",
+    "displayName": "石碁中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州市番禺区石碁中学",
+        "text": "538",
+        "value": 538,
+        "batch": 4
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市番禺区石碁中学",
+        "text": "589",
+        "value": 589,
+        "batch": 4
+      }
+    ]
+  },
+  "gz-440113-5f62f75c": {
+    "name": "广东番禺中学",
+    "displayName": "番禺中学",
+    "category": "区属示范",
+    "affiliation": "番禺区属",
+    "score2025": [
+      {
+        "name": "广东番禺中学",
+        "text": "667",
+        "value": 667,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广东番禺中学",
+        "text": "672",
+        "value": 672,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440113-6cf93097": {
+    "name": "禺山高级中学",
+    "displayName": "禺山高级中学",
+    "category": "区属示范",
+    "affiliation": "番禺区属",
+    "score2025": [
+      {
+        "name": "广州市禺山高级中学",
+        "text": "621",
+        "value": 621,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市禺山高级中学",
+        "text": "632",
+        "value": 632,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440113-809482e2": {
+    "name": "石北中学",
+    "displayName": "石北中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州市番禺区石北中学",
+        "text": "527",
+        "value": 527,
+        "batch": 4
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市番禺区石北中学",
+        "text": "552",
+        "value": 552,
+        "batch": 4
+      }
+    ]
+  },
+  "gz-440113-83a6a219": {
+    "name": "广东第二师范学院番禺附属中学",
+    "displayName": "第二师范学院番禺附属中学",
+    "category": "区属示范",
+    "affiliation": "番禺区属",
+    "score2025": [
+      {
+        "name": "广东第二师范学院番禺附属中学",
+        "text": "587",
+        "value": 587,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广东第二师范学院番禺附属中学",
+        "text": "596",
+        "value": 596,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440113-86cfc8c7": {
+    "name": "广州市衡美高级中学",
+    "displayName": "衡美高级中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440113-8f5e4721": {
+    "name": "广州大学附属中学(大学城校区)",
+    "displayName": "广州大学附属中学(大学城校区)",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "广州大学附属中学",
+        "text": "732",
+        "value": 732,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州大学附属中学",
+        "text": "738",
+        "value": 738,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440113-97e0acaa": {
+    "name": "广州市铁一中学(番禺校区)",
+    "displayName": "铁一中学(番禺校区)",
+    "category": "省市属示范",
+    "affiliation": "市属",
+    "score2025": [
+      {
+        "name": "广州市铁一中学（番禺校区）",
+        "text": "708",
+        "value": 708,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市铁一中学（番禺校区）",
+        "text": "710",
+        "value": 710,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440113-999fb9c0": {
+    "name": "广州市星执学校",
+    "displayName": "星执学校",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440113-acf92324": {
+    "name": "广东仲元中学",
+    "displayName": "仲元中学",
+    "category": "区属示范",
+    "affiliation": "番禺区属",
+    "score2025": [
+      {
+        "name": "广东仲元中学",
+        "text": "702",
+        "value": 702,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广东仲元中学",
+        "text": "709",
+        "value": 709,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440113-c181d193": {
+    "name": "祈福英语实验学校",
+    "displayName": "祈福英语实验学校",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [],
+    "score2026": []
+  },
+  "gz-440113-cbaa8160": {
+    "name": "南村中学",
+    "displayName": "南村中学",
+    "category": "普通高中",
+    "affiliation": null,
+    "score2025": [
+      {
+        "name": "广州市番禺区南村中学",
+        "text": "535",
+        "value": 535,
+        "batch": 4
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市番禺区南村中学",
+        "text": "580",
+        "value": 580,
+        "batch": 4
+      }
+    ]
+  },
+  "gz-440113-e121d1b3": {
+    "name": "番禺实验中学",
+    "displayName": "番禺实验中学",
+    "category": "区属示范",
+    "affiliation": "番禺区属",
+    "score2025": [
+      {
+        "name": "广州市番禺区实验中学",
+        "text": "627",
+        "value": 627,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市番禺区实验中学",
+        "text": "633",
+        "value": 633,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440113-e7ca2b33": {
+    "name": "洛溪新城中学",
+    "displayName": "洛溪新城中学",
+    "category": "区属示范",
+    "affiliation": "番禺区属",
+    "score2025": [
+      {
+        "name": "广州市番禺区洛溪新城中学",
+        "text": "587",
+        "value": 587,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市番禺区洛溪新城中学",
+        "text": "592",
+        "value": 592,
+        "batch": 3
+      }
+    ]
+  },
+  "gz-440113-fe0cfa1f": {
+    "name": "象贤中学",
+    "displayName": "象贤中学",
+    "category": "区属示范",
+    "affiliation": "番禺区属",
+    "score2025": [
+      {
+        "name": "广州市番禺区象贤中学",
+        "text": "651",
+        "value": 651,
+        "batch": 3
+      }
+    ],
+    "score2026": [
+      {
+        "name": "广州市番禺区象贤中学",
+        "text": "666",
+        "value": 666,
+        "batch": 3
+      }
+    ]
+  }
+}

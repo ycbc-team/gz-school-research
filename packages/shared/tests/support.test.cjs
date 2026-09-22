@@ -15,6 +15,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { normName, buildAliasTable, matchTier1ByPoiName, matchBrandByPoiName } = require('../dist/cjs/support.js');
+const { diffSnapshots, formatDiff } = require('./helpers/snapshot-diff.cjs');
 
 const ROOT = path.resolve(__dirname, '../../..');
 const loadTier1 = (f) => {
@@ -183,6 +184,10 @@ test('全量快照：名称/别名/品牌表改动导致匹配漂移必须显式
   }
   assert.ok(fs.existsSync(SNAP), `快照不存在：${SNAP}。首次运行请执行 UPDATE_SNAPSHOT=1 npm test 生成基线。`);
   const base = JSON.parse(fs.readFileSync(SNAP, 'utf8'));
-  assert.deepEqual(snap.tier, base.tier, `tier1 匹配快照漂移！改动名称/别名后请先确认意图，再 UPDATE_SNAPSHOT=1 更新。`);
-  assert.deepEqual(snap.brand, base.brand, `品牌归属快照漂移！改动品牌表后请先确认意图，再 UPDATE_SNAPSHOT=1 更新。`);
+  // 2026-09-22 由 assert.deepEqual 大对象全等改为 diff 输出：deepEqual 失败只给
+  // expected/actual 全量，增删改混在一坨 JSON 里；现逐条列出 +新增 / -移除 / ~变更。
+  const t1 = diffSnapshots(base.tier, snap.tier);
+  assert.deepEqual(t1.lines, [], `tier1 匹配快照漂移（${formatDiff(t1)}）：\n${t1.lines.join('\n')}`);
+  const bd = diffSnapshots(base.brand, snap.brand);
+  assert.deepEqual(bd.lines, [], `品牌归属快照漂移（${formatDiff(bd)}）：\n${bd.lines.join('\n')}`);
 });

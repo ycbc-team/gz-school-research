@@ -10,6 +10,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { createRepository, buildDetailModel, buildLinkageModel, normName } = require('../dist/cjs/index.js');
+const { diffSnapshots, formatDiff } = require('./helpers/snapshot-diff.cjs');
 const ROOT = path.resolve(__dirname, '../../..');
 const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', file), 'utf8'));
 const loaders = {
@@ -133,30 +134,27 @@ test('品牌关联：全量品牌实体对比修复前后，品牌分支新增�
     ['primary', 'middle', 'high'].includes(entity.stage) &&
     repo.groupOfSchool(entity.name, entity.school_id)?.source === 'brand',
   );
-  // 覆盖范围快照：新品牌实体加入时必须显式审阅这条 ID 当前态规则。
-  // 口径 = groupOfSchool 解析为 brand 来源的全部实体（按名 + school_id 外键），school_id 外键新增实体同样受回归保护。
-  // 注：重跑生产脚本后为 65 —— 铁英小学/铁英中学/省实荔湾初中部/广雅荔湾/西关广雅南岸路 5 个实体
-  // 同时命中 education 索引（education 优先），回归 education 分支，不再计入 brand 覆盖。
-  // 2026-09-16 品牌关联治理后为 66：锚点表瘦身 + entities 脚本构建（school_id 外键 35 个 + 按名匹配 31 个），
-  // 品牌详情页覆盖范围经全量回归审阅（每个实体均能解析到集团且当前态非空）。
-  // 2026-09-16 法人多校区治理后为 58：merge_groups 对 education core_poi 做法人推导补全
-  // （matchNorm(coreCampusName) 归并全部校区），华阳小学/真光等校区改由 education 索引命中
-  // （education 优先），品牌卡归属更准确（教育集团 core_poi 全校区可见）。
-  // 2026-09-17 校区办学联网核实后为 57：41中东/盘福等 9 所校区 stage 修正（middle→high/primary，
-  // 见 CAMPUS_STAGE_FIX，campus_middle_webverify_20260917.md），学段变更后不再计入 brand 覆盖
-  //（详情页按正确学段渲染品牌卡）。
-  // 2026-09-21 后缀式校区统一归并 + 锚点表瘦身（55→4）后为 55：
-  //   a) 省实荔湾花地湾 2 校区（花地湾校区 + 小学部）由 brand/广东实验中学教育集团 转入
-  //      education/广东实验中学荔湾学校教育集团（法人推导补全 core_poi 后 education 索引优先），
-  //      归属更准确，不再计入 brand 覆盖（-2）；
-  //   b) 后缀式校区统一规则（school_match.legalCampuses「<法人><校区名>校区」前缀归并）另使
-  //      12 个后缀式校区进入 education 覆盖（+12，见 school_groups 增量），brand 覆盖不受影响。
-  // 2026-09-22 番禺中学实验学校集团归属修复（用户发现）：番广实验 core 官方名
-  // 「广州大学附属中学番禺实验学校」经 GROUP_MEMBER_ALIAS 桥接 213843c2，该校由
-  // brand/广附 转入 education/番广实验（-1）；广东番禺中学实验学校两校区补挂
-  // 广东番禺中学教育集团（education 分支，不计 brand）。另补登 fork 后实体瘦身
-  // 漂移（53 为当前产物实际值，55 为 2026-09-21 旧基线，见 git blame）。
-  assert.equal(eligible.length, 53, '品牌实体覆盖范围变更，请审阅当前态回归结果');
+  // 覆盖范围快照（2026-09-22 由「数字断言」改为名单快照 diff——数字只能报 55→53，
+  // 看不出是哪个实体增删；现按 school_id|name 逐条列出）。基线存
+  // snapshots/brand_cover.json：品牌覆盖实体 → 集团名。任何增删立刻定位到学校。
+  // 口径 = groupOfSchool 解析为 brand 来源的全部实体（按名 + school_id 外键），
+  // school_id 外键新增实体同样受回归保护。更新：UPDATE_SNAPSHOT=1 npm test。
+  const COVER_SNAP = path.join(__dirname, 'snapshots', 'brand_cover.json');
+  const coverMap = {};
+  for (const entity of eligible) {
+    const g = repo.groupOfSchool(entity.name, entity.school_id);
+    if (g) coverMap[`${entity.school_id}|${entity.name}`] = g.brand;
+  }
+  if (process.env.UPDATE_SNAPSHOT === '1') {
+    fs.mkdirSync(path.dirname(COVER_SNAP), { recursive: true });
+    fs.writeFileSync(COVER_SNAP, JSON.stringify(coverMap, null, 2) + '\n');
+    console.log(`[snapshot] 已更新 ${COVER_SNAP}（${eligible.length} 条品牌覆盖实体）`);
+    return;
+  }
+  assert.ok(fs.existsSync(COVER_SNAP), `快照不存在：${COVER_SNAP}。首次运行请执行 UPDATE_SNAPSHOT=1 npm test 生成基线。`);
+  const coverBase = JSON.parse(fs.readFileSync(COVER_SNAP, 'utf8'));
+  const coverDiff = diffSnapshots(coverBase, coverMap);
+  assert.deepEqual(coverDiff.lines, [], `品牌覆盖名单漂移（${formatDiff(coverDiff)}）：\n${coverDiff.lines.join('\n')}`);
   const failures = [];
   for (const entity of eligible) {
     const group = repo.groupOfSchool(entity.name, entity.school_id);
@@ -311,7 +309,7 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
   for (const e of repo.entities) {
     if (!grpKeys.has(nrm(coreOf(e.name)))) continue;
     const m = buildDetailModel(e.stage, e.name, repo, e.school_id);
-    shown.push(`${e.school_id}|${m.brandCard ? m.brandCard.brand : ''}|${m.brandCardUseful}`);
+    shown.push(`${e.school_id}|${e.name}|${m.brandCard ? m.brandCard.brand : ''}|${m.brandCardUseful}`);
     if (!m.brandCard) { miss.push(`${e.name} 品牌卡为 null`); continue; }
     // 组内有非当前成员行（真增量信息）时必须渲染（useful）
     if (!m.brandCardUseful && m.brandCard.groups.some((g) => g.rows.some((r) => !r.isCurrent))) {
@@ -326,22 +324,26 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
     }
   }
   assert.deepEqual(miss, [], `品牌卡消失/未渲染: ${miss.join('; ')}`);
-  // 快照：渲染中的品牌卡名单 digest（brandCardUseful=true 实体）
-  const digest = crypto
-    .createHash('sha256')
-    .update(shown.filter((s) => s.endsWith('|true')).sort().join('\n'))
-    .digest('hex')
-    .slice(0, 16);
-  // 2026-09-17 同址冗余合并（build_entities DROP_CAMPUS：省实荔湾初中部一期、十三中初中部、
-  // 柯子岭43号A座）后更新：品牌卡渲染名单随实体合并变化（无品牌卡消失，miss 为空）
-  // 2026-09-18 奥林匹克修复+高中学段判定重构：智谷 high 实体消失、8 所已核实高中校区 stage 修正
-  // 随实体表/POI 表联动（无品牌卡消失，miss 为空）——有意变更
-    // 2026-09-18 南武教育集团入册（海珠区教育局2023-12-27调整通知）：新增12条品牌卡渲染（南武中学三校区/江南外国语南北/南二实南北/南武实验/文润/附属/南武小学北/南武实验小学），REMOVED=0，无品牌卡消失——有意变更
-    // 2026-09-18 番禺仲元附属加入仲元集团（官方2024-12仍属成员校）：附属学校品牌卡主归属仲元集团（多集团展示逻辑不变），ADDED=0 REMOVED=0——有意变更
-  // 2026-09-22 番禺中学实验学校集团归属修复：广东番禺中学实验学校两校区
-  // （95be9ccc/bf9bcbfd）品牌卡渲染「广东番禺中学教育集团」、广大附中番禺实验
-  // （213843c2）渲染「番广实验教育集团」——digest 显式更新，miss 为空，无品牌卡消失。
-  assert.equal(digest, '79cae068a14ff9f9', '品牌关联全量快照漂移：有实体的品牌卡渲染状态变化，需显式确认后更新');
+  // 快照（2026-09-22 由 sha256 digest 改为名单快照 diff——digest 只能报「变了」，
+  // 看不出哪个实体的品牌卡增删或改归属；现存 snapshots/brand_card_snapshot.json：
+  // school_id|name → {brand, useful}，漂移逐条列出 +新增 / -移除 / ~改归属）。
+  // 基线按 school_id|name 排序；更新：UPDATE_SNAPSHOT=1 npm test。
+  const CARD_SNAP = path.join(__dirname, 'snapshots', 'brand_card_snapshot.json');
+  const cardMap = {};
+  for (const line of shown) {
+    const [sid, nm, brand, useful] = line.split('|');
+    cardMap[`${sid}|${nm}`] = { brand, useful: useful === 'true' };
+  }
+  if (process.env.UPDATE_SNAPSHOT === '1') {
+    fs.mkdirSync(path.dirname(CARD_SNAP), { recursive: true });
+    fs.writeFileSync(CARD_SNAP, JSON.stringify(cardMap, null, 2) + '\n');
+    console.log(`[snapshot] 已更新 ${CARD_SNAP}（${Object.keys(cardMap).length} 条品牌卡渲染实体）`);
+    return;
+  }
+  assert.ok(fs.existsSync(CARD_SNAP), `快照不存在：${CARD_SNAP}。首次运行请执行 UPDATE_SNAPSHOT=1 npm test 生成基线。`);
+  const cardBase = JSON.parse(fs.readFileSync(CARD_SNAP, 'utf8'));
+  const cardDiff = diffSnapshots(cardBase, cardMap);
+  assert.deepEqual(cardDiff.lines, [], `品牌卡渲染名单漂移（${formatDiff(cardDiff)}）：\n${cardDiff.lines.join('\n')}`);
 });
 
 test('品牌关联：逐集团学校名单快照（education 86 + brand 8，集团变化精确定位）', () => {
