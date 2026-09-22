@@ -5,10 +5,10 @@
   "note": "P3全量补录：区属非示范集团+小学集团以各区政府/教育局官方文件为来源；示范高中集团初中成员来自招考办2026名额分配表；8个重点品牌来自brand_groups.json。远郊4区（花都/南沙/增城/从化）集团核心校不录，跨区成员标注'远郊不在POI范围'。",
   "stats": {
     "total_groups": 86,
-    "total_members": 343,
+    "total_members": 344,
     "poi_exact": 0,
     "poi_variant": 19,
-    "poi_missing_7dist": 3,
+    "poi_missing_7dist": 2,
     "poi_far": 8
   },
   "groups": [
@@ -2054,6 +2054,10 @@
               "school_id": "gz-440106-efcdec9d"
             },
             {
+              "poi_name": "汇景实验学校（华园校区）小学部",
+              "school_id": "gz-440106-ed39fc64"
+            },
+            {
               "poi_name": "广州市天河区汇景实验学校",
               "school_id": "gz-440106-0d1e149e"
             }
@@ -3112,6 +3116,12 @@
           "poi_match": "法人推导",
           "poi_name": "西关培正小学(凯粤湾校区)",
           "school_id": "gz-440103-728466ce"
+        },
+        {
+          "name": "西关培正小学(如意坊校区)",
+          "poi_match": "法人推导",
+          "poi_name": "西关培正小学(如意坊校区)",
+          "school_id": "gz-440103-b62c9e61"
         }
       ]
     },
@@ -3147,6 +3157,10 @@
             {
               "poi_name": "广铁一中铁铮学校(东校区)",
               "school_id": "gz-440112-d3055548"
+            },
+            {
+              "poi_name": "铁铮学校",
+              "school_id": "gz-440112-11ed4c6c"
             }
           ]
         }
@@ -4403,6 +4417,12 @@
           "school_id": "gz-440111-6e11e279"
         },
         {
+          "name": "广东外语外贸大学实验中学（陈田西校区）小学部",
+          "poi_match": "法人推导",
+          "poi_name": "广东外语外贸大学实验中学（陈田西校区）小学部",
+          "school_id": "gz-440111-c553e806"
+        },
+        {
           "name": "广东外语外贸大学实验中学(北校区)",
           "poi_match": "法人推导",
           "poi_name": "广东外语外贸大学实验中学(北校区)",
@@ -5245,12 +5265,32 @@
           "poi_match": "法人推导",
           "poi_name": "南村中学",
           "school_id": "gz-440113-cbaa8160"
+        },
+        {
+          "name": "广东番禺中学实验学校",
+          "source_url": "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10816/post_10816948.html",
+          "verified": "2026-09-22",
+          "note": "2022-08-30 落成启用，广东番禺中学承办管理；隶属广东番禺中学教育集团（广州日报 b0f7bb19943c499c8ad92843ac6eef26 / 南方+ c6848469 多源证实；2026 番禺初中招简含『广东番禺中学实验学校初中部』）。政府源集团名单未更新此 2022 年新成员。",
+          "poi_match": "法人推导",
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "广东番禺中学实验学校(小学部)",
+              "school_id": "gz-440113-bf9bcbfd"
+            },
+            {
+              "poi_name": "番禺中学实验学校",
+              "school_id": "gz-440113-95be9ccc"
+            }
+          ]
         }
       ],
       "source_urls": [
         "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10297/post_10297944.html",
         "http://www.panyu.gov.cn/zwgk/ggqsy/jy/content/post_9920371.html",
         "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/zjxx/nczzf/content/post_9645271.html",
+        "https://huacheng.gz-cmc.com/pages/2022/08/30/b0f7bb19943c499c8ad92843ac6eef26.html",
         "http://www.panyu.gov.cn/zwgk/yajytacl/2019/ta/content/post_6456455.html"
       ],
       "core_poi": [
@@ -5338,14 +5378,6 @@
       "type": "九年一贯集团",
       "members": [
         {
-          "name": "广州大学附属中学番禺实验学校",
-          "source_url": "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_9157738.html",
-          "verified": "2026-09-14",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
-        },
-        {
           "name": "广州市番禺区番广附万博学校",
           "source_url": "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10425301.html",
           "verified": "2026-09-14",
@@ -5366,6 +5398,14 @@
       "source_urls": [
         "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_9157738.html",
         "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/fzxw/content/post_10425301.html"
+      ],
+      "core_poi": [
+        {
+          "name": "广大附中番禺实验学校",
+          "poi_match": "法人推导",
+          "poi_name": "广大附中番禺实验学校",
+          "school_id": "gz-440113-213843c2"
+        }
       ]
     },
     {
