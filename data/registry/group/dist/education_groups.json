@@ -2289,8 +2289,18 @@
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "广州市真光中学附属培真小学(广船校区)",
-          "school_id": "gz-440103-039a7621"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "广州市真光中学附属培真小学(平西校区)",
+              "school_id": "gz-440103-47c5196f"
+            },
+            {
+              "poi_name": "广州市真光中学附属培真小学(鹤园校区)",
+              "school_id": "gz-440103-039a7621"
+            }
+          ]
         },
         {
           "name": "广州市真光中学附属鹤洞小学",
@@ -2479,8 +2489,18 @@
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "广州市第四中学附属芦荻西小学",
-          "school_id": "gz-440103-43860928"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "广州市第四中学附属芦荻西小学",
+              "school_id": "gz-440103-43860928"
+            },
+            {
+              "poi_name": "广州市第四中学附属芦荻西小学(桃源校区)",
+              "school_id": "gz-440103-ffe16eea"
+            }
+          ]
         },
         {
           "name": "广州市第四中学附属耀华小学",
@@ -2952,16 +2972,26 @@
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "芳村小学",
-          "school_id": "gz-440103-28507a63"
+          "poi_name": "广州市荔湾区芳村小学实验学校",
+          "school_id": "gz-440103-2c085d93"
         },
         {
           "name": "广州市荔湾区芳村小学东沙学校",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "芳村小学东沙学校",
-          "school_id": "gz-440103-69a306af"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "芳村小学东沙学校(沙洛校区)",
+              "school_id": "gz-440103-555bf7d6"
+            },
+            {
+              "poi_name": "芳村小学东沙学校(金宇校区)",
+              "school_id": "gz-440103-69a306af"
+            }
+          ]
         },
         {
           "name": "广州市荔湾区芳村小学南漖学校",

@@ -89,12 +89,23 @@ def _poi_for(matcher, school, adcode, poi_pool, r):
     return poi
 
 
+# 2026-09-22 荔湾核查：以下校区实体已更名保留，但 2026 官方招生地段不含其校区（a4 地段表），
+# 不得随官方法人行展开挂招（展开会复制法人 zone，错配其实际地段）。
+# 芦荻西桃源校区：2026 官方 zone=龙津街华福+金花街7社区，无桃源社区（2026 起桃源社区
+# 划归西关实验小学（光复校区）地段）；实体更名「广州市第四中学附属芦荻西小学(桃源校区)」保留，
+# 招生孤儿属官方事实。例外不展开，只挂旧名别名供反查。
+EXPAND_EXCLUDE = {
+    '广州市第四中学附属芦荻西小学(桃源校区)',
+}
+
+
 def resolve_records(matcher, school, adcode, poi_pool):
     """实体表匹配：带校区名 → resolve 单值；无校区名 → resolve_all 展开同法人全部校区
     （用户定：铁英中学等法人多校区应展开为多条校区记录，不再锚定单校区）。"""
     has_campus = bool(re.search(r"[（(][^）()]*[)）]", school))
     if not has_campus:
         rs = matcher.resolve_all(school, preferred_adcode=adcode, preferred_stage="小学")
+        rs = [r for r in rs if r.get("matched_name") not in EXPAND_EXCLUDE]
         pois = [_poi_for(matcher, school, adcode, poi_pool, r) for r in rs]
         return [poi for poi in pois if poi]
     r = matcher.resolve(school, preferred_adcode=adcode, preferred_stage="小学")
