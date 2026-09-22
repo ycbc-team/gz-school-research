@@ -568,7 +568,10 @@
       "school_id": "gz-440112-5147e70b",
       "name": "何棠下小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "佛塱学校",
+        "埔心学校"
+      ]
     },
     {
       "school_id": "gz-440113-2e77bfa4",
@@ -579,12 +582,6 @@
     {
       "school_id": "gz-440103-0e2f79ce",
       "name": "何香凝纪念学校",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-197cd68e",
-      "name": "佛塱学校",
       "stage": "primary",
       "aliases": []
     },
@@ -1235,12 +1232,6 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440112-90340abd",
-      "name": "嘉洲小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440113-2b7d85fc",
       "name": "嘉诚学校",
       "stage": "primary",
@@ -1284,12 +1275,6 @@
     {
       "school_id": "gz-440113-31904245",
       "name": "坑头小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-9277764e",
-      "name": "埔心学校",
       "stage": "primary",
       "aliases": []
     },
@@ -5164,12 +5149,6 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440112-c06257cf",
-      "name": "福洞小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440113-6a1aa76b",
       "name": "福涌小学",
       "stage": "primary",
@@ -5600,12 +5579,6 @@
     {
       "school_id": "gz-440103-9be8c818",
       "name": "西塱小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-e125bd51",
-      "name": "西村小学",
       "stage": "primary",
       "aliases": []
     },
@@ -6098,12 +6071,6 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440112-6b2e0e75",
-      "name": "黄埔利民艺体实验学校",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
       "school_id": "gz-440112-43e15e18",
       "name": "黄埔区九龙第四小学",
       "stage": "primary",
@@ -6116,6 +6083,7 @@
       "name": "黄埔区教育研究院实验小学",
       "stage": "primary",
       "aliases": [
+        "区教育研究院实验小学",
         "教育研究院实验小学"
       ]
     },
@@ -6127,14 +6095,6 @@
         "洋城学校"
       ],
       "nature": "民办"
-    },
-    {
-      "school_id": "gz-440112-ea26af6d",
-      "name": "黄埔区莲塘中小学生劳动教育基地",
-      "stage": "primary",
-      "aliases": [
-        "莲塘中小学生劳动教育基地"
-      ]
     },
     {
       "school_id": "gz-440112-de05a34b",
@@ -6166,12 +6126,6 @@
     {
       "school_id": "gz-440112-3b7fc6ac",
       "name": "黄埔护林路小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-d83b7142",
-      "name": "黄埔海地实验学校",
       "stage": "primary",
       "aliases": []
     },
