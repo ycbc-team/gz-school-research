@@ -134,10 +134,12 @@ def legalCampuses(name, entities):
     """法人推导：返回同一法人的全部校区实体（[{"poi_name","school_id"}]，按 school_id 去重）。
 
     第一层：legalKey 全等（实体 name 或 aliases，括号式校区经 coreCampusName 剥括号后在此命中）。
-    第二层（无括号后缀式校区统一归并规则）：实体核心名剥括号后以「校区」结尾、
-    且以法人 key 开头、校区名部分 >= 2 字 → 归并为同法人校区。
-    「东风东路小学锦城花园校区」→「东风东路小学」、「沙面小学岭南校区」→「沙面小学」等，
-    凡「<法人><校区名>校区」形态一律自动归并，替代「手工给后缀式校区实体补括号式别名」的做法。
+    第二层（无括号后缀式校区统一归并规则）：实体核心名剥括号后以
+    「校区 / 分校 / 教学点 / 分教点 / 分部」结尾、且以法人 key 开头 → 归并为同法人校区。
+    「东风东路小学锦城花园校区」→「东风东路小学」、「沙面小学岭南校区」→「沙面小学」、
+    「九龙第二小学大坦分校」→「九龙第二小学」、「汤村小学旺村分校」→「汤村小学」、
+    「新洲小学分校」（key+后缀、无独立分校名）→「新洲小学」等，
+    凡「<法人><校区名>(校区|分校|…)」形态一律自动归并，替代「手工给后缀式校区实体补括号式别名」的做法。
     """
     key = legalKey(name)
     seen = {}
@@ -148,8 +150,11 @@ def legalCampuses(name, entities):
             seen.setdefault(e["school_id"], e["name"])
         else:
             en = matchNorm(coreCampusName(e["name"]))
-            if en.endswith("校区") and en.startswith(key) and len(en) >= len(key) + 3:
-                seen.setdefault(e["school_id"], e["name"])
+            if any(en.endswith(sf) for sf in ("校区", "分校", "教学点", "分教点", "分部")):
+                # key+后缀（无独立校区名，如「新洲小学分校」）→ 归并到法人；
+                # key+校区名+后缀（校区名 >= 2 字）→ 同样归并。
+                if en.startswith(key) and len(en) > len(key):
+                    seen.setdefault(e["school_id"], e["name"])
     return [{"poi_name": n, "school_id": sid} for sid, n in seen.items()]
 
 

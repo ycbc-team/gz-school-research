@@ -2807,11 +2807,6 @@
    "name": "凤江小学",
    "stage": "primary"
   },
-  "gz-440105-fb92f51a#primary": {
-   "aliases": [],
-   "name": "赤沙小学龙眼园",
-   "stage": "primary"
-  },
   "gz-440105-fbd67149#middle": {
    "aliases": [
     "景中",
@@ -9384,7 +9379,7 @@
    "stage": "middle"
   }
  },
- "entity_count": 1570,
+ "entity_count": 1569,
  "note": "实体/POI 关联业务快照（非产物字节，坐标不入快照）。更新：--update-snapshot。",
  "poi": {
   "high": {
@@ -11965,9 +11960,6 @@
    ],
    "gz-440105-fb52e367": [
     "凤江小学"
-   ],
-   "gz-440105-fb92f51a": [
-    "赤沙小学龙眼园"
    ],
    "gz-440105-feb37b34": [
     "怡乐路小学(嘉仕校区)"
