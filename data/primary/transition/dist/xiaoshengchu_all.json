@@ -10662,7 +10662,39 @@
    "data_gaps": null
   },
   {
+   "school_id": "gz-440105-77baeea5",
+   "group": "对口直升（不参加电脑派位）",
+   "feed_school_ids": [
+    "gz-440105-77baeea5"
+   ],
+   "feed_unresolved": [],
+   "direct_feed_school_id": "gz-440105-77baeea5",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "2026年海珠区初中招生问答附件1《2026年海珠区公办初中招生普通电脑派位分组表》（10组）＋正文对口直升名单。派位组内全部初中为可填志愿；直升校为可选路径（直升则放弃派位）。 对口直升：广州市南武中学附属学校。",
+   "data_gaps": null
+  },
+  {
    "school_id": "gz-440105-6670c35d",
+   "group": "海珠区公办初中第9组电脑派位",
+   "feed_school_ids": [
+    "gz-440105-12b49e3f",
+    "gz-440105-40a80ebb",
+    "gz-440105-e58a8300",
+    "gz-440105-003f2037",
+    "gz-440105-2f31776e",
+    "gz-440105-cac39935",
+    "gz-440105-f0712355",
+    "gz-440105-ed868139",
+    "gz-440105-f88edb06"
+   ],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "2026年海珠区初中招生问答附件1《2026年海珠区公办初中招生普通电脑派位分组表》（10组）＋正文对口直升名单。派位组内全部初中为可填志愿；直升校为可选路径（直升则放弃派位）。 派位组内全部初中为可填志愿（须填满）。",
+   "data_gaps": null
+  },
+  {
+   "school_id": "gz-440105-978c0e97",
    "group": "海珠区公办初中第9组电脑派位",
    "feed_school_ids": [
     "gz-440105-12b49e3f",
@@ -10807,26 +10839,6 @@
    "data_gaps": null
   },
   {
-   "school_id": "gz-440105-42dad72d",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "2026官方分组表未列（丝雨街小学），待核"
-  },
-  {
-   "school_id": "gz-440105-08650641",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "非学校实体（培训机构 POI）"
-  },
-  {
    "school_id": "gz-440105-d30140a6",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -10835,6 +10847,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
    "source_note": "民办/其他。",
    "data_gaps": "民办小学，不参与公办派位"
+  },
+  {
+   "school_id": "gz-440105-9a6566db",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校（双语），不参与公办派位"
   },
   {
    "school_id": "gz-440105-2e535171",
@@ -10887,6 +10909,16 @@
    "data_gaps": "公办初中（2025年开办，全区小学可参与摇号），非小学实体"
   },
   {
+   "school_id": "gz-440105-baa048f9",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校，不参与公办派位"
+  },
+  {
    "school_id": "gz-440105-6d9709b2",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -10937,6 +10969,16 @@
    "data_gaps": "2026官方分组表未列（第四实验小学），待核"
   },
   {
+   "school_id": "gz-440105-0c78a8e1",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校（九年一贯），不参与公办派位"
+  },
+  {
    "school_id": "gz-440105-4325dad0",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -10947,7 +10989,37 @@
    "data_gaps": "2026官方分组表未列（海珠外国语实验附属第二小学），待核"
   },
   {
+   "school_id": "gz-440105-a630438a",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校（九年一贯），不参与公办派位"
+  },
+  {
+   "school_id": "gz-440105-4d41d915",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校（国际学校），不参与公办派位"
+  },
+  {
    "school_id": "gz-440105-f0a0a476",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校，不参与公办派位"
+  },
+  {
+   "school_id": "gz-440105-f6b48b9e",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
    "feed_unresolved": [],
@@ -10965,6 +11037,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
    "source_note": "民办/其他。",
    "data_gaps": "民办学校，不参与公办派位"
+  },
+  {
+   "school_id": "gz-440105-bf39b5bb",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "公办学校（同福中路第一小学教育集团成员校），2026 官方分组表未单列，毕业生参加海珠区电脑派位"
   },
   {
    "school_id": "gz-440105-ae968480",

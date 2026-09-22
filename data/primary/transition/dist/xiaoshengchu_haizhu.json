@@ -1766,7 +1766,35 @@
    "data_gaps": null
   },
   {
+   "name": "广州市南武中学附属学校",
+   "group": "对口直升（不参加电脑派位）",
+   "feed_junior_highs": [
+    "广州市南武中学附属学校"
+   ],
+   "direct_feed": "广州市南武中学附属学校",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "2026年海珠区初中招生问答附件1《2026年海珠区公办初中招生普通电脑派位分组表》（10组）＋正文对口直升名单。派位组内全部初中为可填志愿；直升校为可选路径（直升则放弃派位）。 对口直升：广州市南武中学附属学校。",
+   "data_gaps": null
+  },
+  {
    "name": "广州市海珠区瀛洲小学",
+   "group": "海珠区公办初中第9组电脑派位",
+   "feed_junior_highs": [
+    "广州市第六中学",
+    "广州市第四十一中学",
+    "广州市海珠区六中珠江中学（万胜围校区）",
+    "广州市新滘中学",
+    "广州市执信中学琶洲实验学校",
+    "广州市第九十七中学",
+    "广东实验中学琶洲学校"
+   ],
+   "direct_feed": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "2026年海珠区初中招生问答附件1《2026年海珠区公办初中招生普通电脑派位分组表》（10组）＋正文对口直升名单。派位组内全部初中为可填志愿；直升校为可选路径（直升则放弃派位）。 派位组内全部初中为可填志愿（须填满）。",
+   "data_gaps": null
+  },
+  {
+   "name": "北山小学",
    "group": "海珠区公办初中第9组电脑派位",
    "feed_junior_highs": [
     "广州市第六中学",
@@ -1897,24 +1925,6 @@
    "data_gaps": null
   },
   {
-   "name": "丝雨街小学",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "2026官方分组表未列（丝雨街小学），待核"
-  },
-  {
-   "name": "中小学全科教育",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "非学校实体（培训机构 POI）"
-  },
-  {
    "name": "华怡小学",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
@@ -1922,6 +1932,15 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
    "source_note": "民办/其他。",
    "data_gaps": "民办小学，不参与公办派位"
+  },
+  {
+   "name": "华海双语学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校（双语），不参与公办派位"
   },
   {
    "name": "华立小学",
@@ -1969,6 +1988,15 @@
    "data_gaps": "公办初中（2025年开办，全区小学可参与摇号），非小学实体"
   },
   {
+   "name": "广州市为明学校(光大校区)",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校，不参与公办派位"
+  },
+  {
    "name": "广州市海珠区东风第二小学",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
@@ -2014,6 +2042,15 @@
    "data_gaps": "2026官方分组表未列（第四实验小学），待核"
   },
   {
+   "name": "广州市海珠区育华学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校（九年一贯），不参与公办派位"
+  },
+  {
    "name": "广州市海珠外国语实验中学附属第二小学",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
@@ -2023,7 +2060,34 @@
    "data_gaps": "2026官方分组表未列（海珠外国语实验附属第二小学），待核"
   },
   {
+   "name": "广州海珠华洲实验学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校（九年一贯），不参与公办派位"
+  },
+  {
+   "name": "广州贝赛思学校(琶洲)",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校（国际学校），不参与公办派位"
+  },
+  {
    "name": "春华学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校，不参与公办派位"
+  },
+  {
+   "name": "春晖学校",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
    "direct_feed": null,
@@ -2039,6 +2103,15 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
    "source_note": "民办/其他。",
    "data_gaps": "民办学校，不参与公办派位"
+  },
+  {
+   "name": "海珠区滨江西路第一小学",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "公办学校（同福中路第一小学教育集团成员校），2026 官方分组表未单列，毕业生参加海珠区电脑派位"
   },
   {
    "name": "海珠小学",
