@@ -510,7 +510,9 @@ def main():
     _section_lines.append(f"[13] 小升初同组同校重复检查: {len(_xs_keys)} 唯一组，无重复")
 
     _co_lines = [f"      {_p[0]:6.1f}m | {_p[1]} {_p[2]} | {_p[3]} {_p[4]}  <->  {_p[5]} {_p[6]}" for _p in _co_pairs]
-    _co_rows = [f"{_p[1]}|{_p[2]}|{_p[3]}|{_p[5]}|{_p[6]}" for _p in _co_pairs]
+    # 快照行含两侧名称（2026-09-22 用户 review 要求）：区|学段|id1|name1|id2|name2，
+    # 否则只有 id 无法判断候选是否合理。
+    _co_rows = [f"{_p[1]}|{_p[2]}|{_p[3]}|{_p[4]}|{_p[5]}|{_p[6]}" for _p in _co_pairs]
     # 快照（2026-09-22 由 digest 改为文件清单 diff）：基线存
     # data/registry/entity/dist/co_located_snapshot.json，漂移逐条列出 +新增 / -移除。
     _CO_SNAP = os.path.join(ROOT, "data/registry/entity/test/snapshots/co_located_snapshot.json")
