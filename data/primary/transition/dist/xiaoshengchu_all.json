@@ -406,6 +406,28 @@
    "data_gaps": null
   },
   {
+   "school_id": "gz-440104-66d8a730",
+   "group": "越秀区小升初第四组（多校划片·电脑派位）",
+   "feed_school_ids": [
+    "gz-440104-d9ec2dbb",
+    "gz-440104-9b88f912",
+    "gz-440104-9c6632b1",
+    "gz-440104-099a5868",
+    "gz-440104-32444523",
+    "gz-440104-39515a9d",
+    "gz-440104-27ecd0e4",
+    "gz-440104-7f3031fc",
+    "gz-440104-b22c4eca",
+    "gz-440104-f3ca07ff",
+    "gz-440104-1560332d"
+   ],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html",
+   "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
+   "data_gaps": null
+  },
+  {
    "school_id": "gz-440104-9878ac5c",
    "group": "越秀区小升初第四组（多校划片·电脑派位）",
    "feed_school_ids": [
@@ -1672,16 +1694,6 @@
    "data_gaps": null
   },
   {
-   "school_id": "gz-440104-4d39b625",
-   "group": "不参与公办电脑派位",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html",
-   "source_note": "民办/特殊教育/官方未单列。",
-   "data_gaps": "民办学校（初中段），不参与公办小学派位"
-  },
-  {
    "school_id": "gz-440104-714a8af4",
    "group": "不参与公办电脑派位",
    "feed_school_ids": [],
@@ -1689,40 +1701,10 @@
    "direct_feed_school_id": null,
    "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html",
    "source_note": "民办/特殊教育/官方未单列。",
-   "data_gaps": "特殊教育学校，不参与公办电脑派位"
-  },
-  {
-   "school_id": "gz-440104-d774faae",
-   "group": "不参与公办电脑派位",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html",
-   "source_note": "民办/特殊教育/官方未单列。",
-   "data_gaps": "2026年越秀区公办小学招生计划（52所）未单列，疑已并校/更名，待核"
-  },
-  {
-   "school_id": "gz-440104-e6f7cea5",
-   "group": "不参与公办电脑派位",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html",
-   "source_note": "民办/特殊教育/官方未单列。",
-   "data_gaps": "2026年越秀区公办小学招生计划（52所）未单列，疑已并校/更名，待核"
+   "data_gaps": "民办特殊教育学校（非营利，1985 年创办），不参与公办电脑派位"
   },
   {
    "school_id": "gz-440104-e865c755",
-   "group": "不参与公办电脑派位",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html",
-   "source_note": "民办/特殊教育/官方未单列。",
-   "data_gaps": "特殊教育学校，不参与公办电脑派位"
-  },
-  {
-   "school_id": "gz-440104-763a1c8f",
    "group": "不参与公办电脑派位",
    "feed_school_ids": [],
    "feed_unresolved": [],
@@ -1740,6 +1722,16 @@
    "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html",
    "source_note": "民办/特殊教育/官方未单列。",
    "data_gaps": "民办学校，不参与公办派位"
+  },
+  {
+   "school_id": "gz-440104-737bb916",
+   "group": "不参与公办电脑派位",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html",
+   "source_note": "民办/特殊教育/官方未单列。",
+   "data_gaps": "民办学校（九年一贯制），2026 官方小升初对口表未列，不参与公办派位"
   },
   {
    "school_id": "gz-440103-65d7792a",

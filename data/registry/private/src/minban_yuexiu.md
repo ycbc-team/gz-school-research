@@ -22,6 +22,7 @@
 | gz-440104-1f2d5df9 | 越秀区汇泉学校 | middle | https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf ；http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html | 民办九年一贯制学校中学部，2025/2026 年招 4 个班；地址越秀区矿泉街北站路144号（御景花园对面）；2017 年起由广州十六中托管 |
 | gz-440104-1f2d5df9 | 越秀区汇泉学校 | primary | https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf ；http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html | 民办九年一贯制学校小学部，2025/2026 年招 4 个班 |
 | gz-440104-db01d10e | 雄鹰学校 | middle | https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf ；http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html | 民办九年一贯制学校中学部，2025/2026 年招 2 个班；地址越秀区广园路云泉路163号大院；主要招收随迁子女 |
+| gz-440104-714a8af4 | 广州至灵学校 | primary | 学校章程 https://www.zlschool.com.cn/?page_id=608 ；广东省残联特殊教育学校一览 https://www.gddpf.org.cn/ywzc/jyjy/jy/content/post_595450.html | 民办非营利特殊教育康复机构（1985 年创办，小学部/初中部/职高班），面向 6-18 岁智障/孤独症儿童，非普通小学地段招生；2026-09-22 越秀 POI 未匹配核实补标（官方民办小学计划未含，特教渠道报名） |
 
 > 说明：以上 5 条实体记录的 `nature` 字段当前为空（match_school.py 显示"公办(未标)"为缺省态），应统一补标为 `民办`。
 

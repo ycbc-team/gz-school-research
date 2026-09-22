@@ -3321,14 +3321,6 @@
       ]
     },
     {
-      "school_id": "gz-440104-4d39b625",
-      "name": "广州海印实验学校",
-      "stage": "primary",
-      "aliases": [
-        "海印实验学校"
-      ]
-    },
-    {
       "school_id": "gz-440113-3b63e590",
       "name": "广州番外外国语学校",
       "stage": "primary",
@@ -3425,14 +3417,6 @@
       "name": "广州空港实验小学(总校区)",
       "stage": "primary",
       "aliases": []
-    },
-    {
-      "school_id": "gz-440104-714a8af4",
-      "name": "广州至灵学校",
-      "stage": "primary",
-      "aliases": [
-        "至灵学校"
-      ]
     },
     {
       "school_id": "gz-440111-23d6fbf3",
@@ -3591,14 +3575,6 @@
       "stage": "primary",
       "aliases": [],
       "nature": "民办"
-    },
-    {
-      "school_id": "gz-440104-d774faae",
-      "name": "惠福西路小学(惠福校区)",
-      "stage": "primary",
-      "aliases": [
-        "惠福西路小学"
-      ]
     },
     {
       "school_id": "gz-440111-8ea6750c",
@@ -3835,7 +3811,9 @@
       "school_id": "gz-440104-4a2cb348",
       "name": "旧部前小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "惠福西路小学惠福校区"
+      ]
     },
     {
       "school_id": "gz-440106-404ea6c6",
@@ -4412,12 +4390,6 @@
     {
       "school_id": "gz-440113-b44dc073",
       "name": "河村小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440104-e6f7cea5",
-      "name": "泰康路小学",
       "stage": "primary",
       "aliases": []
     },
@@ -5594,14 +5566,8 @@
       "name": "越秀区启智学校(白云路校区)",
       "stage": "primary",
       "aliases": [
-        "启智学校"
-      ]
-    },
-    {
-      "school_id": "gz-440104-763a1c8f",
-      "name": "越秀区培智学校",
-      "stage": "primary",
-      "aliases": [
+        "越秀区培智学校",
+        "启智学校",
         "培智学校"
       ]
     },
