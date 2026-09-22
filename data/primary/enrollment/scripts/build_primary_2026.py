@@ -47,6 +47,9 @@ def load_matcher():
     return SchoolMatcher.load()
 
 
+# 招生遗留信息表（src 手工维护，业务确认）：school_id → note（招生区域已改由他校承接，保留遗留学生升学）
+_LEFT_NOTE = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../src/leftover_notes.json"), encoding="utf-8"))
+
 # 民办权威名单（registry/private 业务产物）：poi_leftover 清洗用——
 # 民办无地段招生（报名超计划摇号），其 POI 未出现在公办招生 records 属正常，
 # 不应计入"有 POI 无招生"清单（用户 2026-09-22 定）。
@@ -334,3 +337,15 @@ if __name__ == "__main__":
             print("未知区。可选:", list(ADCODES), "或 all")
             sys.exit(1)
         build(k)
+
+    # 招生遗留信息表（src 手工维护，业务确认）→ 独立汇总产物（按 adcode 分组）：
+    # 不内嵌各区产物（note 是跨区展示的说明，各区 dist 保持纯招生数据）
+    _ln_by_ad = {}
+    for _sid, _note in _LEFT_NOTE.items():
+        _ad = _sid.split("-")[1] if _sid.startswith("gz-") else "?"
+        _ln_by_ad.setdefault(_ad, {})[_sid] = _note
+    # 汇总始终输出 src 全量（按 adcode 分组），与本次 build 范围无关：
+    # 单区调试 build 不应破坏跨区汇总（消费方按区读取说明）
+    _ln_out = os.path.join(OUT_DIR, "leftover_notes.json")
+    json.dump(_ln_by_ad, open(_ln_out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print(f"招生遗留信息表（按区 {sorted(_ln_by_ad)} 分组）→ {os.path.relpath(_ln_out, ROOT)}")
