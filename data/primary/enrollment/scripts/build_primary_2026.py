@@ -89,23 +89,12 @@ def _poi_for(matcher, school, adcode, poi_pool, r):
     return poi
 
 
-# 2026-09-22 荔湾核查：以下校区实体已更名保留，但 2026 官方招生地段不含其校区（a4 地段表），
-# 不得随官方法人行展开挂招（展开会复制法人 zone，错配其实际地段）。
-# 芦荻西桃源校区：2026 官方 zone=龙津街华福+金花街7社区，无桃源社区（2026 起桃源社区
-# 划归西关实验小学（光复校区）地段）；实体更名「广州市第四中学附属芦荻西小学(桃源校区)」保留，
-# 招生孤儿属官方事实。例外不展开，只挂旧名别名供反查。
-EXPAND_EXCLUDE = {
-    '广州市第四中学附属芦荻西小学(桃源校区)',
-}
-
-
 def resolve_records(matcher, school, adcode, poi_pool):
     """实体表匹配：带校区名 → resolve 单值；无校区名 → resolve_all 展开同法人全部校区
     （用户定：铁英中学等法人多校区应展开为多条校区记录，不再锚定单校区）。"""
     has_campus = bool(re.search(r"[（(][^）()]*[)）]", school))
     if not has_campus:
         rs = matcher.resolve_all(school, preferred_adcode=adcode, preferred_stage="小学")
-        rs = [r for r in rs if r.get("matched_name") not in EXPAND_EXCLUDE]
         pois = [_poi_for(matcher, school, adcode, poi_pool, r) for r in rs]
         return [poi for poi in pois if poi]
     r = matcher.resolve(school, preferred_adcode=adcode, preferred_stage="小学")
@@ -321,10 +310,19 @@ def build(district_key):
     poi_leftover = [s["name"] for s in poi_pool
                     if s["name"] not in used and s.get("school_id") not in MINBAN_SCHOOL_IDS
                     and s.get("school_id") not in _LEFT_NOTE]
-    # 原校（2026 官方无招生但保留遗留学生升学）注入 zone=note 记录（B 层保留 school/POI 名调试）；
+    # 招生区域承接/分流说明表（src/leftover_notes.json，业务确认）：
+    #   · 原校 2026 官方无招生计划（无匹配）→ 注入 zone=note 记录，详情页招生区域直接展示文案；
+    #     同时从 poi_leftover 移除（原校保留遗留学生升学）。
+    #   · 已匹配记录（如法人展开的校区，官方 zone 为法人整体地段、与校区实际不符）→
+    #     note 优先覆盖 zone（2026-09-22 芦荻西桃源校区：家长社群经验分流说明，覆盖复制的官方 zone）。
     # C 层（build_enrollment_all.py）瘦身为 school_id + 招生字段，名称/坐标按 id 联查实体表/POI 表
     for _sid, _note in _LEFT_NOTE.items():
-        if _sid.startswith(f"gz-{adcode}") and not any(_r.get("school_id") == _sid for _r in matched):
+        if not _sid.startswith(f"gz-{adcode}"):
+            continue
+        _hit = next((_r for _r in matched if _r.get("school_id") == _sid), None)
+        if _hit is not None:
+            _hit["zone"] = _note
+        else:
             _poi0 = next((s for s in poi_pool if s.get("school_id") == _sid), None)
             matched.append({"school": (_poi0 or {}).get("name", ""),
                             "district": DISTRICT_NAMES[district_key],
