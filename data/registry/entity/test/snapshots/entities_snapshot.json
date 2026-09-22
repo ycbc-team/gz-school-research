@@ -2852,7 +2852,7 @@
    "aliases": [
     "暨南大学附属实验学校小学部"
    ],
-   "name": "暨南大学附属小学",
+   "name": "暨南大学附属实验学校",
    "stage": "primary"
   },
   "gz-440106-069ddb41#high": {
@@ -3431,8 +3431,10 @@
    "stage": "primary"
   },
   "gz-440106-6db53919#primary": {
-   "aliases": [],
-   "name": "广州市育华教育集团长虹学校",
+   "aliases": [
+    "长虹小学"
+   ],
+   "name": "广州市天河区长虹小学",
    "stage": "primary"
   },
   "gz-440106-6dc5833a#primary": {
@@ -3762,7 +3764,7 @@
    "aliases": [
     "长征小学"
    ],
-   "name": "暨南大学华文学院-长征小学",
+   "name": "广州市天河区长征小学",
    "stage": "primary"
   },
   "gz-440106-b52cb528#middle": {

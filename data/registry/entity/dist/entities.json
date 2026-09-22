@@ -3314,9 +3314,12 @@
     },
     {
       "school_id": "gz-440106-6db53919",
-      "name": "广州市育华教育集团长虹学校",
+      "name": "广州市天河区长虹小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "长虹小学"
+      ],
+      "nature": "民办"
     },
     {
       "school_id": "gz-440104-982a248f",
@@ -4317,7 +4320,7 @@
     },
     {
       "school_id": "gz-440106-b2701f92",
-      "name": "暨南大学华文学院-长征小学",
+      "name": "广州市天河区长征小学",
       "stage": "primary",
       "aliases": [
         "长征小学"
@@ -4325,7 +4328,7 @@
     },
     {
       "school_id": "gz-440106-05ed1da2",
-      "name": "暨南大学附属小学",
+      "name": "暨南大学附属实验学校",
       "stage": "primary",
       "aliases": [
         "暨南大学附属实验学校小学部"

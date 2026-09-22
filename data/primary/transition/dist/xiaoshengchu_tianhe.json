@@ -179,7 +179,7 @@
    "data_gaps": null
   },
   {
-   "name": "暨南大学华文学院-长征小学",
+   "name": "广州市天河区长征小学",
    "group": "天河区公办初中对口直升（广州中学划片）",
    "feed_junior_highs": [
     "广州中学"
@@ -367,6 +367,17 @@
   },
   {
    "name": "华南农业大学附属小学",
+   "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "feed_junior_highs": [
+    "广州市天河区汇景实验学校"
+   ],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "2026年天河区义务教育阶段学校招生工作细则（穗天教〔2026〕2号）附件6《2026年天河区公办初中划片范围及招生计划表》（单校划片对口直升为主、多校划片电脑派位为补充；附件10 为8所校自主报名电脑派位）。 天河区单校划片，小学毕业生免试直升对口初中。 另可自主报名附件10电脑派位：华附初中部、华颖外国语初中部、省实天河初中部（报名人数超计划则电脑派位）。",
+   "data_gaps": null
+  },
+  {
+   "name": "汇景实验学校（华园校区）小学部",
    "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
    "feed_junior_highs": [
     "广州市天河区汇景实验学校"
@@ -1094,18 +1105,7 @@
    "data_gaps": null
   },
   {
-   "name": "华工附小",
-   "group": "天河区九年制/企事业办学校小学部内部直升",
-   "feed_junior_highs": [
-    "华南理工大学附属实验学校（初中部）"
-   ],
-   "direct_feed": null,
-   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
-   "source_note": "2026年天河区义务教育阶段学校招生工作细则（穗天教〔2026〕2号）附件6《2026年天河区公办初中划片范围及招生计划表》（单校划片对口直升为主、多校划片电脑派位为补充；附件10 为8所校自主报名电脑派位）。 天河区单校划片，小学毕业生免试直升对口初中。 另可自主报名附件10电脑派位：华附初中部、华颖外国语初中部、省实天河初中部（报名人数超计划则电脑派位）。",
-   "data_gaps": null
-  },
-  {
-   "name": "暨南大学附属小学",
+   "name": "暨南大学附属实验学校",
    "group": "天河区九年制/企事业办学校小学部内部直升",
    "feed_junior_highs": [
     "暨南大学附属实验学校（初中部）"
@@ -1125,6 +1125,24 @@
    "data_gaps": "民办（附件8 #30 东明荔园学校）。"
   },
   {
+   "name": "东泰学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #12 东泰学校，九年制，小学3班）。"
+  },
+  {
+   "name": "东风学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #11 东风学校，九年制，小学3班）。"
+  },
+  {
    "name": "东风实验小学",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
@@ -1132,6 +1150,24 @@
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
    "source_note": "民办/特殊教育。",
    "data_gaps": "民办（附件8 #26 东风实验小学）。"
+  },
+  {
+   "name": "兴华培智学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（九年制，2026 附件8 民办计划在册）。"
+  },
+  {
+   "name": "凤凰中学",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #16 凤凰中学，九年制，小学3班）。"
   },
   {
    "name": "同仁实验学校东校区",
@@ -1170,6 +1206,51 @@
    "data_gaps": "民办（附件8 #22 培艺学校）。"
   },
   {
+   "name": "天河区成龙中学",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #9 成龙中学，九年制，小学3班）。"
+  },
+  {
+   "name": "天河明珠中英文学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #19 明珠中英文学校，九年制，小学6班）。"
+  },
+  {
+   "name": "天泽中学",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #13 天泽中学，九年制，小学2班）。"
+  },
+  {
+   "name": "天骄中英文学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #24 天骄中英文学校，2026 小学部无计划）。"
+  },
+  {
+   "name": "广州华美英语实验学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #1 华美英语实验学校，十二年制，小学4班）。"
+  },
+  {
    "name": "广州大华中英文学校",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
@@ -1186,6 +1267,15 @@
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
    "source_note": "民办/特殊教育。",
    "data_gaps": "民办（附件8 #25 华实学校，九年制）。"
+  },
+  {
+   "name": "广州市天河区同仁学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #6 同仁学校，九年制，小学4班）。"
   },
   {
    "name": "广州市天河区同仁艺体实验小学",
@@ -1206,7 +1296,16 @@
    "data_gaps": "特殊教育学校（公办特教，招收中重度智力残疾适龄儿童，无小升初对口）。"
   },
   {
-   "name": "广州市育华教育集团长虹学校",
+   "name": "广州市天河同仁天兴学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #6 同仁学校，天兴校区 POI，九年制）。"
+  },
+  {
+   "name": "广州市天河区长虹小学",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
    "direct_feed": null,
@@ -1221,7 +1320,7 @@
    "direct_feed": null,
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
    "source_note": "民办/特殊教育。",
-   "data_gaps": "民办，官方2026年民办招生计划未单列（可能已停招/更名），待核。"
+   "data_gaps": "民办，2025 年度已停办（2024 年检不合格），2026 年民办招生计划未单列。"
   },
   {
    "name": "新昌学校",
@@ -1251,6 +1350,15 @@
    "data_gaps": "民办（附件8 #27 新蕾学校）。"
   },
   {
+   "name": "棠福学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #10 棠福学校，九年制，小学3班）。"
+  },
+  {
    "name": "汇景新城实验小学",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
@@ -1267,6 +1375,33 @@
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
    "source_note": "民办/特殊教育。",
    "data_gaps": "民办（附件8 #29 渔兴小学）。"
+  },
+  {
+   "name": "科韵路学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #18 科韵路学校，九年制，小学5班）。"
+  },
+  {
+   "name": "黄村中英文学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（九年制，2026 附件8 民办计划在册）。"
+  },
+  {
+   "name": "龙圣学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（九年制，2026 附件8 民办计划在册）。"
   }
  ]
 }

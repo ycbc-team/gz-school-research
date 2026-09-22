@@ -11559,6 +11559,18 @@
    "data_gaps": null
   },
   {
+   "school_id": "gz-440106-ed39fc64",
+   "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "feed_school_ids": [
+    "gz-440106-0d1e149e"
+   ],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "2026年天河区义务教育阶段学校招生工作细则（穗天教〔2026〕2号）附件6《2026年天河区公办初中划片范围及招生计划表》（单校划片对口直升为主、多校划片电脑派位为补充；附件10 为8所校自主报名电脑派位）。 天河区单校划片，小学毕业生免试直升对口初中。 另可自主报名附件10电脑派位：华附初中部、华颖外国语初中部、省实天河初中部（报名人数超计划则电脑派位）。",
+   "data_gaps": null
+  },
+  {
    "school_id": "gz-440106-efcdec9d",
    "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
    "feed_school_ids": [
@@ -12356,18 +12368,6 @@
    "data_gaps": null
   },
   {
-   "school_id": "gz-440106-23f2dfc8",
-   "group": "天河区九年制/企事业办学校小学部内部直升",
-   "feed_school_ids": [
-    "gz-440106-9bed7efb"
-   ],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
-   "source_note": "2026年天河区义务教育阶段学校招生工作细则（穗天教〔2026〕2号）附件6《2026年天河区公办初中划片范围及招生计划表》（单校划片对口直升为主、多校划片电脑派位为补充；附件10 为8所校自主报名电脑派位）。 天河区单校划片，小学毕业生免试直升对口初中。 另可自主报名附件10电脑派位：华附初中部、华颖外国语初中部、省实天河初中部（报名人数超计划则电脑派位）。",
-   "data_gaps": null
-  },
-  {
    "school_id": "gz-440106-05ed1da2",
    "group": "天河区九年制/企事业办学校小学部内部直升",
    "feed_school_ids": [
@@ -12390,6 +12390,26 @@
    "data_gaps": "民办（附件8 #30 东明荔园学校）。"
   },
   {
+   "school_id": "gz-440106-9abdc5fd",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #12 东泰学校，九年制，小学3班）。"
+  },
+  {
+   "school_id": "gz-440106-24ff78f9",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #11 东风学校，九年制，小学3班）。"
+  },
+  {
    "school_id": "gz-440106-682a616f",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -12398,6 +12418,26 @@
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
    "source_note": "民办/特殊教育。",
    "data_gaps": "民办（附件8 #26 东风实验小学）。"
+  },
+  {
+   "school_id": "gz-440106-0c83a9b2",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（九年制，2026 附件8 民办计划在册）。"
+  },
+  {
+   "school_id": "gz-440106-ae248365",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #16 凤凰中学，九年制，小学3班）。"
   },
   {
    "school_id": "gz-440106-e7f10219",
@@ -12440,6 +12480,56 @@
    "data_gaps": "民办（附件8 #22 培艺学校）。"
   },
   {
+   "school_id": "gz-440106-fd03e039",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #9 成龙中学，九年制，小学3班）。"
+  },
+  {
+   "school_id": "gz-440106-4775be07",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #19 明珠中英文学校，九年制，小学6班）。"
+  },
+  {
+   "school_id": "gz-440106-b9eb24f9",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #13 天泽中学，九年制，小学2班）。"
+  },
+  {
+   "school_id": "gz-440106-b52cb528",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #24 天骄中英文学校，2026 小学部无计划）。"
+  },
+  {
+   "school_id": "gz-440106-7abd2786",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #1 华美英语实验学校，十二年制，小学4班）。"
+  },
+  {
    "school_id": "gz-440106-72c4c319",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -12458,6 +12548,16 @@
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
    "source_note": "民办/特殊教育。",
    "data_gaps": "民办（附件8 #25 华实学校，九年制）。"
+  },
+  {
+   "school_id": "gz-440106-3d7736c5",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #6 同仁学校，九年制，小学4班）。"
   },
   {
    "school_id": "gz-440106-118c9e6b",
@@ -12480,6 +12580,16 @@
    "data_gaps": "特殊教育学校（公办特教，招收中重度智力残疾适龄儿童，无小升初对口）。"
   },
   {
+   "school_id": "gz-440106-0d03d513",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #6 同仁学校，天兴校区 POI，九年制）。"
+  },
+  {
    "school_id": "gz-440106-6db53919",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -12497,7 +12607,7 @@
    "direct_feed_school_id": null,
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
    "source_note": "民办/特殊教育。",
-   "data_gaps": "民办，官方2026年民办招生计划未单列（可能已停招/更名），待核。"
+   "data_gaps": "民办，2025 年度已停办（2024 年检不合格），2026 年民办招生计划未单列。"
   },
   {
    "school_id": "gz-440106-1b9f7e62",
@@ -12530,6 +12640,16 @@
    "data_gaps": "民办（附件8 #27 新蕾学校）。"
   },
   {
+   "school_id": "gz-440106-4534dc1a",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #10 棠福学校，九年制，小学3班）。"
+  },
+  {
    "school_id": "gz-440106-11f65b1a",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -12548,6 +12668,36 @@
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
    "source_note": "民办/特殊教育。",
    "data_gaps": "民办（附件8 #29 渔兴小学）。"
+  },
+  {
+   "school_id": "gz-440106-f0ba06c2",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（附件8 #18 科韵路学校，九年制，小学5班）。"
+  },
+  {
+   "school_id": "gz-440106-4fac106a",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（九年制，2026 附件8 民办计划在册）。"
+  },
+  {
+   "school_id": "gz-440106-eda909f7",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+   "source_note": "民办/特殊教育。",
+   "data_gaps": "民办（九年制，2026 附件8 民办计划在册）。"
   },
   {
    "school_id": "gz-440112-7b923f7c",
