@@ -96,6 +96,19 @@
    "lat": 23.087671
   },
   {
+   "school": "北山小学",
+   "district": "海珠区",
+   "plan_classes": 2,
+   "zone": "官洲街：①北山社区；②官洲社区。",
+   "note": "",
+   "phone": "",
+   "source": "海珠区教育局2026",
+   "school_id": "gz-440105-978c0e97",
+   "poi_name": "北山小学",
+   "lng": 113.370564,
+   "lat": 23.082819
+  },
+  {
    "school": "仑头小学",
    "district": "海珠区",
    "plan_classes": 3,
@@ -720,6 +733,19 @@
    "lat": 23.112039
   },
   {
+   "school": "南武中学附属学校",
+   "district": "海珠区",
+   "plan_classes": 2,
+   "zone": "滨江街：①中海社区；②草芳社区。",
+   "note": "",
+   "phone": "",
+   "source": "海珠区教育局2026",
+   "school_id": "gz-440105-77baeea5",
+   "poi_name": "广州市南武中学附属学校",
+   "lng": 113.275479,
+   "lat": 23.107231
+  },
+  {
    "school": "滨江东路小学",
    "district": "海珠区",
    "plan_classes": 3,
@@ -1201,10 +1227,7 @@
    "lat": 23.104307
   }
  ],
- "unmatched": [
-  "北山小学",
-  "南武中学附属学校"
- ],
+ "unmatched": [],
  "ambiguous": [],
  "poi_leftover": [
   "丝雨街小学",
