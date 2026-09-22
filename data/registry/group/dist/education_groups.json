@@ -2056,12 +2056,12 @@
           "school_id": "",
           "campuses": [
             {
-              "poi_name": "汇景实验学校（小学部）",
-              "school_id": "gz-440106-efcdec9d"
-            },
-            {
               "poi_name": "汇景实验学校（华园校区）小学部",
               "school_id": "gz-440106-ed39fc64"
+            },
+            {
+              "poi_name": "汇景实验学校（小学部）",
+              "school_id": "gz-440106-efcdec9d"
             },
             {
               "poi_name": "广州市天河区汇景实验学校",
