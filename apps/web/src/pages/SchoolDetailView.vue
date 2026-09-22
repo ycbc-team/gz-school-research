@@ -27,6 +27,24 @@ import {
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
+/** note 中「(见)说明N」拆成可点击片段：跳转番禺区 2026 年小学招生政策说明页 explain-N 锚点。
+ *  仅命中「见?说明\d+」，其余文本（如白云/天河普通备注）原样输出，不误伤。 */
+type NoteSeg = { text?: string; raw?: string; explain?: number };
+const noteSegments = (note: string): NoteSeg[] => {
+  const re = /见?说明(\d+)/g;
+  const segs: NoteSeg[] = [];
+  let last = 0;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(note))) {
+    if (m.index > last) segs.push({ text: note.slice(last, m.index) });
+    segs.push({ raw: m[0], explain: Number(m[1]) });
+    last = m.index + m[0].length;
+  }
+  if (last < note.length) segs.push({ text: note.slice(last) });
+  return segs.length ? segs : [{ text: note }];
+};
+/** 招生说明片段（「见说明N」→ 可点击，其余文本原样） */
+const noteSegs = computed<NoteSeg[]>(() => (enrollment.value?.note ? noteSegments(enrollment.value.note) : []));
 const props = defineProps<{ name: string; stage?: string }>();
 const route = useRoute();
 const schoolName = computed(() => decodeURIComponent(props.name || ''));
@@ -253,6 +271,7 @@ const enrollment = computed(() => {
   if (stage.value !== 'primary') return null;
   return matchEnrollment(schoolId.value);
 });
+
 const primaryMechanism = computed(() => {
   if (stage.value !== 'primary' || !poi.value) return null;
   const d = primaryTier1.districts;
@@ -579,6 +598,10 @@ const brandCardUseful = computed(() =>
           <div class="zone-label">招生地段（对口）</div>
           <p>{{ enrollment.zone }}</p>
         </div>
+        <div v-if="enrollment.note" class="zone-block">
+          <div class="zone-label">招生说明</div>
+          <p v-for="(seg, i) in noteSegs" :key="i"><RouterLink v-if="seg.explain" :to="{ path: '/policy', query: { explain: seg.explain } }" class="note-link">{{ seg.raw }}</RouterLink><template v-else>{{ seg.text }}</template></p>
+        </div>
       </div>
       <p v-else class="empty">未在 2026 招生计划中匹配到招生地段（数据覆盖七区；分校区、新建校暂缺，后续补录）。</p>
       <div v-if="primaryMechanism" class="kv" style="margin-top:10px;">
@@ -857,6 +880,8 @@ const brandCardUseful = computed(() =>
 .specialty-link:hover { text-decoration: underline; }
 
 .zone-block { margin-top: 10px; }
+.note-link { color: #1a73e8; text-decoration: none; border-bottom: 1px dashed #1a73e8; cursor: pointer; }
+.note-link:hover { color: #1765cc; }
 .zone-label { font-size: 11px; color: #6b7280; font-weight: 600; margin-bottom: 4px; }
 .zone-block p {
   margin: 0; background: #f7f6f2; border-radius: 8px; padding: 8px 10px;

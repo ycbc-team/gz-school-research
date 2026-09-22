@@ -4,6 +4,9 @@
  * 内容整理自番禺区教育局《2026年番禺区义务教育阶段学校招生计划、招生地段及条件》
  * （原 apps/web/map/notes.html，旧版下线时随迁至新版，保持内容一致）
  */
+import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+const route = useRoute();
 const explains = [
   {
     id: 'explain-1',
@@ -89,6 +92,15 @@ const contacts = [
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
+// 学校详情页「见说明N」链接 → /policy?explain=N 定位对应说明
+onMounted(() => {
+  const e = route.query.explain;
+  if (e) {
+    const n = Number(e);
+    if (Number.isInteger(n) && n >= 1 && n <= 6) scrollTo(`explain-${n}`);
+  }
+});
 </script>
 
 <template>
