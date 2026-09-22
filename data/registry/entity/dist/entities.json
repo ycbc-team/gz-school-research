@@ -1843,9 +1843,7 @@
       "school_id": "gz-440112-cf50e275",
       "name": "广东外语外贸大学附属黄埔实验学校",
       "stage": "primary",
-      "aliases": [
-        "东区小学"
-      ]
+      "aliases": []
     },
     {
       "school_id": "gz-440106-0eb93435",
@@ -4727,7 +4725,11 @@
       "school_id": "gz-440112-15d63ae7",
       "name": "玉岩中学附属开发区实验学校",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "CPPQ-A4-2地块长岭、雅居建设项目九年制学校暂定名",
+        "CPPQ-A4-2地块长岭、雅居建设项目九年制学校",
+        "CPPQ-A4-2地块长岭.雅居建设项目九年制学校"
+      ]
     },
     {
       "school_id": "gz-440112-04db6ee7",
@@ -6768,9 +6770,7 @@
       "school_id": "gz-440112-7fa7476a",
       "name": "开元学校（西校区）",
       "stage": "primary",
-      "aliases": [
-        "禾丰小学"
-      ]
+      "aliases": []
     },
     {
       "school_id": "gz-440112-11ed4c6c",
@@ -6784,14 +6784,6 @@
       "stage": "primary",
       "aliases": [
         "知识城南安置区小学"
-      ]
-    },
-    {
-      "school_id": "gz-440112-e7640572",
-      "name": "黄埔区CPPQ-A4-2地块（长岭、雅居建设项目）九年制学校（暂定名）",
-      "stage": "primary",
-      "aliases": [
-        "CPPQ-A4-2地块九年制学校"
       ]
     },
     {
@@ -6809,6 +6801,22 @@
       "aliases": [
         "金盘小学北",
         "金盆学校"
+      ]
+    },
+    {
+      "school_id": "gz-440112-30388f7c",
+      "name": "广州市黄埔区东区小学",
+      "stage": "primary",
+      "aliases": [
+        "东区小学"
+      ]
+    },
+    {
+      "school_id": "gz-440112-61ff74b5",
+      "name": "广州市黄埔区禾丰小学",
+      "stage": "primary",
+      "aliases": [
+        "禾丰小学"
       ]
     },
     {
