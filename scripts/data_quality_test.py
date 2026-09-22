@@ -107,6 +107,15 @@ def load_groups():
 def load_entities():
     return json.load(open(os.path.join(ROOT, "data/registry/entity/dist/entities.json"))).get("entities", [])
 
+def load_minban_ids():
+    """民办权威名单 school_id 集合（registry/private 业务产物）：孤儿判定兜底——
+    实体 nature 未标民办时，若 school_id 在民办权威表内同样不列孤儿
+    （民办无地段招生/无公办升学口径，用户 2026-09-22 定）。"""
+    _p = os.path.join(ROOT, "data/registry/private/dist/minban_schools.json")
+    if not os.path.exists(_p):
+        return set()
+    return {s.get("school_id") for s in json.load(open(_p)).get("schools", []) if s.get("school_id")}
+
 def main():
     # 各序号检查的一行概要（[11]-[19]）：通过时全部隐藏，失败时才逐项输出
     _section_lines = []
@@ -143,6 +152,7 @@ def main():
     # （resolve by_main 优先无括号主 POI）→ 只要冲突实体中存在无括号主名即放行；
     # 仅当冲突双方都带校区括号（无主 POI 可收敛，如「广钢校区」vs「岭南校区」裸名撞）才报错。
     entities = load_entities()
+    _MINBAN_SCHOOL_IDS = load_minban_ids()
     # 官方划片表小学名共享裸名豁免（与 build_entities.py OFFICIAL_PRIMARY_ALIAS 多校区裸名键同步）：
     # 官方文件按小学法人名（裸名）公布，同区多校区并列招生是业务事实（华阳小学 4 校区、龙口西 5 校区等），
     # 匹配器/构建脚本按官方名解析出全部校区实体，不构成匹配歧义。新增共享裸名需同步更新本集合。
@@ -396,7 +406,8 @@ def main():
     # 远郊（花都/从化/增城/南沙）与无 adcode 市属实体本就无招生/升学采集，不属于异常排查范围。
     _SEVEN_ADCODES = {'440103', '440104', '440105', '440106', '440111', '440112', '440113'}
     for _e in entities:
-        if _e.get("nature") == "民办" or _e.get("stage") not in ("primary", "middle", "high"):
+        if _e.get("nature") == "民办" or _e.get("school_id") in _MINBAN_SCHOOL_IDS \
+                or _e.get("stage") not in ("primary", "middle", "high"):
             continue
         _ad = (_e.get("school_id") or "?").split("-")[1] if _e.get("school_id") else "?"
         if _ad not in _SEVEN_ADCODES:

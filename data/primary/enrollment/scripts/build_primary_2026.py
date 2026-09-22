@@ -47,6 +47,15 @@ def load_matcher():
     return SchoolMatcher.load()
 
 
+# 民办权威名单（registry/private 业务产物）：poi_leftover 清洗用——
+# 民办无地段招生（报名超计划摇号），其 POI 未出现在公办招生 records 属正常，
+# 不应计入"有 POI 无招生"清单（用户 2026-09-22 定）。
+_MINBAN_SCHOOLS = os.path.join(ROOT, "data", "registry", "private", "dist", "minban_schools.json")
+MINBAN_SCHOOL_IDS = set()
+if os.path.exists(_MINBAN_SCHOOLS):
+    MINBAN_SCHOOL_IDS = {s.get("school_id") for s in json.load(open(_MINBAN_SCHOOLS)).get("schools", []) if s.get("school_id")}
+
+
 def _poi_for(matcher, school, adcode, poi_pool, r):
     """SchoolMatcher 匹配结果 → 本区 POI 定位 → 校区冲突防护。返回 poi 或 None。"""
     sid = r.get("school_id") if r else None
@@ -289,7 +298,9 @@ def build(district_key):
 
     matched_names = {r["school"] for r in matched}
     unmatched = [r["school"] for r in records if r["school"] not in matched_names]
-    poi_leftover = [s["name"] for s in poi_pool if s["name"] not in used]
+    # 民办 POI 无地段招生属正常（报名超计划摇号），不计入"有 POI 无招生"清单（用户 2026-09-22 定）
+    poi_leftover = [s["name"] for s in poi_pool
+                    if s["name"] not in used and s.get("school_id") not in MINBAN_SCHOOL_IDS]
     result = {
         "year": 2026, "district": DISTRICT_NAMES[district_key],
         "source": source, "source_url": SOURCE_URLS[district_key],
