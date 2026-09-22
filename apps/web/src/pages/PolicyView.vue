@@ -4,7 +4,7 @@
  * 内容整理自番禺区教育局《2026年番禺区义务教育阶段学校招生计划、招生地段及条件》
  * （原 apps/web/map/notes.html，旧版下线时随迁至新版，保持内容一致）
  */
-import { onMounted } from 'vue';
+import { nextTick, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 const route = useRoute();
 const explains = [
@@ -88,19 +88,25 @@ const contacts = [
   ['番禺区教育局', '番禺区', '番禺区清河东路319号区政府办公中心东副楼5楼', '84641656 / 84641676', '—'],
 ];
 
-// hash 路由下原生 #锚点会与路由冲突，统一用 scrollIntoView 滚动
+// hash 路由下原生 #锚点会与路由冲突，统一用 scrollIntoView 滚动。
+// 即时定位（auto）：平滑滚动在部分环境（减弱动态效果/自动化）不执行，auto 保证锚点必达。
 function scrollTo(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.getElementById(id)?.scrollIntoView({ block: 'start' });
 }
 
-// 学校详情页「见说明N」链接 → /policy?explain=N 定位对应说明
-onMounted(() => {
-  const e = route.query.explain;
-  if (e) {
-    const n = Number(e);
-    if (Number.isInteger(n) && n >= 1 && n <= 6) scrollTo(`explain-${n}`);
+// 学校详情页「见说明N」链接 → /policy?explain=N 定位对应说明卡。
+// router.scrollBehavior 对 explain 让位（返回 undefined），由本组件负责滚动：
+// 首次进入 onMounted，同一组件内切换 explain watch（nextTick 等 DOM 就绪）。
+function scrollToExplain(n: unknown) {
+  const x = Number(n);
+  if (Number.isInteger(x) && x >= 1 && x <= 6) {
+    void nextTick(() => scrollTo(`explain-${x}`));
   }
-});
+}
+onMounted(() => scrollToExplain(route.query.explain));
+watch(() => route.query.explain, scrollToExplain);
+
+
 </script>
 
 <template>
