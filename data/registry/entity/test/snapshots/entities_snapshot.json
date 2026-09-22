@@ -927,11 +927,6 @@
    "name": "广州市第一中学红岩学校",
    "stage": "middle"
   },
-  "gz-440103-f067bab2#primary": {
-   "aliases": [],
-   "name": "河沙小学",
-   "stage": "primary"
-  },
   "gz-440103-f203d28d#middle": {
    "aliases": [
     "真光金道"
@@ -9285,7 +9280,7 @@
    "stage": "middle"
   }
  },
- "entity_count": 1547,
+ "entity_count": 1546,
  "note": "实体/POI 关联业务快照（非产物字节，坐标不入快照）。更新：--update-snapshot。",
  "poi": {
   "high": {
@@ -11215,9 +11210,6 @@
    ],
    "gz-440103-eeee1923": [
     "沙面小学(大坦沙校区)"
-   ],
-   "gz-440103-f067bab2": [
-    "河沙小学"
    ],
    "gz-440103-f2da8e6f": [
     "广州市西关外国语学校泮溪校区"

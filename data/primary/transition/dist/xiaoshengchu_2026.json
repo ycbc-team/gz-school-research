@@ -4,6 +4,14 @@
   "groups": [
     {
       "id": 0,
+      "name": "不参与公办电脑派位",
+      "source_urls": [
+        "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
+      ],
+      "data_gaps": "2021年起暂停招生（人户一致地段并入大坦沙岛配套学校安排），2026分组表未列（南方+2021-05）"
+    },
+    {
+      "id": 1,
       "name": "番禺区小升初对口（多校（股民/非股民））",
       "source_urls": [
         "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html"
@@ -11,7 +19,7 @@
       "data_gaps": null
     },
     {
-      "id": 1,
+      "id": 2,
       "name": "不参与公办派位/待核",
       "source_urls": [
         "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
@@ -19,7 +27,7 @@
       "data_gaps": "民办，官方 2026 年民办招生计划未单列（可能停招），待核。"
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "不参与公办派位/待核",
       "source_urls": [
         "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
@@ -27,7 +35,7 @@
       "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
     },
     {
-      "id": 3,
+      "id": 4,
       "name": "不参与公办派位/待核",
       "source_urls": [
         "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
@@ -35,7 +43,7 @@
       "data_gaps": "劳动教育实践基地，非招生学校。"
     },
     {
-      "id": 4,
+      "id": 5,
       "name": "不参与公办派位/待核",
       "source_urls": [
         "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
@@ -43,7 +51,7 @@
       "data_gaps": "官方 2026 年招生文件未单列（民办待核）。"
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "越秀区小升初第一组（多校划片·电脑派位）",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -51,7 +59,7 @@
       "data_gaps": null
     },
     {
-      "id": 6,
+      "id": 7,
       "name": "越秀区小升初第二组（多校划片·电脑派位）",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -59,7 +67,7 @@
       "data_gaps": null
     },
     {
-      "id": 7,
+      "id": 8,
       "name": "越秀区小升初第三组（多校划片·电脑派位）",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -67,7 +75,7 @@
       "data_gaps": null
     },
     {
-      "id": 8,
+      "id": 9,
       "name": "越秀区小升初第四组（多校划片·电脑派位）",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -75,7 +83,7 @@
       "data_gaps": null
     },
     {
-      "id": 9,
+      "id": 10,
       "name": "越秀区小升初第五组（多校划片·电脑派位）",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -83,7 +91,7 @@
       "data_gaps": null
     },
     {
-      "id": 10,
+      "id": 11,
       "name": "越秀区小升初第六组（多校划片·电脑派位）",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -91,7 +99,7 @@
       "data_gaps": null
     },
     {
-      "id": 11,
+      "id": 12,
       "name": "越秀区小升初第七组（多校划片·电脑派位）",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -99,7 +107,7 @@
       "data_gaps": null
     },
     {
-      "id": 12,
+      "id": 13,
       "name": "越秀区小升初第八组（多校划片·电脑派位）",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -107,7 +115,7 @@
       "data_gaps": null
     },
     {
-      "id": 13,
+      "id": 14,
       "name": "越秀区小升初第九组（多校划片·电脑派位）",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -115,7 +123,7 @@
       "data_gaps": null
     },
     {
-      "id": 14,
+      "id": 15,
       "name": "越秀区小升初第十组（多校划片·电脑派位）",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -123,7 +131,7 @@
       "data_gaps": null
     },
     {
-      "id": 15,
+      "id": 16,
       "name": "越秀区小升初第十一组（多校划片·电脑派位）",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -131,7 +139,7 @@
       "data_gaps": null
     },
     {
-      "id": 16,
+      "id": 17,
       "name": "不参与公办电脑派位",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -139,7 +147,7 @@
       "data_gaps": "民办学校（初中段），不参与公办小学派位"
     },
     {
-      "id": 17,
+      "id": 18,
       "name": "不参与公办电脑派位",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -147,7 +155,7 @@
       "data_gaps": "特殊教育学校，不参与公办电脑派位"
     },
     {
-      "id": 18,
+      "id": 19,
       "name": "不参与公办电脑派位",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -155,7 +163,7 @@
       "data_gaps": "2026年越秀区公办小学招生计划（52所）未单列，疑已并校/更名，待核"
     },
     {
-      "id": 19,
+      "id": 20,
       "name": "不参与公办电脑派位",
       "source_urls": [
         "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
@@ -163,7 +171,7 @@
       "data_gaps": "民办学校，不参与公办派位"
     },
     {
-      "id": 20,
+      "id": 21,
       "name": "荔湾区小升初第1组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -171,7 +179,7 @@
       "data_gaps": null
     },
     {
-      "id": 21,
+      "id": 22,
       "name": "荔湾区小升初第2组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -179,7 +187,7 @@
       "data_gaps": null
     },
     {
-      "id": 22,
+      "id": 23,
       "name": "荔湾区小升初第3组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -187,7 +195,7 @@
       "data_gaps": null
     },
     {
-      "id": 23,
+      "id": 24,
       "name": "荔湾区小升初第4组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -195,7 +203,7 @@
       "data_gaps": null
     },
     {
-      "id": 24,
+      "id": 25,
       "name": "协和学校（市属十二年制，小学部直升本校初中部，不参加荔湾区公办初中派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -203,7 +211,7 @@
       "data_gaps": null
     },
     {
-      "id": 25,
+      "id": 26,
       "name": "荔湾区小升初第5组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -211,7 +219,7 @@
       "data_gaps": null
     },
     {
-      "id": 26,
+      "id": 27,
       "name": "荔湾区小升初第6组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -219,7 +227,7 @@
       "data_gaps": null
     },
     {
-      "id": 27,
+      "id": 28,
       "name": "荔湾区小升初第7组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -227,7 +235,7 @@
       "data_gaps": null
     },
     {
-      "id": 28,
+      "id": 29,
       "name": "荔湾区小升初第8组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -235,7 +243,7 @@
       "data_gaps": null
     },
     {
-      "id": 29,
+      "id": 30,
       "name": "荔湾区小升初第9组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -243,7 +251,7 @@
       "data_gaps": null
     },
     {
-      "id": 30,
+      "id": 31,
       "name": "荔湾区小升初第10组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -251,7 +259,7 @@
       "data_gaps": null
     },
     {
-      "id": 31,
+      "id": 32,
       "name": "荔湾区小升初第11组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -259,7 +267,7 @@
       "data_gaps": null
     },
     {
-      "id": 32,
+      "id": 33,
       "name": "荔湾区小升初第12组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -267,7 +275,7 @@
       "data_gaps": null
     },
     {
-      "id": 33,
+      "id": 34,
       "name": "荔湾区小升初第13组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -275,7 +283,7 @@
       "data_gaps": null
     },
     {
-      "id": 34,
+      "id": 35,
       "name": "荔湾区小升初第14组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -283,7 +291,7 @@
       "data_gaps": null
     },
     {
-      "id": 35,
+      "id": 36,
       "name": "不参与公办电脑派位",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -291,7 +299,7 @@
       "data_gaps": "民办学校，不参与公办派位"
     },
     {
-      "id": 36,
+      "id": 37,
       "name": "不参与公办电脑派位",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -299,20 +307,12 @@
       "data_gaps": "公办初中（非小学），无小学派位记录"
     },
     {
-      "id": 37,
-      "name": "不参与公办电脑派位",
-      "source_urls": [
-        "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
-      ],
-      "data_gaps": "2026年9月新开学（沙面小学教育集团第六校区），未入2026年4月发布的派位分组表，派位归属待2027年表确认（南方+2026-08-31）"
-    },
-    {
       "id": 38,
       "name": "不参与公办电脑派位",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
       ],
-      "data_gaps": "2021年起暂停招生（人户一致地段并入大坦沙岛配套学校安排），2026分组表未列（南方+2021-05）"
+      "data_gaps": "2026年9月新开学（沙面小学教育集团第六校区），未入2026年4月发布的派位分组表，派位归属待2027年表确认（南方+2026-08-31）"
     },
     {
       "id": 39,
@@ -1350,6 +1350,15 @@
   "records": [
     {
       "school_id": null,
+      "feed_school_ids": [],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "民办/特殊教育/官方未单列。",
+      "group_id": 0,
+      "data_gaps": "2021年起暂停招生（人户一致地段并入大坦沙岛配套学校安排），2026分组表未列（南方+2021-05）"
+    },
+    {
+      "school_id": null,
       "feed_school_ids": [
         "gz-440113-6dbdc462",
         "gz-440113-2570c29b"
@@ -1357,7 +1366,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 傍江东村股民及股民子女→仲元二校区优先；余下→大龙中学",
-      "group_id": 0,
+      "group_id": 1,
       "data_gaps": null
     },
     {
@@ -1366,34 +1375,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "民办/待核。",
-      "group_id": 1,
-      "data_gaps": "民办，官方 2026 年民办招生计划未单列（可能停招），待核。"
-    },
-    {
-      "school_id": null,
-      "feed_school_ids": [],
-      "feed_unresolved": [],
-      "direct_feed_school_id": null,
-      "source_note": "民办/待核。",
       "group_id": 2,
-      "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
-    },
-    {
-      "school_id": null,
-      "feed_school_ids": [],
-      "feed_unresolved": [],
-      "direct_feed_school_id": null,
-      "source_note": "民办/待核。",
-      "group_id": 2,
-      "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
-    },
-    {
-      "school_id": null,
-      "feed_school_ids": [],
-      "feed_unresolved": [],
-      "direct_feed_school_id": null,
-      "source_note": "民办/待核。",
-      "group_id": 1,
       "data_gaps": "民办，官方 2026 年民办招生计划未单列（可能停招），待核。"
     },
     {
@@ -1403,7 +1385,25 @@
       "direct_feed_school_id": null,
       "source_note": "民办/待核。",
       "group_id": 3,
-      "data_gaps": "劳动教育实践基地，非招生学校。"
+      "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
+    },
+    {
+      "school_id": null,
+      "feed_school_ids": [],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "民办/待核。",
+      "group_id": 3,
+      "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
+    },
+    {
+      "school_id": null,
+      "feed_school_ids": [],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "民办/待核。",
+      "group_id": 2,
+      "data_gaps": "民办，官方 2026 年民办招生计划未单列（可能停招），待核。"
     },
     {
       "school_id": null,
@@ -1412,6 +1412,15 @@
       "direct_feed_school_id": null,
       "source_note": "民办/待核。",
       "group_id": 4,
+      "data_gaps": "劳动教育实践基地，非招生学校。"
+    },
+    {
+      "school_id": null,
+      "feed_school_ids": [],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "民办/待核。",
+      "group_id": 5,
       "data_gaps": "官方 2026 年招生文件未单列（民办待核）。"
     },
     {
@@ -1434,7 +1443,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 5,
+      "group_id": 6,
       "data_gaps": null
     },
     {
@@ -1457,7 +1466,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 5,
+      "group_id": 6,
       "data_gaps": null
     },
     {
@@ -1480,7 +1489,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 5,
+      "group_id": 6,
       "data_gaps": null
     },
     {
@@ -1503,7 +1512,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 5,
+      "group_id": 6,
       "data_gaps": null
     },
     {
@@ -1526,7 +1535,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 5,
+      "group_id": 6,
       "data_gaps": null
     },
     {
@@ -1549,7 +1558,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": "gz-440104-7ec82efb",
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。 广州市育才中学面向对口直升。",
-      "group_id": 5,
+      "group_id": 6,
       "data_gaps": null
     },
     {
@@ -1572,7 +1581,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 5,
+      "group_id": 6,
       "data_gaps": null
     },
     {
@@ -1595,7 +1604,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 5,
+      "group_id": 6,
       "data_gaps": null
     },
     {
@@ -1618,7 +1627,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 6,
+      "group_id": 7,
       "data_gaps": null
     },
     {
@@ -1641,7 +1650,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 6,
+      "group_id": 7,
       "data_gaps": null
     },
     {
@@ -1664,7 +1673,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 6,
+      "group_id": 7,
       "data_gaps": null
     },
     {
@@ -1687,7 +1696,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 6,
+      "group_id": 7,
       "data_gaps": null
     },
     {
@@ -1710,7 +1719,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 6,
+      "group_id": 7,
       "data_gaps": null
     },
     {
@@ -1732,7 +1741,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": "gz-440104-d972cf95",
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。 广州市华侨外国语学校面向对口直升。",
-      "group_id": 7,
+      "group_id": 8,
       "data_gaps": null
     },
     {
@@ -1754,7 +1763,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 7,
+      "group_id": 8,
       "data_gaps": null
     },
     {
@@ -1776,7 +1785,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 7,
+      "group_id": 8,
       "data_gaps": null
     },
     {
@@ -1798,7 +1807,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 7,
+      "group_id": 8,
       "data_gaps": null
     },
     {
@@ -1819,7 +1828,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 8,
+      "group_id": 9,
       "data_gaps": null
     },
     {
@@ -1840,7 +1849,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 8,
+      "group_id": 9,
       "data_gaps": null
     },
     {
@@ -1861,7 +1870,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 8,
+      "group_id": 9,
       "data_gaps": null
     },
     {
@@ -1882,7 +1891,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 8,
+      "group_id": 9,
       "data_gaps": null
     },
     {
@@ -1903,7 +1912,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 8,
+      "group_id": 9,
       "data_gaps": null
     },
     {
@@ -1924,7 +1933,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 8,
+      "group_id": 9,
       "data_gaps": null
     },
     {
@@ -1946,7 +1955,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 9,
+      "group_id": 10,
       "data_gaps": null
     },
     {
@@ -1968,7 +1977,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": "gz-440104-68535b94",
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。 广州市八一实验学校面向对口直升。",
-      "group_id": 9,
+      "group_id": 10,
       "data_gaps": null
     },
     {
@@ -1990,7 +1999,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 9,
+      "group_id": 10,
       "data_gaps": null
     },
     {
@@ -2012,7 +2021,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 9,
+      "group_id": 10,
       "data_gaps": null
     },
     {
@@ -2034,7 +2043,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": "gz-440104-99aef0e5",
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。 广州市培正中学面向对口直升。",
-      "group_id": 9,
+      "group_id": 10,
       "data_gaps": null
     },
     {
@@ -2056,7 +2065,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": "gz-440104-99aef0e5",
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。 广州市培正中学面向对口直升。",
-      "group_id": 9,
+      "group_id": 10,
       "data_gaps": null
     },
     {
@@ -2078,7 +2087,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": "gz-440104-09652aa5",
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。 广州市铁一中学面向对口直升。",
-      "group_id": 9,
+      "group_id": 10,
       "data_gaps": null
     },
     {
@@ -2100,7 +2109,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 9,
+      "group_id": 10,
       "data_gaps": null
     },
     {
@@ -2122,7 +2131,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 9,
+      "group_id": 10,
       "data_gaps": null
     },
     {
@@ -2144,7 +2153,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 10,
+      "group_id": 11,
       "data_gaps": null
     },
     {
@@ -2166,7 +2175,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 10,
+      "group_id": 11,
       "data_gaps": null
     },
     {
@@ -2188,7 +2197,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 10,
+      "group_id": 11,
       "data_gaps": null
     },
     {
@@ -2210,7 +2219,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 10,
+      "group_id": 11,
       "data_gaps": null
     },
     {
@@ -2232,7 +2241,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 10,
+      "group_id": 11,
       "data_gaps": null
     },
     {
@@ -2254,7 +2263,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 10,
+      "group_id": 11,
       "data_gaps": null
     },
     {
@@ -2276,7 +2285,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 10,
+      "group_id": 11,
       "data_gaps": null
     },
     {
@@ -2298,7 +2307,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 10,
+      "group_id": 11,
       "data_gaps": null
     },
     {
@@ -2320,7 +2329,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 10,
+      "group_id": 11,
       "data_gaps": null
     },
     {
@@ -2342,7 +2351,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 10,
+      "group_id": 11,
       "data_gaps": null
     },
     {
@@ -2364,7 +2373,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 11,
+      "group_id": 12,
       "data_gaps": null
     },
     {
@@ -2386,7 +2395,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 11,
+      "group_id": 12,
       "data_gaps": null
     },
     {
@@ -2408,7 +2417,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 11,
+      "group_id": 12,
       "data_gaps": null
     },
     {
@@ -2430,7 +2439,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 11,
+      "group_id": 12,
       "data_gaps": null
     },
     {
@@ -2452,7 +2461,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 11,
+      "group_id": 12,
       "data_gaps": null
     },
     {
@@ -2474,7 +2483,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 11,
+      "group_id": 12,
       "data_gaps": null
     },
     {
@@ -2496,7 +2505,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 11,
+      "group_id": 12,
       "data_gaps": null
     },
     {
@@ -2518,7 +2527,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 11,
+      "group_id": 12,
       "data_gaps": null
     },
     {
@@ -2540,7 +2549,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 11,
+      "group_id": 12,
       "data_gaps": null
     },
     {
@@ -2562,7 +2571,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 11,
+      "group_id": 12,
       "data_gaps": null
     },
     {
@@ -2584,7 +2593,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 11,
+      "group_id": 12,
       "data_gaps": null
     },
     {
@@ -2605,7 +2614,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 12,
+      "group_id": 13,
       "data_gaps": null
     },
     {
@@ -2626,7 +2635,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 12,
+      "group_id": 13,
       "data_gaps": null
     },
     {
@@ -2647,7 +2656,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 12,
+      "group_id": 13,
       "data_gaps": null
     },
     {
@@ -2668,7 +2677,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 12,
+      "group_id": 13,
       "data_gaps": null
     },
     {
@@ -2689,7 +2698,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 12,
+      "group_id": 13,
       "data_gaps": null
     },
     {
@@ -2710,7 +2719,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": "gz-440104-bc48335e",
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。 广州市知用学校面向对口直升。",
-      "group_id": 12,
+      "group_id": 13,
       "data_gaps": null
     },
     {
@@ -2731,7 +2740,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 13,
+      "group_id": 14,
       "data_gaps": null
     },
     {
@@ -2752,7 +2761,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 13,
+      "group_id": 14,
       "data_gaps": null
     },
     {
@@ -2773,7 +2782,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 13,
+      "group_id": 14,
       "data_gaps": null
     },
     {
@@ -2794,7 +2803,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 13,
+      "group_id": 14,
       "data_gaps": null
     },
     {
@@ -2815,7 +2824,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 13,
+      "group_id": 14,
       "data_gaps": null
     },
     {
@@ -2836,7 +2845,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 14,
+      "group_id": 15,
       "data_gaps": null
     },
     {
@@ -2857,7 +2866,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": "gz-440104-c77c73b5",
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。 广州市真光学校面向对口直升。",
-      "group_id": 14,
+      "group_id": 15,
       "data_gaps": null
     },
     {
@@ -2878,7 +2887,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 14,
+      "group_id": 15,
       "data_gaps": null
     },
     {
@@ -2899,7 +2908,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 14,
+      "group_id": 15,
       "data_gaps": null
     },
     {
@@ -2920,7 +2929,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 14,
+      "group_id": 15,
       "data_gaps": null
     },
     {
@@ -2942,7 +2951,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 15,
+      "group_id": 16,
       "data_gaps": null
     },
     {
@@ -2964,7 +2973,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": "gz-440104-d5f83454",
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。 广州市第七中学实验学校面向对口直升。",
-      "group_id": 15,
+      "group_id": 16,
       "data_gaps": null
     },
     {
@@ -2986,7 +2995,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 15,
+      "group_id": 16,
       "data_gaps": null
     },
     {
@@ -3008,7 +3017,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年越秀区小升初分组电脑派位（2026细则 post_10790590 确认与 2022 官方分组表一致，11组每组10所初中）；执信统一执信路校区；第十一组矿泉中学→培正矿泉学校（瑶台改造）。",
-      "group_id": 15,
+      "group_id": 16,
       "data_gaps": null
     },
     {
@@ -3017,7 +3026,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "民办/特殊教育/官方未单列。",
-      "group_id": 16,
+      "group_id": 17,
       "data_gaps": "民办学校（初中段），不参与公办小学派位"
     },
     {
@@ -3026,7 +3035,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "民办/特殊教育/官方未单列。",
-      "group_id": 17,
+      "group_id": 18,
       "data_gaps": "特殊教育学校，不参与公办电脑派位"
     },
     {
@@ -3035,7 +3044,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "民办/特殊教育/官方未单列。",
-      "group_id": 18,
+      "group_id": 19,
       "data_gaps": "2026年越秀区公办小学招生计划（52所）未单列，疑已并校/更名，待核"
     },
     {
@@ -3044,7 +3053,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "民办/特殊教育/官方未单列。",
-      "group_id": 18,
+      "group_id": 19,
       "data_gaps": "2026年越秀区公办小学招生计划（52所）未单列，疑已并校/更名，待核"
     },
     {
@@ -3053,7 +3062,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "民办/特殊教育/官方未单列。",
-      "group_id": 17,
+      "group_id": 18,
       "data_gaps": "特殊教育学校，不参与公办电脑派位"
     },
     {
@@ -3062,7 +3071,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "民办/特殊教育/官方未单列。",
-      "group_id": 17,
+      "group_id": 18,
       "data_gaps": "特殊教育学校，不参与公办电脑派位"
     },
     {
@@ -3071,7 +3080,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "民办/特殊教育/官方未单列。",
-      "group_id": 19,
+      "group_id": 20,
       "data_gaps": "民办学校，不参与公办派位"
     },
     {
@@ -3098,7 +3107,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 20,
+      "group_id": 21,
       "data_gaps": null
     },
     {
@@ -3125,7 +3134,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 20,
+      "group_id": 21,
       "data_gaps": null
     },
     {
@@ -3152,7 +3161,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 20,
+      "group_id": 21,
       "data_gaps": null
     },
     {
@@ -3179,7 +3188,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 20,
+      "group_id": 21,
       "data_gaps": null
     },
     {
@@ -3206,7 +3215,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 20,
+      "group_id": 21,
       "data_gaps": null
     },
     {
@@ -3233,7 +3242,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 20,
+      "group_id": 21,
       "data_gaps": null
     },
     {
@@ -3260,7 +3269,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 20,
+      "group_id": 21,
       "data_gaps": null
     },
     {
@@ -3287,7 +3296,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 21,
+      "group_id": 22,
       "data_gaps": null
     },
     {
@@ -3314,7 +3323,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 21,
+      "group_id": 22,
       "data_gaps": null
     },
     {
@@ -3341,7 +3350,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 21,
+      "group_id": 22,
       "data_gaps": null
     },
     {
@@ -3368,7 +3377,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 21,
+      "group_id": 22,
       "data_gaps": null
     },
     {
@@ -3395,7 +3404,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 21,
+      "group_id": 22,
       "data_gaps": null
     },
     {
@@ -3422,7 +3431,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 21,
+      "group_id": 22,
       "data_gaps": null
     },
     {
@@ -3448,7 +3457,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 22,
+      "group_id": 23,
       "data_gaps": null
     },
     {
@@ -3474,7 +3483,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 22,
+      "group_id": 23,
       "data_gaps": null
     },
     {
@@ -3500,7 +3509,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 22,
+      "group_id": 23,
       "data_gaps": null
     },
     {
@@ -3526,7 +3535,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 22,
+      "group_id": 23,
       "data_gaps": null
     },
     {
@@ -3552,7 +3561,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 22,
+      "group_id": 23,
       "data_gaps": null
     },
     {
@@ -3578,7 +3587,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 22,
+      "group_id": 23,
       "data_gaps": null
     },
     {
@@ -3604,7 +3613,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 23,
+      "group_id": 24,
       "data_gaps": null
     },
     {
@@ -3615,7 +3624,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": "gz-440103-e281e7d0",
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。 广州市协和学校面向对口直升。",
-      "group_id": 24,
+      "group_id": 25,
       "data_gaps": null
     },
     {
@@ -3641,7 +3650,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 23,
+      "group_id": 24,
       "data_gaps": null
     },
     {
@@ -3667,7 +3676,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 23,
+      "group_id": 24,
       "data_gaps": null
     },
     {
@@ -3693,7 +3702,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 23,
+      "group_id": 24,
       "data_gaps": null
     },
     {
@@ -3720,7 +3729,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 25,
+      "group_id": 26,
       "data_gaps": null
     },
     {
@@ -3747,7 +3756,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 25,
+      "group_id": 26,
       "data_gaps": null
     },
     {
@@ -3774,7 +3783,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 25,
+      "group_id": 26,
       "data_gaps": null
     },
     {
@@ -3801,7 +3810,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 25,
+      "group_id": 26,
       "data_gaps": null
     },
     {
@@ -3828,7 +3837,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 25,
+      "group_id": 26,
       "data_gaps": null
     },
     {
@@ -3855,7 +3864,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 25,
+      "group_id": 26,
       "data_gaps": null
     },
     {
@@ -3881,7 +3890,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 26,
+      "group_id": 27,
       "data_gaps": null
     },
     {
@@ -3907,7 +3916,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 26,
+      "group_id": 27,
       "data_gaps": null
     },
     {
@@ -3933,7 +3942,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 26,
+      "group_id": 27,
       "data_gaps": null
     },
     {
@@ -3956,7 +3965,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 27,
+      "group_id": 28,
       "data_gaps": null
     },
     {
@@ -3979,7 +3988,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 27,
+      "group_id": 28,
       "data_gaps": null
     },
     {
@@ -4002,7 +4011,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 27,
+      "group_id": 28,
       "data_gaps": null
     },
     {
@@ -4025,7 +4034,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 27,
+      "group_id": 28,
       "data_gaps": null
     },
     {
@@ -4048,7 +4057,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 27,
+      "group_id": 28,
       "data_gaps": null
     },
     {
@@ -4071,7 +4080,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 27,
+      "group_id": 28,
       "data_gaps": null
     },
     {
@@ -4094,7 +4103,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 27,
+      "group_id": 28,
       "data_gaps": null
     },
     {
@@ -4117,7 +4126,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 28,
+      "group_id": 29,
       "data_gaps": null
     },
     {
@@ -4140,7 +4149,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 28,
+      "group_id": 29,
       "data_gaps": null
     },
     {
@@ -4163,7 +4172,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 28,
+      "group_id": 29,
       "data_gaps": null
     },
     {
@@ -4186,7 +4195,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 28,
+      "group_id": 29,
       "data_gaps": null
     },
     {
@@ -4209,7 +4218,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 28,
+      "group_id": 29,
       "data_gaps": null
     },
     {
@@ -4232,7 +4241,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 28,
+      "group_id": 29,
       "data_gaps": null
     },
     {
@@ -4255,7 +4264,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 28,
+      "group_id": 29,
       "data_gaps": null
     },
     {
@@ -4278,7 +4287,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 28,
+      "group_id": 29,
       "data_gaps": null
     },
     {
@@ -4301,7 +4310,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 29,
+      "group_id": 30,
       "data_gaps": null
     },
     {
@@ -4324,7 +4333,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 29,
+      "group_id": 30,
       "data_gaps": null
     },
     {
@@ -4347,7 +4356,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 29,
+      "group_id": 30,
       "data_gaps": null
     },
     {
@@ -4370,7 +4379,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 30,
+      "group_id": 31,
       "data_gaps": null
     },
     {
@@ -4393,7 +4402,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 30,
+      "group_id": 31,
       "data_gaps": null
     },
     {
@@ -4416,7 +4425,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 30,
+      "group_id": 31,
       "data_gaps": null
     },
     {
@@ -4439,7 +4448,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 30,
+      "group_id": 31,
       "data_gaps": null
     },
     {
@@ -4462,7 +4471,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 31,
+      "group_id": 32,
       "data_gaps": null
     },
     {
@@ -4485,7 +4494,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 31,
+      "group_id": 32,
       "data_gaps": null
     },
     {
@@ -4508,7 +4517,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 31,
+      "group_id": 32,
       "data_gaps": null
     },
     {
@@ -4531,7 +4540,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 31,
+      "group_id": 32,
       "data_gaps": null
     },
     {
@@ -4554,7 +4563,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 31,
+      "group_id": 32,
       "data_gaps": null
     },
     {
@@ -4577,7 +4586,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 31,
+      "group_id": 32,
       "data_gaps": null
     },
     {
@@ -4600,7 +4609,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 31,
+      "group_id": 32,
       "data_gaps": null
     },
     {
@@ -4623,7 +4632,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 31,
+      "group_id": 32,
       "data_gaps": null
     },
     {
@@ -4646,7 +4655,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 31,
+      "group_id": 32,
       "data_gaps": null
     },
     {
@@ -4669,7 +4678,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 31,
+      "group_id": 32,
       "data_gaps": null
     },
     {
@@ -4692,7 +4701,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 31,
+      "group_id": 32,
       "data_gaps": null
     },
     {
@@ -4712,7 +4721,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 32,
+      "group_id": 33,
       "data_gaps": null
     },
     {
@@ -4732,7 +4741,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 32,
+      "group_id": 33,
       "data_gaps": null
     },
     {
@@ -4752,7 +4761,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 32,
+      "group_id": 33,
       "data_gaps": null
     },
     {
@@ -4772,7 +4781,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 32,
+      "group_id": 33,
       "data_gaps": null
     },
     {
@@ -4791,7 +4800,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 33,
+      "group_id": 34,
       "data_gaps": null
     },
     {
@@ -4810,7 +4819,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 34,
+      "group_id": 35,
       "data_gaps": null
     },
     {
@@ -4819,7 +4828,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "民办/特殊教育/官方未单列。",
-      "group_id": 35,
+      "group_id": 36,
       "data_gaps": "民办学校，不参与公办派位"
     },
     {
@@ -4828,7 +4837,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "民办/特殊教育/官方未单列。",
-      "group_id": 36,
+      "group_id": 37,
       "data_gaps": "公办初中（非小学），无小学派位记录"
     },
     {
@@ -4837,17 +4846,8 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "民办/特殊教育/官方未单列。",
-      "group_id": 37,
-      "data_gaps": "2026年9月新开学（沙面小学教育集团第六校区），未入2026年4月发布的派位分组表，派位归属待2027年表确认（南方+2026-08-31）"
-    },
-    {
-      "school_id": "gz-440103-f067bab2",
-      "feed_school_ids": [],
-      "feed_unresolved": [],
-      "direct_feed_school_id": null,
-      "source_note": "民办/特殊教育/官方未单列。",
       "group_id": 38,
-      "data_gaps": "2021年起暂停招生（人户一致地段并入大坦沙岛配套学校安排），2026分组表未列（南方+2021-05）"
+      "data_gaps": "2026年9月新开学（沙面小学教育集团第六校区），未入2026年4月发布的派位分组表，派位归属待2027年表确认（南方+2026-08-31）"
     },
     {
       "school_id": "gz-440103-3ea667b1",
@@ -4855,7 +4855,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "民办/特殊教育/官方未单列。",
-      "group_id": 35,
+      "group_id": 36,
       "data_gaps": "民办学校，不参与公办派位"
     },
     {
@@ -8885,7 +8885,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年番禺区义务教育阶段学校招生计划、招生地段及条件（公办小学160行/公办初中62行）——官方不提供逐校小升初表，本构建按\"小学招生地段\"与\"初中招生服务范围\"的户籍/小区文本逐校人工判定对口。 傍江东村股民及股民子女→仲元二校区优先；余下→大龙中学",
-      "group_id": 0,
+      "group_id": 1,
       "data_gaps": null
     },
     {
@@ -14466,7 +14466,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "民办/待核。",
-      "group_id": 2,
+      "group_id": 3,
       "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
     },
     {
@@ -14511,7 +14511,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "民办/待核。",
-      "group_id": 2,
+      "group_id": 3,
       "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
     },
     {

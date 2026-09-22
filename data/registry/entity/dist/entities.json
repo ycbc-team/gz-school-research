@@ -3089,7 +3089,8 @@
       "stage": "primary",
       "aliases": [
         "芳村新苗学校"
-      ]
+      ],
+      "nature": "民办"
     },
     {
       "school_id": "gz-440103-81e53843",
@@ -4454,12 +4455,6 @@
     {
       "school_id": "gz-440113-b44dc073",
       "name": "河村小学",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440103-f067bab2",
-      "name": "河沙小学",
       "stage": "primary",
       "aliases": []
     },
