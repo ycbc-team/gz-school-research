@@ -328,17 +328,32 @@ class SchoolMatcher:
             return ov
 
         has_campus = bool(re.search(r"[（(].+?[）)]", name or ""))
+        # 后缀式校区限定（官方志愿单位名，无括号）：「广州市第四中学初中津园校区」
+        # 与括号式校区同义——精准匹配该校区，不得按法人展开全部校区（2026-09-22 曾误展开）。
+        # 注意「小学部/初中部/高中部」是法人学部（官方原文名，如「清华附中湾区学校小学部」），
+        # 不是校区限定——精确匹配学部实体即可，不触发校区精准分支。
+        _suffix_campus = matchNorm(coreCampusName(name)).endswith(
+            ("校区", "分校", "教学点", "分教点"))
         candidates = entities_for(list(self.exact_map.get(normName(name), [])) +
                                   list(self.alias_map.get(normName(name), [])) +
                                   list(self.alias_map.get(matchNorm(name), [])))
 
-        # 带校区限定：精准匹配，宁缺毋滥——只返回唯一命中的校区实体
-        if has_campus:
+        # 带校区限定（括号式或后缀式）：精准匹配，宁缺毋滥——只返回唯一命中的校区实体
+        if has_campus or _suffix_campus:
             if preferred_adcode:
                 f = [e for e in candidates if self._adcode_of(e) == preferred_adcode]
                 f += [e for e in candidates if e not in f and self._policy_adcode(e) == preferred_adcode]
                 candidates = f
-            return [self._result(e) for e in candidates] if len(candidates) == 1 else []
+            if len(candidates) == 1:
+                return [self._result(e) for e in candidates]
+            # 后缀式校区名（实体表别名共享导致多候选、或实体无别名精确未命中）时，
+            # 以 resolve 单值 substring 收敛到该校区（「广州市西关外国语学校文昌南校区」
+            # → 文昌南实体；「广州市第四中学初中津园校区」→ 四中津园），不做法人展开。
+            if _suffix_campus:
+                _one = self.resolve(name, preferred_adcode, preferred_stage, strategy="single")
+                if _one and _one.get("school_id"):
+                    return [_one]
+            return []
 
         # 无校区限定：全部同法人校区展开（法人行公布即适用全部校区）
         core = matchNorm(coreCampusName(name))
@@ -355,8 +370,9 @@ class SchoolMatcher:
             # 复用 legalCampuses 第二层规则——「市桥南阳里小学」→ 南阳里小学东校区、
             # 「东风东路小学」→ 天伦校区、「沙面小学」→ 岭南/悦江校区，
             # 括号式与后缀式校区统一展开，替代「手工给后缀式校区实体补括号式别名」。
-            # candidates 为空时（镇街前缀名如「市桥南阳里小学」exact/alias 不命中）以
-            # resolve 单值命中为种子（能经 substring 收敛到法人实体），再以法人核心归并。
+            # candidates 为空时（纯法人名，如镇街前缀名「市桥南阳里小学」exact/alias 不命中）
+            # 以 resolve 单值命中为种子（能经 substring 收敛到法人实体），再以法人核心归并。
+            # 后缀式校区名已在上方 _suffix_campus 分支处理，不会进入本分支。
             _seeds = list(candidates)
             if not _seeds:
                 _one = self.resolve(name, preferred_adcode, preferred_stage, strategy="single")
