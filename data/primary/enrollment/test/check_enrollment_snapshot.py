@@ -50,10 +50,11 @@ def extract() -> dict:
             j = json.load(open(p, encoding="utf-8"))
             records = {}
             for r0 in j.get("records", []):
-                records[r0["school"]] = {f: r0.get(f) for f in RECORD_FIELDS}
+                # 同校名多校区记录（resolve_all 展开）以 school#poi_name 区分，避免互相覆盖
+                records[f"{r0['school']}#{r0.get('poi_name') or ''}"] = {f: r0.get(f) for f in RECORD_FIELDS}
             minban = {}
             for m in j.get("minban", []):
-                minban[m["school"]] = {f: m.get(f) for f in MINBAN_FIELDS}
+                minban[f"{m['school']}#{m.get('poi_name') or ''}"] = {f: m.get(f) for f in MINBAN_FIELDS}
             districts[DISTRICT_NAMES[k]] = {
                 "records": records,
                 "minban": minban,

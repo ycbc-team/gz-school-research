@@ -344,11 +344,34 @@ class SchoolMatcher:
         core = matchNorm(coreCampusName(name))
         if len(core) >= 4:
             all_entities = [e for es in self.exact_map.values() for e in es]
-            candidates += [
-                e for e in all_entities
-                if (not wanted_stage or e["stage"] == wanted_stage)
-                and matchNorm(coreCampusName(e["name"])) == core
-            ]
+            seen = {e["school_id"] for e in candidates}
+            for e in all_entities:
+                if (not wanted_stage or e["stage"] == wanted_stage) \
+                        and matchNorm(coreCampusName(e["name"])) == core \
+                        and e["school_id"] not in seen:
+                    candidates.append(e)
+                    seen.add(e["school_id"])
+            # 无括号后缀式校区归并（<法人><校区名>校区）：以已命中候选的法人核心为 key，
+            # 复用 legalCampuses 第二层规则——「市桥南阳里小学」→ 南阳里小学东校区、
+            # 「东风东路小学」→ 天伦校区、「沙面小学」→ 岭南/悦江校区，
+            # 括号式与后缀式校区统一展开，替代「手工给后缀式校区实体补括号式别名」。
+            # candidates 为空时（镇街前缀名如「市桥南阳里小学」exact/alias 不命中）以
+            # resolve 单值命中为种子（能经 substring 收敛到法人实体），再以法人核心归并。
+            _seeds = list(candidates)
+            if not _seeds:
+                _one = self.resolve(name, preferred_adcode, preferred_stage, strategy="single")
+                if _one and _one.get("school_id") and self.by_id.get(_one["school_id"]):
+                    _seeds.append(self.by_id[_one["school_id"]])
+            for _c in _seeds:
+                _core = matchNorm(coreCampusName(_c["name"]))
+                if len(_core) < 4:
+                    continue
+                for _cp in legalCampuses(_core, all_entities):
+                    _e = self.by_id.get(_cp["school_id"])
+                    if _e and _e["school_id"] not in seen \
+                            and (not wanted_stage or _e["stage"] == wanted_stage):
+                        candidates.append(_e)
+                        seen.add(_e["school_id"])
             candidates = entities_for(candidates)
 
         # 区过滤：POI 物理区命中优先；物理区不符但政策区（升学归属）命中保留；均无宁缺 []

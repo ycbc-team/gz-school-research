@@ -67,7 +67,9 @@ class XsResolver:
         return {
             'school_id': school_id,
             'group': r.get('group'),
-            'feed_school_ids': feed_ids,  # 单条内不去重：与 upgrade 去重段契约一致（跨记录合并时才 Set）
+            'feed_school_ids': list(dict.fromkeys(feed_ids)),  # 保序去重：法人名 resolve_all 全校区展开
+            # 与校区名单独解析可能命中同一实体（如「XX中学」→本部+东校区，「XX中学东校区」→东校区，
+            # 东校区 id 会重复出现）；upgrade 跨记录合并时另有 Set，但单条内重复无意义，直接去重。
             'feed_unresolved': feed_unresolved,
             'direct_feed_school_id': direct,
             'source_url': r.get('source_url'),
