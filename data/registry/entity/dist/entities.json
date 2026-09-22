@@ -5376,9 +5376,7 @@
       "school_id": "gz-440111-883ed42d",
       "name": "良田第三小学(白沙校区)",
       "stage": "primary",
-      "aliases": [
-        "良田第三小学"
-      ]
+      "aliases": []
     },
     {
       "school_id": "gz-440111-9695819e",
@@ -5887,18 +5885,6 @@
       "stage": "primary",
       "aliases": [],
       "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-7f478da2",
-      "name": "金盆学校",
-      "stage": "primary",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-6ef17478",
-      "name": "金盘小学北",
-      "stage": "primary",
-      "aliases": []
     },
     {
       "school_id": "gz-440111-44cd0b7c",
@@ -6917,6 +6903,15 @@
       ]
     },
     {
+      "school_id": "gz-440111-7f478da2",
+      "name": "良田第三小学(金盆校区)",
+      "stage": "primary",
+      "aliases": [
+        "金盘小学北",
+        "金盆学校"
+      ]
+    },
+    {
       "school_id": "gz-440103-53cac770",
       "name": "广东实验中学荔湾学校(初中部)",
       "stage": "middle",
@@ -7690,14 +7685,6 @@
       "aliases": [
         "113中学五山本部",
         "第一一三中学"
-      ]
-    },
-    {
-      "school_id": "gz-440106-28049c58",
-      "name": "广州市第四十七中汇景实验学校(中学部)",
-      "stage": "middle",
-      "aliases": [
-        "第四十七中汇景实验学校"
       ]
     },
     {
@@ -9191,6 +9178,7 @@
       "name": "广州市天河区汇景实验学校",
       "stage": "middle",
       "aliases": [
+        "第四十七中汇景实验学校中学部",
         "汇景实验学校"
       ]
     },
