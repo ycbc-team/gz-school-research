@@ -356,7 +356,7 @@ function goCampus(item: { id: string; name: string }) {
         <div class="zone-label">生源小学（对口派位，按组区分）</div>
         <div class="feed-list">
           <div v-for="row in primaryRows" :key="`${row.groupName}-${row.name}`" class="feed-item">
-            <button v-if="row.ids.length > 1" class="school-link campus-open" @click="openPrimaryPicker(row, $event)">{{ row.name }}</button>
+            <button v-if="row.ids.length > 1" class="feed-name campus-open" @click="openPrimaryPicker(row, $event)">{{ row.name }}</button>
             <RouterLink v-else-if="row.ids.length === 1" :to="`/school/${encodeURIComponent(row.name)}?id=${row.ids[0]}&stage=primary`" class="feed-name">{{ row.name }}</RouterLink>
             <span v-else class="feed-name">{{ row.name }}</span>
             <span class="tag tag-dim">{{ row.groupName }}</span>
