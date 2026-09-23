@@ -24,7 +24,7 @@ import {
   scienceLiteracyAwards,
   detailedRecords,
   specialtySchools,
-  nationalCivilizedCampusSchoolIds,
+  civilizedCampusSchoolIds,
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
@@ -93,8 +93,17 @@ const gaokaoRows = computed(() => model.value.gaokaoRows);
 const brandCard = computed(() => model.value.brandCard);
 const brandCardUseful = computed(() => model.value.brandCardUseful);
 const campuses = computed(() => model.value.campuses);
-/** 全国文明校园原文未标学部时，构建期已按同法人校区展开；运行时仅按当前 school_id 判断。 */
-const isNationalCivilizedCampus = computed(() => !!schoolId.value && nationalCivilizedCampusSchoolIds.includes(schoolId.value));
+/** 文明校园称号按当前 school_id 判定；创建先进学校明确标为创建培育，不与正式命名混淆。 */
+const civilizedCampusHonors = computed(() => {
+  if (!schoolId.value) return [];
+  const levels = [
+    ['national', '全国文明校园'],
+    ['provincial', '广东省文明校园'],
+    ['municipal', '广州市文明校园'],
+    ['advanced', '广州市文明校园创建先进学校（储备）'],
+  ] as const;
+  return levels.filter(([key]) => (civilizedCampusSchoolIds[key] ?? []).includes(schoolId.value)).map(([, label]) => label);
+});
 /** 创新大赛获奖：按当前 school_id 查，有则展示金/银/铜（分学段分年份） */
 const awardData = computed(() => innovationAwards[schoolId.value]?.innovation_awards?.stages?.[stage.value]);
 /** 创客电视大赛官方只有小学组/中学组，中学组同时覆盖初中和高中。 */
@@ -195,7 +204,10 @@ const middleEnrolls = computed(() => {
         <div class="kv-row"><span>学段</span><b>{{ stageLabel }}</b></div>
         <div class="kv-row"><span>所属区</span><b>{{ districtOf }}</b></div>
         <div v-if="brandCard?.brand" class="kv-row"><span>教育集团</span><b>{{ brandCard.brand }}</b></div>
-        <div v-if="isNationalCivilizedCampus" class="kv-row"><span>文明校园</span><b>全国文明校园</b></div>
+        <div v-if="civilizedCampusHonors.length" class="kv-row specialty-row">
+          <span>校园荣誉</span>
+          <b><div v-for="honor in civilizedCampusHonors" :key="honor" class="specialty-line">{{ honor }}</div></b>
+        </div>
         <div v-if="specialtyRows.length" class="kv-row specialty-row">
           <span>学校特色</span>
           <b>
