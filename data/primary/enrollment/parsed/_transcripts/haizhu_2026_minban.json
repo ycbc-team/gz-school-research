@@ -1,0 +1,102 @@
+{
+ "district": "海珠区",
+ "year": 2026,
+ "source": "海珠区教育局《2026年义务教育阶段民办中小学招生计划表》（官网附件，Vision OCR）",
+ "note": "民办小学+初中招生计划（班数/人数）；无招生地段（民办摇号）",
+ "schools": [
+  {
+   "school": "广州市海珠区海珠小学",
+   "plan_classes": 5,
+   "plan_count": 225
+  },
+  {
+   "school": "广州市海珠区龙华学校",
+   "plan_classes": 2,
+   "plan_count": 90
+  },
+  {
+   "school": "广州市海珠区龙涛小学",
+   "plan_classes": 5,
+   "plan_count": 225
+  },
+  {
+   "school": "广州市海珠区奥通小学",
+   "plan_classes": 3,
+   "plan_count": 135
+  },
+  {
+   "school": "广州市海珠区华光小学",
+   "plan_count": 266,
+   "plan_classes": 7
+  },
+  {
+   "school": "广州市海珠区名门珠江小学",
+   "plan_classes": 3,
+   "plan_count": 135
+  },
+  {
+   "school": "广州市海珠区贝赛思学校",
+   "plan_classes": 3,
+   "plan_count": 135
+  },
+  {
+   "school": "广州市海珠区春蕾实验小学",
+   "plan_classes": 6,
+   "plan_count": 270
+  },
+  {
+   "school": "广州市海珠区春晖小学",
+   "plan_classes": 6,
+   "plan_count": 270
+  },
+  {
+   "school": "广州市海珠区华洲实验学校",
+   "plan_classes": 4,
+   "plan_count": 180,
+   "middle_classes": 3,
+   "middle_count": 150
+  },
+  {
+   "school": "广州市海珠区育华学校",
+   "plan_classes": 6,
+   "plan_count": 270,
+   "middle_classes": 3,
+   "middle_count": 150
+  },
+  {
+   "school": "广州市海珠区华立学校（大沙）",
+   "plan_classes": 2,
+   "plan_count": 90,
+   "middle_count": 50
+  },
+  {
+   "school": "广州市海珠区华立学校（赤沙）",
+   "plan_classes": 8,
+   "plan_count": 360,
+   "middle_classes": 5,
+   "middle_count": 250
+  },
+  {
+   "school": "广州市海珠区华海双语学校",
+   "plan_classes": 3,
+   "plan_count": 75,
+   "middle_classes": 4,
+   "middle_count": 120
+  },
+  {
+   "school": "广州市海珠区康乐中学",
+   "middle_count": 400
+  },
+  {
+   "school": "广州市海珠中学",
+   "middle_count": 400
+  },
+  {
+   "school": "广州市为明学校",
+   "plan_classes": 6,
+   "plan_count": 200,
+   "middle_classes": 8,
+   "middle_count": 340
+  }
+ ]
+}

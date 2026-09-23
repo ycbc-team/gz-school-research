@@ -16,9 +16,13 @@ export const router = createRouter({
     // 旧路径 /school/:stage/:name 重定向到合并路由（stage 作初始 tab）
     { path: '/school/:stage/:name', redirect: (to) => ({ path: `/school/${to.params.name}`, query: { stage: to.params.stage } }) },
   ],
-  // 详情页跳转后回到顶部；浏览器后退/前进恢复原滚动位置
-  scrollBehavior(_to, _from, savedPosition) {
+  // 详情页跳转后回到顶部；浏览器后退/前进恢复原滚动位置。
+  // 学校详情页「见说明N」链接带 ?explain=N：不在 scrollBehavior 里定位（懒加载组件
+  // 初始导航时 el 定位不可靠，且 { top: 0 } 会覆盖组件滚动），让位给 PolicyView
+  // onMounted/watch 负责 scrollIntoView。
+  scrollBehavior(to, _from, savedPosition) {
     if (savedPosition) return savedPosition;
+    if (to.name === 'policy' && to.query.explain) return undefined;
     return { top: 0 };
   },
 });

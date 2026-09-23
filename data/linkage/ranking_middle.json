@@ -22034,7 +22034,7 @@
       "district": "番禺区",
       "minban": false,
       "group": {
-        "brand": "番广实验教育集团",
+        "brand": "广东番禺中学教育集团",
         "source": "education"
       },
       "kaosheng": 142,
@@ -22821,8 +22821,8 @@
       "district": "番禺区",
       "minban": false,
       "group": {
-        "brand": "广州大学附属中学教育集团",
-        "source": "brand"
+        "brand": "番广实验教育集团",
+        "source": "education"
       },
       "kaosheng": 115,
       "sheng_quota": 6,

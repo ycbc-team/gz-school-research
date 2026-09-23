@@ -51,14 +51,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #   （未确认校区宁缺、回孤儿待逐校确认；净消除 4 所），新增 0
 # 2026-09-17 二更：仲元二校区官方明文「二校区（初中部）」10 班 450 人（番禺招生计划），
 #   build_middle_enrollment 补挂 gz-440113-6dbdc462（原 school_id=None 过时）→ 孤儿 335→334，新增 0
-ORPHAN_SNAPSHOT = "0b3466f1acad9fcf"
+# (2026-09-22 弃用 digest，改文件清单快照) ORPHAN_SNAPSHOT = "645bbcf6ecdee563"
 
 # 同段同址冗余候选快照（sha256 前 16 位）：同学段+同区+≤50m 的实体对（含民办）。
 # 方向：候选越少越好（每合并一对冗余实体就少一组，属纯正向改进）。
 # 与孤儿快照同款防线：新增候选立即失败，须排查后再 UPDATE_SNAPSHOT=1 显式更新。
 # 首次固化 2026-09-17：15 组候选（含省实荔湾 初中部/初中部一期/花地湾 同址北文街2号、
 #   景泰小学柯子岭校区/43号A座 等，逐一排查中，见提交说明）。
-CO_LOCATED_SNAPSHOT = "78bd7925e8bb2651"
+# (2026-09-22 弃用 digest，改文件清单快照) CO_LOCATED_SNAPSHOT = "78bd7925e8bb2651"
 
 # 民办学校名单快照（sha256 前 16 位）：data/registry/private/dist/minban_schools.json 民办名单权威表。
 # 民办身份由 build_entities 按此表联表生产 entities nature（表驱动，非手写 id 列表）。
@@ -68,7 +68,7 @@ CO_LOCATED_SNAPSHOT = "78bd7925e8bb2651"
 # 被误标民办：公办的番禺区剑桥郡小学 vs 民办的剑桥郡加拿达外国语学校）无人感知。
 # 首次固化 2026-09-18：228 所（含剑桥郡小学误标剔除后；另新增 7 区 minban_*.md 查漏补缺
 # 来源链接共 88 所可追溯）。
-PRIVATE_MINBAN_SNAPSHOT = "c3ee85789c726b50"
+# (2026-09-22 弃用 digest，改文件清单快照) PRIVATE_MINBAN_SNAPSHOT = "c3ee85789c726b50"
 POI_PATHS = ["data/poi/dist/primary_poi.json", "data/poi/dist/middle_poi.json", "data/poi/dist/high_poi.json"]
 STATUS_WORDS = ("建设中", "在建", "筹建", "规划", "拟建", "待建", "筹办", "装修", "工地", "选址", "暂停营业")
 
@@ -80,6 +80,16 @@ def check(cond, msg):
     checks += 1
     if not cond:
         failures.append(msg)
+
+def snapshot_diff_lines(base, cur):
+    """文件清单快照 diff：基线/当前都是字符串行列表，逐条输出 -移除 / +新增。"""
+    base_set, cur_set = set(base), set(cur)
+    lines = []
+    for x in sorted(base_set - cur_set):
+        lines.append(f"  - {x}")
+    for x in sorted(cur_set - base_set):
+        lines.append(f"  + {x}")
+    return lines
 
 def load_poi_ids():
     ids = {}
@@ -96,6 +106,15 @@ def load_groups():
 
 def load_entities():
     return json.load(open(os.path.join(ROOT, "data/registry/entity/dist/entities.json"))).get("entities", [])
+
+def load_minban_ids():
+    """民办权威名单 school_id 集合（registry/private 业务产物）：孤儿判定兜底——
+    实体 nature 未标民办时，若 school_id 在民办权威表内同样不列孤儿
+    （民办无地段招生/无公办升学口径，用户 2026-09-22 定）。"""
+    _p = os.path.join(ROOT, "data/registry/private/dist/minban_schools.json")
+    if not os.path.exists(_p):
+        return set()
+    return {s.get("school_id") for s in json.load(open(_p)).get("schools", []) if s.get("school_id")}
 
 def main():
     # 各序号检查的一行概要（[11]-[19]）：通过时全部隐藏，失败时才逐项输出
@@ -133,6 +152,7 @@ def main():
     # （resolve by_main 优先无括号主 POI）→ 只要冲突实体中存在无括号主名即放行；
     # 仅当冲突双方都带校区括号（无主 POI 可收敛，如「广钢校区」vs「岭南校区」裸名撞）才报错。
     entities = load_entities()
+    _MINBAN_SCHOOL_IDS = load_minban_ids()
     # 官方划片表小学名共享裸名豁免（与 build_entities.py OFFICIAL_PRIMARY_ALIAS 多校区裸名键同步）：
     # 官方文件按小学法人名（裸名）公布，同区多校区并列招生是业务事实（华阳小学 4 校区、龙口西 5 校区等），
     # 匹配器/构建脚本按官方名解析出全部校区实体，不构成匹配歧义。新增共享裸名需同步更新本集合。
@@ -235,11 +255,7 @@ def main():
     # 统一入口：data/registry/entity/scripts/school_match.py（项目唯一匹配库，含行政区/学段收敛）
     sys.path.insert(0, os.path.join(ROOT, "data/registry/entity/scripts"))
     from school_match import SchoolMatcher
-    _matcher = SchoolMatcher.load(
-        poi_paths=[(os.path.join(ROOT, p), st) for p, st in
-                   zip(POI_PATHS, ("小学", "初中", "高中"))],
-        entities_path=os.path.join(ROOT, "data/registry/entity/dist/entities.json"))
-    _poi_all = _matcher.poi_all
+    _matcher = SchoolMatcher.load()
     for lib, stage in (("data/poi/dist/primary_poi.json", "小学"), ("data/poi/dist/middle_poi.json", "初中"), ("data/poi/dist/high_poi.json", "高中")):
         d = json.load(open(os.path.join(ROOT, lib)))
         for s in d.get("schools", []):
@@ -260,8 +276,16 @@ def main():
             if sid:
                 check(sid in poi_ids, f"[8/{d['district']}] 招生记录 school_id 悬空: {r['school']} -> {sid}")
                 if sid not in CROSS_DISTRICT_OK:
-                    po = _poi_all
-                    adc = next((p["adcode"] for p in po if p["school_id"] == sid), None)
+                    # POI 真实 adcode（石龙中学等 school_id 前缀 440100 市属、POI 在白云 440111，
+                    # 以 POI 表为准——school_id 前缀 ≠ POI adcode 的个别历史数据不误报）
+                    _poi_ad = None
+                    for _lib in ("data/poi/dist/primary_poi.json", "data/poi/dist/middle_poi.json", "data/poi/dist/high_poi.json"):
+                        _d = json.load(open(os.path.join(ROOT, _lib)))
+                        _hit = next((p["adcode"] for p in _d.get("schools", []) if p.get("school_id") == sid), None)
+                        if _hit:
+                            _poi_ad = _hit
+                            break
+                    adc = _poi_ad
                     expect_ad = {"番禺区": "440113", "越秀区": "440104", "海珠区": "440105",
                                  "荔湾区": "440103", "天河区": "440106", "白云区": "440111", "黄埔区": "440112"}[d["district"]]
                     check(adc == expect_ad, f"[8/{d['district']}] 招生记录跨区挂错: {r['school']} -> {sid} (POI 区 {adc} ≠ {expect_ad})")
@@ -359,7 +383,7 @@ def main():
     #   2. 判断依据永远是「孤儿清单 diff」，不是数量本身：数量不变≠没变化。
     # 快照机制（与品牌卡全量回归同款）：孤儿清单 sha256 digest 固化——存量孤儿供排查
     # （每修复一所须显式更新快照），孤儿新增/变化立即失败（数据回退防线）。
-    _orphan_files = glob.glob(os.path.join(ROOT, "data/primary/enrollments/2026-*.json"))
+    _orphan_files = glob.glob(os.path.join(ROOT, "data/primary/enrollment/dist/2026-*.json"))
     _pri_enroll_ids = set()
     for _f in _orphan_files:
         for _r in json.load(open(_f)).get("records", []):
@@ -369,26 +393,32 @@ def main():
         for _r in json.load(open(_f)).get("records", []):
             if _r.get("school_id"): _mid_enroll_ids.add(_r["school_id"])
             for _s in _r.get("school_ids") or []: _mid_enroll_ids.add(_s)
-    _xs_ids = {r.get("school_id") for r in json.load(open(os.path.join(ROOT, "data/primary/xiaoshengchu_2026.json"))).get("records", []) if r.get("school_id")}
+    _xs_ids = {r.get("school_id") for r in json.load(open(os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_2026.json"))).get("records", []) if r.get("school_id")}
     _rm_ids = {s.get("school_id") for s in json.load(open(os.path.join(ROOT, "data/linkage/ranking_middle.json"))).get("schools", []) if s.get("school_id")}
     _qm_names = {s.get("school") for s in json.load(open(os.path.join(ROOT, "data/linkage/quota_matrix.json"))).get("schools", []) if s.get("school")}
     # 法人行 school_ids 也算「有升学」：校区实体升学信息聚合在法人行（school_ids 数组），
     # 避免主 id 归一（法人行主 id 指向本部后）把校区实体误判为无升学孤儿。
     _qm_school_ids = {i for s in json.load(open(os.path.join(ROOT, "data/linkage/quota_matrix.json"))).get("schools", []) for i in (s.get("school_ids") or [])}
     _sc26 = json.load(open(os.path.join(ROOT, "data/high/cutoff_score/dist/scores_2026.json"))).get("by_school_id", {})
+    # 招生区域承接说明表（enrollment/src，业务人工确认）：原校保留遗留学生升学
+    # → 原校非孤儿（如东区小学/禾丰小学 2026 官方无招生但有升学遗留，dist 有 zone=note 记录）
+    _LEFT_NOTE_SIDS = set(json.load(open(os.path.join(ROOT, "data/primary/enrollment/src/leftover_notes.json"), encoding="utf-8")).keys())
     _sc25 = json.load(open(os.path.join(ROOT, "data/high/cutoff_score/dist/scores_2025.json"))).get("by_school_id", {})
     _orphans = []
     # 孤儿排查只看 7 区（荔湾/越秀/海珠/天河/白云/黄埔/番禺）公办学校：
     # 远郊（花都/从化/增城/南沙）与无 adcode 市属实体本就无招生/升学采集，不属于异常排查范围。
     _SEVEN_ADCODES = {'440103', '440104', '440105', '440106', '440111', '440112', '440113'}
     for _e in entities:
-        if _e.get("nature") == "民办" or _e.get("stage") not in ("primary", "middle", "high"):
+        if _e.get("nature") == "民办" or _e.get("school_id") in _MINBAN_SCHOOL_IDS \
+                or _e.get("stage") not in ("primary", "middle", "high"):
             continue
         _ad = (_e.get("school_id") or "?").split("-")[1] if _e.get("school_id") else "?"
         if _ad not in _SEVEN_ADCODES:
             continue
         _lacks = []
         if _e["stage"] == "primary":
+            if _e["school_id"] in _LEFT_NOTE_SIDS:
+                continue  # 业务确认有遗留学生升学（src/leftover_notes.json），非孤儿
             if _e["school_id"] not in _pri_enroll_ids: _lacks.append("无招生")
             if _e["school_id"] not in _xs_ids: _lacks.append("无升学")
         elif _e["stage"] == "middle":
@@ -402,29 +432,31 @@ def main():
     _orphans.sort()
     _orphan_lines = [f"      {_o[0]} | {_o[1]} | {_o[2]} | {_o[3]} | {_o[4]}" for _o in _orphans]
     _section_lines.append(f"[11] 孤儿学校（公办且无招生或无升学，待逐校排查）: {len(_orphans)} 所")
-    _orphan_digest = hashlib.sha256("\n".join(f"{o[0]}|{o[1]}|{o[2]}|{o[4]}" for o in _orphans).encode()).hexdigest()[:16]
+    _orphan_rows = [f"{_o[0]}|{_o[1]}|{_o[2]}|{_o[3]}|{_o[4]}" for _o in _orphans]
+    # 快照（2026-09-22 由 digest 改为文件清单 diff——digest 只能报「变了」看不出哪所
+    # 学校增删；基线存 data/registry/entity/dist/orphans_snapshot.json，漂移逐条列出
+    # +新增 / -移除。新增孤儿须立即排查来源，修复后 UPDATE_SNAPSHOT=1 显式更新基线。
+    _ORPHAN_SNAP = os.path.join(ROOT, "data/registry/entity/test/snapshots/orphans_snapshot.json")
     if os.environ.get("UPDATE_SNAPSHOT") == "1":
-        # 注释承诺的显式更新机制：把当前孤儿清单 digest 写回本文件 ORPHAN_SNAPSHOT 常量。
-        # 仅在排查确认孤儿变化符合预期（修复/冗余实体归位）时使用，禁止用于掩盖新增。
-        _txt = open(__file__, encoding="utf-8").read()
-        _txt, _n = re.subn(r'ORPHAN_SNAPSHOT = "[0-9a-f]{16}"',
-                            f'ORPHAN_SNAPSHOT = "{_orphan_digest}"', _txt, count=1)
-        if _n:
-            open(__file__, "w", encoding="utf-8").write(_txt)
-            print(f"[11] UPDATE_SNAPSHOT=1：孤儿快照已更新 → {_orphan_digest}")
-        else:
-            print(f"[11] UPDATE_SNAPSHOT=1：未找到 ORPHAN_SNAPSHOT 常量，跳过写回")
-    _orphan_ok = _orphan_digest == ORPHAN_SNAPSHOT
-    check(_orphan_ok,
-          f"[11] 孤儿学校清单漂移: digest {_orphan_digest} != 固化 {ORPHAN_SNAPSHOT}（新增孤儿须立即排查；修复孤儿后显式更新快照）")
+        json.dump(_orphan_rows, open(_ORPHAN_SNAP, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        print(f"[11] UPDATE_SNAPSHOT=1：孤儿快照已写入 {os.path.relpath(_ORPHAN_SNAP, ROOT)}（{len(_orphan_rows)} 所）")
+    elif not os.path.exists(_ORPHAN_SNAP):
+        check(False, f"[11] 孤儿快照缺失 {_ORPHAN_SNAP}（先 UPDATE_SNAPSHOT=1 固化当前排查结果）")
+    else:
+        _obase = json.load(open(_ORPHAN_SNAP, encoding="utf-8"))
+        _odiff = snapshot_diff_lines(_obase, _orphan_rows)
+        check(not _odiff, f"[11] 孤儿学校清单漂移（{len(_odiff)} 处）：\n" + "\n".join(_odiff[:60]))
 
-    # ---- 12. 同段同址冗余候选：同学段（primary/middle/high）+ 同区 + 坐标距离 ≤50m 的实体（含民办）----
+    # ---- 12. 同段同址冗余候选：同学段（primary/middle/high）+ 同区 + 坐标距离 ≤200m 的实体（含民办）----
     # 复用「全实体坐标检测」思路（相邻点检测，曾用于发现九年一贯/完中同址多学部）：
     # 跨学段同址（小学+初中=九年一贯、初中+高中=完中）是正常办学形态，故只看同学段；
     # 同学段同址是冗余候选（如省实荔湾 初中部/初中部一期 同址北文街2号），须逐一排查
     # （部分候选可能是有意拆分/临迁同址，如十七中西校区=原82中 2026-08 临迁培正矿泉，
     #  由人工确认后决定保留或合并，并把修正固化到 POI/实体构建脚本，禁止手改）。
-    # 快照防线同孤儿：候选清单 digest 固化，新增候选立即失败（防止悄悄引入新冗余点位）。
+    # 阈值 2026-09-22 由 50m 放宽到 200m：50m 漏掉赤沙小学龙眼园（61m 同址脏 POI）；
+    # 纯距离判定（不做名称包含，名称规则会漏名字不相关的同址 badcase），
+    # 200m 覆盖 74 组候选（含正常兄弟校区/学部间距），快照监控变化即可。
+    # 快照防线同孤儿：候选清单固化，新增候选立即失败（防止悄悄引入新冗余点位）。
     _POI_FILES = {
         "primary": os.path.join(ROOT, "data/poi/dist/primary_poi.json"),
         "middle": os.path.join(ROOT, "data/poi/dist/middle_poi.json"),
@@ -453,7 +485,10 @@ def main():
     _co_pairs = []
     # 同址但保留（用户/业务确认）：十七中(西校区)=原82中 2026-08 起临迁培正矿泉同址办学，
     # 两校均独立存在（0912-09-17 用户确认「都应该保留」），不算冗余候选。
-    _CO_LOCATED_EXEMPT = {frozenset({'gz-440104-099a5868', 'gz-440104-d6c68349'})}
+    # 陈田小学 2026 正式更名「广东外语外贸大学实验中学（陈田西校区）」（南方+/广州日报 2026 核实），
+    # 旧实体保留承载历史 feed/集团引用，2026 招生由新实体承接，同址 32m 属同一所学校更名并存。
+    _CO_LOCATED_EXEMPT = {frozenset({'gz-440104-099a5868', 'gz-440104-d6c68349'}),
+                          frozenset({'gz-440111-7080b3ad', 'gz-440111-c553e806'})}
     for _i in range(len(_co)):
         for _j in range(_i + 1, len(_co)):
             _a, _b = _co[_i], _co[_j]
@@ -462,10 +497,14 @@ def main():
             if frozenset({_a[2], _b[2]}) in _CO_LOCATED_EXEMPT:
                 continue
             _d = _haversine(_a, _b)
-            if _d <= 50:
+            # 同址冗余候选距离阈值 ≤200m（2026-09-22 由 50m 放宽）：
+            # 原 50m 漏掉赤沙小学龙眼园（61m 同址脏 POI，2026-09-22 用户确认后清理）。
+            # 纯距离判定，不做名称包含（名称规则会漏名字不相关的同址 badcase）。
+            # 200m 覆盖 74 组候选（含正常兄弟校区/学部间距），快照监控变化即可。
+            if _d <= 200:
                 _co_pairs.append((round(_d, 1), _a[1], _a[0], _a[2], _a[3], _b[2], _b[3]))
     _co_pairs.sort()
-    _section_lines.append(f"[12] 同段同址冗余候选（同学段+同区+≤50m，含民办）: {len(_co_pairs)} 组")
+    _section_lines.append(f"[12] 同段同址冗余候选（同学段+同区+≤200m，含民办）: {len(_co_pairs)} 组")
 
     # ---- 13. 小升初记录同组同校不得重复（upgrade 产物层去重防线）----
     # 同一小学多源名（更名残留）/多条源记录（实体合并、源表重复行）解析到同一实体后，
@@ -473,7 +512,7 @@ def main():
     # 该检查锁定「upgrade_xiaoshengchu.mjs 已按 (group, school_id) 去重」这一不变量：
     # 任何源头新增同名/多记录，产物重复立即失败（如陶育路小学→陶育实验学校小学部
     # 合并后曾出现两条同校记录，2026-09-17 修复）。
-    _xs_records = json.load(open(os.path.join(ROOT, "data/primary/xiaoshengchu_2026.json"))).get("records", [])
+    _xs_records = json.load(open(os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_2026.json"))).get("records", [])
     _xs_keys = {}
     for _r in _xs_records:
         _sid = _r.get("school_id")
@@ -487,19 +526,21 @@ def main():
     _section_lines.append(f"[13] 小升初同组同校重复检查: {len(_xs_keys)} 唯一组，无重复")
 
     _co_lines = [f"      {_p[0]:6.1f}m | {_p[1]} {_p[2]} | {_p[3]} {_p[4]}  <->  {_p[5]} {_p[6]}" for _p in _co_pairs]
-    _co_digest = hashlib.sha256("\n".join(f"{p[1]}|{p[2]}|{p[3]}|{p[5]}|{p[6]}" for p in _co_pairs).encode()).hexdigest()[:16]
+    # 快照行含两侧名称（2026-09-22 用户 review 要求）：区|学段|id1|name1|id2|name2，
+    # 否则只有 id 无法判断候选是否合理。
+    _co_rows = [f"{_p[1]}|{_p[2]}|{_p[3]}|{_p[4]}|{_p[5]}|{_p[6]}" for _p in _co_pairs]
+    # 快照（2026-09-22 由 digest 改为文件清单 diff）：基线存
+    # data/registry/entity/dist/co_located_snapshot.json，漂移逐条列出 +新增 / -移除。
+    _CO_SNAP = os.path.join(ROOT, "data/registry/entity/test/snapshots/co_located_snapshot.json")
     if os.environ.get("UPDATE_SNAPSHOT") == "1":
-        _txt = open(__file__, encoding="utf-8").read()
-        _txt, _n = re.subn(r'CO_LOCATED_SNAPSHOT = "[0-9a-f]{16}"',
-                            f'CO_LOCATED_SNAPSHOT = "{_co_digest}"', _txt, count=1)
-        if _n:
-            open(__file__, "w", encoding="utf-8").write(_txt)
-            print(f"[12] UPDATE_SNAPSHOT=1：同址候选快照已更新 → {_co_digest}")
-        else:
-            print(f"[12] UPDATE_SNAPSHOT=1：未找到 CO_LOCATED_SNAPSHOT 常量，跳过写回")
-    _co_ok = _co_digest == CO_LOCATED_SNAPSHOT
-    check(_co_ok,
-          f"[12] 同段同址候选漂移: digest {_co_digest} != 固化 {CO_LOCATED_SNAPSHOT}（新增同址冗余候选须立即排查；修复后显式更新快照）")
+        json.dump(_co_rows, open(_CO_SNAP, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        print(f"[12] UPDATE_SNAPSHOT=1：同址候选快照已写入 {os.path.relpath(_CO_SNAP, ROOT)}（{len(_co_rows)} 组）")
+    elif not os.path.exists(_CO_SNAP):
+        check(False, f"[12] 同址候选快照缺失 {_CO_SNAP}（先 UPDATE_SNAPSHOT=1 固化当前排查结果）")
+    else:
+        _cbase = json.load(open(_CO_SNAP, encoding="utf-8"))
+        _cdiff = snapshot_diff_lines(_cbase, _co_rows)
+        check(not _cdiff, f"[12] 同段同址候选漂移（{len(_cdiff)} 处）：\n" + "\n".join(_cdiff[:60]))
 
     # ---- 14. 2026 特长生计划官方口径（体育1905不含领军龙 / 艺术1741 / 领军龙116） ----
     _sp = json.load(open(os.path.join(ROOT, "data/linkage/special_matrix.json"))).get("special_plan_summary", {})
@@ -511,20 +552,19 @@ def main():
     # ---- 15. 民办学校名单快照（变化即感知）----
     _minban = json.load(open(os.path.join(ROOT, "data/registry/private/dist/minban_schools.json")))
     _minban_ids = sorted(s["school_id"] for s in _minban["schools"])
-    _minban_digest = hashlib.sha256("\n".join(_minban_ids).encode()).hexdigest()[:16]
+    # 快照（2026-09-22 由 digest 改为文件清单 diff）：基线存
+    # data/registry/private/dist/minban_snapshot.json，漂移逐条列出 +新增 / -移除。
+    _MINBAN_SNAP = os.path.join(ROOT, "data/registry/private/test/snapshots/minban_snapshot.json")
     if os.environ.get("UPDATE_SNAPSHOT") == "1":
-        # 与孤儿/同址同款显式更新：民办名单变化排查确认（官方来源）后写回本文件常量。
-        _mtxt = open(__file__, encoding="utf-8").read()
-        _mtxt, _mn = re.subn(r'PRIVATE_MINBAN_SNAPSHOT = "[0-9a-f]{16}"',
-                             f'PRIVATE_MINBAN_SNAPSHOT = "{_minban_digest}"', _mtxt, count=1)
-        if _mn:
-            open(__file__, "w", encoding="utf-8").write(_mtxt)
-            print(f"[15] UPDATE_SNAPSHOT=1：民办名单快照已更新 → {_minban_digest}（{len(_minban_ids)} 所）")
-        else:
-            print(f"[15] UPDATE_SNAPSHOT=1：未找到 PRIVATE_MINBAN_SNAPSHOT 常量，跳过写回")
-    check(_minban_digest == PRIVATE_MINBAN_SNAPSHOT,
-          f"[15] 民办名单漂移: digest {_minban_digest} != 固化 {PRIVATE_MINBAN_SNAPSHOT}（民办名单变化须先排查官方来源；确认后 UPDATE_SNAPSHOT=1 显式更新）")
-    _section_lines.append(f"[15] 民办学校名单: {len(_minban_ids)} 所（快照 {_minban_digest}，变化即感知）")
+        json.dump(_minban_ids, open(_MINBAN_SNAP, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        print(f"[15] UPDATE_SNAPSHOT=1：民办名单快照已写入 {os.path.relpath(_MINBAN_SNAP, ROOT)}（{len(_minban_ids)} 所）")
+    elif not os.path.exists(_MINBAN_SNAP):
+        check(False, f"[15] 民办名单快照缺失 {_MINBAN_SNAP}（先 UPDATE_SNAPSHOT=1 固化当前排查结果）")
+    else:
+        _mbase = json.load(open(_MINBAN_SNAP, encoding="utf-8"))
+        _mdiff = snapshot_diff_lines(_mbase, _minban_ids)
+        check(not _mdiff, f"[15] 民办名单漂移（{len(_mdiff)} 处）：\n" + "\n".join(_mdiff[:60]))
+    _section_lines.append(f"[15] 民办学校名单: {len(_minban_ids)} 所（快照 minban_snapshot.json，变化即感知）")
 
     # ---- 16. 民办学校不得有公办招生/升学信息（0 容忍，有即失败）----
     # 民办学校在公办划片/派位体系里不应有：真实地段的小学招生、公办初中招生、小升初派位。
@@ -533,7 +573,7 @@ def main():
     # 要么民办学校被错配进公办招生/升学文件。
     _minban_ids16 = {s["school_id"] for s in json.load(open(os.path.join(ROOT, "data/registry/private/dist/minban_schools.json")))["schools"]}
     _bad_pri, _bad_mid, _bad_xs = [], [], []
-    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/2026-*.json"))):
+    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollment/dist/2026-*.json"))):
         _d = json.load(open(_f))
         for _r in _d.get("records", []):
             if _r.get("school_id") in _minban_ids16:
@@ -545,10 +585,9 @@ def main():
         for _r in _d.get("records", []):
             if _r.get("school_id") in _minban_ids16:
                 _bad_mid.append(f"{os.path.basename(_f)} | {_r.get('school', _r.get('name'))} | {_r.get('school_id')}")
-    # 综合表 data/primary/xiaoshengchu_2026.json / xiaoshengchu_all.json 也纳入；
+    # 综合表 data/primary/transition/dist/xiaoshengchu_2026.json / xiaoshengchu_all.json 也纳入；
     # 民办"不参与公办派位"缺口记录（source_note/data_gaps/group 含"民办"）属正常民办升学说明，放行。
-    for _f in (sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/xiaoshengchu_*.json")))
-               + sorted(glob.glob(os.path.join(ROOT, "data/primary/xiaoshengchu_*.json")))):
+    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_*.json"))):
         _d = json.load(open(_f))
         for _r in _d.get("records", []):
             if _r.get("school_id") in _minban_ids16:
@@ -608,10 +647,11 @@ def main():
     # ---- 汇总：通过时只输出一行结论；失败时逐项输出各序号概要 + 明细 + 失败项 ----
     if failures:
         print("\n".join(_section_lines))
-        if not _orphan_ok:
+        # 清单 diff 改造后孤儿/同址不再有独立布尔，按失败消息前缀打印对应明细
+        if any("孤儿学校清单漂移" in f or "孤儿快照缺失" in f for f in failures):
             print()
             print("\n".join(_orphan_lines))
-        if not _co_ok:
+        if any("同段同址候选漂移" in f or "同址候选快照缺失" in f for f in failures):
             print()
             print("\n".join(_co_lines))
         print(f"\n数据质量测试: {checks} 项检查, {len(failures)} 项失败")

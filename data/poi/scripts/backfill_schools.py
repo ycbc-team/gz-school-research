@@ -4,11 +4,11 @@
 用法: python3 data/poi/scripts/backfill_schools.py
 依赖: 项目根 .env 的 AMAP_WEB_KEY
 数据流:
-  1. 读取 data/primary/enrollments/2026-panyu.json 的 unmatched（官方有、高德无）
+  1. 读取 data/primary/transition/parsed/2026-panyu.json 的 unmatched（官方有、高德无）
   2. 逐校调高德 place/text 检索（city=440113，不限分类）
   3. 高置信命中 → 合并进 data/poi/dist/primary_poi.json（唯一真源，追加，src=backfill 标记）
-     并存 data/primary/schools-backfill.json 留痕
-  4. 之后重跑 scripts/primary/build_district_enrollment.py panyu 完成绑定
+     并存 data/primary/transition/dist/schools-backfill.json 留痕
+  4. 之后重跑 data/primary/transition/scripts/build_district_enrollment.py panyu 完成绑定
 """
 import json
 import os
@@ -19,7 +19,7 @@ import urllib.parse
 import urllib.request
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", ".."))  # 项目根（data/poi/scripts/ 的上四层）
-DATA = os.path.join(ROOT, "data", "primary")
+DATA = os.path.join(ROOT, "data", "primary", "transition")
 POI_DIR = os.path.join(ROOT, "data", "poi", "dist")
 
 # 统一匹配库：norm 本体（NFKC/繁简/去广州市/删括号/去空白）收敛至 school_match.normName；
@@ -154,7 +154,7 @@ PATCH_QUERIES = {
 
 def main():
     key = load_key()
-    with open(os.path.join(DATA, "enrollments", "2026-panyu.json"), encoding="utf-8") as f:
+    with open(os.path.join(DATA, "parsed", "2026-panyu.json"), encoding="utf-8") as f:
         enr = json.load(f)
     # 支持 --only 白名单（如「python3 backfill_schools.py 化龙镇中心小学」只补该所，避免全量不可控）
     import sys as _sys
@@ -228,7 +228,7 @@ def main():
         data["note"] = data.get("note", "") + "；含 backfill 补充点位"
         with open(os.path.join(POI_DIR, "primary_poi.json"), "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
-        with open(os.path.join(DATA, "schools-backfill.json"), "w", encoding="utf-8") as f:
+        with open(os.path.join(DATA, "dist", "schools-backfill.json"), "w", encoding="utf-8") as f:
             json.dump({"updated": time.strftime("%Y-%m-%d"), "added": added, "items": found},
                       f, ensure_ascii=False, indent=1)
         print(f"\n已追加 {added} 个补充点位 → data/poi/dist/primary_poi.json")

@@ -15,10 +15,9 @@ export function normSchoolName(s: string): string {
 }
 
 export interface EnrollmentMatch {
-  school: string;
   school_id: string;
-  poi_name: string;
   plan_classes?: number | null;
+  plan_count?: number | null;
   nature?: string;
   zone?: string;
   note?: string;
@@ -26,34 +25,60 @@ export interface EnrollmentMatch {
   matchedBy: string;
 }
 
+/**
+ * 小学 2026 招生计划查询域（school_id 外键驱动）：
+ * - 构建期已由 Python SchoolMatcher 把官方名 → 实体 school_id 匹配完成，records 只存
+ *   school_id + 招生字段（无名字/坐标——实体表/POI 表按 school_id 联查）
+ * - 运行时优先 school_id 精确命中；仅当调用方只有名字（无 school_id）时，
+ *   用实体表（name/aliases，stage=primary）做 精确 → 归一 → 包含 兜底，命中后按 id 查
+ */
 export function createEnrollmentApi(loaders: DataLoaders) {
   const enrollments = loaders.enrollments;
-  const ENROLL_FLAT = enrollments.flatMap((e) => e.records);
-  const enrollByExact = new Map<string, (typeof ENROLL_FLAT)[number]>();
-  const enrollByNorm = new Map<string, (typeof ENROLL_FLAT)[number]>();
-  for (const r of ENROLL_FLAT) {
-    if (!enrollByExact.has(r.school)) enrollByExact.set(r.school, r);
-    if (r.poi_name && !enrollByExact.has(r.poi_name)) enrollByExact.set(r.poi_name, r);
-    if (r.school_id && !enrollByExact.has(r.school_id)) enrollByExact.set(r.school_id, r);
-    const nk = normSchoolName(r.school);
-    if (nk && !enrollByNorm.has(nk)) enrollByNorm.set(nk, r);
-    const nk2 = normSchoolName(r.poi_name);
-    if (nk2 && !enrollByNorm.has(nk2)) enrollByNorm.set(nk2, r);
+  // records（公办）+ minban（民办招生计划）统一按 school_id 建索引
+  const ENROLL_BY_ID = new Map<string, EnrollmentMatch>();
+  for (const e of enrollments) {
+    for (const r of e.records) if (r.school_id) ENROLL_BY_ID.set(r.school_id, { ...r, matchedBy: '' });
+    for (const m of e.minban || []) {
+      const sid = m.school_id;
+      if (!sid) continue;
+      ENROLL_BY_ID.set(sid, { ...m, school_id: sid, nature: '民办', matchedBy: '' });
+    }
+  }
+  // 实体表名索引（小学实体）：school_id 是匹配真源，名字/别名只是搜索入口
+  const entityByName = new Map<string, { school_id: string; name: string }>();
+  const entityByNorm = new Map<string, { school_id: string; name: string }>();
+  for (const ent of loaders.entities?.entities ?? []) {
+    if (ent.stage !== 'primary') continue;
+    if (!entityByName.has(ent.name)) entityByName.set(ent.name, ent);
+    for (const a of ent.aliases ?? []) if (a && !entityByName.has(a)) entityByName.set(a, ent);
+  }
+  for (const [k, ent] of entityByName) {
+    const nk = normSchoolName(k);
+    if (nk && !entityByNorm.has(nk)) entityByNorm.set(nk, ent);
   }
 
-  /** 按小学名（POI 名）匹配 2026 招生计划：精确 → 归一 → 包含兜底 */
-  function matchEnrollment(schoolName: string): EnrollmentMatch | null {
-    const exact = enrollByExact.get(schoolName);
-    if (exact) return { ...exact, matchedBy: 'exact' };
-    const nk = normSchoolName(schoolName);
-    if (nk) {
-      const n = enrollByNorm.get(nk);
-      if (n) return { ...n, matchedBy: 'norm' };
+  /**
+   * 按小学 school_id 或名字匹配 2026 招生计划：school_id 精确 → 实体表精确/归一 → 包含兜底。
+   * 调用方优先传 school_id（地图点/详情页均有），名字仅作无 id 时兜底。
+   */
+  function matchEnrollment(schoolNameOrId: string): EnrollmentMatch | null {
+    const byId = ENROLL_BY_ID.get(schoolNameOrId);
+    if (byId) return { ...byId, matchedBy: 'id' };
+    const ent = entityByName.get(schoolNameOrId) || entityByNorm.get(normSchoolName(schoolNameOrId));
+    if (ent) {
+      const r = ENROLL_BY_ID.get(ent.school_id);
+      if (r) return { ...r, matchedBy: ent.name === schoolNameOrId ? 'entity_exact' : 'entity_norm' };
     }
-    // 包含兜底：归一后互为子串（如 POI「沙面小学(凯粤湾校区)」↔ 计划「沙面小学凯粤湾校区」）
-    const core = nk || schoolName;
-    for (const [k, r] of enrollByNorm) {
-      if (k.length >= 4 && (k.includes(core) || core.includes(k))) return { ...r, matchedBy: 'fuzzy' };
+    // 包含兜底：实体表归一名互为子串（搜索场景）
+    const core = normSchoolName(schoolNameOrId);
+    if (core && core.length >= 4) {
+      for (const [k, ent2] of entityByNorm) {
+        // k 也需足够长（≥4）："实验"/"小学"等泛化归一 key 会串扰任意含其子串的学校
+        if (k.length >= 4 && (k.includes(core) || core.includes(k))) {
+          const r = ENROLL_BY_ID.get(ent2.school_id);
+          if (r) return { ...r, matchedBy: 'fuzzy' };
+        }
+      }
     }
     return null;
   }

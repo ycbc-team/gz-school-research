@@ -11,7 +11,7 @@
  */
 const shared = require('../shared/index.js');
 
-const { hydrate, createRepository, buildPoints } = shared;
+const { hydrate, splitEnrollments, createRepository, buildPoints } = shared;
 
 const cast = (v) => v;
 
@@ -25,15 +25,7 @@ const baseLoaders = {
   highLevels: cast(hydrate(require('../data/high/level/src/levels.js'))),
   highScores2025: cast(hydrate(require('../data/high/cutoff_score/dist/scores_2025.js'))),
   highScores2026: cast(hydrate(require('../data/high/cutoff_score/dist/scores_2026.js'))),
-  enrollments: [
-    cast(hydrate(require('../data/primary/enrollments/2026-tianhe.js'))),
-    cast(hydrate(require('../data/primary/enrollments/2026-yuexiu.js'))),
-    cast(hydrate(require('../data/primary/enrollments/2026-haizhu.js'))),
-    cast(hydrate(require('../data/primary/enrollments/2026-liwan.js'))),
-    cast(hydrate(require('../data/primary/enrollments/2026-panyu.js'))),
-    cast(hydrate(require('../data/primary/enrollments/2026-baiyun.js'))),
-    cast(hydrate(require('../data/primary/enrollments/2026-huangpu.js'))),
-  ],
+  enrollments: cast(splitEnrollments(hydrate(require('../data/primary/enrollments/2026-all.js')))),
   entities: cast(hydrate(require('../data/registry/entity/dist/entities.js'))),
   xiaoshengchu: cast(hydrate(require('../data/primary/xiaoshengchu_2026.js'))),
   middleEnrollNotes: cast(hydrate(require('../data/primary/middle_enroll_notes.js'))),

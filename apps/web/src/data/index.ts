@@ -4,7 +4,7 @@
  * 业务逻辑（查询/判定/匹配）已下沉 @gz/shared/src/data，本文件仅保留加载与导出。
  * 小程序端对应实现见 apps/miniprogram/utils/data.js（同一紧凑编译，CJS 产物）。
  */
-import { hydrate, createRepository, buildPoints, type DataLoaders, type MapPointFull } from '@gz/shared';
+import { hydrate, splitEnrollments, createRepository, buildPoints, type DataLoaders, type MapPointFull, type MergedEnrollments } from '@gz/shared';
 import primarySchoolsCompact from './compact/poi/dist/primary_poi.js';
 import primaryTier1Compact from './compact/primary/tier1_schools_all.js';
 import entitiesCompact from './compact/registry/entity/dist/entities.js';
@@ -14,13 +14,7 @@ import middleSchoolsCompact from './compact/poi/dist/middle_poi.js';
 import middleTier1Compact from './compact/middle/tier1_schools_all.js';
 import highSchoolsCompact from './compact/poi/dist/high_poi.js';
 import highLevelsCompact from './compact/high/level/src/levels.js';
-import enrollTianheCompact from './compact/primary/enrollments/2026-tianhe.js';
-import enrollYuexiuCompact from './compact/primary/enrollments/2026-yuexiu.js';
-import enrollHaizhuCompact from './compact/primary/enrollments/2026-haizhu.js';
-import enrollLiwanCompact from './compact/primary/enrollments/2026-liwan.js';
-import enrollPanyuCompact from './compact/primary/enrollments/2026-panyu.js';
-import enrollBaiyunCompact from './compact/primary/enrollments/2026-baiyun.js';
-import enrollHuangpuCompact from './compact/primary/enrollments/2026-huangpu.js';
+import enroll2026AllCompact from './compact/primary/enrollments/2026-all.js';
 import middleEnrollTianheCompact from './compact/primary/enrollments/middle_enrollment_2026_tianhe.js';
 import middleEnrollYuexiuCompact from './compact/primary/enrollments/middle_enrollment_2026_yuexiu.js';
 import middleEnrollHaizhuCompact from './compact/primary/enrollments/middle_enrollment_2026_haizhu.js';
@@ -56,15 +50,7 @@ const loaders: DataLoaders = {
   middleTier1: cast(hydrate(middleTier1Compact)),
   highSchools: cast(hydrate(highSchoolsCompact)),
   highLevels: cast(hydrate(highLevelsCompact)),
-  enrollments: [
-    cast(hydrate(enrollTianheCompact)),
-    cast(hydrate(enrollYuexiuCompact)),
-    cast(hydrate(enrollHaizhuCompact)),
-    cast(hydrate(enrollLiwanCompact)),
-    cast(hydrate(enrollPanyuCompact)),
-    cast(hydrate(enrollBaiyunCompact)),
-    cast(hydrate(enrollHuangpuCompact)),
-  ],
+  enrollments: cast(splitEnrollments(hydrate(enroll2026AllCompact) as unknown as MergedEnrollments)),
   middleEnrollments: [
     cast(hydrate(middleEnrollTianheCompact)),
     cast(hydrate(middleEnrollYuexiuCompact)),

@@ -1,7 +1,7 @@
 {
  "year": 2026,
  "district": "荔湾区",
- "source": "荔湾区教育局 2026 公办初中招生派位组表（_raw/liwan_2026_groups.json）",
+ "source": "荔湾区教育局 2026 公办初中招生派位组表（parsed/_transcripts/liwan_2026_groups.json）",
  "source_url": null,
  "mechanisms": {
   "single_zone": {

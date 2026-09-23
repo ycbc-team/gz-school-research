@@ -24,11 +24,7 @@ def main():
         sys.exit(1)
     inp = json.load(open(sys.argv[1]))
     names = inp.get("schools", inp.get("names", []))
-    matcher = SchoolMatcher.load(
-        poi_paths=[(os.path.join(BASE, "data/poi/dist/primary_poi.json"), "小学"),
-                   (os.path.join(BASE, "data/poi/dist/middle_poi.json"), "初中"),
-                   (os.path.join(BASE, "data/poi/dist/high_poi.json"), "高中")],
-        entities_path=os.path.join(BASE, "data/registry/entity/dist/entities.json"))
+    matcher = SchoolMatcher.load()
     results = []
     for name in names:
         r = matcher.resolve(name)

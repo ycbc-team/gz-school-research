@@ -61,11 +61,12 @@
         <view class="zone-label">招生地段（对口）</view>
         <view class="zone-text">{{model.enrollment.zone}}</view>
       </view>
+      <view wx:if="{{model.enrollment.note}}" class="zone-block">
+        <view class="zone-label">招生说明</view>
+        <view class="zone-text">{{model.enrollment.note}}</view>
+      </view>
     </block>
     <view wx:else class="empty">未在 2026 招生计划中匹配到招生地段（数据覆盖七区；分校区、新建校暂缺，后续补录）。</view>
-    <view wx:if="{{model.primaryMechanism}}" class="kv-row" style="margin-top:10px;">
-      <text>所在区小升初机制</text><text>{{model.primaryMechanism}}</text>
-    </view>
   </view>
 
   <!-- 小学：升学路线 -->

@@ -1,66 +1,24 @@
-# 共享数据层
+# 小学段数据层（primary）
 
-多端共用的数据快照（web 应用、微信小程序等均从此目录读取，避免各自维护）。
+多端共用的小学段数据快照（web 应用、微信小程序等均从此目录读取，避免各自维护）。
 
-## 文件
+> 更新：2026-09-21。小学招生与小升初已拆为两个独立业务目录；各业务级 README 为权威说明。
 
-| 文件 | 用途 |
-| --- | --- |
-| `../poi/dist/primary_poi.json` | 小学点位真源（原 schools-gz.json，2026-09 起移入 poi/dist） |
-| `schools.js` | 浏览器端直接用 `<script>` 加载（写入 `window.GZ_SCHOOLS`），内容与 JSON 一致 |
-| `enrollments/2026-panyu.json` | 番禺区 2026 年小学招生计划与地段数据（官方 xls 解析，试点） |
-| `enrollments/2026-panyu.js` | 同上，浏览器端加载（写入 `window.GZ_ENROLL_PANYU`） |
-| `schools-backfill.json` | 缺校补位搜索的补充点位留痕（src=backfill） |
+## 目录与文件
 
-## 数据口径
+| 路径 | 业务 | 说明 |
+| --- | --- | --- |
+| `enrollment/` | **小学招生**（公办小学地段/计划） | 按 raw/parsed/scripts/src/docs 分层；A 层转录 + B 层 SchoolMatcher 匹配，详见 `enrollment/README.md` |
+| `transition/` | 小升初升学路线（xiaoshengchu） | 官方源/解析产物/构建脚本/运行时产物，详见 `transition/README.md`（初中招生为下一步，暂归此处） |
+| `enrollments/` | 公办初中招生计划 dist | `middle_enrollment_2026_<区>.json`（7 区），构建脚本 `scripts/primary/build_middle_enrollment.py` |
+| `tier1_schools_all.json` | 口碑学校（第一梯队小学） | 网传/公开信息整理（前端 compact 消费） |
 
-- **数据源**：高德地图 Web 服务 API（place/text 小学分类 types=141203 + 关键词「小学」补充 + config/district 区边界），2026-09-08 快照
-- **范围**：广州市 7 区——荔湾 440103 / 越秀 440104 / 海珠 440105 / 天河 440106 / 白云 440111 / 黄埔 440112 / 番禺 440113
-- **采集方式**：分类查询 + 翻页（offset/page），**无单区 100 条上限**（旧版有人为截断，已修复）
-- **数量**：共 971 所（各区以采集结果为准；番禺 211 所，其中 32 所为缺校补位搜索补入，标记 `src=backfill`）
-- **坐标系**：GCJ-02（与高德地图瓦片一致）
+## 业务边界
 
-## 结构
+- **小学招生**（`enrollment/`）：官方招生地段/计划表 → 转录 → 实体表匹配。只含公办；民办招生归 `data/registry/private/`（旧流程把番禺民办混入小学产物，已修正）。
+- **小升初/初中招生**（`transition/` + `enrollments/`）：升学路线与初中招生计划，下一步任务，本次未重构。
 
-```jsonc
-{
-  "updated": "2026-09-08",
-  "source": "amap-webapi",
-  "adcodes": { "荔湾区": "440103", ... },
-  "schools": [
-    { "name": "校名", "lng": 113.xxx, "lat": 23.xxx, "adcode": "440103" }
-  ],
-  "districts": [
-    { "adcode": "440103", "boundary": [ [[lng, lat], ...] ] }
-  ]
-}
-```
+## check 链
 
-## 更新方式
-
-```bash
-python3 data/poi/scripts/fetch_schools.py          # 基础点位，需项目根 .env 中的 AMAP_WEB_KEY（写 ../poi/dist/primary_poi.json）
-python3 scripts/build_panyu_enrollment.py # 番禺招生数据，解析官方 xls 附件
-```
-
-学校是固定长期不变的信息，默认不频繁刷新；确需更新时重跑脚本并提交对应文件。
-
-## 招生数据（enrollments/）
-
-**试点范围**：番禺区 2026 年（官方《招生计划、招生地段及条件》xls 解析）。
-
-- **数据源**：番禺区教育局通知 https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10794/mpost_10794083.html （附件直链 `.../attachment/8/8018/8018386/10794083.xls`）
-- **记录**：189 条（公办小学 150 + 民办 39）。字段：`school`（官方名）/ `district`（学区）/ `nature`（公办|民办）/ `plan_classes`（计划班数）/ `plan_count`（民办计划人数）/ `zone`（招生服务地段及条件原文）/ `note` / `school_id`（匹配到点位的基础数据校名）
-- **匹配**：**182/189 已绑定地图点位**（96%）；7 所高德确实缺失（清单见 `docs/番禺试点数据缺口清单.md`）
-- **口径说明**：地段文本保留官方原文；公办小学按地段入学（"人户一致"优先，见备注与各学区说明），民办小学无地段、超计划电脑派位
-- **每年留存**：地段逐年可能微调，每年追加一个 `enrollments/<year>-<区>.json`，不覆盖旧年份
-
-### 更新顺序（注意）
-
-```bash
-python3 data/poi/scripts/fetch_schools.py           # 全量基础点位（会覆盖 primary_poi.json，丢失 backfill 补充）
-python3 data/poi/scripts/backfill_schools.py        # 缺校补位（重新执行以保留补充点位）
-python3 scripts/build_panyu_enrollment.py  # 番禺招生数据绑定
-```
-
-> 重跑 fetch_schools.py 前务必确认 backfill 点位是否需要保留；建议全流程按上面顺序跑。
+- `transition/` 构建与 check 见其业务 README；check 链（`data/registry/group/scripts/check_groups_drift.py`）自动覆盖。
+- `enrollment/` 的转录审计见 `enrollment/docs/`（交叉比对 + 新旧差异审计）。

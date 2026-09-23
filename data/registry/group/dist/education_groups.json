@@ -5,9 +5,9 @@
   "note": "P3全量补录：区属非示范集团+小学集团以各区政府/教育局官方文件为来源；示范高中集团初中成员来自招考办2026名额分配表；8个重点品牌来自brand_groups.json。远郊4区（花都/南沙/增城/从化）集团核心校不录，跨区成员标注'远郊不在POI范围'。",
   "stats": {
     "total_groups": 86,
-    "total_members": 343,
+    "total_members": 344,
     "poi_exact": 0,
-    "poi_variant": 22,
+    "poi_variant": 19,
     "poi_missing_7dist": 2,
     "poi_far": 8
   },
@@ -586,6 +586,12 @@
         "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10549/mpost_10549712.html"
       ],
       "core_poi": [
+        {
+          "name": "广州昌岗中路小学分校",
+          "poi_match": "法人推导",
+          "poi_name": "广州昌岗中路小学分校",
+          "school_id": "gz-440105-0adfcd61"
+        },
         {
           "name": "昌岗中路小学(本校区)",
           "poi_match": "法人推导",
@@ -2050,6 +2056,10 @@
           "school_id": "",
           "campuses": [
             {
+              "poi_name": "汇景实验学校（华园校区）小学部",
+              "school_id": "gz-440106-ed39fc64"
+            },
+            {
               "poi_name": "汇景实验学校（小学部）",
               "school_id": "gz-440106-efcdec9d"
             },
@@ -2279,8 +2289,18 @@
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "广州市真光中学附属培真小学(广船校区)",
-          "school_id": "gz-440103-039a7621"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "广州市真光中学附属培真小学(平西校区)",
+              "school_id": "gz-440103-47c5196f"
+            },
+            {
+              "poi_name": "广州市真光中学附属培真小学(鹤园校区)",
+              "school_id": "gz-440103-039a7621"
+            }
+          ]
         },
         {
           "name": "广州市真光中学附属鹤洞小学",
@@ -2469,8 +2489,18 @@
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "广州市第四中学附属芦荻西小学",
-          "school_id": "gz-440103-43860928"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "广州市第四中学附属芦荻西小学",
+              "school_id": "gz-440103-43860928"
+            },
+            {
+              "poi_name": "广州市第四中学附属芦荻西小学(桃源校区)",
+              "school_id": "gz-440103-ffe16eea"
+            }
+          ]
         },
         {
           "name": "广州市第四中学附属耀华小学",
@@ -2566,16 +2596,16 @@
       ],
       "core_poi": [
         {
-          "name": "广州市西关外国语学校(初中部)",
-          "poi_match": "法人推导",
-          "poi_name": "广州市西关外国语学校(初中部)",
-          "school_id": "gz-440103-b41a3512"
-        },
-        {
           "name": "广州市西关外国语学校泮溪校区",
           "poi_match": "法人推导",
           "poi_name": "广州市西关外国语学校泮溪校区",
           "school_id": "gz-440103-f2da8e6f"
+        },
+        {
+          "name": "广州市西关外国语学校(初中部)",
+          "poi_match": "法人推导",
+          "poi_name": "广州市西关外国语学校(初中部)",
+          "school_id": "gz-440103-b41a3512"
         },
         {
           "name": "西关外国语学校初中部(彩虹桥校区)",
@@ -2942,16 +2972,26 @@
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "芳村小学",
-          "school_id": "gz-440103-28507a63"
+          "poi_name": "广州市荔湾区芳村小学实验学校",
+          "school_id": "gz-440103-2c085d93"
         },
         {
           "name": "广州市荔湾区芳村小学东沙学校",
           "source_url": "https://www.lw.gov.cn/gzlwjy/gkmlpt/content/10/10495/post_10495836.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "芳村小学东沙学校",
-          "school_id": "gz-440103-69a306af"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "芳村小学东沙学校(沙洛校区)",
+              "school_id": "gz-440103-555bf7d6"
+            },
+            {
+              "poi_name": "芳村小学东沙学校(金宇校区)",
+              "school_id": "gz-440103-69a306af"
+            }
+          ]
         },
         {
           "name": "广州市荔湾区芳村小学南漖学校",
@@ -3112,6 +3152,12 @@
           "poi_match": "法人推导",
           "poi_name": "西关培正小学(凯粤湾校区)",
           "school_id": "gz-440103-728466ce"
+        },
+        {
+          "name": "西关培正小学(如意坊校区)",
+          "poi_match": "法人推导",
+          "poi_name": "西关培正小学(如意坊校区)",
+          "school_id": "gz-440103-b62c9e61"
         }
       ]
     },
@@ -3147,6 +3193,10 @@
             {
               "poi_name": "广铁一中铁铮学校(东校区)",
               "school_id": "gz-440112-d3055548"
+            },
+            {
+              "poi_name": "铁铮学校",
+              "school_id": "gz-440112-11ed4c6c"
             }
           ]
         }
@@ -3413,6 +3463,12 @@
           "poi_match": "法人推导",
           "poi_name": "广州市第八十六中学初中部",
           "school_id": "gz-440112-43108516"
+        },
+        {
+          "name": "广州市第八十六中学分校",
+          "poi_match": "法人推导",
+          "poi_name": "广州市第八十六中学分校",
+          "school_id": "gz-440112-06029745"
         },
         {
           "name": "广州市第八十六中学",
@@ -3779,7 +3835,7 @@
           "name": "广州市白云区云英实验学校",
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
-          "poi_match": "变体命中",
+          "poi_match": "法人推导",
           "poi_name": "广州市白云区云英实验附属小学",
           "school_id": "gz-440111-e66f2c52"
         },
@@ -4087,8 +4143,18 @@
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "广州市白云区龙岗学校",
-          "school_id": "gz-440111-effbfa28"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "龙岗学校-龙岗小学",
+              "school_id": "gz-440111-e16cd8e1"
+            },
+            {
+              "poi_name": "广州市白云区龙岗学校",
+              "school_id": "gz-440111-effbfa28"
+            }
+          ]
         },
         {
           "name": "广州市白云区集贤小学",
@@ -4381,16 +4447,22 @@
       ],
       "core_poi": [
         {
-          "name": "广东外语外贸大学实验中学",
-          "poi_match": "法人推导",
-          "poi_name": "广东外语外贸大学实验中学",
-          "school_id": "gz-440111-7e484346"
-        },
-        {
           "name": "广东外语外贸大学实验中学小学部",
           "poi_match": "法人推导",
           "poi_name": "广东外语外贸大学实验中学小学部",
           "school_id": "gz-440111-6e11e279"
+        },
+        {
+          "name": "广东外语外贸大学实验中学（陈田西校区）小学部",
+          "poi_match": "法人推导",
+          "poi_name": "广东外语外贸大学实验中学（陈田西校区）小学部",
+          "school_id": "gz-440111-c553e806"
+        },
+        {
+          "name": "广东外语外贸大学实验中学",
+          "poi_match": "法人推导",
+          "poi_name": "广东外语外贸大学实验中学",
+          "school_id": "gz-440111-7e484346"
         },
         {
           "name": "广东外语外贸大学实验中学(北校区)",
@@ -4507,10 +4579,16 @@
       ],
       "core_poi": [
         {
-          "name": "金广实验小学",
+          "name": "金广实验学校(御金沙校区)",
           "poi_match": "法人推导",
-          "poi_name": "金广实验小学",
-          "school_id": "gz-440111-f501b6b5"
+          "poi_name": "金广实验学校(御金沙校区)",
+          "school_id": "gz-440111-eb640c74"
+        },
+        {
+          "name": "金广实验学校(金域蓝湾校区)",
+          "poi_match": "法人推导",
+          "poi_name": "金广实验学校(金域蓝湾校区)",
+          "school_id": "gz-440111-6f87dc56"
         }
       ]
     },
@@ -4910,14 +4988,6 @@
           "poi_match": "法人推导",
           "poi_name": "马务小学",
           "school_id": "gz-440111-e9a84742"
-        },
-        {
-          "name": "广州市白云区陈田小学",
-          "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
-          "verified": "2026-09-14",
-          "poi_match": "法人推导",
-          "poi_name": "陈田小学",
-          "school_id": "gz-440111-7080b3ad"
         }
       ],
       "source_urls": [
@@ -5086,8 +5156,18 @@
           "source_url": "https://static.nfnews.com/content/202404/11/c8776592.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "横沙小学",
-          "school_id": "gz-440112-6e178b7a"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "横沙学校",
+              "school_id": "gz-440111-53d3305b"
+            },
+            {
+              "poi_name": "横沙小学",
+              "school_id": "gz-440112-6e178b7a"
+            }
+          ]
         }
       ],
       "source_urls": [
@@ -5213,12 +5293,32 @@
           "poi_match": "法人推导",
           "poi_name": "南村中学",
           "school_id": "gz-440113-cbaa8160"
+        },
+        {
+          "name": "广东番禺中学实验学校",
+          "source_url": "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10816/post_10816948.html",
+          "verified": "2026-09-22",
+          "note": "2022-08-30 落成启用，广东番禺中学承办管理；隶属广东番禺中学教育集团（广州日报 b0f7bb19943c499c8ad92843ac6eef26 / 南方+ c6848469 多源证实；2026 番禺初中招简含『广东番禺中学实验学校初中部』）。政府源集团名单未更新此 2022 年新成员。",
+          "poi_match": "法人推导",
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "广东番禺中学实验学校(小学部)",
+              "school_id": "gz-440113-bf9bcbfd"
+            },
+            {
+              "poi_name": "番禺中学实验学校",
+              "school_id": "gz-440113-95be9ccc"
+            }
+          ]
         }
       ],
       "source_urls": [
         "https://www.panyu.gov.cn/gzpyjy/gkmlpt/content/10/10297/post_10297944.html",
         "http://www.panyu.gov.cn/zwgk/ggqsy/jy/content/post_9920371.html",
         "https://www.panyu.gov.cn/zwgk/zfxxgkml/xxgkml/zwdt/zjxx/nczzf/content/post_9645271.html",
+        "https://huacheng.gz-cmc.com/pages/2022/08/30/b0f7bb19943c499c8ad92843ac6eef26.html",
         "http://www.panyu.gov.cn/zwgk/yajytacl/2019/ta/content/post_6456455.html"
       ],
       "core_poi": [
@@ -5329,10 +5429,10 @@
       ],
       "core_poi": [
         {
-          "name": "番禺中学实验学校",
+          "name": "广大附中番禺实验学校",
           "poi_match": "法人推导",
-          "poi_name": "番禺中学实验学校",
-          "school_id": "gz-440113-95be9ccc"
+          "poi_name": "广大附中番禺实验学校",
+          "school_id": "gz-440113-213843c2"
         }
       ]
     },

@@ -255,7 +255,7 @@
       }
     }
   },
-  "gz-440112-815387d3": {
+  "gz-440115-815387d3": {
     "chuangke_awards": {
       "stages": {
         "secondary": {
@@ -457,6 +457,19 @@
       }
     }
   },
+  "gz-440106-a565a93c": {
+    "chuangke_awards": {
+      "stages": {
+        "secondary": {
+          "2024": {
+            "gold": 0,
+            "silver": 1,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
   "gz-440106-d5983217": {
     "chuangke_awards": {
       "stages": {
@@ -478,6 +491,24 @@
             "gold": 0,
             "silver": 1,
             "bronze": 0
+          }
+        }
+      }
+    }
+  },
+  "gz-440113-95be9ccc": {
+    "chuangke_awards": {
+      "stages": {
+        "secondary": {
+          "2024": {
+            "gold": 0,
+            "silver": 1,
+            "bronze": 0
+          },
+          "2025": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 1
           }
         }
       }
@@ -717,6 +748,32 @@
     }
   },
   "gz-440104-402961f4": {
+    "chuangke_awards": {
+      "stages": {
+        "primary": {
+          "2024": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
+  "gz-440104-7425dd47": {
+    "chuangke_awards": {
+      "stages": {
+        "primary": {
+          "2024": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
+  "gz-440104-ec171256": {
     "chuangke_awards": {
       "stages": {
         "primary": {
@@ -1077,11 +1134,6 @@
             "gold": 1,
             "silver": 0,
             "bronze": 1
-          },
-          "2025": {
-            "gold": 0,
-            "silver": 0,
-            "bronze": 1
           }
         }
       }
@@ -1105,7 +1157,7 @@
       }
     }
   },
-  "gz-440112-4991e638": {
+  "gz-440113-060386bb": {
     "chuangke_awards": {
       "stages": {
         "primary": {
@@ -1118,14 +1170,14 @@
       }
     }
   },
-  "gz-440113-060386bb": {
+  "gz-440105-0adfcd61": {
     "chuangke_awards": {
       "stages": {
         "primary": {
           "2024": {
             "gold": 0,
             "silver": 1,
-            "bronze": 0
+            "bronze": 1
           }
         }
       }
@@ -1365,6 +1417,19 @@
     }
   },
   "gz-440103-43860928": {
+    "chuangke_awards": {
+      "stages": {
+        "primary": {
+          "2025": {
+            "gold": 0,
+            "silver": 1,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
+  "gz-440103-ffe16eea": {
     "chuangke_awards": {
       "stages": {
         "primary": {

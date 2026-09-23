@@ -110,13 +110,7 @@ def parse_year(year, sources, matcher):
 
 
 def main():
-    matcher = SchoolMatcher.load(
-        poi_paths=[
-            (ROOT / "data/poi/dist/primary_poi.json", "小学"),
-            (ROOT / "data/poi/dist/middle_poi.json", "初中"),
-            (ROOT / "data/poi/dist/high_poi.json", "高中"),
-        ], entities_path=ENTITIES,
-    )
+    matcher = SchoolMatcher.load()
     sources_by_year = {
         2024: sorted(RAW.glob("2024_附件[1-5]*.xls")),
         2025: [next(RAW.glob("附件1 *科学素养大赛*获奖*名单.xlsx"), None)],

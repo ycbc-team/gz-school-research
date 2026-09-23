@@ -77,6 +77,10 @@ def resolve_entity(name: str):
         _flat = n.replace('(', '').replace(')', '')
         if _flat != n:
             candidates = {e['school_id']: e for e in high_aliases.get(_flat, [])}
+    if not candidates:
+        # 名单名带校区括号（如「广州市海珠外国语实验中学（校本部）」）而实体无括号：normName
+        # 删括号精确键回退（多校区 norm 撞车时 >1 候选宁缺，不走错配）
+        candidates = {e['school_id']: e for e in high_aliases_exact.get(norm(name), [])}
     if len(candidates) > 1:
         # 剥区歧义回退 normName 精确键（带区名）：如「广州市白云艺术中学」matchNorm「艺术中学」
         # 撞越秀/白云两家 → normName「白云艺术中学」唯一收敛（2026-09-21 别名瘦身暴露）

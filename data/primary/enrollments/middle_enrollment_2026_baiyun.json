@@ -1,7 +1,7 @@
 {
  "year": 2026,
  "district": "白云区",
- "source": "白云区教育局 2026 公办初中招生计划（_raw/baiyun_2026_juniors.json）",
+ "source": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
  "source_url": null,
  "mechanisms": {
   "single_zone": {
@@ -57,7 +57,7 @@
   {
    "school": "广州市三元里中学",
    "school_id": null,
-   "plan_classes": null,
+   "plan_classes": 0,
    "scope": "三元里小学（不含北校区）、羊城铁路总公司广州铁路第五小学",
    "mechanism": "single_zone",
    "mechanism_note": "因涉拆迁，2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排。",
@@ -504,7 +504,7 @@
   },
   {
    "school": "广州市白云区云翔学校",
-   "school_id": null,
+   "school_id": "gz-440111-8984feab",
    "plan_classes": 3,
    "scope": "白云区户籍",
    "mechanism": "single_zone",
@@ -579,7 +579,7 @@
   },
   {
    "school": "广州市白云区星悦实验学校",
-   "school_id": "gz-440111-2ed8a6e2",
+   "school_id": "gz-440111-88372834",
    "plan_classes": 4,
    "scope": "星悦实验学校小学部",
    "mechanism": "single_zone",

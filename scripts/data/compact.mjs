@@ -26,7 +26,7 @@ const OUT_ESM = process.argv[4] || join(ROOT, 'apps', 'web', 'src', 'data', 'com
 
 /** 高重复值字段 → 字典化（值唯一数少才启用）；listDicts 为数组元素字典（如 feed_school_ids 实体 id 列表） */
 const DICT_SPEC = {
-  'data/primary/xiaoshengchu_2026.json': {
+  'data/primary/transition/dist/xiaoshengchu_2026.json': {
     dicts: ['group', 'source_url'],
     listDicts: ['feed_school_ids'],
   },
@@ -39,7 +39,7 @@ const DICT_SPEC = {
  */
 const MP_TRIM = {
   // 主包地图页/信息卡不消费 source_note（~90KB）与 source_url（详情页分包用全量产物）
-  'data/primary/xiaoshengchu_2026.json': ['source_note', 'source_url'],
+  'data/primary/transition/dist/xiaoshengchu_2026.json': ['source_note', 'source_url'],
 };
 
 /**
@@ -61,33 +61,30 @@ const WEB_TARGETS = walkJson(DATA_SRC)
   .filter((p) => !p.split(sep).some((seg) => seg === 'raw' || seg === '_raw'))
   .map((p) => relative(ROOT, p))
   .filter((rel) => !basename(rel).startsWith('_partial_'))
-  .filter((rel) => !rel.split(sep).includes('src') || rel.startsWith('data/high/level/') || (rel.startsWith('data/registry/group/src/') && basename(rel) === 'brand_groups.json'))
+  .filter((rel) => !rel.split(sep).includes('src') || rel.startsWith('data/high/level/') || (rel.startsWith('data/registry/group/src/') && basename(rel) === 'brand_groups.json') || (rel.startsWith('data/primary/transition/src/') && basename(rel) === 'middle_enroll_notes.json'))
   // src 为源数据目录，仅 dist 产物打包；high/level/src 例外：levels.json 人工源即前端消费（无 dist 构建）；
+  // transition/src 例外：middle_enroll_notes.json 手工录取备注即详情页招生视图消费（无 dist 构建）；
   // registry/src 例外：brand_groups.json 手工源即详情页「品牌关联」运行时消费（无 dist 构建）；
   // 同目录的 groups_anchors 等构建期表，不进前端（source_name_mappings 已退役，2026-09-21）
-  .filter((rel) => !['groups_anchors.json', 'pending_items.json', 'coverage_result.json'].includes(basename(rel)));
+  .filter((rel) => !['groups_anchors.json', 'pending_items.json', 'coverage_result.json'].includes(basename(rel)))
+  .filter((rel) => !(rel.startsWith('data/primary/enrollment/dist/2026-') && !rel.endsWith('2026-all.json')));
   // 构建期内部表不进前端包：groups_anchors（merge_groups 锚点）/ pending_items（民办待补/待核实清单）/ coverage_result（集团覆盖检查产物）
 // 小程序主包数据（地图页 + 首页/支撑度消费）：POI/tier1/levels/招生/实体/升学路线/官方录取分
 const MP_MAIN_TARGETS = [
   'data/poi/dist/primary_poi.json',
   'data/primary/tier1_schools_all.json',
-  'data/primary/xiaoshengchu_2026.json',
-  'data/primary/middle_enroll_notes.json',
+  'data/primary/transition/dist/xiaoshengchu_2026.json',
+  'data/primary/transition/src/middle_enroll_notes.json',
   'data/poi/dist/middle_poi.json',
   'data/middle/tier1_schools_all.json',
   'data/poi/dist/high_poi.json',
   'data/high/level/src/levels.json',
   'data/high/cutoff_score/dist/scores_2025.json',
   'data/high/cutoff_score/dist/scores_2026.json',
-  'data/primary/enrollments/2026-tianhe.json',
-  'data/primary/enrollments/2026-yuexiu.json',
-  'data/primary/enrollments/2026-haizhu.json',
-  'data/primary/enrollments/2026-liwan.json',
-  'data/primary/enrollments/2026-panyu.json',
-  'data/primary/enrollments/2026-baiyun.json',
-  'data/primary/enrollments/2026-huangpu.json',
   'data/registry/entity/dist/entities.json',
+  'data/primary/enrollment/dist/2026-all.json',
 ];
+// 小学招生 C 层合并产物（dist/2026-all.json）通用编译为 enrollments/2026-all.js
 // 小程序分包数据（school-detail 详情页专用）：升学通道/身份/品牌/教育集团
 // （sites.json 已于 2026-09-21 废弃：法人别名挂载内联 build_entities，无运行时消费）
 // （官方录取分 scores 已在主包加载，详情页经 baseLoaders 继承，无需重复编译）
@@ -204,7 +201,33 @@ for (const dir of [OUT_CJS_MAIN, OUT_CJS_SUB, OUT_ESM]) {
 /** 编译单个真源文件到目标目录，fmt: 'cjs' | 'esm'；opts.trim 仅主包列裁剪 */
 function emit(file, outDir, fmt, opts = {}) {
   const abs = join(ROOT, file);
-  const relPath = relative(DATA_SRC, abs);
+  /**
+ * 数据源归位 data/primary/transition 后，产物 rel 保持历史稳定（前端 import 不变）：
+ * 输入真源路径 → 输出 rel 路径（相对 data/）
+ */
+const SRC_REMAP = {
+  'primary/transition/dist/xiaoshengchu_2026': 'primary/xiaoshengchu_2026',
+  'primary/transition/dist/xiaoshengchu_all': 'primary/xiaoshengchu_all',
+  'primary/transition/dist/xiaoshengchu_baiyun': 'primary/enrollments/xiaoshengchu_baiyun',
+  'primary/transition/dist/xiaoshengchu_haizhu': 'primary/enrollments/xiaoshengchu_haizhu',
+  'primary/transition/dist/xiaoshengchu_huangpu': 'primary/enrollments/xiaoshengchu_huangpu',
+  'primary/transition/dist/xiaoshengchu_liwan': 'primary/enrollments/xiaoshengchu_liwan',
+  'primary/transition/dist/xiaoshengchu_panyu': 'primary/enrollments/xiaoshengchu_panyu',
+  'primary/transition/dist/xiaoshengchu_tianhe': 'primary/enrollments/xiaoshengchu_tianhe',
+  'primary/transition/dist/xiaoshengchu_yuexiu': 'primary/enrollments/xiaoshengchu_yuexiu',
+  'primary/enrollment/dist/2026-baiyun': 'primary/enrollments/2026-baiyun',
+  'primary/enrollment/dist/2026-haizhu': 'primary/enrollments/2026-haizhu',
+  'primary/enrollment/dist/2026-huangpu': 'primary/enrollments/2026-huangpu',
+  'primary/enrollment/dist/2026-liwan': 'primary/enrollments/2026-liwan',
+  'primary/enrollment/dist/2026-panyu': 'primary/enrollments/2026-panyu',
+  'primary/enrollment/dist/2026-tianhe': 'primary/enrollments/2026-tianhe',
+  'primary/enrollment/dist/2026-yuexiu': 'primary/enrollments/2026-yuexiu',
+  'primary/enrollment/dist/2026-all': 'primary/enrollments/2026-all',
+  'primary/transition/dist/schools-backfill': 'primary/schools-backfill',
+  'primary/transition/src/middle_enroll_notes': 'primary/middle_enroll_notes',
+};
+const relRaw = relative(DATA_SRC, abs); // 真源 rel（含 .json，注释/统计用）
+const relPath = (SRC_REMAP[relRaw.replace(/\.json$/, '')] ?? relRaw.replace(/\.json$/, '')) + '.json'; // 输出 rel（remap 后保持历史路径）
   const json = JSON.parse(readFileSync(abs, 'utf8'));
   const spec = DICT_SPEC[file] || {};
   const compact = compileValue(json, {
@@ -216,13 +239,14 @@ function emit(file, outDir, fmt, opts = {}) {
   const out = join(outDir, relPath.replace(/\.json$/, '.js'));
   mkdirSync(dirname(out), { recursive: true });
   if (fmt === 'cjs') {
-    writeFileSync(out, '// 由 scripts/data/compact.mjs 从 data/' + relPath + ' 编译（紧凑列式），勿手改\nmodule.exports = ' + literal + ';\n', 'utf8');
+    writeFileSync(out, '// 由 scripts/data/compact.mjs 从 data/' + relRaw + ' 编译（紧凑列式），勿手改\nmodule.exports = ' + literal + ';\n', 'utf8');
   } else {
-    writeFileSync(out, '// 由 scripts/data/compact.mjs 从 data/' + relPath + ' 编译（紧凑列式），勿手改\nconst data = ' + literal + ';\nexport default data;\n', 'utf8');
+    writeFileSync(out, '// 由 scripts/data/compact.mjs 从 data/' + relRaw + ' 编译（紧凑列式），勿手改\nconst data = ' + literal + ';\nexport default data;\n', 'utf8');
     writeFileSync(out.replace(/\.js$/, '.d.ts'), 'declare const data: unknown;\nexport default data;\n', 'utf8');
   }
   return { file: relPath, jsonKB: readFileSync(abs, 'utf8').length / 1024, jsKB: readFileSync(out, 'utf8').length / 1024 };
 }
+
 
 const stats = [];
 for (const file of MP_MAIN_TARGETS) stats.push(emit(file, OUT_CJS_MAIN, 'cjs', { trim: MP_TRIM[file] }));

@@ -113,7 +113,7 @@
           "award": "一等奖",
           "type": "personal",
           "school_ids": [
-            "gz-440112-815387d3",
+            "gz-440115-815387d3",
             "gz-440115-a936e5d5"
           ],
           "stage": "secondary"
@@ -280,6 +280,7 @@
           "award": "二等奖",
           "type": "personal",
           "school_ids": [
+            "gz-440106-a565a93c",
             "gz-440106-d5983217",
             "gz-440112-3847727f"
           ],
@@ -293,7 +294,9 @@
           "coach": "房丽华",
           "award": "二等奖",
           "type": "personal",
-          "school_ids": [],
+          "school_ids": [
+            "gz-440113-95be9ccc"
+          ],
           "stage": "secondary"
         },
         {
@@ -318,7 +321,7 @@
           "award": "二等奖",
           "type": "personal",
           "school_ids": [
-            "gz-440112-815387d3",
+            "gz-440115-815387d3",
             "gz-440115-a936e5d5"
           ],
           "stage": "secondary"
@@ -494,6 +497,8 @@
           "type": "personal",
           "school_ids": [
             "gz-440104-402961f4",
+            "gz-440104-7425dd47",
+            "gz-440104-ec171256",
             "gz-440104-f815e0be"
           ],
           "stage": "primary"
@@ -895,7 +900,6 @@
           "award": "二等奖",
           "type": "team",
           "school_ids": [
-            "gz-440112-4991e638",
             "gz-440113-060386bb"
           ],
           "stage": "primary"
@@ -909,6 +913,7 @@
           "award": "二等奖",
           "type": "team",
           "school_ids": [
+            "gz-440105-0adfcd61",
             "gz-440105-98d6d585"
           ],
           "stage": "primary"
@@ -1053,6 +1058,7 @@
           "award": "三等奖",
           "type": "team",
           "school_ids": [
+            "gz-440105-0adfcd61",
             "gz-440105-98d6d585"
           ],
           "stage": "primary"
@@ -1390,7 +1396,8 @@
           "award": "二等奖",
           "type": "personal",
           "school_ids": [
-            "gz-440103-43860928"
+            "gz-440103-43860928",
+            "gz-440103-ffe16eea"
           ],
           "stage": "primary"
         },
@@ -1575,7 +1582,7 @@
           "award": "三等奖",
           "type": "personal",
           "school_ids": [
-            "gz-440113-e7ca2b33"
+            "gz-440113-95be9ccc"
           ],
           "stage": "secondary"
         },

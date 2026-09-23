@@ -140,14 +140,7 @@ def parse_team(year, ents):
 
 def main():
     ents = json.load(open(ENTITIES))["entities"]
-    matcher = SchoolMatcher.load(
-        poi_paths=[
-            (ROOT / "data/poi/dist/primary_poi.json", "小学"),
-            (ROOT / "data/poi/dist/middle_poi.json", "初中"),
-            (ROOT / "data/poi/dist/high_poi.json", "高中"),
-        ],
-        entities_path=ENTITIES,
-    )
+    matcher = SchoolMatcher.load()
     years = sorted(set(
         re.search(r"(\d{4})", p.name).group(1)
         for p in RAW.glob("创客大赛_*获奖名单_*.*") if p.suffix.lower() in {".xls", ".xlsx"}
