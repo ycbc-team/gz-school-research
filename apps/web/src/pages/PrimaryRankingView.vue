@@ -2,6 +2,9 @@
 import { computed, ref } from 'vue';
 import { DISTRICTS } from '@gz/shared';
 import { primarySchools, civilizedCampusSchoolIds } from '../data';
+import DetailFilterBar from '../components/DetailFilterBar.vue';
+import DetailPageHeader from '../components/DetailPageHeader.vue';
+import DetailRankingList from '../components/DetailRankingList.vue';
 
 type Group = 'none' | 'district';
 const groupBy = ref<Group>('none');
@@ -29,12 +32,34 @@ const groups = computed(() => {
 const filterCount = computed(() => (allDistricts.value ? 0 : selectedDistricts.value.size) + (allHonors.value ? 0 : honor.value!.size));
 </script>
 
-<template><div class="page"><header><RouterLink to="/" class="back">‹ 首页</RouterLink><h1>广州七区小学明细</h1><p>按小学点位展示；全国文明校园为官方正式称号。</p></header>
-  <div class="filter-bar"><button class="fb-btn" @click="open=open==='group'?null:'group'">分组：{{ groupBy==='none'?'不分组':'按区' }} ▾</button><button class="fb-btn" @click="open=open==='filter'?null:'filter'">筛选<em v-if="filterCount">{{ filterCount }}</em> ▾</button>
-    <div v-if="open==='group'" class="pop"><button :class="{on:groupBy==='none'}" @click="groupBy='none'">不分组</button><button :class="{on:groupBy==='district'}" @click="groupBy='district'">按区</button></div>
-    <div v-if="open==='filter'" class="pop"><h3>位置</h3><button v-for="d in DISTRICTS" :key="d.adcode" :class="{on:selectedDistricts.has(d.adcode)}" @click="toggleDistrict(d.adcode)">{{ d.name }}</button><footer><a @click="toggleAllDistricts">{{ allDistricts?'全不选':'全选' }}</a></footer><h3>校园荣誉</h3><button :class="{on:allHonors||honor?.has('national')}" @click="toggleHonor('national')">全国文明校园</button><button :class="{on:allHonors||honor?.has('other')}" @click="toggleHonor('other')">其他</button><footer><a @click="toggleAllHonors">{{ allHonors?'全不选':'全选' }}</a><a @click="open=null">完成</a></footer></div>
-  </div><div v-for="g in groups" :key="g.title" class="card"><h2 v-if="groupBy==='district'">{{ g.title }} <small>{{ g.rows.length }} 所</small></h2><RouterLink v-for="s in g.rows" :key="s.school_id || s.name" :to="{path:'/school/'+encodeURIComponent(s.name),query:{stage:'primary',...(s.school_id?{id:s.school_id}:{})}}" class="row"><b>{{ s.name }}</b><span>{{ districtName(s.adcode) }}<i v-if="s.school_id && civilizedCampusSchoolIds.national?.includes(s.school_id)">全国文明校园</i></span></RouterLink></div></div></template>
+<template>
+  <div class="page">
+    <DetailPageHeader title="广州七区小学明细" subtitle="按小学点位展示；全国文明校园为官方正式称号。" />
+
+    <DetailFilterBar :open="!!open" @close="open = null">
+      <template #buttons>
+        <div class="fb-col"><button class="fb-btn" :class="{ on: open === 'group' }" @click="open = open === 'group' ? null : 'group'">分组<em class="fb-badge">{{ groupBy === 'none' ? '不分组' : '按区' }}</em><span class="arr">▾</span></button></div>
+        <div class="fb-col"><button class="fb-btn" :class="{ on: open === 'filter' }" @click="open = open === 'filter' ? null : 'filter'">筛选<em v-if="filterCount" class="fb-badge">{{ filterCount }}</em><span class="arr">▾</span></button></div>
+      </template>
+      <div v-if="open === 'group'">
+        <div class="pop-chips"><button class="pop-chip" :class="{ on: groupBy === 'none' }" @click="groupBy = 'none'">不分组</button><button class="pop-chip" :class="{ on: groupBy === 'district' }" @click="groupBy = 'district'">按区</button></div>
+        <div class="pop-foot"><button class="pop-link" @click="open = null">完成</button></div>
+      </div>
+      <div v-if="open === 'filter'">
+        <div class="pop-group-title">位置</div><div class="pop-chips"><button v-for="d in DISTRICTS" :key="d.adcode" class="pop-chip" :class="{ on: selectedDistricts.has(d.adcode) }" @click="toggleDistrict(d.adcode)">{{ d.name }}</button></div><div class="pop-foot"><button class="pop-link" @click="toggleAllDistricts">{{ allDistricts ? '全不选' : '全选' }}</button></div>
+        <div class="pop-group-title">校园荣誉</div><div class="pop-chips"><button class="pop-chip" :class="{ on: allHonors || honor?.has('national') }" @click="toggleHonor('national')">全国文明校园</button><button class="pop-chip" :class="{ on: allHonors || honor?.has('other') }" @click="toggleHonor('other')">其他</button></div><div class="pop-foot"><button class="pop-link" @click="toggleAllHonors">{{ allHonors ? '全不选' : '全选' }}</button><button class="pop-link" @click="open = null">完成</button></div>
+      </div>
+    </DetailFilterBar>
+
+    <DetailRankingList :groups="groups" :group-key="(g) => g.title || 'all'">
+      <template #heading="{ group: g }"><h2 v-if="groupBy === 'district'">{{ g.title }}<em>{{ g.rows.length }} 所</em></h2></template>
+      <template #default="{ group: g }">
+        <table class="rank-table"><colgroup><col class="col-school"><col class="col-district"><col class="col-honor"></colgroup><thead><tr><th>学校 / 校区</th><th>位置</th><th>校园荣誉</th></tr></thead><tbody><tr v-for="s in g.rows" :key="s.school_id || s.name"><td class="school"><RouterLink :to="{ path: '/school/' + encodeURIComponent(s.name), query: { stage: 'primary', ...(s.school_id ? { id: s.school_id } : {}) } }">{{ s.name }}</RouterLink></td><td>{{ districtName(s.adcode) }}</td><td><span v-if="s.school_id && civilizedCampusSchoolIds.national?.includes(s.school_id)" class="honor">全国文明校园</span><span v-else class="empty">—</span></td></tr></tbody></table>
+      </template>
+    </DetailRankingList>
+  </div>
+</template>
 
 <style scoped>
-.page{max-width:1180px;margin:auto}.back,.row{color:#1a6bd6;text-decoration:none}h1{font-size:20px}p,small{color:#6b7280;font-size:12px}.filter-bar{position:sticky;top:65px;z-index:2;display:flex;gap:8px;margin:15px 0;padding:8px;background:#fff;border:1px solid #e4e3dd;border-radius:14px}.fb-btn,.pop button{border:1px solid #d6d4cc;background:#fff;border-radius:16px;padding:6px 11px;cursor:pointer}.fb-btn{flex:1;border:0}.fb-btn em{background:#1a6bd6;color:#fff;border-radius:9px;padding:0 5px;font-size:10px}.pop{position:absolute;top:calc(100% + 6px);left:8px;right:8px;padding:12px;background:#fff;border:1px solid #e4e3dd;border-radius:12px;box-shadow:0 8px 28px #0002}.pop h3{font-size:12px;margin:10px 0 6px}.pop h3:first-child{margin-top:0}.pop button{margin:0 6px 6px 0}.pop button.on{background:#1a6bd6;border-color:#1a6bd6;color:#fff}.pop footer{display:flex;justify-content:space-between;border-top:1px dashed #ddd;padding-top:7px;margin:4px 0 10px}.pop a{color:#1a6bd6;cursor:pointer;font-size:12px}.card{background:#fff;border:1px solid #e4e3dd;border-radius:14px;margin-bottom:14px;overflow:hidden}h2{font-size:15px;padding:10px 14px;margin:0}.row{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-top:1px solid #f0efeb;color:#1a1b1c}.row span{color:#8a93a3;font-size:12px}.row i{margin-left:7px;color:#1a6bd6;font-style:normal;font-size:11px}@media(max-width:600px){.filter-bar{top:58px}.row{align-items:start}.row span{white-space:nowrap}}
+.page { max-width: 1180px; margin: 0 auto; } h2 { margin: 0; padding: 12px 18px 8px; font-size: 15px; } h2 em { margin-left: 8px; color: #8a93a3; font-size: 11.5px; font-style: normal; font-weight: 400; } .rank-table { width: 100%; min-width: 620px; border-collapse: collapse; table-layout: fixed; font-size: 12.5px; }.col-school { width: 55%; }.col-district { width: 20%; }.col-honor { width: 25%; } th { padding: 7px 10px; border-bottom: 1px solid #ecebe6; color: #6b7280; font-size: 11.5px; text-align: left; } td { padding: 9px 10px; border-bottom: 1px solid #f2f1ec; color: #6b7280; line-height: 1.5; } tbody tr:last-child td { border-bottom: 0; } tbody tr:hover { background: #fafbfc; }.school { color: #1a1b1c; }.honor { color: #1a6bd6; font-size: 11.5px; }.empty { color: #9ca3af; } @media(max-width:600px){ h2 { padding-left: 16px; }.rank-table { min-width: 0; font-size: 12px; }.col-school { width: 55%; }.col-district { width: 19%; }.col-honor { width: 26%; } th, td { padding: 8px 6px; } th { font-size: 10.5px; } }
 </style>

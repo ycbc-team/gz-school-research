@@ -12,6 +12,9 @@ import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 import { useRouter } from 'vue-router';
 import { DISTRICTS } from '@gz/shared';
 import { rankingMiddle, entities, middleOrgSort, civilizedCampusSchoolIds } from '../data';
+import DetailFilterBar from '../components/DetailFilterBar.vue';
+import DetailPageHeader from '../components/DetailPageHeader.vue';
+import DetailRankingList from '../components/DetailRankingList.vue';
 
 interface Row {
   name: string;
@@ -289,13 +292,11 @@ const groups = computed(() => {
 
 <template>
   <div class="page">
-    <header class="top">
-      <RouterLink to="/" class="back">‹ 首页</RouterLink>
-      <h1 class="page-title">广州七区初中明细</h1>
-    </header>
+    <DetailPageHeader title="广州七区初中明细" subtitle="按升学指标与学校点位整理；排名不分先后。" />
 
     <!-- 顶部过滤器（对齐地图页 filter-bar 交互） -->
-    <div class="filter-bar">
+    <DetailFilterBar :open="!!openMenu" @close="openMenu = null">
+      <template #buttons>
       <div class="fb-col">
         <button class="fb-btn" :class="{ on: openMenu === 'group' }" @click="openMenu = openMenu === 'group' ? null : 'group'">
           分组<em class="fb-badge">{{ groupLabel }}</em><span class="arr">▾</span>
@@ -312,7 +313,8 @@ const groups = computed(() => {
         </button>
       </div>
 
-      <div v-if="openMenu === 'group'" class="fb-pop">
+      </template>
+      <div v-if="openMenu === 'group'">
         <div class="pop-chips">
           <button class="pop-chip" :class="{ on: groupBy === 'none' }" @click="groupBy = 'none'">不分组</button>
           <button class="pop-chip" :class="{ on: groupBy === 'district' }" @click="groupBy = 'district'">按区</button>
@@ -323,7 +325,7 @@ const groups = computed(() => {
         </div>
       </div>
 
-      <div v-if="openMenu === 'filter'" class="fb-pop">
+      <div v-if="openMenu === 'filter'">
         <div class="pop-group-title">位置</div>
         <div class="pop-chips">
           <button v-for="d in DISTRICTS" :key="d.adcode" class="pop-chip" :class="{ on: selectedDistricts.has(d.adcode) }" @click="toggleDistrict(d.adcode)">{{ d.name }}</button>
@@ -336,7 +338,7 @@ const groups = computed(() => {
         </div>
       </div>
 
-      <div v-if="openMenu === 'metric'" class="fb-pop">
+      <div v-if="openMenu === 'metric'">
         <div v-for="g in METRIC_GROUPS" :key="g.title" class="pop-group">
           <div class="pop-group-title">{{ g.title }}</div>
           <div class="pop-chips">
@@ -347,12 +349,11 @@ const groups = computed(() => {
           <button class="pop-link" @click="openMenu = null">完成</button>
         </div>
       </div>
-    </div>
-    <div v-if="openMenu" class="pop-mask" @click="openMenu = null"></div>
+    </DetailFilterBar>
 
-    <main class="rank-body">
-      <section v-for="g in groups" :key="g.key" class="rank-group">
-        <h3 v-if="groupBy !== 'none'" class="rg-title">{{ g.title }}<em class="rg-count">{{ g.items.length }} 所 · 排名不分先后</em></h3>
+    <DetailRankingList :groups="groups" :group-key="(g) => g.key">
+      <template #heading="{ group: g }"><h3 v-if="groupBy !== 'none'" class="rg-title">{{ g.title }}<em class="rg-count">{{ g.items.length }} 所 · 排名不分先后</em></h3></template>
+      <template #default="{ group: g }">
         <table class="rank-table">
           <colgroup>
             <col class="col-name">
@@ -407,8 +408,8 @@ const groups = computed(() => {
             </tr>
           </tbody>
         </table>
-      </section>
-    </main>
+      </template>
+    </DetailRankingList>
 
     <footer class="foot-note">
       数据来源：广州市招考办 2026 名额分配计划汇总表（符合名额分配报考资格考生数/指标数）· 高中特控率喜报/网传口径（data/high/level/src/levels.json）。比例均为「÷ 符合名额分配报考资格考生数」，不代表学校全部应考人数。
@@ -450,57 +451,14 @@ const groups = computed(() => {
 
 <style scoped>
 .page { max-width: 1180px; margin: 0 auto; }
-.top { display: flex; flex-direction: column; gap: 7px; }
-.back { font-size: 13px; color: #1a6bd6; text-decoration: none; }
-.back:hover { text-decoration: underline; }
-.page-title { font-size: 20px; font-weight: 700; margin: 0; }
-
-/* ---- 顶部过滤器（对齐地图页） ---- */
-.filter-bar {
-  position: sticky; top: 65px; z-index: 1200;
-  display: flex; gap: 8px; background: #fff;
-  border: 1px solid #e4e3dd; border-radius: 14px; padding: 8px; margin: 15px 0;
-}
-.fb-col { flex: 1 1 0; min-width: 0; }
-.fb-btn {
-  width: 100%; border: none; background: transparent; cursor: pointer;
-  font-size: 13px; color: #1a1b1c; padding: 8px 6px; border-radius: 9px;
-  display: flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;
-}
-.fb-btn:hover { background: #f2f7ff; }
-.fb-btn.on { background: #eaf1fe; color: #1a6bd6; font-weight: 600; }
-.fb-btn .arr { font-size: 10px; color: #8a93a3; }
-.fb-badge {
-  background: #1a6bd6; color: #fff; font-style: normal; font-size: 10.5px;
-  border-radius: 9px; padding: 0 6px; line-height: 15px;
-}
-.fb-pop {
-  position: absolute; top: calc(100% + 6px); left: 8px; right: 8px; z-index: 1300;
-  background: #fff; border: 1px solid #e4e3dd; border-radius: 12px;
-  box-shadow: 0 8px 28px rgba(20, 30, 50, 0.16); padding: 12px;
-}
-.pop-group { margin-bottom: 10px; }
-.pop-group:last-of-type { margin-bottom: 0; }
-.pop-group-title { font-size: 11.5px; color: #6b7280; font-weight: 600; margin: 12px 0 6px; }.pop-group-title:first-child { margin-top: 0; }
-.pop-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.pop-chip {
-  border: 1px solid #d6d4cc; background: #fff; border-radius: 16px;
-  padding: 5px 14px; font-size: 12.5px; cursor: pointer; color: #1a1b1c;
-}
-.pop-chip.on { background: #1a6bd6; border-color: #1a6bd6; color: #fff; }
-.pop-foot { display: flex; justify-content: flex-end; margin-top: 10px; }
-.pop-link { border: none; background: none; color: #1a6bd6; font-size: 13px; cursor: pointer; padding: 4px 8px; }
-.pop-mask { position: fixed; inset: 0; z-index: 1100; }
 
 /* ---- 排行主体 ---- */
-.rank-body { display: flex; flex-direction: column; gap: 16px; }
-.rank-group { background: #fff; border: 1px solid #e4e3dd; border-radius: 14px; overflow: hidden; }
 .rg-title {
   display: flex; align-items: baseline; gap: 8px;
   font-size: 15px; font-weight: 700; margin: 0; padding: 12px 18px 8px;
 }
 .rg-count { font-style: normal; font-size: 11.5px; color: #8a93a3; font-weight: 500; }
-.rank-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 13px; }
+.rank-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 12.5px; }
 /* 列宽统一（colgroup），保证各分组表格列对齐；col-sub 不设宽，均分剩余空间 */
 .col-name { width: 42%; }
 .col-val { width: 26%; }
@@ -509,7 +467,7 @@ const groups = computed(() => {
   padding: 7px 10px; border-bottom: 1px solid #ecebe6;
   position: relative;
 }
-.rank-table td { padding: 8px 10px; border-bottom: 1px solid #f2f1ec; vertical-align: middle; }
+.rank-table td { padding: 9px 10px; border-bottom: 1px solid #f2f1ec; vertical-align: middle; line-height: 1.5; }
 .rank-table tbody tr:last-child td { border-bottom: none; }
 .rank-table tbody tr:hover { background: #fafbfc; }
 .c-val { font-variant-numeric: tabular-nums; font-weight: 600; color: #1a1b1c; white-space: nowrap; }
@@ -535,8 +493,6 @@ const groups = computed(() => {
 .hp-line { margin-bottom: 4px; }
 .hp-line:last-child { margin-bottom: 0; }
 
-.school-link { color: #1a6bd6; text-decoration: underline; text-underline-offset: 2px; }
-.school-link:hover { text-decoration-thickness: 2px; }
 .campus-open { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
 .campus-open:hover { color: #0e4fb0; }
 .campus-mask { position: fixed; inset: 0; z-index: 1350; background: rgba(0, 0, 0, 0.03); }
