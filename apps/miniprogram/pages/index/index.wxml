@@ -1,23 +1,172 @@
 <view class="page">
-  <view class="title">为孩子寻找合适升学路线的调研工具集</view>
-  <view class="sub">数据共享自项目 data/（JSON 唯一真源）</view>
+  <!-- 整屏地图背景 -->
+  <map
+    id="gzmap"
+    class="map"
+    latitude="{{centerLat}}"
+    longitude="{{centerLng}}"
+    scale="{{scale}}"
+    markers="{{markers}}"
+    bindmarkertap="onMarkerTap"
+    bindtap="onMapTap"
+    bindregionchange="onRegionChange"
+  ></map>
 
-  <view class="stats">
-    <view class="stat" wx:for="{{stats}}" wx:key="label">
-      <view class="stat-value">{{item.value}}</view>
-      <view class="stat-label">{{item.label}}</view>
-      <view class="stat-sub">{{item.sub}}</view>
+  <!-- 顶部白底常驻条（UI 稿 .topcover：状态栏 + 小程序名行，白底盖住地图，非悬浮） -->
+  <view class="topcover" style="height:{{topcoverH}}px"></view>
+
+  <!-- 顶部悬浮：小程序名 + 搜索框 + 筛选栏 -->
+  <view class="floatbar" style="top:{{statusBarHeight}}px">
+    <view class="brandrow">广州学途</view>
+    <view class="sbox" bindtap="openSearch">
+      <view class="mag"></view>
+      <text class="sbox-ph">搜索广州小初高学校</text>
+    </view>
+    <!-- 筛选栏胶囊：只显示维度名（单选时显示所选项），不显示任何数量角标 -->
+    <view class="filterrow">
+      <view class="chip {{menu==='district'?'on-soft':''}}" data-dim="district" bindtap="openSheet">
+        <text>{{districtLabel}}</text>
+        <view class="caret"></view>
+      </view>
+      <view class="chip {{menu==='stage'?'on-soft':''}}" data-dim="stage" bindtap="openSheet">
+        <text>{{stageLabel}}</text>
+        <view class="caret"></view>
+      </view>
+      <view class="chip {{menu==='nature'?'on-soft':''}}" data-dim="nature" bindtap="openSheet">
+        <text>{{natureLabel}}</text>
+        <view class="caret"></view>
+      </view>
     </view>
   </view>
 
-  <view class="features">
-    <view class="feature" bindtap="goMap">
-      <view class="feature-name">七区中小学·高中分布地图</view>
-      <view class="feature-desc">点位分布 · 区筛选 · 内置 map 组件（GCJ-02）</view>
+  <!-- 图例区 -->
+  <view class="legend {{card?'legend-up':''}}">
+    <view class="lg"><view class="lg-dot" style="background:#2F5CD6"></view>小学</view>
+    <view class="lg"><view class="lg-dot" style="background:#E8850C"></view>初中</view>
+    <view class="lg"><view class="lg-dot" style="background:#0F9D58"></view>高中</view>
+    <view class="lg"><view class="lg-dot lg-multi"></view>多学段</view>
+  </view>
+
+  <!-- 学校卡（点选点位后，最上层，盖住导航栏） -->
+  <view wx:if="{{card}}" class="cardbot {{cardExpanded?'expanded':''}}">
+    <view class="handle" catchtouchstart="cardTouchStart" catchtouchend="cardTouchEnd" bindtap="onHandleTap"></view>
+    <view class="cclose" catchtap="closeCard">×</view>
+    <view class="cbhead" bindtap="expandCard">
+      <view class="cbtop"><text class="nm">{{card.name}}</text></view>
+      <view class="cbtags">
+        <view wx:for="{{card.tags}}" wx:key="key" class="tag m tag-{{item.cls}}">{{item.text}}</view>
+      </view>
     </view>
-    <view class="feature" bindtap="goSupport">
-      <view class="feature-name">口碑学校 · 支撑度核验</view>
-      <view class="feature-desc">小学 {{stats[3].sub}} 网传名校核验</view>
+    <view class="cbrow">
+      <text>点击点位查看，选中点位高亮</text>
+      <view class="cbmore" catchtap="expandCard">展开详情</view>
     </view>
+    <view wx:if="{{cardExpanded}}" class="cbexpand">
+      <view class="cbtip">已展开全屏 · 上滑手势或「返回」可收起</view>
+      <view class="cbmore solid" catchtap="goDetail">查看完整详情 ›</view>
+    </view>
+    <view wx:if="{{cardExpanded}}" class="cbreturn" catchtap="collapseCard">返回</view>
+  </view>
+
+  <!-- 筛选半窗 -->
+  <view wx:if="{{menu}}" class="bglayer">
+    <view class="mask" bindtap="closeSheet"></view>
+    <view class="sheet">
+      <view class="sheettop">
+        <view class="back" bindtap="closeSheet"><view class="chev"></view></view>
+        <view class="sip" bindtap="openSearch"><view class="mag"></view><text>支持广州小初高学校搜索</text></view>
+        <view class="sgo-lite" bindtap="openSearch">搜索</view>
+      </view>
+      <view class="dims">
+        <view class="chip {{menu==='district'?'on-soft':''}}" data-dim="district" bindtap="switchDim"><text>行政区</text><view class="caret"></view></view>
+        <view class="chip {{menu==='stage'?'on-soft':''}}" data-dim="stage" bindtap="switchDim"><text>学段</text><view class="caret"></view></view>
+        <view class="chip {{menu==='nature'?'on-soft':''}}" data-dim="nature" bindtap="switchDim"><text>办学性质</text><view class="caret"></view></view>
+      </view>
+      <scroll-view scroll-y class="optscroll">
+        <view wx:if="{{menu==='district'}}" class="opts">
+          <view wx:for="{{districts}}" wx:key="adcode" class="opt {{item.checked?'on':''}}" data-adcode="{{item.adcode}}" bindtap="toggleDistrict">{{item.name}}</view>
+        </view>
+        <view wx:if="{{menu==='stage'}}" class="optgroups">
+          <view class="optgrp">
+            <view class="ghd">小学</view>
+            <view class="opts"><view class="opt {{stagePri?'on':''}}" data-stage="primary" bindtap="toggleStage">小学</view></view>
+          </view>
+          <view class="optgrp">
+            <view class="ghd">初中</view>
+            <view class="opts"><view class="opt {{stageMid?'on':''}}" data-stage="middle" bindtap="toggleStage">初中</view></view>
+          </view>
+          <view class="optgrp">
+            <view class="ghd">高中</view>
+            <view class="opts">
+              <view class="opt {{hM?'on':''}}" data-grade="hM" bindtap="toggleGrade">省市属示范</view>
+              <view class="opt {{hD?'on':''}}" data-grade="hD" bindtap="toggleGrade">区属示范</view>
+              <view class="opt {{hN?'on':''}}" data-grade="hN" bindtap="toggleGrade">其他学校</view>
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{menu==='nature'}}" class="opts">
+          <view wx:for="{{SCHOOL_NATURE_TABS}}" wx:key="v" class="opt {{item.checked?'on':''}}" data-nature="{{item.v}}" bindtap="toggleNature">{{item.l}}</view>
+        </view>
+      </scroll-view>
+      <view class="sfoot">
+        <view class="none" bindtap="clearDim">全不选</view>
+        <view class="ok" bindtap="confirmSheet">确认</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 筛选结果为空 · 地图中央浮层（UI 稿异常态 C：不遮挡地图手势，点浮层外关闭浮层保留筛选） -->
+  <view wx:if="{{filterEmpty}}" class="fempty">
+    <view class="fempty-t">当前筛选下无匹配学校</view>
+    <view class="fempty-d">试试取消部分筛选条件</view>
+    <view class="fempty-d">或扩大行政区范围</view>
+    <view class="fempty-btn" catchtap="resetFilters">重置筛选</view>
+  </view>
+
+  <!-- 搜索页（全屏层） -->
+  <view wx:if="{{searchVisible}}" class="searchpage">
+    <view class="searchhead" style="padding-top:{{searchHeadTop}}px;padding-right:{{searchHeadRight}}px">
+      <view class="back" bindtap="closeSearch"><view class="chev"></view></view>
+      <view class="sip {{kw?'typed':''}}">
+        <view class="mag"></view>
+        <input class="sinput" focus="{{searchFocus}}" placeholder="支持广州小初高学校搜索" placeholder-class="ph" value="{{kw}}" confirm-type="search" bindinput="onSearchInput" bindconfirm="onSearchConfirm" />
+      </view>
+      <view class="sgo {{kw?'show':''}}" bindtap="onSearchConfirm">搜索</view>
+    </view>
+    <scroll-view scroll-y class="sbody">
+      <block wx:if="{{!kw}}">
+        <view wx:if="{{history.length}}" class="sblock">
+          <view class="shd"><text class="sht">历史记录</text><text class="clr" bindtap="clearHistory">清空</text></view>
+          <view class="pillwrap">
+            <view wx:for="{{history}}" wx:key="*this" class="pill" data-kw="{{item}}" bindtap="tapHistory">{{item}}</view>
+          </view>
+        </view>
+        <view class="sblock">
+          <view class="shd"><text class="sht">快速搜索省市属高中（按拼音首字母排序）</text></view>
+          <view class="slist">
+            <view wx:for="{{recommends}}" wx:key="name" class="srow" data-name="{{item.name}}" bindtap="tapRecommend">
+              <text class="nm">{{item.name}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="sug">
+          <!-- 词条右侧标签：行政区固定带「区」字；多学段学校按学段拆成多枚标签，不合并为一枚 -->
+          <view wx:for="{{assocs}}" wx:key="name" class="srow" data-idx="{{index}}" bindtap="pickAssoc">
+            <text class="nm">{{item.name}}</text>
+            <view class="tag tag-dist">{{item.district}}</view>
+            <view wx:for="{{item.stages}}" wx:for-item="st" wx:key="*this" class="tag tag-stage">{{st}}</view>
+          </view>
+          <view wx:if="{{!assocs.length}}" class="sempty">
+            <view class="sempty-ico"><view class="sempty-mag"></view></view>
+            <view class="sempty-t">未找到相关学校</view>
+            <view class="sempty-d">没有找到与「{{kw}}」匹配的学校</view>
+            <view class="sempty-d">试试换个关键词，或放宽筛选条件</view>
+            <view class="sempty-btn" bindtap="clearAndResearch">清空并重新搜索</view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
   </view>
 </view>
