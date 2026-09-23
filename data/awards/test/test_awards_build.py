@@ -21,9 +21,9 @@ GUANGFU_HUANGHUA = "gz-440104-b22c4eca"
 # 会触发失败，要求人工核对后再更新；不要为通过测试直接刷新这组值。
 SNAPSHOT = {
     "innovation": {"records": 522, "matched": 392, "digest": "06e62dfd2dfb991450236c908df191a0deb604f499a33e609711b951f34512f6"},
-    "chuangke": {"years": 2, "records": 145, "matched": 112, "digest": "773b3536ff6bacdc6d8e4c2989a067713d72ed09cc5fd11d264fcc5a38a57c39"},
+    "chuangke": {"years": 2, "records": 145, "matched": 113, "digest": "2d43f968d0eeede5c9df96fe9f4343a07863a5525c69927610e6b30f7995b7ae"},
     "science_literacy": {"records": 531, "matched": 352},
-    "details": {"records": 856, "digest": "c66934823511383ea489ec7ff6dffc96350212127bc39246756e3abfb35d1484"},
+    "details": {"records": 857, "digest": "7b3ff7581bc9ed2f4dfaac0b7cbc21886c1740c41adeae974a04dcf0fe859f64"},
 }
 
 
