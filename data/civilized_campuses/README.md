@@ -22,7 +22,7 @@ parsed**；已确认的正式名单可做最小化原文摘录，以观察不同
 
 广州已完整落地的名单为：第二届“广州市文明校园”49 所，以及 2021—2023 年创建广州市文明
 校园先进学校 63 所，见 `parsed/guangzhou_civilized_campuses.json`。前者与后者分别编译为两个
-纯 `school_id` 的 dist 文件，并由 `test/test_guangzhou_build.py` 固定匹配审阅快照。第一届市级正式
+纯 `school_id` 的 dist 文件，并由唯一入口 `test/test_build.py` 固定匹配审阅快照。第一届市级正式
 名单目前仅有“65 所”的数量口径，尚未取得完整名单，故不以 65 或 115 凑造记录。
 
 首批范围：
@@ -94,7 +94,8 @@ python3 data/civilized_campuses/scripts/build_dist.py
 python3 data/civilized_campuses/scripts/build_dist.py --review
 # 将同一审阅结果写入 test 产物（测试命令也会自动执行此步）
 python3 data/civilized_campuses/scripts/build_dist.py --review-output data/civilized_campuses/test/national_civilized_campus_match_review.json
-python3 data/civilized_campuses/test/test_build_dist.py
+# 全国、省级、广州正式与创建储备的唯一测试入口
+python3 data/civilized_campuses/test/test_build.py
 ```
 
 脚本不依赖第三方 Python 包，并对三届广东省段分别断言 30、37、48 条。顿号出现在括号内的
