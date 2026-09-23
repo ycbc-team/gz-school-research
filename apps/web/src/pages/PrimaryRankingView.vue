@@ -7,21 +7,24 @@ import DetailPageHeader from '../components/DetailPageHeader.vue';
 import DetailRankingList from '../components/DetailRankingList.vue';
 
 type Group = 'none' | 'district';
+const CIVILIZED_FILTERS = [['national', '全国文明校园'], ['provincial', '广东省文明校园'], ['municipal', '广州市文明校园'], ['advanced', '创建先进学校（储备）'], ['other', '其他']] as const;
+type CivilizedKey = typeof CIVILIZED_FILTERS[number][0];
 const groupBy = ref<Group>('none');
 const open = ref<'group' | 'filter' | null>(null);
 const selectedDistricts = ref(new Set(DISTRICTS.map((d) => d.adcode)));
-const honor = ref<Set<'national' | 'other'> | null>(null);
+const honor = ref<Set<CivilizedKey> | null>(null);
 const allDistricts = computed(() => selectedDistricts.value.size === DISTRICTS.length);
 const allHonors = computed(() => honor.value === null);
 function toggleDistrict(id: string) { const n = new Set(selectedDistricts.value); n.has(id) ? n.delete(id) : n.add(id); selectedDistricts.value = n; }
-function toggleHonor(v: 'national' | 'other') { const n = new Set<'national' | 'other'>(honor.value || ['national', 'other']); n.has(v) ? n.delete(v) : n.add(v); honor.value = n; }
+function schoolHonors(schoolId?: string) { return schoolId ? CIVILIZED_FILTERS.filter(([key]) => key !== 'other' && (civilizedCampusSchoolIds[key] || []).includes(schoolId)).map(([, label]) => label) : []; }
+function toggleHonor(v: CivilizedKey) { const n = new Set<CivilizedKey>(honor.value || CIVILIZED_FILTERS.map(([key]) => key)); n.has(v) ? n.delete(v) : n.add(v); honor.value = n; }
 function toggleAllDistricts() { selectedDistricts.value = allDistricts.value ? new Set() : new Set(DISTRICTS.map((d) => d.adcode)); }
 function toggleAllHonors() { honor.value = allHonors.value ? new Set() : null; }
 function isVisible(s: { school_id?: string; adcode: string }) {
   const district = allDistricts.value || selectedDistricts.value.has(s.adcode);
   if (!district || allHonors.value) return district;
-  const national = !!s.school_id && civilizedCampusSchoolIds.national?.includes(s.school_id);
-  return (honor.value!.has('national') && national) || (honor.value!.has('other') && !national);
+  const honors = schoolHonors(s.school_id);
+  return [...honor.value!].some((key) => key === 'other' ? honors.length === 0 : honors.includes(CIVILIZED_FILTERS.find(([filterKey]) => filterKey === key)![1]));
 }
 const districtName = (adcode: string) => DISTRICTS.find((d) => d.adcode === adcode)?.name || '其他';
 const groups = computed(() => {
@@ -47,14 +50,14 @@ const filterCount = computed(() => (allDistricts.value ? 0 : selectedDistricts.v
       </div>
       <div v-if="open === 'filter'">
         <div class="pop-group-title">位置</div><div class="pop-chips"><button v-for="d in DISTRICTS" :key="d.adcode" class="pop-chip" :class="{ on: selectedDistricts.has(d.adcode) }" @click="toggleDistrict(d.adcode)">{{ d.name }}</button></div><div class="pop-foot"><button class="pop-link" @click="toggleAllDistricts">{{ allDistricts ? '全不选' : '全选' }}</button></div>
-        <div class="pop-group-title">校园荣誉</div><div class="pop-chips"><button class="pop-chip" :class="{ on: allHonors || honor?.has('national') }" @click="toggleHonor('national')">全国文明校园</button><button class="pop-chip" :class="{ on: allHonors || honor?.has('other') }" @click="toggleHonor('other')">其他</button></div><div class="pop-foot"><button class="pop-link" @click="toggleAllHonors">{{ allHonors ? '全不选' : '全选' }}</button><button class="pop-link" @click="open = null">完成</button></div>
+        <div class="pop-group-title">校园荣誉</div><div class="pop-chips"><button v-for="option in CIVILIZED_FILTERS" :key="option[0]" class="pop-chip" :class="{ on: allHonors || honor?.has(option[0]) }" @click="toggleHonor(option[0])">{{ option[1] }}</button></div><div class="pop-foot"><button class="pop-link" @click="toggleAllHonors">{{ allHonors ? '全不选' : '全选' }}</button><button class="pop-link" @click="open = null">完成</button></div>
       </div>
     </DetailFilterBar>
 
     <DetailRankingList :groups="groups" :group-key="(g) => g.title || 'all'">
       <template #heading="{ group: g }"><h2 v-if="groupBy === 'district'">{{ g.title }}<em>{{ g.rows.length }} 所</em></h2></template>
       <template #default="{ group: g }">
-        <table class="rank-table"><colgroup><col class="col-school"><col class="col-district"><col class="col-honor"></colgroup><thead><tr><th>学校 / 校区</th><th>位置</th><th>校园荣誉</th></tr></thead><tbody><tr v-for="s in g.rows" :key="s.school_id || s.name"><td class="school"><RouterLink :to="{ path: '/school/' + encodeURIComponent(s.name), query: { stage: 'primary', ...(s.school_id ? { id: s.school_id } : {}) } }">{{ s.name }}</RouterLink></td><td>{{ districtName(s.adcode) }}</td><td><span v-if="s.school_id && civilizedCampusSchoolIds.national?.includes(s.school_id)" class="honor">全国文明校园</span><span v-else class="empty">—</span></td></tr></tbody></table>
+        <table class="rank-table"><colgroup><col class="col-school"><col class="col-district"><col class="col-honor"></colgroup><thead><tr><th>学校 / 校区</th><th>位置</th><th>校园荣誉</th></tr></thead><tbody><tr v-for="s in g.rows" :key="s.school_id || s.name"><td class="school"><RouterLink :to="{ path: '/school/' + encodeURIComponent(s.name), query: { stage: 'primary', ...(s.school_id ? { id: s.school_id } : {}) } }">{{ s.name }}</RouterLink></td><td>{{ districtName(s.adcode) }}</td><td><span v-if="schoolHonors(s.school_id).length" class="honor">{{ schoolHonors(s.school_id).join(' · ') }}</span><span v-else class="empty">—</span></td></tr></tbody></table>
       </template>
     </DetailRankingList>
   </div>
