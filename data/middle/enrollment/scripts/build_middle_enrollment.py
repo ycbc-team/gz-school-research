@@ -93,6 +93,31 @@ SCHOOL_NORM = {
 # 清华附中湾区学校（智谷校区）/暨南大学附属实验学校（初中部）/广州市天河区暨南第一实验学校
 # 均已在 build_entities.py OFFICIAL_MIDDLE_ALIAS 建别名，由 SchoolMatcher 统一命中；不再保留业务别名表。
 
+# 派位组显示名：从机制备注提取组号，统一「电脑派位第N组」（越秀中文序数/海珠阿拉伯/荔湾无第字/番禺无号）。
+# 小学升学 Badge 曾用小学侧组名（「XX区小升初第N组（电脑派位）」），直建后初中侧组号在 mechanism_note；
+# 归一为简洁「电脑派位第N组」供前端 Badge（用户 2026-09-23 要求接回组信息）。
+_CN_NUM = {"一": 1, "二": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9}
+
+def _cn2num(raw):
+    if raw == "十":
+        return 10
+    if len(raw) == 1:
+        return _CN_NUM.get(raw, 0)
+    if raw.startswith("十"):          # 十一 → 11 … 十九 → 19（越秀 11 组上限）
+        return 10 + _CN_NUM.get(raw[1:], 0)
+    return 0
+
+def _group_name(note):
+    """机制备注 → 派位组显示名（「电脑派位第N组」）；无组号（番禺）→「电脑派位」。"""
+    m = re.search(r"第\s*([一二三四五六七八九十\d]+)\s*组", note or "")
+    if not m:
+        m = re.search(r"([一二三四五六七八九十\d]+)\s*组", note or "")  # 荔湾「1组电脑派位」无「第」
+    if not m:
+        return "电脑派位"
+    raw = m.group(1)
+    n = int(raw) if raw.isdigit() else _cn2num(raw)
+    return f"电脑派位第{n}组" if n else "电脑派位"
+
 # 区级枚举定义：UI 直接用 label / lose_text
 MECHANISMS = {
     "single_zone":    {"label": "单校划片",     "can_lose": False, "lose_text": None},
@@ -201,34 +226,33 @@ def build_baiyun():
         "records": recs,
     }
 
-# ---------- 荔湾（从派位组） ----------
+# ---------- 荔湾（官方派位组表，2026-09-23 改按组逐条：替代历史一校并集式） ----------
 def build_liwan():
+    """荔湾：官方派位组表 15 组（转录 liwan_2026_groups.json，组×中学×对口小学三列）。
+    每组成员逐条记录（一校多规则：同一初中可属多组），对口小学列 → groups[gid].primaries。
+    历史实现按 school 合并成员并集（组号丢失、官方组结构失真），本次改为与越秀/海珠同款逐组直建。"""
     raw = json.load(open(os.path.join(RAW, "liwan_2026_groups.json")))
-    rec_map = {}  # school -> rec
+    recs = []
     for g in raw:
         cells = g.get("cells", [])
         if len(cells) < 3: continue
         group_name = cells[0][0] if cells[0] else ""
-        if not re.match(r"^\d+组$", group_name): continue
-        middle_col = cells[1] if len(cells) > 1 else []
-        # cells[1] 是 list[str]，每个中学一个元素
-        members = [s.strip() for s in middle_col if s.strip()]
+        if not re.match(r"^\d+组$", group_name): continue  # 跳过表头行
+        members = [s.strip() for s in cells[1] if s.strip()]
+        if not members: continue
+        primaries = [p.strip() for cell in cells[2] for p in re.split(r"[、,，]", cell) if p.strip()]
+        note = f"荔湾区{group_name}电脑派位"
         for m in members:
-            if m not in rec_map:
-                rec_map[m] = {"school": m, "school_id": None, "plan_classes": None,
-                              "scope": None, "mechanism": "group_paidui",
-                              "mechanism_note": f"荔湾区{group_name}电脑派位",
-                              "group_members": members}
-            else:
-                # 同一初中可能在多组（如真光本部在多个组），保留成员列表并集
-                rec_map[m]["group_members"] = sorted(set(rec_map[m]["group_members"] or []) | set(members))
-    recs = []
-    for m, r in rec_map.items():
-        _sid, _sids = match_school_ids(m, "440103")
+            recs.append({
+                "school": m, "school_id": None, "plan_classes": None, "scope": None,
+                "mechanism": "group_paidui", "mechanism_note": note,
+                "group_members": members, "_group_primaries": primaries or None,
+            })
+    for r in recs:
+        _sid, _sids = match_school_ids(r["school"], "440103")
         r["school_id"] = _sid
         if _sids:
             r["school_ids"] = _sids
-        recs.append(r)
     return {
         "year": 2026, "district": "荔湾区",
         "source": "荔湾区教育局 2026 公办初中招生派位组表（parsed/_transcripts/liwan_2026_groups.json）",
@@ -563,12 +587,14 @@ if __name__ == "__main__":
             members = r.pop("group_members", None)
             primaries = r.pop("_group_primaries", None)
             if members:
-                key = tuple(sorted(members))
+                # 去重 key 含对口小学：官方 1/2、8/9、13/14 组中学列表相同但小学列不同
+                # （荔湾），仅按 members 去重会合并丢小学 → (members, primaries) 联合去重。
+                key = (tuple(sorted(members)), tuple(sorted(primaries or [])))
                 gid = seen.get(key)
                 if gid is None:
                     gid = f"{dk}-{len(seen) + 1}"
                     seen[key] = gid
-                    entry = {"district": districts[dk]["district"], "members": sorted(key)}
+                    entry = {"district": districts[dk]["district"], "name": _group_name(r.get("mechanism_note")), "members": sorted(key[0])}
                     if primaries:
                         entry["primaries"] = primaries
                     groups[gid] = entry

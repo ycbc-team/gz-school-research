@@ -301,7 +301,10 @@ export interface MiddleEnrollmentSnapshot {
   records: MiddleEnrollmentRecord[];
 }
 /** dist 合并结构：mechanisms 顶层一份 + groups 独立组表（包体优化） */
-export type MiddleEnrollmentGroups = Record<string, { district: string; members: string[] }>;
+export type MiddleEnrollmentGroups = Record<
+  string,
+  { district: string; name?: string; members: string[]; primaries?: string[] }
+>;
 
 /** 学段标识 */
 export type SchoolStage = 'primary' | 'middle' | 'high';

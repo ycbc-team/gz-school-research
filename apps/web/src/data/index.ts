@@ -70,6 +70,8 @@ const loaders: DataLoaders = {
 
 /** 共享数据仓库（查询/判定/匹配业务逻辑全部来自 @gz/shared，双端单点维护） */
 export const repository = createRepository(loaders);
+/** 派位组表（dist 合并 groups：district/name/members/primaries），详情页成员 Badge 组名用 */
+export const middleEnrollmentGroups = loaders.middleEnrollmentGroups;
 
 /** 地图点位集（三学段合并/去重/分类，构建一次；小程序同构导出） */
 export const mapPoints: MapPointFull[] = buildPoints(loaders);

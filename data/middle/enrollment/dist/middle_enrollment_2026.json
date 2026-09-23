@@ -21,6 +21,7 @@
  "groups": {
   "panyu-1": {
    "district": "番禺区",
+   "name": "电脑派位",
    "members": [
     "市桥东风中学",
     "市桥侨联中学",
@@ -34,6 +35,7 @@
   },
   "panyu-2": {
    "district": "番禺区",
+   "name": "电脑派位",
    "members": [
     "广铁一中番禺校区",
     "广铁一中铁英学校(东校区)",
@@ -42,208 +44,232 @@
   },
   "liwan-3": {
    "district": "荔湾区",
+   "name": "电脑派位第1组",
    "members": [
-    "中国教育科学研究院荔湾实验学校",
-    "广东实验中学荔湾学校广钢新城校区",
-    "广东实验中学荔湾学校花地湾校区",
     "广东广雅中学初中部",
     "广州市南海中学",
-    "广州市真光中学东漖学校",
-    "广州市真光中学初中部实验校区",
     "广州市真光中学初中部岭南校区",
     "广州市真光中学初中部本部校区",
-    "广州市真光中学初中部芳花校区",
-    "广州市真光中学文伟学校",
-    "广州市真光中学金道学校",
     "广州市第一中学初中部",
-    "广州市第一中学十甫学校",
-    "广州市第一中学双桥学校",
     "广州市第一中学姜中宏校区",
-    "广州市第一中学红岩学校",
-    "广州市第四中学丰宁学校",
     "广州市第四中学初中津园校区",
-    "广州市第四中学初中逸园校区",
     "广州市第四中学初中雁园校区",
     "广州市美华中学",
     "广州市荔湾区西关广雅实验学校东风西校区",
     "广州市荔湾区西关广雅实验学校南岸路校区",
-    "广州市荔湾区西关广雅实验学校大坦沙校区",
-    "广州市西关培英中学",
     "广州市西关外国语学校彩虹桥校区",
     "广州市西关外国语学校文昌南校区",
     "广州市西关外国语学校校本部",
     "广州市西关外国语流花学校",
     "广州市陈嘉庚纪念中学"
+   ],
+   "primaries": [
+    "广州市第一中学附属环市西路小学（竹苑校区",
+    "绿森林校区）",
+    "广州市西关外国语学校附属",
+    "流花小学",
+    "华侨小学翠园学校",
+    "广雅小学（东风西校区",
+    "岭南湾畔校区）"
    ]
   },
   "liwan-4": {
    "district": "荔湾区",
+   "name": "电脑派位第2组",
    "members": [
     "广东广雅中学初中部",
     "广州市南海中学",
     "广州市真光中学初中部岭南校区",
     "广州市真光中学初中部本部校区",
     "广州市第一中学初中部",
-    "广州市第一中学十甫学校",
     "广州市第一中学姜中宏校区",
-    "广州市第四中学丰宁学校",
     "广州市第四中学初中津园校区",
     "广州市第四中学初中雁园校区",
     "广州市美华中学",
     "广州市荔湾区西关广雅实验学校东风西校区",
     "广州市荔湾区西关广雅实验学校南岸路校区",
-    "广州市西关培英中学",
     "广州市西关外国语学校彩虹桥校区",
     "广州市西关外国语学校文昌南校区",
     "广州市西关外国语学校校本部",
     "广州市西关外国语流花学校",
     "广州市陈嘉庚纪念中学"
+   ],
+   "primaries": [
+    "华侨小学（校本部）",
+    "华侨小学汇龙学校",
+    "广州市西关外国语学校（泮溪",
+    "校区）",
+    "广州市西关外国语学校附属",
+    "西华小学",
+    "广州市第四中学附属芦荻西",
+    "小学"
    ]
   },
   "liwan-5": {
    "district": "荔湾区",
+   "name": "电脑派位第3组",
    "members": [
     "广东广雅中学初中部",
     "广州市南海中学",
     "广州市真光中学初中部岭南校区",
     "广州市真光中学初中部本部校区",
     "广州市第一中学初中部",
-    "广州市第一中学十甫学校",
-    "广州市第一中学双桥学校",
     "广州市第一中学姜中宏校区",
     "广州市第四中学丰宁学校",
     "广州市第四中学初中津园校区",
-    "广州市第四中学初中逸园校区",
     "广州市第四中学初中雁园校区",
     "广州市美华中学",
     "广州市荔湾区西关广雅实验学校东风西校区",
     "广州市荔湾区西关广雅实验学校南岸路校区",
-    "广州市荔湾区西关广雅实验学校大坦沙校区",
-    "广州市西关培英中学",
     "广州市西关外国语学校彩虹桥校区",
     "广州市西关外国语学校文昌南校区",
-    "广州市西关外国语学校校本部",
-    "广州市西关外国语流花学校",
-    "广州市陈嘉庚纪念中学"
+    "广州市西关外国语学校校本部"
+   ],
+   "primaries": [
+    "乐贤坊小学（校本部）",
+    "乐贤坊小学（荔枝湾校区）",
+    "乐贤坊小学宝源学校",
+    "蒋光鼐纪念小学三元坊学校",
+    "西关实验小学（光复校区）",
+    "广州市第四中学附属耀华小学"
    ]
   },
   "liwan-6": {
    "district": "荔湾区",
+   "name": "电脑派位第4组",
    "members": [
     "广东广雅中学初中部",
-    "广州市南海中学",
     "广州市真光中学初中部岭南校区",
     "广州市真光中学初中部本部校区",
     "广州市第一中学初中部",
+    "广州市第一中学十甫学校",
     "广州市第一中学姜中宏校区",
+    "广州市第四中学丰宁学校",
     "广州市第四中学初中津园校区",
     "广州市第四中学初中雁园校区",
-    "广州市美华中学",
     "广州市荔湾区西关广雅实验学校东风西校区",
     "广州市荔湾区西关广雅实验学校南岸路校区",
+    "广州市西关培英中学",
     "广州市西关外国语学校彩虹桥校区",
     "广州市西关外国语学校文昌南校区",
-    "广州市西关外国语学校校本部",
-    "广州市西关外国语流花学校",
-    "广州市陈嘉庚纪念中学"
+    "广州市西关外国语学校校本部"
+   ],
+   "primaries": [
+    "西关培正小学（恩宁校区）",
+    "西关培正小学（如意坊校区）",
+    "广州市第一中学附属詹天佑小学",
+    "乐贤坊小学龙津学校"
    ]
   },
   "liwan-7": {
    "district": "荔湾区",
+   "name": "电脑派位第5组",
    "members": [
     "广东广雅中学初中部",
     "广州市南海中学",
     "广州市真光中学初中部岭南校区",
     "广州市真光中学初中部本部校区",
     "广州市第一中学初中部",
-    "广州市第一中学双桥学校",
+    "广州市第一中学十甫学校",
     "广州市第一中学姜中宏校区",
-    "广州市第四中学丰宁学校",
     "广州市第四中学初中津园校区",
-    "广州市第四中学初中逸园校区",
     "广州市第四中学初中雁园校区",
-    "广州市美华中学",
     "广州市荔湾区西关广雅实验学校东风西校区",
     "广州市荔湾区西关广雅实验学校南岸路校区",
-    "广州市荔湾区西关广雅实验学校大坦沙校区",
     "广州市西关培英中学",
     "广州市西关外国语学校彩虹桥校区",
     "广州市西关外国语学校文昌南校区",
-    "广州市西关外国语学校校本部",
-    "广州市西关外国语流花学校",
-    "广州市陈嘉庚纪念中学"
+    "广州市西关外国语学校校本部"
+   ],
+   "primaries": [
+    "沙面小学（校本部",
+    "岭南校区",
+    "御景校区）",
+    "蒋光鼐纪念小学",
+    "蒋光鼐纪念小学文昌学校"
    ]
   },
   "liwan-8": {
    "district": "荔湾区",
+   "name": "电脑派位第6组",
    "members": [
     "广东广雅中学初中部",
-    "广州市南海中学",
-    "广州市真光中学初中部岭南校区",
     "广州市真光中学初中部本部校区",
     "广州市第一中学初中部",
-    "广州市第一中学十甫学校",
+    "广州市第一中学双桥学校",
     "广州市第一中学姜中宏校区",
-    "广州市第四中学丰宁学校",
-    "广州市第四中学初中津园校区",
+    "广州市第四中学初中逸园校区",
     "广州市第四中学初中雁园校区",
     "广州市美华中学",
     "广州市荔湾区西关广雅实验学校东风西校区",
     "广州市荔湾区西关广雅实验学校南岸路校区",
+    "广州市荔湾区西关广雅实验学校大坦沙校区",
     "广州市西关培英中学",
     "广州市西关外国语学校彩虹桥校区",
     "广州市西关外国语学校文昌南校区",
     "广州市西关外国语学校校本部"
+   ],
+   "primaries": [
+    "沙面小学（柏悦湾校区",
+    "大坦沙校区）",
+    "广州市第一中学双桥学校（小学部）"
    ]
   },
   "liwan-9": {
    "district": "荔湾区",
+   "name": "电脑派位第7组",
    "members": [
+    "中国教育科学研究院荔湾实验学校",
+    "广东实验中学荔湾学校广钢新城校区",
+    "广东实验中学荔湾学校花地湾校区",
     "广东广雅中学初中部",
-    "广州市南海中学",
-    "广州市真光中学初中部岭南校区",
+    "广州市真光中学东漖学校",
+    "广州市真光中学初中部实验校区",
     "广州市真光中学初中部本部校区",
-    "广州市第一中学初中部",
-    "广州市第一中学十甫学校",
-    "广州市第一中学双桥学校",
-    "广州市第一中学姜中宏校区",
-    "广州市第四中学丰宁学校",
-    "广州市第四中学初中津园校区",
+    "广州市真光中学初中部芳花校区",
     "广州市第四中学初中逸园校区",
-    "广州市第四中学初中雁园校区",
-    "广州市美华中学",
-    "广州市荔湾区西关广雅实验学校东风西校区",
-    "广州市荔湾区西关广雅实验学校南岸路校区",
     "广州市荔湾区西关广雅实验学校大坦沙校区",
-    "广州市西关培英中学",
-    "广州市西关外国语学校彩虹桥校区",
-    "广州市西关外国语学校文昌南校区",
     "广州市西关外国语学校校本部"
+   ],
+   "primaries": [
+    "康有为纪念小学（校本部）",
+    "康有为纪念小学（东漖校区）",
+    "合兴苑小学",
+    "合兴苑小学鸿图苑学校",
+    "西关实验小学（芳和校区）",
+    "西关实验小学（芳园校区）",
+    "广州市真光中学初中部茶滘校区北区（小学部）"
    ]
   },
   "liwan-10": {
    "district": "荔湾区",
+   "name": "电脑派位第8组",
    "members": [
+    "中国教育科学研究院荔湾实验学校",
+    "广东实验中学荔湾学校广钢新城校区",
+    "广东实验中学荔湾学校花地湾校区",
     "广东广雅中学初中部",
-    "广州市南海中学",
-    "广州市真光中学初中部岭南校区",
+    "广州市真光中学初中部实验校区",
     "广州市真光中学初中部本部校区",
-    "广州市第一中学初中部",
-    "广州市第一中学十甫学校",
-    "广州市第一中学姜中宏校区",
-    "广州市第四中学丰宁学校",
-    "广州市第四中学初中津园校区",
-    "广州市第四中学初中雁园校区",
-    "广州市荔湾区西关广雅实验学校东风西校区",
-    "广州市荔湾区西关广雅实验学校南岸路校区",
-    "广州市西关培英中学",
-    "广州市西关外国语学校彩虹桥校区",
-    "广州市西关外国语学校文昌南校区",
+    "广州市真光中学初中部芳花校区",
+    "广州市第一中学红岩学校",
+    "广州市第四中学初中逸园校区",
+    "广州市荔湾区西关广雅实验学校大坦沙校区",
     "广州市西关外国语学校校本部"
+   ],
+   "primaries": [
+    "西关培正小学（凯粤湾校区）",
+    "西关培正小学（芳信校区）",
+    "林凤娥小学",
+    "康有为纪念小学五眼桥学校",
+    "康有为纪念小学南塘学校",
+    "合兴苑小学葵蓬学校",
+    "广州市真光中学附属小学（滘口校区）"
    ]
   },
   "liwan-11": {
    "district": "荔湾区",
+   "name": "电脑派位第9组",
    "members": [
     "中国教育科学研究院荔湾实验学校",
     "广东实验中学荔湾学校广钢新城校区",
@@ -253,97 +279,70 @@
     "广州市真光中学初中部实验校区",
     "广州市真光中学初中部本部校区",
     "广州市真光中学初中部芳花校区",
-    "广州市真光中学文伟学校",
-    "广州市真光中学金道学校",
-    "广州市第一中学初中部",
-    "广州市第一中学双桥学校",
-    "广州市第一中学姜中宏校区",
-    "广州市第一中学红岩学校",
     "广州市第四中学初中逸园校区",
-    "广州市第四中学初中雁园校区",
-    "广州市美华中学",
-    "广州市荔湾区西关广雅实验学校东风西校区",
-    "广州市荔湾区西关广雅实验学校南岸路校区",
     "广州市荔湾区西关广雅实验学校大坦沙校区",
-    "广州市西关培英中学",
-    "广州市西关外国语学校彩虹桥校区",
-    "广州市西关外国语学校文昌南校区",
     "广州市西关外国语学校校本部"
+   ],
+   "primaries": [
+    "西关实验小学海北学校",
+    "西关实验小学增滘学校",
+    "西关实验小学龙溪学校"
    ]
   },
   "liwan-12": {
    "district": "荔湾区",
+   "name": "电脑派位第10组",
    "members": [
+    "中国教育科学研究院荔湾实验学校",
+    "广东实验中学荔湾学校广钢新城校区",
+    "广东实验中学荔湾学校花地湾校区",
     "广东广雅中学初中部",
+    "广州市真光中学初中部实验校区",
     "广州市真光中学初中部本部校区",
-    "广州市第一中学初中部",
-    "广州市第一中学双桥学校",
-    "广州市第一中学姜中宏校区",
+    "广州市真光中学初中部芳花校区",
+    "广州市真光中学文伟学校",
     "广州市第四中学初中逸园校区",
-    "广州市第四中学初中雁园校区",
-    "广州市美华中学",
-    "广州市荔湾区西关广雅实验学校东风西校区",
-    "广州市荔湾区西关广雅实验学校南岸路校区",
     "广州市荔湾区西关广雅实验学校大坦沙校区",
-    "广州市西关培英中学",
-    "广州市西关外国语学校彩虹桥校区",
-    "广州市西关外国语学校文昌南校区",
     "广州市西关外国语学校校本部"
+   ],
+   "primaries": [
+    "何香凝纪念学校",
+    "芳村小学南漖学校",
+    "康有为纪念小学海中学校",
+    "广州市真光中学附属西塱小学"
    ]
   },
   "liwan-13": {
    "district": "荔湾区",
+   "name": "电脑派位第11组",
    "members": [
     "中国教育科学研究院荔湾实验学校",
     "广东实验中学荔湾学校广钢新城校区",
     "广东实验中学荔湾学校花地湾校区",
     "广东广雅中学初中部",
-    "广州市真光中学东漖学校",
     "广州市真光中学初中部实验校区",
     "广州市真光中学初中部本部校区",
     "广州市真光中学初中部芳花校区",
-    "广州市真光中学文伟学校",
     "广州市真光中学金道学校",
-    "广州市第一中学红岩学校",
     "广州市第四中学初中逸园校区",
     "广州市荔湾区西关广雅实验学校大坦沙校区",
     "广州市西关外国语学校校本部"
+   ],
+   "primaries": [
+    "芳村小学（校本部）",
+    "芳村小学（沙涌校区）",
+    "芳村小学新东学校",
+    "芳村小学东沙学校",
+    "芳村小学实验学校",
+    "广州市真光中学附属坑口小学",
+    "广州市真光中学附属鹤洞小学",
+    "广州市真光中学附属培真小学",
+    "广东外语外贸大学附属荔湾小学"
    ]
   },
   "liwan-14": {
    "district": "荔湾区",
-   "members": [
-    "中国教育科学研究院荔湾实验学校",
-    "广东实验中学荔湾学校广钢新城校区",
-    "广东实验中学荔湾学校花地湾校区",
-    "广东广雅中学初中部",
-    "广州市真光中学东漖学校",
-    "广州市真光中学初中部实验校区",
-    "广州市真光中学初中部本部校区",
-    "广州市真光中学初中部芳花校区",
-    "广州市第四中学初中逸园校区",
-    "广州市荔湾区西关广雅实验学校大坦沙校区",
-    "广州市西关外国语学校校本部"
-   ]
-  },
-  "liwan-15": {
-   "district": "荔湾区",
-   "members": [
-    "中国教育科学研究院荔湾实验学校",
-    "广东实验中学荔湾学校广钢新城校区",
-    "广东实验中学荔湾学校花地湾校区",
-    "广东广雅中学初中部",
-    "广州市真光中学初中部实验校区",
-    "广州市真光中学初中部本部校区",
-    "广州市真光中学初中部芳花校区",
-    "广州市第一中学红岩学校",
-    "广州市第四中学初中逸园校区",
-    "广州市荔湾区西关广雅实验学校大坦沙校区",
-    "广州市西关外国语学校校本部"
-   ]
-  },
-  "liwan-16": {
-   "district": "荔湾区",
+   "name": "电脑派位第12组",
    "members": [
     "中国教育科学研究院荔湾实验学校",
     "广东实验中学荔湾学校广钢新城校区",
@@ -354,13 +353,54 @@
     "广州市真光中学初中部芳花校区",
     "广州市真光中学文伟学校",
     "广州市真光中学金道学校",
-    "广州市第四中学初中逸园校区",
-    "广州市荔湾区西关广雅实验学校大坦沙校区",
-    "广州市西关外国语学校校本部"
+    "广州市荔湾区西关广雅实验学校大坦沙校区"
+   ],
+   "primaries": [
+    "广东实验中学荔湾学校（第一",
+    "二",
+    "三小学部）",
+    "华南师范大学附属荔湾小学"
+   ]
+  },
+  "liwan-15": {
+   "district": "荔湾区",
+   "name": "电脑派位第13组",
+   "members": [
+    "中国教育科学研究院荔湾实验学校",
+    "广东实验中学荔湾学校广钢新城校区",
+    "广东实验中学荔湾学校花地湾校区",
+    "广东广雅中学初中部",
+    "广州市真光中学东漖学校",
+    "广州市真光中学初中部实验校区",
+    "广州市真光中学初中部本部校区",
+    "广州市真光中学初中部芳花校区",
+    "广州市荔湾区西关广雅实验学校大坦沙校区"
+   ],
+   "primaries": [
+    "中国教育科学研究院荔湾实验学校（小学部）"
+   ]
+  },
+  "liwan-16": {
+   "district": "荔湾区",
+   "name": "电脑派位第14组",
+   "members": [
+    "中国教育科学研究院荔湾实验学校",
+    "广东实验中学荔湾学校广钢新城校区",
+    "广东实验中学荔湾学校花地湾校区",
+    "广东广雅中学初中部",
+    "广州市真光中学东漖学校",
+    "广州市真光中学初中部实验校区",
+    "广州市真光中学初中部本部校区",
+    "广州市真光中学初中部芳花校区",
+    "广州市荔湾区西关广雅实验学校大坦沙校区"
+   ],
+   "primaries": [
+    "广东实验中学荔湾学校花地湾校区（小学部）"
    ]
   },
   "yuexiu-17": {
    "district": "越秀区",
+   "name": "电脑派位第1组",
    "members": [
     "广东实验中学越秀学校（天胜校区）",
     "广州大学附属中学",
@@ -382,6 +422,7 @@
   },
   "yuexiu-18": {
    "district": "越秀区",
+   "name": "电脑派位第2组",
    "members": [
     "广东实验中学越秀学校（天胜校区）",
     "广州大学附属中学",
@@ -403,6 +444,7 @@
   },
   "yuexiu-19": {
    "district": "越秀区",
+   "name": "电脑派位第3组",
    "members": [
     "广东实验中学越秀学校（天胜校区）",
     "广州大学附属中学",
@@ -424,6 +466,7 @@
   },
   "yuexiu-20": {
    "district": "越秀区",
+   "name": "电脑派位第4组",
    "members": [
     "广东华侨中学",
     "广东实验中学越秀学校（天胜校区）",
@@ -444,6 +487,7 @@
   },
   "yuexiu-21": {
    "district": "越秀区",
+   "name": "电脑派位第5组",
    "members": [
     "广东实验中学",
     "广东实验中学越秀学校（天胜校区）",
@@ -468,6 +512,7 @@
   },
   "yuexiu-22": {
    "district": "越秀区",
+   "name": "电脑派位第6组",
    "members": [
     "广东实验中学",
     "广州市培正中学",
@@ -492,6 +537,7 @@
   },
   "yuexiu-23": {
    "district": "越秀区",
+   "name": "电脑派位第7组",
    "members": [
     "广东实验中学",
     "广州市培正中学",
@@ -517,6 +563,7 @@
   },
   "yuexiu-24": {
    "district": "越秀区",
+   "name": "电脑派位第8组",
    "members": [
     "广东华侨中学",
     "广东实验中学",
@@ -537,6 +584,7 @@
   },
   "yuexiu-25": {
    "district": "越秀区",
+   "name": "电脑派位第9组",
    "members": [
     "广东华侨中学",
     "广东实验中学",
@@ -557,6 +605,7 @@
   },
   "yuexiu-26": {
    "district": "越秀区",
+   "name": "电脑派位第10组",
    "members": [
     "广东华侨中学",
     "广东实验中学",
@@ -578,6 +627,7 @@
   },
   "yuexiu-27": {
    "district": "越秀区",
+   "name": "电脑派位第11组",
    "members": [
     "广东实验中学越秀学校（天胜校区）",
     "广州大学附属中学",
@@ -599,6 +649,7 @@
   },
   "haizhu-28": {
    "district": "海珠区",
+   "name": "电脑派位第1组",
    "members": [
     "广东实验中学琶洲学校",
     "广州市五中滨江学校",
@@ -615,6 +666,7 @@
   },
   "haizhu-29": {
    "district": "海珠区",
+   "name": "电脑派位第2组",
    "members": [
     "广东实验中学琶洲学校",
     "广州市南武中学",
@@ -631,6 +683,7 @@
   },
   "haizhu-30": {
    "district": "海珠区",
+   "name": "电脑派位第3组",
    "members": [
     "广东实验中学琶洲学校",
     "广州市南武中学",
@@ -646,6 +699,7 @@
   },
   "haizhu-31": {
    "district": "海珠区",
+   "name": "电脑派位第4组",
    "members": [
     "广东实验中学琶洲学校",
     "广州市南武中学",
@@ -660,6 +714,7 @@
   },
   "haizhu-32": {
    "district": "海珠区",
+   "name": "电脑派位第5组",
    "members": [
     "广东实验中学琶洲学校",
     "广州市九十七中蓝天学校",
@@ -675,6 +730,7 @@
   },
   "haizhu-33": {
    "district": "海珠区",
+   "name": "电脑派位第6组",
    "members": [
     "广东实验中学琶洲学校",
     "广州市南武实验学校",
@@ -690,6 +746,7 @@
   },
   "haizhu-34": {
    "district": "海珠区",
+   "name": "电脑派位第7组",
    "members": [
     "广东实验中学琶洲学校",
     "广州市九十七中蓝天学校",
@@ -706,6 +763,7 @@
   },
   "haizhu-35": {
    "district": "海珠区",
+   "name": "电脑派位第8组",
    "members": [
     "广东实验中学琶洲学校",
     "广州市执信中学琶洲实验学校",
@@ -718,6 +776,7 @@
   },
   "haizhu-36": {
    "district": "海珠区",
+   "name": "电脑派位第9组",
    "members": [
     "广东实验中学琶洲学校",
     "广州市执信中学琶洲实验学校",
@@ -730,6 +789,7 @@
   },
   "haizhu-37": {
    "district": "海珠区",
+   "name": "电脑派位第10组",
    "members": [
     "广东实验中学琶洲学校",
     "广州市执信中学琶洲实验学校",
@@ -741,6 +801,7 @@
   },
   "huangpu-38": {
    "district": "黄埔区",
+   "name": "电脑派位第1组",
    "members": [
     "丰乐初级中学",
     "广大附中黄埔实验学校（东校区）",
@@ -767,6 +828,7 @@
   },
   "huangpu-39": {
    "district": "黄埔区",
+   "name": "电脑派位第2组",
    "members": [
     "东区中学",
     "广州开发区外国语学校",
@@ -784,6 +846,7 @@
   },
   "huangpu-40": {
    "district": "黄埔区",
+   "name": "电脑派位第3组",
    "members": [
     "广州市第一一七中学",
     "广州市黄埔军校中学"
@@ -798,6 +861,7 @@
   },
   "huangpu-41": {
    "district": "黄埔区",
+   "name": "电脑派位第4组",
    "members": [
     "北京师范大学广州实验学校",
     "广东省教育研究院黄埔实验学校",
@@ -818,6 +882,7 @@
   },
   "huangpu-42": {
    "district": "黄埔区",
+   "name": "电脑派位第5组",
    "members": [
     "北京师范大学广州实验学校",
     "苏元学校（西校区）",
@@ -833,6 +898,7 @@
   },
   "huangpu-43": {
    "district": "黄埔区",
+   "name": "电脑派位第6组",
    "members": [
     "华峰学校",
     "开元学校",
@@ -848,6 +914,7 @@
   },
   "huangpu-44": {
    "district": "黄埔区",
+   "name": "电脑派位第7组",
    "members": [
     "会元学校",
     "华南师范大学附属中学（知识城校区）",
@@ -1859,7 +1926,7 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
-     "group_id": "liwan-4"
+     "group_id": "liwan-3"
     },
     {
      "school": "广州市第一中学初中部",
@@ -1868,7 +1935,7 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
-     "group_id": "liwan-5"
+     "group_id": "liwan-3"
     },
     {
      "school": "广州市第一中学姜中宏校区",
@@ -1877,7 +1944,7 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
-     "group_id": "liwan-5"
+     "group_id": "liwan-3"
     },
     {
      "school": "广州市第四中学初中津园校区",
@@ -1889,7 +1956,7 @@
      "school_ids": [
       "gz-440103-4cda3f9e"
      ],
-     "group_id": "liwan-4"
+     "group_id": "liwan-3"
     },
     {
      "school": "广州市第四中学初中雁园校区",
@@ -1901,7 +1968,7 @@
      "school_ids": [
       "gz-440103-4cda3f9e"
      ],
-     "group_id": "liwan-5"
+     "group_id": "liwan-3"
     },
     {
      "school": "广州市西关外国语学校校本部",
@@ -1919,7 +1986,7 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
-     "group_id": "liwan-5"
+     "group_id": "liwan-3"
     },
     {
      "school": "广州市西关外国语学校文昌南校区",
@@ -1928,7 +1995,7 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
-     "group_id": "liwan-5"
+     "group_id": "liwan-3"
     },
     {
      "school": "广州市南海中学",
@@ -1941,7 +2008,7 @@
       "gz-440103-8e11a7d3",
       "gz-440103-c9f13fde"
      ],
-     "group_id": "liwan-4"
+     "group_id": "liwan-3"
     },
     {
      "school": "广州市陈嘉庚纪念中学",
@@ -1950,7 +2017,7 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
-     "group_id": "liwan-6"
+     "group_id": "liwan-3"
     },
     {
      "school": "广州市美华中学",
@@ -1959,7 +2026,7 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
-     "group_id": "liwan-7"
+     "group_id": "liwan-3"
     },
     {
      "school": "广州市西关外国语流花学校",
@@ -1968,7 +2035,7 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
-     "group_id": "liwan-6"
+     "group_id": "liwan-3"
     },
     {
      "school": "广州市荔湾区西关广雅实验学校南岸路校区",
@@ -1977,7 +2044,7 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
-     "group_id": "liwan-5"
+     "group_id": "liwan-3"
     },
     {
      "school": "广州市荔湾区西关广雅实验学校东风西校区",
@@ -1986,7 +2053,7 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
-     "group_id": "liwan-5"
+     "group_id": "liwan-3"
     },
     {
      "school": "广东广雅中学初中部",
@@ -1998,13 +2065,390 @@
      "group_id": "liwan-3"
     },
     {
+     "school": "广州市真光中学初中部本部校区",
+     "school_id": "gz-440103-1f4697e3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市真光中学初中部岭南校区",
+     "school_id": "gz-440103-042e23a5",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市第一中学初中部",
+     "school_id": "gz-440103-2dc142ec",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市第一中学姜中宏校区",
+     "school_id": "gz-440103-2653da64",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市第四中学初中津园校区",
+     "school_id": "gz-440103-3862ee98",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "school_ids": [
+      "gz-440103-4cda3f9e"
+     ],
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市第四中学初中雁园校区",
+     "school_id": "gz-440103-816b22a3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "school_ids": [
+      "gz-440103-4cda3f9e"
+     ],
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市西关外国语学校校本部",
+     "school_id": "gz-440103-b41a3512",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市西关外国语学校彩虹桥校区",
+     "school_id": "gz-440103-dfff68f2",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市西关外国语学校文昌南校区",
+     "school_id": "gz-440103-df535585",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市南海中学",
+     "school_id": null,
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "school_ids": [
+      "gz-440103-8e11a7d3",
+      "gz-440103-c9f13fde"
+     ],
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市陈嘉庚纪念中学",
+     "school_id": "gz-440103-eb3cb5c6",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市美华中学",
+     "school_id": "gz-440103-b0abf891",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市西关外国语流花学校",
+     "school_id": "gz-440103-9870a631",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校南岸路校区",
+     "school_id": "gz-440103-c5d5de44",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校东风西校区",
+     "school_id": "gz-440103-693412ae",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广东广雅中学初中部",
+     "school_id": "gz-440103-bb7f78f0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区2组电脑派位",
+     "group_id": "liwan-4"
+    },
+    {
+     "school": "广州市真光中学初中部本部校区",
+     "school_id": "gz-440103-1f4697e3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区3组电脑派位",
+     "group_id": "liwan-5"
+    },
+    {
+     "school": "广州市真光中学初中部岭南校区",
+     "school_id": "gz-440103-042e23a5",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区3组电脑派位",
+     "group_id": "liwan-5"
+    },
+    {
+     "school": "广州市第一中学初中部",
+     "school_id": "gz-440103-2dc142ec",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区3组电脑派位",
+     "group_id": "liwan-5"
+    },
+    {
+     "school": "广州市第一中学姜中宏校区",
+     "school_id": "gz-440103-2653da64",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区3组电脑派位",
+     "group_id": "liwan-5"
+    },
+    {
+     "school": "广州市第四中学初中津园校区",
+     "school_id": "gz-440103-3862ee98",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区3组电脑派位",
+     "school_ids": [
+      "gz-440103-4cda3f9e"
+     ],
+     "group_id": "liwan-5"
+    },
+    {
+     "school": "广州市第四中学初中雁园校区",
+     "school_id": "gz-440103-816b22a3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区3组电脑派位",
+     "school_ids": [
+      "gz-440103-4cda3f9e"
+     ],
+     "group_id": "liwan-5"
+    },
+    {
+     "school": "广州市西关外国语学校校本部",
+     "school_id": "gz-440103-b41a3512",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区3组电脑派位",
+     "group_id": "liwan-5"
+    },
+    {
+     "school": "广州市西关外国语学校彩虹桥校区",
+     "school_id": "gz-440103-dfff68f2",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区3组电脑派位",
+     "group_id": "liwan-5"
+    },
+    {
+     "school": "广州市西关外国语学校文昌南校区",
+     "school_id": "gz-440103-df535585",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区3组电脑派位",
+     "group_id": "liwan-5"
+    },
+    {
+     "school": "广州市南海中学",
+     "school_id": null,
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区3组电脑派位",
+     "school_ids": [
+      "gz-440103-8e11a7d3",
+      "gz-440103-c9f13fde"
+     ],
+     "group_id": "liwan-5"
+    },
+    {
      "school": "广州市第四中学丰宁学校",
      "school_id": "gz-440104-3b870a8e",
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
-     "group_id": "liwan-8"
+     "group_id": "liwan-5"
+    },
+    {
+     "school": "广州市美华中学",
+     "school_id": "gz-440103-b0abf891",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区3组电脑派位",
+     "group_id": "liwan-5"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校南岸路校区",
+     "school_id": "gz-440103-c5d5de44",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区3组电脑派位",
+     "group_id": "liwan-5"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校东风西校区",
+     "school_id": "gz-440103-693412ae",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区3组电脑派位",
+     "group_id": "liwan-5"
+    },
+    {
+     "school": "广东广雅中学初中部",
+     "school_id": "gz-440103-bb7f78f0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区3组电脑派位",
+     "group_id": "liwan-5"
+    },
+    {
+     "school": "广州市真光中学初中部本部校区",
+     "school_id": "gz-440103-1f4697e3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区4组电脑派位",
+     "group_id": "liwan-6"
+    },
+    {
+     "school": "广州市真光中学初中部岭南校区",
+     "school_id": "gz-440103-042e23a5",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区4组电脑派位",
+     "group_id": "liwan-6"
+    },
+    {
+     "school": "广州市第一中学初中部",
+     "school_id": "gz-440103-2dc142ec",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区4组电脑派位",
+     "group_id": "liwan-6"
+    },
+    {
+     "school": "广州市第一中学姜中宏校区",
+     "school_id": "gz-440103-2653da64",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区4组电脑派位",
+     "group_id": "liwan-6"
+    },
+    {
+     "school": "广州市第四中学初中津园校区",
+     "school_id": "gz-440103-3862ee98",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区4组电脑派位",
+     "school_ids": [
+      "gz-440103-4cda3f9e"
+     ],
+     "group_id": "liwan-6"
+    },
+    {
+     "school": "广州市第四中学初中雁园校区",
+     "school_id": "gz-440103-816b22a3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区4组电脑派位",
+     "school_ids": [
+      "gz-440103-4cda3f9e"
+     ],
+     "group_id": "liwan-6"
+    },
+    {
+     "school": "广州市西关外国语学校校本部",
+     "school_id": "gz-440103-b41a3512",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区4组电脑派位",
+     "group_id": "liwan-6"
+    },
+    {
+     "school": "广州市西关外国语学校彩虹桥校区",
+     "school_id": "gz-440103-dfff68f2",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区4组电脑派位",
+     "group_id": "liwan-6"
+    },
+    {
+     "school": "广州市西关外国语学校文昌南校区",
+     "school_id": "gz-440103-df535585",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区4组电脑派位",
+     "group_id": "liwan-6"
     },
     {
      "school": "广州市西关培英中学",
@@ -2017,7 +2461,7 @@
       "gz-440103-41cb6344",
       "gz-440103-d78c848a"
      ],
-     "group_id": "liwan-9"
+     "group_id": "liwan-6"
     },
     {
      "school": "广州市第一中学十甫学校",
@@ -2026,7 +2470,219 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
-     "group_id": "liwan-10"
+     "group_id": "liwan-6"
+    },
+    {
+     "school": "广州市第四中学丰宁学校",
+     "school_id": "gz-440104-3b870a8e",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区4组电脑派位",
+     "group_id": "liwan-6"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校南岸路校区",
+     "school_id": "gz-440103-c5d5de44",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区4组电脑派位",
+     "group_id": "liwan-6"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校东风西校区",
+     "school_id": "gz-440103-693412ae",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区4组电脑派位",
+     "group_id": "liwan-6"
+    },
+    {
+     "school": "广东广雅中学初中部",
+     "school_id": "gz-440103-bb7f78f0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区4组电脑派位",
+     "group_id": "liwan-6"
+    },
+    {
+     "school": "广州市真光中学初中部本部校区",
+     "school_id": "gz-440103-1f4697e3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广州市真光中学初中部岭南校区",
+     "school_id": "gz-440103-042e23a5",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广州市第一中学初中部",
+     "school_id": "gz-440103-2dc142ec",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广州市第一中学姜中宏校区",
+     "school_id": "gz-440103-2653da64",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广州市第四中学初中津园校区",
+     "school_id": "gz-440103-3862ee98",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "school_ids": [
+      "gz-440103-4cda3f9e"
+     ],
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广州市第四中学初中雁园校区",
+     "school_id": "gz-440103-816b22a3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "school_ids": [
+      "gz-440103-4cda3f9e"
+     ],
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广州市西关外国语学校校本部",
+     "school_id": "gz-440103-b41a3512",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广州市西关外国语学校彩虹桥校区",
+     "school_id": "gz-440103-dfff68f2",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广州市西关外国语学校文昌南校区",
+     "school_id": "gz-440103-df535585",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广州市南海中学",
+     "school_id": null,
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "school_ids": [
+      "gz-440103-8e11a7d3",
+      "gz-440103-c9f13fde"
+     ],
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广州市第一中学十甫学校",
+     "school_id": "gz-440103-81794a0d",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广州市西关培英中学",
+     "school_id": null,
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "school_ids": [
+      "gz-440103-41cb6344",
+      "gz-440103-d78c848a"
+     ],
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校南岸路校区",
+     "school_id": "gz-440103-c5d5de44",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校东风西校区",
+     "school_id": "gz-440103-693412ae",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广东广雅中学初中部",
+     "school_id": "gz-440103-bb7f78f0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区5组电脑派位",
+     "group_id": "liwan-7"
+    },
+    {
+     "school": "广州市真光中学初中部本部校区",
+     "school_id": "gz-440103-1f4697e3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区6组电脑派位",
+     "group_id": "liwan-8"
+    },
+    {
+     "school": "广州市第一中学初中部",
+     "school_id": "gz-440103-2dc142ec",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区6组电脑派位",
+     "group_id": "liwan-8"
+    },
+    {
+     "school": "广州市第一中学姜中宏校区",
+     "school_id": "gz-440103-2653da64",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区6组电脑派位",
+     "group_id": "liwan-8"
     },
     {
      "school": "广州市第四中学初中逸园校区",
@@ -2038,7 +2694,68 @@
      "school_ids": [
       "gz-440103-4cda3f9e"
      ],
-     "group_id": "liwan-11"
+     "group_id": "liwan-8"
+    },
+    {
+     "school": "广州市第四中学初中雁园校区",
+     "school_id": "gz-440103-816b22a3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区6组电脑派位",
+     "school_ids": [
+      "gz-440103-4cda3f9e"
+     ],
+     "group_id": "liwan-8"
+    },
+    {
+     "school": "广州市西关外国语学校校本部",
+     "school_id": "gz-440103-b41a3512",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区6组电脑派位",
+     "group_id": "liwan-8"
+    },
+    {
+     "school": "广州市西关外国语学校彩虹桥校区",
+     "school_id": "gz-440103-dfff68f2",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区6组电脑派位",
+     "group_id": "liwan-8"
+    },
+    {
+     "school": "广州市西关外国语学校文昌南校区",
+     "school_id": "gz-440103-df535585",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区6组电脑派位",
+     "group_id": "liwan-8"
+    },
+    {
+     "school": "广州市西关培英中学",
+     "school_id": null,
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区6组电脑派位",
+     "school_ids": [
+      "gz-440103-41cb6344",
+      "gz-440103-d78c848a"
+     ],
+     "group_id": "liwan-8"
+    },
+    {
+     "school": "广州市美华中学",
+     "school_id": "gz-440103-b0abf891",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区6组电脑派位",
+     "group_id": "liwan-8"
     },
     {
      "school": "广州市第一中学双桥学校",
@@ -2047,7 +2764,25 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
-     "group_id": "liwan-12"
+     "group_id": "liwan-8"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校南岸路校区",
+     "school_id": "gz-440103-c5d5de44",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区6组电脑派位",
+     "group_id": "liwan-8"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校东风西校区",
+     "school_id": "gz-440103-693412ae",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区6组电脑派位",
+     "group_id": "liwan-8"
     },
     {
      "school": "广州市荔湾区西关广雅实验学校大坦沙校区",
@@ -2056,7 +2791,25 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
-     "group_id": "liwan-11"
+     "group_id": "liwan-8"
+    },
+    {
+     "school": "广东广雅中学初中部",
+     "school_id": "gz-440103-bb7f78f0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区6组电脑派位",
+     "group_id": "liwan-8"
+    },
+    {
+     "school": "广州市真光中学初中部本部校区",
+     "school_id": "gz-440103-1f4697e3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区7组电脑派位",
+     "group_id": "liwan-9"
     },
     {
      "school": "广州市真光中学初中部实验校区",
@@ -2065,7 +2818,7 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
-     "group_id": "liwan-13"
+     "group_id": "liwan-9"
     },
     {
      "school": "广州市真光中学初中部芳花校区",
@@ -2074,7 +2827,28 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
-     "group_id": "liwan-13"
+     "group_id": "liwan-9"
+    },
+    {
+     "school": "广州市第四中学初中逸园校区",
+     "school_id": "gz-440103-c0d6f9a0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区7组电脑派位",
+     "school_ids": [
+      "gz-440103-4cda3f9e"
+     ],
+     "group_id": "liwan-9"
+    },
+    {
+     "school": "广州市西关外国语学校校本部",
+     "school_id": "gz-440103-b41a3512",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区7组电脑派位",
+     "group_id": "liwan-9"
     },
     {
      "school": "广州市真光中学东漖学校",
@@ -2083,7 +2857,7 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
-     "group_id": "liwan-14"
+     "group_id": "liwan-9"
     },
     {
      "school": "中国教育科学研究院荔湾实验学校",
@@ -2092,7 +2866,7 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
-     "group_id": "liwan-13"
+     "group_id": "liwan-9"
     },
     {
      "school": "广东实验中学荔湾学校广钢新城校区",
@@ -2101,7 +2875,7 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
-     "group_id": "liwan-13"
+     "group_id": "liwan-9"
     },
     {
      "school": "广东实验中学荔湾学校花地湾校区",
@@ -2110,7 +2884,73 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
-     "group_id": "liwan-13"
+     "group_id": "liwan-9"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校大坦沙校区",
+     "school_id": "gz-440103-7207525c",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区7组电脑派位",
+     "group_id": "liwan-9"
+    },
+    {
+     "school": "广东广雅中学初中部",
+     "school_id": "gz-440103-bb7f78f0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区7组电脑派位",
+     "group_id": "liwan-9"
+    },
+    {
+     "school": "广州市真光中学初中部本部校区",
+     "school_id": "gz-440103-1f4697e3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区8组电脑派位",
+     "group_id": "liwan-10"
+    },
+    {
+     "school": "广州市真光中学初中部实验校区",
+     "school_id": "gz-440103-9b3ba6d8",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区8组电脑派位",
+     "group_id": "liwan-10"
+    },
+    {
+     "school": "广州市真光中学初中部芳花校区",
+     "school_id": "gz-440103-4bb96190",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区8组电脑派位",
+     "group_id": "liwan-10"
+    },
+    {
+     "school": "广州市第四中学初中逸园校区",
+     "school_id": "gz-440103-c0d6f9a0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区8组电脑派位",
+     "school_ids": [
+      "gz-440103-4cda3f9e"
+     ],
+     "group_id": "liwan-10"
+    },
+    {
+     "school": "广州市西关外国语学校校本部",
+     "school_id": "gz-440103-b41a3512",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区8组电脑派位",
+     "group_id": "liwan-10"
     },
     {
      "school": "广州市第一中学红岩学校",
@@ -2119,7 +2959,202 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区8组电脑派位",
-     "group_id": "liwan-15"
+     "group_id": "liwan-10"
+    },
+    {
+     "school": "中国教育科学研究院荔湾实验学校",
+     "school_id": "gz-440103-523446ce",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区8组电脑派位",
+     "group_id": "liwan-10"
+    },
+    {
+     "school": "广东实验中学荔湾学校广钢新城校区",
+     "school_id": "gz-440103-53cac770",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区8组电脑派位",
+     "group_id": "liwan-10"
+    },
+    {
+     "school": "广东实验中学荔湾学校花地湾校区",
+     "school_id": "gz-440103-ff7538dc",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区8组电脑派位",
+     "group_id": "liwan-10"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校大坦沙校区",
+     "school_id": "gz-440103-7207525c",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区8组电脑派位",
+     "group_id": "liwan-10"
+    },
+    {
+     "school": "广东广雅中学初中部",
+     "school_id": "gz-440103-bb7f78f0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区8组电脑派位",
+     "group_id": "liwan-10"
+    },
+    {
+     "school": "广州市真光中学初中部本部校区",
+     "school_id": "gz-440103-1f4697e3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区9组电脑派位",
+     "group_id": "liwan-11"
+    },
+    {
+     "school": "广州市真光中学初中部实验校区",
+     "school_id": "gz-440103-9b3ba6d8",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区9组电脑派位",
+     "group_id": "liwan-11"
+    },
+    {
+     "school": "广州市真光中学初中部芳花校区",
+     "school_id": "gz-440103-4bb96190",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区9组电脑派位",
+     "group_id": "liwan-11"
+    },
+    {
+     "school": "广州市第四中学初中逸园校区",
+     "school_id": "gz-440103-c0d6f9a0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区9组电脑派位",
+     "school_ids": [
+      "gz-440103-4cda3f9e"
+     ],
+     "group_id": "liwan-11"
+    },
+    {
+     "school": "广州市西关外国语学校校本部",
+     "school_id": "gz-440103-b41a3512",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区9组电脑派位",
+     "group_id": "liwan-11"
+    },
+    {
+     "school": "广州市真光中学东漖学校",
+     "school_id": "gz-440103-2c188507",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区9组电脑派位",
+     "group_id": "liwan-11"
+    },
+    {
+     "school": "中国教育科学研究院荔湾实验学校",
+     "school_id": "gz-440103-523446ce",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区9组电脑派位",
+     "group_id": "liwan-11"
+    },
+    {
+     "school": "广东实验中学荔湾学校广钢新城校区",
+     "school_id": "gz-440103-53cac770",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区9组电脑派位",
+     "group_id": "liwan-11"
+    },
+    {
+     "school": "广东实验中学荔湾学校花地湾校区",
+     "school_id": "gz-440103-ff7538dc",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区9组电脑派位",
+     "group_id": "liwan-11"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校大坦沙校区",
+     "school_id": "gz-440103-7207525c",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区9组电脑派位",
+     "group_id": "liwan-11"
+    },
+    {
+     "school": "广东广雅中学初中部",
+     "school_id": "gz-440103-bb7f78f0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区9组电脑派位",
+     "group_id": "liwan-11"
+    },
+    {
+     "school": "广州市真光中学初中部本部校区",
+     "school_id": "gz-440103-1f4697e3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区10组电脑派位",
+     "group_id": "liwan-12"
+    },
+    {
+     "school": "广州市真光中学初中部实验校区",
+     "school_id": "gz-440103-9b3ba6d8",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区10组电脑派位",
+     "group_id": "liwan-12"
+    },
+    {
+     "school": "广州市真光中学初中部芳花校区",
+     "school_id": "gz-440103-4bb96190",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区10组电脑派位",
+     "group_id": "liwan-12"
+    },
+    {
+     "school": "广州市第四中学初中逸园校区",
+     "school_id": "gz-440103-c0d6f9a0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区10组电脑派位",
+     "school_ids": [
+      "gz-440103-4cda3f9e"
+     ],
+     "group_id": "liwan-12"
+    },
+    {
+     "school": "广州市西关外国语学校校本部",
+     "school_id": "gz-440103-b41a3512",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区10组电脑派位",
+     "group_id": "liwan-12"
     },
     {
      "school": "广州市真光中学文伟学校",
@@ -2128,7 +3163,100 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区10组电脑派位",
-     "group_id": "liwan-16"
+     "group_id": "liwan-12"
+    },
+    {
+     "school": "中国教育科学研究院荔湾实验学校",
+     "school_id": "gz-440103-523446ce",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区10组电脑派位",
+     "group_id": "liwan-12"
+    },
+    {
+     "school": "广东实验中学荔湾学校广钢新城校区",
+     "school_id": "gz-440103-53cac770",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区10组电脑派位",
+     "group_id": "liwan-12"
+    },
+    {
+     "school": "广东实验中学荔湾学校花地湾校区",
+     "school_id": "gz-440103-ff7538dc",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区10组电脑派位",
+     "group_id": "liwan-12"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校大坦沙校区",
+     "school_id": "gz-440103-7207525c",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区10组电脑派位",
+     "group_id": "liwan-12"
+    },
+    {
+     "school": "广东广雅中学初中部",
+     "school_id": "gz-440103-bb7f78f0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区10组电脑派位",
+     "group_id": "liwan-12"
+    },
+    {
+     "school": "广州市真光中学初中部本部校区",
+     "school_id": "gz-440103-1f4697e3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区11组电脑派位",
+     "group_id": "liwan-13"
+    },
+    {
+     "school": "广州市真光中学初中部实验校区",
+     "school_id": "gz-440103-9b3ba6d8",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区11组电脑派位",
+     "group_id": "liwan-13"
+    },
+    {
+     "school": "广州市真光中学初中部芳花校区",
+     "school_id": "gz-440103-4bb96190",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区11组电脑派位",
+     "group_id": "liwan-13"
+    },
+    {
+     "school": "广州市第四中学初中逸园校区",
+     "school_id": "gz-440103-c0d6f9a0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区11组电脑派位",
+     "school_ids": [
+      "gz-440103-4cda3f9e"
+     ],
+     "group_id": "liwan-13"
+    },
+    {
+     "school": "广州市西关外国语学校校本部",
+     "school_id": "gz-440103-b41a3512",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区11组电脑派位",
+     "group_id": "liwan-13"
     },
     {
      "school": "广州市真光中学金道学校",
@@ -2137,6 +3265,303 @@
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区11组电脑派位",
+     "group_id": "liwan-13"
+    },
+    {
+     "school": "中国教育科学研究院荔湾实验学校",
+     "school_id": "gz-440103-523446ce",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区11组电脑派位",
+     "group_id": "liwan-13"
+    },
+    {
+     "school": "广东实验中学荔湾学校广钢新城校区",
+     "school_id": "gz-440103-53cac770",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区11组电脑派位",
+     "group_id": "liwan-13"
+    },
+    {
+     "school": "广东实验中学荔湾学校花地湾校区",
+     "school_id": "gz-440103-ff7538dc",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区11组电脑派位",
+     "group_id": "liwan-13"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校大坦沙校区",
+     "school_id": "gz-440103-7207525c",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区11组电脑派位",
+     "group_id": "liwan-13"
+    },
+    {
+     "school": "广东广雅中学初中部",
+     "school_id": "gz-440103-bb7f78f0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区11组电脑派位",
+     "group_id": "liwan-13"
+    },
+    {
+     "school": "广州市真光中学初中部本部校区",
+     "school_id": "gz-440103-1f4697e3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区12组电脑派位",
+     "group_id": "liwan-14"
+    },
+    {
+     "school": "广州市真光中学初中部实验校区",
+     "school_id": "gz-440103-9b3ba6d8",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区12组电脑派位",
+     "group_id": "liwan-14"
+    },
+    {
+     "school": "广州市真光中学初中部芳花校区",
+     "school_id": "gz-440103-4bb96190",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区12组电脑派位",
+     "group_id": "liwan-14"
+    },
+    {
+     "school": "广东实验中学荔湾学校广钢新城校区",
+     "school_id": "gz-440103-53cac770",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区12组电脑派位",
+     "group_id": "liwan-14"
+    },
+    {
+     "school": "广东实验中学荔湾学校花地湾校区",
+     "school_id": "gz-440103-ff7538dc",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区12组电脑派位",
+     "group_id": "liwan-14"
+    },
+    {
+     "school": "广州市真光中学文伟学校",
+     "school_id": "gz-440103-55453ba4",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区12组电脑派位",
+     "group_id": "liwan-14"
+    },
+    {
+     "school": "广州市真光中学金道学校",
+     "school_id": "gz-440103-f203d28d",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区12组电脑派位",
+     "group_id": "liwan-14"
+    },
+    {
+     "school": "中国教育科学研究院荔湾实验学校",
+     "school_id": "gz-440103-523446ce",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区12组电脑派位",
+     "group_id": "liwan-14"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校大坦沙校区",
+     "school_id": "gz-440103-7207525c",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区12组电脑派位",
+     "group_id": "liwan-14"
+    },
+    {
+     "school": "广东广雅中学初中部",
+     "school_id": "gz-440103-bb7f78f0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区12组电脑派位",
+     "group_id": "liwan-14"
+    },
+    {
+     "school": "广州市真光中学初中部本部校区",
+     "school_id": "gz-440103-1f4697e3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区13组电脑派位",
+     "group_id": "liwan-15"
+    },
+    {
+     "school": "广州市真光中学初中部实验校区",
+     "school_id": "gz-440103-9b3ba6d8",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区13组电脑派位",
+     "group_id": "liwan-15"
+    },
+    {
+     "school": "广州市真光中学初中部芳花校区",
+     "school_id": "gz-440103-4bb96190",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区13组电脑派位",
+     "group_id": "liwan-15"
+    },
+    {
+     "school": "广州市真光中学东漖学校",
+     "school_id": "gz-440103-2c188507",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区13组电脑派位",
+     "group_id": "liwan-15"
+    },
+    {
+     "school": "中国教育科学研究院荔湾实验学校",
+     "school_id": "gz-440103-523446ce",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区13组电脑派位",
+     "group_id": "liwan-15"
+    },
+    {
+     "school": "广东实验中学荔湾学校广钢新城校区",
+     "school_id": "gz-440103-53cac770",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区13组电脑派位",
+     "group_id": "liwan-15"
+    },
+    {
+     "school": "广东实验中学荔湾学校花地湾校区",
+     "school_id": "gz-440103-ff7538dc",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区13组电脑派位",
+     "group_id": "liwan-15"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校大坦沙校区",
+     "school_id": "gz-440103-7207525c",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区13组电脑派位",
+     "group_id": "liwan-15"
+    },
+    {
+     "school": "广东广雅中学初中部",
+     "school_id": "gz-440103-bb7f78f0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区13组电脑派位",
+     "group_id": "liwan-15"
+    },
+    {
+     "school": "广州市真光中学初中部本部校区",
+     "school_id": "gz-440103-1f4697e3",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区14组电脑派位",
+     "group_id": "liwan-16"
+    },
+    {
+     "school": "广州市真光中学初中部实验校区",
+     "school_id": "gz-440103-9b3ba6d8",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区14组电脑派位",
+     "group_id": "liwan-16"
+    },
+    {
+     "school": "广州市真光中学初中部芳花校区",
+     "school_id": "gz-440103-4bb96190",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区14组电脑派位",
+     "group_id": "liwan-16"
+    },
+    {
+     "school": "广东实验中学荔湾学校广钢新城校区",
+     "school_id": "gz-440103-53cac770",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区14组电脑派位",
+     "group_id": "liwan-16"
+    },
+    {
+     "school": "广东实验中学荔湾学校花地湾校区",
+     "school_id": "gz-440103-ff7538dc",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区14组电脑派位",
+     "group_id": "liwan-16"
+    },
+    {
+     "school": "广州市真光中学东漖学校",
+     "school_id": "gz-440103-2c188507",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区14组电脑派位",
+     "group_id": "liwan-16"
+    },
+    {
+     "school": "中国教育科学研究院荔湾实验学校",
+     "school_id": "gz-440103-523446ce",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区14组电脑派位",
+     "group_id": "liwan-16"
+    },
+    {
+     "school": "广州市荔湾区西关广雅实验学校大坦沙校区",
+     "school_id": "gz-440103-7207525c",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区14组电脑派位",
+     "group_id": "liwan-16"
+    },
+    {
+     "school": "广东广雅中学初中部",
+     "school_id": "gz-440103-bb7f78f0",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "荔湾区14组电脑派位",
      "group_id": "liwan-16"
     }
    ]

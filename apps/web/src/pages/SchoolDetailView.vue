@@ -16,7 +16,7 @@ import {
 import {
   repository, primarySchools, middleSchools, highSchools, primaryTier1, middleTier1,
   highLevels, tier1Schools, middleTier1Schools, entities, matchEnrollment,
-  middleQuotaSummary, middleEnrollmentsOf, xiaoshengchuOf, schoolBadges, scoresOfSchool,
+  middleQuotaSummary, middleEnrollmentsOf, middleEnrollmentGroups, xiaoshengchuOf, schoolBadges, scoresOfSchool,
   isComprehensive, groupOfSchool, resolvePoiName, resolveSchoolIdOf,
   type BrandUnit,
   innovationAwards,
@@ -154,6 +154,10 @@ const middleEnrolls = computed(() => {
   if (stage.value !== 'middle') return [];
   return middleEnrollmentsOf(schoolId.value || null) || [];
 });
+/** 派位组成员行 Badge：dist groups 组名（如「电脑派位第4组」）；组缺省时兜底 */
+function groupNameOf(gid?: string | null): string {
+  return (gid ? middleEnrollmentGroups[gid]?.name : null) || '组内可填报';
+}
 
 </script>
 
@@ -288,7 +292,7 @@ const middleEnrolls = computed(() => {
             <div class="feed-list">
               <div v-for="gm in m.record.group_members" :key="gm" class="feed-item">
                 <RouterLink :to="`/school/${encodeURIComponent(resolvePoiName(gm) || gm)}?stage=middle`" class="feed-name">{{ gm }}</RouterLink>
-                <span class="tag tag-dim">组内可填报</span>
+                <span class="tag tag-dim">{{ groupNameOf(m.record.group_id) }}</span>
               </div>
             </div>
           </div>
