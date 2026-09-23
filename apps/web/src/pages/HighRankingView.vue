@@ -15,13 +15,16 @@ const SCHOOL_FILTERS: Array<{ label: string; key: HighRankingFilterKey }> = [
 ];
 /** null 表示不限制；全选时包含分类尚未标注的点位。 */
 const selectedFilters = ref<Set<HighRankingFilterKey> | null>(null);
-const CIVILIZED_FILTERS = [['national', '全国文明校园'], ['provincial', '广东省文明校园'], ['municipal', '广州市文明校园'], ['advanced', '创建先进学校（储备）']] as const;
+const CIVILIZED_FILTERS = [['national', '全国文明校园'], ['provincial', '广东省文明校园'], ['municipal', '广州市文明校园'], ['advanced', '创建先进学校（储备）'], ['other', '其他']] as const;
 type CivilizedKey = typeof CIVILIZED_FILTERS[number][0];
 const selectedCivilized = ref<Set<CivilizedKey> | null>(null);
 const civilizedAllOn = computed(() => selectedCivilized.value === null);
 function civilizedOn(key: CivilizedKey) { return civilizedAllOn.value || selectedCivilized.value!.has(key); }
 function toggleCivilized(key: CivilizedKey) { const next = new Set(selectedCivilized.value || CIVILIZED_FILTERS.map(([v]) => v)); next.has(key) ? next.delete(key) : next.add(key); selectedCivilized.value = next; }
-function civilizedVisible(id?: string | null) { return civilizedAllOn.value || (!!id && [...selectedCivilized.value!].some((key) => (civilizedCampusSchoolIds[key] || []).includes(id))); }
+function civilizedVisible(id?: string | null) { return civilizedAllOn.value || (!!id && [...selectedCivilized.value!].some((key) => key === 'other' ? !Object.values(civilizedCampusSchoolIds).some((ids) => ids.includes(id)) : (civilizedCampusSchoolIds[key] || []).includes(id))); }
+function toggleAllFilters() { selectedFilters.value = filterAllOn.value ? new Set() : null; }
+function toggleAllDistricts() { selectedDistricts.value = districtAllOn.value ? new Set() : new Set(DISTRICTS.map((d) => d.adcode)); }
+function toggleAllCivilized() { selectedCivilized.value = civilizedAllOn.value ? new Set() : null; }
 const sortBy = ref<HighRankingSortBy>('score2026');
 const groups = computed(() => buildHighRankingGroups(
   { highSchools, highLevels, highScores2025, highScores2026, entities },
@@ -90,11 +93,11 @@ onBeforeUnmount(() => { window.removeEventListener('scroll', closeHint, true); w
         <button class="pop-chip" :class="{ on: groupBy === 'category' }" @click="groupBy = 'category'">按省市区属</button>
         <button class="pop-chip" :class="{ on: groupBy === 'district' }" @click="groupBy = 'district'">按行政区位置</button>
       </div><div class="pop-foot"><button class="pop-link" @click="openMenu = null">完成</button></div></div>
-      <div v-if="openMenu === 'filter'" class="fb-pop"><div class="pop-chips">
+      <div v-if="openMenu === 'filter'" class="fb-pop"><div class="pop-group-title">学校分类</div><div class="pop-chips">
         <button v-for="option in SCHOOL_FILTERS" :key="option.key" class="pop-chip" :class="{ on: filterOn(option.key) }" @click="toggleFilter(option.key)">{{ option.label }}</button>
-      </div><div class="pop-chips">
+      </div><div class="pop-foot"><button class="pop-link" @click="toggleAllFilters">{{ filterAllOn ? '全不选' : '全选' }}</button></div><div class="pop-group-title">位置</div><div class="pop-chips">
         <button v-for="district in DISTRICTS" :key="district.adcode" class="pop-chip" :class="{ on: selectedDistricts.has(district.adcode) }" @click="toggleDistrict(district.adcode)">{{ district.name }}</button>
-      </div><div class="pop-chips"><button v-for="option in CIVILIZED_FILTERS" :key="option[0]" class="pop-chip" :class="{ on: civilizedOn(option[0]) }" @click="toggleCivilized(option[0])">{{ option[1] }}</button></div><div class="pop-foot"><button class="pop-link" @click="openMenu = null">完成</button></div></div>
+      </div><div class="pop-foot"><button class="pop-link" @click="toggleAllDistricts">{{ districtAllOn ? '全不选' : '全选' }}</button></div><div class="pop-group-title">校园荣誉</div><div class="pop-chips"><button v-for="option in CIVILIZED_FILTERS" :key="option[0]" class="pop-chip" :class="{ on: civilizedOn(option[0]) }" @click="toggleCivilized(option[0])">{{ option[1] }}</button></div><div class="pop-foot"><button class="pop-link" @click="toggleAllCivilized">{{ civilizedAllOn ? '全不选' : '全选' }}</button><button class="pop-link" @click="openMenu = null">完成</button></div></div>
       <div v-if="openMenu === 'sort'" class="fb-pop"><div class="pop-chips">
         <button class="pop-chip" :class="{ on: sortBy === 'score2025' }" @click="sortBy = 'score2025'">按 2025 分排</button>
         <button class="pop-chip" :class="{ on: sortBy === 'score2026' }" @click="sortBy = 'score2026'">按 2026 分排</button>
@@ -147,6 +150,7 @@ onBeforeUnmount(() => { window.removeEventListener('scroll', closeHint, true); w
 .page-title { font-size: 20px; }.intro, footer { font-size: 12px; color: #6b7280; line-height: 1.65; }
 .filter-bar { position: sticky; top: 65px; z-index: 1200; display: flex; gap: 8px; margin: 15px 0; padding: 8px; background: #fff; border: 1px solid #e4e3dd; border-radius: 14px; }
 .fb-col { flex: 1 1 0; min-width: 0; }.fb-btn { width: 100%; border: none; background: transparent; color: #1a1b1c; padding: 8px 4px; border-radius: 9px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px; font-size: 13px; white-space: nowrap; }.fb-btn:hover { background: #f2f7ff; }.fb-btn.on { background: #eaf1fe; color: #1a6bd6; font-weight: 600; }.arr { color: #8a93a3; font-size: 10px; }.fb-badge { background: #1a6bd6; color: #fff; border-radius: 9px; padding: 0 6px; font-size: 10.5px; font-style: normal; line-height: 15px; }
+.pop-group-title { margin: 12px 0 6px; color: #6b7280; font-size: 11.5px; font-weight: 600; }.pop-group-title:first-child { margin-top: 0; }
 .fb-pop { position: absolute; top: calc(100% + 6px); left: 8px; right: 8px; z-index: 1300; padding: 12px; border: 1px solid #e4e3dd; border-radius: 12px; background: #fff; box-shadow: 0 8px 28px rgba(20,30,50,.16); }.pop-chips { display: flex; flex-wrap: wrap; gap: 6px; }.pop-chip { border: 1px solid #d6d4cc; border-radius: 16px; background: #fff; padding: 5px 12px; color: #1a1b1c; font-size: 12.5px; cursor: pointer; }.pop-chip.on { border-color: #1a6bd6; background: #1a6bd6; color: #fff; }.pop-foot { display: flex; justify-content: space-between; margin-top: 10px; padding-top: 8px; border-top: 1px dashed #e4e3dd; }.pop-link { border: 0; background: none; color: #1a6bd6; padding: 4px 8px; font-size: 12.5px; cursor: pointer; }.pop-mask { position: fixed; inset: 0; z-index: 1100; background: rgba(0,0,0,.02); }
 .rank-body { display: flex; flex-direction: column; gap: 16px; }
 .rank-group { overflow: hidden; background: #fff; border: 1px solid #e4e3dd; border-radius: 14px; }

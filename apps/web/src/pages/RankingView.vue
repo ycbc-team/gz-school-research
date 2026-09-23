@@ -225,15 +225,18 @@ function districtVisible(s: Row): boolean {
   const ad = DISTRICT_TO_ADCODE.get(s.district || '');
   return ad ? selectedDistricts.value.has(ad) : false;
 }
-const CIVILIZED_FILTERS = [['national', '全国文明校园'], ['provincial', '广东省文明校园'], ['municipal', '广州市文明校园'], ['advanced', '创建先进学校（储备）']] as const;
+const CIVILIZED_FILTERS = [['national', '全国文明校园'], ['provincial', '广东省文明校园'], ['municipal', '广州市文明校园'], ['advanced', '创建先进学校（储备）'], ['other', '其他']] as const;
 type CivilizedKey = typeof CIVILIZED_FILTERS[number][0];
 const selectedCivilized = ref<Set<CivilizedKey> | null>(null);
 const civilizedAllOn = computed(() => selectedCivilized.value === null);
 function civilizedOn(key: CivilizedKey) { return civilizedAllOn.value || selectedCivilized.value!.has(key); }
 function toggleCivilized(key: CivilizedKey) { const next = new Set(selectedCivilized.value || CIVILIZED_FILTERS.map(([v]) => v)); next.has(key) ? next.delete(key) : next.add(key); selectedCivilized.value = next; }
-function civilizedVisible(s: Row) { return civilizedAllOn.value || [...selectedCivilized.value!].some((key) => [s.school_id, ...(s.school_ids || [])].some((id) => !!id && (civilizedCampusSchoolIds[key] || []).includes(id))); }
+function isCivilized(s: Row) { return [s.school_id, ...(s.school_ids || [])].some((id) => !!id && Object.values(civilizedCampusSchoolIds).some((ids) => ids.includes(id))); }
+function civilizedVisible(s: Row) { return civilizedAllOn.value || [...selectedCivilized.value!].some((key) => key === 'other' ? !isCivilized(s) : [s.school_id, ...(s.school_ids || [])].some((id) => !!id && (civilizedCampusSchoolIds[key] || []).includes(id))); }
 const filterCount = computed(() => (districtAllOn.value ? 0 : selectedDistricts.value.size) + (civilizedAllOn.value ? 0 : selectedCivilized.value!.size));
 function resetFilters() { selectedDistricts.value = new Set(DISTRICTS.map((d) => d.adcode)); selectedCivilized.value = null; }
+function toggleAllDistricts() { selectedDistricts.value = districtAllOn.value ? new Set() : new Set(DISTRICTS.map((d) => d.adcode)); }
+function toggleAllCivilized() { selectedCivilized.value = civilizedAllOn.value ? new Set() : null; }
 
 const groupLabel = computed(() => ({ none: '不分组', district: '按区', group: '按集团' })[groupBy.value]);
 
@@ -325,7 +328,8 @@ const groups = computed(() => {
         <div class="pop-chips">
           <button v-for="d in DISTRICTS" :key="d.adcode" class="pop-chip" :class="{ on: selectedDistricts.has(d.adcode) }" @click="toggleDistrict(d.adcode)">{{ d.name }}</button>
         </div>
-        <div class="pop-group-title">校园荣誉</div><div class="pop-chips"><button v-for="option in CIVILIZED_FILTERS" :key="option[0]" class="pop-chip" :class="{ on: civilizedOn(option[0]) }" @click="toggleCivilized(option[0])">{{ option[1] }}</button></div>
+        <div class="pop-foot"><button class="pop-link" @click="toggleAllDistricts">{{ districtAllOn ? '全不选' : '全选' }}</button></div>
+        <div class="pop-group-title">校园荣誉</div><div class="pop-chips"><button v-for="option in CIVILIZED_FILTERS" :key="option[0]" class="pop-chip" :class="{ on: civilizedOn(option[0]) }" @click="toggleCivilized(option[0])">{{ option[1] }}</button></div><div class="pop-foot"><button class="pop-link" @click="toggleAllCivilized">{{ civilizedAllOn ? '全不选' : '全选' }}</button></div>
         <div class="pop-foot">
           <button class="pop-link" @click="resetFilters">重置</button>
           <button class="pop-link" @click="openMenu = null">完成</button>
@@ -477,7 +481,7 @@ const groups = computed(() => {
 }
 .pop-group { margin-bottom: 10px; }
 .pop-group:last-of-type { margin-bottom: 0; }
-.pop-group-title { font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 6px; }
+.pop-group-title { font-size: 11.5px; color: #6b7280; font-weight: 600; margin: 12px 0 6px; }.pop-group-title:first-child { margin-top: 0; }
 .pop-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .pop-chip {
   border: 1px solid #d6d4cc; background: #fff; border-radius: 16px;
