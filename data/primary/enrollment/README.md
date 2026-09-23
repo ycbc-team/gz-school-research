@@ -12,7 +12,7 @@ enrollment/
 │   ├── _transcripts/   A 层：parse_*.py 从 raw 提取的结构化 JSON（含 OCR 缓存 ocr/）
 │   └── dist/           B 层：build_primary_2026.py 输出 2026-<区>.json
 │                      （匹配产物，保留 school/poi_name/lng/lat 等调试字段）
-├── src/        手工源文件（业务确认口径，如 leftover_notes.json 招生区域承接说明表）
+├── src/        手工源文件（业务确认口径）：leftover_notes.json 招生区域承接说明表、manual_patches.json B 层人工修复表
 ├── dist/       C 层最终运行时产物（build_enrollment_all.py 合并输出）
 │   └── 2026-all.json   records/minban 瘦身（无 school 名，按 school_id 联查实体表/POI 表）
 ├── scripts/    生产脚本
@@ -33,7 +33,8 @@ raw/ 政府源文件
   │  A 层（parse_*.py / build_read_transcripts.py，可复现转录）
   ▼
 parsed/_transcripts/*.json
-  │  B 层（build_primary_2026.py，纯 SchoolMatcher 匹配 data/registry/entity）
+  │  B 层（build_primary_2026.py，SchoolMatcher 匹配 data/registry/entity
+  │        + src/manual_patches.json 人工修复层，2026-09-23）
   ▼
 parsed/dist/2026-<区>.json   ← B 层匹配产物（保留 school/poi_name/lng/lat 调试字段）
   │  C 层（build_enrollment_all.py 合并瘦身）
@@ -92,6 +93,18 @@ dist/2026-all.json           ← 最终运行时产物（无 school 名，按 sc
 - **带校区名**的记录 → `resolve` 单校区匹配；
 - **无校区名的法人多校区**（官方未列校区）→ `resolve_all` 展开为全部校区记录；
 - **不读任何手工锚点表**（`_anchors.json` 已废弃删除）。名字映射全部下沉到实体表别名层（`data/registry/entity/scripts/build_entities.py` 的 `OFFICIAL_PRIMARY_ALIAS` / `PRIMARY_CAMPUS_ALIAS`）。
+
+## B 层人工修复表（src/manual_patches.json，2026-09-23）
+
+承接 A 层脚本**无法复现**的人工转录修正，幂等补齐：转录已含修正 → 不动；转录被 A 层脚本重跑覆盖 → 由本表恢复。保证 B 层产物与快照基线一致，C 层零改动自动收益。当前 3 类：
+
+| 区 | 类型 | 内容 | 触发条件 |
+| --- | --- | --- | --- |
+| 越秀 | 补录 2 校 | 红火炬小学（6 班）、水荫路小学（8 班） | 转录缺该记录时插入（锚点：永曜北/先烈中路前） |
+| 越秀 | zone 裁污染后缀 | 东川路小学、育才学校 | 转录 zone 含下一校块头（脚本分块把红火炬/水荫路并进前一条尾部）时截断 |
+| 荔湾 | zone 补前缀 | 真光中学附属培真小学 | 转录 zone 缺「石围塘街·岭南社区」行时补 |
+
+> 重跑须知：荔湾 A 层必须两步（`parse_liwan_primary.py` + `fix_liwan_transcript.py`），本表只兜底 fix 复现不出的培真 1 处；单步初版格式（「街道·社区」拍平）不在兜底范围。越秀 A 层单步后 B 层即兜底 2 校 + 裁剪。
 
 ## 海珠班数挂载（公办计划表）
 
