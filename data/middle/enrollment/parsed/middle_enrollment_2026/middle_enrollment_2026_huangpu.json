@@ -6,7 +6,12 @@
  "records": [
   {
    "school": "广州市第八十六中学",
-   "school_id": "gz-440112-0cb5a402",
+   "school_id": null,
+   "school_ids": [
+    "gz-440112-06029745",
+    "gz-440112-0cb5a402",
+    "gz-440112-43108516"
+   ],
    "plan_classes": null,
    "scope": null,
    "mechanism": "group_paidui",
@@ -321,7 +326,11 @@
   },
   {
    "school": "广东省教育研究院黄埔实验学校",
-   "school_id": "gz-440112-96610f39",
+   "school_id": null,
+   "school_ids": [
+    "gz-440112-22ec4fcc",
+    "gz-440112-96610f39"
+   ],
    "plan_classes": null,
    "scope": null,
    "mechanism": "group_paidui",
@@ -787,16 +796,17 @@
   },
   {
    "school": "广州知识城中学",
-   "school_id": "gz-440112-3f877ace",
+   "school_id": null,
+   "school_ids": [
+    "gz-440112-3f877ace",
+    "gz-440112-badbc2ab",
+    "gz-440112-ec15555e"
+   ],
    "plan_classes": null,
    "scope": "九龙第一小学、何棠下小学、枫下小学、凤尾小学、广州知识城北小学",
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
-   "group_members": null,
-   "school_ids": [
-    "gz-440112-badbc2ab",
-    "gz-440112-ec15555e"
-   ]
+   "group_members": null
   },
   {
    "school": "丰乐初级中学",

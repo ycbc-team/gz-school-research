@@ -48,7 +48,11 @@
   },
   {
    "school": "广州市白云区民航学校",
-   "school_id": "gz-440111-5c7a7c4a",
+   "school_id": null,
+   "school_ids": [
+    "gz-440111-5c7a7c4a",
+    "gz-440111-7a3148c4"
+   ],
    "plan_classes": 5,
    "scope": "民航学校（小学部），培英附小部分户籍生（摇号产生）",
    "mechanism": "group_paidui",
@@ -66,7 +70,11 @@
   },
   {
    "school": "广州市白云区景泰中学",
-   "school_id": "gz-440111-048815b3",
+   "school_id": null,
+   "school_ids": [
+    "gz-440111-048815b3",
+    "gz-440111-2186a02a"
+   ],
    "plan_classes": 8,
    "scope": "景泰小学（柯子岭地段人户一致地段生），培英附小部分户籍生（摇号产生）",
    "mechanism": "group_paidui",
@@ -93,7 +101,11 @@
   },
   {
    "school": "广州市白云区黄石学校",
-   "school_id": "gz-440111-a53c68e3",
+   "school_id": null,
+   "school_ids": [
+    "gz-440111-292274e7",
+    "gz-440111-a53c68e3"
+   ],
    "plan_classes": 6,
    "scope": "江夏小学、马务小学、黄石学校（小学部）、方圆实验小学（地段生）",
    "mechanism": "group_paidui",
@@ -141,7 +153,11 @@
   },
   {
    "school": "广州彭加木纪念中学",
-   "school_id": "gz-440111-d28d78f9",
+   "school_id": null,
+   "school_ids": [
+    "gz-440111-4e13c7d6",
+    "gz-440111-d28d78f9"
+   ],
    "plan_classes": 7,
    "scope": "螺涌小学、松溪小学、槎龙小学、65中附小（除地段生外的广州市户籍学生）",
    "mechanism": "group_paidui",
@@ -190,7 +206,11 @@
   },
   {
    "school": "广州市白云区广大附中实验中学",
-   "school_id": "gz-440111-b95f2597",
+   "school_id": null,
+   "school_ids": [
+    "gz-440111-0078267c",
+    "gz-440111-b95f2597"
+   ],
    "plan_classes": 32,
    "scope": "金沙小学、横沙小学、沙凤小学、金广实验学校、金沙二小",
    "mechanism": "group_paidui",
@@ -463,27 +483,30 @@
   },
   {
    "school": "广州市白云区龙归学校",
-   "school_id": "gz-440111-9c7a2c45",
+   "school_id": null,
+   "school_ids": [
+    "gz-440111-4c9a3eaa",
+    "gz-440111-9c7a2c45"
+   ],
    "plan_classes": 10,
    "scope": "永兴小学、龙归学校小学部",
    "mechanism": "single_zone",
    "mechanism_note": null,
-   "group_members": null,
-   "school_ids": [
-    "gz-440111-4c9a3eaa"
-   ]
+   "group_members": null
   },
   {
    "school": "广东外语外贸大学实验中学",
-   "school_id": "gz-440111-7e484346",
+   "school_id": null,
+   "school_ids": [
+    "gz-440111-7e484346",
+    "gz-440111-f5da4352",
+    "gz-440111-f751344d"
+   ],
    "plan_classes": 8,
    "scope": "广东外语外贸大学实验中学小学部",
    "mechanism": "single_zone",
    "mechanism_note": null,
-   "group_members": null,
-   "school_ids": [
-    "gz-440111-f751344d"
-   ]
+   "group_members": null
   },
   {
    "school": "广州市白云区云翔学校",
@@ -535,7 +558,11 @@
   },
   {
    "school": "广州市白云区竹料第一中学",
-   "school_id": "gz-440111-fd1c1c12",
+   "school_id": null,
+   "school_ids": [
+    "gz-440111-78d61733",
+    "gz-440111-fd1c1c12"
+   ],
    "plan_classes": 11,
    "scope": "南校区：竹料一小、竹料二小、竹料四小\n北校区：竹料一小、竹料三小",
    "mechanism": "group_paidui",
@@ -562,7 +589,7 @@
   },
   {
    "school": "广州市白云区星悦实验学校",
-   "school_id": "gz-440111-88372834",
+   "school_id": "gz-440111-2ed8a6e2",
    "plan_classes": 4,
    "scope": "星悦实验学校小学部",
    "mechanism": "single_zone",

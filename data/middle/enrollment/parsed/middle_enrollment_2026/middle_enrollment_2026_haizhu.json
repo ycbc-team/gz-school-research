@@ -50,7 +50,11 @@
   },
   {
    "school": "广州市第九十七中学",
-   "school_id": "gz-440105-f0712355",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ed868139",
+    "gz-440105-f0712355"
+   ],
    "plan_classes": 10,
    "scope": null,
    "mechanism": "group_paidui",
@@ -68,10 +72,7 @@
     "广州市江南外国语学校",
     "广东实验中学琶洲学校"
    ],
-   "_group_primaries": null,
-   "school_ids": [
-    "gz-440105-ed868139"
-   ]
+   "_group_primaries": null
   },
   {
    "school": "广州市海珠外国语实验中学",
@@ -207,7 +208,11 @@
   },
   {
    "school": "广州市江南外国语学校",
-   "school_id": "gz-440105-ca292b2b",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ca292b2b",
+    "gz-440105-f8dbd57c"
+   ],
    "plan_classes": 18,
    "scope": null,
    "mechanism": "group_paidui",
@@ -295,7 +300,11 @@
   },
   {
    "school": "广州市南武第二实验学校",
-   "school_id": "gz-440105-9da3d734",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-96460a76",
+    "gz-440105-9da3d734"
+   ],
    "plan_classes": 10,
    "scope": null,
    "mechanism": "group_paidui",
@@ -339,7 +348,11 @@
   },
   {
    "school": "广州市江南外国语学校",
-   "school_id": "gz-440105-ca292b2b",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ca292b2b",
+    "gz-440105-f8dbd57c"
+   ],
    "plan_classes": 18,
    "scope": null,
    "mechanism": "group_paidui",
@@ -383,7 +396,11 @@
   },
   {
    "school": "广州市南武中学",
-   "school_id": "gz-440105-eaf414df",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-dd2723fc",
+    "gz-440105-eaf414df"
+   ],
    "plan_classes": 14,
    "scope": null,
    "mechanism": "group_paidui",
@@ -401,10 +418,7 @@
     "广州市第九十七中学",
     "广东实验中学琶洲学校"
    ],
-   "_group_primaries": null,
-   "school_ids": [
-    "gz-440105-dd2723fc"
-   ]
+   "_group_primaries": null
   },
   {
    "school": "广州市南武实验学校",
@@ -452,7 +466,11 @@
   },
   {
    "school": "广州市第九十七中学",
-   "school_id": "gz-440105-f0712355",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ed868139",
+    "gz-440105-f0712355"
+   ],
    "plan_classes": 10,
    "scope": null,
    "mechanism": "group_paidui",
@@ -470,10 +488,7 @@
     "广州市第九十七中学",
     "广东实验中学琶洲学校"
    ],
-   "_group_primaries": null,
-   "school_ids": [
-    "gz-440105-ed868139"
-   ]
+   "_group_primaries": null
   },
   {
    "school": "广东实验中学琶洲学校",
@@ -520,7 +535,11 @@
   },
   {
    "school": "广州市南武第二实验学校",
-   "school_id": "gz-440105-9da3d734",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-96460a76",
+    "gz-440105-9da3d734"
+   ],
    "plan_classes": 10,
    "scope": null,
    "mechanism": "group_paidui",
@@ -583,7 +602,11 @@
   },
   {
    "school": "广州市江南外国语学校",
-   "school_id": "gz-440105-ca292b2b",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ca292b2b",
+    "gz-440105-f8dbd57c"
+   ],
    "plan_classes": 18,
    "scope": null,
    "mechanism": "group_paidui",
@@ -625,7 +648,11 @@
   },
   {
    "school": "广州市南武中学",
-   "school_id": "gz-440105-eaf414df",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-dd2723fc",
+    "gz-440105-eaf414df"
+   ],
    "plan_classes": 14,
    "scope": null,
    "mechanism": "group_paidui",
@@ -642,10 +669,7 @@
     "广州市第九十七中学",
     "广东实验中学琶洲学校"
    ],
-   "_group_primaries": null,
-   "school_ids": [
-    "gz-440105-dd2723fc"
-   ]
+   "_group_primaries": null
   },
   {
    "school": "广州市执信中学琶洲实验学校",
@@ -670,7 +694,11 @@
   },
   {
    "school": "广州市第九十七中学",
-   "school_id": "gz-440105-f0712355",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ed868139",
+    "gz-440105-f0712355"
+   ],
    "plan_classes": 10,
    "scope": null,
    "mechanism": "group_paidui",
@@ -687,10 +715,7 @@
     "广州市第九十七中学",
     "广东实验中学琶洲学校"
    ],
-   "_group_primaries": null,
-   "school_ids": [
-    "gz-440105-ed868139"
-   ]
+   "_group_primaries": null
   },
   {
    "school": "广东实验中学琶洲学校",
@@ -755,7 +780,11 @@
   },
   {
    "school": "广州市江南外国语学校",
-   "school_id": "gz-440105-ca292b2b",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ca292b2b",
+    "gz-440105-f8dbd57c"
+   ],
    "plan_classes": 18,
    "scope": null,
    "mechanism": "group_paidui",
@@ -795,7 +824,11 @@
   },
   {
    "school": "广州市南武中学",
-   "school_id": "gz-440105-eaf414df",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-dd2723fc",
+    "gz-440105-eaf414df"
+   ],
    "plan_classes": 14,
    "scope": null,
    "mechanism": "group_paidui",
@@ -811,10 +844,7 @@
     "广州市南武中学附属学校",
     "广东实验中学琶洲学校"
    ],
-   "_group_primaries": null,
-   "school_ids": [
-    "gz-440105-dd2723fc"
-   ]
+   "_group_primaries": null
   },
   {
    "school": "广州市第九十七中学晓园学校",
@@ -940,7 +970,11 @@
   },
   {
    "school": "广州市第九十七中学",
-   "school_id": "gz-440105-f0712355",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ed868139",
+    "gz-440105-f0712355"
+   ],
    "plan_classes": 10,
    "scope": null,
    "mechanism": "group_paidui",
@@ -957,10 +991,7 @@
     "广州市南武中学",
     "广东实验中学琶洲学校"
    ],
-   "_group_primaries": null,
-   "school_ids": [
-    "gz-440105-ed868139"
-   ]
+   "_group_primaries": null
   },
   {
    "school": "广州市五中东晓学校",
@@ -985,7 +1016,11 @@
   },
   {
    "school": "广州市江南外国语学校",
-   "school_id": "gz-440105-ca292b2b",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ca292b2b",
+    "gz-440105-f8dbd57c"
+   ],
    "plan_classes": 18,
    "scope": null,
    "mechanism": "group_paidui",
@@ -1069,7 +1104,11 @@
   },
   {
    "school": "广州市南武中学",
-   "school_id": "gz-440105-eaf414df",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-dd2723fc",
+    "gz-440105-eaf414df"
+   ],
    "plan_classes": 14,
    "scope": null,
    "mechanism": "group_paidui",
@@ -1086,10 +1125,7 @@
     "广州市南武中学",
     "广东实验中学琶洲学校"
    ],
-   "_group_primaries": null,
-   "school_ids": [
-    "gz-440105-dd2723fc"
-   ]
+   "_group_primaries": null
   },
   {
    "school": "广东实验中学琶洲学校",
@@ -1135,7 +1171,11 @@
   },
   {
    "school": "广州市第九十七中学",
-   "school_id": "gz-440105-f0712355",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ed868139",
+    "gz-440105-f0712355"
+   ],
    "plan_classes": 10,
    "scope": null,
    "mechanism": "group_paidui",
@@ -1152,10 +1192,7 @@
     "广州市南武实验学校",
     "广东实验中学琶洲学校"
    ],
-   "_group_primaries": null,
-   "school_ids": [
-    "gz-440105-ed868139"
-   ]
+   "_group_primaries": null
   },
   {
    "school": "广州市聚德中学",
@@ -1349,7 +1386,11 @@
   },
   {
    "school": "广州市第九十七中学",
-   "school_id": "gz-440105-f0712355",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ed868139",
+    "gz-440105-f0712355"
+   ],
    "plan_classes": 10,
    "scope": null,
    "mechanism": "group_paidui",
@@ -1367,10 +1408,7 @@
     "广州市江南外国语学校",
     "广东实验中学琶洲学校"
    ],
-   "_group_primaries": null,
-   "school_ids": [
-    "gz-440105-ed868139"
-   ]
+   "_group_primaries": null
   },
   {
    "school": "广州市海珠外国语实验中学",
@@ -1462,7 +1500,11 @@
   },
   {
    "school": "广州市南武中学",
-   "school_id": "gz-440105-eaf414df",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-dd2723fc",
+    "gz-440105-eaf414df"
+   ],
    "plan_classes": 14,
    "scope": null,
    "mechanism": "group_paidui",
@@ -1480,10 +1522,7 @@
     "广州市江南外国语学校",
     "广东实验中学琶洲学校"
    ],
-   "_group_primaries": null,
-   "school_ids": [
-    "gz-440105-dd2723fc"
-   ]
+   "_group_primaries": null
   },
   {
    "school": "广州市南武实验学校",
@@ -1531,7 +1570,11 @@
   },
   {
    "school": "广州市江南外国语学校",
-   "school_id": "gz-440105-ca292b2b",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ca292b2b",
+    "gz-440105-f8dbd57c"
+   ],
    "plan_classes": 18,
    "scope": null,
    "mechanism": "group_paidui",
@@ -1665,7 +1708,11 @@
   },
   {
    "school": "广州市第九十七中学",
-   "school_id": "gz-440105-f0712355",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ed868139",
+    "gz-440105-f0712355"
+   ],
    "plan_classes": 10,
    "scope": null,
    "mechanism": "group_paidui",
@@ -1679,10 +1726,7 @@
     "广州市第九十七中学",
     "广东实验中学琶洲学校"
    ],
-   "_group_primaries": null,
-   "school_ids": [
-    "gz-440105-ed868139"
-   ]
+   "_group_primaries": null
   },
   {
    "school": "广东实验中学琶洲学校",
@@ -1758,7 +1802,11 @@
   },
   {
    "school": "广州市新滘中学",
-   "school_id": "gz-440105-003f2037",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-003f2037",
+    "gz-440105-2f31776e"
+   ],
    "plan_classes": 8,
    "scope": null,
    "mechanism": "group_paidui",
@@ -1772,10 +1820,7 @@
     "广州市第九十七中学",
     "广东实验中学琶洲学校"
    ],
-   "_group_primaries": null,
-   "school_ids": [
-    "gz-440105-2f31776e"
-   ]
+   "_group_primaries": null
   },
   {
    "school": "广州市执信中学琶洲实验学校",
@@ -1797,7 +1842,11 @@
   },
   {
    "school": "广州市第九十七中学",
-   "school_id": "gz-440105-f0712355",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ed868139",
+    "gz-440105-f0712355"
+   ],
    "plan_classes": 10,
    "scope": null,
    "mechanism": "group_paidui",
@@ -1811,10 +1860,7 @@
     "广州市第九十七中学",
     "广东实验中学琶洲学校"
    ],
-   "_group_primaries": null,
-   "school_ids": [
-    "gz-440105-ed868139"
-   ]
+   "_group_primaries": null
   },
   {
    "school": "广东实验中学琶洲学校",
@@ -2082,7 +2128,11 @@
   },
   {
    "school": "广州市江南外国语学校",
-   "school_id": "gz-440105-ca292b2b",
+   "school_id": null,
+   "school_ids": [
+    "gz-440105-ca292b2b",
+    "gz-440105-f8dbd57c"
+   ],
    "plan_classes": 18,
    "scope": "江南新村第二小学",
    "mechanism": "single_zone",

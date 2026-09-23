@@ -136,7 +136,15 @@ dist 合并一份（dist/middle_enrollment_2026.json，前端运行时消费）�
 > 直建要点：一校多规则还原（同一初中多组/派位+直升并存，前端 middleEnrollmentsOf 全量返回）；
 > plan_classes 补齐（海珠 108、天河 51）；scope 补齐（组小学走 groups 表 primaries、直升小学、天河划片地段）；
 > 天河/黄埔校名归一（SCHOOL_NORM：第113→第一一三、清华附中天河→湾区〔转录修正〕、全角点→半角等）。
+> 校名匹配（match_school_ids）统一走 SchoolMatcher（data/registry/entity/scripts/school_match.py）：
+>   业务侧不再维护别名/锚定表——SCHOOL_ID_ANCHOR 已废弃，历史锚定全部下沉 build_entities.py
+>   OFFICIAL_MIDDLE_ALIAS 实体表别名（清华智谷/暨南附属实验初中部/暨南第一实验→暨大附中）；
+>   官方无校区限定行（如「广州市天河外国语学校」）经 resolve_all 展开法人全部 middle 校区
+>   （school_id=None + school_ids=[全部校区]，前端 byIdAll 全量索引）；写明校区/学部（括号或
+>   「校本部/初中部」后缀）则精准单校区。展开消除 12 所「无招生」校区孤儿（孤儿 69→60）。
 > 新旧 diff 详见 git log / commit message；C 层产物零改动（小升初 933 快照全等）。
+> 学校级 group_members 对比审计：scripts/compare_middle_group_members.py（越秀/海珠 26 校成员并集
+> 全部扩大=反推压组失真修正，黄埔仅全角点归一抵消），报告 scripts/outputs/group_members_diff_20260923.txt。
 
 ## 各区转录字段对齐（2026-09-23）
 

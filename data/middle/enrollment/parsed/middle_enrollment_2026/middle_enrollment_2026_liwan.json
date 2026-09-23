@@ -312,7 +312,7 @@
   },
   {
    "school": "广州市南海中学",
-   "school_id": "gz-440103-c9f13fde",
+   "school_id": null,
    "plan_classes": null,
    "scope": null,
    "mechanism": "group_paidui",
@@ -339,7 +339,8 @@
     "广州市陈嘉庚纪念中学"
    ],
    "school_ids": [
-    "gz-440103-8e11a7d3"
+    "gz-440103-8e11a7d3",
+    "gz-440103-c9f13fde"
    ]
   },
   {
@@ -559,7 +560,7 @@
   },
   {
    "school": "广州市西关培英中学",
-   "school_id": "gz-440103-d78c848a",
+   "school_id": null,
    "plan_classes": null,
    "scope": null,
    "mechanism": "group_paidui",
@@ -587,7 +588,8 @@
     "广州市西关外国语学校校本部"
    ],
    "school_ids": [
-    "gz-440103-41cb6344"
+    "gz-440103-41cb6344",
+    "gz-440103-d78c848a"
    ]
   },
   {

@@ -1342,7 +1342,11 @@
     },
     {
      "school": "广州市白云区民航学校",
-     "school_id": "gz-440111-5c7a7c4a",
+     "school_id": null,
+     "school_ids": [
+      "gz-440111-5c7a7c4a",
+      "gz-440111-7a3148c4"
+     ],
      "plan_classes": 5,
      "scope": "民航学校（小学部），培英附小部分户籍生（摇号产生）",
      "mechanism": "group_paidui",
@@ -1358,7 +1362,11 @@
     },
     {
      "school": "广州市白云区景泰中学",
-     "school_id": "gz-440111-048815b3",
+     "school_id": null,
+     "school_ids": [
+      "gz-440111-048815b3",
+      "gz-440111-2186a02a"
+     ],
      "plan_classes": 8,
      "scope": "景泰小学（柯子岭地段人户一致地段生），培英附小部分户籍生（摇号产生）",
      "mechanism": "group_paidui",
@@ -1382,7 +1390,11 @@
     },
     {
      "school": "广州市白云区黄石学校",
-     "school_id": "gz-440111-a53c68e3",
+     "school_id": null,
+     "school_ids": [
+      "gz-440111-292274e7",
+      "gz-440111-a53c68e3"
+     ],
      "plan_classes": 6,
      "scope": "江夏小学、马务小学、黄石学校（小学部）、方圆实验小学（地段生）",
      "mechanism": "group_paidui",
@@ -1425,7 +1437,11 @@
     },
     {
      "school": "广州彭加木纪念中学",
-     "school_id": "gz-440111-d28d78f9",
+     "school_id": null,
+     "school_ids": [
+      "gz-440111-4e13c7d6",
+      "gz-440111-d28d78f9"
+     ],
      "plan_classes": 7,
      "scope": "螺涌小学、松溪小学、槎龙小学、65中附小（除地段生外的广州市户籍学生）",
      "mechanism": "group_paidui",
@@ -1469,7 +1485,11 @@
     },
     {
      "school": "广州市白云区广大附中实验中学",
-     "school_id": "gz-440111-b95f2597",
+     "school_id": null,
+     "school_ids": [
+      "gz-440111-0078267c",
+      "gz-440111-b95f2597"
+     ],
      "plan_classes": 32,
      "scope": "金沙小学、横沙小学、沙凤小学、金广实验学校、金沙二小",
      "mechanism": "group_paidui",
@@ -1713,25 +1733,28 @@
     },
     {
      "school": "广州市白云区龙归学校",
-     "school_id": "gz-440111-9c7a2c45",
+     "school_id": null,
+     "school_ids": [
+      "gz-440111-4c9a3eaa",
+      "gz-440111-9c7a2c45"
+     ],
      "plan_classes": 10,
      "scope": "永兴小学、龙归学校小学部",
      "mechanism": "single_zone",
-     "mechanism_note": null,
-     "school_ids": [
-      "gz-440111-4c9a3eaa"
-     ]
+     "mechanism_note": null
     },
     {
      "school": "广东外语外贸大学实验中学",
-     "school_id": "gz-440111-7e484346",
+     "school_id": null,
+     "school_ids": [
+      "gz-440111-7e484346",
+      "gz-440111-f5da4352",
+      "gz-440111-f751344d"
+     ],
      "plan_classes": 8,
      "scope": "广东外语外贸大学实验中学小学部",
      "mechanism": "single_zone",
-     "mechanism_note": null,
-     "school_ids": [
-      "gz-440111-f751344d"
-     ]
+     "mechanism_note": null
     },
     {
      "school": "广州市白云区云翔学校",
@@ -1778,7 +1801,11 @@
     },
     {
      "school": "广州市白云区竹料第一中学",
-     "school_id": "gz-440111-fd1c1c12",
+     "school_id": null,
+     "school_ids": [
+      "gz-440111-78d61733",
+      "gz-440111-fd1c1c12"
+     ],
      "plan_classes": 11,
      "scope": "南校区：竹料一小、竹料二小、竹料四小\n北校区：竹料一小、竹料三小",
      "mechanism": "group_paidui",
@@ -1802,7 +1829,7 @@
     },
     {
      "school": "广州市白云区星悦实验学校",
-     "school_id": "gz-440111-88372834",
+     "school_id": "gz-440111-2ed8a6e2",
      "plan_classes": 4,
      "scope": "星悦实验学校小学部",
      "mechanism": "single_zone",
@@ -1905,13 +1932,14 @@
     },
     {
      "school": "广州市南海中学",
-     "school_id": "gz-440103-c9f13fde",
+     "school_id": null,
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
      "school_ids": [
-      "gz-440103-8e11a7d3"
+      "gz-440103-8e11a7d3",
+      "gz-440103-c9f13fde"
      ],
      "group_id": "liwan-4"
     },
@@ -1980,13 +2008,14 @@
     },
     {
      "school": "广州市西关培英中学",
-     "school_id": "gz-440103-d78c848a",
+     "school_id": null,
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
      "school_ids": [
-      "gz-440103-41cb6344"
+      "gz-440103-41cb6344",
+      "gz-440103-d78c848a"
      ],
      "group_id": "liwan-9"
     },
@@ -2120,7 +2149,11 @@
    "records": [
     {
      "school": "广州市第七中学",
-     "school_id": "gz-440104-74121d17",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-74121d17",
+      "gz-440111-82856abf"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
@@ -2129,15 +2162,15 @@
     },
     {
      "school": "广州市第十六中学",
-     "school_id": "gz-440104-8a1a7b3d",
-     "plan_classes": null,
-     "scope": null,
-     "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小学升初中电脑派位第一组（组内 10 所初中均可填报）",
+     "school_id": null,
      "school_ids": [
       "gz-440104-8964385d",
       "gz-440104-8a1a7b3d"
      ],
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "越秀区小学升初中电脑派位第一组（组内 10 所初中均可填报）",
      "group_id": "yuexiu-17"
     },
     {
@@ -2151,14 +2184,15 @@
     },
     {
      "school": "广州市育才中学",
-     "school_id": "gz-440104-7ec82efb",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-191aaa35",
+      "gz-440104-7ec82efb"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第一组（组内 10 所初中均可填报）",
-     "school_ids": [
-      "gz-440104-191aaa35"
-     ],
      "group_id": "yuexiu-17"
     },
     {
@@ -2221,7 +2255,11 @@
     },
     {
      "school": "广州市第七中学",
-     "school_id": "gz-440104-74121d17",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-74121d17",
+      "gz-440111-82856abf"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
@@ -2230,14 +2268,15 @@
     },
     {
      "school": "广州市第十七中学",
-     "school_id": "gz-440104-9c6632b1",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-099a5868",
+      "gz-440104-9c6632b1"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第二组（组内 10 所初中均可填报）",
-     "school_ids": [
-      "gz-440104-099a5868"
-     ],
      "group_id": "yuexiu-18"
     },
     {
@@ -2251,14 +2290,15 @@
     },
     {
      "school": "广州市育才中学",
-     "school_id": "gz-440104-7ec82efb",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-191aaa35",
+      "gz-440104-7ec82efb"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第二组（组内 10 所初中均可填报）",
-     "school_ids": [
-      "gz-440104-191aaa35"
-     ],
      "group_id": "yuexiu-18"
     },
     {
@@ -2330,14 +2370,15 @@
     },
     {
      "school": "广州市第十七中学",
-     "school_id": "gz-440104-9c6632b1",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-099a5868",
+      "gz-440104-9c6632b1"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第三组（组内 10 所初中均可填报）",
-     "school_ids": [
-      "gz-440104-099a5868"
-     ],
      "group_id": "yuexiu-19"
     },
     {
@@ -2351,14 +2392,15 @@
     },
     {
      "school": "广州市育才中学",
-     "school_id": "gz-440104-7ec82efb",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-191aaa35",
+      "gz-440104-7ec82efb"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第三组（组内 10 所初中均可填报）",
-     "school_ids": [
-      "gz-440104-191aaa35"
-     ],
      "group_id": "yuexiu-19"
     },
     {
@@ -2439,14 +2481,15 @@
     },
     {
      "school": "广州市第十七中学",
-     "school_id": "gz-440104-9c6632b1",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-099a5868",
+      "gz-440104-9c6632b1"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第四组（组内 10 所初中均可填报）",
-     "school_ids": [
-      "gz-440104-099a5868"
-     ],
      "group_id": "yuexiu-20"
     },
     {
@@ -2518,7 +2561,11 @@
     },
     {
      "school": "广州市第七中学",
-     "school_id": "gz-440104-74121d17",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-74121d17",
+      "gz-440111-82856abf"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
@@ -2536,15 +2583,15 @@
     },
     {
      "school": "广州市第十六中学",
-     "school_id": "gz-440104-8a1a7b3d",
-     "plan_classes": null,
-     "scope": null,
-     "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小学升初中电脑派位第五组（组内 10 所初中均可填报）",
+     "school_id": null,
      "school_ids": [
       "gz-440104-8964385d",
       "gz-440104-8a1a7b3d"
      ],
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "越秀区小学升初中电脑派位第五组（组内 10 所初中均可填报）",
      "group_id": "yuexiu-21"
     },
     {
@@ -2612,7 +2659,11 @@
     },
     {
      "school": "广州市第七中学",
-     "school_id": "gz-440104-74121d17",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-74121d17",
+      "gz-440111-82856abf"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
@@ -2639,15 +2690,15 @@
     },
     {
      "school": "广州市第十六中学",
-     "school_id": "gz-440104-8a1a7b3d",
-     "plan_classes": null,
-     "scope": null,
-     "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）",
+     "school_id": null,
      "school_ids": [
       "gz-440104-8964385d",
       "gz-440104-8a1a7b3d"
      ],
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）",
      "group_id": "yuexiu-22"
     },
     {
@@ -2719,7 +2770,11 @@
     },
     {
      "school": "广州市第七中学",
-     "school_id": "gz-440104-74121d17",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-74121d17",
+      "gz-440111-82856abf"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
@@ -2746,15 +2801,15 @@
     },
     {
      "school": "广州市第十六中学",
-     "school_id": "gz-440104-8a1a7b3d",
-     "plan_classes": null,
-     "scope": null,
-     "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）",
+     "school_id": null,
      "school_ids": [
       "gz-440104-8964385d",
       "gz-440104-8a1a7b3d"
      ],
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）",
      "group_id": "yuexiu-23"
     },
     {
@@ -2813,14 +2868,15 @@
     },
     {
      "school": "广州市第十七中学",
-     "school_id": "gz-440104-9c6632b1",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-099a5868",
+      "gz-440104-9c6632b1"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第八组（组内 10 所初中均可填报）",
-     "school_ids": [
-      "gz-440104-099a5868"
-     ],
      "group_id": "yuexiu-24"
     },
     {
@@ -2915,15 +2971,15 @@
     },
     {
      "school": "广州市第十六中学",
-     "school_id": "gz-440104-8a1a7b3d",
-     "plan_classes": null,
-     "scope": null,
-     "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小学升初中电脑派位第九组（组内 10 所初中均可填报）",
+     "school_id": null,
      "school_ids": [
       "gz-440104-8964385d",
       "gz-440104-8a1a7b3d"
      ],
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "group_paidui",
+     "mechanism_note": "越秀区小学升初中电脑派位第九组（组内 10 所初中均可填报）",
      "group_id": "yuexiu-25"
     },
     {
@@ -3009,14 +3065,15 @@
     },
     {
      "school": "广州市第十七中学",
-     "school_id": "gz-440104-9c6632b1",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-099a5868",
+      "gz-440104-9c6632b1"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十组（组内 10 所初中均可填报）",
-     "school_ids": [
-      "gz-440104-099a5868"
-     ],
      "group_id": "yuexiu-26"
     },
     {
@@ -3106,14 +3163,15 @@
     },
     {
      "school": "广州市第十七中学",
-     "school_id": "gz-440104-9c6632b1",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-099a5868",
+      "gz-440104-9c6632b1"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
-     "school_ids": [
-      "gz-440104-099a5868"
-     ],
      "group_id": "yuexiu-27"
     },
     {
@@ -3127,14 +3185,15 @@
     },
     {
      "school": "广州市育才中学",
-     "school_id": "gz-440104-7ec82efb",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-191aaa35",
+      "gz-440104-7ec82efb"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
-     "school_ids": [
-      "gz-440104-191aaa35"
-     ],
      "group_id": "yuexiu-27"
     },
     {
@@ -3204,14 +3263,15 @@
     },
     {
      "school": "广州市育才中学",
-     "school_id": "gz-440104-7ec82efb",
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-191aaa35",
+      "gz-440104-7ec82efb"
+     ],
      "plan_classes": null,
      "scope": "育才学校",
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
-     "school_ids": [
-      "gz-440104-191aaa35"
-     ]
+     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）"
     },
     {
      "school": "广州市八一实验学校",
@@ -3281,14 +3341,15 @@
     },
     {
      "school": "广州市第九十七中学",
-     "school_id": "gz-440105-f0712355",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ed868139",
+      "gz-440105-f0712355"
+     ],
      "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第1组",
-     "school_ids": [
-      "gz-440105-ed868139"
-     ],
      "group_id": "haizhu-28"
     },
     {
@@ -3347,7 +3408,11 @@
     },
     {
      "school": "广州市江南外国语学校",
-     "school_id": "gz-440105-ca292b2b",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ca292b2b",
+      "gz-440105-f8dbd57c"
+     ],
      "plan_classes": 18,
      "scope": null,
      "mechanism": "group_paidui",
@@ -3383,7 +3448,11 @@
     },
     {
      "school": "广州市南武第二实验学校",
-     "school_id": "gz-440105-9da3d734",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-96460a76",
+      "gz-440105-9da3d734"
+     ],
      "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
@@ -3401,7 +3470,11 @@
     },
     {
      "school": "广州市江南外国语学校",
-     "school_id": "gz-440105-ca292b2b",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ca292b2b",
+      "gz-440105-f8dbd57c"
+     ],
      "plan_classes": 18,
      "scope": null,
      "mechanism": "group_paidui",
@@ -3419,14 +3492,15 @@
     },
     {
      "school": "广州市南武中学",
-     "school_id": "gz-440105-eaf414df",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-dd2723fc",
+      "gz-440105-eaf414df"
+     ],
      "plan_classes": 14,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第2组",
-     "school_ids": [
-      "gz-440105-dd2723fc"
-     ],
      "group_id": "haizhu-29"
     },
     {
@@ -3449,14 +3523,15 @@
     },
     {
      "school": "广州市第九十七中学",
-     "school_id": "gz-440105-f0712355",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ed868139",
+      "gz-440105-f0712355"
+     ],
      "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第2组",
-     "school_ids": [
-      "gz-440105-ed868139"
-     ],
      "group_id": "haizhu-29"
     },
     {
@@ -3479,7 +3554,11 @@
     },
     {
      "school": "广州市南武第二实验学校",
-     "school_id": "gz-440105-9da3d734",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-96460a76",
+      "gz-440105-9da3d734"
+     ],
      "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
@@ -3506,7 +3585,11 @@
     },
     {
      "school": "广州市江南外国语学校",
-     "school_id": "gz-440105-ca292b2b",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ca292b2b",
+      "gz-440105-f8dbd57c"
+     ],
      "plan_classes": 18,
      "scope": null,
      "mechanism": "group_paidui",
@@ -3524,14 +3607,15 @@
     },
     {
      "school": "广州市南武中学",
-     "school_id": "gz-440105-eaf414df",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-dd2723fc",
+      "gz-440105-eaf414df"
+     ],
      "plan_classes": 14,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第3组",
-     "school_ids": [
-      "gz-440105-dd2723fc"
-     ],
      "group_id": "haizhu-30"
     },
     {
@@ -3545,14 +3629,15 @@
     },
     {
      "school": "广州市第九十七中学",
-     "school_id": "gz-440105-f0712355",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ed868139",
+      "gz-440105-f0712355"
+     ],
      "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第3组",
-     "school_ids": [
-      "gz-440105-ed868139"
-     ],
      "group_id": "haizhu-30"
     },
     {
@@ -3584,7 +3669,11 @@
     },
     {
      "school": "广州市江南外国语学校",
-     "school_id": "gz-440105-ca292b2b",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ca292b2b",
+      "gz-440105-f8dbd57c"
+     ],
      "plan_classes": 18,
      "scope": null,
      "mechanism": "group_paidui",
@@ -3602,14 +3691,15 @@
     },
     {
      "school": "广州市南武中学",
-     "school_id": "gz-440105-eaf414df",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-dd2723fc",
+      "gz-440105-eaf414df"
+     ],
      "plan_classes": 14,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第4组",
-     "school_ids": [
-      "gz-440105-dd2723fc"
-     ],
      "group_id": "haizhu-31"
     },
     {
@@ -3668,14 +3758,15 @@
     },
     {
      "school": "广州市第九十七中学",
-     "school_id": "gz-440105-f0712355",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ed868139",
+      "gz-440105-f0712355"
+     ],
      "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第5组",
-     "school_ids": [
-      "gz-440105-ed868139"
-     ],
      "group_id": "haizhu-32"
     },
     {
@@ -3689,7 +3780,11 @@
     },
     {
      "school": "广州市江南外国语学校",
-     "school_id": "gz-440105-ca292b2b",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ca292b2b",
+      "gz-440105-f8dbd57c"
+     ],
      "plan_classes": 18,
      "scope": null,
      "mechanism": "group_paidui",
@@ -3725,14 +3820,15 @@
     },
     {
      "school": "广州市南武中学",
-     "school_id": "gz-440105-eaf414df",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-dd2723fc",
+      "gz-440105-eaf414df"
+     ],
      "plan_classes": 14,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第5组",
-     "school_ids": [
-      "gz-440105-dd2723fc"
-     ],
      "group_id": "haizhu-32"
     },
     {
@@ -3755,14 +3851,15 @@
     },
     {
      "school": "广州市第九十七中学",
-     "school_id": "gz-440105-f0712355",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ed868139",
+      "gz-440105-f0712355"
+     ],
      "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第6组",
-     "school_ids": [
-      "gz-440105-ed868139"
-     ],
      "group_id": "haizhu-33"
     },
     {
@@ -3848,14 +3945,15 @@
     },
     {
      "school": "广州市第九十七中学",
-     "school_id": "gz-440105-f0712355",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ed868139",
+      "gz-440105-f0712355"
+     ],
      "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第7组",
-     "school_ids": [
-      "gz-440105-ed868139"
-     ],
      "group_id": "haizhu-34"
     },
     {
@@ -3896,14 +3994,15 @@
     },
     {
      "school": "广州市南武中学",
-     "school_id": "gz-440105-eaf414df",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-dd2723fc",
+      "gz-440105-eaf414df"
+     ],
      "plan_classes": 14,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第7组",
-     "school_ids": [
-      "gz-440105-dd2723fc"
-     ],
      "group_id": "haizhu-34"
     },
     {
@@ -3926,7 +4025,11 @@
     },
     {
      "school": "广州市江南外国语学校",
-     "school_id": "gz-440105-ca292b2b",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ca292b2b",
+      "gz-440105-f8dbd57c"
+     ],
      "plan_classes": 18,
      "scope": null,
      "mechanism": "group_paidui",
@@ -3989,14 +4092,15 @@
     },
     {
      "school": "广州市第九十七中学",
-     "school_id": "gz-440105-f0712355",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ed868139",
+      "gz-440105-f0712355"
+     ],
      "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第8组",
-     "school_ids": [
-      "gz-440105-ed868139"
-     ],
      "group_id": "haizhu-35"
     },
     {
@@ -4037,14 +4141,15 @@
     },
     {
      "school": "广州市新滘中学",
-     "school_id": "gz-440105-003f2037",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-003f2037",
+      "gz-440105-2f31776e"
+     ],
      "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第9组",
-     "school_ids": [
-      "gz-440105-2f31776e"
-     ],
      "group_id": "haizhu-36"
     },
     {
@@ -4058,14 +4163,15 @@
     },
     {
      "school": "广州市第九十七中学",
-     "school_id": "gz-440105-f0712355",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ed868139",
+      "gz-440105-f0712355"
+     ],
      "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第9组",
-     "school_ids": [
-      "gz-440105-ed868139"
-     ],
      "group_id": "haizhu-36"
     },
     {
@@ -4261,7 +4367,11 @@
     },
     {
      "school": "广州市江南外国语学校",
-     "school_id": "gz-440105-ca292b2b",
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ca292b2b",
+      "gz-440105-f8dbd57c"
+     ],
      "plan_classes": 18,
      "scope": "江南新村第二小学",
      "mechanism": "single_zone",
@@ -4293,7 +4403,11 @@
    "records": [
     {
      "school": "广州市第十八中学",
-     "school_id": "gz-440106-ef4076c1",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-3a61d518",
+      "gz-440106-ef4076c1"
+     ],
      "plan_classes": 14,
      "scope": "天河区界（莲溪村）以西，天河区界（珠江）以北，车陂路以东，中山大道中以南",
      "mechanism": "single_zone",
@@ -4301,25 +4415,27 @@
     },
     {
      "school": "广州中学",
-     "school_id": "gz-440106-867e6c05",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-867e6c05",
+      "gz-440106-a989804b"
+     ],
      "plan_classes": 40,
      "scope": "华南快速干线（北起广园快速路立交，南至中山大道）以西，中山大道—天河路以北，广州大道—林和西横路—林和西路至广园东路、瘦狗岭路9号以东，广园快速路东至广园立交以南；粤垦路533号—623号（单号）等",
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
-     "school_ids": [
-      "gz-440106-a989804b"
-     ]
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）"
     },
     {
      "school": "广州市第一一三中学",
-     "school_id": "gz-440106-2e9f6f7b",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-2e9f6f7b",
+      "gz-440106-b049d65a"
+     ],
      "plan_classes": 28,
      "scope": "荷光路单号7号到269号转中山大道西（单号1号到293号）—天府路以西，黄埔大道以东，广园快速路以南；员村片区等",
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
-     "school_ids": [
-      "gz-440106-b049d65a"
-     ]
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）"
     },
     {
      "school": "广州市天河区汇景实验学校",
@@ -4331,14 +4447,15 @@
     },
     {
      "school": "广州市第七十五中学",
-     "school_id": "gz-440106-5a7fbf3a",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-5a7fbf3a",
+      "gz-440106-621b20d3"
+     ],
      "plan_classes": 14,
      "scope": "天河北路东界—林和西路以西，林和西路至广州大道中以北，水荫四横路东段转龙岗东路先烈东路转濂泉路至沙东街西界以东，兴华街北界以南；西坑一横巷等",
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
-     "school_ids": [
-      "gz-440106-621b20d3"
-     ]
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）"
     },
     {
      "school": "广州市第八十九中学",
@@ -4358,14 +4475,15 @@
     },
     {
      "school": "广州市天河中学",
-     "school_id": "gz-440106-2f8a4424",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-2f8a4424",
+      "gz-440106-dd16c13e"
+     ],
      "plan_classes": 20,
      "scope": "西至体育东路—黄埔大道—广州大道，北至天河路以南230—560号（双号），东至石牌西路—黄埔大道西—马场路（单号），南至猎德街南界（包括猎心沙）",
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
-     "school_ids": [
-      "gz-440106-dd16c13e"
-     ]
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）"
     },
     {
      "school": "广州市天荣中学",
@@ -4450,6 +4568,10 @@
     {
      "school": "广州市天河外国语学校",
      "school_id": null,
+     "school_ids": [
+      "gz-440106-069ddb41",
+      "gz-440106-b711d94a"
+     ],
      "plan_classes": 6,
      "scope": "合生骏景、湖雍花园",
      "mechanism": "single_zone",
@@ -4557,7 +4679,11 @@
     },
     {
      "school": "广州市天河区同仁艺体实验中学",
-     "school_id": "gz-440106-cc1c335f",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-429b917e",
+      "gz-440106-cc1c335f"
+     ],
      "plan_classes": 7,
      "scope": null,
      "mechanism": "single_zone",
@@ -4733,7 +4859,12 @@
    "records": [
     {
      "school": "广州市第八十六中学",
-     "school_id": "gz-440112-0cb5a402",
+     "school_id": null,
+     "school_ids": [
+      "gz-440112-06029745",
+      "gz-440112-0cb5a402",
+      "gz-440112-43108516"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
@@ -4841,7 +4972,11 @@
     },
     {
      "school": "广东省教育研究院黄埔实验学校",
-     "school_id": "gz-440112-96610f39",
+     "school_id": null,
+     "school_ids": [
+      "gz-440112-22ec4fcc",
+      "gz-440112-96610f39"
+     ],
      "plan_classes": null,
      "scope": null,
      "mechanism": "group_paidui",
@@ -5096,15 +5231,16 @@
     },
     {
      "school": "广州知识城中学",
-     "school_id": "gz-440112-3f877ace",
+     "school_id": null,
+     "school_ids": [
+      "gz-440112-3f877ace",
+      "gz-440112-badbc2ab",
+      "gz-440112-ec15555e"
+     ],
      "plan_classes": null,
      "scope": "九龙第一小学、何棠下小学、枫下小学、凤尾小学、广州知识城北小学",
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（2026 实施细则附件5）",
-     "school_ids": [
-      "gz-440112-badbc2ab",
-      "gz-440112-ec15555e"
-     ]
+     "mechanism_note": "对口直升（2026 实施细则附件5）"
     },
     {
      "school": "丰乐初级中学",

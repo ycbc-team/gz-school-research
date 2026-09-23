@@ -35,20 +35,34 @@ from school_match import SchoolMatcher as _SchoolMatcher
 
 _MATCHER = _SchoolMatcher.load()
 
-def match_school_id(name, adcode=None):
-    """官方名单校名 → POI school_id；未命中返回 None。统一走 school_match 管道（实体表别名优先）。
+def match_school_ids(name, adcode=None):
+    """官方名单校名 → (school_id, school_ids)。统一走 SchoolMatcher（实体表别名优先，业务侧无别名表）。
     adcode=本区 adcode：优先命中本区 POI，避免跨区同名校（如铁英学校/广大附中）被错配到异区校区。
-    历史修正锚定优先：官方裸名/历史人工 id 固化在 MIDDLE_ANCHORS（重跑不漂移；None=显式宁缺）。
-    SCHOOL_NORM 先归一官方转录名 → 实体表标准名；SCHOOL_ID_ANCHOR 直接锚定（无实体校区）。"""
+    语义（SchoolMatcher resolve_all 契约）：
+      - 官方只写法人名（无校区限定，如「广州市天河外国语学校」）→ 展开同一法人全部 middle 校区，
+        多校区时 school_id=None + school_ids=[全部校区]（前端 byIdAll 全量索引，各校区详情页均可查到）
+      - 官方写明校区（含括号，如「执信中学（执信路校区）」）→ 精准单校区
+    SCHOOL_NORM 先归一官方转录名 → 实体表标准名；MIDDLE_ANCHORS 仅显式宁缺（None）。"""
     if not name:
-        return None
+        return None, None
     name = SCHOOL_NORM.get(name, name)
     if name in MIDDLE_ANCHORS:
-        return MIDDLE_ANCHORS[name]
-    if name in SCHOOL_ID_ANCHOR:
-        return SCHOOL_ID_ANCHOR[name]
-    r = _MATCHER.resolve(name, preferred_adcode=adcode, preferred_stage="初中")
-    return r.get("school_id") or None
+        return MIDDLE_ANCHORS[name], None
+    _campus_suffix = ("校区", "分校", "教学点", "分教点", "分部", "校本部", "初中部", "高中部", "小学部")
+    if re.search(r"[（(].+?[）)]", name) or name.endswith(_campus_suffix):
+        # 带校区/学部限定（括号式或后缀式）：精准匹配该校区/学部实体，宁缺毋滥（不展开其它校区）。
+        # 「校本部/初中部/高中部/小学部」是无括号后缀限定（官方明确指该校区/学部），
+        # 不得按法人名展开全部校区（如「广州市第一中学初中部」只指初中部实体）。
+        r = _MATCHER.resolve(name, preferred_adcode=adcode, preferred_stage="初中")
+        return (r.get("school_id") or None), None
+    # 无校区限定：法人全部校区展开（单校区回退 school_id；多校区 school_ids）
+    ra = _MATCHER.resolve_all(name, preferred_adcode=adcode, preferred_stage="初中")
+    ids = [r["school_id"] for r in ra]
+    if len(ids) == 1:
+        return ids[0], None
+    if len(ids) > 1:
+        return None, sorted(ids)
+    return None, None
 
 
 # 历史修正/官方裸名 → 法人主校区锚定（resolve 宁缺、跨区吸附或漂移时固化；None=显式宁缺）。
@@ -75,12 +89,9 @@ SCHOOL_NORM = {
     # 黄埔：全角点排版 → 半角（实体表口径）
     "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）": "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）",
 }
-# 无对应 middle 实体时的历史锚定（同反推版：本部 id，校区由 _CONFIRMED_CAMPUS 白名单挂载共享招生）
-SCHOOL_ID_ANCHOR = {
-    "清华附中湾区学校（智谷校区）": "gz-440106-e32237e4",      # POI 表智谷仅 high 实体，挂本部（历史一致）
-    "广州市天河区暨南第一实验学校": "gz-440106-11e15e8d",     # 2026 官方新名（附件6 17号）；实体为暨大附中（历史反推锚定）
-    "暨南大学附属实验学校（初中部）": "gz-440106-11e15e8d",   # 企事业行（附件7）；primary 实体无 middle，挂暨大附中
-}
+# SCHOOL_ID_ANCHOR 已废弃（2026-09-23）：历史业务侧锚定全部下沉实体表别名——
+# 清华附中湾区学校（智谷校区）/暨南大学附属实验学校（初中部）/广州市天河区暨南第一实验学校
+# 均已在 build_entities.py OFFICIAL_MIDDLE_ALIAS 建别名，由 SchoolMatcher 统一命中；不再保留业务别名表。
 
 # 区级枚举定义：UI 直接用 label / lose_text
 MECHANISMS = {
@@ -121,8 +132,7 @@ def build_panyu():
         if mech == "group_paidui" and school == "番禺区实验中学":
             members = ["广东仲元中学一校区（初中部）","广东番禺中学附属学校","番禺区实验中学","市桥东风中学","市桥侨联中学","市桥星海中学","市桥桥城中学","市桥桥兴中学"]
 
-        sid = match_school_id(school, "440113")
-        sids = None
+        sid, sids = match_school_ids(school, "440113")
         # 铁英学校 = 东/西两校区合计 28 班（官方无单校区拆分）：school_id 置 None，school_ids 列出两校区，
         # 两个校区的详情页共用这一套招生计划
         if school == "广铁一中铁英学校":
@@ -172,8 +182,7 @@ def build_baiyun():
             mech = "group_paidui"
         else:
             mech = "single_zone"
-        sid = match_school_id(school, "440111")
-        sids = None
+        sid, sids = match_school_ids(school, "440111")
         # 明德校区+同德校区合并招生（官方同一条记录）：school_id 置 None，school_ids 列出两校区共担
         if school == "广州市第六十五中学（明德校区、同德校区）":
             sid = None
@@ -215,7 +224,10 @@ def build_liwan():
                 rec_map[m]["group_members"] = sorted(set(rec_map[m]["group_members"] or []) | set(members))
     recs = []
     for m, r in rec_map.items():
-        r["school_id"] = match_school_id(m, "440103")
+        _sid, _sids = match_school_ids(m, "440103")
+        r["school_id"] = _sid
+        if _sids:
+            r["school_ids"] = _sids
         recs.append(r)
     return {
         "year": 2026, "district": "荔湾区",
@@ -267,11 +279,14 @@ def build_from_xiaoshengchu(district_key, district_name, adcode):
             rec["group_members"] = sorted(group_members_map.get(rec["mechanism_note"], set()))
     recs = []
     for j, r in rec_map.items():
-        r["school_id"] = match_school_id(j, adcode)
+        _sid, _sids = match_school_ids(j, adcode)
+        r["school_id"] = _sid
+        if _sids:
+            r["school_ids"] = _sids
         recs.append(r)
     return {
         "year": 2026, "district": district_name,
-        "source": f"由 xiaoshengchu_{district_key}.json 反推（班数/范围 raw 未抽，待补）",
+        "source": f"由 xiaoshengchu_{district_key}.json 反推（历史参照，已被官方直建替代）",
         "source_url": None,
         "records": recs,
     }
@@ -290,16 +305,20 @@ def build_yuexiu_official():
         members = g["juniors"]
         note = f"越秀区小学升初中电脑派位第{g['group']}组（组内 10 所初中均可填报）"
         for j in members:
+            _sid, _sids = match_school_ids(j, "440104")
             recs.append({
-                "school": SCHOOL_NORM.get(j, j), "school_id": match_school_id(j, "440104"),
+                "school": SCHOOL_NORM.get(j, j), "school_id": _sid,
+                **({"school_ids": _sids} if _sids else {}),
                 "plan_classes": None, "scope": None,
                 "mechanism": "group_paidui", "mechanism_note": note,
                 "group_members": members, "_group_primaries": g["primaries"],
             })
     # 直升（细则第九条）：已派位的初中追加 single_zone 直升规则（一校多规则，官方真实并存）
     for pri, junior in tr["direct_feed"].items():
+        _sid, _sids = match_school_ids(junior, "440104")
         recs.append({
-            "school": SCHOOL_NORM.get(junior, junior), "school_id": match_school_id(junior, "440104"),
+            "school": SCHOOL_NORM.get(junior, junior), "school_id": _sid,
+            **({"school_ids": _sids} if _sids else {}),
             "plan_classes": None, "scope": pri,
             "mechanism": "single_zone", "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
             "group_members": None,
@@ -322,15 +341,19 @@ def build_haizhu_official():
     for gid, members in tr["groups"].items():
         note = f"海珠区 2026 年公办初中普通电脑派位第{gid}组"
         for j in members:
+            _sid, _sids = match_school_ids(j, "440105")
             recs.append({
-                "school": SCHOOL_NORM.get(j, j), "school_id": match_school_id(j, "440105"),
+                "school": SCHOOL_NORM.get(j, j), "school_id": _sid,
+                **({"school_ids": _sids} if _sids else {}),
                 "plan_classes": plan_classes.get(j), "scope": None,
                 "mechanism": "group_paidui", "mechanism_note": note,
                 "group_members": members, "_group_primaries": group_prim.get(gid),
             })
     for pri, junior in tr["direct_feed"].items():
+        _sid, _sids = match_school_ids(junior, "440105")
         recs.append({
-            "school": SCHOOL_NORM.get(junior, junior), "school_id": match_school_id(junior, "440105"),
+            "school": SCHOOL_NORM.get(junior, junior), "school_id": _sid,
+            **({"school_ids": _sids} if _sids else {}),
             "plan_classes": plan_classes.get(junior), "scope": pri,
             "mechanism": "single_zone", "mechanism_note": "对口直升（初中招生问答正文）",
             "group_members": None,
@@ -348,14 +371,14 @@ def build_tianhe_official():
     recs = []
     for r in tr["gongban"]:
         school = SCHOOL_NORM.get(r["school"], r["school"])
-        sid, sids = match_school_id(school, "440106"), None
         # 两校区合并行（22/23 号：天外/清华附中 各两个校区，官方同一条计划）→ school_ids 列出两校区
         if "、" in school:
             parts = [p.strip() for p in school.split("、")]
-            ids = [match_school_id(p, "440106") for p in parts if p]
+            ids = [match_school_ids(p, "440106")[0] for p in parts if p]
             ids = [x for x in ids if x]
-            if len(ids) >= 2:
-                sid, sids = None, sorted(ids)
+            sid, sids = (None, sorted(ids)) if len(ids) >= 2 else (ids[0] if ids else None, None)
+        else:
+            sid, sids = match_school_ids(school, "440106")
         recs.append({
             "school": school, "school_id": sid,
             **({"school_ids": sids} if sids else {}),
@@ -364,15 +387,19 @@ def build_tianhe_official():
             "group_members": None,
         })
     for r in tr["qiye"]:
+        _sid, _sids = match_school_ids(r["school"], "440106")
         recs.append({
-            "school": SCHOOL_NORM.get(r["school"], r["school"]), "school_id": match_school_id(r["school"], "440106"),
+            "school": SCHOOL_NORM.get(r["school"], r["school"]), "school_id": _sid,
+            **({"school_ids": _sids} if _sids else {}),
             "plan_classes": r["plan_classes"], "scope": None,
             "mechanism": "single_zone", "mechanism_note": "企事业办学校招生（附件7）",
             "group_members": None,
         })
     for r in tr["minban"]:
+        _sid, _sids = match_school_ids(r["school"], "440106")
         recs.append({
-            "school": SCHOOL_NORM.get(r["school"], r["school"]), "school_id": match_school_id(r["school"], "440106"),
+            "school": SCHOOL_NORM.get(r["school"], r["school"]), "school_id": _sid,
+            **({"school_ids": _sids} if _sids else {}),
             "plan_classes": r["plan_classes"], "scope": None,
             "mechanism": "single_zone", "mechanism_note": "民办学校初中部自主招生（附件8）",
             "group_members": None,
@@ -391,15 +418,19 @@ def build_huangpu_official():
     for gid, r in tr["paiwei_groups"].items():
         note = f"黄埔区 2026 年小升初电脑随机派位第{gid}组"
         for j in r["juniors"]:
+            _sid, _sids = match_school_ids(j, "440112")
             recs.append({
-                "school": SCHOOL_NORM.get(j, j), "school_id": match_school_id(j, "440112"),
+                "school": SCHOOL_NORM.get(j, j), "school_id": _sid,
+                **({"school_ids": _sids} if _sids else {}),
                 "plan_classes": None, "scope": None,
                 "mechanism": "group_paidui", "mechanism_note": note,
                 "group_members": r["juniors"], "_group_primaries": r["primaries"],
             })
     for r in tr["zhisheng_groups"]:
+        _sid, _sids = match_school_ids(r["junior"], "440112")
         recs.append({
-            "school": SCHOOL_NORM.get(r["junior"], r["junior"]), "school_id": match_school_id(r["junior"], "440112"),
+            "school": SCHOOL_NORM.get(r["junior"], r["junior"]), "school_id": _sid,
+            **({"school_ids": _sids} if _sids else {}),
             "plan_classes": None, "scope": "、".join(r["primaries"]),
             "mechanism": "single_zone", "mechanism_note": "对口直升（2026 实施细则附件5）",
             "group_members": None,

@@ -6,7 +6,11 @@
  "records": [
   {
    "school": "广州市第十八中学",
-   "school_id": "gz-440106-ef4076c1",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-3a61d518",
+    "gz-440106-ef4076c1"
+   ],
    "plan_classes": 14,
    "scope": "天河区界（莲溪村）以西，天河区界（珠江）以北，车陂路以东，中山大道中以南",
    "mechanism": "single_zone",
@@ -15,27 +19,29 @@
   },
   {
    "school": "广州中学",
-   "school_id": "gz-440106-867e6c05",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-867e6c05",
+    "gz-440106-a989804b"
+   ],
    "plan_classes": 40,
    "scope": "华南快速干线（北起广园快速路立交，南至中山大道）以西，中山大道—天河路以北，广州大道—林和西横路—林和西路至广园东路、瘦狗岭路9号以东，广园快速路东至广园立交以南；粤垦路533号—623号（单号）等",
    "mechanism": "single_zone",
    "mechanism_note": "公办初中划片招生（2026 细则附件6）",
-   "group_members": null,
-   "school_ids": [
-    "gz-440106-a989804b"
-   ]
+   "group_members": null
   },
   {
    "school": "广州市第一一三中学",
-   "school_id": "gz-440106-2e9f6f7b",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-2e9f6f7b",
+    "gz-440106-b049d65a"
+   ],
    "plan_classes": 28,
    "scope": "荷光路单号7号到269号转中山大道西（单号1号到293号）—天府路以西，黄埔大道以东，广园快速路以南；员村片区等",
    "mechanism": "single_zone",
    "mechanism_note": "公办初中划片招生（2026 细则附件6）",
-   "group_members": null,
-   "school_ids": [
-    "gz-440106-b049d65a"
-   ]
+   "group_members": null
   },
   {
    "school": "广州市天河区汇景实验学校",
@@ -48,15 +54,16 @@
   },
   {
    "school": "广州市第七十五中学",
-   "school_id": "gz-440106-5a7fbf3a",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-5a7fbf3a",
+    "gz-440106-621b20d3"
+   ],
    "plan_classes": 14,
    "scope": "天河北路东界—林和西路以西，林和西路至广州大道中以北，水荫四横路东段转龙岗东路先烈东路转濂泉路至沙东街西界以东，兴华街北界以南；西坑一横巷等",
    "mechanism": "single_zone",
    "mechanism_note": "公办初中划片招生（2026 细则附件6）",
-   "group_members": null,
-   "school_ids": [
-    "gz-440106-621b20d3"
-   ]
+   "group_members": null
   },
   {
    "school": "广州市第八十九中学",
@@ -78,15 +85,16 @@
   },
   {
    "school": "广州市天河中学",
-   "school_id": "gz-440106-2f8a4424",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-2f8a4424",
+    "gz-440106-dd16c13e"
+   ],
    "plan_classes": 20,
    "scope": "西至体育东路—黄埔大道—广州大道，北至天河路以南230—560号（双号），东至石牌西路—黄埔大道西—马场路（单号），南至猎德街南界（包括猎心沙）",
    "mechanism": "single_zone",
    "mechanism_note": "公办初中划片招生（2026 细则附件6）",
-   "group_members": null,
-   "school_ids": [
-    "gz-440106-dd16c13e"
-   ]
+   "group_members": null
   },
   {
    "school": "广州市天荣中学",
@@ -181,6 +189,10 @@
   {
    "school": "广州市天河外国语学校",
    "school_id": null,
+   "school_ids": [
+    "gz-440106-069ddb41",
+    "gz-440106-b711d94a"
+   ],
    "plan_classes": 6,
    "scope": "合生骏景、湖雍花园",
    "mechanism": "single_zone",
@@ -300,7 +312,11 @@
   },
   {
    "school": "广州市天河区同仁艺体实验中学",
-   "school_id": "gz-440106-cc1c335f",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-429b917e",
+    "gz-440106-cc1c335f"
+   ],
    "plan_classes": 7,
    "scope": null,
    "mechanism": "single_zone",
