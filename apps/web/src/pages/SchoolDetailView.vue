@@ -158,6 +158,10 @@ const middleEnrolls = computed(() => {
 function groupNameOf(gid?: string | null): string {
   return (gid ? middleEnrollmentGroups[gid]?.name : null) || '组内可填报';
 }
+/** 派位组生源小学（groups[gid].primaries，组级对口）；无则空列表 */
+function groupPrimariesOf(gid?: string | null): string[] {
+  return gid ? (middleEnrollmentGroups[gid]?.primaries ?? []) : [];
+}
 
 </script>
 
@@ -286,6 +290,15 @@ function groupNameOf(gid?: string | null): string {
           <p v-if="m.record.mechanism_note" class="sub-note">
             官方备注：{{ m.record.mechanism_note }}
           </p>
+          <!-- 生源小学：本组对口派位小学（组级，与「派位组成员」同组） -->
+          <div v-if="groupPrimariesOf(m.record.group_id).length" class="zone-block">
+            <div class="zone-label">生源小学（本组对口派位）</div>
+            <div class="feed-list">
+              <div v-for="p in groupPrimariesOf(m.record.group_id)" :key="p" class="feed-item">
+                <span class="feed-name">{{ p }}</span>
+              </div>
+            </div>
+          </div>
           <!-- 派位组：多校派位时列出组内学校（每行一所，点击跳转该校详情） -->
           <div v-if="m.record.group_members && m.record.group_members.length" class="zone-block">
             <div class="zone-label">派位组成员（随机分配，组内兜底）</div>

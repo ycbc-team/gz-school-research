@@ -358,8 +358,9 @@ def build_haizhu_official():
     """海珠：问答附件1 派位 10 组 + 正文直升 19 + 计划表 28 校班数。"""
     tr = json.load(open(os.path.join(RAW, "haizhu_2026_juniors.json")))
     group_prim = {}
+    # prim_group 值是 int（组号），groups 键是 str（'1'）→ 统一 str 再索引，否则对口小学全丢
     for pri, gid in tr["prim_group"].items():
-        group_prim.setdefault(gid, []).append(pri)
+        group_prim.setdefault(str(gid), []).append(pri)
     plan_classes = tr["plan_classes"]
     recs = []
     for gid, members in tr["groups"].items():
