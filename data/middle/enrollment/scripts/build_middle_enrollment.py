@@ -125,7 +125,6 @@ def build_panyu():
         "year": 2026, "district": "番禺区",
         "source": "番禺区教育局《2026年番禺区义务教育阶段学校招生计划、招生地段及条件》+《2026年番禺区区属初中面向全区招生简章》",
         "source_url": src_url,
-        "mechanisms": MECHANISMS,
         "records": recs,
     }
 
@@ -164,7 +163,6 @@ def build_baiyun():
         "year": 2026, "district": "白云区",
         "source": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
         "source_url": None,
-        "mechanisms": MECHANISMS,
         "records": recs,
     }
 
@@ -197,7 +195,6 @@ def build_liwan():
         "year": 2026, "district": "荔湾区",
         "source": "荔湾区教育局 2026 公办初中招生派位组表（parsed/_transcripts/liwan_2026_groups.json）",
         "source_url": None,
-        "mechanisms": MECHANISMS,
         "records": recs,
     }
 
@@ -250,7 +247,6 @@ def build_from_xiaoshengchu(district_key, district_name, adcode):
         "year": 2026, "district": district_name,
         "source": f"由 xiaoshengchu_{district_key}.json 反推（班数/范围 raw 未抽，待补）",
         "source_url": None,
-        "mechanisms": MECHANISMS,
         "records": recs,
     }
 
@@ -366,9 +362,27 @@ if __name__ == "__main__":
             mech_count[r["mechanism"]] = mech_count.get(r["mechanism"],0)+1
         print(f"{dk:8s} -> {out}")
         print(f"         总{total}所, POI匹配{matched}, 机制分布: {mech_count}")
+    # group_members 去重为独立组表（包体优化：组内 N 校 × 每组重复 M 次的校名只存一次）：
+    # record.group_id 引用；mechanisms 三档全 7 区一致，合并后顶层一份。
+    groups = {}
+    seen = {}  # 组内容（成员集合）→ group_id
+    for dk in targets:
+        for r in districts[dk]["records"]:
+            members = r.pop("group_members", None)
+            if members:
+                key = tuple(sorted(members))
+                gid = seen.get(key)
+                if gid is None:
+                    gid = f"{dk}-{len(seen) + 1}"
+                    seen[key] = gid
+                    groups[gid] = {"district": districts[dk]["district"], "members": sorted(key)}
+                r["group_id"] = gid
     # 最终合并一份（dist 前端消费；--out-dir 时与区产物同目录）
+    # mechanisms 三档全 7 区一致 → 顶层一份；group_members → 独立 groups 表 + record.group_id
     merged = {"year": 2026,
               "note": "7 区公办初中招生计划合并（前端运行时消费；区级独立产物见 parsed/middle_enrollment_2026/）",
+              "mechanisms": MECHANISMS,
+              "groups": groups,
               "districts": districts}
     merge_out = os.path.join(out_dir if out_dir is not None else OUT, "middle_enrollment_2026.json")
     with open(merge_out, "w", encoding="utf-8") as f:

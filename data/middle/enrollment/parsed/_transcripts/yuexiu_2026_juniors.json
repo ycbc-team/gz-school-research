@@ -1,9 +1,10 @@
 {
   "year": 2026,
   "district": "越秀区",
-  "source": "2022年越秀区小学升初中电脑派位生分组表（官网 post_8301356；2026 细则 post_10790590 第九条确认分组保持稳定，志愿填报学校数 12→10 所）",
+  "source": "2022年越秀区小学升初中电脑派位生分组表（官网 post_8301356）+ 2026 义务教育招生细则（post_10790590，确认分组稳定、直升口径）",
   "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html",
-  "note": "无班数/范围（官方分组表仅组结构）；中学名按官网简称展开为官方全称（省越天胜=广东实验中学越秀学校(天胜校区)等，2026-09-21 核对）；矿泉中学→培正矿泉学校（瑶台改造）",
+  "source_url_rules": "https://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/jyjwj/content/post_10790590.html",
+  "note": "分组表为 2022 年官方表（2026 细则第九条确认组别稳定，志愿填报学校数 12→10 所）；无班数/范围（官方分组表仅组结构）",
   "mechanism": "group_paidui",
   "groups": [
     {

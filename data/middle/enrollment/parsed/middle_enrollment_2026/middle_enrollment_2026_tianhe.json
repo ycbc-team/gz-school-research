@@ -3,23 +3,6 @@
  "district": "天河区",
  "source": "由 xiaoshengchu_tianhe.json 反推（班数/范围 raw 未抽，待补）",
  "source_url": null,
- "mechanisms": {
-  "single_zone": {
-   "label": "单校划片",
-   "can_lose": false,
-   "lose_text": null
-  },
-  "group_paidui": {
-   "label": "多校电脑派位",
-   "can_lose": false,
-   "lose_text": "派位组内学校随机分配，组内兜底，不安排到组外。"
-  },
-  "single_lottery": {
-   "label": "单校电脑抽签",
-   "can_lose": true,
-   "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时由区教育局统一组织电脑抽签；未中签者按区招生简章回户籍地学区申请入读公办初中，不保证安排到本校。"
-  }
- },
  "records": [
   {
    "school": "广州市第十八中学",

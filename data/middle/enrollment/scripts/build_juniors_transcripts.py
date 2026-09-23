@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """复现越秀/海珠/天河/黄埔初中转录 json（parsed/_transcripts/<区>_2026_juniors.json）。
 
-数据源：transcripts_juniors/*.py（2026-09-23 用 Read 多模态直读官网后落盘的转录数据）：
-  yuexiu_juniors.py   → yuexiu_2026_juniors.json（2022 官方分组表 11 组×10 初中 + 8 直升，网页）
+数据源：
+  越秀（2026-09-23 程序化）：parse_yuexiu_juniors.py 读官方 raw html 表格+细则正则，无人工写死转录
+  海珠/天河/黄埔：transcripts_juniors/*.py（2026-09-23 用 Read 多模态直读官网后落盘的转录数据）：
+    haizhu_juniors.py   → haizhu_2026_juniors.json（附件1 派位 10 组 + 19 直升 + 计划表 28 校班数，网页图片）
   haizhu_juniors.py   → haizhu_2026_juniors.json（附件1 派位 10 组 + 19 直升 + 计划表 28 校班数，网页图片）
   tianhe_juniors.py   → tianhe_2026_juniors.json（PDF 附件6 公办 24 + 附件7 企事业 3 + 附件8 民办 24）
   huangpu_juniors.py  → huangpu_2026_juniors.json（PDF 附件5 派位 7 组 + 直升 22 组）
@@ -24,12 +26,6 @@ OUT = os.path.join(ROOT, "data", "middle", "enrollment", "parsed", "_transcripts
 DATA_DIR = os.path.join(HERE, "transcripts_juniors")
 
 META = {
-    "yuexiu": {
-        "source": "2022年越秀区小学升初中电脑派位生分组表（官网 post_8301356；2026 细则 post_10790590 第九条确认分组保持稳定，志愿填报学校数 12→10 所）",
-        "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html",
-        "note": "无班数/范围（官方分组表仅组结构）；中学名按官网简称展开为官方全称（省越天胜=广东实验中学越秀学校(天胜校区)等，2026-09-21 核对）；矿泉中学→培正矿泉学校（瑶台改造）",
-        "mechanism": "group_paidui",
-    },
     "haizhu": {
         "source": "2026年海珠区初中招生问答（mpost_10799155）附件1《2026年海珠区公办初中招生普通电脑派位分组表》+ 正文对口直升 + 2026年海珠区公办初中招生计划表（mpost_10788494）",
         "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html",
@@ -84,6 +80,15 @@ def validate(dk, body, meta):
 
 def main():
     os.makedirs(OUT, exist_ok=True)
+    # 越秀：程序化 parse（读官方 raw html 表格 + 细则正则，见 parse_yuexiu_juniors.py，完全可审计）
+    sys.path.insert(0, HERE)
+    import parse_yuexiu_juniors as _yx
+    yx = _yx.extract()
+    assert len(yx["groups"]) == 11 and len(yx["direct_feed"]) == 8
+    yx_path = os.path.join(OUT, "yuexiu_2026_juniors.json")
+    with open(yx_path, "w", encoding="utf-8") as f:
+        json.dump(yx, f, ensure_ascii=False, indent=2)
+    print("✓ yuexiu_2026_juniors.json（程序化 parse，校验通过）")
     for dk, meta in META.items():
         body = load(dk)
         validate(dk, body, meta)

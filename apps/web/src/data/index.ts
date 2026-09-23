@@ -4,7 +4,7 @@
  * 业务逻辑（查询/判定/匹配）已下沉 @gz/shared/src/data，本文件仅保留加载与导出。
  * 小程序端对应实现见 apps/miniprogram/utils/data.js（同一紧凑编译，CJS 产物）。
  */
-import { hydrate, splitEnrollments, createRepository, buildPoints, type DataLoaders, type MapPointFull, type MergedEnrollments, type MiddleEnrollmentSnapshot } from '@gz/shared';
+import { hydrate, splitEnrollments, createRepository, buildPoints, type DataLoaders, type MapPointFull, type MergedEnrollments, type MiddleEnrollmentSnapshot, type MiddleEnrollmentGroups, type MiddleMechanism, type MiddleMechanismDef } from '@gz/shared';
 import primarySchoolsCompact from './compact/poi/dist/primary_poi.js';
 import primaryTier1Compact from './compact/primary/tier1_schools_all.js';
 import entitiesCompact from './compact/registry/entity/dist/entities.js';
@@ -45,8 +45,10 @@ const loaders: DataLoaders = {
   highSchools: cast(hydrate(highSchoolsCompact)),
   highLevels: cast(hydrate(highLevelsCompact)),
   enrollments: cast(splitEnrollments(hydrate(enroll2026AllCompact) as unknown as MergedEnrollments)),
-  // dist 合并一份（2026-09-23）：{year, districts: {<区>: snapshot}}；loader 语义不变（数组 7 区）
+  // dist 合并一份（2026-09-23）：{year, mechanisms, groups, districts}；loader 语义不变（数组 7 区）
   middleEnrollments: Object.values(cast<{ districts: Record<string, MiddleEnrollmentSnapshot> }>(hydrate(middleEnrollment2026Compact)).districts),
+  middleEnrollmentMechanisms: cast<{ mechanisms: Record<MiddleMechanism, MiddleMechanismDef> }>(hydrate(middleEnrollment2026Compact)).mechanisms,
+  middleEnrollmentGroups: cast<{ groups: MiddleEnrollmentGroups }>(hydrate(middleEnrollment2026Compact)).groups,
   quotaMatrix: cast(hydrate(quotaMatrixCompact)),
   rankingMiddle: cast(hydrate(rankingMiddleCompact)),
   specialMatrix: cast(hydrate(specialMatrixCompact)),

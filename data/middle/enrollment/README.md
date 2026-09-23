@@ -18,6 +18,7 @@ middle/enrollment/
 │   │   ├── tianhe_2026_juniors.json   天河 24 公办+3 企事业+24 民办初中（PDF 附件6/7/8，有班数）
 │   │   └── huangpu_2026_juniors.json  黄埔 7 派位组+22 直升组（PDF 附件5，无班数）
 │   │   └── （番禺）→ 共享转录 `data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json`（初中 sheet，有班数/范围）
+│   ├── _ocr/                     机器 OCR 原文底稿（haizhu/tianhe/huangpu_juniors_ocr.json，可复现）
 │   └── middle_enrollment_2026/   中间统一格式（审计层，build 输出，每区一份）
 │       └── middle_enrollment_2026_<区>.json
 ├── src/        手工源文件（业务确认口径）
@@ -25,9 +26,12 @@ middle/enrollment/
 ├── scripts/    生产脚本
 │   ├── parse_baiyun_juniors.py      白云初中转录（共享 raw→parsed，openpyxl）
 │   ├── parse_liwan_groups.py        荔湾派位组转录（共享 raw→parsed，docx）
-│   ├── transcripts_juniors/         越秀/海珠/天河/黄埔转录数据源（py 字面量，2026-09-23 Read 官网落盘）
-│   │   ├── yuexiu_juniors.py  haizhu_juniors.py  tianhe_juniors.py  huangpu_juniors.py
+│   ├── parse_yuexiu_juniors.py      越秀分组表程序化解析（读官方 raw html 表格+细则正则，无人工写死）
+│   ├── transcripts_juniors/         海珠/天河/黄埔转录数据源（py 字面量，2026-09-23 Read 官网落盘）
+│   │   ├── haizhu_juniors.py  tianhe_juniors.py  huangpu_juniors.py
 │   ├── build_juniors_transcripts.py 4 区转录组装+校验 → parsed/_transcripts/<区>_2026_juniors.json
+│   ├── build_juniors_ocr.py         机器 OCR 原文落盘（海珠图/天河黄埔 PDF 页 → parsed/_ocr/）
+│   ├── audit_transcripts.py         转录 ↔ OCR 原文交叉审计（量化命中率 + 未命中清单）
 │   └── build_middle_enrollment.py   构建中间统一格式 + dist 合并（B 层，SchoolMatcher 匹配实体表）
 ├── dist/       B 层最终运行时产物 middle_enrollment_2026.json（7 区合并一份，前端消费）
 ├── docs/       业务文档（本 README 为权威说明）
@@ -39,9 +43,12 @@ middle/enrollment/
 ```
 共享官方源（data/enrollment/raw/，含 2026-09-23 补录的越秀/海珠官网原件）
   ├─parse_baiyun_juniors.py / parse_liwan_groups.py─▶ parsed/_transcripts/{baiyun,liwan}_*.json
-  └─build_juniors_transcripts.py（数据源在 transcripts_juniors/*.py，Read 官网落盘）─▶ parsed/_transcripts/{yuexiu,haizhu,tianhe,huangpu}_2026_juniors.json
-parsed/_transcripts/*.json ──build_middle_enrollment.py──▶ parsed/middle_enrollment_2026/middle_enrollment_2026_<区>.json（中间统一格式）
-                                                      └──▶ dist/middle_enrollment_2026.json（合并一份，前端消费）
+  ├─parse_yuexiu_juniors.py（程序化读官方 html 表格，无人工写死）─▶ parsed/_transcripts/yuexiu_2026_juniors.json
+  ├─build_juniors_ocr.py（Vision OCR：海珠图 + 天河/黄埔 PDF 页）─▶ parsed/_ocr/<区>_juniors_ocr.json（机器原文底稿）
+  └─build_juniors_transcripts.py（海珠/天河/黄埔 Read 落盘数据源组装+校验）─▶ parsed/_transcripts/{haizhu,tianhe,huangpu}_2026_juniors.json
+parsed/_transcripts/*.json ──build_middle_enrollment.py──▶ parsed/middle_enrollment_2026/middle_enrollment_2026_<区>.json（中间统一格式，组内嵌）
+                                                      └──▶ dist/middle_enrollment_2026.json（合并一份：mechanisms 顶层 + groups 组表 + record.group_id）
+parsed/_ocr/*.json + parsed/_transcripts/*.json ──audit_transcripts.py──▶ 交叉审计报告（命中率 + 未命中清单）
 ```
 
 复现命令：
@@ -49,7 +56,10 @@ parsed/_transcripts/*.json ──build_middle_enrollment.py──▶ parsed/midd
 ```bash
 python3 data/middle/enrollment/scripts/parse_baiyun_juniors.py      # 白云 59 初中（读共享官方 xlsx）
 python3 data/middle/enrollment/scripts/parse_liwan_groups.py       # 荔湾派位组 15 行（读共享 raw/liwan_2026_a3.docx）
-python3 data/middle/enrollment/scripts/build_juniors_transcripts.py # 越秀/海珠/天河/黄埔转录组装+校验（重跑与入库零差异）
+python3 data/middle/enrollment/scripts/parse_yuexiu_juniors.py     # 越秀 11 组×10 初中 + 8 直升（程序化读官方 html）
+python3 data/middle/enrollment/scripts/build_juniors_ocr.py        # 海珠/天河/黄埔 OCR 原文落盘（机器可复现）
+python3 data/middle/enrollment/scripts/build_juniors_transcripts.py # 海珠/天河/黄埔转录组装+校验（重跑与入库零差异）
+python3 data/middle/enrollment/scripts/audit_transcripts.py        # 转录 ↔ OCR 交叉审计（量化可追溯命中率）
 python3 data/middle/enrollment/scripts/build_middle_enrollment.py  # 7 区中间统一格式 + dist 合并一份
 ```
 
@@ -118,10 +128,14 @@ dist 合并一份（dist/middle_enrollment_2026.json，前端运行时消费）�
 | 天河 | 24 公办+3 企事业+24 民办 | ✓ | ✓（划片+对口小学） | **仍 xiaoshengchu 反推（转录已就绪，待直建）** |
 | 黄埔 | 7 派位组+22 直升组 | ✗（官方源无） | ✗（组结构） | **仍 xiaoshengchu 反推（转录已就绪，待直建）** |
 
-> 7 区转录已全部落地 `parsed/_transcripts/`，4 区转录已脚本化（scripts/transcripts_juniors/ + build_juniors_transcripts.py，
-> 重跑与入库零差异）。越秀/海珠官方原件已补录共享 raw。4 区（越秀/海珠/天河/黄埔）的 dist 构建
-> **尚未切换为官方直建**（build_middle_enrollment.py 仍走 build_from_xiaoshengchu 反推），直建为下一步工程。
-> 海珠班数（28 校）与天河班数/划片（24+3+24）已转录，直建后可补齐 plan_classes/scope。
+> 7 区转录已全部落地 `parsed/_transcripts/`；越秀为程序化 parse（parse_yuexiu_juniors.py 读官方 html，无人工写死），
+> 海珠/天河/黄埔为 Read 直读落盘数据源 + OCR 原文底稿（parsed/_ocr/）+ 交叉审计（audit_transcripts.py，合计 92.2% 可追溯命中）。
+> 越秀/海珠官方原件已补录共享 raw。
+> **4 区（越秀/海珠/天河/黄埔）的 dist 构建仍走 build_from_xiaoshengchu 反推**——历史原因：官方初中转录
+> 2026-09-23 才全部就绪，此前为快速产出初中视角先以小升初数据反推（机制启发式判定、班数/范围缺失）。
+> 转录就绪后正确方向是**小学升学基于初中招生公示反推**（与用户定案一致）；直建切换后 C 层产物零改动自动收益
+> （B 层 build 直建 + 快照显式更新），为下一步工程。海珠班数（28 校）与天河班数/划片（24+3+24）已转录，
+> 直建后可补齐 plan_classes/scope。
 
 ## 各区转录字段对齐（2026-09-23）
 

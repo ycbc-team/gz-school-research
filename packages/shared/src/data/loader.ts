@@ -10,6 +10,9 @@ import type {
   HighLevelsSnapshot,
   EnrollmentSnapshot,
   MiddleEnrollmentSnapshot,
+  MiddleMechanism,
+  MiddleMechanismDef,
+  MiddleEnrollmentGroups,
 } from '../types.js';
 import type { QuotaMatrix, SpecialMatrix, Batch2Scores, HighScores, BrandGroups, EducationGroups } from './types.js';
 
@@ -24,6 +27,9 @@ export interface DataLoaders {
   enrollments: EnrollmentSnapshot[];
   /** 初中 2026 招生计划（7 区，初中视角：班数/招生范围/机制/派位组成员） */
   middleEnrollments: MiddleEnrollmentSnapshot[];
+  /** dist 合并结构（2026-09-23）：mechanisms 顶层一份、派位/直升组独立组表（record.group_id 引用） */
+  middleEnrollmentMechanisms: Record<MiddleMechanism, MiddleMechanismDef>;
+  middleEnrollmentGroups: MiddleEnrollmentGroups;
   /** 极少数校区的招生计划特殊备注（school_id → 说明，如执信水荫路仅初三就读）；无备注的学校不写 */
   middleEnrollNotes?: Record<string, string>;
   quotaMatrix: QuotaMatrix;

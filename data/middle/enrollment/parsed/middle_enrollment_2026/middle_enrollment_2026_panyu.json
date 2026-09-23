@@ -3,23 +3,6 @@
  "district": "番禺区",
  "source": "番禺区教育局《2026年番禺区义务教育阶段学校招生计划、招生地段及条件》+《2026年番禺区区属初中面向全区招生简章》",
  "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
- "mechanisms": {
-  "single_zone": {
-   "label": "单校划片",
-   "can_lose": false,
-   "lose_text": null
-  },
-  "group_paidui": {
-   "label": "多校电脑派位",
-   "can_lose": false,
-   "lose_text": "派位组内学校随机分配，组内兜底，不安排到组外。"
-  },
-  "single_lottery": {
-   "label": "单校电脑抽签",
-   "can_lose": true,
-   "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时由区教育局统一组织电脑抽签；未中签者按区招生简章回户籍地学区申请入读公办初中，不保证安排到本校。"
-  }
- },
  "records": [
   {
    "school": "广东番禺中学附属学校",
