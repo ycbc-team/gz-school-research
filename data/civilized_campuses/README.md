@@ -102,7 +102,7 @@ python3 data/civilized_campuses/test/test_build_dist.py
 
 `dist/civilized_campus_school_ids.json` 是统一运行时产物：键为 `national`、`provincial`、`municipal`
 和 `advanced`，每个值均为**只含 `school_id` 的字符串数组**。称号、届次、原文校名和来源均留在
-parsed；省级正式名单尚未完成解析，当前 `provincial` 为空数组。
+parsed；省级当前仅解析第一届正式名单（61 条原文），后续届次待取得最终表彰或复查文件后追加。
 构建时不传学段：原文明确校区/部别时仅命中该范围；未明确校区时由 `SchoolMatcher` 展开全部
 可命中的同法人校区。构建不维护人工“广州范围”表，而是将 parsed 的全部官方转录名送入
 `SchoolMatcher`；`--review` 与测试命令输出逐项 `{src_name, entity_name, schoolid}`，供人工检查

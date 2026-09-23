@@ -23,6 +23,7 @@ DIST = BUSINESS / "dist" / "civilized_campus_school_ids.json"
 sys.path.insert(0, str(ROOT / "data" / "registry" / "entity" / "scripts"))
 from school_match import SchoolMatcher  # noqa: E402
 from build_guangzhou_dist import resolve as resolve_guangzhou  # noqa: E402
+from build_provincial_dist import resolve as resolve_provincial  # noqa: E402
 
 
 def resolve_records() -> tuple[list[str], list[dict[str, object]]]:
@@ -94,9 +95,10 @@ def main() -> None:
 
     DIST.parent.mkdir(exist_ok=True)
     guangzhou_ids, _ = resolve_guangzhou()
+    provincial_ids, _ = resolve_provincial()
     DIST.write_text(json.dumps({
         "national": school_ids,
-        "provincial": [],
+        "provincial": provincial_ids,
         "municipal": sorted(guangzhou_ids["市级正式"]),
         "advanced": sorted(guangzhou_ids["创建储备"]),
     }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
