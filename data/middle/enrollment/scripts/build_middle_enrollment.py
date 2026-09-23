@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """构建 2026 各区公办初中招生计划离线库（初中视角）。
 
-输出: data/middle/enrollment/dist/middle_enrollment_2026_<district>.json
+输出（2026-09-23 分层调整）:
+  中间统一格式（各区独立，审计层）: data/middle/enrollment/parsed/middle_enrollment_2026/middle_enrollment_2026_<district>.json
+  最终合并一份（前端运行时消费）:  data/middle/enrollment/dist/middle_enrollment_2026.json
+                                  {"year": 2026, "note": ..., "districts": {"<district>": {...snapshot...}, ...}}
+  支持 --out-dir DIR：全部输出到临时目录（快照测试用，不碰工作区）
 
 数据源（按区，2026-09-23 迁入 data/middle/enrollment 分层）:
   番禺 panyu : 共享转录 data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json
@@ -22,7 +26,8 @@ import json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 RAW = os.path.join(ROOT, "data", "middle", "enrollment", "parsed", "_transcripts")  # 本业务初中转录
 RAW_PANYU = os.path.join(ROOT, "data", "primary", "enrollment", "parsed", "_transcripts")  # 番禺共享转录（官方 xls 4 sheets：小学/初中/民办共用）
-OUT = os.path.join(ROOT, "data", "middle", "enrollment", "dist")
+OUT = os.path.join(ROOT, "data", "middle", "enrollment", "dist")  # 最终合并产物（前端消费）
+OUT_PARSED = os.path.join(ROOT, "data", "middle", "enrollment", "parsed", "middle_enrollment_2026")  # 中间统一格式（各区独立，审计层）
 
 # 复用项目统一的 POI 匹配服务（data/registry/entity/scripts/school_match.py，实体表别名优先 + 行政区/学段收敛，不另起 norm 逻辑）
 sys.path.insert(0, os.path.join(ROOT, "data/registry/entity/scripts"))
@@ -341,13 +346,18 @@ if __name__ == "__main__":
         out_dir = _args[i + 1]
         del _args[i:i + 2]
     targets = _args or list(BUILDERS.keys())
+    # 中间统一格式目录：默认 parsed/middle_enrollment_2026/；--out-dir 时输出到临时目录（快照测试）
+    dist_dir = out_dir if out_dir is not None else OUT_PARSED
+    districts = {}
     for dk in targets:
         data = BUILDERS[dk]()
         data = attach_legal_school_ids(data)
-        out = os.path.join(out_dir or OUT, f"middle_enrollment_2026_{dk}.json")
+        # 各区中间产物（统一格式，审计层）
+        out = os.path.join(dist_dir, f"middle_enrollment_2026_{dk}.json")
         os.makedirs(os.path.dirname(out), exist_ok=True)
         with open(out, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=1)
+        districts[dk] = data
         # 统计
         total = len(data["records"])
         matched = sum(1 for r in data["records"] if r["school_id"])
@@ -356,3 +366,11 @@ if __name__ == "__main__":
             mech_count[r["mechanism"]] = mech_count.get(r["mechanism"],0)+1
         print(f"{dk:8s} -> {out}")
         print(f"         总{total}所, POI匹配{matched}, 机制分布: {mech_count}")
+    # 最终合并一份（dist 前端消费；--out-dir 时与区产物同目录）
+    merged = {"year": 2026,
+              "note": "7 区公办初中招生计划合并（前端运行时消费；区级独立产物见 parsed/middle_enrollment_2026/）",
+              "districts": districts}
+    merge_out = os.path.join(out_dir if out_dir is not None else OUT, "middle_enrollment_2026.json")
+    with open(merge_out, "w", encoding="utf-8") as f:
+        json.dump(merged, f, ensure_ascii=False, indent=1)
+    print(f"合并    -> {merge_out}（{len(districts)} 区）")

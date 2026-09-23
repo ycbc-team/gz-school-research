@@ -4,7 +4,7 @@
  * 业务逻辑（查询/判定/匹配）已下沉 @gz/shared/src/data，本文件仅保留加载与导出。
  * 小程序端对应实现见 apps/miniprogram/utils/data.js（同一紧凑编译，CJS 产物）。
  */
-import { hydrate, splitEnrollments, createRepository, buildPoints, type DataLoaders, type MapPointFull, type MergedEnrollments } from '@gz/shared';
+import { hydrate, splitEnrollments, createRepository, buildPoints, type DataLoaders, type MapPointFull, type MergedEnrollments, type MiddleEnrollmentSnapshot } from '@gz/shared';
 import primarySchoolsCompact from './compact/poi/dist/primary_poi.js';
 import primaryTier1Compact from './compact/primary/tier1_schools_all.js';
 import entitiesCompact from './compact/registry/entity/dist/entities.js';
@@ -15,13 +15,7 @@ import middleTier1Compact from './compact/middle/tier1_schools_all.js';
 import highSchoolsCompact from './compact/poi/dist/high_poi.js';
 import highLevelsCompact from './compact/high/level/src/levels.js';
 import enroll2026AllCompact from './compact/primary/enrollments/2026-all.js';
-import middleEnrollTianheCompact from './compact/middle/enrollment/dist/middle_enrollment_2026_tianhe.js';
-import middleEnrollYuexiuCompact from './compact/middle/enrollment/dist/middle_enrollment_2026_yuexiu.js';
-import middleEnrollHaizhuCompact from './compact/middle/enrollment/dist/middle_enrollment_2026_haizhu.js';
-import middleEnrollLiwanCompact from './compact/middle/enrollment/dist/middle_enrollment_2026_liwan.js';
-import middleEnrollPanyuCompact from './compact/middle/enrollment/dist/middle_enrollment_2026_panyu.js';
-import middleEnrollBaiyunCompact from './compact/middle/enrollment/dist/middle_enrollment_2026_baiyun.js';
-import middleEnrollHuangpuCompact from './compact/middle/enrollment/dist/middle_enrollment_2026_huangpu.js';
+import middleEnrollment2026Compact from './compact/middle/enrollment/dist/middle_enrollment_2026.js';
 import quotaMatrixCompact from './compact/linkage/quota_matrix.js';
 import rankingMiddleCompact from './compact/linkage/ranking_middle.js';
 import specialMatrixCompact from './compact/linkage/special_matrix.js';
@@ -51,15 +45,8 @@ const loaders: DataLoaders = {
   highSchools: cast(hydrate(highSchoolsCompact)),
   highLevels: cast(hydrate(highLevelsCompact)),
   enrollments: cast(splitEnrollments(hydrate(enroll2026AllCompact) as unknown as MergedEnrollments)),
-  middleEnrollments: [
-    cast(hydrate(middleEnrollTianheCompact)),
-    cast(hydrate(middleEnrollYuexiuCompact)),
-    cast(hydrate(middleEnrollHaizhuCompact)),
-    cast(hydrate(middleEnrollLiwanCompact)),
-    cast(hydrate(middleEnrollPanyuCompact)),
-    cast(hydrate(middleEnrollBaiyunCompact)),
-    cast(hydrate(middleEnrollHuangpuCompact)),
-  ],
+  // dist 合并一份（2026-09-23）：{year, districts: {<区>: snapshot}}；loader 语义不变（数组 7 区）
+  middleEnrollments: Object.values(cast<{ districts: Record<string, MiddleEnrollmentSnapshot> }>(hydrate(middleEnrollment2026Compact)).districts),
   quotaMatrix: cast(hydrate(quotaMatrixCompact)),
   rankingMiddle: cast(hydrate(rankingMiddleCompact)),
   specialMatrix: cast(hydrate(specialMatrixCompact)),

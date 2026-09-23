@@ -8,23 +8,28 @@
 
 ```
 middle/enrollment/
-├── raw/        本目录无专属官方源（2026-09-23 清空）；官方源文件统一共享 `data/enrollment/raw/`
+├── raw/        本目录无专属官方源；官方源文件统一共享 `data/enrollment/raw/`
 ├── parsed/
-│   └── _transcripts/   初中转录 json（A 层，parse_*.py 从共享 raw/官网提取）
-│       ├── baiyun_2026_juniors.json   白云 59 初中（共享 xlsx「公办初中」sheet，有班数/对口小学）
-│       ├── liwan_2026_groups.json     荔湾 15 行派位分组（共享 a3.docx，无班数/范围）
-│       ├── yuexiu_2026_juniors.json   越秀 11 组×10 初中（2022 官方分组表网页，无班数）
-│       ├── haizhu_2026_juniors.json   海珠 10 组派位+直升+28 校班数（官网问答附件1+计划表）
-│       ├── tianhe_2026_juniors.json   天河 24 公办+3 企事业+24 民办初中（PDF 附件6/7/8，有班数）
-│       └── huangpu_2026_juniors.json  黄埔 7 派位组+22 直升组（PDF 附件5，无班数）
-│       └── （番禺）→ 共享转录 `data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json`（初中 sheet，有班数/范围）
+│   ├── _transcripts/   初中转录 json（A 层，转录数据源在 scripts/transcripts_juniors/，脚本可复现）
+│   │   ├── baiyun_2026_juniors.json   白云 59 初中（共享 xlsx「公办初中」sheet，有班数/对口小学）
+│   │   ├── liwan_2026_groups.json     荔湾 15 行派位分组（共享 a3.docx，无班数/范围）
+│   │   ├── yuexiu_2026_juniors.json   越秀 11 组×10 初中（2022 官方分组表网页，无班数）
+│   │   ├── haizhu_2026_juniors.json   海珠 10 组派位+直升+28 校班数（官网问答附件1+计划表）
+│   │   ├── tianhe_2026_juniors.json   天河 24 公办+3 企事业+24 民办初中（PDF 附件6/7/8，有班数）
+│   │   └── huangpu_2026_juniors.json  黄埔 7 派位组+22 直升组（PDF 附件5，无班数）
+│   │   └── （番禺）→ 共享转录 `data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json`（初中 sheet，有班数/范围）
+│   └── middle_enrollment_2026/   中间统一格式（审计层，build 输出，每区一份）
+│       └── middle_enrollment_2026_<区>.json
 ├── src/        手工源文件（业务确认口径）
 │   └── middle_enroll_notes.json  初中录取备注（如执信水荫：仅初三就读）
 ├── scripts/    生产脚本
-│   ├── parse_baiyun_juniors.py    白云初中转录（共享 raw→parsed，openpyxl）
-│   ├── parse_liwan_groups.py      荔湾派位组转录（共享 raw→parsed，docx）
-│   └── build_middle_enrollment.py 构建 dist（B 层，SchoolMatcher 匹配实体表）
-├── dist/       B 层最终运行时产物 middle_enrollment_2026_<区>.json（7 区）
+│   ├── parse_baiyun_juniors.py      白云初中转录（共享 raw→parsed，openpyxl）
+│   ├── parse_liwan_groups.py        荔湾派位组转录（共享 raw→parsed，docx）
+│   ├── transcripts_juniors/         越秀/海珠/天河/黄埔转录数据源（py 字面量，2026-09-23 Read 官网落盘）
+│   │   ├── yuexiu_juniors.py  haizhu_juniors.py  tianhe_juniors.py  huangpu_juniors.py
+│   ├── build_juniors_transcripts.py 4 区转录组装+校验 → parsed/_transcripts/<区>_2026_juniors.json
+│   └── build_middle_enrollment.py   构建中间统一格式 + dist 合并（B 层，SchoolMatcher 匹配实体表）
+├── dist/       B 层最终运行时产物 middle_enrollment_2026.json（7 区合并一份，前端消费）
 ├── docs/       业务文档（本 README 为权威说明）
 └── test/       快照测试（check_middle_snapshot.py + snapshots/ 基线，npm run check 链）
 ```
@@ -32,8 +37,11 @@ middle/enrollment/
 ## 构建链路（raw → parsed → dist，可重跑）
 
 ```
-共享官方源（data/enrollment/raw/）──parse_baiyun_juniors.py / parse_liwan_groups.py──▶ parsed/_transcripts/*.json
-parsed/_transcripts/*.json ──build_middle_enrollment.py──▶ dist/middle_enrollment_2026_<区>.json
+共享官方源（data/enrollment/raw/，含 2026-09-23 补录的越秀/海珠官网原件）
+  ├─parse_baiyun_juniors.py / parse_liwan_groups.py─▶ parsed/_transcripts/{baiyun,liwan}_*.json
+  └─build_juniors_transcripts.py（数据源在 transcripts_juniors/*.py，Read 官网落盘）─▶ parsed/_transcripts/{yuexiu,haizhu,tianhe,huangpu}_2026_juniors.json
+parsed/_transcripts/*.json ──build_middle_enrollment.py──▶ parsed/middle_enrollment_2026/middle_enrollment_2026_<区>.json（中间统一格式）
+                                                      └──▶ dist/middle_enrollment_2026.json（合并一份，前端消费）
 ```
 
 复现命令：
@@ -41,12 +49,15 @@ parsed/_transcripts/*.json ──build_middle_enrollment.py──▶ dist/middle
 ```bash
 python3 data/middle/enrollment/scripts/parse_baiyun_juniors.py      # 白云 59 初中（读共享官方 xlsx）
 python3 data/middle/enrollment/scripts/parse_liwan_groups.py       # 荔湾派位组 15 行（读共享 raw/liwan_2026_a3.docx）
-python3 data/middle/enrollment/scripts/build_middle_enrollment.py  # 7 区 dist
+python3 data/middle/enrollment/scripts/build_juniors_transcripts.py # 越秀/海珠/天河/黄埔转录组装+校验（重跑与入库零差异）
+python3 data/middle/enrollment/scripts/build_middle_enrollment.py  # 7 区中间统一格式 + dist 合并一份
 ```
 
-> 越秀/海珠/天河/黄埔 4 区转录（`parsed/_transcripts/<区>_2026_juniors.json`）为 2026-09-23
-> Read 多模态直读官网（越秀/海珠网页、天河/黄埔 PDF 扫描件）后落盘的 A 层转录，无独立 parse 脚本
-> （与小学侧天河/黄埔 read_transcripts 同一方法）；数据源 URL 记在各转录 json 的 `source_url`。
+> 越秀/海珠初中源为官网网页（2026-09-23 补录官方原件入共享 raw：
+> `yuexiu_2026_juniors_groups.html`、`yuexiu_2026_official_juniors.html`、`haizhu_2026_juniors_faq_01..13.jpg`、
+> `haizhu_2026_juniors_plan.png`）；天河/黄埔初中源为共享 raw PDF 扫描件。4 区转录数据固化在
+> `scripts/transcripts_juniors/*.py`（Read 官网落盘，来源 URL 见 build_juniors_transcripts.py），
+> 由 build 脚本组装+完整性校验，重跑可复现可审计（与小学侧 read_transcripts 同一方法）。
 
 ## 数据源（全部为各区教育局 2026 官方文件）
 
@@ -55,8 +66,8 @@ python3 data/middle/enrollment/scripts/build_middle_enrollment.py  # 7 区 dist
 | 番禺 | 《2026 招生计划、招生地段及条件》官方 xls（4 sheets） | 共享转录 `data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json`「公办初中招生范围、计划」sheet | 官方 xls 小学+初中+民办共用，权威源在共享 raw `data/enrollment/raw/panyu_2026_official.xls` + 小学侧转录（单一权威源，不复制） |
 | 白云 | 2026 招生计划附表2 官方 xlsx | 共享 raw `data/enrollment/raw/baiyun_2026_official.xlsx` → `parsed/_transcripts/baiyun_2026_juniors.json`（「公办初中」sheet） | xlsx 含「公办小学」sheet 归小学招生；解析脚本从共享位置读取 |
 | 荔湾 | 2026 公办初中招生方案附件3（派位分组） | 共享 raw `data/enrollment/raw/liwan_2026_a3.docx` → `parsed/_transcripts/liwan_2026_groups.json` | a1–a5 全附件共享（2026-09-23 迁入 data/enrollment/raw） |
-| 越秀 | 2022 官方分组表（post_8301356，2026 细则确认稳定） | `parsed/_transcripts/yuexiu_2026_juniors.json`（11 组×10 初中，2026-09-23 Read 网页直读转录） | 无班数/范围（官方分组表仅组结构）；中学简称已展开为官方全称 |
-| 海珠 | 2026 初中招生问答附件1 派位组 + 正文直升（mpost_10799155）+ 公办初中计划表（mpost_10788494） | `parsed/_transcripts/haizhu_2026_juniors.json`（10 组+19 直升+28 校班数，2026-09-23 网页直读） | 班数来自计划表网页直读（此前缺失，现可直建）；范围=派位组结构 |
+| 越秀 | 2022 官方分组表（post_8301356，2026 细则确认稳定） | 共享 raw `data/enrollment/raw/yuexiu_2026_juniors_groups.html` + `yuexiu_2026_official_juniors.html`（2026-09-23 补录） → `parsed/_transcripts/yuexiu_2026_juniors.json`（11 组×10 初中） | 无班数/范围（官方分组表仅组结构）；中学简称已展开为官方全称 |
+| 海珠 | 2026 初中招生问答附件1 派位组 + 正文直升（mpost_10799155）+ 公办初中计划表（mpost_10788494） | 共享 raw `data/enrollment/raw/haizhu_2026_juniors_faq_01..13.jpg` + `haizhu_2026_juniors_plan.png`（2026-09-23 补录） → `parsed/_transcripts/haizhu_2026_juniors.json`（10 组+19 直升+28 校班数） | 班数来自计划表网页直读；范围=派位组结构 |
 | 天河 | 2026 招生细则 PDF 附件6 初中划片及计划表 + 附件7 企事业办 + 附件8 民办 | `parsed/_transcripts/tianhe_2026_juniors.json`（24 公办+3 企事业+24 民办初中，2026-09-23 Read 直读） | 有班数/划片范围；22/23 号两校区合并行班数待复核 |
 | 黄埔 | 2026 招生细则 PDF 附件5 小升初派位及直升分组表 | `parsed/_transcripts/huangpu_2026_juniors.json`（7 派位组+22 直升组，2026-09-23 Read 直读） | 无班数/范围（官方分组表无计划列） |
 
@@ -65,6 +76,8 @@ python3 data/middle/enrollment/scripts/build_middle_enrollment.py  # 7 区 dist
 > 中文数字/半角点写法差异由构建层统一规范，非数据差异。
 
 ## 产物结构
+
+中间统一格式（parsed/middle_enrollment_2026/middle_enrollment_2026_<区>.json，每区一份，审计层）：
 
 ```json
 {
@@ -79,8 +92,19 @@ python3 data/middle/enrollment/scripts/build_middle_enrollment.py  # 7 区 dist
 }
 ```
 
-`mechanism` 区级枚举（UI 据此渲染 label/lose_text）：`single_zone` 单校划片 / `group_paidui` 多校电脑派位 /
-`single_lottery` 单校电脑抽签（未中签回原学区）。
+dist 合并一份（dist/middle_enrollment_2026.json，前端运行时消费）：
+
+```json
+{
+  "year": 2026,
+  "note": "7 区公办初中招生计划合并…",
+  "districts": {"tianhe": {...中间统一格式同构...}, "yuexiu": {...}, "haizhu": {...}, "liwan": {...}, "panyu": {...}, "baiyun": {...}, "huangpu": {...}}
+}
+```
+
+前端 `apps/web/src/data/index.ts` 由 7 个区 compact import 改为 1 个合并 compact，`middleEnrollments: Object.values(compact.districts)`
+（loader 语义不变）；快照/漂移测试按合并文件比对。`mechanism` 区级枚举（UI 据此渲染 label/lose_text）：
+`single_zone` 单校划片 / `group_paidui` 多校电脑派位 / `single_lottery` 单校电脑抽签（未中签回原学区）。
 
 ## 当前状态（2026-09-23 A 层转录补齐后）
 
@@ -94,9 +118,10 @@ python3 data/middle/enrollment/scripts/build_middle_enrollment.py  # 7 区 dist
 | 天河 | 24 公办+3 企事业+24 民办 | ✓ | ✓（划片+对口小学） | **仍 xiaoshengchu 反推（转录已就绪，待直建）** |
 | 黄埔 | 7 派位组+22 直升组 | ✗（官方源无） | ✗（组结构） | **仍 xiaoshengchu 反推（转录已就绪，待直建）** |
 
-> 7 区转录已全部落地 `parsed/_transcripts/`（2026-09-23）。4 区（越秀/海珠/天河/黄埔）的 dist 构建
+> 7 区转录已全部落地 `parsed/_transcripts/`，4 区转录已脚本化（scripts/transcripts_juniors/ + build_juniors_transcripts.py，
+> 重跑与入库零差异）。越秀/海珠官方原件已补录共享 raw。4 区（越秀/海珠/天河/黄埔）的 dist 构建
 > **尚未切换为官方直建**（build_middle_enrollment.py 仍走 build_from_xiaoshengchu 反推），直建为下一步工程。
-> 海珠班数（28 校）与天河班数/划片（24+3+24）为本轮新转录，直建后可补齐 plan_classes/scope。
+> 海珠班数（28 校）与天河班数/划片（24+3+24）已转录，直建后可补齐 plan_classes/scope。
 
 ## 各区转录字段对齐（2026-09-23）
 

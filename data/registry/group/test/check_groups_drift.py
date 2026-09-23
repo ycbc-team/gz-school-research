@@ -15,7 +15,7 @@ import json, os, subprocess, sys, tempfile, glob, shutil
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 PRODUCT = os.path.join(ROOT, "data/registry/group/dist/education_groups.json")
 MID_OUT = os.path.join(ROOT, "data/middle/enrollment/dist")
-_MID_GLOB = "middle_enrollment_2026_*.json"
+_MID_GLOB = "middle_enrollment_2026.json"   # dist 合并一份（2026-09-23）；区级中间产物在 parsed/middle_enrollment_2026/
 
 # 各子检查通过时的一行概要：全部通过时只打印一行结论；任一失败时才逐项输出。
 _ok_lines = []

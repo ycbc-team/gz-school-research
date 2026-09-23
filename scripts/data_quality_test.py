@@ -267,10 +267,9 @@ def main():
     # ---- 8. 初中招生计划 school_id 一致性：必须存在；区一致（跨区白名单）；合并招生 school_ids 均存在 ----
     # 跨区白名单：培英鹤洞校区(白云名单引用荔湾)、四中丰宁学校(荔湾区属，校址纸行路39号在越秀/荔湾交界，高德归越秀)
     CROSS_DISTRICT_OK = {"gz-440103-a3ee807c", "gz-440104-3b870a8e"}
-    for f in sorted(os.listdir(os.path.join(ROOT, "data/middle/enrollment/dist"))):
-        if not f.startswith("middle_enrollment_2026_"):
-            continue
-        d = json.load(open(os.path.join(ROOT, "data/middle/enrollment/dist", f)))
+    # dist 合并一份（2026-09-23）：{year, districts: {<区>: snapshot}}
+    _mid = json.load(open(os.path.join(ROOT, "data/middle/enrollment/dist/middle_enrollment_2026.json")))
+    for f, d in _mid["districts"].items():
         for r in d.get("records", []):
             sid = r.get("school_id")
             if sid:
@@ -389,8 +388,9 @@ def main():
         for _r in json.load(open(_f)).get("records", []):
             if _r.get("school_id"): _pri_enroll_ids.add(_r["school_id"])
     _mid_enroll_ids = set()
-    for _f in glob.glob(os.path.join(ROOT, "data/middle/enrollment/dist/middle_enrollment_2026_*.json")):
-        for _r in json.load(open(_f)).get("records", []):
+    # dist 合并一份（2026-09-23）：{year, districts: {<区>: snapshot}}
+    for _d in json.load(open(os.path.join(ROOT, "data/middle/enrollment/dist/middle_enrollment_2026.json")))["districts"].values():
+        for _r in _d.get("records", []):
             if _r.get("school_id"): _mid_enroll_ids.add(_r["school_id"])
             for _s in _r.get("school_ids") or []: _mid_enroll_ids.add(_s)
     _xs_ids = {r.get("school_id") for r in json.load(open(os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_2026.json"))).get("records", []) if r.get("school_id")}
