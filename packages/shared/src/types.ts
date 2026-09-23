@@ -271,7 +271,7 @@ export interface EnrollmentSnapshot {
   map_fail: string[];
 }
 
-/** data/primary/enrollments/middle_enrollment_2026_*.json —— 初中视角招生计划 */
+/** data/middle/enrollment/dist/middle_enrollment_2026_*.json —— 初中视角招生计划 */
 export type MiddleMechanism = 'single_zone' | 'group_paidui' | 'single_lottery';
 export interface MiddleMechanismDef {
   label: string;

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """复现解析：白云公办初中招生计划（baiyun_2026_juniors.json）
 
-输入: raw/baiyun_2026_official.xlsx（附表2：公办初中含小区配套学校）
+输入: 共享官方源 data/primary/enrollment/raw/baiyun_2026_official.xlsx
+      （附表2「公办初中」sheet；xlsx 含「公办小学」sheet 归小学招生，权威源留在小学 enrollment/raw）
 输出: parsed/_transcripts/baiyun_2026_juniors.json
       [{"seq","pian","jiedao","school","kind","feed","plan","note"}, ...]
 
@@ -13,8 +14,8 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-RAW = os.path.join(ROOT, "data", "primary", "transition", "raw")
-OUT = os.path.join(ROOT, "data", "primary", "transition", "parsed", "_transcripts", "baiyun_2026_juniors.json")
+RAW = os.path.join(ROOT, "data", "primary", "enrollment", "raw")  # 共享官方源（与小学招生共用同一 xlsx）
+OUT = os.path.join(ROOT, "data", "middle", "enrollment", "parsed", "_transcripts", "baiyun_2026_juniors.json")
 
 import openpyxl
 
@@ -69,7 +70,7 @@ def main():
         json.dump(out, f, ensure_ascii=False, indent=1)
     print(f"✓ {OUT}  {len(out)} 条")
     # 与现状对比
-    cur = os.path.join(ROOT, "data", "primary", "transition", "parsed", "_transcripts", "baiyun_2026_juniors.json")
+    cur = os.path.join(ROOT, "data", "middle", "enrollment", "parsed", "_transcripts", "baiyun_2026_juniors.json")
     j = json.load(open(cur, encoding="utf-8"))
     print(f"现状 {len(j)} 条，新生成 {len(out)} 条")
     if len(j) != len(out):

@@ -16,7 +16,7 @@
 
 | 脚本 | 职责 |
 | --- | --- |
-| `build_minban_official.py` | 番禺民办名单官方源自动解析（`data/primary/enrollments/_raw/panyu_2026_official.json` 的「民办招生计划」sheet，39 所）；`--check` 模式供 drift 检查（禁手改） |
+| `build_minban_official.py` | 番禺民办名单官方源自动解析（`data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json` 的「民办招生计划」sheet，39 所）；`--check` 模式供 drift 检查（禁手改） |
 | `apply_minban_patch.py` | 汇总 7 区 `minban_*.md` 采集，把「实体已存在、补标 nature=民办」的 school_id 追加进 `dist/minban_schools.json`（只更新源表，不直接写 entities） |
 | `annotate_minban_sources.py` | 来源标注：`manual`（md 采集，排除"公办/勿混淆/非同一所/排除/转公"段）与 `legacy`（历史遗留）分开 |
 | `extract_pending.py` | 从 `src/minban_*.md` 提取"需补实体/待核实"清单 → `parsed/pending_items.json`（民办扩充操作清单；need_entity 交 poi/apply_poi_patch 补 POI+实体，need_verify 人工核实） |

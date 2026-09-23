@@ -13,8 +13,8 @@
 
 | 目录 | 学段 | 主要文件 |
 | --- | --- | --- |
-| `primary/` | 小学 | `enrollment/`（小学招生，raw/parsed/scripts/src/docs 分层）、`transition/`（小升初+初中招生）、`tier1_schools_all.json`（第一梯队核验）；点位见 `poi/` |
-| `middle/` | 初中 | `tier1_schools_all.json`（初中第一梯队核验）；点位见 `poi/` |
+| `primary/` | 小学 | `enrollment/`（小学招生，raw/parsed/scripts/src/docs 分层）、`transition/`（小升初升学路线）、`tier1_schools_all.json`（第一梯队核验）；点位见 `poi/` |
+| `middle/` | 初中 | `enrollment/`（公办初中招生，raw/parsed/src/scripts/dist/docs/test 分层，2026-09-23 迁入）、`org_sort/`（默认排序）、`tier1_schools_all.json`（初中第一梯队核验）；点位见 `poi/` |
 | `high/` | 高中 | `level/src/levels.json`（学校清单/分类/指标）；`cutoff_score/`（录取分：`dist/` 历年产物 / `raw/` 官方源页面 / `src/` 手工源 / `scripts/` 解析脚本）；点位见 `poi/` |
 | `poi/` | 跨学段 | `dist/primary_poi.json`（931 所）/ `dist/middle_poi.json`（475 所）/ `dist/high_poi.json`（清洗后 126 所）；采集/补点脚本在 `poi/scripts/`，查询留痕 `poi/raw/amap_query_*.json` |
 | `registry/` | 跨学段 | 三个业务子目录：`entity/`（实体表，全链 school_id 维度枢纽）、`group/`（教育集团/品牌关联）、`private/`（民办名单真源）；详见各子目录 README |
@@ -89,7 +89,7 @@ python3 data/primary/enrollment/scripts/build_primary_2026.py <区>   # 2026 小
 | `registry/entity/dist/entities.json` | build_entities.py | 全链 school_id 外键维度表 |
 | `primary/transition/dist/xiaoshengchu_<区>.json` + `primary/transition/dist/xiaoshengchu_all.json` | build_xiaoshengchu_all.py + xs_resolver.py | 升学路线（区级/all 为中间产物，已 gitignore） |
 | `primary/transition/dist/xiaoshengchu_2026.json`（facts） | upgrade_xiaoshengchu.mjs | 小学升学路线、初中生源反查（middlePrimaryFeed）、生源快照测试 |
-| `primary/enrollments/middle_enrollment_2026_<区>.json` | build_middle_enrollment.py | 详情页初中招生计划 |
+| `middle/enrollment/dist/middle_enrollment_2026_<区>.json`（7 区，2026-09-23 自 primary/enrollments 迁入） | `middle/enrollment/scripts/build_middle_enrollment.py` | 详情页初中招生计划 |
 | `linkage/quota_matrix.json` / `special_matrix.json` / `district_quota.json` / `batch2_scores.json` | rebuild_quota_matrix / build_special_* / build_district_quota / build_linkage_batch2（+ backfill_school_ids 回填 id） | 升学通道、排行榜 |
 | `linkage/ranking_middle.json`（334 校） | build_ranking_middle.py | 详情页升学信号、排行榜、初中明细 |
 | `registry/group/dist/education_groups.json` | merge_groups.py（合并 parsed `_partial_*` + src/brand_groups + parsed/education_groups_2026） | 品牌卡、初中明细分组 |

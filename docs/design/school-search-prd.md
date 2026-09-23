@@ -147,9 +147,9 @@
 **数据字段引用（本屏各模块所用）**
 
 - **学校信号（学位预警 / 省一级 / 多维印证）**：`data/primary/tier1_schools_all.json` → `{ districts: [{ schools: [...] }] }`，每条含 `degree_warning{status,year,source_url}`、`historical_titles[]{level,year,note,source_url}`、`education_group{name,role,is_top_tier,group_level}`、`data_gaps[]`、`evidence[]{source,url,note}`（另含 `plan_classes, legal_entity, entity_relation`）。标题右侧"民间口径"小字对应 `evidence` 来源为非官方项。
-- **招生计划（2026）**：小学视角 `data/primary/enrollments/2026-*.json` → `{ records: [...] }`，每条含 `school, school_id, plan_classes?, zone?, source, district, note, poi_name, lng, lat`；初中视角 `data/primary/enrollments/middle_enrollment_2026_*.json` → `{ records: [...] }`，每条含 `school, school_id, plan_classes?, scope?, mechanism, mechanism_note, group_members?`。无具体信息的字段不展示。
-- **升学路线参考（2026）**：`data/primary/xiaoshengchu_2026.json` → `{ records: [...], groups: [...] }`，每条记录含 `school_id, group_id, feed_school_ids[], direct_feed_school_id?, feed_unresolved, source_note, data_gaps`；`groups[]{id, name, source_urls, data_gaps}`。展示仅列对口 / 派位初中名（由 `feed_school_ids` / `direct_feed_school_id` 经 `entities` 解析为校名），校名为可点击链接（跳转 `school_id`）。
-- **所在区招生细则（2026）**：对应区招生政策说明（区教育局口径，来源见 `data/primary/enrollments/2026-*.json` 顶层的 `source_url` 字段）。
+- **招生计划（2026）**：小学视角 `data/primary/enrollment/dist/2026-*.json` → `{ records: [...] }`，每条含 `school, school_id, plan_classes?, zone?, source, district, note, poi_name, lng, lat`；初中视角 `data/middle/enrollment/dist/middle_enrollment_2026_*.json` → `{ records: [...] }`，每条含 `school, school_id, plan_classes?, scope?, mechanism, mechanism_note, group_members?`。无具体信息的字段不展示。
+- **升学路线参考（2026）**：`data/primary/transition/dist/xiaoshengchu_2026.json` → `{ records: [...], groups: [...] }`，每条记录含 `school_id, group_id, feed_school_ids[], direct_feed_school_id?, feed_unresolved, source_note, data_gaps`；`groups[]{id, name, source_urls, data_gaps}`。展示仅列对口 / 派位初中名（由 `feed_school_ids` / `direct_feed_school_id` 经 `entities` 解析为校名），校名为可点击链接（跳转 `school_id`）。
+- **所在区招生细则（2026）**：对应区招生政策说明（区教育局口径，来源见 `data/primary/enrollment/dist/2026-*.json` 顶层的 `source_url` 字段）。
 - **教育集团**：三级层级；成员归属取自 `data/registry/school_groups.json`（结构 `schoolGroups: { school_id: { brand, source } }`）+ `brand_groups.json` / `education_groups.json`（及 `education_groups_2026.json`）；模块标题（一级）/ 成员类型"所属集团 / 同一法人单位 / 独立法人单位"（二级）/ 成员校（三级）。
 
 ## 08 异常态 A · 搜索无结果

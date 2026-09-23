@@ -10,13 +10,13 @@
 | --- | --- | --- |
 | `enrollment/` | **小学招生**（公办小学地段/计划） | 按 raw/parsed/scripts/src/docs 分层；A 层转录 + B 层 SchoolMatcher 匹配，详见 `enrollment/README.md` |
 | `transition/` | 小升初升学路线（xiaoshengchu） | 官方源/解析产物/构建脚本/运行时产物，详见 `transition/README.md`（初中招生为下一步，暂归此处） |
-| `enrollments/` | 公办初中招生计划 dist | `middle_enrollment_2026_<区>.json`（7 区），构建脚本 `scripts/primary/build_middle_enrollment.py` |
+| `enrollments/` | ~~公办初中招生计划 dist~~（2026-09-23 已迁 `data/middle/enrollment/`，本目录仅剩 .DS_Store） | — |
 | `tier1_schools_all.json` | 口碑学校（第一梯队小学） | 网传/公开信息整理（前端 compact 消费） |
 
 ## 业务边界
 
 - **小学招生**（`enrollment/`）：官方招生地段/计划表 → 转录 → 实体表匹配。只含公办；民办招生归 `data/registry/private/`（旧流程把番禺民办混入小学产物，已修正）。
-- **小升初/初中招生**（`transition/` + `enrollments/`）：升学路线与初中招生计划，下一步任务，本次未重构。
+- **小升初**（`transition/`）：小学→初中升学路线（xiaoshengchu）。初中招生已独立为 `data/middle/enrollment/`（2026-09-23 迁出）。
 
 ## check 链
 

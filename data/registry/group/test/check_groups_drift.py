@@ -14,7 +14,7 @@ import json, os, subprocess, sys, tempfile, glob, shutil
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 PRODUCT = os.path.join(ROOT, "data/registry/group/dist/education_groups.json")
-MID_OUT = os.path.join(ROOT, "data/primary/enrollments")
+MID_OUT = os.path.join(ROOT, "data/middle/enrollment/dist")
 _MID_GLOB = "middle_enrollment_2026_*.json"
 
 # 各子检查通过时的一行概要：全部通过时只打印一行结论；任一失败时才逐项输出。
@@ -45,7 +45,7 @@ def _check_middle_enrollment():
     os.makedirs(tmp, exist_ok=True)
     for f in glob.glob(os.path.join(tmp, _MID_GLOB)):
         os.remove(f)
-    _replay("scripts/primary/build_middle_enrollment.py", "--out-dir", tmp)
+    _replay("data/middle/enrollment/scripts/build_middle_enrollment.py", "--out-dir", tmp)
     diffs = []
     for f in sorted(glob.glob(os.path.join(MID_OUT, _MID_GLOB))):
         base = os.path.basename(f)

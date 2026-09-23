@@ -267,10 +267,10 @@ def main():
     # ---- 8. 初中招生计划 school_id 一致性：必须存在；区一致（跨区白名单）；合并招生 school_ids 均存在 ----
     # 跨区白名单：培英鹤洞校区(白云名单引用荔湾)、四中丰宁学校(荔湾区属，校址纸行路39号在越秀/荔湾交界，高德归越秀)
     CROSS_DISTRICT_OK = {"gz-440103-a3ee807c", "gz-440104-3b870a8e"}
-    for f in sorted(os.listdir(os.path.join(ROOT, "data/primary/enrollments"))):
+    for f in sorted(os.listdir(os.path.join(ROOT, "data/middle/enrollment/dist"))):
         if not f.startswith("middle_enrollment_2026_"):
             continue
-        d = json.load(open(os.path.join(ROOT, "data/primary/enrollments", f)))
+        d = json.load(open(os.path.join(ROOT, "data/middle/enrollment/dist", f)))
         for r in d.get("records", []):
             sid = r.get("school_id")
             if sid:
@@ -363,7 +363,7 @@ def main():
     # ---- 11. 孤儿学校：公办 + 无招生信息 或 无升学信息（逐一排查清单 + 快照防线）----
     # 口径（按学段）：
     #   primary：招生 = 2026 小学地段招生（enrollments/2026-*.json）；升学 = 小升初出口（xiaoshengchu_2026）
-    #   middle： 招生 = 2026 初中招生计划（enrollments/middle_enrollment_2026_*.json）；
+    #   middle： 招生 = 2026 初中招生计划（middle/enrollment/dist/middle_enrollment_2026_*.json）；
     #            升学 = ranking_middle（中考指标）或 quota_matrix（名额分配）
     #   high：   招生 = 2025/2026 中考录取分数（高考升学数据项目未采集，分数为唯一信息源）
     # 孤儿 = 公办（nature != 民办）且「无招生 或 无升学」任一缺失——均属异常 case，需逐校排查。
@@ -389,7 +389,7 @@ def main():
         for _r in json.load(open(_f)).get("records", []):
             if _r.get("school_id"): _pri_enroll_ids.add(_r["school_id"])
     _mid_enroll_ids = set()
-    for _f in glob.glob(os.path.join(ROOT, "data/primary/enrollments/middle_enrollment_2026_*.json")):
+    for _f in glob.glob(os.path.join(ROOT, "data/middle/enrollment/dist/middle_enrollment_2026_*.json")):
         for _r in json.load(open(_f)).get("records", []):
             if _r.get("school_id"): _mid_enroll_ids.add(_r["school_id"])
             for _s in _r.get("school_ids") or []: _mid_enroll_ids.add(_s)
@@ -580,7 +580,7 @@ def main():
                 _zone = str(_r.get("zone") or "")
                 if "民办" not in _zone:
                     _bad_pri.append(f"{os.path.basename(_f)} | {_r.get('school')} | {_r.get('school_id')} | zone={_zone[:60]}")
-    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/middle_enrollment_2026_*.json"))):
+    for _f in sorted(glob.glob(os.path.join(ROOT, "data/middle/enrollment/dist/middle_enrollment_2026_*.json"))):
         _d = json.load(open(_f))
         for _r in _d.get("records", []):
             if _r.get("school_id") in _minban_ids16:

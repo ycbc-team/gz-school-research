@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """构建 2026 各区公办初中招生计划离线库（初中视角）。
 
-输出: data/primary/enrollments/middle_enrollment_2026_<district>.json
+输出: data/middle/enrollment/dist/middle_enrollment_2026_<district>.json
 
-数据源（按区）:
-  番禺 panyu : parsed/_transcripts/panyu_2026_official.json "公办初中招生范围、计划" sheet
-  白云 baiyun: parsed/_transcripts/baiyun_2026_juniors.json
-  荔湾 liwan : parsed/_transcripts/liwan_2026_groups.json（派位组）
-  越秀/海珠/天河/黄埔: xiaoshengchu_<district>.json 反推（班数/范围 raw 未抽，留空）
+数据源（按区，2026-09-23 迁入 data/middle/enrollment 分层）:
+  番禺 panyu : 共享转录 data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json
+               "公办初中招生范围、计划" sheet（官方 xls 小学+初中+民办共用，权威源留在小学 enrollment）
+  白云 baiyun: parsed/_transcripts/baiyun_2026_juniors.json（官方源 xlsx 与小学共享，raw 在
+               data/primary/enrollment/raw/baiyun_2026_official.xlsx，见 parse_baiyun_juniors.py）
+  荔湾 liwan : parsed/_transcripts/liwan_2026_groups.json（派位组，raw/liwan_2026_groups_official.docx）
+  越秀/海珠/天河/黄埔: data/primary/transition/dist/xiaoshengchu_<district>.json 反推
+               （班数/范围 raw 未抽，留空）
 
 mechanism 枚举（区级定义，UI 据此渲染）:
   single_zone     单校划片（对口直升/直接安排，无落选概念）
@@ -16,10 +19,10 @@ mechanism 枚举（区级定义，UI 据此渲染）:
 """
 import json, os, re, sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-RAW = os.path.join(ROOT, "data", "primary", "transition", "parsed", "_transcripts")  # 初中转录（未迁）
-RAW_PANYU = os.path.join(ROOT, "data", "primary", "enrollment", "parsed", "_transcripts")  # 番禺官方转录（已迁小学招生）
-OUT = os.path.join(ROOT, "data", "primary", "enrollments")
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+RAW = os.path.join(ROOT, "data", "middle", "enrollment", "parsed", "_transcripts")  # 本业务初中转录
+RAW_PANYU = os.path.join(ROOT, "data", "primary", "enrollment", "parsed", "_transcripts")  # 番禺共享转录（官方 xls 4 sheets：小学/初中/民办共用）
+OUT = os.path.join(ROOT, "data", "middle", "enrollment", "dist")
 
 # 复用项目统一的 POI 匹配服务（data/registry/entity/scripts/school_match.py，实体表别名优先 + 行政区/学段收敛，不另起 norm 逻辑）
 sys.path.insert(0, os.path.join(ROOT, "data/registry/entity/scripts"))

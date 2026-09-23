@@ -83,7 +83,7 @@ const SRC_REMAP_INV = Object.fromEntries(Object.entries({
   'primary/enrollments/2026-tianhe': 'primary/enrollment/dist/2026-tianhe',
   'primary/enrollments/2026-yuexiu': 'primary/enrollment/dist/2026-yuexiu',
   'primary/schools-backfill': 'primary/transition/dist/schools-backfill',
-  'primary/middle_enroll_notes': 'primary/transition/src/middle_enroll_notes',
+  'primary/middle_enroll_notes': 'middle/enrollment/src/middle_enroll_notes',
 }).map(([k, v]) => [v, k]));
 const jsonPath = join(DATA, (SRC_REMAP_INV[rel] ?? rel) + '.json');
   if (!exists(jsonPath)) return;

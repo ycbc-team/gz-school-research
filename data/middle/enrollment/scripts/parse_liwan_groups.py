@@ -14,8 +14,8 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-RAW = os.path.join(ROOT, "data", "primary", "transition", "raw")
-OUT = os.path.join(ROOT, "data", "primary", "transition", "parsed", "_transcripts", "liwan_2026_groups.json")
+RAW = os.path.join(ROOT, "data", "middle", "enrollment", "raw")
+OUT = os.path.join(ROOT, "data", "middle", "enrollment", "parsed", "_transcripts", "liwan_2026_groups.json")
 
 from docx import Document
 
