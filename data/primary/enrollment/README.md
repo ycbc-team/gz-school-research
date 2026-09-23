@@ -1,12 +1,13 @@
 # 小学招生（enrollment）
 
-2026 年广州市各区公办小学招生地段/计划的解析与匹配产物。与小升初/初中招生（`data/primary/transition/`）**完全分离**：本目录只做小学招生。
+2026 年广州市各区公办小学招生地段/计划的解析与匹配产物。与小升初/初中招生（`data/primary/transition/` + `data/middle/enrollment/`）**业务完全分离**：本目录只做小学招生。
+**官方源文件统一共享 `data/enrollment/raw/`**（2026-09-23 迁出，小学/小升初/初中招生共用同一份政府原文，见下节「数据源」）。
 
 ## 目录结构
 
 ```
 enrollment/
-├── raw/        政府源文件（原文件只读归档：xls/xlsx/pdf/png/doc/docx）
+├── raw/        官方源文件已迁共享 `data/enrollment/raw/`（2026-09-23；本目录不再存 raw）
 ├── parsed/     解析层（可审计可重跑）
 │   ├── _transcripts/   A 层：parse_*.py 从 raw 提取的结构化 JSON（含 OCR 缓存 ocr/）
 │   └── dist/           B 层：build_primary_2026.py 输出 2026-<区>.json
@@ -42,7 +43,7 @@ dist/2026-all.json           ← 最终运行时产物（无 school 名，按 sc
 
 ## 数据源（官方 2026-04-28 前后发布）
 
-| 区 | raw 原文件 | 关键内容 | 解析脚本 |
+| 区 | raw 原文件（共享 `data/enrollment/raw/`） | 关键内容 | 解析脚本 |
 |---|---|---|---|
 | 越秀 | `yuexiu_2026_official.doc`（招生简章附件5） | 51 所小学按行政街+路段列登记范围，块尾含班数 | `parse_yuexiu_diduan.py`（textutil 转文本） |
 | 荔湾 | `liwan_2026_primary_a1.docx` / `a4.docx`（细则附件1/附件4） | 附件1 计划班数 60 所；附件4 服务地段（街道/社区/路街巷） | `parse_liwan_primary.py`（docx 解析） |
@@ -56,7 +57,7 @@ dist/2026-all.json           ← 最终运行时产物（无 school 名，按 sc
 
 ## A 层（转录）
 
-每个 parse_*.py 从 `raw/` 原文件读取，输出 `parsed/_transcripts/<区>_2026.json`。扫描件（海珠 png、天河/黄埔 PDF）走 `scripts/ocr/vision_ocr.py` 或 Read 直读。
+每个 parse_*.py 从共享 `data/enrollment/raw/` 原文件读取，输出 `parsed/_transcripts/<区>_2026.json`。扫描件（海珠 png、天河/黄埔 PDF）走 `scripts/ocr/vision_ocr.py` 或 Read 直读。
 
 > **2026-09-22 官方核验整改**：zone 文本以官方原文为准（多引擎 OCR 交叉 + 真实地名/社区名录 + 官方历年表判定），
 > 判定结论固化在两处权威源，重跑 A 层即可复现当前转录：
@@ -95,7 +96,7 @@ dist/2026-all.json           ← 最终运行时产物（无 school 名，按 sc
 ## 海珠班数挂载（公办计划表）
 
 海珠地段表只有「学校/服务地段」两列（无班数），班数来自官方另发的《2026年海珠区公办小学招生计划表》
-（`raw/haizhu_2026_gongban_plan.png`，学校+班数双列 80 条）。`parse_haizhu_plan.py` 转录到
+（共享 `data/enrollment/raw/haizhu_2026_gongban_plan.png`，学校+班数双列 80 条）。`parse_haizhu_plan.py` 转录到
 `parsed/_transcripts/haizhu_2026_plan.json`，B 层匹配后按以下顺序挂 `plan_classes`：
 
 1. 官方原文名精确（与计划表同源，如「第二实验小学（南校区）」）；

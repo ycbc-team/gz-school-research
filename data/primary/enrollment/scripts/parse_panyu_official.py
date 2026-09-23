@@ -13,7 +13,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-RAW = os.path.join(ROOT, "data", "primary", "enrollment", "raw")
+RAW = os.path.join(ROOT, "data", "enrollment", "raw")
 OUT = os.path.join(ROOT, "data", "primary", "enrollment", "parsed", "_transcripts", "panyu_2026_official.json")
 
 import xlrd

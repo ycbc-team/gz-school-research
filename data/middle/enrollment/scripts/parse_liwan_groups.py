@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """复现解析：荔湾公办初中电脑派位分组（liwan_2026_groups.json）
 
-输入: raw/liwan_2026_groups_official.docx（《2026年荔湾区公办初中一年级招生工作方案》附件3：2026年荔湾区小学毕业生电脑派位分组）
+输入: raw/liwan_2026_a3.docx（《2026年荔湾区公办初中一年级招生工作方案》附件3：2026年荔湾区小学毕业生电脑派位分组）
 输出: parsed/_transcripts/liwan_2026_groups.json
       [{"table": <表序号>, "cells": [[列1段落...], [列2段落...], [列3段落...]]}, ...]
       按行解析：docx 表格每行一条，cells 为每列单元格按换行拆分后的段落数组。
@@ -14,7 +14,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-RAW = os.path.join(ROOT, "data", "middle", "enrollment", "raw")
+RAW = os.path.join(ROOT, "data", "enrollment", "raw")
 OUT = os.path.join(ROOT, "data", "middle", "enrollment", "parsed", "_transcripts", "liwan_2026_groups.json")
 
 from docx import Document
@@ -30,7 +30,7 @@ def split_cell(text):
 
 
 def main():
-    doc = Document(os.path.join(RAW, "liwan_2026_groups_official.docx"))
+    doc = Document(os.path.join(RAW, "liwan_2026_a3.docx"))
     out = []
     for ti, table in enumerate(doc.tables):
         for row in table.rows:

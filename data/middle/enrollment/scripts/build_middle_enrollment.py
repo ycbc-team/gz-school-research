@@ -7,8 +7,8 @@
   番禺 panyu : 共享转录 data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json
                "公办初中招生范围、计划" sheet（官方 xls 小学+初中+民办共用，权威源留在小学 enrollment）
   白云 baiyun: parsed/_transcripts/baiyun_2026_juniors.json（官方源 xlsx 与小学共享，raw 在
-               data/primary/enrollment/raw/baiyun_2026_official.xlsx，见 parse_baiyun_juniors.py）
-  荔湾 liwan : parsed/_transcripts/liwan_2026_groups.json（派位组，raw/liwan_2026_groups_official.docx）
+               data/enrollment/raw/baiyun_2026_official.xlsx，见 parse_baiyun_juniors.py）
+  荔湾 liwan : parsed/_transcripts/liwan_2026_groups.json（派位组，共享 raw/liwan_2026_a3.docx，见 parse_liwan_groups.py）
   越秀/海珠/天河/黄埔: data/primary/transition/dist/xiaoshengchu_<district>.json 反推
                （班数/范围 raw 未抽，留空）
 

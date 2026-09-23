@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """复现解析：白云公办初中招生计划（baiyun_2026_juniors.json）
 
-输入: 共享官方源 data/primary/enrollment/raw/baiyun_2026_official.xlsx
+输入: 共享官方源 data/enrollment/raw/baiyun_2026_official.xlsx
       （附表2「公办初中」sheet；xlsx 含「公办小学」sheet 归小学招生，权威源留在小学 enrollment/raw）
 输出: parsed/_transcripts/baiyun_2026_juniors.json
       [{"seq","pian","jiedao","school","kind","feed","plan","note"}, ...]
@@ -14,7 +14,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-RAW = os.path.join(ROOT, "data", "primary", "enrollment", "raw")  # 共享官方源（与小学招生共用同一 xlsx）
+RAW = os.path.join(ROOT, "data", "enrollment", "raw")  # 共享官方源（与小学招生共用同一 xlsx）
 OUT = os.path.join(ROOT, "data", "middle", "enrollment", "parsed", "_transcripts", "baiyun_2026_juniors.json")
 
 import openpyxl

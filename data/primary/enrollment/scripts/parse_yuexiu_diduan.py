@@ -19,7 +19,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 DATA = os.path.join(ROOT, "data", "primary", "enrollment")
 PARSED = os.path.join(DATA, "parsed", "_transcripts")
-RAW = os.path.join(DATA, "raw")
+RAW = os.path.join(ROOT, "data", "enrollment", "raw")
 OUT = os.path.join(DATA, "parsed", "_transcripts", "yuexiu_2026.json")
 
 SRC_URL = "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zxjyxx/content/post_10790024.html"

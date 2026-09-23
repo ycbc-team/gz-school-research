@@ -8,17 +8,16 @@
 
 ```
 middle/enrollment/
-├── raw/        政府官方源文件（仅本业务专属；共享官方源留在小学 enrollment/raw，见下）
-│   └── liwan_2026_groups_official.docx   荔湾 2026 公办初中派位分组表（附件3）
+├── raw/        本目录无专属官方源（2026-09-23 清空）；官方源文件统一共享 `data/enrollment/raw/`
 ├── parsed/
-│   └── _transcripts/   初中转录 json（A 层，parse_*.py 从 raw 提取）
-│       ├── baiyun_2026_juniors.json  白云 59 初中（官方 xlsx「公办初中」sheet）
-│       └── liwan_2026_groups.json    荔湾 15 行派位分组
+│   └── _transcripts/   初中转录 json（A 层，parse_*.py 从共享 raw 提取）
+│       ├── baiyun_2026_juniors.json  白云 59 初中（共享 xlsx「公办初中」sheet）
+│       └── liwan_2026_groups.json    荔湾 15 行派位分组（共享 a3.docx）
 ├── src/        手工源文件（业务确认口径）
 │   └── middle_enroll_notes.json  初中录取备注（如执信水荫：仅初三就读）
 ├── scripts/    生产脚本
-│   ├── parse_baiyun_juniors.py    白云初中转录（raw→parsed，openpyxl）
-│   ├── parse_liwan_groups.py      荔湾派位组转录（raw→parsed，docx）
+│   ├── parse_baiyun_juniors.py    白云初中转录（共享 raw→parsed，openpyxl）
+│   ├── parse_liwan_groups.py      荔湾派位组转录（共享 raw→parsed，docx）
 │   └── build_middle_enrollment.py 构建 dist（B 层，SchoolMatcher 匹配实体表）
 ├── dist/       B 层最终运行时产物 middle_enrollment_2026_<区>.json（7 区）
 ├── docs/       业务文档（本 README 为权威说明）
@@ -28,7 +27,7 @@ middle/enrollment/
 ## 构建链路（raw → parsed → dist，可重跑）
 
 ```
-raw/（官方源）──parse_baiyun_juniors.py / parse_liwan_groups.py──▶ parsed/_transcripts/*.json
+共享官方源（data/enrollment/raw/）──parse_baiyun_juniors.py / parse_liwan_groups.py──▶ parsed/_transcripts/*.json
 parsed/_transcripts/*.json ──build_middle_enrollment.py──▶ dist/middle_enrollment_2026_<区>.json
 ```
 
@@ -36,7 +35,7 @@ parsed/_transcripts/*.json ──build_middle_enrollment.py──▶ dist/middle
 
 ```bash
 python3 data/middle/enrollment/scripts/parse_baiyun_juniors.py      # 白云 59 初中（读共享官方 xlsx）
-python3 data/middle/enrollment/scripts/parse_liwan_groups.py       # 荔湾派位组 15 行（读 raw/liwan_2026_groups_official.docx）
+python3 data/middle/enrollment/scripts/parse_liwan_groups.py       # 荔湾派位组 15 行（读共享 raw/liwan_2026_a3.docx）
 python3 data/middle/enrollment/scripts/build_middle_enrollment.py  # 7 区 dist
 ```
 
@@ -44,10 +43,10 @@ python3 data/middle/enrollment/scripts/build_middle_enrollment.py  # 7 区 dist
 
 | 区 | 官方源 | 本业务解析/构建路径 | 说明 |
 |---|---|---|---|
-| 番禺 | 《2026 招生计划、招生地段及条件》官方 xls（4 sheets） | 共享转录 `data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json`「公办初中招生范围、计划」sheet | 官方 xls 小学+初中+民办共用，权威源留在小学 enrollment（单一权威源，不复制） |
-| 白云 | 2026 招生计划附表2 官方 xlsx | 共享 raw `data/primary/enrollment/raw/baiyun_2026_official.xlsx` → `parsed/_transcripts/baiyun_2026_juniors.json`（「公办初中」sheet） | xlsx 含「公办小学」sheet 归小学招生；解析脚本从共享位置读取 |
-| 荔湾 | 2026 公办初中招生方案附件3（派位分组） | `raw/liwan_2026_groups_official.docx` → `parsed/_transcripts/liwan_2026_groups.json` | 本业务专属 raw |
-| 越秀/海珠/天河/黄埔 | 各区 2026 招生细则/初中计划表（doc/png/pdf 扫描件） | **由 `data/primary/transition/dist/xiaoshengchu_<区>.json` 反推**（`build_from_xiaoshengchu`） | 初中侧 raw→转录未抽，`plan_classes/scope` 留空（source 字段标注「待补」），属已知缺口 |
+| 番禺 | 《2026 招生计划、招生地段及条件》官方 xls（4 sheets） | 共享转录 `data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json`「公办初中招生范围、计划」sheet | 官方 xls 小学+初中+民办共用，权威源在共享 raw `data/enrollment/raw/panyu_2026_official.xls` + 小学侧转录（单一权威源，不复制） |
+| 白云 | 2026 招生计划附表2 官方 xlsx | 共享 raw `data/enrollment/raw/baiyun_2026_official.xlsx` → `parsed/_transcripts/baiyun_2026_juniors.json`（「公办初中」sheet） | xlsx 含「公办小学」sheet 归小学招生；解析脚本从共享位置读取 |
+| 荔湾 | 2026 公办初中招生方案附件3（派位分组） | 共享 raw `data/enrollment/raw/liwan_2026_a3.docx` → `parsed/_transcripts/liwan_2026_groups.json` | a1–a5 全附件共享（2026-09-23 迁入 data/enrollment/raw） |
+| 越秀/海珠/天河/黄埔 | 各区 2026 招生细则/初中计划表（doc/png/pdf 扫描件，共享 `data/enrollment/raw/`） | **由 `data/primary/transition/dist/xiaoshengchu_<区>.json` 反推**（`build_from_xiaoshengchu`） | **方向反了（2026-09-23 修正）**：应初中招生从官方初中文件直建、xiaoshengchu 从初中招生公示反推；现 4 区反推仅过渡，`plan_classes/scope` 留空（source 标注「待补」） |
 
 ## 产物结构
 
@@ -83,14 +82,18 @@ python3 data/middle/enrollment/scripts/build_middle_enrollment.py  # 7 区 dist
 
 ## 已知缺口与风险（重构待办）
 
-1. **4 区反推**：越秀/海珠/天河/黄埔初中侧 raw→转录未抽，班数/范围全空。官方初中文件其实都在
-   （`data/primary/transition/raw/` 与 `data/primary/enrollment/raw/` 含对应附件），补齐解析即可消除反推。
+1. **4 区反推（方向修正待办）**：越秀/海珠/天河/黄埔初中侧 raw→转录未抽，班数/范围全空。官方初中文件都在
+   共享 `data/enrollment/raw/`（越秀 doc/海珠 png/天河 pdf/黄埔 pdf 含对应初中附件），补齐解析即可
+   **改为官方直建，并让 xiaoshengchu 从初中招生公示反推**（正确方向，见下）。
+2. **推导方向（2026-09-23 用户确认）**：小学升学（xiaoshengchu）官方口径本就来自初中招生公示（6/7 区），
+   因此正确方向是 **xiaoshengchu 基于初中招生产物/公示反推**，初中招生基于官方文件直建；现状 4 区
+   middle_enrollment 由 xiaoshengchu 反推属历史遗留，待第 1 项补齐后反转。
 2. **反推机制判定是启发式**：`build_from_xiaoshengchu` 从小学侧 group 名推断机制，`single_lottery` 在反推路径
    永远不会出现（推断分支未写）。
 3. **group_members 并集缺失**：同一初中出现在多个派位组时，反推路径只回填首个 group 的成员
    （荔湾官方路径 build_liwan 处理了并集，反推路径没有）。
-4. **共享源不复制**：番禺/白云官方源与小学招生共用，权威源在 `data/primary/enrollment/raw|parsed`，
-   本业务只读引用，改动须同时考虑小学链。
+4. **共享源不复制**：官方源文件统一在 `data/enrollment/raw/`（小学/小升初/初中共用），番禺/白云转录
+   权威源在 `data/primary/enrollment/parsed/_transcripts/`；本业务只读引用，改动须同时考虑小学链。
 
 ## 测试
 

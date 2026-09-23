@@ -15,7 +15,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 DATA = os.path.join(ROOT, "data", "primary", "enrollment")
-RAW = os.path.join(DATA, "raw")
+RAW = os.path.join(ROOT, "data", "enrollment", "raw")
 OUT = os.path.join(DATA, "parsed", "_transcripts", "haizhu_2026_plan.json")
 OCR_TOOL = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ocr", "vision_ocr.py")
 

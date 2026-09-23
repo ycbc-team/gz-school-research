@@ -13,8 +13,9 @@
 
 | 目录 | 学段 | 主要文件 |
 | --- | --- | --- |
-| `primary/` | 小学 | `enrollment/`（小学招生，raw/parsed/scripts/src/docs 分层）、`transition/`（小升初升学路线）、`tier1_schools_all.json`（第一梯队核验）；点位见 `poi/` |
-| `middle/` | 初中 | `enrollment/`（公办初中招生，raw/parsed/src/scripts/dist/docs/test 分层，2026-09-23 迁入）、`org_sort/`（默认排序）、`tier1_schools_all.json`（初中第一梯队核验）；点位见 `poi/` |
+| `enrollment/` | 跨学段 | `raw/`（政府官方源文件，小学/小升初/初中招生共用同一份原文，2026-09-23 自 `primary/enrollment/raw` 与 `transition/raw` 归位） |
+| `primary/` | 小学 | `enrollment/`（小学招生，parsed/scripts/src/docs/test 分层）、`transition/`（小升初升学路线）、`tier1_schools_all.json`（第一梯队核验）；点位见 `poi/` |
+| `middle/` | 初中 | `enrollment/`（公办初中招生，parsed/src/scripts/dist/docs/test 分层，2026-09-23 迁入）、`org_sort/`（默认排序）、`tier1_schools_all.json`（初中第一梯队核验）；点位见 `poi/` |
 | `high/` | 高中 | `level/src/levels.json`（学校清单/分类/指标）；`cutoff_score/`（录取分：`dist/` 历年产物 / `raw/` 官方源页面 / `src/` 手工源 / `scripts/` 解析脚本）；点位见 `poi/` |
 | `poi/` | 跨学段 | `dist/primary_poi.json`（931 所）/ `dist/middle_poi.json`（475 所）/ `dist/high_poi.json`（清洗后 126 所）；采集/补点脚本在 `poi/scripts/`，查询留痕 `poi/raw/amap_query_*.json` |
 | `registry/` | 跨学段 | 三个业务子目录：`entity/`（实体表，全链 school_id 维度枢纽）、`group/`（教育集团/品牌关联）、`private/`（民办名单真源）；详见各子目录 README |
@@ -79,7 +80,7 @@ python3 data/primary/enrollment/scripts/build_primary_2026.py <区>   # 2026 小
 | 类型 | 文件 |
 | --- | --- |
 | 外部抓取（高德 API） | `poi/dist/primary_poi.json`、`poi/dist/middle_poi.json`、`poi/dist/high_poi.json`（fetch_* 脚本直写） |
-| 官方转录 | `primary/enrollment/parsed/2026-*`（小学招生计划）、`primary/enrollment/parsed/_transcripts/*`（各区官方文件 A 层转录）、`linkage/raw/*`（指标/自招/录取线/招生名单转录）、`high/cutoff_score/dist/scores_{2025,2026}.json`（官方录取分） |
+| 官方转录 | `enrollment/raw/*`（政府官方源文件，小学/小升初/初中招生共用）、`primary/enrollment/parsed/2026-*`（小学招生计划）、`primary/enrollment/parsed/_transcripts/*`（各区官方文件 A 层转录）、`middle/enrollment/parsed/_transcripts/*`（初中转录）、`linkage/raw/*`（指标/自招/录取线/招生名单转录）、`high/cutoff_score/dist/scores_{2025,2026}.json`（官方录取分） |
 | 人工产物 | `primary|middle/tier1_schools_all.json`（学校信号，已判废弃待重构）、`high/level/src/levels.json`、`middle/org_sort/src/*`、`registry/group/src/brand_groups.json`、`registry/group/parsed/education_groups_2026.json`、`registry/group/parsed/_partial_*`、`registry/private/src/minban_*.md` |
 
 ### 派生层（脚本产物，勿手改；改脚本须重跑并提交）
