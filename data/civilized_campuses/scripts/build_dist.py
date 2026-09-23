@@ -76,7 +76,12 @@ def main() -> None:
             options.review_output.write_text(
                 json.dumps(review, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
             )
-            print(f"[civilized] wrote review: {options.review_output.resolve().relative_to(ROOT)}")
+            output_path = options.review_output.resolve()
+            try:
+                output_label = output_path.relative_to(ROOT)
+            except ValueError:
+                output_label = output_path
+            print(f"[civilized] wrote review: {output_label}")
             return
         print(json.dumps(review, ensure_ascii=False, indent=2))
         return

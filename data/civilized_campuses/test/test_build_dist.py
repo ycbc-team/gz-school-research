@@ -4,6 +4,7 @@
 import json
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 
@@ -23,12 +24,21 @@ def main() -> None:
     assert isinstance(school_ids, list) and school_ids, "dist 必须是非空 school_id 列表"
     assert school_ids == sorted(set(school_ids)), "dist school_id 必须去重且排序"
     assert all(isinstance(school_id, str) and school_id.startswith("gz-") for school_id in school_ids), "dist 不得含非广州 school_id"
-    review_result = subprocess.run(
-        [sys.executable, str(BUILD), "--review-output", str(REVIEW)], cwd=ROOT, text=True, capture_output=True
+    with tempfile.TemporaryDirectory(prefix="civilized-campus-review-") as temp_dir:
+        generated_review = Path(temp_dir) / REVIEW.name
+        review_result = subprocess.run(
+            [sys.executable, str(BUILD), "--review-output", str(generated_review)],
+            cwd=ROOT, text=True, capture_output=True,
+        )
+        if review_result.returncode:
+            raise SystemExit(review_result.stdout + review_result.stderr)
+        review = json.loads(generated_review.read_text(encoding="utf-8"))
+    expected_review = json.loads(REVIEW.read_text(encoding="utf-8"))
+    assert review == expected_review, (
+        "文明校园匹配审阅产物已变化；请确认匹配是否正确后运行：\n"
+        "python3 data/civilized_campuses/scripts/build_dist.py --review-output "
+        "data/civilized_campuses/test/national_civilized_campus_match_review.json"
     )
-    if review_result.returncode:
-        raise SystemExit(review_result.stdout + review_result.stderr)
-    review = json.loads(REVIEW.read_text(encoding="utf-8"))
     assert isinstance(review, list) and review, "审阅输出必须是非空列表"
     assert all(set(item) == {"src_name", "entity_name", "schoolid"} for item in review), "审阅字段不符合约定"
     assert all(isinstance(item["src_name"], str) for item in review), "src_name 必须保留官方原文名"
