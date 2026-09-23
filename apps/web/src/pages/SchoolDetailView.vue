@@ -16,7 +16,7 @@ import {
 import {
   repository, primarySchools, middleSchools, highSchools, primaryTier1, middleTier1,
   highLevels, tier1Schools, middleTier1Schools, entities, matchEnrollment,
-  middleQuotaSummary, middlePrimaryFeed, middleEnrollmentsOf, xiaoshengchuOf, schoolBadges, scoresOfSchool,
+  middleQuotaSummary, middleEnrollmentsOf, xiaoshengchuOf, schoolBadges, scoresOfSchool,
   isComprehensive, groupOfSchool, resolvePoiName, resolveSchoolIdOf,
   type BrandUnit,
   innovationAwards,
@@ -84,7 +84,6 @@ const enrollment = computed(() => model.value.enrollment);
 const feedJuniors = computed(() => model.value.feedJuniors);
 const feedGap = computed(() => model.value.feedGap);
 const feedRows = computed(() => model.value.feedRows);
-const feedPrimarys = computed(() => model.value.feedPrimarys);
 const enrollNote = computed(() => model.value.enrollNote);
 const signalRows = computed(() => model.value.signalRows);
 const admissionRows = computed(() => model.value.admissionRows);
@@ -283,10 +282,15 @@ const middleEnrolls = computed(() => {
           <p v-if="m.record.mechanism_note" class="sub-note">
             官方备注：{{ m.record.mechanism_note }}
           </p>
-          <!-- 派位组：多校派位时列出组内学校 -->
+          <!-- 派位组：多校派位时列出组内学校（每行一所，点击跳转该校详情） -->
           <div v-if="m.record.group_members && m.record.group_members.length" class="zone-block">
             <div class="zone-label">派位组成员（随机分配，组内兜底）</div>
-            <p>{{ m.record.group_members.join('、') }}</p>
+            <div class="feed-list">
+              <div v-for="gm in m.record.group_members" :key="gm" class="feed-item">
+                <RouterLink :to="`/school/${encodeURIComponent(resolvePoiName(gm) || gm)}?stage=middle`" class="feed-name">{{ gm }}</RouterLink>
+                <span class="tag tag-dim">组内可填报</span>
+              </div>
+            </div>
           </div>
           <!-- 单校电脑抽签：红字警示 -->
           <div v-if="m.mechanismDef.can_lose && m.mechanismDef.lose_text" class="lottery-warning">
@@ -295,17 +299,7 @@ const middleEnrolls = computed(() => {
         </div>
       </template>
 
-      <!-- 生源小学反查 -->
-      <template v-if="feedPrimarys.length">
-        <p class="sub-note" style="margin-top:10px;">以下小学的 2026 对口/派位名单包含本校（由七区全量小学升学路线反查，校名全等匹配）。</p>
-        <div class="feed-list">
-          <div v-for="r in feedPrimarys" :key="r.primary" class="feed-item">
-            <RouterLink :to="`/school/${encodeURIComponent(r.primary)}?stage=primary`" class="feed-name">{{ r.primary }}</RouterLink>
-            <span class="tag tag-dim">{{ r.direct_feed ? '对口直升' : (r.group || '对口') }}</span>
-          </div>
-        </div>
-      </template>
-      <p v-else-if="!middleEnrolls.length" class="empty">暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。</p>
+      <p v-if="!middleEnrolls.length" class="empty">暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。</p>
     </div>
 
     <!-- 竞赛获奖 -->

@@ -17,7 +17,6 @@ const STAGE_SHORT: Record<SchoolStage, string> = { primary: '小学', middle: '�
 export interface DetailRow { label: string; value: string; strong?: boolean }
 export interface DetailBadge { text: string; cls: string }
 export interface FeedRow { name: string; poiName: string | null; summary: string | null; hasQuota: boolean }
-export interface FeedPrimaryRow { primary: string; group: string | null; direct_feed: string | null }
 export interface BrandRow {
   name: string;
   role: string;
@@ -48,7 +47,6 @@ export interface DetailModel {
   feedGap: string | null;
   feedRows: FeedRow[];
   /* 初中 */
-  feedPrimarys: FeedPrimaryRow[];
   /** 极少数校区的招生计划特殊备注（如执信水荫路仅初三就读；无备注为 null） */
   enrollNote: string | null;
   /* 学校信号（历史称号/集团/喜报/录取线等源数据） */
@@ -173,8 +171,8 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
       });
   })();
 
-  /* ---------- 初中：生源小学反查 ---------- */
-  const feedPrimarys = stage === 'middle' ? repo.middlePrimaryFeed(poi?.school_id ?? null) : [];
+  /* 生源小学反查（middlePrimaryFeed）已停用：2026-09-23 新数据（官方直建派位组对口小学）
+     替代七区全量小升初反查口径，详情页不再展示反查生源小学段。 */
 
   /* ---------- 高中 ---------- */
   const pickRows = (keys: [string, string, boolean?][]): DetailRow[] => {
@@ -427,7 +425,6 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     feedJuniors,
     feedGap,
     feedRows,
-    feedPrimarys,
     enrollNote: stage === 'middle' && poi?.school_id
       ? (repo.middleEnrollNotes?.[poi.school_id] ?? null)
       : null,
