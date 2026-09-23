@@ -303,7 +303,16 @@ export interface MiddleEnrollmentSnapshot {
 /** dist 合并结构：mechanisms 顶层一份 + groups 独立组表（包体优化） */
 export type MiddleEnrollmentGroups = Record<
   string,
-  { district: string; name?: string; members: string[]; primaries?: string[] }
+  {
+    district: string;
+    name?: string;
+    members: string[];
+    primaries?: string[];
+    /** 成员（初中）名 → school_id 列表（构建期 SchoolMatcher 匹配；多校区多个 id） */
+    memberIds?: Record<string, string[]>;
+    /** 生源小学名 → school_id 列表（构建期实体匹配；多校区多个 id） */
+    primaryIds?: Record<string, string[]>;
+  }
 >;
 
 /** 学段标识 */

@@ -107,6 +107,12 @@ def _cn2num(raw):
         return 10 + _CN_NUM.get(raw[1:], 0)
     return 0
 
+def _primary_ids(name, adcode):
+    """转录小学名 → school_id 列表：统一走 SchoolMatcher.resolve_all（preferred_stage='小学'，
+    法人名全等展开同法人全部校区实体 + 按本区 adcode 过滤，不跨区错配；带校区限定的转录名精准命中）。"""
+    ra = _MATCHER.resolve_all(name, preferred_adcode=adcode, preferred_stage="小学")
+    return sorted({r["school_id"] for r in ra})
+
 def _group_name(note):
     """机制备注 → 派位组显示名（「电脑派位第N组」）；无组号（番禺）→「电脑派位」。"""
     m = re.search(r"第\s*([一二三四五六七八九十\d]+)\s*组", note or "")
@@ -117,6 +123,10 @@ def _group_name(note):
     raw = m.group(1)
     n = int(raw) if raw.isdigit() else _cn2num(raw)
     return f"电脑派位第{n}组" if n else "电脑派位"
+
+# 区键 → adcode（SchoolMatcher 匹配用：按本区过滤，不跨区错配）
+_DK_ADCODE = {"yuexiu": "440104", "haizhu": "440105", "tianhe": "440106",
+              "huangpu": "440112", "panyu": "440113", "baiyun": "440111", "liwan": "440103"}
 
 # 区级枚举定义：UI 直接用 label / lose_text
 MECHANISMS = {
@@ -240,7 +250,11 @@ def build_liwan():
         if not re.match(r"^\d+组$", group_name): continue  # 跳过表头行
         members = [s.strip() for s in cells[1] if s.strip()]
         if not members: continue
-        primaries = [p.strip() for cell in cells[2] for p in re.split(r"[、,，]", cell) if p.strip()]
+        # 小学列官方文本跨行拼接；括号内顿号保护（「（竹苑校区、绿森林校区）」不被拆散）
+        raw_pri = "".join(cells[2])
+        raw_pri = re.sub(r"（[^（）]*）", lambda m: m.group(0).replace("、", "\u0001").replace(",", "\u0002").replace("，", "\u0003"), raw_pri)
+        primaries = [p.replace("\u0001", "、").replace("\u0002", ",").replace("\u0003", "，").strip()
+                     for p in re.split(r"[、,，]", raw_pri) if p.strip()]
         note = f"荔湾区{group_name}电脑派位"
         for m in members:
             recs.append({
@@ -583,6 +597,13 @@ if __name__ == "__main__":
     # record.group_id 引用；mechanisms 三档全 7 区一致，合并后顶层一份。
     groups = {}
     seen = {}  # 组内容（成员集合）→ group_id
+    # 初中名 → school_id(s)（构建期 SchoolMatcher 已匹配，运行时零匹配）
+    name_ids = {}
+    for dk in targets:
+        for r in districts[dk]["records"]:
+            ids = r.get("school_ids") or ([r["school_id"]] if r.get("school_id") else [])
+            if ids:
+                name_ids.setdefault(dk, {}).setdefault(r["school"], sorted(set(ids)))
     for dk in targets:
         for r in districts[dk]["records"]:
             members = r.pop("group_members", None)
@@ -598,6 +619,9 @@ if __name__ == "__main__":
                     entry = {"district": districts[dk]["district"], "name": _group_name(r.get("mechanism_note")), "members": sorted(key[0])}
                     if primaries:
                         entry["primaries"] = primaries
+                    # 构建期匹配：成员/小学名 → school_id 列表（多校区多个 id，前端聚合展示/弹窗选校区）
+                    entry["memberIds"] = {m: name_ids.get(dk, {}).get(m, []) for m in key[0]}
+                    entry["primaryIds"] = {p: _primary_ids(p, _DK_ADCODE[dk]) for p in (primaries or [])}
                     groups[gid] = entry
                 r["group_id"] = gid
     # 最终合并一份（dist 前端消费；--out-dir 时与区产物同目录）

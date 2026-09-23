@@ -17,7 +17,7 @@ import {
   repository, primarySchools, middleSchools, highSchools, primaryTier1, middleTier1,
   highLevels, tier1Schools, middleTier1Schools, entities, matchEnrollment,
   middleQuotaSummary, middleEnrollmentsOf, middleEnrollmentGroups, xiaoshengchuOf, schoolBadges, scoresOfSchool,
-  isComprehensive, groupOfSchool, resolvePoiName, resolveSchoolIdOf,
+  isComprehensive, groupOfSchool, resolveSchoolIdOf,
   type BrandUnit,
   innovationAwards,
   chuangkeAwards,
@@ -190,13 +190,31 @@ const mechanismHeads = computed(() => {
 /** 生源小学平铺行：跨全部派位组，行 = 小学名 + 组名 Badge（用户：多组小学平铺、Badge 区分分组） */
 const primaryRows = computed(() => {
   if (stage.value !== 'middle') return [];
-  const rows: { name: string; groupName: string; schoolId: string | null }[] = [];
+  const rows: { name: string; groupName: string; ids: string[] }[] = [];
   for (const m of middleEnrolls.value) {
     const gid = m.record.group_id;
-    for (const p of groupPrimariesOf(gid)) rows.push({ name: p, groupName: groupNameOf(gid), schoolId: resolveSchoolIdOf(p) });
+    const g = gid ? middleEnrollmentGroups[gid] : null;
+    const pid = g?.primaryIds ?? {};
+    for (const p of g?.primaries ?? []) rows.push({ name: p, groupName: groupNameOf(gid), ids: pid[p] ?? [] });
   }
   return rows;
 });
+/** 多校区法人行弹窗（与初中名额分配明细 RankingView 同款）：一个小学名 + school_ids → 弹窗选校区跳转 */
+const campusPicker = ref<{ top: number; left: number; items: Array<{ id: string; name: string }> } | null>(null);
+function openPrimaryPicker(row: { name: string; ids: string[] }, e: MouseEvent) {
+  if (row.ids.length < 2) return;
+  const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
+  const w = 300;
+  let left = r.left;
+  if (left + w > window.innerWidth - 8) left = Math.max(8, window.innerWidth - w - 8);
+  const entArr = entities.entities ?? (entities as unknown as any[]);
+  campusPicker.value = { top: r.bottom + 6, left, items: row.ids.map((id) => ({ id, name: entArr.find((x: { school_id: string }) => x.school_id === id)?.name ?? id })) };
+}
+function closeCampusPicker() { campusPicker.value = null; }
+function goCampus(item: { id: string; name: string }) {
+  closeCampusPicker();
+  router.push({ path: `/school/${encodeURIComponent(item.name)}`, query: { stage: 'primary', id: item.id } });
+}
 
 </script>
 
@@ -338,7 +356,8 @@ const primaryRows = computed(() => {
         <div class="zone-label">生源小学（对口派位，按组区分）</div>
         <div class="feed-list">
           <div v-for="row in primaryRows" :key="`${row.groupName}-${row.name}`" class="feed-item">
-            <RouterLink v-if="row.schoolId" :to="`/school/${encodeURIComponent(resolvePoiName(row.name) || row.name)}?id=${row.schoolId}&stage=primary`" class="feed-name">{{ row.name }}</RouterLink>
+            <button v-if="row.ids.length > 1" class="school-link campus-open" @click="openPrimaryPicker(row, $event)">{{ row.name }}</button>
+            <RouterLink v-else-if="row.ids.length === 1" :to="`/school/${encodeURIComponent(row.name)}?id=${row.ids[0]}&stage=primary`" class="feed-name">{{ row.name }}</RouterLink>
             <span v-else class="feed-name">{{ row.name }}</span>
             <span class="tag tag-dim">{{ row.groupName }}</span>
           </div>
@@ -347,6 +366,17 @@ const primaryRows = computed(() => {
 
       <p v-if="!middleEnrolls.length" class="empty">暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。</p>
     </div>
+
+    <!-- 多校区生源小学：弹窗选校区（与初中名额分配明细同款） -->
+    <Teleport to="body">
+      <div v-if="campusPicker" class="campus-mask" @click="closeCampusPicker"></div>
+      <div v-if="campusPicker" class="campus-pop" :style="{ top: campusPicker.top + 'px', left: campusPicker.left + 'px' }">
+        <div class="campus-pop-title">选择校区</div>
+        <button v-for="c in campusPicker.items" :key="c.id" class="campus-opt" @click="goCampus(c)">
+          <span class="campus-name">{{ c.name }}</span>
+        </button>
+      </div>
+    </Teleport>
 
     <!-- 竞赛获奖 -->
     <div v-if="awardData || chuangkeData || scienceLiteracyData" class="card">
@@ -524,6 +554,23 @@ const primaryRows = computed(() => {
 .mech-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
 .mech-head { display: inline-flex; align-items: center; gap: 10px; }
 .mech-plan { font-size: 13px; font-weight: 600; color: #1a1b1c; }
+.school-link { color: #1a6bd6; text-decoration: underline; text-underline-offset: 2px; }
+.campus-open { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+.campus-open:hover { color: #0e4fb0; }
+.campus-mask { position: fixed; inset: 0; z-index: 1350; background: rgba(0, 0, 0, 0.03); }
+.campus-pop {
+  position: fixed; z-index: 1400; width: 300px; max-width: 86vw;
+  background: #fff; border: 1px solid #e4e3dd; border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(20, 30, 50, 0.16); padding: 8px;
+}
+.campus-pop-title { font-size: 12.5px; font-weight: 700; color: #1a1b1c; padding: 4px 6px 8px; }
+.campus-opt {
+  display: flex; align-items: center; gap: 8px; width: 100%; border: 0;
+  background: transparent; border-radius: 8px; padding: 7px 8px;
+  font-size: 12.5px; color: #1a6bd6; cursor: pointer; text-align: left;
+}
+.campus-opt:hover { background: #f2f7ff; }
+.campus-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .lottery-warning {
   margin-top: 10px; padding: 8px 10px; border-radius: 8px;
   background: #fef2f2; border: 1px solid #fecaca;
