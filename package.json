@@ -14,6 +14,10 @@
     "preview:web": "npm run preview -w @gz/web",
     "build:mp": "node scripts/miniprogram/build.mjs",
     "test": "npm test -w @gz/shared",
+<<<<<<< HEAD
     "check": "node scripts/check_step.mjs 'typecheck' 'npm run typecheck --workspaces --if-present' && node scripts/check_step.mjs 'shared 单测' 'npm test -w @gz/shared' && python3 scripts/data_quality_test.py && python3 data/poi/test/test_match_poi.py && python3 data/registry/group/test/check_groups_drift.py && python3 data/primary/transition/test/check_xiaoshengchu_snapshot.py && python3 data/primary/transition/test/check_middle_feed_snapshot.py && python3 data/primary/enrollment/test/check_enrollment_snapshot.py && python3 data/middle/enrollment/test/check_middle_snapshot.py && python3 data/awards/test/test_awards_build.py && node scripts/data/compact.mjs >/dev/null && echo \"✓ compact 产物已刷新（不入库，check 顺带重编译）\""
+=======
+    "check": "node scripts/check_step.mjs 'typecheck' 'npm run typecheck --workspaces --if-present' && node scripts/check_step.mjs 'shared 单测' 'npm test -w @gz/shared' && python3 scripts/data_quality_test.py && python3 data/poi/test/test_match_poi.py && python3 data/registry/group/test/check_groups_drift.py && python3 data/primary/transition/test/check_middle_feed_snapshot.py && python3 data/primary/enrollment/test/check_enrollment_snapshot.py && python3 data/middle/enrollment/test/check_middle_snapshot.py && python3 data/awards/test/test_awards_build.py && python3 data/civilized_campuses/test/test_build.py && node scripts/data/compact.mjs >/dev/null && echo \"✓ compact 产物已刷新（不入库，check 顺带重编译）\""
+>>>>>>> awards_feature
   }
 }
