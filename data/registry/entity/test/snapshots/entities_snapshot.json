@@ -2840,7 +2840,8 @@
   },
   "gz-440106-05ed1da2#primary": {
    "aliases": [
-    "暨南大学附属实验学校小学部"
+    "暨南大学附属实验学校小学部",
+    "暨南大学附属小学"
    ],
    "name": "暨南大学附属实验学校",
    "stage": "primary"
@@ -3422,6 +3423,7 @@
   },
   "gz-440106-6db53919#primary": {
    "aliases": [
+    "育华教育集团长虹学校",
     "长虹小学"
    ],
    "name": "广州市天河区长虹小学",
@@ -3752,6 +3754,7 @@
   },
   "gz-440106-b2701f92#primary": {
    "aliases": [
+    "暨南大学华文学院-长征小学",
     "长征小学"
    ],
    "name": "广州市天河区长征小学",
@@ -7745,7 +7748,9 @@
    "stage": "middle"
   },
   "gz-440113-34ff409c#primary": {
-   "aliases": [],
+   "aliases": [
+    "茭塘小学"
+   ],
    "name": "广东仲元中学莲花湾学校",
    "stage": "primary"
   },
@@ -8005,7 +8010,9 @@
    "stage": "middle"
   },
   "gz-440113-53650c78#primary": {
-   "aliases": [],
+   "aliases": [
+    "广东番禺中学附属学校-番中附小"
+   ],
    "name": "广东番禺中学附属学校",
    "stage": "primary"
   },
@@ -8047,7 +8054,9 @@
    "stage": "primary"
   },
   "gz-440113-61f3a5f0#primary": {
-   "aliases": [],
+   "aliases": [
+    "低涌小学"
+   ],
    "name": "海傍学校",
    "stage": "primary"
   },
@@ -8213,7 +8222,9 @@
    "stage": "middle"
   },
   "gz-440113-7997c707#primary": {
-   "aliases": [],
+   "aliases": [
+    "明德实验小学"
+   ],
    "name": "明德广地实验学校",
    "stage": "primary"
   },
@@ -8394,8 +8405,10 @@
    "stage": "primary"
   },
   "gz-440113-94550bcb#primary": {
-   "aliases": [],
-   "name": "石碁中心小学大龙校区",
+   "aliases": [
+    "石碁中心小学大龙校区"
+   ],
+   "name": "石碁镇中心小学(大龙校区)",
    "stage": "primary"
   },
   "gz-440113-94c76638#middle": {
@@ -8810,6 +8823,7 @@
   "gz-440113-cdfe162a#middle": {
    "aliases": [
     "番禺区石楼镇海鸥学校",
+    "石楼镇沙南小学",
     "石楼镇海鸥学校"
    ],
    "name": "海鸥学校",
