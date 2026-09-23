@@ -17,7 +17,7 @@ import {
   repository, primarySchools, middleSchools, highSchools, primaryTier1, middleTier1,
   highLevels, tier1Schools, middleTier1Schools, entities, matchEnrollment,
   middleQuotaSummary, middleEnrollmentsOf, middleEnrollmentGroups, xiaoshengchuOf, schoolBadges, scoresOfSchool,
-  isComprehensive, groupOfSchool, resolveSchoolIdOf,
+  isComprehensive, groupOfSchool, resolvePoiName, resolveSchoolIdOf,
   type BrandUnit,
   innovationAwards,
   chuangkeAwards,
@@ -174,6 +174,19 @@ function groupNameOf(gid?: string | null): string {
 function groupPrimariesOf(gid?: string | null): string[] {
   return gid ? (middleEnrollmentGroups[gid]?.primaries ?? []) : [];
 }
+/** 机制徽章去重行：同区同机制同班数的多组只展示一次（用户：海珠区 Badge 删、计划 12 个班只展示一次） */
+const mechanismHeads = computed(() => {
+  if (stage.value !== 'middle') return [];
+  const seen = new Set<string>();
+  const rows: { district: string; mech: string; label: string; plan: number | null }[] = [];
+  for (const m of middleEnrolls.value) {
+    const key = `${m.district}|${m.record.mechanism}|${m.record.plan_classes ?? ''}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    rows.push({ district: m.district, mech: m.record.mechanism, label: m.mechanismDef.label, plan: m.record.plan_classes });
+  }
+  return rows;
+});
 /** 生源小学平铺行：跨全部派位组，行 = 小学名 + 组名 Badge（用户：多组小学平铺、Badge 区分分组） */
 const primaryRows = computed(() => {
   if (stage.value !== 'middle') return [];
@@ -297,25 +310,20 @@ const primaryRows = computed(() => {
       <div class="card-title">招生计划（2026）</div>
       <p v-if="enrollNote" class="sub-note">{{ enrollNote }}</p>
 
-      <!-- 机制徽章 + 班数 + 范围（来自初中招生计划表）；一校多规则时逐条渲染 -->
+      <!-- 机制徽章去重展示（顶部一次）：同区同机制同班数合并；组差异由生源小学 Badge 区分 -->
       <template v-if="middleEnrolls.length">
-        <div v-for="(m, mi) in middleEnrolls" :key="`${m.district}-${m.record.school}`" class="mech-block" :style="mi ? 'border-top:1px dashed #e5e7eb;margin-top:10px;padding-top:10px;' : ''">
-          <div class="mech-row">
-            <span v-if="middleEnrolls.length > 1" class="badge b-district">{{ m.district }}</span>
-            <span class="badge" :class="m.record.mechanism">
-              {{ m.mechanismDef.label }}
-            </span>
-            <span v-if="m.record.plan_classes != null" class="mech-plan">
-              计划 {{ m.record.plan_classes }} 个班
-            </span>
-          </div>
+        <div class="mech-row">
+          <span v-for="(h, hi) in mechanismHeads" :key="`${h.mech}-${h.plan}-${hi}`" class="mech-head">
+            <span v-if="mechanismHeads.length > 1 || new Set(middleEnrolls.map(x => x.district)).size > 1" class="badge b-district">{{ h.district }}</span>
+            <span class="badge" :class="h.mech">{{ h.label }}</span>
+            <span v-if="h.plan != null" class="mech-plan">计划 {{ h.plan }} 个班</span>
+          </span>
+        </div>
+        <div v-for="(m, mi) in middleEnrolls" :key="`${m.district}-${m.record.school}-${m.record.group_id ?? mi}`" class="mech-block" :style="mi ? 'border-top:1px dashed #e5e7eb;margin-top:10px;padding-top:10px;' : ''">
           <div v-if="m.record.scope" class="zone-block">
             <div class="zone-label">招生服务范围</div>
             <p>{{ m.record.scope }}</p>
           </div>
-          <p v-if="m.record.mechanism_note" class="sub-note">
-            官方备注：{{ m.record.mechanism_note }}
-          </p>
           <!-- 单校电脑抽签：红字警示 -->
           <div v-if="m.mechanismDef.can_lose && m.mechanismDef.lose_text" class="lottery-warning">
             ⚠️ {{ m.mechanismDef.lose_text }}
@@ -328,7 +336,7 @@ const primaryRows = computed(() => {
         <div class="zone-label">生源小学（对口派位，按组区分）</div>
         <div class="feed-list">
           <div v-for="row in primaryRows" :key="`${row.groupName}-${row.name}`" class="feed-item">
-            <span class="feed-name">{{ row.name }}</span>
+            <RouterLink :to="`/school/${encodeURIComponent(resolvePoiName(row.name) || row.name)}?stage=primary`" class="feed-name">{{ row.name }}</RouterLink>
             <span class="tag tag-dim">{{ row.groupName }}</span>
           </div>
         </div>
