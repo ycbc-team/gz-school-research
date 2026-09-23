@@ -190,10 +190,10 @@ const mechanismHeads = computed(() => {
 /** 生源小学平铺行：跨全部派位组，行 = 小学名 + 组名 Badge（用户：多组小学平铺、Badge 区分分组） */
 const primaryRows = computed(() => {
   if (stage.value !== 'middle') return [];
-  const rows: { name: string; groupName: string }[] = [];
+  const rows: { name: string; groupName: string; schoolId: string | null }[] = [];
   for (const m of middleEnrolls.value) {
     const gid = m.record.group_id;
-    for (const p of groupPrimariesOf(gid)) rows.push({ name: p, groupName: groupNameOf(gid) });
+    for (const p of groupPrimariesOf(gid)) rows.push({ name: p, groupName: groupNameOf(gid), schoolId: resolveSchoolIdOf(p) });
   }
   return rows;
 });
@@ -319,7 +319,8 @@ const primaryRows = computed(() => {
             <span v-if="h.plan != null" class="mech-plan">计划 {{ h.plan }} 个班</span>
           </span>
         </div>
-        <div v-for="(m, mi) in middleEnrolls" :key="`${m.district}-${m.record.school}-${m.record.group_id ?? mi}`" class="mech-block" :style="mi ? 'border-top:1px dashed #e5e7eb;margin-top:10px;padding-top:10px;' : ''">
+        <template v-for="(m, mi) in middleEnrolls" :key="`${m.district}-${m.record.school}-${m.record.group_id ?? mi}`">
+        <div v-if="m.record.scope || (m.mechanismDef.can_lose && m.mechanismDef.lose_text)" class="mech-block" :style="mi ? 'border-top:1px dashed #e5e7eb;margin-top:10px;padding-top:10px;' : ''">
           <div v-if="m.record.scope" class="zone-block">
             <div class="zone-label">招生服务范围</div>
             <p>{{ m.record.scope }}</p>
@@ -329,6 +330,7 @@ const primaryRows = computed(() => {
             ⚠️ {{ m.mechanismDef.lose_text }}
           </div>
         </div>
+        </template>
       </template>
 
       <!-- 生源小学平铺：多组小学全部一个列表，组名 Badge 标在小学后面区分分组 -->
@@ -336,7 +338,8 @@ const primaryRows = computed(() => {
         <div class="zone-label">生源小学（对口派位，按组区分）</div>
         <div class="feed-list">
           <div v-for="row in primaryRows" :key="`${row.groupName}-${row.name}`" class="feed-item">
-            <RouterLink :to="`/school/${encodeURIComponent(resolvePoiName(row.name) || row.name)}?stage=primary`" class="feed-name">{{ row.name }}</RouterLink>
+            <RouterLink v-if="row.schoolId" :to="`/school/${encodeURIComponent(resolvePoiName(row.name) || row.name)}?id=${row.schoolId}&stage=primary`" class="feed-name">{{ row.name }}</RouterLink>
+            <span v-else class="feed-name">{{ row.name }}</span>
             <span class="tag tag-dim">{{ row.groupName }}</span>
           </div>
         </div>
@@ -519,6 +522,7 @@ const primaryRows = computed(() => {
 .badge.group_paidui { background: #1e40af; }
 .badge.single_lottery { background: #dc2626; }
 .mech-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.mech-head { display: inline-flex; align-items: center; gap: 10px; }
 .mech-plan { font-size: 13px; font-weight: 600; color: #1a1b1c; }
 .lottery-warning {
   margin-top: 10px; padding: 8px 10px; border-radius: 8px;
