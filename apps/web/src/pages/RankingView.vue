@@ -11,7 +11,7 @@
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 import { useRouter } from 'vue-router';
 import { DISTRICTS } from '@gz/shared';
-import { rankingMiddle, entities, middleOrgSort } from '../data';
+import { rankingMiddle, entities, middleOrgSort, civilizedCampusSchoolIds } from '../data';
 
 interface Row {
   name: string;
@@ -70,7 +70,7 @@ function goSchool(name: string, id?: string) {
   router.push({ path: `/school/${encodeURIComponent(name)}`, query: { stage: 'middle', ...(id ? { id } : {}) } });
 }
 
-const openMenu = ref<'group' | 'district' | 'metric' | null>(null);
+const openMenu = ref<'group' | 'filter' | 'metric' | null>(null);
 const groupBy = ref<'none' | 'district' | 'group'>('none');
 type MetricKey = 'default' | 'qu_ratio' | 'sheng_ratio' | 'tekong';
 const metric = ref<MetricKey>('default');
@@ -225,6 +225,15 @@ function districtVisible(s: Row): boolean {
   const ad = DISTRICT_TO_ADCODE.get(s.district || '');
   return ad ? selectedDistricts.value.has(ad) : false;
 }
+const CIVILIZED_FILTERS = [['national', '全国文明校园'], ['provincial', '广东省文明校园'], ['municipal', '广州市文明校园'], ['advanced', '创建先进学校（储备）']] as const;
+type CivilizedKey = typeof CIVILIZED_FILTERS[number][0];
+const selectedCivilized = ref<Set<CivilizedKey> | null>(null);
+const civilizedAllOn = computed(() => selectedCivilized.value === null);
+function civilizedOn(key: CivilizedKey) { return civilizedAllOn.value || selectedCivilized.value!.has(key); }
+function toggleCivilized(key: CivilizedKey) { const next = new Set(selectedCivilized.value || CIVILIZED_FILTERS.map(([v]) => v)); next.has(key) ? next.delete(key) : next.add(key); selectedCivilized.value = next; }
+function civilizedVisible(s: Row) { return civilizedAllOn.value || [...selectedCivilized.value!].some((key) => [s.school_id, ...(s.school_ids || [])].some((id) => !!id && (civilizedCampusSchoolIds[key] || []).includes(id))); }
+const filterCount = computed(() => (districtAllOn.value ? 0 : selectedDistricts.value.size) + (civilizedAllOn.value ? 0 : selectedCivilized.value!.size));
+function resetFilters() { selectedDistricts.value = new Set(DISTRICTS.map((d) => d.adcode)); selectedCivilized.value = null; }
 
 const groupLabel = computed(() => ({ none: '不分组', district: '按区', group: '按集团' })[groupBy.value]);
 
@@ -232,7 +241,7 @@ const groupLabel = computed(() => ({ none: '不分组', district: '按区', grou
 const districtOrder = DISTRICTS.map((d) => d.name.replace('区', ''));
 
 const groups = computed(() => {
-  const rows = schools.filter(districtVisible).map((s) => ({ s, v: metricValue(s), minban: !!s.minban }));
+  const rows = schools.filter(districtVisible).filter(civilizedVisible).map((s) => ({ s, v: metricValue(s), minban: !!s.minban }));
   const sortFn = metric.value === 'default' ? levelSort : rankSort;
   if (groupBy.value === 'none') {
     return [{ key: 'all', title: '', items: rows.slice().sort(sortFn) }];
@@ -290,8 +299,8 @@ const groups = computed(() => {
         </button>
       </div>
       <div class="fb-col">
-        <button class="fb-btn" :class="{ on: openMenu === 'district' }" @click="openMenu = openMenu === 'district' ? null : 'district'">
-          位置<em v-if="!districtAllOn" class="fb-badge">{{ selectedDistricts.size }}</em><span class="arr">▾</span>
+        <button class="fb-btn" :class="{ on: openMenu === 'filter' }" @click="openMenu = openMenu === 'filter' ? null : 'filter'">
+          筛选<em v-if="filterCount" class="fb-badge">{{ filterCount }}</em><span class="arr">▾</span>
         </button>
       </div>
       <div class="fb-col">
@@ -311,12 +320,14 @@ const groups = computed(() => {
         </div>
       </div>
 
-      <div v-if="openMenu === 'district'" class="fb-pop">
+      <div v-if="openMenu === 'filter'" class="fb-pop">
+        <div class="pop-group-title">位置</div>
         <div class="pop-chips">
           <button v-for="d in DISTRICTS" :key="d.adcode" class="pop-chip" :class="{ on: selectedDistricts.has(d.adcode) }" @click="toggleDistrict(d.adcode)">{{ d.name }}</button>
         </div>
+        <div class="pop-group-title">校园荣誉</div><div class="pop-chips"><button v-for="option in CIVILIZED_FILTERS" :key="option[0]" class="pop-chip" :class="{ on: civilizedOn(option[0]) }" @click="toggleCivilized(option[0])">{{ option[1] }}</button></div>
         <div class="pop-foot">
-          <button class="pop-link" @click="flipDistricts">{{ districtAllOn ? '取消全选' : '全选' }}</button>
+          <button class="pop-link" @click="resetFilters">重置</button>
           <button class="pop-link" @click="openMenu = null">完成</button>
         </div>
       </div>

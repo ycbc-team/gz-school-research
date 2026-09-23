@@ -2,9 +2,9 @@
 /** UI only: 高中明细的行、分组、录取线口径与排序均由 @gz/shared ViewModel 提供。 */
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import { DISTRICTS, buildHighRankingGroups, type HighRankingFilterKey, type HighRankingGroupBy, type HighRankingSortBy } from '@gz/shared';
-import { entities, highLevels, highSchools, highScores2025, highScores2026 } from '../data';
+import { entities, highLevels, highSchools, highScores2025, highScores2026, civilizedCampusSchoolIds } from '../data';
 
-const openMenu = ref<'group' | 'filter' | 'district' | 'sort' | null>(null);
+const openMenu = ref<'group' | 'filter' | 'sort' | null>(null);
 const groupBy = ref<HighRankingGroupBy>('none');
 const selectedDistricts = ref(new Set(DISTRICTS.map((district) => district.adcode)));
 const SCHOOL_FILTERS: Array<{ label: string; key: HighRankingFilterKey }> = [
@@ -15,11 +15,18 @@ const SCHOOL_FILTERS: Array<{ label: string; key: HighRankingFilterKey }> = [
 ];
 /** null 表示不限制；全选时包含分类尚未标注的点位。 */
 const selectedFilters = ref<Set<HighRankingFilterKey> | null>(null);
+const CIVILIZED_FILTERS = [['national', '全国文明校园'], ['provincial', '广东省文明校园'], ['municipal', '广州市文明校园'], ['advanced', '创建先进学校（储备）']] as const;
+type CivilizedKey = typeof CIVILIZED_FILTERS[number][0];
+const selectedCivilized = ref<Set<CivilizedKey> | null>(null);
+const civilizedAllOn = computed(() => selectedCivilized.value === null);
+function civilizedOn(key: CivilizedKey) { return civilizedAllOn.value || selectedCivilized.value!.has(key); }
+function toggleCivilized(key: CivilizedKey) { const next = new Set(selectedCivilized.value || CIVILIZED_FILTERS.map(([v]) => v)); next.has(key) ? next.delete(key) : next.add(key); selectedCivilized.value = next; }
+function civilizedVisible(id?: string | null) { return civilizedAllOn.value || (!!id && [...selectedCivilized.value!].some((key) => (civilizedCampusSchoolIds[key] || []).includes(id))); }
 const sortBy = ref<HighRankingSortBy>('score2026');
 const groups = computed(() => buildHighRankingGroups(
   { highSchools, highLevels, highScores2025, highScores2026, entities },
   { groupBy: groupBy.value, districtAdcodes: [...selectedDistricts.value], filters: selectedFilters.value ? [...selectedFilters.value] : undefined, sortBy: sortBy.value },
-));
+).map((g) => ({ ...g, items: g.items.filter((item) => civilizedVisible(item.schoolId)) })).filter((g) => g.items.length));
 const groupLabel = computed(() => ({ none: '不分组', category: '省市区属', district: '行政区位置' })[groupBy.value]);
 const sortLabel = computed(() => ({ score2025: '2025 分', score2026: '2026 分', average: '历年平均分' })[sortBy.value]);
 const districtAllOn = computed(() => selectedDistricts.value.size === DISTRICTS.length);
@@ -75,8 +82,7 @@ onBeforeUnmount(() => { window.removeEventListener('scroll', closeHint, true); w
 
     <div class="filter-bar" aria-label="高中明细筛选器">
       <div class="fb-col"><button class="fb-btn" :class="{ on: openMenu === 'group' }" @click="openMenu = openMenu === 'group' ? null : 'group'">分组<em class="fb-badge">{{ groupLabel }}</em><span class="arr">▾</span></button></div>
-      <div class="fb-col"><button class="fb-btn" :class="{ on: openMenu === 'filter' }" @click="openMenu = openMenu === 'filter' ? null : 'filter'">筛选<em v-if="!filterAllOn" class="fb-badge">{{ selectedFilters?.size }}</em><span class="arr">▾</span></button></div>
-      <div class="fb-col"><button class="fb-btn" :class="{ on: openMenu === 'district' }" @click="openMenu = openMenu === 'district' ? null : 'district'">位置<em v-if="!districtAllOn" class="fb-badge">{{ selectedDistricts.size }}</em><span class="arr">▾</span></button></div>
+      <div class="fb-col"><button class="fb-btn" :class="{ on: openMenu === 'filter' }" @click="openMenu = openMenu === 'filter' ? null : 'filter'">筛选<span class="arr">▾</span></button></div>
       <div class="fb-col"><button class="fb-btn" :class="{ on: openMenu === 'sort' }" @click="openMenu = openMenu === 'sort' ? null : 'sort'">排序<em class="fb-badge">{{ sortLabel }}</em><span class="arr">▾</span></button></div>
 
       <div v-if="openMenu === 'group'" class="fb-pop"><div class="pop-chips">
@@ -86,10 +92,9 @@ onBeforeUnmount(() => { window.removeEventListener('scroll', closeHint, true); w
       </div><div class="pop-foot"><button class="pop-link" @click="openMenu = null">完成</button></div></div>
       <div v-if="openMenu === 'filter'" class="fb-pop"><div class="pop-chips">
         <button v-for="option in SCHOOL_FILTERS" :key="option.key" class="pop-chip" :class="{ on: filterOn(option.key) }" @click="toggleFilter(option.key)">{{ option.label }}</button>
-      </div><div class="pop-foot"><button class="pop-link" @click="selectAllFilters">全选</button><button class="pop-link" @click="selectNoFilters">全不选</button><button class="pop-link" @click="openMenu = null">完成</button></div></div>
-      <div v-if="openMenu === 'district'" class="fb-pop"><div class="pop-chips">
+      </div><div class="pop-chips">
         <button v-for="district in DISTRICTS" :key="district.adcode" class="pop-chip" :class="{ on: selectedDistricts.has(district.adcode) }" @click="toggleDistrict(district.adcode)">{{ district.name }}</button>
-      </div><div class="pop-foot"><button class="pop-link" @click="flipDistricts">{{ districtAllOn ? '取消全选' : '全选' }}</button><button class="pop-link" @click="openMenu = null">完成</button></div></div>
+      </div><div class="pop-chips"><button v-for="option in CIVILIZED_FILTERS" :key="option[0]" class="pop-chip" :class="{ on: civilizedOn(option[0]) }" @click="toggleCivilized(option[0])">{{ option[1] }}</button></div><div class="pop-foot"><button class="pop-link" @click="openMenu = null">完成</button></div></div>
       <div v-if="openMenu === 'sort'" class="fb-pop"><div class="pop-chips">
         <button class="pop-chip" :class="{ on: sortBy === 'score2025' }" @click="sortBy = 'score2025'">按 2025 分排</button>
         <button class="pop-chip" :class="{ on: sortBy === 'score2026' }" @click="sortBy = 'score2026'">按 2026 分排</button>
