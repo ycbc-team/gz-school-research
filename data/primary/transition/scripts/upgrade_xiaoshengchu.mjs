@@ -16,15 +16,25 @@
  *   source_url / source_note / data_gaps
  * district 由 school_id → POI.adcode join 得到，不存。
  *
- * 用法：node scripts/registry/upgrade_xiaoshengchu.mjs
+ * 用法：node scripts/registry/upgrade_xiaoshengchu.mjs [--src <输入 all.json> --out <输出 2026.json>]
+ *       （路径为项目根相对或绝对；缺省走正式 dist。快照测试用临时目录，不碰正式产物）
  */
 import fs from 'node:fs';
 import path from 'node:path';
 const ROOT = path.resolve(import.meta.dirname, '..', '..', '..', '..');
-const read = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
-const write = (p, o) => fs.writeFileSync(path.join(ROOT, p), JSON.stringify(o, null, 2) + '\n');
+const _argv = process.argv.slice(2);
+let _src = 'data/primary/transition/dist/xiaoshengchu_all.json';
+let _out = 'data/primary/transition/dist/xiaoshengchu_2026.json';
+{
+  const i = _argv.indexOf('--src');
+  if (i >= 0 && i + 1 < _argv.length) _src = _argv[i + 1];
+  const j = _argv.indexOf('--out');
+  if (j >= 0 && j + 1 < _argv.length) _out = _argv[j + 1];
+}
+const read = (p) => JSON.parse(fs.readFileSync(path.isAbsolute(p) ? p : path.join(ROOT, p), 'utf8'));
+const write = (p, o) => fs.writeFileSync(path.isAbsolute(p) ? p : path.join(ROOT, p), JSON.stringify(o, null, 2) + '\n');
 
-const src = read('data/primary/transition/dist/xiaoshengchu_all.json');
+const src = read(_src);
 let primaryHit = 0, feedHit = 0, feedMiss = 0;
 const outRecords = src.records.map((r) => {
   // school_id/feed_school_ids/direct_feed_school_id 由 Python xs_resolver 解析
@@ -74,7 +84,7 @@ const records = deduped.map(({ group, source_url, data_gaps, ...fact }) => {
   }
   return { ...fact, group_id: groupId, data_gaps: dataGaps };
 });
-write('data/primary/transition/dist/xiaoshengchu_2026.json', {
+write(_out, {
   year: 2026,
   note: '2026 小学→初中升学事实表。学校一律用 school_id 引用（见 entities.json）；feed_school_ids 为对口初中实体 id，feed_unresolved 为 POI 未收录的官方名（显式缺口，不模糊）。district 由 POI join。',
   groups,

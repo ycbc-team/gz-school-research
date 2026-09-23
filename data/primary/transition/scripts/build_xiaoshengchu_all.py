@@ -1995,19 +1995,32 @@ def merge_all():
     # upgrade 只做去重/分组组装，不再做名字匹配；运行时（xiaoshengchu_2026.json）只依赖 school_id
     from xs_resolver import resolve_records
     merged = resolve_records(merged)
-    out_path = os.path.join(DATA, 'dist', 'xiaoshengchu_all.json')
+    out_path = os.path.join(OUT_DIR, 'xiaoshengchu_all.json')
     json.dump({'year': 2026, 'records': merged},
               open(out_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(f'[汇总] 共 {len(merged)} 条记录 → {out_path}')
 
 
 if __name__ == '__main__':
-    target = sys.argv[1] if len(sys.argv) > 1 else 'yuexiu'
+    args = sys.argv[1:]
+    if '--out-dir' in args:
+        i = args.index('--out-dir')
+        if i + 1 >= len(args):
+            print('--out-dir 需带目录路径')
+            sys.exit(1)
+        OUT_DIR = args[i + 1]
+        del args[i:i + 2]
+    target = args[0] if args else 'yuexiu'
     if target in DISTRICTS:
         _, label, fn = DISTRICTS[target]
         recs, covered, missing = fn()
         dump(target, label, recs, covered, missing)
     elif target == 'all_done':
+        # 全链路：重建 7 区 → 汇总（--out-dir 指定输出目录，快照测试用临时目录，不碰正式 dist）
+        for key in ['yuexiu', 'liwan', 'baiyun', 'panyu', 'haizhu', 'tianhe', 'huangpu']:
+            _, label, fn = DISTRICTS[key]
+            recs, covered, missing = fn()
+            dump(key, label, recs, covered, missing)
         merge_all()
     else:
         print('未知区。可选:', list(DISTRICTS.keys()), '或 all_done')

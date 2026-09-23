@@ -159,52 +159,6 @@ def _head(path):
     return r.stdout
 
 
-def _check_xiaoshengchu():
-    """重跑 xiaoshengchu 生产链路（build_xiaoshengchu_all + upgrade）到工作树，与入库比对。
-
-    名字→school_id 匹配已下沉 Python 数据层（xs_resolver.py，build_xiaoshengchu_all 的
-    merge_all 调用）；upgrade 只做去重/分组组装，不再做名字匹配。覆盖
-    build_xiaoshengchu_all.py / xs_resolver.py / upgrade_xiaoshengchu.mjs 的改动感知：
-    改脚本后未重跑提交产物，或产物被手改，都会被检出。比对失败还原工作树（保留重跑前状态）。"""
-    files = [os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_2026.json")]
-    orig = {f: open(f, encoding="utf-8").read() for f in files}
-    try:
-        r = subprocess.run(["python3", os.path.join(ROOT, "data/primary/transition/scripts/build_xiaoshengchu_all.py"), "all_done"],
-                           capture_output=True, text=True, cwd=ROOT)
-        if r.returncode != 0:
-            _flush_ok()
-            print("生产脚本重跑失败：data/primary/transition/scripts/build_xiaoshengchu_all.py all_done")
-            print(r.stderr[-2000:])
-            for f, c in orig.items():
-                open(f, "w", encoding="utf-8").write(c)
-            sys.exit(1)
-        r = subprocess.run(["node", os.path.join(ROOT, "data/primary/transition/scripts/upgrade_xiaoshengchu.mjs")],
-                           capture_output=True, text=True, cwd=ROOT)
-        if r.returncode != 0:
-            _flush_ok()
-            print("生产脚本重跑失败：data/primary/transition/scripts/upgrade_xiaoshengchu.mjs")
-            print(r.stderr[-2000:])
-            for f, c in orig.items():
-                open(f, "w", encoding="utf-8").write(c)
-            sys.exit(1)
-        failed = [f for f in files if open(f, encoding="utf-8").read() != _head(f)]
-        if failed:
-            _flush_ok()
-            for f, c in orig.items():
-                open(f, "w", encoding="utf-8").write(c)
-            print(f"产物一致性: ✗ xiaoshengchu 重跑产物与入库不一致：{', '.join(os.path.basename(f) for f in failed)}")
-            print("  → 说明 build_xiaoshengchu_all / xs_resolver / upgrade 改动后未重跑提交产物，或产物被手改。"
-                  "修复须固化到生产脚本后重跑并提交产物。")
-            sys.exit(1)
-        _ok_lines.append("产物一致性: ✓ build_xiaoshengchu_all + upgrade 重跑产物与入库完全一致")
-    except SystemExit:
-        raise
-    except Exception:
-        for f, c in orig.items():
-            open(f, "w", encoding="utf-8").write(c)
-        raise
-
-
 def _check_school_groups():
     """重跑 build_school_groups.py（公共 school_id→集团映射，纯 id 产物）到工作树，与入库比对。
 
@@ -361,10 +315,8 @@ def main():
     _check_build_entities()
     _check_minban_official()
 
-    # 4) xiaoshengchu 全链路（匹配已下沉 Python 数据层 xs_resolver；upgrade 只组装）
-    _check_xiaoshengchu()
-
-    # 5) backfill_school_ids（quota_matrix/district_quota/batch2_scores/special_matrix/_unmatched）
+    # 4) backfill_school_ids（quota_matrix/district_quota/batch2_scores/special_matrix/_unmatched）
+    #    （xiaoshengchu 快照已于 2026-09-23 独立成 check_xiaoshengchu_snapshot，不再用 git HEAD 比对）
     _check_backfill_ids()
 
     # 6) school_groups 公共集团映射（build_school_groups 纯 id 产物）
