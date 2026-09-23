@@ -17,7 +17,7 @@ import {
   repository, primarySchools, middleSchools, highSchools, primaryTier1, middleTier1,
   highLevels, tier1Schools, middleTier1Schools, entities, matchEnrollment,
   middleQuotaSummary, middleEnrollmentsOf, middleEnrollmentGroups, xiaoshengchuOf, schoolBadges, scoresOfSchool,
-  isComprehensive, groupOfSchool, resolvePoiName, resolveSchoolIdOf,
+  isComprehensive, groupOfSchool, resolveSchoolIdOf,
   type BrandUnit,
   innovationAwards,
   chuangkeAwards,
@@ -174,6 +174,16 @@ function groupNameOf(gid?: string | null): string {
 function groupPrimariesOf(gid?: string | null): string[] {
   return gid ? (middleEnrollmentGroups[gid]?.primaries ?? []) : [];
 }
+/** 生源小学平铺行：跨全部派位组，行 = 小学名 + 组名 Badge（用户：多组小学平铺、Badge 区分分组） */
+const primaryRows = computed(() => {
+  if (stage.value !== 'middle') return [];
+  const rows: { name: string; groupName: string }[] = [];
+  for (const m of middleEnrolls.value) {
+    const gid = m.record.group_id;
+    for (const p of groupPrimariesOf(gid)) rows.push({ name: p, groupName: groupNameOf(gid) });
+  }
+  return rows;
+});
 
 </script>
 
@@ -306,31 +316,23 @@ function groupPrimariesOf(gid?: string | null): string[] {
           <p v-if="m.record.mechanism_note" class="sub-note">
             官方备注：{{ m.record.mechanism_note }}
           </p>
-          <!-- 生源小学：本组对口派位小学（组级，与「派位组成员」同组） -->
-          <div v-if="groupPrimariesOf(m.record.group_id).length" class="zone-block">
-            <div class="zone-label">生源小学（本组对口派位）</div>
-            <div class="feed-list">
-              <div v-for="p in groupPrimariesOf(m.record.group_id)" :key="p" class="feed-item">
-                <span class="feed-name">{{ p }}</span>
-              </div>
-            </div>
-          </div>
-          <!-- 派位组：多校派位时列出组内学校（每行一所，点击跳转该校详情） -->
-          <div v-if="m.record.group_members && m.record.group_members.length" class="zone-block">
-            <div class="zone-label">派位组成员（随机分配，组内兜底）</div>
-            <div class="feed-list">
-              <div v-for="gm in m.record.group_members" :key="gm" class="feed-item">
-                <RouterLink :to="`/school/${encodeURIComponent(resolvePoiName(gm) || gm)}?stage=middle`" class="feed-name">{{ gm }}</RouterLink>
-                <span class="tag tag-dim">{{ groupNameOf(m.record.group_id) }}</span>
-              </div>
-            </div>
-          </div>
           <!-- 单校电脑抽签：红字警示 -->
           <div v-if="m.mechanismDef.can_lose && m.mechanismDef.lose_text" class="lottery-warning">
             ⚠️ {{ m.mechanismDef.lose_text }}
           </div>
         </div>
       </template>
+
+      <!-- 生源小学平铺：多组小学全部一个列表，组名 Badge 标在小学后面区分分组 -->
+      <div v-if="primaryRows.length" class="zone-block" style="margin-top:10px">
+        <div class="zone-label">生源小学（对口派位，按组区分）</div>
+        <div class="feed-list">
+          <div v-for="row in primaryRows" :key="`${row.groupName}-${row.name}`" class="feed-item">
+            <span class="feed-name">{{ row.name }}</span>
+            <span class="tag tag-dim">{{ row.groupName }}</span>
+          </div>
+        </div>
+      </div>
 
       <p v-if="!middleEnrolls.length" class="empty">暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。</p>
     </div>
