@@ -271,6 +271,8 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .floatbar .sbox{margin-top:9px}
 .floatbar .sbox{background:rgba(255,255,255,.97);border-color:rgba(255,255,255,.9);box-shadow:0 4px 16px rgba(8,14,28,.24);color:var(--ink-400);height:42px}
 .floatbar .chip{background:rgba(255,255,255,.94);border-color:transparent;box-shadow:0 3px 10px rgba(8,14,28,.20)}
+.floatbar.open .brandrow{display:none}
+.sheet.fpanel{top:153px;bottom:auto;max-height:none;border-radius:0 0 20px 20px;box-shadow:0 14px 34px rgba(16,24,43,.20)}
 /* 点位：白描边 + 学段分色，浅色底图上更清晰 */
 .dot{position:absolute;width:16px;height:16px;border-radius:50%;border:2.5px solid #fff;background:var(--pri);box-shadow:0 2px 6px rgba(16,24,43,.30),0 0 0 3px rgba(255,255,255,.35);transform:translate(-50%,-50%)}
 .dot.on{width:22px;height:22px;border-width:3px;box-shadow:0 0 0 6px rgba(47,92,214,.28),0 4px 12px rgba(16,24,43,.32)}
@@ -732,7 +734,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
 <!-- ============ 02 具体页面 ============ -->
 <section class="wrap" id="screens">
   <div class="sec-head"><span class="sec-num">02</span><h2>具体页面 · 8 屏</h2></div>
-  <p class="sec-desc">严格对原型画板中的画框绘制，仅补出同一屏的必要状态（搜索页的联想词态、筛选半窗切换维度后的状态、地图层点选点位后的详情卡、搜索执行后回到首页的定位态）。异常状态组（08–11）已上移至第 01 节「通用 · 异常态与全局弹窗」。</p>
+  <p class="sec-desc">严格对原型画板中的画框绘制，仅补出同一屏的必要状态（搜索页的联想词态、筛选面板切换维度后的状态、地图层点选点位后的详情卡、搜索执行后回到首页的定位态）。异常状态组（08–11）已上移至第 01 节「通用 · 异常态与全局弹窗」。</p>
 
   <div class="frames">
 
@@ -782,13 +784,64 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <div class="ixn">
         <b>交互描述</b>
         <p>
-          1）页面加载：默认按<em>广州中心城区中轴线（珠江新城—广州塔一带）</em>视野定位展示（后续版本接入定位授权弹窗，拒绝授权时保持默认视野）。<br>
-          2）点击搜索框 → 弹出搜索页（02）；点击筛选栏维度胶囊 → 呼出对应维度筛选半窗（04／05）。筛选栏胶囊只显示维度名（单选时显示选中内容，行政区显示<b>带「区」字的全名</b>），<b>不显示任何数量角标</b>。<br>
+          1）页面加载：默认按<em>广州中心城区中轴线（珠江新城—广州塔一带）</em>视野展示；<b>首次进入底部弹出定位授权引导弹窗（01B）</b>——点「开启定位」触发微信系统授权，允许后地图自动移动到定位点附近并显示当前位置标记；拒绝授权保持默认视野。<br>
+          2）点击搜索框 → 弹出搜索页（02）；点击筛选栏维度胶囊 → 呼出对应维度筛选面板（04／05）。筛选栏胶囊只显示维度名（单选时显示选中内容，行政区显示<b>带「区」字的全名</b>），<b>不显示任何数量角标</b>。<br>
           3）地图支持双指缩放、单指拖动；左下角图例说明点位三色含义。<br>
           4）点击学校点位 → 底部弹出半窗学校卡（默认 45% 高），点位呈选中态（06）。<br>
           5）底部导航：首页／政策 两个 tab，<b>置底通栏固定于屏幕底缘</b>（小程序原生 tabBar 规范，含底部安全区高度），点击切换、当前项高亮。
         </p>
           <p>6）右上角常驻<em>小程序系统胶囊（··· 更多 ／ ⊕ 退出小程序）</em>，覆盖全部页面（地图层、搜索页、详情页、异常态），为微信原生非自定义元素；首页/地图层顶部第一行为「小程序名 + 胶囊」，白底常驻盖住地图（非悬浮）；搜索框下移一行、全宽悬浮于地图；搜索页搜索框与胶囊同行且同高（32px）齐平。</p>
+      </div>
+      </div>
+    </div>
+
+    <!-- 01B 首页 · 定位授权引导弹窗 -->
+    <div class="frame">
+      <div class="cap"><b>01B 首页 · 定位授权引导弹窗</b><span>首次进入弹出 · 允许后地图自动定位到附近</span></div>
+      <div class="phone mapmode">
+          <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+        <div class="mapfull">
+          <div class="legendbox">
+            <div class="lg"><i style="background:#2F5CD6"></i>小学</div>
+            <div class="lg"><i style="background:#E8850C"></i>初中</div>
+            <div class="lg"><i style="background:#0F9D58"></i>高中</div>
+            <div class="lg"><i style="background:conic-gradient(#2F5CD6 0 33%,#E8850C 33% 66%,#0F9D58 66% 100%)"></i>多学段</div>
+          </div>
+          <span class="mapattr">© OpenStreetMap</span>
+        </div>
+        <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+        <div class="topcover"></div>
+        <div class="floatbar">
+          <div class="brandrow">广州学途</div>
+          <div class="sbox">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
+            搜索广州小初高学校
+          </div>
+          <div class="filterrow">
+            <span class="chip">行政区 <i class="caret"></i></span>
+            <span class="chip">学段 <i class="caret"></i></span>
+            <span class="chip">办学性质 <i class="caret"></i></span>
+          </div>
+        </div>
+        <div class="mask"></div>
+        <div class="sheet">
+          <div class="handle"></div>
+          <div style="padding:4px 18px 0;font-size:17px;font-weight:700;color:var(--ink-900)">开启定位，找附近的学校</div>
+          <div style="padding:10px 18px 2px;font-size:13.5px;line-height:1.75;color:var(--ink-500)">开启后，地图会自动移动到你附近，并按距离展示周边学校。位置信息仅用于本校小程序内的地图定位与筛选，不会存储或对外分享。</div>
+          <div class="sfoot" style="border-top:none;padding:16px 16px 6px"><span class="none">暂不开启</span><span class="ok">开启定位</span></div>
+          <div style="text-align:center;font-size:11px;color:var(--ink-400);padding-bottom:20px">可在微信「设置－位置信息」中随时更改授权</div>
+        </div>
+      </div>
+      <div class="anno">
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「01B 首页 · 定位授权引导弹窗」</p>
+        <div class="ixn">
+        <b>交互描述</b>
+        <p>
+          1）触发：进入首页后（当前未授予位置权限时）自动底部弹出本引导弹窗，每次冷启动最多自动提示 1 次。<br>
+          2）点「开启定位」→ 触发微信系统位置授权（wx.getLocation）；允许 → 地图自动移动到定位点附近、显示当前位置标记；拒绝 → 轻提示后关闭弹窗，保持默认视野。<br>
+          3）点「暂不开启」或弹窗外空白 → 关闭弹窗、保持默认视野，本次会话内不再自动弹出。<br>
+          4）授权状态可随时在微信「设置－位置信息」中更改；弹窗文案为初版，待产品确认。
+        </p>
       </div>
       </div>
     </div>
@@ -840,7 +893,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <div class="ixn">
         <b>交互描述</b>
         <p>
-          1）入口：点击首页搜索框弹出本页；点击返回按钮或页内从左向右滑手势 → 回到<em>来源页</em>（默认首页；<em>从筛选半窗搜索入口进入时，返回同样直接回首页，且筛选半窗保持收起</em>）。<br>
+          1）入口：点击首页搜索框弹出本页；点击返回按钮或页内从左向右滑手势 → 回到<em>来源页</em>（默认首页；<em>从筛选面板搜索入口进入时，返回同样直接回首页，且筛选面板保持收起</em>）。<br>
           2）搜索栏：默认展示占位词「支持广州小初高学校搜索」，键盘输入后占位词被输入内容替换。<br>
           3）历史记录区：有历史词条才展示，词条按搜索时间倒序；点「清空」弹出二次确认弹窗（样式见 11 屏）：「取消」关闭弹窗、历史保留；「清空」清空全部词条并隐藏本区。<br>
           4）推荐搜索区：位于历史记录区下方，展示省市属高中，按拼音首字母排序。<br>
@@ -898,7 +951,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
 
     <!-- 04 筛选栏半窗 · 状态 A -->
     <div class="frame">
-      <div class="cap"><b>04 筛选栏半窗 · 状态 A</b><span>选中「行政区」→ 只显示行政区选项</span></div>
+      <div class="cap"><b>04 筛选面板 · 状态 A</b><span>点筛选胶囊 → 面板自筛选栏下方推出 · 选中「行政区」</span></div>
       <div class="phone mapmode">
           <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
         <div class="mapfull">
@@ -912,7 +965,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
         <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
         <div class="topcover"></div>
-        <div class="floatbar">
+        <div class="floatbar open">
           <div class="brandrow">广州学途</div>
           <div class="sbox">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
@@ -925,20 +978,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           </div>
         </div>
         <div class="mask"></div>
-        <div class="sheet">
-          <div class="sheettop">
-            <span class="back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
-            <div class="sip">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
-              支持广州小初高学校搜索
-            </div>
-            <span class="sgo-lite">搜索</span>
-          </div>
-          <div class="dims">
-            <span class="chip on-soft">行政区 <i class="caret"></i></span>
-            <span class="chip">学段 <i class="caret"></i></span>
-            <span class="chip">办学性质 <i class="caret"></i></span>
-          </div>
+        <div class="sheet fpanel">
           <div class="optwrap">
             <div class="opts">
               <span class="opt on">荔湾区</span>
@@ -957,14 +997,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
       </div>
       <div class="anno">
-        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「04 筛选栏半窗 · 状态 A（行政区）」</p>
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「04 筛选面板 · 状态 A（行政区）」</p>
         <div class="ixn">
         <b>交互描述</b>
         <p>
-          1）入口：点击筛选栏「行政区」胶囊 → 底部弹出半窗，同一时刻只展示当前维度的选项组。<br>
+          1）入口：点击筛选栏「行政区」胶囊 → <b>搜索栏与筛选栏整体上移（品牌行收起），筛选面板从筛选栏正下方推出</b>（自上而下展开，不再从屏幕底部弹出，手指位置与面板位置一致）；同一时刻只展示当前维度的选项组。<br>
           2）点选选项即选中、再点取消，选中态高亮；「全不选」一键清空当前维度已选项。<br>
           3）点击其他维度胶囊 → 选项组整组切换为对应维度（05），各维度已选状态各自保留。<br>
-          4）点「确认」应用筛选并收起半窗，<b>行政区选区发生变化且收窄时，地图视野自动适配到筛选结果范围</b>（学段／办学性质变化不移动相机）；点返回或半窗外区域 → 关闭且不保存。<br>5）半窗内点击顶部搜索入口 → 收起半窗并跳转搜索页（02）；此时搜索页点返回 → 直接回首页，半窗保持收起。
+          4）点「确认」应用筛选并收起面板，搜索栏与筛选栏复位；<b>行政区选区发生变化且收窄时，地图视野自动缩放到恰好完整框住所选行政区</b>（各区行政边界外接矩形 + 四周安全边距，不额外扩大到未选区；学段／办学性质变化不移动相机）；<b>点面板以外空白区域（地图蒙层）→ 收起面板并复位、不保存本次改动</b>。<br>5）面板展开期间顶部搜索框保持可见，点击搜索框 → 收起面板并跳转搜索页（02）；此时搜索页点返回 → 直接回首页，面板保持收起。
         </p>
       </div>
       </div>
@@ -972,7 +1012,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
 
     <!-- 05 筛选栏半窗 · 状态 B -->
     <div class="frame">
-      <div class="cap"><b>05 筛选栏半窗 · 状态 B</b><span>切换「学段」→ 选项区随之切换</span></div>
+      <div class="cap"><b>05 筛选面板 · 状态 B</b><span>面板展开中切换「学段」→ 选项区随之切换</span></div>
       <div class="phone mapmode">
           <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
         <div class="mapfull">
@@ -986,7 +1026,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
         <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
         <div class="topcover"></div>
-        <div class="floatbar">
+        <div class="floatbar open">
           <div class="brandrow">广州学途</div>
           <div class="sbox">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
@@ -999,20 +1039,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           </div>
         </div>
         <div class="mask"></div>
-        <div class="sheet">
-          <div class="sheettop">
-            <span class="back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
-            <div class="sip">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
-              支持广州小初高学校搜索
-            </div>
-            <span class="sgo-lite">搜索</span>
-          </div>
-          <div class="dims">
-            <span class="chip">行政区 <i class="caret"></i></span>
-            <span class="chip on-soft">学段 <i class="caret"></i></span>
-            <span class="chip">办学性质 <i class="caret"></i></span>
-          </div>
+        <div class="sheet fpanel">
           <div class="optwrap">
             <div class="optgrp">
               <div class="ghd">小学</div>
@@ -1038,11 +1065,11 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
       </div>
       <div class="anno">
-        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「05 筛选栏半窗 · 状态 B（学段）」</p>
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「05 筛选面板 · 状态 B（学段）」</p>
         <div class="ixn">
         <b>交互描述</b>
         <p>
-          1）同一半窗内点击「学段」维度 → 选项区整组切换为学段选项组，其余交互同状态 A。<br>
+          1）面板展开时点击「学段」维度 → 选项区整组切换为学段选项组，其余交互同状态 A。<br>
           2）切换维度不重置其他维度已选状态。
         </p>
       </div>
@@ -1349,9 +1376,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="dmod-h"><b>招生计划（2026年）</b></div>
             <div class="kv"><span class="k">计划班数</span><span class="v">10 个班</span></div>
             <div class="kv"><span class="k">数据来源</span><span class="v">越秀区教育局《2026 年义务教育学校招生计划》</span></div>
-            <div class="kv"><span class="k">招生地段</span><div class="v">
-              <div class="grpbox"><div style="font-size:12.5px;line-height:1.6;color:var(--ink-700)">东风东路470号之四—756号（双号）、犀牛路单号、菜园东路段等公安门牌段，具体以越秀区教育局当年公布为准。</div></div>
-            </div></div>
+            <div class="kv"><span class="k">招生地段</span></div>
+            <div class="grpbox" style="margin-top:0"><div style="font-size:12.5px;line-height:1.6;color:var(--ink-700)">东风东路470号之四—756号（双号）、犀牛路单号、菜园东路段等公安门牌段，具体以越秀区教育局当年公布为准。</div></div>
           </div>
 
           <div class="dmod">
@@ -1399,7 +1425,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
  <p>
 · 全屏长图详情页模块自上而下：学校信号 → 招生计划 2026 → 升学路线参考 2026 → 所在区招生细则 2026 → 教育集团。<br>
 · 学校信号：标题右侧附「民间口径」小字；模块下方无免责行。<br>
-· 招生计划：计划班数／数据来源／招生地段；其中<b>招生地段为长文本：字段名走 kv 左列（与其他字段名同列同样式），正文在值列用浅底分组盒（grpbox）承载，<b>正文随盒宽自动换行</b>（值列 min-width:0）；无信息字段不展示。<br>
+· 招生计划：计划班数／数据来源／招生地段；其中<b>招生地段为长文本：字段名单独一行（与其他字段名同列同样式），正文用浅底分组盒（grpbox）置于字段名下方、占满整行宽度，随盒宽自动换行</b>；无信息字段不展示。<br>
 · 升学路线参考：仅对口学校名（不带标签），学校名为可点击链接（知性蓝 + ›）。<br>
 · 教育集团：三级层级——模块标题（一级）；成员类型「所属集团／同一法人单位／独立法人单位」（二级，同层同样式小标题、左对齐）；成员校（三级，灰底圆角盒、左对齐）。<br>
 · 链接视觉：知性蓝 + ›；点击当前学校的 toast 见规范表「Toast 轻提示」行。
@@ -1651,6 +1677,93 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       </div>
     </div>
 
+    <!-- 07E 学校详情卡 · 高中 -->
+    <div class="frame">
+      <div class="cap"><b>07E 学校详情卡 · 高中</b><span>高中数据放出 · 高考信息／招生计划／中考录取情况／教育集团</span></div>
+      <div class="phone longpage">
+          <div class="capsule" style="top:14px"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+        <div class="dtop">
+          <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <span class="tt">学校详情</span>
+          <span class="close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+        </div>
+        <div class="dbody">
+          <div class="dh1">广东实验中学（高中部）</div>
+          <div class="dtags">
+            <span class="tag m tag-dist">荔湾区</span>
+            <span class="tag m tag-stage">高中</span>
+            <span class="tag m tag-nature">公办</span>
+          </div>
+
+          <div class="dmod">
+            <div class="dmod-h"><b>高考信息</b><span>信息来源各校喜报或网传，仅供参考</span></div>
+            <div class="kv"><span class="k">高分段2025</span><span class="v">600分以上占比超80%；年级均分620；清北25+</span></div>
+            <div class="kv"><span class="k">高分段2026</span><span class="v">拔尖创新人才班级均分保持全省顶尖</span></div>
+            <div class="kv"><span class="k">特控线上线率2025</span><span class="v">具体率未公布（600分以上占比超80%）</span></div>
+            <div class="kv"><span class="k">特控线上线率2026</span><span class="v">全省关键位次人数稳居全市前列（具体率未公布）</span></div>
+            <div class="kv"><span class="k">备注</span><span class="v">"院士摇篮"，南山班／格致班特色</span></div>
+          </div>
+
+          <div class="dmod">
+            <div class="dmod-h"><b>招生计划</b></div>
+            <div class="kv"><span class="k">中考录取线2025</span><span class="v">727 分（第三批次 · 户籍生最低分）</span></div>
+            <div class="kv"><span class="k">中考录取线2026</span><span class="v">740 分（第三批次 · 户籍生最低分）</span></div>
+            <div class="dnote">录取线来源于官方信息：公办为户籍生最低分，民办为最低分（含公费班），外语艺术类为末位考生分数（官方文件附录）。</div>
+          </div>
+
+          <div class="dmod">
+            <div class="dmod-h"><b>中考录取情况</b></div>
+            <div class="dsub">第二批次</div>
+            <div class="dsub" style="margin-top:8px">省市属高中录取明细</div>
+            <div class="chartbox"><div class="thead" style="font-weight:600;color:var(--ink-400)"><span>高中</span><span>名额</span><span>录取最低分</span></div><div style="padding-top:7px;font-size:12px;color:var(--ink-400)">图表区 · 明细占位（开发时渲染真实明细图表）</div></div>
+            <div class="ddiv"></div>
+            <div class="dsub">区属高中录取明细</div>
+            <div class="chartbox"><div class="thead" style="font-weight:600;color:var(--ink-400)"><span>高中</span><span>名额</span><span>录取最低分</span></div><div style="padding-top:7px;font-size:12px;color:var(--ink-400)">图表区 · 明细占位（开发时渲染真实明细图表）</div></div>
+            <div class="dnote">具体名额以官方公布为准，第三批第四批无法获取。</div>
+          </div>
+
+          <div class="dmod">
+            <div class="dmod-h"><b>教育集团</b><span>同一集团下的校区与学校，按法人关系分组</span></div>
+            <div class="grp-t">所属集团</div>
+            <div class="grpbox"><div class="grp-row">广东实验中学教育集团</div></div>
+            <div class="pubbox">公示文件说明（区教育局集团名单公示文件链接）</div>
+            <div class="grp-t">同一法人单位（集团本体/分校区）</div>
+            <div class="grpbox">
+              <div class="grp-l">集团核心校</div>
+              <div class="grp-row"><span class="lk">广东实验中学（高中部）</span><span class="tag m tag-stage">高中</span><span class="pill cur">当前查看</span></div>
+              <div class="grp-l">集团成员校</div>
+              <div class="grp-row"><span class="lk">广东实验中学（初中部）</span><span class="tag m tag-stage">初中</span></div>
+              <div class="grp-row"><span class="lk">广东实验中学（白云校区）</span><span class="tag m tag-stage">高中</span></div>
+            </div>
+            <div class="grp-t">独立法人单位（集团合作）</div>
+            <div class="grpbox">
+              <div class="grp-l">集团成员校</div>
+              <div class="grp-row"><span class="lk">xx实验学校</span><span class="tag m tag-stage">初中</span></div>
+              <div class="grp-row"><span class="lk">xx中学</span><span class="tag m tag-stage">高中</span></div>
+            </div>
+            <div class="dnote">集团归属与成员校为示意数据，待教育局公示文件核实后替换；点击学校名可跳转回地图并定位到新学校。</div>
+          </div>
+        </div>
+      </div>
+      <div class="anno">
+        <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「07E 学校详情卡 · 高中」</p>
+        <b>学校详情卡 · 高中（视觉规范）</b>
+        <p>
+· 单学段高中不显示学段 tab 条；多学段学校切到「高中」tab 时模块同本帧（tab 规则见 07B）。<br>
+· 高中四模块（按交互稿）：① <b>高考信息</b>——标题右侧小字「信息来源各校喜报或网传，仅供参考」，行项：高分段2025（只展示人数）／高分段2026／特控线上线率2025（只展示百分比）／特控线上线率2026／备注（有信息才展示，无信息整行不展示，也不展示公办民办）；② <b>招生计划</b>——中考录取线2025／2026，底部小字说明「录取线来源于官方信息：公办为户籍生最低分，民办为最低分（含公费班），外语艺术类为末位考生分数（官方文件附录）」；③ <b>中考录取情况</b>——按批次分节（第一批／第二批…，某批无数据则该节不展示），批内分「省市属高中录取明细」「区属高中录取明细」两个图表区（列：高中｜名额｜录取最低分），完全无数据时模块内展示空状态默认文案（文案待产品确认）；④ <b>教育集团</b>——同 07B。<br>
+· <b>品牌关联排序</b>：同品牌多校优先展示当前所在学校，其余按「同行政区 ＞ 拼音首字母」排列。<br>
+· 模块层级与字号规范同 07B（同层文字同样式、容器底色 #FAFBFC）。
+        </p>
+        <div class="ixn">
+        <b>交互描述（交互稿口径）</b>
+        <p>
+          1）入口／半窗 ↔ 全屏／顶栏滚动替换同 07／07B。<br>
+          2）教育集团内校名可点击 → 跳转地图并定位到该学校、拉起该校详情卡；点当前校 toast「已在当前学校」。
+        </p>
+      </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1664,12 +1777,12 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       <tbody>
         <tr><td>搜索框</td><td>首页 / 地图层，悬浮于地图之上，占位「搜索广州小初高学校」</td><td>高 40–42、r=999、白底 96–97% + 投影；不占版式，浮在地图上</td></tr>
         <tr><td>筛选栏入口</td><td>首页 / 地图层搜索框下方，共 3 个，同为悬浮层</td><td>胶囊 高 32；维度顺序 <b>行政区／学段／办学性质</b>；<b>3 个胶囊等宽铺满一行，左右边缘与搜索框严格对齐</b>（半窗内与搜索栏同边距）；多选显示维度名，单选显示选中内容（行政区单选显示<b>全名带「区」字</b>，如「越秀区」）；<b>胶囊一律不显示已选数量角标等任何数字</b>（与维度名混读、视觉杂乱）；展开中为浅蓝底 #F2F6FE；白底 94% + 投影</td></tr>
-        <tr><td>筛选半窗</td><td>底部半窗，含搜索入口 + 维度 + 选项</td><td>同一时刻<b>只展示当前选中维度的选项组</b>；切维度即整组替换，各维度已选状态各自保留；「全不选」只作用于当前维度；顶部圆角 20、最大高度 82%；<b>无拖拽 handle</b>（不可上滑展开），选项区底部与操作栏间距 18；点搜索入口跳转搜索页（返回回首页、半窗保持收起）；点「确认」应用筛选并收起半窗，<b>若行政区维度发生变化且收窄（非七区全选），地图视野自动适配到筛选结果范围</b>（学段／办学性质为属性维度、不改变学校地理位置，故不移动相机；零结果不移动，转异常态 C）</td></tr>
+        <tr><td>筛选面板</td><td>筛选栏正下方推出（点维度胶囊展开，04／05）</td><td><b>非底部半窗</b>：面板白底、下方圆角 20 + 下投影，自筛选栏正下方向下推出；展开时<b>品牌行收起、搜索栏与筛选栏整体上移</b>，点面板以外空白（蒙层）收起并复位、不保存。同一时刻<b>只展示当前选中维度的选项组</b>；切维度即整组替换，各维度已选状态各自保留；「全不选」只作用于当前维度；<b>无拖拽 handle</b>、面板内不再含搜索入口（顶部搜索框在其上方直接可见，点击收起面板并跳转搜索页）；点「确认」应用筛选并收起复位，<b>若行政区维度发生变化且收窄（非七区全选），地图视野自动缩放到恰好完整框住所选行政区</b>（各区行政边界外接矩形 + 四周安全边距，不额外扩大到未选区；学段／办学性质为属性维度、不改变学校地理位置，故不移动相机；零结果不移动，转异常态 C）</td></tr>
         <tr><td>筛选选项</td><td>半窗内，默认全选</td><td>胶囊 高 34；选中 #F2F6FE 底 + #98B6EC 描边 + #254BAE 字并加粗；未选白底描边。学段维度按交互稿<b>分组竖排</b>：组标题 13/600 + 组内胶囊平铺（小学／初中各 1 项；高中组含 省市属示范・区属示范・其他学校）</td></tr>
         <tr><td>全不选 / 确认</td><td>半窗底部</td><td>「全不选」次按钮 高 44 描边；「确认」主按钮 高 44 通栏 r=999 知性蓝 #2F5CD6 实心</td></tr>
         <tr><td>搜索按钮</td><td>搜索栏右侧</td><td>无输入不展示；有输入后淡入 + 左移约 180ms 流畅出现、搜索框同步变窄约 220ms，知性蓝主按钮 #2F5CD6</td></tr>
          <tr><td>Toast 轻提示</td><td>屏幕居中偏下（全局通用，规范见第 01 节「通用 · Toast 轻提示」）</td><td>半透明黑底 rgba(0,0,0,.78)、白字 13px、圆角 999、padding 10×18；「已在当前学校」等轻提示约 1.5s 自动淡出，不阻断操作、不加遮罩、全屏同时只存在一个</td></tr>
-                <tr><td>返回按钮</td><td>搜索页 / 筛选半窗左上角</td><td><b>40×40 圆形</b>控件：浅底 #F5F7FB + 1px #E3E8F0 描边，内置 20×20 线性箭头（描边 2.4），点击区 ≥ 40</td></tr>
+                <tr><td>返回按钮</td><td>搜索页左上角（筛选面板不含返回按钮，顶部搜索框在面板上方直接可见）</td><td><b>40×40 圆形</b>控件：浅底 #F5F7FB + 1px #E3E8F0 描边，内置 20×20 线性箭头（描边 2.4），点击区 ≥ 40</td></tr>
         <tr><td>历史记录</td><td>搜索页 · 默认态</td><td><b>胶囊平铺</b>（<span class="mono">flex-wrap</span> 自动换行，一条一个圈），不再整行一条；胶囊 高 32、r=999、#F5F7FB 底 + #E3E8F0 描边、12.5px；超长名称单行省略</td></tr>
         <tr><td>联想词条</td><td>有输入时，铺满全页的关联词条区</td><td>行高 48，词条名 14 用 #10182B 单行省略；右侧小标签显示<b>标签类型</b>（行政区／学段）；<b>行政区标签固定为全名并带「区」字</b>（如「番禺区」，不写「番禺」）；<b>多学段学校按学段拆成多枚独立学段标签</b>（如 初中 + 高中 各一枚，共 3 枚标签），<b>不合并写成「初中/高中」</b>；列表可上下滑</td></tr>
         <tr><td>标签（Tag）</td><td>列表词条 / 学校卡 / 详情信息行</td><td><b>一类一色相，底色浅调 + 文字深调，无描边</b>，共 4 类：行政区 #EEF3FE/#3A62C8；学段 #E9F6FB/#1F7A9B；示范等级 #F1EDFD/#5B49C9；办学性质 #E9F7F0/#1F7A55；<b>同一类别出现多个取值时（多学段、多行政区）一律拆成多枚标签并排，不合并进一枚</b>（禁止「初中/高中」「越秀区/天河区」这类斜杠写法）；<b>行政区取值固定为全名带「区」字</b></td></tr>
@@ -1684,6 +1797,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <tr><td>空状态</td><td>搜索无结果（08 A）／筛选结果为空（10 C）</td><td>四要素结构：灰底圆形插画 88px + 标题 15.5/600 + 说明 12.5 次级色 + 主操作胶囊按钮；搜索空态主操作「清空并重新搜索」（清输入 + 重置筛选）；地图筛选空态用<b>异常弹窗</b>（240 宽，同全局弹窗统一规格）居中提示，右上角「×」可关闭、地图不加遮罩且手势仍可用，主操作「重置筛选」恢复默认全选</td></tr>
         <tr><td>网络异常</td><td>详情页／列表接口超时或失败（09 B）</td><td>标题「网络开小差了」+ 说明 + 主按钮「重新加载」；<b>局部重试</b>只重拉失败模块、不整页刷新；连续 2 次失败追加「反馈问题」入口；请求期展示<b>骨架屏</b>（浅灰圆角占位块），超 10s 未返回自动转网络异常态</td></tr>
         <tr><td>确认弹窗</td><td>搜索页「清空」等破坏性操作二次确认（11 屏）</td><td>统一按第 01 节「通用 · 异常态与全局弹窗 · 全局弹窗统一规格」执行：宽 240px（<b>全稿唯一弹窗宽度档</b>，与地图异常弹窗同档）、r=16、白底 + 投影；标题 16/600 居中、正文 13 次级色居中；按钮两枚等宽 高 44 r=999 —— 取消（白底描边）+ 主操作；<b>破坏性主按钮用警示红 #E5484D</b>，非破坏性确认与重试类用知性蓝；遮罩黑 42%，<b>点遮罩不关闭</b>，弹窗期间背景不可滚动；动效 淡入+轻微放大 150–200ms</td></tr><tr><td>小程序胶囊</td><td>全屏右上角系统导航（覆盖所有页面）</td><td>微信小程序原生胶囊：圆角矩形（87×32，r=16）白底 82% + 1px 浅灰描边 + 投影，内分两钮——左「··· 更多」、右「⊕ 退出小程序」；两钮间 1px 竖分隔。z-index 最高、非自定义元素，<b>所有页面（地图层／搜索页／详情页／异常态）统一常驻右上角</b>；首页/地图层顶部第一行左侧为小程序名、右侧为胶囊，白底常驻盖住地图；搜索框位于第二行全宽悬浮；搜索页（02/03）搜索框与胶囊同行且同高 32px 齐平，自定义顶栏右侧预留 98px 安全位避免遮挡。<b>对齐实现口径</b>：搜索页头行高 44px，搜索框 32px 在行内垂直居中 —— 故头行 top ＝ 胶囊 top − (44 − 32)/2 ＝ 胶囊 top − 6px，行内右侧 padding ＝ 屏宽 − 胶囊左缘 + 4px（375 画框下即 98px）；首页小程序名行（.brandrow 32px）直接与胶囊<b>顶对齐</b>（顶行 top ＝ 胶囊 top）。<b>不得只用状态栏高度顶对齐</b>，否则搜索框会比胶囊低 6px、视觉错位。点击「···」唤起微信转发/收藏等系统菜单，点击「⊕」退出小程序回微信会话。</td></tr>
+<tr><td>定位授权弹窗</td><td>首页进入后自动弹出（01B）</td><td>底部半窗样式（上圆角 20 + handle + 蒙层黑 42%）：标题 17/700 + 正文 13.5 次级色 + 两按钮（「暂不开启」白底描边 高 44 ／「开启定位」知性蓝实心通栏）+ 底部小字「可在微信「设置－位置信息」中随时更改授权」；每次冷启动最多自动提示 1 次；允许授权后地图自动移动到定位点附近并显示当前位置标记</td></tr>
       </tbody>
     </table>
   </div>
