@@ -2298,7 +2298,9 @@
       "school_id": "gz-440104-2f27f4d6",
       "name": "广州市华侨外国语学校-华侨小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "华侨外国语学校小学部"
+      ]
     },
     {
       "school_id": "gz-440106-dab5b807",
@@ -2583,7 +2585,9 @@
       "school_id": "gz-440105-cac39935",
       "name": "广州市执信中学琶洲实验学校",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "执信中学琶洲实验学校小学部"
+      ]
     },
     {
       "school_id": "gz-440111-565db7e9",
@@ -4830,13 +4834,17 @@
       "school_id": "gz-440104-fb8d99a5",
       "name": "海珠中路小学(七株榕校区)",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "海珠中路小学"
+      ]
     },
     {
       "school_id": "gz-440104-75ece0ce",
       "name": "海珠中路小学(海珠中校区)",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "海珠中路小学"
+      ]
     },
     {
       "school_id": "gz-440105-afcd1a8d",

@@ -108,9 +108,14 @@ def _cn2num(raw):
     return 0
 
 def _primary_ids(name, adcode):
-    """转录小学名 → school_id 列表：统一走 SchoolMatcher.resolve_all（preferred_stage='小学'，
-    法人名全等展开同法人全部校区实体 + 按本区 adcode 过滤，不跨区错配；带校区限定的转录名精准命中）。"""
-    ra = _MATCHER.resolve_all(name, preferred_adcode=adcode, preferred_stage="小学")
+    """转录小学名 → school_id 列表：统一走 SchoolMatcher（preferred_stage='小学'）——
+    官方「法人名（校区A、校区B…）」多选项形态（括号内顿号/逗号分隔 >1 项，或含「、」）
+    走第三种匹配 resolve_campus_list（去括号展开候选 + 与括号内选项逐项匹配，只保留
+    命中的校区，不误配括号外校区）；单选项/无括号回退 resolve_all（法人全等展开 /
+    带单校区限定精准）。按本区 adcode 过滤，不跨区错配。"""
+    ra = _MATCHER.resolve_campus_list(name, preferred_adcode=adcode, preferred_stage="小学")
+    if not ra:
+        ra = _MATCHER.resolve_all(name, preferred_adcode=adcode, preferred_stage="小学")
     return sorted({r["school_id"] for r in ra})
 
 def _group_name(note):

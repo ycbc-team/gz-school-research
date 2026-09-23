@@ -334,8 +334,18 @@
           "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xqhjthbx/content/post_10874811.html",
           "verified": "2026-09-14",
           "poi_match": "法人推导",
-          "poi_name": "广州市华侨外国语学校(华侨新村校区)",
-          "school_id": "gz-440104-d972cf95"
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "广州市华侨外国语学校-华侨小学",
+              "school_id": "gz-440104-2f27f4d6"
+            },
+            {
+              "poi_name": "广州市华侨外国语学校(华侨新村校区)",
+              "school_id": "gz-440104-d972cf95"
+            }
+          ]
         }
       ],
       "source_urls": [

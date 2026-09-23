@@ -233,7 +233,9 @@ class SchoolMatcher:
         """entities: [{name, stage, aliases?}]。一个别名可能对应多个实体（共享别名如「广铁一中铁英学校」），
         保留全部实体，由 resolve 结合 preferred_adcode 收敛，避免"后写覆盖"式错配。"""
         for e in entities:
-            rec = {"name": e["name"], "stage": e.get("stage", ""), "aliases": [], "school_id": e.get("school_id", "")}
+            rec = {"name": e["name"], "stage": e.get("stage", ""),
+                   "aliases": list(e.get("aliases", []) or []),
+                   "school_id": e.get("school_id", "")}
             if rec["school_id"]:
                 self.by_id[rec["school_id"]] = rec
             self.all_entities.append(rec)
@@ -413,7 +415,135 @@ class SchoolMatcher:
                 return [one]
         return []
 
-    def resolve(self, name, preferred_adcode=None, preferred_stage=None, strategy="single"):        return []
+    # 校区等价词（官方「校本部」↔ 实体「本校区」）
+    _CAMPUS_SYN = {"校本部": "本校区"}
+
+    def resolve_campus_list(self, name, preferred_adcode=None, preferred_stage=None):
+        """第三种匹配：官方「法人名（校区A、校区B…）」——括号内是多个校区/学部选项。
+        不去括号直拼（会把括号里没写的校区也匹配进来）：去括号对法人名 resolve_all 展开
+        全部候选，再与括号内选项逐项匹配（候选校区标识全等/包含/等价），只保留命中的校区。
+        例：「沙面小学（校本部、岭南校区、御景校区）」→ resolve_all(沙面小学) 六校区 →
+        选项[校本部,岭南校区,御景校区] → 命中 本校区(校本部)/岭南校区/御景校区，不误配
+        柏悦湾/大坦沙/悦江。学部选项（小学部/初中部/高中部）按 stage 过滤纯法人实体。
+        非「法人（选项列表）」形态或无命中 → []（宁缺）。"""
+        mlist = re.match(r"^(?P<legal>.+?)[（(](?P<campus>[^（）()]+)[）)]$", name or "")
+        if not mlist:
+            return []
+        legal = mlist.group("legal").strip()
+        campus_raw = mlist.group("campus").strip()
+        segs = [s.strip() for s in re.split(r"[、,，]", campus_raw) if s.strip()]
+        if not segs:
+            return []
+        # 选项解析：数字序数序列展开（「第一、二、三小学部」→ 第一小学部/第二小学部/第三小学部；
+        # 「1、2、3校区」→ 1校区/2校区/3校区；「东、西、北校区」非数字 → 后缀继承为东校区…）
+        opts = []
+        def _is_num(t):
+            return bool(re.fullmatch(r"第?[一二三四五六七八九十百\d]+", t or ""))
+        i = 0
+        while i < len(segs):
+            seg = segs[i]
+            if _is_num(seg) and i + 1 < len(segs):
+                nums, j = [seg], i + 1
+                while j < len(segs) and _is_num(segs[j]):
+                    nums.append(segs[j]); j += 1
+                suffix = ""
+                if j < len(segs):
+                    # 末段可为「数字+公共后缀」（如「三小学部」「3校区」）→ 拆出数字与后缀
+                    mseg = re.match(r"^(第?[一二三四五六七八九十百\d]+)(.+)$", segs[j])
+                    if mseg and not _is_num(segs[j]):
+                        nums.append(mseg.group(1)); suffix = mseg.group(2)
+                    else:
+                        suffix = segs[j]
+                    j += 1
+                if suffix:
+                    # 首个数字段带「第」时（第一、二、三…），裸中文数字段补「第」（第二/第三）
+                    add_di = nums[0].startswith("第")
+                    for nseg in nums:
+                        prefix = re.sub(r"[一二三四五六七八九十百\d]+$", "", nseg)
+                        numpart = nseg[len(prefix):]
+                        if add_di and not prefix and re.fullmatch(r"[一二三四五六七八九十]+", numpart):
+                            prefix = "第"
+                        opts.append(prefix + numpart + suffix)
+                    i = j
+                    continue
+            opts.append(seg); i += 1
+        # 后缀继承：无标识段继承末段标识（「东、西、北校区」→ 东校区/西校区/北校区）；
+        # 「校本部/本部/初中部」等以「部」结尾的完整标识不补
+        _id_re = re.compile(r"(校区|分校|教学点|分教点|小学部|初中部|高中部|中学部)$")
+        inherited = next((_id_re.search(s).group(1) for s in reversed(opts) if _id_re.search(s)), None)
+        if inherited:
+            opts = [s if _id_re.search(s) or s.endswith("部") else s + inherited for s in opts]
+        # 候选：去括号法人名 resolve_all（无校区限定 → 同法人全部校区展开）+
+        # 前缀补全（官方法人名与实体名带「第一中学附属」类前缀差异时，别名以法人名开头的校区实体
+        # 也纳入候选，如「广州市第一中学附属环市西路小学（竹苑校区、绿森林校区）」
+        # → 别名「第一中学附属环市西路小学竹苑校区/绿森林校区」两实体）
+        ra = self.resolve_all(legal, preferred_adcode=preferred_adcode,
+                              preferred_stage=preferred_stage)
+        _wanted = {"小学": "primary", "初中": "middle", "高中": "high"}.get(preferred_stage, preferred_stage)
+        _lp = matchNorm(coreCampusName(legal))
+        if _lp and len(_lp) >= 4:
+            seen = {r["school_id"] for r in ra}
+            for e in self.all_entities:
+                if e["school_id"] in seen:
+                    continue
+                if _wanted and e["stage"] != _wanted:
+                    continue
+                if any(matchNorm(coreCampusName(x)).startswith(_lp)
+                       for x in [e["name"]] + list(e.get("aliases") or [])):
+                    ra.append(self._result(e))
+                    seen.add(e["school_id"])
+        # 法人 core（legal 前缀通道：后缀式校区别名「科学城小学东校区」「第一中学附属环市西路小学竹苑校区」
+        # 相对官方法人名剥后缀；与实体自身 core 通道互补——「环市西路小学」实体名与官方名前缀不同）
+        legal_cores = [normName(coreCampusName(legal)), matchNorm(coreCampusName(legal))]
+        out = []
+        for r in ra:
+            e = self.by_id.get(r["school_id"])
+            if not e:
+                continue
+            # 候选校区标识：实体名/别名剥自身法人核心 + 剥官方法人 core 后的后缀（双 norm 通道并集，
+            # 兼容「黄埔区新港小学(南校区)」normName 剥不动、matchNorm 剥区名可提）
+            idents = set()
+            for x in [e["name"]] + list(e.get("aliases") or []):
+                for fn in (normName, matchNorm):
+                    core = fn(coreCampusName(x))
+                    xfull = fn(x)
+                    if core and xfull.startswith(core) and len(xfull) > len(core):
+                        idents.add(xfull[len(core):])
+                    for ln in legal_cores:
+                        if ln and xfull.startswith(ln) and len(xfull) > len(ln):
+                            idents.add(xfull[len(ln):])
+            hit = False
+            for opt in opts:
+                o = self._CAMPUS_SYN.get(opt, opt)
+                # 裸学部选项（「小学部」，非「第一小学部」带序数）：候选学段匹配即命中——
+                # 「广州市真光学校（小学部）」→ 一德西校区 primary 实体（带校区标识）；
+                # 带序数（第一/二/三…）的学部选项只走下方标识全等（「广东实验中学荔湾学校
+                # （第一、二、三小学部）」不得命中花地湾校区（小学部））
+                if re.search(r"(小学|初中|高中|中学)部$", opt) \
+                        and not re.match(r"第?[一二三四五六七八九十百\d]+", opt) \
+                        and preferred_stage and r["stage"] == _wanted:
+                    hit = True
+                    break
+                if not idents:
+                    # 纯法人实体（无校区后缀）：校本部/本部即主校区
+                    # （stage 用候选自身 r["stage"]：同 school_id 多学段实体 by_id 后写覆盖，
+                    #  执信琶洲 primary 被 middle 覆盖会误判 stage）
+                    if opt in ("校本部", "本部"):
+                        hit = True
+                        break
+                    continue
+                on = normName(o)
+                for i2 in idents:
+                    n2 = normName(i2)
+                    # 全等优先；标识以选项开头兜底（「小学部」不会命中「第一小学部」方向反配）
+                    if on == n2 or n2.startswith(on):
+                        hit = True
+                        break
+                if hit:
+                    break
+            if hit:
+                out.append(self._result(e))
+        return out
 
     def resolve(self, name, preferred_adcode=None, preferred_stage=None, strategy="single"):
         """任意校名 → 匹配结果 dict（poi_match/matched_name/stage/district/school_id）或 None（无法收敛/缺失）。
