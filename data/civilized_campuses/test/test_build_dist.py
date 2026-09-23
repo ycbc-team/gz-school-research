@@ -11,7 +11,7 @@ from pathlib import Path
 BUSINESS = Path(__file__).resolve().parents[1]
 ROOT = BUSINESS.parents[1]
 BUILD = BUSINESS / "scripts" / "build_dist.py"
-DIST = BUSINESS / "dist" / "national_civilized_campus_school_ids.json"
+DIST = BUSINESS / "dist" / "civilized_campus_school_ids.json"
 REVIEW = BUSINESS / "test" / "national_civilized_campus_match_review.json"
 BLACKLIST = BUSINESS / "src" / "national_civilized_campuses_blacklist.json"
 
@@ -20,7 +20,7 @@ def main() -> None:
     result = subprocess.run([sys.executable, str(BUILD), "--check"], cwd=ROOT, text=True, capture_output=True)
     if result.returncode:
         raise SystemExit(result.stdout + result.stderr)
-    school_ids = json.loads(DIST.read_text(encoding="utf-8"))
+    school_ids = json.loads(DIST.read_text(encoding="utf-8"))["national"]
     assert isinstance(school_ids, list) and school_ids, "dist 必须是非空 school_id 列表"
     assert school_ids == sorted(set(school_ids)), "dist school_id 必须去重且排序"
     assert all(isinstance(school_id, str) and school_id.startswith("gz-") for school_id in school_ids), "dist 不得含非广州 school_id"

@@ -100,8 +100,9 @@ python3 data/civilized_campuses/test/test_build_dist.py
 脚本不依赖第三方 Python 包，并对三届广东省段分别断言 30、37、48 条。顿号出现在括号内的
 校区/部别表达不会被拆成多所学校。
 
-`dist/national_civilized_campus_school_ids.json` 是纯 JSON 字符串数组，**只保留 `school_id`**。
-称号、届次、原文校名和来源均留在 parsed；运行时只据该索引判断当前学校是否为全国文明校园。
+`dist/civilized_campus_school_ids.json` 是统一运行时产物：键为 `national`、`provincial`、`municipal`
+和 `advanced`，每个值均为**只含 `school_id` 的字符串数组**。称号、届次、原文校名和来源均留在
+parsed；省级正式名单尚未完成解析，当前 `provincial` 为空数组。
 构建时不传学段：原文明确校区/部别时仅命中该范围；未明确校区时由 `SchoolMatcher` 展开全部
 可命中的同法人校区。构建不维护人工“广州范围”表，而是将 parsed 的全部官方转录名送入
 `SchoolMatcher`；`--review` 与测试命令输出逐项 `{src_name, entity_name, schoolid}`，供人工检查
@@ -119,6 +120,10 @@ python3 data/civilized_campuses/test/test_build_dist.py
 
 同一官方名命中多个实体（例如未写校区而被展开）时会拆成多行；这样每个 `entity_name` 与
 `schoolid` 的对应关系可单独核验。
+
+广州两类名单的审阅快照分别为 `test/guangzhou_civilized_campuses_formal_match_review.json`（第二届
+市级正式）和 `test/guangzhou_civilized_campuses_advanced_match_review.json`（创建先进学校），不得
+合并为同一快照。
 
 ## 已知官方入口
 

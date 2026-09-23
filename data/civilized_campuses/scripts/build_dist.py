@@ -18,10 +18,11 @@ BUSINESS = Path(__file__).resolve().parents[1]
 ROOT = BUSINESS.parents[1]
 PARSED = BUSINESS / "parsed" / "national_civilized_campuses.json"
 BLACKLIST = BUSINESS / "src" / "national_civilized_campuses_blacklist.json"
-DIST = BUSINESS / "dist" / "national_civilized_campus_school_ids.json"
+DIST = BUSINESS / "dist" / "civilized_campus_school_ids.json"
 
 sys.path.insert(0, str(ROOT / "data" / "registry" / "entity" / "scripts"))
 from school_match import SchoolMatcher  # noqa: E402
+from build_guangzhou_dist import resolve as resolve_guangzhou  # noqa: E402
 
 
 def resolve_records() -> tuple[list[str], list[dict[str, object]]]:
@@ -92,7 +93,13 @@ def main() -> None:
         return
 
     DIST.parent.mkdir(exist_ok=True)
-    DIST.write_text(json.dumps(school_ids, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    guangzhou_ids, _ = resolve_guangzhou()
+    DIST.write_text(json.dumps({
+        "national": school_ids,
+        "provincial": [],
+        "municipal": sorted(guangzhou_ids["市级正式"]),
+        "advanced": sorted(guangzhou_ids["创建储备"]),
+    }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"[civilized] wrote {DIST.relative_to(ROOT)}: {len(document_records())} 条正式原文，"
           f"黑名单排除 {excluded_record_count()} 条 → {len(school_ids)} 个 school_id")
 

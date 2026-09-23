@@ -38,7 +38,7 @@ import chuangkeAwardsCompact from './compact/awards/chuangke/dist/compiled.js';
 import scienceLiteracyAwardsCompact from './compact/awards/science_literacy/dist/compiled.js';
 import detailedRecordsCompact from './compact/awards/dist/detailed_records.js';
 import specialtySchoolsCompact from './compact/specialty_schools/dist/specialty_schools.js';
-import nationalCivilizedCampusSchoolIdsCompact from './compact/civilized_campuses/dist/national_civilized_campus_school_ids.js';
+import civilizedCampusSchoolIdsCompact from './compact/civilized_campuses/dist/civilized_campus_school_ids.js';
 
 /** 紧凑结构经 hydrate 还原后的类型断言（字段为数据真源，结构由 scripts/ 保证） */
 const cast = <T>(v: unknown): T => v as T;
@@ -136,7 +136,8 @@ export const specialtySchools = cast(hydrate(specialtySchoolsCompact)) as {
   }>;
 };
 /** 全国文明校园运行时索引：dist 只保留 school_id，称号证据保留在 data/civilized_campuses/parsed。 */
-export const nationalCivilizedCampusSchoolIds = cast(hydrate(nationalCivilizedCampusSchoolIdsCompact)) as string[];
+export const civilizedCampusSchoolIds = cast(hydrate(civilizedCampusSchoolIdsCompact)) as Record<string, string[]>;
+export const nationalCivilizedCampusSchoolIds = civilizedCampusSchoolIds.national ?? [];
 
 /** 七区初中机构整理档位整合版（data/middle/org_sort/dist/compiled.json，由 data/middle/org_sort/scripts/build_org_sort.py 经
  * SchoolMatcher 匹配生成；仅 school_id→档位，无展示字段；仅供内部默认排序，对外不展示档位信息） */
