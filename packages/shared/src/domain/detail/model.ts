@@ -28,6 +28,9 @@ export interface BrandRow {
   isCurrent: boolean;
   link: string | null;
 }
+export interface MultiCampusCard {
+  groups: { key: string; title: string; rows: BrandRow[] }[];
+}
 export interface DetailModel {
   stage: SchoolStage;
   name: string;
@@ -57,6 +60,8 @@ export interface DetailModel {
   /* 品牌/校区 */
   brandCard: { brand: string; note?: string; sourceUrls: string[]; groups: { key: string; title: string; rows: BrandRow[] }[] } | null;
   brandCardUseful: boolean;
+  multiCampusCard: MultiCampusCard | null;
+  multiCampusCardUseful: boolean;
   campuses: string[] | null;
 }
 
@@ -393,6 +398,32 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     return { brand: grp.brand, note: grp.note, sourceUrls: [], groups };
   })();
   const brandCardUseful = !!brandCard && brandCard.groups.some((g) => g.rows.some((r) => !r.isCurrent));
+  /** 无教育集团时，实体注册表派生的同法人多校区；仅按 school_id 外键命中。 */
+  const multiCampusCard: MultiCampusCard | null = (() => {
+    if (brandCard) return null;
+    const family = repo.multiCampusOfSchool(schoolName, schoolId);
+    if (!family) return null;
+    const rows: BrandRow[] = family.school_ids.map((id) => {
+      const entities = repo.entities.filter((entity) => entity.school_id === id);
+      const preferred = entities.find((entity) => entity.stage === stage) || entities[0];
+      const stages = (['primary', 'middle', 'high'] as SchoolStage[])
+        .filter((candidate) => entities.some((entity) => entity.stage === candidate))
+        .map((candidate) => STAGE_SHORT[candidate]);
+      return {
+        name: preferred?.name || id,
+        role: '校区',
+        legal: 'same',
+        district: ADCODE_TO_DISTRICT[id.slice(3, 9)] || '',
+        stages,
+        badge: null,
+        reason: null,
+        isCurrent: id === schoolId,
+        link: preferred ? `/school/${encodeURIComponent(preferred.name)}?stage=${preferred.stage}&id=${id}` : null,
+      };
+    });
+    return { groups: [{ key: 'campuses', title: '同一法人校区（非教育集团）', rows }] };
+  })();
+  const multiCampusCardUseful = !!multiCampusCard && multiCampusCard.groups.some((g) => g.rows.some((r) => !r.isCurrent));
 
   /* ---------- 客观信号（历史称号/集团/喜报/录取线等源数据） ---------- */
   const signalRows: DetailRow[] = (() => {
@@ -433,6 +464,8 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     gaokaoRows,
     brandCard,
     brandCardUseful,
+    multiCampusCard,
+    multiCampusCardUseful,
     campuses: rec?.campuses || null,
   };
 }

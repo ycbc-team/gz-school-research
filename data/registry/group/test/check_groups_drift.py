@@ -195,6 +195,35 @@ def _check_school_groups():
         raise
 
 
+def _check_non_group_multi_campuses():
+    """重跑非集团多校区索引；实体或集团映射变更后必须同步更新该派生产物。"""
+    output = os.path.join(ROOT, "data/registry/group/dist/non_group_multi_campuses.json")
+    original = open(output, encoding="utf-8").read()
+    try:
+        r = subprocess.run(
+            ["python3", os.path.join(ROOT, "data/registry/group/scripts/build_non_group_multi_campuses.py")],
+            capture_output=True, text=True, cwd=ROOT,
+        )
+        if r.returncode != 0:
+            _flush_ok()
+            print("生产脚本重跑失败：data/registry/group/scripts/build_non_group_multi_campuses.py")
+            print(r.stderr[-2000:])
+            open(output, "w", encoding="utf-8").write(original)
+            sys.exit(1)
+        if open(output, encoding="utf-8").read() != original:
+            _flush_ok()
+            open(output, "w", encoding="utf-8").write(original)
+            print("产物一致性: ✗ build_non_group_multi_campuses 重跑产物与工作树不一致")
+            print("  → 实体或集团映射变更后，请重跑脚本并提交 non_group_multi_campuses.json。")
+            sys.exit(1)
+        _ok_lines.append("产物一致性: ✓ build_non_group_multi_campuses 重跑产物与入库完全一致")
+    except SystemExit:
+        raise
+    except Exception:
+        open(output, "w", encoding="utf-8").write(original)
+        raise
+
+
 def _check_backfill_ids():
     """重跑 backfill_school_ids.py（quota_matrix/district_quota/batch2_scores/special_matrix
     外键回填 + _school_id_unmatched 未命中清单）到工作树，与入库比对。
@@ -321,6 +350,7 @@ def main():
 
     # 6) school_groups 公共集团映射（build_school_groups 纯 id 产物）
     _check_school_groups()
+    _check_non_group_multi_campuses()
 
     # 7) 政府文件底表覆盖（有官方底表的区必须成员级对齐）
     _check_government_groups()

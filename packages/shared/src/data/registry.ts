@@ -77,6 +77,7 @@ export function createRegistryApi(loaders: DataLoaders) {
    * 运行时只查此产物，不再维护两套独立索引。
    */
   const schoolGroupMap = loaders.schoolGroups?.schoolGroups || {};
+  const nonGroupMultiCampuses = loaders.nonGroupMultiCampuses;
 
   /** brand 来源的 groupOfSchool 结果结构（school_id 外键命中与按名匹配共用） */
   function brandGroupResult(bg: BrandGroup): {
@@ -170,5 +171,14 @@ export function createRegistryApi(loaders: DataLoaders) {
     return brandGroupResult(bg);
   }
 
-  return { resolvePoiName, resolveSchoolIdOf, groupOfSchool, brandGroups: loaders.brandGroups };
+  /** 教育集团缺省时可用的同法人多校区索引；同样只接受 school_id 外键。 */
+  function multiCampusOfSchool(name: string, schoolId?: string | null) {
+    const id = schoolId || resolveSchoolIdOf(name);
+    if (!id || schoolGroupMap[id]) return null;
+    const familyKey = nonGroupMultiCampuses?.schoolFamilies?.[id];
+    if (!familyKey) return null;
+    return nonGroupMultiCampuses?.families.find((family) => family.family_key === familyKey) || null;
+  }
+
+  return { resolvePoiName, resolveSchoolIdOf, groupOfSchool, multiCampusOfSchool, brandGroups: loaders.brandGroups };
 }

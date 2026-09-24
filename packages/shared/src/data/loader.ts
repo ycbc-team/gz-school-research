@@ -59,6 +59,11 @@ export interface DataLoaders {
   /** 公共 school_id → 集团映射（scripts/registry/build_school_groups.py 构建，纯 id 产物；
    * 详情页品牌卡与初中明细分组共用同一份，运行时不再做任何按名匹配） */
   schoolGroups: { schoolGroups: Record<string, { brand: string; source: 'education' | 'brand' }> };
+  /** 未入教育集团的同法人多校区（实体表构建期推导；详情页仅作集团缺省时的关联展示） */
+  nonGroupMultiCampuses?: {
+    families: Array<{ family_key: string; district_adcode: string; legal_key: string; school_ids: string[] }>;
+    schoolFamilies: Record<string, string>;
+  };
   /** 初中升学信号排行榜基础表（自招/指标到校/特控率聚合，见 scripts/linkage/build_ranking_middle.py） */
   rankingMiddle: {
     schools: Array<{

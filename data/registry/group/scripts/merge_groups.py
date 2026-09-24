@@ -3,7 +3,8 @@
 import json
 import re, os, sys
 
-BASE = "/Users/bytedance/Developer/gz_school_research"
+# 由脚本位置定位仓库根目录；禁止绑定某个 worktree，保证审计/CI/分支内重跑都写回当前仓库。
+BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 TODAY = "2026-09-14"
 
 # 统一匹配库：brandNorm=品牌/集团名容错（原本文件 norm 定义已收敛至此，不再本地重复）

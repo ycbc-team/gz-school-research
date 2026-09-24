@@ -91,6 +91,8 @@ const admissionRows = computed(() => model.value.admissionRows);
 const gaokaoRows = computed(() => model.value.gaokaoRows);
 const brandCard = computed(() => model.value.brandCard);
 const brandCardUseful = computed(() => model.value.brandCardUseful);
+const multiCampusCard = computed(() => model.value.multiCampusCard);
+const multiCampusCardUseful = computed(() => model.value.multiCampusCardUseful);
 const campuses = computed(() => model.value.campuses);
 /** 文明校园称号按当前 school_id 判定；创建先进学校明确标为创建培育，不与正式命名混淆。 */
 const civilizedCampusHonors = computed(() => {
@@ -442,8 +444,8 @@ function goCampus(item: { id: string; name: string }) {
     </template>
 
     <!-- 品牌关联 + 校区（合并） -->
-    <div v-if="brandCardUseful" class="card">
-      <div class="card-title">品牌关联</div>
+    <div v-if="brandCardUseful || multiCampusCardUseful" class="card">
+      <div class="card-title">{{ brandCardUseful ? '品牌关联' : '多校区' }}</div>
       <template v-if="brandCard">
         <p class="sub-note">同一品牌下的校区与学校，按法人关系分组。</p>
         <div class="brand-head">品牌 · {{ brandCard.brand }}</div>
@@ -475,6 +477,24 @@ function goCampus(item: { id: string; name: string }) {
               <span v-if="r.badge" class="badge" :class="r.badge.cls">{{ r.badge.text }}</span>
             </div>
             <p v-if="r.reason" class="brand-reason">{{ r.reason }}</p>
+          </div>
+        </div>
+      </template>
+      <template v-else-if="multiCampusCard">
+        <p class="sub-note">该校未收录为教育集团成员；以下校区由实体注册表按同一法人推导。</p>
+        <div v-for="g in multiCampusCard.groups" :key="g.key" class="brand-group">
+          <div class="brand-group-title" :class="g.key">{{ g.title }}</div>
+          <div v-for="r in g.rows" :key="r.name" class="brand-row" :class="{ current: r.isCurrent }">
+            <div class="brand-row-main">
+              <RouterLink v-if="r.link" :to="r.link" class="brand-name-link">{{ r.name }}</RouterLink>
+              <span v-else class="brand-name-plain">{{ r.name }}</span>
+              <span v-if="r.isCurrent" class="tag tag-now">当前查看</span>
+              <span class="tag">{{ r.role }}</span>
+            </div>
+            <div class="brand-row-badges">
+              <span v-if="r.district" class="badge b-district">{{ r.district }}</span>
+              <span v-for="s in r.stages" :key="s" class="badge b-stage">{{ s }}</span>
+            </div>
           </div>
         </div>
       </template>
