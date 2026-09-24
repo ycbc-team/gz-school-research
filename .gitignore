@@ -21,6 +21,8 @@
 *.log
 
 # Node / monorepo
+# node_modules softlink
+node_modules
 node_modules/
 apps/web/dist/
 apps/miniprogram/dist/
