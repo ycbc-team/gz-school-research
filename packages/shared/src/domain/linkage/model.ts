@@ -81,12 +81,28 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     return e ? e.name : resolvePoi(k);
   };
 
-  /** 法人行 school_ids → 各校区跳转链接（升学信息按法人聚合展示，各校区分别跳转各自详情页） */
-  const campusesOf = (q: QuotaSchool | undefined): CampusLink[] =>
-    (q && 'school_ids' in q ? (q.school_ids || []) : []).map((sid) => {
-      const pn = poiNameOf(sid);
-      return { schoolId: sid, poiName: pn, campus: pn || sid };
-    });
+  /** school_id → 校区跳转链接 */
+  const linkOf = (sid: string): CampusLink => {
+    const pn = poiNameOf(sid);
+    return { schoolId: sid, poiName: pn, campus: pn || sid };
+  };
+  /** 法人行 school_ids → 校区跳转链接（升学信息按法人聚合展示，各校区分别跳转各自详情页）。
+   *  exactName 传入行/输入名：带括号（已精确到校区，如「铁一中学(越秀校区)」「西关外国语学校(初中部)」）
+   *  时只返回与该名归一全等的校区，避免"已指定校区仍弹多校区聚合面板"；
+   *  法人名（无括号，如「广东仲元中学」）才全校区列出供弹窗选择。 */
+  const campusesOf = (q: QuotaSchool | undefined, exactName?: string): CampusLink[] => {
+    if (!q || !('school_ids' in q)) return [];
+    const sids = q.school_ids || [];
+    if (exactName && /[（(]/.test(exactName)) {
+      const nk = normName(exactName);
+      const hit = sids.filter((sid) => {
+        const e = repo.entities.find((x) => x.school_id === sid);
+        return !!e && normName(e.name) === nk;
+      });
+      if (hit.length) return hit.map(linkOf);
+    }
+    return sids.map(linkOf);
+  };
 
   if (stage === 'middle') {
     const quota = repo.linkageOf(schoolName);
@@ -132,7 +148,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
       quota: quota ? { kaosheng: quota.kaosheng, sheng_quota: quota.sheng_quota, qu_quota: quota.qu_quota } : null,
       batchMerged,
       districtRows,
-      campuses: campusesOf(quota),
+      campuses: campusesOf(quota, schoolName),
       hasMiddleData: !!quota || batchRows.length > 0,
       highCoverage: [],
       highDistrictCoverage: [],
@@ -168,13 +184,13 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     }
   }
   const highCoverage: HighCoverRow[] = [...mergedCover.entries()]
-    .map(([school, v]) => ({ school, poiName: poiNameOf(v.schoolId), n: v.n, districts: [...v.districts], campuses: campusesOf(repo.linkageOf(school)) }))
+    .map(([school, v]) => ({ school, poiName: poiNameOf(v.schoolId), n: v.n, districts: [...v.districts], campuses: campusesOf(repo.linkageOf(school), school) }))
     .sort((a, b) => b.n - a.n)
     .slice(0, 30);
   const highDistrictCoverage: { school: string; poiName: string | null; n: number; campuses: CampusLink[] }[] = repo
     .districtCoverage(schoolName)
     .slice(0, 50)
-    .map((r) => ({ school: r.school, poiName: poiNameOf(r.school_id), n: r.n, campuses: campusesOf(repo.linkageOf(r.school)) }));
+    .map((r) => ({ school: r.school, poiName: poiNameOf(r.school_id), n: r.n, campuses: campusesOf(repo.linkageOf(r.school), r.school) }));
 
   const autonomyPlan = stage === 'high' ? repo.autonomyPlanOf(schoolName) : null;
   const specialPlan = stage === 'high' && schoolId ? repo.specialPlanOf(schoolId) : null;

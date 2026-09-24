@@ -212,17 +212,26 @@ def main() -> int:
         if s.get('school_id'):
             _core = core_loose(by_id.get(s['school_id'], ''))
             ids = by_core.get(('middle', _core)) or [] if _core else []
-            if len(ids) > 1:
+            if '(' in s['school'] or '（' in s['school']:
+                # 校区级官方名单名（带括号，如「广州市铁一中学（越秀校区）」）：官方文件按校区
+                # 独立公布名额（越秀/白云/番禺三行各自考生数），不是法人聚合——school_ids 只关联
+                # 该校区本身。全半角统一后字符串全等命中（含「市」前缀差异变体如
+                # 「广州铁一中学（番禺校区）」少「市」）优先；否则信任 resolve 的 school_id
+                # （norm 去括号后保留校区名，已精确到校区实体），一律单校区不聚合。
+                _full = s['school'].replace('（', '(').replace('）', ')')
+                _exact = [i for i in ids if by_id.get(i, '').replace('（', '(').replace('）', ')') == _full]
+                s['school_ids'] = _exact if _exact else [s['school_id']]
+            elif len(ids) > 1:
+                # 法人行（原名无括号）：school_ids = 同 core 全部校区（升学信息按法人聚合展示）
                 s['school_ids'] = ids
-                if '(' not in s['school'] and '（' not in s['school']:
-                    # 主 id 归一：多校区法人行主 school_id 必须指向「本部实体」——
-                    # school_ids 中「实体名无括号且去广州市后=法人名」者（如十六中→本部 8a1a7b3d，
-                    # 而非首匹配的东湖校区）；无本部实体（如七中仅麓湖/初中部/桂花校区）取 ids[0]。
-                    # 否则列表页点法人名跳到校区详情页。
-                    home = next((i for i in ids
-                                 if '(' not in by_id.get(i, '') and '（' not in by_id.get(i, '')
-                                 and core_loose(by_id.get(i, '')) == _core), None)
-                    s['school_id'] = home or ids[0]
+                # 主 id 归一：多校区法人行主 school_id 必须指向「本部实体」——
+                # school_ids 中「实体名无括号且去广州市后=法人名」者（如十六中→本部 8a1a7b3d，
+                # 而非首匹配的东湖校区）；无本部实体（如七中仅麓湖/初中部/桂花校区）取 ids[0]。
+                # 否则列表页点法人名跳到校区详情页。
+                home = next((i for i in ids
+                             if '(' not in by_id.get(i, '') and '（' not in by_id.get(i, '')
+                             and core_loose(by_id.get(i, '')) == _core), None)
+                s['school_id'] = home or ids[0]
             else:
                 s.pop('school_ids', None)
         # dist 行：有 id 只留 school_id/school_ids（前端 join 实体表展示名），
