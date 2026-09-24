@@ -173,7 +173,9 @@ export function createQuotaApi(loaders: DataLoaders) {
 
   /** 按初中名查区属高中名额（键=区属高中 id 或原文名） */
   function districtQuotaOf(schoolName: string): Record<string, number> {
-    return locatorRows(resolveMiddle(schoolName) as QuotaLocator, districtQuota as never) as Record<string, number>;
+    const loc = resolveMiddle(schoolName);
+    if (!loc) return {};
+    return locatorRows(loc, districtQuota as never) as Record<string, number>;
   }
 
   /** 反查：某区属高中名额分配覆盖的初中（按名额降序）。

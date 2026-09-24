@@ -1,584 +1,601 @@
 {
-  "results": [
+ "results": [
+  {
+   "query": {
+    "name": "广州市荔湾区博雅实验学校",
+    "district": "荔湾",
+    "adcode": "440103",
+    "stage": "primary"
+   },
+   "classification": "已存在POI",
+   "candidates": [
     {
-      "query": {
-        "name": "广州市荔湾区博雅实验学校",
-        "district": "荔湾",
-        "adcode": "440103",
-        "stage": "primary"
-      },
-      "classification": "已存在POI",
-      "candidates": [
-        {
-          "name": "海北博雅实验学校",
-          "address": "芳村龙溪大道海龙街裕海路234号(海北市场或凤池市场往北直行)",
-          "location": "113.195313,23.080770",
-          "type": "科教文化服务;学校;中学",
-          "tel": "020-66391222;020-66391333"
-        },
-        {
-          "name": "荔湾区东沙博雅实验学校",
-          "address": "东塱新爵村后马路6号",
-          "location": "113.248992,23.063209",
-          "type": "科教文化服务;学校;中学",
-          "tel": "020-81679483"
-        },
-        {
-          "name": "广州市君诚博雅实验学校(广佛新城校区)",
-          "address": "五眼桥滘口村377",
-          "location": "113.207990,23.118125",
-          "type": "科教文化服务;学校;小学",
-          "tel": "020-81896417"
-        },
-        {
-          "name": "君诚博雅实验学校",
-          "address": "五眼桥新基上村137-1",
-          "location": "113.213944,23.104723",
-          "type": "科教文化服务;学校;中学",
-          "tel": "020-81899716"
-        },
-        {
-          "name": "广州市荔湾区外语职业高级中学(冲口校区)",
-          "address": "大冲口聚兴大街1号(大冲口地铁站B口步行350米)",
-          "location": "113.241443,23.088290",
-          "type": "科教文化服务;学校;小学",
-          "tel": ""
-        }
-      ]
+     "name": "海北博雅实验学校",
+     "address": "芳村龙溪大道海龙街裕海路234号(海北市场或凤池市场往北直行)",
+     "location": "113.195313,23.080770",
+     "type": "科教文化服务;学校;中学",
+     "tel": "020-66391222;020-66391333"
     },
     {
-      "query": {
-        "name": "广州市荔湾区海龙博雅中英文学校",
-        "district": "荔湾",
-        "adcode": "440103",
-        "stage": "primary"
-      },
-      "classification": "可补",
-      "candidates": [
-        {
-          "name": "海龙博雅中英文学校",
-          "address": "芳村海龙路303号",
-          "location": "113.181584,23.064363",
-          "type": "科教文化服务;学校;中学|科教文化服务;培训机构;培训机构",
-          "tel": "",
-          "_score": 100,
-          "_nearest_existing": "广州市荔湾区龙溪小学",
-          "_nearest_dist_km": 0.43
-        },
-        {
-          "name": "海龙博雅中英文学校-博雅教育",
-          "address": "海龙博雅中英文学校西南门旁",
-          "location": "113.181139,23.064095",
-          "type": "科教文化服务;培训机构;培训机构",
-          "tel": "",
-          "_score": 80,
-          "_nearest_existing": "广州市荔湾区龙溪小学",
-          "_nearest_dist_km": 0.43
-        },
-        {
-          "name": "荔湾区海龙博雅中英文学校党支部",
-          "address": "芳村海龙路303号海龙博雅中英文学校",
-          "location": "113.181107,23.064151",
-          "type": "科教文化服务;科教文化场所;科教文化场所",
-          "tel": "",
-          "_score": 80,
-          "_nearest_existing": "广州市荔湾区龙溪小学",
-          "_nearest_dist_km": 0.43
-        },
-        {
-          "name": "博雅中英文学校(海中校区)",
-          "address": "花地大道南海龙路21号",
-          "location": "113.207505,23.047261",
-          "type": "科教文化服务;学校;中学",
-          "tel": "",
-          "_score": 40,
-          "_nearest_existing": "博雅中英文学校(海中校区)",
-          "_nearest_dist_km": 0.0
-        }
-      ]
+     "name": "荔湾区东沙博雅实验学校",
+     "address": "东塱新爵村后马路6号",
+     "location": "113.248992,23.063209",
+     "type": "科教文化服务;学校;中学",
+     "tel": "020-81679483"
     },
     {
-      "query": {
-        "name": "广州荔湾爱莎文华学校",
-        "district": "荔湾",
-        "adcode": "440103",
-        "stage": "high"
-      },
-      "classification": "无结果",
-      "candidates": [
-        {
-          "name": "广州荔湾爱莎国际学校",
-          "address": "海龙路238号",
-          "location": "113.191334,23.059218",
-          "type": "科教文化服务;学校;学校",
-          "tel": "020-33274906",
-          "_score": 20,
-          "_nearest_existing": "广州荔湾爱莎国际学校",
-          "_nearest_dist_km": 0.0
-        }
-      ]
+     "name": "广州市君诚博雅实验学校(广佛新城校区)",
+     "address": "五眼桥滘口村377",
+     "location": "113.207990,23.118125",
+     "type": "科教文化服务;学校;小学",
+     "tel": "020-81896417"
     },
     {
-      "query": {
-        "name": "广州市海珠区华立学校",
-        "district": "海珠",
-        "adcode": "440105",
-        "stage": "middle"
-      },
-      "classification": "可补",
-      "candidates": [
-        {
-          "name": "华立学校",
-          "address": "赤沙村汾阳北大街三号之一",
-          "location": "113.358600,23.091206",
-          "type": "科教文化服务;科教文化场所;科教文化场所",
-          "tel": "020-34042623;020-84135673",
-          "_score": 100,
-          "_nearest_existing": "广州市海珠区赤沙小学",
-          "_nearest_dist_km": 0.35
-        },
-        {
-          "name": "华立小学",
-          "address": "南州路1002号",
-          "location": "113.333209,23.052824",
-          "type": "科教文化服务;学校;小学",
-          "tel": "020-89890314",
-          "_score": 15,
-          "_nearest_existing": "华立小学",
-          "_nearest_dist_km": 0.0
-        },
-        {
-          "name": "广州海珠区华立幼儿园",
-          "address": "石麟里横街与赤沙西约石伦里横街交叉口东北100米",
-          "location": "113.357586,23.090844",
-          "type": "科教文化服务;学校;幼儿园",
-          "tel": "020-84135673",
-          "_score": 10,
-          "_nearest_existing": "广州市海珠区赤沙小学",
-          "_nearest_dist_km": 0.31
-        }
-      ]
+     "name": "君诚博雅实验学校",
+     "address": "五眼桥新基上村137-1",
+     "location": "113.213944,23.104723",
+     "type": "科教文化服务;学校;中学",
+     "tel": "020-81899716"
     },
     {
-      "query": {
-        "name": "广州市海珠区春晖小学",
-        "district": "海珠",
-        "adcode": "440105",
-        "stage": "primary"
-      },
-      "classification": "无结果",
-      "candidates": [
-        {
-          "name": "春晖学校",
-          "address": "凤岗路10号",
-          "location": "113.290144,23.086162",
-          "type": "科教文化服务;学校;中学",
-          "tel": "020-34306262",
-          "_score": 15,
-          "_nearest_existing": "五凤小学(南华校区)",
-          "_nearest_dist_km": 0.2
-        }
-      ]
-    },
-    {
-      "query": {
-        "name": "广州市海珠区贝赛思学校",
-        "district": "海珠",
-        "adcode": "440105",
-        "stage": "primary"
-      },
-      "classification": "疑似(与现有POI极近)",
-      "candidates": [
-        {
-          "name": "广州贝赛思学校(琶洲)-内部路入口",
-          "address": "新港东路1716号(万胜围地铁站B口步行440米)",
-          "location": "113.387334,23.096277",
-          "type": "科教文化服务;科教文化场所;科教文化场所",
-          "tel": "",
-          "_score": 80,
-          "_nearest_existing": "六中珠江中学(万胜围校区)",
-          "_nearest_dist_km": 0.09
-        }
-      ]
-    },
-    {
-      "query": {
-        "name": "广州市为明学校光大花园校区",
-        "district": "海珠",
-        "adcode": "440105",
-        "stage": "primary"
-      },
-      "classification": "疑似",
-      "candidates": [
-        {
-          "name": "广州市为明学校(光大校区)",
-          "address": "沙渡路131号",
-          "location": "113.257384,23.083256",
-          "type": "科教文化服务;学校;中学",
-          "tel": "020-34013188;020-84153888",
-          "_score": 30,
-          "_nearest_existing": "广州市海珠区宝玉直实验小学(南边路校区)",
-          "_nearest_dist_km": 0.41
-        },
-        {
-          "name": "广州市为明学校光大校区停车场",
-          "address": "沙渡路131号广州市为明学校光大校区",
-          "location": "113.256338,23.083123",
-          "type": "交通设施服务;停车场;专用停车场",
-          "tel": "",
-          "_score": 30,
-          "_nearest_existing": "广州市海珠区宝玉直实验第二小学",
-          "_nearest_dist_km": 0.46
-        },
-        {
-          "name": "广州市为明学校罗马校区(高中部)",
-          "address": "中怡街25号",
-          "location": "113.322549,23.056773",
-          "type": "科教文化服务;学校;中学",
-          "tel": "020-84164758",
-          "_score": 20,
-          "_nearest_existing": "广州市为明学校罗马校区(高中部)",
-          "_nearest_dist_km": 0.0
-        },
-        {
-          "name": "广州市为明学校国际部",
-          "address": "沙渡路131号",
-          "location": "113.257375,23.083275",
-          "type": "科教文化服务;学校;学校",
-          "tel": "020-34013188",
-          "_score": 20,
-          "_nearest_existing": "广州市海珠区宝玉直实验小学(南边路校区)",
-          "_nearest_dist_km": 0.41
-        },
-        {
-          "name": "为明幼儿园",
-          "address": "南州路罗马家园盛宏街88号",
-          "location": "113.322507,23.060776",
-          "type": "科教文化服务;学校;幼儿园",
-          "tel": "13711660661",
-          "_score": 15,
-          "_nearest_existing": "春华学校",
-          "_nearest_dist_km": 0.2
-        }
-      ]
-    },
-    {
-      "query": {
-        "name": "广州市天河区东风学校",
-        "district": "天河",
-        "adcode": "440106",
-        "stage": "primary"
-      },
-      "classification": "可补",
-      "candidates": [
-        {
-          "name": "东风学校",
-          "address": "银利街35号",
-          "location": "113.321440,23.166043",
-          "type": "科教文化服务;学校;中学",
-          "tel": "020-87645745",
-          "_score": 100,
-          "_nearest_existing": "天河区侨乐小学",
-          "_nearest_dist_km": 0.32
-        },
-        {
-          "name": "东风实验小学",
-          "address": "珠村文华新一街一巷9号",
-          "location": "113.422827,23.124408",
-          "type": "科教文化服务;学校;小学",
-          "tel": "020-32352769;020-32352796",
-          "_score": 15,
-          "_nearest_existing": "东风实验小学",
-          "_nearest_dist_km": 0.0
-        },
-        {
-          "name": "广东艺术职业学院(广州天河校区)",
-          "address": "水荫横路11号",
-          "location": "113.312329,23.144436",
-          "type": "科教文化服务;学校;职业技术学校",
-          "tel": "020-87047137",
-          "_score": 15,
-          "_nearest_existing": "龙岗路小学",
-          "_nearest_dist_km": 0.4
-        },
-        {
-          "name": "东风实验小学停车场",
-          "address": "珠村文华新一街一巷9号东风实验小学",
-          "location": "113.422858,23.124151",
-          "type": "交通设施服务;停车场;公共停车场",
-          "tel": "",
-          "_score": 15,
-          "_nearest_existing": "东风实验小学",
-          "_nearest_dist_km": 0.03
-        },
-        {
-          "name": "广州市白云区卫生中等专业学校",
-          "address": "龙岗路64号之1号",
-          "location": "113.312700,23.147880",
-          "type": "科教文化服务;学校;职业技术学校",
-          "tel": "13966496447",
-          "_score": 10,
-          "_nearest_existing": "龙岗路小学",
-          "_nearest_dist_km": 0.12
-        }
-      ]
-    },
-    {
-      "query": {
-        "name": "广州市天河区凤凰中学",
-        "district": "天河",
-        "adcode": "440106",
-        "stage": "primary"
-      },
-      "classification": "疑似(与现有POI极近)",
-      "candidates": [
-        {
-          "name": "凤凰中学",
-          "address": "柯木塱大坪街19号",
-          "location": "113.393438,23.199613",
-          "type": "科教文化服务;学校;小学|科教文化服务;学校;中学",
-          "tel": "020-87039561",
-          "_score": 100,
-          "_nearest_existing": "凤凰中学",
-          "_nearest_dist_km": 0.0
-        },
-        {
-          "name": "凤凰中学(公交站)",
-          "address": "491路",
-          "location": "113.392508,23.199832",
-          "type": "交通设施服务;公交车站;公交车站相关",
-          "tel": "",
-          "_score": 80,
-          "_nearest_existing": "凤凰中学",
-          "_nearest_dist_km": 0.09
-        },
-        {
-          "name": "广州中学(凤凰校区)",
-          "address": "华美路63号",
-          "location": "113.385453,23.204384",
-          "type": "科教文化服务;学校;中学",
-          "tel": "",
-          "_score": 20,
-          "_nearest_existing": "广州中学(凤凰校区)",
-          "_nearest_dist_km": 0.0
-        },
-        {
-          "name": "广州中学(凤凰校区)行政楼",
-          "address": "华美路广州中学(凤凰校区)",
-          "location": "113.386053,23.204819",
-          "type": "科教文化服务;学校;学校",
-          "tel": "",
-          "_score": 20,
-          "_nearest_existing": "广州中学(凤凰校区)",
-          "_nearest_dist_km": 0.07
-        },
-        {
-          "name": "广州中学(凤凰校区)地上停车场",
-          "address": "荷包岭新街与华美路交叉口东北20米",
-          "location": "113.387186,23.205570",
-          "type": "交通设施服务;停车场;公共停车场",
-          "tel": "",
-          "_score": 20,
-          "_nearest_existing": "广州中学(凤凰校区)",
-          "_nearest_dist_km": 0.2
-        }
-      ]
-    },
-    {
-      "query": {
-        "name": "广州市白云区春蕾小学",
-        "district": "白云",
-        "adcode": "440111",
-        "stage": "primary"
-      },
-      "classification": "可补",
-      "candidates": [
-        {
-          "name": "春蕾小学春硕楼",
-          "address": "萧岗礼堂南街与萧岗三多里大街交叉口西北60米",
-          "location": "113.265090,23.186764",
-          "type": "科教文化服务;学校;学校",
-          "tel": "",
-          "_score": 80,
-          "_nearest_existing": "萧岗小学",
-          "_nearest_dist_km": 0.46
-        },
-        {
-          "name": "广州市白云区春蕾小学南侧停车场",
-          "address": "萧岗礼堂南街与萧岗三多里大街交叉口西北60米",
-          "location": "113.264968,23.186539",
-          "type": "交通设施服务;停车场;公共停车场",
-          "tel": "",
-          "_score": 80,
-          "_nearest_existing": "萧岗小学",
-          "_nearest_dist_km": 0.48
-        }
-      ]
-    },
-    {
-      "query": {
-        "name": "广州市白云区颐和第二实验小学",
-        "district": "白云",
-        "adcode": "440111",
-        "stage": "primary"
-      },
-      "classification": "无结果",
-      "candidates": [
-        {
-          "name": "京师实验学校",
-          "address": "禄清大街15号",
-          "location": "113.267814,23.241888",
-          "type": "科教文化服务;学校;小学",
-          "tel": "",
-          "_score": 15,
-          "_nearest_existing": "京师实验学校",
-          "_nearest_dist_km": 0.0
-        }
-      ]
-    },
-    {
-      "query": {
-        "name": "广州市白云区白云实验学校",
-        "district": "白云",
-        "adcode": "440111",
-        "stage": "primary"
-      },
-      "classification": "疑似(与现有POI极近)",
-      "candidates": [
-        {
-          "name": "省实白云实验学校",
-          "address": "夏茅沙园坊十字大街58号",
-          "location": "113.255178,23.229573",
-          "type": "科教文化服务;学校;中学",
-          "tel": "020-36688088",
-          "_score": 80,
-          "_nearest_existing": "省实白云实验学校",
-          "_nearest_dist_km": 0.0
-        },
-        {
-          "name": "省实白云实验学校-学生宿舍",
-          "address": "白云湖街道夏茅大道23号",
-          "location": "113.254105,23.229158",
-          "type": "商务住宅;住宅区;宿舍",
-          "tel": "",
-          "_score": 80,
-          "_nearest_existing": "省实白云实验学校",
-          "_nearest_dist_km": 0.11
-        },
-        {
-          "name": "广东实验中学(白云校区)",
-          "address": "白云大道北570号",
-          "location": "113.318298,23.246398",
-          "type": "科教文化服务;学校;中学",
-          "tel": "",
-          "_score": 30,
-          "_nearest_existing": "广东实验中学(白云校区)",
-          "_nearest_dist_km": 0.0
-        },
-        {
-          "name": "广州云雅实验学校",
-          "address": "金碧西路19号",
-          "location": "113.239894,23.200853",
-          "type": "科教文化服务;学校;中学",
-          "tel": "",
-          "_score": 25,
-          "_nearest_existing": "广州云雅实验学校",
-          "_nearest_dist_km": 0.0
-        },
-        {
-          "name": "白云广附云湖实验学校",
-          "address": "品实·云湖花城",
-          "location": "113.213825,23.224404",
-          "type": "科教文化服务;学校;学校",
-          "tel": "",
-          "_score": 25,
-          "_nearest_existing": "广州市白云区白云广附云湖实验学校小学部",
-          "_nearest_dist_km": 0.0
-        }
-      ]
-    },
-    {
-      "query": {
-        "name": "广州市天健学校",
-        "district": "黄埔",
-        "adcode": "440112",
-        "stage": "middle"
-      },
-      "classification": "可补",
-      "candidates": [
-        {
-          "name": "广州市天健学校",
-          "address": "长贤路103号",
-          "location": "113.496570,23.209317",
-          "type": "科教文化服务;学校;中学",
-          "tel": "",
-          "_score": 100,
-          "_nearest_existing": "北京师范大学广州实验学校(小学部)",
-          "_nearest_dist_km": 0.51
-        },
-        {
-          "name": "广州市天健学校(西南门)",
-          "address": "长贤路101、103、105号",
-          "location": "113.495978,23.207830",
-          "type": "科教文化服务;学校;学校",
-          "tel": "",
-          "_score": 80,
-          "_nearest_existing": "北京师范大学广州实验学校(小学部)",
-          "_nearest_dist_km": 0.37
-        },
-        {
-          "name": "广州市天健学校地下停车场",
-          "address": "长贤路103号广州市天健学校",
-          "location": "113.497775,23.210675",
-          "type": "交通设施服务;停车场;公共停车场",
-          "tel": "",
-          "_score": 80,
-          "_nearest_existing": "玉岩中学附属开发区实验学校",
-          "_nearest_dist_km": 0.59
-        },
-        {
-          "name": "广州市天健学校停车场(入口)",
-          "address": "永顺大道30号",
-          "location": "113.497673,23.210735",
-          "type": "交通设施服务;停车场;停车场入口",
-          "tel": "",
-          "_score": 80,
-          "_nearest_existing": "玉岩中学附属开发区实验学校",
-          "_nearest_dist_km": 0.6
-        },
-        {
-          "name": "广州市天健学校停车场(出口)",
-          "address": "永顺大道30号",
-          "location": "113.496943,23.208549",
-          "type": "交通设施服务;停车场;停车场出口",
-          "tel": "",
-          "_score": 80,
-          "_nearest_existing": "北京师范大学广州实验学校(小学部)",
-          "_nearest_dist_km": 0.44
-        }
-      ]
-    },
-    {
-      "query": {
-        "name": "广州市番禺区剑桥郡加拿达外国语学校",
-        "district": "番禺",
-        "adcode": "440113",
-        "stage": "primary"
-      },
-      "classification": "疑似",
-      "candidates": [
-        {
-          "name": "加拿达外国语学校(剑桥郡校区)",
-          "address": "南村镇剑桥郡花园内(板桥地铁站D口步行180米)",
-          "location": "113.386718,23.018177",
-          "type": "科教文化服务;学校;中学",
-          "tel": "020-34691237",
-          "_score": 55,
-          "_nearest_existing": "加拿达外国语学校(剑桥郡校区)",
-          "_nearest_dist_km": 0.0
-        }
-      ]
+     "name": "广州市荔湾区外语职业高级中学(冲口校区)",
+     "address": "大冲口聚兴大街1号(大冲口地铁站B口步行350米)",
+     "location": "113.241443,23.088290",
+     "type": "科教文化服务;学校;小学",
+     "tel": ""
     }
-  ],
-  "total": 14
+   ]
+  },
+  {
+   "query": {
+    "name": "广州市荔湾区海龙博雅中英文学校",
+    "district": "荔湾",
+    "adcode": "440103",
+    "stage": "primary"
+   },
+   "classification": "可补",
+   "candidates": [
+    {
+     "name": "海龙博雅中英文学校",
+     "address": "芳村海龙路303号",
+     "location": "113.181584,23.064363",
+     "type": "科教文化服务;学校;中学|科教文化服务;培训机构;培训机构",
+     "tel": "",
+     "_score": 100,
+     "_nearest_existing": "广州市荔湾区龙溪小学",
+     "_nearest_dist_km": 0.43
+    },
+    {
+     "name": "海龙博雅中英文学校-博雅教育",
+     "address": "海龙博雅中英文学校西南门旁",
+     "location": "113.181139,23.064095",
+     "type": "科教文化服务;培训机构;培训机构",
+     "tel": "",
+     "_score": 80,
+     "_nearest_existing": "广州市荔湾区龙溪小学",
+     "_nearest_dist_km": 0.43
+    },
+    {
+     "name": "荔湾区海龙博雅中英文学校党支部",
+     "address": "芳村海龙路303号海龙博雅中英文学校",
+     "location": "113.181107,23.064151",
+     "type": "科教文化服务;科教文化场所;科教文化场所",
+     "tel": "",
+     "_score": 80,
+     "_nearest_existing": "广州市荔湾区龙溪小学",
+     "_nearest_dist_km": 0.43
+    },
+    {
+     "name": "博雅中英文学校(海中校区)",
+     "address": "花地大道南海龙路21号",
+     "location": "113.207505,23.047261",
+     "type": "科教文化服务;学校;中学",
+     "tel": "",
+     "_score": 40,
+     "_nearest_existing": "博雅中英文学校(海中校区)",
+     "_nearest_dist_km": 0.0
+    }
+   ]
+  },
+  {
+   "query": {
+    "name": "广州荔湾爱莎文华学校",
+    "district": "荔湾",
+    "adcode": "440103",
+    "stage": "high"
+   },
+   "classification": "无结果",
+   "candidates": [
+    {
+     "name": "广州荔湾爱莎国际学校",
+     "address": "海龙路238号",
+     "location": "113.191334,23.059218",
+     "type": "科教文化服务;学校;学校",
+     "tel": "020-33274906",
+     "_score": 20,
+     "_nearest_existing": "广州荔湾爱莎国际学校",
+     "_nearest_dist_km": 0.0
+    }
+   ]
+  },
+  {
+   "query": {
+    "name": "广州市海珠区华立学校",
+    "district": "海珠",
+    "adcode": "440105",
+    "stage": "middle"
+   },
+   "classification": "可补",
+   "candidates": [
+    {
+     "name": "华立学校",
+     "address": "赤沙村汾阳北大街三号之一",
+     "location": "113.358600,23.091206",
+     "type": "科教文化服务;科教文化场所;科教文化场所",
+     "tel": "020-34042623;020-84135673",
+     "_score": 100,
+     "_nearest_existing": "广州市海珠区赤沙小学",
+     "_nearest_dist_km": 0.35
+    },
+    {
+     "name": "华立小学",
+     "address": "南州路1002号",
+     "location": "113.333209,23.052824",
+     "type": "科教文化服务;学校;小学",
+     "tel": "020-89890314",
+     "_score": 15,
+     "_nearest_existing": "华立小学",
+     "_nearest_dist_km": 0.0
+    },
+    {
+     "name": "广州海珠区华立幼儿园",
+     "address": "石麟里横街与赤沙西约石伦里横街交叉口东北100米",
+     "location": "113.357586,23.090844",
+     "type": "科教文化服务;学校;幼儿园",
+     "tel": "020-84135673",
+     "_score": 10,
+     "_nearest_existing": "广州市海珠区赤沙小学",
+     "_nearest_dist_km": 0.31
+    }
+   ]
+  },
+  {
+   "query": {
+    "name": "广州市海珠区春晖小学",
+    "district": "海珠",
+    "adcode": "440105",
+    "stage": "primary"
+   },
+   "classification": "无结果",
+   "candidates": [
+    {
+     "name": "春晖学校",
+     "address": "凤岗路10号",
+     "location": "113.290144,23.086162",
+     "type": "科教文化服务;学校;中学",
+     "tel": "020-34306262",
+     "_score": 15,
+     "_nearest_existing": "五凤小学(南华校区)",
+     "_nearest_dist_km": 0.2
+    }
+   ]
+  },
+  {
+   "query": {
+    "name": "广州市海珠区贝赛思学校",
+    "district": "海珠",
+    "adcode": "440105",
+    "stage": "primary"
+   },
+   "classification": "疑似(与现有POI极近)",
+   "candidates": [
+    {
+     "name": "广州贝赛思学校(琶洲)-内部路入口",
+     "address": "新港东路1716号(万胜围地铁站B口步行440米)",
+     "location": "113.387334,23.096277",
+     "type": "科教文化服务;科教文化场所;科教文化场所",
+     "tel": "",
+     "_score": 80,
+     "_nearest_existing": "六中珠江中学(万胜围校区)",
+     "_nearest_dist_km": 0.09
+    }
+   ]
+  },
+  {
+   "query": {
+    "name": "广州市为明学校光大花园校区",
+    "district": "海珠",
+    "adcode": "440105",
+    "stage": "primary"
+   },
+   "classification": "疑似",
+   "candidates": [
+    {
+     "name": "广州市为明学校(光大校区)",
+     "address": "沙渡路131号",
+     "location": "113.257384,23.083256",
+     "type": "科教文化服务;学校;中学",
+     "tel": "020-34013188;020-84153888",
+     "_score": 30,
+     "_nearest_existing": "广州市海珠区宝玉直实验小学(南边路校区)",
+     "_nearest_dist_km": 0.41
+    },
+    {
+     "name": "广州市为明学校光大校区停车场",
+     "address": "沙渡路131号广州市为明学校光大校区",
+     "location": "113.256338,23.083123",
+     "type": "交通设施服务;停车场;专用停车场",
+     "tel": "",
+     "_score": 30,
+     "_nearest_existing": "广州市海珠区宝玉直实验第二小学",
+     "_nearest_dist_km": 0.46
+    },
+    {
+     "name": "广州市为明学校罗马校区(高中部)",
+     "address": "中怡街25号",
+     "location": "113.322549,23.056773",
+     "type": "科教文化服务;学校;中学",
+     "tel": "020-84164758",
+     "_score": 20,
+     "_nearest_existing": "广州市为明学校罗马校区(高中部)",
+     "_nearest_dist_km": 0.0
+    },
+    {
+     "name": "广州市为明学校国际部",
+     "address": "沙渡路131号",
+     "location": "113.257375,23.083275",
+     "type": "科教文化服务;学校;学校",
+     "tel": "020-34013188",
+     "_score": 20,
+     "_nearest_existing": "广州市海珠区宝玉直实验小学(南边路校区)",
+     "_nearest_dist_km": 0.41
+    },
+    {
+     "name": "为明幼儿园",
+     "address": "南州路罗马家园盛宏街88号",
+     "location": "113.322507,23.060776",
+     "type": "科教文化服务;学校;幼儿园",
+     "tel": "13711660661",
+     "_score": 15,
+     "_nearest_existing": "春华学校",
+     "_nearest_dist_km": 0.2
+    }
+   ]
+  },
+  {
+   "query": {
+    "name": "广州市天河区东风学校",
+    "district": "天河",
+    "adcode": "440106",
+    "stage": "primary"
+   },
+   "classification": "可补",
+   "candidates": [
+    {
+     "name": "东风学校",
+     "address": "银利街35号",
+     "location": "113.321440,23.166043",
+     "type": "科教文化服务;学校;中学",
+     "tel": "020-87645745",
+     "_score": 100,
+     "_nearest_existing": "天河区侨乐小学",
+     "_nearest_dist_km": 0.32
+    },
+    {
+     "name": "东风实验小学",
+     "address": "珠村文华新一街一巷9号",
+     "location": "113.422827,23.124408",
+     "type": "科教文化服务;学校;小学",
+     "tel": "020-32352769;020-32352796",
+     "_score": 15,
+     "_nearest_existing": "东风实验小学",
+     "_nearest_dist_km": 0.0
+    },
+    {
+     "name": "广东艺术职业学院(广州天河校区)",
+     "address": "水荫横路11号",
+     "location": "113.312329,23.144436",
+     "type": "科教文化服务;学校;职业技术学校",
+     "tel": "020-87047137",
+     "_score": 15,
+     "_nearest_existing": "龙岗路小学",
+     "_nearest_dist_km": 0.4
+    },
+    {
+     "name": "东风实验小学停车场",
+     "address": "珠村文华新一街一巷9号东风实验小学",
+     "location": "113.422858,23.124151",
+     "type": "交通设施服务;停车场;公共停车场",
+     "tel": "",
+     "_score": 15,
+     "_nearest_existing": "东风实验小学",
+     "_nearest_dist_km": 0.03
+    },
+    {
+     "name": "广州市白云区卫生中等专业学校",
+     "address": "龙岗路64号之1号",
+     "location": "113.312700,23.147880",
+     "type": "科教文化服务;学校;职业技术学校",
+     "tel": "13966496447",
+     "_score": 10,
+     "_nearest_existing": "龙岗路小学",
+     "_nearest_dist_km": 0.12
+    }
+   ]
+  },
+  {
+   "query": {
+    "name": "广州市天河区凤凰中学",
+    "district": "天河",
+    "adcode": "440106",
+    "stage": "primary"
+   },
+   "classification": "疑似(与现有POI极近)",
+   "candidates": [
+    {
+     "name": "凤凰中学",
+     "address": "柯木塱大坪街19号",
+     "location": "113.393438,23.199613",
+     "type": "科教文化服务;学校;小学|科教文化服务;学校;中学",
+     "tel": "020-87039561",
+     "_score": 100,
+     "_nearest_existing": "凤凰中学",
+     "_nearest_dist_km": 0.0
+    },
+    {
+     "name": "凤凰中学(公交站)",
+     "address": "491路",
+     "location": "113.392508,23.199832",
+     "type": "交通设施服务;公交车站;公交车站相关",
+     "tel": "",
+     "_score": 80,
+     "_nearest_existing": "凤凰中学",
+     "_nearest_dist_km": 0.09
+    },
+    {
+     "name": "广州中学(凤凰校区)",
+     "address": "华美路63号",
+     "location": "113.385453,23.204384",
+     "type": "科教文化服务;学校;中学",
+     "tel": "",
+     "_score": 20,
+     "_nearest_existing": "广州中学(凤凰校区)",
+     "_nearest_dist_km": 0.0
+    },
+    {
+     "name": "广州中学(凤凰校区)行政楼",
+     "address": "华美路广州中学(凤凰校区)",
+     "location": "113.386053,23.204819",
+     "type": "科教文化服务;学校;学校",
+     "tel": "",
+     "_score": 20,
+     "_nearest_existing": "广州中学(凤凰校区)",
+     "_nearest_dist_km": 0.07
+    },
+    {
+     "name": "广州中学(凤凰校区)地上停车场",
+     "address": "荷包岭新街与华美路交叉口东北20米",
+     "location": "113.387186,23.205570",
+     "type": "交通设施服务;停车场;公共停车场",
+     "tel": "",
+     "_score": 20,
+     "_nearest_existing": "广州中学(凤凰校区)",
+     "_nearest_dist_km": 0.2
+    }
+   ]
+  },
+  {
+   "query": {
+    "name": "广州市白云区春蕾小学",
+    "district": "白云",
+    "adcode": "440111",
+    "stage": "primary"
+   },
+   "classification": "可补",
+   "candidates": [
+    {
+     "name": "春蕾小学春硕楼",
+     "address": "萧岗礼堂南街与萧岗三多里大街交叉口西北60米",
+     "location": "113.265090,23.186764",
+     "type": "科教文化服务;学校;学校",
+     "tel": "",
+     "_score": 80,
+     "_nearest_existing": "萧岗小学",
+     "_nearest_dist_km": 0.46
+    },
+    {
+     "name": "广州市白云区春蕾小学南侧停车场",
+     "address": "萧岗礼堂南街与萧岗三多里大街交叉口西北60米",
+     "location": "113.264968,23.186539",
+     "type": "交通设施服务;停车场;公共停车场",
+     "tel": "",
+     "_score": 80,
+     "_nearest_existing": "萧岗小学",
+     "_nearest_dist_km": 0.48
+    }
+   ]
+  },
+  {
+   "query": {
+    "name": "广州市白云区颐和第二实验小学",
+    "district": "白云",
+    "adcode": "440111",
+    "stage": "primary"
+   },
+   "classification": "无结果",
+   "candidates": [
+    {
+     "name": "京师实验学校",
+     "address": "禄清大街15号",
+     "location": "113.267814,23.241888",
+     "type": "科教文化服务;学校;小学",
+     "tel": "",
+     "_score": 15,
+     "_nearest_existing": "京师实验学校",
+     "_nearest_dist_km": 0.0
+    }
+   ]
+  },
+  {
+   "query": {
+    "name": "广州市白云区白云实验学校",
+    "district": "白云",
+    "adcode": "440111",
+    "stage": "primary"
+   },
+   "classification": "疑似(与现有POI极近)",
+   "candidates": [
+    {
+     "name": "省实白云实验学校",
+     "address": "夏茅沙园坊十字大街58号",
+     "location": "113.255178,23.229573",
+     "type": "科教文化服务;学校;中学",
+     "tel": "020-36688088",
+     "_score": 80,
+     "_nearest_existing": "省实白云实验学校",
+     "_nearest_dist_km": 0.0
+    },
+    {
+     "name": "省实白云实验学校-学生宿舍",
+     "address": "白云湖街道夏茅大道23号",
+     "location": "113.254105,23.229158",
+     "type": "商务住宅;住宅区;宿舍",
+     "tel": "",
+     "_score": 80,
+     "_nearest_existing": "省实白云实验学校",
+     "_nearest_dist_km": 0.11
+    },
+    {
+     "name": "广东实验中学(白云校区)",
+     "address": "白云大道北570号",
+     "location": "113.318298,23.246398",
+     "type": "科教文化服务;学校;中学",
+     "tel": "",
+     "_score": 30,
+     "_nearest_existing": "广东实验中学(白云校区)",
+     "_nearest_dist_km": 0.0
+    },
+    {
+     "name": "广州云雅实验学校",
+     "address": "金碧西路19号",
+     "location": "113.239894,23.200853",
+     "type": "科教文化服务;学校;中学",
+     "tel": "",
+     "_score": 25,
+     "_nearest_existing": "广州云雅实验学校",
+     "_nearest_dist_km": 0.0
+    },
+    {
+     "name": "白云广附云湖实验学校",
+     "address": "品实·云湖花城",
+     "location": "113.213825,23.224404",
+     "type": "科教文化服务;学校;学校",
+     "tel": "",
+     "_score": 25,
+     "_nearest_existing": "广州市白云区白云广附云湖实验学校小学部",
+     "_nearest_dist_km": 0.0
+    }
+   ]
+  },
+  {
+   "query": {
+    "name": "广州市天健学校",
+    "district": "黄埔",
+    "adcode": "440112",
+    "stage": "middle"
+   },
+   "classification": "可补",
+   "candidates": [
+    {
+     "name": "广州市天健学校",
+     "address": "长贤路103号",
+     "location": "113.496570,23.209317",
+     "type": "科教文化服务;学校;中学",
+     "tel": "",
+     "_score": 100,
+     "_nearest_existing": "北京师范大学广州实验学校(小学部)",
+     "_nearest_dist_km": 0.51
+    },
+    {
+     "name": "广州市天健学校(西南门)",
+     "address": "长贤路101、103、105号",
+     "location": "113.495978,23.207830",
+     "type": "科教文化服务;学校;学校",
+     "tel": "",
+     "_score": 80,
+     "_nearest_existing": "北京师范大学广州实验学校(小学部)",
+     "_nearest_dist_km": 0.37
+    },
+    {
+     "name": "广州市天健学校地下停车场",
+     "address": "长贤路103号广州市天健学校",
+     "location": "113.497775,23.210675",
+     "type": "交通设施服务;停车场;公共停车场",
+     "tel": "",
+     "_score": 80,
+     "_nearest_existing": "玉岩中学附属开发区实验学校",
+     "_nearest_dist_km": 0.59
+    },
+    {
+     "name": "广州市天健学校停车场(入口)",
+     "address": "永顺大道30号",
+     "location": "113.497673,23.210735",
+     "type": "交通设施服务;停车场;停车场入口",
+     "tel": "",
+     "_score": 80,
+     "_nearest_existing": "玉岩中学附属开发区实验学校",
+     "_nearest_dist_km": 0.6
+    },
+    {
+     "name": "广州市天健学校停车场(出口)",
+     "address": "永顺大道30号",
+     "location": "113.496943,23.208549",
+     "type": "交通设施服务;停车场;停车场出口",
+     "tel": "",
+     "_score": 80,
+     "_nearest_existing": "北京师范大学广州实验学校(小学部)",
+     "_nearest_dist_km": 0.44
+    }
+   ]
+  },
+  {
+   "query": {
+    "name": "广州市番禺区剑桥郡加拿达外国语学校",
+    "district": "番禺",
+    "adcode": "440113",
+    "stage": "primary"
+   },
+   "classification": "疑似",
+   "candidates": [
+    {
+     "name": "加拿达外国语学校(剑桥郡校区)",
+     "address": "南村镇剑桥郡花园内(板桥地铁站D口步行180米)",
+     "location": "113.386718,23.018177",
+     "type": "科教文化服务;学校;中学",
+     "tel": "020-34691237",
+     "_score": 55,
+     "_nearest_existing": "加拿达外国语学校(剑桥郡校区)",
+     "_nearest_dist_km": 0.0
+    }
+   ]
+  },
+  {
+   "query": {
+    "name": "广州市海珠外国语实验中学(江海校区)",
+    "district": "海珠",
+    "adcode": "440105",
+    "stage": "high"
+   },
+   "classification": "高德命中（2026-09-24 查询）",
+   "candidates": [
+    {
+     "name": "广州市海珠外国语实验中学(江海校区)(装修中)",
+     "address": "新村西华十五巷与红卫新村西街交叉口南100米",
+     "location": "113.331893,23.087352",
+     "type": "科教文化服务;学校;中学"
+    }
+   ]
+  }
+ ],
+ "total": 14
 }
