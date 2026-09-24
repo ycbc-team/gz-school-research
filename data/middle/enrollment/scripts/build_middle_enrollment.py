@@ -597,19 +597,16 @@ if __name__ == "__main__":
         print(f"         总{total}所, POI匹配{matched}, 机制分布: {mech_count}")
     # group_members 去重为独立组表（包体优化：组内 N 校 × 每组重复 M 次的校名只存一次）：
     # record.group_id 引用；mechanisms 三档全 7 区一致，合并后顶层一份。
+    # dist 层精简（2026-09-24）：record 不再存 school 名称（前端按 school_id 联查实体名）；
+    # groups 只保留 name + primaryIds（map key 即小学名列表），members/memberIds 无前端消费已删。
+    # parsed 区级产物保留 school/group_members 内嵌（审计层溯源，快照行键=school 不变）。
     groups = {}
     seen = {}  # 组内容（成员集合）→ group_id
-    # 初中名 → school_id(s)（构建期 SchoolMatcher 已匹配，运行时零匹配）
-    name_ids = {}
-    for dk in targets:
-        for r in districts[dk]["records"]:
-            ids = r.get("school_ids") or ([r["school_id"]] if r.get("school_id") else [])
-            if ids:
-                name_ids.setdefault(dk, {}).setdefault(r["school"], sorted(set(ids)))
     for dk in targets:
         for r in districts[dk]["records"]:
             members = r.pop("group_members", None)
             primaries = r.pop("_group_primaries", None)
+            r.pop("school", None)  # dist 层不存名称（parsed 审计层保留）
             if members:
                 # 去重 key 含对口小学：官方 1/2、8/9、13/14 组中学列表相同但小学列不同
                 # （荔湾），仅按 members 去重会合并丢小学 → (members, primaries) 联合去重。
@@ -618,11 +615,8 @@ if __name__ == "__main__":
                 if gid is None:
                     gid = f"{dk}-{len(seen) + 1}"
                     seen[key] = gid
-                    entry = {"district": districts[dk]["district"], "name": _group_name(r.get("mechanism_note")), "members": sorted(key[0])}
-                    if primaries:
-                        entry["primaries"] = primaries
-                    # 构建期匹配：成员/小学名 → school_id 列表（多校区多个 id，前端聚合展示/弹窗选校区）
-                    entry["memberIds"] = {m: name_ids.get(dk, {}).get(m, []) for m in key[0]}
+                    entry = {"district": districts[dk]["district"], "name": _group_name(r.get("mechanism_note"))}
+                    # 生源小学名 → school_id 列表（构建期实体匹配；多校区多个 id，前端弹窗选校区）
                     entry["primaryIds"] = {p: _primary_ids(p, _DK_ADCODE[dk]) for p in (primaries or [])}
                     groups[gid] = entry
                 r["group_id"] = gid

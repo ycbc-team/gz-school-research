@@ -170,10 +170,6 @@ const middleEnrolls = computed(() => {
 function groupNameOf(gid?: string | null): string {
   return (gid ? middleEnrollmentGroups[gid]?.name : null) || '组内可填报';
 }
-/** 派位组生源小学（groups[gid].primaries，组级对口）；无则空列表 */
-function groupPrimariesOf(gid?: string | null): string[] {
-  return gid ? (middleEnrollmentGroups[gid]?.primaries ?? []) : [];
-}
 /** 机制徽章去重行：同区同机制同班数的多组只展示一次（用户：海珠区 Badge 删、计划 12 个班只展示一次） */
 const mechanismHeads = computed(() => {
   if (stage.value !== 'middle') return [];
@@ -195,7 +191,7 @@ const primaryRows = computed(() => {
     const gid = m.record.group_id;
     const g = gid ? middleEnrollmentGroups[gid] : null;
     const pid = g?.primaryIds ?? {};
-    for (const p of g?.primaries ?? []) rows.push({ name: p, groupName: groupNameOf(gid), ids: pid[p] ?? [] });
+    for (const p of Object.keys(pid)) rows.push({ name: p, groupName: groupNameOf(gid), ids: pid[p] ?? [] });
   }
   return rows;
 });
@@ -337,7 +333,7 @@ function goCampus(item: { id: string; name: string }) {
             <span v-if="h.plan != null" class="mech-plan">计划 {{ h.plan }} 个班</span>
           </span>
         </div>
-        <template v-for="(m, mi) in middleEnrolls" :key="`${m.district}-${m.record.school}-${m.record.group_id ?? mi}`">
+        <template v-for="(m, mi) in middleEnrolls" :key="`${m.district}-${m.record.school_id ?? mi}-${m.record.group_id ?? mi}`">
         <div v-if="m.record.scope || (m.mechanismDef.can_lose && m.mechanismDef.lose_text)" class="mech-block" :style="mi ? 'border-top:1px dashed #e5e7eb;margin-top:10px;padding-top:10px;' : ''">
           <div v-if="m.record.scope" class="zone-block">
             <div class="zone-label">招生服务范围</div>

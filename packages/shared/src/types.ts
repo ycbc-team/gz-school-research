@@ -279,7 +279,6 @@ export interface MiddleMechanismDef {
   lose_text: string | null;
 }
 export interface MiddleEnrollmentRecord {
-  school: string;
   /** 单一归属 school_id；合并招生（多校区共用一套计划）时为 null，改用 school_ids 列出全部校区 */
   school_id: string | null;
   /** 多校区共用同一招生计划时列出全部校区 id（如番禺铁英学校 28 班合并招生：东/西两校区） */
@@ -288,10 +287,8 @@ export interface MiddleEnrollmentRecord {
   scope: string | null;
   mechanism: MiddleMechanism;
   mechanism_note: string | null;
-  /** dist 合并结构（2026-09-23）：组表 group_id（派位/直升组），members 在 loaders.middleEnrollmentGroups */
+  /** dist 合并结构（2026-09-23）：组表 group_id（派位/直升组）；2026-09-24 dist 不再存 school 名称（前端按 school_id 联查实体名，parsed 审计层保留） */
   group_id?: string | null;
-  /** 派位组成员（API 层由 group_id 展开填充；parsed 中间产物直接内嵌，dist 不存） */
-  group_members?: string[] | null;
 }
 export interface MiddleEnrollmentSnapshot {
   year: number;
@@ -306,11 +303,7 @@ export type MiddleEnrollmentGroups = Record<
   {
     district: string;
     name?: string;
-    members: string[];
-    primaries?: string[];
-    /** 成员（初中）名 → school_id 列表（构建期 SchoolMatcher 匹配；多校区多个 id） */
-    memberIds?: Record<string, string[]>;
-    /** 生源小学名 → school_id 列表（构建期实体匹配；多校区多个 id） */
+    /** 生源小学名 → school_id 列表（构建期实体匹配；多校区多个 id，key 即小学名列表，前端 Object.keys 遍历） */
     primaryIds?: Record<string, string[]>;
   }
 >;
