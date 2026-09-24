@@ -4,7 +4,7 @@
 - 三种变体匹配：POI带校区后缀 / 集团带区名前缀 / 集团带校区后缀
 - 远郊（花都/南沙/增城/从化）单独标注
 """
-import json, os, re
+import json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 
@@ -173,7 +173,7 @@ print(f'\n=== 远郊不在 POI 范围（{len(miss_outer)} 所）===')
 for s in miss_outer:
     print(f'  [{s["role"]}][{s["district"]}] {s["name"]}')
 
-out_path = os.path.join(ROOT, 'data/registry/group/dist/coverage_result.json')
+out_path = os.path.join(ROOT, 'data/registry/group/test/coverage_result.json')
 with open(out_path, 'w', encoding='utf-8') as f:
     json.dump({'summary': stats, 'groups': results,
                'miss_seven': miss_seven, 'miss_outer': miss_outer},

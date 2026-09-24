@@ -10,7 +10,8 @@
 | `parsed/` | `_partial_{7区}_groups.json`（政府 HTML 解析出的纯名字底稿）+ `education_groups_2026.json`（招考办 2026 集团名额分配表：43 核心校 / 118 成员） |
 | `src/` | `brand_groups.json`（8 品牌组手工源，含法人关系/来源 URL）、`groups_anchors.json`（锚点表，仅承载一对多关系） |
 | `scripts/` | 见下方「构建与脚本」 |
-| `dist/` | `education_groups.json`（合并后集团表）、`school_groups.json`（集团运行时纯 id 匹配）、`non_group_multi_campuses.json`（未入集团的多校区运行时纯 id 匹配）、`coverage_result.json`（覆盖检查产物） |
+| `dist/` | `education_groups.json`（合并后集团表）、`school_groups.json`（集团运行时纯 id 匹配）、`non_group_multi_campuses.json`（未入集团的多校区运行时纯 id 匹配） |
+| `test/` | `coverage_result.json`（覆盖检查中间结果，仅供测试与覆盖报告生成） |
 
 ## 构建与脚本
 
@@ -47,7 +48,7 @@ data/registry/group/parsed/education_groups_2026.json ← 招考办名额分配�
 data/registry/group/src/brand_groups.json          ← 8 重点品牌（纯源，unit.school_ids 外键锚点）
         │
         ▼  python3 scripts/merge_groups.py   （本地脚本，无联网）
-data/registry/group/dist/education_groups.json      ← ★ 唯一生成产物，禁止手改 ★
+data/registry/group/dist/education_groups.json      ← ★ 教育集团唯一生成产物，禁止手改 ★
 data/registry/group/dist/non_group_multi_campuses.json ← 同区同法人、未入集团的多校区派生产物
         │
         ▼  node scripts/data/compact.mjs  +  npm run build:shared
