@@ -1147,7 +1147,11 @@
      "mechanism_note": "见说明3"
     },
     {
-     "school_id": "gz-440113-7cdbe028",
+     "school_id": null,
+     "school_ids": [
+      "gz-440113-7cdbe028",
+      "gz-440113-c07e3ddb"
+     ],
      "plan_classes": 15,
      "scope": "祈福新邨户籍的小学应届毕业生（必须是业主子女身份）。",
      "mechanism": "single_zone",
@@ -1417,6 +1421,55 @@
      "scope": "紫坭村、三善村、 新洲村、龙湾村、古东村、古西村以及紫坭社区居委户籍的小学应届毕业生。",
      "mechanism": "single_zone",
      "mechanism_note": null
+    },
+    {
+     "school_id": "gz-440113-acf92324",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "single_lottery",
+     "mechanism_note": "区属初中面向全区批次：招生 90 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍的小学应届毕业生（不含大龙街户籍及具有市桥城区电脑派位资格的小学应届毕业生）及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。"
+    },
+    {
+     "school_id": "gz-440113-6dbdc462",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "single_lottery",
+     "mechanism_note": "区属初中面向大龙街批次：招生 350 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向大龙街招生，首先安排番禺区大龙街傍江东村和傍江西村现有股民及股民子女（小学应届毕业生）入读，余下学位面向大龙街户籍的小学应届毕业生招生；两村股民及股民子女不需要网上报名；按学校要求申请宿位。"
+    },
+    {
+     "school_id": "gz-440113-6dbdc462",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "single_lottery",
+     "mechanism_note": "区属初中面向全区批次：招生 100 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍的小学应届毕业生（不含大龙街户籍及具有市桥城区电脑派位资格的小学应届毕业生）及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。"
+    },
+    {
+     "school_id": "gz-440113-6dbdc462",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "single_lottery",
+     "mechanism_note": "区属初中面向港澳生批次：招生 20 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。需符合以下条件之一：1.其父母或法定监护人至少一方在番禺区居住、工作，且持在番禺区申领的港澳居民居住证的港澳居民随迁子女（非穗籍小学应届毕业生）；2.持有在番禺区申领的港澳居民居住证，且其父母或法定监护人至少一方具有番禺区户籍、在番禺区居住、工作的港澳籍小学应届毕业生。"
+    },
+    {
+     "school_id": "gz-440113-53650c78",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "single_lottery",
+     "mechanism_note": "区属初中面向全区批次：招生 80 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍应届小学毕业生及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。"
+    },
+    {
+     "school_id": "gz-440113-b5ff857b",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "single_lottery",
+     "mechanism_note": "区属初中面向属地镇街批次：招生 60 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向洛浦街户籍应届小学毕业生及实际居住地在洛浦街的广州市政策性照顾学生招生；无住宿条件。"
+    },
+    {
+     "school_id": "gz-440113-95be9ccc",
+     "plan_classes": null,
+     "scope": null,
+     "mechanism": "single_lottery",
+     "mechanism_note": "区属初中面向全区批次：招生 60 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍应届小学毕业生及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。"
     },
     {
      "school_id": "gz-440113-fdabec82",
@@ -2425,12 +2478,12 @@
   "liwan": {
    "year": 2026,
    "district": "荔湾区",
-   "source": "荔湾区教育局 2026 公办初中招生派位组表（parsed/_transcripts/liwan_2026_groups.json）",
+   "source": "荔湾区教育局 2026 公办初中招生派位组表（parsed/_transcripts/liwan_2026_groups.json）+ 附件1 公办初中一年级招生计划（raw/liwan_2026_a1.docx，转录 liwan_2026_plan.json）",
    "source_url": null,
    "records": [
     {
      "school_id": "gz-440103-1f4697e3",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2438,7 +2491,7 @@
     },
     {
      "school_id": "gz-440103-042e23a5",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2446,7 +2499,7 @@
     },
     {
      "school_id": "gz-440103-2dc142ec",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2454,7 +2507,7 @@
     },
     {
      "school_id": "gz-440103-2653da64",
-     "plan_classes": null,
+     "plan_classes": 7,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2462,7 +2515,7 @@
     },
     {
      "school_id": "gz-440103-3862ee98",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2473,7 +2526,7 @@
     },
     {
      "school_id": "gz-440103-816b22a3",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2484,7 +2537,7 @@
     },
     {
      "school_id": "gz-440103-b41a3512",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2492,7 +2545,7 @@
     },
     {
      "school_id": "gz-440103-dfff68f2",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2500,7 +2553,7 @@
     },
     {
      "school_id": "gz-440103-df535585",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2508,7 +2561,7 @@
     },
     {
      "school_id": null,
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2520,7 +2573,7 @@
     },
     {
      "school_id": "gz-440103-eb3cb5c6",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2528,7 +2581,7 @@
     },
     {
      "school_id": "gz-440103-b0abf891",
-     "plan_classes": null,
+     "plan_classes": 12,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2536,7 +2589,7 @@
     },
     {
      "school_id": "gz-440103-9870a631",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2544,7 +2597,7 @@
     },
     {
      "school_id": "gz-440103-c5d5de44",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2552,7 +2605,7 @@
     },
     {
      "school_id": "gz-440103-693412ae",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2560,7 +2613,7 @@
     },
     {
      "school_id": "gz-440103-bb7f78f0",
-     "plan_classes": null,
+     "plan_classes": 4,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区1组电脑派位",
@@ -2568,7 +2621,7 @@
     },
     {
      "school_id": "gz-440103-1f4697e3",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2576,7 +2629,7 @@
     },
     {
      "school_id": "gz-440103-042e23a5",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2584,7 +2637,7 @@
     },
     {
      "school_id": "gz-440103-2dc142ec",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2592,7 +2645,7 @@
     },
     {
      "school_id": "gz-440103-2653da64",
-     "plan_classes": null,
+     "plan_classes": 7,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2600,7 +2653,7 @@
     },
     {
      "school_id": "gz-440103-3862ee98",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2611,7 +2664,7 @@
     },
     {
      "school_id": "gz-440103-816b22a3",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2622,7 +2675,7 @@
     },
     {
      "school_id": "gz-440103-b41a3512",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2630,7 +2683,7 @@
     },
     {
      "school_id": "gz-440103-dfff68f2",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2638,7 +2691,7 @@
     },
     {
      "school_id": "gz-440103-df535585",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2646,7 +2699,7 @@
     },
     {
      "school_id": null,
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2658,7 +2711,7 @@
     },
     {
      "school_id": "gz-440103-eb3cb5c6",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2666,7 +2719,7 @@
     },
     {
      "school_id": "gz-440103-b0abf891",
-     "plan_classes": null,
+     "plan_classes": 12,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2674,7 +2727,7 @@
     },
     {
      "school_id": "gz-440103-9870a631",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2682,7 +2735,7 @@
     },
     {
      "school_id": "gz-440103-c5d5de44",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2690,7 +2743,7 @@
     },
     {
      "school_id": "gz-440103-693412ae",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2698,7 +2751,7 @@
     },
     {
      "school_id": "gz-440103-bb7f78f0",
-     "plan_classes": null,
+     "plan_classes": 4,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
@@ -2706,7 +2759,7 @@
     },
     {
      "school_id": "gz-440103-1f4697e3",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2714,7 +2767,7 @@
     },
     {
      "school_id": "gz-440103-042e23a5",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2722,7 +2775,7 @@
     },
     {
      "school_id": "gz-440103-2dc142ec",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2730,7 +2783,7 @@
     },
     {
      "school_id": "gz-440103-2653da64",
-     "plan_classes": null,
+     "plan_classes": 7,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2738,7 +2791,7 @@
     },
     {
      "school_id": "gz-440103-3862ee98",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2749,7 +2802,7 @@
     },
     {
      "school_id": "gz-440103-816b22a3",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2760,7 +2813,7 @@
     },
     {
      "school_id": "gz-440103-b41a3512",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2768,7 +2821,7 @@
     },
     {
      "school_id": "gz-440103-dfff68f2",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2776,7 +2829,7 @@
     },
     {
      "school_id": "gz-440103-df535585",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2784,7 +2837,7 @@
     },
     {
      "school_id": null,
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2796,7 +2849,7 @@
     },
     {
      "school_id": "gz-440104-3b870a8e",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2804,7 +2857,7 @@
     },
     {
      "school_id": "gz-440103-b0abf891",
-     "plan_classes": null,
+     "plan_classes": 12,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2812,7 +2865,7 @@
     },
     {
      "school_id": "gz-440103-c5d5de44",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2820,7 +2873,7 @@
     },
     {
      "school_id": "gz-440103-693412ae",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2828,7 +2881,7 @@
     },
     {
      "school_id": "gz-440103-bb7f78f0",
-     "plan_classes": null,
+     "plan_classes": 4,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区3组电脑派位",
@@ -2836,7 +2889,7 @@
     },
     {
      "school_id": "gz-440103-1f4697e3",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2844,7 +2897,7 @@
     },
     {
      "school_id": "gz-440103-042e23a5",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2852,7 +2905,7 @@
     },
     {
      "school_id": "gz-440103-2dc142ec",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2860,7 +2913,7 @@
     },
     {
      "school_id": "gz-440103-2653da64",
-     "plan_classes": null,
+     "plan_classes": 7,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2868,7 +2921,7 @@
     },
     {
      "school_id": "gz-440103-3862ee98",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2879,7 +2932,7 @@
     },
     {
      "school_id": "gz-440103-816b22a3",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2890,7 +2943,7 @@
     },
     {
      "school_id": "gz-440103-b41a3512",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2898,7 +2951,7 @@
     },
     {
      "school_id": "gz-440103-dfff68f2",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2906,7 +2959,7 @@
     },
     {
      "school_id": "gz-440103-df535585",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2914,7 +2967,7 @@
     },
     {
      "school_id": null,
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2926,7 +2979,7 @@
     },
     {
      "school_id": "gz-440103-81794a0d",
-     "plan_classes": null,
+     "plan_classes": 5,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2934,7 +2987,7 @@
     },
     {
      "school_id": "gz-440104-3b870a8e",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2942,7 +2995,7 @@
     },
     {
      "school_id": "gz-440103-c5d5de44",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2950,7 +3003,7 @@
     },
     {
      "school_id": "gz-440103-693412ae",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2958,7 +3011,7 @@
     },
     {
      "school_id": "gz-440103-bb7f78f0",
-     "plan_classes": null,
+     "plan_classes": 4,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
@@ -2966,7 +3019,7 @@
     },
     {
      "school_id": "gz-440103-1f4697e3",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -2974,7 +3027,7 @@
     },
     {
      "school_id": "gz-440103-042e23a5",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -2982,7 +3035,7 @@
     },
     {
      "school_id": "gz-440103-2dc142ec",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -2990,7 +3043,7 @@
     },
     {
      "school_id": "gz-440103-2653da64",
-     "plan_classes": null,
+     "plan_classes": 7,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -2998,7 +3051,7 @@
     },
     {
      "school_id": "gz-440103-3862ee98",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -3009,7 +3062,7 @@
     },
     {
      "school_id": "gz-440103-816b22a3",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -3020,7 +3073,7 @@
     },
     {
      "school_id": "gz-440103-b41a3512",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -3028,7 +3081,7 @@
     },
     {
      "school_id": "gz-440103-dfff68f2",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -3036,7 +3089,7 @@
     },
     {
      "school_id": "gz-440103-df535585",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -3044,7 +3097,7 @@
     },
     {
      "school_id": null,
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -3056,7 +3109,7 @@
     },
     {
      "school_id": "gz-440103-81794a0d",
-     "plan_classes": null,
+     "plan_classes": 5,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -3064,7 +3117,7 @@
     },
     {
      "school_id": null,
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -3076,7 +3129,7 @@
     },
     {
      "school_id": "gz-440103-c5d5de44",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -3084,7 +3137,7 @@
     },
     {
      "school_id": "gz-440103-693412ae",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -3092,7 +3145,7 @@
     },
     {
      "school_id": "gz-440103-bb7f78f0",
-     "plan_classes": null,
+     "plan_classes": 4,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
@@ -3100,7 +3153,7 @@
     },
     {
      "school_id": "gz-440103-1f4697e3",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3108,7 +3161,7 @@
     },
     {
      "school_id": "gz-440103-2dc142ec",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3116,7 +3169,7 @@
     },
     {
      "school_id": "gz-440103-2653da64",
-     "plan_classes": null,
+     "plan_classes": 7,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3124,7 +3177,7 @@
     },
     {
      "school_id": "gz-440103-c0d6f9a0",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3135,7 +3188,7 @@
     },
     {
      "school_id": "gz-440103-816b22a3",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3146,7 +3199,7 @@
     },
     {
      "school_id": "gz-440103-b41a3512",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3154,7 +3207,7 @@
     },
     {
      "school_id": "gz-440103-dfff68f2",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3162,7 +3215,7 @@
     },
     {
      "school_id": "gz-440103-df535585",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3170,7 +3223,7 @@
     },
     {
      "school_id": null,
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3182,7 +3235,7 @@
     },
     {
      "school_id": "gz-440103-b0abf891",
-     "plan_classes": null,
+     "plan_classes": 12,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3190,7 +3243,7 @@
     },
     {
      "school_id": "gz-440103-b6850b3c",
-     "plan_classes": null,
+     "plan_classes": 2,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3198,7 +3251,7 @@
     },
     {
      "school_id": "gz-440103-c5d5de44",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3206,7 +3259,7 @@
     },
     {
      "school_id": "gz-440103-693412ae",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3214,7 +3267,7 @@
     },
     {
      "school_id": "gz-440103-7207525c",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3222,7 +3275,7 @@
     },
     {
      "school_id": "gz-440103-bb7f78f0",
-     "plan_classes": null,
+     "plan_classes": 4,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
@@ -3230,7 +3283,7 @@
     },
     {
      "school_id": "gz-440103-1f4697e3",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
@@ -3238,7 +3291,7 @@
     },
     {
      "school_id": "gz-440103-9b3ba6d8",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
@@ -3246,7 +3299,7 @@
     },
     {
      "school_id": "gz-440103-4bb96190",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
@@ -3254,7 +3307,7 @@
     },
     {
      "school_id": "gz-440103-c0d6f9a0",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
@@ -3265,7 +3318,7 @@
     },
     {
      "school_id": "gz-440103-b41a3512",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
@@ -3273,7 +3326,7 @@
     },
     {
      "school_id": "gz-440103-2c188507",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
@@ -3281,7 +3334,7 @@
     },
     {
      "school_id": "gz-440103-523446ce",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
@@ -3289,7 +3342,7 @@
     },
     {
      "school_id": "gz-440103-53cac770",
-     "plan_classes": null,
+     "plan_classes": 20,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
@@ -3297,7 +3350,7 @@
     },
     {
      "school_id": "gz-440103-ff7538dc",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
@@ -3305,7 +3358,7 @@
     },
     {
      "school_id": "gz-440103-7207525c",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
@@ -3313,7 +3366,7 @@
     },
     {
      "school_id": "gz-440103-bb7f78f0",
-     "plan_classes": null,
+     "plan_classes": 4,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区7组电脑派位",
@@ -3321,7 +3374,7 @@
     },
     {
      "school_id": "gz-440103-1f4697e3",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区8组电脑派位",
@@ -3329,7 +3382,7 @@
     },
     {
      "school_id": "gz-440103-9b3ba6d8",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区8组电脑派位",
@@ -3337,7 +3390,7 @@
     },
     {
      "school_id": "gz-440103-4bb96190",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区8组电脑派位",
@@ -3345,7 +3398,7 @@
     },
     {
      "school_id": "gz-440103-c0d6f9a0",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区8组电脑派位",
@@ -3356,7 +3409,7 @@
     },
     {
      "school_id": "gz-440103-b41a3512",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区8组电脑派位",
@@ -3364,7 +3417,7 @@
     },
     {
      "school_id": "gz-440103-f05eda96",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区8组电脑派位",
@@ -3372,7 +3425,7 @@
     },
     {
      "school_id": "gz-440103-523446ce",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区8组电脑派位",
@@ -3380,7 +3433,7 @@
     },
     {
      "school_id": "gz-440103-53cac770",
-     "plan_classes": null,
+     "plan_classes": 20,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区8组电脑派位",
@@ -3388,7 +3441,7 @@
     },
     {
      "school_id": "gz-440103-ff7538dc",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区8组电脑派位",
@@ -3396,7 +3449,7 @@
     },
     {
      "school_id": "gz-440103-7207525c",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区8组电脑派位",
@@ -3404,7 +3457,7 @@
     },
     {
      "school_id": "gz-440103-bb7f78f0",
-     "plan_classes": null,
+     "plan_classes": 4,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区8组电脑派位",
@@ -3412,7 +3465,7 @@
     },
     {
      "school_id": "gz-440103-1f4697e3",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区9组电脑派位",
@@ -3420,7 +3473,7 @@
     },
     {
      "school_id": "gz-440103-9b3ba6d8",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区9组电脑派位",
@@ -3428,7 +3481,7 @@
     },
     {
      "school_id": "gz-440103-4bb96190",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区9组电脑派位",
@@ -3436,7 +3489,7 @@
     },
     {
      "school_id": "gz-440103-c0d6f9a0",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区9组电脑派位",
@@ -3447,7 +3500,7 @@
     },
     {
      "school_id": "gz-440103-b41a3512",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区9组电脑派位",
@@ -3455,7 +3508,7 @@
     },
     {
      "school_id": "gz-440103-2c188507",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区9组电脑派位",
@@ -3463,7 +3516,7 @@
     },
     {
      "school_id": "gz-440103-523446ce",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区9组电脑派位",
@@ -3471,7 +3524,7 @@
     },
     {
      "school_id": "gz-440103-53cac770",
-     "plan_classes": null,
+     "plan_classes": 20,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区9组电脑派位",
@@ -3479,7 +3532,7 @@
     },
     {
      "school_id": "gz-440103-ff7538dc",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区9组电脑派位",
@@ -3487,7 +3540,7 @@
     },
     {
      "school_id": "gz-440103-7207525c",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区9组电脑派位",
@@ -3495,7 +3548,7 @@
     },
     {
      "school_id": "gz-440103-bb7f78f0",
-     "plan_classes": null,
+     "plan_classes": 4,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区9组电脑派位",
@@ -3503,7 +3556,7 @@
     },
     {
      "school_id": "gz-440103-1f4697e3",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区10组电脑派位",
@@ -3511,7 +3564,7 @@
     },
     {
      "school_id": "gz-440103-9b3ba6d8",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区10组电脑派位",
@@ -3519,7 +3572,7 @@
     },
     {
      "school_id": "gz-440103-4bb96190",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区10组电脑派位",
@@ -3527,7 +3580,7 @@
     },
     {
      "school_id": "gz-440103-c0d6f9a0",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区10组电脑派位",
@@ -3538,7 +3591,7 @@
     },
     {
      "school_id": "gz-440103-b41a3512",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区10组电脑派位",
@@ -3546,7 +3599,7 @@
     },
     {
      "school_id": "gz-440103-55453ba4",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区10组电脑派位",
@@ -3554,7 +3607,7 @@
     },
     {
      "school_id": "gz-440103-523446ce",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区10组电脑派位",
@@ -3562,7 +3615,7 @@
     },
     {
      "school_id": "gz-440103-53cac770",
-     "plan_classes": null,
+     "plan_classes": 20,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区10组电脑派位",
@@ -3570,7 +3623,7 @@
     },
     {
      "school_id": "gz-440103-ff7538dc",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区10组电脑派位",
@@ -3578,7 +3631,7 @@
     },
     {
      "school_id": "gz-440103-7207525c",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区10组电脑派位",
@@ -3586,7 +3639,7 @@
     },
     {
      "school_id": "gz-440103-bb7f78f0",
-     "plan_classes": null,
+     "plan_classes": 4,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区10组电脑派位",
@@ -3594,7 +3647,7 @@
     },
     {
      "school_id": "gz-440103-1f4697e3",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区11组电脑派位",
@@ -3602,7 +3655,7 @@
     },
     {
      "school_id": "gz-440103-9b3ba6d8",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区11组电脑派位",
@@ -3610,7 +3663,7 @@
     },
     {
      "school_id": "gz-440103-4bb96190",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区11组电脑派位",
@@ -3618,7 +3671,7 @@
     },
     {
      "school_id": "gz-440103-c0d6f9a0",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区11组电脑派位",
@@ -3629,7 +3682,7 @@
     },
     {
      "school_id": "gz-440103-b41a3512",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区11组电脑派位",
@@ -3637,7 +3690,7 @@
     },
     {
      "school_id": "gz-440103-f203d28d",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区11组电脑派位",
@@ -3645,7 +3698,7 @@
     },
     {
      "school_id": "gz-440103-523446ce",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区11组电脑派位",
@@ -3653,7 +3706,7 @@
     },
     {
      "school_id": "gz-440103-53cac770",
-     "plan_classes": null,
+     "plan_classes": 20,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区11组电脑派位",
@@ -3661,7 +3714,7 @@
     },
     {
      "school_id": "gz-440103-ff7538dc",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区11组电脑派位",
@@ -3669,7 +3722,7 @@
     },
     {
      "school_id": "gz-440103-7207525c",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区11组电脑派位",
@@ -3677,7 +3730,7 @@
     },
     {
      "school_id": "gz-440103-bb7f78f0",
-     "plan_classes": null,
+     "plan_classes": 4,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区11组电脑派位",
@@ -3685,7 +3738,7 @@
     },
     {
      "school_id": "gz-440103-1f4697e3",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区12组电脑派位",
@@ -3693,7 +3746,7 @@
     },
     {
      "school_id": "gz-440103-9b3ba6d8",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区12组电脑派位",
@@ -3701,7 +3754,7 @@
     },
     {
      "school_id": "gz-440103-4bb96190",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区12组电脑派位",
@@ -3709,7 +3762,7 @@
     },
     {
      "school_id": "gz-440103-53cac770",
-     "plan_classes": null,
+     "plan_classes": 20,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区12组电脑派位",
@@ -3717,7 +3770,7 @@
     },
     {
      "school_id": "gz-440103-ff7538dc",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区12组电脑派位",
@@ -3725,7 +3778,7 @@
     },
     {
      "school_id": "gz-440103-55453ba4",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区12组电脑派位",
@@ -3733,7 +3786,7 @@
     },
     {
      "school_id": "gz-440103-f203d28d",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区12组电脑派位",
@@ -3741,7 +3794,7 @@
     },
     {
      "school_id": "gz-440103-523446ce",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区12组电脑派位",
@@ -3749,7 +3802,7 @@
     },
     {
      "school_id": "gz-440103-7207525c",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区12组电脑派位",
@@ -3757,7 +3810,7 @@
     },
     {
      "school_id": "gz-440103-bb7f78f0",
-     "plan_classes": null,
+     "plan_classes": 4,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区12组电脑派位",
@@ -3765,7 +3818,7 @@
     },
     {
      "school_id": "gz-440103-1f4697e3",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区13组电脑派位",
@@ -3773,7 +3826,7 @@
     },
     {
      "school_id": "gz-440103-9b3ba6d8",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区13组电脑派位",
@@ -3781,7 +3834,7 @@
     },
     {
      "school_id": "gz-440103-4bb96190",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区13组电脑派位",
@@ -3789,7 +3842,7 @@
     },
     {
      "school_id": "gz-440103-2c188507",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区13组电脑派位",
@@ -3797,7 +3850,7 @@
     },
     {
      "school_id": "gz-440103-523446ce",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区13组电脑派位",
@@ -3805,7 +3858,7 @@
     },
     {
      "school_id": "gz-440103-53cac770",
-     "plan_classes": null,
+     "plan_classes": 20,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区13组电脑派位",
@@ -3813,7 +3866,7 @@
     },
     {
      "school_id": "gz-440103-ff7538dc",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区13组电脑派位",
@@ -3821,7 +3874,7 @@
     },
     {
      "school_id": "gz-440103-7207525c",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区13组电脑派位",
@@ -3829,7 +3882,7 @@
     },
     {
      "school_id": "gz-440103-bb7f78f0",
-     "plan_classes": null,
+     "plan_classes": 4,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区13组电脑派位",
@@ -3837,7 +3890,7 @@
     },
     {
      "school_id": "gz-440103-1f4697e3",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
@@ -3845,7 +3898,7 @@
     },
     {
      "school_id": "gz-440103-9b3ba6d8",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
@@ -3853,7 +3906,7 @@
     },
     {
      "school_id": "gz-440103-4bb96190",
-     "plan_classes": null,
+     "plan_classes": 8,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
@@ -3861,7 +3914,7 @@
     },
     {
      "school_id": "gz-440103-53cac770",
-     "plan_classes": null,
+     "plan_classes": 20,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
@@ -3869,7 +3922,7 @@
     },
     {
      "school_id": "gz-440103-ff7538dc",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
@@ -3877,7 +3930,7 @@
     },
     {
      "school_id": "gz-440103-2c188507",
-     "plan_classes": null,
+     "plan_classes": 6,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
@@ -3885,7 +3938,7 @@
     },
     {
      "school_id": "gz-440103-523446ce",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
@@ -3893,7 +3946,7 @@
     },
     {
      "school_id": "gz-440103-7207525c",
-     "plan_classes": null,
+     "plan_classes": 10,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
@@ -3901,11 +3954,18 @@
     },
     {
      "school_id": "gz-440103-bb7f78f0",
-     "plan_classes": null,
+     "plan_classes": 4,
      "scope": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
      "group_id": "liwan-16"
+    },
+    {
+     "school_id": "gz-440103-e281e7d0",
+     "plan_classes": 7,
+     "scope": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "2026 荔湾区公办初中一年级招生计划（附件1）单列，不在电脑派位分组表内。"
     }
    ]
   },
@@ -6139,7 +6199,11 @@
      "mechanism_note": "公办初中划片招生（2026 细则附件6）"
     },
     {
-     "school_id": "gz-440106-fa9338a2",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-d40d0dbe",
+      "gz-440106-fa9338a2"
+     ],
      "plan_classes": 14,
      "scope": "中山大道中1099号至尖塔路1号以西，中山大道中1099号转车陂路转广深铁路至科韵路以北，科韵路接新滘路以东，新塘街南界接吉岐街西界；智谷校区招生地段：广氮花园、棠安花园、天健上城、阳华国花苑、天河壹品、金地峯荟、消防总队经济适用房",
      "mechanism": "single_zone",

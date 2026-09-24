@@ -7493,8 +7493,8 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440111-fd1c1c12",
-    "gz-440111-78d61733"
+    "gz-440111-78d61733",
+    "gz-440111-fd1c1c12"
    ],
    "feed_unresolved": [],
    "group_id": 39
@@ -7510,8 +7510,8 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440111-fd1c1c12",
-    "gz-440111-78d61733"
+    "gz-440111-78d61733",
+    "gz-440111-fd1c1c12"
    ],
    "feed_unresolved": [],
    "group_id": 39
@@ -7977,8 +7977,8 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440111-fd1c1c12",
     "gz-440111-78d61733",
+    "gz-440111-fd1c1c12",
     "gz-440111-b2b78162"
    ],
    "feed_unresolved": [],
@@ -8197,8 +8197,8 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440111-fd1c1c12",
-    "gz-440111-78d61733"
+    "gz-440111-78d61733",
+    "gz-440111-fd1c1c12"
    ],
    "feed_unresolved": [],
    "group_id": 39
@@ -10638,6 +10638,7 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
+    "gz-440113-c07e3ddb",
     "gz-440113-7cdbe028"
    ],
    "feed_unresolved": [],
@@ -11093,6 +11094,7 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
+    "gz-440113-c07e3ddb",
     "gz-440113-7cdbe028"
    ],
    "feed_unresolved": [],
@@ -11622,6 +11624,7 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
+    "gz-440113-c07e3ddb",
     "gz-440113-7cdbe028"
    ],
    "feed_unresolved": [],

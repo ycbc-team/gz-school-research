@@ -85,6 +85,7 @@ SCHOOL_NORM = {
     "广州市华颖外国语学校（广州市华颖中学）": "广州市华颖外国语学校",
     "暨南大学附属实验学校": "暨南大学附属实验学校（初中部）",    # 企事业行（附件7）；历史反推用带（初中部）名
     "华南师范大学附属中学": "华南师范大学附属中学初中部",        # 企事业行本部（天河石牌）；实体表 440106+初中 收敛即命中初中部
+    "广州奥林匹克中学（含智谷校区）": "广州奥林匹克中学",              # 官方「含智谷校区」= 主校黄村西路 + 智谷校区（2026-09-24 修复：此前只挂智谷，黄村西路校区详情无招生）；归一后 resolve_all 双校区命中
 }
 # SCHOOL_ID_ANCHOR 已废弃（2026-09-23）：历史业务侧锚定全部下沉实体表别名——
 # 清华附中湾区学校（智谷校区）/暨南大学附属实验学校（初中部）/广州市天河区暨南第一实验学校
@@ -229,6 +230,21 @@ def build_panyu():
             "mechanism": mech, "mechanism_note": note or None,
             "group_members": members,
         })
+    # 区属初中面向全区（或属地镇街）招生简章批次（2026-09-24 补解析，转录 panyu_2026_quju.json）：
+    # 自愿报名、超计划电脑抽签；中签自动取消属地正常安排的学位、未中签回户籍地学区 → single_lottery。
+    # 与计划表（属地划片/派位）互补，同校并存为两种机制（如仲元一校区 市桥划片 + 面向全区抽签）。
+    quju = json.load(open(os.path.join(RAW, "panyu_2026_quju.json")))
+    for q in quju["records"]:
+        qsid, qsids = match_school_ids(q["school"], "440113")
+        qnote = (f"区属初中{q['batch']}批次：招生 {q['plan_people']} 人（自愿报名，超计划电脑抽签；"
+                 f"中签自动取消属地正常安排的学位，未中签回户籍地学区）。{q['note']}")
+        recs.append({
+            "school": q["school"], "school_id": qsid,
+            **({"school_ids": qsids} if qsids else {}),
+            "plan_classes": None, "scope": None,
+            "mechanism": "single_lottery", "mechanism_note": qnote,
+            "group_members": None,
+        })
     return {
         "year": 2026, "district": "番禺区",
         "source": "番禺区教育局《2026年番禺区义务教育阶段学校招生计划、招生地段及条件》+《2026年番禺区区属初中面向全区招生简章》",
@@ -282,8 +298,13 @@ def build_baiyun():
 def build_liwan():
     """荔湾：官方派位组表 15 组（转录 liwan_2026_groups.json，组×中学×对口小学三列）。
     每组成员逐条记录（一校多规则：同一初中可属多组），对口小学列 → groups[gid].primaries。
-    历史实现按 school 合并成员并集（组号丢失、官方组结构失真），本次改为与越秀/海珠同款逐组直建。"""
+    历史实现按 school 合并成员并集（组号丢失、官方组结构失真），本次改为与越秀/海珠同款逐组直建。
+    2026-09-24：补解析附件1 计划表（liwan_2026_plan.json，raw/liwan_2026_a1.docx）——派位组记录注入
+    官方班数；计划表有但派位组无的学校（协和学校初中部等）单列 single_zone 记录（此前整表未解析，
+    荔湾全部班数缺失、协和学校详情页误显示无招生）。"""
     raw = json.load(open(os.path.join(RAW, "liwan_2026_groups.json")))
+    plan = json.load(open(os.path.join(RAW, "liwan_2026_plan.json")))
+    plan_map = {r["school"].strip(): r["plan"] for r in plan["records"]}
     recs = []
     for g in raw:
         cells = g.get("cells", [])
@@ -300,7 +321,7 @@ def build_liwan():
         note = f"荔湾区{group_name}电脑派位"
         for m in members:
             recs.append({
-                "school": m, "school_id": None, "plan_classes": None, "scope": None,
+                "school": m, "school_id": None, "plan_classes": plan_map.get(m.strip()), "scope": None,
                 "mechanism": "group_paidui", "mechanism_note": note,
                 "group_members": members, "_group_primaries": primaries or None,
             })
@@ -309,9 +330,24 @@ def build_liwan():
         r["school_id"] = _sid
         if _sids:
             r["school_ids"] = _sids
+    # 附件1 计划表有、派位组无的学校：市属/单列（协和学校初中部等），单列 single_zone 记录
+    group_schools = {r["school"].strip() for r in recs}
+    for r in plan["records"]:
+        nm = r["school"].strip()
+        if nm in group_schools:
+            continue
+        _sid, _sids = match_school_ids(nm, "440103")
+        recs.append({
+            "school": nm, "school_id": _sid,
+            **({"school_ids": _sids} if _sids else {}),
+            "plan_classes": r["plan"], "scope": None,
+            "mechanism": "single_zone",
+            "mechanism_note": "2026 荔湾区公办初中一年级招生计划（附件1）单列，不在电脑派位分组表内。",
+            "group_members": None,
+        })
     return {
         "year": 2026, "district": "荔湾区",
-        "source": "荔湾区教育局 2026 公办初中招生派位组表（parsed/_transcripts/liwan_2026_groups.json）",
+        "source": "荔湾区教育局 2026 公办初中招生派位组表（parsed/_transcripts/liwan_2026_groups.json）+ 附件1 公办初中一年级招生计划（raw/liwan_2026_a1.docx，转录 liwan_2026_plan.json）",
         "source_url": None,
         "records": recs,
     }

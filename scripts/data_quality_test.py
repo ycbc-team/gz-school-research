@@ -144,7 +144,9 @@ def main():
         for m in g.get("members", []):
             sid = m.get("school_id")
             if sid:
-                check(sid in poi_ids, f"[2] member 悬空 school_id: {g['brand']} → {m['name']} ({sid})")
+                # member 结构现为 school_id/role/relation_type（03084a9 group refactor 去 name），
+                # 悬空检查用 school_id 定位即可（历史 m['name'] 在无 name 成员上 KeyError，2026-09-24 修复）
+                check(sid in poi_ids, f"[2] member 悬空 school_id: {g['brand']} → {sid}")
 
     # ---- 3. entities 纯名别名不得被同区同 stage 多个实体共用（抢名） ----
     # 跨区同名（不同学校）放行；同区多校区共用纯名 → 匹配不确定，报错。
