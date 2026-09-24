@@ -421,7 +421,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
         link: preferred ? `/school/${encodeURIComponent(preferred.name)}?stage=${preferred.stage}&id=${id}` : null,
       };
     });
-    return { groups: [{ key: 'campuses', title: '同一法人校区（非教育集团）', rows }] };
+    return { groups: [{ key: 'campuses', title: '多校区', rows }] };
   })();
   const multiCampusCardUseful = !!multiCampusCard && multiCampusCard.groups.some((g) => g.rows.some((r) => !r.isCurrent));
 

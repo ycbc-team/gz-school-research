@@ -445,7 +445,7 @@ function goCampus(item: { id: string; name: string }) {
 
     <!-- 品牌关联 + 校区（合并） -->
     <div v-if="brandCardUseful || multiCampusCardUseful" class="card">
-      <div class="card-title">{{ brandCardUseful ? '品牌关联' : '多校区' }}</div>
+      <div class="card-title">品牌关联</div>
       <template v-if="brandCard">
         <p class="sub-note">同一品牌下的校区与学校，按法人关系分组。</p>
         <div class="brand-head">品牌 · {{ brandCard.brand }}</div>
@@ -466,8 +466,8 @@ function goCampus(item: { id: string; name: string }) {
           <div class="brand-group-title" :class="g.key">{{ g.title }}</div>
           <div v-for="r in g.rows" :key="r.name" class="brand-row" :class="{ current: r.isCurrent }">
             <div class="brand-row-main">
-              <RouterLink v-if="r.link" :to="r.link" class="brand-name-link">{{ r.name }}</RouterLink>
-              <span v-else class="brand-name-plain">{{ r.name }}</span>
+              <RouterLink v-if="r.link && !r.isCurrent" :to="r.link" class="brand-name-link">{{ r.name }}</RouterLink>
+              <span v-else class="brand-name-link">{{ r.name }}</span>
               <span v-if="r.isCurrent" class="tag tag-now">当前查看</span>
               <span class="tag">{{ r.role }}</span>
             </div>
@@ -486,8 +486,8 @@ function goCampus(item: { id: string; name: string }) {
           <div class="brand-group-title" :class="g.key">{{ g.title }}</div>
           <div v-for="r in g.rows" :key="r.name" class="brand-row" :class="{ current: r.isCurrent }">
             <div class="brand-row-main">
-              <RouterLink v-if="r.link" :to="r.link" class="brand-name-link">{{ r.name }}</RouterLink>
-              <span v-else class="brand-name-plain">{{ r.name }}</span>
+              <RouterLink v-if="r.link && !r.isCurrent" :to="r.link" class="brand-name-link">{{ r.name }}</RouterLink>
+              <span v-else class="brand-name-link">{{ r.name }}</span>
               <span v-if="r.isCurrent" class="tag tag-now">当前查看</span>
               <span class="tag">{{ r.role }}</span>
             </div>
