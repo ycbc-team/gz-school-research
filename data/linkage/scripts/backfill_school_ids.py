@@ -215,12 +215,10 @@ def main() -> int:
             if '(' in s['school'] or '（' in s['school']:
                 # 校区级官方名单名（带括号，如「广州市铁一中学（越秀校区）」）：官方文件按校区
                 # 独立公布名额（越秀/白云/番禺三行各自考生数），不是法人聚合——school_ids 只关联
-                # 该校区本身。全半角统一后字符串全等命中（含「市」前缀差异变体如
-                # 「广州铁一中学（番禺校区）」少「市」）优先；否则信任 resolve 的 school_id
-                # （norm 去括号后保留校区名，已精确到校区实体），一律单校区不聚合。
-                _full = s['school'].replace('（', '(').replace('）', ')')
-                _exact = [i for i in ids if by_id.get(i, '').replace('（', '(').replace('）', ')') == _full]
-                s['school_ids'] = _exact if _exact else [s['school_id']]
+                # 该校区本身。school_id 即 SchoolMatcher resolve 的结果（norm/mnorm 去括号后
+                # 保留校区名，如「铁一中学越秀校区」，精确命中唯一校区实体），直接单校区收敛，
+                # 不额外写字符串匹配逻辑；其余 id 走 by_core 法人聚合（原名无括号才聚合）。
+                s['school_ids'] = [s['school_id']]
             elif len(ids) > 1:
                 # 法人行（原名无括号）：school_ids = 同 core 全部校区（升学信息按法人聚合展示）
                 s['school_ids'] = ids
