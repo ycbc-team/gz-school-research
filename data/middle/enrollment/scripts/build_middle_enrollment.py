@@ -115,6 +115,34 @@ def _primary_ids(name, adcode):
         ra = _MATCHER.resolve_all(name, preferred_adcode=adcode, preferred_stage="小学")
     return sorted({r["school_id"] for r in ra})
 
+_SCOPE_SPLIT = re.compile(r"[、，,;；]")
+# 小学名形态后缀：只对"看起来是小学名"的段做实体匹配，避免划片地段/楼盘/招生条件文本
+# 拆段后的零碎词（如「金山谷」「车陂路以东」「…小学应届毕业生」）被 SchoolMatcher 宽松命中造成误跳转。
+# 带限定词的段（「XX小学（地段生）」「…（不含北校区）」）宁缺毋滥：不匹配则前端保留文本展示。
+_EDU_SUFFIX = ("小学", "学校", "中学", "学院", "幼儿园", "小学部", "初中部", "高中部",
+               "校区", "分校", "教学点", "分部", "附中", "附小", "职中",
+               "一小", "二小", "三小", "四小", "五小", "六小", "七小", "八小", "九小", "十小")
+
+def _scope_primary_ids(scope, adcode):
+    """直升小学 scope → {小学名: school_ids}（数据层匹配，前端聚合为可点击行）：
+    按顿号/逗号拆段，逐段 SchoolMatcher 匹配小学实体（preferred_stage='小学'）。
+    仅匹配「小学名形态」（教育词后缀）的段——划片地段/说明文本（天河/番禺/白云部分）
+    匹配不到则整体不输出，前端对该记录保留『招生服务范围』文本展示。宁缺毋滥：匹配不到不猜。"""
+    if not scope:
+        return {}
+    out = {}
+    for part in _SCOPE_SPLIT.split(scope):
+        part = part.strip()
+        if not part or len(part) > 28:
+            continue
+        t = part.rstrip("。；;，,、 ）】]}\u3000 ").rstrip("）")
+        if not t.endswith(_EDU_SUFFIX):
+            continue
+        ids = _primary_ids(part, adcode)
+        if ids:
+            out[part] = ids
+    return out or None
+
 def _group_name(note):
     """机制备注 → 派位组显示名（「电脑派位第N组」）；无组号（番禺）→「电脑派位」。"""
     m = re.search(r"第\s*([一二三四五六七八九十\d]+)\s*组", note or "")
@@ -135,6 +163,7 @@ MECHANISMS = {
     "single_zone":    {"label": "单校划片",     "can_lose": False, "lose_text": None},
     "group_paidui":   {"label": "多校电脑派位", "can_lose": False, "lose_text": "派位组内学校随机分配，组内兜底，不安排到组外。"},
     "single_lottery": {"label": "单校电脑抽签", "can_lose": True,  "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时由区教育局统一组织电脑抽签；未中签者按区招生简章回户籍地学区申请入读公办初中，不保证安排到本校。"},
+    "no_plan":        {"label": "2026 无招生计划", "can_lose": False, "lose_text": None},
 }
 
 # ---------- 番禺 ----------
@@ -187,10 +216,16 @@ def build_panyu():
         # 挂独立实体 id——官方明文办初中，孤儿宁缺原则不适用（有官方招生记录）
         if school == "广东仲元中学二校区（初中部）":
             sid = "gz-440113-6dbdc462"
+        # 广东第二师范学院广州南站附属学校（石壁街钟韦大道144号，10 班单校划片）：
+        # 实体+POI 已补（2026-09-24），显式挂 id 消除 school_id=None 悬空
+        if school == "广东第二师范学院广州南站附属学校":
+            sid = "gz-440113-0bb52d06"
+        _ss = _scope_primary_ids(scope, "440113") if scope else None
         recs.append({
             "school": school, "school_id": sid,
             **({"school_ids": sids} if sids else {}),
             "plan_classes": plan_n, "scope": scope,
+            **({"scope_school_ids": _ss} if _ss else {}),
             "mechanism": mech, "mechanism_note": note or None,
             "group_members": members,
         })
@@ -220,14 +255,19 @@ def build_baiyun():
         else:
             mech = "single_zone"
         sid, sids = match_school_ids(school, "440111")
+        # 三元里中学（2026 涉拆迁停招，官方地址三元里群英大街34号）：实体+POI 已补，显式挂 id
+        if school == "广州市三元里中学":
+            sid = "gz-440111-8629621c"
         # 明德校区+同德校区合并招生（官方同一条记录）：school_id 置 None，school_ids 列出两校区共担
         if school == "广州市第六十五中学（明德校区、同德校区）":
             sid = None
             sids = ["gz-440111-c8461d5d", "gz-440111-c7b90869"]
+        _ss = _scope_primary_ids(feed, "440111") if feed else None
         recs.append({
             "school": school, "school_id": sid,
             **({"school_ids": sids} if sids else {}),
             "plan_classes": plan_n, "scope": feed or None,
+            **({"scope_school_ids": _ss} if _ss else {}),
             "mechanism": mech, "mechanism_note": note or None,
             "group_members": None,
         })
@@ -356,10 +396,12 @@ def build_yuexiu_official():
     # 直升（细则第九条）：已派位的初中追加 single_zone 直升规则（一校多规则，官方真实并存）
     for pri, junior in tr["direct_feed"].items():
         _sid, _sids = match_school_ids(junior, "440104")
+        _ss = _scope_primary_ids(pri, "440104") if pri else None
         recs.append({
             "school": SCHOOL_NORM.get(junior, junior), "school_id": _sid,
             **({"school_ids": _sids} if _sids else {}),
             "plan_classes": None, "scope": pri,
+            **({"scope_school_ids": _ss} if _ss else {}),
             "mechanism": "single_zone", "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
             "group_members": None,
         })
@@ -392,10 +434,12 @@ def build_haizhu_official():
             })
     for pri, junior in tr["direct_feed"].items():
         _sid, _sids = match_school_ids(junior, "440105")
+        _ss = _scope_primary_ids(pri, "440105") if pri else None
         recs.append({
             "school": SCHOOL_NORM.get(junior, junior), "school_id": _sid,
             **({"school_ids": _sids} if _sids else {}),
             "plan_classes": plan_classes.get(junior), "scope": pri,
+            **({"scope_school_ids": _ss} if _ss else {}),
             "mechanism": "single_zone", "mechanism_note": "对口直升（初中招生问答正文）",
             "group_members": None,
         })
@@ -420,10 +464,13 @@ def build_tianhe_official():
             sid, sids = (None, sorted(ids)) if len(ids) >= 2 else (ids[0] if ids else None, None)
         else:
             sid, sids = match_school_ids(school, "440106")
+        _zone = r.get("zone")
+        _ss = _scope_primary_ids(_zone, "440106") if _zone else None
         recs.append({
             "school": school, "school_id": sid,
             **({"school_ids": sids} if sids else {}),
-            "plan_classes": r["plan_classes"], "scope": r.get("zone"),
+            "plan_classes": r["plan_classes"], "scope": _zone,
+            **({"scope_school_ids": _ss} if _ss else {}),
             "mechanism": "single_zone", "mechanism_note": "公办初中划片招生（2026 细则附件6）",
             "group_members": None,
         })
@@ -437,9 +484,16 @@ def build_tianhe_official():
             "group_members": None,
         })
     for r in tr["minban"]:
+        _school_norm = SCHOOL_NORM.get(r["school"], r["school"])
         _sid, _sids = match_school_ids(r["school"], "440106")
+        # 天河东风/培智（民办附件8）与白云区公办同名校跨区候选混合（SchoolMatcher 索引化后
+        # 同名跨区进入候选 → 多候选宁缺展开 school_ids 误并两校）。显式锚定天河实体。
+        _TMB_ANCHOR = {"广州市天河区东风学校": "gz-440106-24ff78f9",
+                       "广州市天河区培智学校": "gz-440106-0a2c7178"}
+        if _school_norm in _TMB_ANCHOR:
+            _sid, _sids = _TMB_ANCHOR[_school_norm], None
         recs.append({
-            "school": SCHOOL_NORM.get(r["school"], r["school"]), "school_id": _sid,
+            "school": _school_norm, "school_id": _sid,
             **({"school_ids": _sids} if _sids else {}),
             "plan_classes": r["plan_classes"], "scope": None,
             "mechanism": "single_zone", "mechanism_note": "民办学校初中部自主招生（附件8）",
@@ -469,10 +523,13 @@ def build_huangpu_official():
             })
     for r in tr["zhisheng_groups"]:
         _sid, _sids = match_school_ids(r["junior"], "440112")
+        _zh_scope = "、".join(r["primaries"])
+        _ss = _scope_primary_ids(_zh_scope, "440112") if _zh_scope else None
         recs.append({
             "school": SCHOOL_NORM.get(r["junior"], r["junior"]), "school_id": _sid,
             **({"school_ids": _sids} if _sids else {}),
-            "plan_classes": None, "scope": "、".join(r["primaries"]),
+            "plan_classes": None, "scope": _zh_scope,
+            **({"scope_school_ids": _ss} if _ss else {}),
             "mechanism": "single_zone", "mechanism_note": "对口直升（2026 实施细则附件5）",
             "group_members": None,
         })
@@ -578,9 +635,34 @@ if __name__ == "__main__":
     # 中间统一格式目录：默认 parsed/middle_enrollment_2026/；--out-dir 时输出到临时目录（快照测试）
     dist_dir = out_dir if out_dir is not None else OUT_PARSED
     districts = {}
+    # 合理无招生说明（src/leftover_notes.json，业务人工确认、可展示给家长，机制同小学）：
+    #   对 2026 官方无招生计划的学校注入「2026 无招生计划」展示记录（mechanism=no_plan，
+    #   理由在 mechanism_note，详情页直接展示）；已有招生记录（如三元里中学涉拆迁停招 0 班）
+    #   跳过注入——停招理由已在其 mechanism_note，前端统一展示。
+    # 副作用即豁免：注入后 school_id 进入招生 id 集合 → 孤儿判定「无招生」消失；
+    # 「无升学」由 data_quality_test _MID_LEFT_NOTE_SIDS 豁免（业务确认合理，非数据缺口）。
+    _LEFT_NOTES = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                              "../src/leftover_notes.json"), encoding="utf-8"))
+    _ADCODE_DK = {v: k for k, v in _DK_ADCODE.items()}
     for dk in targets:
         data = BUILDERS[dk]()
         data = attach_legal_school_ids(data)
+        for _sid, _note in _LEFT_NOTES.items():
+            if _ADCODE_DK.get(_sid.split("-")[1]) != dk:
+                continue
+            if any(_r.get("school_id") == _sid or _sid in (_r.get("school_ids") or [])
+                   for _r in data["records"]):
+                continue
+            _ent = next((_e for _e in _entities["entities"]
+                         if _e.get("school_id") == _sid and _e.get("stage") == "middle"), None)
+            if _ent is None:
+                continue
+            data["records"].append({
+                "school": _ent["name"], "school_id": _sid, "plan_classes": None,
+                "scope": None, "mechanism": "no_plan", "mechanism_note": _note,
+                "group_members": None,
+            })
+            print(f"         注入合理无招生说明: {_ent['name']} ({_sid})")
         # 各区中间产物（统一格式，审计层）
         out = os.path.join(dist_dir, f"middle_enrollment_2026_{dk}.json")
         os.makedirs(os.path.dirname(out), exist_ok=True)
@@ -597,19 +679,16 @@ if __name__ == "__main__":
         print(f"         总{total}所, POI匹配{matched}, 机制分布: {mech_count}")
     # group_members 去重为独立组表（包体优化：组内 N 校 × 每组重复 M 次的校名只存一次）：
     # record.group_id 引用；mechanisms 三档全 7 区一致，合并后顶层一份。
+    # dist 层精简（2026-09-24）：record 不再存 school 名称（前端按 school_id 联查实体名）；
+    # groups 只保留 name + primaryIds（map key 即小学名列表），members/memberIds 无前端消费已删。
+    # parsed 区级产物保留 school/group_members 内嵌（审计层溯源，快照行键=school 不变）。
     groups = {}
     seen = {}  # 组内容（成员集合）→ group_id
-    # 初中名 → school_id(s)（构建期 SchoolMatcher 已匹配，运行时零匹配）
-    name_ids = {}
-    for dk in targets:
-        for r in districts[dk]["records"]:
-            ids = r.get("school_ids") or ([r["school_id"]] if r.get("school_id") else [])
-            if ids:
-                name_ids.setdefault(dk, {}).setdefault(r["school"], sorted(set(ids)))
     for dk in targets:
         for r in districts[dk]["records"]:
             members = r.pop("group_members", None)
             primaries = r.pop("_group_primaries", None)
+            r.pop("school", None)  # dist 层不存名称（parsed 审计层保留）
             if members:
                 # 去重 key 含对口小学：官方 1/2、8/9、13/14 组中学列表相同但小学列不同
                 # （荔湾），仅按 members 去重会合并丢小学 → (members, primaries) 联合去重。
@@ -618,11 +697,8 @@ if __name__ == "__main__":
                 if gid is None:
                     gid = f"{dk}-{len(seen) + 1}"
                     seen[key] = gid
-                    entry = {"district": districts[dk]["district"], "name": _group_name(r.get("mechanism_note")), "members": sorted(key[0])}
-                    if primaries:
-                        entry["primaries"] = primaries
-                    # 构建期匹配：成员/小学名 → school_id 列表（多校区多个 id，前端聚合展示/弹窗选校区）
-                    entry["memberIds"] = {m: name_ids.get(dk, {}).get(m, []) for m in key[0]}
+                    entry = {"district": districts[dk]["district"], "name": _group_name(r.get("mechanism_note"))}
+                    # 生源小学名 → school_id 列表（构建期实体匹配；多校区多个 id，前端弹窗选校区）
                     entry["primaryIds"] = {p: _primary_ids(p, _DK_ADCODE[dk]) for p in (primaries or [])}
                     groups[gid] = entry
                 r["group_id"] = gid

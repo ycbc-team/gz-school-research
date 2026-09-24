@@ -3047,6 +3047,11 @@
    "school_id": "gz-440104-09652aa5",
    "plan_classes": null,
    "scope": "铁一小学",
+   "scope_school_ids": {
+    "铁一小学": [
+     "gz-440104-755a5101"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
    "group_members": null
@@ -3056,6 +3061,11 @@
    "school_id": "gz-440104-99aef0e5",
    "plan_classes": null,
    "scope": "东山培正小学",
+   "scope_school_ids": {
+    "东山培正小学": [
+     "gz-440104-a41d6d8d"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
    "group_members": null
@@ -3069,6 +3079,11 @@
    ],
    "plan_classes": null,
    "scope": "育才学校",
+   "scope_school_ids": {
+    "育才学校": [
+     "gz-440104-982a248f"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
    "group_members": null
@@ -3078,6 +3093,11 @@
    "school_id": "gz-440104-68535b94",
    "plan_classes": null,
    "scope": "八一实验学校（小学部）",
+   "scope_school_ids": {
+    "八一实验学校（小学部）": [
+     "gz-440104-68535b94"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
    "group_members": null
@@ -3087,6 +3107,11 @@
    "school_id": "gz-440104-d972cf95",
    "plan_classes": null,
    "scope": "华侨外国语学校（小学部）",
+   "scope_school_ids": {
+    "华侨外国语学校（小学部）": [
+     "gz-440104-2f27f4d6"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
    "group_members": null
@@ -3096,6 +3121,11 @@
    "school_id": "gz-440104-c77c73b5",
    "plan_classes": null,
    "scope": "真光学校（小学部）",
+   "scope_school_ids": {
+    "真光学校（小学部）": [
+     "gz-440104-54a43537"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
    "group_members": null
@@ -3105,6 +3135,11 @@
    "school_id": "gz-440104-d5f83454",
    "plan_classes": null,
    "scope": "第七中学实验学校（小学部）",
+   "scope_school_ids": {
+    "第七中学实验学校（小学部）": [
+     "gz-440104-d5f83454"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
    "group_members": null
@@ -3114,6 +3149,11 @@
    "school_id": "gz-440104-bc48335e",
    "plan_classes": null,
    "scope": "知用学校（小学部）",
+   "scope_school_ids": {
+    "知用学校（小学部）": [
+     "gz-440104-bc48335e"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
    "group_members": null

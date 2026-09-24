@@ -3,6 +3,16 @@
   "baiyun": {
    "district": "白云区",
    "records": {
+    "培智学校": {
+     "group_members": null,
+     "mechanism": "no_plan",
+     "mechanism_note": "特殊教育学校，面向有特殊教育需要的学生招生，不参与普通初中电脑派位；具体入学安排以区教育局当年通知为准。",
+     "plan_classes": null,
+     "school": "培智学校",
+     "school_id": "gz-440111-4bbd4f92",
+     "school_ids": null,
+     "scope": null
+    },
     "广东外语外贸大学实验中学": {
      "group_members": null,
      "mechanism": "single_zone",
@@ -65,7 +75,7 @@
      "mechanism_note": "因涉拆迁，2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排。",
      "plan_classes": 0,
      "school": "广州市三元里中学",
-     "school_id": null,
+     "school_id": "gz-440111-8629621c",
      "school_ids": null,
      "scope": "三元里小学（不含北校区）、羊城铁路总公司广州铁路第五小学"
     },
@@ -1603,8 +1613,12 @@
      "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "铁铮学校",
-     "school_id": "gz-440112-11ed4c6c",
-     "school_ids": null,
+     "school_id": null,
+     "school_ids": [
+      "gz-440112-11ed4c6c",
+      "gz-440112-7127244c",
+      "gz-440112-d3055548"
+     ],
      "scope": "铁铮学校"
     },
     "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）": {
@@ -2617,7 +2631,7 @@
      "mechanism_note": null,
      "plan_classes": 10,
      "school": "广东第二师范学院广州南站附属学校",
-     "school_id": null,
+     "school_id": "gz-440113-0bb52d06",
      "school_ids": null,
      "scope": "具有石一村、石二村、石三村、石四村、韦涌村、大洲村、屏一村、屏二村、都那村户籍的小学应届毕业生；石壁街南站社区居委户籍的小学应届毕业生；碧桂东苑户籍小学应届毕业生。"
     },
@@ -2650,6 +2664,16 @@
      "school_id": "gz-440113-8f5e4721",
      "school_ids": null,
      "scope": "小谷围街四条保留村户籍的小学应届毕业生；小谷围街辖区内小区户籍的小学应届毕业生（必须是业主子女身份）；大学城（小谷围街辖区内）高校在职在编人员小学应届毕业生子女。"
+    },
+    "广州市番禺区少年儿童业余体校": {
+     "group_members": null,
+     "mechanism": "no_plan",
+     "mechanism_note": "区属少年儿童业余体校，以体育后备人才培养为主，不参与普通初中电脑派位；具体招生安排以区教育局当年通知为准。",
+     "plan_classes": null,
+     "school": "广州市番禺区少年儿童业余体校",
+     "school_id": "gz-440113-fdabec82",
+     "school_ids": null,
+     "scope": null
     },
     "广铁一中番禺校区": {
      "group_members": [
@@ -2933,6 +2957,16 @@
      "plan_classes": 4,
      "school": "华南理工大学附属实验学校",
      "school_id": "gz-440106-9bed7efb",
+     "school_ids": null,
+     "scope": null
+    },
+    "天河区智谷第一实验学校": {
+     "group_members": null,
+     "mechanism": "no_plan",
+     "mechanism_note": "2026 年官方初中招生计划（《天河区 2026 年义务教育阶段学校招生工作细则》附件6）未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
+     "plan_classes": null,
+     "school": "天河区智谷第一实验学校",
+     "school_id": "gz-440106-d311ea50",
      "school_ids": null,
      "scope": null
     },
@@ -3310,6 +3344,16 @@
       "gz-440106-b711d94a"
      ],
      "scope": "详见附件10"
+    },
+    "广州市天河外国语智谷学校": {
+     "group_members": null,
+     "mechanism": "no_plan",
+     "mechanism_note": "2026 年官方初中招生计划（《天河区 2026 年义务教育阶段学校招生工作细则》附件6）未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
+     "plan_classes": null,
+     "school": "广州市天河外国语智谷学校",
+     "school_id": "gz-440106-d042314d",
+     "school_ids": null,
+     "scope": null
     },
     "广州市天荣中学": {
      "group_members": null,

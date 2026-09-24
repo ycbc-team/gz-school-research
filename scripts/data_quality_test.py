@@ -274,6 +274,7 @@ def main():
                   f"[7/{stage}] 自我匹配失败: {s['name']} -> {r.get('school_id')}（应为 {s.get('school_id')}）")
 
     # ---- 8. 初中招生计划 school_id 一致性：必须存在；区一致（跨区白名单）；合并招生 school_ids 均存在 ----
+    # （2026-09-24 dist 已不存 school 名，报错以 school_id 标识；官方名单名溯源在 parsed/快照层）
     # 跨区白名单：培英鹤洞校区(白云名单引用荔湾)、四中丰宁学校(荔湾区属，校址纸行路39号在越秀/荔湾交界，高德归越秀)
     CROSS_DISTRICT_OK = {"gz-440103-a3ee807c", "gz-440104-3b870a8e"}
     # dist 合并一份（2026-09-23）：{year, districts: {<区>: snapshot}}
@@ -282,7 +283,7 @@ def main():
         for r in d.get("records", []):
             sid = r.get("school_id")
             if sid:
-                check(sid in poi_ids, f"[8/{d['district']}] 招生记录 school_id 悬空: {r['school']} -> {sid}")
+                check(sid in poi_ids, f"[8/{d['district']}] 招生记录 school_id 悬空: {sid}")
                 if sid not in CROSS_DISTRICT_OK:
                     # POI 真实 adcode（石龙中学等 school_id 前缀 440100 市属、POI 在白云 440111，
                     # 以 POI 表为准——school_id 前缀 ≠ POI adcode 的个别历史数据不误报）
@@ -296,9 +297,9 @@ def main():
                     adc = _poi_ad
                     expect_ad = {"番禺区": "440113", "越秀区": "440104", "海珠区": "440105",
                                  "荔湾区": "440103", "天河区": "440106", "白云区": "440111", "黄埔区": "440112"}[d["district"]]
-                    check(adc == expect_ad, f"[8/{d['district']}] 招生记录跨区挂错: {r['school']} -> {sid} (POI 区 {adc} ≠ {expect_ad})")
+                    check(adc == expect_ad, f"[8/{d['district']}] 招生记录跨区挂错: {sid} (POI 区 {adc} ≠ {expect_ad})")
             for sid2 in (r.get("school_ids") or []):
-                check(sid2 in poi_ids, f"[8/{d['district']}] 合并招生 school_ids 悬空: {r['school']} -> {sid2}")
+                check(sid2 in poi_ids, f"[8/{d['district']}] 合并招生 school_ids 悬空: {sid2}")
 
     # ---- 9. 关键案例 golden：校名匹配基线（改动后必须逐条复核再更新） ----
     # 校名取招生记录真实名（与 build_middle_enrollment 输入一致）；缺失为 None
@@ -412,6 +413,9 @@ def main():
     # 招生区域承接说明表（enrollment/src，业务人工确认）：原校保留遗留学生升学
     # → 原校非孤儿（如东区小学/禾丰小学 2026 官方无招生但有升学遗留，dist 有 zone=note 记录）
     _LEFT_NOTE_SIDS = set(json.load(open(os.path.join(ROOT, "data/primary/enrollment/src/leftover_notes.json"), encoding="utf-8")).keys())
+    # 初中合理无招生说明表（enrollment/src，业务人工确认）：特教/体校/新校未开办/合并招生等
+    # 属正常业务（注入 dist 记录后「无招生」已消失），「无升学」同样豁免，避免孤儿清单噪音。
+    _MID_LEFT_NOTE_SIDS = set(json.load(open(os.path.join(ROOT, "data/middle/enrollment/src/leftover_notes.json"), encoding="utf-8")).keys())
     _sc25 = json.load(open(os.path.join(ROOT, "data/high/cutoff_score/dist/scores_2025.json"))).get("by_school_id", {})
     _orphans = []
     # 孤儿排查只看 7 区（荔湾/越秀/海珠/天河/白云/黄埔/番禺）公办学校：
@@ -431,6 +435,8 @@ def main():
             if _e["school_id"] not in _pri_enroll_ids: _lacks.append("无招生")
             if _e["school_id"] not in _xs_ids: _lacks.append("无升学")
         elif _e["stage"] == "middle":
+            if _e["school_id"] in _MID_LEFT_NOTE_SIDS:
+                continue  # 业务确认合理无招生（src/leftover_notes.json），非孤儿
             if _e["school_id"] not in _mid_enroll_ids: _lacks.append("无招生")
             if _e["school_id"] not in _rm_ids and _e["school_id"] not in _qm_school_ids and _e["name"] not in _qm_names: _lacks.append("无升学")
         else:  # high

@@ -7351,10 +7351,10 @@
   "gz-440111-23d6fbf3": {
    "data_gaps": null,
    "direct_feed_school_id": null,
-   "feed_school_ids": [],
-   "feed_unresolved": [
-    "广州市三元里中学"
+   "feed_school_ids": [
+    "gz-440111-8629621c"
    ],
+   "feed_unresolved": [],
    "group_id": 33
   },
   "gz-440111-2659ed44": {
@@ -8448,10 +8448,10 @@
   "gz-440111-b1484250": {
    "data_gaps": null,
    "direct_feed_school_id": null,
-   "feed_school_ids": [],
-   "feed_unresolved": [
-    "广州市三元里中学"
+   "feed_school_ids": [
+    "gz-440111-8629621c"
    ],
+   "feed_unresolved": [],
    "group_id": 33
   },
   "gz-440111-b14d37bb": {
@@ -8763,10 +8763,10 @@
   "gz-440111-db593ac1": {
    "data_gaps": null,
    "direct_feed_school_id": null,
-   "feed_school_ids": [],
-   "feed_unresolved": [
-    "广州市三元里中学"
+   "feed_school_ids": [
+    "gz-440111-8629621c"
    ],
+   "feed_unresolved": [],
    "group_id": 33
   },
   "gz-440111-df409e86": {
@@ -9884,10 +9884,10 @@
   "gz-440112-87756a6d": {
    "data_gaps": null,
    "direct_feed_school_id": "gz-440112-87756a6d",
-   "feed_school_ids": [],
-   "feed_unresolved": [
-    "广大附中黄埔实验学校（西校区）"
+   "feed_school_ids": [
+    "gz-440112-87756a6d"
    ],
+   "feed_unresolved": [],
    "group_id": 156
   },
   "gz-440112-880cd8fa": {
@@ -10611,7 +10611,7 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440113-6ddbaaf6"
+    "gz-440113-0bb52d06"
    ],
    "feed_unresolved": [],
    "group_id": 58
@@ -10934,7 +10934,7 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440113-6ddbaaf6"
+    "gz-440113-0bb52d06"
    ],
    "feed_unresolved": [],
    "group_id": 58
@@ -11004,7 +11004,7 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440113-6ddbaaf6"
+    "gz-440113-0bb52d06"
    ],
    "feed_unresolved": [],
    "group_id": 58
@@ -11841,7 +11841,7 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440113-6ddbaaf6"
+    "gz-440113-0bb52d06"
    ],
    "feed_unresolved": [],
    "group_id": 58

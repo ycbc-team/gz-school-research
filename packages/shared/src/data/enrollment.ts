@@ -104,22 +104,20 @@ const DEFAULT_DEFS: Record<MiddleMechanism, MiddleMechanismDef> = {
   single_zone: { label: '单校划片', can_lose: false, lose_text: null },
   group_paidui: { label: '多校电脑派位', can_lose: false, lose_text: '组内学校兜底。' },
   single_lottery: { label: '单校电脑抽签', can_lose: true, lose_text: '未中签回原学区。' },
+  no_plan: { label: '2026 无招生计划', can_lose: false, lose_text: null },
 };
 export function createMiddleEnrollmentApi(loaders: DataLoaders) {
   const list = loaders.middleEnrollments || [];
-  // dist 合并结构（2026-09-23）：mechanisms 顶层一份；组表展开 group_id → group_members
+  // dist 合并结构（2026-09-23）：mechanisms 顶层一份；group_id 引用独立组表。
+  // 2026-09-24 精简：dist record 不存 school 名称/group_members（组表 members 已删，无前端消费），
+  // 组信息（组名/生源小学）由调用方经 middleEnrollmentGroups 联查。
   const mechanisms = loaders.middleEnrollmentMechanisms || {};
-  const groups = loaders.middleEnrollmentGroups || {};
-  const expand = (r: MiddleEnrollmentRecord): MiddleEnrollmentRecord =>
-    ({ ...r, group_members: r.group_id ? groups[r.group_id]?.members ?? null : (r.group_members ?? null) });
   const byId = new Map<string, MiddleEnrollmentRecord>();
   const byIdAll = new Map<string, MiddleEnrollmentMatch[]>();
-  const byName = new Map<string, MiddleEnrollmentRecord>();
   for (const snap of list) {
     for (const r0 of snap.records) {
-      const r = expand(r0);
+      const r = r0;
       if (r.school_id && !byId.has(r.school_id)) byId.set(r.school_id, r);
-      if (r.school && !byName.has(r.school)) byName.set(r.school, r);
       const def = mechanisms[r.mechanism] || DEFAULT_DEFS[r.mechanism];
       const match: MiddleEnrollmentMatch = { record: r, mechanismDef: def, district: snap.district };
       const ids = r.school_id ? [r.school_id, ...(r.school_ids || [])] : (r.school_ids || []);

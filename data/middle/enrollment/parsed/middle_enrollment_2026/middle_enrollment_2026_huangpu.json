@@ -664,6 +664,14 @@
    "school_id": "gz-440112-cbfb4b61",
    "plan_classes": null,
    "scope": "广州开发区第一小学、广州开发区第二小学（南校区）",
+   "scope_school_ids": {
+    "广州开发区第一小学": [
+     "gz-440112-5a6ea672"
+    ],
+    "广州开发区第二小学（南校区）": [
+     "gz-440112-e1ec9724"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
@@ -673,6 +681,26 @@
    "school_id": "gz-440112-12b0184b",
    "plan_classes": null,
    "scope": "东荟花园小学（南校区）、东荟花园小学（北校区）、玉泉学校（东校区）、玉泉学校（北校区）、玉鸣小学、光远小学",
+   "scope_school_ids": {
+    "东荟花园小学（南校区）": [
+     "gz-440112-84a205c9"
+    ],
+    "东荟花园小学（北校区）": [
+     "gz-440112-ce5e4e7d"
+    ],
+    "玉泉学校（东校区）": [
+     "gz-440112-04db6ee7"
+    ],
+    "玉泉学校（北校区）": [
+     "gz-440112-78b9dcdf"
+    ],
+    "玉鸣小学": [
+     "gz-440112-21dc3ebd"
+    ],
+    "光远小学": [
+     "gz-440112-1fb45e21"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
@@ -682,6 +710,30 @@
    "school_id": "gz-440112-f3817fbe",
    "plan_classes": null,
    "scope": "九龙第二小学、九龙第三小学、九龙第四小学、广州知识城第一小学、广东外语外贸大学附属知识城实验小学（南校区）、汤村小学、知识城南安置区（二期）小学（暂定名）",
+   "scope_school_ids": {
+    "九龙第二小学": [
+     "gz-440112-0484c45e",
+     "gz-440112-3f33e75c",
+     "gz-440112-59ba7b57"
+    ],
+    "九龙第三小学": [
+     "gz-440112-753aa0d3"
+    ],
+    "九龙第四小学": [
+     "gz-440112-2a13a6a9",
+     "gz-440112-43e15e18"
+    ],
+    "广州知识城第一小学": [
+     "gz-440112-8f016a0c"
+    ],
+    "广东外语外贸大学附属知识城实验小学（南校区）": [
+     "gz-440112-abe35401"
+    ],
+    "汤村小学": [
+     "gz-440112-0db47a7c",
+     "gz-440112-dc7228f1"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
@@ -691,6 +743,11 @@
    "school_id": "gz-440112-ee49f05d",
    "plan_classes": null,
    "scope": "文船小学",
+   "scope_school_ids": {
+    "文船小学": [
+     "gz-440112-9e481bef"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
@@ -700,6 +757,17 @@
    "school_id": "gz-440112-674f4721",
    "plan_classes": null,
    "scope": "长洲岛小学、深井小学、黄船小学",
+   "scope_school_ids": {
+    "长洲岛小学": [
+     "gz-440112-fd5af1d7"
+    ],
+    "深井小学": [
+     "gz-440112-2995943b"
+    ],
+    "黄船小学": [
+     "gz-440112-1c720ed0"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
@@ -709,6 +777,11 @@
    "school_id": "gz-440112-e3190fa2",
    "plan_classes": null,
    "scope": "会元学校",
+   "scope_school_ids": {
+    "会元学校": [
+     "gz-440112-e3190fa2"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
@@ -718,6 +791,11 @@
    "school_id": "gz-440112-d62f1348",
    "plan_classes": null,
    "scope": "开元学校（东校区）",
+   "scope_school_ids": {
+    "开元学校（东校区）": [
+     "gz-440112-549c8532"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
@@ -727,6 +805,11 @@
    "school_id": "gz-440112-6d1ac70b",
    "plan_classes": null,
    "scope": "华南师范大学附属黄埔实验学校",
+   "scope_school_ids": {
+    "华南师范大学附属黄埔实验学校": [
+     "gz-440112-6d1ac70b"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
@@ -736,6 +819,11 @@
    "school_id": "gz-440112-87756a6d",
    "plan_classes": null,
    "scope": "广大附中黄埔实验学校（西校区）",
+   "scope_school_ids": {
+    "广大附中黄埔实验学校（西校区）": [
+     "gz-440112-87756a6d"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
@@ -745,6 +833,11 @@
    "school_id": "gz-440112-705c66e3",
    "plan_classes": null,
    "scope": "华南师范大学附属开发区实验小学",
+   "scope_school_ids": {
+    "华南师范大学附属开发区实验小学": [
+     "gz-440112-6232b59e"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
@@ -754,6 +847,11 @@
    "school_id": "gz-440112-e08700ea",
    "plan_classes": null,
    "scope": "广东外语外贸大学附属科学城实验学校",
+   "scope_school_ids": {
+    "广东外语外贸大学附属科学城实验学校": [
+     "gz-440112-e08700ea"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
@@ -763,6 +861,11 @@
    "school_id": "gz-440112-cf50e275",
    "plan_classes": null,
    "scope": "广东外语外贸大学附属黄埔实验学校",
+   "scope_school_ids": {
+    "广东外语外贸大学附属黄埔实验学校": [
+     "gz-440112-cf50e275"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
@@ -772,6 +875,11 @@
    "school_id": "gz-440112-40be421c",
    "plan_classes": null,
    "scope": "湖南师范大学附属黄埔实验学校",
+   "scope_school_ids": {
+    "湖南师范大学附属黄埔实验学校": [
+     "gz-440112-40be421c"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
@@ -781,15 +889,33 @@
    "school_id": "gz-440112-e3746d8c",
    "plan_classes": null,
    "scope": "广大附中高新区实验学校（北校区）、广大附中高新区实验学校（南校区）",
+   "scope_school_ids": {
+    "广大附中高新区实验学校（北校区）": [
+     "gz-440112-035f4f6d"
+    ],
+    "广大附中高新区实验学校（南校区）": [
+     "gz-440112-66c2a1f1"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
   },
   {
    "school": "铁铮学校",
-   "school_id": "gz-440112-11ed4c6c",
+   "school_id": null,
+   "school_ids": [
+    "gz-440112-11ed4c6c",
+    "gz-440112-7127244c",
+    "gz-440112-d3055548"
+   ],
    "plan_classes": null,
    "scope": "铁铮学校",
+   "scope_school_ids": {
+    "铁铮学校": [
+     "gz-440112-11ed4c6c"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
@@ -804,6 +930,23 @@
    ],
    "plan_classes": null,
    "scope": "九龙第一小学、何棠下小学、枫下小学、凤尾小学、广州知识城北小学",
+   "scope_school_ids": {
+    "九龙第一小学": [
+     "gz-440112-ffa4e489"
+    ],
+    "何棠下小学": [
+     "gz-440112-5147e70b"
+    ],
+    "枫下小学": [
+     "gz-440112-dcae7622"
+    ],
+    "凤尾小学": [
+     "gz-440112-c9a30b3d"
+    ],
+    "广州知识城北小学": [
+     "gz-440112-ba943844"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null

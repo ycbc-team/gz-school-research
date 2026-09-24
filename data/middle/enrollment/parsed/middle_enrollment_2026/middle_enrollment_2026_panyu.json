@@ -150,7 +150,7 @@
   },
   {
    "school": "广东第二师范学院广州南站附属学校",
-   "school_id": null,
+   "school_id": "gz-440113-0bb52d06",
    "plan_classes": 10,
    "scope": "具有石一村、石二村、石三村、石四村、韦涌村、大洲村、屏一村、屏二村、都那村户籍的小学应届毕业生；石壁街南站社区居委户籍的小学应届毕业生；碧桂东苑户籍小学应届毕业生。",
    "mechanism": "single_zone",
@@ -491,6 +491,15 @@
    "scope": "紫坭村、三善村、 新洲村、龙湾村、古东村、古西村以及紫坭社区居委户籍的小学应届毕业生。",
    "mechanism": "single_zone",
    "mechanism_note": null,
+   "group_members": null
+  },
+  {
+   "school": "广州市番禺区少年儿童业余体校",
+   "school_id": "gz-440113-fdabec82",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "no_plan",
+   "mechanism_note": "区属少年儿童业余体校，以体育后备人才培养为主，不参与普通初中电脑派位；具体招生安排以区教育局当年通知为准。",
    "group_members": null
   }
  ]

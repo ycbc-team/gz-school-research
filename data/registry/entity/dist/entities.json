@@ -10043,13 +10043,17 @@
       "school_id": "gz-440112-7127244c",
       "name": "广铁一中铁铮学校(西校区)",
       "stage": "middle",
-      "aliases": []
+      "aliases": [
+        "铁铮学校"
+      ]
     },
     {
       "school_id": "gz-440112-d3055548",
       "name": "广铁一中铁铮学校(东校区)",
       "stage": "middle",
-      "aliases": []
+      "aliases": [
+        "铁铮学校"
+      ]
     },
     {
       "school_id": "gz-440112-c80ac6ac",
@@ -10096,6 +10100,52 @@
     {
       "school_id": "gz-440105-96460a76",
       "name": "广州市南武第二实验学校(北校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-8984feab",
+      "name": "广州市白云区云翔学校",
+      "stage": "middle",
+      "aliases": [
+        "云翔学校"
+      ]
+    },
+    {
+      "school_id": "gz-440106-24ff78f9",
+      "name": "东风学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440106-0a2c7178",
+      "name": "培智学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440112-87756a6d",
+      "name": "广大附中黄埔实验学校(西校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-11ed4c6c",
+      "name": "铁铮学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-0bb52d06",
+      "name": "广东第二师范学院广州南站附属学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-8629621c",
+      "name": "广州市三元里中学",
       "stage": "middle",
       "aliases": []
     },
