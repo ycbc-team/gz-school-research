@@ -334,10 +334,15 @@ function goCampus(item: { id: string; name: string }) {
           </span>
         </div>
         <template v-for="(m, mi) in middleEnrolls" :key="`${m.district}-${m.record.school_id ?? mi}-${m.record.group_id ?? mi}`">
-        <div v-if="m.record.scope || (m.mechanismDef.can_lose && m.mechanismDef.lose_text)" class="mech-block" :style="mi ? 'border-top:1px dashed #e5e7eb;margin-top:10px;padding-top:10px;' : ''">
+        <div v-if="m.record.scope || (m.mechanismDef.can_lose && m.mechanismDef.lose_text) || m.record.mechanism === 'no_plan'" class="mech-block" :style="mi ? 'border-top:1px dashed #e5e7eb;margin-top:10px;padding-top:10px;' : ''">
           <div v-if="m.record.scope" class="zone-block">
             <div class="zone-label">招生服务范围</div>
             <p>{{ m.record.scope }}</p>
+          </div>
+          <!-- 招生说明：合理无招生理由（leftover_notes，家长可读）/ 停招说明（如三元里中学涉拆迁）/ 机制来源备注 -->
+          <div v-if="m.record.mechanism_note" class="zone-block">
+            <div class="zone-label">招生说明</div>
+            <p>{{ m.record.mechanism_note }}</p>
           </div>
           <!-- 单校电脑抽签：红字警示 -->
           <div v-if="m.mechanismDef.can_lose && m.mechanismDef.lose_text" class="lottery-warning">
@@ -547,6 +552,7 @@ function goCampus(item: { id: string; name: string }) {
 .badge.single_zone { background: #0f766e; }
 .badge.group_paidui { background: #1e40af; }
 .badge.single_lottery { background: #dc2626; }
+.badge.no_plan { background: #6b7280; }
 .mech-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
 .mech-head { display: inline-flex; align-items: center; gap: 10px; }
 .mech-plan { font-size: 13px; font-weight: 600; color: #1a1b1c; }

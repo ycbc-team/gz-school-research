@@ -502,6 +502,24 @@
    "mechanism": "single_zone",
    "mechanism_note": "民办学校初中部自主招生（附件8）",
    "group_members": null
+  },
+  {
+   "school": "天河区智谷第一实验学校",
+   "school_id": "gz-440106-d311ea50",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "no_plan",
+   "mechanism_note": "2026 年官方初中招生计划（《天河区 2026 年义务教育阶段学校招生工作细则》附件6）未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河外国语智谷学校",
+   "school_id": "gz-440106-d042314d",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "no_plan",
+   "mechanism_note": "2026 年官方初中招生计划（《天河区 2026 年义务教育阶段学校招生工作细则》附件6）未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
+   "group_members": null
   }
  ]
 }

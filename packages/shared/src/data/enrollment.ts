@@ -104,6 +104,7 @@ const DEFAULT_DEFS: Record<MiddleMechanism, MiddleMechanismDef> = {
   single_zone: { label: '单校划片', can_lose: false, lose_text: null },
   group_paidui: { label: '多校电脑派位', can_lose: false, lose_text: '组内学校兜底。' },
   single_lottery: { label: '单校电脑抽签', can_lose: true, lose_text: '未中签回原学区。' },
+  no_plan: { label: '2026 无招生计划', can_lose: false, lose_text: null },
 };
 export function createMiddleEnrollmentApi(loaders: DataLoaders) {
   const list = loaders.middleEnrollments || [];

@@ -135,6 +135,7 @@ MECHANISMS = {
     "single_zone":    {"label": "单校划片",     "can_lose": False, "lose_text": None},
     "group_paidui":   {"label": "多校电脑派位", "can_lose": False, "lose_text": "派位组内学校随机分配，组内兜底，不安排到组外。"},
     "single_lottery": {"label": "单校电脑抽签", "can_lose": True,  "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时由区教育局统一组织电脑抽签；未中签者按区招生简章回户籍地学区申请入读公办初中，不保证安排到本校。"},
+    "no_plan":        {"label": "2026 无招生计划", "can_lose": False, "lose_text": None},
 }
 
 # ---------- 番禺 ----------
@@ -592,9 +593,34 @@ if __name__ == "__main__":
     # 中间统一格式目录：默认 parsed/middle_enrollment_2026/；--out-dir 时输出到临时目录（快照测试）
     dist_dir = out_dir if out_dir is not None else OUT_PARSED
     districts = {}
+    # 合理无招生说明（src/leftover_notes.json，业务人工确认、可展示给家长，机制同小学）：
+    #   对 2026 官方无招生计划的学校注入「2026 无招生计划」展示记录（mechanism=no_plan，
+    #   理由在 mechanism_note，详情页直接展示）；已有招生记录（如三元里中学涉拆迁停招 0 班）
+    #   跳过注入——停招理由已在其 mechanism_note，前端统一展示。
+    # 副作用即豁免：注入后 school_id 进入招生 id 集合 → 孤儿判定「无招生」消失；
+    # 「无升学」由 data_quality_test _MID_LEFT_NOTE_SIDS 豁免（业务确认合理，非数据缺口）。
+    _LEFT_NOTES = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                              "../src/leftover_notes.json"), encoding="utf-8"))
+    _ADCODE_DK = {v: k for k, v in _DK_ADCODE.items()}
     for dk in targets:
         data = BUILDERS[dk]()
         data = attach_legal_school_ids(data)
+        for _sid, _note in _LEFT_NOTES.items():
+            if _ADCODE_DK.get(_sid.split("-")[1]) != dk:
+                continue
+            if any(_r.get("school_id") == _sid or _sid in (_r.get("school_ids") or [])
+                   for _r in data["records"]):
+                continue
+            _ent = next((_e for _e in _entities["entities"]
+                         if _e.get("school_id") == _sid and _e.get("stage") == "middle"), None)
+            if _ent is None:
+                continue
+            data["records"].append({
+                "school": _ent["name"], "school_id": _sid, "plan_classes": None,
+                "scope": None, "mechanism": "no_plan", "mechanism_note": _note,
+                "group_members": None,
+            })
+            print(f"         注入合理无招生说明: {_ent['name']} ({_sid})")
         # 各区中间产物（统一格式，审计层）
         out = os.path.join(dist_dir, f"middle_enrollment_2026_{dk}.json")
         os.makedirs(os.path.dirname(out), exist_ok=True)

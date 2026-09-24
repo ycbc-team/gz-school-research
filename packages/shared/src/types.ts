@@ -272,7 +272,7 @@ export interface EnrollmentSnapshot {
 }
 
 /** data/middle/enrollment/dist/middle_enrollment_2026_*.json —— 初中视角招生计划 */
-export type MiddleMechanism = 'single_zone' | 'group_paidui' | 'single_lottery';
+export type MiddleMechanism = 'single_zone' | 'group_paidui' | 'single_lottery' | 'no_plan';
 export interface MiddleMechanismDef {
   label: string;
   can_lose: boolean;

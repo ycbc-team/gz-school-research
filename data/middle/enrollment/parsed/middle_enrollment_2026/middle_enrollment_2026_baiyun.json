@@ -595,6 +595,15 @@
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
+  },
+  {
+   "school": "培智学校",
+   "school_id": "gz-440111-4bbd4f92",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "no_plan",
+   "mechanism_note": "特殊教育学校，面向有特殊教育需要的学生招生，不参与普通初中电脑派位；具体入学安排以区教育局当年通知为准。",
+   "group_members": null
   }
  ]
 }

@@ -861,6 +861,24 @@
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（2026 实施细则附件5）",
    "group_members": null
+  },
+  {
+   "school": "广铁一中铁铮学校(东校区)",
+   "school_id": "gz-440112-d3055548",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "no_plan",
+   "mechanism_note": "2026 年初中招生计划由“广铁一中铁铮学校”统一公布（东/西校区合计），本校区不单独下达招生计划。",
+   "group_members": null
+  },
+  {
+   "school": "广铁一中铁铮学校(西校区)",
+   "school_id": "gz-440112-7127244c",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "no_plan",
+   "mechanism_note": "2026 年初中招生计划由“广铁一中铁铮学校”统一公布（东/西校区合计），本校区不单独下达招生计划。",
+   "group_members": null
   }
  ]
 }

@@ -492,6 +492,15 @@
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
+  },
+  {
+   "school": "广州市番禺区少年儿童业余体校",
+   "school_id": "gz-440113-fdabec82",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "no_plan",
+   "mechanism_note": "区属少年儿童业余体校，以体育后备人才培养为主，不参与普通初中电脑派位；具体招生安排以区教育局当年通知为准。",
+   "group_members": null
   }
  ]
 }
