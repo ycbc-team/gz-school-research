@@ -170,11 +170,24 @@ const middleEnrolls = computed(() => {
 function groupNameOf(gid?: string | null): string {
   return (gid ? middleEnrollmentGroups[gid]?.name : null) || '组内可填报';
 }
-/** 机制徽章去重行：同区同机制同班数的多组只展示一次（用户：海珠区 Badge 删、计划 12 个班只展示一次）。
- * 同校同区多种机制并存（如琶洲实验：电脑派位 + 对口直升）时，plan_classes 是全校总计划
- * （官方招生计划表），徽章不重复显示班数（避免 9+9=18 误读），改由 totalPlanOfMulti 展示一次。 */
-const mechanismHeads = computed(() => {
+/** 机制块线性排列：每机制一块（徽章 + 招生服务范围/招生说明 + 该机制生源小学）。
+ * 顺序：对口直升(single_zone) → 多校电脑派位(group_paidui) → 其余按出现顺序（用户：先直升后派位）。
+ * 同区同机制多条（多组派位）合并为一块；同校多机制并存时 plan_classes 是全校总计划，
+ * 徽章不重复显示班数（避免 9+9=18 误读），由 totalPlanOfMulti 展示一次。
+ * 区 Badge 仅在同机制跨区（天河/越秀并存的 2 所）时才显示，其余场景一律不显示（用户：删海珠区 Badge）。 */
+type MechBlock = { district: string; mech: string; label: string; plan: number | null; showDistrict: boolean; enrolls: (typeof middleEnrolls.value)[number][]; rows: { name: string; groupName: string; ids: string[] }[] };
+const MECH_ORDER = ['single_zone', 'group_paidui'];
+const mechanismBlocks = computed<MechBlock[]>(() => {
   if (stage.value !== 'middle') return [];
+  const byKey = new Map<string, MechBlock>();
+  const order: string[] = [];
+  for (const m of middleEnrolls.value) {
+    const key = `${m.district}|${m.record.mechanism}`;
+    let b = byKey.get(key);
+    if (!b) { b = { district: m.district, mech: m.record.mechanism, label: m.mechanismDef.label, plan: null, showDistrict: false, enrolls: [], rows: [] }; byKey.set(key, b); order.push(key); }
+    b.enrolls.push(m);
+  }
+  // 多机制判定（同校同区）：plan 仅单机制时展示
   const mechs = new Map<string, Set<string>>();
   for (const m of middleEnrolls.value) {
     const sid = m.record.school_id ?? (m.record.school_ids || [])[0] ?? '';
@@ -182,18 +195,33 @@ const mechanismHeads = computed(() => {
     if (!mechs.has(k)) mechs.set(k, new Set());
     mechs.get(k)!.add(m.record.mechanism);
   }
-  const seen = new Set<string>();
-  const rows: { district: string; mech: string; label: string; plan: number | null }[] = [];
-  for (const m of middleEnrolls.value) {
-    const key = `${m.district}|${m.record.mechanism}|${m.record.plan_classes ?? ''}`;
-    if (seen.has(key)) continue;
-    seen.add(key);
-    const sid = m.record.school_id ?? (m.record.school_ids || [])[0] ?? '';
-    const k = `${m.district}|${sid}`;
-    const multi = (mechs.get(k)?.size ?? 1) > 1;
-    rows.push({ district: m.district, mech: m.record.mechanism, label: m.mechanismDef.label, plan: multi ? null : m.record.plan_classes });
+  const blocks = order.map(k => byKey.get(k)!);
+  for (const b of blocks) {
+    const first = b.enrolls[0]!;
+    const sid = first.record.school_id ?? (first.record.school_ids || [])[0] ?? '';
+    const multi = (mechs.get(`${b.district}|${sid}`)?.size ?? 1) > 1;
+    b.plan = multi ? null : (first.record.plan_classes ?? null);
+    for (const m of b.enrolls) {
+      const gid = m.record.group_id;
+      const g = gid ? middleEnrollmentGroups[gid] : null;
+      const pid = g?.primaryIds ?? {};
+      for (const p of Object.keys(pid)) b.rows.push({ name: p, groupName: groupNameOf(gid), ids: pid[p] ?? [] });
+    }
   }
-  return rows;
+  blocks.sort((a, b2) => {
+    const ia = MECH_ORDER.indexOf(a.mech), ib = MECH_ORDER.indexOf(b2.mech);
+    if (ia !== -1 && ib !== -1) return ia - ib;
+    if (ia !== -1) return -1;
+    if (ib !== -1) return 1;
+    return order.indexOf(`${a.district}|${a.mech}`) - order.indexOf(`${b2.district}|${b2.mech}`);
+  });
+  const mechDistricts = new Map<string, Set<string>>();
+  for (const b of blocks) {
+    if (!mechDistricts.has(b.mech)) mechDistricts.set(b.mech, new Set());
+    mechDistricts.get(b.mech)!.add(b.district);
+  }
+  for (const b of blocks) b.showDistrict = (mechDistricts.get(b.mech)?.size ?? 1) > 1;
+  return blocks;
 });
 /** 多机制并存时的全校总计划（plan_classes 唯一值；同校多种招生方式共用，仅展示一次） */
 const totalPlanOfMulti = computed(() => {
@@ -211,18 +239,6 @@ const totalPlanOfMulti = computed(() => {
     if ((mechs.get(k)?.size ?? 1) > 1 && m.record.plan_classes != null) return m.record.plan_classes;
   }
   return null;
-});
-/** 生源小学平铺行：跨全部派位组，行 = 小学名 + 组名 Badge（用户：多组小学平铺、Badge 区分分组） */
-const primaryRows = computed(() => {
-  if (stage.value !== 'middle') return [];
-  const rows: { name: string; groupName: string; ids: string[] }[] = [];
-  for (const m of middleEnrolls.value) {
-    const gid = m.record.group_id;
-    const g = gid ? middleEnrollmentGroups[gid] : null;
-    const pid = g?.primaryIds ?? {};
-    for (const p of Object.keys(pid)) rows.push({ name: p, groupName: groupNameOf(gid), ids: pid[p] ?? [] });
-  }
-  return rows;
 });
 /** 多校区法人行弹窗（与初中名额分配明细 RankingView 同款）：一个小学名 + school_ids → 弹窗选校区跳转 */
 const campusPicker = ref<{ top: number; left: number; items: Array<{ id: string; name: string }> } | null>(null);
@@ -353,47 +369,48 @@ function goCampus(item: { id: string; name: string }) {
       <div class="card-title">招生计划（2026）</div>
       <p v-if="enrollNote" class="sub-note">{{ enrollNote }}</p>
 
-      <!-- 机制徽章去重展示（顶部一次）：同区同机制同班数合并；组差异由生源小学 Badge 区分 -->
+      <!-- 机制块线性排列：对口直升在前，多校电脑派位在后；每机制徽章下紧跟该机制内容 -->
       <template v-if="middleEnrolls.length">
-        <p v-if="totalPlanOfMulti != null" class="sub-note" style="margin-bottom:6px;">2026 年招生总计划 {{ totalPlanOfMulti }} 个班（以下 {{ mechanismHeads.length }} 种方式共用）</p>
-        <div class="mech-row">
-          <span v-for="(h, hi) in mechanismHeads" :key="`${h.mech}-${h.plan}-${hi}`" class="mech-head">
-            <span v-if="mechanismHeads.length > 1 || new Set(middleEnrolls.map(x => x.district)).size > 1" class="badge b-district">{{ h.district }}</span>
-            <span class="badge" :class="h.mech">{{ h.label }}</span>
-            <span v-if="h.plan != null" class="mech-plan">计划 {{ h.plan }} 个班</span>
-          </span>
-        </div>
-        <template v-for="(m, mi) in middleEnrolls" :key="`${m.district}-${m.record.school_id ?? mi}-${m.record.group_id ?? mi}`">
-        <div v-if="m.record.scope || (m.mechanismDef.can_lose && m.mechanismDef.lose_text) || m.record.mechanism === 'no_plan'" class="mech-block" :style="mi ? 'border-top:1px dashed #e5e7eb;margin-top:10px;padding-top:10px;' : ''">
-          <div v-if="m.record.scope" class="zone-block">
-            <div class="zone-label">招生服务范围</div>
-            <p>{{ m.record.scope }}</p>
+        <p v-if="totalPlanOfMulti != null" class="sub-note" style="margin-bottom:6px;">2026 年招生总计划 {{ totalPlanOfMulti }} 个班（以下 {{ mechanismBlocks.length }} 种方式共用）</p>
+        <template v-for="(mb, mbi) in mechanismBlocks" :key="`${mb.district}-${mb.mech}-${mbi}`">
+          <div class="mech-row" :style="mbi ? 'margin-top:12px;' : ''">
+            <span class="mech-head">
+              <span v-if="mb.showDistrict" class="badge b-district">{{ mb.district }}</span>
+              <span class="badge" :class="mb.mech">{{ mb.label }}</span>
+              <span v-if="mb.plan != null" class="mech-plan">计划 {{ mb.plan }} 个班</span>
+            </span>
           </div>
-          <!-- 招生说明：合理无招生理由（leftover_notes，家长可读）/ 停招说明（如三元里中学涉拆迁）/ 机制来源备注 -->
-          <div v-if="m.record.mechanism_note" class="zone-block">
-            <div class="zone-label">招生说明</div>
-            <p>{{ m.record.mechanism_note }}</p>
+          <template v-for="(m, mi) in mb.enrolls" :key="`${mb.district}-${m.record.school_id ?? mi}-${m.record.group_id ?? mi}`">
+          <div v-if="m.record.scope || (m.mechanismDef.can_lose && m.mechanismDef.lose_text) || m.record.mechanism === 'no_plan'" class="mech-block" :style="mi ? 'border-top:1px dashed #e5e7eb;margin-top:10px;padding-top:10px;' : ''">
+            <div v-if="m.record.scope" class="zone-block">
+              <div class="zone-label">招生服务范围</div>
+              <p>{{ m.record.scope }}</p>
+            </div>
+            <!-- 招生说明：合理无招生理由（leftover_notes，家长可读）/ 停招说明（如三元里中学涉拆迁）/ 机制来源备注 -->
+            <div v-if="m.record.mechanism_note" class="zone-block">
+              <div class="zone-label">招生说明</div>
+              <p>{{ m.record.mechanism_note }}</p>
+            </div>
+            <!-- 单校电脑抽签：红字警示 -->
+            <div v-if="m.mechanismDef.can_lose && m.mechanismDef.lose_text" class="lottery-warning">
+              ⚠️ {{ m.mechanismDef.lose_text }}
+            </div>
           </div>
-          <!-- 单校电脑抽签：红字警示 -->
-          <div v-if="m.mechanismDef.can_lose && m.mechanismDef.lose_text" class="lottery-warning">
-            ⚠️ {{ m.mechanismDef.lose_text }}
+          </template>
+          <!-- 该机制生源小学（派位组小学 + 组名 Badge） -->
+          <div v-if="mb.rows.length" class="zone-block" style="margin-top:10px">
+            <div class="zone-label">生源小学（对口派位，按组区分）</div>
+            <div class="feed-list">
+              <div v-for="row in mb.rows" :key="`${row.groupName}-${row.name}`" class="feed-item">
+                <button v-if="row.ids.length > 1" class="feed-name campus-open" @click="openPrimaryPicker(row, $event)">{{ row.name }}</button>
+                <RouterLink v-else-if="row.ids.length === 1" :to="`/school/${encodeURIComponent(row.name)}?id=${row.ids[0]}&stage=primary`" class="feed-name">{{ row.name }}</RouterLink>
+                <span v-else class="feed-name">{{ row.name }}</span>
+                <span class="tag tag-dim">{{ row.groupName }}</span>
+              </div>
+            </div>
           </div>
-        </div>
         </template>
       </template>
-
-      <!-- 生源小学平铺：多组小学全部一个列表，组名 Badge 标在小学后面区分分组 -->
-      <div v-if="primaryRows.length" class="zone-block" style="margin-top:10px">
-        <div class="zone-label">生源小学（对口派位，按组区分）</div>
-        <div class="feed-list">
-          <div v-for="row in primaryRows" :key="`${row.groupName}-${row.name}`" class="feed-item">
-            <button v-if="row.ids.length > 1" class="feed-name campus-open" @click="openPrimaryPicker(row, $event)">{{ row.name }}</button>
-            <RouterLink v-else-if="row.ids.length === 1" :to="`/school/${encodeURIComponent(row.name)}?id=${row.ids[0]}&stage=primary`" class="feed-name">{{ row.name }}</RouterLink>
-            <span v-else class="feed-name">{{ row.name }}</span>
-            <span class="tag tag-dim">{{ row.groupName }}</span>
-          </div>
-        </div>
-      </div>
 
       <p v-if="!middleEnrolls.length" class="empty">暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。</p>
     </div>
