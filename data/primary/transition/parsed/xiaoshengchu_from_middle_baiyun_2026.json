@@ -1,0 +1,2545 @@
+{
+  "year": 2026,
+  "district": "白云区",
+  "kind": "candidate_from_middle_enrollment_transcripts",
+  "source": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+  "source_url": null,
+  "records": [
+    {
+      "name": "三元里小学(北校区)",
+      "school_id": "gz-440111-714c07ba",
+      "official_primary_names": [
+        "三元里小学北校区"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第六十七中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-e337711a"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "京溪小学(京溪校区)",
+      "school_id": "gz-440111-aec60b7c",
+      "official_primary_names": [
+        "京溪小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案"
+      ],
+      "feed_junior_highs": [
+        "同和中学",
+        "广州市白云区培英实验学校(同和校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0ba9a45f",
+        "gz-440111-e14818fc"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "京溪小学(怡新校区)",
+      "school_id": "gz-440111-88b4ce7e",
+      "official_primary_names": [
+        "京溪小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案"
+      ],
+      "feed_junior_highs": [
+        "同和中学",
+        "广州市白云区培英实验学校(同和校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0ba9a45f",
+        "gz-440111-e14818fc"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "京溪小学(恒大校区)",
+      "school_id": "gz-440111-162f6ce2",
+      "official_primary_names": [
+        "京溪小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案"
+      ],
+      "feed_junior_highs": [
+        "同和中学",
+        "广州市白云区培英实验学校(同和校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0ba9a45f",
+        "gz-440111-e14818fc"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "人和镇第一小学",
+      "school_id": "gz-440111-645ba6c1",
+      "official_primary_names": [
+        "白云区人和镇第一小学"
+      ],
+      "groups": [
+        "group_paidui",
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州空港实验中学(东校区)",
+        "广州空港实验中学(校本部)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0cf700fb",
+        "gz-440111-d4c4285e"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "人和镇第一小学(鸦湖校区)",
+      "school_id": "gz-440111-fad0ee39",
+      "official_primary_names": [
+        "白云区人和镇第一小学"
+      ],
+      "groups": [
+        "group_paidui",
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州空港实验中学(东校区)",
+        "广州空港实验中学(校本部)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0cf700fb",
+        "gz-440111-d4c4285e"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "人和镇第七小学",
+      "school_id": "gz-440111-14a87ed8",
+      "official_primary_names": [
+        "白云区人和镇第七小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "白云六中实验中学(空港校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-4ab20f44"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "人和镇第二小学",
+      "school_id": "gz-440111-e8d9a6bd",
+      "official_primary_names": [
+        "白云区人和镇第二小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "白云六中实验中学(空港校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-4ab20f44"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "人和镇第五小学",
+      "school_id": "gz-440111-311a2ef8",
+      "official_primary_names": [
+        "白云区人和镇第五小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "白云六中实验中学(空港校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-4ab20f44"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "人和镇第五小学(太成校区)",
+      "school_id": "gz-440111-908072a9",
+      "official_primary_names": [
+        "白云区人和镇第五小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "白云六中实验中学(空港校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-4ab20f44"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "人和镇第六小学",
+      "school_id": "gz-440111-6c463f28",
+      "official_primary_names": [
+        "白云区人和镇第六小学"
+      ],
+      "groups": [
+        "group_paidui",
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州空港实验中学(东校区)",
+        "广州空港实验中学(校本部)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0cf700fb",
+        "gz-440111-d4c4285e"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "加禾小学",
+      "school_id": "gz-440111-04e2c749",
+      "official_primary_names": [
+        "加禾小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "嘉禾中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-d2a4a882"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "南园小学",
+      "school_id": "gz-440111-183641c4",
+      "official_primary_names": [
+        "南园小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第七十中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-20c36515"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "南村小学",
+      "school_id": "gz-440111-79a8e86f",
+      "official_primary_names": [
+        "南村小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第七十中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-20c36515"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "双岗小学",
+      "school_id": "gz-440111-7440b0d4",
+      "official_primary_names": [
+        "双岗小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第六十五中学(江府校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-4ebb4316"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "同和小学",
+      "school_id": "gz-440111-5a19f704",
+      "official_primary_names": [
+        "同和小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案"
+      ],
+      "feed_junior_highs": [
+        "同和中学",
+        "广州市白云区培英实验学校(同和校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0ba9a45f",
+        "gz-440111-e14818fc"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "唐阁小学",
+      "school_id": "gz-440111-d75adb30",
+      "official_primary_names": [
+        "唐阁小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区大朗中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-cc803935"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "夏良学校",
+      "school_id": "gz-440111-cd427031",
+      "official_primary_names": [
+        "夏良小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第七十中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-20c36515"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "夏茅小学",
+      "school_id": "gz-440111-666e141f",
+      "official_primary_names": [
+        "夏茅小学"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区景泰中学白云湖校区"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-2186a02a"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "大冈小学",
+      "school_id": "gz-440111-2bb2adc7",
+      "official_primary_names": [
+        "大岡小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "石井中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-297970b9"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "大岭小学",
+      "school_id": "gz-440111-295f7e58",
+      "official_primary_names": [
+        "大岭小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区神山中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-6becf87b"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "大朗小学",
+      "school_id": "gz-440111-ef705692",
+      "official_primary_names": [
+        "大朗小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区大朗中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-cc803935"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "大沥小学",
+      "school_id": "gz-440111-9588f926",
+      "official_primary_names": [
+        "大沥小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一五中学",
+        "广州市白云区太和中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-b5668c2e",
+        "gz-440111-06bfc806"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "大田小学",
+      "school_id": "gz-440111-3a8dded4",
+      "official_primary_names": [
+        "大田小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广东技术师范大学白云实验中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-d3ffec78"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "太和镇第二小学(和龙校区)",
+      "school_id": "gz-440111-b14d37bb",
+      "official_primary_names": [
+        "太和镇第二小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一五中学",
+        "广州市白云区太和中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-b5668c2e",
+        "gz-440111-06bfc806"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "平沙培英学校",
+      "school_id": "gz-440111-175bd68f",
+      "official_primary_names": [
+        "平沙培英学校（小学部）"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "平沙培英学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-175bd68f"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "平沙小学",
+      "school_id": "gz-440111-27e5e03f",
+      "official_primary_names": [
+        "平沙小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案"
+      ],
+      "feed_junior_highs": [
+        "广州市铁一中学(白云校区)",
+        "颜乐天纪念中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-28c16cca",
+        "gz-440111-35536ebb"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广东外语外贸大学实验中学小学部",
+      "school_id": "gz-440111-6e11e279",
+      "official_primary_names": [
+        "广东外语外贸大学实验中学（陈田西校区小学部）",
+        "广东外语外贸大学实验中学小学部"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广东外语外贸大学实验中学（陈田西校区）",
+        "广东外语外贸大学实验中学",
+        "广东外语外贸大学实验中学(北校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-f5da4352",
+        "gz-440111-7e484346",
+        "gz-440111-f751344d"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广东外语外贸大学实验中学（陈田西校区）小学部",
+      "school_id": "gz-440111-c553e806",
+      "official_primary_names": [
+        "广东外语外贸大学实验中学（陈田西校区小学部）",
+        "广东外语外贸大学实验中学小学部"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广东外语外贸大学实验中学（陈田西校区）",
+        "广东外语外贸大学实验中学",
+        "广东外语外贸大学实验中学(北校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-f5da4352",
+        "gz-440111-7e484346",
+        "gz-440111-f751344d"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广东技术师范大学白云实验小学",
+      "school_id": "gz-440111-f9ef2295",
+      "official_primary_names": [
+        "江高镇中心小学"
+      ],
+      "groups": [
+        "group_paidui",
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广东技术师范大学白云实验中学",
+        "江村中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-d3ffec78",
+        "gz-440111-609bfcf4"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广东第二师范学院实验小学",
+      "school_id": "gz-440111-127e76be",
+      "official_primary_names": [
+        "广东第二师范学院实验小学"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广东第二师范学院实验中学(初中部)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-014a9fb2"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广园小学",
+      "school_id": "gz-440111-53549fe6",
+      "official_primary_names": [
+        "广园小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广园中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-ea6a6495"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市培英中学附属科技城小学",
+      "school_id": "gz-440111-ccb0d7b4",
+      "official_primary_names": [
+        "广州市白云区培英中学附属科技城小学"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州市培英中学科技城校区"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-e128c24f"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云中学棠景校区小学部",
+      "school_id": "gz-440111-bac34523",
+      "official_primary_names": [
+        "广州市白云中学棠景校区小学部"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州市白云中学(棠景校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-6782f041"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云中学附属小学",
+      "school_id": "gz-440111-cb67f3e8",
+      "official_primary_names": [
+        "白云中学附属小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区新市中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-f3edc7ba"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区云英实验附属小学",
+      "school_id": "gz-440111-e66f2c52",
+      "official_primary_names": [
+        "云英实验学校（小学部）"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "培英实验学校(云景校区)初中部"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-2d42f392"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区京溪小学(白天鹅校区)",
+      "school_id": "gz-440111-ae3faca7",
+      "official_primary_names": [
+        "京溪小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案"
+      ],
+      "feed_junior_highs": [
+        "同和中学",
+        "广州市白云区培英实验学校(同和校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0ba9a45f",
+        "gz-440111-e14818fc"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区人和镇第二小学(建南校区)",
+      "school_id": "gz-440111-f5b57c5c",
+      "official_primary_names": [
+        "白云区人和镇第二小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "白云六中实验中学(空港校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-4ab20f44"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区培英中学附属第三小学",
+      "school_id": "gz-440111-8bed320e",
+      "official_primary_names": [
+        "培英中学附属第三小学"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "东平学校(东平校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-e6300e34"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区大源小学",
+      "school_id": "gz-440111-451fa87e",
+      "official_primary_names": [
+        "大源小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一五中学",
+        "广州市白云区太和中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-b5668c2e",
+        "gz-440111-06bfc806"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区太和中学",
+      "school_id": "gz-440111-06bfc806",
+      "official_primary_names": [
+        "（太和镇第一小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一五中学",
+        "广州市白云区太和中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-b5668c2e",
+        "gz-440111-06bfc806"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区头陂小学",
+      "school_id": "gz-440111-fdf75778",
+      "official_primary_names": [
+        "头陂小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一五中学",
+        "广州市白云区太和中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-b5668c2e",
+        "gz-440111-06bfc806"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区广大附中实验小学",
+      "school_id": "gz-440111-2b633ed9",
+      "official_primary_names": [
+        "广大附中实验小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案"
+      ],
+      "feed_junior_highs": [
+        "同和中学",
+        "广州市白云区培英实验学校(同和校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0ba9a45f",
+        "gz-440111-e14818fc"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区星悦实验学校",
+      "school_id": "gz-440111-88372834",
+      "official_primary_names": [
+        "星悦实验学校小学部"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区星悦实验学校(初中部)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-2ed8a6e2"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区桃园小学",
+      "school_id": "gz-440111-aca0bfc6",
+      "official_primary_names": [
+        "桃园小学"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州市第六十五中学桃园校区"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-4cf10429"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区民航学校(人和校区)",
+      "school_id": "gz-440111-7a3148c4",
+      "official_primary_names": [
+        "民航学校（小学部）"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区民航学校(初中部)",
+        "广州市白云区民航学校(人和校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-5c7a7c4a",
+        "gz-440111-7a3148c4"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区白云外国语中小学",
+      "school_id": "gz-440111-620f7d31",
+      "official_primary_names": [
+        "广州市白云区白云外国语小学"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区白云外国语中小学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-620f7d31"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区白云广附云湖实验学校小学部",
+      "school_id": "gz-440111-acfb7ee3",
+      "official_primary_names": [
+        "广州市白云区白云广附云湖实验学校小学部"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "白云广附云湖实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-92e78967"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区石华小学",
+      "school_id": "gz-440111-81bcdb32",
+      "official_primary_names": [
+        "石华小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "石龙中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440100-7564c13b"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区神山中学",
+      "school_id": "gz-440111-6becf87b",
+      "official_primary_names": [
+        "神山一小",
+        "神山二小",
+        "神山三小",
+        "神山五小"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区神山中学",
+        "石龙中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-6becf87b",
+        "gz-440100-7564c13b"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区穗丰学校",
+      "school_id": "gz-440111-853a71dd",
+      "official_primary_names": [
+        "穗丰学校小学部"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区穗丰学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-853a71dd"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区蟠龙小学",
+      "school_id": "gz-440111-63866efa",
+      "official_primary_names": [
+        "蟠龙小学"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广东第二师范学院实验中学(初中部)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-014a9fb2"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区金沙小学(东校区)",
+      "school_id": "gz-440111-c780791c",
+      "official_primary_names": [
+        "金沙小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广大附中实验中学(南校区)",
+        "广大附中实验中学(星汇金沙校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0078267c",
+        "gz-440111-b95f2597"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市白云区长红小学",
+      "school_id": "gz-440111-130d875a",
+      "official_primary_names": [
+        "长红小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案"
+      ],
+      "feed_junior_highs": [
+        "广州市铁一中学(白云校区)",
+        "颜乐天纪念中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-28c16cca",
+        "gz-440111-35536ebb"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州空港实验小学(南校区)",
+      "school_id": "gz-440111-31528abe",
+      "official_primary_names": [
+        "空港实验小学南校区"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区民航学校(人和校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-7a3148c4"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州空港实验小学(总校区)",
+      "school_id": "gz-440111-981cfa5b",
+      "official_primary_names": [
+        "广州市白云区广州空港实验小学（总校区"
+      ],
+      "groups": [
+        "建南安置区完全中学建成投入使用后，推动将该校学生搬迁至新学校"
+      ],
+      "feed_junior_highs": [
+        "广州空港实验中学(西校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-35860c30"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州铁路第五小学",
+      "school_id": "gz-440111-23d6fbf3",
+      "official_primary_names": [
+        "羊城铁路总公司广州铁路第五小学"
+      ],
+      "groups": [
+        "因涉拆迁，2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排。"
+      ],
+      "feed_junior_highs": [
+        "广州市三元里中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-8629621c"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "广铁八小",
+      "school_id": "gz-440111-492e4ac6",
+      "official_primary_names": [
+        "广铁八小"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第六十五中学(江府校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-4ebb4316"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "握山小学",
+      "school_id": "gz-440111-dace2460",
+      "official_primary_names": [
+        "握山小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案"
+      ],
+      "feed_junior_highs": [
+        "同和中学",
+        "广州市白云区培英实验学校(同和校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0ba9a45f",
+        "gz-440111-e14818fc"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "新兴白云小学",
+      "school_id": "gz-440111-d64313ba",
+      "official_primary_names": [
+        "新兴白云小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案",
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "同和中学",
+        "嘉禾中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0ba9a45f",
+        "gz-440111-d2a4a882"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "新和学校小学部",
+      "school_id": "gz-440111-183704b2",
+      "official_primary_names": [
+        "新和学校小学部"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "新和学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-525f949a"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "新楼村梁庆贤学校",
+      "school_id": "gz-440111-0b5419e2",
+      "official_primary_names": [
+        "新楼小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第六十五中学(江府校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-4ebb4316"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "新科小学",
+      "school_id": "gz-440111-69ccafc2",
+      "official_primary_names": [
+        "新科小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案"
+      ],
+      "feed_junior_highs": [
+        "广州市铁一中学(白云校区)",
+        "颜乐天纪念中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-28c16cca",
+        "gz-440111-35536ebb"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "景泰小学(景泰校区)",
+      "school_id": "gz-440111-97e26d68",
+      "official_primary_names": [
+        "景泰小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广园中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-ea6a6495"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "景泰小学(柯子岭校区)",
+      "school_id": "gz-440111-9e34191e",
+      "official_primary_names": [
+        "景泰小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广园中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-ea6a6495"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "望岗小学",
+      "school_id": "gz-440111-e09d8e9b",
+      "official_primary_names": [
+        "望岗小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "嘉禾中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-d2a4a882"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "朝阳小学",
+      "school_id": "gz-440111-3e1d70e5",
+      "official_primary_names": [
+        "朝阳小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一四中学(亭石南路)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0f9c1ce8"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "松溪小学",
+      "school_id": "gz-440111-a0f0324a",
+      "official_primary_names": [
+        "松溪小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州彭加木纪念中学(初中部)",
+        "广州彭加木纪念中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-4e13c7d6",
+        "gz-440111-d28d78f9"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "棠涌小学",
+      "school_id": "gz-440111-bc3ea2c7",
+      "official_primary_names": [
+        "棠涌小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区新市中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-f3edc7ba"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "棠溪小学(百荣校区)",
+      "school_id": "gz-440111-0e79b86d",
+      "official_primary_names": [
+        "棠溪小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第六十七中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-e337711a"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "横沙学校",
+      "school_id": "gz-440111-53d3305b",
+      "official_primary_names": [
+        "横沙小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广大附中实验中学(南校区)",
+        "广大附中实验中学(星汇金沙校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0078267c",
+        "gz-440111-b95f2597"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "水沥小学",
+      "school_id": "gz-440111-604036fa",
+      "official_primary_names": [
+        "水沥小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第六十五中学(江府校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-4ebb4316"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "永兴小学",
+      "school_id": "gz-440111-e93fb2a5",
+      "official_primary_names": [
+        "永兴小学"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "龙归学校(初中部)",
+        "龙归学校（珑璟校区）"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-4c9a3eaa",
+        "gz-440111-9c7a2c45"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "永泰小学",
+      "school_id": "gz-440111-77c67c22",
+      "official_primary_names": [
+        "永泰小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案",
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "同和中学",
+        "嘉禾中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0ba9a45f",
+        "gz-440111-d2a4a882"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "汇侨第一小学(汇侨校区)",
+      "school_id": "gz-440111-50352c96",
+      "official_primary_names": [
+        "汇侨第一小学"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州市白云中学(汇侨校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-1b7d3f87"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "汇侨第一小学(纵横缤城校区)",
+      "school_id": "gz-440111-5d802050",
+      "official_primary_names": [
+        "汇侨第一小学"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州市白云中学(汇侨校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-1b7d3f87"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "汇侨第一小学小坪校区",
+      "school_id": "gz-440111-514cf237",
+      "official_primary_names": [
+        "汇侨第一小学"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州市白云中学(汇侨校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-1b7d3f87"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "江夏小学",
+      "school_id": "gz-440111-59f40d14",
+      "official_primary_names": [
+        "江夏小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "黄石学校(中学部)",
+        "黄石学校(黄石校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-292274e7",
+        "gz-440111-a53c68e3"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "江村小学",
+      "school_id": "gz-440111-4a15a4dc",
+      "official_primary_names": [
+        "江村小学"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "江村中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-609bfcf4"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "沙亭岗小学",
+      "school_id": "gz-440111-06928bc2",
+      "official_primary_names": [
+        "沙亭岗小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一五中学",
+        "广州市白云区太和中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-b5668c2e",
+        "gz-440111-06bfc806"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "沙凤小学",
+      "school_id": "gz-440111-b0e4d621",
+      "official_primary_names": [
+        "沙凤小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广大附中实验中学(南校区)",
+        "广大附中实验中学(星汇金沙校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0078267c",
+        "gz-440111-b95f2597"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "沙凤小学(北校区)",
+      "school_id": "gz-440111-3f73f47c",
+      "official_primary_names": [
+        "沙凤小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广大附中实验中学(南校区)",
+        "广大附中实验中学(星汇金沙校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0078267c",
+        "gz-440111-b95f2597"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "清湖小学",
+      "school_id": "gz-440111-e128009e",
+      "official_primary_names": [
+        "清湖小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案"
+      ],
+      "feed_junior_highs": [
+        "广州市铁一中学(白云校区)",
+        "颜乐天纪念中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-28c16cca",
+        "gz-440111-35536ebb"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "滘心小学",
+      "school_id": "gz-440111-fdf2f84b",
+      "official_primary_names": [
+        "滘心小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一四中学(亭石南路)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0f9c1ce8"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "潭岗小学(凰岗校区)",
+      "school_id": "gz-440111-f1f9eaff",
+      "official_primary_names": [
+        "潭岗小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "石井中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-297970b9"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "潭岗小学(潭村校区)",
+      "school_id": "gz-440111-8e574b6b",
+      "official_primary_names": [
+        "潭岗小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "石井中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-297970b9"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "环滘小学",
+      "school_id": "gz-440111-3eabc7bc",
+      "official_primary_names": [
+        "环滘小学"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区景泰中学白云湖校区"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-2186a02a"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "白云区同德小学",
+      "school_id": "gz-440111-a2117640",
+      "official_primary_names": [
+        "同德小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第六十五中学初中部(明德校区)",
+        "广州市第六十五中学(同德校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-c8461d5d",
+        "gz-440111-c7b90869"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "白云区小塘小学",
+      "school_id": "gz-440111-568b9d31",
+      "official_primary_names": [
+        "小塘小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广东技术师范大学白云实验中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-d3ffec78"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "白云区棠溪小学(棠溪校区)",
+      "school_id": "gz-440111-61672bda",
+      "official_primary_names": [
+        "棠溪小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第六十七中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-e337711a"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "白云区民航学校小学部",
+      "school_id": "gz-440111-a8395a4d",
+      "official_primary_names": [
+        "民航学校（小学部）"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区民航学校(初中部)",
+        "广州市白云区民航学校(人和校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-5c7a7c4a",
+        "gz-440111-7a3148c4"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "石马小学",
+      "school_id": "gz-440111-ec9fa6ca",
+      "official_primary_names": [
+        "石马小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案"
+      ],
+      "feed_junior_highs": [
+        "广州市铁一中学(白云校区)",
+        "颜乐天纪念中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-28c16cca",
+        "gz-440111-35536ebb"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "神山镇沙龙小学",
+      "school_id": "gz-440111-2e4ba466",
+      "official_primary_names": [
+        "沙龙小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "石龙中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440100-7564c13b"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "红星小学",
+      "school_id": "gz-440111-abb00177",
+      "official_primary_names": [
+        "红星小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一四中学(亭石南路)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0f9c1ce8"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "罗岗村小学",
+      "school_id": "gz-440111-d39d34e8",
+      "official_primary_names": [
+        "罗岗村小学"
+      ],
+      "groups": [
+        "具体见后续发布的方案"
+      ],
+      "feed_junior_highs": [
+        "广州市铁一中学(白云校区)",
+        "颜乐天纪念中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-28c16cca",
+        "gz-440111-35536ebb"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "茅山小学",
+      "school_id": "gz-440111-785f3a56",
+      "official_primary_names": [
+        "茅山小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广东技术师范大学白云实验中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-d3ffec78"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "营溪小学",
+      "school_id": "gz-440111-4d7df18c",
+      "official_primary_names": [
+        "营溪小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一五中学",
+        "广州市白云区太和中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-b5668c2e",
+        "gz-440111-06bfc806"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "萧岗小学",
+      "school_id": "gz-440111-9edba702",
+      "official_primary_names": [
+        "萧岗小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区新市中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-f3edc7ba"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "蓼江小学",
+      "school_id": "gz-440111-3dfefa29",
+      "official_primary_names": [
+        "蓼江小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广东技术师范大学白云实验中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-d3ffec78"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "螺涌小学",
+      "school_id": "gz-440111-f0bb9b17",
+      "official_primary_names": [
+        "螺涌小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州彭加木纪念中学(初中部)",
+        "广州彭加木纪念中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-4e13c7d6",
+        "gz-440111-d28d78f9"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "谢家庄小学",
+      "school_id": "gz-440111-858b84af",
+      "official_primary_names": [
+        "谢家庄小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一五中学",
+        "广州市白云区太和中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-b5668c2e",
+        "gz-440111-06bfc806"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "远景小学",
+      "school_id": "gz-440111-52237906",
+      "official_primary_names": [
+        "远景小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第六十七中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-e337711a"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "远景小学(合益校区)",
+      "school_id": "gz-440111-fad25567",
+      "official_primary_names": [
+        "远景小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第六十七中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-e337711a"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "郭塘小学",
+      "school_id": "gz-440111-ecfe32b2",
+      "official_primary_names": [
+        "郭塘小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区神山中学",
+        "石龙中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-6becf87b",
+        "gz-440100-7564c13b"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "金广实验学校(御金沙校区)",
+      "school_id": "gz-440111-eb640c74",
+      "official_primary_names": [
+        "金广实验学校"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广大附中实验中学(南校区)",
+        "广大附中实验中学(星汇金沙校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0078267c",
+        "gz-440111-b95f2597"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "金广实验学校(金域蓝湾校区)",
+      "school_id": "gz-440111-6f87dc56",
+      "official_primary_names": [
+        "金广实验学校"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广大附中实验中学(南校区)",
+        "广大附中实验中学(星汇金沙校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0078267c",
+        "gz-440111-b95f2597"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "金沙小学(南校区)",
+      "school_id": "gz-440111-a87f6068",
+      "official_primary_names": [
+        "金沙小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广大附中实验中学(南校区)",
+        "广大附中实验中学(星汇金沙校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0078267c",
+        "gz-440111-b95f2597"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "金沙小学(校本部)",
+      "school_id": "gz-440111-449b9bbd",
+      "official_primary_names": [
+        "金沙小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广大附中实验中学(南校区)",
+        "广大附中实验中学(星汇金沙校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0078267c",
+        "gz-440111-b95f2597"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "集贤小学",
+      "school_id": "gz-440111-f8cbbcfe",
+      "official_primary_names": [
+        "集贤小学"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州市培英中学(岭南校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-6271c94b"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "马务小学",
+      "school_id": "gz-440111-e9a84742",
+      "official_primary_names": [
+        "马务小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "黄石学校(中学部)",
+        "黄石学校(黄石校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-292274e7",
+        "gz-440111-a53c68e3"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "鸦岗小学",
+      "school_id": "gz-440111-cbfe874d",
+      "official_primary_names": [
+        "鸦岗小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一四中学(亭石南路)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-0f9c1ce8"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "鹤边镇泰小学",
+      "school_id": "gz-440111-cd47aae6",
+      "official_primary_names": [
+        "鹤边镇泰小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "嘉禾中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-d2a4a882"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "黄石学校(祥景校区)",
+      "school_id": "gz-440111-76eef049",
+      "official_primary_names": [
+        "黄石学校（小学部）"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "黄石学校(中学部)",
+        "黄石学校(黄石校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-292274e7",
+        "gz-440111-a53c68e3"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "黄石学校(黄石校区)",
+      "school_id": "gz-440111-a53c68e3",
+      "official_primary_names": [
+        "黄石学校（小学部）"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "黄石学校(中学部)",
+        "黄石学校(黄石校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-292274e7",
+        "gz-440111-a53c68e3"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "黄边小学(乐得校区)",
+      "school_id": "gz-440111-d4cad06c",
+      "official_primary_names": [
+        "黄边小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "嘉禾中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-d2a4a882"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "黄边小学(云山诗意校区)",
+      "school_id": "gz-440111-e0eac26d",
+      "official_primary_names": [
+        "黄边小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "嘉禾中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-d2a4a882"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "黄边小学(时代玫瑰园校区)",
+      "school_id": "gz-440111-59df1f3b",
+      "official_primary_names": [
+        "黄边小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "嘉禾中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-d2a4a882"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "黄边小学(黄边校区)",
+      "school_id": "gz-440111-aac310d1",
+      "official_primary_names": [
+        "黄边小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "嘉禾中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-d2a4a882"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "龙岗学校-龙岗小学",
+      "school_id": "gz-440111-e16cd8e1",
+      "official_primary_names": [
+        "龙岗学校小学部"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区龙岗学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-effbfa28"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "龙归学校(小学部)",
+      "school_id": "gz-440111-27e6c92d",
+      "official_primary_names": [
+        "龙归学校小学部"
+      ],
+      "groups": [
+        "single_zone"
+      ],
+      "feed_junior_highs": [
+        "龙归学校(初中部)",
+        "龙归学校（珑璟校区）"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-4c9a3eaa",
+        "gz-440111-9c7a2c45"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    },
+    {
+      "name": "龙湖小学",
+      "school_id": "gz-440111-e1f6a7a6",
+      "official_primary_names": [
+        "龙湖小学"
+      ],
+      "groups": [
+        "group_paidui"
+      ],
+      "feed_junior_highs": [
+        "广州市白云区大朗中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-cc803935"
+      ],
+      "direct_feed": [],
+      "source_url": null,
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "data_gaps": null
+    }
+  ],
+  "unresolved_official_primary_names": []
+}

@@ -1,0 +1,580 @@
+{
+  "year": 2026,
+  "district": "荔湾区",
+  "basis": "official middle-enrollment transcripts vs existing xiaoshengchu district dist; entity IDs are compared after each chain's current resolver.",
+  "summary": {
+    "reverse_pairs": 979,
+    "current_pairs": 1019,
+    "only_reverse": 27,
+    "only_current": 67,
+    "equal": false
+  },
+  "only_reverse": [
+    {
+      "primary_school_id": "gz-440103-9ff7c5c3",
+      "primary": "芳村小学(沙涌校区)",
+      "middle_school_id": "gz-440103-523446ce",
+      "middle": "中国教育科学研究院荔湾实验学校·禾园"
+    },
+    {
+      "primary_school_id": "gz-440103-9ff7c5c3",
+      "primary": "芳村小学(沙涌校区)",
+      "middle_school_id": "gz-440103-53cac770",
+      "middle": "广东实验中学荔湾学校(初中部)"
+    },
+    {
+      "primary_school_id": "gz-440103-9ff7c5c3",
+      "primary": "芳村小学(沙涌校区)",
+      "middle_school_id": "gz-440103-ff7538dc",
+      "middle": "广东实验中学荔湾学校花地湾校区"
+    },
+    {
+      "primary_school_id": "gz-440103-9ff7c5c3",
+      "primary": "芳村小学(沙涌校区)",
+      "middle_school_id": "gz-440103-bb7f78f0",
+      "middle": "广东广雅中学(荔湾校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-9ff7c5c3",
+      "primary": "芳村小学(沙涌校区)",
+      "middle_school_id": "gz-440103-4bb96190",
+      "middle": "广州市真光中学(芳花校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-9ff7c5c3",
+      "primary": "芳村小学(沙涌校区)",
+      "middle_school_id": "gz-440103-1f4697e3",
+      "middle": "广州市真光中学初中部(本部校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-9ff7c5c3",
+      "primary": "芳村小学(沙涌校区)",
+      "middle_school_id": "gz-440103-9b3ba6d8",
+      "middle": "广州市真光中学初中部实验校区"
+    },
+    {
+      "primary_school_id": "gz-440103-9ff7c5c3",
+      "primary": "芳村小学(沙涌校区)",
+      "middle_school_id": "gz-440103-f203d28d",
+      "middle": "广州市真光中学金道学校"
+    },
+    {
+      "primary_school_id": "gz-440103-9ff7c5c3",
+      "primary": "芳村小学(沙涌校区)",
+      "middle_school_id": "gz-440103-c0d6f9a0",
+      "middle": "广州市第四中学(逸园校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-9ff7c5c3",
+      "primary": "芳村小学(沙涌校区)",
+      "middle_school_id": "gz-440103-b41a3512",
+      "middle": "广州市西关外国语学校(初中部)"
+    },
+    {
+      "primary_school_id": "gz-440103-9ff7c5c3",
+      "primary": "芳村小学(沙涌校区)",
+      "middle_school_id": "gz-440103-7207525c",
+      "middle": "西关广雅实验学校(大坦沙校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-bb7f78f0",
+      "middle": "广东广雅中学(荔湾校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-042e23a5",
+      "middle": "广州市真光中学(岭南校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-1f4697e3",
+      "middle": "广州市真光中学初中部(本部校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-2dc142ec",
+      "middle": "广州市第一中学(初中部)"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-2653da64",
+      "middle": "广州市第一中学(姜中宏校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-81794a0d",
+      "middle": "广州市第一中学十甫学校"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-3862ee98",
+      "middle": "广州市第四中学(津园校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-816b22a3",
+      "middle": "广州市第四中学(虬园校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440104-3b870a8e",
+      "middle": "广州市第四中学丰宁学校"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-d78c848a",
+      "middle": "广州市西关培英中学"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-41cb6344",
+      "middle": "广州市西关培英中学(西校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-b41a3512",
+      "middle": "广州市西关外国语学校(初中部)"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-693412ae",
+      "middle": "西关广雅实验学校(东风西路校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-b62c9e61",
+      "primary": "西关培正小学(如意坊校区)",
+      "middle_school_id": "gz-440103-c5d5de44",
+      "middle": "西关广雅实验学校(南岸路校区)"
+    }
+  ],
+  "only_current": [
+    {
+      "primary_school_id": "gz-440103-0e2f79ce",
+      "primary": "何香凝纪念学校",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-0e2f79ce",
+      "primary": "何香凝纪念学校",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-3aa658a6",
+      "primary": "合兴苑小学",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-3aa658a6",
+      "primary": "合兴苑小学",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-c9ba5160",
+      "primary": "坑口小学四季花园校区",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-c9ba5160",
+      "primary": "坑口小学四季花园校区",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-124099dd",
+      "primary": "广东外语外贸大学附属荔湾小学",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-124099dd",
+      "primary": "广东外语外贸大学附属荔湾小学",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-33b32c4c",
+      "primary": "广州市协和学校（小学部）",
+      "middle_school_id": "gz-440103-e281e7d0",
+      "middle": "广州协和学校"
+    },
+    {
+      "primary_school_id": "gz-440103-2bc230e3",
+      "primary": "广州市坑口小学",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-2bc230e3",
+      "primary": "广州市坑口小学",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-83537411",
+      "primary": "广州市真光中学茶滘校区北区（小学部）",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-83537411",
+      "primary": "广州市真光中学茶滘校区北区（小学部）",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-47c5196f",
+      "primary": "广州市真光中学附属培真小学(平西校区)",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-47c5196f",
+      "primary": "广州市真光中学附属培真小学(平西校区)",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-039a7621",
+      "primary": "广州市真光中学附属培真小学(鹤园校区)",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-039a7621",
+      "primary": "广州市真光中学附属培真小学(鹤园校区)",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-eee37a73",
+      "primary": "广州市真光中学附属小学(滘口校区)",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-eee37a73",
+      "primary": "广州市真光中学附属小学(滘口校区)",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-26cf2268",
+      "primary": "广州市荔湾区康有为纪念小学(白鹅潭校区)",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-26cf2268",
+      "primary": "广州市荔湾区康有为纪念小学(白鹅潭校区)",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-a5de21fb",
+      "primary": "广州市荔湾区芳村小学南漖学校",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-a5de21fb",
+      "primary": "广州市荔湾区芳村小学南漖学校",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-2c085d93",
+      "primary": "广州市荔湾区芳村小学实验学校",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-2c085d93",
+      "primary": "广州市荔湾区芳村小学实验学校",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-6e10b35d",
+      "primary": "广州市荔湾区西关培正小学(芳信校区)",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-6e10b35d",
+      "primary": "广州市荔湾区西关培正小学(芳信校区)",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-f8cc454e",
+      "primary": "广州市荔湾区西关实验小学增滘学校",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-f8cc454e",
+      "primary": "广州市荔湾区西关实验小学增滘学校",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-53fbb2c8",
+      "primary": "广州市荔湾区龙溪小学",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-53fbb2c8",
+      "primary": "广州市荔湾区龙溪小学",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-3fb4fd56",
+      "primary": "康有为纪念小学东漖校区",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-3fb4fd56",
+      "primary": "康有为纪念小学东漖校区",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-ab2416ab",
+      "primary": "康有为纪念小学五眼桥学校",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-ab2416ab",
+      "primary": "康有为纪念小学五眼桥学校",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-bbb42ad7",
+      "primary": "康有为纪念小学南塘学校",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-bbb42ad7",
+      "primary": "康有为纪念小学南塘学校",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-c4a554f5",
+      "primary": "康有为纪念小学海中学校",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-c4a554f5",
+      "primary": "康有为纪念小学海中学校",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-0716497c",
+      "primary": "新东小学",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-0716497c",
+      "primary": "新东小学",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-acad9c9d",
+      "primary": "林凤娥小学",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-acad9c9d",
+      "primary": "林凤娥小学",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-07e5ea8f",
+      "primary": "林凤娥小学(荔江美筑校区)",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-07e5ea8f",
+      "primary": "林凤娥小学(荔江美筑校区)",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-28507a63",
+      "primary": "芳村小学",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-28507a63",
+      "primary": "芳村小学",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-555bf7d6",
+      "primary": "芳村小学东沙学校(沙洛校区)",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-555bf7d6",
+      "primary": "芳村小学东沙学校(沙洛校区)",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-69a306af",
+      "primary": "芳村小学东沙学校(金宇校区)",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-69a306af",
+      "primary": "芳村小学东沙学校(金宇校区)",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-7a85adc9",
+      "primary": "荔湾区海北小学",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-7a85adc9",
+      "primary": "荔湾区海北小学",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-12a6e568",
+      "primary": "葵蓬小学",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-12a6e568",
+      "primary": "葵蓬小学",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-728466ce",
+      "primary": "西关培正小学(凯粤湾校区)",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-728466ce",
+      "primary": "西关培正小学(凯粤湾校区)",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-80510bfa",
+      "primary": "西关实验小学(芳和校区)",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-80510bfa",
+      "primary": "西关实验小学(芳和校区)",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-645ecbe6",
+      "primary": "西关实验小学(芳园校区)",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-645ecbe6",
+      "primary": "西关实验小学(芳园校区)",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-9be8c818",
+      "primary": "西塱小学",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-9be8c818",
+      "primary": "西塱小学",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-0af2ec57",
+      "primary": "鸿图苑小学",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-0af2ec57",
+      "primary": "鸿图苑小学",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    },
+    {
+      "primary_school_id": "gz-440103-81f7f7f2",
+      "primary": "鹤洞小学",
+      "middle_school_id": "gz-440103-df535585",
+      "middle": "广州市西关外国语学校文昌南校区"
+    },
+    {
+      "primary_school_id": "gz-440103-81f7f7f2",
+      "primary": "鹤洞小学",
+      "middle_school_id": "gz-440103-dfff68f2",
+      "middle": "西关外国语学校初中部(彩虹桥校区)"
+    }
+  ]
+}
