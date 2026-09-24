@@ -678,7 +678,13 @@ def main():
     # 任何有 group 的明细行，其 school_id / school_ids 中至少一个必须命中产物且 brand 一致，
     # 否则说明产物漏收（该学校会从集团分组丢失）。无 school_id 的行不应有 group
     # （名称匹配已从运行时删除；如三元里中学 = entities 无实体，属待补真源的数据缺口）。
-    _sg = json.load(open(os.path.join(ROOT, "data/registry/group/dist/school_groups.json")))["schoolGroups"]
+    # education_groups 为集团唯一运行时产物（school_groups.json 已废弃删除）；
+    # 一校可属多个集团（如黄埔军校中学=黄埔广附+广大附），school_id 索引为多值 set。
+    _sg = {}
+    for _g in json.load(open(os.path.join(ROOT, "data/registry/group/dist/education_groups.json")))["groups"]:
+        for _m in _g.get("members") or []:
+            if _m.get("school_id"):
+                _sg.setdefault(_m["school_id"], set()).add(_g["brand"])
     _rm = json.load(open(os.path.join(ROOT, "data/linkage/dist/ranking_middle.json")))["schools"]
     _orphan = 0
     for _s in _rm:
@@ -688,8 +694,8 @@ def main():
         _ids = [i for i in [_s.get("school_id")] + list(_s.get("school_ids") or []) if i and i in _sg]
         if not _ids:
             _orphan += 1
-            check(False, f"[19] 明细 {_s['name']} 有 group 但 school_id(s) 无 school_groups 产物支撑: {_g.get('brand')}")
-        elif _sg[_ids[0]] != _g["brand"]:
+            check(False, f"[19] 明细 {_s['name']} 有 group 但 school_id(s) 无 education_groups 产物支撑: {_g.get('brand')}")
+        elif not any(_b == _g["brand"] for _i in _ids for _b in _sg[_i]):
             check(False, f"[19] 明细 {_s['name']} 产物 brand 不一致: 产物={_sg[_ids[0]]} 明细={_g['brand']}")
     _section_lines.append(f"[19] 明细分组-产物一致性: {sum(1 for s in _rm if s.get('group'))} 有 group，{_orphan} 孤儿（0 容忍）")
 
