@@ -1149,7 +1149,7 @@
      "mechanism_note": "东校区招生计划11个班，西校区招生计划4个班；见说明2"
     },
     {
-     "school_id": null,
+     "school_id": "gz-440113-0bb52d06",
      "plan_classes": 10,
      "scope": "具有石一村、石二村、石三村、石四村、韦涌村、大洲村、屏一村、屏二村、都那村户籍的小学应届毕业生；石壁街南站社区居委户籍的小学应届毕业生；碧桂东苑户籍小学应届毕业生。",
      "mechanism": "single_zone",
@@ -1449,7 +1449,7 @@
      ]
     },
     {
-     "school_id": null,
+     "school_id": "gz-440111-8629621c",
      "plan_classes": 0,
      "scope": "三元里小学（不含北校区）、羊城铁路总公司广州铁路第五小学",
      "mechanism": "single_zone",

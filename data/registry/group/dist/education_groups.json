@@ -8,7 +8,7 @@
     "total_members": 344,
     "poi_exact": 0,
     "poi_variant": 19,
-    "poi_missing_7dist": 2,
+    "poi_missing_7dist": 1,
     "poi_far": 8
   },
   "groups": [
@@ -4224,9 +4224,9 @@
           "source_url": "https://huacheng.gz-cmc.com/pages/2024/01/29/SF11461582b6a9a2f937bd48a9895c95.html",
           "verified": "2026-09-14",
           "note": "升学关系已核实：2021-2022对口三元里小学(不含棠景校区)/广铁五小/三元里实验小学(地段生)，年招4班；2026招考办名额分配表80名考生分得白云中学集团3名额；2025年起因涉拆迁停止下达招生计划，原在校生由指导中心就近安排。高德未收录POI与该状态一致",
-          "poi_match": "7区内真实缺失",
-          "poi_name": "",
-          "school_id": ""
+          "poi_match": "法人推导",
+          "poi_name": "广州市三元里中学",
+          "school_id": "gz-440111-8629621c"
         },
         {
           "name": "广州市白云区新市中学",

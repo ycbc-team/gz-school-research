@@ -187,6 +187,10 @@ def build_panyu():
         # 挂独立实体 id——官方明文办初中，孤儿宁缺原则不适用（有官方招生记录）
         if school == "广东仲元中学二校区（初中部）":
             sid = "gz-440113-6dbdc462"
+        # 广东第二师范学院广州南站附属学校（石壁街钟韦大道144号，10 班单校划片）：
+        # 实体+POI 已补（2026-09-24），显式挂 id 消除 school_id=None 悬空
+        if school == "广东第二师范学院广州南站附属学校":
+            sid = "gz-440113-0bb52d06"
         recs.append({
             "school": school, "school_id": sid,
             **({"school_ids": sids} if sids else {}),
@@ -220,6 +224,9 @@ def build_baiyun():
         else:
             mech = "single_zone"
         sid, sids = match_school_ids(school, "440111")
+        # 三元里中学（2026 涉拆迁停招，官方地址三元里群英大街34号）：实体+POI 已补，显式挂 id
+        if school == "广州市三元里中学":
+            sid = "gz-440111-8629621c"
         # 明德校区+同德校区合并招生（官方同一条记录）：school_id 置 None，school_ids 列出两校区共担
         if school == "广州市第六十五中学（明德校区、同德校区）":
             sid = None
@@ -437,9 +444,16 @@ def build_tianhe_official():
             "group_members": None,
         })
     for r in tr["minban"]:
+        _school_norm = SCHOOL_NORM.get(r["school"], r["school"])
         _sid, _sids = match_school_ids(r["school"], "440106")
+        # 天河东风/培智（民办附件8）与白云区公办同名校跨区候选混合（SchoolMatcher 索引化后
+        # 同名跨区进入候选 → 多候选宁缺展开 school_ids 误并两校）。显式锚定天河实体。
+        _TMB_ANCHOR = {"广州市天河区东风学校": "gz-440106-24ff78f9",
+                       "广州市天河区培智学校": "gz-440106-0a2c7178"}
+        if _school_norm in _TMB_ANCHOR:
+            _sid, _sids = _TMB_ANCHOR[_school_norm], None
         recs.append({
-            "school": SCHOOL_NORM.get(r["school"], r["school"]), "school_id": _sid,
+            "school": _school_norm, "school_id": _sid,
             **({"school_ids": _sids} if _sids else {}),
             "plan_classes": r["plan_classes"], "scope": None,
             "mechanism": "single_zone", "mechanism_note": "民办学校初中部自主招生（附件8）",
