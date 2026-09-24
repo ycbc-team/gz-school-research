@@ -37,7 +37,8 @@ PDF_PAGES = {
 
 
 def ocr_image(img, json_path):
-    subprocess.run(["python3", OCR_TOOL, img, "--json", json_path], check=True)
+    # 继承启动本构建脚本的解释器，保证子进程使用同一 worktree 的 .venv。
+    subprocess.run([sys.executable, OCR_TOOL, img, "--json", json_path], check=True)
     return json.load(open(json_path, encoding="utf-8"))
 
 

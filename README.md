@@ -37,6 +37,9 @@ docs/           调研报告、分析文档
 ## 开发命令
 
 ```bash
+# 任一 worktree 首次运行数据解析前执行；创建本 worktree 的 .venv
+bash scripts/setup_python_env.sh
+
 npm install                    # 安装 workspace 依赖（npm workspaces）
 npm run build:shared          # 构建 @gz/shared（dist/esm + dist/cjs）
 npm run dev:web               # 启动 Vue3 Web 开发服务器（Vite）
@@ -44,6 +47,14 @@ npm run build:web             # 构建 Vue3 Web 产物（apps/web/dist）
 npm run build:mp              # 生成小程序 shared/data 构建产物
 npm run check                 # 全量校验（类型检查 + 单测 + 数据质量 + 产物漂移 + 快照 + 竞赛构建）
 ```
+
+Python 数据解析一律使用 `.venv/bin/python`，例如：
+
+```bash
+.venv/bin/python data/middle/enrollment/scripts/build_middle_enrollment.py
+```
+
+不要依赖系统 `python3`；OCR 解析还需要 macOS 的 Vision 框架，已通过 `requirements.txt` 的平台条件依赖统一固定。
 
 代码分层、数据流与构建边界见 [`docs/architecture.md`](docs/architecture.md)。历史改造方案仅作迁移留档，不应作为当前实现依据。
 
