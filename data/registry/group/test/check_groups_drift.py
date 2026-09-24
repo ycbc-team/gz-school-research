@@ -247,9 +247,10 @@ def _check_backfill_ids():
 
     覆盖 backfill_school_ids.py 的改动感知：改脚本后未重跑提交产物，或产物被手改
     （如 _school_id_unmatched 被手工增删）都会被检出。比对失败还原工作树。"""
-    names = ["quota_matrix.json", "special_matrix.json", "batch2_scores.json",
-             "district_quota.json", "_school_id_unmatched.json"]
-    files = [os.path.join(ROOT, "data/linkage/dist", n) for n in names]
+    names = ["quota_matrix.json", "special_matrix.json", "batch2_scores.json", "district_quota.json"]
+    dist_files = [os.path.join(ROOT, "data/linkage/dist", n) for n in names]
+    test_file = os.path.join(ROOT, "data/linkage/test/_school_id_unmatched.json")
+    files = dist_files + [test_file]
     orig = {f: open(f, encoding="utf-8").read() for f in files}
     try:
         r = subprocess.run(["python3", os.path.join(ROOT, "data/linkage/scripts/backfill_school_ids.py")],

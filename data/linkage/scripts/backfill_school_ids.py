@@ -31,8 +31,9 @@
    先精确 norm，未命中再用 loose；两者均为全等匹配，不会误配。
 3) matchNorm 剥区兜底（官方名带「X区」前缀、实体 name 无区名）：仅全局唯一候选可取，
    区一致性校验后按 stage 收敛。
-未命中（7 区外无实体 / 7 区内需人工桥接）落盘 dist/_school_id_unmatched.json，
-原文保留、不伪造 id；7 区内清单待人工确认后补进 build_entities.py 的 OFFICIAL_ALIASES 或实体 aliases。
+未命中（7 区外无实体 / 7 区内需人工桥接）落盘 test/_school_id_unmatched.json（构建期审计
+产物，非运行时数据），原文保留、不伪造 id；7 区内清单待人工确认后补进 build_entities.py 的
+OFFICIAL_ALIASES 或实体 aliases。
 
 运行：python3 data/linkage/scripts/backfill_school_ids.py
 """
@@ -46,6 +47,7 @@ ROOT = Path(__file__).resolve().parents[3]
 LINK = ROOT / 'data' / 'linkage'
 CANON = LINK / 'parsed' / 'canonical'
 DIST = LINK / 'dist'
+TEST = LINK / 'test'
 CITY7 = {'荔湾区', '越秀区', '海珠区', '天河区', '白云区', '黄埔区', '番禺区'}
 
 # 统一匹配库：norm/loose 收敛至 school_match.normName/looseNorm（与 shared support.ts 一致）
@@ -420,10 +422,11 @@ def main() -> int:
         (DIST / f'{tag}.json').write_text(
             json.dumps(data, ensure_ascii=False, indent=2 if _sk else 1, sort_keys=_sk) + '\n', 'utf-8')
 
-    # 未命中清单：7 区内（需人工桥接）与 7 区外/未知（无实体，链接不可点属正确行为）分列
+    # 未命中清单（构建期审计产物，非运行时数据）：7 区内（需人工桥接）与
+    # 7 区外/未知（无实体，链接不可点属正确行为）分列 → 落 test/ 目录
     inside = sorted({n for _, n, dist, is7 in unmatched if is7 is True})
     outside = sorted({n for _, n, dist, is7 in unmatched if is7 is not True})
-    (DIST / '_school_id_unmatched.json').write_text(
+    (TEST / '_school_id_unmatched.json').write_text(
         json.dumps({
             'note': '升学通道官方名未命中实体表：7 区内需人工桥接（补进 build_entities.py 别名）；7 区外无 POI 实体，链接不可点属正确行为，原文保留展示。',
             'updated': '2026-09-12',

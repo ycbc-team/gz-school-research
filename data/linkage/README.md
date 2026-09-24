@@ -35,7 +35,7 @@
 | `dist/special_matrix.json` | 2026 第一批招生事实：①自招计划数（`autonomy_plan`）②特长生计划数（`special_plan`，键=实体 id）③名单原文→高中实体外键（`high_school_ids`）；死字段（high_entities/high_schools/note 等）已删 | 自招 56 校区 / 特长生 72 校区 |
 | `dist/ranking_middle.json` | 初中升学信号基础表：考生数/省市属指标/区属指标/自招数/特控率聚合；sz 明细与元数据只进 canonical | 334 校（7 区） |
 | `dist/district_quota.json` | 区属高中名额，外层键（初中）/内层键（区属高中）各自 `{ids, schools}` 并行 | 329 所（7 区） |
-| `dist/_school_id_unmatched.json` | 官方名单名未命中实体表清单（7 区内待人工桥接 / 7 区外正常不可点） | 运行时审计产物 |
+| `test/_school_id_unmatched.json` | 官方名单名未命中实体表清单（构建期审计产物，7 区内待人工桥接 / 7 区外正常不可点） | 构建诊断 |
 
 > 历史清理（2026-09-24）：①第一批"资格名单计数矩阵"已废弃（前端不再消费），其遗留字段
 > `special_matrix.middle_school_ids`（269 条、与 quota_matrix 同名不同 id 13 处、无任何消费方）一并移除；
