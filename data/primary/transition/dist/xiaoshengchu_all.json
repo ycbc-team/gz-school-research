@@ -3545,7 +3545,7 @@
    "data_gaps": null
   },
   {
-   "school_id": "gz-440103-8e79820c",
+   "school_id": "gz-440103-3ea667b1",
    "group": "不参与公办电脑派位",
    "feed_school_ids": [],
    "feed_unresolved": [],
@@ -3555,14 +3555,14 @@
    "data_gaps": "民办学校，不参与公办派位"
   },
   {
-   "school_id": null,
+   "school_id": "gz-440103-8e79820c",
    "group": "不参与公办电脑派位",
    "feed_school_ids": [],
    "feed_unresolved": [],
    "direct_feed_school_id": null,
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html",
    "source_note": "民办/特殊教育/官方未单列。",
-   "data_gaps": "公办初中（非小学），无小学派位记录"
+   "data_gaps": "民办学校，不参与公办派位"
   },
   {
    "school_id": "gz-440103-362ee1b6",
@@ -3583,16 +3583,6 @@
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html",
    "source_note": "民办/特殊教育/官方未单列。",
    "data_gaps": "2021年起暂停招生（人户一致地段并入大坦沙岛配套学校安排），2026分组表未列（南方+2021-05）"
-  },
-  {
-   "school_id": "gz-440103-3ea667b1",
-   "group": "不参与公办电脑派位",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html",
-   "source_note": "民办/特殊教育/官方未单列。",
-   "data_gaps": "民办学校，不参与公办派位"
   },
   {
    "school_id": "gz-440111-53549fe6",
@@ -6189,6 +6179,16 @@
    "data_gaps": "民办小学，不参与公办派位"
   },
   {
+   "school_id": "gz-440111-7f478da2",
+   "group": "不参与公办派位/待核",
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "direct_feed_school_id": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校，不参与公办派位"
+  },
+  {
    "school_id": "gz-440111-bcf22267",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -6237,16 +6237,6 @@
    "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
    "source_note": "民办/其他。",
    "data_gaps": "民办小学，不参与公办派位"
-  },
-  {
-   "school_id": "gz-440111-7f478da2",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "民办学校，不参与公办派位"
   },
   {
    "school_id": "gz-440113-53650c78",
@@ -14038,16 +14028,6 @@
    "data_gaps": "民办（附件8 #5 东联学校）。"
   },
   {
-   "school_id": "gz-440112-5147e70b",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
-  },
-  {
    "school_id": "gz-440112-c9a30b3d",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -14066,26 +14046,6 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
    "source_note": "民办/待核。",
    "data_gaps": "2026-09-01 新启用公办十二年制（华中师大与黄埔区合作，红山街双沙片区，中建海丝城配建）；未在 2026-04-28 招生细则单列小升初，首届新生 2026 年 9 月入学（hp.gov.cn 揭牌报道）。"
-  },
-  {
-   "school_id": null,
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "民办，官方 2026 年民办招生计划未单列（可能停招），待核。"
-  },
-  {
-   "school_id": "gz-440112-5147e70b",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
   },
   {
    "school_id": "gz-440112-22ec4fcc",
@@ -14138,36 +14098,6 @@
    "data_gaps": "官方 2026 年招生文件未单列（名称疑为早期记录），待核。"
   },
   {
-   "school_id": null,
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
-  },
-  {
-   "school_id": null,
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
-  },
-  {
-   "school_id": null,
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "民办，官方 2026 年民办招生计划未单列（可能停招），待核。"
-  },
-  {
    "school_id": "gz-440112-4517600f",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -14178,16 +14108,6 @@
    "data_gaps": "民办（附件8 #1 洋城学校）。"
   },
   {
-   "school_id": null,
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "劳动教育实践基地，非招生学校。"
-  },
-  {
    "school_id": "gz-440112-202efa5a",
    "group": "不参与公办派位/待核",
    "feed_school_ids": [],
@@ -14196,26 +14116,6 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
    "source_note": "民办/待核。",
    "data_gaps": "民办（附件8 #6 国光学校）。"
-  },
-  {
-   "school_id": "gz-440112-68f9ff36",
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "官方 2026 年招生文件未单列\"黄埔实验学校\"，待核。"
-  },
-  {
-   "school_id": null,
-   "group": "不参与公办派位/待核",
-   "feed_school_ids": [],
-   "feed_unresolved": [],
-   "direct_feed_school_id": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "官方 2026 年招生文件未单列（民办待核）。"
   }
  ]
 }

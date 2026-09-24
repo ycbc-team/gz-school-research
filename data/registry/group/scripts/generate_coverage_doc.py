@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""从 coverage_result.json 生成 P1 覆盖清单 Markdown 文档，
+"""从 test/coverage_result.json 生成 P1 覆盖清单 Markdown 文档，
 并入人工复核结论（同校异名、区字差异、简称变体等）。"""
 import json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-data = json.load(open(os.path.join(ROOT, 'data/registry/group/dist/coverage_result.json'), encoding='utf-8'))
+data = json.load(open(os.path.join(ROOT, 'data/registry/group/test/coverage_result.json'), encoding='utf-8'))
 
 # 人工复核修正：将 v3 脚本的"未命中"中实际覆盖的学校标注为变体命中
 # key = norm_name, value = (修正后状态, 命中层, POI名, 备注)

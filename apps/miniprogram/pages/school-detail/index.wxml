@@ -89,16 +89,8 @@
   <view wx:if="{{model.stage === 'middle'}}" class="card">
     <view class="card-title">招生计划（2026）</view>
     <view wx:if="{{model.enrollNote}}" class="sub-note">{{model.enrollNote}}</view>
-    <block wx:if="{{model.feedPrimarys.length}}">
-      <view class="sub-note">以下小学的 2026 对口/派位名单包含本校（由七区全量小学升学路线反查，校名全等匹配）。</view>
-      <view class="feed-list">
-        <view wx:for="{{model.feedPrimarys}}" wx:key="primary" class="feed-item">
-          <text class="feed-name" data-to="/school/{{item.primary}}?stage=primary" bindtap="goSchool">{{item.primary}}</text>
-          <text class="tag tag-dim">{{item.direct_feed ? '对口直升' : (item.group || '对口')}}</text>
-        </view>
-      </view>
-    </block>
-    <view wx:else class="empty">本校未进入 2026 公办小学对口/派位名单。民办校无公办对口名单，以官方摇号 / 直升政策为准；公办新建校或未收录点位以最新官方公告为准。</view>
+    <!-- 生源小学反查段已删（2026-09-23）：官方直建派位组对口小学替代七区全量小升初反查口径 -->
+    <view wx:if="{{!model.enrollNote}}" class="empty">暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。</view>
   </view>
 
   <!-- 初中：升学通道 -->

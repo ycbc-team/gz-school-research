@@ -3,23 +3,6 @@
  "district": "番禺区",
  "source": "番禺区教育局《2026年番禺区义务教育阶段学校招生计划、招生地段及条件》+《2026年番禺区区属初中面向全区招生简章》",
  "source_url": "https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html",
- "mechanisms": {
-  "single_zone": {
-   "label": "单校划片",
-   "can_lose": false,
-   "lose_text": null
-  },
-  "group_paidui": {
-   "label": "多校电脑派位",
-   "can_lose": false,
-   "lose_text": "派位组内学校随机分配，组内兜底，不安排到组外。"
-  },
-  "single_lottery": {
-   "label": "单校电脑抽签",
-   "can_lose": true,
-   "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时由区教育局统一组织电脑抽签；未中签者按区招生简章回户籍地学区申请入读公办初中，不保证安排到本校。"
-  }
- },
  "records": [
   {
    "school": "广东番禺中学附属学校",
@@ -158,7 +141,11 @@
   },
   {
    "school": "毓贤学校",
-   "school_id": "gz-440113-7cdbe028",
+   "school_id": null,
+   "school_ids": [
+    "gz-440113-7cdbe028",
+    "gz-440113-c07e3ddb"
+   ],
    "plan_classes": 15,
    "scope": "祈福新邨户籍的小学应届毕业生（必须是业主子女身份）。",
    "mechanism": "single_zone",
@@ -167,7 +154,7 @@
   },
   {
    "school": "广东第二师范学院广州南站附属学校",
-   "school_id": null,
+   "school_id": "gz-440113-0bb52d06",
    "plan_classes": 10,
    "scope": "具有石一村、石二村、石三村、石四村、韦涌村、大洲村、屏一村、屏二村、都那村户籍的小学应届毕业生；石壁街南站社区居委户籍的小学应届毕业生；碧桂东苑户籍小学应届毕业生。",
    "mechanism": "single_zone",
@@ -508,6 +495,78 @@
    "scope": "紫坭村、三善村、 新洲村、龙湾村、古东村、古西村以及紫坭社区居委户籍的小学应届毕业生。",
    "mechanism": "single_zone",
    "mechanism_note": null,
+   "group_members": null
+  },
+  {
+   "school": "广东仲元中学一校区（初中部）",
+   "school_id": "gz-440113-acf92324",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "single_lottery",
+   "mechanism_note": "区属初中面向全区批次：招生 90 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍的小学应届毕业生（不含大龙街户籍及具有市桥城区电脑派位资格的小学应届毕业生）及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
+   "group_members": null
+  },
+  {
+   "school": "广东仲元中学二校区（初中部）",
+   "school_id": "gz-440113-6dbdc462",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "single_lottery",
+   "mechanism_note": "区属初中面向大龙街批次：招生 350 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向大龙街招生，首先安排番禺区大龙街傍江东村和傍江西村现有股民及股民子女（小学应届毕业生）入读，余下学位面向大龙街户籍的小学应届毕业生招生；两村股民及股民子女不需要网上报名；按学校要求申请宿位。",
+   "group_members": null
+  },
+  {
+   "school": "广东仲元中学二校区（初中部）",
+   "school_id": "gz-440113-6dbdc462",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "single_lottery",
+   "mechanism_note": "区属初中面向全区批次：招生 100 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍的小学应届毕业生（不含大龙街户籍及具有市桥城区电脑派位资格的小学应届毕业生）及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
+   "group_members": null
+  },
+  {
+   "school": "广东仲元中学二校区（初中部）",
+   "school_id": "gz-440113-6dbdc462",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "single_lottery",
+   "mechanism_note": "区属初中面向港澳生批次：招生 20 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。需符合以下条件之一：1.其父母或法定监护人至少一方在番禺区居住、工作，且持在番禺区申领的港澳居民居住证的港澳居民随迁子女（非穗籍小学应届毕业生）；2.持有在番禺区申领的港澳居民居住证，且其父母或法定监护人至少一方具有番禺区户籍、在番禺区居住、工作的港澳籍小学应届毕业生。",
+   "group_members": null
+  },
+  {
+   "school": "广东番禺中学附属学校",
+   "school_id": "gz-440113-53650c78",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "single_lottery",
+   "mechanism_note": "区属初中面向全区批次：招生 80 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍应届小学毕业生及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
+   "group_members": null
+  },
+  {
+   "school": "广东仲元中学附属学校",
+   "school_id": "gz-440113-b5ff857b",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "single_lottery",
+   "mechanism_note": "区属初中面向属地镇街批次：招生 60 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向洛浦街户籍应届小学毕业生及实际居住地在洛浦街的广州市政策性照顾学生招生；无住宿条件。",
+   "group_members": null
+  },
+  {
+   "school": "广东番禺中学实验学校",
+   "school_id": "gz-440113-95be9ccc",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "single_lottery",
+   "mechanism_note": "区属初中面向全区批次：招生 60 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍应届小学毕业生及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
+   "group_members": null
+  },
+  {
+   "school": "广州市番禺区少年儿童业余体校",
+   "school_id": "gz-440113-fdabec82",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "no_plan",
+   "mechanism_note": "区属少年儿童业余体校，以体育后备人才培养为主，不参与普通初中电脑派位；具体招生安排以区教育局当年通知为准。",
    "group_members": null
   }
  ]

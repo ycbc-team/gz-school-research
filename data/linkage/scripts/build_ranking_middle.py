@@ -69,13 +69,17 @@ brand_groups = load('registry/group/src/brand_groups.json')['brands']
 # education: group brand + 全部成员名（core_poi/members/campuses 的 name/poi_name）
 education_groups = load('registry/group/dist/education_groups.json')['groups']
 
-# 公共 school_id → 集团映射（data/registry/group/scripts/build_school_groups.py 构建的纯 id 产物；
-# 与详情页 groupOfSchool 共用同一份，运行时不再做名称匹配，避免口径分叉）
-SCHOOL_GROUPS = load('registry/group/dist/school_groups.json')['schoolGroups']
+# education_groups 为集团唯一真源；构建时反建 school_id 索引，与详情页同一口径。
+SCHOOL_GROUPS = {
+    member['school_id']: {'brand': group['brand'], 'source': 'education'}
+    for group in education_groups
+    for member in group.get('members') or []
+    if member.get('school_id')
+}
 
 
 def group_of(school_id=None, school_ids=None):
-    """集团归属：纯 school_id 匹配公共产物（schoolGroups，与详情页 groupOfSchool 同一真源）。
+    """集团归属：纯 school_id 匹配公共产物（按集团聚合，与详情页 groupOfSchool 同一真源）。
     school_ids = 多校区法人行校区实体数组：任一个 id 命中产物即归属该集团
     （如 quota 行「广州市第八十六中学」主 id 为分校实体不在产物，但 school_ids 含主校实体 → 命中）。"""
     for sid in [school_id] + list(school_ids or []):
@@ -262,7 +266,7 @@ def tekong_of(high_name: str):
 
 
 def group_resolve(school_id=None, school_ids=None):
-    """集团匹配：纯 id 查公共产物（schoolGroups，与详情页同源）。"""
+    """集团匹配：纯 id 查公共产物（按集团聚合，与详情页同源）。"""
     return group_of(school_id, school_ids)
 
 

@@ -17,17 +17,20 @@ const STAGE_SHORT: Record<SchoolStage, string> = { primary: '小学', middle: '�
 export interface DetailRow { label: string; value: string; strong?: boolean }
 export interface DetailBadge { text: string; cls: string }
 export interface FeedRow { name: string; poiName: string | null; summary: string | null; hasQuota: boolean }
-export interface FeedPrimaryRow { primary: string; group: string | null; direct_feed: string | null }
 export interface BrandRow {
   name: string;
   role: string;
   legal: 'same' | 'independent';
+  relationType?: 'entrusted' | 'cooperation' | 'brand';
   district: string;
   stages: string[]; // 小学/初中/高中
   badge: DetailBadge | null;
   reason: string | null;
   isCurrent: boolean;
   link: string | null;
+}
+export interface MultiCampusCard {
+  groups: { key: string; title: string; rows: BrandRow[] }[];
 }
 export interface DetailModel {
   stage: SchoolStage;
@@ -48,7 +51,6 @@ export interface DetailModel {
   feedGap: string | null;
   feedRows: FeedRow[];
   /* 初中 */
-  feedPrimarys: FeedPrimaryRow[];
   /** 极少数校区的招生计划特殊备注（如执信水荫路仅初三就读；无备注为 null） */
   enrollNote: string | null;
   /* 学校信号（历史称号/集团/喜报/录取线等源数据） */
@@ -59,6 +61,8 @@ export interface DetailModel {
   /* 品牌/校区 */
   brandCard: { brand: string; note?: string; sourceUrls: string[]; groups: { key: string; title: string; rows: BrandRow[] }[] } | null;
   brandCardUseful: boolean;
+  multiCampusCard: MultiCampusCard | null;
+  multiCampusCardUseful: boolean;
   campuses: string[] | null;
 }
 
@@ -173,8 +177,8 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
       });
   })();
 
-  /* ---------- 初中：生源小学反查 ---------- */
-  const feedPrimarys = stage === 'middle' ? repo.middlePrimaryFeed(poi?.school_id ?? null) : [];
+  /* 生源小学反查（middlePrimaryFeed）已停用：2026-09-23 新数据（官方直建派位组对口小学）
+     替代七区全量小升初反查口径，详情页不再展示反查生源小学段。 */
 
   /* ---------- 高中 ---------- */
   const pickRows = (keys: [string, string, boolean?][]): DetailRow[] => {
@@ -280,7 +284,8 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
           return {
             name: m.campuses && m.campuses.length ? cn : m.name,
             role: m.role,
-            legal: 'same' as const,
+            legal: m.legal === 'same' ? 'same' as const : 'independent' as const,
+            relationType: m.relation_type === 'same' ? undefined : m.relation_type,
             district: '',
             stages,
             badge: null,
@@ -395,6 +400,32 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     return { brand: grp.brand, note: grp.note, sourceUrls: [], groups };
   })();
   const brandCardUseful = !!brandCard && brandCard.groups.some((g) => g.rows.some((r) => !r.isCurrent));
+  /** 无教育集团时，实体注册表派生的同法人多校区；仅按 school_id 外键命中。 */
+  const multiCampusCard: MultiCampusCard | null = (() => {
+    if (brandCard) return null;
+    const family = repo.multiCampusOfSchool(schoolName, schoolId);
+    if (!family) return null;
+    const rows: BrandRow[] = family.school_ids.map((id) => {
+      const entities = repo.entities.filter((entity) => entity.school_id === id);
+      const preferred = entities.find((entity) => entity.stage === stage) || entities[0];
+      const stages = (['primary', 'middle', 'high'] as SchoolStage[])
+        .filter((candidate) => entities.some((entity) => entity.stage === candidate))
+        .map((candidate) => STAGE_SHORT[candidate]);
+      return {
+        name: preferred?.name || id,
+        role: '校区',
+        legal: 'same',
+        district: ADCODE_TO_DISTRICT[id.slice(3, 9)] || '',
+        stages,
+        badge: null,
+        reason: null,
+        isCurrent: id === schoolId,
+        link: preferred ? `/school/${encodeURIComponent(preferred.name)}?stage=${preferred.stage}&id=${id}` : null,
+      };
+    });
+    return { groups: [{ key: 'campuses', title: '多校区', rows }] };
+  })();
+  const multiCampusCardUseful = !!multiCampusCard && multiCampusCard.groups.some((g) => g.rows.some((r) => !r.isCurrent));
 
   /* ---------- 客观信号（历史称号/集团/喜报/录取线等源数据） ---------- */
   const signalRows: DetailRow[] = (() => {
@@ -427,7 +458,6 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     feedJuniors,
     feedGap,
     feedRows,
-    feedPrimarys,
     enrollNote: stage === 'middle' && poi?.school_id
       ? (repo.middleEnrollNotes?.[poi.school_id] ?? null)
       : null,
@@ -436,6 +466,8 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     gaokaoRows,
     brandCard,
     brandCardUseful,
+    multiCampusCard,
+    multiCampusCardUseful,
     campuses: rec?.campuses || null,
   };
 }

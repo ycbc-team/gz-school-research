@@ -272,32 +272,44 @@ export interface EnrollmentSnapshot {
 }
 
 /** data/middle/enrollment/dist/middle_enrollment_2026_*.json —— 初中视角招生计划 */
-export type MiddleMechanism = 'single_zone' | 'group_paidui' | 'single_lottery';
+export type MiddleMechanism = 'single_zone' | 'group_paidui' | 'single_lottery' | 'no_plan';
 export interface MiddleMechanismDef {
   label: string;
   can_lose: boolean;
   lose_text: string | null;
 }
 export interface MiddleEnrollmentRecord {
-  school: string;
   /** 单一归属 school_id；合并招生（多校区共用一套计划）时为 null，改用 school_ids 列出全部校区 */
   school_id: string | null;
   /** 多校区共用同一招生计划时列出全部校区 id（如番禺铁英学校 28 班合并招生：东/西两校区） */
   school_ids?: string[];
   plan_classes: number | null;
   scope: string | null;
+  /** 直升小学 scope 拆段 → 小学实体 id（2026-09-24：数据层 SchoolMatcher 匹配，
+   * 仅「小学名形态」段命中；前端据此把对口直升小学聚合为可点击行，未命中段保留 scope 文本展示） */
+  scope_school_ids?: Record<string, string[]>;
   mechanism: MiddleMechanism;
   mechanism_note: string | null;
-  group_members: string[] | null;
+  /** dist 合并结构（2026-09-23）：组表 group_id（派位/直升组）；2026-09-24 dist 不再存 school 名称（前端按 school_id 联查实体名，parsed 审计层保留） */
+  group_id?: string | null;
 }
 export interface MiddleEnrollmentSnapshot {
   year: number;
   district: string;
   source: string;
   source_url: string | null;
-  mechanisms: Record<MiddleMechanism, MiddleMechanismDef>;
   records: MiddleEnrollmentRecord[];
 }
+/** dist 合并结构：mechanisms 顶层一份 + groups 独立组表（包体优化） */
+export type MiddleEnrollmentGroups = Record<
+  string,
+  {
+    district: string;
+    name?: string;
+    /** 生源小学名 → school_id 列表（构建期实体匹配；多校区多个 id，key 即小学名列表，前端 Object.keys 遍历） */
+    primaryIds?: Record<string, string[]>;
+  }
+>;
 
 /** 学段标识 */
 export type SchoolStage = 'primary' | 'middle' | 'high';

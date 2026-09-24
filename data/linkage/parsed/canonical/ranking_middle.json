@@ -2210,7 +2210,7 @@
       "district": "荔湾区",
       "minban": false,
       "group": {
-        "brand": "广东实验中学荔湾学校教育集团",
+        "brand": "广东实验中学教育集团",
         "source": "education"
       },
       "kaosheng": 510,
@@ -3074,7 +3074,7 @@
       "district": "越秀区",
       "minban": false,
       "group": {
-        "brand": "广东实验中学越秀教育集团",
+        "brand": "广东实验中学教育集团",
         "source": "education"
       },
       "kaosheng": 467,
@@ -3914,7 +3914,7 @@
       "minban": false,
       "group": {
         "brand": "广州市执信中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 296,
       "sheng_quota": 15,
@@ -4351,7 +4351,7 @@
       "minban": false,
       "group": {
         "brand": "广州市第二中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 499,
       "sheng_quota": 26,
@@ -4461,7 +4461,7 @@
       "minban": false,
       "group": {
         "brand": "广东实验中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 607,
       "sheng_quota": 32,
@@ -4571,7 +4571,7 @@
       "minban": false,
       "group": {
         "brand": "广州大学附属中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 491,
       "sheng_quota": 26,
@@ -5091,7 +5091,7 @@
       "minban": false,
       "group": {
         "brand": "广州市执信中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 526,
       "sheng_quota": 27,
@@ -7706,7 +7706,7 @@
       "minban": false,
       "group": {
         "brand": "广州市执信中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 328,
       "sheng_quota": 17,
@@ -9940,7 +9940,7 @@
       "minban": false,
       "group": {
         "brand": "广州市执信中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 484,
       "sheng_quota": 25,
@@ -10359,7 +10359,7 @@
       "minban": false,
       "group": {
         "brand": "华南师范大学附属中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 443,
       "sheng_quota": 22,
@@ -10982,7 +10982,10 @@
     {
       "name": "广州市天河区培智学校",
       "school_id": "gz-440106-0a2c7178",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440106-0a2c7178",
+        "gz-440111-4bbd4f92"
+      ],
       "district": "天河区",
       "minban": true,
       "group": null,
@@ -11172,7 +11175,10 @@
     {
       "name": "广州市天河区东风学校",
       "school_id": "gz-440106-24ff78f9",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440106-24ff78f9",
+        "gz-440111-6646de49"
+      ],
       "district": "天河区",
       "minban": true,
       "group": null,
@@ -11402,7 +11408,7 @@
       "minban": false,
       "group": {
         "brand": "广东实验中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 400,
       "sheng_quota": 21,
@@ -12079,7 +12085,7 @@
     },
     {
       "name": "广州市白云区竹料第一中学",
-      "school_id": "gz-440111-fd1c1c12",
+      "school_id": "gz-440111-78d61733",
       "school_ids": null,
       "district": "白云区",
       "minban": false,
@@ -13165,11 +13171,14 @@
     },
     {
       "name": "广州市白云区三元里中学",
-      "school_id": null,
+      "school_id": "gz-440111-8629621c",
       "school_ids": null,
       "district": "白云区",
       "minban": false,
-      "group": null,
+      "group": {
+        "brand": "广州市白云中学教育集团",
+        "source": "education"
+      },
       "kaosheng": 80,
       "sheng_quota": 4,
       "qu_quota": 16,
@@ -13726,7 +13735,7 @@
       "district": "白云区",
       "minban": false,
       "group": {
-        "brand": "广州培英教育集团",
+        "brand": "广州市白云中学教育集团",
         "source": "education"
       },
       "kaosheng": 160,
@@ -14873,7 +14882,7 @@
       "district": "白云区",
       "minban": true,
       "group": {
-        "brand": "广州市白云区白云实验教育集团",
+        "brand": "广东实验中学教育集团",
         "source": "education"
       },
       "kaosheng": 613,
@@ -15452,7 +15461,7 @@
       "minban": true,
       "group": {
         "brand": "广州大学附属中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 36,
       "sheng_quota": 2,
@@ -15970,7 +15979,7 @@
       "minban": true,
       "group": {
         "brand": "华南师范大学附属中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 417,
       "sheng_quota": 21,
@@ -18439,7 +18448,7 @@
       "minban": false,
       "group": {
         "brand": "广州市第二中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 338,
       "sheng_quota": 17,
@@ -18527,7 +18536,7 @@
       "minban": false,
       "group": {
         "brand": "广州市第二中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 217,
       "sheng_quota": 18,
@@ -19041,7 +19050,7 @@
       "district": "黄埔区",
       "minban": false,
       "group": {
-        "brand": "黄埔广附教育集团",
+        "brand": "广州大学附属中学教育集团",
         "source": "education"
       },
       "kaosheng": 484,
@@ -19510,7 +19519,7 @@
       "minban": false,
       "group": {
         "brand": "华南师范大学附属中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 188,
       "sheng_quota": 10,
@@ -19713,7 +19722,7 @@
       "minban": false,
       "group": {
         "brand": "广州大学附属中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 184,
       "sheng_quota": 9,
@@ -20179,7 +20188,7 @@
       "minban": false,
       "group": {
         "brand": "广州市第二中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 499,
       "sheng_quota": 26,
@@ -20267,11 +20276,14 @@
     {
       "name": "广大附中黄埔实验学校",
       "school_id": "gz-440112-705c66e3",
-      "school_ids": null,
+      "school_ids": [
+        "gz-440112-705c66e3",
+        "gz-440112-87756a6d"
+      ],
       "district": "黄埔区",
       "minban": false,
       "group": {
-        "brand": "黄埔广附教育集团",
+        "brand": "广州大学附属中学教育集团",
         "source": "education"
       },
       "kaosheng": 716,
@@ -21048,7 +21060,7 @@
       "district": "番禺区",
       "minban": false,
       "group": {
-        "brand": "广东仲元中学教育集团",
+        "brand": "仲元附属学校教育集团",
         "source": "education"
       },
       "kaosheng": 174,
@@ -21211,7 +21223,7 @@
     },
     {
       "name": "广东第二师范学院广州南站附属学校",
-      "school_id": null,
+      "school_id": "gz-440113-0bb52d06",
       "school_ids": null,
       "district": "番禺区",
       "minban": false,
@@ -22808,7 +22820,7 @@
       "district": "番禺区",
       "minban": false,
       "group": {
-        "brand": "番广实验教育集团",
+        "brand": "广州大学附属中学教育集团",
         "source": "education"
       },
       "kaosheng": 115,
@@ -24481,7 +24493,7 @@
       "minban": false,
       "group": {
         "brand": "广州大学附属中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 557,
       "sheng_quota": 29,
@@ -24804,7 +24816,7 @@
       "minban": true,
       "group": {
         "brand": "广州市执信中学教育集团",
-        "source": "brand"
+        "source": "education"
       },
       "kaosheng": 283,
       "sheng_quota": 14,

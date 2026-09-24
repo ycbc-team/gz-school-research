@@ -1,0 +1,953 @@
+{
+  "dataset": "全国文明校园（广东省名单原文摘录）",
+  "status": "draft_raw_extraction",
+  "note": "仅含全国正式名单中广东省段的原文学校名；未推断市区、学段、实体或现行有效状态。",
+  "sources": [
+    {
+      "term": 1,
+      "year": 2017,
+      "file": "national_civilized_campuses_1_2021.html",
+      "url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml",
+      "province": "广东省",
+      "record_count": 30
+    },
+    {
+      "term": 2,
+      "year": 2020,
+      "file": "national_civilized_campuses_2_2021.html",
+      "url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml",
+      "province": "广东省",
+      "record_count": 37
+    },
+    {
+      "term": 3,
+      "year": 2025,
+      "file": "national_civilized_campuses_3_2025.html",
+      "url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html",
+      "province": "广东省",
+      "record_count": 48
+    }
+  ],
+  "records": [
+    {
+      "school": "华南理工大学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 1,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "深圳大学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 2,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "华南师范大学附属中学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 3,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "广州市执信中学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 4,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "深圳中学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 5,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "汕头市金山中学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 6,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "广东北江中学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 7,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "广东梅县东山中学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 8,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "中山市中山纪念中学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 9,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "广东肇庆中学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 10,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "清远市清城区飞来湖中学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 11,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "广州市越秀区东川路小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 12,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "广州市南沙区南沙小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 13,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "深圳市福田区荔园小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 14,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "深圳市盐田区田心小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 15,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "深圳市龙岗区新亚洲学校",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 16,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "汕头市桂花小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 17,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "珠海市香洲区杨匏安纪念学校",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 18,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "佛山市三水区实验小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 19,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "韶关市曲江区九龄小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 20,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "河源市第三小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 21,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "梅州市梅县区程江镇中心小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 22,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "东莞市莞城步步高小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 23,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "惠州市第十一小学金榜分校",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 24,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "中山市东区朗晴小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 25,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "江门市紫茶小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 26,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "湛江市第八小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 27,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "清远市新北江小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 28,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "清远市清城区凤翔小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 29,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "肇庆市鼎湖区桂城街道办事处中心小学",
+      "term": 1,
+      "year": 2017,
+      "province": "广东省",
+      "source_position": 30,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276854.shtml"
+    },
+    {
+      "school": "深圳职业技术学院",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 1,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "广东实验中学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 2,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "广东广雅中学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 3,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "深圳外国语学校（初中部、高中部、龙华高中部）",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 4,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "珠海市斗门区第二中学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 5,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "佛山市高明区沧江中学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 6,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "惠州市东江高级中学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 7,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "东莞市东莞中学初中部",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 8,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "中山市东区松苑中学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 9,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "江门市第一中学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 10,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "汕头市第一中学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 11,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "韶关市第一中学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 12,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "河源中学实验学校",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 13,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "肇庆市颂德学校",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 14,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "清远市第一中学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 15,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "华南师范大学附属中学汕尾学校",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 16,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "广州市越秀区东风东路小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 17,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "深圳市福田区园岭小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 18,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "珠海市香洲区第十九小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 19,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "汕头市龙湖区金阳小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 20,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "佛山市南海区南海实验小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 21,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "韶关市浈江区和平路小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 22,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "河源市第一小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 23,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "梅州市梅江区鸿都小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 24,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "惠东县平山第一小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 25,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "陆河县实验小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 26,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "东莞师范学校附属小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 27,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "中山市实验小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 28,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "江门市江海区礼乐街道新民小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 29,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "阳江市实验小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 30,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "湛江市麻章中心小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 31,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "信宜市教育城小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 32,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "肇庆市奥威斯实验小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 33,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "清远市清新区第一小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 34,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "饶平县师范学校附属小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 35,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "揭阳市实验小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 36,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "新兴县实验小学",
+      "term": 2,
+      "year": 2020,
+      "province": "广东省",
+      "source_position": 37,
+      "source_url": "https://www.wenming.cn/wmsjk/cjdx_53740/qgwmxymd/202112/t20211227_6276858.shtml"
+    },
+    {
+      "school": "广东技术师范大学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 1,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "佛山大学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 2,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "珠海科技学院",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 3,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "广州市真光中学（校本部）",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 4,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "广州市天河外国语学校",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 5,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "广州市番禺区石碁镇中心小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 6,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "深圳高级中学（集团）中心校区",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 7,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "深圳市福田区红岭中学（红岭教育集团）高中部",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 8,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "深圳市南山实验教育集团深湾小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 9,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "珠海市实验中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 10,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "珠海市香山学校",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 11,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "汕头市澄海中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 12,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "汕头市东厦小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 13,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "佛山市南海区南海实验中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 14,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "佛山市禅城区南庄镇紫南小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 15,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "乳源瑶族自治县民族实验学校",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 16,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "仁化县田家炳小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 17,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "河源市河源中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 18,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "河源市第二小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 19,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "梅州市蕉岭县蕉岭中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 20,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "梅州市丰顺县汤坑镇第一中心小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 21,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "惠州市华罗庚中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 22,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "惠州市博罗县龙华中心小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 23,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "汕尾市海丰县彭湃中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 24,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "汕尾市陆河县职业技术学校",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 25,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "东莞市东莞中学松山湖学校",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 26,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "东莞市莞城中心小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 27,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "中山市第一中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 28,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "中山市石岐体育路学校",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 29,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "江门市新会第一中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 30,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "江门市蓬江区荷塘镇篁湾中心小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 31,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "阳江市第一中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 32,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "阳春市第一中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 33,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "湛江第一中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 34,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "湛江市第二十七小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 35,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "化州市第一中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 36,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "茂名市愉园小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 37,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "茂名市电白区第一小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 38,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "肇庆市第一中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 39,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "肇庆市鼎湖区广利中心小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 40,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "清远市清城区清城中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 41,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "清远市清新区第二小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 42,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "饶平县第二中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 43,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "潮州市实验学校",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 44,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "揭阳第一中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 45,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "揭阳市榕城区红旗小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 46,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "云浮市邓发纪念中学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 47,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    },
+    {
+      "school": "云浮市邓发小学",
+      "term": 3,
+      "year": 2025,
+      "province": "广东省",
+      "source_position": 48,
+      "source_url": "https://www.wenming.cn/wmzthc/20250522/49dda5aa663948a9830ba2e7b9890e0b/c.html"
+    }
+  ]
+}

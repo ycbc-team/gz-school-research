@@ -17,6 +17,7 @@
 | `primary/` | 小学 | `enrollment/`（小学招生，parsed/scripts/src/docs/test 分层）、`transition/`（小升初升学路线）、`tier1_schools_all.json`（第一梯队核验）；点位见 `poi/` |
 | `middle/` | 初中 | `enrollment/`（公办初中招生，parsed/src/scripts/dist/docs/test 分层，2026-09-23 迁入）、`org_sort/`（默认排序）、`tier1_schools_all.json`（初中第一梯队核验）；点位见 `poi/` |
 | `high/` | 高中 | `level/src/levels.json`（学校清单/分类/指标）；`cutoff_score/`（录取分：`dist/` 历年产物 / `raw/` 官方源页面 / `src/` 手工源 / `scripts/` 解析脚本）；点位见 `poi/` |
+| `civilized_campuses/` | 跨学段 | 全国/省市文明校园：`raw/` 保留全部来源，正式全国名单经 `parsed/` 和 `scripts/build_dist.py` 编译为运行时 `school_id` 索引；详见目录 README |
 | `poi/` | 跨学段 | `dist/primary_poi.json`（931 所）/ `dist/middle_poi.json`（475 所）/ `dist/high_poi.json`（清洗后 126 所）；采集/补点脚本在 `poi/scripts/`，查询留痕 `poi/raw/amap_query_*.json` |
 | `registry/` | 跨学段 | 三个业务子目录：`entity/`（实体表，全链 school_id 维度枢纽）、`group/`（教育集团/品牌关联）、`private/`（民办名单真源）；详见各子目录 README |
 
@@ -94,7 +95,7 @@ python3 data/primary/enrollment/scripts/build_primary_2026.py <区>   # 2026 小
 | `linkage/dist/quota_matrix.json` / `special_matrix.json` / `district_quota.json` / `batch2_scores.json` | data/linkage/scripts/rebuild_quota_matrix / build_special_* / build_district_quota / build_linkage_batch2（+ backfill_school_ids 回填 id） | 升学通道、排行榜 |
 | `linkage/dist/ranking_middle.json`（334 校） | data/linkage/scripts/build_ranking_middle.py | 详情页升学信号、排行榜、初中明细 |
 | `registry/group/dist/education_groups.json` | merge_groups.py（合并 parsed `_partial_*` + src/brand_groups + parsed/education_groups_2026） | 品牌卡、初中明细分组 |
-| `registry/group/dist/school_groups.json`（纯 id） | build_school_groups.py（--write-brand 回写 src/brand_groups） | 品牌卡、初中明细分组（运行时纯 id 匹配） |
+| `registry/group/dist/school_groups.json`（集团 → school_id[]） | build_school_groups.py（--write-brand 回写 src/brand_groups） | 品牌卡、初中明细分组（加载时反建纯 id 匹配） |
 | `middle/org_sort/dist/compiled.json` | data/middle/org_sort/scripts/build_org_sort.py | 初中默认排序 |
 | `primary/transition/dist/middle_feed_snapshot.json` | build_middle_feed_snapshot.py | 初中生源全量快照测试（npm run check） |
 

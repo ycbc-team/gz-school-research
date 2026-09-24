@@ -35,7 +35,6 @@ const baseLoaders = {
   batch2Scores: { ids: {}, schools: {} },
   districtQuota: { ids: {}, schools: {} },
   brandGroups: { brands: [] },
-  schoolGroups: { schoolGroups: {} },
 };
 
 const repository = createRepository(baseLoaders);

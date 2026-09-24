@@ -145,6 +145,9 @@ export interface BrandGroups {
 /** 全量教育集团（区教育局官方口径，data/registry/education_groups.json） */
 export interface EducationGroupMember {
   name: string;
+  /** 运行时产物扁平化后显式标注核心校/成员校。 */
+  role?: string;
+  relation_type?: 'same' | 'entrusted' | 'cooperation' | 'brand';
   stage: string;
   verified?: string;
   poi_match?: string;

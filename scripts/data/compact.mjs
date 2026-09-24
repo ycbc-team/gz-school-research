@@ -58,7 +58,7 @@ function walkJson(dir) {
   return out;
 }
 const WEB_TARGETS = walkJson(DATA_SRC)
-  .filter((p) => !p.split(sep).some((seg) => seg === 'raw' || seg === '_raw'))
+  .filter((p) => !p.split(sep).some((seg) => seg === 'raw' || seg === '_raw' || seg === 'test'))
   .map((p) => relative(ROOT, p))
   .filter((rel) => !basename(rel).startsWith('_partial_'))
   .filter((rel) => !rel.split(sep).includes('src') || rel.startsWith('data/high/level/') || (rel.startsWith('data/registry/group/src/') && basename(rel) === 'brand_groups.json') || (rel.startsWith('data/middle/enrollment/src/') && basename(rel) === 'middle_enroll_notes.json'))
@@ -66,9 +66,9 @@ const WEB_TARGETS = walkJson(DATA_SRC)
   // middle/enrollment/src 例外：middle_enroll_notes.json 手工录取备注即详情页招生视图消费（无 dist 构建）；
   // registry/src 例外：brand_groups.json 手工源即详情页「品牌关联」运行时消费（无 dist 构建）；
   // 同目录的 groups_anchors 等构建期表，不进前端（source_name_mappings 已退役，2026-09-21）
-  .filter((rel) => !['groups_anchors.json', 'pending_items.json', 'coverage_result.json'].includes(basename(rel)))
+  .filter((rel) => !['groups_anchors.json', 'pending_items.json'].includes(basename(rel)))
   .filter((rel) => !(rel.startsWith('data/primary/enrollment/dist/2026-') && !rel.endsWith('2026-all.json')));
-  // 构建期内部表不进前端包：groups_anchors（merge_groups 锚点）/ pending_items（民办待补/待核实清单）/ coverage_result（集团覆盖检查产物）
+  // 构建期内部表不进前端包：groups_anchors（merge_groups 锚点）/ pending_items（民办待补/待核实清单）
 // 小程序主包数据（地图页 + 首页/支撑度消费）：POI/tier1/levels/招生/实体/升学路线/官方录取分
 const MP_MAIN_TARGETS = [
   'data/poi/dist/primary_poi.json',
@@ -95,7 +95,6 @@ const MP_SUB_TARGETS = [
   'data/linkage/dist/district_quota.json',
   'data/registry/group/src/brand_groups.json',
   'data/registry/group/dist/education_groups.json',
-  'data/registry/group/dist/school_groups.json',
 ];
 
 /* ---------- JS 字面量序列化（保留 undefined 稀疏空位） ---------- */

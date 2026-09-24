@@ -1,0 +1,529 @@
+{
+ "year": 2026,
+ "district": "天河区",
+ "source": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+ "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+ "records": [
+  {
+   "school": "广州市第18中学",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-3a61d518",
+    "gz-440106-ef4076c1"
+   ],
+   "plan_classes": 14,
+   "scope": "天河区界（莲溪村）以西，天河区界（珠江）以北，车陂路以东，中山大道中以南",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州中学",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-867e6c05",
+    "gz-440106-a989804b"
+   ],
+   "plan_classes": 40,
+   "scope": "华南快速干线（北起广园快速路立交，南至中山大道）以西，中山大道—天河路以北，广州大道—林和西横路—林和西路至广园东路、瘦狗岭路9号以东，广园快速路东至广园立交以南；粤垦路533号—623号（单号）等",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市第113中学",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-2e9f6f7b",
+    "gz-440106-b049d65a"
+   ],
+   "plan_classes": 28,
+   "scope": "荷光路单号7号到269号转中山大道西（单号1号到293号）—天府路以西，黄埔大道以东，广园快速路以南；员村片区等",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区汇景实验学校",
+   "school_id": "gz-440106-0d1e149e",
+   "plan_classes": 20,
+   "scope": "科韵路（广园快速路立交至北环高速段）以西，广园铁路以北，东莞庄路161号—天源路—长兴路以东，五山街地界—华观路以南；原五山华院小区",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市第75中学",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-5a7fbf3a",
+    "gz-440106-621b20d3"
+   ],
+   "plan_classes": 14,
+   "scope": "天河北路东界—林和西路以西，林和西路至广州大道中以北，水荫四横路东段转龙岗东路先烈东路转濂泉路至沙东街西界以东，兴华街北界以南；西坑一横巷等",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市第89中学",
+   "school_id": "gz-440106-8f55ab34",
+   "plan_classes": 18,
+   "scope": "凤凰街东界—凤凰街南界—龙洞街南界—龙洞街西界—龙洞街北界—凤凰街北界",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州奥林匹克中学",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-d40d0dbe",
+    "gz-440106-fa9338a2"
+   ],
+   "plan_classes": 14,
+   "scope": "中山大道中1099号至尖塔路1号以西，中山大道中1099号转车陂路转广深铁路至科韵路以北，科韵路接新滘路以东，新塘街南界接吉岐街西界；智谷校区招生地段：广氮花园、棠安花园、天健上城、阳华国花苑、天河壹品、金地峯荟、消防总队经济适用房",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河中学",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-2f8a4424",
+    "gz-440106-dd16c13e"
+   ],
+   "plan_classes": 20,
+   "scope": "西至体育东路—黄埔大道—广州大道，北至天河路以南230—560号（双号），东至石牌西路—黄埔大道西—马场路（单号），南至猎德街南界（包括猎心沙）",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天荣中学",
+   "school_id": "gz-440106-90c47ff5",
+   "plan_classes": 8,
+   "scope": "广州大道以东，天河路以南，天河东路（单号）以西，黄埔大道西以北；水福路—豪景苑—先烈东路—龙岗路—水荫四横路东段—广州大道中—水荫横路—水荫路环形范围以内",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市长兴中学",
+   "school_id": "gz-440106-7077b270",
+   "plan_classes": 8,
+   "scope": "长兴街东界以西，长兴街南界以北，元岗街西界以东，元岗街北界接长兴街北界以南",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市骏景中学",
+   "school_id": "gz-440106-b7d476f7",
+   "plan_classes": 8,
+   "scope": "车陂路（中山大道路口至珠江段）以西，珠江至村五骏景路转黄埔大道至科韵路口以北，科韵路以东，中山大道1110号车陂路399号以南",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市泰安中学",
+   "school_id": "gz-440106-22156e02",
+   "plan_classes": 10,
+   "scope": "车陂路（单号）以西，中山大道西（单号）以北，光华路（双号）以东，广深铁路以南",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市华颖外国语学校",
+   "school_id": "gz-440106-dab5b807",
+   "plan_classes": 4,
+   "scope": "员村二横路员村西街转员村南街以西，珠江以北，潭村路—平江路以东，黄埔大道以南",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市南国学校",
+   "school_id": "gz-440106-b0d40cc4",
+   "plan_classes": 4,
+   "scope": "潭村路—平江路以西，临江大道以北，马场路以东，黄埔大道以南",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河中学猎德实验学校",
+   "school_id": "gz-440106-8b3ee7d2",
+   "plan_classes": "4+1（特教）",
+   "scope": "海清路以西，临江大道以北，猎德路以东，海明路以南",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市第一一三中学陶育实验学校",
+   "school_id": "gz-440106-7c81ab92",
+   "plan_classes": 4,
+   "scope": "华南快速干线以西，天河路—中山大道以南，黄埔大道以北，石牌西路以东",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区暨南第一实验学校",
+   "school_id": "gz-440106-11e15e8d",
+   "plan_classes": "4+1（特教）",
+   "scope": "保利棠馨花园",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广东实验中学天河学校",
+   "school_id": "gz-440106-0eb93435",
+   "plan_classes": 6,
+   "scope": "保利天瑞",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河外国语学校",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-069ddb41",
+    "gz-440106-b711d94a"
+   ],
+   "plan_classes": 6,
+   "scope": "合生骏景、湖雍花园",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州中学天河燕园学校",
+   "school_id": "gz-440106-15ca1554",
+   "plan_classes": 6,
+   "scope": "恒越花园、雅序苑",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河外国语均和学校",
+   "school_id": "gz-440106-051b0157",
+   "plan_classes": 6,
+   "scope": "润熙花园、珠江四季花园",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河外国语学校（珠江新城校区）、广州市天河外国语学校（智慧城校区）",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-069ddb41",
+    "gz-440106-b711d94a"
+   ],
+   "plan_classes": 6,
+   "scope": "详见附件10",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "清华附中湾区学校（智谷校区）、清华附中湾区学校（智慧城校区）",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-31895452",
+    "gz-440106-e32237e4"
+   ],
+   "plan_classes": "8+8",
+   "scope": "详见附件10",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null
+  },
+  {
+   "school": "广州市执信中学天河校区",
+   "school_id": "gz-440106-22fcbcd6",
+   "plan_classes": 10,
+   "scope": "详见附件10",
+   "mechanism": "single_zone",
+   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "group_members": null,
+   "school_ids": [
+    "gz-440104-1e9bdce3",
+    "gz-440106-22fcbcd6"
+   ]
+  },
+  {
+   "school": "华南师范大学附属中学初中部",
+   "school_id": "gz-440106-a565a93c",
+   "plan_classes": 8,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "企事业办学校招生（附件7）",
+   "group_members": null
+  },
+  {
+   "school": "华南理工大学附属实验学校",
+   "school_id": "gz-440106-9bed7efb",
+   "plan_classes": 4,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "企事业办学校招生（附件7）",
+   "group_members": null
+  },
+  {
+   "school": "暨南大学附属实验学校（初中部）",
+   "school_id": "gz-440106-11e15e8d",
+   "plan_classes": 6,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "企事业办学校招生（附件7）",
+   "group_members": null
+  },
+  {
+   "school": "广州市华美英语实验学校",
+   "school_id": "gz-440106-7abd2786",
+   "plan_classes": 10,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州思源学校",
+   "school_id": "gz-440106-c8bf2650",
+   "plan_classes": 4,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州天省实验学校",
+   "school_id": "gz-440106-01fd3a87",
+   "plan_classes": 16,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区同仁艺体实验中学",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-429b917e",
+    "gz-440106-cc1c335f"
+   ],
+   "plan_classes": 7,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区新蕾五星学校",
+   "school_id": "gz-440106-c77276d3",
+   "plan_classes": 3,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区同仁学校",
+   "school_id": "gz-440106-3d7736c5",
+   "plan_classes": 3,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区同仁天兴学校",
+   "school_id": "gz-440106-0d03d513",
+   "plan_classes": 2,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区同仁实验学校",
+   "school_id": "gz-440106-77787b4a",
+   "plan_classes": 3,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区成龙中学",
+   "school_id": "gz-440106-fd03e039",
+   "plan_classes": 3,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区棠福学校",
+   "school_id": "gz-440106-4534dc1a",
+   "plan_classes": 3,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区东风学校",
+   "school_id": "gz-440106-24ff78f9",
+   "plan_classes": 2,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区东泰学校",
+   "school_id": "gz-440106-9abdc5fd",
+   "plan_classes": 3,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区天泽中学",
+   "school_id": "gz-440106-b9eb24f9",
+   "plan_classes": 3,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区培智学校",
+   "school_id": "gz-440106-0a2c7178",
+   "plan_classes": 2,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区大华学校",
+   "school_id": "gz-440106-72c4c319",
+   "plan_classes": 2,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区凤凰中学",
+   "school_id": "gz-440106-ae248365",
+   "plan_classes": 2,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区新昌学校",
+   "school_id": "gz-440106-1b9f7e62",
+   "plan_classes": 2,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区科韵路学校",
+   "school_id": "gz-440106-f0ba06c2",
+   "plan_classes": 3,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区明珠中英文学校",
+   "school_id": "gz-440106-4775be07",
+   "plan_classes": 6,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区龙圣学校",
+   "school_id": "gz-440106-eda909f7",
+   "plan_classes": 3,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区兴华培智学校",
+   "school_id": "gz-440106-0c83a9b2",
+   "plan_classes": 2,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区培艺学校",
+   "school_id": "gz-440106-23e66d3b",
+   "plan_classes": 2,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区黄村中英文学校",
+   "school_id": "gz-440106-4fac106a",
+   "plan_classes": 4,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河区华实学校",
+   "school_id": "gz-440106-bd07878c",
+   "plan_classes": 6,
+   "scope": null,
+   "mechanism": "single_zone",
+   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "group_members": null
+  },
+  {
+   "school": "天河区智谷第一实验学校",
+   "school_id": "gz-440106-d311ea50",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "no_plan",
+   "mechanism_note": "2026 年官方初中招生计划（《天河区 2026 年义务教育阶段学校招生工作细则》附件6）未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
+   "group_members": null
+  },
+  {
+   "school": "广州市天河外国语智谷学校",
+   "school_id": "gz-440106-d042314d",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "no_plan",
+   "mechanism_note": "2026 年官方初中招生计划（《天河区 2026 年义务教育阶段学校招生工作细则》附件6）未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
+   "group_members": null
+  }
+ ]
+}

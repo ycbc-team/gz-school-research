@@ -1211,15 +1211,6 @@
    "data_gaps": "民办（附件8 #5 东联学校）。"
   },
   {
-   "name": "佛塱学校",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
-  },
-  {
    "name": "凤尾学校",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
@@ -1236,24 +1227,6 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
    "source_note": "民办/待核。",
    "data_gaps": "2026-09-01 新启用公办十二年制（华中师大与黄埔区合作，红山街双沙片区，中建海丝城配建）；未在 2026-04-28 招生细则单列小升初，首届新生 2026 年 9 月入学（hp.gov.cn 揭牌报道）。"
-  },
-  {
-   "name": "嘉洲小学",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "民办，官方 2026 年民办招生计划未单列（可能停招），待核。"
-  },
-  {
-   "name": "埔心学校",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
   },
   {
    "name": "广东省教育研究院黄埔实验学校(北校区)",
@@ -1301,33 +1274,6 @@
    "data_gaps": "官方 2026 年招生文件未单列（名称疑为早期记录），待核。"
   },
   {
-   "name": "福洞小学",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
-  },
-  {
-   "name": "西村小学",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。"
-  },
-  {
-   "name": "黄埔利民艺体实验学校",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "民办，官方 2026 年民办招生计划未单列（可能停招），待核。"
-  },
-  {
    "name": "黄埔区洋城学校",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
@@ -1337,15 +1283,6 @@
    "data_gaps": "民办（附件8 #1 洋城学校）。"
   },
   {
-   "name": "黄埔区莲塘中小学生劳动教育基地",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "劳动教育实践基地，非招生学校。"
-  },
-  {
    "name": "黄埔国光小学",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
@@ -1353,24 +1290,6 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
    "source_note": "民办/待核。",
    "data_gaps": "民办（附件8 #6 国光学校）。"
-  },
-  {
-   "name": "黄埔实验学校小学部",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "官方 2026 年招生文件未单列\"黄埔实验学校\"，待核。"
-  },
-  {
-   "name": "黄埔海地实验学校",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
-   "source_note": "民办/待核。",
-   "data_gaps": "官方 2026 年招生文件未单列（民办待核）。"
   }
  ]
 }

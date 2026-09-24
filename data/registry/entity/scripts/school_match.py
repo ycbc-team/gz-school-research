@@ -25,6 +25,7 @@
     r = m.resolve("广州市白云区星悦实验学校(初中部)", stage="初中", adcode="440111")
 """
 import json, os, re, sys, unicodedata
+from functools import lru_cache
 
 BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 
@@ -56,6 +57,7 @@ def fold_unicode(s):
     return s
 
 
+@lru_cache(maxsize=None)
 def normName(s):
     """严格全等归一：全角括号→半角 → 去「广州市」前缀 → 删括号 → 去空白。
     与 data/registry/entity/scripts/build_entities.py 及 packages/shared/src/support.ts 的 normName 完全一致。"""
@@ -68,6 +70,7 @@ def normName(s):
             .replace(" ", "").replace("\u3000", ""))
 
 
+@lru_cache(maxsize=None)
 def looseNorm(s):
     """normName + 去尾部学部/校区后缀。用于官方名单原文（无学部后缀）与 POI 名（带「(初中部)」）跨源全等匹配。"""
     t = normName(s)
@@ -117,6 +120,7 @@ def strip_generic(s):
     return t
 
 
+@lru_cache(maxsize=None)
 def coreCampusName(name):
     """法人核心名：去括号校区后缀（「广州市第一一三中学(乐学校区)」→「广州市第一一三中学」；
     无括号则返回自身）。官方升学文件/教育集团按法人单位公布，同一法人的全部校区实体
@@ -124,10 +128,55 @@ def coreCampusName(name):
     return re.sub(r"[（(][^）)]*[）)]", "", name or "").strip()
 
 
+@lru_cache(maxsize=None)
 def legalKey(name):
     """法人推导 key：法人核心名再剥括号外学部后缀（「XX初中部/高中部/小学部/中职部」）。
     merge_groups 法人推导与 SchoolMatcher 多校区展开共用，避免两处实现漂移。"""
     return matchNorm(re.sub(r"(小学|初中|高中|中职)部$", "", coreCampusName(name)))
+
+
+# ---- 预计算索引（结构性优化）：legalCampuses / resolve_all 法人展开从 O(实体数) 降到 O(命中数)。
+# 仅读取 name/aliases/school_id 字段，兼容 SchoolMatcher rec 与原始 entities.json 两种输入；
+# 顺序 = 输入列表首现顺序（与全表遍历一致），快照比较对列表顺序敏感，必须严格保序。
+_LC_CACHE = {}  # id(entities) -> (len, index)；调用方持有同一列表对象时命中
+
+
+def _build_index(rows):
+    """rows（实体列表，允许重复对象）→ 保序去重后的预计算索引。"""
+    seen = set()
+    core_index = {}      # matchNorm(coreCampusName(name)) -> [entity]（resolve_all 全等展开）
+    legal_index = {}     # legalKey(name) -> [(order, school_id, name)]（第一层 name 通道）
+    alias_legal = {}     # legalKey(alias) -> [(order, school_id, name)]（第一层 alias 通道）
+    suffix_prefix = {}   # 前缀 -> [(order, school_id, name, en)]（第二层「<法人><校区名>校区」归并）
+    for order, e in enumerate(rows):
+        if id(e) in seen:
+            continue
+        seen.add(id(e))
+        nm = e["name"]
+        sid = e["school_id"]
+        core = matchNorm(coreCampusName(nm))
+        core_index.setdefault(core, []).append(e)
+        legal_index.setdefault(legalKey(nm), []).append((order, sid, nm))
+        for a in e.get("aliases") or []:
+            alias_legal.setdefault(legalKey(a), []).append((order, sid, nm))
+        if any(core.endswith(sf) for sf in ("校区", "分校", "教学点", "分教点", "分部")):
+            for i in range(1, len(core) + 1):
+                suffix_prefix.setdefault(core[:i], []).append((order, sid, nm, core))
+    return core_index, legal_index, alias_legal, suffix_prefix
+
+
+def _legal_campuses_by_index(key, legal_index, alias_legal, suffix_prefix):
+    """与全表遍历等价的 O(命中数) 法人归并（顺序 = 输入列表首现顺序）。"""
+    hits = {}
+    for _order, sid, nm in legal_index.get(key, ()):
+        hits.setdefault(sid, (nm, _order))
+    for _order, sid, nm in alias_legal.get(key, ()):
+        hits.setdefault(sid, (nm, _order))
+    for _order, sid, nm, en in suffix_prefix.get(key, ()):
+        if len(en) > len(key):
+            hits.setdefault(sid, (nm, _order))
+    return [{"poi_name": nm, "school_id": sid}
+            for sid, (nm, _order) in sorted(hits.items(), key=lambda kv: kv[1][1])]
 
 
 def legalCampuses(name, entities):
@@ -142,20 +191,11 @@ def legalCampuses(name, entities):
     凡「<法人><校区名>(校区|分校|…)」形态一律自动归并，替代「手工给后缀式校区实体补括号式别名」的做法。
     """
     key = legalKey(name)
-    seen = {}
-    for e in entities:
-        if legalKey(e["name"]) == key:
-            seen.setdefault(e["school_id"], e["name"])
-        elif any(legalKey(a) == key for a in (e.get("aliases") or [])):
-            seen.setdefault(e["school_id"], e["name"])
-        else:
-            en = matchNorm(coreCampusName(e["name"]))
-            if any(en.endswith(sf) for sf in ("校区", "分校", "教学点", "分教点", "分部")):
-                # key+后缀（无独立校区名，如「新洲小学分校」）→ 归并到法人；
-                # key+校区名+后缀（校区名 >= 2 字）→ 同样归并。
-                if en.startswith(key) and len(en) > len(key):
-                    seen.setdefault(e["school_id"], e["name"])
-    return [{"poi_name": n, "school_id": sid} for sid, n in seen.items()]
+    p = _LC_CACHE.get(id(entities))
+    if p is None or p[0] != len(entities):
+        p = (len(entities), _build_index(entities))
+        _LC_CACHE[id(entities)] = p
+    return _legal_campuses_by_index(key, p[1][1], p[1][2], p[1][3])
 
 
 def _is_generic_core(s: str) -> bool:
@@ -168,6 +208,7 @@ def _is_generic_core(s: str) -> bool:
     return core in _GENERIC_SUFFIX
 
 
+@lru_cache(maxsize=None)
 def matchNorm(name):
     """泛词保护归一（集团成员→POI 匹配专用，原 match_poi.norm）：
     状态括号剥、保留校区括号；去「广州市」前缀；区名归一；前导区名剥离（剩余纯泛词保留）；
@@ -227,13 +268,17 @@ class SchoolMatcher:
         self.exact_map = {}          # normName(name/alias) -> [entity]（严格全等）
         self.loose_map = {}          # looseNorm(name/alias) -> [entity]
         self.by_id = {}              # school_id -> entity rec（显式锚定/回连用）
+        self._indexes = None         # 懒构建预计算索引（add_entities 后失效）
 
     # ---------- 索引构建 ----------
     def add_entities(self, entities):
         """entities: [{name, stage, aliases?}]。一个别名可能对应多个实体（共享别名如「广铁一中铁英学校」），
         保留全部实体，由 resolve 结合 preferred_adcode 收敛，避免"后写覆盖"式错配。"""
+        self._indexes = None  # 实体装配后索引需重建
         for e in entities:
-            rec = {"name": e["name"], "stage": e.get("stage", ""), "aliases": [], "school_id": e.get("school_id", "")}
+            rec = {"name": e["name"], "stage": e.get("stage", ""),
+                   "aliases": list(e.get("aliases", []) or []),
+                   "school_id": e.get("school_id", "")}
             if rec["school_id"]:
                 self.by_id[rec["school_id"]] = rec
             self.all_entities.append(rec)
@@ -249,6 +294,33 @@ class SchoolMatcher:
                 k2 = key.replace("(", "").replace(")", "")
                 if k2 != key:
                     self.alias_map.setdefault(k2, []).append(rec)
+
+    # ---------- 预计算索引（结构性优化，懒构建） ----------
+    def _ensure_indexes(self):
+        """法人/核心/前缀索引 + substring 候选预投影。语义与全表遍历一致、顺序严格保序；
+        依赖 exact_map/all_entities 装配完毕，add_entities 后置 None 强制重建。"""
+        if self._indexes is not None:
+            return self._indexes
+        flat = [e for es in self.exact_map.values() for e in es]
+        core_index, legal_index, alias_legal, suffix_prefix = _build_index(flat)
+        norm_prefix = {}    # matchNorm(name) 前缀 -> [entity]（resolve 2b5 分校区吸附）
+        core_prefix = {}    # matchNorm(coreCampusName(name)) 前缀 -> [entity]（resolve_campus_list 前缀补全）
+        for e in self.all_entities:
+            nm = matchNorm(e["name"])
+            for i in range(1, len(nm) + 1):
+                norm_prefix.setdefault(nm[:i], []).append(e)
+            cc = matchNorm(coreCampusName(e["name"]))
+            for i in range(1, len(cc) + 1):
+                core_prefix.setdefault(cc[:i], []).append(e)
+            for a in e.get("aliases") or []:
+                ac = matchNorm(coreCampusName(a))
+                for i in range(1, len(ac) + 1):
+                    core_prefix.setdefault(ac[:i], []).append(e)
+        sub_proj = [{"name": e["name"], "norm": matchNorm(e["name"]), "adcode": self._adcode_of(e),
+                     "stage": e["stage"], "school_id": e["school_id"]} for e in self.all_entities]
+        self._indexes = (core_index, legal_index, alias_legal, suffix_prefix,
+                         norm_prefix, core_prefix, sub_proj)
+        return self._indexes
 
     # ---------- 政策区白名单与显式锚定 ----------
     @classmethod
@@ -365,11 +437,10 @@ class SchoolMatcher:
         # 无校区限定：全部同法人校区展开（法人行公布即适用全部校区）
         core = matchNorm(coreCampusName(name))
         if len(core) >= 4:
-            all_entities = [e for es in self.exact_map.values() for e in es]
+            _ci, _li, _al, _sp, _np, _cp, _sub = self._ensure_indexes()
             seen = {e["school_id"] for e in candidates}
-            for e in all_entities:
+            for e in _ci.get(core, ()):
                 if (not wanted_stage or e["stage"] == wanted_stage) \
-                        and matchNorm(coreCampusName(e["name"])) == core \
                         and e["school_id"] not in seen:
                     candidates.append(e)
                     seen.add(e["school_id"])
@@ -389,7 +460,7 @@ class SchoolMatcher:
                 _core = matchNorm(coreCampusName(_c["name"]))
                 if len(_core) < 4:
                     continue
-                for _cp in legalCampuses(_core, all_entities):
+                for _cp in _legal_campuses_by_index(legalKey(_core), _li, _al, _sp):
                     _e = self.by_id.get(_cp["school_id"])
                     if _e and _e["school_id"] not in seen \
                             and (not wanted_stage or _e["stage"] == wanted_stage):
@@ -415,7 +486,134 @@ class SchoolMatcher:
                 return [one]
         return []
 
-    def resolve(self, name, preferred_adcode=None, preferred_stage=None, strategy="single"):        return []
+    # 校区等价词（官方「校本部」↔ 实体「本校区」）
+    _CAMPUS_SYN = {"校本部": "本校区"}
+
+    def resolve_campus_list(self, name, preferred_adcode=None, preferred_stage=None):
+        """第三种匹配：官方「法人名（校区A、校区B…）」——括号内是多个校区/学部选项。
+        不去括号直拼（会把括号里没写的校区也匹配进来）：去括号对法人名 resolve_all 展开
+        全部候选，再与括号内选项逐项匹配（候选校区标识全等/包含/等价），只保留命中的校区。
+        例：「沙面小学（校本部、岭南校区、御景校区）」→ resolve_all(沙面小学) 六校区 →
+        选项[校本部,岭南校区,御景校区] → 命中 本校区(校本部)/岭南校区/御景校区，不误配
+        柏悦湾/大坦沙/悦江。学部选项（小学部/初中部/高中部）按 stage 过滤纯法人实体。
+        非「法人（选项列表）」形态或无命中 → []（宁缺）。"""
+        mlist = re.match(r"^(?P<legal>.+?)[（(](?P<campus>[^（）()]+)[）)]$", name or "")
+        if not mlist:
+            return []
+        legal = mlist.group("legal").strip()
+        campus_raw = mlist.group("campus").strip()
+        segs = [s.strip() for s in re.split(r"[、,，]", campus_raw) if s.strip()]
+        if not segs:
+            return []
+        # 选项解析：数字序数序列展开（「第一、二、三小学部」→ 第一小学部/第二小学部/第三小学部；
+        # 「1、2、3校区」→ 1校区/2校区/3校区；「东、西、北校区」非数字 → 后缀继承为东校区…）
+        opts = []
+        def _is_num(t):
+            return bool(re.fullmatch(r"第?[一二三四五六七八九十百\d]+", t or ""))
+        i = 0
+        while i < len(segs):
+            seg = segs[i]
+            if _is_num(seg) and i + 1 < len(segs):
+                nums, j = [seg], i + 1
+                while j < len(segs) and _is_num(segs[j]):
+                    nums.append(segs[j]); j += 1
+                suffix = ""
+                if j < len(segs):
+                    # 末段可为「数字+公共后缀」（如「三小学部」「3校区」）→ 拆出数字与后缀
+                    mseg = re.match(r"^(第?[一二三四五六七八九十百\d]+)(.+)$", segs[j])
+                    if mseg and not _is_num(segs[j]):
+                        nums.append(mseg.group(1)); suffix = mseg.group(2)
+                    else:
+                        suffix = segs[j]
+                    j += 1
+                if suffix:
+                    # 首个数字段带「第」时（第一、二、三…），裸中文数字段补「第」（第二/第三）
+                    add_di = nums[0].startswith("第")
+                    for nseg in nums:
+                        prefix = re.sub(r"[一二三四五六七八九十百\d]+$", "", nseg)
+                        numpart = nseg[len(prefix):]
+                        if add_di and not prefix and re.fullmatch(r"[一二三四五六七八九十]+", numpart):
+                            prefix = "第"
+                        opts.append(prefix + numpart + suffix)
+                    i = j
+                    continue
+            opts.append(seg); i += 1
+        # 后缀继承：无标识段继承末段标识（「东、西、北校区」→ 东校区/西校区/北校区）；
+        # 「校本部/本部/初中部」等以「部」结尾的完整标识不补
+        _id_re = re.compile(r"(校区|分校|教学点|分教点|小学部|初中部|高中部|中学部)$")
+        inherited = next((_id_re.search(s).group(1) for s in reversed(opts) if _id_re.search(s)), None)
+        if inherited:
+            opts = [s if _id_re.search(s) or s.endswith("部") else s + inherited for s in opts]
+        # 候选：去括号法人名 resolve_all（无校区限定 → 同法人全部校区展开）+
+        # 前缀补全（官方法人名与实体名带「第一中学附属」类前缀差异时，别名以法人名开头的校区实体
+        # 也纳入候选，如「广州市第一中学附属环市西路小学（竹苑校区、绿森林校区）」
+        # → 别名「第一中学附属环市西路小学竹苑校区/绿森林校区」两实体）
+        ra = self.resolve_all(legal, preferred_adcode=preferred_adcode,
+                              preferred_stage=preferred_stage)
+        _wanted = {"小学": "primary", "初中": "middle", "高中": "high"}.get(preferred_stage, preferred_stage)
+        _lp = matchNorm(coreCampusName(legal))
+        if _lp and len(_lp) >= 4:
+            _ci, _li, _al, _sp, _np, _cp, _sub = self._ensure_indexes()
+            seen = {r["school_id"] for r in ra}
+            for e in _cp.get(_lp, ()):
+                if e["school_id"] in seen:
+                    continue
+                if _wanted and e["stage"] != _wanted:
+                    continue
+                ra.append(self._result(e))
+                seen.add(e["school_id"])
+        # 法人 core（legal 前缀通道：后缀式校区别名「科学城小学东校区」「第一中学附属环市西路小学竹苑校区」
+        # 相对官方法人名剥后缀；与实体自身 core 通道互补——「环市西路小学」实体名与官方名前缀不同）
+        legal_cores = [normName(coreCampusName(legal)), matchNorm(coreCampusName(legal))]
+        out = []
+        for r in ra:
+            e = self.by_id.get(r["school_id"])
+            if not e:
+                continue
+            # 候选校区标识：实体名/别名剥自身法人核心 + 剥官方法人 core 后的后缀（双 norm 通道并集，
+            # 兼容「黄埔区新港小学(南校区)」normName 剥不动、matchNorm 剥区名可提）
+            idents = set()
+            for x in [e["name"]] + list(e.get("aliases") or []):
+                for fn in (normName, matchNorm):
+                    core = fn(coreCampusName(x))
+                    xfull = fn(x)
+                    if core and xfull.startswith(core) and len(xfull) > len(core):
+                        idents.add(xfull[len(core):])
+                    for ln in legal_cores:
+                        if ln and xfull.startswith(ln) and len(xfull) > len(ln):
+                            idents.add(xfull[len(ln):])
+            hit = False
+            for opt in opts:
+                o = self._CAMPUS_SYN.get(opt, opt)
+                # 裸学部选项（「小学部」，非「第一小学部」带序数）：候选学段匹配即命中——
+                # 「广州市真光学校（小学部）」→ 一德西校区 primary 实体（带校区标识）；
+                # 带序数（第一/二/三…）的学部选项只走下方标识全等（「广东实验中学荔湾学校
+                # （第一、二、三小学部）」不得命中花地湾校区（小学部））
+                if re.search(r"(小学|初中|高中|中学)部$", opt) \
+                        and not re.match(r"第?[一二三四五六七八九十百\d]+", opt) \
+                        and preferred_stage and r["stage"] == _wanted:
+                    hit = True
+                    break
+                if not idents:
+                    # 纯法人实体（无校区后缀）：校本部/本部即主校区
+                    # （stage 用候选自身 r["stage"]：同 school_id 多学段实体 by_id 后写覆盖，
+                    #  执信琶洲 primary 被 middle 覆盖会误判 stage）
+                    if opt in ("校本部", "本部"):
+                        hit = True
+                        break
+                    continue
+                on = normName(o)
+                for i2 in idents:
+                    n2 = normName(i2)
+                    # 全等优先；标识以选项开头兜底（「小学部」不会命中「第一小学部」方向反配）
+                    if on == n2 or n2.startswith(on):
+                        hit = True
+                        break
+                if hit:
+                    break
+            if hit:
+                out.append(self._result(e))
+        return out
 
     def resolve(self, name, preferred_adcode=None, preferred_stage=None, strategy="single"):
         """任意校名 → 匹配结果 dict（poi_match/matched_name/stage/district/school_id）或 None（无法收敛/缺失）。
@@ -589,9 +787,9 @@ class SchoolMatcher:
                 base = bare(matchNorm(e["name"]))
                 if len(base) < 4:
                     continue
-                cands = [x for x in self.all_entities
-                         if matchNorm(x["name"]).startswith(base)
-                         and (not preferred_adcode or self._adcode_of(x) == preferred_adcode)]
+                _ci, _li, _al, _sp, _np, _cp, _sub = self._ensure_indexes()
+                cands = [x for x in _np.get(base, ())
+                         if not preferred_adcode or self._adcode_of(x) == preferred_adcode]
                 for _kw in ("初中部", "小学部", "高中部"):
                     if _kw in matchNorm(e["name"]) and len(cands) > 1:
                         suff = [c for c in cands if _kw in matchNorm(c["name"])]
@@ -628,10 +826,9 @@ class SchoolMatcher:
             _NON_SCHOOL = ("充电站", "停车场", "广场", "大厦", "中心", "公园", "小区", "花园", "银行", "医院", "超市", "餐厅", "酒店", "公司", "商厦")
             a_cands, b_cands = [], []  # A支=成员核心在POI（专属高）；B支=POI核心在成员（按位置收敛）
             bare_cands = []            # 去括号核心精确包含（学部括号等场景），单独优先收敛
-            for _x in self.all_entities:
-                # 实体表即候选源（name 已含 POI 名，school_id 承载 adcode/stage）；构造兼容候选
-                p = {"name": _x["name"], "norm": matchNorm(_x["name"]), "adcode": self._adcode_of(_x),
-                     "stage": _x["stage"], "school_id": _x["school_id"]}
+            _ci, _li, _al, _sp, _np, _cp, _sub = self._ensure_indexes()
+            for p in _sub:
+                # 实体表即候选源（name 已含 POI 名，school_id 承载 adcode/stage）；候选为预投影
                 if not p["norm"]:
                     continue
                 if any(bare(p["name"]).endswith(k) for k in _NON_SCHOOL):

@@ -115,7 +115,8 @@
      "legal": "same",
      "school_ids": [
       "gz-440104-7c4a905f"
-     ]
+     ],
+     "source_url": "http://www.gdsyzx.edu.cn/"
     },
     {
      "name": "广东实验中学（高中部）",
@@ -123,7 +124,8 @@
      "legal": "same",
      "school_ids": [
       "gz-440103-3aca532e"
-     ]
+     ],
+     "source_url": "http://www.gdsyzx.edu.cn/"
     },
     {
      "name": "广东实验中学永平校区（省实永平）",
@@ -131,7 +133,8 @@
      "legal": "same",
      "school_ids": [
       "gz-440111-a3cf5a4f"
-     ]
+     ],
+     "source_url": "http://www.gdsyzx.edu.cn/"
     },
     {
      "name": "广东实验中学（云城校区）",
@@ -139,7 +142,8 @@
      "legal": "same",
      "school_ids": [
       "gz-440111-3405d87e"
-     ]
+     ],
+     "source_url": "http://www.gdsyzx.edu.cn/"
     },
     {
      "name": "广东实验中学荔湾学校（省实荔湾）",
@@ -152,7 +156,8 @@
       "gz-440103-9f5557ad",
       "gz-440103-b54d0b70",
       "gz-440103-ff7538dc"
-     ]
+     ],
+     "source_url": "http://www.gdsyzx.edu.cn/"
     },
     {
      "name": "广州市白云实验学校（白云省实，民办）",
@@ -160,7 +165,8 @@
      "legal": "independent",
      "school_ids": [
       "gz-440111-0d08ab54"
-     ]
+     ],
+     "source_url": "http://www.gdsyzx.edu.cn/"
     },
     {
      "name": "广东实验中学天河学校（省实天河）",
@@ -171,7 +177,8 @@
      ],
      "school_ids": [
       "gz-440106-0eb93435"
-     ]
+     ],
+     "source_url": "https://www.thnet.gov.cn/thdt/mtjj/content/post_10794907.html"
     },
     {
      "name": "广东实验中学越秀学校",
@@ -184,7 +191,8 @@
      "school_ids": [
       "gz-440104-32444523",
       "gz-440104-089a2a5b"
-     ]
+     ],
+     "source_url": "http://www.gdsyzx.edu.cn/"
     },
     {
      "name": "广东实验中学琶洲学校",
@@ -192,7 +200,8 @@
      "legal": "independent",
      "school_ids": [
       "gz-440105-f88edb06"
-     ]
+     ],
+     "source_url": "https://gdio.southcn.com/node_5201f00af5/de85106386.shtml"
     }
    ]
   },

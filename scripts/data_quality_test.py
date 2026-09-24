@@ -44,6 +44,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #   政府招生按法人公布（一条「广州市第十六中学」覆盖东湖/本部/水荫），校区实体经
 #   school_ids 命中「有招生」，消除 39 所「无招生」误报孤儿（东湖/水荫/育才东西/
 #   桂花/麓湖/一一三中三校区/真光各校区等 57 所校区实体中仍有 18 所缺升学）→ 339→300，新增 0
+# 2026-09-23 更新：4 区初中官方直建（替代 xiaoshengchu 反推）——官方附件6/附件5 口径：
+#   直建消除 6 所「无招生」孤儿（华师附中初中部/五中附属/南武文润/天外珠江新城+智慧城校区/华中师范黄埔实验/玉岩附属科学城实验）；
+#   官方附件6 不含天河智谷第一实验学校/天河外国语智谷学校（Read 复核 19 号=天河外国语学校本部，非智谷）→ 2 所新增「无招生」孤儿；
+#   孤儿 73→69（净 -4，纯正向改进）
+# 2026-09-23 二次更新：match_school_ids 改 SchoolMatcher resolve_all 语义——官方无校区限定行展开法人全部
+#   middle 校区（school_ids 数组，前端 byIdAll 全量索引），消除 12 所「无招生」校区孤儿
+#   （南武北/江南南/七中桂花/彭加木初中部/黄石中学部/八十六中分校+初中部/省教研院黄埔北/十八中车陂/广大附中实验南/星悦初中部/竹料北）；
+#   其中 3 所（十八中车陂/星悦初中部/竹料北）转为「仅无升学」（升学缺口不变，非回退）→ 孤儿 69→60（净 -9，纯正向）
 # 2026-09-17 更新：校区「办不办初中」是业务事实不能从法人名推导（部分校区非完中、
 #   初中部只在某些校区；其余为表生产错误）——attach 收紧为 CONFIRMED_CAMPUS 白名单
 #   （官方 raw/用户确认：十六中东湖+本部、知识城东+南、六十五中明德+同德、铁英东+西），
@@ -131,18 +139,14 @@ def main():
     poi_ids = load_poi_ids()
     groups = load_groups()
     for g in groups:
-        for cp in g.get("core_poi", []):
-            sid = cp.get("school_id")
-            if sid:
-                check(sid in poi_ids, f"[2] core_poi 悬空 school_id: {g['brand']} → {cp.get('poi_name')} ({sid})")
+        member_ids = [m.get("school_id") for m in g.get("members", []) if m.get("school_id")]
+        check(len(member_ids) == len(set(member_ids)), f"[2] 集团成员 school_id 重复: {g['brand']}")
         for m in g.get("members", []):
             sid = m.get("school_id")
             if sid:
-                check(sid in poi_ids, f"[2] member 悬空 school_id: {g['brand']} → {m['name']} ({sid})")
-            for c in (m.get("campuses") or []):
-                csid = c.get("school_id")
-                if csid:
-                    check(csid in poi_ids, f"[2] campus 悬空 school_id: {g['brand']} → {m['name']} / {c.get('poi_name')} ({csid})")
+                # member 结构现为 school_id/role/relation_type（03084a9 group refactor 去 name），
+                # 悬空检查用 school_id 定位即可（历史 m['name'] 在无 name 成员上 KeyError，2026-09-24 修复）
+                check(sid in poi_ids, f"[2] member 悬空 school_id: {g['brand']} → {sid}")
 
     # ---- 3. entities 纯名别名不得被同区同 stage 多个实体共用（抢名） ----
     # 跨区同名（不同学校）放行；同区多校区共用纯名 → 匹配不确定，报错。
@@ -158,7 +162,14 @@ def main():
     # 匹配器/构建脚本按官方名解析出全部校区实体，不构成匹配歧义。新增共享裸名需同步更新本集合。
     _PRIMARY_SHARED_PLAIN = {'华康小学', '华阳小学', '龙口西小学', '华景小学', '天府路小学', '员村小学',
                              '昌乐小学', '五山小学', '银河小学', '侨乐小学', '龙洞小学', '天河第一小学',
-                             '体育西路小学', '元岗小学', '棠德南小学'}
+                             '体育西路小学', '元岗小学', '棠德南小学', '海珠中路小学'}
+    # 官方初中法人名共享裸名豁免（与 build_entities.py SHARED_LEGAL_ALIAS 数字简称键同步）：
+    # 天河附件6 官方用阿拉伯数字简称（广州市第N中学）公布，同法人多校区并列招生是业务事实
+    # （第75中=燕塘西+天平架、第113中=乐学+东方），match_school_ids 按官方名 resolve_all
+    # 法人展开全部 middle 校区（school_ids 多校区共享），不构成匹配歧义。
+    # 第18中因有本部主校区（by_main 可收敛）、第89中为单校区，规则不触发，无需列入。
+    # 新增共享裸名需同步更新本集合。
+    _MIDDLE_SHARED_PLAIN = {'广州市第75中学', '广州市第113中学'}
     alias_owner = {}  # alias -> (school_id, adcode, stage, 该实体名是否无括号)
     for ent in entities:
         # 纯名 = 无括号/无校区限定词的别名；实体名自身也参与（build_entities 不再把自身
@@ -167,8 +178,8 @@ def main():
         stage = ent.get("stage")
         has_main = "(" not in ent.get("name", "") and "（" not in ent.get("name", "")
         for a in [ent.get("name", "")] + ent.get("aliases", []):
-            if a in _PRIMARY_SHARED_PLAIN:
-                continue  # 官方划片表共享裸名（业务事实，见上注释）
+            if a in _PRIMARY_SHARED_PLAIN or a in _MIDDLE_SHARED_PLAIN:
+                continue  # 官方划片表/官方初中法人名共享裸名（业务事实，见上注释）
             if "(" not in a and "校区" not in a and "本部" not in a and "学校" not in a.split("（")[0] and "、" not in a \
                and "初中部" not in a and "高中部" not in a and "小学部" not in a and "年级" not in a and "教学" not in a and "楼" not in a:
                 if a in alias_owner and alias_owner[a][1] == adcode and alias_owner[a][2] == stage and alias_owner[a][0] != ent["school_id"]:
@@ -265,16 +276,16 @@ def main():
                   f"[7/{stage}] 自我匹配失败: {s['name']} -> {r.get('school_id')}（应为 {s.get('school_id')}）")
 
     # ---- 8. 初中招生计划 school_id 一致性：必须存在；区一致（跨区白名单）；合并招生 school_ids 均存在 ----
+    # （2026-09-24 dist 已不存 school 名，报错以 school_id 标识；官方名单名溯源在 parsed/快照层）
     # 跨区白名单：培英鹤洞校区(白云名单引用荔湾)、四中丰宁学校(荔湾区属，校址纸行路39号在越秀/荔湾交界，高德归越秀)
     CROSS_DISTRICT_OK = {"gz-440103-a3ee807c", "gz-440104-3b870a8e"}
-    for f in sorted(os.listdir(os.path.join(ROOT, "data/middle/enrollment/dist"))):
-        if not f.startswith("middle_enrollment_2026_"):
-            continue
-        d = json.load(open(os.path.join(ROOT, "data/middle/enrollment/dist", f)))
+    # dist 合并一份（2026-09-23）：{year, districts: {<区>: snapshot}}
+    _mid = json.load(open(os.path.join(ROOT, "data/middle/enrollment/dist/middle_enrollment_2026.json")))
+    for f, d in _mid["districts"].items():
         for r in d.get("records", []):
             sid = r.get("school_id")
             if sid:
-                check(sid in poi_ids, f"[8/{d['district']}] 招生记录 school_id 悬空: {r['school']} -> {sid}")
+                check(sid in poi_ids, f"[8/{d['district']}] 招生记录 school_id 悬空: {sid}")
                 if sid not in CROSS_DISTRICT_OK:
                     # POI 真实 adcode（石龙中学等 school_id 前缀 440100 市属、POI 在白云 440111，
                     # 以 POI 表为准——school_id 前缀 ≠ POI adcode 的个别历史数据不误报）
@@ -288,9 +299,9 @@ def main():
                     adc = _poi_ad
                     expect_ad = {"番禺区": "440113", "越秀区": "440104", "海珠区": "440105",
                                  "荔湾区": "440103", "天河区": "440106", "白云区": "440111", "黄埔区": "440112"}[d["district"]]
-                    check(adc == expect_ad, f"[8/{d['district']}] 招生记录跨区挂错: {r['school']} -> {sid} (POI 区 {adc} ≠ {expect_ad})")
+                    check(adc == expect_ad, f"[8/{d['district']}] 招生记录跨区挂错: {sid} (POI 区 {adc} ≠ {expect_ad})")
             for sid2 in (r.get("school_ids") or []):
-                check(sid2 in poi_ids, f"[8/{d['district']}] 合并招生 school_ids 悬空: {r['school']} -> {sid2}")
+                check(sid2 in poi_ids, f"[8/{d['district']}] 合并招生 school_ids 悬空: {sid2}")
 
     # ---- 9. 关键案例 golden：校名匹配基线（改动后必须逐条复核再更新） ----
     # 校名取招生记录真实名（与 build_middle_enrollment 输入一致）；缺失为 None
@@ -389,8 +400,9 @@ def main():
         for _r in json.load(open(_f)).get("records", []):
             if _r.get("school_id"): _pri_enroll_ids.add(_r["school_id"])
     _mid_enroll_ids = set()
-    for _f in glob.glob(os.path.join(ROOT, "data/middle/enrollment/dist/middle_enrollment_2026_*.json")):
-        for _r in json.load(open(_f)).get("records", []):
+    # dist 合并一份（2026-09-23）：{year, districts: {<区>: snapshot}}
+    for _d in json.load(open(os.path.join(ROOT, "data/middle/enrollment/dist/middle_enrollment_2026.json")))["districts"].values():
+        for _r in _d.get("records", []):
             if _r.get("school_id"): _mid_enroll_ids.add(_r["school_id"])
             for _s in _r.get("school_ids") or []: _mid_enroll_ids.add(_s)
     _xs_ids = {r.get("school_id") for r in json.load(open(os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_2026.json"))).get("records", []) if r.get("school_id")}
@@ -401,11 +413,27 @@ def main():
     _qm_names = set(_qm.get("name_index", {}).keys()) | {s.get("school") for s in _qm.get("schools", []) if s.get("school")}
     # 法人行 school_ids 也算「有升学」：校区实体升学信息聚合在法人行（school_ids 数组），
     # 避免主 id 归一（法人行主 id 指向本部后）把校区实体误判为无升学孤儿。
+    # dist 重构后主数据在 ids（id 化），schools 只剩 164 所未匹配原文保底——两侧都算「有升学」；
+    # 漏读 ids 会丢失 id 化法人行的 school_ids（孤儿判定曾因此大面积误报）。
     _qm_school_ids = {i for s in list(_qm.get("ids", [])) + list(_qm.get("schools", [])) for i in (s.get("school_ids") or [])}
+    # 招生法人行升学覆盖（data_feature）：官方初中招生按法人行公布（school_ids 含全部校区实体），
+    # 升学（指标/名额）同样按法人行挂载（如竹料第一中学 78d61733 北校区）。校区实体
+    # （如竹料本部 fd1c1c12）不单列升学属正常业务——同招生记录内任一实体有升学，
+    # 记录内全部校区实体视为升学聚合在法人行，不判「无升学」孤儿（玉泉中学部同例）。
+    _mid_link_covered = set()
+    _mid_link_ids = _rm_ids | _qm_school_ids
+    for _d in json.load(open(os.path.join(ROOT, "data/middle/enrollment/dist/middle_enrollment_2026.json")))["districts"].values():
+        for _r in _d.get("records", []):
+            _row_ids = [i for i in ([_r.get("school_id")] + list(_r.get("school_ids") or [])) if i]
+            if any(i in _mid_link_ids for i in _row_ids):
+                _mid_link_covered.update(_row_ids)
     _sc26 = json.load(open(os.path.join(ROOT, "data/high/cutoff_score/dist/scores_2026.json"))).get("by_school_id", {})
     # 招生区域承接说明表（enrollment/src，业务人工确认）：原校保留遗留学生升学
     # → 原校非孤儿（如东区小学/禾丰小学 2026 官方无招生但有升学遗留，dist 有 zone=note 记录）
     _LEFT_NOTE_SIDS = set(json.load(open(os.path.join(ROOT, "data/primary/enrollment/src/leftover_notes.json"), encoding="utf-8")).keys())
+    # 初中合理无招生说明表（enrollment/src，业务人工确认）：特教/体校/新校未开办/合并招生等
+    # 属正常业务（注入 dist 记录后「无招生」已消失），「无升学」同样豁免，避免孤儿清单噪音。
+    _MID_LEFT_NOTE_SIDS = set(json.load(open(os.path.join(ROOT, "data/middle/enrollment/src/leftover_notes.json"), encoding="utf-8")).keys())
     _sc25 = json.load(open(os.path.join(ROOT, "data/high/cutoff_score/dist/scores_2025.json"))).get("by_school_id", {})
     _orphans = []
     # 孤儿排查只看 7 区（荔湾/越秀/海珠/天河/白云/黄埔/番禺）公办学校：
@@ -425,11 +453,13 @@ def main():
             if _e["school_id"] not in _pri_enroll_ids: _lacks.append("无招生")
             if _e["school_id"] not in _xs_ids: _lacks.append("无升学")
         elif _e["stage"] == "middle":
+            if _e["school_id"] in _MID_LEFT_NOTE_SIDS:
+                continue  # 业务确认合理无招生（src/leftover_notes.json），非孤儿
             if _e["school_id"] not in _mid_enroll_ids: _lacks.append("无招生")
             _has_quota = _e["school_id"] in _rm_ids or _e["school_id"] in _qm_school_ids or _e["name"] in _qm_names
-            # 法人聚合（backfill 同款口径）：裸名法人实体的升学在其校区行（如白云中学本部
-            # → 棠景/汇侨行 school_ids），实体自身无行不算缺口——同 core 任一 middle 实体有升学即算。
             if not _has_quota:
+                # 法人聚合（backfill 同款口径）：裸名法人实体的升学在其校区行（如白云中学本部
+                # → 棠景/汇侨行 school_ids），实体自身无行不算缺口——同 core 任一 middle 实体有升学即算。
                 _core = re.sub(r"(校区|分校|初中部|高中部|小学部)$", "",
                                re.sub(r"[（(][^）)]*[）)]", "", re.sub(r"^广州市", "", _e["name"] or "").strip()).strip())
                 _has_quota = any(
@@ -439,6 +469,9 @@ def main():
                     and (x["school_id"] in _rm_ids or x["school_id"] in _qm_school_ids or x["name"] in _qm_names)
                     for x in entities
                 )
+            # 招生法人行覆盖（data_feature）：招生记录内任一校区有升学 → 同记录全部校区不算孤儿
+            if not _has_quota and _e["school_id"] in _mid_link_covered:
+                _has_quota = True
             if not _has_quota: _lacks.append("无升学")
         else:  # high
             if _e["school_id"] not in _sc26 and _e["school_id"] not in _sc25: _lacks.append("无招生")
@@ -640,7 +673,7 @@ def main():
         check(False, f"[18] 实体名为招生/报名点位（非学校，应被 build_entities 过滤）: {_b}")
     _section_lines.append(f"[18] 实体点位后缀检测: {len(_poi_like)} 异常（0 容忍，build_entities NON_SCHOOL_POI 兜底）")
 
-    # ---- 19. 初中明细 group 必须由公共产物 schoolGroups 支撑（纯 id 一致性）----
+    # ---- 19. 初中明细 group 必须由公共集团→school_id 产物支撑（纯 id 一致性）----
     # build_ranking_middle.py 的 group 只查 data/registry/group/dist/school_groups.json（纯 id）；
     # 任何有 group 的明细行，其 school_id / school_ids 中至少一个必须命中产物且 brand 一致，
     # 否则说明产物漏收（该学校会从集团分组丢失）。无 school_id 的行不应有 group
@@ -656,8 +689,8 @@ def main():
         if not _ids:
             _orphan += 1
             check(False, f"[19] 明细 {_s['name']} 有 group 但 school_id(s) 无 school_groups 产物支撑: {_g.get('brand')}")
-        elif _sg[_ids[0]]["brand"] != _g["brand"]:
-            check(False, f"[19] 明细 {_s['name']} 产物 brand 不一致: 产物={_sg[_ids[0]]['brand']} 明细={_g['brand']}")
+        elif _sg[_ids[0]] != _g["brand"]:
+            check(False, f"[19] 明细 {_s['name']} 产物 brand 不一致: 产物={_sg[_ids[0]]} 明细={_g['brand']}")
     _section_lines.append(f"[19] 明细分组-产物一致性: {sum(1 for s in _rm if s.get('group'))} 有 group，{_orphan} 孤儿（0 容忍）")
 
     # ---- 汇总：通过时只输出一行结论；失败时逐项输出各序号概要 + 明细 + 失败项 ----

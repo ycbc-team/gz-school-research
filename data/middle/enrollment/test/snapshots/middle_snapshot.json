@@ -3,14 +3,26 @@
   "baiyun": {
    "district": "白云区",
    "records": {
+    "培智学校": {
+     "group_members": null,
+     "mechanism": "no_plan",
+     "mechanism_note": "特殊教育学校，面向有特殊教育需要的学生招生，不参与普通初中电脑派位；具体入学安排以区教育局当年通知为准。",
+     "plan_classes": null,
+     "school": "培智学校",
+     "school_id": "gz-440111-4bbd4f92",
+     "school_ids": null,
+     "scope": null
+    },
     "广东外语外贸大学实验中学": {
      "group_members": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
      "school": "广东外语外贸大学实验中学",
-     "school_id": "gz-440111-7e484346",
+     "school_id": null,
      "school_ids": [
+      "gz-440111-7e484346",
+      "gz-440111-f5da4352",
       "gz-440111-f751344d"
      ],
      "scope": "广东外语外贸大学实验中学小学部"
@@ -63,7 +75,7 @@
      "mechanism_note": "因涉拆迁，2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排。",
      "plan_classes": 0,
      "school": "广州市三元里中学",
-     "school_id": null,
+     "school_id": "gz-440111-8629621c",
      "school_ids": null,
      "scope": "三元里小学（不含北校区）、羊城铁路总公司广州铁路第五小学"
     },
@@ -259,8 +271,11 @@
      "mechanism_note": null,
      "plan_classes": 32,
      "school": "广州市白云区广大附中实验中学",
-     "school_id": "gz-440111-b95f2597",
-     "school_ids": null,
+     "school_id": null,
+     "school_ids": [
+      "gz-440111-0078267c",
+      "gz-440111-b95f2597"
+     ],
      "scope": "金沙小学、横沙小学、沙凤小学、金广实验学校、金沙二小"
     },
     "广州市白云区广州空港实验中学（东校区）": {
@@ -325,7 +340,7 @@
      "mechanism_note": null,
      "plan_classes": 4,
      "school": "广州市白云区星悦实验学校",
-     "school_id": "gz-440111-88372834",
+     "school_id": "gz-440111-2ed8a6e2",
      "school_ids": null,
      "scope": "星悦实验学校小学部"
     },
@@ -335,8 +350,11 @@
      "mechanism_note": null,
      "plan_classes": 8,
      "school": "广州市白云区景泰中学",
-     "school_id": "gz-440111-048815b3",
-     "school_ids": null,
+     "school_id": null,
+     "school_ids": [
+      "gz-440111-048815b3",
+      "gz-440111-2186a02a"
+     ],
      "scope": "景泰小学（柯子岭地段人户一致地段生），培英附小部分户籍生（摇号产生）"
     },
     "广州市白云区景泰中学分校区（原广州市白云区南悦中学）": {
@@ -365,8 +383,11 @@
      "mechanism_note": null,
      "plan_classes": 5,
      "school": "广州市白云区民航学校",
-     "school_id": "gz-440111-5c7a7c4a",
-     "school_ids": null,
+     "school_id": null,
+     "school_ids": [
+      "gz-440111-5c7a7c4a",
+      "gz-440111-7a3148c4"
+     ],
      "scope": "民航学校（小学部），培英附小部分户籍生（摇号产生）"
     },
     "广州市白云区民航学校（人和校区）": {
@@ -465,8 +486,11 @@
      "mechanism_note": null,
      "plan_classes": 11,
      "school": "广州市白云区竹料第一中学",
-     "school_id": "gz-440111-fd1c1c12",
-     "school_ids": null,
+     "school_id": null,
+     "school_ids": [
+      "gz-440111-78d61733",
+      "gz-440111-fd1c1c12"
+     ],
      "scope": "南校区：竹料一小、竹料二小、竹料四小\n北校区：竹料一小、竹料三小"
     },
     "广州市白云区竹料第三中学": {
@@ -495,8 +519,11 @@
      "mechanism_note": null,
      "plan_classes": 6,
      "school": "广州市白云区黄石学校",
-     "school_id": "gz-440111-a53c68e3",
-     "school_ids": null,
+     "school_id": null,
+     "school_ids": [
+      "gz-440111-292274e7",
+      "gz-440111-a53c68e3"
+     ],
      "scope": "江夏小学、马务小学、黄石学校（小学部）、方圆实验小学（地段生）"
     },
     "广州市白云区龙岗学校": {
@@ -515,9 +542,10 @@
      "mechanism_note": null,
      "plan_classes": 10,
      "school": "广州市白云区龙归学校",
-     "school_id": "gz-440111-9c7a2c45",
+     "school_id": null,
      "school_ids": [
-      "gz-440111-4c9a3eaa"
+      "gz-440111-4c9a3eaa",
+      "gz-440111-9c7a2c45"
      ],
      "scope": "永兴小学、龙归学校小学部"
     },
@@ -612,8 +640,11 @@
      "mechanism_note": null,
      "plan_classes": 7,
      "school": "广州彭加木纪念中学",
-     "school_id": "gz-440111-d28d78f9",
-     "school_ids": null,
+     "school_id": null,
+     "school_ids": [
+      "gz-440111-4e13c7d6",
+      "gz-440111-d28d78f9"
+     ],
      "scope": "螺涌小学、松溪小学、槎龙小学、65中附小（除地段生外的广州市户籍学生）"
     }
    }
@@ -623,21 +654,16 @@
    "records": {
     "广东实验中学琶洲学校": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市五中滨江学校",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市海珠外国语实验中学",
-      "广州市第九十七中学",
-      "广州市第二十六中学",
-      "广州市第五中学",
-      "广州市绿翠现代实验学校"
+      "广州市第六中学",
+      "广州市第四十一中学",
+      "广州市海珠区黄埔中学",
+      "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市执信中学琶洲实验学校",
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第10组",
+     "plan_classes": 6,
      "school": "广东实验中学琶洲学校",
      "school_id": "gz-440105-f88edb06",
      "school_ids": null,
@@ -645,20 +671,21 @@
     },
     "广州市九十七中蓝天学校": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市九十七中蓝天学校",
-      "广州市五中东晓学校",
-      "广州市南武中学",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市海珠区劬劳中学",
+      "广州市第四十一中学",
       "广州市第九十七中学",
-      "广州市第五中学",
-      "广州市第四十一中学"
+      "广州市海珠外国语实验中学",
+      "广州市海珠外国语实验中学附属学校",
+      "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市九十七中蓝天学校",
+      "广州市南武中学",
+      "广州市南武实验学校",
+      "广州市第九十七中学晓园学校",
+      "广州市江南外国语学校",
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第5组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第7组",
+     "plan_classes": 12,
      "school": "广州市九十七中蓝天学校",
      "school_id": "gz-440105-256ba9d6",
      "school_ids": null,
@@ -666,110 +693,97 @@
     },
     "广州市五中东晓学校": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市九十七中蓝天学校",
+      "广州市第五中学",
+      "广州市第四十一中学",
+      "广州市第九十七中学",
       "广州市五中东晓学校",
-      "广州市南武中学",
       "广州市江南外国语学校",
       "广州市海珠区六中珠江中学（逸景校区）",
+      "广州市九十七中蓝天学校",
       "广州市海珠区劬劳中学",
-      "广州市第九十七中学",
-      "广州市第五中学",
-      "广州市第四十一中学"
+      "广州市南武中学",
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第5组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第5组",
+     "plan_classes": 6,
      "school": "广州市五中东晓学校",
      "school_id": "gz-440105-dc2408b3",
      "school_ids": null,
      "scope": null
     },
     "广州市五中滨江学校": {
-     "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市五中滨江学校",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市海珠外国语实验中学",
-      "广州市第九十七中学",
-      "广州市第二十六中学",
-      "广州市第五中学",
-      "广州市绿翠现代实验学校"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第1组电脑派位",
-     "plan_classes": null,
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（初中招生问答正文）",
+     "plan_classes": 13,
      "school": "广州市五中滨江学校",
      "school_id": "gz-440105-06994d39",
      "school_ids": null,
-     "scope": null
+     "scope": "怡乐路小学"
+    },
+    "广州市五中附属初级中学": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（初中招生问答正文）",
+     "plan_classes": 9,
+     "school": "广州市五中附属初级中学",
+     "school_id": "gz-440105-747245e1",
+     "school_ids": null,
+     "scope": "昌岗中路小学"
     },
     "广州市南武中学": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市南武中学",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
-      "广州市南武第二实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市第四十一中学",
       "广州市第九十七中学",
-      "广州市第二十六中学",
-      "广州市第五中学",
-      "广州市第四十一中学"
+      "广州市海珠外国语实验中学",
+      "广州市海珠外国语实验中学附属学校",
+      "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市九十七中蓝天学校",
+      "广州市南武中学",
+      "广州市南武实验学校",
+      "广州市第九十七中学晓园学校",
+      "广州市江南外国语学校",
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第2组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第7组",
+     "plan_classes": 14,
      "school": "广州市南武中学",
-     "school_id": "gz-440105-eaf414df",
+     "school_id": null,
      "school_ids": [
-      "gz-440105-dd2723fc"
+      "gz-440105-dd2723fc",
+      "gz-440105-eaf414df"
      ],
      "scope": null
     },
     "广州市南武中学附属学校": {
-     "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市五中滨江学校",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市海珠外国语实验中学",
-      "广州市第九十七中学",
-      "广州市第二十六中学",
-      "广州市第五中学",
-      "广州市绿翠现代实验学校"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第1组电脑派位",
-     "plan_classes": null,
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（初中招生问答正文）",
+     "plan_classes": 8,
      "school": "广州市南武中学附属学校",
      "school_id": "gz-440105-77baeea5",
      "school_ids": null,
-     "scope": null
+     "scope": "南武中学附属学校"
     },
     "广州市南武实验学校": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市五中滨江学校",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市海珠外国语实验中学",
+      "广州市第四十一中学",
       "广州市第九十七中学",
-      "广州市第二十六中学",
-      "广州市第五中学",
-      "广州市绿翠现代实验学校"
+      "广州市海珠外国语实验中学",
+      "广州市海珠外国语实验中学附属学校",
+      "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市九十七中蓝天学校",
+      "广州市南武中学",
+      "广州市南武实验学校",
+      "广州市第九十七中学晓园学校",
+      "广州市江南外国语学校",
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第7组",
+     "plan_classes": 8,
      "school": "广州市南武实验学校",
      "school_id": "gz-440105-6ee54f1d",
      "school_ids": null,
@@ -777,149 +791,108 @@
     },
     "广州市南武第二实验学校": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市南武中学",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
+      "广州市第五中学",
       "广州市南武第二实验学校",
+      "广州市第四十一中学",
+      "广州市海珠外国语实验中学附属学校",
       "广州市江南外国语学校",
       "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市南武中学",
+      "广州市执信中学琶洲实验学校",
       "广州市第九十七中学",
-      "广州市第二十六中学",
-      "广州市第五中学",
-      "广州市第四十一中学"
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第2组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第3组",
+     "plan_classes": 10,
      "school": "广州市南武第二实验学校",
-     "school_id": "gz-440105-9da3d734",
-     "school_ids": null,
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-96460a76",
+      "gz-440105-9da3d734"
+     ],
      "scope": null
     },
     "广州市执信中学琶洲实验学校": {
-     "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市南武中学",
-      "广州市南武第二实验学校",
-      "广州市执信中学琶洲实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（万胜围校区）",
-      "广州市海珠外国语实验中学附属学校",
-      "广州市第九十七中学",
-      "广州市第五中学",
-      "广州市第四十一中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第3组电脑派位",
-     "plan_classes": null,
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（初中招生问答正文）",
+     "plan_classes": 9,
      "school": "广州市执信中学琶洲实验学校",
      "school_id": "gz-440105-cac39935",
      "school_ids": null,
-     "scope": null
+     "scope": "新洲小学"
     },
     "广州市新滘中学": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市执信中学琶洲实验学校",
-      "广州市新滘中学",
-      "广州市海珠区六中珠江中学（万胜围校区）",
-      "广州市第九十七中学",
       "广州市第六中学",
-      "广州市第四十一中学"
+      "广州市第四十一中学",
+      "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市新滘中学",
+      "广州市执信中学琶洲实验学校",
+      "广州市第九十七中学",
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第9组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第9组",
+     "plan_classes": 8,
      "school": "广州市新滘中学",
-     "school_id": "gz-440105-003f2037",
+     "school_id": null,
      "school_ids": [
+      "gz-440105-003f2037",
       "gz-440105-2f31776e"
      ],
      "scope": null
     },
     "广州市景中实验中学": {
-     "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市南武实验学校",
-      "广州市执信中学琶洲实验学校",
-      "广州市景中实验中学",
-      "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市第九十七中学",
-      "广州市第九十七中学晓园学校",
-      "广州市第六中学",
-      "广州市绿翠现代实验学校",
-      "广州市聚德中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第6组电脑派位",
-     "plan_classes": null,
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（初中招生问答正文）",
+     "plan_classes": 10,
      "school": "广州市景中实验中学",
      "school_id": "gz-440105-fbd67149",
      "school_ids": null,
-     "scope": null
+     "scope": "知信小学"
     },
     "广州市江南外国语学校": {
-     "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市五中滨江学校",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市海珠外国语实验中学",
-      "广州市第九十七中学",
-      "广州市第二十六中学",
-      "广州市第五中学",
-      "广州市绿翠现代实验学校"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第1组电脑派位",
-     "plan_classes": null,
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（初中招生问答正文）",
+     "plan_classes": 18,
      "school": "广州市江南外国语学校",
-     "school_id": "gz-440105-ca292b2b",
-     "school_ids": null,
-     "scope": null
+     "school_id": null,
+     "school_ids": [
+      "gz-440105-ca292b2b",
+      "gz-440105-f8dbd57c"
+     ],
+     "scope": "江南新村第二小学"
     },
     "广州市海珠区六中珠江中学（万胜围校区）": {
-     "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市南武中学",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
-      "广州市南武第二实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（万胜围校区）",
-      "广州市第九十七中学",
-      "广州市第二十六中学",
-      "广州市第五中学",
-      "广州市第四十一中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第2组电脑派位",
-     "plan_classes": null,
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（初中招生问答正文）",
+     "plan_classes": 11,
      "school": "广州市海珠区六中珠江中学（万胜围校区）",
      "school_id": "gz-440105-e58a8300",
      "school_ids": null,
-     "scope": null
+     "scope": "黄埔小学"
     },
     "广州市海珠区六中珠江中学（逸景校区）": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市五中滨江学校",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市海珠外国语实验中学",
+      "广州市第六中学",
       "广州市第九十七中学",
-      "广州市第二十六中学",
-      "广州市第五中学",
-      "广州市绿翠现代实验学校"
+      "广州市聚德中学",
+      "广州市景中实验中学",
+      "广州市海珠区六中珠江中学（逸景校区）",
+      "广州市绿翠现代实验学校",
+      "广州市第九十七中学晓园学校",
+      "广州市执信中学琶洲实验学校",
+      "广州市南武实验学校",
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第6组",
+     "plan_classes": 8,
      "school": "广州市海珠区六中珠江中学（逸景校区）",
      "school_id": "gz-440105-cb432890",
      "school_ids": null,
@@ -927,37 +900,44 @@
     },
     "广州市海珠区劬劳中学": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市九十七中蓝天学校",
-      "广州市五中东晓学校",
-      "广州市南武中学",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（逸景校区）",
+      "广州市第六中学",
+      "广州市第四十一中学",
+      "广州市海珠区六中珠江中学（万胜围校区）",
       "广州市海珠区劬劳中学",
+      "广州市执信中学琶洲实验学校",
       "广州市第九十七中学",
-      "广州市第五中学",
-      "广州市第四十一中学"
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第5组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第8组",
+     "plan_classes": 9,
      "school": "广州市海珠区劬劳中学",
      "school_id": "gz-440105-b53da186",
      "school_ids": null,
      "scope": null
     },
+    "广州市海珠区南武文润学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（初中招生问答正文）",
+     "plan_classes": 3,
+     "school": "广州市海珠区南武文润学校",
+     "school_id": "gz-440105-44b3dc01",
+     "school_ids": null,
+     "scope": "南武文润学校（小学部）"
+    },
     "广州市海珠区黄埔中学": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市执信中学琶洲实验学校",
-      "广州市海珠区六中珠江中学（万胜围校区）",
-      "广州市海珠区黄埔中学",
       "广州市第六中学",
-      "广州市第四十一中学"
+      "广州市第四十一中学",
+      "广州市海珠区黄埔中学",
+      "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市执信中学琶洲实验学校",
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第10组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第10组",
+     "plan_classes": 4,
      "school": "广州市海珠区黄埔中学",
      "school_id": "gz-440105-53bc2299",
      "school_ids": null,
@@ -965,21 +945,21 @@
     },
     "广州市海珠外国语实验中学": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市五中滨江学校",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市海珠外国语实验中学",
+      "广州市第四十一中学",
       "广州市第九十七中学",
-      "广州市第二十六中学",
-      "广州市第五中学",
-      "广州市绿翠现代实验学校"
+      "广州市海珠外国语实验中学",
+      "广州市海珠外国语实验中学附属学校",
+      "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市九十七中蓝天学校",
+      "广州市南武中学",
+      "广州市南武实验学校",
+      "广州市第九十七中学晓园学校",
+      "广州市江南外国语学校",
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第7组",
+     "plan_classes": 8,
      "school": "广州市海珠外国语实验中学",
      "school_id": "gz-440105-e76b659d",
      "school_ids": null,
@@ -987,20 +967,21 @@
     },
     "广州市海珠外国语实验中学附属学校": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市南武中学",
-      "广州市南武第二实验学校",
-      "广州市执信中学琶洲实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（万胜围校区）",
-      "广州市海珠外国语实验中学附属学校",
+      "广州市第四十一中学",
       "广州市第九十七中学",
-      "广州市第五中学",
-      "广州市第四十一中学"
+      "广州市海珠外国语实验中学",
+      "广州市海珠外国语实验中学附属学校",
+      "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市九十七中蓝天学校",
+      "广州市南武中学",
+      "广州市南武实验学校",
+      "广州市第九十七中学晓园学校",
+      "广州市江南外国语学校",
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第3组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第7组",
+     "plan_classes": 12,
      "school": "广州市海珠外国语实验中学附属学校",
      "school_id": "gz-440105-06e6439a",
      "school_ids": null,
@@ -1008,42 +989,41 @@
     },
     "广州市第九十七中学": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市五中滨江学校",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市海珠外国语实验中学",
+      "广州市第六中学",
+      "广州市第四十一中学",
+      "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市新滘中学",
+      "广州市执信中学琶洲实验学校",
       "广州市第九十七中学",
-      "广州市第二十六中学",
-      "广州市第五中学",
-      "广州市绿翠现代实验学校"
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第9组",
+     "plan_classes": 10,
      "school": "广州市第九十七中学",
-     "school_id": "gz-440105-f0712355",
+     "school_id": null,
      "school_ids": [
-      "gz-440105-ed868139"
+      "gz-440105-ed868139",
+      "gz-440105-f0712355"
      ],
      "scope": null
     },
     "广州市第九十七中学晓园学校": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市南武中学",
-      "广州市南武中学附属学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市第四十一中学",
+      "广州市第九十七中学",
       "广州市海珠外国语实验中学",
+      "广州市海珠外国语实验中学附属学校",
+      "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市九十七中蓝天学校",
+      "广州市南武中学",
+      "广州市南武实验学校",
       "广州市第九十七中学晓园学校",
-      "广州市第二十六中学",
-      "广州市第五中学"
+      "广州市江南外国语学校",
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第4组电脑派位",
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第7组",
      "plan_classes": null,
      "school": "广州市第九十七中学晓园学校",
      "school_id": "gz-440105-83f38819",
@@ -1052,21 +1032,19 @@
     },
     "广州市第二十六中学": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市五中滨江学校",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市海珠外国语实验中学",
-      "广州市第九十七中学",
-      "广州市第二十六中学",
       "广州市第五中学",
-      "广州市绿翠现代实验学校"
+      "广州市海珠外国语实验中学",
+      "广州市江南外国语学校",
+      "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市南武中学",
+      "广州市第九十七中学晓园学校",
+      "广州市第二十六中学",
+      "广州市南武中学附属学校",
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第4组",
+     "plan_classes": 10,
      "school": "广州市第二十六中学",
      "school_id": "gz-440105-352e2fc7",
      "school_ids": null,
@@ -1074,21 +1052,20 @@
     },
     "广州市第五中学": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市五中滨江学校",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
+      "广州市第五中学",
+      "广州市第四十一中学",
+      "广州市第九十七中学",
+      "广州市五中东晓学校",
       "广州市江南外国语学校",
       "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市海珠外国语实验中学",
-      "广州市第九十七中学",
-      "广州市第二十六中学",
-      "广州市第五中学",
-      "广州市绿翠现代实验学校"
+      "广州市九十七中蓝天学校",
+      "广州市海珠区劬劳中学",
+      "广州市南武中学",
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第5组",
+     "plan_classes": 12,
      "school": "广州市第五中学",
      "school_id": "gz-440105-0ffca7e3",
      "school_ids": null,
@@ -1096,89 +1073,50 @@
     },
     "广州市第六中学": {
      "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市南武实验学校",
-      "广州市执信中学琶洲实验学校",
-      "广州市景中实验中学",
-      "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市第九十七中学",
-      "广州市第九十七中学晓园学校",
       "广州市第六中学",
-      "广州市绿翠现代实验学校",
-      "广州市聚德中学"
+      "广州市第四十一中学",
+      "广州市海珠区黄埔中学",
+      "广州市海珠区六中珠江中学（万胜围校区）",
+      "广州市执信中学琶洲实验学校",
+      "广东实验中学琶洲学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第6组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第10组",
+     "plan_classes": 5,
      "school": "广州市第六中学",
      "school_id": "gz-440105-12b49e3f",
      "school_ids": null,
      "scope": null
     },
     "广州市第四十一中学": {
-     "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市南武中学",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
-      "广州市南武第二实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（万胜围校区）",
-      "广州市第九十七中学",
-      "广州市第二十六中学",
-      "广州市第五中学",
-      "广州市第四十一中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第2组电脑派位",
-     "plan_classes": null,
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（初中招生问答正文）",
+     "plan_classes": 14,
      "school": "广州市第四十一中学",
      "school_id": "gz-440105-40a80ebb",
      "school_ids": null,
-     "scope": null
+     "scope": "宝玉直实验小学"
     },
     "广州市绿翠现代实验学校": {
-     "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市五中滨江学校",
-      "广州市南武中学附属学校",
-      "广州市南武实验学校",
-      "广州市江南外国语学校",
-      "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市海珠外国语实验中学",
-      "广州市第九十七中学",
-      "广州市第二十六中学",
-      "广州市第五中学",
-      "广州市绿翠现代实验学校"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第1组电脑派位",
-     "plan_classes": null,
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（初中招生问答正文）",
+     "plan_classes": 16,
      "school": "广州市绿翠现代实验学校",
      "school_id": "gz-440105-41b48384",
      "school_ids": null,
-     "scope": null
+     "scope": "绿翠小学"
     },
     "广州市聚德中学": {
-     "group_members": [
-      "广东实验中学琶洲学校",
-      "广州市南武实验学校",
-      "广州市执信中学琶洲实验学校",
-      "广州市景中实验中学",
-      "广州市海珠区六中珠江中学（逸景校区）",
-      "广州市第九十七中学",
-      "广州市第九十七中学晓园学校",
-      "广州市第六中学",
-      "广州市绿翠现代实验学校",
-      "广州市聚德中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "海珠区公办初中第6组电脑派位",
-     "plan_classes": null,
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（初中招生问答正文）",
+     "plan_classes": 10,
      "school": "广州市聚德中学",
      "school_id": "gz-440105-a34bf4d7",
      "school_ids": null,
-     "scope": null
+     "scope": "聚德西路小学"
     }
    }
   },
@@ -1187,12 +1125,12 @@
    "records": {
     "东区中学": {
      "group_members": [
-      "东区中学",
       "广州开发区外国语学校",
-      "新港中学"
+      "新港中学",
+      "东区中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第2组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第2组",
      "plan_classes": null,
      "school": "东区中学",
      "school_id": "gz-440112-550a5ae8",
@@ -1200,47 +1138,44 @@
      "scope": null
     },
     "丰乐初级中学": {
-     "group_members": [
-      "丰乐初级中学",
-      "广大附中黄埔实验学校（东校区）",
-      "广州市第一二三中学",
-      "广州市第八十六中学",
-      "港湾中学",
-      "石化中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第1组（多校划片）",
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "丰乐初级中学",
      "school_id": "gz-440112-5b78d24b",
      "school_ids": null,
-     "scope": null
+     "scope": "黄埔花园住宅小区、怡港花园住宅小区"
     },
     "会元学校": {
-     "group_members": [
-      "会元学校",
-      "华南师范大学附属中学（知识城校区）",
-      "广州实验中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第7组（多校划片）",
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "会元学校",
      "school_id": "gz-440112-e3190fa2",
      "school_ids": null,
-     "scope": null
+     "scope": "会元学校"
+    },
+    "刘村社区旧村改造项目（荷村复建工程项目）AG0222001地块九年制学校（暂定名）": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
+     "plan_classes": null,
+     "school": "刘村社区旧村改造项目（荷村复建工程项目）AG0222001地块九年制学校（暂定名）",
+     "school_id": "gz-440112-e8878bf7",
+     "school_ids": null,
+     "scope": "刘村社区（荷村）旧村改造项目范围"
     },
     "北京师范大学广州实验学校": {
      "group_members": [
       "北京师范大学广州实验学校",
-      "广东省教育研究院黄埔实验学校",
-      "广州市玉岩中学",
-      "广州科学城中学",
+      "铁英中学",
       "苏元学校（西校区）",
-      "铁英中学"
+      "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第4组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第5组",
      "plan_classes": null,
      "school": "北京师范大学广州实验学校",
      "school_id": "gz-440112-8bbf8f06",
@@ -1250,11 +1185,11 @@
     "华南师范大学附属中学（知识城校区）": {
      "group_members": [
       "会元学校",
-      "华南师范大学附属中学（知识城校区）",
-      "广州实验中学"
+      "广州实验中学",
+      "华南师范大学附属中学（知识城校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第7组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第7组",
      "plan_classes": null,
      "school": "华南师范大学附属中学（知识城校区）",
      "school_id": "gz-440112-3847727f",
@@ -1264,21 +1199,21 @@
     "华南师范大学附属黄埔实验学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（不参加电脑派位）",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "华南师范大学附属黄埔实验学校",
      "school_id": "gz-440112-6d1ac70b",
      "school_ids": null,
-     "scope": null
+     "scope": "华南师范大学附属黄埔实验学校"
     },
     "华峰学校": {
      "group_members": [
       "华峰学校",
-      "开元学校",
-      "铁英中学"
+      "铁英中学",
+      "开元学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第6组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第6组",
      "plan_classes": null,
      "school": "华峰学校",
      "school_id": "gz-440112-0aa66950",
@@ -1288,95 +1223,101 @@
     "双沙中学": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（不参加电脑派位）",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "双沙中学",
      "school_id": "gz-440112-ee49f05d",
      "school_ids": null,
-     "scope": null
+     "scope": "文船小学"
+    },
+    "双沙旧村改造项目复建区AP0609024S十五号地块学校（暂定名）": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
+     "plan_classes": null,
+     "school": "双沙旧村改造项目复建区AP0609024S十五号地块学校（暂定名）",
+     "school_id": "gz-440112-351c1a84",
+     "school_ids": null,
+     "scope": "双沙旧村改造项目范围"
     },
     "广东外语外贸大学附属科学城实验学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（不参加电脑派位）",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "广东外语外贸大学附属科学城实验学校",
      "school_id": "gz-440112-e08700ea",
      "school_ids": null,
-     "scope": null
+     "scope": "广东外语外贸大学附属科学城实验学校"
     },
     "广东外语外贸大学附属黄埔实验学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（不参加电脑派位）",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "广东外语外贸大学附属黄埔实验学校",
      "school_id": "gz-440112-cf50e275",
      "school_ids": null,
-     "scope": null
+     "scope": "广东外语外贸大学附属黄埔实验学校"
     },
     "广东省教育研究院黄埔实验学校": {
      "group_members": [
-      "北京师范大学广州实验学校",
-      "广东省教育研究院黄埔实验学校",
-      "广州市玉岩中学",
       "广州科学城中学",
+      "广东省教育研究院黄埔实验学校",
+      "北京师范大学广州实验学校",
+      "铁英中学",
       "苏元学校（西校区）",
-      "铁英中学"
+      "广州市玉岩中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第4组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第4组",
      "plan_classes": null,
      "school": "广东省教育研究院黄埔实验学校",
-     "school_id": "gz-440112-96610f39",
-     "school_ids": null,
+     "school_id": null,
+     "school_ids": [
+      "gz-440112-22ec4fcc",
+      "gz-440112-96610f39"
+     ],
      "scope": null
     },
     "广大附中高新区实验学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（不参加电脑派位）",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "广大附中高新区实验学校",
      "school_id": "gz-440112-e3746d8c",
      "school_ids": null,
-     "scope": null
+     "scope": "广大附中高新区实验学校（北校区）、广大附中高新区实验学校（南校区）"
     },
     "广大附中黄埔实验学校（东校区）": {
-     "group_members": [
-      "丰乐初级中学",
-      "广大附中黄埔实验学校（东校区）",
-      "广州市第一二三中学",
-      "广州市第八十六中学",
-      "港湾中学",
-      "石化中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第1组（多校划片）",
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "广大附中黄埔实验学校（东校区）",
      "school_id": "gz-440112-705c66e3",
      "school_ids": null,
-     "scope": null
+     "scope": "华南师范大学附属开发区实验小学"
     },
     "广大附中黄埔实验学校（西校区）": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（不参加电脑派位）",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "广大附中黄埔实验学校（西校区）",
      "school_id": "gz-440112-87756a6d",
      "school_ids": null,
-     "scope": null
+     "scope": "广大附中黄埔实验学校（西校区）"
     },
     "广州实验中学": {
      "group_members": [
       "会元学校",
-      "华南师范大学附属中学（知识城校区）",
-      "广州实验中学"
+      "广州实验中学",
+      "华南师范大学附属中学（知识城校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第7组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第7组",
      "plan_classes": null,
      "school": "广州实验中学",
      "school_id": "gz-440112-87f27cf4",
@@ -1385,15 +1326,15 @@
     },
     "广州市玉岩中学": {
      "group_members": [
-      "北京师范大学广州实验学校",
-      "广东省教育研究院黄埔实验学校",
-      "广州市玉岩中学",
       "广州科学城中学",
+      "广东省教育研究院黄埔实验学校",
+      "北京师范大学广州实验学校",
+      "铁英中学",
       "苏元学校（西校区）",
-      "铁英中学"
+      "广州市玉岩中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第4组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第4组",
      "plan_classes": null,
      "school": "广州市玉岩中学",
      "school_id": "gz-440112-ff5acfd5",
@@ -1406,7 +1347,7 @@
       "广州市黄埔军校中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第3组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第3组",
      "plan_classes": null,
      "school": "广州市第一一七中学",
      "school_id": "gz-440112-4d96554f",
@@ -1415,15 +1356,15 @@
     },
     "广州市第一二三中学": {
      "group_members": [
-      "丰乐初级中学",
-      "广大附中黄埔实验学校（东校区）",
-      "广州市第一二三中学",
       "广州市第八十六中学",
+      "广州市第一二三中学",
       "港湾中学",
-      "石化中学"
+      "石化中学",
+      "广大附中黄埔实验学校（东校区）",
+      "丰乐初级中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第1组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第1组",
      "plan_classes": null,
      "school": "广州市第一二三中学",
      "school_id": "gz-440112-c7cfbe14",
@@ -1432,19 +1373,23 @@
     },
     "广州市第八十六中学": {
      "group_members": [
-      "丰乐初级中学",
-      "广大附中黄埔实验学校（东校区）",
-      "广州市第一二三中学",
       "广州市第八十六中学",
+      "广州市第一二三中学",
       "港湾中学",
-      "石化中学"
+      "石化中学",
+      "广大附中黄埔实验学校（东校区）",
+      "丰乐初级中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第1组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第1组",
      "plan_classes": null,
      "school": "广州市第八十六中学",
-     "school_id": "gz-440112-0cb5a402",
-     "school_ids": null,
+     "school_id": null,
+     "school_ids": [
+      "gz-440112-06029745",
+      "gz-440112-0cb5a402",
+      "gz-440112-43108516"
+     ],
      "scope": null
     },
     "广州市黄埔军校中学": {
@@ -1453,7 +1398,7 @@
       "广州市黄埔军校中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第3组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第3组",
      "plan_classes": null,
      "school": "广州市黄埔军校中学",
      "school_id": "gz-440112-b5b864ba",
@@ -1463,41 +1408,41 @@
     "广州市黄埔军校纪念中学（北校区）": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（不参加电脑派位）",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "广州市黄埔军校纪念中学（北校区）",
      "school_id": "gz-440112-12747882",
      "school_ids": null,
-     "scope": null
+     "scope": "横沙城中村改造项目范围"
     },
     "广州市黄埔军校纪念中学（南校区）": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（不参加电脑派位）",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "广州市黄埔军校纪念中学（南校区）",
      "school_id": "gz-440112-674f4721",
      "school_ids": null,
-     "scope": null
+     "scope": "长洲岛小学、深井小学、黄船小学"
     },
     "广州开发区中学": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（不参加电脑派位）",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "广州开发区中学",
      "school_id": "gz-440112-cbfb4b61",
      "school_ids": null,
-     "scope": null
+     "scope": "广州开发区第一小学、广州开发区第二小学（南校区）"
     },
     "广州开发区外国语学校": {
      "group_members": [
-      "东区中学",
       "广州开发区外国语学校",
-      "新港中学"
+      "新港中学",
+      "东区中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第2组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第2组",
      "plan_classes": null,
      "school": "广州开发区外国语学校",
      "school_id": "gz-440112-9d315f50",
@@ -1507,27 +1452,28 @@
     "广州知识城中学": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（不参加电脑派位）",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "广州知识城中学",
-     "school_id": "gz-440112-3f877ace",
+     "school_id": null,
      "school_ids": [
+      "gz-440112-3f877ace",
       "gz-440112-badbc2ab",
       "gz-440112-ec15555e"
      ],
-     "scope": null
+     "scope": "九龙第一小学、何棠下小学、枫下小学、凤尾小学、广州知识城北小学"
     },
     "广州科学城中学": {
      "group_members": [
-      "北京师范大学广州实验学校",
-      "广东省教育研究院黄埔实验学校",
-      "广州市玉岩中学",
       "广州科学城中学",
+      "广东省教育研究院黄埔实验学校",
+      "北京师范大学广州实验学校",
+      "铁英中学",
       "苏元学校（西校区）",
-      "铁英中学"
+      "广州市玉岩中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第4组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第4组",
      "plan_classes": null,
      "school": "广州科学城中学",
      "school_id": "gz-440112-8b4292d7",
@@ -1535,27 +1481,23 @@
      "scope": null
     },
     "开元学校": {
-     "group_members": [
-      "华峰学校",
-      "开元学校",
-      "铁英中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第6组（多校划片）",
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "开元学校",
      "school_id": "gz-440112-d62f1348",
      "school_ids": null,
-     "scope": null
+     "scope": "开元学校（东校区）"
     },
     "新港中学": {
      "group_members": [
-      "东区中学",
       "广州开发区外国语学校",
-      "新港中学"
+      "新港中学",
+      "东区中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第2组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第2组",
      "plan_classes": null,
      "school": "新港中学",
      "school_id": "gz-440112-632bcdb7",
@@ -1564,15 +1506,15 @@
     },
     "港湾中学": {
      "group_members": [
-      "丰乐初级中学",
-      "广大附中黄埔实验学校（东校区）",
-      "广州市第一二三中学",
       "广州市第八十六中学",
+      "广州市第一二三中学",
       "港湾中学",
-      "石化中学"
+      "石化中学",
+      "广大附中黄埔实验学校（东校区）",
+      "丰乐初级中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第1组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第1组",
      "plan_classes": null,
      "school": "港湾中学",
      "school_id": "gz-440112-83167af8",
@@ -1582,61 +1524,69 @@
     "湖南师范大学附属黄埔实验学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（不参加电脑派位）",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "湖南师范大学附属黄埔实验学校",
      "school_id": "gz-440112-40be421c",
      "school_ids": null,
-     "scope": null
+     "scope": "湖南师范大学附属黄埔实验学校"
     },
     "玉岩实验学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（不参加电脑派位）",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "玉岩实验学校",
      "school_id": "gz-440112-f3817fbe",
      "school_ids": null,
-     "scope": null
+     "scope": "九龙第二小学、九龙第三小学、九龙第四小学、广州知识城第一小学、广东外语外贸大学附属知识城实验小学（南校区）、汤村小学、知识城南安置区（二期）小学（暂定名）"
     },
     "玉泉学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "对口直升（不参加电脑派位）",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "玉泉学校",
      "school_id": "gz-440112-12b0184b",
      "school_ids": null,
-     "scope": null
+     "scope": "东荟花园小学（南校区）、东荟花园小学（北校区）、玉泉学校（东校区）、玉泉学校（北校区）、玉鸣小学、光远小学"
     },
     "石化中学": {
      "group_members": [
-      "丰乐初级中学",
-      "广大附中黄埔实验学校（东校区）",
-      "广州市第一二三中学",
       "广州市第八十六中学",
+      "广州市第一二三中学",
       "港湾中学",
-      "石化中学"
+      "石化中学",
+      "广大附中黄埔实验学校（东校区）",
+      "丰乐初级中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第1组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第1组",
      "plan_classes": null,
      "school": "石化中学",
      "school_id": "gz-440112-8edaa2d8",
      "school_ids": null,
      "scope": null
     },
+    "苏元学校（东校区）": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
+     "plan_classes": null,
+     "school": "苏元学校（东校区）",
+     "school_id": "gz-440112-a0244635",
+     "school_ids": null,
+     "scope": "萝峰旧村改造项目范围"
+    },
     "苏元学校（西校区）": {
      "group_members": [
       "北京师范大学广州实验学校",
-      "广东省教育研究院黄埔实验学校",
-      "广州市玉岩中学",
-      "广州科学城中学",
+      "铁英中学",
       "苏元学校（西校区）",
-      "铁英中学"
+      "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第4组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第5组",
      "plan_classes": null,
      "school": "苏元学校（西校区）",
      "school_id": "gz-440112-a0244635",
@@ -1645,35 +1595,41 @@
     },
     "铁英中学": {
      "group_members": [
-      "北京师范大学广州实验学校",
-      "广东省教育研究院黄埔实验学校",
-      "广州市玉岩中学",
-      "广州科学城中学",
-      "苏元学校（西校区）",
-      "铁英中学"
+      "华峰学校",
+      "铁英中学",
+      "开元学校"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第4组（多校划片）",
+     "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第6组",
      "plan_classes": null,
      "school": "铁英中学",
      "school_id": "gz-440112-c80ac6ac",
      "school_ids": null,
      "scope": null
     },
-    "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）": {
-     "group_members": [
-      "北京师范大学广州实验学校",
-      "苏元学校（西校区）",
-      "铁英中学",
-      "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "黄埔区公办初中电脑派位第5组（多校划片）",
+    "铁铮学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
-     "school": "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）",
+     "school": "铁铮学校",
+     "school_id": null,
+     "school_ids": [
+      "gz-440112-11ed4c6c",
+      "gz-440112-7127244c",
+      "gz-440112-d3055548"
+     ],
+     "scope": "铁铮学校"
+    },
+    "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 实施细则附件5）",
+     "plan_classes": null,
+     "school": "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）",
      "school_id": "gz-440112-15d63ae7",
      "school_ids": null,
-     "scope": null
+     "scope": "长岭花园住宅小区、岭雅花园住宅小区、仕林花园住宅小区、云臻园住宅小区"
     }
    }
   },
@@ -1682,24 +1638,19 @@
    "records": {
     "中国教育科学研究院荔湾实验学校": {
      "group_members": [
-      "中国教育科学研究院荔湾实验学校",
+      "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部实验校区",
+      "广州市真光中学初中部芳花校区",
       "广东实验中学荔湾学校广钢新城校区",
       "广东实验中学荔湾学校花地湾校区",
-      "广东广雅中学初中部",
       "广州市真光中学东漖学校",
-      "广州市真光中学初中部实验校区",
-      "广州市真光中学初中部本部校区",
-      "广州市真光中学初中部芳花校区",
-      "广州市真光中学文伟学校",
-      "广州市真光中学金道学校",
-      "广州市第一中学红岩学校",
-      "广州市第四中学初中逸园校区",
+      "中国教育科学研究院荔湾实验学校",
       "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关外国语学校校本部"
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区7组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区14组电脑派位",
+     "plan_classes": 10,
      "school": "中国教育科学研究院荔湾实验学校",
      "school_id": "gz-440103-523446ce",
      "school_ids": null,
@@ -1707,24 +1658,19 @@
     },
     "广东实验中学荔湾学校广钢新城校区": {
      "group_members": [
-      "中国教育科学研究院荔湾实验学校",
+      "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部实验校区",
+      "广州市真光中学初中部芳花校区",
       "广东实验中学荔湾学校广钢新城校区",
       "广东实验中学荔湾学校花地湾校区",
-      "广东广雅中学初中部",
       "广州市真光中学东漖学校",
-      "广州市真光中学初中部实验校区",
-      "广州市真光中学初中部本部校区",
-      "广州市真光中学初中部芳花校区",
-      "广州市真光中学文伟学校",
-      "广州市真光中学金道学校",
-      "广州市第一中学红岩学校",
-      "广州市第四中学初中逸园校区",
+      "中国教育科学研究院荔湾实验学校",
       "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关外国语学校校本部"
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区7组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区14组电脑派位",
+     "plan_classes": 20,
      "school": "广东实验中学荔湾学校广钢新城校区",
      "school_id": "gz-440103-53cac770",
      "school_ids": null,
@@ -1732,24 +1678,19 @@
     },
     "广东实验中学荔湾学校花地湾校区": {
      "group_members": [
-      "中国教育科学研究院荔湾实验学校",
+      "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部实验校区",
+      "广州市真光中学初中部芳花校区",
       "广东实验中学荔湾学校广钢新城校区",
       "广东实验中学荔湾学校花地湾校区",
-      "广东广雅中学初中部",
       "广州市真光中学东漖学校",
-      "广州市真光中学初中部实验校区",
-      "广州市真光中学初中部本部校区",
-      "广州市真光中学初中部芳花校区",
-      "广州市真光中学文伟学校",
-      "广州市真光中学金道学校",
-      "广州市第一中学红岩学校",
-      "广州市第四中学初中逸园校区",
+      "中国教育科学研究院荔湾实验学校",
       "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关外国语学校校本部"
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区7组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区14组电脑派位",
+     "plan_classes": 6,
      "school": "广东实验中学荔湾学校花地湾校区",
      "school_id": "gz-440103-ff7538dc",
      "school_ids": null,
@@ -1757,95 +1698,78 @@
     },
     "广东广雅中学初中部": {
      "group_members": [
-      "中国教育科学研究院荔湾实验学校",
+      "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部实验校区",
+      "广州市真光中学初中部芳花校区",
       "广东实验中学荔湾学校广钢新城校区",
       "广东实验中学荔湾学校花地湾校区",
-      "广东广雅中学初中部",
-      "广州市南海中学",
       "广州市真光中学东漖学校",
-      "广州市真光中学初中部实验校区",
-      "广州市真光中学初中部岭南校区",
-      "广州市真光中学初中部本部校区",
-      "广州市真光中学初中部芳花校区",
-      "广州市真光中学文伟学校",
-      "广州市真光中学金道学校",
-      "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
-      "广州市第一中学双桥学校",
-      "广州市第一中学姜中宏校区",
-      "广州市第一中学红岩学校",
-      "广州市第四中学丰宁学校",
-      "广州市第四中学初中津园校区",
-      "广州市第四中学初中逸园校区",
-      "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "中国教育科学研究院荔湾实验学校",
       "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关培英中学",
-      "广州市西关外国语学校彩虹桥校区",
-      "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
-      "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区14组电脑派位",
+     "plan_classes": 4,
      "school": "广东广雅中学初中部",
      "school_id": "gz-440103-bb7f78f0",
      "school_ids": null,
      "scope": null
     },
+    "广州协和学校初中部": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "2026 荔湾区公办初中一年级招生计划（附件1）单列，不在电脑派位分组表内。",
+     "plan_classes": 7,
+     "school": "广州协和学校初中部",
+     "school_id": "gz-440103-e281e7d0",
+     "school_ids": null,
+     "scope": null
+    },
     "广州市南海中学": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部岭南校区",
       "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
       "广州市第一中学姜中宏校区",
-      "广州市第四中学丰宁学校",
       "广州市第四中学初中津园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
-      "广州市西关培英中学",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
-      "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广州市南海中学",
+      "广州市第一中学十甫学校",
+      "广州市西关培英中学",
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区5组电脑派位",
+     "plan_classes": 8,
      "school": "广州市南海中学",
-     "school_id": "gz-440103-c9f13fde",
+     "school_id": null,
      "school_ids": [
-      "gz-440103-8e11a7d3"
+      "gz-440103-8e11a7d3",
+      "gz-440103-c9f13fde"
      ],
      "scope": null
     },
     "广州市真光中学东漖学校": {
      "group_members": [
-      "中国教育科学研究院荔湾实验学校",
+      "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部实验校区",
+      "广州市真光中学初中部芳花校区",
       "广东实验中学荔湾学校广钢新城校区",
       "广东实验中学荔湾学校花地湾校区",
-      "广东广雅中学初中部",
       "广州市真光中学东漖学校",
-      "广州市真光中学初中部实验校区",
-      "广州市真光中学初中部本部校区",
-      "广州市真光中学初中部芳花校区",
-      "广州市第四中学初中逸园校区",
+      "中国教育科学研究院荔湾实验学校",
       "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关外国语学校校本部"
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区7组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区14组电脑派位",
+     "plan_classes": 6,
      "school": "广州市真光中学东漖学校",
      "school_id": "gz-440103-2c188507",
      "school_ids": null,
@@ -1853,24 +1777,19 @@
     },
     "广州市真光中学初中部实验校区": {
      "group_members": [
-      "中国教育科学研究院荔湾实验学校",
+      "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部实验校区",
+      "广州市真光中学初中部芳花校区",
       "广东实验中学荔湾学校广钢新城校区",
       "广东实验中学荔湾学校花地湾校区",
-      "广东广雅中学初中部",
       "广州市真光中学东漖学校",
-      "广州市真光中学初中部实验校区",
-      "广州市真光中学初中部本部校区",
-      "广州市真光中学初中部芳花校区",
-      "广州市真光中学文伟学校",
-      "广州市真光中学金道学校",
-      "广州市第一中学红岩学校",
-      "广州市第四中学初中逸园校区",
+      "中国教育科学研究院荔湾实验学校",
       "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关外国语学校校本部"
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区7组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区14组电脑派位",
+     "plan_classes": 8,
      "school": "广州市真光中学初中部实验校区",
      "school_id": "gz-440103-9b3ba6d8",
      "school_ids": null,
@@ -1878,29 +1797,25 @@
     },
     "广州市真光中学初中部岭南校区": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部岭南校区",
       "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
       "广州市第一中学姜中宏校区",
-      "广州市第四中学丰宁学校",
       "广州市第四中学初中津园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
-      "广州市西关培英中学",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
-      "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广州市南海中学",
+      "广州市第一中学十甫学校",
+      "广州市西关培英中学",
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区5组电脑派位",
+     "plan_classes": 6,
      "school": "广州市真光中学初中部岭南校区",
      "school_id": "gz-440103-042e23a5",
      "school_ids": null,
@@ -1908,41 +1823,19 @@
     },
     "广州市真光中学初中部本部校区": {
      "group_members": [
-      "中国教育科学研究院荔湾实验学校",
+      "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部实验校区",
+      "广州市真光中学初中部芳花校区",
       "广东实验中学荔湾学校广钢新城校区",
       "广东实验中学荔湾学校花地湾校区",
-      "广东广雅中学初中部",
-      "广州市南海中学",
       "广州市真光中学东漖学校",
-      "广州市真光中学初中部实验校区",
-      "广州市真光中学初中部岭南校区",
-      "广州市真光中学初中部本部校区",
-      "广州市真光中学初中部芳花校区",
-      "广州市真光中学文伟学校",
-      "广州市真光中学金道学校",
-      "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
-      "广州市第一中学双桥学校",
-      "广州市第一中学姜中宏校区",
-      "广州市第一中学红岩学校",
-      "广州市第四中学丰宁学校",
-      "广州市第四中学初中津园校区",
-      "广州市第四中学初中逸园校区",
-      "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "中国教育科学研究院荔湾实验学校",
       "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关培英中学",
-      "广州市西关外国语学校彩虹桥校区",
-      "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
-      "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区14组电脑派位",
+     "plan_classes": 6,
      "school": "广州市真光中学初中部本部校区",
      "school_id": "gz-440103-1f4697e3",
      "school_ids": null,
@@ -1950,24 +1843,19 @@
     },
     "广州市真光中学初中部芳花校区": {
      "group_members": [
-      "中国教育科学研究院荔湾实验学校",
+      "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部实验校区",
+      "广州市真光中学初中部芳花校区",
       "广东实验中学荔湾学校广钢新城校区",
       "广东实验中学荔湾学校花地湾校区",
-      "广东广雅中学初中部",
       "广州市真光中学东漖学校",
-      "广州市真光中学初中部实验校区",
-      "广州市真光中学初中部本部校区",
-      "广州市真光中学初中部芳花校区",
-      "广州市真光中学文伟学校",
-      "广州市真光中学金道学校",
-      "广州市第一中学红岩学校",
-      "广州市第四中学初中逸园校区",
+      "中国教育科学研究院荔湾实验学校",
       "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关外国语学校校本部"
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区7组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区14组电脑派位",
+     "plan_classes": 8,
      "school": "广州市真光中学初中部芳花校区",
      "school_id": "gz-440103-4bb96190",
      "school_ids": null,
@@ -1975,22 +1863,20 @@
     },
     "广州市真光中学文伟学校": {
      "group_members": [
-      "中国教育科学研究院荔湾实验学校",
+      "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部实验校区",
+      "广州市真光中学初中部芳花校区",
       "广东实验中学荔湾学校广钢新城校区",
       "广东实验中学荔湾学校花地湾校区",
-      "广东广雅中学初中部",
-      "广州市真光中学初中部实验校区",
-      "广州市真光中学初中部本部校区",
-      "广州市真光中学初中部芳花校区",
       "广州市真光中学文伟学校",
       "广州市真光中学金道学校",
-      "广州市第四中学初中逸园校区",
+      "中国教育科学研究院荔湾实验学校",
       "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关外国语学校校本部"
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区10组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区12组电脑派位",
+     "plan_classes": 6,
      "school": "广州市真光中学文伟学校",
      "school_id": "gz-440103-55453ba4",
      "school_ids": null,
@@ -1998,22 +1884,20 @@
     },
     "广州市真光中学金道学校": {
      "group_members": [
-      "中国教育科学研究院荔湾实验学校",
+      "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部实验校区",
+      "广州市真光中学初中部芳花校区",
       "广东实验中学荔湾学校广钢新城校区",
       "广东实验中学荔湾学校花地湾校区",
-      "广东广雅中学初中部",
-      "广州市真光中学初中部实验校区",
-      "广州市真光中学初中部本部校区",
-      "广州市真光中学初中部芳花校区",
       "广州市真光中学文伟学校",
       "广州市真光中学金道学校",
-      "广州市第四中学初中逸园校区",
+      "中国教育科学研究院荔湾实验学校",
       "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关外国语学校校本部"
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区11组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区12组电脑派位",
+     "plan_classes": 8,
      "school": "广州市真光中学金道学校",
      "school_id": "gz-440103-f203d28d",
      "school_ids": null,
@@ -2021,32 +1905,25 @@
     },
     "广州市第一中学初中部": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
       "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
-      "广州市第一中学双桥学校",
       "广州市第一中学姜中宏校区",
-      "广州市第四中学丰宁学校",
-      "广州市第四中学初中津园校区",
       "广州市第四中学初中逸园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
-      "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关培英中学",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
-      "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广州市西关培英中学",
+      "广州市美华中学",
+      "广州市第一中学双桥学校",
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广州市荔湾区西关广雅实验学校大坦沙校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区6组电脑派位",
+     "plan_classes": 10,
      "school": "广州市第一中学初中部",
      "school_id": "gz-440103-2dc142ec",
      "school_ids": null,
@@ -2054,26 +1931,25 @@
     },
     "广州市第一中学十甫学校": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部岭南校区",
       "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
       "广州市第一中学姜中宏校区",
-      "广州市第四中学丰宁学校",
       "广州市第四中学初中津园校区",
       "广州市第四中学初中雁园校区",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
-      "广州市西关培英中学",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部"
+      "广州市南海中学",
+      "广州市第一中学十甫学校",
+      "广州市西关培英中学",
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区4组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区5组电脑派位",
+     "plan_classes": 5,
      "school": "广州市第一中学十甫学校",
      "school_id": "gz-440103-81794a0d",
      "school_ids": null,
@@ -2099,7 +1975,7 @@
      ],
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
-     "plan_classes": null,
+     "plan_classes": 2,
      "school": "广州市第一中学双桥学校",
      "school_id": "gz-440103-b6850b3c",
      "school_ids": null,
@@ -2107,32 +1983,25 @@
     },
     "广州市第一中学姜中宏校区": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
       "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
-      "广州市第一中学双桥学校",
       "广州市第一中学姜中宏校区",
-      "广州市第四中学丰宁学校",
-      "广州市第四中学初中津园校区",
       "广州市第四中学初中逸园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
-      "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关培英中学",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
-      "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广州市西关培英中学",
+      "广州市美华中学",
+      "广州市第一中学双桥学校",
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广州市荔湾区西关广雅实验学校大坦沙校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区6组电脑派位",
+     "plan_classes": 7,
      "school": "广州市第一中学姜中宏校区",
      "school_id": "gz-440103-2653da64",
      "school_ids": null,
@@ -2154,7 +2023,7 @@
      ],
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区8组电脑派位",
-     "plan_classes": null,
+     "plan_classes": 6,
      "school": "广州市第一中学红岩学校",
      "school_id": "gz-440103-f05eda96",
      "school_ids": null,
@@ -2162,27 +2031,25 @@
     },
     "广州市第四中学丰宁学校": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部岭南校区",
       "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
       "广州市第一中学姜中宏校区",
-      "广州市第四中学丰宁学校",
       "广州市第四中学初中津园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
-      "广州市西关培英中学",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部"
+      "广州市西关培英中学",
+      "广州市第一中学十甫学校",
+      "广州市第四中学丰宁学校",
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区3组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区4组电脑派位",
+     "plan_classes": 6,
      "school": "广州市第四中学丰宁学校",
      "school_id": "gz-440104-3b870a8e",
      "school_ids": null,
@@ -2190,29 +2057,25 @@
     },
     "广州市第四中学初中津园校区": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部岭南校区",
       "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
       "广州市第一中学姜中宏校区",
-      "广州市第四中学丰宁学校",
       "广州市第四中学初中津园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
-      "广州市西关培英中学",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
-      "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广州市南海中学",
+      "广州市第一中学十甫学校",
+      "广州市西关培英中学",
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区5组电脑派位",
+     "plan_classes": 8,
      "school": "广州市第四中学初中津园校区",
      "school_id": "gz-440103-3862ee98",
      "school_ids": [
@@ -2222,34 +2085,21 @@
     },
     "广州市第四中学初中逸园校区": {
      "group_members": [
+      "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部实验校区",
+      "广州市真光中学初中部芳花校区",
+      "广州市第四中学初中逸园校区",
+      "广州市西关外国语学校校本部",
+      "广州市真光中学金道学校",
       "中国教育科学研究院荔湾实验学校",
       "广东实验中学荔湾学校广钢新城校区",
       "广东实验中学荔湾学校花地湾校区",
-      "广东广雅中学初中部",
-      "广州市真光中学东漖学校",
-      "广州市真光中学初中部实验校区",
-      "广州市真光中学初中部本部校区",
-      "广州市真光中学初中部芳花校区",
-      "广州市真光中学文伟学校",
-      "广州市真光中学金道学校",
-      "广州市第一中学初中部",
-      "广州市第一中学双桥学校",
-      "广州市第一中学姜中宏校区",
-      "广州市第一中学红岩学校",
-      "广州市第四中学初中逸园校区",
-      "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
       "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关培英中学",
-      "广州市西关外国语学校彩虹桥校区",
-      "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部"
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区6组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区11组电脑派位",
+     "plan_classes": 6,
      "school": "广州市第四中学初中逸园校区",
      "school_id": "gz-440103-c0d6f9a0",
      "school_ids": [
@@ -2259,32 +2109,25 @@
     },
     "广州市第四中学初中雁园校区": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
       "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
-      "广州市第一中学双桥学校",
       "广州市第一中学姜中宏校区",
-      "广州市第四中学丰宁学校",
-      "广州市第四中学初中津园校区",
       "广州市第四中学初中逸园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
-      "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关培英中学",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
-      "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广州市西关培英中学",
+      "广州市美华中学",
+      "广州市第一中学双桥学校",
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广州市荔湾区西关广雅实验学校大坦沙校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区6组电脑派位",
+     "plan_classes": 10,
      "school": "广州市第四中学初中雁园校区",
      "school_id": "gz-440103-816b22a3",
      "school_ids": [
@@ -2294,31 +2137,25 @@
     },
     "广州市美华中学": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
       "广州市第一中学初中部",
-      "广州市第一中学双桥学校",
       "广州市第一中学姜中宏校区",
-      "广州市第四中学丰宁学校",
-      "广州市第四中学初中津园校区",
       "广州市第四中学初中逸园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
-      "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关培英中学",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
-      "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广州市西关培英中学",
+      "广州市美华中学",
+      "广州市第一中学双桥学校",
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广州市荔湾区西关广雅实验学校大坦沙校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区6组电脑派位",
+     "plan_classes": 12,
      "school": "广州市美华中学",
      "school_id": "gz-440103-b0abf891",
      "school_ids": null,
@@ -2326,32 +2163,25 @@
     },
     "广州市荔湾区西关广雅实验学校东风西校区": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
       "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
-      "广州市第一中学双桥学校",
       "广州市第一中学姜中宏校区",
-      "广州市第四中学丰宁学校",
-      "广州市第四中学初中津园校区",
       "广州市第四中学初中逸园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
-      "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关培英中学",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
-      "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广州市西关培英中学",
+      "广州市美华中学",
+      "广州市第一中学双桥学校",
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广州市荔湾区西关广雅实验学校大坦沙校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区6组电脑派位",
+     "plan_classes": 6,
      "school": "广州市荔湾区西关广雅实验学校东风西校区",
      "school_id": "gz-440103-693412ae",
      "school_ids": null,
@@ -2359,32 +2189,25 @@
     },
     "广州市荔湾区西关广雅实验学校南岸路校区": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
       "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
-      "广州市第一中学双桥学校",
       "广州市第一中学姜中宏校区",
-      "广州市第四中学丰宁学校",
-      "广州市第四中学初中津园校区",
       "广州市第四中学初中逸园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
-      "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关培英中学",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
-      "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广州市西关培英中学",
+      "广州市美华中学",
+      "广州市第一中学双桥学校",
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广州市荔湾区西关广雅实验学校大坦沙校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区6组电脑派位",
+     "plan_classes": 6,
      "school": "广州市荔湾区西关广雅实验学校南岸路校区",
      "school_id": "gz-440103-c5d5de44",
      "school_ids": null,
@@ -2392,34 +2215,19 @@
     },
     "广州市荔湾区西关广雅实验学校大坦沙校区": {
      "group_members": [
-      "中国教育科学研究院荔湾实验学校",
+      "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部实验校区",
+      "广州市真光中学初中部芳花校区",
       "广东实验中学荔湾学校广钢新城校区",
       "广东实验中学荔湾学校花地湾校区",
-      "广东广雅中学初中部",
       "广州市真光中学东漖学校",
-      "广州市真光中学初中部实验校区",
-      "广州市真光中学初中部本部校区",
-      "广州市真光中学初中部芳花校区",
-      "广州市真光中学文伟学校",
-      "广州市真光中学金道学校",
-      "广州市第一中学初中部",
-      "广州市第一中学双桥学校",
-      "广州市第一中学姜中宏校区",
-      "广州市第一中学红岩学校",
-      "广州市第四中学初中逸园校区",
-      "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "中国教育科学研究院荔湾实验学校",
       "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关培英中学",
-      "广州市西关外国语学校彩虹桥校区",
-      "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部"
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区6组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区14组电脑派位",
+     "plan_classes": 10,
      "school": "广州市荔湾区西关广雅实验学校大坦沙校区",
      "school_id": "gz-440103-7207525c",
      "school_ids": null,
@@ -2427,65 +2235,54 @@
     },
     "广州市西关培英中学": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
       "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
-      "广州市第一中学双桥学校",
       "广州市第一中学姜中宏校区",
-      "广州市第四中学丰宁学校",
-      "广州市第四中学初中津园校区",
       "广州市第四中学初中逸园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
-      "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关培英中学",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部"
+      "广州市西关培英中学",
+      "广州市美华中学",
+      "广州市第一中学双桥学校",
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广州市荔湾区西关广雅实验学校大坦沙校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区4组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区6组电脑派位",
+     "plan_classes": 6,
      "school": "广州市西关培英中学",
-     "school_id": "gz-440103-d78c848a",
+     "school_id": null,
      "school_ids": [
-      "gz-440103-41cb6344"
+      "gz-440103-41cb6344",
+      "gz-440103-d78c848a"
      ],
      "scope": null
     },
     "广州市西关外国语学校彩虹桥校区": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
       "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
-      "广州市第一中学双桥学校",
       "广州市第一中学姜中宏校区",
-      "广州市第四中学丰宁学校",
-      "广州市第四中学初中津园校区",
       "广州市第四中学初中逸园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
-      "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关培英中学",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
-      "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广州市西关培英中学",
+      "广州市美华中学",
+      "广州市第一中学双桥学校",
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广州市荔湾区西关广雅实验学校大坦沙校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区6组电脑派位",
+     "plan_classes": 6,
      "school": "广州市西关外国语学校彩虹桥校区",
      "school_id": "gz-440103-dfff68f2",
      "school_ids": null,
@@ -2493,32 +2290,25 @@
     },
     "广州市西关外国语学校文昌南校区": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
       "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
-      "广州市第一中学双桥学校",
       "广州市第一中学姜中宏校区",
-      "广州市第四中学丰宁学校",
-      "广州市第四中学初中津园校区",
       "广州市第四中学初中逸园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
-      "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关培英中学",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
-      "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广州市西关培英中学",
+      "广州市美华中学",
+      "广州市第一中学双桥学校",
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广州市荔湾区西关广雅实验学校大坦沙校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区6组电脑派位",
+     "plan_classes": 6,
      "school": "广州市西关外国语学校文昌南校区",
      "school_id": "gz-440103-df535585",
      "school_ids": null,
@@ -2526,41 +2316,21 @@
     },
     "广州市西关外国语学校校本部": {
      "group_members": [
+      "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部实验校区",
+      "广州市真光中学初中部芳花校区",
+      "广州市第四中学初中逸园校区",
+      "广州市西关外国语学校校本部",
+      "广州市真光中学金道学校",
       "中国教育科学研究院荔湾实验学校",
       "广东实验中学荔湾学校广钢新城校区",
       "广东实验中学荔湾学校花地湾校区",
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学东漖学校",
-      "广州市真光中学初中部实验校区",
-      "广州市真光中学初中部岭南校区",
-      "广州市真光中学初中部本部校区",
-      "广州市真光中学初中部芳花校区",
-      "广州市真光中学文伟学校",
-      "广州市真光中学金道学校",
-      "广州市第一中学初中部",
-      "广州市第一中学十甫学校",
-      "广州市第一中学双桥学校",
-      "广州市第一中学姜中宏校区",
-      "广州市第一中学红岩学校",
-      "广州市第四中学丰宁学校",
-      "广州市第四中学初中津园校区",
-      "广州市第四中学初中逸园校区",
-      "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
       "广州市荔湾区西关广雅实验学校大坦沙校区",
-      "广州市西关培英中学",
-      "广州市西关外国语学校彩虹桥校区",
-      "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
-      "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区11组电脑派位",
+     "plan_classes": 8,
      "school": "广州市西关外国语学校校本部",
      "school_id": "gz-440103-b41a3512",
      "school_ids": null,
@@ -2568,26 +2338,26 @@
     },
     "广州市西关外国语流花学校": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部岭南校区",
       "广州市第一中学初中部",
       "广州市第一中学姜中宏校区",
       "广州市第四中学初中津园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
+      "广州市南海中学",
+      "广州市陈嘉庚纪念中学",
+      "广州市美华中学",
       "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区2组电脑派位",
+     "plan_classes": 8,
      "school": "广州市西关外国语流花学校",
      "school_id": "gz-440103-9870a631",
      "school_ids": null,
@@ -2595,26 +2365,26 @@
     },
     "广州市陈嘉庚纪念中学": {
      "group_members": [
-      "广东广雅中学初中部",
-      "广州市南海中学",
-      "广州市真光中学初中部岭南校区",
       "广州市真光中学初中部本部校区",
+      "广州市真光中学初中部岭南校区",
       "广州市第一中学初中部",
       "广州市第一中学姜中宏校区",
       "广州市第四中学初中津园校区",
       "广州市第四中学初中雁园校区",
-      "广州市美华中学",
-      "广州市荔湾区西关广雅实验学校东风西校区",
-      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市西关外国语学校校本部",
       "广州市西关外国语学校彩虹桥校区",
       "广州市西关外国语学校文昌南校区",
-      "广州市西关外国语学校校本部",
+      "广州市南海中学",
+      "广州市陈嘉庚纪念中学",
+      "广州市美华中学",
       "广州市西关外国语流花学校",
-      "广州市陈嘉庚纪念中学"
+      "广州市荔湾区西关广雅实验学校南岸路校区",
+      "广州市荔湾区西关广雅实验学校东风西校区",
+      "广东广雅中学初中部"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "荔湾区1组电脑派位",
-     "plan_classes": null,
+     "mechanism_note": "荔湾区2组电脑派位",
+     "plan_classes": 8,
      "school": "广州市陈嘉庚纪念中学",
      "school_id": "gz-440103-eb3cb5c6",
      "school_ids": null,
@@ -2787,23 +2557,23 @@
     },
     "广东仲元中学一校区（初中部）": {
      "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": "学生按学校要求申请宿位。",
-     "plan_classes": 10,
+     "mechanism": "single_lottery",
+     "mechanism_note": "区属初中面向全区批次：招生 90 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍的小学应届毕业生（不含大龙街户籍及具有市桥城区电脑派位资格的小学应届毕业生）及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
+     "plan_classes": null,
      "school": "广东仲元中学一校区（初中部）",
      "school_id": "gz-440113-acf92324",
      "school_ids": null,
-     "scope": "80%的招生计划面向具有市桥城区电脑派位资格(见番禺区教育局当年发布的公办初中招生计划、招生地段及条件表格中市桥城区电脑派位部分内容)的小学应届毕业生招生；20%的招生计划面向番禺区户籍的小学应届毕业生(不含大龙街户籍及具有市桥城区电脑派位资格的小学应届毕业生)及实际居住地在番禺区的广州市政策性照顾学生招生。"
+     "scope": null
     },
     "广东仲元中学二校区（初中部）": {
      "group_members": null,
-     "mechanism": "group_paidui",
-     "mechanism_note": "电脑派位；学生按学校要求申请宿位。",
-     "plan_classes": 10,
+     "mechanism": "single_lottery",
+     "mechanism_note": "区属初中面向港澳生批次：招生 20 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。需符合以下条件之一：1.其父母或法定监护人至少一方在番禺区居住、工作，且持在番禺区申领的港澳居民居住证的港澳居民随迁子女（非穗籍小学应届毕业生）；2.持有在番禺区申领的港澳居民居住证，且其父母或法定监护人至少一方具有番禺区户籍、在番禺区居住、工作的港澳籍小学应届毕业生。",
+     "plan_classes": null,
      "school": "广东仲元中学二校区（初中部）",
      "school_id": "gz-440113-6dbdc462",
      "school_ids": null,
-     "scope": "350个学位面向大龙街招生，首先安排番禺区大龙街傍江东村和傍江西村股民及股民子女入读广东仲元中学，余下学位面向大龙街户籍小学应届毕业生招生；100个学位面向番禺区户籍的小学应届毕业生及实际居住地在番禺区的广州市政策性照顾学生招生。"
+     "scope": null
     },
     "广东仲元中学莲花湾学校": {
      "group_members": null,
@@ -2817,13 +2587,13 @@
     },
     "广东仲元中学附属学校": {
      "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": "见说明2",
-     "plan_classes": 5,
+     "mechanism": "single_lottery",
+     "mechanism_note": "区属初中面向属地镇街批次：招生 60 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向洛浦街户籍应届小学毕业生及实际居住地在洛浦街的广州市政策性照顾学生招生；无住宿条件。",
+     "plan_classes": null,
      "school": "广东仲元中学附属学校",
      "school_id": "gz-440113-b5ff857b",
      "school_ids": null,
-     "scope": "南天名苑、吉祥北园C区D区、吉祥北街24幢26幢28幢、吉祥楼、新吉祥楼、海天花园、裕景花园西区、海棠居、彩虹花园东区西区户籍的小学应届毕业生（必须是业主子女身份）；洛溪村户籍的小学应届毕业生（必须是村民子女身份）。"
+     "scope": null
     },
     "广东外语外贸大学番禺实验学校": {
      "group_members": null,
@@ -2837,13 +2607,13 @@
     },
     "广东番禺中学实验学校": {
      "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": "见说明2",
-     "plan_classes": 6,
+     "mechanism": "single_lottery",
+     "mechanism_note": "区属初中面向全区批次：招生 60 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍应届小学毕业生及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
+     "plan_classes": null,
      "school": "广东番禺中学实验学校",
      "school_id": "gz-440113-95be9ccc",
      "school_ids": null,
-     "scope": "珑翠花园（南区、北区）、瑞麓府户籍的小学应届毕业生（必须是业主子女身份）。"
+     "scope": null
     },
     "广东番禺中学教育集团兴南学校": {
      "group_members": null,
@@ -2857,13 +2627,13 @@
     },
     "广东番禺中学附属学校": {
      "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": null,
-     "plan_classes": 14,
+     "mechanism": "single_lottery",
+     "mechanism_note": "区属初中面向全区批次：招生 80 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍应届小学毕业生及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
+     "plan_classes": null,
      "school": "广东番禺中学附属学校",
      "school_id": "gz-440113-53650c78",
      "school_ids": null,
-     "scope": "具有桥南街保利香逸花园、城南源著、可逸江畔、可逸阳光、番禺金业花园、番禺奥林匹克花园、金奥花园（爱巢）、冠军城户籍的小学应届毕业生（必须是业主子女身份）。"
+     "scope": null
     },
     "广东第二师范学院广州南站附属学校": {
      "group_members": null,
@@ -2871,7 +2641,7 @@
      "mechanism_note": null,
      "plan_classes": 10,
      "school": "广东第二师范学院广州南站附属学校",
-     "school_id": null,
+     "school_id": "gz-440113-0bb52d06",
      "school_ids": null,
      "scope": "具有石一村、石二村、石三村、石四村、韦涌村、大洲村、屏一村、屏二村、都那村户籍的小学应届毕业生；石壁街南站社区居委户籍的小学应届毕业生；碧桂东苑户籍小学应届毕业生。"
     },
@@ -2904,6 +2674,16 @@
      "school_id": "gz-440113-8f5e4721",
      "school_ids": null,
      "scope": "小谷围街四条保留村户籍的小学应届毕业生；小谷围街辖区内小区户籍的小学应届毕业生（必须是业主子女身份）；大学城（小谷围街辖区内）高校在职在编人员小学应届毕业生子女。"
+    },
+    "广州市番禺区少年儿童业余体校": {
+     "group_members": null,
+     "mechanism": "no_plan",
+     "mechanism_note": "区属少年儿童业余体校，以体育后备人才培养为主，不参与普通初中电脑派位；具体招生安排以区教育局当年通知为准。",
+     "plan_classes": null,
+     "school": "广州市番禺区少年儿童业余体校",
+     "school_id": "gz-440113-fdabec82",
+     "school_ids": null,
+     "scope": null
     },
     "广铁一中番禺校区": {
      "group_members": [
@@ -2942,8 +2722,11 @@
      "mechanism_note": "东校区招生计划11个班，西校区招生计划4个班；见说明2",
      "plan_classes": 15,
      "school": "毓贤学校",
-     "school_id": "gz-440113-7cdbe028",
-     "school_ids": null,
+     "school_id": null,
+     "school_ids": [
+      "gz-440113-7cdbe028",
+      "gz-440113-c07e3ddb"
+     ],
      "scope": "祈福新邨户籍的小学应届毕业生（必须是业主子女身份）。"
     },
     "沙湾象达中学": {
@@ -3170,134 +2953,418 @@
   "tianhe": {
    "district": "天河区",
    "records": {
-    "华南理工大学附属实验学校（初中部）": {
+    "华南师范大学附属中学初中部": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区九年制/企事业办学校小学部内部直升",
-     "plan_classes": null,
-     "school": "华南理工大学附属实验学校（初中部）",
+     "mechanism_note": "企事业办学校招生（附件7）",
+     "plan_classes": 8,
+     "school": "华南师范大学附属中学初中部",
+     "school_id": "gz-440106-a565a93c",
+     "school_ids": null,
+     "scope": null
+    },
+    "华南理工大学附属实验学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "企事业办学校招生（附件7）",
+     "plan_classes": 4,
+     "school": "华南理工大学附属实验学校",
      "school_id": "gz-440106-9bed7efb",
+     "school_ids": null,
+     "scope": null
+    },
+    "天河区智谷第一实验学校": {
+     "group_members": null,
+     "mechanism": "no_plan",
+     "mechanism_note": "2026 年官方初中招生计划（《天河区 2026 年义务教育阶段学校招生工作细则》附件6）未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
+     "plan_classes": null,
+     "school": "天河区智谷第一实验学校",
+     "school_id": "gz-440106-d311ea50",
      "school_ids": null,
      "scope": null
     },
     "广东实验中学天河学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区九年制/企事业办学校小学部内部直升",
-     "plan_classes": null,
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 6,
      "school": "广东实验中学天河学校",
      "school_id": "gz-440106-0eb93435",
      "school_ids": null,
-     "scope": null
+     "scope": "保利天瑞"
     },
     "广州中学": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州中学划片）",
-     "plan_classes": null,
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 40,
      "school": "广州中学",
-     "school_id": "gz-440106-867e6c05",
+     "school_id": null,
      "school_ids": [
+      "gz-440106-867e6c05",
       "gz-440106-a989804b"
      ],
-     "scope": null
+     "scope": "华南快速干线（北起广园快速路立交，南至中山大道）以西，中山大道—天河路以北，广州大道—林和西横路—林和西路至广园东路、瘦狗岭路9号以东，广园快速路东至广园立交以南；粤垦路533号—623号（单号）等"
     },
     "广州中学天河燕园学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区九年制/企事业办学校小学部内部直升",
-     "plan_classes": null,
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 6,
      "school": "广州中学天河燕园学校",
      "school_id": "gz-440106-15ca1554",
      "school_ids": null,
-     "scope": null
+     "scope": "恒越花园、雅序苑"
     },
-    "广州奥林匹克中学（含智谷校区）": {
+    "广州天省实验学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
-     "plan_classes": null,
-     "school": "广州奥林匹克中学（含智谷校区）",
-     "school_id": "gz-440106-fa9338a2",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 16,
+     "school": "广州天省实验学校",
+     "school_id": "gz-440106-01fd3a87",
      "school_ids": null,
      "scope": null
     },
-    "广州市华颖外国语学校（广州市华颖中学）": {
+    "广州奥林匹克中学": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市华颖外国语学校（广州市华颖中学）划片）",
-     "plan_classes": null,
-     "school": "广州市华颖外国语学校（广州市华颖中学）",
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 14,
+     "school": "广州奥林匹克中学",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-d40d0dbe",
+      "gz-440106-fa9338a2"
+     ],
+     "scope": "中山大道中1099号至尖塔路1号以西，中山大道中1099号转车陂路转广深铁路至科韵路以北，科韵路接新滘路以东，新塘街南界接吉岐街西界；智谷校区招生地段：广氮花园、棠安花园、天健上城、阳华国花苑、天河壹品、金地峯荟、消防总队经济适用房"
+    },
+    "广州市华美英语实验学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 10,
+     "school": "广州市华美英语实验学校",
+     "school_id": "gz-440106-7abd2786",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市华颖外国语学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 4,
+     "school": "广州市华颖外国语学校",
      "school_id": "gz-440106-dab5b807",
      "school_ids": null,
-     "scope": null
+     "scope": "员村二横路员村西街转员村南街以西，珠江以北，潭村路—平江路以东，黄埔大道以南"
     },
     "广州市南国学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市南国学校划片）",
-     "plan_classes": null,
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 4,
      "school": "广州市南国学校",
      "school_id": "gz-440106-b0d40cc4",
      "school_ids": null,
-     "scope": null
+     "scope": "潭村路—平江路以西，临江大道以北，马场路以东，黄埔大道以南"
     },
     "广州市天河中学": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市天河中学划片）",
-     "plan_classes": null,
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 20,
      "school": "广州市天河中学",
-     "school_id": "gz-440106-2f8a4424",
+     "school_id": null,
      "school_ids": [
+      "gz-440106-2f8a4424",
       "gz-440106-dd16c13e"
      ],
-     "scope": null
+     "scope": "西至体育东路—黄埔大道—广州大道，北至天河路以南230—560号（双号），东至石牌西路—黄埔大道西—马场路（单号），南至猎德街南界（包括猎心沙）"
     },
     "广州市天河中学猎德实验学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市天河中学猎德实验学校划片）",
-     "plan_classes": null,
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": "4+1（特教）",
      "school": "广州市天河中学猎德实验学校",
      "school_id": "gz-440106-8b3ee7d2",
      "school_ids": null,
-     "scope": null
+     "scope": "海清路以西，临江大道以北，猎德路以东，海明路以南"
     },
-    "广州市天河区智谷第一实验学校": {
+    "广州市天河区东泰学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市天河区智谷第一实验学校划片）",
-     "plan_classes": null,
-     "school": "广州市天河区智谷第一实验学校",
-     "school_id": "gz-440106-d311ea50",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 3,
+     "school": "广州市天河区东泰学校",
+     "school_id": "gz-440106-9abdc5fd",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区东风学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 2,
+     "school": "广州市天河区东风学校",
+     "school_id": "gz-440106-24ff78f9",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区兴华培智学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 2,
+     "school": "广州市天河区兴华培智学校",
+     "school_id": "gz-440106-0c83a9b2",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区凤凰中学": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 2,
+     "school": "广州市天河区凤凰中学",
+     "school_id": "gz-440106-ae248365",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区华实学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 6,
+     "school": "广州市天河区华实学校",
+     "school_id": "gz-440106-bd07878c",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区同仁天兴学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 2,
+     "school": "广州市天河区同仁天兴学校",
+     "school_id": "gz-440106-0d03d513",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区同仁学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 3,
+     "school": "广州市天河区同仁学校",
+     "school_id": "gz-440106-3d7736c5",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区同仁实验学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 3,
+     "school": "广州市天河区同仁实验学校",
+     "school_id": "gz-440106-77787b4a",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区同仁艺体实验中学": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 7,
+     "school": "广州市天河区同仁艺体实验中学",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-429b917e",
+      "gz-440106-cc1c335f"
+     ],
+     "scope": null
+    },
+    "广州市天河区培智学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 2,
+     "school": "广州市天河区培智学校",
+     "school_id": "gz-440106-0a2c7178",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区培艺学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 2,
+     "school": "广州市天河区培艺学校",
+     "school_id": "gz-440106-23e66d3b",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区大华学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 2,
+     "school": "广州市天河区大华学校",
+     "school_id": "gz-440106-72c4c319",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区天泽中学": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 3,
+     "school": "广州市天河区天泽中学",
+     "school_id": "gz-440106-b9eb24f9",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区成龙中学": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 3,
+     "school": "广州市天河区成龙中学",
+     "school_id": "gz-440106-fd03e039",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区新昌学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 2,
+     "school": "广州市天河区新昌学校",
+     "school_id": "gz-440106-1b9f7e62",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区新蕾五星学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 3,
+     "school": "广州市天河区新蕾五星学校",
+     "school_id": "gz-440106-c77276d3",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区明珠中英文学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 6,
+     "school": "广州市天河区明珠中英文学校",
+     "school_id": "gz-440106-4775be07",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区暨南第一实验学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": "4+1（特教）",
+     "school": "广州市天河区暨南第一实验学校",
+     "school_id": "gz-440106-11e15e8d",
+     "school_ids": null,
+     "scope": "保利棠馨花园"
+    },
+    "广州市天河区棠福学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 3,
+     "school": "广州市天河区棠福学校",
+     "school_id": "gz-440106-4534dc1a",
      "school_ids": null,
      "scope": null
     },
     "广州市天河区汇景实验学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
-     "plan_classes": null,
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 20,
      "school": "广州市天河区汇景实验学校",
      "school_id": "gz-440106-0d1e149e",
+     "school_ids": null,
+     "scope": "科韵路（广园快速路立交至北环高速段）以西，广园铁路以北，东莞庄路161号—天源路—长兴路以东，五山街地界—华观路以南；原五山华院小区"
+    },
+    "广州市天河区科韵路学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 3,
+     "school": "广州市天河区科韵路学校",
+     "school_id": "gz-440106-f0ba06c2",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区黄村中英文学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 4,
+     "school": "广州市天河区黄村中英文学校",
+     "school_id": "gz-440106-4fac106a",
+     "school_ids": null,
+     "scope": null
+    },
+    "广州市天河区龙圣学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 3,
+     "school": "广州市天河区龙圣学校",
+     "school_id": "gz-440106-eda909f7",
      "school_ids": null,
      "scope": null
     },
     "广州市天河外国语均和学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）、广州市天河外国语均和学校划片）",
-     "plan_classes": null,
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 6,
      "school": "广州市天河外国语均和学校",
      "school_id": "gz-440106-051b0157",
      "school_ids": null,
-     "scope": null
+     "scope": "润熙花园、珠江四季花园"
+    },
+    "广州市天河外国语学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 6,
+     "school": "广州市天河外国语学校",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-069ddb41",
+      "gz-440106-b711d94a"
+     ],
+     "scope": "合生骏景、湖雍花园"
+    },
+    "广州市天河外国语学校（珠江新城校区）、广州市天河外国语学校（智慧城校区）": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 6,
+     "school": "广州市天河外国语学校（珠江新城校区）、广州市天河外国语学校（智慧城校区）",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-069ddb41",
+      "gz-440106-b711d94a"
+     ],
+     "scope": "详见附件10"
     },
     "广州市天河外国语智谷学校": {
      "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": "天河区九年制/企事业办学校小学部内部直升",
+     "mechanism": "no_plan",
+     "mechanism_note": "2026 年官方初中招生计划（《天河区 2026 年义务教育阶段学校招生工作细则》附件6）未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
      "plan_classes": null,
      "school": "广州市天河外国语智谷学校",
      "school_id": "gz-440106-d042314d",
@@ -3307,128 +3374,147 @@
     "广州市天荣中学": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市天荣中学划片）",
-     "plan_classes": null,
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 8,
      "school": "广州市天荣中学",
      "school_id": "gz-440106-90c47ff5",
      "school_ids": null,
-     "scope": null
+     "scope": "广州大道以东，天河路以南，天河东路（单号）以西，黄埔大道西以北；水福路—豪景苑—先烈东路—龙岗路—水荫四横路东段—广州大道中—水荫横路—水荫路环形范围以内"
+    },
+    "广州市执信中学天河校区": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 10,
+     "school": "广州市执信中学天河校区",
+     "school_id": "gz-440106-22fcbcd6",
+     "school_ids": [
+      "gz-440104-1e9bdce3",
+      "gz-440106-22fcbcd6"
+     ],
+     "scope": "详见附件10"
     },
     "广州市泰安中学": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市泰安中学划片）",
-     "plan_classes": null,
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 10,
      "school": "广州市泰安中学",
      "school_id": "gz-440106-22156e02",
      "school_ids": null,
-     "scope": null
+     "scope": "车陂路（单号）以西，中山大道西（单号）以北，光华路（双号）以东，广深铁路以南"
     },
-    "广州市第一一三中学": {
+    "广州市第113中学": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市第一一三中学划片）",
-     "plan_classes": null,
-     "school": "广州市第一一三中学",
-     "school_id": "gz-440106-2e9f6f7b",
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 28,
+     "school": "广州市第113中学",
+     "school_id": null,
      "school_ids": [
+      "gz-440106-2e9f6f7b",
       "gz-440106-b049d65a"
      ],
-     "scope": null
+     "scope": "荷光路单号7号到269号转中山大道西（单号1号到293号）—天府路以西，黄埔大道以东，广园快速路以南；员村片区等"
+    },
+    "广州市第18中学": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 14,
+     "school": "广州市第18中学",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-3a61d518",
+      "gz-440106-ef4076c1"
+     ],
+     "scope": "天河区界（莲溪村）以西，天河区界（珠江）以北，车陂路以东，中山大道中以南"
+    },
+    "广州市第75中学": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 14,
+     "school": "广州市第75中学",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-5a7fbf3a",
+      "gz-440106-621b20d3"
+     ],
+     "scope": "天河北路东界—林和西路以西，林和西路至广州大道中以北，水荫四横路东段转龙岗东路先烈东路转濂泉路至沙东街西界以东，兴华街北界以南；西坑一横巷等"
+    },
+    "广州市第89中学": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 18,
+     "school": "广州市第89中学",
+     "school_id": "gz-440106-8f55ab34",
+     "school_ids": null,
+     "scope": "凤凰街东界—凤凰街南界—龙洞街南界—龙洞街西界—龙洞街北界—凤凰街北界"
     },
     "广州市第一一三中学陶育实验学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市天河中学、广州市第一一三中学陶育实验学校划片）",
-     "plan_classes": null,
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 4,
      "school": "广州市第一一三中学陶育实验学校",
      "school_id": "gz-440106-7c81ab92",
      "school_ids": null,
-     "scope": null
-    },
-    "广州市第七十五中学": {
-     "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市第七十五中学划片）",
-     "plan_classes": null,
-     "school": "广州市第七十五中学",
-     "school_id": "gz-440106-5a7fbf3a",
-     "school_ids": [
-      "gz-440106-621b20d3"
-     ],
-     "scope": null
-    },
-    "广州市第八十九中学": {
-     "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市第八十九中学划片）",
-     "plan_classes": null,
-     "school": "广州市第八十九中学",
-     "school_id": "gz-440106-8f55ab34",
-     "school_ids": null,
-     "scope": null
-    },
-    "广州市第十八中学": {
-     "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市第十八中学划片）",
-     "plan_classes": null,
-     "school": "广州市第十八中学",
-     "school_id": "gz-440106-ef4076c1",
-     "school_ids": null,
-     "scope": null
+     "scope": "华南快速干线以西，天河路—中山大道以南，黄埔大道以北，石牌西路以东"
     },
     "广州市长兴中学": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市长兴中学划片）",
-     "plan_classes": null,
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 8,
      "school": "广州市长兴中学",
      "school_id": "gz-440106-7077b270",
      "school_ids": null,
-     "scope": null
+     "scope": "长兴街东界以西，长兴街南界以北，元岗街西界以东，元岗街北界接长兴街北界以南"
     },
     "广州市骏景中学": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区公办初中对口直升（广州市骏景中学划片）",
-     "plan_classes": null,
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 8,
      "school": "广州市骏景中学",
      "school_id": "gz-440106-b7d476f7",
+     "school_ids": null,
+     "scope": "车陂路（中山大道路口至珠江段）以西，珠江至村五骏景路转黄埔大道至科韵路口以北，科韵路以东，中山大道1110号车陂路399号以南"
+    },
+    "广州思源学校": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "民办学校初中部自主招生（附件8）",
+     "plan_classes": 4,
+     "school": "广州思源学校",
+     "school_id": "gz-440106-c8bf2650",
      "school_ids": null,
      "scope": null
     },
     "暨南大学附属实验学校（初中部）": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区九年制/企事业办学校小学部内部直升",
-     "plan_classes": null,
+     "mechanism_note": "企事业办学校招生（附件7）",
+     "plan_classes": 6,
      "school": "暨南大学附属实验学校（初中部）",
      "school_id": "gz-440106-11e15e8d",
      "school_ids": null,
      "scope": null
     },
-    "清华附中湾区学校（智慧城校区）": {
+    "清华附中湾区学校（智谷校区）、清华附中湾区学校（智慧城校区）": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": "天河区九年制学校内部直升（官方未单列小学部直升，按区属九年制直升惯例）+ 附件10全区电脑派位",
-     "plan_classes": null,
-     "school": "清华附中湾区学校（智慧城校区）",
-     "school_id": "gz-440106-31895452",
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": "8+8",
+     "school": "清华附中湾区学校（智谷校区）、清华附中湾区学校（智慧城校区）",
+     "school_id": null,
      "school_ids": [
+      "gz-440106-31895452",
       "gz-440106-e32237e4"
      ],
-     "scope": null
-    },
-    "清华附中湾区学校（智谷校区）": {
-     "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": "天河区九年制学校内部直升（官方未单列小学部直升，按区属九年制直升惯例）+ 附件10全区电脑派位",
-     "plan_classes": null,
-     "school": "清华附中湾区学校（智谷校区）",
-     "school_id": "gz-440106-e32237e4",
-     "school_ids": null,
-     "scope": null
+     "scope": "详见附件10"
     }
    }
   },
@@ -3437,19 +3523,19 @@
    "records": {
     "广东华侨中学": {
      "group_members": [
-      "广东华侨中学",
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市执信中学（执信路校区）",
       "广州市第三中学",
-      "广州市第三中学实验学校",
-      "广州市第二中学",
-      "广州市第十七中学",
       "广州市第十三中学",
-      "广州市第十六中学实验学校"
+      "广州市第十七中学",
+      "广州市第三中学实验学校",
+      "广州市知用学校",
+      "广州市真光学校",
+      "广州市第二中学",
+      "广东实验中学",
+      "广东华侨中学",
+      "广州市执信中学（执信路校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第四组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第十组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广东华侨中学",
      "school_id": "gz-440104-1560332d",
@@ -3458,19 +3544,19 @@
     },
     "广东实验中学": {
      "group_members": [
-      "广东实验中学",
-      "广东实验中学越秀学校（天胜校区）",
-      "广州市八一实验学校",
-      "广州市培正中学",
-      "广州市第七中学",
-      "广州市第七中学东山学校",
+      "广州市第三中学",
       "广州市第十三中学",
-      "广州市第十六中学",
-      "广州市第十六中学东华实验学校",
-      "广州市铁一中学"
+      "广州市第十七中学",
+      "广州市第三中学实验学校",
+      "广州市知用学校",
+      "广州市真光学校",
+      "广州市第二中学",
+      "广东实验中学",
+      "广东华侨中学",
+      "广州市执信中学（执信路校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第五组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第十组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广东实验中学",
      "school_id": "gz-440104-7c4a905f",
@@ -3479,19 +3565,19 @@
     },
     "广东实验中学越秀学校（天胜校区）": {
      "group_members": [
+      "广州市第三中学",
+      "广州市第十中学",
+      "广州市第十七中学",
       "广东实验中学越秀学校（天胜校区）",
+      "广州市育才中学",
+      "广州市第七中学实验学校",
+      "广州市培正矿泉学校",
+      "广州市第二中学",
       "广州大学附属中学",
-      "广州市东风实验学校",
-      "广州市八一实验学校",
-      "广州市执信中学（执信路校区）",
-      "广州市第七中学",
-      "广州市第七中学东山学校",
-      "广州市第十六中学",
-      "广州市第十六中学实验学校",
-      "广州市育才中学"
+      "广州市执信中学（执信路校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第一组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广东实验中学越秀学校（天胜校区）",
      "school_id": "gz-440104-32444523",
@@ -3500,19 +3586,19 @@
     },
     "广州大学附属中学": {
      "group_members": [
+      "广州市第三中学",
+      "广州市第十中学",
+      "广州市第十七中学",
       "广东实验中学越秀学校（天胜校区）",
+      "广州市育才中学",
+      "广州市第七中学实验学校",
+      "广州市培正矿泉学校",
+      "广州市第二中学",
       "广州大学附属中学",
-      "广州市东风实验学校",
-      "广州市八一实验学校",
-      "广州市执信中学（执信路校区）",
-      "广州市第七中学",
-      "广州市第七中学东山学校",
-      "广州市第十六中学",
-      "广州市第十六中学实验学校",
-      "广州市育才中学"
+      "广州市执信中学（执信路校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第一组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州大学附属中学",
      "school_id": "gz-440104-b22c4eca",
@@ -3521,19 +3607,19 @@
     },
     "广州市东风实验学校": {
      "group_members": [
+      "广州市第十三中学",
+      "广州市第十七中学",
       "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市东风实验学校",
-      "广州市八一实验学校",
-      "广州市执信中学（执信路校区）",
-      "广州市第七中学",
-      "广州市第七中学东山学校",
-      "广州市第十六中学",
+      "广州市育才中学",
       "广州市第十六中学实验学校",
-      "广州市育才中学"
+      "广州市华侨外国语学校",
+      "广州市东风实验学校",
+      "广州市第二中学",
+      "广州大学附属中学",
+      "广州市执信中学（执信路校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第一组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第三组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州市东风实验学校",
      "school_id": "gz-440104-10652361",
@@ -3541,83 +3627,50 @@
      "scope": null
     },
     "广州市八一实验学校": {
-     "group_members": [
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市东风实验学校",
-      "广州市八一实验学校",
-      "广州市执信中学（执信路校区）",
-      "广州市第七中学",
-      "广州市第七中学东山学校",
-      "广州市第十六中学",
-      "广州市第十六中学实验学校",
-      "广州市育才中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第一组（多校划片·电脑派位）",
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
      "plan_classes": null,
      "school": "广州市八一实验学校",
      "school_id": "gz-440104-68535b94",
      "school_ids": null,
-     "scope": null
+     "scope": "八一实验学校（小学部）"
     },
     "广州市华侨外国语学校": {
-     "group_members": [
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市东风实验学校",
-      "广州市华侨外国语学校",
-      "广州市执信中学（执信路校区）",
-      "广州市第七中学",
-      "广州市第七中学东山学校",
-      "广州市第十七中学",
-      "广州市第十六中学实验学校",
-      "广州市育才中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第二组（多校划片·电脑派位）",
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
      "plan_classes": null,
      "school": "广州市华侨外国语学校",
      "school_id": "gz-440104-d972cf95",
      "school_ids": null,
-     "scope": null
+     "scope": "华侨外国语学校（小学部）"
     },
     "广州市培正中学": {
-     "group_members": [
-      "广东实验中学",
-      "广东实验中学越秀学校（天胜校区）",
-      "广州市八一实验学校",
-      "广州市培正中学",
-      "广州市第七中学",
-      "广州市第七中学东山学校",
-      "广州市第十三中学",
-      "广州市第十六中学",
-      "广州市第十六中学东华实验学校",
-      "广州市铁一中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第五组（多校划片·电脑派位）",
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
      "plan_classes": null,
      "school": "广州市培正中学",
      "school_id": "gz-440104-99aef0e5",
      "school_ids": null,
-     "scope": null
+     "scope": "东山培正小学"
     },
     "广州市培正矿泉学校": {
      "group_members": [
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市培正矿泉学校",
-      "广州市执信中学（执信路校区）",
-      "广州市第七中学实验学校",
       "广州市第三中学",
-      "广州市第二中学",
-      "广州市第十七中学",
       "广州市第十中学",
-      "广州市育才中学"
+      "广州市第十七中学",
+      "广东实验中学越秀学校（天胜校区）",
+      "广州市育才中学",
+      "广州市第七中学实验学校",
+      "广州市培正矿泉学校",
+      "广州市第二中学",
+      "广州大学附属中学",
+      "广州市执信中学（执信路校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第十一组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州市培正矿泉学校",
      "school_id": "gz-440104-d6c68349",
@@ -3626,19 +3679,19 @@
     },
     "广州市执信中学（执信路校区）": {
      "group_members": [
+      "广州市第三中学",
+      "广州市第十中学",
+      "广州市第十七中学",
       "广东实验中学越秀学校（天胜校区）",
+      "广州市育才中学",
+      "广州市第七中学实验学校",
+      "广州市培正矿泉学校",
+      "广州市第二中学",
       "广州大学附属中学",
-      "广州市东风实验学校",
-      "广州市八一实验学校",
-      "广州市执信中学（执信路校区）",
-      "广州市第七中学",
-      "广州市第七中学东山学校",
-      "广州市第十六中学",
-      "广州市第十六中学实验学校",
-      "广州市育才中学"
+      "广州市执信中学（执信路校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第一组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州市执信中学（执信路校区）",
      "school_id": "gz-440104-f3ca07ff",
@@ -3649,83 +3702,64 @@
      "scope": null
     },
     "广州市真光学校": {
-     "group_members": [
-      "广东华侨中学",
-      "广东实验中学",
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市真光学校",
-      "广州市知用学校",
-      "广州市第三中学",
-      "广州市第三中学实验学校",
-      "广州市第二中学",
-      "广州市第十七中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第八组（多校划片·电脑派位）",
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
      "plan_classes": null,
      "school": "广州市真光学校",
      "school_id": "gz-440104-c77c73b5",
      "school_ids": null,
-     "scope": null
+     "scope": "真光学校（小学部）"
     },
     "广州市知用学校": {
-     "group_members": [
-      "广东实验中学",
-      "广州市培正中学",
-      "广州市知用学校",
-      "广州市第七中学",
-      "广州市第三中学",
-      "广州市第三中学实验学校",
-      "广州市第十三中学",
-      "广州市第十中学",
-      "广州市第十六中学",
-      "广州市铁一中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第七组（多校划片·电脑派位）",
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
      "plan_classes": null,
      "school": "广州市知用学校",
      "school_id": "gz-440104-bc48335e",
      "school_ids": null,
-     "scope": null
+     "scope": "知用学校（小学部）"
     },
     "广州市第七中学": {
      "group_members": [
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市东风实验学校",
-      "广州市八一实验学校",
-      "广州市执信中学（执信路校区）",
+      "广州市第三中学",
       "广州市第七中学",
-      "广州市第七中学东山学校",
+      "广州市第十中学",
+      "广州市第十三中学",
       "广州市第十六中学",
-      "广州市第十六中学实验学校",
-      "广州市育才中学"
+      "广州市第三中学实验学校",
+      "广州市培正中学",
+      "广州市知用学校",
+      "广东实验中学",
+      "广州市铁一中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第一组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州市第七中学",
-     "school_id": "gz-440104-74121d17",
-     "school_ids": null,
+     "school_id": null,
+     "school_ids": [
+      "gz-440104-74121d17",
+      "gz-440111-82856abf"
+     ],
      "scope": null
     },
     "广州市第七中学东山学校": {
      "group_members": [
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市东风实验学校",
-      "广州市八一实验学校",
-      "广州市执信中学（执信路校区）",
       "广州市第七中学",
-      "广州市第七中学东山学校",
+      "广州市第十中学",
+      "广州市第十三中学",
       "广州市第十六中学",
-      "广州市第十六中学实验学校",
-      "广州市育才中学"
+      "广州市第十六中学东华实验学校",
+      "广州市培正中学",
+      "广州市第七中学东山学校",
+      "广东实验中学",
+      "广州市执信中学（执信路校区）",
+      "广州市铁一中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第一组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州市第七中学东山学校",
      "school_id": "gz-440104-7b6a95bd",
@@ -3733,41 +3767,30 @@
      "scope": null
     },
     "广州市第七中学实验学校": {
-     "group_members": [
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市培正矿泉学校",
-      "广州市执信中学（执信路校区）",
-      "广州市第七中学实验学校",
-      "广州市第三中学",
-      "广州市第二中学",
-      "广州市第十七中学",
-      "广州市第十中学",
-      "广州市育才中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第十一组（多校划片·电脑派位）",
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
      "plan_classes": null,
      "school": "广州市第七中学实验学校",
      "school_id": "gz-440104-d5f83454",
      "school_ids": null,
-     "scope": null
+     "scope": "第七中学实验学校（小学部）"
     },
     "广州市第三中学": {
      "group_members": [
-      "广东华侨中学",
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市执信中学（执信路校区）",
       "广州市第三中学",
-      "广州市第三中学实验学校",
-      "广州市第二中学",
+      "广州市第十中学",
       "广州市第十七中学",
-      "广州市第十三中学",
-      "广州市第十六中学实验学校"
+      "广东实验中学越秀学校（天胜校区）",
+      "广州市育才中学",
+      "广州市第七中学实验学校",
+      "广州市培正矿泉学校",
+      "广州市第二中学",
+      "广州大学附属中学",
+      "广州市执信中学（执信路校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第四组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州市第三中学",
      "school_id": "gz-440104-d9ec2dbb",
@@ -3776,19 +3799,19 @@
     },
     "广州市第三中学实验学校": {
      "group_members": [
-      "广东华侨中学",
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市执信中学（执信路校区）",
       "广州市第三中学",
-      "广州市第三中学实验学校",
-      "广州市第二中学",
-      "广州市第十七中学",
       "广州市第十三中学",
-      "广州市第十六中学实验学校"
+      "广州市第十七中学",
+      "广州市第三中学实验学校",
+      "广州市知用学校",
+      "广州市真光学校",
+      "广州市第二中学",
+      "广东实验中学",
+      "广东华侨中学",
+      "广州市执信中学（执信路校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第四组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第十组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州市第三中学实验学校",
      "school_id": "gz-440104-39515a9d",
@@ -3797,19 +3820,19 @@
     },
     "广州市第二中学": {
      "group_members": [
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市东风实验学校",
-      "广州市华侨外国语学校",
-      "广州市执信中学（执信路校区）",
-      "广州市第二中学",
+      "广州市第三中学",
+      "广州市第十中学",
       "广州市第十七中学",
-      "广州市第十三中学",
-      "广州市第十六中学实验学校",
-      "广州市育才中学"
+      "广东实验中学越秀学校（天胜校区）",
+      "广州市育才中学",
+      "广州市第七中学实验学校",
+      "广州市培正矿泉学校",
+      "广州市第二中学",
+      "广州大学附属中学",
+      "广州市执信中学（执信路校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第三组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州市第二中学",
      "school_id": "gz-440104-7f3031fc",
@@ -3818,42 +3841,43 @@
     },
     "广州市第十七中学": {
      "group_members": [
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市东风实验学校",
-      "广州市华侨外国语学校",
-      "广州市执信中学（执信路校区）",
-      "广州市第七中学",
-      "广州市第七中学东山学校",
+      "广州市第三中学",
+      "广州市第十中学",
       "广州市第十七中学",
-      "广州市第十六中学实验学校",
-      "广州市育才中学"
+      "广东实验中学越秀学校（天胜校区）",
+      "广州市育才中学",
+      "广州市第七中学实验学校",
+      "广州市培正矿泉学校",
+      "广州市第二中学",
+      "广州大学附属中学",
+      "广州市执信中学（执信路校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第二组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州市第十七中学",
-     "school_id": "gz-440104-9c6632b1",
+     "school_id": null,
      "school_ids": [
-      "gz-440104-099a5868"
+      "gz-440104-099a5868",
+      "gz-440104-9c6632b1"
      ],
      "scope": null
     },
     "广州市第十三中学": {
      "group_members": [
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市东风实验学校",
-      "广州市华侨外国语学校",
-      "广州市执信中学（执信路校区）",
-      "广州市第二中学",
-      "广州市第十七中学",
+      "广州市第三中学",
       "广州市第十三中学",
-      "广州市第十六中学实验学校",
-      "广州市育才中学"
+      "广州市第十七中学",
+      "广州市第三中学实验学校",
+      "广州市知用学校",
+      "广州市真光学校",
+      "广州市第二中学",
+      "广东实验中学",
+      "广东华侨中学",
+      "广州市执信中学（执信路校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第三组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第十组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州市第十三中学",
      "school_id": "gz-440104-9b88f912",
@@ -3862,19 +3886,19 @@
     },
     "广州市第十中学": {
      "group_members": [
-      "广东实验中学",
-      "广州市培正中学",
-      "广州市执信中学（执信路校区）",
-      "广州市第七中学",
-      "广州市第七中学东山学校",
-      "广州市第十三中学",
+      "广州市第三中学",
       "广州市第十中学",
-      "广州市第十六中学",
-      "广州市第十六中学东华实验学校",
-      "广州市铁一中学"
+      "广州市第十七中学",
+      "广东实验中学越秀学校（天胜校区）",
+      "广州市育才中学",
+      "广州市第七中学实验学校",
+      "广州市培正矿泉学校",
+      "广州市第二中学",
+      "广州大学附属中学",
+      "广州市执信中学（执信路校区）"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第六组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州市第十中学",
      "school_id": "gz-440104-819bd7a1",
@@ -3883,22 +3907,22 @@
     },
     "广州市第十六中学": {
      "group_members": [
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市东风实验学校",
-      "广州市八一实验学校",
-      "广州市执信中学（执信路校区）",
-      "广州市第七中学",
-      "广州市第七中学东山学校",
+      "广州市第三中学",
+      "广州市第十三中学",
       "广州市第十六中学",
-      "广州市第十六中学实验学校",
-      "广州市育才中学"
+      "广东实验中学越秀学校（天胜校区）",
+      "广州市第三中学实验学校",
+      "广州市知用学校",
+      "广州市真光学校",
+      "广州市第二中学",
+      "广东实验中学",
+      "广东华侨中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第一组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第九组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州市第十六中学",
-     "school_id": "gz-440104-8a1a7b3d",
+     "school_id": null,
      "school_ids": [
       "gz-440104-8964385d",
       "gz-440104-8a1a7b3d"
@@ -3907,19 +3931,19 @@
     },
     "广州市第十六中学东华实验学校": {
      "group_members": [
-      "广东实验中学",
-      "广东实验中学越秀学校（天胜校区）",
-      "广州市八一实验学校",
-      "广州市培正中学",
       "广州市第七中学",
-      "广州市第七中学东山学校",
+      "广州市第十中学",
       "广州市第十三中学",
       "广州市第十六中学",
       "广州市第十六中学东华实验学校",
+      "广州市培正中学",
+      "广州市第七中学东山学校",
+      "广东实验中学",
+      "广州市执信中学（执信路校区）",
       "广州市铁一中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第五组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州市第十六中学东华实验学校",
      "school_id": "gz-440104-c117279e",
@@ -3928,19 +3952,19 @@
     },
     "广州市第十六中学实验学校": {
      "group_members": [
+      "广州市第三中学",
+      "广州市第十三中学",
+      "广州市第十七中学",
       "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市东风实验学校",
-      "广州市八一实验学校",
-      "广州市执信中学（执信路校区）",
-      "广州市第七中学",
-      "广州市第七中学东山学校",
-      "广州市第十六中学",
+      "广州市第三中学实验学校",
       "广州市第十六中学实验学校",
-      "广州市育才中学"
+      "广州市第二中学",
+      "广州大学附属中学",
+      "广州市执信中学（执信路校区）",
+      "广东华侨中学"
      ],
      "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第一组（多校划片·电脑派位）",
+     "mechanism_note": "越秀区小学升初中电脑派位第四组（组内 10 所初中均可填报）",
      "plan_classes": null,
      "school": "广州市第十六中学实验学校",
      "school_id": "gz-440104-27ecd0e4",
@@ -3948,48 +3972,27 @@
      "scope": null
     },
     "广州市育才中学": {
-     "group_members": [
-      "广东实验中学越秀学校（天胜校区）",
-      "广州大学附属中学",
-      "广州市东风实验学校",
-      "广州市八一实验学校",
-      "广州市执信中学（执信路校区）",
-      "广州市第七中学",
-      "广州市第七中学东山学校",
-      "广州市第十六中学",
-      "广州市第十六中学实验学校",
-      "广州市育才中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第一组（多校划片·电脑派位）",
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
      "plan_classes": null,
      "school": "广州市育才中学",
-     "school_id": "gz-440104-7ec82efb",
+     "school_id": null,
      "school_ids": [
-      "gz-440104-191aaa35"
+      "gz-440104-191aaa35",
+      "gz-440104-7ec82efb"
      ],
-     "scope": null
+     "scope": "育才学校"
     },
     "广州市铁一中学": {
-     "group_members": [
-      "广东实验中学",
-      "广东实验中学越秀学校（天胜校区）",
-      "广州市八一实验学校",
-      "广州市培正中学",
-      "广州市第七中学",
-      "广州市第七中学东山学校",
-      "广州市第十三中学",
-      "广州市第十六中学",
-      "广州市第十六中学东华实验学校",
-      "广州市铁一中学"
-     ],
-     "mechanism": "group_paidui",
-     "mechanism_note": "越秀区小升初第五组（多校划片·电脑派位）",
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
      "plan_classes": null,
      "school": "广州市铁一中学",
      "school_id": "gz-440104-09652aa5",
      "school_ids": null,
-     "scope": null
+     "scope": "铁一小学"
     }
    }
   }

@@ -1,0 +1,667 @@
+[
+  {
+    "src_name": "华南师范大学附属中学",
+    "entity_name": "华南师范大学附属中学(知识城校区)",
+    "schoolid": [
+      "gz-440112-3847727f"
+    ]
+  },
+  {
+    "src_name": "华南师范大学附属中学",
+    "entity_name": "华南师范大学附属中学(石牌校区)",
+    "schoolid": [
+      "gz-440106-d5983217"
+    ]
+  },
+  {
+    "src_name": "华南师范大学附属中学",
+    "entity_name": "华南师范大学附属中学初中部",
+    "schoolid": [
+      "gz-440106-a565a93c"
+    ]
+  },
+  {
+    "src_name": "广州市执信中学",
+    "entity_name": "广州市执信中学(二沙岛国际校区)",
+    "schoolid": [
+      "gz-440104-63c59c98"
+    ]
+  },
+  {
+    "src_name": "广州市执信中学",
+    "entity_name": "广州市执信中学(执信路校区)",
+    "schoolid": [
+      "gz-440104-f3ca07ff"
+    ]
+  },
+  {
+    "src_name": "广州市执信中学",
+    "entity_name": "广州市执信中学(水荫路校区)",
+    "schoolid": [
+      "gz-440104-1e9bdce3"
+    ]
+  },
+  {
+    "src_name": "广州市执信中学",
+    "entity_name": "执信中学(天河校区)",
+    "schoolid": [
+      "gz-440106-22fcbcd6"
+    ]
+  },
+  {
+    "src_name": "深圳中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "汕头市金山中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "广东北江中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "广东梅县东山中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "中山市中山纪念中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "广东肇庆中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "清远市清城区飞来湖中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "广州市越秀区东川路小学",
+    "entity_name": "东川路小学",
+    "schoolid": [
+      "gz-440104-ef94e34a"
+    ]
+  },
+  {
+    "src_name": "广州市越秀区东川路小学",
+    "entity_name": "东川路小学(南校区)",
+    "schoolid": [
+      "gz-440104-e20758df"
+    ]
+  },
+  {
+    "src_name": "广州市南沙区南沙小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "汕头市桂花小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "珠海市香洲区杨匏安纪念学校",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "佛山市三水区实验小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "韶关市曲江区九龄小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "河源市第三小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "梅州市梅县区程江镇中心小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "东莞市莞城步步高小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "惠州市第十一小学金榜分校",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "中山市东区朗晴小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "江门市紫茶小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "湛江市第八小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "清远市新北江小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "清远市清城区凤翔小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "肇庆市鼎湖区桂城街道办事处中心小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "深圳职业技术学院",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "广东实验中学",
+    "entity_name": "广东实验中学(云城校区)",
+    "schoolid": [
+      "gz-440111-3405d87e"
+    ]
+  },
+  {
+    "src_name": "广东实验中学",
+    "entity_name": "广东实验中学(白云校区)",
+    "schoolid": [
+      "gz-440111-a3cf5a4f"
+    ]
+  },
+  {
+    "src_name": "广东实验中学",
+    "entity_name": "广东实验中学(越秀校区)",
+    "schoolid": [
+      "gz-440104-7c4a905f"
+    ]
+  },
+  {
+    "src_name": "广东实验中学",
+    "entity_name": "广东实验中学(高中部)",
+    "schoolid": [
+      "gz-440103-3aca532e"
+    ]
+  },
+  {
+    "src_name": "广东实验中学",
+    "entity_name": "广东实验中学荔湾学校花地湾校区",
+    "schoolid": [
+      "gz-440103-ff7538dc"
+    ]
+  },
+  {
+    "src_name": "广东实验中学",
+    "entity_name": "广东实验中学荔湾学校花地湾校区（小学部）",
+    "schoolid": [
+      "gz-440103-6b0e7dbd"
+    ]
+  },
+  {
+    "src_name": "广东广雅中学",
+    "entity_name": "广东广雅中学(荔湾校区)",
+    "schoolid": [
+      "gz-440103-bb7f78f0"
+    ]
+  },
+  {
+    "src_name": "深圳外国语学校（初中部、高中部、龙华高中部）",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "珠海市斗门区第二中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "佛山市高明区沧江中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "惠州市东江高级中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "东莞市东莞中学初中部",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "中山市东区松苑中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "江门市第一中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "汕头市第一中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "韶关市第一中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "河源中学实验学校",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "肇庆市颂德学校",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "清远市第一中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "华南师范大学附属中学汕尾学校",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "广州市越秀区东风东路小学",
+    "entity_name": "东风东路小学(东风广场校区)",
+    "schoolid": [
+      "gz-440104-f815e0be"
+    ]
+  },
+  {
+    "src_name": "广州市越秀区东风东路小学",
+    "entity_name": "东风东路小学天伦校区",
+    "schoolid": [
+      "gz-440104-ec171256"
+    ]
+  },
+  {
+    "src_name": "广州市越秀区东风东路小学",
+    "entity_name": "东风东路小学锦城花园校区",
+    "schoolid": [
+      "gz-440104-7425dd47"
+    ]
+  },
+  {
+    "src_name": "广州市越秀区东风东路小学",
+    "entity_name": "广州市越秀区东风东路小学(本部校区)",
+    "schoolid": [
+      "gz-440104-402961f4"
+    ]
+  },
+  {
+    "src_name": "珠海市香洲区第十九小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "汕头市龙湖区金阳小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "佛山市南海区南海实验小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "韶关市浈江区和平路小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "河源市第一小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "梅州市梅江区鸿都小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "惠东县平山第一小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "陆河县实验小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "东莞师范学校附属小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "中山市实验小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "江门市江海区礼乐街道新民小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "阳江市实验小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "湛江市麻章中心小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "信宜市教育城小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "肇庆市奥威斯实验小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "清远市清新区第一小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "饶平县师范学校附属小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "揭阳市实验小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "新兴县实验小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "广东技术师范大学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "佛山大学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "珠海科技学院",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "广州市真光中学（校本部）",
+    "entity_name": "广州市真光中学(本部校区)",
+    "schoolid": [
+      "gz-440103-2b8081bc"
+    ]
+  },
+  {
+    "src_name": "广州市天河外国语学校",
+    "entity_name": "广州市天河外国语学校（智慧城校区）",
+    "schoolid": [
+      "gz-440106-069ddb41"
+    ]
+  },
+  {
+    "src_name": "广州市天河外国语学校",
+    "entity_name": "广州市天河外国语学校（珠江新城校区）",
+    "schoolid": [
+      "gz-440106-b711d94a"
+    ]
+  },
+  {
+    "src_name": "广州市番禺区石碁镇中心小学",
+    "entity_name": "石碁镇中心小学",
+    "schoolid": [
+      "gz-440113-aeeeff61"
+    ]
+  },
+  {
+    "src_name": "广州市番禺区石碁镇中心小学",
+    "entity_name": "石碁镇中心小学(大龙校区)",
+    "schoolid": [
+      "gz-440113-94550bcb"
+    ]
+  },
+  {
+    "src_name": "深圳高级中学（集团）中心校区",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "珠海市实验中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "珠海市香山学校",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "汕头市澄海中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "汕头市东厦小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "佛山市南海区南海实验中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "佛山市禅城区南庄镇紫南小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "乳源瑶族自治县民族实验学校",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "仁化县田家炳小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "河源市河源中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "河源市第二小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "梅州市蕉岭县蕉岭中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "梅州市丰顺县汤坑镇第一中心小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "惠州市华罗庚中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "惠州市博罗县龙华中心小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "汕尾市海丰县彭湃中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "汕尾市陆河县职业技术学校",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "东莞市东莞中学松山湖学校",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "东莞市莞城中心小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "中山市第一中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "中山市石岐体育路学校",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "江门市新会第一中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "江门市蓬江区荷塘镇篁湾中心小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "阳江市第一中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "阳春市第一中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "湛江第一中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "湛江市第二十七小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "化州市第一中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "茂名市愉园小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "茂名市电白区第一小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "肇庆市第一中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "肇庆市鼎湖区广利中心小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "清远市清城区清城中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "清远市清新区第二小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "饶平县第二中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "潮州市实验学校",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "揭阳第一中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "揭阳市榕城区红旗小学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "云浮市邓发纪念中学",
+    "entity_name": null,
+    "schoolid": []
+  },
+  {
+    "src_name": "云浮市邓发小学",
+    "entity_name": null,
+    "schoolid": []
+  }
+]

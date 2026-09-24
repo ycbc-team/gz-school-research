@@ -39,12 +39,14 @@ python3 data/middle/enrollment/scripts/parse_liwan_groups.py      # 荔湾派位
 python3 data/primary/transition/scripts/parse_panyu_official.py   # 番禺 4 sheets（xls→json，0 真差异；初中 sheet 归 middle/enrollment 消费）
 # 天河/黄埔：Read 直读官网 PDF → scripts/read_transcripts/*.py → 生成 json（见下表）
 python3 data/primary/transition/scripts/build_district_enrollment.py <区>   # B 层：transcripts → parsed/2026-<区>.json
-python3 data/primary/transition/scripts/build_xiaoshengchu_all.py all_done  # C 层
-node    data/primary/transition/scripts/upgrade_xiaoshengchu.mjs           # D 层
+python3 data/primary/transition/scripts/build_xiaoshengchu_all.py all_done  # C 层（重建 7 区 + 汇总；--out-dir 可指定输出目录）
+node    data/primary/transition/scripts/upgrade_xiaoshengchu.mjs           # D 层（--src/--out 可指定输入输出）
 ```
 
-check 链（`data/registry/group/scripts/check_groups_drift.py` 的 `_check_xiaoshengchu`）自动重跑
-build + upgrade 并与入库比对，防脚本改动未重跑产物/产物被手改。
+check 链（`data/primary/transition/test/check_xiaoshengchu_snapshot.py`，2026-09-23 起替代
+check_groups_drift 的 git HEAD 比对）自动重跑 build + upgrade 到**临时目录**，与独立快照基线
+（`test/snapshots/xiaoshengchu_snapshot.json`，933 条/166 组）diff 对比——不再依赖「先 commit 再 check」。
+基线更新：`python3 data/primary/transition/test/check_xiaoshengchu_snapshot.py --update-snapshot`
 
 ## A 层转录复现清单（raw → parsed/_transcripts）
 
@@ -63,8 +65,8 @@ build + upgrade 并与入库比对，防脚本改动未重跑产物/产物被手
 > 校名以官方原图/原 PDF 直读为准，POI 佐证错字但 POI 缺失时保留官方名。
 > 天河/黄埔 PDF 均为无文字层扫描件（pdftotext 全页产物仅 66/46 字节），必须走 Read 直读/Vision OCR。
 
-check 链（`data/registry/group/scripts/check_groups_drift.py` 的 `_check_xiaoshengchu`）自动重跑
-build + upgrade 并与入库比对，防脚本改动未重跑产物/产物被手改。
+> 测试方式（2026-09-23）：小升初产物已独立为快照测试（`test/check_xiaoshengchu_snapshot.py`，
+> 临时目录重跑 vs 独立基线），不再走 check_groups_drift 的 git HEAD 比对（无需先 commit 再 check）。
 
 ## 就绪状态总览（构建完成）
 

@@ -53,6 +53,11 @@ const districtTotal = (schools: typeof primarySchools.schools) => {
         <div class="feature-desc">按区 / 按集团分组 · 自招人数与比例 · 指标到校 · 指标×高中特控率</div>
         <span class="tag tag-new">新版</span>
       </RouterLink>
+      <RouterLink to="/primary" class="feature">
+        <div class="feature-name">七区小学明细</div>
+        <div class="feature-desc">按区分组 · 位置筛选 · 全国文明校园筛选</div>
+        <span class="tag tag-new">新版</span>
+      </RouterLink>
       <RouterLink to="/high" class="feature">
         <div class="feature-name">高中录取线明细</div>
         <div class="feature-desc">按省属 / 市属 / 区属或所在行政区分组 · 2025 / 2026 官方中考录取线 · 2026 分数降序</div>

@@ -1638,7 +1638,7 @@
    "data_gaps": null
   },
   {
-   "name": "广州市芳村新苗学校(广佛新城校区)",
+   "name": "君诚博雅实验学校(滘口校区)",
    "group": "不参与公办电脑派位",
    "feed_junior_highs": [],
    "direct_feed": null,
@@ -1647,13 +1647,13 @@
    "data_gaps": "民办学校，不参与公办派位"
   },
   {
-   "name": "广州市西关外国语学校(初中部)",
+   "name": "广州市芳村新苗学校(广佛新城校区)",
    "group": "不参与公办电脑派位",
    "feed_junior_highs": [],
    "direct_feed": null,
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html",
    "source_note": "民办/特殊教育/官方未单列。",
-   "data_gaps": "公办初中（非小学），无小学派位记录"
+   "data_gaps": "民办学校，不参与公办派位"
   },
   {
    "name": "沙面小学悦江校区",
@@ -1672,15 +1672,6 @@
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html",
    "source_note": "民办/特殊教育/官方未单列。",
    "data_gaps": "2021年起暂停招生（人户一致地段并入大坦沙岛配套学校安排），2026分组表未列（南方+2021-05）"
-  },
-  {
-   "name": "君诚博雅实验学校(滘口校区)",
-   "group": "不参与公办电脑派位",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html",
-   "source_note": "民办/特殊教育/官方未单列。",
-   "data_gaps": "民办学校，不参与公办派位"
   }
  ]
 }
