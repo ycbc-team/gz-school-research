@@ -197,20 +197,21 @@ export function createQuotaApi(loaders: DataLoaders) {
     return out.sort((a, b) => b.n - a.n);
   }
 
-  /** 反查：某校区 n_ji>0 的初中（名额分配覆盖，按 n_ji 降序）；campus = 官方原文校名 */
-  function quotaCoverage(campus: string, top?: number): { school: string; school_id: string | null; n: number; district: string | null }[] {
+  /** 反查：某校区 n_ji>0 的初中（名额分配覆盖，按 n_ji 降序）；sid = 校区实体 id
+   *  （实体表缺口校区无详情页，不参与反查；sz 键全为 id） */
+  function quotaCoverage(sid: string, top?: number): { school: string; school_id: string | null; n: number; district: string | null }[] {
     const arr = [
       ...quotaMatrix.ids
-        .filter((s) => (s.sz[campus] ?? 0) > 0)
+        .filter((s) => (s.sz?.[sid] ?? 0) > 0)
         .map((s) => ({
           school: entityById.get(s.school_id)?.name ?? s.school_id,
           school_id: s.school_id,
-          n: s.sz[campus] as number,
+          n: s.sz![sid] as number,
           district: s.district,
         })),
       ...quotaMatrix.schools
-        .filter((s) => (s.sz[campus] ?? 0) > 0)
-        .map((s) => ({ school: s.school, school_id: null, n: s.sz[campus] as number, district: s.district })),
+        .filter((s) => (s.sz?.[sid] ?? 0) > 0)
+        .map((s) => ({ school: s.school, school_id: null, n: s.sz![sid] as number, district: s.district })),
     ].sort((a, b) => b.n - a.n);
     return top ? arr.slice(0, top) : arr;
   }

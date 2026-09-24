@@ -188,6 +188,52 @@ def main() -> int:
     school_rows = []
     # 官方名单原文名 → 法人行 school_id 的精确索引（前端查询用；法人聚合/主 id 归一的
     # 全部推断都在本 py 层完成，运行时只做 id 精准匹配，不做任何名称推断）
+    # ---------- 21 省市属校区：sz 键原文 → high 实体 id（SchoolMatcher resolve，含 alias） ----------
+    # 官方原文按校区公布（如「广州市铁一中学（越秀校区）」）；实体表缺口的校区
+    # （广东广雅中学（花都校区）/广州市第六中学（从化校区）/广州市第六中学（花都校区））
+    # id=None → 行内 sz_schools 原文保底（与 ids/schools 并行结构同构，前端显示名称不可点）。
+    # school = 官方原文去括号的归属法人名（如「华南师范大学附属中学」），前端分组/聚合用。
+    CAMPUS_ORDER = [
+        '华南师范大学附属中学（石牌校区）', '华南师范大学附属中学（知识城校区）',
+        '广东实验中学（荔湾校区）', '广东实验中学（白云校区）',
+        '广东广雅中学（荔湾校区）', '广东广雅中学（花都校区）',
+        '广州市执信中学（执信路校区）', '广州市执信中学（天河校区）',
+        '广州市第二中学',
+        '广州市第六中学（海珠校区）', '广州市第六中学（从化校区）', '广州市第六中学（花都校区）',
+        '广东华侨中学', '广州协和学校', '广州大学附属中学',
+        '广州市铁一中学（越秀校区）', '广州市铁一中学（番禺校区）', '广州市铁一中学（白云校区）',
+        '广州外国语学校',
+        '清华附中湾区学校（智谷校区）', '清华附中湾区学校（智慧城校区）',
+    ]
+
+    def campus_sid(name):
+        e = resolve(name, 'high')
+        return e['school_id'] if e else None
+
+    def campus_school(name):
+        return re.sub(r'[（(][^）)]*[）)]', '', name).strip()
+
+    def conv_sz(sz):
+        """canonical sz（原文 dict，全 21 key 含 0）→ dist id 键非零 + sz_schools 原文非零保底"""
+        out_ids, out_schools = {}, {}
+        for k, n in (sz or {}).items():
+            if n > 0:
+                sid = campus_map.get(k)
+                if sid:
+                    out_ids[sid] = n
+                else:
+                    out_schools[k] = n
+        return out_ids, out_schools
+
+    campuses_out = []
+    campus_map = {}
+    for name in CAMPUS_ORDER:
+        sid = campus_sid(name)
+        campus_map[name] = sid
+        c = {'id': sid, 'name': name, 'school': campus_school(name)}
+        campuses_out.append(c)
+    print(f'[quota_matrix] 21 校区转 id：{sum(1 for c in campuses_out if c["id"])}/21 命中，'
+          f'{sum(1 for c in campuses_out if not c["id"])} 个实体表缺口进 sz_schools 原文保底')
     name_index = {}
     for s in d['schools']:
         if s['school'] in MATCH_OVERRIDES:
@@ -234,7 +280,12 @@ def main() -> int:
                 s.pop('school_ids', None)
         # dist 行：有 id 只留 school_id/school_ids（前端 join 实体表展示名），
         # 无 id 才留 school 原文名（无点击跳转）。调试字段 page/row/is_district_head/sz_sum 只进 canonical。
-        row = {k: s[k] for k in ('district', 'kaosheng', 'sheng_quota', 'qu_quota', 'sz') if k in s}
+        row = {k: s[k] for k in ('district', 'kaosheng', 'sheng_quota', 'qu_quota') if k in s}
+        _sz_ids, _sz_schools = conv_sz(s.get('sz'))
+        if _sz_ids:
+            row['sz'] = _sz_ids
+        if _sz_schools:
+            row['sz_schools'] = _sz_schools
         if s.get('school_id'):
             row['school_id'] = s['school_id']
             name_index[s['school']] = s['school_id']
@@ -245,7 +296,7 @@ def main() -> int:
             row['school'] = s['school']
             school_rows.append(row)
     (CANON / 'quota_matrix.json').write_text(json.dumps(d, ensure_ascii=False, indent=2, sort_keys=True) + '\n', 'utf-8')
-    dist_out['quota_matrix'] = {'ids': ids_rows, 'schools': school_rows, 'name_index': name_index}
+    dist_out['quota_matrix'] = {'ids': ids_rows, 'schools': school_rows, 'name_index': name_index, 'campuses': campuses_out}
     print(f'[quota_matrix] 回填完成 → canonical 写回 + dist ids({len(ids_rows)})/schools({len(school_rows)}) 拆分')
 
     # ================= district_quota / batch2：canonical 回填 + dist 递归 ids/schools =================

@@ -8,7 +8,7 @@
  * 合规口径：对外以"名额分配/录取分数/招生计划"官方数据为主，梯队与特控率为内部权重。
  */
 import { computed, ref } from 'vue';
-import { quotaMatrix, CAMPUS_NAMES, CAMPUS_INFO, resolvePoiName, specialHighSchoolId, entities } from '../data';
+import { quotaMatrix, campuses, resolvePoiName, specialHighSchoolId, entities } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
 /** dist 精简后 ids 行无 school 名：展示列表由实体表 join（ids 行实体名可跳转 + schools 行原文不可跳转） */
@@ -44,8 +44,8 @@ const selectedSchoolPoi = computed(() => {
 });
 
 /* ========== 高中视角 ========== */
-const highSel = ref<string>(CAMPUS_NAMES[0]!);
-const highSchoolName = computed(() => CAMPUS_INFO[highSel.value]!.school);
+const highSel = ref<string>(campuses[0]!.name);
+const highSchoolName = computed(() => campuses.find((c) => c.name === highSel.value)?.school ?? '');
 /** 第一批特殊招生以官方招生单位→实体 ID 的构建期映射定位，不按校名反查。 */
 const highSchoolId = computed(() => specialHighSchoolId(highSel.value));
 
@@ -95,12 +95,12 @@ const pickSchool = (name: string) => {
       <div class="card-title">② 选省市属学校 → 看名额覆盖</div>
       <div class="chips">
         <button
-          v-for="c in CAMPUS_NAMES"
-          :key="c"
+          v-for="c in campuses"
+          :key="c.name"
           class="chip"
-          :class="{ on: c === highSel }"
-          @click="highSel = c"
-        >{{ c }}</button>
+          :class="{ on: c.name === highSel }"
+          @click="highSel = c.name"
+        >{{ c.name }}</button>
       </div>
       <p class="sub-note">当前：{{ highSchoolName }} · {{ highSel }}（各高中校区名额分配 / 自招计划独立展示）</p>
 

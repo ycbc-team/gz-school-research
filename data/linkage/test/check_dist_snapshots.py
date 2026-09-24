@@ -114,8 +114,8 @@ def assert_dist_structure() -> list:
     # quota_matrix：ids/schools 并行数组 + name_index（官方名单名 → 法人行 school_id）
     q = json.load(open(os.path.join(DIST, "quota_matrix.json"), encoding="utf-8"))
     qc = json.load(open(os.path.join(CANON, "quota_matrix.json"), encoding="utf-8"))
-    if set(q) != {"ids", "schools", "name_index"}:
-        errs.append("quota_matrix 顶层键必须仅 ids/schools/name_index")
+    if set(q) != {"ids", "schools", "name_index", "campuses"}:
+        errs.append("quota_matrix 顶层键必须仅 ids/schools/name_index/campuses")
     if not isinstance(q.get("name_index"), dict):
         errs.append("quota_matrix.name_index 必须为对象")
     else:
@@ -126,7 +126,33 @@ def assert_dist_structure() -> list:
         bad_val = {k for k, v in q["name_index"].items() if v not in id_sids}
         if bad_val:
             errs.append(f"quota name_index 值不在 ids school_id 集合: {sorted(bad_val)[:3]}")
-    allowed = {"district", "kaosheng", "sheng_quota", "qu_quota", "sz", "school_id", "school_ids"}
+    # campuses：21 省市属校区（官方顺序），id=高中实体（可 null=实体表缺口），name=官方原文，school=法人名
+    camps = q.get("campuses", [])
+    if len(camps) != 21:
+        errs.append(f"quota campuses 必须 21 校区，实际 {len(camps)}")
+    campus_ids = set()
+    campus_raw = set()
+    for c in camps:
+        if set(c) != {"id", "name", "school"}:
+            errs.append(f"quota campuses 项字段必须仅 id/name/school: {c}")
+        if c["id"] is not None and not str(c["id"]).startswith("gz-"):
+            errs.append(f"quota campuses.id 必须为 gz- 实体 id 或 null: {c}")
+        if not c["name"] or not c["school"]:
+            errs.append(f"quota campuses name/school 不得为空: {c}")
+        if c["id"]:
+            campus_ids.add(c["id"])
+        else:
+            campus_raw.add(c["name"])
+    if len(campus_ids) + len(campus_raw) != 21:
+        errs.append("quota campuses 实体 id 校区 + 缺口校区 总数必须 21")
+    allowed = {"district", "kaosheng", "sheng_quota", "qu_quota", "sz", "sz_schools", "school_id", "school_ids"}
+    for r in q.get("ids", []):
+        for k, n in (r.get("sz") or {}).items():
+            if k not in campus_ids:
+                errs.append(f"quota ids 行 sz 键必须为 campuses 实体 id: {k}（行 {r.get('school_id')}）")
+        for k in (r.get("sz_schools") or {}):
+            if k not in campus_raw:
+                errs.append(f"quota ids 行 sz_schools 键必须为缺口校区官方原文: {k}（行 {r.get('school_id')}）")
     for r in q.get("ids", []):
         bad = set(r) - allowed
         if bad:

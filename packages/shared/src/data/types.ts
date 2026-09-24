@@ -15,7 +15,10 @@ export interface QuotaRowId {
   kaosheng: number | null; // 名额考生数 m_j
   sheng_quota: number | null; // 省市属名额
   qu_quota: number | null; // 区属名额
-  sz: Record<string, number | null>; // 21 省市属校区指标数 n_ji（稀疏化后缺失键 === null）
+  /** 21 省市属校区指标数 n_ji（id 键，只存非零；实体表缺口校区在 sz_schools 原文保底） */
+  sz?: Record<string, number>;
+  /** 实体表缺口的省市属校区指标（官方原文名 → 数，无实体不可跳转；2026 为广雅花都/六中从化/六中花都） */
+  sz_schools?: Record<string, number>;
   school_id: string;
   /** 法人多校区（官方升学文件按法人单位公布，backfill 由实体表去括号校区推导生成）；
    *  仅法人行存在，含 school_id 本身；前端升学信息按法人聚合、各校区分别跳转 */
@@ -27,7 +30,8 @@ export interface QuotaRowName {
   kaosheng: number | null;
   sheng_quota: number | null;
   qu_quota: number | null;
-  sz: Record<string, number | null>;
+  sz?: Record<string, number>;
+  sz_schools?: Record<string, number>;
   school: string;
 }
 /** 配额行统一视图（查询域使用：两种行按 locator 分别命中） */
@@ -38,6 +42,9 @@ export interface QuotaMatrix {
   /** 官方名单原文名 → 法人行 school_id（py 层 backfill 生成：法人聚合/主 id 归一等
    *  全部名称推断在数据层完成，运行时只做 id 精准匹配） */
   name_index: Record<string, string>;
+  /** 21 省市属校区（官方汇总表顺序）：id=高中实体 school_id（18，前端 join 实体表展示名）；
+   *  id=null 为实体表缺口校区（3），name 为官方原文保底展示；school=归属法人名（官方原文去括号） */
+  campuses: Array<{ id: string | null; name: string; school: string }>;
 }
 
 /** 特招通道：计划数 + 名单外键（资格名单计数矩阵已于 2026-09 废弃） */
