@@ -27,7 +27,7 @@ def load(path):
 
 def build():
     entities = load(ENTITIES)["entities"]
-    grouped_ids = set(load(SCHOOL_GROUPS)["schoolGroups"])
+    grouped_ids = {school_id for school_ids in load(SCHOOL_GROUPS).values() for school_id in school_ids}
     buckets = defaultdict(dict)
     for entity in entities:
         school_id = entity["school_id"]

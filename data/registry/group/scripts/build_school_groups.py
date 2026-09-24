@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""构建公共 school_id → 集团映射（详情页品牌卡与初中明细分组的唯一权威产物）。
+"""构建公共集团 → school_id 列表（详情页品牌卡与初中明细分组的唯一权威产物）。
 
 原则（用户拍板）：运行时完全用 school_id 匹配，不写名字匹配逻辑。
 名称匹配只允许发生在本数据层构建期，且必须经 entities 表（1552 条，含 aliases）反查：
@@ -11,8 +11,8 @@
 3. 同一 school_id 同时命中 education 与 brand：education 优先（与 shared groupOfSchool 现序一致）
 
 产物：data/registry/group/dist/school_groups.json
-  {"schoolGroups": {"<school_id>": {"brand": "...", "source": "education|brand"}}}
-纯 id 映射，运行时不感知任何名字。
+  {"<集团名>": ["<school_id>", "..."]}
+按集团聚合，避免对每个 school_id 重复存储集团名与来源；运行时初始化时反建纯 id 索引。
 
 另输出构建期缺失报告（stderr/stdout）：
 - brand units 反查失败清单（区外校等 entities 表不覆盖 → 需人工补 school_ids 外键）
@@ -180,8 +180,10 @@ def main():
             json.dump(brand_data, f, ensure_ascii=False, indent=1)
         print(f"[写回] brand_groups.json 补全 {len(resolved)} 个 unit 的 school_ids")
 
-    # 4. 产物
-    out = {"schoolGroups": mapping}
+    # 4. 产物：按集团聚合。mapping 已在前两步保证同一 school_id 教育集团优先。
+    out = {}
+    for school_id, entry in mapping.items():
+        out.setdefault(entry["brand"], []).append(school_id)
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
     n_edu = sum(1 for v in mapping.values() if v["source"] == "education")

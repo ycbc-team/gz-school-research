@@ -95,7 +95,7 @@ python3 data/primary/enrollment/scripts/build_primary_2026.py <区>   # 2026 小
 | `linkage/quota_matrix.json` / `special_matrix.json` / `district_quota.json` / `batch2_scores.json` | rebuild_quota_matrix / build_special_* / build_district_quota / build_linkage_batch2（+ backfill_school_ids 回填 id） | 升学通道、排行榜 |
 | `linkage/ranking_middle.json`（334 校） | build_ranking_middle.py | 详情页升学信号、排行榜、初中明细 |
 | `registry/group/dist/education_groups.json` | merge_groups.py（合并 parsed `_partial_*` + src/brand_groups + parsed/education_groups_2026） | 品牌卡、初中明细分组 |
-| `registry/group/dist/school_groups.json`（纯 id） | build_school_groups.py（--write-brand 回写 src/brand_groups） | 品牌卡、初中明细分组（运行时纯 id 匹配） |
+| `registry/group/dist/school_groups.json`（集团 → school_id[]） | build_school_groups.py（--write-brand 回写 src/brand_groups） | 品牌卡、初中明细分组（加载时反建纯 id 匹配） |
 | `middle/org_sort/dist/compiled.json` | data/middle/org_sort/scripts/build_org_sort.py | 初中默认排序 |
 | `primary/transition/dist/middle_feed_snapshot.json` | build_middle_feed_snapshot.py | 初中生源全量快照测试（npm run check） |
 

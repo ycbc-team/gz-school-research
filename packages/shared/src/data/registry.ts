@@ -1,6 +1,6 @@
 /**
  * 身份与品牌域：实体解析（resolvePoiName）+ 品牌关联（groupOfSchool）。
- * 品牌关联 = 查公共 school_id → 集团映射（schoolGroups 产物，py 数据层构建），运行时纯 id 匹配，
+ * 品牌关联 = 查公共集团 → school_id 列表（schoolGroups 产物，py 数据层构建），初始化后纯 id 匹配，
  * 不再做任何按名匹配（名称匹配已收敛到 scripts/registry/build_school_groups.py 构建期）。
  */
 import { normName, looseNorm } from '../support.js';
@@ -71,12 +71,27 @@ export function createRegistryApi(loaders: DataLoaders) {
   }
 
   /**
-   * 公共 school_id → 集团索引（scripts/registry/build_school_groups.py 构建的纯 id 产物）。
-   * 覆盖 education（core_poi/members/campuses 外键）与 brand（units 外键，构建期已由
-   * entities 表解析补齐并写回 brand_groups.json）；同一 id 双命中时 education 优先（产物构建时保证）。
-   * 运行时只查此产物，不再维护两套独立索引。
+   * 公共集团 → school_id 列表在加载时反建的 school_id 索引。覆盖 education
+   * （core_poi/members/campuses 外键）与 brand（units 外键）；同一 id 双命中时由构建产物保证 education 优先。
    */
-  const schoolGroupMap = loaders.schoolGroups?.schoolGroups || {};
+  const educationGroupSchoolIds = new Map<string, Set<string>>();
+  for (const group of loaders.educationGroups?.groups || []) {
+    const schoolIds = [
+      ...(group.core_poi || []).map((row) => row.school_id),
+      ...(group.members || []).flatMap((member) => [
+        member.school_id,
+        ...(member.campuses || []).map((campus) => campus.school_id),
+      ]),
+    ].filter((schoolId): schoolId is string => Boolean(schoolId));
+    educationGroupSchoolIds.set(group.brand, new Set(schoolIds));
+  }
+  const schoolGroupMap: Record<string, { brand: string; source: 'education' | 'brand' }> = {};
+  for (const [brand, schoolIds] of Object.entries(loaders.schoolGroups || {})) {
+    const educationIds = educationGroupSchoolIds.get(brand);
+    for (const schoolId of schoolIds) {
+      schoolGroupMap[schoolId] = { brand, source: educationIds?.has(schoolId) ? 'education' : 'brand' };
+    }
+  }
   const nonGroupMultiCampuses = loaders.nonGroupMultiCampuses;
 
   /** brand 来源的 groupOfSchool 结果结构（school_id 外键命中与按名匹配共用） */

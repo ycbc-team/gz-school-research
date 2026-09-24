@@ -389,11 +389,12 @@ test('品牌关联：逐集团学校名单快照（education 86 + brand 8，集�
   }
   assert.deepEqual(diffs, [], `集团名单快照漂移（${diffs.length} 处）：\n${diffs.join('\n')}`);
 
-  // 名单闭环：名单内 school_id 实体存在、schoolGroups 映射无孤儿。一个实体可属多个集团
+  // 名单闭环：名单内 school_id 实体存在、按集团聚合的 schoolGroups 产物无孤儿。一个实体可属多个集团
   //（如东山培正小学=东山培正集团核心+培正集团成员、黄石学校=白云中学集团+培英集团成员、
-  // 仲元附属学校=仲元附属集团核心+仲元中学集团成员），schoolGroups 仅存一条映射，
+  // 仲元附属学校=仲元附属集团核心+仲元中学集团成员），产物仅存一条归属，
   // 故 edu 映射允许为该实体所属的任一集团；brand 单归属实体必须映射回品牌（edu 收录时 education 优先）。
-  const sg = load('registry/group/dist/school_groups.json').schoolGroups;
+  const sg = load('registry/group/dist/school_groups.json');
+  const groupOfId = new Map(Object.entries(sg).flatMap(([brand, schoolIds]) => schoolIds.map((schoolId) => [schoolId, brand])));
   const entById = new Map(repo.entities.map((e) => [e.school_id, e]));
   const belongsTo = new Map(); // sid -> Set(所属集团名，含 edu + brand)
   for (const [key, ids] of cur) {
@@ -410,11 +411,11 @@ test('品牌关联：逐集团学校名单快照（education 86 + brand 8，集�
     for (const sid of ids) {
       const e = entById.get(sid);
       if (!e) { problems.push(`${key}: ${sid} 无实体`); continue; }
-      const g = sg[sid];
-      if (!g) { problems.push(`${key}: ${e.name}(${sid}) 不在 schoolGroups 映射`); continue; }
+      const brand = groupOfId.get(sid);
+      if (!brand) { problems.push(`${key}: ${e.name}(${sid}) 不在 schoolGroups 映射`); continue; }
       const owned = belongsTo.get(sid) || new Set();
-      if (isEdu && !owned.has(g.brand)) problems.push(`${key}: ${e.name}(${sid}) 映射到 ${g.brand}（不属于 ${[...owned].join('/')}）`);
-      if (!isEdu && !owned.has(g.brand)) problems.push(`${key}: ${e.name}(${sid}) 映射到 ${g.brand}（不属于 ${[...owned].join('/')}）`);
+      if (isEdu && !owned.has(brand)) problems.push(`${key}: ${e.name}(${sid}) 映射到 ${brand}（不属于 ${[...owned].join('/')}）`);
+      if (!isEdu && !owned.has(brand)) problems.push(`${key}: ${e.name}(${sid}) 映射到 ${brand}（不属于 ${[...owned].join('/')}）`);
       const m = buildDetailModel(e.stage, e.name, repo, sid);
       if (!m.brandCard) problems.push(`${key}: ${e.name}(${sid}) 品牌卡未渲染`);
     }

@@ -10,7 +10,7 @@
 | `parsed/` | `_partial_{7区}_groups.json`（政府 HTML 解析出的纯名字底稿）+ `education_groups_2026.json`（招考办 2026 集团名额分配表：43 核心校 / 118 成员） |
 | `src/` | `brand_groups.json`（8 品牌组手工源，含法人关系/来源 URL）、`groups_anchors.json`（锚点表，仅承载一对多关系） |
 | `scripts/` | 见下方「构建与脚本」 |
-| `dist/` | `education_groups.json`（合并后集团表）、`school_groups.json`（集团运行时纯 id 匹配）、`non_group_multi_campuses.json`（未入集团的多校区运行时纯 id 匹配） |
+| `dist/` | `education_groups.json`（合并后集团表）、`school_groups.json`（`集团名 → school_id[]` 的运行时索引源）、`non_group_multi_campuses.json`（未入集团的多校区运行时纯 id 匹配） |
 | `test/` | `coverage_result.json`（覆盖检查中间结果，仅供测试与覆盖报告生成） |
 
 ## 构建与脚本
@@ -19,7 +19,7 @@
 | --- | --- |
 | `parse_government_groups.py` | 政府 HTML → 7 区 `_partial_*` 纯名字底稿 |
 | `merge_groups.py` | 合并 partial + 招考办表 + brand_groups + 锚点表；法人归并用统一 `legalKey/legalCampuses`（剥括号/学部后缀 + 法人核心名匹配），不再本地推导；脚本按自身路径定位仓库根目录，可在任意 worktree 重跑 |
-| `build_school_groups.py` | 教育集团成员 → school_id（当前 education 546 / brand 41），输出 `school_groups.json` |
+| `build_school_groups.py` | 教育集团成员 → 按集团聚合的 school_id 列表（当前 education 546 / brand 41），输出 `school_groups.json` |
 | `build_non_group_multi_campuses.py` | 实体注册表 + 集团映射 → 未入集团的同法人多校区，输出 `non_group_multi_campuses.json` |
 | `check_groups_drift.py` | **铁律校验**：重跑全链路生产脚本与入库比对（含 build_entities/merge_groups/backfill 等），漂移即失败；`npm run check` 的一部分 |
 | `coverage_check.py` / `generate_coverage_doc.py` | P1 集团成员覆盖比对（POI 后缀/区名前缀/校区后缀三种变体）与覆盖清单文档生成 |
