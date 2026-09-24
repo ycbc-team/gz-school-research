@@ -2346,6 +2346,15 @@
    "data_gaps": "民办小学，不参与公办派位"
   },
   {
+   "name": "金盆学校",
+   "group": "不参与公办派位/待核",
+   "feed_junior_highs": [],
+   "direct_feed": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
+   "source_note": "民办/其他。",
+   "data_gaps": "民办学校，不参与公办派位"
+  },
+  {
    "name": "锦华小学",
    "group": "不参与公办派位/待核",
    "feed_junior_highs": [],
@@ -2389,15 +2398,6 @@
    "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
    "source_note": "民办/其他。",
    "data_gaps": "民办小学，不参与公办派位"
-  },
-  {
-   "name": "金盆学校",
-   "group": "不参与公办派位/待核",
-   "feed_junior_highs": [],
-   "direct_feed": null,
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
-   "source_note": "民办/其他。",
-   "data_gaps": "民办学校，不参与公办派位"
   }
  ]
 }

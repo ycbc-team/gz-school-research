@@ -433,7 +433,8 @@
   },
   "gz-440103-6cb82f52#primary": {
    "aliases": [
-    "华侨小学"
+    "华侨小学",
+    "华侨小学校本部"
    ],
    "name": "荔湾区华侨小学(西校区)",
    "stage": "primary"
@@ -630,6 +631,11 @@
     "广东实验中学荔湾学校"
    ],
    "name": "广东实验中学荔湾学校(第三小学部)",
+   "stage": "primary"
+  },
+  "gz-440103-9ff7c5c3#primary": {
+   "aliases": [],
+   "name": "芳村小学(沙涌校区)",
    "stage": "primary"
   },
   "gz-440103-a15d3a11#primary": {
@@ -1160,7 +1166,9 @@
    "stage": "primary"
   },
   "gz-440104-2f27f4d6#primary": {
-   "aliases": [],
+   "aliases": [
+    "华侨外国语学校小学部"
+   ],
    "name": "广州市华侨外国语学校-华侨小学",
    "stage": "primary"
   },
@@ -1379,7 +1387,9 @@
    "stage": "primary"
   },
   "gz-440104-75ece0ce#primary": {
-   "aliases": [],
+   "aliases": [
+    "海珠中路小学"
+   ],
    "name": "海珠中路小学(海珠中校区)",
    "stage": "primary"
   },
@@ -1744,7 +1754,9 @@
    "stage": "primary"
   },
   "gz-440104-fb8d99a5#primary": {
-   "aliases": [],
+   "aliases": [
+    "海珠中路小学"
+   ],
    "name": "海珠中路小学(七株榕校区)",
    "stage": "primary"
   },
@@ -2434,8 +2446,11 @@
    "stage": "primary"
   },
   "gz-440105-b9e32196#primary": {
-   "aliases": [],
-   "name": "中山大学附属小学",
+   "aliases": [
+    "中山大学附属小学",
+    "海珠区中山小学"
+   ],
+   "name": "中山小学",
    "stage": "primary"
   },
   "gz-440105-baa048f9#primary": {
@@ -2523,7 +2538,9 @@
    "stage": "middle"
   },
   "gz-440105-cac39935#primary": {
-   "aliases": [],
+   "aliases": [
+    "执信中学琶洲实验学校小学部"
+   ],
    "name": "广州市执信中学琶洲实验学校",
    "stage": "primary"
   },
@@ -2941,6 +2958,7 @@
    "aliases": [
     "暨南大学附属实验学校",
     "暨南大学附属实验学校初中部",
+    "暨南第一实验学校",
     "暨大附中"
    ],
    "name": "暨南大学附属中学",
@@ -3075,6 +3093,7 @@
   "gz-440106-2e9f6f7b#middle": {
    "aliases": [
     "113中学五山本部",
+    "广州市第113中学",
     "第一一三中学"
    ],
    "name": "广州市第一一三中学(乐学校区)",
@@ -3150,7 +3169,9 @@
    "stage": "primary"
   },
   "gz-440106-3a61d518#middle": {
-   "aliases": [],
+   "aliases": [
+    "广州市第18中学"
+   ],
    "name": "广州市第十八中学车陂校区",
    "stage": "middle"
   },
@@ -3354,6 +3375,7 @@
   },
   "gz-440106-5a7fbf3a#middle": {
    "aliases": [
+    "广州市第75中学",
     "第七十五中学"
    ],
    "name": "广州市第七十五中学(燕塘西校区)",
@@ -3398,7 +3420,9 @@
    "stage": "high"
   },
   "gz-440106-621b20d3#middle": {
-   "aliases": [],
+   "aliases": [
+    "广州市第75中学"
+   ],
    "name": "广州市第七十五中学(天平架校区)",
    "stage": "middle"
   },
@@ -3576,7 +3600,9 @@
    "stage": "high"
   },
   "gz-440106-8f55ab34#middle": {
-   "aliases": [],
+   "aliases": [
+    "第89中学"
+   ],
    "name": "广州市第八十九中学",
    "stage": "middle"
   },
@@ -3741,7 +3767,9 @@
    "stage": "primary"
   },
   "gz-440106-b049d65a#middle": {
-   "aliases": [],
+   "aliases": [
+    "广州市第113中学"
+   ],
    "name": "广州市第一一三中学(东方校区)",
    "stage": "middle"
   },
@@ -4054,7 +4082,9 @@
    "stage": "primary"
   },
   "gz-440106-ef4076c1#middle": {
-   "aliases": [],
+   "aliases": [
+    "广州市第18中学"
+   ],
    "name": "广州市第十八中学",
    "stage": "middle"
   },
@@ -6374,6 +6404,7 @@
   "gz-440112-15d63ae7#primary": {
    "aliases": [
     "CPPQ-A4-2地块长岭.雅居建设项目九年制学校",
+    "CPPQ-A4-2地块长岭·雅居建设项目九年制学校",
     "CPPQ-A4-2地块长岭、雅居建设项目九年制学校",
     "CPPQ-A4-2地块长岭、雅居建设项目九年制学校暂定名"
    ],
@@ -9181,7 +9212,7 @@
    "stage": "middle"
   }
  },
- "entity_count": 1522,
+ "entity_count": 1523,
  "note": "实体/POI 关联业务快照（非产物字节，坐标不入快照）。更新：--update-snapshot。",
  "poi": {
   "high": {
@@ -11048,6 +11079,9 @@
    ],
    "gz-440103-9f5557ad": [
     "广东实验中学荔湾学校(第三小学部)"
+   ],
+   "gz-440103-9ff7c5c3": [
+    "芳村小学(沙涌校区)"
    ],
    "gz-440103-a15d3a11": [
     "乐贤坊小学"

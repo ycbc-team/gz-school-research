@@ -107,14 +107,20 @@ const DEFAULT_DEFS: Record<MiddleMechanism, MiddleMechanismDef> = {
 };
 export function createMiddleEnrollmentApi(loaders: DataLoaders) {
   const list = loaders.middleEnrollments || [];
+  // dist 合并结构（2026-09-23）：mechanisms 顶层一份；组表展开 group_id → group_members
+  const mechanisms = loaders.middleEnrollmentMechanisms || {};
+  const groups = loaders.middleEnrollmentGroups || {};
+  const expand = (r: MiddleEnrollmentRecord): MiddleEnrollmentRecord =>
+    ({ ...r, group_members: r.group_id ? groups[r.group_id]?.members ?? null : (r.group_members ?? null) });
   const byId = new Map<string, MiddleEnrollmentRecord>();
   const byIdAll = new Map<string, MiddleEnrollmentMatch[]>();
   const byName = new Map<string, MiddleEnrollmentRecord>();
   for (const snap of list) {
-    for (const r of snap.records) {
+    for (const r0 of snap.records) {
+      const r = expand(r0);
       if (r.school_id && !byId.has(r.school_id)) byId.set(r.school_id, r);
       if (r.school && !byName.has(r.school)) byName.set(r.school, r);
-      const def = (snap.mechanisms && snap.mechanisms[r.mechanism]) || DEFAULT_DEFS[r.mechanism];
+      const def = mechanisms[r.mechanism] || DEFAULT_DEFS[r.mechanism];
       const match: MiddleEnrollmentMatch = { record: r, mechanismDef: def, district: snap.district };
       const ids = r.school_id ? [r.school_id, ...(r.school_ids || [])] : (r.school_ids || []);
       for (const id of ids) {

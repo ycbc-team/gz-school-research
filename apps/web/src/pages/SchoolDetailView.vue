@@ -16,14 +16,15 @@ import {
 import {
   repository, primarySchools, middleSchools, highSchools, primaryTier1, middleTier1,
   highLevels, tier1Schools, middleTier1Schools, entities, matchEnrollment,
-  middleQuotaSummary, middlePrimaryFeed, middleEnrollmentsOf, xiaoshengchuOf, schoolBadges, scoresOfSchool,
-  isComprehensive, groupOfSchool, resolvePoiName, resolveSchoolIdOf,
+  middleQuotaSummary, middleEnrollmentsOf, middleEnrollmentGroups, xiaoshengchuOf, schoolBadges, scoresOfSchool,
+  isComprehensive, groupOfSchool, resolveSchoolIdOf,
   type BrandUnit,
   innovationAwards,
   chuangkeAwards,
   scienceLiteracyAwards,
   detailedRecords,
   specialtySchools,
+  civilizedCampusSchoolIds,
 } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
@@ -84,7 +85,6 @@ const enrollment = computed(() => model.value.enrollment);
 const feedJuniors = computed(() => model.value.feedJuniors);
 const feedGap = computed(() => model.value.feedGap);
 const feedRows = computed(() => model.value.feedRows);
-const feedPrimarys = computed(() => model.value.feedPrimarys);
 const enrollNote = computed(() => model.value.enrollNote);
 const signalRows = computed(() => model.value.signalRows);
 const admissionRows = computed(() => model.value.admissionRows);
@@ -92,6 +92,17 @@ const gaokaoRows = computed(() => model.value.gaokaoRows);
 const brandCard = computed(() => model.value.brandCard);
 const brandCardUseful = computed(() => model.value.brandCardUseful);
 const campuses = computed(() => model.value.campuses);
+/** 文明校园称号按当前 school_id 判定；创建先进学校明确标为创建培育，不与正式命名混淆。 */
+const civilizedCampusHonors = computed(() => {
+  if (!schoolId.value) return [];
+  const levels = [
+    ['national', '全国文明校园'],
+    ['provincial', '广东省文明校园'],
+    ['municipal', '广州市文明校园'],
+    ['advanced', '广州市文明校园创建先进学校（储备）'],
+  ] as const;
+  return levels.filter(([key]) => (civilizedCampusSchoolIds[key] ?? []).includes(schoolId.value)).map(([, label]) => label);
+});
 /** 创新大赛获奖：按当前 school_id 查，有则展示金/银/铜（分学段分年份） */
 const awardData = computed(() => innovationAwards[schoolId.value]?.innovation_awards?.stages?.[stage.value]);
 /** 创客电视大赛官方只有小学组/中学组，中学组同时覆盖初中和高中。 */
@@ -155,6 +166,55 @@ const middleEnrolls = computed(() => {
   if (stage.value !== 'middle') return [];
   return middleEnrollmentsOf(schoolId.value || null) || [];
 });
+/** 派位组成员行 Badge：dist groups 组名（如「电脑派位第4组」）；组缺省时兜底 */
+function groupNameOf(gid?: string | null): string {
+  return (gid ? middleEnrollmentGroups[gid]?.name : null) || '组内可填报';
+}
+/** 派位组生源小学（groups[gid].primaries，组级对口）；无则空列表 */
+function groupPrimariesOf(gid?: string | null): string[] {
+  return gid ? (middleEnrollmentGroups[gid]?.primaries ?? []) : [];
+}
+/** 机制徽章去重行：同区同机制同班数的多组只展示一次（用户：海珠区 Badge 删、计划 12 个班只展示一次） */
+const mechanismHeads = computed(() => {
+  if (stage.value !== 'middle') return [];
+  const seen = new Set<string>();
+  const rows: { district: string; mech: string; label: string; plan: number | null }[] = [];
+  for (const m of middleEnrolls.value) {
+    const key = `${m.district}|${m.record.mechanism}|${m.record.plan_classes ?? ''}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    rows.push({ district: m.district, mech: m.record.mechanism, label: m.mechanismDef.label, plan: m.record.plan_classes });
+  }
+  return rows;
+});
+/** 生源小学平铺行：跨全部派位组，行 = 小学名 + 组名 Badge（用户：多组小学平铺、Badge 区分分组） */
+const primaryRows = computed(() => {
+  if (stage.value !== 'middle') return [];
+  const rows: { name: string; groupName: string; ids: string[] }[] = [];
+  for (const m of middleEnrolls.value) {
+    const gid = m.record.group_id;
+    const g = gid ? middleEnrollmentGroups[gid] : null;
+    const pid = g?.primaryIds ?? {};
+    for (const p of g?.primaries ?? []) rows.push({ name: p, groupName: groupNameOf(gid), ids: pid[p] ?? [] });
+  }
+  return rows;
+});
+/** 多校区法人行弹窗（与初中名额分配明细 RankingView 同款）：一个小学名 + school_ids → 弹窗选校区跳转 */
+const campusPicker = ref<{ top: number; left: number; items: Array<{ id: string; name: string }> } | null>(null);
+function openPrimaryPicker(row: { name: string; ids: string[] }, e: MouseEvent) {
+  if (row.ids.length < 2) return;
+  const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
+  const w = 300;
+  let left = r.left;
+  if (left + w > window.innerWidth - 8) left = Math.max(8, window.innerWidth - w - 8);
+  const entArr = entities.entities ?? (entities as unknown as any[]);
+  campusPicker.value = { top: r.bottom + 6, left, items: row.ids.map((id) => ({ id, name: entArr.find((x: { school_id: string }) => x.school_id === id)?.name ?? id })) };
+}
+function closeCampusPicker() { campusPicker.value = null; }
+function goCampus(item: { id: string; name: string }) {
+  closeCampusPicker();
+  router.push({ path: `/school/${encodeURIComponent(item.name)}`, query: { stage: 'primary', id: item.id } });
+}
 
 </script>
 
@@ -192,6 +252,10 @@ const middleEnrolls = computed(() => {
         <div class="kv-row"><span>学段</span><b>{{ stageLabel }}</b></div>
         <div class="kv-row"><span>所属区</span><b>{{ districtOf }}</b></div>
         <div v-if="brandCard?.brand" class="kv-row"><span>教育集团</span><b>{{ brandCard.brand }}</b></div>
+        <div v-if="civilizedCampusHonors.length" class="kv-row specialty-row">
+          <span>校园荣誉</span>
+          <b><div v-for="honor in civilizedCampusHonors" :key="honor" class="specialty-line">{{ honor }}</div></b>
+        </div>
         <div v-if="specialtyRows.length" class="kv-row specialty-row">
           <span>学校特色</span>
           <b>
@@ -264,49 +328,55 @@ const middleEnrolls = computed(() => {
       <div class="card-title">招生计划（2026）</div>
       <p v-if="enrollNote" class="sub-note">{{ enrollNote }}</p>
 
-      <!-- 机制徽章 + 班数 + 范围（来自初中招生计划表）；一校多规则时逐条渲染 -->
+      <!-- 机制徽章去重展示（顶部一次）：同区同机制同班数合并；组差异由生源小学 Badge 区分 -->
       <template v-if="middleEnrolls.length">
-        <div v-for="(m, mi) in middleEnrolls" :key="`${m.district}-${m.record.school}`" class="mech-block" :style="mi ? 'border-top:1px dashed #e5e7eb;margin-top:10px;padding-top:10px;' : ''">
-          <div class="mech-row">
-            <span v-if="middleEnrolls.length > 1" class="badge b-district">{{ m.district }}</span>
-            <span class="badge" :class="m.record.mechanism">
-              {{ m.mechanismDef.label }}
-            </span>
-            <span v-if="m.record.plan_classes != null" class="mech-plan">
-              计划 {{ m.record.plan_classes }} 个班
-            </span>
-          </div>
+        <div class="mech-row">
+          <span v-for="(h, hi) in mechanismHeads" :key="`${h.mech}-${h.plan}-${hi}`" class="mech-head">
+            <span v-if="mechanismHeads.length > 1 || new Set(middleEnrolls.map(x => x.district)).size > 1" class="badge b-district">{{ h.district }}</span>
+            <span class="badge" :class="h.mech">{{ h.label }}</span>
+            <span v-if="h.plan != null" class="mech-plan">计划 {{ h.plan }} 个班</span>
+          </span>
+        </div>
+        <template v-for="(m, mi) in middleEnrolls" :key="`${m.district}-${m.record.school}-${m.record.group_id ?? mi}`">
+        <div v-if="m.record.scope || (m.mechanismDef.can_lose && m.mechanismDef.lose_text)" class="mech-block" :style="mi ? 'border-top:1px dashed #e5e7eb;margin-top:10px;padding-top:10px;' : ''">
           <div v-if="m.record.scope" class="zone-block">
             <div class="zone-label">招生服务范围</div>
             <p>{{ m.record.scope }}</p>
-          </div>
-          <p v-if="m.record.mechanism_note" class="sub-note">
-            官方备注：{{ m.record.mechanism_note }}
-          </p>
-          <!-- 派位组：多校派位时列出组内学校 -->
-          <div v-if="m.record.group_members && m.record.group_members.length" class="zone-block">
-            <div class="zone-label">派位组成员（随机分配，组内兜底）</div>
-            <p>{{ m.record.group_members.join('、') }}</p>
           </div>
           <!-- 单校电脑抽签：红字警示 -->
           <div v-if="m.mechanismDef.can_lose && m.mechanismDef.lose_text" class="lottery-warning">
             ⚠️ {{ m.mechanismDef.lose_text }}
           </div>
         </div>
+        </template>
       </template>
 
-      <!-- 生源小学反查 -->
-      <template v-if="feedPrimarys.length">
-        <p class="sub-note" style="margin-top:10px;">以下小学的 2026 对口/派位名单包含本校（由七区全量小学升学路线反查，校名全等匹配）。</p>
+      <!-- 生源小学平铺：多组小学全部一个列表，组名 Badge 标在小学后面区分分组 -->
+      <div v-if="primaryRows.length" class="zone-block" style="margin-top:10px">
+        <div class="zone-label">生源小学（对口派位，按组区分）</div>
         <div class="feed-list">
-          <div v-for="r in feedPrimarys" :key="r.primary" class="feed-item">
-            <RouterLink :to="`/school/${encodeURIComponent(r.primary)}?stage=primary`" class="feed-name">{{ r.primary }}</RouterLink>
-            <span class="tag tag-dim">{{ r.direct_feed ? '对口直升' : (r.group || '对口') }}</span>
+          <div v-for="row in primaryRows" :key="`${row.groupName}-${row.name}`" class="feed-item">
+            <button v-if="row.ids.length > 1" class="feed-name campus-open" @click="openPrimaryPicker(row, $event)">{{ row.name }}</button>
+            <RouterLink v-else-if="row.ids.length === 1" :to="`/school/${encodeURIComponent(row.name)}?id=${row.ids[0]}&stage=primary`" class="feed-name">{{ row.name }}</RouterLink>
+            <span v-else class="feed-name">{{ row.name }}</span>
+            <span class="tag tag-dim">{{ row.groupName }}</span>
           </div>
         </div>
-      </template>
-      <p v-else-if="!middleEnrolls.length" class="empty">暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。</p>
+      </div>
+
+      <p v-if="!middleEnrolls.length" class="empty">暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。</p>
     </div>
+
+    <!-- 多校区生源小学：弹窗选校区（与初中名额分配明细同款） -->
+    <Teleport to="body">
+      <div v-if="campusPicker" class="campus-mask" @click="closeCampusPicker"></div>
+      <div v-if="campusPicker" class="campus-pop" :style="{ top: campusPicker.top + 'px', left: campusPicker.left + 'px' }">
+        <div class="campus-pop-title">选择校区</div>
+        <button v-for="c in campusPicker.items" :key="c.id" class="campus-opt" @click="goCampus(c)">
+          <span class="campus-name">{{ c.name }}</span>
+        </button>
+      </div>
+    </Teleport>
 
     <!-- 竞赛获奖 -->
     <div v-if="awardData || chuangkeData || scienceLiteracyData" class="card">
@@ -482,7 +552,25 @@ const middleEnrolls = computed(() => {
 .badge.group_paidui { background: #1e40af; }
 .badge.single_lottery { background: #dc2626; }
 .mech-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.mech-head { display: inline-flex; align-items: center; gap: 10px; }
 .mech-plan { font-size: 13px; font-weight: 600; color: #1a1b1c; }
+.school-link { color: #1a6bd6; text-decoration: underline; text-underline-offset: 2px; }
+.campus-open { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+.campus-open:hover { color: #0e4fb0; }
+.campus-mask { position: fixed; inset: 0; z-index: 1350; background: rgba(0, 0, 0, 0.03); }
+.campus-pop {
+  position: fixed; z-index: 1400; width: 300px; max-width: 86vw;
+  background: #fff; border: 1px solid #e4e3dd; border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(20, 30, 50, 0.16); padding: 8px;
+}
+.campus-pop-title { font-size: 12.5px; font-weight: 700; color: #1a1b1c; padding: 4px 6px 8px; }
+.campus-opt {
+  display: flex; align-items: center; gap: 8px; width: 100%; border: 0;
+  background: transparent; border-radius: 8px; padding: 7px 8px;
+  font-size: 12.5px; color: #1a6bd6; cursor: pointer; text-align: left;
+}
+.campus-opt:hover { background: #f2f7ff; }
+.campus-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .lottery-warning {
   margin-top: 10px; padding: 8px 10px; border-radius: 8px;
   background: #fef2f2; border: 1px solid #fecaca;

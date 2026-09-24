@@ -19,7 +19,7 @@ from docx import Document
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
-RAW = os.path.join(ROOT, "data", "primary", "enrollment", "raw")
+RAW = os.path.join(ROOT, "data", "enrollment", "raw")
 OUT = os.path.join(ROOT, "data", "primary", "enrollment", "parsed", "_transcripts", "liwan_2026.json")
 
 A1 = os.path.join(RAW, "liwan_2026_primary_a1.docx")

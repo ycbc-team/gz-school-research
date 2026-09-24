@@ -44,6 +44,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #   政府招生按法人公布（一条「广州市第十六中学」覆盖东湖/本部/水荫），校区实体经
 #   school_ids 命中「有招生」，消除 39 所「无招生」误报孤儿（东湖/水荫/育才东西/
 #   桂花/麓湖/一一三中三校区/真光各校区等 57 所校区实体中仍有 18 所缺升学）→ 339→300，新增 0
+# 2026-09-23 更新：4 区初中官方直建（替代 xiaoshengchu 反推）——官方附件6/附件5 口径：
+#   直建消除 6 所「无招生」孤儿（华师附中初中部/五中附属/南武文润/天外珠江新城+智慧城校区/华中师范黄埔实验/玉岩附属科学城实验）；
+#   官方附件6 不含天河智谷第一实验学校/天河外国语智谷学校（Read 复核 19 号=天河外国语学校本部，非智谷）→ 2 所新增「无招生」孤儿；
+#   孤儿 73→69（净 -4，纯正向改进）
+# 2026-09-23 二次更新：match_school_ids 改 SchoolMatcher resolve_all 语义——官方无校区限定行展开法人全部
+#   middle 校区（school_ids 数组，前端 byIdAll 全量索引），消除 12 所「无招生」校区孤儿
+#   （南武北/江南南/七中桂花/彭加木初中部/黄石中学部/八十六中分校+初中部/省教研院黄埔北/十八中车陂/广大附中实验南/星悦初中部/竹料北）；
+#   其中 3 所（十八中车陂/星悦初中部/竹料北）转为「仅无升学」（升学缺口不变，非回退）→ 孤儿 69→60（净 -9，纯正向）
 # 2026-09-17 更新：校区「办不办初中」是业务事实不能从法人名推导（部分校区非完中、
 #   初中部只在某些校区；其余为表生产错误）——attach 收紧为 CONFIRMED_CAMPUS 白名单
 #   （官方 raw/用户确认：十六中东湖+本部、知识城东+南、六十五中明德+同德、铁英东+西），
@@ -158,7 +166,14 @@ def main():
     # 匹配器/构建脚本按官方名解析出全部校区实体，不构成匹配歧义。新增共享裸名需同步更新本集合。
     _PRIMARY_SHARED_PLAIN = {'华康小学', '华阳小学', '龙口西小学', '华景小学', '天府路小学', '员村小学',
                              '昌乐小学', '五山小学', '银河小学', '侨乐小学', '龙洞小学', '天河第一小学',
-                             '体育西路小学', '元岗小学', '棠德南小学'}
+                             '体育西路小学', '元岗小学', '棠德南小学', '海珠中路小学'}
+    # 官方初中法人名共享裸名豁免（与 build_entities.py SHARED_LEGAL_ALIAS 数字简称键同步）：
+    # 天河附件6 官方用阿拉伯数字简称（广州市第N中学）公布，同法人多校区并列招生是业务事实
+    # （第75中=燕塘西+天平架、第113中=乐学+东方），match_school_ids 按官方名 resolve_all
+    # 法人展开全部 middle 校区（school_ids 多校区共享），不构成匹配歧义。
+    # 第18中因有本部主校区（by_main 可收敛）、第89中为单校区，规则不触发，无需列入。
+    # 新增共享裸名需同步更新本集合。
+    _MIDDLE_SHARED_PLAIN = {'广州市第75中学', '广州市第113中学'}
     alias_owner = {}  # alias -> (school_id, adcode, stage, 该实体名是否无括号)
     for ent in entities:
         # 纯名 = 无括号/无校区限定词的别名；实体名自身也参与（build_entities 不再把自身
@@ -167,8 +182,8 @@ def main():
         stage = ent.get("stage")
         has_main = "(" not in ent.get("name", "") and "（" not in ent.get("name", "")
         for a in [ent.get("name", "")] + ent.get("aliases", []):
-            if a in _PRIMARY_SHARED_PLAIN:
-                continue  # 官方划片表共享裸名（业务事实，见上注释）
+            if a in _PRIMARY_SHARED_PLAIN or a in _MIDDLE_SHARED_PLAIN:
+                continue  # 官方划片表/官方初中法人名共享裸名（业务事实，见上注释）
             if "(" not in a and "校区" not in a and "本部" not in a and "学校" not in a.split("（")[0] and "、" not in a \
                and "初中部" not in a and "高中部" not in a and "小学部" not in a and "年级" not in a and "教学" not in a and "楼" not in a:
                 if a in alias_owner and alias_owner[a][1] == adcode and alias_owner[a][2] == stage and alias_owner[a][0] != ent["school_id"]:
@@ -267,10 +282,9 @@ def main():
     # ---- 8. 初中招生计划 school_id 一致性：必须存在；区一致（跨区白名单）；合并招生 school_ids 均存在 ----
     # 跨区白名单：培英鹤洞校区(白云名单引用荔湾)、四中丰宁学校(荔湾区属，校址纸行路39号在越秀/荔湾交界，高德归越秀)
     CROSS_DISTRICT_OK = {"gz-440103-a3ee807c", "gz-440104-3b870a8e"}
-    for f in sorted(os.listdir(os.path.join(ROOT, "data/primary/enrollments"))):
-        if not f.startswith("middle_enrollment_2026_"):
-            continue
-        d = json.load(open(os.path.join(ROOT, "data/primary/enrollments", f)))
+    # dist 合并一份（2026-09-23）：{year, districts: {<区>: snapshot}}
+    _mid = json.load(open(os.path.join(ROOT, "data/middle/enrollment/dist/middle_enrollment_2026.json")))
+    for f, d in _mid["districts"].items():
         for r in d.get("records", []):
             sid = r.get("school_id")
             if sid:
@@ -363,7 +377,7 @@ def main():
     # ---- 11. 孤儿学校：公办 + 无招生信息 或 无升学信息（逐一排查清单 + 快照防线）----
     # 口径（按学段）：
     #   primary：招生 = 2026 小学地段招生（enrollments/2026-*.json）；升学 = 小升初出口（xiaoshengchu_2026）
-    #   middle： 招生 = 2026 初中招生计划（enrollments/middle_enrollment_2026_*.json）；
+    #   middle： 招生 = 2026 初中招生计划（middle/enrollment/dist/middle_enrollment_2026_*.json）；
     #            升学 = ranking_middle（中考指标）或 quota_matrix（名额分配）
     #   high：   招生 = 2025/2026 中考录取分数（高考升学数据项目未采集，分数为唯一信息源）
     # 孤儿 = 公办（nature != 民办）且「无招生 或 无升学」任一缺失——均属异常 case，需逐校排查。
@@ -389,8 +403,9 @@ def main():
         for _r in json.load(open(_f)).get("records", []):
             if _r.get("school_id"): _pri_enroll_ids.add(_r["school_id"])
     _mid_enroll_ids = set()
-    for _f in glob.glob(os.path.join(ROOT, "data/primary/enrollments/middle_enrollment_2026_*.json")):
-        for _r in json.load(open(_f)).get("records", []):
+    # dist 合并一份（2026-09-23）：{year, districts: {<区>: snapshot}}
+    for _d in json.load(open(os.path.join(ROOT, "data/middle/enrollment/dist/middle_enrollment_2026.json")))["districts"].values():
+        for _r in _d.get("records", []):
             if _r.get("school_id"): _mid_enroll_ids.add(_r["school_id"])
             for _s in _r.get("school_ids") or []: _mid_enroll_ids.add(_s)
     _xs_ids = {r.get("school_id") for r in json.load(open(os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_2026.json"))).get("records", []) if r.get("school_id")}
@@ -580,7 +595,7 @@ def main():
                 _zone = str(_r.get("zone") or "")
                 if "民办" not in _zone:
                     _bad_pri.append(f"{os.path.basename(_f)} | {_r.get('school')} | {_r.get('school_id')} | zone={_zone[:60]}")
-    for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/enrollments/middle_enrollment_2026_*.json"))):
+    for _f in sorted(glob.glob(os.path.join(ROOT, "data/middle/enrollment/dist/middle_enrollment_2026_*.json"))):
         _d = json.load(open(_f))
         for _r in _d.get("records", []):
             if _r.get("school_id") in _minban_ids16:

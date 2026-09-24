@@ -167,7 +167,7 @@
 
 - **多学段判定 / tab 枚举**：同 01 —— `entities[].stage`（`SchoolStage`）、合并后 `MapPoint.stages: SchoolStage[]`（长度 2–3）；tab 文案取 `STAGE_LABEL`，默认高亮取 `STAGE_PRIORITY` 主学部（高中 > 初中 > 小学）。真实多学段示例：`gz-440113-000bd12e`（万翔学校，`stages=['primary','middle']`）、`gz-440105-0ffca7e3`（广州市第五中学，`stages=['middle','high']`）、`gz-440113-c181d193`（祈福英语实验学校，`stages=['primary','middle','high']`）。
 - **tab 色点（视觉，UI 自定）**：小学蓝 #2F5CD6 / 初中橙 #E8850C / 高中绿 #0F9D58（不沿用项目老代码 `STAGE_COLOR`）。
-- **半窗预览模块**：复用 07 数据字段引用的各模块顶部内容，按当前 tab 学段取对应记录（初中态招生计划取 `data/primary/enrollments/middle_enrollment_2026_*.json`，见 07B）。
+- **半窗预览模块**：复用 07 数据字段引用的各模块顶部内容，按当前 tab 学段取对应记录（初中态招生计划取 `data/middle/enrollment/dist/middle_enrollment_2026_*.json`，见 07B）。
 - **选中态 / 名称气泡**：运行时视觉，无独立数据字段。
 
 ## 07 学校详情卡 · 小学（长图）
@@ -187,9 +187,9 @@
 **数据字段引用（本屏各模块所用）**
 
 - **学校信号（学位预警 / 省一级 / 多维印证）**：`data/primary/tier1_schools_all.json` → `{ districts: [{ schools: [...] }] }`，每条含 `degree_warning{status,year,source_url}`、`historical_titles[]{level,year,note,source_url}`、`education_group{name,role,is_top_tier,group_level}`、`data_gaps[]`、`evidence[]{source,url,note}`（另含 `plan_classes, legal_entity, entity_relation`）。标题右侧"民间口径"小字对应 `evidence` 来源为非官方项。
-- **招生计划（2026）**：小学视角 `data/primary/enrollments/2026-*.json` → `{ records: [...] }`，每条含 `school, school_id, plan_classes?, zone?, source, district, note, poi_name, lng, lat`；初中视角 `data/primary/enrollments/middle_enrollment_2026_*.json` → `{ records: [...] }`，每条含 `school, school_id, plan_classes?, scope?, mechanism, mechanism_note, group_members?, school_ids?`（展示口径与规则标签映射详见 07B）。无具体信息的字段不展示。
-- **升学路线参考（2026）**：小学视角 `data/primary/xiaoshengchu_2026.json` → `{ records: [...], groups: [...] }`，每条记录含 `school_id, group_id, feed_school_ids[], direct_feed_school_id?, feed_unresolved, source_note, data_gaps`；`groups[]{id, name, source_urls, data_gaps}`。展示仅列对口 / 派位初中名（由 `feed_school_ids` / `direct_feed_school_id` 经 `entities` 解析为校名），校名为可点击链接（跳转 `school_id`）。<b>初中视角（升高中）</b>：指标到校 / 名额分配数据待补充，字段结构拟参照本模式（`feed_school_ids` 指向高中 school_id，经 `entities` 解析为校名）。
-- **所在区招生细则（2026）**：对应区招生政策说明（区教育局口径，来源见 `data/primary/enrollments/2026-*.json` 顶层的 `source_url` 字段）。
+- **招生计划（2026）**：小学视角 `data/primary/enrollment/dist/2026-*.json` → `{ records: [...] }`，每条含 `school, school_id, plan_classes?, zone?, source, district, note, poi_name, lng, lat`；初中视角 `data/middle/enrollment/dist/middle_enrollment_2026_*.json` → `{ records: [...] }`，每条含 `school, school_id, plan_classes?, scope?, mechanism, mechanism_note, group_members?, school_ids?`（展示口径与规则标签映射详见 07B）。无具体信息的字段不展示。
+- **升学路线参考（2026）**：小学视角 `data/primary/transition/dist/xiaoshengchu_2026.json` → `{ records: [...], groups: [...] }`，每条记录含 `school_id, group_id, feed_school_ids[], direct_feed_school_id?, feed_unresolved, source_note, data_gaps`；`groups[]{id, name, source_urls, data_gaps}`。展示仅列对口 / 派位初中名（由 `feed_school_ids` / `direct_feed_school_id` 经 `entities` 解析为校名），校名为可点击链接（跳转 `school_id`）。<b>初中视角（升高中）</b>：指标到校 / 名额分配数据待补充，字段结构拟参照本模式（`feed_school_ids` 指向高中 school_id，经 `entities` 解析为校名）。
+- **所在区招生细则（2026）**：对应区招生政策说明（区教育局口径，来源见 `data/primary/enrollment/dist/2026-*.json` 顶层的 `source_url` 字段）。
 - **教育集团**：三级层级；成员归属取自 `data/registry/group/dist/school_groups.json`（结构 `schoolGroups: { school_id: { brand, source } }`）+ `data/registry/group/src/brand_groups.json` / `data/registry/group/dist/education_groups.json`；模块标题（一级）/ 成员类型"所属集团 / 同一法人单位 / 独立法人单位"（二级）/ 成员校（三级）。
 
 
@@ -217,10 +217,10 @@
 
 - **学段判定 / 配色 / tab 色点**：同 01「数据字段引用」——`entities[].stage`（`primary`/`middle`/`high`）、`STAGE_LABEL`、`STAGE_PRIORITY`（高中 &gt; 初中 &gt; 小学）；tab 色点取 UI 自定学段色（小学蓝 #2F5CD6／初中橙 #E8850C／高中绿 #0F9D58）。
 - **学校信号（中考成绩 / 中考录取线 / 示范性高中 / 建校年份）**：**项目内暂无初中中考口径数据源，数据待补充**（与小学学校信号字段不同——小学取 `tier1_schools_all.json` 的学位预警 / 省一级 / 多维印证；初中四行字段为中考民间口径，需新建数据文件后接入，标题小字「民间口径，非官方评价，仅供参考」）。
-- **招生计划（2026）· 初中**：`data/primary/enrollments/middle_enrollment_2026_*.json` → `{ records: [...] }`，每条含 `school, school_id, plan_classes?, scope?, mechanism, mechanism_note, group_members?, school_ids?`。
+- **招生计划（2026）· 初中**：`data/middle/enrollment/dist/middle_enrollment_2026_*.json` → `{ records: [...] }`，每条含 `school, school_id, plan_classes?, scope?, mechanism, mechanism_note, group_members?, school_ids?`。
   - 招生规则标签：`mechanism` 枚举 → 标签文案映射：`single_zone` →「单校划片」（含对口直升）、`group_paidui` →「多校电脑派位」、`single_lottery` →「单校电脑抽签」（7 区真实分布：`single_lottery` 仅番禺 1 例，其余为 `group_paidui` / `single_zone`）；
   - 计划班数＝`plan_classes`、招生范围＝`scope`、派位组成员＝`group_members`（仅 `group_paidui`，为同组初中校名数组）、官方备注＝`mechanism_note`；无具体信息字段不展示；
-  - **招生小学名单（反查）**：`data/primary/xiaoshengchu_2026.json` → `{ records: [...], groups: [...] }`，取 `records[]` 中 `feed_school_ids` 包含本初中 `school_id` 的小学记录；分组小标题＝`groups[group_id].name`（真实组名如「越秀区小升初第一组（多校划片·电脑派位）」「天河区公办初中对口直升（广州市天河中学划片）」）；小学经 `entities` 由 `school_id` 解析校名，校名为可点击链接；
+  - **招生小学名单（反查）**：`data/primary/transition/dist/xiaoshengchu_2026.json` → `{ records: [...], groups: [...] }`，取 `records[]` 中 `feed_school_ids` 包含本初中 `school_id` 的小学记录；分组小标题＝`groups[group_id].name`（真实组名如「越秀区小升初第一组（多校划片·电脑派位）」「天河区公办初中对口直升（广州市天河中学划片）」）；小学经 `entities` 由 `school_id` 解析校名，校名为可点击链接；
 - **中考报考情况**：**项目内暂无中考名额分配数据源，数据待补充**（行项：名额考生数 / 省市属高中录取名额 / 区属高中录取名额；录取明细表列：高中 / 名额 / 录取最低分）。其中「与其他初中共享计划的校区」可用现有字段映射：`middle_enrollment_2026_*.json records[].school_ids`（同一计划覆盖的多校区 `school_id` 列表，如黄埔「广州知识城中学」→ 2 个校区 id），经 `entities` 解析校区名，校区名为可点击链接。
 - **教育集团**：所属集团＝`data/registry/group/dist/school_groups.json` → `schoolGroups[school_id].brand`；集团结构与成员＝`data/registry/group/dist/education_groups.json` → `groups[]{brand, district, core[], level, type, members[]{name, school_id, source_url, verified, poi_match, campuses}, source_urls[]}`——集团核心校＝`core[]`、集团成员校＝`members[]`（`school_id` 经 `entities` 解析校名与 `stage` 学段标签）、公示文件说明＝`groups[].source_urls` / `members[].source_url`（点击查看公示原文）；「当前查看」＝成员校 `school_id` 命中当前详情校；排序按第 7 条（当前校优先 → 同行政区 → 拼音首字母）。
 

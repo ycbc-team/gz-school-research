@@ -1,4 +1,4 @@
-# 天河附件5 Read 直读转录数据（2026-09-21，来源：Read 多模态直读 raw/tianhe_2026_official.pdf 第35-42页）
+# 天河附件5 Read 直读转录数据（2026-09-21，来源：Read 多模态直读 data/enrollment/raw/tianhe_2026_official.pdf 第35-42页）
 # 每条: (seq, school, plan, phone, zone, note)
 DATA = [
 # --- 页35 (附件5 第1页) ---

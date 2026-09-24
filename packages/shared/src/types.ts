@@ -271,7 +271,7 @@ export interface EnrollmentSnapshot {
   map_fail: string[];
 }
 
-/** data/primary/enrollments/middle_enrollment_2026_*.json —— 初中视角招生计划 */
+/** data/middle/enrollment/dist/middle_enrollment_2026_*.json —— 初中视角招生计划 */
 export type MiddleMechanism = 'single_zone' | 'group_paidui' | 'single_lottery';
 export interface MiddleMechanismDef {
   label: string;
@@ -288,16 +288,32 @@ export interface MiddleEnrollmentRecord {
   scope: string | null;
   mechanism: MiddleMechanism;
   mechanism_note: string | null;
-  group_members: string[] | null;
+  /** dist 合并结构（2026-09-23）：组表 group_id（派位/直升组），members 在 loaders.middleEnrollmentGroups */
+  group_id?: string | null;
+  /** 派位组成员（API 层由 group_id 展开填充；parsed 中间产物直接内嵌，dist 不存） */
+  group_members?: string[] | null;
 }
 export interface MiddleEnrollmentSnapshot {
   year: number;
   district: string;
   source: string;
   source_url: string | null;
-  mechanisms: Record<MiddleMechanism, MiddleMechanismDef>;
   records: MiddleEnrollmentRecord[];
 }
+/** dist 合并结构：mechanisms 顶层一份 + groups 独立组表（包体优化） */
+export type MiddleEnrollmentGroups = Record<
+  string,
+  {
+    district: string;
+    name?: string;
+    members: string[];
+    primaries?: string[];
+    /** 成员（初中）名 → school_id 列表（构建期 SchoolMatcher 匹配；多校区多个 id） */
+    memberIds?: Record<string, string[]>;
+    /** 生源小学名 → school_id 列表（构建期实体匹配；多校区多个 id） */
+    primaryIds?: Record<string, string[]>;
+  }
+>;
 
 /** 学段标识 */
 export type SchoolStage = 'primary' | 'middle' | 'high';

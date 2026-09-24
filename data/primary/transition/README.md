@@ -8,45 +8,52 @@
 
 | 目录 | 内容 |
 | --- | --- |
-| `raw/` | **仅政府官方原文件**（xlsx/pdf/docx/png/xls），不混入任何转录产物 |
+| `raw/` | **已清空（2026-09-23）**。官方源文件全部共享 `data/enrollment/raw/`（小学招生/小升初/初中招生共用同一份政府官方原文件，单一权威源不复制） |
 | `parsed/_transcripts/` | A 层转录产物：各区官方文件的 Read 直读/Vision OCR/脚本解析 json（`<区>_2026*.json` + `haizhu_zone_reference.json` 参照），全部由 `scripts/` 下脚本复现 |
 | `parsed/` | B 层解析唯一真源 `2026-<区>.json`（小学招生/地段表，供构建消费） |
-| `src/` | 手工维护源文件（`_anchors.json` 官方校名→school_id 锚点、`middle_enroll_notes.json` 初中录取备注） |
+| `src/` | 手工维护源文件（`_anchors.json` 官方校名→school_id 锚点；初中录取备注 `middle_enroll_notes.json` 已于 2026-09-23 迁 `data/middle/enrollment/src/`） |
 | `scripts/` | 生产脚本：解析（build_district_enrollment/build_baiyun_2026/build_huangpu）、构建（build_xiaoshengchu_all + xs_resolver）、升级（upgrade_xiaoshengchu.mjs）、回填（backfill_xiaoshengchu_missing）、快照（build/check_middle_feed_snapshot） |
 | `dist/` | 最终运行时产物：`xiaoshengchu_<区>.json`、`xiaoshengchu_all.json`、`xiaoshengchu_2026.json`、`middle_feed_snapshot.json`、`schools-backfill.json` |
 | `docs/` | 业务文档（`xiaoshengchu_unmatched_fix_20260914.md`、`对口初中名匹配缺口清单.md`） |
 
 ## 构建链路
 
-数据链路（A/B/C/D 四层，全程可重跑）：
-- **A 层（raw 原文件 → parsed/_transcripts/*.json）**：复现脚本见下表，均用 `git show HEAD:data/primary/transition/raw/<名>.json` 导出迁移前基线做全量对比（0 真差异或仅修复旧版错漏）
+数据链路（A/B/C/D 四层，全程可重跑；raw 官方源共享 `data/enrollment/raw/`）：
+- **A 层（raw 原文件 → parsed/_transcripts/*.json）**：复现脚本见下表，均用迁移前基线做全量对比（0 真差异或仅修复旧版错漏）
 - **B 层（transcripts → parsed/2026-<区>.json）**：build_district_enrollment.py / build_baiyun_2026.py / build_huangpu.py / build_middle_enrollment.py
 - **C 层（parsed → dist/xiaoshengchu_<区>.json + xiaoshengchu_all.json）**：build_xiaoshengchu_all.py（+ xs_resolver）
 - **D 层（→ dist/xiaoshengchu_2026.json 运行时真源）**：upgrade_xiaoshengchu.mjs
 
+> **构建方向（2026-09-23 修正）**：xiaoshengchu 的官方口径本就来自**初中招生公示**（6 区：荔湾派位组/白云公办初中计划/海珠初中派位组/天河初中划片/黄埔小升初分组/番禺公办初中部分；仅越秀用独立 2022 分组表）。
+> 因此正确推导方向是 **小学升学（xiaoshengchu）基于初中招生公示反推**，而不是初中招生基于 xiaoshengchu 反推
+> （middle_enrollment 的越秀/海珠/天河/黄埔 4 区现仍为 xiaoshengchu 反推，待补齐官方初中转录后消除，见 `data/middle/enrollment/README.md` 待办）。
+
 ```bash
 # A 层复现（按区，输出 parsed/_transcripts/）
-python3 data/primary/transition/scripts/parse_baiyun_juniors.py   # 白云 59 初中（xlsx→json，修复 seq4 plan=0）
-python3 data/primary/transition/scripts/parse_liwan_groups.py     # 荔湾派位组 15 行（docx→json，全等）
-python3 data/primary/transition/scripts/parse_panyu_official.py   # 番禺 4 sheets（xls→json，0 真差异）
 python3 data/primary/transition/scripts/parse_yuexiu_diduan.py    # 越秀 51 校（doc→txt→json，补 4 校）
 python3 data/primary/transition/scripts/parse_haizhu_diduan.py    # 海珠 78 校（png Vision OCR+POI+参照）
 python3 data/primary/transition/scripts/build_huangpu.py --transcript  # 见下
+# 白云/荔湾初中转录（baiyun_2026_juniors / liwan_2026_groups）已随初中招生业务迁出：
+python3 data/middle/enrollment/scripts/parse_baiyun_juniors.py    # 白云 59 初中（读共享官方 xlsx）
+python3 data/middle/enrollment/scripts/parse_liwan_groups.py      # 荔湾派位组 15 行（docx→json，全等）
+python3 data/primary/transition/scripts/parse_panyu_official.py   # 番禺 4 sheets（xls→json，0 真差异；初中 sheet 归 middle/enrollment 消费）
 # 天河/黄埔：Read 直读官网 PDF → scripts/read_transcripts/*.py → 生成 json（见下表）
 python3 data/primary/transition/scripts/build_district_enrollment.py <区>   # B 层：transcripts → parsed/2026-<区>.json
-python3 data/primary/transition/scripts/build_xiaoshengchu_all.py all_done  # C 层
-node    data/primary/transition/scripts/upgrade_xiaoshengchu.mjs           # D 层
+python3 data/primary/transition/scripts/build_xiaoshengchu_all.py all_done  # C 层（重建 7 区 + 汇总；--out-dir 可指定输出目录）
+node    data/primary/transition/scripts/upgrade_xiaoshengchu.mjs           # D 层（--src/--out 可指定输入输出）
 ```
 
-check 链（`data/registry/group/scripts/check_groups_drift.py` 的 `_check_xiaoshengchu`）自动重跑
-build + upgrade 并与入库比对，防脚本改动未重跑产物/产物被手改。
+check 链（`data/primary/transition/test/check_xiaoshengchu_snapshot.py`，2026-09-23 起替代
+check_groups_drift 的 git HEAD 比对）自动重跑 build + upgrade 到**临时目录**，与独立快照基线
+（`test/snapshots/xiaoshengchu_snapshot.json`，933 条/166 组）diff 对比——不再依赖「先 commit 再 check」。
+基线更新：`python3 data/primary/transition/test/check_xiaoshengchu_snapshot.py --update-snapshot`
 
 ## A 层转录复现清单（raw → parsed/_transcripts）
 
-| 区 | raw 原文件 | 转录 json | 复现方式 | 与旧版基线对比 |
+| 区 | raw 原文件（共享 `data/enrollment/raw/`） | 转录 json | 复现方式 | 与旧版基线对比 |
 |---|---|---|---|---|
-| 白云 | baiyun_2026_official.xlsx | baiyun_2026_juniors.json | parse_baiyun_juniors.py（openpyxl 读「公办初中」sheet） | 59 条，1 处真差异=修复（seq4 三元里中学 plan ''→'0'，官方写 0 且注"涉拆迁停招"） |
-| 荔湾 | liwan_2026_groups_official.docx | liwan_2026_groups.json | parse_liwan_groups.py（python-docx 按行读派位分组表） | 15 行全等 |
+| 白云 | baiyun_2026_official.xlsx | baiyun_2026_juniors.json（初中，已迁 `data/middle/enrollment/parsed/_transcripts/`） | parse_baiyun_juniors.py（openpyxl 读「公办初中」sheet，脚本已迁 `data/middle/enrollment/scripts/`） | 59 条，1 处真差异=修复（seq4 三元里中学 plan ''→'0'，官方写 0 且注"涉拆迁停招"） |
+| 荔湾 | liwan_2026_groups_official.docx | liwan_2026_groups.json（初中派位组，已迁 `data/middle/enrollment/parsed/_transcripts/`） | parse_liwan_groups.py（python-docx 按行读派位分组表，脚本已迁 `data/middle/enrollment/scripts/`） | 15 行全等 |
 | 番禺 | panyu_2026_official.xls | panyu_2026_official.json | parse_panyu_official.py（xlrd 读 4 sheets） | 0 真差异（仅格式 8.0→8） |
 | 越秀 | yuexiu_2026_official.doc | yuexiu_2026.json | parse_yuexiu_diduan.py（textutil 转 txt → 按块切 51 校） | 修复旧版 4 所校地段/班数全缺失（八一实验小学部 6、桂花岗 4、七中实验小学部 3、知用小学部 5） |
 | 海珠 | haizhu_2026_official.png | haizhu_2026.json | parse_haizhu_diduan.py（macOS Vision OCR + POI 校名校正 + 参照融合 78 条 zone） | 79→78：基道→基立道修复、补星悦小学、校区拆开；zone 仅 2 校细节差异（以原图直读为准） |
@@ -58,20 +65,20 @@ build + upgrade 并与入库比对，防脚本改动未重跑产物/产物被手
 > 校名以官方原图/原 PDF 直读为准，POI 佐证错字但 POI 缺失时保留官方名。
 > 天河/黄埔 PDF 均为无文字层扫描件（pdftotext 全页产物仅 66/46 字节），必须走 Read 直读/Vision OCR。
 
-check 链（`data/registry/group/scripts/check_groups_drift.py` 的 `_check_xiaoshengchu`）自动重跑
-build + upgrade 并与入库比对，防脚本改动未重跑产物/产物被手改。
+> 测试方式（2026-09-23）：小升初产物已独立为快照测试（`test/check_xiaoshengchu_snapshot.py`，
+> 临时目录重跑 vs 独立基线），不再走 check_groups_drift 的 git HEAD 比对（无需先 commit 再 check）。
 
 ## 就绪状态总览（构建完成）
 
 | 区 | 官方数据源（2026） | 解析产物（本次保留） | 机制 | 覆盖 POI | 官方有而 POI 缺失 |
 |---|---|---|---|---|---|
 | 越秀 | 2026 细则 post_10790590 + 2022 分组表 post_8301356 | `parsed/_transcripts/yuexiu_2026.json`（2022 表，51 校） | 11 组电脑派位（每组 10 初中） | 74 | 桂花岗小学（高德两轮未命中，待核） |
-| 荔湾 | 2026 公办初中招生方案 post_10791678 附件3 | `raw/liwan_2026_a3.docx` → `parsed/_transcripts/liwan_2026_groups.json`（15 行派位分组） | 14 组电脑派位 | 72 | 无（协和/如意坊/沙涌/双桥/花地湾已补全或映射） |
+| 荔湾 | 2026 公办初中招生方案 post_10791678 附件3 | `data/enrollment/raw/liwan_2026_a3.docx` → `parsed/_transcripts/liwan_2026_groups.json`（15 行派位分组，已随初中业务迁 `data/middle/enrollment/parsed/_transcripts/`） | 14 组电脑派位 | 72 | 无（协和/如意坊/沙涌/双桥/花地湾已补全或映射） |
 | 海珠 | 2026 初中招生问答 mpost_10799155 附件1 + 计划表 mpost_10788494 | HZ_GROUPS（10 组）/HZ_DIRECT（14 条）固化于脚本 | 10 组电脑派位 + 部分对口直升 | 97 | 大塘小学、北山小学（高德两轮未命中，待核） |
-| 天河 | 2026 招生细则 PDF（附件6 初中划片 22 所 + 附件7 企事业办 + 附件8 民办 + 附件10 电脑派位 8 校） | `raw/tianhe_2026_official.pdf`（66 页扫描件，附件5 第35-42页 Read 直读转录） | 单校划片对口直升 + 九年制直升 + 附件10 自主报名电脑派位 | 104 | 无（汇景/华颖/猎德/奥中智谷已补全） |
-| 白云 | 2026 招生计划 post_10791741 附表2 公办初中 | `raw/baiyun_2026_official.xlsx` → `parsed/_transcripts/baiyun_2026_juniors.json`（59 初中） | 单校划片为主 + 多校分片/摇号 | 164 | 花城实验学校、江高镇中心小学、星悦实验学校小学部（高德两轮未命中，待核） |
-| 黄埔 | 2026 招生细则 PDF 附件5（电脑派位 7 组 + 对口直升 22 组） | `raw/huangpu_2026_official.pdf`（46 页扫描件，附件4/附件6 Read 直读转录） | 多校划片电脑派位 7 组 + 对口直升 22 组并行 | 93 | 铁铮学校（2026 新校）、九龙第一小学、凤尾小学（高德两轮未命中，待核）；沙步小学/知识城南暂定名（2026 口径跳过） |
-| 番禺 | 2026《招生计划、招生地段及条件》官方 xls | `raw/panyu_2026_official.xls` → `parsed/_transcripts/panyu_2026_official.json`（小学地段 160 行/初中 62 行/民办 44 行/电话 12 行） | 逐校地段↔初中范围人工判定 + 市桥城区电脑派位 | 153 | 化龙镇中心小学、石碁镇永善小学、新桥小学（高德两轮未命中，待核） |
+| 天河 | 2026 招生细则 PDF（附件6 初中划片 22 所 + 附件7 企事业办 + 附件8 民办 + 附件10 电脑派位 8 校） | `data/enrollment/raw/tianhe_2026_official.pdf`（66 页扫描件，附件5 第35-42页 Read 直读转录） | 单校划片对口直升 + 九年制直升 + 附件10 自主报名电脑派位 | 104 | 无（汇景/华颖/猎德/奥中智谷已补全） |
+| 白云 | 2026 招生计划 post_10791741 附表2 公办初中 | `data/enrollment/raw/baiyun_2026_official.xlsx` → `parsed/_transcripts/baiyun_2026_juniors.json`（59 初中，已随初中业务迁 `data/middle/enrollment/parsed/_transcripts/`） | 单校划片为主 + 多校分片/摇号 | 164 | 花城实验学校、江高镇中心小学、星悦实验学校小学部（高德两轮未命中，待核） |
+| 黄埔 | 2026 招生细则 PDF 附件5（电脑派位 7 组 + 对口直升 22 组） | `data/enrollment/raw/huangpu_2026_official.pdf`（46 页扫描件，附件4/附件6 Read 直读转录） | 多校划片电脑派位 7 组 + 对口直升 22 组并行 | 93 | 铁铮学校（2026 新校）、九龙第一小学、凤尾小学（高德两轮未命中，待核）；沙步小学/知识城南暂定名（2026 口径跳过） |
+| 番禺 | 2026《招生计划、招生地段及条件》官方 xls | `data/enrollment/raw/panyu_2026_official.xls` → `parsed/_transcripts/panyu_2026_official.json`（小学地段 160 行/初中 62 行/民办 44 行/电话 12 行） | 逐校地段↔初中范围人工判定 + 市桥城区电脑派位 | 153 | 化龙镇中心小学、石碁镇永善小学、新桥小学（高德两轮未命中，待核） |
 
 合计 954 条记录（schools-gz 960 所中的小学类 POI，含校区拆分与民办/特教/待核条目；L3 南沙/增城/花都/从化明确不做）。
 
@@ -97,9 +104,27 @@ build + upgrade 并与入库比对，防脚本改动未重跑产物/产物被手
 - 黄埔细则 PDF：http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf
 - 番禺招生计划及地段：https://www.panyu.gov.cn/jgzy/qzfbm/fzqjyj/jyjgkml/qt/tzgg/content/post_10794082.html（附件 xls 8018386）
 
+## 官方源位置（2026-09-23 共享 raw 归位）
+
+`transition/raw/` 已清空。7 区官方源文件（政府原文）统一存放 **`data/enrollment/raw/`**，同时供小学招生（`data/primary/enrollment/`）、小升初（本目录）、初中招生（`data/middle/enrollment/`）使用，单一权威源不复制：
+
+| 官方源文件（data/enrollment/raw/） | 小学招生用 | 小升初用 | 初中招生用 |
+|---|---|---|---|
+| baiyun_2026_official.xlsx | 公办小学 sheet | 公办初中 sheet 反向 | 公办初中 sheet |
+| panyu_2026_official.xls | 公办小学 160 行 | 公办初中 62 行 | 公办初中范围/计划 |
+| tianhe_2026_official.pdf（66 页） | 小学细则附件 | 附件6 初中划片 | 附件6（未抽） |
+| huangpu_2026_official.pdf（46 页） | 小学细则附件 | 附件5 小升初分组 | 附件5（未抽） |
+| haizhu_2026_official.png / *_plan.png | 小学招生问答/计划 | 附件1 派位组 | 附件1（未抽） |
+| yuexiu_2026_official.doc | 小学细则 | 2022 独立分组表 | （待抽） |
+| liwan_2026_a1–a5.docx | （小学专属：liwan_2026_primary_a1/a4.docx） | a3 小学毕业生派位分组 | a1 计划 / a3 分组 |
+
+> 荔湾 a1–a5（2026 公办初中招生方案附件 1-5）2026-09-23 自 `transition/raw/` 迁入；`middle/enrollment/raw/liwan_2026_groups_official.docx`（a3 副本）已删除，解析统一读 `liwan_2026_a3.docx`。
+
 ## 已保留解析产物（勿删）
 
-`raw/` 下：liwan_2026_groups.json、liwan_2026_a3.docx、baiyun_2026_juniors.json、baiyun_2026_official.xlsx、panyu_2026_official.json、panyu_2026_official.xls、tianhe_2026_official.pdf、huangpu_2026_official.pdf。
+`parsed/_transcripts/` 下：yuexiu_2026.json、haizhu_2026.json、tianhe_2026.json、huangpu_2026.json、haizhu_zone_reference.json（小学侧转录）。
+初中专属转录（baiyun_2026_juniors.json、liwan_2026_groups.json）已随初中招生业务迁 `data/middle/enrollment/parsed/_transcripts/`（2026-09-23）。
+官方源文件全部共享 `data/enrollment/raw/`（见上节），`raw/` 目录已清空。
 另有历史小学地段产物 `parsed/2026-tianhe.json`、`parsed/2026-huangpu.json`（仅小学地段表，初中无历史产物，本次已重新解析）。
 
 ## 已知缺口（待核清单）

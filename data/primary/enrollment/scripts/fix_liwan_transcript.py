@@ -23,7 +23,7 @@ import docx
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 TRANS = os.path.join(ROOT, "data/primary/enrollment/parsed/_transcripts/liwan_2026.json")
-A4 = os.path.join(ROOT, "data/primary/enrollment/raw/liwan_2026_primary_a4.docx")
+A4 = os.path.join(ROOT, "data/enrollment/raw/liwan_2026_primary_a4.docx")
 
 
 def tree_zone(zone_str):

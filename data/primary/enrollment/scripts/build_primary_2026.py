@@ -55,6 +55,13 @@ def load_matcher():
 # 详情页招生区域直接展示「招生区域已改由X承接」；原校同时从 poi_leftover 移除
 _LEFT_NOTE = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../src/leftover_notes.json"), encoding="utf-8"))
 
+# B 层人工修复表（src/manual_patches.json，2026-09-23 新增）：
+# 承接 A 层脚本无法复现的人工转录修正（越秀 parse 分块漏 2 校、荔湾 parse 漏 1 行 zone），幂等补齐——
+# 转录已含修正则不动；转录被 A 层脚本重跑覆盖后由本表恢复 → B 层产物稳定，C 层零改动自动收益。
+# 注意：荔湾重跑 A 层必须两步（parse_liwan_primary.py + fix_liwan_transcript.py），本表只兜底
+# fix 复现不出的「培真小学 zone 前缀」一处；单步初版格式（「街道·社区」拍平）不在兜底范围。
+MANUAL_PATCHES = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../src/manual_patches.json"), encoding="utf-8"))
+
 # 民办权威名单（registry/private 业务产物）：poi_leftover 清洗用——
 # 民办无地段招生（报名超计划摇号），其 POI 未出现在公办招生 records 属正常，
 # 不应计入"有 POI 无招生"清单（用户 2026-09-22 定）。
@@ -219,8 +226,46 @@ def _minban_panyu():
     return out
 
 
+def apply_manual_patches(records, district_key):
+    """幂等应用 B 层人工修复表（src/manual_patches.json）：
+    · add_records：转录缺该记录（A 层脚本复现不出）→ 按 insert_before 锚点插入，还原人工入库顺序；已有 → 不动。
+    · zone_prefix：转录缺前缀行 → 补在 zone 开头；已有 → 不动。
+    保证 A 层转录无论人工版还是脚本重跑版，B 层产物一致（快照稳定，C 层自动收益）。"""
+    patches = MANUAL_PATCHES.get("patches", {}).get(district_key, {})
+    names = {r["school"] for r in records}
+    for p in patches.get("add_records", []):
+        if p["school"] in names:
+            continue
+        rec_i = rec(p["school"], DISTRICT_NAMES[district_key],
+                    p.get("plan_classes"), p.get("zone", ""), p.get("note", ""), p.get("phone", ""))
+        anchor = p.get("insert_before")
+        idx = next((i for i, r in enumerate(records) if r["school"] == anchor), None) if anchor else None
+        if idx is not None:
+            records.insert(idx, rec_i)
+        else:
+            records.append(rec_i)
+            print(f"  [人工修复] 补录 {p['school']}（锚点 {anchor} 缺失，追加末尾）")
+            continue
+        print(f"  [人工修复] 补录 {p['school']}（{p.get('why', '')[:44]}）")
+    for school, spec in patches.get("zone_prefix", {}).items():
+        for r in records:
+            if r["school"] == school and not (r["zone"] or "").startswith(spec["prefix"].split("\n")[0]):
+                r["zone"] = spec["prefix"] + (r["zone"] or "")
+                print(f"  [人工修复] {school} zone 补前缀（{spec.get('why', '')[:44]}）")
+    # 越秀：脚本分块把后一校整块并进前一条 zone 尾部（红火炬→东川路、水荫路→育才），
+    # 人工转录已拆独立条；此处按 marker 裁剪污染后缀（幂等：转录已无 marker 则不动）。
+    for spec in patches.get("zone_trim_marker", []):
+        school, marker = spec.get("school"), spec.get("marker")
+        for r in records:
+            if r["school"] == school and marker and marker in (r["zone"] or ""):
+                r["zone"] = r["zone"].split(marker)[0].rstrip()
+                print(f"  [人工修复] {school} zone 裁剪污染后缀（{spec.get('why', '')[:44]}）")
+    return records
+
+
 def build(district_key):
     records, source = load_records(district_key)
+    records = apply_manual_patches(records, district_key)
     adcode = ADCODES[district_key]
     with open(os.path.join(ROOT, "data", "poi", "dist", "primary_poi.json"), encoding="utf-8") as f:
         poi_data = json.load(f)

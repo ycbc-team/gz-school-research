@@ -17,7 +17,7 @@ import openpyxl
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
-RAW = os.path.join(ROOT, "data", "primary", "enrollment", "raw", "baiyun_2026_official.xlsx")
+RAW = os.path.join(ROOT, "data", "enrollment", "raw", "baiyun_2026_official.xlsx")
 OUT = os.path.join(ROOT, "data", "primary", "enrollment", "parsed", "_transcripts", "baiyun_2026.json")
 
 
