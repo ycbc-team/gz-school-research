@@ -13,7 +13,7 @@ export function createRegistryApi(loaders: DataLoaders) {
    * 任意校名（官方名单/口碑/POI 变体）→ 实体 POI 名（entities.name）。
    * 匹配顺序：norm 精确（name/aliases）→ loose（去学部/校区后缀）容错。
    * 用于跳转目标归一：只有能解析到实体（POI 存在）的名字才可跳详情页。
-   * 官方名 → school_id 的外键已由 data/linkage/scripts/backfill_school_ids.py 回填各表，
+   * 官方名 → school_id 的外键已由 scripts/linkage/backfill_school_ids.py 回填各表，
    * 此处兜底解析未回填场景（如 CAMPUS_INFO 学校名 → 校区实体）。
    */
   function resolvePoiName(anyName: string): string | null {
@@ -75,6 +75,15 @@ export function createRegistryApi(loaders: DataLoaders) {
     for (const member of group.members || []) {
       if (member.school_id && !schoolGroupMap[member.school_id]) {
         schoolGroupMap[member.school_id] = { brand: group.brand, source: 'education' };
+      }
+    }
+  }
+  // 品牌源 units（school_ids 数组）同样入索引：省市属品牌（华附/广雅/铁一等）走 brand_groups，
+  // 漏收会丢品牌卡（如黄埔铁英 = c80ac6ac + adb9c303 两个实体）。
+  for (const bg of loaders.brandGroups?.brands || []) {
+    for (const unit of bg.units || []) {
+      for (const id of unit.school_ids || []) {
+        if (!schoolGroupMap[id]) schoolGroupMap[id] = { brand: bg.brand, source: 'brand' };
       }
     }
   }

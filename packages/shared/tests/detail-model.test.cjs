@@ -12,9 +12,8 @@ const path = require('node:path');
 const { createRepository, buildDetailModel, buildLinkageModel, normName, splitEnrollments } = require('../dist/cjs/index.js');
 const { diffSnapshots, formatDiff } = require('./helpers/snapshot-diff.cjs');
 const ROOT = path.resolve(__dirname, '../../..');
-// 特长生计划总量校验以 canonical 为准（dist 已删汇总字段，只进 canonical）
-const canonSpecial = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/linkage/parsed/canonical/special_matrix.json'), 'utf8'));
 const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', file), 'utf8'));
+const canonSpecial = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/linkage/parsed/canonical/special_matrix.json'), 'utf8'));
 const loaders = {
   primarySchools: load('poi/dist/primary_poi.json'),
   primaryTier1: load('primary/tier1_schools_all.json'),
@@ -33,7 +32,6 @@ const loaders = {
   xiaoshengchu: load('primary/transition/dist/xiaoshengchu_2026.json'),
   brandGroups: load('registry/group/src/brand_groups.json'),
   educationGroups: load('registry/group/dist/education_groups.json'),
-  schoolGroups: load('registry/group/dist/school_groups.json'),
   rankingMiddle: load('linkage/dist/ranking_middle.json'),
 };
 const repo = createRepository(loaders);
@@ -115,6 +113,7 @@ test('第一批高中详情计划数按 school_id 反查（自主/体育/艺术�
   const m4 = buildLinkageModel('high', hf.name, repo, hf.school_id);
   assert.ok(m4.planNotes.includes('lingjun'), '华附石牌为领军龙试点 → planNotes 含 lingjun');
   // 4) 特长生计划总量 = 官方口径（体育 1905 不含领军龙 / 艺术 1741 / 领军龙 116）
+  // 特长生总量 = canonical 官方口径（dist 精简版不保留审计字段，见 backfill 去死字段）
   assert.equal(canonSpecial.special_plan_summary.sports, 1905);
   assert.equal(canonSpecial.special_plan_summary.arts, 1741);
   assert.equal(canonSpecial.special_plan_summary.football_special, 116);
@@ -127,7 +126,7 @@ test('品牌关联：广大附黄华路校区以 school_id 标记当前项并生
   const model = buildDetailModel('middle', entity.name, repo, schoolId);
   const rows = model.brandCard.groups.flatMap((g) => g.rows);
   const current = rows.filter((r) => r.isCurrent);
-  assert.deepEqual(current.map((r) => r.name), ['广州大学附属中学（黄华路校区）']);
+  assert.deepEqual(current.map((r) => r.name), ['广州大学附属中学(黄华路校区)']);
   assert.match(current[0].link, /id=gz-440104-b22c4eca/);
 });
 
@@ -235,12 +234,14 @@ test('品牌关联：education 成员 school_id 外键补学段 Badge（黄埔�
   const m = buildDetailModel('middle', '广铁一中铁英中学', repo, 'gz-440112-c80ac6ac');
   assert.ok(m.brandCard, '铁英中学详情页必须渲染品牌关联');
   const rows = m.brandCard.groups.flatMap((g) => g.rows);
-  const hp = rows.find((r) => r.name === '广州市黄埔区铁英学校（黄埔铁英）');
-  assert.ok(hp, '铁英中学详情页品牌卡应含黄埔铁英行');
-  assert.ok(hp.stages.includes('初中'), `黄埔铁英行应有「初中」Badge（stages=${JSON.stringify(hp.stages)}）`);
-  assert.ok(hp.stages.includes('小学'), `黄埔铁英为九年一贯，还应有「小学」Badge（stages=${JSON.stringify(hp.stages)}）`);
+  const hp = rows.find((r) => r.name === '广铁一中铁英中学');
+  assert.ok(hp, '铁英中学详情页品牌卡应含铁英中学行');
+  assert.ok(hp.stages.includes('初中'), `铁英中学行应有「初中」Badge（stages=${JSON.stringify(hp.stages)}）`);
+  // education 分支每校区一行（school_id 粒度）；铁英小学为独立行（行名=实体名）
+  const hpPrimary = rows.find((r) => r.name === '广铁一中铁英小学');
+  assert.ok(hpPrimary && hpPrimary.stages.includes('小学'), '铁英小学行应有「小学」Badge');
   assert.equal(hp.isCurrent, true, '铁英中学详情页当前行应标记 isCurrent');
-  assert.ok(hp.link && hp.link.includes('id=gz-440112-c80ac6ac'), '黄埔铁英行链接应携带初中 school_id');
+  assert.ok(hp.link && hp.link.includes('id=gz-440112-c80ac6ac'), '铁英中学行链接应携带 school_id');
 });
 
 test('品牌关联：7 区外远郊成员不可点击跳转（南沙铁英回归）', () => {
@@ -305,8 +306,10 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
   const nrm = (s) => s.replace(/[（(]/g, '').replace(/[）)]/g, '').replace(/广州市/g, '').replace(/\s/g, '');
   const grpKeys = new Set();
   for (const g of edu) {
-    for (const c of g.core || []) grpKeys.add(nrm(coreOf(c)));
-    for (const m of g.members || []) grpKeys.add(nrm(coreOf(m.name)));
+    for (const m of g.members || []) {
+      const entity = m.school_id && repo.entities.find((item) => item.school_id === m.school_id);
+      if (entity || m.name) grpKeys.add(nrm(coreOf(entity ? entity.name : m.name)));
+    }
   }
   for (const g of brand) {
     for (const u of g.units || []) grpKeys.add(nrm(coreOf(u.name)));
@@ -354,8 +357,7 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
 });
 
 test('品牌关联：逐集团学校名单快照（education 86 + brand 8，集团变化精确定位）', () => {
-  // 每个集团独立快照（school_id 名单）于 snapshots/group_roster.json：core_poi + members
-  // 及成员 campuses（brand 为 units[].school_ids）。任一集团名单增删 → 该集团断言失败并打印
+  // 每个集团独立快照（school_id 名单）于 snapshots/group_roster.json。任一集团名单增删 → 该集团断言失败并打印
   // 增/删明细，可精确定位到集团。2026-09-21 后缀式校区统一归并（school_match.legalCampuses）
   // 后初建：东风东+2（天伦/锦城花园）、沙面+2（岭南/悦江）、六十五中+1（桃园）、宝玉直+1（宝贤）、
   // 西关外国语+1（文昌南）等 12 个后缀式校区进入 education 名单，均由本快照感知。
@@ -365,11 +367,7 @@ test('品牌关联：逐集团学校名单快照（education 86 + brand 8，集�
   const brand = (load('registry/group/src/brand_groups.json').brands || []);
   const collectEdu = (g) => {
     const ids = new Set();
-    for (const p of g.core_poi || []) if (p.school_id) ids.add(p.school_id);
-    for (const m of g.members || []) {
-      if (m.school_id) ids.add(m.school_id);
-      for (const c of m.campuses || []) if (c.school_id) ids.add(c.school_id);
-    }
+    for (const m of g.members || []) if (m.school_id) ids.add(m.school_id);
     return [...ids].sort();
   };
   const collectBrand = (b) => {
@@ -396,11 +394,11 @@ test('品牌关联：逐集团学校名单快照（education 86 + brand 8，集�
   }
   assert.deepEqual(diffs, [], `集团名单快照漂移（${diffs.length} 处）：\n${diffs.join('\n')}`);
 
-  // 名单闭环：名单内 school_id 实体存在、schoolGroups 映射无孤儿。一个实体可属多个集团
+  // 名单闭环：名单内 school_id 实体存在、按集团聚合的 schoolGroups 产物无孤儿。一个实体可属多个集团
   //（如东山培正小学=东山培正集团核心+培正集团成员、黄石学校=白云中学集团+培英集团成员、
-  // 仲元附属学校=仲元附属集团核心+仲元中学集团成员），schoolGroups 仅存一条映射，
+  // 仲元附属学校=仲元附属集团核心+仲元中学集团成员），产物仅存一条归属，
   // 故 edu 映射允许为该实体所属的任一集团；brand 单归属实体必须映射回品牌（edu 收录时 education 优先）。
-  const sg = load('registry/group/dist/school_groups.json').schoolGroups;
+  const groupOfId = new Map(edu.flatMap((group) => (group.members || []).filter((member) => member.school_id).map((member) => [member.school_id, group.brand])));
   const entById = new Map(repo.entities.map((e) => [e.school_id, e]));
   const belongsTo = new Map(); // sid -> Set(所属集团名，含 edu + brand)
   for (const [key, ids] of cur) {
@@ -417,16 +415,26 @@ test('品牌关联：逐集团学校名单快照（education 86 + brand 8，集�
     for (const sid of ids) {
       const e = entById.get(sid);
       if (!e) { problems.push(`${key}: ${sid} 无实体`); continue; }
-      const g = sg[sid];
-      if (!g) { problems.push(`${key}: ${e.name}(${sid}) 不在 schoolGroups 映射`); continue; }
+      const brand = groupOfId.get(sid);
+      if (!brand) { problems.push(`${key}: ${e.name}(${sid}) 不在 schoolGroups 映射`); continue; }
       const owned = belongsTo.get(sid) || new Set();
-      if (isEdu && !owned.has(g.brand)) problems.push(`${key}: ${e.name}(${sid}) 映射到 ${g.brand}（不属于 ${[...owned].join('/')}）`);
-      if (!isEdu && !owned.has(g.brand)) problems.push(`${key}: ${e.name}(${sid}) 映射到 ${g.brand}（不属于 ${[...owned].join('/')}）`);
+      if (isEdu && !owned.has(brand)) problems.push(`${key}: ${e.name}(${sid}) 映射到 ${brand}（不属于 ${[...owned].join('/')}）`);
+      if (!isEdu && !owned.has(brand)) problems.push(`${key}: ${e.name}(${sid}) 映射到 ${brand}（不属于 ${[...owned].join('/')}）`);
       const m = buildDetailModel(e.stage, e.name, repo, sid);
       if (!m.brandCard) problems.push(`${key}: ${e.name}(${sid}) 品牌卡未渲染`);
     }
   }
   assert.deepEqual(problems, [], `集团名单闭环问题（${problems.length} 处）：\n${problems.join('\n')}`);
+});
+
+test('教育集团运行时成员：同一集团不得重复 school_id', () => {
+  const edu = load('registry/group/dist/education_groups.json').groups;
+  const duplicates = [];
+  for (const group of edu) {
+    const ids = group.members.filter((member) => member.school_id).map((member) => member.school_id);
+    if (new Set(ids).size !== ids.length) duplicates.push(group.brand);
+  }
+  assert.deepEqual(duplicates, [], `教育集团运行时成员重复：${duplicates.join('、')}`);
 });
 
 test('品牌关联：校区+学部复合名实体归属教育集团（奥体小学部品牌卡）', () => {

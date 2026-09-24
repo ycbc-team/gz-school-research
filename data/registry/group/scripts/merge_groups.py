@@ -3,6 +3,7 @@
 import json
 import re, os, sys
 
+# 由脚本位置定位仓库根目录；禁止绑定某个 worktree，保证审计/CI/分支内重跑都写回当前仓库。
 BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 TODAY = "2026-09-14"
 
@@ -189,12 +190,34 @@ for b in dbrand.get("brands", []):
     group_brand = brand_name if "教育集团" in brand_name else brand_name + "教育集团"
     # 检查是否已在all_groups里
     exists = False
+    matched_group = None
     for g in all_groups:
-        if norm(group_brand) == norm(g["brand"]) or norm(g["brand"]) in norm(group_brand) or norm(group_brand) in norm(g["brand"]):
-            if len(norm(group_brand)) >= 4 and len(norm(g["brand"])) >= 4:
-                exists = True
-                break
+        if norm(group_brand) == norm(g["brand"]):
+            exists = True
+            matched_group = g
+            break
     if exists:
+        # 同名官方集团仍需吸收品牌源补充的托管/合作办学成员（如星执）。过去直接跳过，
+        # 由 school_groups 旁路补外键；现 education_groups 是唯一运行时真源，必须在此合并。
+        known_ids = {
+            school_id for member in matched_group.get("members") or []
+            for school_id in member.get("school_ids") or [member.get("school_id")]
+            if school_id
+        }
+        for unit in b.get("units", []):
+            school_ids = unit.get("school_ids") or []
+            if school_ids and all(school_id in known_ids for school_id in school_ids):
+                continue
+            matched_group.setdefault("members", []).append({
+                "name": unit["name"], "source_url": unit.get("source_url", ""),
+                "verified": TODAY, "poi_match": "已锚定" if school_ids else "待比对",
+                "poi_name": "", "school_id": school_ids[0] if school_ids else "",
+                "school_ids": school_ids, "legal": unit.get("legal", ""),
+                "relation": unit.get("role", ""),
+            })
+            known_ids.update(school_ids)
+        if b.get("brand_note") and not matched_group.get("note"):
+            matched_group["note"] = b["brand_note"]
         continue
     # 找核心校
     core_school = brand_name
@@ -406,6 +429,58 @@ for _g in out.get("groups", []):
     for _m in _g.get("members", []):
         _m.pop("stage", None)
     _g.pop("stage", None)
+# 运行时产物只保留展示所需字段。匹配方式、核验日期、行政区/类型、POI 名等审计信息
+# 都由 parsed/src 真源和测试快照承载；有 school_id 时名称由实体注册表还原。
+def runtime_rows(group, role, rows):
+    result = []
+    for row in rows or []:
+        legal = row.get("legal") or "same"
+        relation = row.get("relation") or ""
+        if legal == "same":
+            relation_type = "same"
+        elif legal == "entrusted" or "托管" in relation:
+            relation_type = "entrusted"
+        elif "合作" in relation:
+            relation_type = "cooperation"
+        else:
+            relation_type = "brand"
+        campuses = row.get("campuses") or []
+        ids = [row.get("school_id")] if row.get("school_id") else []
+        ids += [school_id for school_id in row.get("school_ids") or [] if school_id]
+        ids += [campus.get("school_id") for campus in campuses if campus.get("school_id")]
+        if ids:
+            result.extend({"school_id": school_id, "role": role, "relation_type": relation_type} for school_id in ids)
+        else:
+            name = row.get("poi_name") or row.get("name")
+            if name:
+                result.append({"name": name, "role": role, "relation_type": relation_type})
+    return result
+
+runtime_groups = []
+for group in out["groups"]:
+    core_rows = group.get("core_poi") or [
+        {"school_id": campus["school_id"]}
+        for core_name in group.get("core") or []
+        for campus in legal_campuses(core_name, _ENTITIES)
+    ]
+    members = runtime_rows(group, "核心校", core_rows)
+    members += runtime_rows(group, "成员校", group.get("members"))
+    # 一个实体在同一集团只保留一行：源名单/品牌补充可能重叠，运行时不应重复渲染。
+    unique_members = []
+    seen_ids = set()
+    for member in members:
+        key = member.get("school_id") or f"name:{member.get('name', '')}"
+        if key in seen_ids:
+            continue
+        seen_ids.add(key)
+        unique_members.append(member)
+    runtime_group = {"brand": group["brand"], "members": unique_members}
+    if group.get("note"):
+        runtime_group["note"] = group["note"]
+    if group.get("source_urls"):
+        runtime_group["source_urls"] = group["source_urls"]
+    runtime_groups.append(runtime_group)
+out = {"groups": runtime_groups}
 with open(OUT_PATH, "w") as f:
     json.dump(out, f, ensure_ascii=False, indent=2)
 

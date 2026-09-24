@@ -10,6 +10,9 @@ import type {
   HighLevelsSnapshot,
   EnrollmentSnapshot,
   MiddleEnrollmentSnapshot,
+  MiddleMechanism,
+  MiddleMechanismDef,
+  MiddleEnrollmentGroups,
 } from '../types.js';
 import type { QuotaMatrix, SpecialMatrix, Batch2Scores, DistrictQuota, HighScores, BrandGroups, EducationGroups } from './types.js';
 
@@ -24,6 +27,9 @@ export interface DataLoaders {
   enrollments: EnrollmentSnapshot[];
   /** 初中 2026 招生计划（7 区，初中视角：班数/招生范围/机制/派位组成员） */
   middleEnrollments: MiddleEnrollmentSnapshot[];
+  /** dist 合并结构（2026-09-23）：mechanisms 顶层一份、派位/直升组独立组表（record.group_id 引用） */
+  middleEnrollmentMechanisms: Record<MiddleMechanism, MiddleMechanismDef>;
+  middleEnrollmentGroups: MiddleEnrollmentGroups;
   /** 极少数校区的招生计划特殊备注（school_id → 说明，如执信水荫路仅初三就读）；无备注的学校不写 */
   middleEnrollNotes?: Record<string, string>;
   quotaMatrix: QuotaMatrix;
@@ -50,9 +56,8 @@ export interface DataLoaders {
   brandGroups: BrandGroups;
   /** 全量教育集团（区教育局官方口径，85 集团/334 成员；brandGroups 未命中时回退查询） */
   educationGroups?: EducationGroups;
-  /** 公共 school_id → 集团映射（scripts/registry/build_school_groups.py 构建，纯 id 产物；
-   * 详情页品牌卡与初中明细分组共用同一份，运行时不再做任何按名匹配） */
-  schoolGroups: { schoolGroups: Record<string, { brand: string; source: 'education' | 'brand' }> };
+  /** 未入教育集团的同法人多校区（实体表构建期推导；详情页仅作集团缺省时的关联展示） */
+  nonGroupMultiCampuses?: Record<string, string[]>;
   /** 初中升学信号排行榜基础表（自招/指标到校/特控率聚合，见 data/linkage/scripts/build_ranking_middle.py） */
   rankingMiddle: {
     schools: Array<{
