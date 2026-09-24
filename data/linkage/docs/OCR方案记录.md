@@ -2,7 +2,7 @@
 
 真源 `data/linkage/raw/quota_detail.pdf`（官方 31 页，无文本层，带灰色水印）。以下为踩坑与最终方案记录，避免重蹈覆辙。
 
-**最终采用（成功）方案**：整页 200 dpi 渲染（`/tmp/qpage/p*.png`）+ 视觉识读（Read 整页图），逐格/逐列裁剪复核疑点（600–900 dpi）。权威三列值落盘为 `data/linkage/scripts/quota_vision_values.py`（P[页码][行]=[考生,省市,区属]，含番禺两条缺行），由 `data/linkage/scripts/rebuild_quota_matrix.py` 重建 `data/linkage/dist/quota_matrix.json`（503 校，11 区）。已校验：10/11 区级合计与官方区头精确一致；天河省市行和 554 vs 区头 555 差 1，四路独立复核一致，判定为官方原表口径差。
+**最终采用（成功）方案**：整页 200 dpi 渲染（`/tmp/qpage/p*.png`）+ 视觉识读（Read 整页图），逐格/逐列裁剪复核疑点（600–900 dpi）。权威三列值落盘为 `data/linkage/src/quota_vision_values.json`（P[页][行]=[考生,省市,区属]，含番禺两条缺行），由 `data/linkage/scripts/rebuild_quota_matrix.py` 重建 `data/linkage/parsed/canonical/quota_matrix.json`（503 校，11 区；school_id 由 C 层 backfill 回填）。已校验：10/11 区级合计与官方区头精确一致；天河省市行和 554 vs 区头 555 差 1，四路独立复核一致，判定为官方原表口径差。
 
 **已弃用（失败）方案与原因**（脚本已删除，仅留此记录）：
 1. tesseract 5.5.3（白名单数字 + psm 6/7/8 × 阈值 × 放大）——裁剪小图全部空读；
@@ -11,7 +11,7 @@
 4. 阈值二值化去水印——打丢淡色数字（真光区属 335）；
 5. 整行 OCR 对区属列系统性 6↔9 误读（荔广 249、培正矿泉 128 根因）。
 
-**保留/删除说明**：`data/linkage/parsed/quota_grid_final.json`（整行 OCR 网格）仅保留其 sz 高中分额列供补行使用，三列（考生/省市/区属）作废；`data/linkage/parsed/schoolnames.json` 为校名源保留；其余 OCR 中间产物（v6/v6fix/adjudicated/_ocr/headers）与失败脚本已删除。
+**保留/删除说明**：`data/linkage/parsed/quota_grid_final.json`（整行 OCR 网格）保留行结构供 B 层补行占位；sz 高中分额明细为历史 OCR 产物，由旧矩阵（canonical/dist）继承（无独立 raw 源，见 README"数据流与职责"）；三列（考生/省市/区属）与区属列作废，权威值在 `data/linkage/src/`。`data/linkage/parsed/schoolnames.json` 为校名源保留；其余 OCR 中间产物（v6/v6fix/adjudicated/_ocr/headers）与失败脚本已删除。
 
 **已知残差**：番禺补行"广东第二师范学院广州南站附属学校 / 番禺附属初级中学"的 sz 高中分额明细暂缺（sz_sum=0，见 quota_matrix.json note）。
 
@@ -24,7 +24,7 @@
    - 祈福新邨 school_id 修正：`1963cc5e`（小学实体）→ `8ef59a4c`（初中实体/初中 POI），详情页从"祈福新村小学"改为初中部（自招 185 人正常显示）。
    - 详情页自招补充：tier1（口碑校 54 所）未覆盖的初中，从 `rankingMiddle`（2026 官方自招资格名单）补充"自主招生"行（`官方资格名单`标注）。共修复 180 所（清单 `outputs/detail_autonomy_gap_20260915.csv`）；另有 10 所 aut>0 但详情页无初中 tab（POI 点位缺口，未修复）。
 5. **数据治理（2026-09-15 第三轮，按用户 5 条批评重构）**：
-   - **school_id 解析重构（废除 SID_FIX）**：`rebuild_quota_matrix.py` 内置通用匹配器 `SidResolver`（区 + 名字/别名，norm 全等 3 → pynorm 2 → core 1 → 前缀 0.5，学部分层 middle→primary→high，歧义同区消歧，有效旧 id 沿用保护），实体表变更后重跑脚本自动联动，不再点对点打补丁。
+   - **school_id 解析重构（废除 SID_FIX）**：匹配统一收口到 C 层 `backfill_school_ids.py`（SchoolMatcher：src/backfill_overrides.json 硬映射 → norm/loose/matchNorm 通用匹配 → 未命中落 _school_id_unmatched），B 层 canonical 不含 school_id，实体表变更后重跑 C 层自动联动，不再点对点打补丁。
    - **实体表治理（数据源修复，联动生效）**：删海珠知用 `934833e1`、越秀协和 `1b1d2659` 两条错区重复记录；补录三元里中学（在办未收录 → `gz-440111-a20eb9b6`，旧 md5 占位自动升级为实体）、协和 middle、海龙博雅/爱莎文华/知用 middle 学部记录；奥中本部初中实体（黄村西路校区）补别名；祈福实体/POI 名"祈福新邨"→"祈福新邨学校"。由此自动修复：西关培英（原误挂四中丰宁 `3b870a8e`→`d78c848a`）、协和（→`e281e7d0`）、奥中（→`d40d0dbe`）、三元里（→`a20eb9b6`）、天健/开元/省教院黄埔实验/金华等错区或错学部 id。匹配器另加"中学↔小学 core 交叉防护"与"九年一贯"学段。复核：7 区 334 所 quota 校 school_id 全部命中实体且含初中 stage（仅二师南站附属保持 md5 占位，POI 缺口）。
    - **祈福地图点位修正（问题 2）**：middle POI `8ef59a4c` 原为住宅片区名"祈福新邨"、坐标 (113.329043, 22.961537)，改为"祈福新邨学校"、坐标 (113.322074, 22.962704)（与小学 POI 同址，学校建筑真实位置）。
    - **升学信号源纠正（问题 3）**：tier1 只做学校信号（`formatMiddleSignals` 移除"自主招生"行）；详情页"自主招生"行一律取 `linkage/dist/ranking_middle.json`（官方自招资格名单），标注"官方资格名单"。

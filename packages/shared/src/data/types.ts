@@ -27,14 +27,11 @@ export interface QuotaMatrix {
   districts: string[];
 }
 
-/** 特招通道：high_schools 校区列表 + matrix[初中名][高中全称] */
+/** 特招通道：high_schools 校区列表 + 计划数 + 名单外键（资格名单计数矩阵已于 2026-09 废弃） */
 export interface SpecialMatrix {
   high_schools: string[];
-  matrix: Record<string, Record<string, { sports?: number; arts?: number; autonomy?: number }>>;
   /** 官方第一批招生单位原文 → 高中实体外键；null=未收录实体，只保留原文展示，禁止名称兜底 */
   high_school_ids?: Record<string, string | null>;
-  /** 初中名 → 实体 school_id（backfill 回填；官方名唯一外键） */
-  middle_school_ids?: Record<string, string>;
   /** 2026 自主招生计划（官方汇总表，原文名 → 计划数）；计划数≠资格名单人数≠录取人数 */
   autonomy_plan?: Record<string, number>;
   /** autonomy_plan 的 normName 归一索引（前端查询兜底） */

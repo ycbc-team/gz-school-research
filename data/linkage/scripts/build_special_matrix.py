@@ -1,27 +1,33 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""构建升学通道矩阵：初中 × 高中（体育/艺术/自招考核资格）
+"""构建升学通道矩阵规范表（B 层）：初中 × 高中（体育/艺术/自招考核资格）
 - 输入：data/linkage/parsed/special/sports_2026.json、arts_2026.json
-       data/linkage/parsed/autonomy/autonomy_qualify_2026.json
+       data/linkage/parsed/autonomy/autonomy_qualify_2026.json、plan_2026.json
+       data/linkage/parsed/special/plan_special_2026.json
+       data/linkage/src/special_name_fix.json（高中名人工修正）
        data/registry/entity/dist/entities.json（高中实体别名表，用于名字匹配与审计）
-- 输出：data/linkage/dist/special_matrix.json
+- 输出：data/linkage/parsed/canonical/special_matrix.json（B 层规范表）
 口径：全部有名单的高中（含区属/中职，不再限省市属 11 所）；
       自招为考核资格名单口径（非预录取）。
       体育/艺术 project 去掉末尾"（项目）"得到招生高中（校区）；自招标题去"2026年"前缀。
       矩阵 key 使用名单原文（可溯源）；业务关联同时产出 high_school_ids，
       前端/共享层必须用该实体外键，不得再按高中名称二次匹配。
+      不再输出 middle_school_ids：历史从入库产物继承（269 条、与 quota_matrix 同名不同 id 13 处，
+      且前端无任何消费方）——死字段随资格名单计数矩阵一并废弃（C 层 backfill 不再生成）。
 """
 import json
 import sys, re, collections, os
 
-BASE = 'data/linkage/parsed'
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+LINK = os.path.join(ROOT, 'data', 'linkage')
+BASE = os.path.join(LINK, 'parsed')
 
 # 统一匹配库：norm 本体收敛至 school_match.normName（原"复刻 shared normName"定义已删）
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), "data", "registry", "entity", "scripts"))
+sys.path.insert(0, os.path.join(ROOT, "data", "registry", "entity", "scripts"))
 from school_match import matchNorm, normName as norm  # 归一收敛至统一匹配库：剥区名 + 去括号变体
 # （2026-09-21 别名瘦身后「区+名字」形态不再生成；带区名名单名由 matchNorm 剥区兜底，
 #  仍保持「实体表高中别名唯一收敛」语义——法人名多校区宁缺，由实体别名表精确归位）
-OUT = sys.argv[1] if len(sys.argv) > 1 else 'data/linkage/dist/special_matrix.json'
+OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(LINK, 'parsed', 'canonical', 'special_matrix.json')
 SOURCE = 'gzzk-special-2026'
 
 
@@ -43,7 +49,7 @@ def strip_project(project: str) -> str:
 
 
 # ---------------- 高中实体别名表（entities.json stage=high，名字匹配唯一宿主） ----------------
-entities = json.load(open('data/registry/entity/dist/entities.json'))['entities']
+entities = json.load(open(os.path.join(ROOT, 'data/registry/entity/dist/entities.json')))['entities']
 entity_by_id = {e['school_id']: e for e in entities if e.get('stage') == 'high'}
 high_aliases: dict[str, list[dict]] = collections.defaultdict(list)  # 归一化别名 → 高中实体候选
 high_aliases_exact: dict[str, list[dict]] = collections.defaultdict(list)  # normName（带区精确）键，剥区歧义回退用
@@ -88,19 +94,13 @@ def resolve_entity(name: str):
     return next(iter(candidates.values())) if len(candidates) == 1 else None
 
 
-# 已知截断/异常名单名 → 完整高中名（PDF 解析截断，显式修复、可审计）
-HIGH_NAME_FIX = {
-    '广州市第一': '广州市第一中学',  # sports/arts 23 条 project 截断，招生校为广州市第一中学
-}
+# 已知截断/异常名单名 → 完整高中名（PDF 解析截断，显式修复、可审计；来源 src/special_name_fix.json）
+_snf = json.load(open(os.path.join(LINK, 'src', 'special_name_fix.json'), encoding='utf-8'))
+HIGH_NAME_FIX = _snf['high_name_fix']
 
-# 特长生计划表学校名 → 招生高中（校区）原文（领军龙单列无括号名，显式修复、可审计）
-SPECIAL_NAME_FIX = {
-    '华南师范大学附属中学': '华南师范大学附属中学（石牌校区）',  # 领军龙男足单列，主校区石牌
-    # —— 裸名多校区歧义显式归位（2026-09-21 由 source_name_mappings 退役迁移，历史已确认）——
-    '广东华侨中学': '广东华侨中学(起义路校区)',                # 特长生按起义路（完中本部）
-    '广州市天河外国语学校': '广州市天河外国语学校（智慧城校区）',  # 特长生按智慧城
-    '广州市第二中学': '广州市第二中学(应元路校区)',            # 特长生按应元路（本部）
-}
+# 特长生计划表学校名 → 招生高中（校区）原文（领军龙单列无括号名 + 裸名多校区歧义显式归位；
+# 2026-09-21 由 source_name_mappings 退役迁移，历史已确认；来源 src/special_name_fix.json）
+SPECIAL_NAME_FIX = _snf['special_name_fix']
 
 
 def fix_high(name: str) -> str:
@@ -161,15 +161,8 @@ for h in sorted(all_hs):
     if ent is None:
         unresolved.append(h)
 
-# 保留由 backfill_school_ids 生成的初中外键；本生成器只负责第一批事实和高中外键。
-PREV = sys.argv[2] if len(sys.argv) > 2 else OUT
-try:
-    previous = json.load(open(PREV))
-except FileNotFoundError:
-    previous = {}
-
 # ---------------- 2026 自主招生计划（官方汇总表，按校区/法人公布） ----------------
-plan_raw = json.load(open('data/linkage/parsed/autonomy/plan_2026.json'))
+plan_raw = json.load(open(os.path.join(BASE, 'autonomy/plan_2026.json')))
 autonomy_plan = {s['name']: s['plan'] for s in plan_raw['schools']}
 plan_norm = {norm(k): v for k, v in autonomy_plan.items()}
 # 实体名变体：官方原文（全角"（校本部）"）与实体 POI 名（半角"（本部校区）"）存在名称差异，
@@ -180,7 +173,7 @@ for k, v in autonomy_plan.items():
         plan_norm[norm(ent['name'])] = v
 
 # ---------------- 2026 体育/艺术特长生计划（官方计划表附件1，按校区+项目） ----------------
-sp_raw = json.load(open('data/linkage/parsed/special/plan_special_2026.json'))
+sp_raw = json.load(open(os.path.join(BASE, 'special/plan_special_2026.json')))
 sp_by_name = collections.defaultdict(
     lambda: {'sports': [], 'arts': [], 'sports_total': 0, 'arts_total': 0})
 for s in sp_raw['schools']:
@@ -234,9 +227,8 @@ out = {
     'special_plan_source': sp_raw['url'],
     'special_plan_summary': sp_summary,
 }
-if previous.get('middle_school_ids'):
-    out['middle_school_ids'] = previous['middle_school_ids']
-json.dump(out, open(OUT, 'w'), ensure_ascii=False, indent=1)
+os.makedirs(os.path.dirname(OUT), exist_ok=True)
+json.dump(out, open(OUT, 'w'), ensure_ascii=False, indent=1, sort_keys=True)
 print('高中招生单位数:', len(all_hs))
 print('收录记录: 体育', sum(m_sports.values()), '艺术', sum(m_arts.values()), '自招', sum(m_auto.values()))
 print('未匹配到高中实体的名单名（需人工复核）:', len(unresolved))

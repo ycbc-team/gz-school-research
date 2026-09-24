@@ -71,7 +71,8 @@ def diff_dict(old: dict, new: dict, path: str, limit: int = 40) -> list:
 
 
 def run(update: bool) -> int:
-    # 重跑生产链路（previous 用入库产物：backfill 生成的初中外键只存在于入库）
+    # 重跑生产链路（B 层规范表：build_special_plan 转录 + build_special_matrix 组装；
+    # 产物已不再携带 middle_school_ids——死字段已随资格名单计数矩阵废弃）
     replay("data/linkage/scripts/build_special_plan.py", PLAN_TMP)
     replay("data/linkage/scripts/build_special_matrix.py", TMP, PROD)
     new = extract(json.load(open(TMP, encoding="utf-8")))

@@ -1,21 +1,25 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-升学通道四表回填 school_id（官方名单名 → 实体表主键）。
+"""升学通道四表回填 school_id（C 层 SchoolMatcher：官方名单名 → 实体表主键）。
 
-背景：quota_matrix / special_matrix / batch2_scores / district_quota 的键是官方名单原文校名
-（PDF 视觉提取），与 POI 名存在「学部后缀 / 校区叫法 / 括号全半角」差异，且从未走实体桥接——
-历史遗留的「用名字识别」链路。本脚本按实体表（data/registry/entity/dist/entities.json 的 name+aliases）
-回填 school_id：
-- quota_matrix.schools[].school_id（初中）
-- special_matrix / batch2_scores / district_quota 顶层 middle_school_ids（初中名 → school_id）
+输入（只读，B 层规范表）：data/linkage/parsed/canonical/ 下四表
+  - quota_matrix.json     名额分配计划规范表（schools[].school 官方名单原文名）
+  - special_matrix.json   升学通道矩阵规范表（高中名单原文 → high_school_ids 已在 B 层解析）
+  - batch2_scores.json    第二批次分数规范表（data 键=初中名）
+  - district_quota.json   区属名额规范表（data 键=初中名）
+输出：data/linkage/dist/ 下四表 + _school_id_unmatched.json
+  - quota_matrix.schools[].school_id / school_ids（初中实体）
+  - batch2_scores / district_quota 顶层 middle_school_ids（初中名 → school_id）
+  - special_matrix 直通（其高中侧 school_id 已在 B 层构建期解析，无初中外键字段）
 
-匹配规则：
+匹配规则（resolve）：
+0) src/backfill_overrides.json 硬映射（人工核对，优先于一切通用规则）
 1) norm：全角括号→半角 → 去「广州市」前缀 → 去半角括号 → 去空白（与 shared normName 一致）
 2) loose：norm 后再去掉尾部「初中部/高中部/小学部/校区/分校/学校/部」后缀（容错 POI 学部后缀）
    先精确 norm，未命中再用 loose；两者均为全等匹配，不会误配。
-
-未命中（7 区外无实体 / 7 区内需人工桥接）落盘 data/linkage/dist/_school_id_unmatched.json，
+3) matchNorm 剥区兜底（官方名带「X区」前缀、实体 name 无区名）：仅全局唯一候选可取，
+   区一致性校验后按 stage 收敛。
+未命中（7 区外无实体 / 7 区内需人工桥接）落盘 dist/_school_id_unmatched.json，
 原文保留、不伪造 id；7 区内清单待人工确认后补进 build_entities.py 的 OFFICIAL_ALIASES 或实体 aliases。
 
 运行：python3 data/linkage/scripts/backfill_school_ids.py
@@ -27,9 +31,12 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
+LINK = ROOT / 'data' / 'linkage'
+CANON = LINK / 'parsed' / 'canonical'
+DIST = LINK / 'dist'
 CITY7 = {'荔湾区', '越秀区', '海珠区', '天河区', '白云区', '黄埔区', '番禺区'}
 
-# 统一匹配库：norm/loose 收敛至 school_match.normName/looseNorm（原本地定义已删，规则与 shared support.ts 一致）
+# 统一匹配库：norm/loose 收敛至 school_match.normName/looseNorm（与 shared support.ts 一致）
 sys.path.insert(0, str(ROOT / 'data' / 'registry' / "entity" / 'scripts'))
 from school_match import normName as norm
 from school_match import looseNorm as loose
@@ -78,45 +85,25 @@ def main() -> int:
     AD_MAP = {'荔湾区': '440103', '越秀区': '440104', '海珠区': '440105',
               '天河区': '440106', '白云区': '440111', '黄埔区': '440112', '番禺区': '440113'}
 
-    # quota_matrix 人工修正硬映射（官方名 → school_id）：通用 norm/loose 规则无法复现的
-    # 人工核对结果（同 stage 多校区歧义选错、跨学段裸名被 high 独占等），在数据层直接关联
-    # school_id，不靠手改产物；来源：HEAD quota_matrix school_id（人工核对版）。
-    # quota_matrix 人工修正硬映射（官方名 → school_id）：通用 norm/loose 规则无法复现的
-    # 人工核对结果，在数据层直接关联 school_id，不靠手改产物。
+    # 人工核对硬映射（官方名 → school_id）：通用 norm/loose 规则无法复现的人工核对结果
+    # （同区同 stage 多校区歧义选错、跨学段裸名被 high 独占等），在数据层直接关联 school_id，
+    # 不靠手改产物。来源：src/backfill_overrides.json（含逐条原因，可审计）。
     # 已收敛的条目：resolve 升级后可复现的冗余项、build_entities FORCED_MIDDLE_ALIAS
     # （官方裸名→初中部校区）治本项、rebuild_quota_matrix 校名规范化（OCR 错字）项——
     # 一律不再进覆盖表，保持覆盖表只承载「同区同 stage 真歧义 / 跨区同名 / 跨学段多候选」。
     MATCH_OVERRIDES = {
-        "广州市为明学校": "gz-440105-baa048f9",  # 跨学段多候选（primary 光大 + high 罗马，无 middle 实体）
-        "广州市天健学校": "gz-440112-e085f4fa",  # 跨区同名（黄埔 high vs 白云 middle），quota 区过滤锚黄埔
-        "广州市香江中学": "gz-440118-322b6d28",  # 官方名（香江中学）vs 实体名（香江学校），7 区外但有实体
-        "广州市天河区汇景实验学校": "gz-440106-0d1e149e",  # 旧名实体（四十七中汇景中学部）alias 持现名裸名，同区同 stage 双候选
-        "广州市天河区同仁实验学校": "gz-440106-77787b4a",  # 官方名 norm 未命中（小学部实体持名）
-        "广州市天河外国语学校": "gz-440106-b711d94a",  # 官方名带全角括号校区，实体无对应 alias
-        "广州市新滘中学": "gz-440105-003f2037",  # 官方名（贵荣校区）norm 未命中
-        "广州市真光中学": "gz-440103-042e23a5",  # 同区同 stage 双实体（本部/岭南均 middle），锚岭南（初中部）
-        "广州市第八十六中学": "gz-440112-43108516",  # 完中本部 0cb5a402 自身含 middle 行，初中表双候选
-        "广州市第十六中学": "gz-440104-8964385d",  # 完中本部 8a1a7b3d 自身含 middle 行，初中表双候选
-        "广州市第四十一中学": "gz-440105-b210556b",  # 完中本部 40a80ebb 自身含 middle 行，初中表双候选
-        "广州市西关外国语学校": "gz-440103-b41a3512",  # 完中本部（中学部）持官方名，同区同 stage 双候选
-        "广州市实验外语学校": "gz-440106-540006ea",  # quota 标白云但实体在天河，跨区 loose 多候选
-        "广州市番禺区丽江学校": "gz-440113-2264148c",  # 官方名（丽江学校）vs 实体名（丽江小学），loose 多候选
-        "广州市第十三中学": "gz-440104-0a17f1eb",  # 文德校区=初中部校区；同校区双 POI 实体（文德/初中部），锚入库值
-        "广州市黄埔区铁英中学": "gz-440112-c80ac6ac",  # 官方名（广铁一中铁英学校）与实体名差异
-        "广州铁一中学（番禺校区）": "gz-440113-97e0acaa",  # 官方名带全角括号校区，实体无对应 alias
-        "广州市黄埔区苏元学校": "gz-440112-a0244635",  # 同区同 stage 双候选（a0244635/8bf29a28），锚 HEAD 入库值
-        "广州市番禺区广铁一中铁英学校": "gz-440113-94c76638",  # 法人整体名多校区（东/西），锚西校区主实体（HEAD 入库值）
-        "广州市白云区广东第二师范学院实验中学": "gz-440111-014a9fb2",  # 同区同法人双候选（33d95662/014a9fb2），锚 HEAD 入库值
+        k: v['school_id']
+        for k, v in json.loads((LINK / 'src' / 'backfill_overrides.json').read_text('utf-8'))['overrides'].items()
     }
 
     def resolve(name: str, stage: str, adcode: str = None):
         """官方名 → 实体。
 
         规则（按优先级）：
-        0) QUOTA_OVERRIDES 硬映射（quota_matrix 人工修正，直接 school_id 关联）。
+        0) MATCH_OVERRIDES 硬映射（人工核对，直接 school_id 关联）。
         1) norm 精确命中且含 preferred_stage → 取之（「广州市第一中学」norm 命中高中部
            裸名，但 quota_matrix 是初中配额表，必须回填初中部 2dc142ec——人工修正固化
-           进脚本，不靠改数据）。
+           进覆盖表，不靠改数据）。
         2) loose 容错（去「初中部/校区」等学部后缀）命中且含 preferred_stage → 取之。
         3) norm/loose 命中但**候选唯一**（无 preferred_stage）→ 接受：该官方名对应的
            POI 唯一（完中/一贯制学校初中配额挂高中或小学实体），跨学段引用是唯一 POI 的
@@ -182,13 +169,13 @@ def main() -> int:
 
     unmatched = []  # (表, 官方名, 区, 是否7区内)
     files = {
-        'quota_matrix': (ROOT / 'data/linkage/dist/quota_matrix.json', 2),
-        'special_matrix': (ROOT / 'data/linkage/dist/special_matrix.json', 1),
-        'batch2_scores': (ROOT / 'data/linkage/dist/batch2_scores.json', 1),
-        'district_quota': (ROOT / 'data/linkage/dist/district_quota.json', 1),
+        'quota_matrix': (CANON / 'quota_matrix.json', DIST / 'quota_matrix.json', 2),
+        'special_matrix': (CANON / 'special_matrix.json', DIST / 'special_matrix.json', 1),
+        'batch2_scores': (CANON / 'batch2_scores.json', DIST / 'batch2_scores.json', 1),
+        'district_quota': (CANON / 'district_quota.json', DIST / 'district_quota.json', 1),
     }
-    for tag, (path, indent) in files.items():
-        d = json.loads(path.read_text('utf-8'))
+    for tag, (src, dst, indent) in files.items():
+        d = json.loads(src.read_text('utf-8'))
         if tag == 'quota_matrix':
             for s in d['schools']:
                 if s['school'] in MATCH_OVERRIDES:
@@ -226,13 +213,13 @@ def main() -> int:
                             s['school_id'] = home or ids[0]
                     else:
                         s.pop('school_ids', None)
+        elif tag == 'special_matrix':
+            # 直通：高中侧 school_id 已在 B 层构建期解析（high_school_ids）；无初中外键字段。
+            # （历史版本曾有 middle_school_ids=从入库产物继承的死字段，已随资格名单计数矩阵废弃，
+            #   前端无消费方，C 层不再生成。）
+            pass
         else:
-            if tag == 'special_matrix':
-                # 资格名单计数矩阵（matrix）已废弃：初中第一批模块与高中第一批覆盖表均已移除，
-                # 无任何消费方；special_matrix.middle_school_ids 由 build_special_matrix 从入库
-                # previous 继承（本项目只有构建产物，不再手工回填），这里跳过。
-                continue
-            elif tag == 'batch2_scores':
+            if tag == 'batch2_scores':
                 keys = sorted({k for v in d['data'].values() for k in v.keys()})
             else:  # district_quota
                 keys = list(d['data'].keys())
@@ -249,13 +236,13 @@ def main() -> int:
             d['middle_school_ids'] = ids
         # quota_matrix 固定字段顺序（sort_keys），其它表保持读入序（避免无关键序噪音）
         _sk = tag == 'quota_matrix'
-        path.write_text(json.dumps(d, ensure_ascii=False, indent=indent, sort_keys=_sk) + '\n', 'utf-8')
+        dst.write_text(json.dumps(d, ensure_ascii=False, indent=indent, sort_keys=_sk) + '\n', 'utf-8')
         print(f'[{tag}] 回填完成')
 
     # 未命中清单：7 区内（需人工桥接）与 7 区外/未知（无实体，链接不可点属正确行为）分列
     inside = sorted({n for _, n, dist, is7 in unmatched if is7 is True})
     outside = sorted({n for _, n, dist, is7 in unmatched if is7 is not True})
-    (ROOT / 'data/linkage/dist/_school_id_unmatched.json').write_text(
+    (DIST / '_school_id_unmatched.json').write_text(
         json.dumps({
             'note': '升学通道官方名未命中实体表：7 区内需人工桥接（补进 build_entities.py 别名）；7 区外无 POI 实体，链接不可点属正确行为，原文保留展示。',
             'updated': '2026-09-12',

@@ -5,6 +5,8 @@
  *   2. dist/batch2_scores.json：删除 admitted:false 且无分数的记录（542 条）。
  *      前端只消费 min_score/last_score，false 记录消费结果与"无记录"一致；
  *      删除后顺带消除合并表里的全空行。
+ *      middle_school_ids（C 层 backfill 生成的初中外键）同步裁剪为现存初中集——
+ *      运行时链接辅助必须与运行时 data 一致（canonical 规范表保留全量，不裁剪）。
  * 运行：node scripts/data/optimize_redundancy.mjs
  * 输出：写回真源 JSON（1 空格缩进、无尾换行，与现有格式一致）+ 变更统计
  */
@@ -54,8 +56,20 @@ const report = {};
       }
     }
   }
+  // middle_school_ids 裁剪为现存初中集（与运行时 data 对齐）
+  let msi_removed = 0;
+  const b2 = b.middle_school_ids;
+  if (b2) {
+    const alive = new Set(Object.values(b.data || {}).flatMap((inner) => Object.keys(inner)));
+    for (const k of Object.keys(b2)) {
+      if (!alive.has(k)) {
+        delete b2[k];
+        msi_removed += 1;
+      }
+    }
+  }
   write(p, b);
-  report.batch2_scores = { false_records_removed: removed };
+  report.batch2_scores = { false_records_removed: removed, middle_school_ids_trimmed: msi_removed };
 }
 
 console.log('[optimize_redundancy]', JSON.stringify(report, null, 2));
