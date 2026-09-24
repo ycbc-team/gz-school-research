@@ -4,7 +4,7 @@
 
 **消费方：**
 - `data/poi/scripts/build_high_levels_js.py` —— 高中点位清洗依据（学校清单+分类+指标）
-- `scripts/linkage/build_ranking_middle.py` —— 初中升学通道（特控率 indicators.tekong_*）
+- `data/linkage/scripts/build_ranking_middle.py` —— 初中升学通道（特控率 indicators.tekong_*）
 - 前端高中明细/排行榜（`apps/web` import + 小程序主包 require，经 compact 打包）
 
 **打包约定（与 org_sort/cutoff_score 的 src 不同）：**

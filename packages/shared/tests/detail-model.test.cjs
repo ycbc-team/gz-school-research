@@ -13,6 +13,7 @@ const { createRepository, buildDetailModel, buildLinkageModel, normName, splitEn
 const { diffSnapshots, formatDiff } = require('./helpers/snapshot-diff.cjs');
 const ROOT = path.resolve(__dirname, '../../..');
 const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', file), 'utf8'));
+const canonSpecial = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/linkage/parsed/canonical/special_matrix.json'), 'utf8'));
 const loaders = {
   primarySchools: load('poi/dist/primary_poi.json'),
   primaryTier1: load('primary/tier1_schools_all.json'),
@@ -21,17 +22,17 @@ const loaders = {
   highSchools: load('poi/dist/high_poi.json'),
   highLevels: load('high/level/src/levels.json'),
   enrollments: splitEnrollments(load('primary/enrollment/dist/2026-all.json')),
-  quotaMatrix: load('linkage/quota_matrix.json'),
-  specialMatrix: load('linkage/special_matrix.json'),
-  batch2Scores: load('linkage/batch2_scores.json'),
-  districtQuota: load('linkage/district_quota.json'),
+  quotaMatrix: load('linkage/dist/quota_matrix.json'),
+  specialMatrix: load('linkage/dist/special_matrix.json'),
+  batch2Scores: load('linkage/dist/batch2_scores.json'),
+  districtQuota: load('linkage/dist/district_quota.json'),
   highScores2025: load('high/cutoff_score/dist/scores_2025.json'),
   highScores2026: load('high/cutoff_score/dist/scores_2026.json'),
   entities: load('registry/entity/dist/entities.json'),
   xiaoshengchu: load('primary/transition/dist/xiaoshengchu_2026.json'),
   brandGroups: load('registry/group/src/brand_groups.json'),
   educationGroups: load('registry/group/dist/education_groups.json'),
-  rankingMiddle: load('linkage/ranking_middle.json'),
+  rankingMiddle: load('linkage/dist/ranking_middle.json'),
 };
 const repo = createRepository(loaders);
 
@@ -46,7 +47,7 @@ test('详情模型：小学保留招生与升学路线', () => {
 });
 
 test('详情模型：初中保留名额通道与生源反查', () => {
-  const row = loaders.quotaMatrix.schools.find((s) => s.school_id);
+  const row = loaders.quotaMatrix.ids.find((s) => s.school_id);
   assert.ok(row, '名额矩阵应至少有一所已关联实体的初中');
   const name = repo.entities.find((e) => e.school_id === row.school_id).name;
   const model = buildDetailModel('middle', name, repo, row.school_id);
@@ -112,9 +113,10 @@ test('第一批高中详情计划数按 school_id 反查（自主/体育/艺术�
   const m4 = buildLinkageModel('high', hf.name, repo, hf.school_id);
   assert.ok(m4.planNotes.includes('lingjun'), '华附石牌为领军龙试点 → planNotes 含 lingjun');
   // 4) 特长生计划总量 = 官方口径（体育 1905 不含领军龙 / 艺术 1741 / 领军龙 116）
-  assert.equal(special.special_plan_summary.sports, 1905);
-  assert.equal(special.special_plan_summary.arts, 1741);
-  assert.equal(special.special_plan_summary.football_special, 116);
+  // 特长生总量 = canonical 官方口径（dist 精简版不保留审计字段，见 backfill 去死字段）
+  assert.equal(canonSpecial.special_plan_summary.sports, 1905);
+  assert.equal(canonSpecial.special_plan_summary.arts, 1741);
+  assert.equal(canonSpecial.special_plan_summary.football_special, 116);
 });
 
 test('品牌关联：广大附黄华路校区以 school_id 标记当前项并生成 ID 跳转', () => {
@@ -124,14 +126,21 @@ test('品牌关联：广大附黄华路校区以 school_id 标记当前项并生
   const model = buildDetailModel('middle', entity.name, repo, schoolId);
   const rows = model.brandCard.groups.flatMap((g) => g.rows);
   const current = rows.filter((r) => r.isCurrent);
-  assert.deepEqual(current.map((r) => r.name), ['广州大学附属中学（黄华路校区）']);
+  assert.deepEqual(current.map((r) => r.name), ['广州大学附属中学(黄华路校区)']);
   assert.match(current[0].link, /id=gz-440104-b22c4eca/);
 });
 
 test('品牌关联：全量品牌实体对比修复前后，品牌分支新增当前态必须由显式身份来源支撑', () => {
+  // 品牌覆盖口径 = brand_groups units 的 school_ids 外键实体（8 大省市属品牌）。
+  // 2026-09 merge 后 brand 全部并入 education_groups（同名集团），groupOfSchool 均解析为
+  // education——按 source==='brand' 统计会得空集导致快照被清空（假绿）；改按 brand units
+  // 外键收口，仍保护「品牌实体品牌卡不得消失/降级」。
+  const brandIds = new Set();
+  for (const b of load('registry/group/src/brand_groups.json').brands || []) {
+    for (const u of b.units || []) for (const id of u.school_ids || []) brandIds.add(id);
+  }
   const eligible = repo.entities.filter((entity) =>
-    ['primary', 'middle', 'high'].includes(entity.stage) &&
-    repo.groupOfSchool(entity.name, entity.school_id)?.source === 'brand',
+    ['primary', 'middle', 'high'].includes(entity.stage) && brandIds.has(entity.school_id),
   );
   // 覆盖范围快照（2026-09-22 由「数字断言」改为名单快照 diff——数字只能报 55→53，
   // 看不出是哪个实体增删；现按 school_id|name 逐条列出）。基线存
@@ -232,12 +241,14 @@ test('品牌关联：education 成员 school_id 外键补学段 Badge（黄埔�
   const m = buildDetailModel('middle', '广铁一中铁英中学', repo, 'gz-440112-c80ac6ac');
   assert.ok(m.brandCard, '铁英中学详情页必须渲染品牌关联');
   const rows = m.brandCard.groups.flatMap((g) => g.rows);
-  const hp = rows.find((r) => r.name === '广州市黄埔区铁英学校（黄埔铁英）');
-  assert.ok(hp, '铁英中学详情页品牌卡应含黄埔铁英行');
-  assert.ok(hp.stages.includes('初中'), `黄埔铁英行应有「初中」Badge（stages=${JSON.stringify(hp.stages)}）`);
-  assert.ok(hp.stages.includes('小学'), `黄埔铁英为九年一贯，还应有「小学」Badge（stages=${JSON.stringify(hp.stages)}）`);
+  const hp = rows.find((r) => r.name === '广铁一中铁英中学');
+  assert.ok(hp, '铁英中学详情页品牌卡应含铁英中学行');
+  assert.ok(hp.stages.includes('初中'), `铁英中学行应有「初中」Badge（stages=${JSON.stringify(hp.stages)}）`);
+  // education 分支每校区一行（school_id 粒度）；铁英小学为独立行（行名=实体名）
+  const hpPrimary = rows.find((r) => r.name === '广铁一中铁英小学');
+  assert.ok(hpPrimary && hpPrimary.stages.includes('小学'), '铁英小学行应有「小学」Badge');
   assert.equal(hp.isCurrent, true, '铁英中学详情页当前行应标记 isCurrent');
-  assert.ok(hp.link && hp.link.includes('id=gz-440112-c80ac6ac'), '黄埔铁英行链接应携带初中 school_id');
+  assert.ok(hp.link && hp.link.includes('id=gz-440112-c80ac6ac'), '铁英中学行链接应携带 school_id');
 });
 
 test('品牌关联：7 区外远郊成员不可点击跳转（南沙铁英回归）', () => {
@@ -254,7 +265,9 @@ test('品牌关联：7 区外远郊成员不可点击跳转（南沙铁英回归
 test('法人多校区：官方升学文件一个名称对应多个 school_id，聚合展示分别跳转', () => {
   // 一一三中法人行：2 个 middle 校区（乐学/东方）；金融城/元岗为纯高中（NON_MIDDLE，
   // 2026-09-17 联网核实 campus_middle_webverify_20260917.md）
-  const row = loaders.quotaMatrix.schools.find((s) => s.school === '广州市第一一三中学');
+  const sid113 = loaders.quotaMatrix.name_index && loaders.quotaMatrix.name_index['广州市第一一三中学'];
+  assert.ok(sid113, 'name_index 应有广州市第一一三中学');
+  const row = loaders.quotaMatrix.ids.find((s) => s.school_id === sid113);
   assert.ok(row, 'quota 应有广州市第一一三中学法人行');
   assert.equal(row.school_ids.length, 2, '法人行应挂 2 个 middle 校区 school_id');
   const model = buildLinkageModel('middle', '广州市第一一三中学', repo, row.school_id);
@@ -281,7 +294,10 @@ test('法人多校区：从任一校区 POI 进入都能命中法人升学数据
 
 test('法人多校区：高中覆盖反查行聚合法人全部校区', () => {
   const model = buildLinkageModel('high', '华南师范大学附属中学（石牌校区）', repo, null);
-  const row = model.highCoverage.find((r) => r.school === '广州市第一一三中学');
+  // 实体表按校区粒度（无「广州市第一一三中学」法人实体），覆盖行按校区实体聚合：
+  // 一一三中法人行（乐学+东方 2 校区）以 school_id 定位，行名=主校区实体名
+  const sid113 = loaders.quotaMatrix.name_index['广州市第一一三中学'];
+  const row = model.highCoverage.find((r) => r.campuses.some((c) => c.schoolId === sid113));
   assert.ok(row, '省市属高中覆盖反查应含一一三中法人行');
   assert.equal(row.campuses.length, 2, '覆盖行应聚合法人 2 个 middle 校区');
   assert.ok(row.campuses.every((c) => c.poiName), '覆盖行各校区均可跳转');
@@ -292,7 +308,7 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
   // （与 scripts/merge_groups.py legal_campuses 同语义）。任何改动导致品牌模块从详情页
   // 消失/未渲染（null 或 useful=false），本测试立即失败——快照 digest 强制显式更新。
   const edu = load('registry/group/dist/education_groups.json').groups;
-  const brand = (load('registry/group/src/brand_groups.json').groups || []);
+  const brand = (load('registry/group/src/brand_groups.json').brands || []);
   const coreOf = (n) => (n || '').replace(/[（(][^）)]*[）)]/g, '').trim();
   const nrm = (s) => s.replace(/[（(]/g, '').replace(/[）)]/g, '').replace(/广州市/g, '').replace(/\s/g, '');
   const grpKeys = new Set();

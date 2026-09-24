@@ -785,6 +785,11 @@
           "relation_type": "same"
         },
         {
+          "school_id": "gz-440105-c1a01cbf",
+          "role": "成员校",
+          "relation_type": "same"
+        },
+        {
           "school_id": "gz-440105-156b7542",
           "role": "成员校",
           "relation_type": "same"
@@ -1542,6 +1547,11 @@
           "school_id": "gz-440103-2da965bd",
           "role": "成员校",
           "relation_type": "same"
+        },
+        {
+          "school_id": "gz-440103-7dd6616d",
+          "role": "成员校",
+          "relation_type": "same"
         }
       ],
       "source_urls": [
@@ -1642,12 +1652,17 @@
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440103-eb3cb5c6",
+          "school_id": "gz-440103-f51bffec",
           "role": "成员校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440103-f51bffec",
+          "school_id": "gz-440103-4930321e",
+          "role": "成员校",
+          "relation_type": "same"
+        },
+        {
+          "school_id": "gz-440103-eb3cb5c6",
           "role": "成员校",
           "relation_type": "same"
         },
@@ -1887,6 +1902,11 @@
         },
         {
           "school_id": "gz-440103-11e27c02",
+          "role": "成员校",
+          "relation_type": "same"
+        },
+        {
+          "school_id": "gz-440103-56a8d7a4",
           "role": "成员校",
           "relation_type": "same"
         }
@@ -3785,6 +3805,11 @@
         },
         {
           "school_id": "gz-440112-203c6d64",
+          "role": "成员校",
+          "relation_type": "brand"
+        },
+        {
+          "school_id": "gz-440112-7fa7476a",
           "role": "成员校",
           "relation_type": "brand"
         },

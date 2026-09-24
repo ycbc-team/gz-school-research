@@ -148,7 +148,6 @@ export const {
   districtQuotaOf,
   districtCoverage,
   quotaCoverage,
-  specialHighSchoolId,
   xiaoshengchuOf,
   middlePrimaryFeed,
   middleEnrollmentOf,
@@ -162,8 +161,7 @@ export const {
   groupOfSchool,
   tier1Schools,
   middleTier1Schools,
-  CAMPUS_NAMES,
-  CAMPUS_INFO,
+  campuses,
 } = repository;
 
 /* ================= 类型重导出（页面 import 来源不变） ================= */

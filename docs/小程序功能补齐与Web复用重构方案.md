@@ -329,7 +329,7 @@ module.exports = createRepository({
 
   * 结论：**必须引入分包**。建议：`pages/index` + `pages/map` 进主包（核心高频），`school-detail` / `linkage` / `support` / `policy` 进 `subpackages`（按需加载）。
 
-  * 补充：`data/linkage/*`（quota/special/batch2 三个 JSON 约 1.2MB）只有 linkage / 详情页用到，可放分包目录内，不进主包。
+  * 补充：`data/linkage/dist/*`（quota/special/batch2 三个 JSON 约 1.2MB）只有 linkage / 详情页用到，可放分包目录内，不进主包。
 
 * **JS 运行时**：shared 保持 tsc `target` 保守（ES2018 以下，微信基础库 2.x 全支持）；避免在 shared 里用 `?.`、`??` 等新语法（或确认开发者工具 "增强编译" 开启后统一约束，二选一并写进 shared 的贡献规范）。
 

@@ -12,9 +12,7 @@ import { createQuotaApi } from './quota.js';
 import { createRegistryApi } from './registry.js';
 import { createBadgesApi } from './badges.js';
 import { createScoresApi } from './scores.js';
-import {
-  CAMPUS_NAMES, CAMPUS_INFO,
-} from './campuses.js';
+import type { CampusInfo } from './campuses.js';
 
 export type { DataLoaders };
 
@@ -58,9 +56,8 @@ export function createRepository(loaders: DataLoaders) {
     ...badges,
     ...scores,
 
-    /** 校区常量（21 省市属校区，官方名额分配原文名；键序=官方汇总表顺序） */
-    CAMPUS_NAMES,
-    CAMPUS_INFO,
+    /** 21 省市属校区（官方汇总表顺序；id 优先 join 实体表，null=实体表缺口原文保底） */
+    campuses: loaders.quotaMatrix.campuses ?? [],
   };
 }
 

@@ -1,10 +1,9 @@
 /**
  * 真源冗余优化（幂等，可审计）：
- *   1. quota_matrix.json：sz 稀疏化 —— 省略 null 键（40% 单元格为 null），
+ *   1. dist/quota_matrix.json：sz 稀疏化 —— 省略 null 键（40% 单元格为 null），
  *      消费侧统一用 `?? 0`，缺失键 === null，零代码改动。
- *   2. batch2_scores.json：删除 admitted:false 且无分数的记录（542 条）。
- *      前端只消费 min_score/last_score，false 记录消费结果与"无记录"一致；
- *      删除后顺带消除合并表里的全空行。
+ *   2.（原 batch2 删 admitted:false + middle_school_ids 裁剪已并入 C 层 backfill，
+ *      此脚本不再处理 batch2。）
  * 运行：node scripts/data/optimize_redundancy.mjs
  * 输出：写回真源 JSON（1 空格缩进、无尾换行，与现有格式一致）+ 变更统计
  */
@@ -24,7 +23,7 @@ const report = {};
 
 /* ========== 1) quota_matrix.sz 稀疏化 ========== */
 {
-  const p = 'data/linkage/quota_matrix.json';
+  const p = 'data/linkage/dist/quota_matrix.json';
   const q = read(p);
   let removed = 0;
   for (const s of q.schools) {
@@ -41,21 +40,5 @@ const report = {};
   report.quota_matrix = { null_cells_removed: removed };
 }
 
-/* ========== 2) batch2_scores 删 admitted:false 记录 ========== */
-{
-  const p = 'data/linkage/batch2_scores.json';
-  const b = read(p);
-  let removed = 0;
-  for (const [hs, inner] of Object.entries(b.data || {})) {
-    for (const [sch, rec] of Object.entries(inner)) {
-      if (rec.admitted === false) {
-        delete inner[sch];
-        removed += 1;
-      }
-    }
-  }
-  write(p, b);
-  report.batch2_scores = { false_records_removed: removed };
-}
 
 console.log('[optimize_redundancy]', JSON.stringify(report, null, 2));

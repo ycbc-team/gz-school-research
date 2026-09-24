@@ -20,7 +20,7 @@
 | 实体表 | `data/registry/entity/` | `school_id` 维度枢纽，POI—Entity—Fact 三分离；SchoolMatcher 别名桥接 | [`data/registry/entity/README.md`](data/registry/entity/README.md) |
 | 教育集团 | `data/registry/group/` | 政府源→成员→校区解析、品牌关联、P0–P4 任务状态 | [`data/registry/group/README.md`](data/registry/group/README.md) |
 | 民办名单 | `data/registry/private/` | 民办学校真源（官方年检 + 7 区采集） | [`data/registry/private/README.md`](data/registry/private/README.md) |
-| 升学通道数据 | `data/linkage/` | 名额分配矩阵、第二批次录取分、自招/特长生名单、初中升学信号；含 **OCR 方案记录**（踩坑/已弃用方案） | [`data/linkage/README.md`](data/linkage/README.md) |
+| 升学通道数据 | `data/linkage/` | 名额分配矩阵、第二批次录取分、自招/特长生名单、初中升学信号；OCR 方案记录见 `data/linkage/docs/` | [`data/linkage/README.md`](data/linkage/README.md) |
 | 调研文档 | `docs/` | 架构说明（architecture.md）、数据源调研、分析报告、新校核对清单 | `docs/architecture.md` |
 
 ## 顶层目录结构

@@ -78,6 +78,15 @@ export function createRegistryApi(loaders: DataLoaders) {
       }
     }
   }
+  // 品牌源 units（school_ids 数组）同样入索引：省市属品牌（华附/广雅/铁一等）走 brand_groups，
+  // 漏收会丢品牌卡（如黄埔铁英 = c80ac6ac + adb9c303 两个实体）。
+  for (const bg of loaders.brandGroups?.brands || []) {
+    for (const unit of bg.units || []) {
+      for (const id of unit.school_ids || []) {
+        if (!schoolGroupMap[id]) schoolGroupMap[id] = { brand: bg.brand, source: 'brand' };
+      }
+    }
+  }
   const nonGroupMultiCampuses = loaders.nonGroupMultiCampuses;
   const multiCampusFamilyOfSchool: Record<string, string> = {};
   for (const [familyKey, schoolIds] of Object.entries(nonGroupMultiCampuses || {})) {

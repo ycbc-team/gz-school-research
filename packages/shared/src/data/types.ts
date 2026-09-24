@@ -1,56 +1,85 @@
 /**
  * 业务数据层共享类型（原 apps/web/src/data/index.ts 定义，迁移到 @gz/shared）。
  * 真源结构由 scripts/ 保证，类型与真源字段对齐。
+ *
+ * 2026-09-24 精简口径（用户拍板）：dist 只保留有前端引用的最精简字段，
+ * 调试字段（page/row/sz_sum/districts/note 等）只进 canonical（快照覆盖）。
+ * 行/键主键 id 优先：有 school_id 的键/行进 ids，仅无 id 匹配保留原文名进 schools，
+ * 前端展示"id 实体名可点击跳转 + school 名不可点击跳转"。
  */
 import type { XiaoshengchuRecord } from '../types.js';
 
-/** 名额分配：一所初中的行记录（quota_matrix.schools 元素） */
-export interface QuotaSchool {
-  page: number;
-  row: number;
-  school: string;
-  /** 实体表外键（backfill_school_ids.py 回填；未命中实体则无此字段） */
-  school_id?: string;
-  /** 法人多校区（官方升学文件按法人单位公布，backfill 由实体表去括号校区推导生成）；
-   *  仅法人行（无校区括号）存在，含 school_id 本身；前端升学信息按法人聚合、各校区分别跳转 */
-  school_ids?: string[];
+/** 名额分配：初中行（dist quota_matrix.ids 元素；有 school_id，前端 join 实体表展示实体名） */
+export interface QuotaRowId {
+  district: string | null;
   kaosheng: number | null; // 名额考生数 m_j
   sheng_quota: number | null; // 省市属名额
   qu_quota: number | null; // 区属名额
-  sz: Record<string, number | null>; // 21 省市属校区指标数 n_ji（稀疏化后缺失键 === null）
-  sz_sum: number;
-  is_district_head?: boolean;
-  district: string | null;
+  /** 21 省市属校区指标数 n_ji（id 键，只存非零；实体表缺口校区在 sz_schools 原文保底） */
+  sz?: Record<string, number>;
+  /** 实体表缺口的省市属校区指标（官方原文名 → 数，无实体不可跳转；2026 为广雅花都/六中从化/六中花都） */
+  sz_schools?: Record<string, number>;
+  school_id: string;
+  /** 法人多校区（官方升学文件按法人单位公布，backfill 由实体表去括号校区推导生成）；
+   *  仅法人行存在，含 school_id 本身；前端升学信息按法人聚合、各校区分别跳转 */
+  school_ids?: string[];
 }
+/** 名额分配：初中行（dist quota_matrix.schools 元素；无实体 id，原文兜底展示、不可点击跳转） */
+export interface QuotaRowName {
+  district: string | null;
+  kaosheng: number | null;
+  sheng_quota: number | null;
+  qu_quota: number | null;
+  sz?: Record<string, number>;
+  sz_schools?: Record<string, number>;
+  school: string;
+}
+/** 配额行统一视图（查询域使用：两种行按 locator 分别命中） */
+export type QuotaSchool = QuotaRowId | QuotaRowName;
 export interface QuotaMatrix {
-  schools: QuotaSchool[];
-  districts: string[];
+  ids: QuotaRowId[];
+  schools: QuotaRowName[];
+  /** 官方名单原文名 → 法人行 school_id（py 层 backfill 生成：法人聚合/主 id 归一等
+   *  全部名称推断在数据层完成，运行时只做 id 精准匹配） */
+  name_index: Record<string, string>;
+  /** 21 省市属校区（官方汇总表顺序）：id=高中实体 school_id（18，前端 join 实体表展示名）；
+   *  id=null 为实体表缺口校区（3），name 为官方原文保底展示；school=归属法人名（官方原文去括号） */
+  campuses: Array<{ id: string | null; name: string; school: string }>;
 }
 
-/** 特招通道：high_schools 校区列表 + matrix[初中名][高中全称] */
+/** 特招通道：计划数 + 名单外键（资格名单计数矩阵已于 2026-09 废弃）
+ *  dist 键全为实体 school_id（构建期 SchoolMatcher resolve）；实体表缺口原文在
+ *  *_schools 保底（无实体无详情页，仅数据完整性）。canonical 保留原文可溯源。 */
 export interface SpecialMatrix {
-  high_schools: string[];
-  matrix: Record<string, Record<string, { sports?: number; arts?: number; autonomy?: number }>>;
-  /** 官方第一批招生单位原文 → 高中实体外键；null=未收录实体，只保留原文展示，禁止名称兜底 */
-  high_school_ids?: Record<string, string | null>;
-  /** 初中名 → 实体 school_id（backfill 回填；官方名唯一外键） */
-  middle_school_ids?: Record<string, string>;
-  /** 2026 自主招生计划（官方汇总表，原文名 → 计划数）；计划数≠资格名单人数≠录取人数 */
+  /** 2026 自主招生计划（高中实体 school_id → 计划数）；计划数≠资格名单人数≠录取人数 */
   autonomy_plan?: Record<string, number>;
-  /** autonomy_plan 的 normName 归一索引（前端查询兜底） */
-  autonomy_plan_norm?: Record<string, number>;
+  /** 实体表缺口的自招单位原文 → 计划数（2026 为广雅花都/六中从化/花都、增城/从化区属校等） */
+  autonomy_plan_schools?: Record<string, number>;
+  /** 2026 体育/艺术特长生计划（实体 school_id 外键 → 计划数/项目明细；值内 name 已删，实体名 join 实体表） */
+  special_plan?: Record<string, {
+    sports?: number;
+    arts?: number;
+    sports_projects?: Array<{ project: string; plan: number; note?: string }>;
+    arts_projects?: Array<{ project: string; plan: number; note?: string }>;
+  }>;
 }
 
 /** 第二批次录取分数记录（值 = 校区 → 记录；无分数的 false 记录已在数据治理中删除） */
+/** 第二批次录取分数单元格（初中×高中对）——dist 精简版：只保留前端消费的 min_score
+ *  （录取最低分）；admitted/last_score（末位考生分数）/rows 是 canonical 业务/调试字段，
+ *  可溯源但运行时不需要（null 行即 admitted:false 已在构建期删除）。 */
 export interface Batch2Record {
-  admitted?: boolean;
   min_score?: number | null;
-  last_score?: number | null;
 }
+/** 第二批次（dist）：外层键（高中校区）与内层键（初中）各自 id 优先 + 原文兜底 */
 export interface Batch2Scores {
-  data: Record<string, Record<string, Batch2Record>>;
-  /** 初中名 → 实体 school_id（backfill 回填；官方名唯一外键） */
-  middle_school_ids?: Record<string, string>;
+  ids: Record<string, { ids: Record<string, Batch2Record>; schools: Record<string, Batch2Record> }>;
+  schools: Record<string, { ids: Record<string, Batch2Record>; schools: Record<string, Batch2Record> }>;
+}
+/** 区属指标到校（dist）：外层键（初中）与内层键（区属高中）各自 id 优先 + 原文兜底 */
+export interface DistrictQuota {
+  ids: Record<string, { ids: Record<string, number>; schools: Record<string, number> }>;
+  schools: Record<string, { ids: Record<string, number>; schools: Record<string, number> }>;
 }
 
 /** 高中统招录取分数记录（data/high/cutoff_score/dist/scores_{year}.json，官方招考办发布；按 school_id 引用实体表） */

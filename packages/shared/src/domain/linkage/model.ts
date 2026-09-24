@@ -60,7 +60,7 @@ function normCampus(s: string): string {
 
 /** special 名单原文 → 名额分配原文校名（跨源键对齐） */
 export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, repo: Repository, schoolId?: string | null): LinkageModel {
-  const { CAMPUS_NAMES, CAMPUS_INFO } = repo;
+  const campuses = repo.campuses;
   /** school_id → 实体 POI 名（跳转目标归一：有实体才可跳详情页） */
   const poiNameOf = (schoolId: string | null | undefined): string | null => {
     if (!schoolId) return null;
@@ -70,29 +70,65 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
   const resolvePoi = (name: string): string | null => repo.resolvePoiName?.(name) ?? null;
   /** 行跳转目标：优先用校区官方原文名（精确到校区实体），学校名兜底（多校区歧义时取第一个实体） */
   const poiOfRow = (campusFull: string, school: string): string | null => resolvePoi(campusFull) ?? resolvePoi(school);
+  /** dist 键可能是 school_id（ids 层）或原文名（schools 层）：统一转展示名（实体表 join） */
+  const nameOfKey = (k: string): string => {
+    const e = repo.entities.find((x) => x.school_id === k);
+    return e ? e.name : k;
+  };
+  /** 键 → POI 跳转名：id 层直接实体名（精确到校区）；原文层 resolvePoi 容错 */
+  const poiOfKey = (k: string): string | null => {
+    const e = repo.entities.find((x) => x.school_id === k);
+    return e ? e.name : resolvePoi(k);
+  };
 
-  /** 法人行 school_ids → 各校区跳转链接（升学信息按法人聚合展示，各校区分别跳转各自详情页） */
-  const campusesOf = (q: QuotaSchool | undefined): CampusLink[] =>
-    (q?.school_ids || []).map((sid) => {
-      const pn = poiNameOf(sid);
-      return { schoolId: sid, poiName: pn, campus: pn || sid };
-    });
+  /** school_id → 校区跳转链接 */
+  const linkOf = (sid: string): CampusLink => {
+    const pn = poiNameOf(sid);
+    return { schoolId: sid, poiName: pn, campus: pn || sid };
+  };
+  /** 法人行 school_ids → 校区跳转链接（升学信息按法人聚合展示，各校区分别跳转各自详情页）。
+   *  单校区收敛完全由数据层完成：backfill 对校区级官方名单名 school_ids 只写该校区
+   *  （SchoolMatcher resolve 精确结果），法人名才写全部校区——运行时只做 id 精准映射，
+   *  不做任何名称匹配/推断。 */
+  const campusesOf = (q: QuotaSchool | undefined): CampusLink[] => {
+    if (!q || !('school_ids' in q)) return [];
+    return (q.school_ids || []).map(linkOf);
+  };
 
   if (stage === 'middle') {
     const quota = repo.linkageOf(schoolName);
     const quotaRows = quota
-      ? CAMPUS_NAMES.filter((c) => (quota.sz[c] ?? 0) > 0)
-          .map((c) => ({ campus: c, campusFull: c, school: CAMPUS_INFO[c]!.school, poiName: poiOfRow(c, CAMPUS_INFO[c]!.school), n: quota.sz[c] as number }))
+      ? campuses
+          .map((c) => {
+            // sz 键=校区实体 id；实体表缺口校区在 sz_schools（官方原文键）保底，展示不可跳转
+            const n = c.id ? (quota.sz?.[c.id] ?? 0) : (quota.sz_schools?.[c.name] ?? 0);
+            if (n <= 0) return null;
+            const poi = c.id ? poiNameOf(c.id) : null;
+            return {
+              campus: c.name, // 与 batch2 原文键对齐（merge 用）
+              campusFull: poi ?? c.name, // 展示名：实体名优先，缺口校区官方原文
+              school: c.school,
+              poiName: poi, // 有实体可跳高中详情页；缺口校区 null 不可点
+              n,
+            };
+          })
+          .filter((x): x is NonNullable<typeof x> => x !== null)
           .sort((a, b) => b.n - a.n)
       : [];
-    const batchRows = Object.entries(repo.batch2Of(schoolName)).map(([k, v]) => ({
-      campus: k,
-      campusFull: k,
-      school: CAMPUS_INFO[k]?.school ?? normCampus(k),
-      poiName: CAMPUS_INFO[k] ? poiOfRow(k, CAMPUS_INFO[k]!.school) : resolvePoi(k),
-      min: v.min_score,
-      last: v.last_score,
-    }));
+    const campusByRaw = new Map(campuses.map((c) => [c.name, c]));
+    const batchRows = Object.entries(repo.batch2Of(schoolName)).map(([k, v]) => {
+      const nm = nameOfKey(k);
+      const ci = campusByRaw.get(k) ?? campusByRaw.get(nm);
+      return {
+        campus: nm, // 与 quotaRows 的 CAMPUS_NAMES 对齐（实体校区名=官方原文）
+        campusFull: nm,
+        school: ci?.school ?? nm,
+        // 有实体校区可跳转（实体名）；实体表缺口校区（ci.id=null）不可跳转——不得让
+        // resolvePoi 名称容错把缺口校区指到别的校区（如广雅花都→荔湾）
+        poiName: ci ? (ci.id ? poiOfRow(nm, ci.school) : null) : poiOfKey(k),
+        min: v.min_score,
+      };
+    });
     const qmap = new Map<string, { campus: string; campusFull: string; school: string; poiName: string | null; n: number }>(quotaRows.map((r) => [r.campus, r]));
     const bmap = new Map<string, { campus: string; campusFull: string; school: string; poiName: string | null; min: number | null }>(
       batchRows.map((r) => [r.campus, { campus: r.campus, campusFull: r.campusFull, school: r.school, poiName: r.poiName, min: r.min ?? null }]),
@@ -112,7 +148,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
       })
       .sort((a, b) => (b.n ?? 0) - (a.n ?? 0));
     const districtRows: DistrictRow[] = Object.entries(repo.districtQuotaOf(schoolName))
-      .map(([name, n]) => ({ name, poiName: resolvePoi(name), n }))
+      .map(([k, n]) => ({ name: nameOfKey(k), poiName: poiOfKey(k), n }))
       .sort((a, b) => b.n - a.n);
     return {
       quota: quota ? { kaosheng: quota.kaosheng, sheng_quota: quota.sheng_quota, qu_quota: quota.qu_quota } : null,
@@ -135,17 +171,17 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
   // high：第一批按 school_id 精确查询；名称仅用于第二批历史兼容查询。
   // 1) 全半角统一后精确匹配校区键 → 只展示该校区；2) 传入归属学校名（无校区）时兼容聚合全部校区
   const zq = (s: string) => s.replace(/（/g, '(').replace(/）/g, ')');
-  const exactCampuses = CAMPUS_NAMES.filter((c) => zq(c) === zq(schoolName));
+  // 高中详情页：传入校区实体名 → 精确命中该校区；传入法人名（无校区）→ 聚合全部校区
+  const exactCampuses = campuses.filter((c) => c.id && zq(poiNameOf(c.id) ?? '') === zq(schoolName));
   const target = normCampus(schoolName);
   const highCampuses =
     exactCampuses.length > 0
       ? exactCampuses
-      : CAMPUS_NAMES.filter(
-          (c) => normCampus(CAMPUS_INFO[c]!.school) === target || CAMPUS_INFO[c]!.school === schoolName,
-        );
+      : campuses.filter((c) => normCampus(c.school) === target || c.school === schoolName);
   const mergedCover = new Map<string, { n: number; districts: Set<string>; schoolId: string | null }>();
   for (const c of highCampuses) {
-    for (const { school, school_id, n, district } of repo.quotaCoverage(c)) {
+    if (!c.id) continue; // 实体表缺口校区无详情页，不参与反查
+    for (const { school, school_id, n, district } of repo.quotaCoverage(c.id)) {
       const m = mergedCover.get(school) || { n: 0, districts: new Set<string>(), schoolId: null };
       m.n += n;
       if (district) m.districts.add(district);
@@ -162,7 +198,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     .slice(0, 50)
     .map((r) => ({ school: r.school, poiName: poiNameOf(r.school_id), n: r.n, campuses: campusesOf(repo.linkageOf(r.school)) }));
 
-  const autonomyPlan = stage === 'high' ? repo.autonomyPlanOf(schoolName) : null;
+  const autonomyPlan = stage === 'high' ? repo.autonomyPlanOf(schoolId) : null;
   const specialPlan = stage === 'high' && schoolId ? repo.specialPlanOf(schoolId) : null;
   const planNotes: ('reserve' | 'lingjun')[] = [];
   if (specialPlan?.sportsProjects?.some((p) => p.note?.includes('体育后备人才'))) planNotes.push('reserve');

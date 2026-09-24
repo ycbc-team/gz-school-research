@@ -8,28 +8,46 @@
  * 合规口径：对外以"名额分配/录取分数/招生计划"官方数据为主，梯队与特控率为内部权重。
  */
 import { computed, ref } from 'vue';
-import { quotaMatrix, CAMPUS_NAMES, CAMPUS_INFO, resolvePoiName, specialHighSchoolId } from '../data';
+import { quotaMatrix, campuses, resolvePoiName, entities } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
-const ALL_SCHOOLS = [...quotaMatrix.schools].sort((a, b) => a.school.localeCompare(b.school, 'zh'));
+/** dist 精简后 ids 行无 school 名：展示列表由实体表 join（ids 行实体名可跳转 + schools 行原文不可跳转） */
+const entityById = new Map(
+  (entities.entities as Array<{ school_id: string; name: string }>).map((e) => [e.school_id, e.name]),
+);
+type RowView = {
+  school: string;
+  district: string | null;
+  kaosheng: number | null;
+  school_id?: string;
+  school_ids?: string[];
+};
+const ALL_SCHOOLS: RowView[] = [
+  ...quotaMatrix.ids.map((s) => ({ school: entityById.get(s.school_id) ?? s.school_id, district: s.district, kaosheng: s.kaosheng, school_id: s.school_id, school_ids: s.school_ids })),
+  ...quotaMatrix.schools.map((s) => ({ school: s.school, district: s.district, kaosheng: s.kaosheng })),
+].sort((a, b) => a.school.localeCompare(b.school, 'zh'));
 
 /* ========== 初中视角 ========== */
 const kw = ref('');
-const middleSel = ref<string>(ALL_SCHOOLS.find((s) => s.school === '广州市第一中学')?.school || ALL_SCHOOLS[0]?.school || '');
+const middleSel = ref<string>(ALL_SCHOOLS.find((s) => s.school.includes('广州市第一中学'))?.school || ALL_SCHOOLS[0]?.school || '');
 const filteredSchools = computed(() => {
   const k = kw.value.trim();
   if (!k) return [];
   return ALL_SCHOOLS.filter((s) => s.school.includes(k)).slice(0, 12);
 });
 const selectedSchool = computed(() => ALL_SCHOOLS.find((s) => s.school === middleSel.value));
-/** 详情跳转目标：官方名 → 实体 POI 名（解析不到不渲染链接，避免跳转异常页） */
-const selectedSchoolPoi = computed(() => (selectedSchool.value ? resolvePoiName(selectedSchool.value.school) : null));
+/** 详情跳转目标：ids 行直接实体名（school_id 外键精确）；schools 行原文解析不到不渲染链接 */
+const selectedSchoolPoi = computed(() => {
+  const s = selectedSchool.value;
+  if (!s) return null;
+  return s.school_id ? (entityById.get(s.school_id) ?? null) : resolvePoiName(s.school);
+});
 
 /* ========== 高中视角 ========== */
-const highSel = ref<string>(CAMPUS_NAMES[0]!);
-const highSchoolName = computed(() => CAMPUS_INFO[highSel.value]!.school);
-/** 第一批特殊招生以官方招生单位→实体 ID 的构建期映射定位，不按校名反查。 */
-const highSchoolId = computed(() => specialHighSchoolId(highSel.value));
+const highSel = ref<string>(campuses[0]!.name);
+const highSchoolName = computed(() => campuses.find((c) => c.name === highSel.value)?.school ?? '');
+/** 高中校区实体 id（21 校区中实体表缺口校区无 id → 不传，特殊通道不展示） */
+const highSchoolId = computed(() => campuses.find((c) => c.name === highSel.value)?.id ?? undefined);
 
 /* ========== 通用 ========== */
 const pickSchool = (name: string) => {
@@ -77,12 +95,12 @@ const pickSchool = (name: string) => {
       <div class="card-title">② 选省市属学校 → 看名额覆盖</div>
       <div class="chips">
         <button
-          v-for="c in CAMPUS_NAMES"
-          :key="c"
+          v-for="c in campuses"
+          :key="c.name"
           class="chip"
-          :class="{ on: c === highSel }"
-          @click="highSel = c"
-        >{{ c }}</button>
+          :class="{ on: c.name === highSel }"
+          @click="highSel = c.name"
+        >{{ c.name }}</button>
       </div>
       <p class="sub-note">当前：{{ highSchoolName }} · {{ highSel }}（各高中校区名额分配 / 自招计划独立展示）</p>
 

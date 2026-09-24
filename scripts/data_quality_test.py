@@ -406,13 +406,18 @@ def main():
             if _r.get("school_id"): _mid_enroll_ids.add(_r["school_id"])
             for _s in _r.get("school_ids") or []: _mid_enroll_ids.add(_s)
     _xs_ids = {r.get("school_id") for r in json.load(open(os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_2026.json"))).get("records", []) if r.get("school_id")}
-    _rm_ids = {s.get("school_id") for s in json.load(open(os.path.join(ROOT, "data/linkage/ranking_middle.json"))).get("schools", []) if s.get("school_id")}
-    _qm_names = {s.get("school") for s in json.load(open(os.path.join(ROOT, "data/linkage/quota_matrix.json"))).get("schools", []) if s.get("school")}
+    _rm_ids = {s.get("school_id") for s in json.load(open(os.path.join(ROOT, "data/linkage/dist/ranking_middle.json"))).get("schools", []) if s.get("school_id")}
+    _qm = json.load(open(os.path.join(ROOT, "data/linkage/dist/quota_matrix.json")))
+    # 重构后 dist 主数据在 ids（id 化），schools 只剩 164 所未匹配原文保底——两侧都算「有升学」；
+    # 官方原文名全集用顶层 name_index（dist ids 行已无 school 文本字段）。
+    _qm_names = set(_qm.get("name_index", {}).keys()) | {s.get("school") for s in _qm.get("schools", []) if s.get("school")}
     # 法人行 school_ids 也算「有升学」：校区实体升学信息聚合在法人行（school_ids 数组），
     # 避免主 id 归一（法人行主 id 指向本部后）把校区实体误判为无升学孤儿。
-    _qm_school_ids = {i for s in json.load(open(os.path.join(ROOT, "data/linkage/quota_matrix.json"))).get("schools", []) for i in (s.get("school_ids") or [])}
-    # 招生法人行升学覆盖：官方初中招生按法人行公布（school_ids 含全部校区实体），升学
-    # （指标/名额）同样按法人行挂载（如竹料第一中学 78d61733 北校区）。校区实体
+    # dist 重构后主数据在 ids（id 化），schools 只剩 164 所未匹配原文保底——两侧都算「有升学」；
+    # 漏读 ids 会丢失 id 化法人行的 school_ids（孤儿判定曾因此大面积误报）。
+    _qm_school_ids = {i for s in list(_qm.get("ids", [])) + list(_qm.get("schools", [])) for i in (s.get("school_ids") or [])}
+    # 招生法人行升学覆盖（data_feature）：官方初中招生按法人行公布（school_ids 含全部校区实体），
+    # 升学（指标/名额）同样按法人行挂载（如竹料第一中学 78d61733 北校区）。校区实体
     # （如竹料本部 fd1c1c12）不单列升学属正常业务——同招生记录内任一实体有升学，
     # 记录内全部校区实体视为升学聚合在法人行，不判「无升学」孤儿（玉泉中学部同例）。
     _mid_link_covered = set()
@@ -451,9 +456,23 @@ def main():
             if _e["school_id"] in _MID_LEFT_NOTE_SIDS:
                 continue  # 业务确认合理无招生（src/leftover_notes.json），非孤儿
             if _e["school_id"] not in _mid_enroll_ids: _lacks.append("无招生")
-            if _e["school_id"] not in _rm_ids and _e["school_id"] not in _qm_school_ids \
-                    and _e["name"] not in _qm_names and _e["school_id"] not in _mid_link_covered:
-                _lacks.append("无升学")
+            _has_quota = _e["school_id"] in _rm_ids or _e["school_id"] in _qm_school_ids or _e["name"] in _qm_names
+            if not _has_quota:
+                # 法人聚合（backfill 同款口径）：裸名法人实体的升学在其校区行（如白云中学本部
+                # → 棠景/汇侨行 school_ids），实体自身无行不算缺口——同 core 任一 middle 实体有升学即算。
+                _core = re.sub(r"(校区|分校|初中部|高中部|小学部)$", "",
+                               re.sub(r"[（(][^）)]*[）)]", "", re.sub(r"^广州市", "", _e["name"] or "").strip()).strip())
+                _has_quota = any(
+                    x.get("stage") == "middle" and x.get("name")
+                    and re.sub(r"(校区|分校|初中部|高中部|小学部)$", "",
+                               re.sub(r"[（(][^）)]*[）)]", "", re.sub(r"^广州市", "", x["name"]).strip()).strip()) == _core
+                    and (x["school_id"] in _rm_ids or x["school_id"] in _qm_school_ids or x["name"] in _qm_names)
+                    for x in entities
+                )
+            # 招生法人行覆盖（data_feature）：招生记录内任一校区有升学 → 同记录全部校区不算孤儿
+            if not _has_quota and _e["school_id"] in _mid_link_covered:
+                _has_quota = True
+            if not _has_quota: _lacks.append("无升学")
         else:  # high
             if _e["school_id"] not in _sc26 and _e["school_id"] not in _sc25: _lacks.append("无招生")
             if _lacks: _lacks.append("无升学(高考未采集)")
@@ -573,7 +592,7 @@ def main():
         check(not _cdiff, f"[12] 同段同址候选漂移（{len(_cdiff)} 处）：\n" + "\n".join(_cdiff[:60]))
 
     # ---- 14. 2026 特长生计划官方口径（体育1905不含领军龙 / 艺术1741 / 领军龙116） ----
-    _sp = json.load(open(os.path.join(ROOT, "data/linkage/special_matrix.json"))).get("special_plan_summary", {})
+    _sp = json.load(open(os.path.join(ROOT, "data/linkage/parsed/canonical/special_matrix.json"))).get("special_plan_summary", {})
     check(_sp.get("sports") == 1905, f"[14] 特长生体育计划合计 {_sp.get('sports')} != 1905（官方口径，不含领军龙）")
     check(_sp.get("arts") == 1741, f"[14] 特长生艺术计划合计 {_sp.get('arts')} != 1741（官方口径）")
     check(_sp.get("football_special") == 116, f"[14] 领军龙足球试点计划 {_sp.get('football_special')} != 116（官方口径）")
@@ -659,8 +678,14 @@ def main():
     # 任何有 group 的明细行，其 school_id / school_ids 中至少一个必须命中产物且 brand 一致，
     # 否则说明产物漏收（该学校会从集团分组丢失）。无 school_id 的行不应有 group
     # （名称匹配已从运行时删除；如三元里中学 = entities 无实体，属待补真源的数据缺口）。
-    _sg = {m["school_id"]: g["brand"] for g in groups for m in g.get("members", []) if m.get("school_id")}
-    _rm = json.load(open(os.path.join(ROOT, "data/linkage/ranking_middle.json")))["schools"]
+    # education_groups 为集团唯一运行时产物（school_groups.json 已废弃删除）；
+    # 一校可属多个集团（如黄埔军校中学=黄埔广附+广大附），school_id 索引为多值 set。
+    _sg = {}
+    for _g in json.load(open(os.path.join(ROOT, "data/registry/group/dist/education_groups.json")))["groups"]:
+        for _m in _g.get("members") or []:
+            if _m.get("school_id"):
+                _sg.setdefault(_m["school_id"], set()).add(_g["brand"])
+    _rm = json.load(open(os.path.join(ROOT, "data/linkage/dist/ranking_middle.json")))["schools"]
     _orphan = 0
     for _s in _rm:
         _g = _s.get("group") or {}
@@ -669,8 +694,8 @@ def main():
         _ids = [i for i in [_s.get("school_id")] + list(_s.get("school_ids") or []) if i and i in _sg]
         if not _ids:
             _orphan += 1
-            check(False, f"[19] 明细 {_s['name']} 有 group 但 school_id(s) 无 school_groups 产物支撑: {_g.get('brand')}")
-        elif _sg[_ids[0]] != _g["brand"]:
+            check(False, f"[19] 明细 {_s['name']} 有 group 但 school_id(s) 无 education_groups 产物支撑: {_g.get('brand')}")
+        elif not any(_b == _g["brand"] for _i in _ids for _b in _sg[_i]):
             check(False, f"[19] 明细 {_s['name']} 产物 brand 不一致: 产物={_sg[_ids[0]]} 明细={_g['brand']}")
     _section_lines.append(f"[19] 明细分组-产物一致性: {sum(1 for s in _rm if s.get('group'))} 有 group，{_orphan} 孤儿（0 容忍）")
 

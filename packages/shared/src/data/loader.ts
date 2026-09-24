@@ -14,7 +14,7 @@ import type {
   MiddleMechanismDef,
   MiddleEnrollmentGroups,
 } from '../types.js';
-import type { QuotaMatrix, SpecialMatrix, Batch2Scores, HighScores, BrandGroups, EducationGroups } from './types.js';
+import type { QuotaMatrix, SpecialMatrix, Batch2Scores, DistrictQuota, HighScores, BrandGroups, EducationGroups } from './types.js';
 
 export interface DataLoaders {
   primarySchools: SchoolsSnapshot;
@@ -38,8 +38,8 @@ export interface DataLoaders {
   /** 高中统招录取分数（官方招考办，2025/2026 两年；按 school_id 引用实体表） */
   highScores2025: HighScores;
   highScores2026: HighScores;
-  /** 区属指标到校（另一 agent 数据）；初中名 → 实体 school_id 由 backfill 回填 */
-  districtQuota: { data: Record<string, Record<string, number>>; middle_school_ids?: Record<string, string> };
+  /** 区属指标到校（另一 agent 数据；dist 双层 ids/schools 并行，backfill 键 id 化） */
+  districtQuota: DistrictQuota;
   /** 实体注册表（school_id 外键 → 名称/别名/办学性质）；nature=民办 为办学性质唯一真源（公办不写字段） */
   entities: { entities: Array<{ school_id: string; name: string; stage: string; aliases: string[]; nature?: string }> };
   /** 小学 2026 升学路线事实表（group 提为顶层 groups，记录按 group_id 引用） */
@@ -58,7 +58,7 @@ export interface DataLoaders {
   educationGroups?: EducationGroups;
   /** 未入教育集团的同法人多校区（实体表构建期推导；详情页仅作集团缺省时的关联展示） */
   nonGroupMultiCampuses?: Record<string, string[]>;
-  /** 初中升学信号排行榜基础表（自招/指标到校/特控率聚合，见 scripts/linkage/build_ranking_middle.py） */
+  /** 初中升学信号排行榜基础表（自招/指标到校/特控率聚合，见 data/linkage/scripts/build_ranking_middle.py） */
   rankingMiddle: {
     schools: Array<{
       name: string; school_id?: string | null; district: string;

@@ -18,7 +18,7 @@ export function normName(s: string): string {
 /**
  * 归一 + 学部/校区后缀容错：normName 后再去掉尾部「初中部/高中部/小学部/校区/分校/学校/部」。
  * 用于官方名单原文（无学部后缀）与 POI 名（普遍带「(初中部)/(高中部)」）的跨源全等匹配。
- * 仅全等匹配（不模糊），不会误配；与 scripts/linkage/backfill_school_ids.py 的 loose 规则一致。
+ * 仅全等匹配（不模糊），不会误配；与 data/linkage/scripts/backfill_school_ids.py 的 loose 规则一致。
  */
 export function looseNorm(s: string): string {
   return normName(s).replace(/(初中部|高中部|小学部|校区|分校|学校|部)$/, '');

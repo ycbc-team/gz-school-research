@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-"""解析 2026 第二批次录取分数 PDF（初中×高中 上岸分数）→ raw JSON"""
+"""解析 2026 第二批次录取分数 PDF（初中×高中 上岸分数）→ parsed JSON"""
 import json, re, sys
 import pdfplumber
 
 RAW = 'data/linkage/raw/batch2_scores.pdf'
-OUT = 'data/linkage/raw/batch2_scores_all.json'
+OUT = 'data/linkage/parsed/batch2_scores_all.json'
 
 def norm(s):
     return re.sub(r'\s+', '', (s or '')).strip()

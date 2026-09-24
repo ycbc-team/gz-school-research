@@ -1,4 +1,5 @@
 {
+ "title": "第二批次（名额分配）录取分数规范表（B 层）",
  "updated": "2026-09-09",
  "scope": "省市属示范11所（含全部校区）",
  "source": "广州市招考办《2026年广州市高中阶段学校招生录取分数（第二批次招生学校）（按初中学校排序）》",
@@ -22,6 +23,12 @@
     "admitted": true,
     "min_score": 749,
     "last_score": 749,
+    "rows": 1
+   },
+   "华南师范大学附属南沙中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "华南师范大学附属花都学校": {
@@ -144,6 +151,24 @@
     "last_score": 748,
     "rows": 1
    },
+   "广州市从化区城郊中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区太平第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区河东中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区流溪中学": {
     "admitted": true,
     "min_score": 726,
@@ -156,10 +181,28 @@
     "last_score": 747,
     "rows": 1
    },
+   "广州市从化区第七中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区第四中学": {
     "admitted": true,
     "min_score": 751,
     "last_score": 751,
+    "rows": 1
+   },
+   "广州市从化区鳌头中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市南武中学": {
@@ -172,6 +215,24 @@
     "admitted": true,
     "min_score": 738,
     "last_score": 738,
+    "rows": 1
+   },
+   "广州市南沙万顷沙中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙东涌中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙区新垦学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市南沙区湾区实验学校": {
@@ -204,10 +265,22 @@
     "last_score": 750,
     "rows": 1
    },
+   "广州市增城区三江中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区东江外语实验学校": {
     "admitted": true,
     "min_score": 763,
     "last_score": 763,
+    "rows": 1
+   },
+   "广州市增城区中新镇福和中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区华南师范大学附属增江学校": {
@@ -222,10 +295,28 @@
     "last_score": 767,
     "rows": 1
    },
+   "广州市增城区小楼中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区应元学校": {
     "admitted": true,
     "min_score": 759,
     "last_score": 759,
+    "rows": 1
+   },
+   "广州市增城区挂绿实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区新塘镇第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区暨实学校": {
@@ -270,6 +361,18 @@
     "last_score": 711,
     "rows": 1
    },
+   "广州市增城区荔城街第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市天河区新蕾五星学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市天河区明珠中英文学校": {
     "admitted": true,
     "min_score": 745,
@@ -292,6 +395,12 @@
     "admitted": true,
     "min_score": 757,
     "last_score": 757,
+    "rows": 1
+   },
+   "广州市广园中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市执信中学南沙学校": {
@@ -390,6 +499,12 @@
     "last_score": 746,
     "rows": 1
    },
+   "广州市番禺区沙湾象骏中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区洛溪新城中学": {
     "admitted": true,
     "min_score": 737,
@@ -412,6 +527,12 @@
     "admitted": true,
     "min_score": 716,
     "last_score": 716,
+    "rows": 1
+   },
+   "广州市番禺区石碁中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市番禺区石碁第四中学": {
@@ -444,6 +565,18 @@
     "last_score": 720,
     "rows": 1
    },
+   "广州市白云区嘉禾中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市白云区太和中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区广云外国语学校": {
     "admitted": true,
     "min_score": 735,
@@ -454,6 +587,12 @@
     "admitted": true,
     "min_score": 756,
     "last_score": 756,
+    "rows": 1
+   },
+   "广州市白云区石井中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区黄石学校": {
@@ -484,6 +623,12 @@
     "admitted": true,
     "min_score": 709,
     "last_score": 709,
+    "rows": 1
+   },
+   "广州市第一一五中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第一中学": {
@@ -552,6 +697,12 @@
     "last_score": 732,
     "rows": 1
    },
+   "广州市第十八中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第十六中学实验学校": {
     "admitted": true,
     "min_score": 737,
@@ -574,6 +725,18 @@
     "admitted": true,
     "min_score": 768,
     "last_score": 768,
+    "rows": 1
+   },
+   "广州市美华中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市聚德中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市育才中学": {
@@ -600,6 +763,12 @@
     "last_score": 719,
     "rows": 1
    },
+   "广州市花都区狮岭镇芙蓉初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区秀全外国语学校": {
     "admitted": true,
     "min_score": 723,
@@ -622,6 +791,18 @@
     "admitted": true,
     "min_score": 734,
     "last_score": 734,
+    "rows": 1
+   },
+   "广州市花都区邝维煜纪念中学附属北兴中学（北兴校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市花都区邝维煜纪念中学附属北兴中学（榴花校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市花都区邝维煜纪念中学附属雅正学校": {
@@ -678,6 +859,12 @@
     "last_score": 717,
     "rows": 1
    },
+   "广州市黄埔区玉岩实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市黄埔区玉泉学校": {
     "admitted": true,
     "min_score": 744,
@@ -706,6 +893,12 @@
     "admitted": true,
     "min_score": 763,
     "last_score": 763,
+    "rows": 1
+   },
+   "广州知识城中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "暨南大学附属实验学校": {
@@ -786,6 +979,12 @@
     "admitted": true,
     "min_score": 713,
     "last_score": 713,
+    "rows": 1
+   },
+   "广东外语外贸大学从化第三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广东外语外贸大学实验中学": {
@@ -936,6 +1135,30 @@
     "admitted": true,
     "min_score": 683,
     "last_score": 683,
+    "rows": 1
+   },
+   "广州市从化区太平中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区棋杆中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区民乐中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区河东中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市从化区流溪中学": {
@@ -1094,10 +1317,22 @@
     "last_score": 717,
     "rows": 1
    },
+   "广州市增城区小楼中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区应元学校": {
     "admitted": true,
     "min_score": 749,
     "last_score": 749,
+    "rows": 1
+   },
+   "广州市增城区挂绿实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区新塘镇第三中学": {
@@ -1142,6 +1377,18 @@
     "last_score": 715,
     "rows": 1
    },
+   "广州市增城区派潭镇实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区荔城街第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区荔城街荔景中学": {
     "admitted": true,
     "min_score": 698,
@@ -1158,6 +1405,12 @@
     "admitted": true,
     "min_score": 751,
     "last_score": 751,
+    "rows": 1
+   },
+   "广州市天河区培艺学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市天河区汇景实验学校": {
@@ -1388,6 +1641,12 @@
     "last_score": 723,
     "rows": 1
    },
+   "广州市番禺区金华学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区钟村中学": {
     "admitted": true,
     "min_score": 740,
@@ -1424,6 +1683,12 @@
     "last_score": 756,
     "rows": 1
    },
+   "广州市白云区南悦中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区同和中学": {
     "admitted": true,
     "min_score": 722,
@@ -1434,6 +1699,12 @@
     "admitted": true,
     "min_score": 758,
     "last_score": 758,
+    "rows": 1
+   },
+   "广州市白云区广东第二师范学院实验中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区广大附中实验中学": {
@@ -1460,6 +1731,12 @@
     "last_score": 730,
     "rows": 1
    },
+   "广州市白云区江高镇第二初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区珠江实验学校": {
     "admitted": true,
     "min_score": 759,
@@ -1482,6 +1759,12 @@
     "admitted": true,
     "min_score": 735,
     "last_score": 735,
+    "rows": 1
+   },
+   "广州市白云区竹料第三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区龙归学校": {
@@ -1536,6 +1819,18 @@
     "admitted": true,
     "min_score": 743,
     "last_score": 743,
+    "rows": 1
+   },
+   "广州市第七十三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市第七十中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第七十五中学": {
@@ -1758,6 +2053,12 @@
     "admitted": true,
     "min_score": 726,
     "last_score": 726,
+    "rows": 1
+   },
+   "广州市花都区邝维煜纪念中学附属大塘中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市花都区雅瑶中学": {
@@ -2086,16 +2387,58 @@
     "last_score": 725,
     "rows": 1
    },
+   "广州市五中滨江学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区吕田中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区城郊中学": {
     "admitted": true,
     "min_score": 729,
     "last_score": 729,
     "rows": 1
    },
+   "广州市从化区太平中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区太平第二中学": {
     "admitted": true,
     "min_score": 701,
     "last_score": 701,
+    "rows": 1
+   },
+   "广州市从化区棋杆中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区民乐中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区河东中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区神岗中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市从化区良口中学": {
@@ -2134,6 +2477,12 @@
     "last_score": 718,
     "rows": 1
    },
+   "广州市南沙万顷沙中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙区湾区实验学校": {
     "admitted": true,
     "min_score": 731,
@@ -2144,6 +2493,18 @@
     "admitted": true,
     "min_score": 690,
     "last_score": 690,
+    "rows": 1
+   },
+   "广州市南沙横沥中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙潭山中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市南沙第一中学": {
@@ -2170,6 +2531,12 @@
     "last_score": 749,
     "rows": 1
    },
+   "广州市培正中学矿泉学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区三江中学": {
     "admitted": true,
     "min_score": 728,
@@ -2180,6 +2547,12 @@
     "admitted": true,
     "min_score": 743,
     "last_score": 743,
+    "rows": 1
+   },
+   "广州市增城区中新镇福和中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区仙村中学": {
@@ -2222,6 +2595,18 @@
     "admitted": true,
     "min_score": 711,
     "last_score": 711,
+    "rows": 1
+   },
+   "广州市增城区新塘镇大敦中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区新塘镇第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区正果中学": {
@@ -2276,6 +2661,12 @@
     "admitted": true,
     "min_score": 736,
     "last_score": 736,
+    "rows": 1
+   },
+   "广州市天河区兴华培智学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市天河区华实学校": {
@@ -2348,6 +2739,12 @@
     "admitted": true,
     "min_score": 736,
     "last_score": 736,
+    "rows": 1
+   },
+   "广州市海珠外国语实验中学附属学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市番禺区化龙中学": {
@@ -2488,6 +2885,12 @@
     "last_score": 755,
     "rows": 1
    },
+   "广州市白云区六中实验中学（空港校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区华赋学校": {
     "admitted": true,
     "min_score": 756,
@@ -2524,6 +2927,12 @@
     "last_score": 737,
     "rows": 1
    },
+   "广州市白云区广东第二师范学院实验中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区广州培文外国语学校": {
     "admitted": true,
     "min_score": 749,
@@ -2534,6 +2943,12 @@
     "admitted": true,
     "min_score": 730,
     "last_score": 730,
+    "rows": 1
+   },
+   "广州市白云区江高镇第二初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区珠江中学": {
@@ -2552,6 +2967,18 @@
     "admitted": true,
     "min_score": 713,
     "last_score": 713,
+    "rows": 1
+   },
+   "广州市白云区石井中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市白云区竹料第一中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区龙归学校": {
@@ -2642,6 +3069,12 @@
     "admitted": true,
     "min_score": 737,
     "last_score": 737,
+    "rows": 1
+   },
+   "广州市第十中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第十八中学": {
@@ -2746,6 +3179,12 @@
     "last_score": 719,
     "rows": 1
    },
+   "广州市花都区育才学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区花东学校（花东校区）": {
     "admitted": true,
     "min_score": 725,
@@ -2762,6 +3201,12 @@
     "admitted": true,
     "min_score": 688,
     "last_score": 688,
+    "rows": 1
+   },
+   "广州市花都区邝维煜纪念中学附属北兴中学（北兴校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市花都区邝维煜纪念中学附属北兴中学（榴花校区）": {
@@ -3114,6 +3559,18 @@
     "last_score": 738,
     "rows": 1
    },
+   "广州市从化区城郊中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区太平中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区太平第二中学": {
     "admitted": true,
     "min_score": 708,
@@ -3132,10 +3589,22 @@
     "last_score": 717,
     "rows": 1
    },
+   "广州市从化区神岗中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区第七中学": {
     "admitted": true,
     "min_score": 720,
     "last_score": 720,
+    "rows": 1
+   },
+   "广州市从化区第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市从化区第四中学": {
@@ -3154,6 +3623,12 @@
     "admitted": true,
     "min_score": 714,
     "last_score": 714,
+    "rows": 1
+   },
+   "广州市从化区龙潭中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市八一实验学校": {
@@ -3202,6 +3677,12 @@
     "admitted": true,
     "min_score": 716,
     "last_score": 716,
+    "rows": 1
+   },
+   "广州市南沙区新垦学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市南沙区金沙学校": {
@@ -3282,6 +3763,12 @@
     "last_score": 734,
     "rows": 1
    },
+   "广州市增城区挂绿实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区新塘镇第三中学": {
     "admitted": true,
     "min_score": 678,
@@ -3300,6 +3787,24 @@
     "last_score": 684,
     "rows": 1
    },
+   "广州市增城区永宁街永新中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区派潭镇实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区石滩镇港侨中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区碧桂园学校": {
     "admitted": true,
     "min_score": 717,
@@ -3310,6 +3815,12 @@
     "admitted": true,
     "min_score": 707,
     "last_score": 707,
+    "rows": 1
+   },
+   "广州市增城区荔城街第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区荔城街荔景中学": {
@@ -3352,6 +3863,12 @@
     "admitted": true,
     "min_score": 702,
     "last_score": 702,
+    "rows": 1
+   },
+   "广州市天河区同仁实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市天河区汇景实验学校": {
@@ -3552,6 +4069,12 @@
     "last_score": 702,
     "rows": 1
    },
+   "广州市番禺区石楼镇海鸥学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区石楼镇第二中学": {
     "admitted": true,
     "min_score": 699,
@@ -3600,6 +4123,12 @@
     "last_score": 741,
     "rows": 1
    },
+   "广州市白云区广东第二师范学院实验中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区广大附中实验中学": {
     "admitted": true,
     "min_score": 732,
@@ -3642,6 +4171,12 @@
     "last_score": 696,
     "rows": 1
    },
+   "广州市白云区竹料第一中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区黄石学校": {
     "admitted": true,
     "min_score": 718,
@@ -3658,6 +4193,12 @@
     "admitted": true,
     "min_score": 744,
     "last_score": 744,
+    "rows": 1
+   },
+   "广州市真光中学金道学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市真光学校": {
@@ -3700,6 +4241,12 @@
     "admitted": true,
     "min_score": 739,
     "last_score": 739,
+    "rows": 1
+   },
+   "广州市第七十中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第七十五中学": {
@@ -3960,6 +4507,12 @@
     "last_score": 734,
     "rows": 1
    },
+   "广州市骏景中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市黄埔军校中学": {
     "admitted": true,
     "min_score": 725,
@@ -4118,6 +4671,12 @@
     "last_score": 739,
     "rows": 1
    },
+   "广东外语外贸大学从化实验中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广东外语外贸大学实验中学": {
     "admitted": true,
     "min_score": 700,
@@ -4158,6 +4717,12 @@
     "admitted": true,
     "min_score": 736,
     "last_score": 736,
+    "rows": 1
+   },
+   "广东第二师范学院广州南站附属学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广东第二师范学院番禺附属初级中学": {
@@ -4250,6 +4815,12 @@
     "last_score": 750,
     "rows": 1
    },
+   "广州市九十七中晓园学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市九十七中蓝天学校": {
     "admitted": true,
     "min_score": 712,
@@ -4260,6 +4831,12 @@
     "admitted": true,
     "min_score": 754,
     "last_score": 754,
+    "rows": 1
+   },
+   "广州市从化区城郊中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市从化区太平第二中学": {
@@ -4286,10 +4863,22 @@
     "last_score": 704,
     "rows": 1
    },
+   "广州市从化区第五中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区第四中学": {
     "admitted": true,
     "min_score": 707,
     "last_score": 707,
+    "rows": 1
+   },
+   "广州市从化区鳌头中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市从化区黄外翰林实验学校": {
@@ -4316,6 +4905,12 @@
     "last_score": 746,
     "rows": 1
    },
+   "广州市南沙区新垦学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙区朝阳学校": {
     "admitted": true,
     "min_score": 740,
@@ -4328,16 +4923,46 @@
     "last_score": 748,
     "rows": 1
    },
+   "广州市南沙麒麟中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙黄阁中学": {
     "admitted": true,
     "min_score": 708,
     "last_score": 708,
     "rows": 1
    },
+   "广州市南海中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区三江中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区东江外语实验学校": {
     "admitted": true,
     "min_score": 748,
     "last_score": 748,
+    "rows": 1
+   },
+   "广州市增城区中新镇福和中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区仙村中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区华侨中学": {
@@ -4364,6 +4989,18 @@
     "last_score": 709,
     "rows": 1
    },
+   "广州市增城区小楼中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区挂绿实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区新塘镇天伦学校": {
     "admitted": true,
     "min_score": 718,
@@ -4382,6 +5019,12 @@
     "last_score": 687,
     "rows": 1
    },
+   "广州市增城区新塘镇菊泉中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区暨实学校": {
     "admitted": true,
     "min_score": 752,
@@ -4398,6 +5041,12 @@
     "admitted": true,
     "min_score": 710,
     "last_score": 710,
+    "rows": 1
+   },
+   "广州市增城区派潭镇实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区荔城街荔景中学": {
@@ -4502,6 +5151,12 @@
     "last_score": 735,
     "rows": 1
    },
+   "广州市番禺区化龙中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区南村中学": {
     "admitted": true,
     "min_score": 713,
@@ -4586,10 +5241,22 @@
     "last_score": 686,
     "rows": 1
    },
+   "广州市番禺区石楼镇莲花山中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区育龙中学": {
     "admitted": true,
     "min_score": 695,
     "last_score": 695,
+    "rows": 1
+   },
+   "广州市番禺区钟村中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市番禺区香江实验学校": {
@@ -4608,6 +5275,12 @@
     "admitted": true,
     "min_score": 716,
     "last_score": 716,
+    "rows": 1
+   },
+   "广州市白云区六中实验中学（空港校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区华赋学校": {
@@ -4632,6 +5305,18 @@
     "admitted": true,
     "min_score": 731,
     "last_score": 731,
+    "rows": 1
+   },
+   "广州市白云区新市中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市白云区江高镇第二初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区珠江实验学校": {
@@ -4674,6 +5359,12 @@
     "admitted": true,
     "min_score": 735,
     "last_score": 735,
+    "rows": 1
+   },
+   "广州市第一一五中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第一中学": {
@@ -4814,6 +5505,18 @@
     "last_score": 727,
     "rows": 1
    },
+   "广州市花都区新雅街清埔初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市花都区梯面镇梯面初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区狮岭中学": {
     "admitted": true,
     "min_score": 705,
@@ -4910,6 +5613,12 @@
     "last_score": 727,
     "rows": 1
    },
+   "广州市黄埔东晖学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市黄埔军校中学": {
     "admitted": true,
     "min_score": 738,
@@ -4974,6 +5683,12 @@
     "admitted": true,
     "min_score": 727,
     "last_score": 727,
+    "rows": 1
+   },
+   "广州龙涛外国语学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "湖南师范大学附属黄埔实验学校": {
@@ -5044,10 +5759,22 @@
     "last_score": 717,
     "rows": 1
    },
+   "广东华侨中学（白云校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广东外语外贸大学从化实验中学": {
     "admitted": true,
     "min_score": 683,
     "last_score": 683,
+    "rows": 1
+   },
+   "广东外语外贸大学从化第三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广东外语外贸大学实验中学": {
@@ -5090,6 +5817,12 @@
     "admitted": true,
     "min_score": 727,
     "last_score": 727,
+    "rows": 1
+   },
+   "广东第二师范学院广州南站附属学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广东第二师范学院番禺附属初级中学": {
@@ -5182,6 +5915,12 @@
     "last_score": 711,
     "rows": 1
    },
+   "广州市从化区城郊中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区太平第二中学": {
     "admitted": true,
     "min_score": 685,
@@ -5206,10 +5945,22 @@
     "last_score": 705,
     "rows": 1
    },
+   "广州市从化区第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区鳌头中学": {
     "admitted": true,
     "min_score": 680,
     "last_score": 680,
+    "rows": 1
+   },
+   "广州市从化区龙潭中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市八一实验学校": {
@@ -5242,6 +5993,18 @@
     "last_score": 728,
     "rows": 1
    },
+   "广州市南沙万顷沙中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙区新垦学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙区朝阳学校": {
     "admitted": true,
     "min_score": 743,
@@ -5272,6 +6035,12 @@
     "last_score": 723,
     "rows": 1
    },
+   "广州市南沙鱼窝头中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙鱼窝头第二中学": {
     "admitted": true,
     "min_score": 682,
@@ -5290,10 +6059,28 @@
     "last_score": 704,
     "rows": 1
    },
+   "广州市增城区东园学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区东江外语实验学校": {
     "admitted": true,
     "min_score": 729,
     "last_score": 729,
+    "rows": 1
+   },
+   "广州市增城区中新中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区中新镇福和中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区仙村中学": {
@@ -5308,16 +6095,34 @@
     "last_score": 736,
     "rows": 1
    },
+   "广州市增城区华侨中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区增城中学（初中部）": {
     "admitted": true,
     "min_score": 725,
     "last_score": 725,
     "rows": 1
    },
+   "广州市增城区小楼中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区应元学校": {
     "admitted": true,
     "min_score": 728,
     "last_score": 728,
+    "rows": 1
+   },
+   "广州市增城区挂绿实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区新塘镇菊泉中学": {
@@ -5344,6 +6149,12 @@
     "last_score": 680,
     "rows": 1
    },
+   "广州市增城区派潭镇实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区碧桂园学校": {
     "admitted": true,
     "min_score": 730,
@@ -5360,6 +6171,12 @@
     "admitted": true,
     "min_score": 704,
     "last_score": 704,
+    "rows": 1
+   },
+   "广州市增城区荔城街荔景中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区荔湖城外国语学校": {
@@ -5438,6 +6255,12 @@
     "admitted": true,
     "min_score": 698,
     "last_score": 698,
+    "rows": 1
+   },
+   "广州市番禺区化龙中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市番禺区华南碧桂园学校": {
@@ -5536,6 +6359,18 @@
     "last_score": 713,
     "rows": 1
    },
+   "广州市番禺区石楼镇海鸥学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市番禺区石楼镇第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区石碁第四中学": {
     "admitted": true,
     "min_score": 716,
@@ -5582,6 +6417,12 @@
     "admitted": true,
     "min_score": 684,
     "last_score": 684,
+    "rows": 1
+   },
+   "广州市白云区嘉禾中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区培英实验学校": {
@@ -5650,6 +6491,12 @@
     "last_score": 738,
     "rows": 1
    },
+   "广州市白云区穗丰学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区竹料第一中学": {
     "admitted": true,
     "min_score": 685,
@@ -5666,6 +6513,12 @@
     "admitted": true,
     "min_score": 718,
     "last_score": 718,
+    "rows": 1
+   },
+   "广州市真光中学金道学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市真光学校": {
@@ -5696,6 +6549,12 @@
     "admitted": true,
     "min_score": 709,
     "last_score": 709,
+    "rows": 1
+   },
+   "广州市第一中学红岩学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第一二三中学": {
@@ -5866,6 +6725,12 @@
     "last_score": 701,
     "rows": 1
    },
+   "广州市花都区梯面镇梯面初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区炭步镇炭步初级中学": {
     "admitted": true,
     "min_score": 690,
@@ -5884,6 +6749,12 @@
     "last_score": 712,
     "rows": 1
    },
+   "广州市花都区秀全中学附属赤坭中学（三和庄校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区秀全外国语学校": {
     "admitted": true,
     "min_score": 721,
@@ -5894,6 +6765,12 @@
     "admitted": true,
     "min_score": 689,
     "last_score": 689,
+    "rows": 1
+   },
+   "广州市花都区花东学校（联安校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市花都区花东学校（花东校区）": {
@@ -5968,6 +6845,12 @@
     "last_score": 723,
     "rows": 1
    },
+   "广州市西关培英中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市西关外国语学校": {
     "admitted": true,
     "min_score": 716,
@@ -5990,6 +6873,18 @@
     "admitted": true,
     "min_score": 730,
     "last_score": 730,
+    "rows": 1
+   },
+   "广州市长兴中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市黄埔区东区中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市黄埔区丰乐初级中学": {
@@ -6026,6 +6921,12 @@
     "admitted": true,
     "min_score": 709,
     "last_score": 709,
+    "rows": 1
+   },
+   "广州市黄埔区玉岩实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市黄埔区玉泉学校": {
@@ -6082,6 +6983,12 @@
     "last_score": 729,
     "rows": 1
    },
+   "广州知识城中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州石化中学": {
     "admitted": true,
     "min_score": 708,
@@ -6092,6 +6999,18 @@
     "admitted": true,
     "min_score": 719,
     "last_score": 719,
+    "rows": 1
+   },
+   "广州荔湾爱莎文华学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "清华附中湾区学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "湖南师范大学附属黄埔实验学校": {
@@ -6312,6 +7231,12 @@
     "last_score": 692,
     "rows": 1
    },
+   "广州市九十七中晓园学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市九十七中蓝天学校": {
     "admitted": true,
     "min_score": 654,
@@ -6328,6 +7253,12 @@
     "admitted": true,
     "min_score": 690,
     "last_score": 690,
+    "rows": 1
+   },
+   "广州市从化区博大学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市从化区城郊中学": {
@@ -6370,6 +7301,12 @@
     "admitted": true,
     "min_score": 670,
     "last_score": 670,
+    "rows": 1
+   },
+   "广州市从化区鳌头中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市从化区黄外翰林实验学校": {
@@ -6420,6 +7357,18 @@
     "last_score": 688,
     "rows": 1
    },
+   "广州市南沙大岗中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙潭山中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙灵山中学": {
     "admitted": true,
     "min_score": 647,
@@ -6430,6 +7379,12 @@
     "admitted": true,
     "min_score": 697,
     "last_score": 697,
+    "rows": 1
+   },
+   "广州市南沙鱼窝头第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市南沙黄阁中学": {
@@ -6678,6 +7633,12 @@
     "last_score": 671,
     "rows": 1
    },
+   "广州市番禺区南村镇侨联中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区大石中学": {
     "admitted": true,
     "min_score": 665,
@@ -6804,6 +7765,12 @@
     "last_score": 705,
     "rows": 1
    },
+   "广州市白云区广东第二师范学院实验中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区广大附中实验中学": {
     "admitted": true,
     "min_score": 715,
@@ -6814,6 +7781,12 @@
     "admitted": true,
     "min_score": 686,
     "last_score": 686,
+    "rows": 1
+   },
+   "广州市白云区新和学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区新市中学": {
@@ -6874,6 +7847,12 @@
     "admitted": true,
     "min_score": 653,
     "last_score": 653,
+    "rows": 1
+   },
+   "广州市真光学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市知用学校": {
@@ -7002,6 +7981,12 @@
     "last_score": 635,
     "rows": 1
    },
+   "广州市第十中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第十八中学": {
     "admitted": true,
     "min_score": 672,
@@ -7018,6 +8003,12 @@
     "admitted": true,
     "min_score": 696,
     "last_score": 696,
+    "rows": 1
+   },
+   "广州市第四中学花地学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第四十一中学": {
@@ -7176,6 +8167,12 @@
     "last_score": 676,
     "rows": 1
    },
+   "广州市长兴中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市陈嘉庚纪念中学": {
     "admitted": true,
     "min_score": 660,
@@ -7212,10 +8209,22 @@
     "last_score": 654,
     "rows": 1
    },
+   "广州市黄埔区新港中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市黄埔区港湾中学": {
     "admitted": true,
     "min_score": 654,
     "last_score": 654,
+    "rows": 1
+   },
+   "广州市黄埔区玉岩实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市黄埔区玉泉学校": {
@@ -7254,10 +8263,22 @@
     "last_score": 681,
     "rows": 1
    },
+   "广州知识城中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州石化中学": {
     "admitted": true,
     "min_score": 668,
     "last_score": 668,
+    "rows": 1
+   },
+   "广州荔湾爱莎文华学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "暨南大学附属实验学校": {
@@ -7332,6 +8353,12 @@
     "admitted": true,
     "min_score": 722,
     "last_score": 722,
+    "rows": 1
+   },
+   "广东外语外贸大学从化第三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广东外语外贸大学实验中学": {
@@ -7418,6 +8445,12 @@
     "last_score": 738,
     "rows": 1
    },
+   "广州华联外语实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州协和学校": {
     "admitted": true,
     "min_score": 737,
@@ -7490,6 +8523,12 @@
     "last_score": 737,
     "rows": 1
    },
+   "广州市九十七中晓园学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市九十七中蓝天学校": {
     "admitted": true,
     "min_score": 721,
@@ -7500,6 +8539,12 @@
     "admitted": true,
     "min_score": 724,
     "last_score": 724,
+    "rows": 1
+   },
+   "广州市五中滨江学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市五中附属初级中学": {
@@ -7514,10 +8559,76 @@
     "last_score": 740,
     "rows": 1
    },
+   "广州市从化区吕田中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区城郊中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区太平中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区桃园中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区河东中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区流溪中学": {
     "admitted": true,
     "min_score": 712,
     "last_score": 712,
+    "rows": 1
+   },
+   "广州市从化区神岗中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区第七中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区第五中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区鳌头中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区龙潭中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市华侨外国语学校": {
@@ -7562,6 +8673,18 @@
     "last_score": 733,
     "rows": 1
    },
+   "广州市南沙大岗中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙榄核中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙灵山中学": {
     "admitted": true,
     "min_score": 715,
@@ -7572,6 +8695,24 @@
     "admitted": true,
     "min_score": 715,
     "last_score": 715,
+    "rows": 1
+   },
+   "广州市南沙鱼窝头中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙鱼窝头第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南海中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市培正中学": {
@@ -7592,6 +8733,18 @@
     "last_score": 740,
     "rows": 1
    },
+   "广州市增城区三江中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区中新中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区仙村中学": {
     "admitted": true,
     "min_score": 716,
@@ -7602,6 +8755,12 @@
     "admitted": true,
     "min_score": 738,
     "last_score": 738,
+    "rows": 1
+   },
+   "广州市增城区华侨中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区合生育才学校": {
@@ -7628,10 +8787,46 @@
     "last_score": 731,
     "rows": 1
    },
+   "广州市增城区挂绿实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区新塘镇大敦中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区新塘镇天伦学校": {
     "admitted": true,
     "min_score": 731,
     "last_score": 731,
+    "rows": 1
+   },
+   "广州市增城区新塘镇沙埔中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区新塘镇第三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区朱村中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区正果中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区水电二局学校": {
@@ -7646,6 +8841,36 @@
     "last_score": 720,
     "rows": 1
    },
+   "广州市增城区永宁街永新中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区永安学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区派潭镇实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区石滩镇港侨中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区英华学校": {
     "admitted": true,
     "min_score": 714,
@@ -7656,6 +8881,12 @@
     "admitted": true,
     "min_score": 718,
     "last_score": 718,
+    "rows": 1
+   },
+   "广州市增城区香江学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市天健学校": {
@@ -7760,6 +8991,12 @@
     "last_score": 702,
     "rows": 1
    },
+   "广州市番禺区博萃德学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区大石中学": {
     "admitted": true,
     "min_score": 721,
@@ -7770,6 +9007,12 @@
     "admitted": true,
     "min_score": 717,
     "last_score": 717,
+    "rows": 1
+   },
+   "广州市番禺区实验中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市番禺区市桥东风中学": {
@@ -7814,6 +9057,12 @@
     "last_score": 744,
     "rows": 1
    },
+   "广州市番禺区新英豪中英文学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区毓贤学校": {
     "admitted": true,
     "min_score": 715,
@@ -7838,6 +9087,30 @@
     "last_score": 721,
     "rows": 1
    },
+   "广州市番禺区石楼中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市番禺区石楼镇海鸥学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市番禺区石楼镇第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市番禺区石碁第四中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区祈福新邨学校": {
     "admitted": true,
     "min_score": 752,
@@ -7850,10 +9123,22 @@
     "last_score": 732,
     "rows": 1
    },
+   "广州市番禺区育龙中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区香江实验学校": {
     "admitted": true,
     "min_score": 741,
     "last_score": 741,
+    "rows": 1
+   },
+   "广州市番禺区鸿翔学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区云雅实验学校": {
@@ -7866,6 +9151,12 @@
     "admitted": true,
     "min_score": 699,
     "last_score": 699,
+    "rows": 1
+   },
+   "广州市白云区六中实验中学（空港校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区华新学校": {
@@ -7884,6 +9175,12 @@
     "admitted": true,
     "min_score": 728,
     "last_score": 728,
+    "rows": 1
+   },
+   "广州市白云区广东第二师范学院实验中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区广云外国语学校": {
@@ -7922,6 +9219,12 @@
     "last_score": 700,
     "rows": 1
    },
+   "广州市白云区江村中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区珠江实验学校": {
     "admitted": true,
     "min_score": 717,
@@ -7940,10 +9243,28 @@
     "last_score": 697,
     "rows": 1
    },
+   "广州市白云区神山中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市白云区竹料第一中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区黄石学校": {
     "admitted": true,
     "min_score": 703,
     "last_score": 703,
+    "rows": 1
+   },
+   "广州市白云区龙归学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市真光中学": {
@@ -7976,10 +9297,22 @@
     "last_score": 730,
     "rows": 1
    },
+   "广州市第一一五中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第一中学": {
     "admitted": true,
     "min_score": 730,
     "last_score": 730,
+    "rows": 1
+   },
+   "广州市第一中学红岩学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第七中学": {
@@ -7998,6 +9331,18 @@
     "admitted": true,
     "min_score": 739,
     "last_score": 739,
+    "rows": 1
+   },
+   "广州市第七十中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市第七十五中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第九十七中学": {
@@ -8036,6 +9381,18 @@
     "last_score": 726,
     "rows": 1
    },
+   "广州市第六中学（从化校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市第六十七中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第六十五中学（同德校区）": {
     "admitted": true,
     "min_score": 714,
@@ -8046,6 +9403,12 @@
     "admitted": true,
     "min_score": 713,
     "last_score": 713,
+    "rows": 1
+   },
+   "广州市第十中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第十八中学": {
@@ -8102,6 +9465,12 @@
     "last_score": 725,
     "rows": 1
    },
+   "广州市花都区博雅学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区圆玄中学": {
     "admitted": true,
     "min_score": 716,
@@ -8120,10 +9489,22 @@
     "last_score": 713,
     "rows": 1
    },
+   "广州市花都区梯面镇梯面初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区狮岭镇狮峰初级中学": {
     "admitted": true,
     "min_score": 705,
     "last_score": 705,
+    "rows": 1
+   },
+   "广州市花都区狮岭镇芙蓉初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市花都区秀全中学": {
@@ -8156,6 +9537,12 @@
     "last_score": 724,
     "rows": 1
    },
+   "广州市花都区育才学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区花东学校（花东校区）": {
     "admitted": true,
     "min_score": 697,
@@ -8172,6 +9559,12 @@
     "admitted": true,
     "min_score": 763,
     "last_score": 763,
+    "rows": 1
+   },
+   "广州市花都区花广新晖学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市花都区邝维煜纪念中学附属雅正学校": {
@@ -8258,6 +9651,12 @@
     "last_score": 706,
     "rows": 1
    },
+   "广州市黄埔区玉岩实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市黄埔区玉泉学校": {
     "admitted": true,
     "min_score": 725,
@@ -8292,6 +9691,12 @@
     "admitted": true,
     "min_score": 724,
     "last_score": 724,
+    "rows": 1
+   },
+   "广州开发区中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州开发区外国语学校": {
@@ -8342,6 +9747,12 @@
     "admitted": true,
     "min_score": 720,
     "last_score": 720,
+    "rows": 1
+   },
+   "华南师范大学附属中学增城学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "华南师范大学附属花都学校": {
@@ -8414,6 +9825,12 @@
     "admitted": true,
     "min_score": 711,
     "last_score": 711,
+    "rows": 1
+   },
+   "广东第二师范学院附属南沙珠江学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广大附中花都学校": {
@@ -8494,6 +9911,30 @@
     "last_score": 725,
     "rows": 1
    },
+   "广州市从化区城郊中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区太平第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区棋杆中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区河东中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区第七中学": {
     "admitted": true,
     "min_score": 691,
@@ -8504,6 +9945,12 @@
     "admitted": true,
     "min_score": 676,
     "last_score": 676,
+    "rows": 1
+   },
+   "广州市从化区鳌头中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市八一实验学校": {
@@ -8518,10 +9965,40 @@
     "last_score": 721,
     "rows": 1
    },
+   "广州市南武中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙东涌中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙区维港青藤中学": {
     "admitted": true,
     "min_score": 695,
     "last_score": 695,
+    "rows": 1
+   },
+   "广州市南沙榄核中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙榄核第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙灵山中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市南沙第一中学": {
@@ -8554,10 +10031,28 @@
     "last_score": 708,
     "rows": 1
    },
+   "广州市增城区小楼中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区挂绿实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区新塘镇天伦学校": {
     "admitted": true,
     "min_score": 709,
     "last_score": 709,
+    "rows": 1
+   },
+   "广州市增城区新塘镇沙埔中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区新塘镇第二中学": {
@@ -8572,10 +10067,46 @@
     "last_score": 701,
     "rows": 1
    },
+   "广州市增城区新蕾学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区永安学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区派潭镇实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区荔城街第三中学": {
     "admitted": true,
     "min_score": 706,
     "last_score": 706,
+    "rows": 1
+   },
+   "广州市增城区荔城街第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区香江学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市天健学校": {
@@ -8662,10 +10193,22 @@
     "last_score": 694,
     "rows": 1
    },
+   "广州市番禺区南村中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区南村镇侨联中学": {
     "admitted": true,
     "min_score": 701,
     "last_score": 701,
+    "rows": 1
+   },
+   "广州市番禺区大石中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市番禺区大龙中学": {
@@ -8702,6 +10245,18 @@
     "admitted": true,
     "min_score": 715,
     "last_score": 725,
+    "rows": 1
+   },
+   "广州市番禺区石楼镇第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市番禺区石楼镇莲花山中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市番禺区育龙中学": {
@@ -8746,6 +10301,12 @@
     "last_score": 732,
     "rows": 1
    },
+   "广州市白云区竹料第三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区龙归学校": {
     "admitted": true,
     "min_score": 714,
@@ -8756,6 +10317,18 @@
     "admitted": true,
     "min_score": 712,
     "last_score": 712,
+    "rows": 1
+   },
+   "广州市真光中学金道学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市真光学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第一一三中学": {
@@ -8792,6 +10365,12 @@
     "admitted": true,
     "min_score": 719,
     "last_score": 719,
+    "rows": 1
+   },
+   "广州市第六中学（从化校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第六中学（海珠校区）": {
@@ -8878,6 +10457,12 @@
     "last_score": 683,
     "rows": 1
    },
+   "广州市花都区狮岭镇狮峰初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区秀全外国语学校": {
     "admitted": true,
     "min_score": 715,
@@ -8914,6 +10499,12 @@
     "last_score": 722,
     "rows": 1
    },
+   "广州市花都区雅瑶中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市荔湾区荔广实验学校": {
     "admitted": true,
     "min_score": 728,
@@ -8942,6 +10533,12 @@
     "admitted": true,
     "min_score": 725,
     "last_score": 725,
+    "rows": 1
+   },
+   "广州市黄埔区玉岩实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市黄埔区苏元学校": {
@@ -9018,6 +10615,12 @@
     "last_score": 725,
     "rows": 1
    },
+   "广东外语外贸大学从化第三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广东实验中学（白云校区）": {
     "admitted": true,
     "min_score": 721,
@@ -9090,6 +10693,18 @@
     "last_score": 722,
     "rows": 1
    },
+   "广州市九十七中蓝天学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市五中滨江学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市五中附属初级中学": {
     "admitted": true,
     "min_score": 723,
@@ -9112,6 +10727,18 @@
     "admitted": true,
     "min_score": 713,
     "last_score": 713,
+    "rows": 1
+   },
+   "广州市从化区良口中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区鳌头中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市从化区龙潭中学": {
@@ -9138,16 +10765,34 @@
     "last_score": 703,
     "rows": 1
    },
+   "广州市南武第二实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙区滨海实验学校": {
     "admitted": true,
     "min_score": 715,
     "last_score": 715,
     "rows": 1
    },
+   "广州市南沙区金沙学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙榄核第二中学": {
     "admitted": true,
     "min_score": 722,
     "last_score": 722,
+    "rows": 1
+   },
+   "广州市南沙横沥中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市南沙潭山中学": {
@@ -9174,10 +10819,22 @@
     "last_score": 709,
     "rows": 1
    },
+   "广州市南沙鱼窝头第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙黄阁中学": {
     "admitted": true,
     "min_score": 710,
     "last_score": 710,
+    "rows": 1
+   },
+   "广州市南海中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市培正中学": {
@@ -9190,6 +10847,18 @@
     "admitted": true,
     "min_score": 702,
     "last_score": 702,
+    "rows": 1
+   },
+   "广州市增城区中新镇福和中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区仙村中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区增城中学（初中部）": {
@@ -9210,6 +10879,12 @@
     "last_score": 734,
     "rows": 1
    },
+   "广州市增城区挂绿实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区新塘镇第三中学": {
     "admitted": true,
     "min_score": 679,
@@ -9222,10 +10897,28 @@
     "last_score": 680,
     "rows": 1
    },
+   "广州市增城区朱村中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区水电二局学校": {
     "admitted": true,
     "min_score": 717,
     "last_score": 717,
+    "rows": 1
+   },
+   "广州市增城区永宁街永新中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区石滩镇港侨中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区第二中学": {
@@ -9246,16 +10939,46 @@
     "last_score": 730,
     "rows": 1
    },
+   "广州市增城区荔城街第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区荔城街荔景中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区香江学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市天河中学猎德实验学校": {
     "admitted": true,
     "min_score": 696,
     "last_score": 696,
     "rows": 1
    },
+   "广州市天河区东泰学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市天河区汇景实验学校": {
     "admitted": true,
     "min_score": 704,
     "last_score": 704,
+    "rows": 1
+   },
+   "广州市天河区龙圣学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市实验外语学校": {
@@ -9282,6 +11005,12 @@
     "last_score": 714,
     "rows": 1
    },
+   "广州市执信中学（天河校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市江南外国语学校": {
     "admitted": true,
     "min_score": 725,
@@ -9300,6 +11029,12 @@
     "last_score": 713,
     "rows": 1
    },
+   "广州市海珠区黄埔中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市源雅学校": {
     "admitted": true,
     "min_score": 718,
@@ -9316,6 +11051,18 @@
     "admitted": true,
     "min_score": 715,
     "last_score": 715,
+    "rows": 1
+   },
+   "广州市番禺区化龙中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市番禺区南村中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市番禺区南村镇侨联中学": {
@@ -9384,6 +11131,12 @@
     "last_score": 729,
     "rows": 1
    },
+   "广州市番禺区石楼镇第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区祈福新邨学校": {
     "admitted": true,
     "min_score": 736,
@@ -9426,6 +11179,12 @@
     "last_score": 717,
     "rows": 1
    },
+   "广州市白云区六中实验中学（空港校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区华新学校": {
     "admitted": true,
     "min_score": 731,
@@ -9444,6 +11203,18 @@
     "last_score": 707,
     "rows": 1
    },
+   "广州市白云区嘉禾中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市白云区嘉禾新都学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区培英实验学校": {
     "admitted": true,
     "min_score": 729,
@@ -9460,6 +11231,12 @@
     "admitted": true,
     "min_score": 731,
     "last_score": 731,
+    "rows": 1
+   },
+   "广州市白云区江村中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区珠江实验学校": {
@@ -9568,6 +11345,12 @@
     "admitted": true,
     "min_score": 718,
     "last_score": 718,
+    "rows": 1
+   },
+   "广州市第二十六中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第八十九中学": {
@@ -9738,6 +11521,12 @@
     "last_score": 724,
     "rows": 1
    },
+   "广州市陈嘉庚纪念中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市黄埔军校中学": {
     "admitted": true,
     "min_score": 718,
@@ -9768,6 +11557,12 @@
     "last_score": 701,
     "rows": 1
    },
+   "广州市黄埔区玉岩实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市黄埔区玉泉学校": {
     "admitted": true,
     "min_score": 717,
@@ -9790,6 +11585,18 @@
     "admitted": true,
     "min_score": 724,
     "last_score": 724,
+    "rows": 1
+   },
+   "广州开发区外国语学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州知识城中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州科学城中学": {
@@ -9858,6 +11665,12 @@
     "admitted": true,
     "min_score": 741,
     "last_score": 741,
+    "rows": 1
+   },
+   "广东外语外贸大学从化实验中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广东外语外贸大学实验中学": {
@@ -10040,6 +11853,42 @@
     "last_score": 727,
     "rows": 1
    },
+   "广州市从化区吕田中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区城郊中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区太平中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区棋杆中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区民乐中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区河东中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区第七中学": {
     "admitted": true,
     "min_score": 683,
@@ -10052,16 +11901,40 @@
     "last_score": 689,
     "rows": 1
    },
+   "广州市从化区第五中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区第四中学": {
     "admitted": true,
     "min_score": 726,
     "last_score": 726,
     "rows": 1
    },
+   "广州市从化区良口中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区鳌头中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区黄外翰林实验学校": {
     "admitted": true,
     "min_score": 720,
     "last_score": 720,
+    "rows": 1
+   },
+   "广州市从化区龙潭中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市八一实验学校": {
@@ -10136,16 +12009,34 @@
     "last_score": 686,
     "rows": 1
    },
+   "广州市南沙鱼窝头中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙鱼窝头第二中学": {
     "admitted": true,
     "min_score": 689,
     "last_score": 689,
     "rows": 1
    },
+   "广州市南沙麒麟中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙黄阁中学": {
     "admitted": true,
     "min_score": 697,
     "last_score": 697,
+    "rows": 1
+   },
+   "广州市南海中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市培正中学": {
@@ -10166,10 +12057,28 @@
     "last_score": 757,
     "rows": 1
    },
+   "广州市增城区中新中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区中新镇福和中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区仙村中学": {
     "admitted": true,
     "min_score": 706,
     "last_score": 706,
+    "rows": 1
+   },
+   "广州市增城区华侨中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区华南师范大学附属增江学校": {
@@ -10214,10 +12123,22 @@
     "last_score": 692,
     "rows": 1
    },
+   "广州市增城区新星学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区朱村中学": {
     "admitted": true,
     "min_score": 716,
     "last_score": 716,
+    "rows": 1
+   },
+   "广州市增城区正果中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区永宁中学": {
@@ -10230,6 +12151,12 @@
     "admitted": true,
     "min_score": 685,
     "last_score": 685,
+    "rows": 1
+   },
+   "广州市增城区派潭镇实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区第二中学": {
@@ -10254,6 +12181,12 @@
     "admitted": true,
     "min_score": 716,
     "last_score": 716,
+    "rows": 1
+   },
+   "广州市天河区凤凰中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市天河区汇景实验学校": {
@@ -10430,6 +12363,12 @@
     "last_score": 693,
     "rows": 1
    },
+   "广州市番禺区洛浦厦滘学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区洛浦沙滘中学": {
     "admitted": true,
     "min_score": 707,
@@ -10556,6 +12495,12 @@
     "last_score": 714,
     "rows": 1
    },
+   "广州市白云区江高镇第二初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区珠江实验学校": {
     "admitted": true,
     "min_score": 716,
@@ -10566,6 +12511,12 @@
     "admitted": true,
     "min_score": 739,
     "last_score": 739,
+    "rows": 1
+   },
+   "广州市白云区竹料第一中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区龙归学校": {
@@ -10598,10 +12549,34 @@
     "last_score": 724,
     "rows": 1
    },
+   "广州市第一一五中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第一中学": {
     "admitted": true,
     "min_score": 726,
     "last_score": 726,
+    "rows": 1
+   },
+   "广州市第一中学十甫学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市第一中学红岩学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市第一二三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第七中学": {
@@ -10838,10 +12813,22 @@
     "last_score": 715,
     "rows": 1
    },
+   "广州市花都区花东学校（联安校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区花东学校（花东校区）": {
     "admitted": true,
     "min_score": 709,
     "last_score": 709,
+    "rows": 1
+   },
+   "广州市花都区花山镇花山初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市花都区花广学校": {
@@ -10958,6 +12945,12 @@
     "last_score": 726,
     "rows": 1
    },
+   "广州市黄埔区华峰学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市黄埔区玉岩实验学校": {
     "admitted": true,
     "min_score": 690,
@@ -10980,6 +12973,12 @@
     "admitted": true,
     "min_score": 744,
     "last_score": 744,
+    "rows": 1
+   },
+   "广州开发区外国语学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州理工实验学校": {
@@ -11060,6 +13059,12 @@
     "admitted": true,
     "min_score": 687,
     "last_score": 687,
+    "rows": 1
+   },
+   "广东外语外贸大学从化实验中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广东外语外贸大学番禺实验学校": {
@@ -11206,6 +13211,12 @@
     "last_score": 730,
     "rows": 1
    },
+   "广州市五中滨江学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区棋杆中学": {
     "admitted": true,
     "min_score": 691,
@@ -11242,10 +13253,22 @@
     "last_score": 703,
     "rows": 1
    },
+   "广州市从化区良口中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区黄外翰林实验学校": {
     "admitted": true,
     "min_score": 708,
     "last_score": 708,
+    "rows": 1
+   },
+   "广州市从化区龙潭中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市南武实验学校": {
@@ -11264,6 +13287,12 @@
     "admitted": true,
     "min_score": 686,
     "last_score": 686,
+    "rows": 1
+   },
+   "广州市南沙东涌中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市南沙区朝阳学校": {
@@ -11290,10 +13319,34 @@
     "last_score": 701,
     "rows": 1
    },
+   "广州市南沙榄核第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙灵山中学": {
     "admitted": true,
     "min_score": 680,
     "last_score": 680,
+    "rows": 1
+   },
+   "广州市南沙鱼窝头中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙鱼窝头第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙麒麟中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市培正中学": {
@@ -11314,10 +13367,22 @@
     "last_score": 713,
     "rows": 1
    },
+   "广州市增城区三江中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区东江外语实验学校": {
     "admitted": true,
     "min_score": 716,
     "last_score": 716,
+    "rows": 1
+   },
+   "广州市增城区仙村中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区凤凰城中英文学校": {
@@ -11378,6 +13443,12 @@
     "admitted": true,
     "min_score": 713,
     "last_score": 713,
+    "rows": 1
+   },
+   "广州市增城区派潭镇实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区石滩镇港侨中学": {
@@ -11506,6 +13577,12 @@
     "last_score": 686,
     "rows": 1
    },
+   "广州市泰安中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市海珠区六中珠江中学": {
     "admitted": true,
     "min_score": 716,
@@ -11620,6 +13697,12 @@
     "last_score": 719,
     "rows": 1
    },
+   "广州市番禺区石楼镇第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区祈福新邨学校": {
     "admitted": true,
     "min_score": 726,
@@ -11674,6 +13757,12 @@
     "last_score": 711,
     "rows": 1
    },
+   "广州市白云区嘉禾中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区广东第二师范学院实验中学": {
     "admitted": true,
     "min_score": 688,
@@ -11698,6 +13787,12 @@
     "last_score": 724,
     "rows": 1
    },
+   "广州市白云区广州空港实验中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区新市中学": {
     "admitted": true,
     "min_score": 696,
@@ -11720,6 +13815,18 @@
     "admitted": true,
     "min_score": 693,
     "last_score": 698,
+    "rows": 1
+   },
+   "广州市真光中学东漖学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市真光中学金道学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第一一三中学": {
@@ -11750,6 +13857,12 @@
     "admitted": true,
     "min_score": 725,
     "last_score": 725,
+    "rows": 1
+   },
+   "广州市第七十中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第七十五中学": {
@@ -11878,6 +13991,12 @@
     "last_score": 730,
     "rows": 1
    },
+   "广州市花都区狮岭镇芙蓉初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区秀全中学": {
     "admitted": true,
     "min_score": 739,
@@ -11894,6 +14013,18 @@
     "admitted": true,
     "min_score": 713,
     "last_score": 713,
+    "rows": 1
+   },
+   "广州市花都区育才学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市花都区花东学校（联安校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市花都区花东学校（花东校区）": {
@@ -11974,6 +14105,12 @@
     "last_score": 693,
     "rows": 1
    },
+   "广州市骏景中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市黄埔军校中学": {
     "admitted": true,
     "min_score": 721,
@@ -12002,6 +14139,12 @@
     "admitted": true,
     "min_score": 679,
     "last_score": 679,
+    "rows": 1
+   },
+   "广州市黄埔区玉岩实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市黄埔区玉泉学校": {
@@ -12058,6 +14201,18 @@
     "last_score": 707,
     "rows": 1
    },
+   "广州知识城中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州石化中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州龙涛外国语学校": {
     "admitted": true,
     "min_score": 699,
@@ -12072,6 +14227,12 @@
    }
   },
   "清华附中湾区学校（智谷校区）": {
+   "中国教育科学研究院荔湾实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "中山大学附属中学": {
     "admitted": true,
     "min_score": 712,
@@ -12228,6 +14389,12 @@
     "last_score": 700,
     "rows": 1
    },
+   "广州市从化区城郊中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区桃园中学": {
     "admitted": true,
     "min_score": 655,
@@ -12270,10 +14437,22 @@
     "last_score": 676,
     "rows": 1
    },
+   "广州市南沙东涌中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙区湾区实验学校": {
     "admitted": true,
     "min_score": 712,
     "last_score": 712,
+    "rows": 1
+   },
+   "广州市南沙区芦湾新徽学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市南沙潭山中学": {
@@ -12304,6 +14483,12 @@
     "admitted": true,
     "min_score": 724,
     "last_score": 724,
+    "rows": 1
+   },
+   "广州市增城区三江中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区中新中学": {
@@ -12348,6 +14533,12 @@
     "last_score": 716,
     "rows": 1
    },
+   "广州市增城区新塘镇大敦中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区新塘镇菊泉中学": {
     "admitted": true,
     "min_score": 680,
@@ -12370,6 +14561,12 @@
     "admitted": true,
     "min_score": 676,
     "last_score": 676,
+    "rows": 1
+   },
+   "广州市增城区派潭镇实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区石滩镇港侨中学": {
@@ -12408,10 +14605,22 @@
     "last_score": 694,
     "rows": 1
    },
+   "广州市天河区东风学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市天河区华实学校": {
     "admitted": true,
     "min_score": 712,
     "last_score": 712,
+    "rows": 1
+   },
+   "广州市天河区棠福学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市天河区汇景实验学校": {
@@ -12612,10 +14821,22 @@
     "last_score": 709,
     "rows": 1
    },
+   "广州市白云区江村中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区白云实验学校": {
     "admitted": true,
     "min_score": 715,
     "last_score": 715,
+    "rows": 1
+   },
+   "广州市白云区竹料第一中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市真光中学": {
@@ -12738,6 +14959,12 @@
     "last_score": 713,
     "rows": 1
    },
+   "广州市第四中学花地学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市绿翠现代实验学校": {
     "admitted": true,
     "min_score": 717,
@@ -12840,6 +15067,12 @@
     "last_score": 665,
     "rows": 1
    },
+   "广州市荔湾区芳华初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市荔湾区西关广雅实验学校": {
     "admitted": true,
     "min_score": 723,
@@ -12882,6 +15115,12 @@
     "last_score": 688,
     "rows": 1
    },
+   "广州市黄埔区港湾中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市黄埔区玉岩实验学校": {
     "admitted": true,
     "min_score": 690,
@@ -12904,6 +15143,12 @@
     "admitted": true,
     "min_score": 682,
     "last_score": 682,
+    "rows": 1
+   },
+   "广州知识城中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "清华附中湾区学校": {
@@ -13082,6 +15327,12 @@
     "last_score": 667,
     "rows": 1
    },
+   "广州市五中滨江学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区城郊中学": {
     "admitted": true,
     "min_score": 667,
@@ -13130,6 +15381,12 @@
     "last_score": 702,
     "rows": 1
    },
+   "广州市从化区良口中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区龙潭中学": {
     "admitted": true,
     "min_score": 654,
@@ -13148,6 +15405,12 @@
     "last_score": 654,
     "rows": 1
    },
+   "广州市南沙东涌中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙区朝阳学校": {
     "admitted": true,
     "min_score": 693,
@@ -13158,6 +15421,24 @@
     "admitted": true,
     "min_score": 700,
     "last_score": 700,
+    "rows": 1
+   },
+   "广州市南沙大岗中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙榄核中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙横沥中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市南沙第一中学": {
@@ -13176,6 +15457,18 @@
     "admitted": true,
     "min_score": 681,
     "last_score": 681,
+    "rows": 1
+   },
+   "广州市增城区三江中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区中新中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区中新镇福和中学": {
@@ -13214,6 +15507,24 @@
     "last_score": 696,
     "rows": 1
    },
+   "广州市增城区增城中学（初中部）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区小楼中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区挂绿实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区新塘镇沙埔中学": {
     "admitted": true,
     "min_score": 673,
@@ -13236,6 +15547,12 @@
     "admitted": true,
     "min_score": 662,
     "last_score": 662,
+    "rows": 1
+   },
+   "广州市增城区永安学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区第二中学": {
@@ -13286,6 +15603,12 @@
     "last_score": 699,
     "rows": 1
    },
+   "广州市执信中学南沙学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市执信中学增城实验学校": {
     "admitted": true,
     "min_score": 701,
@@ -13320,6 +15643,18 @@
     "admitted": true,
     "min_score": 655,
     "last_score": 655,
+    "rows": 1
+   },
+   "广州市海珠区南武文润学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市海珠外国语实验中学附属学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市番禺区南村中学": {
@@ -13368,6 +15703,12 @@
     "admitted": true,
     "min_score": 696,
     "last_score": 696,
+    "rows": 1
+   },
+   "广州市番禺区广博学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市番禺区恒润实验学校": {
@@ -13490,6 +15831,12 @@
     "last_score": 711,
     "rows": 1
    },
+   "广州市白云区广州空港实验中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区新市中学": {
     "admitted": true,
     "min_score": 693,
@@ -13574,6 +15921,12 @@
     "last_score": 676,
     "rows": 1
    },
+   "广州市第三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第三中学实验学校": {
     "admitted": true,
     "min_score": 708,
@@ -13626,6 +15979,18 @@
     "admitted": true,
     "min_score": 691,
     "last_score": 691,
+    "rows": 1
+   },
+   "广州市第四中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市第四中学花地学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市绿翠现代实验学校": {
@@ -13712,6 +16077,12 @@
     "last_score": 709,
     "rows": 1
    },
+   "广州市荔湾区西关广雅实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市西关外国语学校": {
     "admitted": true,
     "min_score": 707,
@@ -13722,6 +16093,12 @@
     "admitted": true,
     "min_score": 668,
     "last_score": 668,
+    "rows": 1
+   },
+   "广州市越秀区名德实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市铁一中学（白云校区）": {
@@ -13754,6 +16131,12 @@
     "last_score": 658,
     "rows": 1
    },
+   "广州市黄埔区新港中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市黄埔区玉泉学校": {
     "admitted": true,
     "min_score": 685,
@@ -13782,6 +16165,12 @@
     "admitted": true,
     "min_score": 672,
     "last_score": 672,
+    "rows": 1
+   },
+   "广州知识城中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州科学城中学": {
@@ -13996,6 +16385,12 @@
     "last_score": 733,
     "rows": 1
    },
+   "广州市从化区龙潭中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市华侨外国语学校": {
     "admitted": true,
     "min_score": 746,
@@ -14050,6 +16445,12 @@
     "last_score": 720,
     "rows": 1
    },
+   "广州市南沙鱼窝头中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市培正中学": {
     "admitted": true,
     "min_score": 744,
@@ -14060,6 +16461,12 @@
     "admitted": true,
     "min_score": 751,
     "last_score": 751,
+    "rows": 1
+   },
+   "广州市增城区三江中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区仙村中学": {
@@ -14080,6 +16487,12 @@
     "last_score": 763,
     "rows": 1
    },
+   "广州市增城区新塘镇大敦中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区新塘镇沙埔中学": {
     "admitted": true,
     "min_score": 744,
@@ -14096,6 +16509,12 @@
     "admitted": true,
     "min_score": 681,
     "last_score": 681,
+    "rows": 1
+   },
+   "广州市增城区正果中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区永宁中学": {
@@ -14326,6 +16745,12 @@
     "last_score": 723,
     "rows": 1
    },
+   "广州市番禺区石楼镇第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区石碁第四中学": {
     "admitted": true,
     "min_score": 737,
@@ -14348,6 +16773,12 @@
     "admitted": true,
     "min_score": 745,
     "last_score": 745,
+    "rows": 1
+   },
+   "广州市白云区六中实验中学（空港校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区华新学校": {
@@ -14398,6 +16829,18 @@
     "last_score": 729,
     "rows": 1
    },
+   "广州市白云区神山中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市白云区竹料第三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市真光中学": {
     "admitted": true,
     "min_score": 725,
@@ -14432,6 +16875,12 @@
     "admitted": true,
     "min_score": 753,
     "last_score": 753,
+    "rows": 1
+   },
+   "广州市第三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第三中学实验学校": {
@@ -14524,6 +16973,12 @@
     "last_score": 731,
     "rows": 1
    },
+   "广州市花都区新星学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区新雅街清埔初级中学": {
     "admitted": true,
     "min_score": 749,
@@ -14552,6 +17007,12 @@
     "admitted": true,
     "min_score": 737,
     "last_score": 737,
+    "rows": 1
+   },
+   "广州市花都区育才学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市花都区花城街长岗初级中学": {
@@ -14594,6 +17055,12 @@
     "admitted": true,
     "min_score": 744,
     "last_score": 744,
+    "rows": 1
+   },
+   "广州市西关外国语学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市铁一中学（越秀校区）": {
@@ -14746,6 +17213,12 @@
     "admitted": true,
     "min_score": 736,
     "last_score": 736,
+    "rows": 1
+   },
+   "广东外语外贸大学从化第三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广东外语外贸大学实验中学": {
@@ -14946,6 +17419,12 @@
     "last_score": 696,
     "rows": 1
    },
+   "广州市从化区太平中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区太平第二中学": {
     "admitted": true,
     "min_score": 719,
@@ -14956,6 +17435,12 @@
     "admitted": true,
     "min_score": 704,
     "last_score": 704,
+    "rows": 1
+   },
+   "广州市从化区棋杆中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市从化区河东中学": {
@@ -14986,6 +17471,18 @@
     "admitted": true,
     "min_score": 718,
     "last_score": 718,
+    "rows": 1
+   },
+   "广州市从化区良口中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市从化区龙潭中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市八一实验学校": {
@@ -15072,6 +17569,18 @@
     "last_score": 727,
     "rows": 1
    },
+   "广州市南沙横沥中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙潭山中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙第一中学": {
     "admitted": true,
     "min_score": 752,
@@ -15094,6 +17603,12 @@
     "admitted": true,
     "min_score": 745,
     "last_score": 745,
+    "rows": 1
+   },
+   "广州市培正中学矿泉学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市培英中学（岭南校区）": {
@@ -15126,6 +17641,12 @@
     "last_score": 709,
     "rows": 1
    },
+   "广州市增城区中新镇福和中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区仙村中学": {
     "admitted": true,
     "min_score": 715,
@@ -15142,6 +17663,12 @@
     "admitted": true,
     "min_score": 727,
     "last_score": 727,
+    "rows": 1
+   },
+   "广州市增城区华大彦宏学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区合生育才学校": {
@@ -15162,10 +17689,22 @@
     "last_score": 766,
     "rows": 1
    },
+   "广州市增城区挂绿实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区新塘镇第三中学": {
     "admitted": true,
     "min_score": 693,
     "last_score": 693,
+    "rows": 1
+   },
+   "广州市增城区新塘镇第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区朱村中学": {
@@ -15184,6 +17723,18 @@
     "admitted": true,
     "min_score": 713,
     "last_score": 713,
+    "rows": 1
+   },
+   "广州市增城区派潭镇实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区石滩镇港侨中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区第二中学": {
@@ -15240,6 +17791,12 @@
     "last_score": 762,
     "rows": 1
    },
+   "广州市广园中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市庆丰实验学校": {
     "admitted": true,
     "min_score": 732,
@@ -15268,6 +17825,12 @@
     "admitted": true,
     "min_score": 741,
     "last_score": 741,
+    "rows": 1
+   },
+   "广州市新侨学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市星执学校": {
@@ -15462,6 +18025,12 @@
     "last_score": 705,
     "rows": 1
    },
+   "广州市番禺区石楼镇莲花山中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区石碁第四中学": {
     "admitted": true,
     "min_score": 693,
@@ -15492,6 +18061,12 @@
     "last_score": 728,
     "rows": 1
    },
+   "广州市番禺区隽新学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区香江实验学校": {
     "admitted": true,
     "min_score": 740,
@@ -15504,16 +18079,34 @@
     "last_score": 731,
     "rows": 1
    },
+   "广州市白云区三元里中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区云雅实验学校": {
     "admitted": true,
     "min_score": 752,
     "last_score": 752,
     "rows": 1
    },
+   "广州市白云区六中实验中学（空港校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区华新学校": {
     "admitted": true,
     "min_score": 739,
     "last_score": 739,
+    "rows": 1
+   },
+   "广州市白云区嘉禾中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区平沙培英学校": {
@@ -15534,10 +18127,22 @@
     "last_score": 702,
     "rows": 1
    },
+   "广州市白云区新和学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区梓元岗中学": {
     "admitted": true,
     "min_score": 716,
     "last_score": 716,
+    "rows": 1
+   },
+   "广州市白云区江村中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区江高镇第三初级中学": {
@@ -15564,16 +18169,40 @@
     "last_score": 762,
     "rows": 1
    },
+   "广州市白云区石井中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市白云区竹料第三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区黄石学校": {
     "admitted": true,
     "min_score": 749,
     "last_score": 749,
     "rows": 1
    },
+   "广州市白云区龙岗学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市真光中学": {
     "admitted": true,
     "min_score": 739,
     "last_score": 739,
+    "rows": 1
+   },
+   "广州市真光中学东漖学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市真光中学文伟学校": {
@@ -15606,6 +18235,12 @@
     "last_score": 723,
     "rows": 1
    },
+   "广州市第一一五中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第七中学": {
     "admitted": true,
     "min_score": 742,
@@ -15616,6 +18251,12 @@
     "admitted": true,
     "min_score": 727,
     "last_score": 727,
+    "rows": 1
+   },
+   "广州市第七十三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第七十五中学": {
@@ -15798,6 +18439,12 @@
     "last_score": 752,
     "rows": 1
    },
+   "广州市花都区秀全中学附属赤坭中学（三和庄校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区秀全中学附属赤坭中学（巴江校区）": {
     "admitted": true,
     "min_score": 724,
@@ -15814,6 +18461,12 @@
     "admitted": true,
     "min_score": 719,
     "last_score": 719,
+    "rows": 1
+   },
+   "广州市花都区花东学校（联安校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市花都区花东学校（花东校区）": {
@@ -15840,6 +18493,12 @@
     "last_score": 738,
     "rows": 1
    },
+   "广州市花都区花山镇花山初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区花广学校": {
     "admitted": true,
     "min_score": 759,
@@ -15858,10 +18517,22 @@
     "last_score": 703,
     "rows": 1
    },
+   "广州市花都区邝维煜纪念中学附属大塘中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区邝维煜纪念中学附属雅正学校": {
     "admitted": true,
     "min_score": 716,
     "last_score": 716,
+    "rows": 1
+   },
+   "广州市花都区金砖学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市花都区雅瑶中学": {
@@ -15882,6 +18553,12 @@
     "last_score": 724,
     "rows": 1
    },
+   "广州市西关外国语流花学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市越秀区名德实验学校": {
     "admitted": true,
     "min_score": 755,
@@ -15892,6 +18569,12 @@
     "admitted": true,
     "min_score": 740,
     "last_score": 740,
+    "rows": 1
+   },
+   "广州市越秀区雄鹰学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市铁一中学（番禺校区）": {
@@ -16008,6 +18691,12 @@
     "last_score": 719,
     "rows": 1
    },
+   "广州知识城中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州石化中学": {
     "admitted": true,
     "min_score": 703,
@@ -16076,6 +18765,12 @@
     "last_score": 663,
     "rows": 1
    },
+   "广东实验中学越秀学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广东实验中学（越秀校区）": {
     "admitted": true,
     "min_score": 621,
@@ -16130,10 +18825,22 @@
     "last_score": 655,
     "rows": 1
    },
+   "广州外国语学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州大学附属中学（番禺校区）": {
     "admitted": true,
     "min_score": 603,
     "last_score": 623,
+    "rows": 1
+   },
+   "广州天省实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州奥林匹克中学": {
@@ -16160,10 +18867,22 @@
     "last_score": 610,
     "rows": 1
    },
+   "广州市从化区棋杆中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区神岗中学": {
     "admitted": true,
     "min_score": 660,
     "last_score": 660,
+    "rows": 1
+   },
+   "广州市从化区第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市从化区良口中学": {
@@ -16178,6 +18897,12 @@
     "last_score": 677,
     "rows": 1
    },
+   "广州市八一实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市华颖外国语学校": {
     "admitted": true,
     "min_score": 647,
@@ -16190,10 +18915,22 @@
     "last_score": 645,
     "rows": 1
    },
+   "广州市南沙万顷沙中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙东涌中学": {
     "admitted": true,
     "min_score": 603,
     "last_score": 616,
+    "rows": 1
+   },
+   "广州市南沙区新垦学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市南沙区湾区实验学校": {
@@ -16208,6 +18945,18 @@
     "last_score": 671,
     "rows": 1
    },
+   "广州市南沙横沥中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙潭山中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙第一中学": {
     "admitted": true,
     "min_score": 654,
@@ -16220,10 +18969,22 @@
     "last_score": 645,
     "rows": 1
    },
+   "广州市增城区三江中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区中新镇福和中学": {
     "admitted": true,
     "min_score": 646,
     "last_score": 646,
+    "rows": 1
+   },
+   "广州市增城区小楼中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区应元学校": {
@@ -16238,10 +18999,22 @@
     "last_score": 646,
     "rows": 1
    },
+   "广州市增城区正果中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区永宁街永新中学": {
     "admitted": true,
     "min_score": 635,
     "last_score": 635,
+    "rows": 1
+   },
+   "广州市增城区派潭镇实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区英华学校": {
@@ -16298,6 +19071,12 @@
     "last_score": 659,
     "rows": 1
    },
+   "广州市执信中学（越秀校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市星执学校": {
     "admitted": true,
     "min_score": 630,
@@ -16344,6 +19123,12 @@
     "admitted": true,
     "min_score": 658,
     "last_score": 658,
+    "rows": 1
+   },
+   "广州市番禺区市桥侨联中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市番禺区市桥星海中学": {
@@ -16466,6 +19251,12 @@
     "last_score": 631,
     "rows": 1
    },
+   "广州市白云区竹料第一中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第一一三中学": {
     "admitted": true,
     "min_score": 646,
@@ -16544,6 +19335,12 @@
     "last_score": 642,
     "rows": 1
    },
+   "广州市第十六中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第十六中学东华实验学校": {
     "admitted": true,
     "min_score": 652,
@@ -16554,6 +19351,12 @@
     "admitted": true,
     "min_score": 647,
     "last_score": 647,
+    "rows": 1
+   },
+   "广州市第四中学丰宁学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第四十一中学": {
@@ -16590,6 +19393,12 @@
     "admitted": true,
     "min_score": 649,
     "last_score": 649,
+    "rows": 1
+   },
+   "广州市花都区梯面镇梯面初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市花都区炭步镇第二初级中学": {
@@ -16644,6 +19453,30 @@
     "admitted": true,
     "min_score": 656,
     "last_score": 656,
+    "rows": 1
+   },
+   "广州市荔湾区荔广实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市荔湾区西关广雅实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市西关培英中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市西关外国语学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市越秀区育才实验学校": {
@@ -16810,6 +19643,12 @@
     "last_score": 728,
     "rows": 1
    },
+   "广东第二师范学院广州南站附属学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广东第二师范学院附属南沙珠江学校": {
     "admitted": true,
     "min_score": 708,
@@ -16870,6 +19709,12 @@
     "last_score": 672,
     "rows": 1
    },
+   "广州市从化区城郊中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市从化区桃园中学": {
     "admitted": true,
     "min_score": 673,
@@ -16880,6 +19725,12 @@
     "admitted": true,
     "min_score": 678,
     "last_score": 678,
+    "rows": 1
+   },
+   "广州市从化区民乐中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市从化区河东中学": {
@@ -16898,6 +19749,12 @@
     "admitted": true,
     "min_score": 689,
     "last_score": 689,
+    "rows": 1
+   },
+   "广州市从化区第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市从化区龙潭中学": {
@@ -16972,6 +19829,12 @@
     "last_score": 727,
     "rows": 1
    },
+   "广州市增城区三江中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区中新镇福和中学": {
     "admitted": true,
     "min_score": 679,
@@ -16982,6 +19845,12 @@
     "admitted": true,
     "min_score": 688,
     "last_score": 688,
+    "rows": 1
+   },
+   "广州市增城区增城中学（初中部）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区应元学校": {
@@ -17012,6 +19881,18 @@
     "admitted": true,
     "min_score": 678,
     "last_score": 678,
+    "rows": 1
+   },
+   "广州市增城区石滩镇港侨中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区英华学校": {
@@ -17176,6 +20057,12 @@
     "last_score": 717,
     "rows": 1
    },
+   "广州市番禺区石楼镇海鸥学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区石碁第四中学": {
     "admitted": true,
     "min_score": 716,
@@ -17212,10 +20099,22 @@
     "last_score": 677,
     "rows": 1
    },
+   "广州市白云区广东第二师范学院实验中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市白云区广州培文外国语学校": {
     "admitted": true,
     "min_score": 703,
     "last_score": 703,
+    "rows": 1
+   },
+   "广州市白云区广州空港实验中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区新市中学": {
@@ -17246,6 +20145,18 @@
     "admitted": true,
     "min_score": 667,
     "last_score": 667,
+    "rows": 1
+   },
+   "广州市真光中学金道学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市知用学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第一一七中学": {
@@ -17284,6 +20195,12 @@
     "last_score": 694,
     "rows": 1
    },
+   "广州市第二十六中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第五中学": {
     "admitted": true,
     "min_score": 726,
@@ -17294,6 +20211,12 @@
     "admitted": true,
     "min_score": 702,
     "last_score": 702,
+    "rows": 1
+   },
+   "广州市第十八中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第十六中学": {
@@ -17314,10 +20237,28 @@
     "last_score": 728,
     "rows": 1
    },
+   "广州市第四中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市第四中学丰宁学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第四中学花地学校": {
     "admitted": true,
     "min_score": 717,
     "last_score": 717,
+    "rows": 1
+   },
+   "广州市第四十一中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市育才中学": {
@@ -17332,10 +20273,22 @@
     "last_score": 703,
     "rows": 1
    },
+   "广州市花都区炭步镇第二初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区秀全中学": {
     "admitted": true,
     "min_score": 731,
     "last_score": 731,
+    "rows": 1
+   },
+   "广州市花都区秀全中学附属赤坭中学（三和庄校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市花都区秀全外国语学校": {
@@ -17350,6 +20303,18 @@
     "last_score": 707,
     "rows": 1
    },
+   "广州市花都区花东学校（联安校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市花都区花东镇迳口初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区花山镇华侨初级中学": {
     "admitted": true,
     "min_score": 708,
@@ -17362,10 +20327,40 @@
     "last_score": 731,
     "rows": 1
    },
+   "广州市花都区邝维煜纪念中学附属大塘中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市荔湾区广豪学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市西关培英中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市骏景中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市黄埔军校纪念中学": {
     "admitted": true,
     "min_score": 717,
     "last_score": 717,
+    "rows": 1
+   },
+   "广州市黄埔区会元学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市黄埔区华实学校": {
@@ -17422,6 +20417,12 @@
     "last_score": 721,
     "rows": 1
    },
+   "广州知识城中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州科学城中学": {
     "admitted": true,
     "min_score": 672,
@@ -17442,6 +20443,12 @@
    }
   },
   "广州市第六中学（从化校区）": {
+   "中山大学附属中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "北京师范大学广州实验学校": {
     "admitted": true,
     "min_score": 659,
@@ -17452,6 +20459,12 @@
     "admitted": true,
     "min_score": 672,
     "last_score": 672,
+    "rows": 1
+   },
+   "华南师范大学附属中学（知识城校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "华南师范大学附属花都学校": {
@@ -17488,6 +20501,12 @@
     "admitted": true,
     "min_score": 699,
     "last_score": 699,
+    "rows": 1
+   },
+   "广东实验中学越秀学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广东广雅中学（花都校区）": {
@@ -17664,6 +20683,24 @@
     "last_score": 673,
     "rows": 1
    },
+   "广州市南沙榄核第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙潭山中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市培正中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市培英中学（岭南校区）": {
     "admitted": true,
     "min_score": 691,
@@ -17674,6 +20711,12 @@
     "admitted": true,
     "min_score": 651,
     "last_score": 651,
+    "rows": 1
+   },
+   "广州市增城区中新镇福和中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区仙村中学": {
@@ -17688,6 +20731,24 @@
     "last_score": 680,
     "rows": 1
    },
+   "广州市增城区增城中学（初中部）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区奥体学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市增城区应元学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区暨实学校": {
     "admitted": true,
     "min_score": 646,
@@ -17698,6 +20759,12 @@
     "admitted": true,
     "min_score": 701,
     "last_score": 701,
+    "rows": 1
+   },
+   "广州市增城区石滩镇港侨中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市增城区第二中学": {
@@ -17730,6 +20797,12 @@
     "last_score": 682,
     "rows": 1
    },
+   "广州市天河中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市实验外语学校": {
     "admitted": true,
     "min_score": 690,
@@ -17752,6 +20825,12 @@
     "admitted": true,
     "min_score": 663,
     "last_score": 663,
+    "rows": 1
+   },
+   "广州市执信中学（天河校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市江南外国语学校": {
@@ -17782,6 +20861,12 @@
     "admitted": true,
     "min_score": 675,
     "last_score": 675,
+    "rows": 1
+   },
+   "广州市番禺区化龙中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市番禺区大石中学": {
@@ -17826,6 +20911,12 @@
     "last_score": 727,
     "rows": 1
    },
+   "广州市番禺区沙湾象骏中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市番禺区洛浦沙滘中学": {
     "admitted": true,
     "min_score": 671,
@@ -17848,6 +20939,18 @@
     "admitted": true,
     "min_score": 661,
     "last_score": 661,
+    "rows": 1
+   },
+   "广州市番禺区钟村奥园学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市白云区六中实验中学（空港校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市白云区华新学校": {
@@ -17898,6 +21001,12 @@
     "last_score": 668,
     "rows": 1
    },
+   "广州市真光中学金道学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第一一三中学": {
     "admitted": true,
     "min_score": 682,
@@ -17910,6 +21019,12 @@
     "last_score": 673,
     "rows": 1
    },
+   "广州市第一中学十甫学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第七中学实验学校": {
     "admitted": true,
     "min_score": 698,
@@ -17920,6 +21035,24 @@
     "admitted": true,
     "min_score": 684,
     "last_score": 684,
+    "rows": 1
+   },
+   "广州市第七十中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市第三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市第三中学实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第二中学南沙天元学校": {
@@ -17946,10 +21079,22 @@
     "last_score": 655,
     "rows": 1
    },
+   "广州市第六十五中学（明德校区）": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第十七中学": {
     "admitted": true,
     "min_score": 650,
     "last_score": 650,
+    "rows": 1
+   },
+   "广州市第十三中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市第十六中学": {
@@ -17958,10 +21103,22 @@
     "last_score": 649,
     "rows": 1
    },
+   "广州市第四中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市第四十一中学": {
     "admitted": true,
     "min_score": 650,
     "last_score": 650,
+    "rows": 1
+   },
+   "广州市美华中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市育才中学": {
@@ -17980,6 +21137,18 @@
     "admitted": true,
     "min_score": 681,
     "last_score": 681,
+    "rows": 1
+   },
+   "广州市花都区狮岭中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市花都区狮岭镇冯村初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市花都区狮岭镇狮峰初级中学": {
@@ -18012,6 +21181,12 @@
     "last_score": 687,
     "rows": 1
    },
+   "广州市西关外国语学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市铁一中学（白云校区）": {
     "admitted": true,
     "min_score": 709,
@@ -18030,6 +21205,18 @@
     "last_score": 652,
     "rows": 1
    },
+   "广州市黄埔区华峰学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市黄埔区新港中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市黄埔区港湾中学": {
     "admitted": true,
     "min_score": 661,
@@ -18040,6 +21227,12 @@
     "admitted": true,
     "min_score": 671,
     "last_score": 671,
+    "rows": 1
+   },
+   "广州市黄埔区苏元学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市黄埔区铁英中学": {
@@ -18422,6 +21615,18 @@
     "last_score": 698,
     "rows": 1
    },
+   "广州市南沙万顷沙中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙东涌中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市南沙区朝阳学校": {
     "admitted": true,
     "min_score": 732,
@@ -18444,6 +21649,18 @@
     "admitted": true,
     "min_score": 684,
     "last_score": 684,
+    "rows": 1
+   },
+   "广州市南沙榄核第二中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
+   "广州市南沙潭山中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市南沙第一中学": {
@@ -18542,6 +21759,12 @@
     "last_score": 732,
     "rows": 1
    },
+   "广州市增城区挂绿实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市增城区新塘镇沙埔中学": {
     "admitted": true,
     "min_score": 683,
@@ -18612,6 +21835,12 @@
     "admitted": true,
     "min_score": 653,
     "last_score": 653,
+    "rows": 1
+   },
+   "广州市天河区成龙中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市天河区汇景实验学校": {
@@ -18762,6 +21991,12 @@
     "admitted": true,
     "min_score": 700,
     "last_score": 700,
+    "rows": 1
+   },
+   "广州市番禺区石楼镇海鸥学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市番禺区石碁第四中学": {
@@ -19082,6 +22317,12 @@
     "last_score": 667,
     "rows": 1
    },
+   "广州市花都区花东镇迳口初级中学": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市花都区花山镇华侨初级中学": {
     "admitted": true,
     "min_score": 690,
@@ -19190,10 +22431,22 @@
     "last_score": 684,
     "rows": 1
    },
+   "广州市黄埔区华峰学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
+    "rows": 1
+   },
    "广州市黄埔区新港中学": {
     "admitted": true,
     "min_score": 664,
     "last_score": 664,
+    "rows": 1
+   },
+   "广州市黄埔区玉岩实验学校": {
+    "admitted": false,
+    "min_score": null,
+    "last_score": null,
     "rows": 1
    },
    "广州市黄埔区苏元学校": {
@@ -19301,15 +22554,25 @@
   "广州市天健学校": "gz-440112-e085f4fa",
   "广州市天河中学": "gz-440106-2f8a4424",
   "广州市天河中学猎德实验学校": "gz-440106-8b3ee7d2",
+  "广州市天河区东泰学校": "gz-440106-9abdc5fd",
+  "广州市天河区东风学校": "gz-440106-24ff78f9",
+  "广州市天河区兴华培智学校": "gz-440106-0c83a9b2",
+  "广州市天河区凤凰中学": "gz-440106-ae248365",
   "广州市天河区华实学校": "gz-440106-bd07878c",
   "广州市天河区同仁天兴学校": "gz-440106-0d03d513",
+  "广州市天河区同仁实验学校": "gz-440106-77787b4a",
   "广州市天河区同仁艺体实验中学": "gz-440106-cc1c335f",
+  "广州市天河区培艺学校": "gz-440106-23e66d3b",
   "广州市天河区天泽中学": "gz-440106-b9eb24f9",
+  "广州市天河区成龙中学": "gz-440106-fd03e039",
+  "广州市天河区新蕾五星学校": "gz-440106-c77276d3",
   "广州市天河区明珠中英文学校": "gz-440106-4775be07",
   "广州市天河区智谷第一实验学校": "gz-440106-d311ea50",
+  "广州市天河区棠福学校": "gz-440106-4534dc1a",
   "广州市天河区汇景实验学校": "gz-440106-0d1e149e",
   "广州市天河区科韵路学校": "gz-440106-f0ba06c2",
   "广州市天河区黄村中英文学校": "gz-440106-4fac106a",
+  "广州市天河区龙圣学校": "gz-440106-eda909f7",
   "广州市天河外国语学校": "gz-440106-b711d94a",
   "广州市天荣中学": "gz-440106-90c47ff5",
   "广州市实验外语学校": "gz-440106-540006ea",
@@ -19318,6 +22581,7 @@
   "广州市执信中学琶洲实验学校": "gz-440105-cac39935",
   "广州市执信中学（天河校区）": "gz-440106-22fcbcd6",
   "广州市执信中学（越秀校区）": "gz-440104-f3ca07ff",
+  "广州市新侨学校": "gz-440112-bffde68d",
   "广州市新滘中学": "gz-440105-003f2037",
   "广州市星执学校": "gz-440113-999fb9c0",
   "广州市景中实验中学": "gz-440105-fbd67149",
@@ -19329,6 +22593,7 @@
   "广州市海珠区华海双语学校": "gz-440105-9a6566db",
   "广州市海珠区南武文润学校": "gz-440105-44b3dc01",
   "广州市海珠区康乐中学": "gz-440105-a1ae8780",
+  "广州市海珠区黄埔中学": "gz-440105-53bc2299",
   "广州市海珠外国语实验中学": "gz-440105-e76b659d",
   "广州市海珠外国语实验中学附属学校": "gz-440105-06e6439a",
   "广州市源雅学校": "gz-440111-c8ae0a7c",
@@ -19342,6 +22607,7 @@
   "广州市番禺区南村中学": "gz-440113-cbaa8160",
   "广州市番禺区南村镇侨联中学": "gz-440113-a0992d0c",
   "广州市番禺区南雅学校": "gz-440113-f4a10736",
+  "广州市番禺区博萃德学校": "gz-440113-3d006240",
   "广州市番禺区嘉诚学校": "gz-440113-2b7d85fc",
   "广州市番禺区大石中学": "gz-440113-0b275c37",
   "广州市番禺区大石富丽中学": "gz-440113-eab4ae0e",
@@ -19355,25 +22621,30 @@
   "广州市番禺区市桥沙头中学": "gz-440113-badb274e",
   "广州市番禺区市桥象圣中学": "gz-440113-1b12edfd",
   "广州市番禺区市桥金山谷学校": "gz-440113-f890218e",
+  "广州市番禺区广博学校": "gz-440113-827f636b",
   "广州市番禺区广铁一中铁英学校": "gz-440113-94c76638",
   "广州市番禺区恒润实验学校": "gz-440113-c9f8740e",
   "广州市番禺区新君豪中英文学校": "gz-440113-166b5b5c",
+  "广州市番禺区新英豪中英文学校": "gz-440113-757ae826",
   "广州市番禺区明德广地实验学校": "gz-440113-7997c707",
   "广州市番禺区毓贤学校": "gz-440113-7cdbe028",
   "广州市番禺区沙湾象达中学": "gz-440113-b2a39869",
   "广州市番禺区沙湾象骏中学": "gz-440113-51a65e7c",
   "广州市番禺区洛浦中学": "gz-440113-76992454",
+  "广州市番禺区洛浦厦滘学校": "gz-440113-6426397c",
   "广州市番禺区洛浦沙滘中学": "gz-440113-f744f14a",
   "广州市番禺区洛溪新城中学": "gz-440113-e7ca2b33",
   "广州市番禺区番外外国语学校": "gz-440113-3b63e590",
   "广州市番禺区石楼中学": "gz-440113-443448d2",
   "广州市番禺区石楼镇海鸥学校": "gz-440113-cdfe162a",
   "广州市番禺区石楼镇第二中学": "gz-440113-67864b8b",
+  "广州市番禺区石楼镇莲花山中学": "gz-440113-3d5242b3",
   "广州市番禺区石碁中学": "gz-440113-527391ff",
   "广州市番禺区石碁第四中学": "gz-440113-9fa97423",
   "广州市番禺区祈福新邨学校": "gz-440113-8ef59a4c",
   "广州市番禺区祈福英语实验学校": "gz-440113-c181d193",
   "广州市番禺区育龙中学": "gz-440113-db61be15",
+  "广州市番禺区金华学校": "gz-440113-0670cc0e",
   "广州市番禺区金海岸学校": "gz-440113-b33076d3",
   "广州市番禺区金海岸实验学校": "gz-440113-d7e3e576",
   "广州市番禺区钟村中学": "gz-440113-303a40d7",
@@ -19381,6 +22652,7 @@
   "广州市番禺区锦绣香江学校": "gz-440113-8a0b2cb9",
   "广州市番禺区隽新学校": "gz-440113-1f3378c2",
   "广州市番禺区香江实验学校": "gz-440113-ad8632f5",
+  "广州市番禺区鸿翔学校": "gz-440113-39879bc6",
   "广州市白云中学（棠景校区）": "gz-440111-6782f041",
   "广州市白云中学（汇侨校区）": "gz-440111-1b7d3f87",
   "广州市白云区三元里中学": "gz-440111-8629621c",
@@ -19395,6 +22667,7 @@
   "广州市白云区南悦中学": "gz-440111-2186a02a",
   "广州市白云区同和中学": "gz-440111-0ba9a45f",
   "广州市白云区嘉禾中学": "gz-440111-d2a4a882",
+  "广州市白云区嘉禾新都学校": "gz-440111-9f6fc18e",
   "广州市白云区培英实验学校": "gz-440111-e14818fc",
   "广州市白云区大朗中学": "gz-440111-cc803935",
   "广州市白云区太和中学": "gz-440111-06bfc806",
@@ -19405,10 +22678,12 @@
   "广州市白云区广州培文外国语学校": "gz-440111-b4e0e849",
   "广州市白云区广州空港实验中学": "gz-440111-d4c4285e",
   "广州市白云区应元颐和实验学校": "gz-440111-4af73d54",
+  "广州市白云区新和学校": "gz-440111-525f949a",
   "广州市白云区新市中学": "gz-440111-f3edc7ba",
   "广州市白云区景泰中学": "gz-440111-048815b3",
   "广州市白云区梓元岗中学": "gz-440111-a072aeb7",
   "广州市白云区民航学校": "gz-440111-5c7a7c4a",
+  "广州市白云区江村中学": "gz-440111-609bfcf4",
   "广州市白云区江高镇第三初级中学": "gz-440111-fce36a58",
   "广州市白云区江高镇第二初级中学": "gz-440111-d3ffec78",
   "广州市白云区珠江中学": "gz-440111-aca6656a",
@@ -19419,6 +22694,7 @@
   "广州市白云区石井中学": "gz-440111-297970b9",
   "广州市白云区石龙中学": "gz-440100-7564c13b",
   "广州市白云区神山中学": "gz-440111-6becf87b",
+  "广州市白云区穗丰学校": "gz-440111-853a71dd",
   "广州市白云区竹料第一中学": "gz-440111-78d61733",
   "广州市白云区竹料第三中学": "gz-440111-b2b78162",
   "广州市白云区黄石学校": "gz-440111-a53c68e3",
@@ -19444,6 +22720,7 @@
   "广州市第七中学东山学校": "gz-440104-7b6a95bd",
   "广州市第七中学实验学校": "gz-440104-d5f83454",
   "广州市第七十三中学": "gz-440111-96d35d17",
+  "广州市第七十中学": "gz-440111-20c36515",
   "广州市第七十五中学": "gz-440106-5a7fbf3a",
   "广州市第三中学": "gz-440104-d9ec2dbb",
   "广州市第三中学实验学校": "gz-440104-39515a9d",
@@ -19466,12 +22743,15 @@
   "广州市第十六中学东华实验学校": "gz-440104-c117279e",
   "广州市第十六中学实验学校": "gz-440104-27ecd0e4",
   "广州市第四中学": "gz-440103-3862ee98",
+  "广州市第四中学丰宁学校": "gz-440104-3b870a8e",
   "广州市第四中学花地学校": "gz-440103-958c2ab9",
   "广州市第四十一中学": "gz-440105-b210556b",
   "广州市绿翠现代实验学校": "gz-440105-41b48384",
   "广州市美华中学": "gz-440103-b0abf891",
   "广州市聚德中学": "gz-440105-a34bf4d7",
   "广州市育才中学": "gz-440104-7ec82efb",
+  "广州市荔湾区广豪学校": "gz-440103-cc2ff923",
+  "广州市荔湾区芳华初级中学": "gz-440103-e7a8679d",
   "广州市荔湾区荔广实验学校": "gz-440103-c5a0baa6",
   "广州市荔湾区西关广雅实验学校": "gz-440103-c5d5de44",
   "广州市西关培英中学": "gz-440103-d78c848a",
@@ -19480,6 +22760,7 @@
   "广州市越秀区名德实验学校": "gz-440104-cc4aa5b8",
   "广州市越秀区汇泉学校": "gz-440104-1f2d5df9",
   "广州市越秀区育才实验学校": "gz-440104-ff8d7e05",
+  "广州市越秀区雄鹰学校": "gz-440104-db01d10e",
   "广州市铁一中学（番禺校区）": "gz-440113-97e0acaa",
   "广州市铁一中学（白云校区）": "gz-440111-28c16cca",
   "广州市铁一中学（越秀校区）": "gz-440104-09652aa5",
@@ -19487,6 +22768,7 @@
   "广州市陈嘉庚纪念中学": "gz-440103-eb3cb5c6",
   "广州市香江中学": "gz-440118-322b6d28",
   "广州市骏景中学": "gz-440106-b7d476f7",
+  "广州市黄埔东晖学校": "gz-440112-ccdabd8f",
   "广州市黄埔军校中学": "gz-440112-b5b864ba",
   "广州市黄埔军校纪念中学": "gz-440112-674f4721",
   "广州市黄埔区东区中学": "gz-440112-550a5ae8",
@@ -19513,6 +22795,7 @@
   "广州知识城中学": "gz-440112-3f877ace",
   "广州石化中学": "gz-440112-8edaa2d8",
   "广州科学城中学": "gz-440112-8b4292d7",
+  "广州荔湾爱莎文华学校": "gz-440103-5143f5a1",
   "暨南大学附属实验学校": "gz-440106-11e15e8d",
   "清华附中湾区学校": "gz-440106-e32237e4",
   "湖南师范大学附属黄埔实验学校": "gz-440112-40be421c"

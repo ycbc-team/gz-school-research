@@ -1,0 +1,1835 @@
+{
+ "autonomy_plan": {
+  "gz-440112-3847727f": 47,
+  "gz-440106-d5983217": 37,
+  "gz-440113-acf92324": 80,
+  "gz-440104-1560332d": 34,
+  "gz-440111-a3cf5a4f": 53,
+  "gz-440103-3aca532e": 83,
+  "gz-440103-bb7f78f0": 70,
+  "gz-440113-5f62f75c": 80,
+  "gz-440106-3c8afb6a": 70,
+  "gz-440103-e281e7d0": 51,
+  "gz-440115-a936e5d5": 64,
+  "gz-440113-8f5e4721": 102,
+  "gz-440106-01fd3a87": 33,
+  "gz-440112-87f27cf4": 18,
+  "gz-440105-515da9e2": 48,
+  "gz-440111-730c7404": 32,
+  "gz-440103-a3ee807c": 30,
+  "gz-440106-069ddb41": 47,
+  "gz-440106-b711d94a": 20,
+  "gz-440106-22fcbcd6": 104,
+  "gz-440104-f3ca07ff": 92,
+  "gz-440105-e76b659d": 36,
+  "gz-440105-c1a01cbf": 28,
+  "gz-440112-ff5acfd5": 66,
+  "gz-440113-fe0cfa1f": 80,
+  "gz-440103-04c54db8": 35,
+  "gz-440103-2b8081bc": 70,
+  "gz-440103-882931a0": 17,
+  "gz-440103-c62eab6a": 70,
+  "gz-440104-2a1f2eaf": 45,
+  "gz-440104-028e64d6": 43,
+  "gz-440104-7f3031fc": 155,
+  "gz-440105-0ffca7e3": 72,
+  "gz-440105-aec34da3": 122,
+  "gz-440112-0cb5a402": 28,
+  "gz-440105-12b49e3f": 75,
+  "gz-440111-c7b90869": 24,
+  "gz-440111-4ebb4316": 16,
+  "gz-440111-218475ea": 32,
+  "gz-440104-8a1a7b3d": 48,
+  "gz-440106-52f7f4b7": 24,
+  "gz-440104-7ec82efb": 51,
+  "gz-440113-97e0acaa": 35,
+  "gz-440111-28c16cca": 60,
+  "gz-440104-09652aa5": 33,
+  "gz-440106-31895452": 60,
+  "gz-440106-8bc01096": 40
+ },
+ "special_plan": {
+  "gz-440103-2b8081bc": {
+   "arts": 24,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "合唱"
+    },
+    {
+     "plan": 12,
+     "project": "美术"
+    }
+   ],
+   "sports": 40,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 10,
+     "project": "男子足球"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 8,
+     "project": "女子足球"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 10,
+     "project": "田径"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 8,
+     "project": "健美操"
+    },
+    {
+     "plan": 4,
+     "project": "击剑"
+    }
+   ]
+  },
+  "gz-440103-3aca532e": {
+   "arts": 25,
+   "arts_projects": [
+    {
+     "plan": 15,
+     "project": "交响乐"
+    },
+    {
+     "plan": 10,
+     "project": "舞蹈"
+    }
+   ],
+   "sports": 32,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 6,
+     "project": "羽毛球"
+    },
+    {
+     "note": "其中体育后备人才不超5人",
+     "plan": 10,
+     "project": "游泳"
+    },
+    {
+     "note": "其中体育后备人才不超5人",
+     "plan": 10,
+     "project": "田径"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 6,
+     "project": "网球"
+    }
+   ]
+  },
+  "gz-440103-6bd45d68": {
+   "arts": 15,
+   "arts_projects": [
+    {
+     "plan": 15,
+     "project": "交响乐"
+    }
+   ],
+   "sports": 16,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 8,
+     "project": "男子排球"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 8,
+     "project": "女子排球"
+    }
+   ]
+  },
+  "gz-440103-8920aa01": {
+   "arts": 32,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "合唱"
+    },
+    {
+     "plan": 10,
+     "project": "民乐"
+    },
+    {
+     "plan": 10,
+     "project": "舞蹈"
+    }
+   ],
+   "sports": 22,
+   "sports_projects": [
+    {
+     "plan": 10,
+     "project": "男子篮球"
+    },
+    {
+     "plan": 8,
+     "project": "游泳"
+    },
+    {
+     "plan": 4,
+     "project": "射击"
+    }
+   ]
+  },
+  "gz-440103-a3ee807c": {
+   "arts": 10,
+   "arts_projects": [
+    {
+     "plan": 10,
+     "project": "舞蹈"
+    }
+   ],
+   "sports": 24,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超1人",
+     "plan": 8,
+     "project": "男子排球"
+    },
+    {
+     "note": "其中体育后备人才不超1人",
+     "plan": 8,
+     "project": "女子排球"
+    },
+    {
+     "note": "其中体育后备人才不超1人",
+     "plan": 8,
+     "project": "女子足球"
+    }
+   ]
+  },
+  "gz-440103-bb7f78f0": {
+   "arts": 30,
+   "arts_projects": [
+    {
+     "plan": 15,
+     "project": "合唱"
+    },
+    {
+     "plan": 15,
+     "project": "舞蹈"
+    }
+   ],
+   "sports": 30,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 8,
+     "project": "田径"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 6,
+     "project": "羽毛球"
+    },
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 8,
+     "project": "男子篮球"
+    },
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 8,
+     "project": "女子篮球"
+    }
+   ]
+  },
+  "gz-440103-c62eab6a": {
+   "arts": 24,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "合唱"
+    },
+    {
+     "plan": 12,
+     "project": "舞蹈"
+    }
+   ],
+   "sports": 36,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 10,
+     "project": "游泳"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 8,
+     "project": "男子篮球"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 8,
+     "project": "女子篮球"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 10,
+     "project": "田径"
+    }
+   ]
+  },
+  "gz-440103-c9f13fde": {
+   "arts": 31,
+   "arts_projects": [
+    {
+     "plan": 25,
+     "project": "美术"
+    },
+    {
+     "plan": 6,
+     "project": "粤剧"
+    }
+   ],
+   "sports": 10,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超1人",
+     "plan": 10,
+     "project": "跆拳道"
+    }
+   ]
+  },
+  "gz-440103-d78c848a": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 2,
+   "sports_projects": [
+    {
+     "plan": 2,
+     "project": "武术"
+    }
+   ]
+  },
+  "gz-440103-e281e7d0": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 22,
+   "sports_projects": [
+    {
+     "plan": 8,
+     "project": "男子篮球"
+    },
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 8,
+     "project": "啦啦操"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 6,
+     "project": "冰雪运动"
+    }
+   ]
+  },
+  "gz-440104-09652aa5": {
+   "arts": 35,
+   "arts_projects": [
+    {
+     "plan": 15,
+     "project": "交响乐"
+    },
+    {
+     "plan": 8,
+     "project": "舞蹈"
+    },
+    {
+     "plan": 12,
+     "project": "合唱"
+    }
+   ],
+   "sports": 10,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 6,
+     "project": "健美操"
+    },
+    {
+     "plan": 4,
+     "project": "武术"
+    }
+   ]
+  },
+  "gz-440104-1560332d": {
+   "arts": 15,
+   "arts_projects": [
+    {
+     "plan": 15,
+     "project": "交响乐"
+    }
+   ],
+   "sports": 14,
+   "sports_projects": [
+    {
+     "plan": 8,
+     "project": "乒乓球"
+    },
+    {
+     "plan": 6,
+     "project": "网球"
+    }
+   ]
+  },
+  "gz-440104-2a1f2eaf": {
+   "arts": 26,
+   "arts_projects": [
+    {
+     "plan": 14,
+     "project": "合唱"
+    },
+    {
+     "plan": 12,
+     "project": "民乐"
+    }
+   ],
+   "sports": 22,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超5人",
+     "plan": 10,
+     "project": "田径"
+    },
+    {
+     "note": "领军龙足球试点单列",
+     "plan": 12,
+     "project": "女足"
+    }
+   ]
+  },
+  "gz-440104-32444523": {
+   "arts": 25,
+   "arts_projects": [
+    {
+     "plan": 25,
+     "project": "美术"
+    }
+   ],
+   "sports": 35,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 12,
+     "project": "男子足球"
+    },
+    {
+     "note": "其中体育后备人才不超1人",
+     "plan": 8,
+     "project": "女子篮球"
+    },
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 9,
+     "project": "健美操"
+    },
+    {
+     "plan": 6,
+     "project": "无线电测向"
+    }
+   ]
+  },
+  "gz-440104-7ec82efb": {
+   "arts": 55,
+   "arts_projects": [
+    {
+     "plan": 15,
+     "project": "交响乐"
+    },
+    {
+     "plan": 40,
+     "project": "美术"
+    }
+   ],
+   "sports": 16,
+   "sports_projects": [
+    {
+     "plan": 4,
+     "project": "男子排球"
+    },
+    {
+     "plan": 4,
+     "project": "女子排球"
+    },
+    {
+     "plan": 8,
+     "project": "无线电测向"
+    }
+   ]
+  },
+  "gz-440104-7f3031fc": {
+   "arts": 25,
+   "arts_projects": [
+    {
+     "plan": 15,
+     "project": "交响乐"
+    },
+    {
+     "plan": 10,
+     "project": "舞蹈"
+    }
+   ],
+   "sports": 20,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超1人",
+     "plan": 4,
+     "project": "武术"
+    },
+    {
+     "plan": 8,
+     "project": "游泳"
+    },
+    {
+     "note": "其中体育后备人才不超1人",
+     "plan": 8,
+     "project": "科技体育"
+    }
+   ]
+  },
+  "gz-440104-8a1a7b3d": {
+   "arts": 30,
+   "arts_projects": [
+    {
+     "plan": 18,
+     "project": "交响乐"
+    },
+    {
+     "plan": 12,
+     "project": "合唱"
+    }
+   ],
+   "sports": 4,
+   "sports_projects": [
+    {
+     "plan": 4,
+     "project": "棋类"
+    }
+   ]
+  },
+  "gz-440104-99aef0e5": {
+   "arts": 14,
+   "arts_projects": [
+    {
+     "plan": 14,
+     "project": "舞蹈"
+    }
+   ],
+   "sports": 70,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超7人",
+     "plan": 18,
+     "project": "男子足球"
+    },
+    {
+     "note": "其中体育后备人才不超5人",
+     "plan": 10,
+     "project": "男子篮球"
+    },
+    {
+     "note": "其中体育后备人才不超5人",
+     "plan": 10,
+     "project": "女子篮球"
+    },
+    {
+     "note": "其中体育后备人才不超5人",
+     "plan": 10,
+     "project": "网球"
+    },
+    {
+     "note": "领军龙足球试点单列",
+     "plan": 22,
+     "project": "女足"
+    }
+   ]
+  },
+  "gz-440104-9c6632b1": {
+   "arts": 14,
+   "arts_projects": [
+    {
+     "plan": 10,
+     "project": "舞蹈"
+    },
+    {
+     "plan": 4,
+     "project": "非遗粤歌"
+    }
+   ],
+   "sports": 12,
+   "sports_projects": [
+    {
+     "plan": 6,
+     "project": "武术"
+    },
+    {
+     "plan": 6,
+     "project": "定向越野"
+    }
+   ]
+  },
+  "gz-440104-d9ec2dbb": {
+   "arts": 40,
+   "arts_projects": [
+    {
+     "plan": 22,
+     "project": "交响乐"
+    },
+    {
+     "plan": 18,
+     "project": "舞蹈"
+    }
+   ],
+   "sports": 28,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超5人",
+     "plan": 14,
+     "project": "田径"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 8,
+     "project": "羽毛球"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 6,
+     "project": "击剑"
+    }
+   ]
+  },
+  "gz-440104-f3ca07ff": {
+   "arts": 10,
+   "arts_projects": [
+    {
+     "plan": 10,
+     "project": "舞蹈"
+    }
+   ],
+   "sports": 28,
+   "sports_projects": [
+    {
+     "plan": 6,
+     "project": "科技体育"
+    },
+    {
+     "note": "领军龙足球试点单列",
+     "plan": 22,
+     "project": "男足"
+    }
+   ]
+  },
+  "gz-440105-0ffca7e3": {
+   "arts": 37,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "合唱"
+    },
+    {
+     "plan": 10,
+     "project": "语言艺术"
+    },
+    {
+     "plan": 15,
+     "project": "美术"
+    }
+   ],
+   "sports": 20,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 8,
+     "project": "游泳"
+    },
+    {
+     "note": "领军龙足球试点单列",
+     "plan": 12,
+     "project": "男足"
+    }
+   ]
+  },
+  "gz-440105-12b49e3f": {
+   "arts": 28,
+   "arts_projects": [
+    {
+     "plan": 18,
+     "project": "交响乐"
+    },
+    {
+     "plan": 10,
+     "project": "民乐"
+    }
+   ],
+   "sports": 20,
+   "sports_projects": [
+    {
+     "plan": 10,
+     "project": "棋类"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 10,
+     "project": "游泳"
+    }
+   ]
+  },
+  "gz-440105-40a80ebb": {
+   "arts": 10,
+   "arts_projects": [
+    {
+     "plan": 10,
+     "project": "交响乐"
+    }
+   ],
+   "sports": 22,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超5人",
+     "plan": 10,
+     "project": "男子足球"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 8,
+     "project": "冰雪运动"
+    },
+    {
+     "plan": 4,
+     "project": "毽球"
+    }
+   ]
+  },
+  "gz-440105-515da9e2": {
+   "arts": 12,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "民乐"
+    }
+   ],
+   "sports": 26,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超6人",
+     "plan": 12,
+     "project": "女子足球"
+    },
+    {
+     "plan": 8,
+     "project": "羽毛球"
+    },
+    {
+     "plan": 6,
+     "project": "乒乓球"
+    }
+   ]
+  },
+  "gz-440105-dd2723fc": {
+   "arts": 23,
+   "arts_projects": [
+    {
+     "plan": 23,
+     "project": "美术"
+    }
+   ],
+   "sports": 14,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 8,
+     "project": "游泳"
+    },
+    {
+     "note": "其中体育后备人才不超1人",
+     "plan": 6,
+     "project": "冰雪运动"
+    }
+   ]
+  },
+  "gz-440105-e76b659d": {
+   "arts": 10,
+   "arts_projects": [
+    {
+     "plan": 10,
+     "project": "语言艺术"
+    }
+   ],
+   "sports": 22,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超6人",
+     "plan": 12,
+     "project": "男子足球"
+    },
+    {
+     "note": "其中体育后备人才不超5人",
+     "plan": 10,
+     "project": "男子篮球"
+    }
+   ]
+  },
+  "gz-440105-f0712355": {
+   "arts": 20,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "舞蹈"
+    },
+    {
+     "plan": 8,
+     "project": "古琴"
+    }
+   ],
+   "sports": 31,
+   "sports_projects": [
+    {
+     "plan": 10,
+     "project": "男子排球"
+    },
+    {
+     "plan": 7,
+     "project": "女子排球"
+    },
+    {
+     "plan": 6,
+     "project": "乒乓球"
+    },
+    {
+     "plan": 8,
+     "project": "健美操"
+    }
+   ]
+  },
+  "gz-440106-01fd3a87": {
+   "arts": 4,
+   "arts_projects": [
+    {
+     "plan": 4,
+     "project": "非遗广彩"
+    }
+   ],
+   "sports": 0,
+   "sports_projects": []
+  },
+  "gz-440106-22fcbcd6": {
+   "arts": 30,
+   "arts_projects": [
+    {
+     "plan": 18,
+     "project": "交响乐"
+    },
+    {
+     "plan": 12,
+     "project": "合唱"
+    }
+   ],
+   "sports": 24,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 8,
+     "project": "男子篮球"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 6,
+     "project": "羽毛球"
+    },
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 10,
+     "project": "游泳"
+    }
+   ]
+  },
+  "gz-440106-3c8afb6a": {
+   "arts": 27,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "美术"
+    },
+    {
+     "plan": 15,
+     "project": "交响乐"
+    }
+   ],
+   "sports": 26,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 10,
+     "project": "田径"
+    },
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 10,
+     "project": "男子足球"
+    },
+    {
+     "note": "其中体育后备人才不超1人",
+     "plan": 6,
+     "project": "武术"
+    }
+   ]
+  },
+  "gz-440106-52f7f4b7": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 6,
+   "sports_projects": [
+    {
+     "plan": 6,
+     "project": "啦啦操"
+    }
+   ]
+  },
+  "gz-440106-5f78f6a9": {
+   "arts": 12,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "合唱"
+    }
+   ],
+   "sports": 14,
+   "sports_projects": [
+    {
+     "plan": 8,
+     "project": "女子篮球"
+    },
+    {
+     "plan": 6,
+     "project": "乒乓球"
+    }
+   ]
+  },
+  "gz-440106-621b20d3": {
+   "arts": 8,
+   "arts_projects": [
+    {
+     "plan": 8,
+     "project": "舞蹈"
+    }
+   ],
+   "sports": 6,
+   "sports_projects": [
+    {
+     "plan": 6,
+     "project": "女子排球"
+    }
+   ]
+  },
+  "gz-440106-8f55ab34": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 32,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 14,
+     "project": "男子足球"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 12,
+     "project": "女子足球"
+    },
+    {
+     "plan": 6,
+     "project": "体育舞蹈"
+    }
+   ]
+  },
+  "gz-440106-93897236": {
+   "arts": 12,
+   "arts_projects": [
+    {
+     "plan": 4,
+     "project": "民乐"
+    },
+    {
+     "plan": 8,
+     "project": "美术"
+    }
+   ],
+   "sports": 22,
+   "sports_projects": [
+    {
+     "plan": 8,
+     "project": "男子篮球"
+    },
+    {
+     "plan": 6,
+     "project": "羽毛球"
+    },
+    {
+     "note": "其中体育后备人才不超1人",
+     "plan": 8,
+     "project": "游泳"
+    }
+   ]
+  },
+  "gz-440106-a6394a7a": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 3,
+   "sports_projects": [
+    {
+     "plan": 3,
+     "project": "男子排球"
+    }
+   ]
+  },
+  "gz-440106-b711d94a": {
+   "arts": 21,
+   "arts_projects": [
+    {
+     "plan": 15,
+     "project": "交响乐"
+    },
+    {
+     "plan": 6,
+     "project": "语言艺术"
+    }
+   ],
+   "sports": 6,
+   "sports_projects": [
+    {
+     "plan": 6,
+     "project": "啦啦操"
+    }
+   ]
+  },
+  "gz-440106-d5983217": {
+   "arts": 10,
+   "arts_projects": [
+    {
+     "plan": 10,
+     "project": "合唱"
+    }
+   ],
+   "sports": 30,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 10,
+     "project": "田径"
+    },
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 8,
+     "project": "游泳"
+    },
+    {
+     "note": "领军龙足球试点单列",
+     "plan": 12,
+     "project": "男足"
+    }
+   ]
+  },
+  "gz-440106-d8e69757": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 24,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 12,
+     "project": "田径"
+    },
+    {
+     "plan": 4,
+     "project": "射击"
+    },
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 8,
+     "project": "手球"
+    }
+   ]
+  },
+  "gz-440111-218475ea": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 8,
+   "sports_projects": [
+    {
+     "plan": 8,
+     "project": "男子篮球"
+    }
+   ]
+  },
+  "gz-440111-28c16cca": {
+   "arts": 24,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "民乐"
+    },
+    {
+     "plan": 12,
+     "project": "合唱"
+    }
+   ],
+   "sports": 20,
+   "sports_projects": [
+    {
+     "plan": 6,
+     "project": "男子排球"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 10,
+     "project": "游泳"
+    },
+    {
+     "plan": 4,
+     "project": "击剑"
+    }
+   ]
+  },
+  "gz-440111-2b28ed6a": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 26,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 12,
+     "project": "男子足球"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 10,
+     "project": "田径"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 4,
+     "project": "曲棍球"
+    }
+   ]
+  },
+  "gz-440111-33d95662": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 6,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超1人",
+     "plan": 6,
+     "project": "武术"
+    }
+   ]
+  },
+  "gz-440111-730c7404": {
+   "arts": 12,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "民乐"
+    }
+   ],
+   "sports": 30,
+   "sports_projects": [
+    {
+     "plan": 8,
+     "project": "男子篮球"
+    },
+    {
+     "note": "其中体育后备人才不超1人",
+     "plan": 10,
+     "project": "男子足球"
+    },
+    {
+     "plan": 8,
+     "project": "田径"
+    },
+    {
+     "plan": 4,
+     "project": "击剑"
+    }
+   ]
+  },
+  "gz-440111-7b531bd6": {
+   "arts": 10,
+   "arts_projects": [
+    {
+     "plan": 10,
+     "project": "交响乐"
+    }
+   ],
+   "sports": 0,
+   "sports_projects": []
+  },
+  "gz-440111-7e484346": {
+   "arts": 18,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "美术"
+    },
+    {
+     "plan": 6,
+     "project": "语言艺术"
+    }
+   ],
+   "sports": 28,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 10,
+     "project": "游泳"
+    },
+    {
+     "plan": 6,
+     "project": "羽毛球"
+    },
+    {
+     "note": "领军龙足球试点单列",
+     "plan": 12,
+     "project": "男足"
+    }
+   ]
+  },
+  "gz-440111-82856abf": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 14,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 8,
+     "project": "男子篮球"
+    },
+    {
+     "plan": 6,
+     "project": "棒球"
+    }
+   ]
+  },
+  "gz-440111-a3cf5a4f": {
+   "arts": 26,
+   "arts_projects": [
+    {
+     "plan": 14,
+     "project": "合唱"
+    },
+    {
+     "plan": 12,
+     "project": "民乐"
+    }
+   ],
+   "sports": 30,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 8,
+     "project": "男子篮球"
+    },
+    {
+     "note": "其中体育后备人才不超6人",
+     "plan": 12,
+     "project": "男子足球"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 6,
+     "project": "乒乓球"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 4,
+     "project": "无线电测向"
+    }
+   ]
+  },
+  "gz-440111-c08e69db": {
+   "arts": 32,
+   "arts_projects": [
+    {
+     "plan": 14,
+     "project": "合唱"
+    },
+    {
+     "plan": 18,
+     "project": "美术"
+    }
+   ],
+   "sports": 0,
+   "sports_projects": []
+  },
+  "gz-440111-e74c2e1d": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 20,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 12,
+     "project": "田径"
+    },
+    {
+     "plan": 8,
+     "project": "女子篮球"
+    }
+   ]
+  },
+  "gz-440112-0876de16": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 26,
+   "sports_projects": [
+    {
+     "plan": 8,
+     "project": "女子排球"
+    },
+    {
+     "plan": 10,
+     "project": "男子篮球"
+    },
+    {
+     "plan": 8,
+     "project": "跳绳"
+    }
+   ]
+  },
+  "gz-440112-0cb5a402": {
+   "arts": 56,
+   "arts_projects": [
+    {
+     "plan": 25,
+     "project": "美术"
+    },
+    {
+     "plan": 14,
+     "project": "舞蹈"
+    },
+    {
+     "plan": 17,
+     "project": "交响乐"
+    }
+   ],
+   "sports": 20,
+   "sports_projects": [
+    {
+     "plan": 12,
+     "project": "男子足球"
+    },
+    {
+     "plan": 8,
+     "project": "男子篮球"
+    }
+   ]
+  },
+  "gz-440112-203c6d64": {
+   "arts": 18,
+   "arts_projects": [
+    {
+     "plan": 10,
+     "project": "民乐"
+    },
+    {
+     "plan": 8,
+     "project": "舞蹈"
+    }
+   ],
+   "sports": 19,
+   "sports_projects": [
+    {
+     "plan": 8,
+     "project": "游泳"
+    },
+    {
+     "plan": 6,
+     "project": "羽毛球"
+    },
+    {
+     "plan": 5,
+     "project": "射击飞镖"
+    }
+   ]
+  },
+  "gz-440112-3847727f": {
+   "arts": 13,
+   "arts_projects": [
+    {
+     "plan": 10,
+     "project": "舞蹈"
+    },
+    {
+     "plan": 3,
+     "project": "民乐"
+    }
+   ],
+   "sports": 17,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 8,
+     "project": "男子篮球"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 6,
+     "project": "羽毛球"
+    },
+    {
+     "note": "其中体育后备人才不超1人",
+     "plan": 3,
+     "project": "击剑"
+    }
+   ]
+  },
+  "gz-440112-87f27cf4": {
+   "arts": 20,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "美术"
+    },
+    {
+     "plan": 8,
+     "project": "交响乐"
+    }
+   ],
+   "sports": 0,
+   "sports_projects": []
+  },
+  "gz-440112-8b4292d7": {
+   "arts": 49,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "合唱"
+    },
+    {
+     "plan": 12,
+     "project": "民乐"
+    },
+    {
+     "plan": 25,
+     "project": "美术"
+    }
+   ],
+   "sports": 32,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超6人",
+     "plan": 12,
+     "project": "男子足球"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 12,
+     "project": "田径"
+    },
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 8,
+     "project": "女子篮球"
+    }
+   ]
+  },
+  "gz-440112-8bf29a28": {
+   "arts": 8,
+   "arts_projects": [
+    {
+     "plan": 8,
+     "project": "交响乐"
+    }
+   ],
+   "sports": 0,
+   "sports_projects": []
+  },
+  "gz-440112-9d315f50": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 18,
+   "sports_projects": [
+    {
+     "plan": 12,
+     "project": "女子足球"
+    },
+    {
+     "plan": 6,
+     "project": "健美操"
+    }
+   ]
+  },
+  "gz-440112-ec15555e": {
+   "arts": 6,
+   "arts_projects": [
+    {
+     "plan": 6,
+     "project": "语言艺术"
+    }
+   ],
+   "sports": 0,
+   "sports_projects": []
+  },
+  "gz-440112-ff5acfd5": {
+   "arts": 33,
+   "arts_projects": [
+    {
+     "plan": 15,
+     "project": "交响乐"
+    },
+    {
+     "plan": 10,
+     "project": "舞蹈"
+    },
+    {
+     "plan": 8,
+     "project": "非遗剪纸、版画"
+    }
+   ],
+   "sports": 36,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超6人",
+     "plan": 12,
+     "project": "田径"
+    },
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 8,
+     "project": "男子篮球"
+    },
+    {
+     "plan": 4,
+     "project": "羽毛球"
+    },
+    {
+     "note": "领军龙足球试点单列",
+     "plan": 12,
+     "project": "男足"
+    }
+   ]
+  },
+  "gz-440113-2570c29b": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 24,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超5人",
+     "plan": 10,
+     "project": "男子足球"
+    },
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 8,
+     "project": "男子排球"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 6,
+     "project": "女子排球"
+    }
+   ]
+  },
+  "gz-440113-5f62f75c": {
+   "arts": 12,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "美术"
+    }
+   ],
+   "sports": 40,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 12,
+     "project": "田径"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 10,
+     "project": "男子篮球"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 10,
+     "project": "女子篮球"
+    },
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 8,
+     "project": "啦啦操"
+    }
+   ]
+  },
+  "gz-440113-6cf93097": {
+   "arts": 47,
+   "arts_projects": [
+    {
+     "plan": 25,
+     "project": "美术"
+    },
+    {
+     "plan": 12,
+     "project": "合唱"
+    },
+    {
+     "plan": 10,
+     "project": "舞蹈"
+    }
+   ],
+   "sports": 20,
+   "sports_projects": [
+    {
+     "plan": 12,
+     "project": "男子足球"
+    },
+    {
+     "plan": 8,
+     "project": "毽球"
+    }
+   ]
+  },
+  "gz-440113-83a6a219": {
+   "arts": 51,
+   "arts_projects": [
+    {
+     "plan": 25,
+     "project": "美术"
+    },
+    {
+     "plan": 12,
+     "project": "舞蹈"
+    },
+    {
+     "plan": 14,
+     "project": "合唱"
+    }
+   ],
+   "sports": 8,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 8,
+     "project": "男子篮球"
+    }
+   ]
+  },
+  "gz-440113-8f5e4721": {
+   "arts": 24,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "合唱"
+    },
+    {
+     "plan": 12,
+     "project": "美术"
+    }
+   ],
+   "sports": 36,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 10,
+     "project": "男子篮球"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 12,
+     "project": "男子足球"
+    },
+    {
+     "note": "其中体育后备人才不超4人",
+     "plan": 10,
+     "project": "田径"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 4,
+     "project": "攀岩"
+    }
+   ]
+  },
+  "gz-440113-97e0acaa": {
+   "arts": 16,
+   "arts_projects": [
+    {
+     "plan": 6,
+     "project": "语言艺术"
+    },
+    {
+     "plan": 10,
+     "project": "舞蹈"
+    }
+   ],
+   "sports": 14,
+   "sports_projects": [
+    {
+     "plan": 8,
+     "project": "男子篮球"
+    },
+    {
+     "plan": 6,
+     "project": "定向越野"
+    }
+   ]
+  },
+  "gz-440113-acf92324": {
+   "arts": 23,
+   "arts_projects": [
+    {
+     "plan": 8,
+     "project": "民乐"
+    },
+    {
+     "plan": 15,
+     "project": "交响乐"
+    }
+   ],
+   "sports": 46,
+   "sports_projects": [
+    {
+     "plan": 12,
+     "project": "田径"
+    },
+    {
+     "note": "其中体育后备人才不超3人",
+     "plan": 10,
+     "project": "男子篮球"
+    },
+    {
+     "plan": 8,
+     "project": "女子篮球"
+    },
+    {
+     "plan": 12,
+     "project": "男子足球"
+    },
+    {
+     "plan": 4,
+     "project": "击剑"
+    }
+   ]
+  },
+  "gz-440113-e121d1b3": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 25,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 6,
+     "project": "乒乓球"
+    },
+    {
+     "plan": 8,
+     "project": "游泳"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 7,
+     "project": "武术"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 4,
+     "project": "艺术体操"
+    }
+   ]
+  },
+  "gz-440113-e7ca2b33": {
+   "arts": 0,
+   "arts_projects": [],
+   "sports": 14,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 6,
+     "project": "男子排球"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 8,
+     "project": "女子排球"
+    }
+   ]
+  },
+  "gz-440113-fe0cfa1f": {
+   "arts": 22,
+   "arts_projects": [
+    {
+     "plan": 12,
+     "project": "美术（含书法）"
+    },
+    {
+     "plan": 10,
+     "project": "民乐"
+    }
+   ],
+   "sports": 34,
+   "sports_projects": [
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 10,
+     "project": "田径"
+    },
+    {
+     "note": "其中体育后备人才不超2人",
+     "plan": 12,
+     "project": "女子足球"
+    },
+    {
+     "note": "领军龙足球试点单列",
+     "plan": 12,
+     "project": "男足"
+    }
+   ]
+  },
+  "gz-440115-a936e5d5": {
+   "arts": 27,
+   "arts_projects": [
+    {
+     "plan": 15,
+     "project": "交响乐"
+    },
+    {
+     "plan": 12,
+     "project": "合唱"
+    }
+   ],
+   "sports": 16,
+   "sports_projects": [
+    {
+     "plan": 8,
+     "project": "啦啦操"
+    },
+    {
+     "plan": 8,
+     "project": "网球"
+    }
+   ]
+  }
+ },
+ "autonomy_plan_schools": {
+  "广东广雅中学（花都校区）": 54,
+  "广州大学附属中学南沙实验学校": 20,
+  "广州市从化区从化中学": 40,
+  "广州市增城区增城中学": 64,
+  "广州市增城区应元学校": 20,
+  "广州市第二中学南沙天元学校": 25,
+  "广州市第六中学（从化校区）": 36,
+  "广州市第六中学（花都校区）": 48,
+  "广州市花都区秀全中学": 64
+ }
+}
