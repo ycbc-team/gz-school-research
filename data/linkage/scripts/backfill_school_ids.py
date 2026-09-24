@@ -372,9 +372,18 @@ def main() -> int:
                     outer_schools[hk] = conv
                     if hs:
                         id_conflicts.append((hk, hs))
+                    else:
+                        # 审计：batch2 外层高中校区未命中实体表（多为 7 区外校区，
+                        # 无实体不可点属正确行为；7 区内则需人工桥接）
+                        is7 = not any(x in hk for x in ('增城', '南沙', '花都', '从化'))
+                        unmatched.append(('batch2-outer', hk, None, is7))
         else:  # district_quota：外层初中键、内层高中键
             for sk, row in d['data'].items():
                 conv = conv_row(row, high_sid)
+                # 审计：内层区属高中未命中实体表（如海珠外国语实验中学(江海校区)，
+                # 实体表只有本部无校区实体/别名）→ 全部属 7 区内，待人工桥接
+                for k in conv['schools']:
+                    unmatched.append(('district_quota-inner', k, None, True))
                 if sk in ids and ids[sk] not in outer_seen:
                     outer_seen.add(ids[sk])
                     outer_ids[ids[sk]] = conv
