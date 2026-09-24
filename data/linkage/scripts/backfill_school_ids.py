@@ -2,15 +2,27 @@
 # -*- coding: utf-8 -*-
 """升学通道四表回填 school_id（C 层 SchoolMatcher：官方名单名 → 实体表主键）。
 
-输入（只读，B 层规范表）：data/linkage/parsed/canonical/ 下四表
+输入（B 层规范表，canonical）：data/linkage/parsed/canonical/ 下四表
   - quota_matrix.json     名额分配计划规范表（schools[].school 官方名单原文名）
   - special_matrix.json   升学通道矩阵规范表（高中名单原文 → high_school_ids 已在 B 层解析）
   - batch2_scores.json    第二批次分数规范表（data 键=初中名）
   - district_quota.json   区属名额规范表（data 键=初中名）
-输出：data/linkage/dist/ 下四表 + _school_id_unmatched.json
-  - quota_matrix.schools[].school_id / school_ids（初中实体）
-  - batch2_scores / district_quota 顶层 middle_school_ids（初中名 → school_id）
-  - special_matrix 直通（其高中侧 school_id 已在 B 层构建期解析，无初中外键字段）
+
+输出：
+  1) canonical 写回（既有 id 又有 name 的规范表，快照测试唯一基线）：
+     - quota_matrix.schools[].school_id / school_ids（初中实体）
+     - batch2_scores / district_quota 顶层 middle_school_ids（初中名 → school_id）
+  2) dist（运行时精简产物，键位 id 优先 + 原文兜底，school 名 / 调试字段全部删除）：
+     - quota_matrix：schools 拆两个并行数组——ids（有 school_id 的行，只保留
+       school_id/school_ids，前端 join 实体表展示名）+ schools（无 id 的行，保留原文名
+       展示，链接不可点）。行内删 page/row/is_district_head/sz_sum，顶层删
+       districts/note/source/title/updated（均无前端消费，canonical 保留）。
+     - district_quota / batch2_scores：data 递归拆 ids/schools 并行映射（键=id 优先，
+       无实体键保留原文）——外层初中/高中键、内层高中/初中键各自拆。顶层
+       middle_school_ids 删除（键已 id 化）；note/source 等元数据删除。
+     - special_matrix：删 high_entities/high_schools 死字段与 note/source 等元数据；
+       high_school_ids / autonomy_plan 键保持官方名单原文（名单原文是外键表键，
+       null 兜底需要原文）；special_plan 已 id 键，值内 name（=实体名）删除。
 
 匹配规则（resolve）：
 0) src/backfill_overrides.json 硬映射（人工核对，优先于一切通用规则）
@@ -168,76 +180,152 @@ def main() -> int:
         return None
 
     unmatched = []  # (表, 官方名, 区, 是否7区内)
-    files = {
-        'quota_matrix': (CANON / 'quota_matrix.json', DIST / 'quota_matrix.json', 2),
-        'special_matrix': (CANON / 'special_matrix.json', DIST / 'special_matrix.json', 1),
-        'batch2_scores': (CANON / 'batch2_scores.json', DIST / 'batch2_scores.json', 1),
-        'district_quota': (CANON / 'district_quota.json', DIST / 'district_quota.json', 1),
-    }
-    for tag, (src, dst, indent) in files.items():
-        d = json.loads(src.read_text('utf-8'))
-        if tag == 'quota_matrix':
-            for s in d['schools']:
-                if s['school'] in MATCH_OVERRIDES:
-                    s['school_id'] = MATCH_OVERRIDES[s['school']]
-                else:
-                    ent = resolve(s['school'], 'middle', AD_MAP.get(s.get('district')))
-                    if ent:
-                        s['school_id'] = ent['school_id']
-                    else:
-                        s.pop('school_id', None)
-                        unmatched.append((tag, s['school'], s.get('district'), s.get('district') in CITY7))
-                # 法人/校区行聚合 school_ids：官方升学文件按法人公布，一个法人名对应同 stage
-                # 全部校区实体——school_ids 数组 = 同 core 现存 middle 校区全集（实体表现存即
-                # 「办初中」：纯高中校区已由 build_entities NON_MIDDLE_CAMPUS/CAMPUS_STAGE_FIX
-                # 删除或转 high，不再出现在 middle by_core，天然排除）。
-                # 聚合 key 用「行 school_id 对应实体的 core_name」而非行原名：官方名单名带区前缀
-                # 而实体名不带（如「广州市白云区龙归学校」vs 实体「龙归学校(初中部)」），
-                # 原名 core 会失配（龙归 4c9a3eaa 曾因此无升学仍孤儿）；实体 core 反查天然对齐，
-                # 且实体 core 保留区名（从化区第七中学 ≠ 第七中学）不受影响。
-                # 主 id 归一仍只对法人行（原名无括号）做（用户口径：一个名字 + 弹窗选校区）；
-                # 校区收敛（如脏 POI 实体剔除后 ids 变 1 或 0）必须清残留旧数组，否则引用断链。
-                if s.get('school_id'):
-                    _core = core_loose(by_id.get(s['school_id'], ''))
-                    ids = by_core.get(('middle', _core)) or [] if _core else []
-                    if len(ids) > 1:
-                        s['school_ids'] = ids
-                        if '(' not in s['school'] and '（' not in s['school']:
-                            # 主 id 归一：多校区法人行主 school_id 必须指向「本部实体」——
-                            # school_ids 中「实体名无括号且去广州市后=法人名」者（如十六中→本部 8a1a7b3d，
-                            # 而非首匹配的东湖校区）；无本部实体（如七中仅麓湖/初中部/桂花校区）取 ids[0]。
-                            # 否则列表页点法人名跳到校区详情页。
-                            home = next((i for i in ids
-                                         if '(' not in by_id.get(i, '') and '（' not in by_id.get(i, '')
-                                         and core_loose(by_id.get(i, '')) == _core), None)
-                            s['school_id'] = home or ids[0]
-                    else:
-                        s.pop('school_ids', None)
-        elif tag == 'special_matrix':
-            # 直通：高中侧 school_id 已在 B 层构建期解析（high_school_ids）；无初中外键字段。
-            # （历史版本曾有 middle_school_ids=从入库产物继承的死字段，已随资格名单计数矩阵废弃，
-            #   前端无消费方，C 层不再生成。）
-            pass
+    dist_out = {}
+
+    # ================= quota_matrix：canonical 回填 + dist 行拆 ids/schools =================
+    d = json.loads((CANON / 'quota_matrix.json').read_text('utf-8'))
+    ids_rows = []
+    school_rows = []
+    for s in d['schools']:
+        if s['school'] in MATCH_OVERRIDES:
+            s['school_id'] = MATCH_OVERRIDES[s['school']]
         else:
-            if tag == 'batch2_scores':
-                keys = sorted({k for v in d['data'].values() for k in v.keys()})
-            else:  # district_quota
-                keys = list(d['data'].keys())
-            ids = {}
-            for k in keys:
-                if k in MATCH_OVERRIDES:
-                    ids[k] = MATCH_OVERRIDES[k]
-                    continue
-                ent = resolve(k, 'middle')
-                if ent:
-                    ids[k] = ent['school_id']
+            ent = resolve(s['school'], 'middle', AD_MAP.get(s.get('district')))
+            if ent:
+                s['school_id'] = ent['school_id']
+            else:
+                s.pop('school_id', None)
+                unmatched.append(('quota_matrix', s['school'], s.get('district'), s.get('district') in CITY7))
+        # 法人/校区行聚合 school_ids：官方升学文件按法人公布，一个法人名对应同 stage
+        # 全部校区实体——school_ids 数组 = 同 core 现存 middle 校区全集（实体表现存即
+        # 「办初中」：纯高中校区已由 build_entities NON_MIDDLE_CAMPUS/CAMPUS_STAGE_FIX
+        # 删除或转 high，不再出现在 middle by_core，天然排除）。
+        # 聚合 key 用「行 school_id 对应实体的 core_name」而非行原名：官方名单名带区前缀
+        # 而实体名不带（如「广州市白云区龙归学校」vs 实体「龙归学校(初中部)」），
+        # 原名 core 会失配（龙归 4c9a3eaa 曾因此无升学仍孤儿）；实体 core 反查天然对齐，
+        # 且实体 core 保留区名（从化区第七中学 ≠ 第七中学）不受影响。
+        # 主 id 归一仍只对法人行（原名无括号）做（用户口径：一个名字 + 弹窗选校区）；
+        # 校区收敛（如脏 POI 实体剔除后 ids 变 1 或 0）必须清残留旧数组，否则引用断链。
+        if s.get('school_id'):
+            _core = core_loose(by_id.get(s['school_id'], ''))
+            ids = by_core.get(('middle', _core)) or [] if _core else []
+            if len(ids) > 1:
+                s['school_ids'] = ids
+                if '(' not in s['school'] and '（' not in s['school']:
+                    # 主 id 归一：多校区法人行主 school_id 必须指向「本部实体」——
+                    # school_ids 中「实体名无括号且去广州市后=法人名」者（如十六中→本部 8a1a7b3d，
+                    # 而非首匹配的东湖校区）；无本部实体（如七中仅麓湖/初中部/桂花校区）取 ids[0]。
+                    # 否则列表页点法人名跳到校区详情页。
+                    home = next((i for i in ids
+                                 if '(' not in by_id.get(i, '') and '（' not in by_id.get(i, '')
+                                 and core_loose(by_id.get(i, '')) == _core), None)
+                    s['school_id'] = home or ids[0]
+            else:
+                s.pop('school_ids', None)
+        # dist 行：有 id 只留 school_id/school_ids（前端 join 实体表展示名），
+        # 无 id 才留 school 原文名（无点击跳转）。调试字段 page/row/is_district_head/sz_sum 只进 canonical。
+        row = {k: s[k] for k in ('district', 'kaosheng', 'sheng_quota', 'qu_quota', 'sz') if k in s}
+        if s.get('school_id'):
+            row['school_id'] = s['school_id']
+            if s.get('school_ids'):
+                row['school_ids'] = s['school_ids']
+            ids_rows.append(row)
+        else:
+            row['school'] = s['school']
+            school_rows.append(row)
+    (CANON / 'quota_matrix.json').write_text(json.dumps(d, ensure_ascii=False, indent=2, sort_keys=True) + '\n', 'utf-8')
+    dist_out['quota_matrix'] = {'ids': ids_rows, 'schools': school_rows}
+    print(f'[quota_matrix] 回填完成 → canonical 写回 + dist ids({len(ids_rows)})/schools({len(school_rows)}) 拆分')
+
+    # ================= district_quota / batch2：canonical 回填 + dist 递归 ids/schools =================
+    def conv_row(row, resolver):
+        """值行拆 ids/schools：键=id 优先，无实体键保留原文。resolver 返回 school_id 或 None。
+
+        行内冲突（两个官方键映射同一 school_id，如区属名单里两个校名挂同一实体）：
+        后者保留原文键进 schools，不覆盖前者（id 键化禁止丢行数据），冲突待数据层
+        （registry alias 修复）收敛——见 id_conflicts 告警。
+        """
+        out_ids = {}
+        out_schools = {}
+        seen = set()
+        for k, v in row.items():
+            sid = resolver(k)
+            if sid and sid not in seen:
+                seen.add(sid)
+                out_ids[sid] = v
+            else:
+                out_schools[k] = v
+                if sid:
+                    id_conflicts.append((k, sid))
+        return {'ids': out_ids, 'schools': out_schools}
+
+    def high_sid(name: str):
+        e = resolve(name, 'high')
+        return e['school_id'] if e else None
+
+    id_conflicts = []  # (官方键, school_id)：两名同 id 且行数据不同，保底原文兜底（数据层需修复 alias）
+    for tag in ('district_quota', 'batch2_scores'):
+        d = json.loads((CANON / f'{tag}.json').read_text('utf-8'))
+        if tag == 'batch2_scores':
+            mid_keys = sorted({k for v in d['data'].values() for k in v.keys()})
+        else:  # district_quota
+            mid_keys = list(d['data'].keys())
+        ids = {}
+        for k in mid_keys:
+            if k in MATCH_OVERRIDES:
+                ids[k] = MATCH_OVERRIDES[k]
+                continue
+            ent = resolve(k, 'middle')
+            if ent:
+                ids[k] = ent['school_id']
+            else:
+                unmatched.append((tag, k, None, None))
+        d['middle_school_ids'] = ids
+        (CANON / f'{tag}.json').write_text(json.dumps(d, ensure_ascii=False, indent=1) + '\n', 'utf-8')
+        # dist：data 递归拆（外层键、内层键各自 ids/schools）；外层多名同 id 冲突保底 schools
+        outer_ids = {}
+        outer_schools = {}
+        outer_seen = set()
+        if tag == 'batch2_scores':
+            for hk, rows in d['data'].items():
+                hs = high_sid(hk)
+                conv = conv_row(rows, lambda mk: ids.get(mk) or (resolve(mk, 'middle') or {}).get('school_id'))
+                if hs and hs not in outer_seen:
+                    outer_seen.add(hs)
+                    outer_ids[hs] = conv
                 else:
-                    unmatched.append((tag, k, None, None))
-            d['middle_school_ids'] = ids
-        # quota_matrix 固定字段顺序（sort_keys），其它表保持读入序（避免无关键序噪音）
+                    outer_schools[hk] = conv
+                    if hs:
+                        id_conflicts.append((hk, hs))
+        else:  # district_quota：外层初中键、内层高中键
+            for sk, row in d['data'].items():
+                conv = conv_row(row, high_sid)
+                if sk in ids and ids[sk] not in outer_seen:
+                    outer_seen.add(ids[sk])
+                    outer_ids[ids[sk]] = conv
+                else:
+                    outer_schools[sk] = conv
+                    if sk in ids:
+                        id_conflicts.append((sk, ids[sk]))
+        dist_out[tag] = {'ids': outer_ids, 'schools': outer_schools}
+        print(f'[{tag}] 回填完成 → canonical 写回 + dist ids({len(outer_ids)})/schools({len(outer_schools)}) 拆分')
+
+    # ================= special_matrix：去死字段 + special_plan 去 name（键保持名单原文） =================
+    d = json.loads((CANON / 'special_matrix.json').read_text('utf-8'))
+    sp = json.loads(json.dumps(d))
+    for k in ('high_entities', 'high_schools', 'note', 'scope', 'updated', 'title',
+              'autonomy_plan_source', 'special_plan_source', 'special_plan_summary'):
+        sp.pop(k, None)
+    for v in (sp.get('special_plan') or {}).values():
+        v.pop('name', None)
+    dist_out['special_matrix'] = sp
+    print('[special_matrix] 去死字段完成 → dist 写入')
+
+    # ================= 写 dist =================
+    for tag, data in dist_out.items():
         _sk = tag == 'quota_matrix'
-        dst.write_text(json.dumps(d, ensure_ascii=False, indent=indent, sort_keys=_sk) + '\n', 'utf-8')
-        print(f'[{tag}] 回填完成')
+        (DIST / f'{tag}.json').write_text(
+            json.dumps(data, ensure_ascii=False, indent=2 if _sk else 1, sort_keys=_sk) + '\n', 'utf-8')
 
     # 未命中清单：7 区内（需人工桥接）与 7 区外/未知（无实体，链接不可点属正确行为）分列
     inside = sorted({n for _, n, dist, is7 in unmatched if is7 is True})
@@ -253,6 +341,10 @@ def main() -> int:
     for n in inside[:30]:
         print('   ', n)
     print(f'\n7 区外/未知未命中 {len(outside)} 个（无实体，正常不可点）')
+    if id_conflicts:
+        print(f'\nid 键冲突 {len(id_conflicts)} 条（多名同 id，后者保底原文展示；待 registry alias 修复收敛）:')
+        for k, sid in id_conflicts[:20]:
+            print('   ', k, '→', sid)
     return 0
 
 

@@ -70,10 +70,20 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
   const resolvePoi = (name: string): string | null => repo.resolvePoiName?.(name) ?? null;
   /** 行跳转目标：优先用校区官方原文名（精确到校区实体），学校名兜底（多校区歧义时取第一个实体） */
   const poiOfRow = (campusFull: string, school: string): string | null => resolvePoi(campusFull) ?? resolvePoi(school);
+  /** dist 键可能是 school_id（ids 层）或原文名（schools 层）：统一转展示名（实体表 join） */
+  const nameOfKey = (k: string): string => {
+    const e = repo.entities.find((x) => x.school_id === k);
+    return e ? e.name : k;
+  };
+  /** 键 → POI 跳转名：id 层直接实体名（精确到校区）；原文层 resolvePoi 容错 */
+  const poiOfKey = (k: string): string | null => {
+    const e = repo.entities.find((x) => x.school_id === k);
+    return e ? e.name : resolvePoi(k);
+  };
 
   /** 法人行 school_ids → 各校区跳转链接（升学信息按法人聚合展示，各校区分别跳转各自详情页） */
   const campusesOf = (q: QuotaSchool | undefined): CampusLink[] =>
-    (q?.school_ids || []).map((sid) => {
+    (q && 'school_ids' in q ? (q.school_ids || []) : []).map((sid) => {
       const pn = poiNameOf(sid);
       return { schoolId: sid, poiName: pn, campus: pn || sid };
     });
@@ -85,14 +95,18 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
           .map((c) => ({ campus: c, campusFull: c, school: CAMPUS_INFO[c]!.school, poiName: poiOfRow(c, CAMPUS_INFO[c]!.school), n: quota.sz[c] as number }))
           .sort((a, b) => b.n - a.n)
       : [];
-    const batchRows = Object.entries(repo.batch2Of(schoolName)).map(([k, v]) => ({
-      campus: k,
-      campusFull: k,
-      school: CAMPUS_INFO[k]?.school ?? normCampus(k),
-      poiName: CAMPUS_INFO[k] ? poiOfRow(k, CAMPUS_INFO[k]!.school) : resolvePoi(k),
-      min: v.min_score,
-      last: v.last_score,
-    }));
+    const batchRows = Object.entries(repo.batch2Of(schoolName)).map(([k, v]) => {
+      const nm = nameOfKey(k);
+      const ci = CAMPUS_INFO[k] ?? CAMPUS_INFO[nm];
+      return {
+        campus: nm, // 与 quotaRows 的 CAMPUS_NAMES 对齐（实体校区名=官方原文）
+        campusFull: nm,
+        school: ci?.school ?? nm,
+        poiName: ci ? poiOfRow(nm, ci.school) : poiOfKey(k),
+        min: v.min_score,
+        last: v.last_score,
+      };
+    });
     const qmap = new Map<string, { campus: string; campusFull: string; school: string; poiName: string | null; n: number }>(quotaRows.map((r) => [r.campus, r]));
     const bmap = new Map<string, { campus: string; campusFull: string; school: string; poiName: string | null; min: number | null }>(
       batchRows.map((r) => [r.campus, { campus: r.campus, campusFull: r.campusFull, school: r.school, poiName: r.poiName, min: r.min ?? null }]),
@@ -112,7 +126,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
       })
       .sort((a, b) => (b.n ?? 0) - (a.n ?? 0));
     const districtRows: DistrictRow[] = Object.entries(repo.districtQuotaOf(schoolName))
-      .map(([name, n]) => ({ name, poiName: resolvePoi(name), n }))
+      .map(([k, n]) => ({ name: nameOfKey(k), poiName: poiOfKey(k), n }))
       .sort((a, b) => b.n - a.n);
     return {
       quota: quota ? { kaosheng: quota.kaosheng, sheng_quota: quota.sheng_quota, qu_quota: quota.qu_quota } : null,

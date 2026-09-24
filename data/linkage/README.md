@@ -8,11 +8,11 @@
 |---|---|---|---|
 | A 转录 | `raw/` | 政府源文件 | 官方 PDF/DOCX/HTML 原件（名额分配结果、第二批次分数、特长生计划附件等） |
 | A 转录 | `parsed/` | 转录 json | 由 raw 转录/OCR 的结构化 JSON（分数全量、OCR 网格、校名、名单与计划） |
-| B 清洗 | `parsed/canonical/` | 规范表 | B 层输出：清洗校正后的统一规范表（校名 + 全字段，**不含 school_id**——外键统一由 C 层生成） |
+| B 清洗 | `parsed/canonical/` | 规范表 | B 层输出 + C1 写回：既有 school_id 又有 name 的规范表（**测试快照唯一基线**） |
 | B 校正 | `src/` | 手工校正源 | 人工视觉校验值 / 校名修正 / 匹配硬映射（JSON 化，带出处与原因，可审计） |
-| C 加工 | `dist/` | 运行时产物 | C 层输出：SchoolMatcher 回填 school_id + 去冗余 + 聚合（前端唯一消费层） |
+| C 加工 | `dist/` | 运行时产物 | C 层输出：SchoolMatcher 回填 school_id + ids/schools 精简拆分 + 聚合（前端唯一消费层） |
 | — | `scripts/` | 脚本 | 复现管线（A→B→C 全部构建脚本 + `build_all.py` 编排） |
-| — | `test/` | 测试 | 业务快照测试（产物任何变更必须显式暴露） |
+| — | `test/` | 测试 | canonical 业务快照测试（快照只用 canonical）+ dist 轻量结构断言 |
 | — | `docs/` | 文档 | 方案记录（OCR 踩坑与修复过程等） |
 | — | `README.md` | 业务说明 | 本文件 |
 
@@ -21,16 +21,20 @@
 - **B 层**：对 A 清洗——统一数据格式、修复 OCR 识别错误、结合 `src/` 手工产物校正 → `parsed/canonical/`
 - **C 层**：对 B 进一步加工成运行时产物——SchoolMatcher 把校名匹配成 school_id、去掉运行时不需要的字段 → `dist/`
 - **dist 是纯派生产物**：任何变更必须改脚本 + 重跑 + 快照测试显式暴露，禁止直接手改 dist。
+- **dist 精简口径（2026-09-24 拍板）**：行/键主键 **id 优先**——有 school_id 的键/行进 `ids`，
+  仅无 id 匹配保留原文名进 `schools`；前端展示"id 实体名可点击跳转 + school 名不可点击跳转"。
+  dist 只保留有前端引用的最精简字段（如 quota 行去 school 名 join 实体表、去 page/row/sz_sum/districts），
+  调试字段只进 canonical（由快照覆盖）。
 
 ## 最终数据（dist/，C 层运行时产物）
 
 | 文件 | 内容 | 规模 |
 |---|---|---|
-| `dist/quota_matrix.json` | 2026 名额分配完整矩阵：每所初中的名额考生数 m_j、省市属/区属名额，及 21 个省市属高中校区的指标数 n_ji；school_id/school_ids 由 C 层回填 | 503 所初中 × 21 校区 |
-| `dist/batch2_scores.json` | 2026 第二批次（名额分配）录取分数：每所初中被各高中校区录取的最低/末位分 + middle_school_ids | 省市属 20 校区 × 463 所初中 |
-| `dist/special_matrix.json` | 2026 第一批招生事实：①自招计划数（`autonomy_plan`）②特长生计划数（`special_plan`）③名单原文→高中实体外键（`high_school_ids`） | 自招 56 校区 / 特长生 72 校区 / 名单 116 高中 |
-| `dist/ranking_middle.json` | 初中升学信号基础表：考生数/省市属指标/区属指标/自招数/指标到校明细（含特控率） | 334 校（7 区） |
-| `dist/district_quota.json` | 区属高中名额分配到本区初中（初中名 → {区属高中名: 名额}）+ middle_school_ids | 329 所（7 区） |
+| `dist/quota_matrix.json` | 2026 名额分配矩阵，`{ids: [有 school_id 的行（school 名已删，前端 join 实体表）], schools: [无 id 原文行]}`；行含 m_j/省市属/区属名额 + 21 省市属校区指标 n_ji | 503 所初中 × 21 校区（ids 339 / schools 164） |
+| `dist/batch2_scores.json` | 2026 第二批次录取分数，外层键（高中校区）/内层键（初中）各自 `{ids, schools}` 并行（id 优先 + 原文兜底） | 省市属 20 校区 |
+| `dist/special_matrix.json` | 2026 第一批招生事实：①自招计划数（`autonomy_plan`）②特长生计划数（`special_plan`，键=实体 id）③名单原文→高中实体外键（`high_school_ids`）；死字段（high_entities/high_schools/note 等）已删 | 自招 56 校区 / 特长生 72 校区 |
+| `dist/ranking_middle.json` | 初中升学信号基础表：考生数/省市属指标/区属指标/自招数/特控率聚合；sz 明细与元数据只进 canonical | 334 校（7 区） |
+| `dist/district_quota.json` | 区属高中名额，外层键（初中）/内层键（区属高中）各自 `{ids, schools}` 并行 | 329 所（7 区） |
 | `dist/_school_id_unmatched.json` | 官方名单名未命中实体表清单（7 区内待人工桥接 / 7 区外正常不可点） | 运行时审计产物 |
 
 > 历史清理（2026-09-24）：①第一批"资格名单计数矩阵"已废弃（前端不再消费），其遗留字段
@@ -93,14 +97,14 @@ python3 data/linkage/scripts/build_district_quota.py    # src/district_quota_vis
 python3 data/linkage/scripts/build_linkage_batch2.py    # parsed 全量过滤省市属 → canonical/batch2_scores.json
 python3 data/linkage/scripts/build_special_matrix.py    # 名单 + 计划源 + src/special_name_fix → canonical/special_matrix.json（high_school_ids）
 
-# ── C 加工（canonical → dist 运行时产物）───────────────────
-python3 data/linkage/scripts/backfill_school_ids.py     # SchoolMatcher：canonical 四表 → dist 四表 school_id/middle_school_ids + _school_id_unmatched.json
+# ── C 加工（canonical → dist 运行时产物；C 层脚本一律读 canonical，不依赖其他 C 层 dist）──
+python3 data/linkage/scripts/backfill_school_ids.py     # SchoolMatcher：canonical 写回 school_id/msi；dist ids/schools 并行拆分（多名同 id 冲突保底原文不覆盖）
 node scripts/data/optimize_redundancy.mjs               # dist 去冗余（sz 稀疏化 / 删 admitted:false 行 / msi 裁剪）
-python3 data/linkage/scripts/build_ranking_middle.py    # autonomy + dist/quota_matrix + district_quota + levels → dist/ranking_middle.json
+python3 data/linkage/scripts/build_ranking_middle.py    # autonomy + canonical/quota_matrix + canonical/district_quota + levels → canonical 全量 + dist 精简
 
-# ── 校验（产物任何变更必须显式暴露）─────────────────────────
-python3 data/linkage/test/check_special_matrix_snapshot.py   # special_matrix 业务快照（247 条）
-python3 data/linkage/test/check_dist_snapshots.py            # quota/district/batch2/ranking 业务快照（重放链路 → 与基线全等）
+# ── 校验（快照只用 canonical；dist 只做轻量结构断言）─────────
+python3 data/linkage/test/check_special_matrix_snapshot.py   # special_matrix canonical 业务快照（247 条）
+python3 data/linkage/test/check_dist_snapshots.py            # quota/district/batch2/ranking canonical 业务快照 + dist 结构断言（重放链路 → 与基线全等）
 ```
 
 历史迭代脚本（v2–v12、各 fix 轮、早期 OCR 实验）已删除，仅留方案记录于 `docs/OCR方案记录.md`。
@@ -113,8 +117,12 @@ python3 data/linkage/test/check_dist_snapshots.py            # quota/district/ba
    src 校正源并文档化）。
 3. **C 加工**：canonical → dist。school_id/middle_school_ids 唯一真源是 `backfill_school_ids.py`
    （`src/backfill_overrides.json` 硬映射优先）；任何"实体表变更 → 外键变化"都经此层暴露。
-4. **快照测试**：`test/check_dist_snapshots.py` 重放 B→C 全链路并与基线全等对比；`--update-snapshot`
-   显式更新基线。dist 若被手改，下一次重放即覆盖并以 diff 暴露。
+   多名同 id（官方两个名单名被实体表 alias 合并到同一 school_id）时**保底原文进 schools 不覆盖丢行**
+   并打印告警，根治靠 registry alias 修复（2026-09-24 例：荔湾区博雅实验学校 被东沙博雅 alias 吸收）。
+4. **快照测试（只用 canonical）**：`test/check_dist_snapshots.py` 重放 B→C 全链路，提取 canonical
+   业务快照（既有 id 又有 name）与基线全等对比；`--update-snapshot` 显式更新基线。dist 不再存精简
+   快照，改轻量结构断言（ids/schools 结构、行数守恒、字段白名单、无调试字段泄漏）。dist 若被手改，
+   下一次重放即覆盖并以断言/diff 暴露。
 5. **sz 明细继承**：quota_matrix 的 sz（21 校区分额）为历史 OCR 产物，无独立 raw 源可重建，
    持久层为 canonical（首次从 dist 引导），重放不丢。
 

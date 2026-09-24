@@ -6,10 +6,37 @@ import { normName, looseNorm } from '../support.js';
 import type { XiaoshengchuRecord } from '../types.js';
 import type { DataLoaders } from './loader.js';
 import { normSchoolName } from './enrollment.js';
-import type { QuotaSchool } from './types.js';
+import type { QuotaSchool, QuotaRowId, QuotaRowName, Batch2Record } from './types.js';
 
 export function createQuotaApi(loaders: DataLoaders) {
   const { quotaMatrix, specialMatrix, batch2Scores, districtQuota, middleSchools } = loaders;
+
+  /** 实体注册表（id → 实体）：dist 精简后 ids 行无 school 名，展示名由实体表 join；
+   *  提前到顶部（districtCoverage/quotaCoverage 反查转名用） */
+  interface SchoolEntityLite { school_id: string; name: string; stage: string; aliases: string[] }
+  const entityById = new Map<string, SchoolEntityLite>(
+    (loaders.entities.entities as SchoolEntityLite[]).map((e) => [e.school_id, e]),
+  );
+
+  /** 配额行定位器：ids 行按 school_id（实体表外键），schools 行按官方原文名 */
+  type QuotaLocator = { school_id: string } | { school: string };
+  const quotaById = new Map<string, QuotaRowId>(quotaMatrix.ids.map((r) => [r.school_id, r]));
+  const quotaByName = new Map<string, QuotaRowName>(quotaMatrix.schools.map((r) => [r.school, r]));
+  /** 法人聚合索引：实体名去「广州市」前缀/去括号校区/去学部后缀 → 同 core 的 middle 校区实体。
+   *  与 backfill_school_ids.py by_core 同规则：官方升学文件按法人公布，官方法人名（如
+   *  「广州市第一中学」）在实体表常挂在高中/小学部 alias 上（高中部 alias「第一中学」），
+   *  命中非 middle 实体后按 core 反查 middle 校区 → 归并到法人行（school_ids 主 id）。 */
+  const coreOf = (n: string): string =>
+    n.replace(/^广州市/, '').replace(/[（(][^）)]*[）)]/g, '').replace(/(校区|分校|初中部|高中部|小学部)$/, '').trim();
+  const middleByCore = new Map<string, string[]>();
+  for (const e of loaders.entities.entities as SchoolEntityLite[]) {
+    if (e.stage !== 'middle') continue;
+    const c = coreOf(e.name);
+    if (!c) continue;
+    const arr = middleByCore.get(c);
+    if (arr) { if (!arr.includes(e.school_id)) arr.push(e.school_id); }
+    else middleByCore.set(c, [e.school_id]);
+  }
 
   /** 任意名 → 实体 school_id（registry 同规则；local 实现避免循环依赖） */
   function resolveSchoolIdOf(name: string): string | null {
@@ -31,7 +58,9 @@ export function createQuotaApi(loaders: DataLoaders) {
     return null;
   }
 
-  /** 初中名归一查找：POI 简称/变体 → quota_matrix 标准全称（精确→归一→包含兜底） */
+  /** 初中名归一查找：POI 简称/变体 → 配额行 locator。
+   *  ids 行（7 区内有实体）走实体匹配（school_id 归并，法人行 school_ids 任一校区命中）；
+   *  schools 行（7 区外无实体）走原文精确 → norm → 包含兜底。 */
   const middleByNorm = new Map<string, string>();
   for (const s of quotaMatrix.schools) {
     const nk = normSchoolName(s.school);
@@ -42,29 +71,47 @@ export function createQuotaApi(loaders: DataLoaders) {
   for (const s of middleSchools.schools) {
     if (s.note && s.note.includes('新开办')) newOpeningMiddles.add(s.name);
   }
-  function resolveMiddle(poiName: string): string | null {
+  function resolveMiddle(poiName: string): QuotaLocator | null {
     if (newOpeningMiddles.has(poiName)) return null;
-    if (quotaMatrix.schools.some((s) => s.school === poiName)) return poiName;
+    if (quotaByName.has(poiName)) return { school: poiName };
     // 优先 school_id 外键（backfill 已回填；POI 名 → 实体 school_id → quota 行）
     // 法人行 school_ids 数组：任一校区 POI 都归并到法人行（官方配额按法人单位公布）
     const sid = resolveSchoolIdOf(poiName);
     if (sid) {
-      const byId = quotaMatrix.schools.find((s) => s.school_id === sid || (s.school_ids || []).includes(sid));
-      if (byId) return byId.school;
+      if (quotaById.has(sid)) return { school_id: sid };
+      // 法人聚合：命中非 middle 实体（官方法人名挂在高中/小学部 alias）→ 同 core middle 校区 → 法人行
+      const e0 = loaders.entities.entities.find((e) => e.school_id === sid);
+      const core = e0 ? coreOf(e0.name) : '';
+      const campuses = core ? (middleByCore.get(core) || []) : [];
+      if (campuses.length) {
+        for (const r of quotaMatrix.ids) {
+          if ((r.school_ids || []).some((i) => campuses.includes(i))) return { school_id: r.school_id };
+        }
+      }
+      for (const r of quotaMatrix.ids) {
+        if ((r.school_ids || []).includes(sid)) return { school_id: r.school_id };
+      }
     }
+    // schools 行（7 区外无实体）原文/归一/包含兜底；包含兜底收紧到 ≥4 字，
+    // 防短法人名（如「第一中学」）成为长名（「南沙第一中学」）子串被误配
     const nk = normSchoolName(poiName);
-    if (nk && middleByNorm.has(nk)) return middleByNorm.get(nk)!;
+    if (nk && middleByNorm.has(nk)) return { school: middleByNorm.get(nk)! };
     for (const s of quotaMatrix.schools) {
       const sk = normSchoolName(s.school);
-      if (sk.length >= 3 && (sk.includes(nk) || nk.includes(sk))) return s.school;
+      if (sk.length >= 4 && nk.length >= 4 && (sk.includes(nk) || nk.includes(sk))) return { school: s.school };
     }
     return null;
   }
 
+  /** locator → 配额行（ids 行按 school_id / schools 行按原文名） */
+  function quotaRowOf(loc: QuotaLocator | null): QuotaSchool | undefined {
+    if (!loc) return undefined;
+    return 'school_id' in loc ? quotaById.get(loc.school_id) : quotaByName.get(loc.school);
+  }
+
   /** 按初中名查升学通道汇总 */
   function linkageOf(schoolName: string): QuotaSchool | undefined {
-    const canon = resolveMiddle(schoolName);
-    return canon ? quotaMatrix.schools.find((s) => s.school === canon) : undefined;
+    return quotaRowOf(resolveMiddle(schoolName));
   }
 
   /** 官方名单原文 → 2026 自主招生计划数（原文精确 → 归一兜底）；计划数≠资格名单人数≠录取人数 */
@@ -101,40 +148,94 @@ export function createQuotaApi(loaders: DataLoaders) {
     };
   }
 
-  /** 按初中名查第二批次录取分数（值 = 校区 → 记录） */
-  function batch2Of(schoolName: string): Record<string, { admitted?: boolean; min_score?: number | null; last_score?: number | null }> {
-    const out: Record<string, { admitted?: boolean; min_score?: number | null; last_score?: number | null }> = {};
-    const canon = resolveMiddle(schoolName);
-    if (!canon) return out;
-    for (const [campus, rows] of Object.entries(batch2Scores.data)) {
-      if (rows[canon]) out[campus] = rows[canon];
+  /** dist 双层表按 locator 取行：ids 行走 school_id **及 school_ids 全部校区**
+   *  （backfill 的 dist 键是官方名单名直接 resolve 的 school_id，如「广州市第一中学」→ 初中部
+   *  2dc142ec；quota 行主 id 是法人聚合归一后的 2653da64——两者必须并查）。
+   *  schools 行按原文名；返回内层 ids/schools 合并（重复键保留首个）。 */
+  function locatorRows(
+    loc: QuotaLocator,
+    table: { ids: Record<string, { ids: Record<string, any>; schools: Record<string, any> }>; schools: Record<string, { ids: Record<string, any>; schools: Record<string, any> }> },
+  ): Record<string, any> {
+    const out: Record<string, any> = {};
+    const merge = (rows: { ids: Record<string, any>; schools: Record<string, any> } | undefined) => {
+      if (!rows) return;
+      for (const [k, v] of Object.entries({ ...rows.ids, ...rows.schools })) {
+        if (!(k in out)) out[k] = v;
+      }
+    };
+    if ('school_id' in loc) {
+      const r = quotaById.get(loc.school_id);
+      const sids = r ? [loc.school_id, ...(r.school_ids || [])] : [loc.school_id];
+      for (const sid of sids) merge(table.ids[sid]);
+    } else {
+      merge(table.schools[loc.school]);
     }
     return out;
   }
 
-  /** 按初中名查区属高中名额：{区属高中POI名: 名额} */
-  function districtQuotaOf(schoolName: string): Record<string, number> {
-    const canon = resolveMiddle(schoolName);
-    if (!canon) return {};
-    return districtQuota.data[canon] ?? {};
+  /** 按初中名查第二批次录取分数：batch2 外层键=高中校区 id/原文名、内层=初中（与 district 反向），
+   *  须反向扫描外层，收集内层 ids/schools 命中目标初中（含 school_ids 全部校区）的行。 */
+  function batch2Of(schoolName: string): Record<string, Batch2Record> {
+    const out: Record<string, Batch2Record> = {};
+    const loc = resolveMiddle(schoolName);
+    if (!loc) return out;
+    const sids = 'school_id' in loc
+      ? (() => { const r = quotaById.get(loc.school_id); return r ? [loc.school_id, ...(r.school_ids || [])] : [loc.school_id]; })()
+      : [];
+    const entries = Object.entries({ ...batch2Scores.ids, ...batch2Scores.schools }) as [string, { ids: Record<string, Batch2Record>; schools: Record<string, Batch2Record> }][];
+    for (const [hk, rows] of entries) {
+      if ('school_id' in loc) {
+        for (const sid of sids) {
+          const v = rows.ids[sid];
+          if (v) { if (!(hk in out)) out[hk] = v; break; }
+        }
+      } else {
+        const v = rows.schools[loc.school];
+        if (v && !(hk in out)) out[hk] = v;
+      }
+    }
+    return out;
   }
 
-  /** 反查：某区属高中名额分配覆盖的初中（按名额降序） */
+  /** 按初中名查区属高中名额（键=区属高中 id 或原文名） */
+  function districtQuotaOf(schoolName: string): Record<string, number> {
+    return locatorRows(resolveMiddle(schoolName) as QuotaLocator, districtQuota as never) as Record<string, number>;
+  }
+
+  /** 反查：某区属高中名额分配覆盖的初中（按名额降序）。
+   *  高中名 → 实体 id 反查 ids 行；schools 行（无实体高中）按原文名匹配。
+   *  初中展示名：ids 行走实体表 join，schools 行原文。 */
   function districtCoverage(highName: string): { school: string; school_id: string | null; n: number }[] {
     const out: { school: string; school_id: string | null; n: number }[] = [];
-    for (const [school, row] of Object.entries(districtQuota.data)) {
-      const n = row[highName];
-      if (n) out.push({ school, school_id: districtQuota.middle_school_ids?.[school] ?? null, n });
+    const hid = resolveSchoolIdOf(highName);
+    for (const [sid, row] of Object.entries(districtQuota.ids)) {
+      const n = hid ? (row.ids[hid] ?? 0) : 0;
+      const n2 = row.schools[highName] ?? 0;
+      if (n || n2) out.push({ school: entityById.get(sid)?.name ?? sid, school_id: sid, n: n || n2 });
+    }
+    for (const [name, row] of Object.entries(districtQuota.schools)) {
+      const n = hid ? (row.ids[hid] ?? 0) : 0;
+      const n2 = row.schools[highName] ?? 0;
+      if (n || n2) out.push({ school: name, school_id: null, n: n || n2 });
     }
     return out.sort((a, b) => b.n - a.n);
   }
 
   /** 反查：某校区 n_ji>0 的初中（名额分配覆盖，按 n_ji 降序）；campus = 官方原文校名 */
   function quotaCoverage(campus: string, top?: number): { school: string; school_id: string | null; n: number; district: string | null }[] {
-    const arr = quotaMatrix.schools
-      .filter((s) => (s.sz[campus] ?? 0) > 0)
-      .map((s) => ({ school: s.school, school_id: s.school_id ?? null, n: s.sz[campus] as number, district: s.district }))
-      .sort((a, b) => b.n - a.n);
+    const arr = [
+      ...quotaMatrix.ids
+        .filter((s) => (s.sz[campus] ?? 0) > 0)
+        .map((s) => ({
+          school: entityById.get(s.school_id)?.name ?? s.school_id,
+          school_id: s.school_id,
+          n: s.sz[campus] as number,
+          district: s.district,
+        })),
+      ...quotaMatrix.schools
+        .filter((s) => (s.sz[campus] ?? 0) > 0)
+        .map((s) => ({ school: s.school, school_id: null, n: s.sz[campus] as number, district: s.district })),
+    ].sort((a, b) => b.n - a.n);
     return top ? arr.slice(0, top) : arr;
   }
 
@@ -142,26 +243,15 @@ export function createQuotaApi(loaders: DataLoaders) {
     return specialMatrix.high_school_ids?.[rawHighName] ?? null;
   }
 
-  /** 初中名 → 名额分配摘要（模糊匹配 quota_matrix，用于小学出口列表轻量展示） */
+  /** 初中名 → 名额分配摘要（复用 resolveMiddle 定位，ids/schools 行统一） */
   function middleQuotaSummary(name: string): { kaosheng: number | null; sheng_quota: number | null; qu_quota: number | null } | null {
-    const find = (s: QuotaSchool) => ({ kaosheng: s.kaosheng, sheng_quota: s.sheng_quota, qu_quota: s.qu_quota });
-    const exact = quotaMatrix.schools.find((s) => s.school === name);
-    if (exact) return find(exact);
-    const nk = normSchoolName(name);
-    const normHit = quotaMatrix.schools.find((s) => normSchoolName(s.school) === nk);
-    if (normHit) return find(normHit);
-    const core = nk || name;
-    for (const s of quotaMatrix.schools) {
-      const sk = normSchoolName(s.school);
-      if (sk.length >= 4 && (sk.includes(core) || core.includes(sk))) return find(s);
-    }
-    return null;
+    const q = quotaRowOf(resolveMiddle(name));
+    if (!q) return null;
+    return { kaosheng: q.kaosheng, sheng_quota: q.sheng_quota, qu_quota: q.qu_quota };
   }
 
   /* ===== 小学升学路线（实体注册表 + 2026 事实表，school_id 外键，全等别名） ===== */
-  interface SchoolEntityLite { school_id: string; name: string; stage: string; aliases: string[] }
   const entities = loaders.entities.entities as SchoolEntityLite[];
-  const entityById = new Map(entities.map((e) => [e.school_id, e]));
   /** 从 group 文本解析区名（如「番禺区小升初对口（单校）」→「番禺区」），无区前缀返回 null */
   function districtOfGroup(group: string | null): string | null {
     if (!group) return null;

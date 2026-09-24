@@ -1,5 +1,5 @@
 {
- "note": "district_quota 业务快照（非产物字节，dist 必须由脚本重建）。更新：--update-snapshot。",
+ "note": "district_quota canonical 业务快照（既有 id 又有 name；canonical 必须由脚本重建）。更新：--update-snapshot。dist 只做轻量结构断言，不再存精简快照。",
  "snapshot": {
   "data": {
    "中国教育科学研究院荔湾实验学校": {

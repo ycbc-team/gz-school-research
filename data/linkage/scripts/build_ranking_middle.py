@@ -86,10 +86,11 @@ def group_of(school_id=None, school_ids=None):
 
 
 # ---------------- 载入 ----------------
-quota = load('linkage/dist/quota_matrix.json')
+# C 层脚本读 B 层规范表（canonical，既 id 又 name），不依赖其他 C 层脚本的 dist 精简产物
+quota = load('linkage/parsed/canonical/quota_matrix.json')
 autonomy = load('linkage/parsed/autonomy/autonomy_qualify_2026.json')
 levels = load('high/level/src/levels.json')
-district_quota = load('linkage/dist/district_quota.json')
+district_quota = load('linkage/parsed/canonical/district_quota.json')
 # 民办身份唯一真源：registry/entities.json（nature='民办'；公办不写字段）
 MINBAN_IDS = {e['school_id'] for e in load('registry/entity/dist/entities.json').get('entities', []) if e.get('nature') == '民办'}
 
@@ -341,12 +342,21 @@ result = {
     },
     'schools': out_schools,
 }
-with open(DATA / 'linkage' / 'dist' / 'ranking_middle.json', 'w', encoding='utf-8') as f:
+# ================= canonical 全量（快照唯一基线，含 sz 明细与元数据） =================
+canon = DATA / 'linkage' / 'parsed' / 'canonical' / 'ranking_middle.json'
+canon.parent.mkdir(parents=True, exist_ok=True)
+with open(canon, 'w', encoding='utf-8') as f:
     json.dump(result, f, ensure_ascii=False, indent=2)
+
+# ================= dist 精简（删 sz 明细/元数据：sz 无前端消费，调试字段留在 canonical） =================
+dist = {k: v for k, v in result.items() if k not in ('title', 'updated', 'note', 'source')}
+dist['schools'] = [{k: v for k, v in s.items() if k != 'sz'} for s in out_schools]
+with open(DATA / 'linkage' / 'dist' / 'ranking_middle.json', 'w', encoding='utf-8') as f:
+    json.dump(dist, f, ensure_ascii=False, indent=2)
 
 from collections import Counter as _C
 _dist = _C(s['district'] for s in out_schools)
-print(f'输出 {len(out_schools)} 所初中 → data/linkage/dist/ranking_middle.json')
+print(f'输出 {len(out_schools)} 所初中 → canonical + dist/ranking_middle.json')
 print('7区分布:', {k: _dist[k] for k in ['荔湾区', '越秀区', '海珠区', '天河区', '白云区', '黄埔区', '番禺区']})
 print('quota 未匹配:', missing_quota if missing_quota else '无')
 # 校验：抽查
