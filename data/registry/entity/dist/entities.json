@@ -10043,13 +10043,17 @@
       "school_id": "gz-440112-7127244c",
       "name": "广铁一中铁铮学校(西校区)",
       "stage": "middle",
-      "aliases": []
+      "aliases": [
+        "铁铮学校"
+      ]
     },
     {
       "school_id": "gz-440112-d3055548",
       "name": "广铁一中铁铮学校(东校区)",
       "stage": "middle",
-      "aliases": []
+      "aliases": [
+        "铁铮学校"
+      ]
     },
     {
       "school_id": "gz-440112-c80ac6ac",

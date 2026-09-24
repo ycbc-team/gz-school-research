@@ -6892,7 +6892,9 @@
    "stage": "primary"
   },
   "gz-440112-7127244c#middle": {
-   "aliases": [],
+   "aliases": [
+    "铁铮学校"
+   ],
    "name": "广铁一中铁铮学校(西校区)",
    "stage": "middle"
   },
@@ -7257,7 +7259,9 @@
    "stage": "primary"
   },
   "gz-440112-d3055548#middle": {
-   "aliases": [],
+   "aliases": [
+    "铁铮学校"
+   ],
    "name": "广铁一中铁铮学校(东校区)",
    "stage": "middle"
   },

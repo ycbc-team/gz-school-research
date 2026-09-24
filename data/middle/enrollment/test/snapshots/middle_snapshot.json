@@ -1480,26 +1480,6 @@
      "school_ids": null,
      "scope": null
     },
-    "广铁一中铁铮学校(东校区)": {
-     "group_members": null,
-     "mechanism": "no_plan",
-     "mechanism_note": "该校为九年一贯制学校，2026 年按“铁铮学校”整体招生：小学部毕业生对口直升本校初中部（2026 年黄埔区实施细则附件5 对口直升组）。东/西校区为同一学校的校区划分，官方不单独公布各校区招生计划。",
-     "plan_classes": null,
-     "school": "广铁一中铁铮学校(东校区)",
-     "school_id": "gz-440112-d3055548",
-     "school_ids": null,
-     "scope": null
-    },
-    "广铁一中铁铮学校(西校区)": {
-     "group_members": null,
-     "mechanism": "no_plan",
-     "mechanism_note": "该校为九年一贯制学校，2026 年按“铁铮学校”整体招生：小学部毕业生对口直升本校初中部（2026 年黄埔区实施细则附件5 对口直升组）。东/西校区为同一学校的校区划分，官方不单独公布各校区招生计划。",
-     "plan_classes": null,
-     "school": "广铁一中铁铮学校(西校区)",
-     "school_id": "gz-440112-7127244c",
-     "school_ids": null,
-     "scope": null
-    },
     "开元学校": {
      "group_members": null,
      "mechanism": "single_zone",
@@ -1633,8 +1613,12 @@
      "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
      "school": "铁铮学校",
-     "school_id": "gz-440112-11ed4c6c",
-     "school_ids": null,
+     "school_id": null,
+     "school_ids": [
+      "gz-440112-11ed4c6c",
+      "gz-440112-7127244c",
+      "gz-440112-d3055548"
+     ],
      "scope": "铁铮学校"
     },
     "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）": {
