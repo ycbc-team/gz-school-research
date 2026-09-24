@@ -12,6 +12,8 @@ const path = require('node:path');
 const { createRepository, buildDetailModel, buildLinkageModel, normName, splitEnrollments } = require('../dist/cjs/index.js');
 const { diffSnapshots, formatDiff } = require('./helpers/snapshot-diff.cjs');
 const ROOT = path.resolve(__dirname, '../../..');
+// 特长生计划总量校验以 canonical 为准（dist 已删汇总字段，只进 canonical）
+const canonSpecial = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/linkage/parsed/canonical/special_matrix.json'), 'utf8'));
 const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', file), 'utf8'));
 const loaders = {
   primarySchools: load('poi/dist/primary_poi.json'),
@@ -47,7 +49,7 @@ test('详情模型：小学保留招生与升学路线', () => {
 });
 
 test('详情模型：初中保留名额通道与生源反查', () => {
-  const row = loaders.quotaMatrix.schools.find((s) => s.school_id);
+  const row = loaders.quotaMatrix.ids.find((s) => s.school_id);
   assert.ok(row, '名额矩阵应至少有一所已关联实体的初中');
   const name = repo.entities.find((e) => e.school_id === row.school_id).name;
   const model = buildDetailModel('middle', name, repo, row.school_id);
@@ -113,9 +115,9 @@ test('第一批高中详情计划数按 school_id 反查（自主/体育/艺术�
   const m4 = buildLinkageModel('high', hf.name, repo, hf.school_id);
   assert.ok(m4.planNotes.includes('lingjun'), '华附石牌为领军龙试点 → planNotes 含 lingjun');
   // 4) 特长生计划总量 = 官方口径（体育 1905 不含领军龙 / 艺术 1741 / 领军龙 116）
-  assert.equal(special.special_plan_summary.sports, 1905);
-  assert.equal(special.special_plan_summary.arts, 1741);
-  assert.equal(special.special_plan_summary.football_special, 116);
+  assert.equal(canonSpecial.special_plan_summary.sports, 1905);
+  assert.equal(canonSpecial.special_plan_summary.arts, 1741);
+  assert.equal(canonSpecial.special_plan_summary.football_special, 116);
 });
 
 test('品牌关联：广大附黄华路校区以 school_id 标记当前项并生成 ID 跳转', () => {
@@ -255,7 +257,9 @@ test('品牌关联：7 区外远郊成员不可点击跳转（南沙铁英回归
 test('法人多校区：官方升学文件一个名称对应多个 school_id，聚合展示分别跳转', () => {
   // 一一三中法人行：2 个 middle 校区（乐学/东方）；金融城/元岗为纯高中（NON_MIDDLE，
   // 2026-09-17 联网核实 campus_middle_webverify_20260917.md）
-  const row = loaders.quotaMatrix.schools.find((s) => s.school === '广州市第一一三中学');
+  const sid113 = loaders.quotaMatrix.name_index && loaders.quotaMatrix.name_index['广州市第一一三中学'];
+  assert.ok(sid113, 'name_index 应有广州市第一一三中学');
+  const row = loaders.quotaMatrix.ids.find((s) => s.school_id === sid113);
   assert.ok(row, 'quota 应有广州市第一一三中学法人行');
   assert.equal(row.school_ids.length, 2, '法人行应挂 2 个 middle 校区 school_id');
   const model = buildLinkageModel('middle', '广州市第一一三中学', repo, row.school_id);
@@ -282,7 +286,10 @@ test('法人多校区：从任一校区 POI 进入都能命中法人升学数据
 
 test('法人多校区：高中覆盖反查行聚合法人全部校区', () => {
   const model = buildLinkageModel('high', '华南师范大学附属中学（石牌校区）', repo, null);
-  const row = model.highCoverage.find((r) => r.school === '广州市第一一三中学');
+  // 实体表按校区粒度（无「广州市第一一三中学」法人实体），覆盖行按校区实体聚合：
+  // 一一三中法人行（乐学+东方 2 校区）以 school_id 定位，行名=主校区实体名
+  const sid113 = loaders.quotaMatrix.name_index['广州市第一一三中学'];
+  const row = model.highCoverage.find((r) => r.campuses.some((c) => c.schoolId === sid113));
   assert.ok(row, '省市属高中覆盖反查应含一一三中法人行');
   assert.equal(row.campuses.length, 2, '覆盖行应聚合法人 2 个 middle 校区');
   assert.ok(row.campuses.every((c) => c.poiName), '覆盖行各校区均可跳转');

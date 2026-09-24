@@ -259,7 +259,9 @@ class SchoolMatcher:
             qm = json.load(open(os.path.join(BASE, 'data/linkage/dist/quota_matrix.json'), encoding='utf-8'))
         except (FileNotFoundError, json.JSONDecodeError):
             return
-        for s in qm.get('schools', []):
+        # dist 重构后主数据在 ids（id 化），schools 只剩 164 所未匹配原文保底——两侧都建白名单；
+        # 漏读 ids 会丢失法人行校区政策区（如七中法人行 school_ids 含桂花校区 POI 白云/政策越秀）。
+        for s in list(qm.get('ids', [])) + list(qm.get('schools', [])):
             d = s.get('district')
             if not d:
                 continue

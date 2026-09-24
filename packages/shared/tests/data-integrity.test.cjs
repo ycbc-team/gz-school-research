@@ -25,7 +25,10 @@ const middlePois = load('data/poi/dist/middle_poi.json').schools;
 const primaryPois = load('data/poi/dist/primary_poi.json').schools;
 const highPois = load('data/poi/dist/high_poi.json').schools;
 const highLevels = load('data/high/level/src/levels.json').schools;
-const districtQuota = load('data/linkage/dist/district_quota.json').data;
+// canonical=规范表（保留全部原文，dist 内层/外层原文仅 schools 兜底）——
+// OCR 垃圾与名额值校验以 canonical 为准；dist 单独断言 id 结构
+const districtQuotaCanon = load('data/linkage/parsed/canonical/district_quota.json').data;
+const districtQuotaDist = load('data/linkage/dist/district_quota.json');
 const quotaMatrix = load('data/linkage/dist/quota_matrix.json');
 const specialMatrix = load('data/linkage/dist/special_matrix.json');
 const schoolnames = load('data/linkage/parsed/schoolnames.json');
@@ -109,13 +112,13 @@ const isOcrJunk = (nm) => {
 };
 
 test('district_quota 初中名不含 OCR 垃圾（半截/单字）', () => {
-  const bad = Object.keys(districtQuota).filter(isOcrJunk);
+  const bad = Object.keys(districtQuotaCanon).filter(isOcrJunk);
   assert.deepEqual(bad, [], `district_quota 初中名疑似 OCR 错误: ${bad.join(', ')}`);
 });
 
 test('district_quota 高中名不含 OCR 垃圾', () => {
   const bad = new Set();
-  for (const row of Object.values(districtQuota)) {
+  for (const row of Object.values(districtQuotaCanon)) {
     for (const s of Object.keys(row)) if (isOcrJunk(s)) bad.add(s);
   }
   assert.deepEqual([...bad], [], `district_quota 高中名疑似 OCR 错误: ${[...bad].join(', ')}`);
@@ -127,14 +130,24 @@ test('quota_matrix.school 不含 OCR 垃圾', () => {
 });
 
 /* ========== 四、名额值约束 ========== */
-test('district_quota 名额值为非负整数', () => {
+test('district_quota 名额值为非负整数（canonical 全量）', () => {
   const bad = [];
-  for (const [j, row] of Object.entries(districtQuota)) {
+  for (const [j, row] of Object.entries(districtQuotaCanon)) {
     for (const [s, v] of Object.entries(row)) {
       if (!Number.isInteger(v) || v < 0 || v > 500) bad.push(`${j}->${s}=${v}`);
     }
   }
   assert.deepEqual(bad, [], `名额值异常: ${bad.join(', ')}`);
+});
+
+test('district_quota dist 双层键已 id 化（ids 键全为 gz- 实体 id）', () => {
+  const bad = [];
+  const check = (obj, tag) => {
+    for (const k of Object.keys(obj)) if (!k.startsWith('gz-')) bad.push(`${tag} 非 id 键: ${k}`);
+  };
+  for (const outer of Object.values(districtQuotaDist.ids)) check(outer.ids, '内层 ids');
+  check(districtQuotaDist.ids, '外层 ids');
+  assert.deepEqual(bad, [], `district_quota 仍有原文键残留: ${bad.join(', ')}`);
 });
 
 /* ========== 五、品牌成员外键 ========== */
@@ -154,15 +167,17 @@ test('brand_groups 成员 school_id 在 entities 里存在', () => {
 // source_name_mappings 已于 2026-09-21 退役：71 条由 school_match norm 自动命中，
 // 3 条裸名歧义（广东华侨/天河外国语/二中）下沉 build_special_matrix SPECIAL_NAME_FIX 显式归位；
 // 第一批招生高中 ID 有效由下方「第一批招生 ID 外键异常」测试继续覆盖。
-test('第一批招生高中原文均有显式 ID 状态，已确认实体不得丢失 ID', () => {
+test('special_matrix dist 键全为实体 id，缺口原文保底不入主表', () => {
   const highIds = new Set(entities.filter((e) => e.stage === 'high').map((e) => e.school_id));
-  const ids = specialMatrix.high_school_ids || {};
   const bad = [];
-  for (const rawName of specialMatrix.high_schools || []) {
-    if (!Object.prototype.hasOwnProperty.call(ids, rawName)) bad.push(`缺少 ID 状态: ${rawName}`);
-    const id = ids[rawName];
-    if (id && !highIds.has(id)) bad.push(`指向不存在/非高中实体: ${rawName} -> ${id}`);
-    if (specialMatrix.high_entities?.[rawName] && !id) bad.push(`已确认实体却缺少 ID: ${rawName}`);
+  const ap = specialMatrix.autonomy_plan || {};
+  for (const sid of Object.keys(ap)) {
+    if (!sid.startsWith('gz-')) bad.push(`autonomy_plan 非 id 键: ${sid}`);
+    else if (!highIds.has(sid)) bad.push(`autonomy_plan 指向不存在/非高中实体: ${sid}`);
   }
-  assert.deepEqual(bad, [], `第一批招生 ID 外键异常: ${bad.join('; ')}`);
+  for (const raw of Object.keys(specialMatrix.autonomy_plan_schools || {})) {
+    if (raw.startsWith('gz-')) bad.push(`autonomy_plan_schools 必须是缺口原文而非 id: ${raw}`);
+    else if (entities.some((e) => e.name === raw)) bad.push(`autonomy_plan_schools 有实体却未转 id: ${raw}`);
+  }
+  assert.deepEqual(bad, [], `special dist 键异常: ${bad.join('; ')}`);
 });

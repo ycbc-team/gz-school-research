@@ -460,6 +460,19 @@
     "waiqu": 670
    }
   ],
+  "gz-440105-c1a01cbf": [
+   {
+    "batch": 3,
+    "feihuji": 628,
+    "gongfei": false,
+    "huji": 626,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市海珠外国语实验中学（江海校区）",
+    "scope": "全市",
+    "waiqu": 633
+   }
+  ],
   "gz-440105-dd2723fc": [
    {
     "batch": 1,
@@ -2101,6 +2114,19 @@
     "official_name": "广州市第五中学（金碧校区）",
     "scope": "全市",
     "waiqu": 637
+   }
+  ],
+  "gz-440105-c1a01cbf": [
+   {
+    "batch": 3,
+    "feihuji": 632,
+    "gongfei": false,
+    "huji": 593,
+    "kind": "public",
+    "nature": "公办",
+    "official_name": "广州市海珠外国语实验中学（江海校区）",
+    "scope": "全市",
+    "waiqu": 609
    }
   ],
   "gz-440105-dd2723fc": [

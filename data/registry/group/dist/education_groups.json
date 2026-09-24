@@ -1251,9 +1251,19 @@
           "name": "广州市海珠外国语实验中学",
           "source_url": "https://www.haizhu.gov.cn/hzdt/ztlm/zzyyzq/gg/content/mpost_9409172.html",
           "verified": "2026-09-14",
-          "poi_match": "法人推导",
-          "poi_name": "广州市海珠外国语实验中学",
-          "school_id": "gz-440105-e76b659d"
+          "poi_match": "已锚定",
+          "poi_name": "",
+          "school_id": "",
+          "campuses": [
+            {
+              "poi_name": "广州市海珠外国语实验中学",
+              "school_id": "gz-440105-e76b659d"
+            },
+            {
+              "poi_name": "广州市海珠外国语实验中学(江海校区)",
+              "school_id": "gz-440105-c1a01cbf"
+            }
+          ]
         },
         {
           "name": "广州市绿翠现代实验学校",

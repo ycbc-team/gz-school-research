@@ -481,6 +481,19 @@
     "gongfei": false
    }
   ],
+  "gz-440105-c1a01cbf": [
+   {
+    "official_name": "广州市海珠外国语实验中学（江海校区）",
+    "nature": "公办",
+    "scope": "全市",
+    "huji": 626,
+    "feihuji": 628,
+    "waiqu": 633,
+    "batch": 3,
+    "kind": "public",
+    "gongfei": false
+   }
+  ],
   "gz-440105-dd2723fc": [
    {
     "official_name": "广州市南武中学（岭南画派纪念校区）",
@@ -1674,18 +1687,6 @@
    "huji": 667,
    "feihuji": 701,
    "waiqu": null,
-   "batch": 3,
-   "kind": "public",
-   "gongfei": false
-  },
-  {
-   "official_name": "广州市海珠外国语实验中学（江海校区）",
-   "raw_name": "广州市海珠外国语实验中学（江海校区）",
-   "nature": "公办",
-   "scope": "全市",
-   "huji": 626,
-   "feihuji": 628,
-   "waiqu": 633,
    "batch": 3,
    "kind": "public",
    "gongfei": false

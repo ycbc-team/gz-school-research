@@ -395,10 +395,13 @@ def main():
             for _s in _r.get("school_ids") or []: _mid_enroll_ids.add(_s)
     _xs_ids = {r.get("school_id") for r in json.load(open(os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_2026.json"))).get("records", []) if r.get("school_id")}
     _rm_ids = {s.get("school_id") for s in json.load(open(os.path.join(ROOT, "data/linkage/dist/ranking_middle.json"))).get("schools", []) if s.get("school_id")}
-    _qm_names = {s.get("school") for s in json.load(open(os.path.join(ROOT, "data/linkage/dist/quota_matrix.json"))).get("schools", []) if s.get("school")}
+    _qm = json.load(open(os.path.join(ROOT, "data/linkage/dist/quota_matrix.json")))
+    # 重构后 dist 主数据在 ids（id 化），schools 只剩 164 所未匹配原文保底——两侧都算「有升学」；
+    # 官方原文名全集用顶层 name_index（dist ids 行已无 school 文本字段）。
+    _qm_names = set(_qm.get("name_index", {}).keys()) | {s.get("school") for s in _qm.get("schools", []) if s.get("school")}
     # 法人行 school_ids 也算「有升学」：校区实体升学信息聚合在法人行（school_ids 数组），
     # 避免主 id 归一（法人行主 id 指向本部后）把校区实体误判为无升学孤儿。
-    _qm_school_ids = {i for s in json.load(open(os.path.join(ROOT, "data/linkage/dist/quota_matrix.json"))).get("schools", []) for i in (s.get("school_ids") or [])}
+    _qm_school_ids = {i for s in list(_qm.get("ids", [])) + list(_qm.get("schools", [])) for i in (s.get("school_ids") or [])}
     _sc26 = json.load(open(os.path.join(ROOT, "data/high/cutoff_score/dist/scores_2026.json"))).get("by_school_id", {})
     # 招生区域承接说明表（enrollment/src，业务人工确认）：原校保留遗留学生升学
     # → 原校非孤儿（如东区小学/禾丰小学 2026 官方无招生但有升学遗留，dist 有 zone=note 记录）
@@ -423,7 +426,20 @@ def main():
             if _e["school_id"] not in _xs_ids: _lacks.append("无升学")
         elif _e["stage"] == "middle":
             if _e["school_id"] not in _mid_enroll_ids: _lacks.append("无招生")
-            if _e["school_id"] not in _rm_ids and _e["school_id"] not in _qm_school_ids and _e["name"] not in _qm_names: _lacks.append("无升学")
+            _has_quota = _e["school_id"] in _rm_ids or _e["school_id"] in _qm_school_ids or _e["name"] in _qm_names
+            # 法人聚合（backfill 同款口径）：裸名法人实体的升学在其校区行（如白云中学本部
+            # → 棠景/汇侨行 school_ids），实体自身无行不算缺口——同 core 任一 middle 实体有升学即算。
+            if not _has_quota:
+                _core = re.sub(r"(校区|分校|初中部|高中部|小学部)$", "",
+                               re.sub(r"[（(][^）)]*[）)]", "", re.sub(r"^广州市", "", _e["name"] or "").strip()).strip())
+                _has_quota = any(
+                    x.get("stage") == "middle" and x.get("name")
+                    and re.sub(r"(校区|分校|初中部|高中部|小学部)$", "",
+                               re.sub(r"[（(][^）)]*[）)]", "", re.sub(r"^广州市", "", x["name"]).strip()).strip()) == _core
+                    and (x["school_id"] in _rm_ids or x["school_id"] in _qm_school_ids or x["name"] in _qm_names)
+                    for x in entities
+                )
+            if not _has_quota: _lacks.append("无升学")
         else:  # high
             if _e["school_id"] not in _sc26 and _e["school_id"] not in _sc25: _lacks.append("无招生")
             if _lacks: _lacks.append("无升学(高考未采集)")
@@ -543,7 +559,7 @@ def main():
         check(not _cdiff, f"[12] 同段同址候选漂移（{len(_cdiff)} 处）：\n" + "\n".join(_cdiff[:60]))
 
     # ---- 14. 2026 特长生计划官方口径（体育1905不含领军龙 / 艺术1741 / 领军龙116） ----
-    _sp = json.load(open(os.path.join(ROOT, "data/linkage/dist/special_matrix.json"))).get("special_plan_summary", {})
+    _sp = json.load(open(os.path.join(ROOT, "data/linkage/parsed/canonical/special_matrix.json"))).get("special_plan_summary", {})
     check(_sp.get("sports") == 1905, f"[14] 特长生体育计划合计 {_sp.get('sports')} != 1905（官方口径，不含领军龙）")
     check(_sp.get("arts") == 1741, f"[14] 特长生艺术计划合计 {_sp.get('arts')} != 1741（官方口径）")
     check(_sp.get("football_special") == 116, f"[14] 领军龙足球试点计划 {_sp.get('football_special')} != 116（官方口径）")
