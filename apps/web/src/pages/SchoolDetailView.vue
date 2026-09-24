@@ -170,18 +170,47 @@ const middleEnrolls = computed(() => {
 function groupNameOf(gid?: string | null): string {
   return (gid ? middleEnrollmentGroups[gid]?.name : null) || '组内可填报';
 }
-/** 机制徽章去重行：同区同机制同班数的多组只展示一次（用户：海珠区 Badge 删、计划 12 个班只展示一次） */
+/** 机制徽章去重行：同区同机制同班数的多组只展示一次（用户：海珠区 Badge 删、计划 12 个班只展示一次）。
+ * 同校同区多种机制并存（如琶洲实验：电脑派位 + 对口直升）时，plan_classes 是全校总计划
+ * （官方招生计划表），徽章不重复显示班数（避免 9+9=18 误读），改由 totalPlanOfMulti 展示一次。 */
 const mechanismHeads = computed(() => {
   if (stage.value !== 'middle') return [];
+  const mechs = new Map<string, Set<string>>();
+  for (const m of middleEnrolls.value) {
+    const sid = m.record.school_id ?? (m.record.school_ids || [])[0] ?? '';
+    const k = `${m.district}|${sid}`;
+    if (!mechs.has(k)) mechs.set(k, new Set());
+    mechs.get(k)!.add(m.record.mechanism);
+  }
   const seen = new Set<string>();
   const rows: { district: string; mech: string; label: string; plan: number | null }[] = [];
   for (const m of middleEnrolls.value) {
     const key = `${m.district}|${m.record.mechanism}|${m.record.plan_classes ?? ''}`;
     if (seen.has(key)) continue;
     seen.add(key);
-    rows.push({ district: m.district, mech: m.record.mechanism, label: m.mechanismDef.label, plan: m.record.plan_classes });
+    const sid = m.record.school_id ?? (m.record.school_ids || [])[0] ?? '';
+    const k = `${m.district}|${sid}`;
+    const multi = (mechs.get(k)?.size ?? 1) > 1;
+    rows.push({ district: m.district, mech: m.record.mechanism, label: m.mechanismDef.label, plan: multi ? null : m.record.plan_classes });
   }
   return rows;
+});
+/** 多机制并存时的全校总计划（plan_classes 唯一值；同校多种招生方式共用，仅展示一次） */
+const totalPlanOfMulti = computed(() => {
+  if (stage.value !== 'middle') return null;
+  const mechs = new Map<string, Set<string>>();
+  for (const m of middleEnrolls.value) {
+    const sid = m.record.school_id ?? (m.record.school_ids || [])[0] ?? '';
+    const k = `${m.district}|${sid}`;
+    if (!mechs.has(k)) mechs.set(k, new Set());
+    mechs.get(k)!.add(m.record.mechanism);
+  }
+  for (const m of middleEnrolls.value) {
+    const sid = m.record.school_id ?? (m.record.school_ids || [])[0] ?? '';
+    const k = `${m.district}|${sid}`;
+    if ((mechs.get(k)?.size ?? 1) > 1 && m.record.plan_classes != null) return m.record.plan_classes;
+  }
+  return null;
 });
 /** 生源小学平铺行：跨全部派位组，行 = 小学名 + 组名 Badge（用户：多组小学平铺、Badge 区分分组） */
 const primaryRows = computed(() => {
@@ -326,6 +355,7 @@ function goCampus(item: { id: string; name: string }) {
 
       <!-- 机制徽章去重展示（顶部一次）：同区同机制同班数合并；组差异由生源小学 Badge 区分 -->
       <template v-if="middleEnrolls.length">
+        <p v-if="totalPlanOfMulti != null" class="sub-note" style="margin-bottom:6px;">2026 年招生总计划 {{ totalPlanOfMulti }} 个班（以下 {{ mechanismHeads.length }} 种方式共用）</p>
         <div class="mech-row">
           <span v-for="(h, hi) in mechanismHeads" :key="`${h.mech}-${h.plan}-${hi}`" class="mech-head">
             <span v-if="mechanismHeads.length > 1 || new Set(middleEnrolls.map(x => x.district)).size > 1" class="badge b-district">{{ h.district }}</span>
