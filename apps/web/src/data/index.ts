@@ -153,7 +153,6 @@ export const {
   districtQuotaOf,
   districtCoverage,
   quotaCoverage,
-  specialHighSchoolId,
   xiaoshengchuOf,
   middlePrimaryFeed,
   middleEnrollmentOf,

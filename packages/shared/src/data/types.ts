@@ -47,14 +47,14 @@ export interface QuotaMatrix {
   campuses: Array<{ id: string | null; name: string; school: string }>;
 }
 
-/** 特招通道：计划数 + 名单外键（资格名单计数矩阵已于 2026-09 废弃） */
+/** 特招通道：计划数 + 名单外键（资格名单计数矩阵已于 2026-09 废弃）
+ *  dist 键全为实体 school_id（构建期 SchoolMatcher resolve）；实体表缺口原文在
+ *  *_schools 保底（无实体无详情页，仅数据完整性）。canonical 保留原文可溯源。 */
 export interface SpecialMatrix {
-  /** 官方第一批招生单位原文 → 高中实体外键；null=未收录实体，只保留原文展示，禁止名称兜底 */
-  high_school_ids?: Record<string, string | null>;
-  /** 2026 自主招生计划（官方汇总表，原文名 → 计划数）；计划数≠资格名单人数≠录取人数 */
+  /** 2026 自主招生计划（高中实体 school_id → 计划数）；计划数≠资格名单人数≠录取人数 */
   autonomy_plan?: Record<string, number>;
-  /** autonomy_plan 的 normName 归一索引（前端查询兜底） */
-  autonomy_plan_norm?: Record<string, number>;
+  /** 实体表缺口的自招单位原文 → 计划数（2026 为广雅花都/六中从化/花都、增城/从化区属校等） */
+  autonomy_plan_schools?: Record<string, number>;
   /** 2026 体育/艺术特长生计划（实体 school_id 外键 → 计划数/项目明细；值内 name 已删，实体名 join 实体表） */
   special_plan?: Record<string, {
     sports?: number;

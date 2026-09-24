@@ -199,12 +199,19 @@ def assert_dist_structure() -> list:
     if len(rk.get("schools", [])) != len(rkc.get("schools", [])):
         errs.append(f"ranking dist 行数 {len(rk.get('schools', []))} ≠ canonical {len(rkc.get('schools', []))}")
 
-    # special_matrix：死字段不得出现；special_plan 值内 name 已删
+    # special_matrix：死字段不得出现；autonomy_plan 键全为实体 id；special_plan 值内 name 已删
     sp = json.load(open(os.path.join(DIST, "special_matrix.json"), encoding="utf-8"))
     for k in ("high_entities", "high_schools", "note", "scope", "updated", "title",
-              "autonomy_plan_source", "special_plan_source", "special_plan_summary"):
+              "autonomy_plan_source", "special_plan_source", "special_plan_summary",
+              "high_school_ids", "autonomy_plan_norm"):
         if k in sp:
             errs.append(f"special dist 不得含 {k}")
+    for k in sp.get("autonomy_plan") or {}:
+        if not k.startswith("gz-"):
+            errs.append(f"special autonomy_plan 键必须为实体 id: {k}")
+    for k in sp.get("autonomy_plan_schools") or {}:
+        if k.startswith("gz-"):
+            errs.append(f"special autonomy_plan_schools 键必须为缺口原文（非 id）: {k}")
     for v in (sp.get("special_plan") or {}).values():
         if "name" in v:
             errs.append("special_plan 值内不得含 name（实体名由实体表 join）")

@@ -372,16 +372,36 @@ def main() -> int:
         dist_out[tag] = {'ids': outer_ids, 'schools': outer_schools}
         print(f'[{tag}] 回填完成 → canonical 写回 + dist ids({len(outer_ids)})/schools({len(outer_schools)}) 拆分')
 
-    # ================= special_matrix：去死字段 + special_plan 去 name（键保持名单原文） =================
+    # ================= special_matrix：去死字段 + autonomy_plan 转 id =================
+    # 用户口径：dist 运行时 id 精准匹配。autonomy_plan 原文键 → SchoolMatcher resolve('high')
+    # 转实体 id（法人名 resolve 到其唯一 high 实体，如广东仲元中学→本部）；实体表缺口原文
+    # （如广雅花都/六中从化/六中花都等）→ autonomy_plan_schools 保底（无实体无详情页，仅数据
+    # 完整性）。high_school_ids（原文→id 桥接）与 autonomy_plan_norm（前端名称兜底索引）是
+    # 构建期中间产物，dist 不再需要（canonical 保留原文可溯源）。
     d = json.loads((CANON / 'special_matrix.json').read_text('utf-8'))
     sp = json.loads(json.dumps(d))
     for k in ('high_entities', 'high_schools', 'note', 'scope', 'updated', 'title',
-              'autonomy_plan_source', 'special_plan_source', 'special_plan_summary'):
+              'autonomy_plan_source', 'special_plan_source', 'special_plan_summary',
+              'high_school_ids', 'autonomy_plan_norm'):
         sp.pop(k, None)
     for v in (sp.get('special_plan') or {}).values():
         v.pop('name', None)
+    autonomy_ids, autonomy_schools = {}, {}
+    for raw, n in (sp.get('autonomy_plan') or {}).items():
+        e = resolve(raw, 'high')
+        if e:
+            autonomy_ids[e['school_id']] = n
+        else:
+            autonomy_schools[raw] = n
+    sp['autonomy_plan'] = autonomy_ids
+    if autonomy_schools:
+        sp['autonomy_plan_schools'] = autonomy_schools
+    else:
+        sp.pop('autonomy_plan_schools', None)
+    print(f'[special_matrix] autonomy_plan 转 id：{len(autonomy_ids)}/{len(autonomy_ids) + len(autonomy_schools)} 命中，'
+          f'{len(autonomy_schools)} 个实体表缺口原文进 autonomy_plan_schools 保底')
     dist_out['special_matrix'] = sp
-    print('[special_matrix] 去死字段完成 → dist 写入')
+    print('[special_matrix] 去死字段 + autonomy_plan 转 id 完成 → dist 写入')
 
     # ================= 写 dist =================
     for tag, data in dist_out.items():

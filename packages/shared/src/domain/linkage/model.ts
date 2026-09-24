@@ -199,7 +199,7 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     .slice(0, 50)
     .map((r) => ({ school: r.school, poiName: poiNameOf(r.school_id), n: r.n, campuses: campusesOf(repo.linkageOf(r.school)) }));
 
-  const autonomyPlan = stage === 'high' ? repo.autonomyPlanOf(schoolName) : null;
+  const autonomyPlan = stage === 'high' ? repo.autonomyPlanOf(schoolId) : null;
   const specialPlan = stage === 'high' && schoolId ? repo.specialPlanOf(schoolId) : null;
   const planNotes: ('reserve' | 'lingjun')[] = [];
   if (specialPlan?.sportsProjects?.some((p) => p.note?.includes('体育后备人才'))) planNotes.push('reserve');

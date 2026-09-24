@@ -90,13 +90,11 @@ export function createQuotaApi(loaders: DataLoaders) {
     return quotaRowOf(resolveMiddle(schoolName));
   }
 
-  /** 官方名单原文 → 2026 自主招生计划数（原文精确 → 归一兜底）；计划数≠资格名单人数≠录取人数 */
-  function autonomyPlanOf(rawHighName: string): number | null {
-    if (!rawHighName) return null;
-    if (specialMatrix.autonomy_plan?.[rawHighName] != null) return specialMatrix.autonomy_plan[rawHighName];
-    const nk = normName(rawHighName);
-    const m = specialMatrix.autonomy_plan_norm as Record<string, number> | undefined;
-    return m?.[nk] ?? null;
+  /** 高中实体 school_id → 2026 自主招生计划数（autonomy_plan 键全为构建期 resolve 的 id；
+   *  实体表缺口无详情页不参与查询）；计划数≠资格名单人数≠录取人数 */
+  function autonomyPlanOf(schoolId: string | null | undefined): number | null {
+    if (!schoolId) return null;
+    return specialMatrix.autonomy_plan?.[schoolId] ?? null;
   }
 
   /** 高中实体 school_id → 2026 体育/艺术特长生计划数（special_matrix.special_plan，构建期已映射实体外键） */
@@ -216,9 +214,7 @@ export function createQuotaApi(loaders: DataLoaders) {
     return top ? arr.slice(0, top) : arr;
   }
 
-  function specialHighSchoolId(rawHighName: string): string | null {
-    return specialMatrix.high_school_ids?.[rawHighName] ?? null;
-  }
+
 
   /** 初中名 → 名额分配摘要（复用 resolveMiddle 定位，ids/schools 行统一） */
   function middleQuotaSummary(name: string): { kaosheng: number | null; sheng_quota: number | null; qu_quota: number | null } | null {
@@ -297,7 +293,7 @@ export function createQuotaApi(loaders: DataLoaders) {
 
   return {
     linkageOf, autonomyPlanOf, specialPlanOf, batch2Of, districtQuotaOf, districtCoverage,
-    quotaCoverage, specialHighSchoolId, middleQuotaSummary,
+    quotaCoverage, middleQuotaSummary,
     xiaoshengchuOf, middlePrimaryFeed,
   };
 }

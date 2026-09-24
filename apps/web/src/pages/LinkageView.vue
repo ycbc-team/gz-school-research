@@ -8,7 +8,7 @@
  * 合规口径：对外以"名额分配/录取分数/招生计划"官方数据为主，梯队与特控率为内部权重。
  */
 import { computed, ref } from 'vue';
-import { quotaMatrix, campuses, resolvePoiName, specialHighSchoolId, entities } from '../data';
+import { quotaMatrix, campuses, resolvePoiName, entities } from '../data';
 import LinkagePanel from '../components/LinkagePanel.vue';
 
 /** dist 精简后 ids 行无 school 名：展示列表由实体表 join（ids 行实体名可跳转 + schools 行原文不可跳转） */
@@ -46,8 +46,8 @@ const selectedSchoolPoi = computed(() => {
 /* ========== 高中视角 ========== */
 const highSel = ref<string>(campuses[0]!.name);
 const highSchoolName = computed(() => campuses.find((c) => c.name === highSel.value)?.school ?? '');
-/** 第一批特殊招生以官方招生单位→实体 ID 的构建期映射定位，不按校名反查。 */
-const highSchoolId = computed(() => specialHighSchoolId(highSel.value));
+/** 高中校区实体 id（21 校区中实体表缺口校区无 id → 不传，特殊通道不展示） */
+const highSchoolId = computed(() => campuses.find((c) => c.name === highSel.value)?.id ?? undefined);
 
 /* ========== 通用 ========== */
 const pickSchool = (name: string) => {
