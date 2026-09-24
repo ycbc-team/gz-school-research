@@ -285,6 +285,9 @@ export interface MiddleEnrollmentRecord {
   school_ids?: string[];
   plan_classes: number | null;
   scope: string | null;
+  /** 直升小学 scope 拆段 → 小学实体 id（2026-09-24：数据层 SchoolMatcher 匹配，
+   * 仅「小学名形态」段命中；前端据此把对口直升小学聚合为可点击行，未命中段保留 scope 文本展示） */
+  scope_school_ids?: Record<string, string[]>;
   mechanism: MiddleMechanism;
   mechanism_note: string | null;
   /** dist 合并结构（2026-09-23）：组表 group_id（派位/直升组）；2026-09-24 dist 不再存 school 名称（前端按 school_id 联查实体名，parsed 审计层保留） */

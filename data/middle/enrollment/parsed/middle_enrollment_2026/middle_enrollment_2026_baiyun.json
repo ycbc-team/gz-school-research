@@ -9,6 +9,15 @@
    "school_id": "gz-440111-ea6a6495",
    "plan_classes": 10,
    "scope": "广园小学、景泰小学，培英附小部分户籍生（摇号产生）",
+   "scope_school_ids": {
+    "广园小学": [
+     "gz-440111-53549fe6"
+    ],
+    "景泰小学": [
+     "gz-440111-97e26d68",
+     "gz-440111-9e34191e"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -18,6 +27,13 @@
    "school_id": "gz-440111-1b7d3f87",
    "plan_classes": 7,
    "scope": "汇侨第一小学",
+   "scope_school_ids": {
+    "汇侨第一小学": [
+     "gz-440111-50352c96",
+     "gz-440111-514cf237",
+     "gz-440111-5d802050"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null,
@@ -30,6 +46,11 @@
    "school_id": "gz-440111-6782f041",
    "plan_classes": 5,
    "scope": "广州市白云中学棠景校区小学部",
+   "scope_school_ids": {
+    "广州市白云中学棠景校区小学部": [
+     "gz-440111-bac34523"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null,
@@ -42,6 +63,11 @@
    "school_id": "gz-440111-8629621c",
    "plan_classes": 0,
    "scope": "三元里小学（不含北校区）、羊城铁路总公司广州铁路第五小学",
+   "scope_school_ids": {
+    "羊城铁路总公司广州铁路第五小学": [
+     "gz-440111-23d6fbf3"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "因涉拆迁，2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排。",
    "group_members": null
@@ -55,6 +81,12 @@
    ],
    "plan_classes": 5,
    "scope": "民航学校（小学部），培英附小部分户籍生（摇号产生）",
+   "scope_school_ids": {
+    "民航学校（小学部）": [
+     "gz-440111-7a3148c4",
+     "gz-440111-a8395a4d"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -64,6 +96,17 @@
    "school_id": "gz-440111-f3edc7ba",
    "plan_classes": 8,
    "scope": "萧岗小学、棠涌小学、白云中学附属小学",
+   "scope_school_ids": {
+    "萧岗小学": [
+     "gz-440111-9edba702"
+    ],
+    "棠涌小学": [
+     "gz-440111-bc3ea2c7"
+    ],
+    "白云中学附属小学": [
+     "gz-440111-cb67f3e8"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -95,6 +138,19 @@
    "school_id": "gz-440111-e337711a",
    "plan_classes": 8,
    "scope": "棠溪小学、远景小学、机场西小学（广州户籍生）、三元里小学北校区",
+   "scope_school_ids": {
+    "棠溪小学": [
+     "gz-440111-0e79b86d",
+     "gz-440111-61672bda"
+    ],
+    "远景小学": [
+     "gz-440111-52237906",
+     "gz-440111-fad25567"
+    ],
+    "三元里小学北校区": [
+     "gz-440111-714c07ba"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -108,6 +164,18 @@
    ],
    "plan_classes": 6,
    "scope": "江夏小学、马务小学、黄石学校（小学部）、方圆实验小学（地段生）",
+   "scope_school_ids": {
+    "江夏小学": [
+     "gz-440111-59f40d14"
+    ],
+    "马务小学": [
+     "gz-440111-e9a84742"
+    ],
+    "黄石学校（小学部）": [
+     "gz-440111-76eef049",
+     "gz-440111-a53c68e3"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -117,6 +185,11 @@
    "school_id": "gz-440111-620f7d31",
    "plan_classes": 4,
    "scope": "广州市白云区白云外国语小学",
+   "scope_school_ids": {
+    "广州市白云区白云外国语小学": [
+     "gz-440111-620f7d31"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -126,6 +199,12 @@
    "school_id": "gz-440111-f5da4352",
    "plan_classes": 6,
    "scope": "广东外语外贸大学实验中学（陈田西校区小学部）、广州市花城实验学校（普通生）",
+   "scope_school_ids": {
+    "广东外语外贸大学实验中学（陈田西校区小学部）": [
+     "gz-440111-6e11e279",
+     "gz-440111-c553e806"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null,
@@ -138,6 +217,17 @@
    "school_id": "gz-440111-cc803935",
    "plan_classes": 4,
    "scope": "大朗小学、龙湖小学、唐阁小学",
+   "scope_school_ids": {
+    "大朗小学": [
+     "gz-440111-ef705692"
+    ],
+    "龙湖小学": [
+     "gz-440111-e1f6a7a6"
+    ],
+    "唐阁小学": [
+     "gz-440111-d75adb30"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -147,6 +237,20 @@
    "school_id": "gz-440111-0f9c1ce8",
    "plan_classes": 5,
    "scope": "鸦岗小学、红星小学、朝阳小学、滘心小学、庆丰实验学校（庆丰、兴隆围地段学生）",
+   "scope_school_ids": {
+    "鸦岗小学": [
+     "gz-440111-cbfe874d"
+    ],
+    "红星小学": [
+     "gz-440111-abb00177"
+    ],
+    "朝阳小学": [
+     "gz-440111-3e1d70e5"
+    ],
+    "滘心小学": [
+     "gz-440111-fdf2f84b"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -160,6 +264,14 @@
    ],
    "plan_classes": 7,
    "scope": "螺涌小学、松溪小学、槎龙小学、65中附小（除地段生外的广州市户籍学生）",
+   "scope_school_ids": {
+    "螺涌小学": [
+     "gz-440111-f0bb9b17"
+    ],
+    "松溪小学": [
+     "gz-440111-a0f0324a"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -169,6 +281,11 @@
    "school_id": "gz-440111-4cf10429",
    "plan_classes": 8,
    "scope": "65中附属小学（地段生），桃园小学",
+   "scope_school_ids": {
+    "桃园小学": [
+     "gz-440111-aca0bfc6"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -182,6 +299,11 @@
    ],
    "plan_classes": 16,
    "scope": "明德校区：明德小学（本部）、同德小学、岭南花园小学（地段生）、65附小分校区（地段生）\n同德校区：明德小学富康校区",
+   "scope_school_ids": {
+    "同德小学": [
+     "gz-440111-a2117640"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -191,6 +313,15 @@
    "school_id": "gz-440111-297970b9",
    "plan_classes": 8,
    "scope": "张村小学、大岡小学、潭岗小学、金碧小学（地段生），庆丰实验学校新庄地段学生",
+   "scope_school_ids": {
+    "大岡小学": [
+     "gz-440111-2bb2adc7"
+    ],
+    "潭岗小学": [
+     "gz-440111-8e574b6b",
+     "gz-440111-f1f9eaff"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -200,6 +331,14 @@
    "school_id": "gz-440111-2186a02a",
    "plan_classes": 5,
    "scope": "夏茅小学、环滘小学",
+   "scope_school_ids": {
+    "夏茅小学": [
+     "gz-440111-666e141f"
+    ],
+    "环滘小学": [
+     "gz-440111-3eabc7bc"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -213,6 +352,24 @@
    ],
    "plan_classes": 32,
    "scope": "金沙小学、横沙小学、沙凤小学、金广实验学校、金沙二小",
+   "scope_school_ids": {
+    "金沙小学": [
+     "gz-440111-449b9bbd",
+     "gz-440111-a87f6068",
+     "gz-440111-c780791c"
+    ],
+    "横沙小学": [
+     "gz-440111-53d3305b"
+    ],
+    "沙凤小学": [
+     "gz-440111-3f73f47c",
+     "gz-440111-b0e4d621"
+    ],
+    "金广实验学校": [
+     "gz-440111-6f87dc56",
+     "gz-440111-eb640c74"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -222,6 +379,11 @@
    "school_id": "gz-440111-92e78967",
    "plan_classes": 6,
    "scope": "广州市白云区白云广附云湖实验学校小学部",
+   "scope_school_ids": {
+    "广州市白云区白云广附云湖实验学校小学部": [
+     "gz-440111-acfb7ee3"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -231,6 +393,11 @@
    "school_id": "gz-440111-e128c24f",
    "plan_classes": 8,
    "scope": "广州市白云区培英中学附属科技城小学",
+   "scope_school_ids": {
+    "广州市白云区培英中学附属科技城小学": [
+     "gz-440111-ccb0d7b4"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -240,6 +407,29 @@
    "school_id": "gz-440111-0ba9a45f",
    "plan_classes": 14,
    "scope": "京溪小学、同和小学、握山小学、广大附中实验小学、中黄外国语小学(地段生和符合条件的统筹生）、永泰小学、新兴白云小学、颐和实验小学(地段生和符合条件的统筹生）",
+   "scope_school_ids": {
+    "京溪小学": [
+     "gz-440111-162f6ce2",
+     "gz-440111-88b4ce7e",
+     "gz-440111-ae3faca7",
+     "gz-440111-aec60b7c"
+    ],
+    "同和小学": [
+     "gz-440111-5a19f704"
+    ],
+    "握山小学": [
+     "gz-440111-dace2460"
+    ],
+    "广大附中实验小学": [
+     "gz-440111-2b633ed9"
+    ],
+    "永泰小学": [
+     "gz-440111-77c67c22"
+    ],
+    "新兴白云小学": [
+     "gz-440111-d64313ba"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": "具体见后续发布的方案",
    "group_members": null
@@ -249,6 +439,23 @@
    "school_id": "gz-440111-e14818fc",
    "plan_classes": 10,
    "scope": "京溪小学、同和小学、握山小学、广大附中实验小学、中黄外国语小学（地段生）",
+   "scope_school_ids": {
+    "京溪小学": [
+     "gz-440111-162f6ce2",
+     "gz-440111-88b4ce7e",
+     "gz-440111-ae3faca7",
+     "gz-440111-aec60b7c"
+    ],
+    "同和小学": [
+     "gz-440111-5a19f704"
+    ],
+    "握山小学": [
+     "gz-440111-dace2460"
+    ],
+    "广大附中实验小学": [
+     "gz-440111-2b633ed9"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": "具体见后续发布的方案",
    "group_members": null
@@ -258,6 +465,26 @@
    "school_id": "gz-440111-28c16cca",
    "plan_classes": 8,
    "scope": "长红小学、新科小学、石马小学、平沙小学、清湖小学、罗岗村小学",
+   "scope_school_ids": {
+    "长红小学": [
+     "gz-440111-130d875a"
+    ],
+    "新科小学": [
+     "gz-440111-69ccafc2"
+    ],
+    "石马小学": [
+     "gz-440111-ec9fa6ca"
+    ],
+    "平沙小学": [
+     "gz-440111-27e5e03f"
+    ],
+    "清湖小学": [
+     "gz-440111-e128009e"
+    ],
+    "罗岗村小学": [
+     "gz-440111-d39d34e8"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": "具体见后续发布的方案",
    "group_members": null
@@ -267,6 +494,29 @@
    "school_id": "gz-440111-d2a4a882",
    "plan_classes": 8,
    "scope": "黄边小学、加禾小学、望岗小学、鹤边镇泰小学、永泰小学、新兴白云小学、颐和实验小学(地段生和符合条件的统筹生）",
+   "scope_school_ids": {
+    "黄边小学": [
+     "gz-440111-59df1f3b",
+     "gz-440111-aac310d1",
+     "gz-440111-d4cad06c",
+     "gz-440111-e0eac26d"
+    ],
+    "加禾小学": [
+     "gz-440111-04e2c749"
+    ],
+    "望岗小学": [
+     "gz-440111-e09d8e9b"
+    ],
+    "鹤边镇泰小学": [
+     "gz-440111-cd47aae6"
+    ],
+    "永泰小学": [
+     "gz-440111-77c67c22"
+    ],
+    "新兴白云小学": [
+     "gz-440111-d64313ba"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -276,6 +526,11 @@
    "school_id": "gz-440111-175bd68f",
    "plan_classes": 8,
    "scope": "平沙培英学校（小学部）",
+   "scope_school_ids": {
+    "平沙培英学校（小学部）": [
+     "gz-440111-175bd68f"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -285,6 +540,11 @@
    "school_id": "gz-440111-6271c94b",
    "plan_classes": 10,
    "scope": "华师附小(地段生和符合条件的统筹生）、集贤小学",
+   "scope_school_ids": {
+    "集贤小学": [
+     "gz-440111-f8cbbcfe"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -294,6 +554,11 @@
    "school_id": "gz-440111-2d42f392",
    "plan_classes": 8,
    "scope": "云英实验学校（小学部）",
+   "scope_school_ids": {
+    "云英实验学校（小学部）": [
+     "gz-440111-e66f2c52"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -303,6 +568,11 @@
    "school_id": "gz-440111-e6300e34",
    "plan_classes": 9,
    "scope": "东平学校小学部、培英中学附属第三小学",
+   "scope_school_ids": {
+    "培英中学附属第三小学": [
+     "gz-440111-8bed320e"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -321,6 +591,26 @@
    "school_id": "gz-440111-35536ebb",
    "plan_classes": 10,
    "scope": "长红小学、新科小学、石马小学、平沙小学、清湖小学、罗岗村小学",
+   "scope_school_ids": {
+    "长红小学": [
+     "gz-440111-130d875a"
+    ],
+    "新科小学": [
+     "gz-440111-69ccafc2"
+    ],
+    "石马小学": [
+     "gz-440111-ec9fa6ca"
+    ],
+    "平沙小学": [
+     "gz-440111-27e5e03f"
+    ],
+    "清湖小学": [
+     "gz-440111-e128009e"
+    ],
+    "罗岗村小学": [
+     "gz-440111-d39d34e8"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": "具体见后续发布的方案",
    "group_members": null
@@ -339,6 +629,23 @@
    "school_id": "gz-440111-d3ffec78",
    "plan_classes": 9,
    "scope": "江高镇中心小学、蓼江小学、茅山小学、大田小学、小塘小学",
+   "scope_school_ids": {
+    "江高镇中心小学": [
+     "gz-440111-f9ef2295"
+    ],
+    "蓼江小学": [
+     "gz-440111-3dfefa29"
+    ],
+    "茅山小学": [
+     "gz-440111-785f3a56"
+    ],
+    "大田小学": [
+     "gz-440111-3a8dded4"
+    ],
+    "小塘小学": [
+     "gz-440111-568b9d31"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -348,6 +655,14 @@
    "school_id": "gz-440111-609bfcf4",
    "plan_classes": 6,
    "scope": "江高镇中心小学、江村小学",
+   "scope_school_ids": {
+    "江高镇中心小学": [
+     "gz-440111-f9ef2295"
+    ],
+    "江村小学": [
+     "gz-440111-4a15a4dc"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -357,6 +672,20 @@
    "school_id": "gz-440111-6becf87b",
    "plan_classes": 5,
    "scope": "神山一小、神山二小、大岭小学、郭塘小学",
+   "scope_school_ids": {
+    "神山一小": [
+     "gz-440111-6becf87b"
+    ],
+    "神山二小": [
+     "gz-440111-6becf87b"
+    ],
+    "大岭小学": [
+     "gz-440111-295f7e58"
+    ],
+    "郭塘小学": [
+     "gz-440111-ecfe32b2"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -366,6 +695,23 @@
    "school_id": "gz-440100-7564c13b",
    "plan_classes": 4,
    "scope": "神山三小、神山五小、石华小学、沙龙小学、郭塘小学",
+   "scope_school_ids": {
+    "神山三小": [
+     "gz-440111-6becf87b"
+    ],
+    "神山五小": [
+     "gz-440111-6becf87b"
+    ],
+    "石华小学": [
+     "gz-440111-81bcdb32"
+    ],
+    "沙龙小学": [
+     "gz-440111-2e4ba466"
+    ],
+    "郭塘小学": [
+     "gz-440111-ecfe32b2"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -375,6 +721,20 @@
    "school_id": "gz-440111-4ebb4316",
    "plan_classes": 6,
    "scope": "水沥小学、双岗小学、新楼小学、广铁八小、江村小学（塘贝户籍）",
+   "scope_school_ids": {
+    "水沥小学": [
+     "gz-440111-604036fa"
+    ],
+    "双岗小学": [
+     "gz-440111-7440b0d4"
+    ],
+    "新楼小学": [
+     "gz-440111-0b5419e2"
+    ],
+    "广铁八小": [
+     "gz-440111-492e4ac6"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null,
@@ -387,6 +747,15 @@
    "school_id": "gz-440111-0cf700fb",
    "plan_classes": 4,
    "scope": "白云区人和镇第一小学、白云区人和镇第六小学、73中小学部",
+   "scope_school_ids": {
+    "白云区人和镇第一小学": [
+     "gz-440111-645ba6c1",
+     "gz-440111-fad0ee39"
+    ],
+    "白云区人和镇第六小学": [
+     "gz-440111-6c463f28"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null,
@@ -399,6 +768,11 @@
    "school_id": "gz-440111-35860c30",
    "plan_classes": 8,
    "scope": "广州市白云区广州空港实验小学（总校区、北校区）、广州市白云区六中实验小学南校区（除民强村、新兴村外）\n人和镇第二小学（建南校区）、广州市白云区六中实验小学北校区（汉塘村、明星村）",
+   "scope_school_ids": {
+    "广州市白云区广州空港实验小学（总校区": [
+     "gz-440111-981cfa5b"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": "建南安置区完全中学建成投入使用后，推动将该校学生搬迁至新学校",
    "group_members": null,
@@ -411,6 +785,15 @@
    "school_id": "gz-440111-d4c4285e",
    "plan_classes": 6,
    "scope": "白云区人和镇第一小学、白云区人和镇第六小学",
+   "scope_school_ids": {
+    "白云区人和镇第一小学": [
+     "gz-440111-645ba6c1",
+     "gz-440111-fad0ee39"
+    ],
+    "白云区人和镇第六小学": [
+     "gz-440111-6c463f28"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null,
@@ -423,6 +806,19 @@
    "school_id": "gz-440111-4ab20f44",
    "plan_classes": 8,
    "scope": "白云区人和镇第二小学、白云区人和镇第五小学、白云区人和镇第七小学、广州市白云区六中实验小学北校区（除汉塘村、民强村、新兴村、明星村、福和雅苑安置区外）",
+   "scope_school_ids": {
+    "白云区人和镇第二小学": [
+     "gz-440111-e8d9a6bd",
+     "gz-440111-f5b57c5c"
+    ],
+    "白云区人和镇第五小学": [
+     "gz-440111-311a2ef8",
+     "gz-440111-908072a9"
+    ],
+    "白云区人和镇第七小学": [
+     "gz-440111-14a87ed8"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -441,6 +837,11 @@
    "school_id": "gz-440111-7a3148c4",
    "plan_classes": 6,
    "scope": "广州市白云区民航学校（人和校区）小学部、 空港实验小学南校区、六中实验小学（民强村、新兴村）",
+   "scope_school_ids": {
+    "空港实验小学南校区": [
+     "gz-440111-31528abe"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -450,6 +851,32 @@
    "school_id": "gz-440111-b5668c2e",
    "plan_classes": 13,
    "scope": "（太和镇第一小学、太和镇第二小学、谢家庄小学、头陂小学、营溪小学、大源小学、大沥小学、沙亭岗小学、石湖小学）部分毕业生，蓝山小学（部分地段生）",
+   "scope_school_ids": {
+    "（太和镇第一小学": [
+     "gz-440111-06bfc806"
+    ],
+    "太和镇第二小学": [
+     "gz-440111-b14d37bb"
+    ],
+    "谢家庄小学": [
+     "gz-440111-858b84af"
+    ],
+    "头陂小学": [
+     "gz-440111-fdf75778"
+    ],
+    "营溪小学": [
+     "gz-440111-4d7df18c"
+    ],
+    "大源小学": [
+     "gz-440111-451fa87e"
+    ],
+    "大沥小学": [
+     "gz-440111-9588f926"
+    ],
+    "沙亭岗小学": [
+     "gz-440111-06928bc2"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -459,6 +886,11 @@
    "school_id": "gz-440111-853a71dd",
    "plan_classes": 4,
    "scope": "穗丰学校小学部",
+   "scope_school_ids": {
+    "穗丰学校小学部": [
+     "gz-440111-853a71dd"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -468,6 +900,32 @@
    "school_id": "gz-440111-06bfc806",
    "plan_classes": 8,
    "scope": "（太和镇第一小学、太和镇第二小学、谢家庄小学、头陂小学、营溪小学、大源小学、大沥小学、沙亭岗小学、石湖小学）部分毕业生，蓝山小学（部分地段生）",
+   "scope_school_ids": {
+    "（太和镇第一小学": [
+     "gz-440111-06bfc806"
+    ],
+    "太和镇第二小学": [
+     "gz-440111-b14d37bb"
+    ],
+    "谢家庄小学": [
+     "gz-440111-858b84af"
+    ],
+    "头陂小学": [
+     "gz-440111-fdf75778"
+    ],
+    "营溪小学": [
+     "gz-440111-4d7df18c"
+    ],
+    "大源小学": [
+     "gz-440111-451fa87e"
+    ],
+    "大沥小学": [
+     "gz-440111-9588f926"
+    ],
+    "沙亭岗小学": [
+     "gz-440111-06928bc2"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -477,6 +935,17 @@
    "school_id": "gz-440111-20c36515",
    "plan_classes": 6,
    "scope": "夏良小学、南村小学、南园小学",
+   "scope_school_ids": {
+    "夏良小学": [
+     "gz-440111-cd427031"
+    ],
+    "南村小学": [
+     "gz-440111-79a8e86f"
+    ],
+    "南园小学": [
+     "gz-440111-183641c4"
+    ]
+   },
    "mechanism": "group_paidui",
    "mechanism_note": null,
    "group_members": null
@@ -490,6 +959,14 @@
    ],
    "plan_classes": 10,
    "scope": "永兴小学、龙归学校小学部",
+   "scope_school_ids": {
+    "永兴小学": [
+     "gz-440111-e93fb2a5"
+    ],
+    "龙归学校小学部": [
+     "gz-440111-27e6c92d"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -504,6 +981,12 @@
    ],
    "plan_classes": 8,
    "scope": "广东外语外贸大学实验中学小学部",
+   "scope_school_ids": {
+    "广东外语外贸大学实验中学小学部": [
+     "gz-440111-6e11e279",
+     "gz-440111-c553e806"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -534,6 +1017,14 @@
    "school_id": "gz-440111-014a9fb2",
    "plan_classes": 11,
    "scope": "广东第二师范学院实验小学、蟠龙小学",
+   "scope_school_ids": {
+    "广东第二师范学院实验小学": [
+     "gz-440111-127e76be"
+    ],
+    "蟠龙小学": [
+     "gz-440111-63866efa"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -543,6 +1034,11 @@
    "school_id": "gz-440111-effbfa28",
    "plan_classes": 4,
    "scope": "龙岗学校小学部",
+   "scope_school_ids": {
+    "龙岗学校小学部": [
+     "gz-440111-e16cd8e1"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -552,6 +1048,11 @@
    "school_id": "gz-440111-525f949a",
    "plan_classes": 4,
    "scope": "新和学校小学部",
+   "scope_school_ids": {
+    "新和学校小学部": [
+     "gz-440111-183704b2"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null
@@ -592,6 +1093,11 @@
    "school_id": "gz-440111-2ed8a6e2",
    "plan_classes": 4,
    "scope": "星悦实验学校小学部",
+   "scope_school_ids": {
+    "星悦实验学校小学部": [
+     "gz-440111-88372834"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": null,
    "group_members": null

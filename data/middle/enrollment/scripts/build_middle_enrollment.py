@@ -115,6 +115,34 @@ def _primary_ids(name, adcode):
         ra = _MATCHER.resolve_all(name, preferred_adcode=adcode, preferred_stage="小学")
     return sorted({r["school_id"] for r in ra})
 
+_SCOPE_SPLIT = re.compile(r"[、，,;；]")
+# 小学名形态后缀：只对"看起来是小学名"的段做实体匹配，避免划片地段/楼盘/招生条件文本
+# 拆段后的零碎词（如「金山谷」「车陂路以东」「…小学应届毕业生」）被 SchoolMatcher 宽松命中造成误跳转。
+# 带限定词的段（「XX小学（地段生）」「…（不含北校区）」）宁缺毋滥：不匹配则前端保留文本展示。
+_EDU_SUFFIX = ("小学", "学校", "中学", "学院", "幼儿园", "小学部", "初中部", "高中部",
+               "校区", "分校", "教学点", "分部", "附中", "附小", "职中",
+               "一小", "二小", "三小", "四小", "五小", "六小", "七小", "八小", "九小", "十小")
+
+def _scope_primary_ids(scope, adcode):
+    """直升小学 scope → {小学名: school_ids}（数据层匹配，前端聚合为可点击行）：
+    按顿号/逗号拆段，逐段 SchoolMatcher 匹配小学实体（preferred_stage='小学'）。
+    仅匹配「小学名形态」（教育词后缀）的段——划片地段/说明文本（天河/番禺/白云部分）
+    匹配不到则整体不输出，前端对该记录保留『招生服务范围』文本展示。宁缺毋滥：匹配不到不猜。"""
+    if not scope:
+        return {}
+    out = {}
+    for part in _SCOPE_SPLIT.split(scope):
+        part = part.strip()
+        if not part or len(part) > 28:
+            continue
+        t = part.rstrip("。；;，,、 ）】]}\u3000 ").rstrip("）")
+        if not t.endswith(_EDU_SUFFIX):
+            continue
+        ids = _primary_ids(part, adcode)
+        if ids:
+            out[part] = ids
+    return out or None
+
 def _group_name(note):
     """机制备注 → 派位组显示名（「电脑派位第N组」）；无组号（番禺）→「电脑派位」。"""
     m = re.search(r"第\s*([一二三四五六七八九十\d]+)\s*组", note or "")
@@ -192,10 +220,12 @@ def build_panyu():
         # 实体+POI 已补（2026-09-24），显式挂 id 消除 school_id=None 悬空
         if school == "广东第二师范学院广州南站附属学校":
             sid = "gz-440113-0bb52d06"
+        _ss = _scope_primary_ids(scope, "440113") if scope else None
         recs.append({
             "school": school, "school_id": sid,
             **({"school_ids": sids} if sids else {}),
             "plan_classes": plan_n, "scope": scope,
+            **({"scope_school_ids": _ss} if _ss else {}),
             "mechanism": mech, "mechanism_note": note or None,
             "group_members": members,
         })
@@ -232,10 +262,12 @@ def build_baiyun():
         if school == "广州市第六十五中学（明德校区、同德校区）":
             sid = None
             sids = ["gz-440111-c8461d5d", "gz-440111-c7b90869"]
+        _ss = _scope_primary_ids(feed, "440111") if feed else None
         recs.append({
             "school": school, "school_id": sid,
             **({"school_ids": sids} if sids else {}),
             "plan_classes": plan_n, "scope": feed or None,
+            **({"scope_school_ids": _ss} if _ss else {}),
             "mechanism": mech, "mechanism_note": note or None,
             "group_members": None,
         })
@@ -364,10 +396,12 @@ def build_yuexiu_official():
     # 直升（细则第九条）：已派位的初中追加 single_zone 直升规则（一校多规则，官方真实并存）
     for pri, junior in tr["direct_feed"].items():
         _sid, _sids = match_school_ids(junior, "440104")
+        _ss = _scope_primary_ids(pri, "440104") if pri else None
         recs.append({
             "school": SCHOOL_NORM.get(junior, junior), "school_id": _sid,
             **({"school_ids": _sids} if _sids else {}),
             "plan_classes": None, "scope": pri,
+            **({"scope_school_ids": _ss} if _ss else {}),
             "mechanism": "single_zone", "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
             "group_members": None,
         })
@@ -400,10 +434,12 @@ def build_haizhu_official():
             })
     for pri, junior in tr["direct_feed"].items():
         _sid, _sids = match_school_ids(junior, "440105")
+        _ss = _scope_primary_ids(pri, "440105") if pri else None
         recs.append({
             "school": SCHOOL_NORM.get(junior, junior), "school_id": _sid,
             **({"school_ids": _sids} if _sids else {}),
             "plan_classes": plan_classes.get(junior), "scope": pri,
+            **({"scope_school_ids": _ss} if _ss else {}),
             "mechanism": "single_zone", "mechanism_note": "对口直升（初中招生问答正文）",
             "group_members": None,
         })
@@ -428,10 +464,13 @@ def build_tianhe_official():
             sid, sids = (None, sorted(ids)) if len(ids) >= 2 else (ids[0] if ids else None, None)
         else:
             sid, sids = match_school_ids(school, "440106")
+        _zone = r.get("zone")
+        _ss = _scope_primary_ids(_zone, "440106") if _zone else None
         recs.append({
             "school": school, "school_id": sid,
             **({"school_ids": sids} if sids else {}),
-            "plan_classes": r["plan_classes"], "scope": r.get("zone"),
+            "plan_classes": r["plan_classes"], "scope": _zone,
+            **({"scope_school_ids": _ss} if _ss else {}),
             "mechanism": "single_zone", "mechanism_note": "公办初中划片招生（2026 细则附件6）",
             "group_members": None,
         })
@@ -484,10 +523,13 @@ def build_huangpu_official():
             })
     for r in tr["zhisheng_groups"]:
         _sid, _sids = match_school_ids(r["junior"], "440112")
+        _zh_scope = "、".join(r["primaries"])
+        _ss = _scope_primary_ids(_zh_scope, "440112") if _zh_scope else None
         recs.append({
             "school": SCHOOL_NORM.get(r["junior"], r["junior"]), "school_id": _sid,
             **({"school_ids": _sids} if _sids else {}),
-            "plan_classes": None, "scope": "、".join(r["primaries"]),
+            "plan_classes": None, "scope": _zh_scope,
+            **({"scope_school_ids": _ss} if _ss else {}),
             "mechanism": "single_zone", "mechanism_note": "对口直升（2026 实施细则附件5）",
             "group_members": None,
         })

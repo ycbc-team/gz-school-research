@@ -2766,6 +2766,11 @@
    "school_id": "gz-440105-77baeea5",
    "plan_classes": 8,
    "scope": "南武中学附属学校",
+   "scope_school_ids": {
+    "南武中学附属学校": [
+     "gz-440105-77baeea5"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2775,6 +2780,11 @@
    "school_id": "gz-440105-06994d39",
    "plan_classes": 13,
    "scope": "怡乐路小学",
+   "scope_school_ids": {
+    "怡乐路小学": [
+     "gz-440105-feb37b34"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2784,6 +2794,12 @@
    "school_id": "gz-440105-fbd67149",
    "plan_classes": 10,
    "scope": "第二实验小学",
+   "scope_school_ids": {
+    "第二实验小学": [
+     "gz-440105-32173950",
+     "gz-440105-94dfa7d6"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2793,6 +2809,12 @@
    "school_id": "gz-440105-fbd67149",
    "plan_classes": 10,
    "scope": "知信小学",
+   "scope_school_ids": {
+    "知信小学": [
+     "gz-440105-70055626",
+     "gz-440105-75e59f1d"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2802,6 +2824,11 @@
    "school_id": "gz-440105-a34bf4d7",
    "plan_classes": 10,
    "scope": "聚德东小学",
+   "scope_school_ids": {
+    "聚德东小学": [
+     "gz-440105-a01790aa"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2811,6 +2838,11 @@
    "school_id": "gz-440105-a34bf4d7",
    "plan_classes": 10,
    "scope": "聚德西路小学",
+   "scope_school_ids": {
+    "聚德西路小学": [
+     "gz-440105-a0156453"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2820,6 +2852,11 @@
    "school_id": "gz-440105-40a80ebb",
    "plan_classes": 14,
    "scope": "红棉小学",
+   "scope_school_ids": {
+    "红棉小学": [
+     "gz-440105-33326ac8"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2829,6 +2866,12 @@
    "school_id": "gz-440105-40a80ebb",
    "plan_classes": 14,
    "scope": "宝玉直实验小学",
+   "scope_school_ids": {
+    "宝玉直实验小学": [
+     "gz-440105-0b34687e",
+     "gz-440105-ed9be985"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2838,6 +2881,11 @@
    "school_id": "gz-440105-41b48384",
    "plan_classes": 16,
    "scope": "绿翠现代实验学校（小学部）",
+   "scope_school_ids": {
+    "绿翠现代实验学校（小学部）": [
+     "gz-440105-156b7542"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2847,6 +2895,11 @@
    "school_id": "gz-440105-41b48384",
    "plan_classes": 16,
    "scope": "新港中路小学",
+   "scope_school_ids": {
+    "新港中路小学": [
+     "gz-440105-a1b73980"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2856,6 +2909,11 @@
    "school_id": "gz-440105-41b48384",
    "plan_classes": 16,
    "scope": "大江苑小学",
+   "scope_school_ids": {
+    "大江苑小学": [
+     "gz-440105-0e063d81"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2865,6 +2923,11 @@
    "school_id": "gz-440105-41b48384",
    "plan_classes": 16,
    "scope": "绿翠小学",
+   "scope_school_ids": {
+    "绿翠小学": [
+     "gz-440105-f34fb561"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2874,6 +2937,11 @@
    "school_id": "gz-440105-e58a8300",
    "plan_classes": 11,
    "scope": "第三实验小学",
+   "scope_school_ids": {
+    "第三实验小学": [
+     "gz-440105-32607027"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2883,6 +2951,11 @@
    "school_id": "gz-440105-e58a8300",
    "plan_classes": 11,
    "scope": "黄埔小学",
+   "scope_school_ids": {
+    "黄埔小学": [
+     "gz-440105-91815d7d"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2892,6 +2965,11 @@
    "school_id": "gz-440105-cac39935",
    "plan_classes": 9,
    "scope": "执信中学琶洲实验学校（小学部）",
+   "scope_school_ids": {
+    "执信中学琶洲实验学校（小学部）": [
+     "gz-440105-cac39935"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2901,6 +2979,12 @@
    "school_id": "gz-440105-cac39935",
    "plan_classes": 9,
    "scope": "新洲小学",
+   "scope_school_ids": {
+    "新洲小学": [
+     "gz-440105-144c802c",
+     "gz-440105-7b8769fe"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2914,6 +2998,11 @@
    ],
    "plan_classes": 18,
    "scope": "江南新村第二小学",
+   "scope_school_ids": {
+    "江南新村第二小学": [
+     "gz-440105-c78f12b3"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2923,6 +3012,12 @@
    "school_id": "gz-440105-747245e1",
    "plan_classes": 9,
    "scope": "昌岗中路小学",
+   "scope_school_ids": {
+    "昌岗中路小学": [
+     "gz-440105-0adfcd61",
+     "gz-440105-98d6d585"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
@@ -2932,6 +3027,11 @@
    "school_id": "gz-440105-44b3dc01",
    "plan_classes": 3,
    "scope": "南武文润学校（小学部）",
+   "scope_school_ids": {
+    "南武文润学校（小学部）": [
+     "gz-440105-5d30ae7e"
+    ]
+   },
    "mechanism": "single_zone",
    "mechanism_note": "对口直升（初中招生问答正文）",
    "group_members": null
