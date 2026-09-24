@@ -176,7 +176,10 @@ def assert_dist_structure() -> list:
         dc = json.load(open(os.path.join(CANON, f"{tag}.json"), encoding="utf-8"))
         if set(d) != {"ids", "schools"}:
             errs.append(f"{tag} 顶层键必须仅 ids/schools")
-        canon_cells = sum(len(v) for v in dc["data"].values())
+        # batch2：admitted:false 行（有指标未录取）构建期已删，守恒基数=有分数行；
+        # district_quota：全量守恒
+        canon_cells = sum(len(v) for v in dc["data"].values()) if tag != "batch2_scores" else sum(
+            1 for v in dc["data"].values() for vv in v.values() if vv.get("admitted"))
         dist_cells = 0
         for outer in [*d.get("ids", {}).values(), *d.get("schools", {}).values()]:
             if not isinstance(outer, dict) or set(outer) - {"ids", "schools"}:
@@ -186,6 +189,13 @@ def assert_dist_structure() -> list:
             errs.append(f"{tag} 值单元格 {dist_cells} ≠ canonical {canon_cells}")
         if "middle_school_ids" in d:
             errs.append(f"{tag} 顶层不得含 middle_school_ids（键已 id 化）")
+        if tag == "batch2_scores":
+            for outer in [*d.get("ids", {}).values(), *d.get("schools", {}).values()]:
+                for v in [*outer.get("ids", {}).values(), *outer.get("schools", {}).values()]:
+                    if set(v) - {"min_score"}:
+                        errs.append(f"batch2 值必须只含 min_score（admitted/last/rows 只进 canonical）: {sorted(v)}")
+                    if v.get("min_score") is None:
+                        errs.append("batch2 值 min_score 不得为 null（admitted:false 行构建期已删）")
 
     # ranking_middle：canonical 全量 / dist 删 sz 与元数据
     rk = json.load(open(os.path.join(DIST, "ranking_middle.json"), encoding="utf-8"))

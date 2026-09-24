@@ -127,7 +127,6 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
         // resolvePoi 名称容错把缺口校区指到别的校区（如广雅花都→荔湾）
         poiName: ci ? (ci.id ? poiOfRow(nm, ci.school) : null) : poiOfKey(k),
         min: v.min_score,
-        last: v.last_score,
       };
     });
     const qmap = new Map<string, { campus: string; campusFull: string; school: string; poiName: string | null; n: number }>(quotaRows.map((r) => [r.campus, r]));

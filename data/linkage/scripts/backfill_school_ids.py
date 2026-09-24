@@ -352,6 +352,17 @@ def main() -> int:
             for hk, rows in d['data'].items():
                 hs = high_sid(hk)
                 conv = conv_row(rows, lambda mk: ids.get(mk) or (resolve(mk, 'middle') or {}).get('school_id'))
+                # dist 值精简：运行时只消费录取最低分。min_score 为空（admitted:false，
+                # 有指标但未完成录取）与 admitted/rows/last_score 均只进 canonical（调试/
+                # 业务字段，消费结果与"无记录"一致）；前端 UI 也只展示 min 一列。
+                for m in list(conv['ids']):
+                    v = conv['ids'].pop(m)
+                    conv['ids'][m] = {'min_score': v.get('min_score')}
+                for m in list(conv['schools']):
+                    v = conv['schools'].pop(m)
+                    conv['schools'][m] = {'min_score': v.get('min_score')}
+                conv['ids'] = {k: v for k, v in conv['ids'].items() if v['min_score'] is not None}
+                conv['schools'] = {k: v for k, v in conv['schools'].items() if v['min_score'] is not None}
                 if hs and hs not in outer_seen:
                     outer_seen.add(hs)
                     outer_ids[hs] = conv

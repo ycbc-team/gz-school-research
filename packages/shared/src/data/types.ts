@@ -65,10 +65,11 @@ export interface SpecialMatrix {
 }
 
 /** 第二批次录取分数记录（值 = 校区 → 记录；无分数的 false 记录已在数据治理中删除） */
+/** 第二批次录取分数单元格（初中×高中对）——dist 精简版：只保留前端消费的 min_score
+ *  （录取最低分）；admitted/last_score（末位考生分数）/rows 是 canonical 业务/调试字段，
+ *  可溯源但运行时不需要（null 行即 admitted:false 已在构建期删除）。 */
 export interface Batch2Record {
-  admitted?: boolean;
   min_score?: number | null;
-  last_score?: number | null;
 }
 /** 第二批次（dist）：外层键（高中校区）与内层键（初中）各自 id 优先 + 原文兜底 */
 export interface Batch2Scores {
