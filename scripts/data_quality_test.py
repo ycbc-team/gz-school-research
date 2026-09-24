@@ -167,6 +167,13 @@ def main():
     _PRIMARY_SHARED_PLAIN = {'华康小学', '华阳小学', '龙口西小学', '华景小学', '天府路小学', '员村小学',
                              '昌乐小学', '五山小学', '银河小学', '侨乐小学', '龙洞小学', '天河第一小学',
                              '体育西路小学', '元岗小学', '棠德南小学', '海珠中路小学'}
+    # 官方初中法人名共享裸名豁免（与 build_entities.py SHARED_LEGAL_ALIAS 数字简称键同步）：
+    # 天河附件6 官方用阿拉伯数字简称（广州市第N中学）公布，同法人多校区并列招生是业务事实
+    # （第75中=燕塘西+天平架、第113中=乐学+东方），match_school_ids 按官方名 resolve_all
+    # 法人展开全部 middle 校区（school_ids 多校区共享），不构成匹配歧义。
+    # 第18中因有本部主校区（by_main 可收敛）、第89中为单校区，规则不触发，无需列入。
+    # 新增共享裸名需同步更新本集合。
+    _MIDDLE_SHARED_PLAIN = {'广州市第75中学', '广州市第113中学'}
     alias_owner = {}  # alias -> (school_id, adcode, stage, 该实体名是否无括号)
     for ent in entities:
         # 纯名 = 无括号/无校区限定词的别名；实体名自身也参与（build_entities 不再把自身
@@ -175,8 +182,8 @@ def main():
         stage = ent.get("stage")
         has_main = "(" not in ent.get("name", "") and "（" not in ent.get("name", "")
         for a in [ent.get("name", "")] + ent.get("aliases", []):
-            if a in _PRIMARY_SHARED_PLAIN:
-                continue  # 官方划片表共享裸名（业务事实，见上注释）
+            if a in _PRIMARY_SHARED_PLAIN or a in _MIDDLE_SHARED_PLAIN:
+                continue  # 官方划片表/官方初中法人名共享裸名（业务事实，见上注释）
             if "(" not in a and "校区" not in a and "本部" not in a and "学校" not in a.split("（")[0] and "、" not in a \
                and "初中部" not in a and "高中部" not in a and "小学部" not in a and "年级" not in a and "教学" not in a and "楼" not in a:
                 if a in alias_owner and alias_owner[a][1] == adcode and alias_owner[a][2] == stage and alias_owner[a][0] != ent["school_id"]:

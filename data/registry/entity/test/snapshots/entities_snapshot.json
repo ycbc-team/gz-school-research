@@ -3093,6 +3093,7 @@
   "gz-440106-2e9f6f7b#middle": {
    "aliases": [
     "113中学五山本部",
+    "广州市第113中学",
     "第一一三中学"
    ],
    "name": "广州市第一一三中学(乐学校区)",
@@ -3168,7 +3169,9 @@
    "stage": "primary"
   },
   "gz-440106-3a61d518#middle": {
-   "aliases": [],
+   "aliases": [
+    "广州市第18中学"
+   ],
    "name": "广州市第十八中学车陂校区",
    "stage": "middle"
   },
@@ -3372,6 +3375,7 @@
   },
   "gz-440106-5a7fbf3a#middle": {
    "aliases": [
+    "广州市第75中学",
     "第七十五中学"
    ],
    "name": "广州市第七十五中学(燕塘西校区)",
@@ -3416,7 +3420,9 @@
    "stage": "high"
   },
   "gz-440106-621b20d3#middle": {
-   "aliases": [],
+   "aliases": [
+    "广州市第75中学"
+   ],
    "name": "广州市第七十五中学(天平架校区)",
    "stage": "middle"
   },
@@ -3594,7 +3600,9 @@
    "stage": "high"
   },
   "gz-440106-8f55ab34#middle": {
-   "aliases": [],
+   "aliases": [
+    "第89中学"
+   ],
    "name": "广州市第八十九中学",
    "stage": "middle"
   },
@@ -3759,7 +3767,9 @@
    "stage": "primary"
   },
   "gz-440106-b049d65a#middle": {
-   "aliases": [],
+   "aliases": [
+    "广州市第113中学"
+   ],
    "name": "广州市第一一三中学(东方校区)",
    "stage": "middle"
   },
@@ -4072,7 +4082,9 @@
    "stage": "primary"
   },
   "gz-440106-ef4076c1#middle": {
-   "aliases": [],
+   "aliases": [
+    "广州市第18中学"
+   ],
    "name": "广州市第十八中学",
    "stage": "middle"
   },
@@ -6392,6 +6404,7 @@
   "gz-440112-15d63ae7#primary": {
    "aliases": [
     "CPPQ-A4-2地块长岭.雅居建设项目九年制学校",
+    "CPPQ-A4-2地块长岭·雅居建设项目九年制学校",
     "CPPQ-A4-2地块长岭、雅居建设项目九年制学校",
     "CPPQ-A4-2地块长岭、雅居建设项目九年制学校暂定名"
    ],

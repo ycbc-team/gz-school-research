@@ -3122,7 +3122,9 @@
     "铁英中学": [
      "gz-440112-c80ac6ac"
     ],
-    "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）": []
+    "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）": [
+     "gz-440112-15d63ae7"
+    ]
    },
    "primaryIds": {
     "长岭居小学（南校区）": [
@@ -8132,7 +8134,7 @@
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
    "records": [
     {
-     "school": "广州市第十八中学",
+     "school": "广州市第18中学",
      "school_id": null,
      "school_ids": [
       "gz-440106-3a61d518",
@@ -8156,7 +8158,7 @@
      "mechanism_note": "公办初中划片招生（2026 细则附件6）"
     },
     {
-     "school": "广州市第一一三中学",
+     "school": "广州市第113中学",
      "school_id": null,
      "school_ids": [
       "gz-440106-2e9f6f7b",
@@ -8176,7 +8178,7 @@
      "mechanism_note": "公办初中划片招生（2026 细则附件6）"
     },
     {
-     "school": "广州市第七十五中学",
+     "school": "广州市第75中学",
      "school_id": null,
      "school_ids": [
       "gz-440106-5a7fbf3a",
@@ -8188,7 +8190,7 @@
      "mechanism_note": "公办初中划片招生（2026 细则附件6）"
     },
     {
-     "school": "广州市第八十九中学",
+     "school": "广州市第89中学",
      "school_id": "gz-440106-8f55ab34",
      "plan_classes": 18,
      "scope": "凤凰街东界—凤凰街南界—龙洞街南界—龙洞街西界—龙洞街北界—凤凰街北界",
@@ -8777,7 +8779,7 @@
      "group_id": "huangpu-42"
     },
     {
-     "school": "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）",
+     "school": "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）",
      "school_id": "gz-440112-15d63ae7",
      "plan_classes": null,
      "scope": null,
@@ -8997,7 +8999,7 @@
      "mechanism_note": "对口直升（2026 实施细则附件5）"
     },
     {
-     "school": "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）",
+     "school": "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）",
      "school_id": "gz-440112-15d63ae7",
      "plan_classes": null,
      "scope": "长岭花园住宅小区、岭雅花园住宅小区、仕林花园住宅小区、云臻园住宅小区",

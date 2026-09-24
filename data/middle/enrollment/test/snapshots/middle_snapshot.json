@@ -1607,12 +1607,12 @@
      "school_ids": null,
      "scope": "铁铮学校"
     },
-    "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）": {
+    "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）": {
      "group_members": null,
      "mechanism": "single_zone",
      "mechanism_note": "对口直升（2026 实施细则附件5）",
      "plan_classes": null,
-     "school": "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）",
+     "school": "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）",
      "school_id": "gz-440112-15d63ae7",
      "school_ids": null,
      "scope": "长岭花园住宅小区、岭雅花园住宅小区、仕林花园住宅小区、云臻园住宅小区"
@@ -3344,18 +3344,54 @@
      "school_ids": null,
      "scope": "车陂路（单号）以西，中山大道西（单号）以北，光华路（双号）以东，广深铁路以南"
     },
-    "广州市第一一三中学": {
+    "广州市第113中学": {
      "group_members": null,
      "mechanism": "single_zone",
      "mechanism_note": "公办初中划片招生（2026 细则附件6）",
      "plan_classes": 28,
-     "school": "广州市第一一三中学",
+     "school": "广州市第113中学",
      "school_id": null,
      "school_ids": [
       "gz-440106-2e9f6f7b",
       "gz-440106-b049d65a"
      ],
      "scope": "荷光路单号7号到269号转中山大道西（单号1号到293号）—天府路以西，黄埔大道以东，广园快速路以南；员村片区等"
+    },
+    "广州市第18中学": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 14,
+     "school": "广州市第18中学",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-3a61d518",
+      "gz-440106-ef4076c1"
+     ],
+     "scope": "天河区界（莲溪村）以西，天河区界（珠江）以北，车陂路以东，中山大道中以南"
+    },
+    "广州市第75中学": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 14,
+     "school": "广州市第75中学",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-5a7fbf3a",
+      "gz-440106-621b20d3"
+     ],
+     "scope": "天河北路东界—林和西路以西，林和西路至广州大道中以北，水荫四横路东段转龙岗东路先烈东路转濂泉路至沙东街西界以东，兴华街北界以南；西坑一横巷等"
+    },
+    "广州市第89中学": {
+     "group_members": null,
+     "mechanism": "single_zone",
+     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+     "plan_classes": 18,
+     "school": "广州市第89中学",
+     "school_id": "gz-440106-8f55ab34",
+     "school_ids": null,
+     "scope": "凤凰街东界—凤凰街南界—龙洞街南界—龙洞街西界—龙洞街北界—凤凰街北界"
     },
     "广州市第一一三中学陶育实验学校": {
      "group_members": null,
@@ -3366,42 +3402,6 @@
      "school_id": "gz-440106-7c81ab92",
      "school_ids": null,
      "scope": "华南快速干线以西，天河路—中山大道以南，黄埔大道以北，石牌西路以东"
-    },
-    "广州市第七十五中学": {
-     "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
-     "plan_classes": 14,
-     "school": "广州市第七十五中学",
-     "school_id": null,
-     "school_ids": [
-      "gz-440106-5a7fbf3a",
-      "gz-440106-621b20d3"
-     ],
-     "scope": "天河北路东界—林和西路以西，林和西路至广州大道中以北，水荫四横路东段转龙岗东路先烈东路转濂泉路至沙东街西界以东，兴华街北界以南；西坑一横巷等"
-    },
-    "广州市第八十九中学": {
-     "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
-     "plan_classes": 18,
-     "school": "广州市第八十九中学",
-     "school_id": "gz-440106-8f55ab34",
-     "school_ids": null,
-     "scope": "凤凰街东界—凤凰街南界—龙洞街南界—龙洞街西界—龙洞街北界—凤凰街北界"
-    },
-    "广州市第十八中学": {
-     "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生（2026 细则附件6）",
-     "plan_classes": 14,
-     "school": "广州市第十八中学",
-     "school_id": null,
-     "school_ids": [
-      "gz-440106-3a61d518",
-      "gz-440106-ef4076c1"
-     ],
-     "scope": "天河区界（莲溪村）以西，天河区界（珠江）以北，车陂路以东，中山大道中以南"
     },
     "广州市长兴中学": {
      "group_members": null,
