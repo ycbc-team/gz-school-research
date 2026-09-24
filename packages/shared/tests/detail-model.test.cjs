@@ -131,9 +131,16 @@ test('品牌关联：广大附黄华路校区以 school_id 标记当前项并生
 });
 
 test('品牌关联：全量品牌实体对比修复前后，品牌分支新增当前态必须由显式身份来源支撑', () => {
+  // 品牌覆盖口径 = brand_groups units 的 school_ids 外键实体（8 大省市属品牌）。
+  // 2026-09 merge 后 brand 全部并入 education_groups（同名集团），groupOfSchool 均解析为
+  // education——按 source==='brand' 统计会得空集导致快照被清空（假绿）；改按 brand units
+  // 外键收口，仍保护「品牌实体品牌卡不得消失/降级」。
+  const brandIds = new Set();
+  for (const b of load('registry/group/src/brand_groups.json').brands || []) {
+    for (const u of b.units || []) for (const id of u.school_ids || []) brandIds.add(id);
+  }
   const eligible = repo.entities.filter((entity) =>
-    ['primary', 'middle', 'high'].includes(entity.stage) &&
-    repo.groupOfSchool(entity.name, entity.school_id)?.source === 'brand',
+    ['primary', 'middle', 'high'].includes(entity.stage) && brandIds.has(entity.school_id),
   );
   // 覆盖范围快照（2026-09-22 由「数字断言」改为名单快照 diff——数字只能报 55→53，
   // 看不出是哪个实体增删；现按 school_id|name 逐条列出）。基线存
@@ -301,7 +308,7 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
   // （与 scripts/merge_groups.py legal_campuses 同语义）。任何改动导致品牌模块从详情页
   // 消失/未渲染（null 或 useful=false），本测试立即失败——快照 digest 强制显式更新。
   const edu = load('registry/group/dist/education_groups.json').groups;
-  const brand = (load('registry/group/src/brand_groups.json').groups || []);
+  const brand = (load('registry/group/src/brand_groups.json').brands || []);
   const coreOf = (n) => (n || '').replace(/[（(][^）)]*[）)]/g, '').trim();
   const nrm = (s) => s.replace(/[（(]/g, '').replace(/[）)]/g, '').replace(/广州市/g, '').replace(/\s/g, '');
   const grpKeys = new Set();
