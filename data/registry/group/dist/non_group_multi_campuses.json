@@ -1,2189 +1,269 @@
 {
-  "note": "实体注册表派生：同区同 legalKey、多校区且未入教育集团/品牌。不是官方教育集团名单。",
-  "families": [
-    {
-      "family_key": "440103:协和学校",
-      "district_adcode": "440103",
-      "legal_key": "协和学校",
-      "school_ids": [
-        "gz-440103-33b32c4c",
-        "gz-440103-e281e7d0"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440103-33b32c4c",
-          "names": [
-            "广州市协和学校（小学部）"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440103-e281e7d0",
-          "names": [
-            "广州协和学校"
-          ],
-          "stages": [
-            "middle",
-            "high"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440103:南海中学",
-      "district_adcode": "440103",
-      "legal_key": "南海中学",
-      "school_ids": [
-        "gz-440103-8e11a7d3",
-        "gz-440103-c9f13fde"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440103-8e11a7d3",
-          "names": [
-            "广州市南海中学(初中部)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440103-c9f13fde",
-          "names": [
-            "广州市南海中学"
-          ],
-          "stages": [
-            "middle",
-            "high"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440103:林凤娥小学",
-      "district_adcode": "440103",
-      "legal_key": "林凤娥小学",
-      "school_ids": [
-        "gz-440103-07e5ea8f",
-        "gz-440103-acad9c9d"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440103-07e5ea8f",
-          "names": [
-            "林凤娥小学(荔江美筑校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440103-acad9c9d",
-          "names": [
-            "林凤娥小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440103:西关培英中学",
-      "district_adcode": "440103",
-      "legal_key": "西关培英中学",
-      "school_ids": [
-        "gz-440103-41cb6344",
-        "gz-440103-d78c848a"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440103-41cb6344",
-          "names": [
-            "广州市西关培英中学(西校区)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440103-d78c848a",
-          "names": [
-            "广州市西关培英中学"
-          ],
-          "stages": [
-            "middle",
-            "high"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440104:东山实验小学",
-      "district_adcode": "440104",
-      "legal_key": "东山实验小学",
-      "school_ids": [
-        "gz-440104-4d534f13",
-        "gz-440104-8d568c2d"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440104-4d534f13",
-          "names": [
-            "东山实验小学(东校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-8d568c2d",
-          "names": [
-            "东山实验小学(西校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440104:东川路小学",
-      "district_adcode": "440104",
-      "legal_key": "东川路小学",
-      "school_ids": [
-        "gz-440104-e20758df",
-        "gz-440104-ef94e34a"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440104-e20758df",
-          "names": [
-            "东川路小学(南校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-ef94e34a",
-          "names": [
-            "东川路小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440104:东风西路小学",
-      "district_adcode": "440104",
-      "legal_key": "东风西路小学",
-      "school_ids": [
-        "gz-440104-12a17af1",
-        "gz-440104-4144068a",
-        "gz-440104-c248f5af"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440104-12a17af1",
-          "names": [
-            "东风西路小学(东风校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-4144068a",
-          "names": [
-            "东风西路小学(盘福校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-c248f5af",
-          "names": [
-            "东风西路小学(双井校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440104:中星小学",
-      "district_adcode": "440104",
-      "legal_key": "中星小学",
-      "school_ids": [
-        "gz-440104-39cb8355",
-        "gz-440104-a8aeed6e"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440104-39cb8355",
-          "names": [
-            "中星小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-a8aeed6e",
-          "names": [
-            "中星小学(东校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440104:中路小学",
-      "district_adcode": "440104",
-      "legal_key": "中路小学",
-      "school_ids": [
-        "gz-440104-75ece0ce",
-        "gz-440104-fb8d99a5"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440104-75ece0ce",
-          "names": [
-            "海珠中路小学(海珠中校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-fb8d99a5",
-          "names": [
-            "海珠中路小学(七株榕校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440104:八旗二马路小学",
-      "district_adcode": "440104",
-      "legal_key": "八旗二马路小学",
-      "school_ids": [
-        "gz-440104-21810797",
-        "gz-440104-62c3dac8"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440104-21810797",
-          "names": [
-            "八旗二马路小学(西校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-62c3dac8",
-          "names": [
-            "广州市八旗二马路小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440104:小北路小学",
-      "district_adcode": "440104",
-      "legal_key": "小北路小学",
-      "school_ids": [
-        "gz-440104-1b6d4b9c",
-        "gz-440104-4ebbaf83",
-        "gz-440104-98359a64",
-        "gz-440104-d5497b4b"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440104-1b6d4b9c",
-          "names": [
-            "小北路小学(应元校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-4ebbaf83",
-          "names": [
-            "小北路小学(小北路校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-98359a64",
-          "names": [
-            "小北路小学(天香街校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-d5497b4b",
-          "names": [
-            "小北路小学(天秀校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440104:文德路小学",
-      "district_adcode": "440104",
-      "legal_key": "文德路小学",
-      "school_ids": [
-        "gz-440104-00e3fd36",
-        "gz-440104-284b2f82"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440104-00e3fd36",
-          "names": [
-            "文德路小学(南校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-284b2f82",
-          "names": [
-            "文德路小学(正校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440104:满族小学",
-      "district_adcode": "440104",
-      "legal_key": "满族小学",
-      "school_ids": [
-        "gz-440104-123d52ca",
-        "gz-440104-4bc1a5b6",
-        "gz-440104-61ab7589"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440104-123d52ca",
-          "names": [
-            "广州市满族小学(光塔校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-4bc1a5b6",
-          "names": [
-            "广州市满族小学(象牙校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-61ab7589",
-          "names": [
-            "广州市满族小学(大德校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440104:第十七中学",
-      "district_adcode": "440104",
-      "legal_key": "第十七中学",
-      "school_ids": [
-        "gz-440104-099a5868",
-        "gz-440104-9c6632b1"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440104-099a5868",
-          "names": [
-            "广州市第十七中学(西校区)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440104-9c6632b1",
-          "names": [
-            "广州市第十七中学"
-          ],
-          "stages": [
-            "middle",
-            "high"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440104:第十三中学",
-      "district_adcode": "440104",
-      "legal_key": "第十三中学",
-      "school_ids": [
-        "gz-440104-0a17f1eb",
-        "gz-440104-9b88f912"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440104-0a17f1eb",
-          "names": [
-            "广州市第十三中学(文德校区)"
-          ],
-          "stages": [
-            "high"
-          ]
-        },
-        {
-          "school_id": "gz-440104-9b88f912",
-          "names": [
-            "广州市第十三中学(禺山校区)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440104:红火炬小学",
-      "district_adcode": "440104",
-      "legal_key": "红火炬小学",
-      "school_ids": [
-        "gz-440104-29c39d65",
-        "gz-440104-a7ac857e"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440104-29c39d65",
-          "names": [
-            "红火炬小学(东校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-a7ac857e",
-          "names": [
-            "红火炬小学(西校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440104:雄鹰学校",
-      "district_adcode": "440104",
-      "legal_key": "雄鹰学校",
-      "school_ids": [
-        "gz-440104-737bb916",
-        "gz-440104-db01d10e"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440104-737bb916",
-          "names": [
-            "雄鹰学校(小学部)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-db01d10e",
-          "names": [
-            "雄鹰学校"
-          ],
-          "stages": [
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440104:雅荷塘小学",
-      "district_adcode": "440104",
-      "legal_key": "雅荷塘小学",
-      "school_ids": [
-        "gz-440104-194c5aee",
-        "gz-440104-c22567c9"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440104-194c5aee",
-          "names": [
-            "雅荷塘小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440104-c22567c9",
-          "names": [
-            "雅荷塘小学(仓边路校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440105:六中珠江中学",
-      "district_adcode": "440105",
-      "legal_key": "六中珠江中学",
-      "school_ids": [
-        "gz-440105-cb432890",
-        "gz-440105-e58a8300"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440105-cb432890",
-          "names": [
-            "海珠区六中珠江中学"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440105-e58a8300",
-          "names": [
-            "六中珠江中学(万胜围校区)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440105:同福中路第一小学",
-      "district_adcode": "440105",
-      "legal_key": "同福中路第一小学",
-      "school_ids": [
-        "gz-440105-6d928e8e",
-        "gz-440105-a72d7648",
-        "gz-440105-ec3a9a47"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440105-6d928e8e",
-          "names": [
-            "同福中路第一小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440105-a72d7648",
-          "names": [
-            "同福中路第一小学(西校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440105-ec3a9a47",
-          "names": [
-            "同福中路第一小学(南校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440105:新港路小学",
-      "district_adcode": "440105",
-      "legal_key": "新港路小学",
-      "school_ids": [
-        "gz-440105-0c129848",
-        "gz-440105-8250cba3"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440105-0c129848",
-          "names": [
-            "新港路小学(东校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440105-8250cba3",
-          "names": [
-            "新港路小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440105:昌岗东路小学",
-      "district_adcode": "440105",
-      "legal_key": "昌岗东路小学",
-      "school_ids": [
-        "gz-440105-0a076492",
-        "gz-440105-5a60ff79"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440105-0a076492",
-          "names": [
-            "广州市海珠区昌岗东路小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440105-5a60ff79",
-          "names": [
-            "昌岗东路小学(北校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440105:梅园西路小学",
-      "district_adcode": "440105",
-      "legal_key": "梅园西路小学",
-      "school_ids": [
-        "gz-440105-ced71c28",
-        "gz-440105-d9bd3fb7"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440105-ced71c28",
-          "names": [
-            "梅园西路小学(南校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440105-d9bd3fb7",
-          "names": [
-            "广州市海珠区梅园西路小学(北校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440105:镇泰实验小学",
-      "district_adcode": "440105",
-      "legal_key": "镇泰实验小学",
-      "school_ids": [
-        "gz-440105-8df58f4e",
-        "gz-440105-e7dd050a"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440105-8df58f4e",
-          "names": [
-            "镇泰实验小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440105-e7dd050a",
-          "names": [
-            "海珠镇泰实验小学(同福校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440106:体育西路小学",
-      "district_adcode": "440106",
-      "legal_key": "体育西路小学",
-      "school_ids": [
-        "gz-440106-d343b055",
-        "gz-440106-fee58b73"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440106-d343b055",
-          "names": [
-            "体育西路小学(西校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440106-fee58b73",
-          "names": [
-            "体育西路小学(东校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440106:元岗小学",
-      "district_adcode": "440106",
-      "legal_key": "元岗小学",
-      "school_ids": [
-        "gz-440106-6cc686a8",
-        "gz-440106-a38b3c64"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440106-6cc686a8",
-          "names": [
-            "广州市天河区元岗小学(东校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440106-a38b3c64",
-          "names": [
-            "元岗小学(西校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440106:华南理工大学附属实验学校",
-      "district_adcode": "440106",
-      "legal_key": "华南理工大学附属实验学校",
-      "school_ids": [
-        "gz-440106-23f2dfc8",
-        "gz-440106-9bed7efb"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440106-23f2dfc8",
-          "names": [
-            "华南理工大学附属实验学校(小学部)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440106-9bed7efb",
-          "names": [
-            "华南理工大学附属实验学校(中学部)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440106:华实学校",
-      "district_adcode": "440106",
-      "legal_key": "华实学校",
-      "school_ids": [
-        "gz-440106-8d124051",
-        "gz-440106-bd07878c"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440106-8d124051",
-          "names": [
-            "广州市天河区华实学校"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440106-bd07878c",
-          "names": [
-            "广州市天河区华实学校初中部"
-          ],
-          "stages": [
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440106:华景小学",
-      "district_adcode": "440106",
-      "legal_key": "华景小学",
-      "school_ids": [
-        "gz-440106-2cd346f1",
-        "gz-440106-3f600b79"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440106-2cd346f1",
-          "names": [
-            "华景小学(北校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440106-3f600b79",
-          "names": [
-            "华景小学(南校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440106:华美英语实验学校",
-      "district_adcode": "440106",
-      "legal_key": "华美英语实验学校",
-      "school_ids": [
-        "gz-440106-7abd2786",
-        "gz-440106-a6394a7a"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440106-7abd2786",
-          "names": [
-            "广州华美英语实验学校"
-          ],
-          "stages": [
-            "primary",
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440106-a6394a7a",
-          "names": [
-            "广州市华美英语实验学校"
-          ],
-          "stages": [
-            "high"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440106:南国学校",
-      "district_adcode": "440106",
-      "legal_key": "南国学校",
-      "school_ids": [
-        "gz-440106-a64c6e57",
-        "gz-440106-b0d40cc4"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440106-a64c6e57",
-          "names": [
-            "南国学校(小学部)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440106-b0d40cc4",
-          "names": [
-            "南国学校(中学部)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440106:同仁艺体实验中学",
-      "district_adcode": "440106",
-      "legal_key": "同仁艺体实验中学",
-      "school_ids": [
-        "gz-440106-429b917e",
-        "gz-440106-cc1c335f"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440106-429b917e",
-          "names": [
-            "同仁艺体实验中学(伍仙桥校区)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440106-cc1c335f",
-          "names": [
-            "同仁艺体实验中学"
-          ],
-          "stages": [
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440106:员村小学",
-      "district_adcode": "440106",
-      "legal_key": "员村小学",
-      "school_ids": [
-        "gz-440106-3bf77656",
-        "gz-440106-4462c607"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440106-3bf77656",
-          "names": [
-            "员村小学(美林分校)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440106-4462c607",
-          "names": [
-            "员村小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440106:天河中学",
-      "district_adcode": "440106",
-      "legal_key": "天河中学",
-      "school_ids": [
-        "gz-440106-2f8a4424",
-        "gz-440106-93897236",
-        "gz-440106-dd16c13e"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440106-2f8a4424",
-          "names": [
-            "广州市天河中学(天河东路校区)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440106-93897236",
-          "names": [
-            "广州市天河中学(珠江新城校区)"
-          ],
-          "stages": [
-            "high"
-          ]
-        },
-        {
-          "school_id": "gz-440106-dd16c13e",
-          "names": [
-            "广州市天河中学(花城校区)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440106:天河第一小学",
-      "district_adcode": "440106",
-      "legal_key": "天河第一小学",
-      "school_ids": [
-        "gz-440106-269a9629",
-        "gz-440106-4a26a58c"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440106-269a9629",
-          "names": [
-            "广州市天河第一小学(华穗校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440106-4a26a58c",
-          "names": [
-            "天河第一小学(华利校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440106:思源学校",
-      "district_adcode": "440106",
-      "legal_key": "思源学校",
-      "school_ids": [
-        "gz-440106-42297c28",
-        "gz-440106-c8bf2650"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440106-42297c28",
-          "names": [
-            "广州思源学校高中部"
-          ],
-          "stages": [
-            "high"
-          ]
-        },
-        {
-          "school_id": "gz-440106-c8bf2650",
-          "names": [
-            "广州思源学校"
-          ],
-          "stages": [
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440106:第七十五中学",
-      "district_adcode": "440106",
-      "legal_key": "第七十五中学",
-      "school_ids": [
-        "gz-440106-5a7fbf3a",
-        "gz-440106-5b430017",
-        "gz-440106-621b20d3"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440106-5a7fbf3a",
-          "names": [
-            "广州市第七十五中学(燕塘西校区)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440106-5b430017",
-          "names": [
-            "广州市第七十五中学(燕塘东校区)"
-          ],
-          "stages": [
-            "high"
-          ]
-        },
-        {
-          "school_id": "gz-440106-621b20d3",
-          "names": [
-            "广州市第七十五中学(天平架校区)"
-          ],
-          "stages": [
-            "middle",
-            "high"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440106:龙洞小学",
-      "district_adcode": "440106",
-      "legal_key": "龙洞小学",
-      "school_ids": [
-        "gz-440106-2a11e3df",
-        "gz-440106-a56ce4ac"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440106-2a11e3df",
-          "names": [
-            "龙洞小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440106-a56ce4ac",
-          "names": [
-            "龙洞小学(宝翠园校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440111:东平学校",
-      "district_adcode": "440111",
-      "legal_key": "东平学校",
-      "school_ids": [
-        "gz-440111-a0cc79c7",
-        "gz-440111-e6300e34"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440111-a0cc79c7",
-          "names": [
-            "东平学校(万科校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440111-e6300e34",
-          "names": [
-            "东平学校(东平校区)"
-          ],
-          "stages": [
-            "primary",
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440111:人和镇第一小学",
-      "district_adcode": "440111",
-      "legal_key": "人和镇第一小学",
-      "school_ids": [
-        "gz-440111-645ba6c1",
-        "gz-440111-fad0ee39"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440111-645ba6c1",
-          "names": [
-            "人和镇第一小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440111-fad0ee39",
-          "names": [
-            "人和镇第一小学(鸦湖校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440111:人和镇第二小学",
-      "district_adcode": "440111",
-      "legal_key": "人和镇第二小学",
-      "school_ids": [
-        "gz-440111-e8d9a6bd",
-        "gz-440111-f5b57c5c"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440111-e8d9a6bd",
-          "names": [
-            "人和镇第二小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440111-f5b57c5c",
-          "names": [
-            "广州市白云区人和镇第二小学(建南校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440111:人和镇第五小学",
-      "district_adcode": "440111",
-      "legal_key": "人和镇第五小学",
-      "school_ids": [
-        "gz-440111-311a2ef8",
-        "gz-440111-908072a9"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440111-311a2ef8",
-          "names": [
-            "人和镇第五小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440111-908072a9",
-          "names": [
-            "人和镇第五小学(太成校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440111:华赋学校",
-      "district_adcode": "440111",
-      "legal_key": "华赋学校",
-      "school_ids": [
-        "gz-440111-2ec509e7",
-        "gz-440111-43437f78"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440111-2ec509e7",
-          "names": [
-            "广州市白云区华赋学校(南校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440111-43437f78",
-          "names": [
-            "广州市白云区华赋学校(北校区)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440111:培文外国语学校",
-      "district_adcode": "440111",
-      "legal_key": "培文外国语学校",
-      "school_ids": [
-        "gz-440111-b4e0e849",
-        "gz-440111-ce7a2db7"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440111-b4e0e849",
-          "names": [
-            "广州培文外国语学校初中部"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440111-ce7a2db7",
-          "names": [
-            "广州培文外国语学校(小学部)"
-          ],
-          "stages": [
-            "primary",
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440111:培英实验学校",
-      "district_adcode": "440111",
-      "legal_key": "培英实验学校",
-      "school_ids": [
-        "gz-440111-1701a8ea",
-        "gz-440111-2d42f392",
-        "gz-440111-e14818fc"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440111-1701a8ea",
-          "names": [
-            "广州培英实验学校小学部"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440111-2d42f392",
-          "names": [
-            "培英实验学校(云景校区)初中部"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440111-e14818fc",
-          "names": [
-            "广州市白云区培英实验学校(同和校区)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440111:彭加木纪念中学",
-      "district_adcode": "440111",
-      "legal_key": "彭加木纪念中学",
-      "school_ids": [
-        "gz-440111-4e13c7d6",
-        "gz-440111-d28d78f9"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440111-4e13c7d6",
-          "names": [
-            "广州彭加木纪念中学(初中部)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440111-d28d78f9",
-          "names": [
-            "广州彭加木纪念中学"
-          ],
-          "stages": [
-            "middle",
-            "high"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440111:明德小学",
-      "district_adcode": "440111",
-      "legal_key": "明德小学",
-      "school_ids": [
-        "gz-440111-6da8abe9",
-        "gz-440111-c5b02b25"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440111-6da8abe9",
-          "names": [
-            "明德小学(明德校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440111-c5b02b25",
-          "names": [
-            "明德小学(富康校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440111:民航学校",
-      "district_adcode": "440111",
-      "legal_key": "民航学校",
-      "school_ids": [
-        "gz-440111-5c7a7c4a",
-        "gz-440111-7a3148c4",
-        "gz-440111-a8395a4d"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440111-5c7a7c4a",
-          "names": [
-            "广州市白云区民航学校(初中部)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440111-7a3148c4",
-          "names": [
-            "白云区民航学校(人和校区)",
-            "广州市白云区民航学校(人和校区)"
-          ],
-          "stages": [
-            "primary",
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440111-a8395a4d",
-          "names": [
-            "白云区民航学校小学部"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440111:潭岗小学",
-      "district_adcode": "440111",
-      "legal_key": "潭岗小学",
-      "school_ids": [
-        "gz-440111-8e574b6b",
-        "gz-440111-f1f9eaff"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440111-8e574b6b",
-          "names": [
-            "潭岗小学(潭村校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440111-f1f9eaff",
-          "names": [
-            "潭岗小学(凰岗校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440111:良田第三小学",
-      "district_adcode": "440111",
-      "legal_key": "良田第三小学",
-      "school_ids": [
-        "gz-440111-7f478da2",
-        "gz-440111-883ed42d"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440111-7f478da2",
-          "names": [
-            "良田第三小学(金盆校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440111-883ed42d",
-          "names": [
-            "良田第三小学(白沙校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440111:黄边小学",
-      "district_adcode": "440111",
-      "legal_key": "黄边小学",
-      "school_ids": [
-        "gz-440111-59df1f3b",
-        "gz-440111-aac310d1",
-        "gz-440111-d4cad06c",
-        "gz-440111-e0eac26d"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440111-59df1f3b",
-          "names": [
-            "黄边小学(时代玫瑰园校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440111-aac310d1",
-          "names": [
-            "黄边小学(黄边校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440111-d4cad06c",
-          "names": [
-            "黄边小学(乐得校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440111-e0eac26d",
-          "names": [
-            "黄边小学(云山诗意校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440112:九龙第二小学",
-      "district_adcode": "440112",
-      "legal_key": "九龙第二小学",
-      "school_ids": [
-        "gz-440112-0484c45e",
-        "gz-440112-3f33e75c"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440112-0484c45e",
-          "names": [
-            "广州市黄埔区九龙第二小学(九楼校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440112-3f33e75c",
-          "names": [
-            "九龙第二小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440112:军校纪念中学",
-      "district_adcode": "440112",
-      "legal_key": "军校纪念中学",
-      "school_ids": [
-        "gz-440112-12747882",
-        "gz-440112-674f4721"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440112-12747882",
-          "names": [
-            "广州市黄埔军校纪念中学(北校区)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440112-674f4721",
-          "names": [
-            "黄埔军校纪念中学"
-          ],
-          "stages": [
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440112:北京师范大学广州实验学校",
-      "district_adcode": "440112",
-      "legal_key": "北京师范大学广州实验学校",
-      "school_ids": [
-        "gz-440112-8bbf8f06",
-        "gz-440112-bd4af6d0"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440112-8bbf8f06",
-          "names": [
-            "北京师范大学广州实验学校"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440112-bd4af6d0",
-          "names": [
-            "北京师范大学广州实验学校(小学部)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440112:广东外语外贸大学附属知识城实验小学",
-      "district_adcode": "440112",
-      "legal_key": "广东外语外贸大学附属知识城实验小学",
-      "school_ids": [
-        "gz-440112-284e5309",
-        "gz-440112-abe35401"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440112-284e5309",
-          "names": [
-            "广东外语外贸大学附属知识城实验小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440112-abe35401",
-          "names": [
-            "广东外语外贸大学附属知识城实验小学(南校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440112:新港小学",
-      "district_adcode": "440112",
-      "legal_key": "新港小学",
-      "school_ids": [
-        "gz-440112-70be890a",
-        "gz-440112-880cd8fa"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440112-70be890a",
-          "names": [
-            "广州市黄埔区新港小学(南校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440112-880cd8fa",
-          "names": [
-            "新港小学(东校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440112:石化小学",
-      "district_adcode": "440112",
-      "legal_key": "石化小学",
-      "school_ids": [
-        "gz-440112-0f409071",
-        "gz-440112-64ab063c"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440112-0f409071",
-          "names": [
-            "广州石化小学(西校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440112-64ab063c",
-          "names": [
-            "广州石化小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440112:科学城小学",
-      "district_adcode": "440112",
-      "legal_key": "科学城小学",
-      "school_ids": [
-        "gz-440112-16ca808f",
-        "gz-440112-dbb48335"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440112-16ca808f",
-          "names": [
-            "科学城小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440112-dbb48335",
-          "names": [
-            "科学城小学(北校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440113:华南碧桂园学校",
-      "district_adcode": "440113",
-      "legal_key": "华南碧桂园学校",
-      "school_ids": [
-        "gz-440113-a45e4a1a",
-        "gz-440113-db326e94"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440113-a45e4a1a",
-          "names": [
-            "华南碧桂园学校(小学部)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440113-db326e94",
-          "names": [
-            "华南碧桂园学校(中学部)"
-          ],
-          "stages": [
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440113:博萃德学校",
-      "district_adcode": "440113",
-      "legal_key": "博萃德学校",
-      "school_ids": [
-        "gz-440113-3d006240",
-        "gz-440113-cf01b95f"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440113-3d006240",
-          "names": [
-            "广州博萃德学校"
-          ],
-          "stages": [
-            "primary",
-            "middle",
-            "high"
-          ]
-        },
-        {
-          "school_id": "gz-440113-cf01b95f",
-          "names": [
-            "广州博萃德学校小学部"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440113:石碁镇中心小学",
-      "district_adcode": "440113",
-      "legal_key": "石碁镇中心小学",
-      "school_ids": [
-        "gz-440113-94550bcb",
-        "gz-440113-aeeeff61"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440113-94550bcb",
-          "names": [
-            "石碁镇中心小学(大龙校区)"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440113-aeeeff61",
-          "names": [
-            "石碁镇中心小学"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440113:祈福新邨学校",
-      "district_adcode": "440113",
-      "legal_key": "祈福新邨学校",
-      "school_ids": [
-        "gz-440113-1963cc5e",
-        "gz-440113-8ef59a4c"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440113-1963cc5e",
-          "names": [
-            "祈福新邨学校"
-          ],
-          "stages": [
-            "primary"
-          ]
-        },
-        {
-          "school_id": "gz-440113-8ef59a4c",
-          "names": [
-            "祈福新邨学校"
-          ],
-          "stages": [
-            "middle"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440113:金华学校",
-      "district_adcode": "440113",
-      "legal_key": "金华学校",
-      "school_ids": [
-        "gz-440113-0670cc0e",
-        "gz-440113-82bf431a"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440113-0670cc0e",
-          "names": [
-            "番禺区金华学校"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440113-82bf431a",
-          "names": [
-            "金华学校"
-          ],
-          "stages": [
-            "primary"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    },
-    {
-      "family_key": "440115:广州外国语学校",
-      "district_adcode": "440115",
-      "legal_key": "广州外国语学校",
-      "school_ids": [
-        "gz-440115-815387d3",
-        "gz-440115-a936e5d5"
-      ],
-      "members": [
-        {
-          "school_id": "gz-440115-815387d3",
-          "names": [
-            "广州外国语学校"
-          ],
-          "stages": [
-            "middle"
-          ]
-        },
-        {
-          "school_id": "gz-440115-a936e5d5",
-          "names": [
-            "广州外国语学校"
-          ],
-          "stages": [
-            "high"
-          ]
-        }
-      ],
-      "derivation": "entity_legal_key"
-    }
+  "440103:协和学校": [
+    "gz-440103-33b32c4c",
+    "gz-440103-e281e7d0"
   ],
-  "schoolFamilies": {
-    "gz-440103-33b32c4c": "440103:协和学校",
-    "gz-440103-e281e7d0": "440103:协和学校",
-    "gz-440103-8e11a7d3": "440103:南海中学",
-    "gz-440103-c9f13fde": "440103:南海中学",
-    "gz-440103-07e5ea8f": "440103:林凤娥小学",
-    "gz-440103-acad9c9d": "440103:林凤娥小学",
-    "gz-440103-41cb6344": "440103:西关培英中学",
-    "gz-440103-d78c848a": "440103:西关培英中学",
-    "gz-440104-4d534f13": "440104:东山实验小学",
-    "gz-440104-8d568c2d": "440104:东山实验小学",
-    "gz-440104-e20758df": "440104:东川路小学",
-    "gz-440104-ef94e34a": "440104:东川路小学",
-    "gz-440104-12a17af1": "440104:东风西路小学",
-    "gz-440104-4144068a": "440104:东风西路小学",
-    "gz-440104-c248f5af": "440104:东风西路小学",
-    "gz-440104-39cb8355": "440104:中星小学",
-    "gz-440104-a8aeed6e": "440104:中星小学",
-    "gz-440104-75ece0ce": "440104:中路小学",
-    "gz-440104-fb8d99a5": "440104:中路小学",
-    "gz-440104-21810797": "440104:八旗二马路小学",
-    "gz-440104-62c3dac8": "440104:八旗二马路小学",
-    "gz-440104-1b6d4b9c": "440104:小北路小学",
-    "gz-440104-4ebbaf83": "440104:小北路小学",
-    "gz-440104-98359a64": "440104:小北路小学",
-    "gz-440104-d5497b4b": "440104:小北路小学",
-    "gz-440104-00e3fd36": "440104:文德路小学",
-    "gz-440104-284b2f82": "440104:文德路小学",
-    "gz-440104-123d52ca": "440104:满族小学",
-    "gz-440104-4bc1a5b6": "440104:满族小学",
-    "gz-440104-61ab7589": "440104:满族小学",
-    "gz-440104-099a5868": "440104:第十七中学",
-    "gz-440104-9c6632b1": "440104:第十七中学",
-    "gz-440104-0a17f1eb": "440104:第十三中学",
-    "gz-440104-9b88f912": "440104:第十三中学",
-    "gz-440104-29c39d65": "440104:红火炬小学",
-    "gz-440104-a7ac857e": "440104:红火炬小学",
-    "gz-440104-737bb916": "440104:雄鹰学校",
-    "gz-440104-db01d10e": "440104:雄鹰学校",
-    "gz-440104-194c5aee": "440104:雅荷塘小学",
-    "gz-440104-c22567c9": "440104:雅荷塘小学",
-    "gz-440105-cb432890": "440105:六中珠江中学",
-    "gz-440105-e58a8300": "440105:六中珠江中学",
-    "gz-440105-6d928e8e": "440105:同福中路第一小学",
-    "gz-440105-a72d7648": "440105:同福中路第一小学",
-    "gz-440105-ec3a9a47": "440105:同福中路第一小学",
-    "gz-440105-0c129848": "440105:新港路小学",
-    "gz-440105-8250cba3": "440105:新港路小学",
-    "gz-440105-0a076492": "440105:昌岗东路小学",
-    "gz-440105-5a60ff79": "440105:昌岗东路小学",
-    "gz-440105-ced71c28": "440105:梅园西路小学",
-    "gz-440105-d9bd3fb7": "440105:梅园西路小学",
-    "gz-440105-8df58f4e": "440105:镇泰实验小学",
-    "gz-440105-e7dd050a": "440105:镇泰实验小学",
-    "gz-440106-d343b055": "440106:体育西路小学",
-    "gz-440106-fee58b73": "440106:体育西路小学",
-    "gz-440106-6cc686a8": "440106:元岗小学",
-    "gz-440106-a38b3c64": "440106:元岗小学",
-    "gz-440106-23f2dfc8": "440106:华南理工大学附属实验学校",
-    "gz-440106-9bed7efb": "440106:华南理工大学附属实验学校",
-    "gz-440106-8d124051": "440106:华实学校",
-    "gz-440106-bd07878c": "440106:华实学校",
-    "gz-440106-2cd346f1": "440106:华景小学",
-    "gz-440106-3f600b79": "440106:华景小学",
-    "gz-440106-7abd2786": "440106:华美英语实验学校",
-    "gz-440106-a6394a7a": "440106:华美英语实验学校",
-    "gz-440106-a64c6e57": "440106:南国学校",
-    "gz-440106-b0d40cc4": "440106:南国学校",
-    "gz-440106-429b917e": "440106:同仁艺体实验中学",
-    "gz-440106-cc1c335f": "440106:同仁艺体实验中学",
-    "gz-440106-3bf77656": "440106:员村小学",
-    "gz-440106-4462c607": "440106:员村小学",
-    "gz-440106-2f8a4424": "440106:天河中学",
-    "gz-440106-93897236": "440106:天河中学",
-    "gz-440106-dd16c13e": "440106:天河中学",
-    "gz-440106-269a9629": "440106:天河第一小学",
-    "gz-440106-4a26a58c": "440106:天河第一小学",
-    "gz-440106-42297c28": "440106:思源学校",
-    "gz-440106-c8bf2650": "440106:思源学校",
-    "gz-440106-5a7fbf3a": "440106:第七十五中学",
-    "gz-440106-5b430017": "440106:第七十五中学",
-    "gz-440106-621b20d3": "440106:第七十五中学",
-    "gz-440106-2a11e3df": "440106:龙洞小学",
-    "gz-440106-a56ce4ac": "440106:龙洞小学",
-    "gz-440111-a0cc79c7": "440111:东平学校",
-    "gz-440111-e6300e34": "440111:东平学校",
-    "gz-440111-645ba6c1": "440111:人和镇第一小学",
-    "gz-440111-fad0ee39": "440111:人和镇第一小学",
-    "gz-440111-e8d9a6bd": "440111:人和镇第二小学",
-    "gz-440111-f5b57c5c": "440111:人和镇第二小学",
-    "gz-440111-311a2ef8": "440111:人和镇第五小学",
-    "gz-440111-908072a9": "440111:人和镇第五小学",
-    "gz-440111-2ec509e7": "440111:华赋学校",
-    "gz-440111-43437f78": "440111:华赋学校",
-    "gz-440111-b4e0e849": "440111:培文外国语学校",
-    "gz-440111-ce7a2db7": "440111:培文外国语学校",
-    "gz-440111-1701a8ea": "440111:培英实验学校",
-    "gz-440111-2d42f392": "440111:培英实验学校",
-    "gz-440111-e14818fc": "440111:培英实验学校",
-    "gz-440111-4e13c7d6": "440111:彭加木纪念中学",
-    "gz-440111-d28d78f9": "440111:彭加木纪念中学",
-    "gz-440111-6da8abe9": "440111:明德小学",
-    "gz-440111-c5b02b25": "440111:明德小学",
-    "gz-440111-5c7a7c4a": "440111:民航学校",
-    "gz-440111-7a3148c4": "440111:民航学校",
-    "gz-440111-a8395a4d": "440111:民航学校",
-    "gz-440111-8e574b6b": "440111:潭岗小学",
-    "gz-440111-f1f9eaff": "440111:潭岗小学",
-    "gz-440111-7f478da2": "440111:良田第三小学",
-    "gz-440111-883ed42d": "440111:良田第三小学",
-    "gz-440111-59df1f3b": "440111:黄边小学",
-    "gz-440111-aac310d1": "440111:黄边小学",
-    "gz-440111-d4cad06c": "440111:黄边小学",
-    "gz-440111-e0eac26d": "440111:黄边小学",
-    "gz-440112-0484c45e": "440112:九龙第二小学",
-    "gz-440112-3f33e75c": "440112:九龙第二小学",
-    "gz-440112-12747882": "440112:军校纪念中学",
-    "gz-440112-674f4721": "440112:军校纪念中学",
-    "gz-440112-8bbf8f06": "440112:北京师范大学广州实验学校",
-    "gz-440112-bd4af6d0": "440112:北京师范大学广州实验学校",
-    "gz-440112-284e5309": "440112:广东外语外贸大学附属知识城实验小学",
-    "gz-440112-abe35401": "440112:广东外语外贸大学附属知识城实验小学",
-    "gz-440112-70be890a": "440112:新港小学",
-    "gz-440112-880cd8fa": "440112:新港小学",
-    "gz-440112-0f409071": "440112:石化小学",
-    "gz-440112-64ab063c": "440112:石化小学",
-    "gz-440112-16ca808f": "440112:科学城小学",
-    "gz-440112-dbb48335": "440112:科学城小学",
-    "gz-440113-a45e4a1a": "440113:华南碧桂园学校",
-    "gz-440113-db326e94": "440113:华南碧桂园学校",
-    "gz-440113-3d006240": "440113:博萃德学校",
-    "gz-440113-cf01b95f": "440113:博萃德学校",
-    "gz-440113-94550bcb": "440113:石碁镇中心小学",
-    "gz-440113-aeeeff61": "440113:石碁镇中心小学",
-    "gz-440113-1963cc5e": "440113:祈福新邨学校",
-    "gz-440113-8ef59a4c": "440113:祈福新邨学校",
-    "gz-440113-0670cc0e": "440113:金华学校",
-    "gz-440113-82bf431a": "440113:金华学校",
-    "gz-440115-815387d3": "440115:广州外国语学校",
-    "gz-440115-a936e5d5": "440115:广州外国语学校"
-  }
+  "440103:南海中学": [
+    "gz-440103-8e11a7d3",
+    "gz-440103-c9f13fde"
+  ],
+  "440103:林凤娥小学": [
+    "gz-440103-07e5ea8f",
+    "gz-440103-acad9c9d"
+  ],
+  "440103:西关培英中学": [
+    "gz-440103-41cb6344",
+    "gz-440103-d78c848a"
+  ],
+  "440104:东山实验小学": [
+    "gz-440104-4d534f13",
+    "gz-440104-8d568c2d"
+  ],
+  "440104:东川路小学": [
+    "gz-440104-e20758df",
+    "gz-440104-ef94e34a"
+  ],
+  "440104:东风西路小学": [
+    "gz-440104-12a17af1",
+    "gz-440104-4144068a",
+    "gz-440104-c248f5af"
+  ],
+  "440104:中星小学": [
+    "gz-440104-39cb8355",
+    "gz-440104-a8aeed6e"
+  ],
+  "440104:中路小学": [
+    "gz-440104-75ece0ce",
+    "gz-440104-fb8d99a5"
+  ],
+  "440104:八旗二马路小学": [
+    "gz-440104-21810797",
+    "gz-440104-62c3dac8"
+  ],
+  "440104:小北路小学": [
+    "gz-440104-1b6d4b9c",
+    "gz-440104-4ebbaf83",
+    "gz-440104-98359a64",
+    "gz-440104-d5497b4b"
+  ],
+  "440104:文德路小学": [
+    "gz-440104-00e3fd36",
+    "gz-440104-284b2f82"
+  ],
+  "440104:满族小学": [
+    "gz-440104-123d52ca",
+    "gz-440104-4bc1a5b6",
+    "gz-440104-61ab7589"
+  ],
+  "440104:第十七中学": [
+    "gz-440104-099a5868",
+    "gz-440104-9c6632b1"
+  ],
+  "440104:第十三中学": [
+    "gz-440104-0a17f1eb",
+    "gz-440104-9b88f912"
+  ],
+  "440104:红火炬小学": [
+    "gz-440104-29c39d65",
+    "gz-440104-a7ac857e"
+  ],
+  "440104:雄鹰学校": [
+    "gz-440104-737bb916",
+    "gz-440104-db01d10e"
+  ],
+  "440104:雅荷塘小学": [
+    "gz-440104-194c5aee",
+    "gz-440104-c22567c9"
+  ],
+  "440105:六中珠江中学": [
+    "gz-440105-cb432890",
+    "gz-440105-e58a8300"
+  ],
+  "440105:同福中路第一小学": [
+    "gz-440105-6d928e8e",
+    "gz-440105-a72d7648",
+    "gz-440105-ec3a9a47"
+  ],
+  "440105:新港路小学": [
+    "gz-440105-0c129848",
+    "gz-440105-8250cba3"
+  ],
+  "440105:昌岗东路小学": [
+    "gz-440105-0a076492",
+    "gz-440105-5a60ff79"
+  ],
+  "440105:梅园西路小学": [
+    "gz-440105-ced71c28",
+    "gz-440105-d9bd3fb7"
+  ],
+  "440105:镇泰实验小学": [
+    "gz-440105-8df58f4e",
+    "gz-440105-e7dd050a"
+  ],
+  "440106:体育西路小学": [
+    "gz-440106-d343b055",
+    "gz-440106-fee58b73"
+  ],
+  "440106:元岗小学": [
+    "gz-440106-6cc686a8",
+    "gz-440106-a38b3c64"
+  ],
+  "440106:华南理工大学附属实验学校": [
+    "gz-440106-23f2dfc8",
+    "gz-440106-9bed7efb"
+  ],
+  "440106:华实学校": [
+    "gz-440106-8d124051",
+    "gz-440106-bd07878c"
+  ],
+  "440106:华景小学": [
+    "gz-440106-2cd346f1",
+    "gz-440106-3f600b79"
+  ],
+  "440106:华美英语实验学校": [
+    "gz-440106-7abd2786",
+    "gz-440106-a6394a7a"
+  ],
+  "440106:南国学校": [
+    "gz-440106-a64c6e57",
+    "gz-440106-b0d40cc4"
+  ],
+  "440106:同仁艺体实验中学": [
+    "gz-440106-429b917e",
+    "gz-440106-cc1c335f"
+  ],
+  "440106:员村小学": [
+    "gz-440106-3bf77656",
+    "gz-440106-4462c607"
+  ],
+  "440106:天河中学": [
+    "gz-440106-2f8a4424",
+    "gz-440106-93897236",
+    "gz-440106-dd16c13e"
+  ],
+  "440106:天河第一小学": [
+    "gz-440106-269a9629",
+    "gz-440106-4a26a58c"
+  ],
+  "440106:思源学校": [
+    "gz-440106-42297c28",
+    "gz-440106-c8bf2650"
+  ],
+  "440106:第七十五中学": [
+    "gz-440106-5a7fbf3a",
+    "gz-440106-5b430017",
+    "gz-440106-621b20d3"
+  ],
+  "440106:龙洞小学": [
+    "gz-440106-2a11e3df",
+    "gz-440106-a56ce4ac"
+  ],
+  "440111:东平学校": [
+    "gz-440111-a0cc79c7",
+    "gz-440111-e6300e34"
+  ],
+  "440111:人和镇第一小学": [
+    "gz-440111-645ba6c1",
+    "gz-440111-fad0ee39"
+  ],
+  "440111:人和镇第二小学": [
+    "gz-440111-e8d9a6bd",
+    "gz-440111-f5b57c5c"
+  ],
+  "440111:人和镇第五小学": [
+    "gz-440111-311a2ef8",
+    "gz-440111-908072a9"
+  ],
+  "440111:华赋学校": [
+    "gz-440111-2ec509e7",
+    "gz-440111-43437f78"
+  ],
+  "440111:培文外国语学校": [
+    "gz-440111-b4e0e849",
+    "gz-440111-ce7a2db7"
+  ],
+  "440111:培英实验学校": [
+    "gz-440111-1701a8ea",
+    "gz-440111-2d42f392",
+    "gz-440111-e14818fc"
+  ],
+  "440111:彭加木纪念中学": [
+    "gz-440111-4e13c7d6",
+    "gz-440111-d28d78f9"
+  ],
+  "440111:明德小学": [
+    "gz-440111-6da8abe9",
+    "gz-440111-c5b02b25"
+  ],
+  "440111:民航学校": [
+    "gz-440111-5c7a7c4a",
+    "gz-440111-7a3148c4",
+    "gz-440111-a8395a4d"
+  ],
+  "440111:潭岗小学": [
+    "gz-440111-8e574b6b",
+    "gz-440111-f1f9eaff"
+  ],
+  "440111:良田第三小学": [
+    "gz-440111-7f478da2",
+    "gz-440111-883ed42d"
+  ],
+  "440111:黄边小学": [
+    "gz-440111-59df1f3b",
+    "gz-440111-aac310d1",
+    "gz-440111-d4cad06c",
+    "gz-440111-e0eac26d"
+  ],
+  "440112:九龙第二小学": [
+    "gz-440112-0484c45e",
+    "gz-440112-3f33e75c"
+  ],
+  "440112:军校纪念中学": [
+    "gz-440112-12747882",
+    "gz-440112-674f4721"
+  ],
+  "440112:北京师范大学广州实验学校": [
+    "gz-440112-8bbf8f06",
+    "gz-440112-bd4af6d0"
+  ],
+  "440112:广东外语外贸大学附属知识城实验小学": [
+    "gz-440112-284e5309",
+    "gz-440112-abe35401"
+  ],
+  "440112:新港小学": [
+    "gz-440112-70be890a",
+    "gz-440112-880cd8fa"
+  ],
+  "440112:石化小学": [
+    "gz-440112-0f409071",
+    "gz-440112-64ab063c"
+  ],
+  "440112:科学城小学": [
+    "gz-440112-16ca808f",
+    "gz-440112-dbb48335"
+  ],
+  "440113:华南碧桂园学校": [
+    "gz-440113-a45e4a1a",
+    "gz-440113-db326e94"
+  ],
+  "440113:博萃德学校": [
+    "gz-440113-3d006240",
+    "gz-440113-cf01b95f"
+  ],
+  "440113:石碁镇中心小学": [
+    "gz-440113-94550bcb",
+    "gz-440113-aeeeff61"
+  ],
+  "440113:祈福新邨学校": [
+    "gz-440113-1963cc5e",
+    "gz-440113-8ef59a4c"
+  ],
+  "440113:金华学校": [
+    "gz-440113-0670cc0e",
+    "gz-440113-82bf431a"
+  ],
+  "440115:广州外国语学校": [
+    "gz-440115-815387d3",
+    "gz-440115-a936e5d5"
+  ]
 }

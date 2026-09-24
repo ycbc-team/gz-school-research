@@ -56,14 +56,8 @@ export interface DataLoaders {
   brandGroups: BrandGroups;
   /** 全量教育集团（区教育局官方口径，85 集团/334 成员；brandGroups 未命中时回退查询） */
   educationGroups?: EducationGroups;
-  /** 公共集团 → school_id 列表（scripts/registry/build_school_groups.py 构建；
-   * 详情页品牌卡与初中明细分组共用，加载时反建纯 id 索引） */
-  schoolGroups: Record<string, string[]>;
   /** 未入教育集团的同法人多校区（实体表构建期推导；详情页仅作集团缺省时的关联展示） */
-  nonGroupMultiCampuses?: {
-    families: Array<{ family_key: string; district_adcode: string; legal_key: string; school_ids: string[] }>;
-    schoolFamilies: Record<string, string>;
-  };
+  nonGroupMultiCampuses?: Record<string, string[]>;
   /** 初中升学信号排行榜基础表（自招/指标到校/特控率聚合，见 scripts/linkage/build_ranking_middle.py） */
   rankingMiddle: {
     schools: Array<{

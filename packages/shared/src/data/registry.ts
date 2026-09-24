@@ -1,7 +1,6 @@
 /**
  * 身份与品牌域：实体解析（resolvePoiName）+ 品牌关联（groupOfSchool）。
- * 品牌关联 = 查公共集团 → school_id 列表（schoolGroups 产物，py 数据层构建），初始化后纯 id 匹配，
- * 不再做任何按名匹配（名称匹配已收敛到 scripts/registry/build_school_groups.py 构建期）。
+ * 品牌关联 = 查 educationGroups 内的 school_id，初始化后纯 id 匹配。
  */
 import { normName, looseNorm } from '../support.js';
 import type { DataLoaders } from './loader.js';
@@ -70,29 +69,20 @@ export function createRegistryApi(loaders: DataLoaders) {
     return '区教育局官方教育集团化办学文件口径';
   }
 
-  /**
-   * 公共集团 → school_id 列表在加载时反建的 school_id 索引。覆盖 education
-   * （core_poi/members/campuses 外键）与 brand（units 外键）；同一 id 双命中时由构建产物保证 education 优先。
-   */
-  const educationGroupSchoolIds = new Map<string, Set<string>>();
-  for (const group of loaders.educationGroups?.groups || []) {
-    const schoolIds = [
-      ...(group.core_poi || []).map((row) => row.school_id),
-      ...(group.members || []).flatMap((member) => [
-        member.school_id,
-        ...(member.campuses || []).map((campus) => campus.school_id),
-      ]),
-    ].filter((schoolId): schoolId is string => Boolean(schoolId));
-    educationGroupSchoolIds.set(group.brand, new Set(schoolIds));
-  }
+  /** educationGroups 是唯一集团运行时产物；按其顺序保留首个归属。 */
   const schoolGroupMap: Record<string, { brand: string; source: 'education' | 'brand' }> = {};
-  for (const [brand, schoolIds] of Object.entries(loaders.schoolGroups || {})) {
-    const educationIds = educationGroupSchoolIds.get(brand);
-    for (const schoolId of schoolIds) {
-      schoolGroupMap[schoolId] = { brand, source: educationIds?.has(schoolId) ? 'education' : 'brand' };
+  for (const group of loaders.educationGroups?.groups || []) {
+    for (const member of group.members || []) {
+      if (member.school_id && !schoolGroupMap[member.school_id]) {
+        schoolGroupMap[member.school_id] = { brand: group.brand, source: 'education' };
+      }
     }
   }
   const nonGroupMultiCampuses = loaders.nonGroupMultiCampuses;
+  const multiCampusFamilyOfSchool: Record<string, string> = {};
+  for (const [familyKey, schoolIds] of Object.entries(nonGroupMultiCampuses || {})) {
+    for (const schoolId of schoolIds) multiCampusFamilyOfSchool[schoolId] = familyKey;
+  }
 
   /** brand 来源的 groupOfSchool 结果结构（school_id 外键命中与按名匹配共用） */
   function brandGroupResult(bg: BrandGroup): {
@@ -149,33 +139,16 @@ export function createRegistryApi(loaders: DataLoaders) {
     if (entry.source === 'education') {
       const g = (loaders.educationGroups?.groups || []).find((x) => x.brand === entry.brand);
       if (!g) return null;
-      // 核心校：优先展开 core_poi 的多校区 POI，fallback 到 core 官方名
-      const corePoiRows = (g.core_poi || []).map((p) => ({
-        name: p.poi_name || p.name,
-        role: '核心校',
-        poi_name: p.poi_name,
-        school_id: p.school_id,
-      }));
-      const coreRows = corePoiRows.length
-        ? corePoiRows
-        : g.core.map((c) => ({ name: c, role: '核心校' }));
       return {
         source: 'education',
         brand: g.brand,
         note: g.note || inferSourceNote(g.source_urls || []),
-        core: g.core,
-        members: [
-          ...coreRows,
-          ...g.members.map((m) => ({
-            name: m.name,
-            role: '成员校',
-            school_ids: m.school_ids,
-            poi_names: m.campuses?.length ? m.campuses.map((c: { poi_name: string }) => c.poi_name) : m.poi_name ? [m.poi_name] : undefined,
-            poi_name: m.poi_name,
-            school_id: m.school_id,
-            campuses: m.campuses,
-          })),
-        ],
+        core: [],
+        members: g.members.map((m) => ({
+          name: m.school_id ? entities.find((entity) => entity.school_id === m.school_id)?.name || m.name : m.name,
+          role: m.role || '成员校',
+          school_id: m.school_id,
+        })),
         source_urls: g.source_urls || [],
       };
     }
@@ -190,9 +163,9 @@ export function createRegistryApi(loaders: DataLoaders) {
   function multiCampusOfSchool(name: string, schoolId?: string | null) {
     const id = schoolId || resolveSchoolIdOf(name);
     if (!id || schoolGroupMap[id]) return null;
-    const familyKey = nonGroupMultiCampuses?.schoolFamilies?.[id];
+    const familyKey = multiCampusFamilyOfSchool[id];
     if (!familyKey) return null;
-    return nonGroupMultiCampuses?.families.find((family) => family.family_key === familyKey) || null;
+    return { family_key: familyKey, school_ids: nonGroupMultiCampuses?.[familyKey] || [] };
   }
 
   return { resolvePoiName, resolveSchoolIdOf, groupOfSchool, multiCampusOfSchool, brandGroups: loaders.brandGroups };

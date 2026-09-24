@@ -69,21 +69,12 @@ brand_groups = load('registry/group/src/brand_groups.json')['brands']
 # education: group brand + 全部成员名（core_poi/members/campuses 的 name/poi_name）
 education_groups = load('registry/group/dist/education_groups.json')['groups']
 
-# 公共集团 → school_id 列表（data/registry/group/scripts/build_school_groups.py 构建）；
-# 构建时反建 school_id 索引，与详情页 groupOfSchool 共用同一口径。
-_school_group_lists = load('registry/group/dist/school_groups.json')
-_education_group_ids = {
-    g['brand']: {
-        *(p.get('school_id') for p in g.get('core_poi') or []),
-        *(m.get('school_id') for m in g.get('members') or []),
-        *(c.get('school_id') for m in g.get('members') or [] for c in m.get('campuses') or []),
-    } - {None}
-    for g in education_groups
-}
+# education_groups 为集团唯一真源；构建时反建 school_id 索引，与详情页同一口径。
 SCHOOL_GROUPS = {
-    school_id: {'brand': brand, 'source': 'education' if school_id in _education_group_ids.get(brand, set()) else 'brand'}
-    for brand, school_ids in _school_group_lists.items()
-    for school_id in school_ids
+    member['school_id']: {'brand': group['brand'], 'source': 'education'}
+    for group in education_groups
+    for member in group.get('members') or []
+    if member.get('school_id')
 }
 
 

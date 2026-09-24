@@ -23,7 +23,6 @@ import batch2ScoresCompact from './compact/linkage/batch2_scores.js';
 import districtQuotaCompact from './compact/linkage/district_quota.js';
 import brandGroupsCompact from './compact/registry/group/src/brand_groups.js';
 import educationGroupsCompact from './compact/registry/group/dist/education_groups.js';
-import schoolGroupsCompact from './compact/registry/group/dist/school_groups.js';
 import nonGroupMultiCampusesCompact from './compact/registry/group/dist/non_group_multi_campuses.js';
 import highScores2025Compact from './compact/high/cutoff_score/dist/scores_2025.js';
 import highScores2026Compact from './compact/high/cutoff_score/dist/scores_2026.js';
@@ -63,7 +62,6 @@ const loaders: DataLoaders = {
   middleEnrollNotes: cast(hydrate(middleEnrollNotesCompact)),
   brandGroups: cast(hydrate(brandGroupsCompact)),
   educationGroups: cast(hydrate(educationGroupsCompact)),
-  schoolGroups: cast(hydrate(schoolGroupsCompact)),
   nonGroupMultiCampuses: cast(hydrate(nonGroupMultiCampusesCompact)),
   innovationAwards: cast(hydrate(innovationAwardsCompact)),
   chuangkeAwards: cast(hydrate(chuangkeAwardsCompact)),

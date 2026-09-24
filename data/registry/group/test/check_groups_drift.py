@@ -348,8 +348,6 @@ def main():
     #    （xiaoshengchu 快照已于 2026-09-23 独立成 check_xiaoshengchu_snapshot，不再用 git HEAD 比对）
     _check_backfill_ids()
 
-    # 6) school_groups 公共集团映射（build_school_groups 纯 id 产物）
-    _check_school_groups()
     _check_non_group_multi_campuses()
 
     # 7) 政府文件底表覆盖（有官方底表的区必须成员级对齐）

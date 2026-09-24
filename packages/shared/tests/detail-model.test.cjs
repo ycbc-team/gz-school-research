@@ -31,7 +31,6 @@ const loaders = {
   xiaoshengchu: load('primary/transition/dist/xiaoshengchu_2026.json'),
   brandGroups: load('registry/group/src/brand_groups.json'),
   educationGroups: load('registry/group/dist/education_groups.json'),
-  schoolGroups: load('registry/group/dist/school_groups.json'),
   rankingMiddle: load('linkage/ranking_middle.json'),
 };
 const repo = createRepository(loaders);
@@ -298,8 +297,10 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
   const nrm = (s) => s.replace(/[（(]/g, '').replace(/[）)]/g, '').replace(/广州市/g, '').replace(/\s/g, '');
   const grpKeys = new Set();
   for (const g of edu) {
-    for (const c of g.core || []) grpKeys.add(nrm(coreOf(c)));
-    for (const m of g.members || []) grpKeys.add(nrm(coreOf(m.name)));
+    for (const m of g.members || []) {
+      const entity = m.school_id && repo.entities.find((item) => item.school_id === m.school_id);
+      if (entity || m.name) grpKeys.add(nrm(coreOf(entity ? entity.name : m.name)));
+    }
   }
   for (const g of brand) {
     for (const u of g.units || []) grpKeys.add(nrm(coreOf(u.name)));
@@ -347,8 +348,7 @@ test('品牌关联全量回归：法人组成员校区详情页品牌卡不得�
 });
 
 test('品牌关联：逐集团学校名单快照（education 86 + brand 8，集团变化精确定位）', () => {
-  // 每个集团独立快照（school_id 名单）于 snapshots/group_roster.json：core_poi + members
-  // 及成员 campuses（brand 为 units[].school_ids）。任一集团名单增删 → 该集团断言失败并打印
+  // 每个集团独立快照（school_id 名单）于 snapshots/group_roster.json。任一集团名单增删 → 该集团断言失败并打印
   // 增/删明细，可精确定位到集团。2026-09-21 后缀式校区统一归并（school_match.legalCampuses）
   // 后初建：东风东+2（天伦/锦城花园）、沙面+2（岭南/悦江）、六十五中+1（桃园）、宝玉直+1（宝贤）、
   // 西关外国语+1（文昌南）等 12 个后缀式校区进入 education 名单，均由本快照感知。
@@ -358,11 +358,7 @@ test('品牌关联：逐集团学校名单快照（education 86 + brand 8，集�
   const brand = (load('registry/group/src/brand_groups.json').brands || []);
   const collectEdu = (g) => {
     const ids = new Set();
-    for (const p of g.core_poi || []) if (p.school_id) ids.add(p.school_id);
-    for (const m of g.members || []) {
-      if (m.school_id) ids.add(m.school_id);
-      for (const c of m.campuses || []) if (c.school_id) ids.add(c.school_id);
-    }
+    for (const m of g.members || []) if (m.school_id) ids.add(m.school_id);
     return [...ids].sort();
   };
   const collectBrand = (b) => {
@@ -393,8 +389,7 @@ test('品牌关联：逐集团学校名单快照（education 86 + brand 8，集�
   //（如东山培正小学=东山培正集团核心+培正集团成员、黄石学校=白云中学集团+培英集团成员、
   // 仲元附属学校=仲元附属集团核心+仲元中学集团成员），产物仅存一条归属，
   // 故 edu 映射允许为该实体所属的任一集团；brand 单归属实体必须映射回品牌（edu 收录时 education 优先）。
-  const sg = load('registry/group/dist/school_groups.json');
-  const groupOfId = new Map(Object.entries(sg).flatMap(([brand, schoolIds]) => schoolIds.map((schoolId) => [schoolId, brand])));
+  const groupOfId = new Map(edu.flatMap((group) => (group.members || []).filter((member) => member.school_id).map((member) => [member.school_id, group.brand])));
   const entById = new Map(repo.entities.map((e) => [e.school_id, e]));
   const belongsTo = new Map(); // sid -> Set(所属集团名，含 edu + brand)
   for (const [key, ids] of cur) {
@@ -421,6 +416,16 @@ test('品牌关联：逐集团学校名单快照（education 86 + brand 8，集�
     }
   }
   assert.deepEqual(problems, [], `集团名单闭环问题（${problems.length} 处）：\n${problems.join('\n')}`);
+});
+
+test('教育集团运行时成员：同一集团不得重复 school_id', () => {
+  const edu = load('registry/group/dist/education_groups.json').groups;
+  const duplicates = [];
+  for (const group of edu) {
+    const ids = group.members.filter((member) => member.school_id).map((member) => member.school_id);
+    if (new Set(ids).size !== ids.length) duplicates.push(group.brand);
+  }
+  assert.deepEqual(duplicates, [], `教育集团运行时成员重复：${duplicates.join('、')}`);
 });
 
 test('品牌关联：校区+学部复合名实体归属教育集团（奥体小学部品牌卡）', () => {

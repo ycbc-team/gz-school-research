@@ -139,18 +139,12 @@ def main():
     poi_ids = load_poi_ids()
     groups = load_groups()
     for g in groups:
-        for cp in g.get("core_poi", []):
-            sid = cp.get("school_id")
-            if sid:
-                check(sid in poi_ids, f"[2] core_poi 悬空 school_id: {g['brand']} → {cp.get('poi_name')} ({sid})")
+        member_ids = [m.get("school_id") for m in g.get("members", []) if m.get("school_id")]
+        check(len(member_ids) == len(set(member_ids)), f"[2] 集团成员 school_id 重复: {g['brand']}")
         for m in g.get("members", []):
             sid = m.get("school_id")
             if sid:
                 check(sid in poi_ids, f"[2] member 悬空 school_id: {g['brand']} → {m['name']} ({sid})")
-            for c in (m.get("campuses") or []):
-                csid = c.get("school_id")
-                if csid:
-                    check(csid in poi_ids, f"[2] campus 悬空 school_id: {g['brand']} → {m['name']} / {c.get('poi_name')} ({csid})")
 
     # ---- 3. entities 纯名别名不得被同区同 stage 多个实体共用（抢名） ----
     # 跨区同名（不同学校）放行；同区多校区共用纯名 → 匹配不确定，报错。
@@ -644,8 +638,7 @@ def main():
     # 任何有 group 的明细行，其 school_id / school_ids 中至少一个必须命中产物且 brand 一致，
     # 否则说明产物漏收（该学校会从集团分组丢失）。无 school_id 的行不应有 group
     # （名称匹配已从运行时删除；如三元里中学 = entities 无实体，属待补真源的数据缺口）。
-    _sg_lists = json.load(open(os.path.join(ROOT, "data/registry/group/dist/school_groups.json")))
-    _sg = {school_id: brand for brand, school_ids in _sg_lists.items() for school_id in school_ids}
+    _sg = {m["school_id"]: g["brand"] for g in groups for m in g.get("members", []) if m.get("school_id")}
     _rm = json.load(open(os.path.join(ROOT, "data/linkage/ranking_middle.json")))["schools"]
     _orphan = 0
     for _s in _rm:
