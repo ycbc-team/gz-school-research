@@ -22,21 +22,6 @@ export function createQuotaApi(loaders: DataLoaders) {
   type QuotaLocator = { school_id: string } | { school: string };
   const quotaById = new Map<string, QuotaRowId>(quotaMatrix.ids.map((r) => [r.school_id, r]));
   const quotaByName = new Map<string, QuotaRowName>(quotaMatrix.schools.map((r) => [r.school, r]));
-  /** 法人聚合索引：实体名去「广州市」前缀/去括号校区/去学部后缀 → 同 core 的 middle 校区实体。
-   *  与 backfill_school_ids.py by_core 同规则：官方升学文件按法人公布，官方法人名（如
-   *  「广州市第一中学」）在实体表常挂在高中/小学部 alias 上（高中部 alias「第一中学」），
-   *  命中非 middle 实体后按 core 反查 middle 校区 → 归并到法人行（school_ids 主 id）。 */
-  const coreOf = (n: string): string =>
-    n.replace(/^广州市/, '').replace(/[（(][^）)]*[）)]/g, '').replace(/(校区|分校|初中部|高中部|小学部)$/, '').trim();
-  const middleByCore = new Map<string, string[]>();
-  for (const e of loaders.entities.entities as SchoolEntityLite[]) {
-    if (e.stage !== 'middle') continue;
-    const c = coreOf(e.name);
-    if (!c) continue;
-    const arr = middleByCore.get(c);
-    if (arr) { if (!arr.includes(e.school_id)) arr.push(e.school_id); }
-    else middleByCore.set(c, [e.school_id]);
-  }
 
   /** 任意名 → 实体 school_id（registry 同规则；local 实现避免循环依赖） */
   function resolveSchoolIdOf(name: string): string | null {
@@ -73,33 +58,24 @@ export function createQuotaApi(loaders: DataLoaders) {
   }
   function resolveMiddle(poiName: string): QuotaLocator | null {
     if (newOpeningMiddles.has(poiName)) return null;
+    // ① 官方名单原文名精确索引：py 层 backfill 已把法人聚合/主 id 归一结果固化进
+    //    name_index，运行时直接 id 精准匹配，不做任何名称推断
+    const oid = quotaMatrix.name_index[poiName];
+    if (oid && quotaById.has(oid)) return { school_id: oid };
+    // ② schools 行（7 区外无实体）官方原文名
     if (quotaByName.has(poiName)) return { school: poiName };
-    // 优先 school_id 外键（backfill 已回填；POI 名 → 实体 school_id → quota 行）
-    // 法人行 school_ids 数组：任一校区 POI 都归并到法人行（官方配额按法人单位公布）
+    // ③ 实体表 name/aliases 归一全等索引（POI/校区名 → school_id）
+    //    法人行 school_ids 数组：任一校区实体都归并到法人行（官方配额按法人单位公布）
     const sid = resolveSchoolIdOf(poiName);
     if (sid) {
       if (quotaById.has(sid)) return { school_id: sid };
-      // 法人聚合：命中非 middle 实体（官方法人名挂在高中/小学部 alias）→ 同 core middle 校区 → 法人行
-      const e0 = loaders.entities.entities.find((e) => e.school_id === sid);
-      const core = e0 ? coreOf(e0.name) : '';
-      const campuses = core ? (middleByCore.get(core) || []) : [];
-      if (campuses.length) {
-        for (const r of quotaMatrix.ids) {
-          if ((r.school_ids || []).some((i) => campuses.includes(i))) return { school_id: r.school_id };
-        }
-      }
       for (const r of quotaMatrix.ids) {
         if ((r.school_ids || []).includes(sid)) return { school_id: r.school_id };
       }
     }
-    // schools 行（7 区外无实体）原文/归一/包含兜底；包含兜底收紧到 ≥4 字，
-    // 防短法人名（如「第一中学」）成为长名（「南沙第一中学」）子串被误配
+    // ④ schools 行归一全等（确定性归一，与 backfill SchoolMatcher 同规则）
     const nk = normSchoolName(poiName);
     if (nk && middleByNorm.has(nk)) return { school: middleByNorm.get(nk)! };
-    for (const s of quotaMatrix.schools) {
-      const sk = normSchoolName(s.school);
-      if (sk.length >= 4 && nk.length >= 4 && (sk.includes(nk) || nk.includes(sk))) return { school: s.school };
-    }
     return null;
   }
 

@@ -123,6 +123,10 @@ python3 data/linkage/test/check_dist_snapshots.py            # quota/district/ba
    业务快照（既有 id 又有 name）与基线全等对比；`--update-snapshot` 显式更新基线。dist 不再存精简
    快照，改轻量结构断言（ids/schools 结构、行数守恒、字段白名单、无调试字段泄漏）。dist 若被手改，
    下一次重放即覆盖并以断言/diff 暴露。
+5. **名称推断全部在 py 层**：quota_matrix dist 带 `name_index`（官方名单原文名 → 法人行 school_id，
+   backfill 生成，含法人聚合/主 id 归一的最终结果）。前端 `resolveMiddle` 顺序 = name_index 精确
+   索引 → schools 行原文 → 实体表 name/aliases 归一全等 → schools 行归一全等，**运行时零名称推断
+   （无 core 聚合、无包含兜底）**；7 区外无实体学校（164 所）只走 schools 原文行，不可点击跳转。
 5. **sz 明细继承**：quota_matrix 的 sz（21 校区分额）为历史 OCR 产物，无独立 raw 源可重建，
    持久层为 canonical（首次从 dist 引导），重放不丢。
 

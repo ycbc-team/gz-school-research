@@ -111,11 +111,21 @@ def assert_dist_structure() -> list:
     """dist 运行时产物结构/字段白名单断言。返回错误清单（空 = 通过）。"""
     errs = []
 
-    # quota_matrix：ids/schools 并行数组
+    # quota_matrix：ids/schools 并行数组 + name_index（官方名单名 → 法人行 school_id）
     q = json.load(open(os.path.join(DIST, "quota_matrix.json"), encoding="utf-8"))
     qc = json.load(open(os.path.join(CANON, "quota_matrix.json"), encoding="utf-8"))
-    if set(q) != {"ids", "schools"}:
-        errs.append("quota_matrix 顶层键必须仅 ids/schools")
+    if set(q) != {"ids", "schools", "name_index"}:
+        errs.append("quota_matrix 顶层键必须仅 ids/schools/name_index")
+    if not isinstance(q.get("name_index"), dict):
+        errs.append("quota_matrix.name_index 必须为对象")
+    else:
+        id_sids = {r.get("school_id") for r in q.get("ids", [])}
+        canon_schools = {s.get("school") for s in qc.get("schools", []) if s.get("school_id")}
+        if set(q["name_index"].keys()) != canon_schools:
+            errs.append("quota name_index 键必须 = canonical 中有 school_id 的官方名单名全集")
+        bad_val = {k for k, v in q["name_index"].items() if v not in id_sids}
+        if bad_val:
+            errs.append(f"quota name_index 值不在 ids school_id 集合: {sorted(bad_val)[:3]}")
     allowed = {"district", "kaosheng", "sheng_quota", "qu_quota", "sz", "school_id", "school_ids"}
     for r in q.get("ids", []):
         bad = set(r) - allowed

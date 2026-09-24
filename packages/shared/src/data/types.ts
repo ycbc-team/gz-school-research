@@ -35,6 +35,9 @@ export type QuotaSchool = QuotaRowId | QuotaRowName;
 export interface QuotaMatrix {
   ids: QuotaRowId[];
   schools: QuotaRowName[];
+  /** 官方名单原文名 → 法人行 school_id（py 层 backfill 生成：法人聚合/主 id 归一等
+   *  全部名称推断在数据层完成，运行时只做 id 精准匹配） */
+  name_index: Record<string, string>;
 }
 
 /** 特招通道：计划数 + 名单外键（资格名单计数矩阵已于 2026-09 废弃） */

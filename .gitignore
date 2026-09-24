@@ -20,7 +20,8 @@
 # 日志
 *.log
 
-# Node / monorepo
+# Node / monorepo（node_modules 裸名也匹配 symlink：项目根软链到相邻项目 node_modules）
+node_modules
 node_modules/
 apps/web/dist/
 apps/miniprogram/dist/

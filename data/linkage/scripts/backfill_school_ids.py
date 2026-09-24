@@ -186,6 +186,9 @@ def main() -> int:
     d = json.loads((CANON / 'quota_matrix.json').read_text('utf-8'))
     ids_rows = []
     school_rows = []
+    # 官方名单原文名 → 法人行 school_id 的精确索引（前端查询用；法人聚合/主 id 归一的
+    # 全部推断都在本 py 层完成，运行时只做 id 精准匹配，不做任何名称推断）
+    name_index = {}
     for s in d['schools']:
         if s['school'] in MATCH_OVERRIDES:
             s['school_id'] = MATCH_OVERRIDES[s['school']]
@@ -227,6 +230,7 @@ def main() -> int:
         row = {k: s[k] for k in ('district', 'kaosheng', 'sheng_quota', 'qu_quota', 'sz') if k in s}
         if s.get('school_id'):
             row['school_id'] = s['school_id']
+            name_index[s['school']] = s['school_id']
             if s.get('school_ids'):
                 row['school_ids'] = s['school_ids']
             ids_rows.append(row)
@@ -234,7 +238,7 @@ def main() -> int:
             row['school'] = s['school']
             school_rows.append(row)
     (CANON / 'quota_matrix.json').write_text(json.dumps(d, ensure_ascii=False, indent=2, sort_keys=True) + '\n', 'utf-8')
-    dist_out['quota_matrix'] = {'ids': ids_rows, 'schools': school_rows}
+    dist_out['quota_matrix'] = {'ids': ids_rows, 'schools': school_rows, 'name_index': name_index}
     print(f'[quota_matrix] 回填完成 → canonical 写回 + dist ids({len(ids_rows)})/schools({len(school_rows)}) 拆分')
 
     # ================= district_quota / batch2：canonical 回填 + dist 递归 ids/schools =================
