@@ -141,7 +141,11 @@
   },
   {
    "school": "毓贤学校",
-   "school_id": "gz-440113-7cdbe028",
+   "school_id": null,
+   "school_ids": [
+    "gz-440113-7cdbe028",
+    "gz-440113-c07e3ddb"
+   ],
    "plan_classes": 15,
    "scope": "祈福新邨户籍的小学应届毕业生（必须是业主子女身份）。",
    "mechanism": "single_zone",
@@ -491,6 +495,69 @@
    "scope": "紫坭村、三善村、 新洲村、龙湾村、古东村、古西村以及紫坭社区居委户籍的小学应届毕业生。",
    "mechanism": "single_zone",
    "mechanism_note": null,
+   "group_members": null
+  },
+  {
+   "school": "广东仲元中学一校区（初中部）",
+   "school_id": "gz-440113-acf92324",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "single_lottery",
+   "mechanism_note": "区属初中面向全区批次：招生 90 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍的小学应届毕业生（不含大龙街户籍及具有市桥城区电脑派位资格的小学应届毕业生）及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
+   "group_members": null
+  },
+  {
+   "school": "广东仲元中学二校区（初中部）",
+   "school_id": "gz-440113-6dbdc462",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "single_lottery",
+   "mechanism_note": "区属初中面向大龙街批次：招生 350 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向大龙街招生，首先安排番禺区大龙街傍江东村和傍江西村现有股民及股民子女（小学应届毕业生）入读，余下学位面向大龙街户籍的小学应届毕业生招生；两村股民及股民子女不需要网上报名；按学校要求申请宿位。",
+   "group_members": null
+  },
+  {
+   "school": "广东仲元中学二校区（初中部）",
+   "school_id": "gz-440113-6dbdc462",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "single_lottery",
+   "mechanism_note": "区属初中面向全区批次：招生 100 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍的小学应届毕业生（不含大龙街户籍及具有市桥城区电脑派位资格的小学应届毕业生）及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
+   "group_members": null
+  },
+  {
+   "school": "广东仲元中学二校区（初中部）",
+   "school_id": "gz-440113-6dbdc462",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "single_lottery",
+   "mechanism_note": "区属初中面向港澳生批次：招生 20 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。需符合以下条件之一：1.其父母或法定监护人至少一方在番禺区居住、工作，且持在番禺区申领的港澳居民居住证的港澳居民随迁子女（非穗籍小学应届毕业生）；2.持有在番禺区申领的港澳居民居住证，且其父母或法定监护人至少一方具有番禺区户籍、在番禺区居住、工作的港澳籍小学应届毕业生。",
+   "group_members": null
+  },
+  {
+   "school": "广东番禺中学附属学校",
+   "school_id": "gz-440113-53650c78",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "single_lottery",
+   "mechanism_note": "区属初中面向全区批次：招生 80 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍应届小学毕业生及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
+   "group_members": null
+  },
+  {
+   "school": "广东仲元中学附属学校",
+   "school_id": "gz-440113-b5ff857b",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "single_lottery",
+   "mechanism_note": "区属初中面向属地镇街批次：招生 60 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向洛浦街户籍应届小学毕业生及实际居住地在洛浦街的广州市政策性照顾学生招生；无住宿条件。",
+   "group_members": null
+  },
+  {
+   "school": "广东番禺中学实验学校",
+   "school_id": "gz-440113-95be9ccc",
+   "plan_classes": null,
+   "scope": null,
+   "mechanism": "single_lottery",
+   "mechanism_note": "区属初中面向全区批次：招生 60 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍应届小学毕业生及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
    "group_members": null
   },
   {
