@@ -469,8 +469,9 @@ function goCampus(item: { id: string; name: string }) {
               <RouterLink v-if="r.link && !r.isCurrent" :to="r.link" class="brand-name-link">{{ r.name }}</RouterLink>
               <span v-else class="brand-name-link">{{ r.name }}</span>
               <span v-if="r.isCurrent" class="tag tag-now">当前查看</span>
-              <span class="tag">{{ r.role }}</span>
-              <span v-if="r.relationType" class="tag tag-legal">{{ { entrusted: '托管办学', cooperation: '合作办学', brand: '品牌合作' }[r.relationType] }}</span>
+              <span v-if="r.role === '核心校'" class="tag">核心校</span>
+              <span v-if="r.relationType" class="tag">{{ { entrusted: '托管办学', cooperation: '合作办学', brand: '品牌合作' }[r.relationType] }}</span>
+              <span v-else-if="r.role !== '核心校'" class="tag">成员校</span>
             </div>
             <div class="brand-row-badges">
               <span v-if="r.district" class="badge b-district">{{ r.district }}</span>
@@ -674,7 +675,6 @@ function goCampus(item: { id: string; name: string }) {
 .brand-name-link:hover { text-decoration: underline; }
 .brand-name-plain { font-weight: 600; }
 .tag-now { background: #9bbbf4; color: #fff; }
-.tag-legal { background: #fff7ed; color: #b45309; border: 1px solid #fed7aa; }
 .brand-row-badges { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
 .brand-reason { font-size: 11px; color: #6b7280; line-height: 1.6; margin: 6px 0 0; }
 
