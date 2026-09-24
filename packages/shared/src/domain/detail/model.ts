@@ -21,6 +21,7 @@ export interface BrandRow {
   name: string;
   role: string;
   legal: 'same' | 'independent';
+  relationType?: 'entrusted' | 'cooperation' | 'brand';
   district: string;
   stages: string[]; // 小学/初中/高中
   badge: DetailBadge | null;
@@ -283,7 +284,8 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
           return {
             name: m.campuses && m.campuses.length ? cn : m.name,
             role: m.role,
-            legal: 'same' as const,
+            legal: m.legal === 'same' ? 'same' as const : 'independent' as const,
+            relationType: m.relation_type === 'same' ? undefined : m.relation_type,
             district: '',
             stages,
             badge: null,

@@ -434,16 +434,26 @@ for _g in out.get("groups", []):
 def runtime_rows(group, role, rows):
     result = []
     for row in rows or []:
+        legal = row.get("legal") or "same"
+        relation = row.get("relation") or ""
+        if legal == "same":
+            relation_type = "same"
+        elif legal == "entrusted" or "托管" in relation:
+            relation_type = "entrusted"
+        elif "合作" in relation:
+            relation_type = "cooperation"
+        else:
+            relation_type = "brand"
         campuses = row.get("campuses") or []
         ids = [row.get("school_id")] if row.get("school_id") else []
         ids += [school_id for school_id in row.get("school_ids") or [] if school_id]
         ids += [campus.get("school_id") for campus in campuses if campus.get("school_id")]
         if ids:
-            result.extend({"school_id": school_id, "role": role} for school_id in ids)
+            result.extend({"school_id": school_id, "role": role, "relation_type": relation_type} for school_id in ids)
         else:
             name = row.get("poi_name") or row.get("name")
             if name:
-                result.append({"name": name, "role": role})
+                result.append({"name": name, "role": role, "relation_type": relation_type})
     return result
 
 runtime_groups = []

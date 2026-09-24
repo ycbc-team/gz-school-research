@@ -120,7 +120,7 @@ export function createRegistryApi(loaders: DataLoaders) {
     brand: string;
     note?: string;
     core: string[];
-    members: Array<{ name: string; role: string; school_ids?: string[]; poi_names?: string[]; poi_name?: string; school_id?: string; campuses?: Array<{ poi_name: string; school_id: string }>; legal?: 'same' | 'independent' }>;
+    members: Array<{ name: string; role: string; school_ids?: string[]; poi_names?: string[]; poi_name?: string; school_id?: string; campuses?: Array<{ poi_name: string; school_id: string }>; legal?: 'same' | 'independent'; relation_type?: 'same' | 'entrusted' | 'cooperation' | 'brand' }>;
     source_urls: string[];
   } | null {
     if (!name && !schoolId) return null;
@@ -148,6 +148,8 @@ export function createRegistryApi(loaders: DataLoaders) {
           name: m.school_id ? entities.find((entity) => entity.school_id === m.school_id)?.name || m.name : m.name,
           role: m.role || '成员校',
           school_id: m.school_id,
+          legal: m.relation_type === 'same' ? 'same' : m.relation_type ? 'independent' : undefined,
+          relation_type: m.relation_type,
         })),
         source_urls: g.source_urls || [],
       };
