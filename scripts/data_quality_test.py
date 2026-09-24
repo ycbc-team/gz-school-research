@@ -411,6 +411,17 @@ def main():
     # 法人行 school_ids 也算「有升学」：校区实体升学信息聚合在法人行（school_ids 数组），
     # 避免主 id 归一（法人行主 id 指向本部后）把校区实体误判为无升学孤儿。
     _qm_school_ids = {i for s in json.load(open(os.path.join(ROOT, "data/linkage/quota_matrix.json"))).get("schools", []) for i in (s.get("school_ids") or [])}
+    # 招生法人行升学覆盖：官方初中招生按法人行公布（school_ids 含全部校区实体），升学
+    # （指标/名额）同样按法人行挂载（如竹料第一中学 78d61733 北校区）。校区实体
+    # （如竹料本部 fd1c1c12）不单列升学属正常业务——同招生记录内任一实体有升学，
+    # 记录内全部校区实体视为升学聚合在法人行，不判「无升学」孤儿（玉泉中学部同例）。
+    _mid_link_covered = set()
+    _mid_link_ids = _rm_ids | _qm_school_ids
+    for _d in json.load(open(os.path.join(ROOT, "data/middle/enrollment/dist/middle_enrollment_2026.json")))["districts"].values():
+        for _r in _d.get("records", []):
+            _row_ids = [i for i in ([_r.get("school_id")] + list(_r.get("school_ids") or [])) if i]
+            if any(i in _mid_link_ids for i in _row_ids):
+                _mid_link_covered.update(_row_ids)
     _sc26 = json.load(open(os.path.join(ROOT, "data/high/cutoff_score/dist/scores_2026.json"))).get("by_school_id", {})
     # 招生区域承接说明表（enrollment/src，业务人工确认）：原校保留遗留学生升学
     # → 原校非孤儿（如东区小学/禾丰小学 2026 官方无招生但有升学遗留，dist 有 zone=note 记录）
@@ -440,7 +451,9 @@ def main():
             if _e["school_id"] in _MID_LEFT_NOTE_SIDS:
                 continue  # 业务确认合理无招生（src/leftover_notes.json），非孤儿
             if _e["school_id"] not in _mid_enroll_ids: _lacks.append("无招生")
-            if _e["school_id"] not in _rm_ids and _e["school_id"] not in _qm_school_ids and _e["name"] not in _qm_names: _lacks.append("无升学")
+            if _e["school_id"] not in _rm_ids and _e["school_id"] not in _qm_school_ids \
+                    and _e["name"] not in _qm_names and _e["school_id"] not in _mid_link_covered:
+                _lacks.append("无升学")
         else:  # high
             if _e["school_id"] not in _sc26 and _e["school_id"] not in _sc25: _lacks.append("无招生")
             if _lacks: _lacks.append("无升学(高考未采集)")
