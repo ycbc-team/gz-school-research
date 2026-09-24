@@ -8,10 +8,10 @@ import json, hashlib, re, sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import quota_vision_values as VV  # P: {page: {row: [kao, ss, qu]}}, P16_INSERT
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-OLD = os.path.join(ROOT, 'data/linkage/quota_matrix.json')
-GRID = os.path.join(ROOT, 'data/linkage/raw/quota_grid_final.json')
-SN = os.path.join(ROOT, 'data/linkage/raw/schoolnames.json')
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+OLD = os.path.join(ROOT, 'data/linkage/dist/quota_matrix.json')
+GRID = os.path.join(ROOT, 'data/linkage/parsed/quota_grid_final.json')
+SN = os.path.join(ROOT, 'data/linkage/parsed/schoolnames.json')
 OUT = OLD
 
 DIST_CODE = {'荔湾区':'440103','越秀区':'440104','海珠区':'440105','天河区':'440106',

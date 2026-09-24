@@ -194,7 +194,7 @@ def isDropCampus(name, stage=None):
 
 
 # POI 坐标修正（school_id → 正确坐标）：高德采集个别 POI 坐标错挂（如省实荔湾花地湾校区
-# 被定位到初中部北文街2号）。官方地址见 data/linkage/official_rosters/liwan_gongban_cz_2025.json
+# 被定位到初中部北文街2号）。官方地址见 data/linkage/src/official_rosters/liwan_gongban_cz_2025.json
 # （花地湾校区=花地大道北320号）。本表在实体构建回写 POI 表时应用（幂等：fetch 重跑后再建即恢复）。
 POI_COORD_FIX = {
     'gz-440103-ff7538dc': {'lng': 113.232802, 'lat': 23.085100},  # 省实荔湾花地湾校区：花地大道北320号（高德花地湾校区公交站点位）

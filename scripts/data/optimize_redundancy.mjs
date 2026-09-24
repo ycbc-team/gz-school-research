@@ -1,8 +1,8 @@
 /**
  * 真源冗余优化（幂等，可审计）：
- *   1. quota_matrix.json：sz 稀疏化 —— 省略 null 键（40% 单元格为 null），
+ *   1. dist/quota_matrix.json：sz 稀疏化 —— 省略 null 键（40% 单元格为 null），
  *      消费侧统一用 `?? 0`，缺失键 === null，零代码改动。
- *   2. batch2_scores.json：删除 admitted:false 且无分数的记录（542 条）。
+ *   2. dist/batch2_scores.json：删除 admitted:false 且无分数的记录（542 条）。
  *      前端只消费 min_score/last_score，false 记录消费结果与"无记录"一致；
  *      删除后顺带消除合并表里的全空行。
  * 运行：node scripts/data/optimize_redundancy.mjs
@@ -24,7 +24,7 @@ const report = {};
 
 /* ========== 1) quota_matrix.sz 稀疏化 ========== */
 {
-  const p = 'data/linkage/quota_matrix.json';
+  const p = 'data/linkage/dist/quota_matrix.json';
   const q = read(p);
   let removed = 0;
   for (const s of q.schools) {
@@ -43,7 +43,7 @@ const report = {};
 
 /* ========== 2) batch2_scores 删 admitted:false 记录 ========== */
 {
-  const p = 'data/linkage/batch2_scores.json';
+  const p = 'data/linkage/dist/batch2_scores.json';
   const b = read(p);
   let removed = 0;
   for (const [hs, inner] of Object.entries(b.data || {})) {

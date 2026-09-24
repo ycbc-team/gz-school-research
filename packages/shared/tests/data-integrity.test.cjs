@@ -25,10 +25,10 @@ const middlePois = load('data/poi/dist/middle_poi.json').schools;
 const primaryPois = load('data/poi/dist/primary_poi.json').schools;
 const highPois = load('data/poi/dist/high_poi.json').schools;
 const highLevels = load('data/high/level/src/levels.json').schools;
-const districtQuota = load('data/linkage/district_quota.json').data;
-const quotaMatrix = load('data/linkage/quota_matrix.json');
-const specialMatrix = load('data/linkage/special_matrix.json');
-const schoolnames = load('data/linkage/raw/schoolnames.json');
+const districtQuota = load('data/linkage/dist/district_quota.json').data;
+const quotaMatrix = load('data/linkage/dist/quota_matrix.json');
+const specialMatrix = load('data/linkage/dist/special_matrix.json');
+const schoolnames = load('data/linkage/parsed/schoolnames.json');
 const brandGroups = load('data/registry/group/src/brand_groups.json').brands;
 
 /** 归一化后的校名集合（POI + entities 并集），用于引用校验 */

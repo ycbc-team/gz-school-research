@@ -67,7 +67,7 @@ def _check_special_matrix():
 
     字节全等"重跑 vs 入库"在入库被 bug 污染时自我一致通过（白云艺术中学 matchNorm 化
     后变 null 即现场证据）；快照测试对比"重跑产物的业务信息"与独立基线
-    （data/linkage/special_matrix_snapshot.json，含名单→实体 / 计划数 / 项目清单），
+    （data/linkage/test/snapshots/special_matrix_snapshot.json，含名单→实体 / 计划数 / 项目清单），
     业务信息变化显式暴露，须 --update-snapshot 显式更新基线（数据变更=正常迭代）。"""
     r = subprocess.run(["python3", os.path.join(ROOT, "data/linkage/test/check_special_matrix_snapshot.py")],
                        capture_output=True, text=True, cwd=ROOT)
@@ -249,14 +249,14 @@ def _check_backfill_ids():
     （如 _school_id_unmatched 被手工增删）都会被检出。比对失败还原工作树。"""
     names = ["quota_matrix.json", "special_matrix.json", "batch2_scores.json",
              "district_quota.json", "_school_id_unmatched.json"]
-    files = [os.path.join(ROOT, "data/linkage", n) for n in names]
+    files = [os.path.join(ROOT, "data/linkage/dist", n) for n in names]
     orig = {f: open(f, encoding="utf-8").read() for f in files}
     try:
-        r = subprocess.run(["python3", os.path.join(ROOT, "scripts/linkage/backfill_school_ids.py")],
+        r = subprocess.run(["python3", os.path.join(ROOT, "data/linkage/scripts/backfill_school_ids.py")],
                            capture_output=True, text=True, cwd=ROOT)
         if r.returncode != 0:
             _flush_ok()
-            print("生产脚本重跑失败：scripts/linkage/backfill_school_ids.py")
+            print("生产脚本重跑失败：data/linkage/scripts/backfill_school_ids.py")
             print(r.stderr[-2000:])
             for f, c in orig.items():
                 open(f, "w", encoding="utf-8").write(c)

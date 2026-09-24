@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-排行榜数据聚合：初中升学信号三源合并 → data/linkage/ranking_middle.json
+排行榜数据聚合：初中升学信号三源合并 → data/linkage/dist/ranking_middle.json
 
 输入（只读，不修改任何源文件）：
-- data/linkage/quota_matrix.json             指标到校（496 所；以 7 区学校为候选底：
-                                              kaosheng 考生数 / sheng_quota 省市属 / qu_quota 区属 / sz 高中名额明细 / district / school_id）
-- data/linkage/raw/autonomy/autonomy_qualify_2026.json  自主招生资格名单（按来源初中计数）
-- data/high/level/src/levels.json             高中特控率（indicators.tekong_2026/tekong_2025，文本口径，只读）
+- data/linkage/dist/quota_matrix.json           指标到校（496 所；以 7 区学校为候选底：
+                                                 kaosheng 考生数 / sheng_quota 省市属 / qu_quota 区属 / sz 高中名额明细 / district / school_id）
+- data/linkage/parsed/autonomy/autonomy_qualify_2026.json  自主招生资格名单（按来源初中计数）
+- data/high/level/src/levels.json               高中特控率（indicators.tekong_2026/tekong_2025，文本口径，只读）
 
 输出：
-- data/linkage/ranking_middle.json          每所初中：考生数/省市属指标/区属指标/自招数/指标到校高中明细（含特控率）
-  该文件位于 data/ 下（非 raw），会被 scripts/data/compact.mjs 自动编译进 Web/小程序 compact 产物。
+- data/linkage/dist/ranking_middle.json       每所初中：考生数/省市属指标/区属指标/自招数/指标到校高中明细（含特控率）
+  该文件位于 data/linkage/dist（运行时产物），会被 scripts/data/compact.mjs 自动编译进 Web/小程序 compact 产物。
 
 口径说明：
 - 候选底：quota_matrix 中 7 区（荔湾/越秀/海珠/天河/白云/黄埔/番禺）全量初中，口碑判定已移除。
@@ -29,7 +29,7 @@ import re
 from collections import Counter
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[3]
 DATA = ROOT / 'data'
 
 # 统一匹配库：norm 本体收敛至 school_match（py_norm→normName、py_loose→looseNorm）；
@@ -86,10 +86,10 @@ def group_of(school_id=None, school_ids=None):
 
 
 # ---------------- 载入 ----------------
-quota = load('linkage/quota_matrix.json')
-autonomy = load('linkage/raw/autonomy/autonomy_qualify_2026.json')
+quota = load('linkage/dist/quota_matrix.json')
+autonomy = load('linkage/parsed/autonomy/autonomy_qualify_2026.json')
 levels = load('high/level/src/levels.json')
-district_quota = load('linkage/district_quota.json')
+district_quota = load('linkage/dist/district_quota.json')
 # 民办身份唯一真源：registry/entities.json（nature='民办'；公办不写字段）
 MINBAN_IDS = {e['school_id'] for e in load('registry/entity/dist/entities.json').get('entities', []) if e.get('nature') == '民办'}
 
@@ -341,12 +341,12 @@ result = {
     },
     'schools': out_schools,
 }
-with open(DATA / 'linkage' / 'ranking_middle.json', 'w', encoding='utf-8') as f:
+with open(DATA / 'linkage' / 'dist' / 'ranking_middle.json', 'w', encoding='utf-8') as f:
     json.dump(result, f, ensure_ascii=False, indent=2)
 
 from collections import Counter as _C
 _dist = _C(s['district'] for s in out_schools)
-print(f'输出 {len(out_schools)} 所初中 → data/linkage/ranking_middle.json')
+print(f'输出 {len(out_schools)} 所初中 → data/linkage/dist/ranking_middle.json')
 print('7区分布:', {k: _dist[k] for k in ['荔湾区', '越秀区', '海珠区', '天河区', '白云区', '黄埔区', '番禺区']})
 print('quota 未匹配:', missing_quota if missing_quota else '无')
 # 校验：抽查

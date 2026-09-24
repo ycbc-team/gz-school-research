@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /**
  * 初中升学信号明细
- * - 数据真源：data/linkage/middle_middle.json（scripts/linkage/build_ranking_middle.py 聚合，
+ * - 数据真源：data/linkage/dist/ranking_middle.json（data/linkage/scripts/build_ranking_middle.py 聚合，
  *   含名额分配符合资格考生数/省市属·区属指标/2026 自招名单计数/指标到校高中明细+特控率）
  * - 分组：不分组 / 按区（区教育局口径）或按教育集团（@gz/shared groupOfSchool，brand 优先）；可叠加行政区位置筛选
  * - 指标（4 选 1）：默认（机构综合口径，school_id 名单见 data/middle/org_sort/dist/compiled.json，真源 data/middle/org_sort/src/*.json）/ 区属指标比例 / 省市属指标比例 / 指标×高中特控率

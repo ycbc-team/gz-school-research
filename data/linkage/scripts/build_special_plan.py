@@ -4,7 +4,7 @@
 
 - 输入：data/linkage/raw/special/附件1.2026年体育艺术类特长生布局项目及计划学校明细表.docx
        （官方《广州市教育局关于印发2026年普通高中学校体育艺术类特长生招生计划的通知》附件1）
-- 输出：data/linkage/raw/special/plan_special_2026.json
+- 输出：data/linkage/parsed/special/plan_special_2026.json
 口径：计划数 = 各校（校区）体育/艺术特长生招生计划（含优秀体育后备人才在内的小计）；
       项目行人数为该项目计划数，括号内"其中体育后备人才不超N人"为内部限制，不进主数值。
 校验：每校体育/艺术小计须等于该项目计划之和，否则报错（防止解析漂移）。
@@ -16,7 +16,7 @@ import zipfile
 import xml.etree.ElementTree as ET
 
 SRC = 'data/linkage/raw/special/附件1.2026年体育艺术类特长生布局项目及计划学校明细表.docx'
-OUT = sys.argv[1] if len(sys.argv) > 1 else 'data/linkage/raw/special/plan_special_2026.json'
+OUT = sys.argv[1] if len(sys.argv) > 1 else 'data/linkage/parsed/special/plan_special_2026.json'
 W = '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
 
 

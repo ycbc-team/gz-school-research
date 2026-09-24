@@ -21,10 +21,10 @@ const loaders = {
   highSchools: load('poi/dist/high_poi.json'),
   highLevels: load('high/level/src/levels.json'),
   enrollments: splitEnrollments(load('primary/enrollment/dist/2026-all.json')),
-  quotaMatrix: load('linkage/quota_matrix.json'),
-  specialMatrix: load('linkage/special_matrix.json'),
-  batch2Scores: load('linkage/batch2_scores.json'),
-  districtQuota: load('linkage/district_quota.json'),
+  quotaMatrix: load('linkage/dist/quota_matrix.json'),
+  specialMatrix: load('linkage/dist/special_matrix.json'),
+  batch2Scores: load('linkage/dist/batch2_scores.json'),
+  districtQuota: load('linkage/dist/district_quota.json'),
   highScores2025: load('high/cutoff_score/dist/scores_2025.json'),
   highScores2026: load('high/cutoff_score/dist/scores_2026.json'),
   entities: load('registry/entity/dist/entities.json'),
@@ -32,7 +32,7 @@ const loaders = {
   brandGroups: load('registry/group/src/brand_groups.json'),
   educationGroups: load('registry/group/dist/education_groups.json'),
   schoolGroups: load('registry/group/dist/school_groups.json'),
-  rankingMiddle: load('linkage/ranking_middle.json'),
+  rankingMiddle: load('linkage/dist/ranking_middle.json'),
 };
 const repo = createRepository(loaders);
 

@@ -18,7 +18,7 @@ def norm(s):
     s = re.sub(r'^(广州|广东|广大附中)', '', s)
     return s.strip()
 
-qm = json.load(open(os.path.join(ROOT,'data/linkage/quota_matrix.json')))['schools']
+qm = json.load(open(os.path.join(ROOT,'data/linkage/dist/quota_matrix.json')))['schools']
 poi_path = os.path.join(ROOT,'data/poi/dist/middle_poi.json')
 poi = json.load(open(poi_path))
 existing_norms = {norm(s['name']) for s in poi['schools']}

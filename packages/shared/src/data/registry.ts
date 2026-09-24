@@ -14,7 +14,7 @@ export function createRegistryApi(loaders: DataLoaders) {
    * 任意校名（官方名单/口碑/POI 变体）→ 实体 POI 名（entities.name）。
    * 匹配顺序：norm 精确（name/aliases）→ loose（去学部/校区后缀）容错。
    * 用于跳转目标归一：只有能解析到实体（POI 存在）的名字才可跳详情页。
-   * 官方名 → school_id 的外键已由 scripts/linkage/backfill_school_ids.py 回填各表，
+   * 官方名 → school_id 的外键已由 data/linkage/scripts/backfill_school_ids.py 回填各表，
    * 此处兜底解析未回填场景（如 CAMPUS_INFO 学校名 → 校区实体）。
    */
   function resolvePoiName(anyName: string): string | null {

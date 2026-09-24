@@ -89,10 +89,10 @@ const MP_MAIN_TARGETS = [
 // （sites.json 已于 2026-09-21 废弃：法人别名挂载内联 build_entities，无运行时消费）
 // （官方录取分 scores 已在主包加载，详情页经 baseLoaders 继承，无需重复编译）
 const MP_SUB_TARGETS = [
-  'data/linkage/quota_matrix.json',
-  'data/linkage/special_matrix.json',
-  'data/linkage/batch2_scores.json',
-  'data/linkage/district_quota.json',
+  'data/linkage/dist/quota_matrix.json',
+  'data/linkage/dist/special_matrix.json',
+  'data/linkage/dist/batch2_scores.json',
+  'data/linkage/dist/district_quota.json',
   'data/registry/group/src/brand_groups.json',
   'data/registry/group/dist/education_groups.json',
   'data/registry/group/dist/school_groups.json',
@@ -225,6 +225,12 @@ const SRC_REMAP = {
   'primary/enrollment/dist/2026-all': 'primary/enrollments/2026-all',
   'primary/transition/dist/schools-backfill': 'primary/schools-backfill',
   'middle/enrollment/src/middle_enroll_notes': 'primary/middle_enroll_notes',
+  // linkage 归位 dist 后，产物 rel 保持历史稳定（前端 import/require 不变）
+  'linkage/dist/quota_matrix': 'linkage/quota_matrix',
+  'linkage/dist/special_matrix': 'linkage/special_matrix',
+  'linkage/dist/batch2_scores': 'linkage/batch2_scores',
+  'linkage/dist/district_quota': 'linkage/district_quota',
+  'linkage/dist/ranking_middle': 'linkage/ranking_middle',
 };
 const relRaw = relative(DATA_SRC, abs); // 真源 rel（含 .json，注释/统计用）
 const relPath = (SRC_REMAP[relRaw.replace(/\.json$/, '')] ?? relRaw.replace(/\.json$/, '')) + '.json'; // 输出 rel（remap 后保持历史路径）

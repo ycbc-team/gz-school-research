@@ -15,10 +15,10 @@
 2) loose：norm 后再去掉尾部「初中部/高中部/小学部/校区/分校/学校/部」后缀（容错 POI 学部后缀）
    先精确 norm，未命中再用 loose；两者均为全等匹配，不会误配。
 
-未命中（7 区外无实体 / 7 区内需人工桥接）落盘 data/linkage/_school_id_unmatched.json，
+未命中（7 区外无实体 / 7 区内需人工桥接）落盘 data/linkage/dist/_school_id_unmatched.json，
 原文保留、不伪造 id；7 区内清单待人工确认后补进 build_entities.py 的 OFFICIAL_ALIASES 或实体 aliases。
 
-运行：python3 scripts/linkage/backfill_school_ids.py
+运行：python3 data/linkage/scripts/backfill_school_ids.py
 """
 import json
 import re
@@ -26,7 +26,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[3]
 CITY7 = {'荔湾区', '越秀区', '海珠区', '天河区', '白云区', '黄埔区', '番禺区'}
 
 # 统一匹配库：norm/loose 收敛至 school_match.normName/looseNorm（原本地定义已删，规则与 shared support.ts 一致）
@@ -182,10 +182,10 @@ def main() -> int:
 
     unmatched = []  # (表, 官方名, 区, 是否7区内)
     files = {
-        'quota_matrix': (ROOT / 'data/linkage/quota_matrix.json', 2),
-        'special_matrix': (ROOT / 'data/linkage/special_matrix.json', 1),
-        'batch2_scores': (ROOT / 'data/linkage/batch2_scores.json', 1),
-        'district_quota': (ROOT / 'data/linkage/district_quota.json', 1),
+        'quota_matrix': (ROOT / 'data/linkage/dist/quota_matrix.json', 2),
+        'special_matrix': (ROOT / 'data/linkage/dist/special_matrix.json', 1),
+        'batch2_scores': (ROOT / 'data/linkage/dist/batch2_scores.json', 1),
+        'district_quota': (ROOT / 'data/linkage/dist/district_quota.json', 1),
     }
     for tag, (path, indent) in files.items():
         d = json.loads(path.read_text('utf-8'))
@@ -255,7 +255,7 @@ def main() -> int:
     # 未命中清单：7 区内（需人工桥接）与 7 区外/未知（无实体，链接不可点属正确行为）分列
     inside = sorted({n for _, n, dist, is7 in unmatched if is7 is True})
     outside = sorted({n for _, n, dist, is7 in unmatched if is7 is not True})
-    (ROOT / 'data/linkage/_school_id_unmatched.json').write_text(
+    (ROOT / 'data/linkage/dist/_school_id_unmatched.json').write_text(
         json.dumps({
             'note': '升学通道官方名未命中实体表：7 区内需人工桥接（补进 build_entities.py 别名）；7 区外无 POI 实体，链接不可点属正确行为，原文保留展示。',
             'updated': '2026-09-12',

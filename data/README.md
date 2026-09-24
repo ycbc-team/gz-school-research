@@ -80,7 +80,7 @@ python3 data/primary/enrollment/scripts/build_primary_2026.py <区>   # 2026 小
 | 类型 | 文件 |
 | --- | --- |
 | 外部抓取（高德 API） | `poi/dist/primary_poi.json`、`poi/dist/middle_poi.json`、`poi/dist/high_poi.json`（fetch_* 脚本直写） |
-| 官方转录 | `enrollment/raw/*`（政府官方源文件，小学/小升初/初中招生共用）、`primary/enrollment/parsed/2026-*`（小学招生计划）、`primary/enrollment/parsed/_transcripts/*`（各区官方文件 A 层转录）、`middle/enrollment/parsed/_transcripts/*`（初中转录）、`linkage/raw/*`（指标/自招/录取线/招生名单转录）、`high/cutoff_score/dist/scores_{2025,2026}.json`（官方录取分） |
+| 官方转录 | `enrollment/raw/*`（政府官方源文件，小学/小升初/初中招生共用）、`primary/enrollment/parsed/2026-*`（小学招生计划）、`primary/enrollment/parsed/_transcripts/*`（各区官方文件 A 层转录）、`middle/enrollment/parsed/_transcripts/*`（初中转录）、`linkage/raw/*`（政府源文件：名额分配/录取分数/特长生计划原件）、`linkage/parsed/*`（指标/自招/录取线/招生名单转录）、`high/cutoff_score/dist/scores_{2025,2026}.json`（官方录取分） |
 | 人工产物 | `primary|middle/tier1_schools_all.json`（学校信号，已判废弃待重构）、`high/level/src/levels.json`、`middle/org_sort/src/*`、`registry/group/src/brand_groups.json`、`registry/group/parsed/education_groups_2026.json`、`registry/group/parsed/_partial_*`、`registry/private/src/minban_*.md` |
 
 ### 派生层（脚本产物，勿手改；改脚本须重跑并提交）
@@ -91,8 +91,8 @@ python3 data/primary/enrollment/scripts/build_primary_2026.py <区>   # 2026 小
 | `primary/transition/dist/xiaoshengchu_<区>.json` + `primary/transition/dist/xiaoshengchu_all.json` | build_xiaoshengchu_all.py + xs_resolver.py | 升学路线（区级/all 为中间产物，已 gitignore） |
 | `primary/transition/dist/xiaoshengchu_2026.json`（facts） | upgrade_xiaoshengchu.mjs | 小学升学路线、初中生源反查（middlePrimaryFeed）、生源快照测试 |
 | `middle/enrollment/dist/middle_enrollment_2026_<区>.json`（7 区，2026-09-23 自 primary/enrollments 迁入） | `middle/enrollment/scripts/build_middle_enrollment.py` | 详情页初中招生计划 |
-| `linkage/quota_matrix.json` / `special_matrix.json` / `district_quota.json` / `batch2_scores.json` | rebuild_quota_matrix / build_special_* / build_district_quota / build_linkage_batch2（+ backfill_school_ids 回填 id） | 升学通道、排行榜 |
-| `linkage/ranking_middle.json`（334 校） | build_ranking_middle.py | 详情页升学信号、排行榜、初中明细 |
+| `linkage/dist/quota_matrix.json` / `special_matrix.json` / `district_quota.json` / `batch2_scores.json` | data/linkage/scripts/rebuild_quota_matrix / build_special_* / build_district_quota / build_linkage_batch2（+ backfill_school_ids 回填 id） | 升学通道、排行榜 |
+| `linkage/dist/ranking_middle.json`（334 校） | data/linkage/scripts/build_ranking_middle.py | 详情页升学信号、排行榜、初中明细 |
 | `registry/group/dist/education_groups.json` | merge_groups.py（合并 parsed `_partial_*` + src/brand_groups + parsed/education_groups_2026） | 品牌卡、初中明细分组 |
 | `registry/group/dist/school_groups.json`（纯 id） | build_school_groups.py（--write-brand 回写 src/brand_groups） | 品牌卡、初中明细分组（运行时纯 id 匹配） |
 | `middle/org_sort/dist/compiled.json` | data/middle/org_sort/scripts/build_org_sort.py | 初中默认排序 |

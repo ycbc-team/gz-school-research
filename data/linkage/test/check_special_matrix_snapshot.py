@@ -3,7 +3,7 @@
 
 原理（2026-09-21 用户拍板）：字节全等"重跑 vs 入库"在入库被 bug 污染时会自我一致地
 通过（白云艺术中学 matchNorm 化后变 null 即现场证据）。改为把"当前正确的业务信息"
-固化为独立测试基线 data/linkage/special_matrix_snapshot.json，重跑生产链路后提取
+固化为独立测试基线 data/linkage/test/snapshots/special_matrix_snapshot.json，重跑生产链路后提取
 同一业务快照，与基线全等对比：
 
 - 全等 → 通过：业务信息未发生意外变化
@@ -15,8 +15,8 @@
 先看 diff 确认是官方更新还是回归，再更新基线）。
 
 用法：
-  python3 scripts/linkage/check_special_matrix_snapshot.py                    # 对比（默认）
-  python3 scripts/linkage/check_special_matrix_snapshot.py --update-snapshot  # 更新基线
+  python3 data/linkage/test/check_special_matrix_snapshot.py                    # 对比（默认）
+  python3 data/linkage/test/check_special_matrix_snapshot.py --update-snapshot  # 更新基线
 """
 import json
 import os
@@ -25,7 +25,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))  # data/linkage/test → ROOT
 SNAPSHOT = os.path.join(ROOT, "data/linkage/test/snapshots/special_matrix_snapshot.json")
-PROD = os.path.join(ROOT, "data/linkage/special_matrix.json")
+PROD = os.path.join(ROOT, "data/linkage/dist/special_matrix.json")
 TMP = os.path.join(__import__("tempfile").gettempdir(), "special_matrix_repro.json")
 PLAN_TMP = os.path.join(__import__("tempfile").gettempdir(), "plan_special_repro.json")
 
@@ -72,8 +72,8 @@ def diff_dict(old: dict, new: dict, path: str, limit: int = 40) -> list:
 
 def run(update: bool) -> int:
     # 重跑生产链路（previous 用入库产物：backfill 生成的初中外键只存在于入库）
-    replay("scripts/linkage/build_special_plan.py", PLAN_TMP)
-    replay("scripts/linkage/build_special_matrix.py", TMP, PROD)
+    replay("data/linkage/scripts/build_special_plan.py", PLAN_TMP)
+    replay("data/linkage/scripts/build_special_matrix.py", TMP, PROD)
     new = extract(json.load(open(TMP, encoding="utf-8")))
 
     if update:
@@ -95,7 +95,7 @@ def run(update: bool) -> int:
         print("业务快照: ✗ special_matrix 业务信息与基线不一致（数据变更或匹配回归）：")
         print("\n".join(diffs[:40]))
         print("  → 先逐条确认是官方源更新/解析修复（预期变化）还是回归；确认后显式更新基线：")
-        print("     python3 scripts/linkage/check_special_matrix_snapshot.py --update-snapshot")
+        print("     python3 data/linkage/test/check_special_matrix_snapshot.py --update-snapshot")
         print("  禁止直接改基线或产物掩盖 diff。")
         return 1
     n = sum(len(v) for v in new.values() if isinstance(v, dict))

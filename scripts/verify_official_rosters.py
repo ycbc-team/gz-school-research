@@ -3,7 +3,7 @@
 """
 区级官方名录 → 实体表全量校验
 ================================
-用官方全量中学名录（data/linkage/official_rosters/*.json）对所在区**所有中学**
+用官方全量中学名录（data/linkage/src/official_rosters/*.json）对所在区**所有中学**
 做数据覆盖校验（不只孤儿待办清单），识别：
   - MISSING    ：官方确认办初中，但实体表该区无任何 middle/high 实体对应（缺失）
   - ONLY_HIGH  ：官方确认办初中，实体表仅有 high（学段可能错配，初中实体缺失）
@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'
 from school_match import normName, looseNorm, coreCampusName
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ROSTER_DIR = os.path.join(ROOT, 'data/linkage/official_rosters')
+ROSTER_DIR = os.path.join(ROOT, 'data/linkage/src/official_rosters')
 ENTITIES = os.path.join(ROOT, 'data/registry/entity/dist/entities.json')
 OUT = os.path.join(ROOT, 'outputs/official_roster_verify_20260917.md')
 
@@ -138,7 +138,7 @@ def main():
         rows.append((roster['title'], len(roster['schools']), len(missing), len(only_high)))
 
     header = ["# 区级官方名录 × 实体表 全量校验", "",
-              "校验基线：`data/linkage/official_rosters/*.json`（官方政府/教育局公开页面采集）",
+              "校验基线：`data/linkage/src/official_rosters/*.json`（官方政府/教育局公开页面采集）",
               "对比对象：`data/registry/entity/dist/entities.json`（实体表，同区 middle/high）",
               "匹配语义：`school_match.normName / looseNorm / coreCampusName`（与品牌关联/backfill 同源）",
               "生成命令：`python3 scripts/verify_official_rosters.py`", "",

@@ -53,7 +53,7 @@ export interface DataLoaders {
   /** 公共 school_id → 集团映射（scripts/registry/build_school_groups.py 构建，纯 id 产物；
    * 详情页品牌卡与初中明细分组共用同一份，运行时不再做任何按名匹配） */
   schoolGroups: { schoolGroups: Record<string, { brand: string; source: 'education' | 'brand' }> };
-  /** 初中升学信号排行榜基础表（自招/指标到校/特控率聚合，见 scripts/linkage/build_ranking_middle.py） */
+  /** 初中升学信号排行榜基础表（自招/指标到校/特控率聚合，见 data/linkage/scripts/build_ranking_middle.py） */
   rankingMiddle: {
     schools: Array<{
       name: string; school_id?: string | null; district: string;

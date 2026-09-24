@@ -1,13 +1,13 @@
 """区属高中名额分配到本区初中：从 grid 区属列(col24+)组装。
 
 区属列每区固定（表头已人工读图确认顺序），从 col24 起。
-输出 data/linkage/district_quota.json：{初中名: {区属高中POI名: 名额}}
+输出 data/linkage/dist/district_quota.json：{初中名: {区属高中POI名: 名额}}
 """
 import json, re
 
-G = 'data/linkage/raw/quota_grid_final.json'
-SN = 'data/linkage/raw/schoolnames.json'
-OUT = 'data/linkage/district_quota.json'
+G = 'data/linkage/parsed/quota_grid_final.json'
+SN = 'data/linkage/parsed/schoolnames.json'
+OUT = 'data/linkage/dist/district_quota.json'
 
 # 每区区属列短名（col24 起，按表头从左到右）→ POI 全名
 DISTRICT_COLS = {

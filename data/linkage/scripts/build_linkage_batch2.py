@@ -5,8 +5,8 @@
 import json, re
 from collections import defaultdict
 
-ALL = 'data/linkage/raw/batch2_scores_all.json'
-OUT = 'data/linkage/batch2_scores.json'
+ALL = 'data/linkage/parsed/batch2_scores_all.json'
+OUT = 'data/linkage/dist/batch2_scores.json'
 
 CITY_PREFIX = [
     '华南师范大学附属中学', '广东实验中学', '广东广雅中学',

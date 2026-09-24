@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """构建升学通道矩阵：初中 × 高中（体育/艺术/自招考核资格）
-- 输入：data/linkage/raw/special/sports_2026.json、arts_2026.json
-       data/linkage/raw/autonomy/autonomy_qualify_2026.json
+- 输入：data/linkage/parsed/special/sports_2026.json、arts_2026.json
+       data/linkage/parsed/autonomy/autonomy_qualify_2026.json
        data/registry/entity/dist/entities.json（高中实体别名表，用于名字匹配与审计）
-- 输出：data/linkage/special_matrix.json
+- 输出：data/linkage/dist/special_matrix.json
 口径：全部有名单的高中（含区属/中职，不再限省市属 11 所）；
       自招为考核资格名单口径（非预录取）。
       体育/艺术 project 去掉末尾"（项目）"得到招生高中（校区）；自招标题去"2026年"前缀。
@@ -14,14 +14,14 @@
 import json
 import sys, re, collections, os
 
-BASE = 'data/linkage/raw'
+BASE = 'data/linkage/parsed'
 
 # 统一匹配库：norm 本体收敛至 school_match.normName（原"复刻 shared normName"定义已删）
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "registry", "entity", "scripts"))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), "data", "registry", "entity", "scripts"))
 from school_match import matchNorm, normName as norm  # 归一收敛至统一匹配库：剥区名 + 去括号变体
 # （2026-09-21 别名瘦身后「区+名字」形态不再生成；带区名名单名由 matchNorm 剥区兜底，
 #  仍保持「实体表高中别名唯一收敛」语义——法人名多校区宁缺，由实体别名表精确归位）
-OUT = sys.argv[1] if len(sys.argv) > 1 else 'data/linkage/special_matrix.json'
+OUT = sys.argv[1] if len(sys.argv) > 1 else 'data/linkage/dist/special_matrix.json'
 SOURCE = 'gzzk-special-2026'
 
 
@@ -169,7 +169,7 @@ except FileNotFoundError:
     previous = {}
 
 # ---------------- 2026 自主招生计划（官方汇总表，按校区/法人公布） ----------------
-plan_raw = json.load(open('data/linkage/raw/autonomy/plan_2026.json'))
+plan_raw = json.load(open('data/linkage/parsed/autonomy/plan_2026.json'))
 autonomy_plan = {s['name']: s['plan'] for s in plan_raw['schools']}
 plan_norm = {norm(k): v for k, v in autonomy_plan.items()}
 # 实体名变体：官方原文（全角"（校本部）"）与实体 POI 名（半角"（本部校区）"）存在名称差异，
@@ -180,7 +180,7 @@ for k, v in autonomy_plan.items():
         plan_norm[norm(ent['name'])] = v
 
 # ---------------- 2026 体育/艺术特长生计划（官方计划表附件1，按校区+项目） ----------------
-sp_raw = json.load(open('data/linkage/raw/special/plan_special_2026.json'))
+sp_raw = json.load(open('data/linkage/parsed/special/plan_special_2026.json'))
 sp_by_name = collections.defaultdict(
     lambda: {'sports': [], 'arts': [], 'sports_total': 0, 'arts_total': 0})
 for s in sp_raw['schools']:

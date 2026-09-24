@@ -9,7 +9,7 @@
     - normName   严格全等：全角括号→半角→去「广州市」前缀→删括号→去空白
                   （与 data/registry/entity/scripts/build_entities.py 及 packages/shared/src/support.ts 的 normName 一致）
     - looseNorm  normName + 去尾部(初中部|高中部|小学部|校区|分校|学校|部)
-                  （与 packages/shared/src/support.ts looseNorm、scripts/linkage/backfill_school_ids.py loose 一致）
+                  （与 packages/shared/src/support.ts looseNorm、data/linkage/scripts/backfill_school_ids.py loose 一致）
     - matchNorm  泛词保护：状态/泛化括号剥、保留校区括号、区名归一、前导区名剥（纯泛词保护）、
                   「广州」剥（纯泛词保护）—— 集团成员→POI 匹配专用（原 scripts/match_poi.py norm）
 
@@ -209,7 +209,7 @@ class SchoolMatcher:
     显式锚定（实体合并/跨区同名）由 RESOLVE_OVERRIDE 内建承接——各业务无需再单独适配。
     """
 
-    # 升学归属区白名单：school_id → 政策区（「XX区」）。数据源 data/linkage/quota_matrix.json
+    # 升学归属区白名单：school_id → 政策区（「XX区」）。数据源 data/linkage/dist/quota_matrix.json
     # （官方升学文件法人行，school_ids 全体标法人所属区），加载失败优雅降级为空。
     # 如「广州市第七中学(桂花校区)」POI 白云、政策越秀——官方越秀名单含桂花时须命中。
     POLICY_DISTRICT = None
@@ -256,7 +256,7 @@ class SchoolMatcher:
         """懒加载 quota_matrix 政策区白名单（school_id → 政策区）；数据缺失降级为空。"""
         cls.POLICY_DISTRICT = {}
         try:
-            qm = json.load(open(os.path.join(BASE, 'data/linkage/quota_matrix.json'), encoding='utf-8'))
+            qm = json.load(open(os.path.join(BASE, 'data/linkage/dist/quota_matrix.json'), encoding='utf-8'))
         except (FileNotFoundError, json.JSONDecodeError):
             return
         for s in qm.get('schools', []):
