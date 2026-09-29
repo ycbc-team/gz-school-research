@@ -5749,7 +5749,6 @@
       "name": "荔湾区东沙博雅实验学校",
       "stage": "primary",
       "aliases": [
-        "荔湾区博雅实验学校",
         "东沙博雅实验学校"
       ],
       "nature": "民办"
@@ -6719,6 +6718,72 @@
       "aliases": []
     },
     {
+      "school_id": "gz-440100-f62df57f",
+      "name": "广东外语外贸大学空港学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440100-f97f01cb",
+      "name": "广州市南外实验学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440100-c243364a",
+      "name": "广州市黄广附属学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440100-20eeaab0",
+      "name": "广州斐特思学校",
+      "stage": "middle",
+      "aliases": [
+        "斐特思学校"
+      ]
+    },
+    {
+      "school_id": "gz-440100-c46c7707",
+      "name": "广州理工实验学校",
+      "stage": "middle",
+      "aliases": [
+        "理工实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440100-e2d9148e",
+      "name": "暨南大学附属增城实验学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440103-523446ce",
+      "name": "中国教育科学研究院荔湾实验学校·禾园",
+      "stage": "middle",
+      "aliases": [
+        "中国教育科学研究院荔湾实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440103-84d436cd",
+      "name": "博雅中英文学校(海龙校区)",
+      "stage": "middle",
+      "aliases": [
+        "博雅中英文学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440103-3ea667b1",
+      "name": "君诚博雅实验学校(滘口校区)",
+      "stage": "middle",
+      "aliases": [
+        "君诚博雅实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
       "school_id": "gz-440103-53cac770",
       "name": "广东实验中学荔湾学校(初中部)",
       "stage": "middle",
@@ -6730,22 +6795,33 @@
       ]
     },
     {
-      "school_id": "gz-440103-2dc142ec",
-      "name": "广州市第一中学(初中部)",
+      "school_id": "gz-440103-ff7538dc",
+      "name": "广东实验中学荔湾学校花地湾校区",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440103-bb7f78f0",
+      "name": "广东广雅中学(荔湾校区)",
       "stage": "middle",
       "aliases": [
-        "一中本部"
+        "广东广雅中学"
       ]
     },
     {
-      "school_id": "gz-440103-3862ee98",
-      "name": "广州市第四中学(津园校区)",
+      "school_id": "gz-440103-e281e7d0",
+      "name": "广州协和学校",
       "stage": "middle",
       "aliases": [
-        "第四中学初中津园校区",
-        "第四中学",
-        "四中津园"
+        "协和学校",
+        "协和中学"
       ]
+    },
+    {
+      "school_id": "gz-440103-c9f13fde",
+      "name": "广州市南海中学",
+      "stage": "middle",
+      "aliases": []
     },
     {
       "school_id": "gz-440103-8e11a7d3",
@@ -6754,10 +6830,36 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440103-b0abf891",
-      "name": "广州市美华中学",
+      "school_id": "gz-440103-a3ee807c",
+      "name": "广州市培英中学(鹤洞校区)",
       "stage": "middle",
-      "aliases": []
+      "aliases": [
+        "培英中学"
+      ]
+    },
+    {
+      "school_id": "gz-440103-042e23a5",
+      "name": "广州市真光中学(岭南校区)",
+      "stage": "middle",
+      "aliases": [
+        "真光中学初中部岭南校区"
+      ]
+    },
+    {
+      "school_id": "gz-440103-4bb96190",
+      "name": "广州市真光中学(芳花校区)",
+      "stage": "middle",
+      "aliases": [
+        "真光中学初中部芳花校区"
+      ]
+    },
+    {
+      "school_id": "gz-440103-2c188507",
+      "name": "广州市真光中学东漖学校",
+      "stage": "middle",
+      "aliases": [
+        "真光东漖"
+      ]
     },
     {
       "school_id": "gz-440103-1f4697e3",
@@ -6769,8 +6871,16 @@
       ]
     },
     {
-      "school_id": "gz-440103-b6850b3c",
-      "name": "广州市第一中学双桥学校",
+      "school_id": "gz-440103-9b3ba6d8",
+      "name": "广州市真光中学初中部实验校区",
+      "stage": "middle",
+      "aliases": [
+        "真光实验"
+      ]
+    },
+    {
+      "school_id": "gz-440103-55453ba4",
+      "name": "广州市真光中学文伟学校",
       "stage": "middle",
       "aliases": []
     },
@@ -6783,8 +6893,134 @@
       ]
     },
     {
+      "school_id": "gz-440103-2dc142ec",
+      "name": "广州市第一中学(初中部)",
+      "stage": "middle",
+      "aliases": [
+        "一中本部"
+      ]
+    },
+    {
+      "school_id": "gz-440103-2653da64",
+      "name": "广州市第一中学(姜中宏校区)",
+      "stage": "middle",
+      "aliases": [
+        "第一中学中宏校区",
+        "一中姜中宏"
+      ]
+    },
+    {
       "school_id": "gz-440103-81794a0d",
       "name": "广州市第一中学十甫学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440103-b6850b3c",
+      "name": "广州市第一中学双桥学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440103-f05eda96",
+      "name": "广州市第一中学红岩学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440103-4cda3f9e",
+      "name": "广州市第四中学(康园校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440103-3862ee98",
+      "name": "广州市第四中学(津园校区)",
+      "stage": "middle",
+      "aliases": [
+        "第四中学初中津园校区",
+        "第四中学",
+        "四中津园"
+      ]
+    },
+    {
+      "school_id": "gz-440103-816b22a3",
+      "name": "广州市第四中学(虬园校区)",
+      "stage": "middle",
+      "aliases": [
+        "第四中学初中雁园校区",
+        "广州四中雁园校区",
+        "四中雁园校区"
+      ]
+    },
+    {
+      "school_id": "gz-440103-c0d6f9a0",
+      "name": "广州市第四中学(逸园校区)",
+      "stage": "middle",
+      "aliases": [
+        "第四中学初中逸园校区",
+        "四中逸园"
+      ]
+    },
+    {
+      "school_id": "gz-440103-958c2ab9",
+      "name": "广州市第四中学花地学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440103-b0abf891",
+      "name": "广州市美华中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440103-821faa89",
+      "name": "广州市荔湾区博雅实验学校",
+      "stage": "middle",
+      "aliases": [
+        "博雅实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440103-4ab42b76",
+      "name": "广州市荔湾区同心学校",
+      "stage": "middle",
+      "aliases": [
+        "同心学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440103-e7a8679d",
+      "name": "广州市荔湾区芳华中学",
+      "stage": "middle",
+      "aliases": [
+        "芳华初级中学",
+        "芳华中学"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440103-c5a0baa6",
+      "name": "广州市荔湾区荔广实验学校",
+      "stage": "middle",
+      "aliases": [
+        "荔广实验学校",
+        "荔广实验"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440103-d78c848a",
+      "name": "广州市西关培英中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440103-41cb6344",
+      "name": "广州市西关培英中学(西校区)",
       "stage": "middle",
       "aliases": []
     },
@@ -6801,102 +7037,14 @@
       ]
     },
     {
-      "school_id": "gz-440103-dfff68f2",
-      "name": "西关外国语学校初中部(彩虹桥校区)",
-      "stage": "middle",
-      "aliases": [
-        "西关外国语学校彩虹桥校区",
-        "西关外国语学校初中部"
-      ]
-    },
-    {
-      "school_id": "gz-440103-9b3ba6d8",
-      "name": "广州市真光中学初中部实验校区",
-      "stage": "middle",
-      "aliases": [
-        "真光实验"
-      ]
-    },
-    {
-      "school_id": "gz-440103-042e23a5",
-      "name": "广州市真光中学(岭南校区)",
-      "stage": "middle",
-      "aliases": [
-        "真光中学初中部岭南校区"
-      ]
-    },
-    {
-      "school_id": "gz-440103-2c188507",
-      "name": "广州市真光中学东漖学校",
-      "stage": "middle",
-      "aliases": [
-        "真光东漖"
-      ]
-    },
-    {
-      "school_id": "gz-440103-958c2ab9",
-      "name": "广州市第四中学花地学校",
+      "school_id": "gz-440103-df535585",
+      "name": "广州市西关外国语学校文昌南校区",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440103-55453ba4",
-      "name": "广州市真光中学文伟学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440103-c0d6f9a0",
-      "name": "广州市第四中学(逸园校区)",
-      "stage": "middle",
-      "aliases": [
-        "第四中学初中逸园校区",
-        "四中逸园"
-      ]
-    },
-    {
-      "school_id": "gz-440103-f05eda96",
-      "name": "广州市第一中学红岩学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440103-4bb96190",
-      "name": "广州市真光中学(芳花校区)",
-      "stage": "middle",
-      "aliases": [
-        "真光中学初中部芳花校区"
-      ]
-    },
-    {
-      "school_id": "gz-440103-e7a8679d",
-      "name": "广州市荔湾区芳华中学",
-      "stage": "middle",
-      "aliases": [
-        "芳华初级中学",
-        "芳华中学"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440103-bb7f78f0",
-      "name": "广东广雅中学(荔湾校区)",
-      "stage": "middle",
-      "aliases": [
-        "广东广雅中学"
-      ]
-    },
-    {
-      "school_id": "gz-440103-a3ee807c",
-      "name": "广州市培英中学(鹤洞校区)",
-      "stage": "middle",
-      "aliases": [
-        "培英中学"
-      ]
-    },
-    {
-      "school_id": "gz-440103-d78c848a",
-      "name": "广州市西关培英中学",
+      "school_id": "gz-440103-9870a631",
+      "name": "广州市西关外国语流花学校",
       "stage": "middle",
       "aliases": []
     },
@@ -6909,152 +7057,82 @@
       ]
     },
     {
-      "school_id": "gz-440103-4cda3f9e",
-      "name": "广州市第四中学(康园校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440103-c9f13fde",
-      "name": "广州市南海中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440103-41cb6344",
-      "name": "广州市西关培英中学(西校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440103-2653da64",
-      "name": "广州市第一中学(姜中宏校区)",
+      "school_id": "gz-440103-6c3ca7d0",
+      "name": "广州荔湾区新苗学校",
       "stage": "middle",
       "aliases": [
-        "第一中学中宏校区",
-        "一中姜中宏"
+        "新苗学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440103-aa6cf7d7",
+      "name": "广州荔湾爱莎国际学校",
+      "stage": "middle",
+      "aliases": [
+        "荔湾爱莎国际学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440103-cc2ff923",
+      "name": "广豪学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440103-815371aa",
+      "name": "荔湾区东沙博雅实验学校",
+      "stage": "middle",
+      "aliases": [
+        "东沙博雅实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440103-b894cbeb",
+      "name": "荔湾区新晖学校",
+      "stage": "middle",
+      "aliases": [
+        "新晖学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440103-dfff68f2",
+      "name": "西关外国语学校初中部(彩虹桥校区)",
+      "stage": "middle",
+      "aliases": [
+        "西关外国语学校彩虹桥校区",
+        "西关外国语学校初中部"
       ]
     },
     {
-      "school_id": "gz-440104-9c6632b1",
-      "name": "广州市第十七中学",
+      "school_id": "gz-440103-693412ae",
+      "name": "西关广雅实验学校(东风西路校区)",
       "stage": "middle",
       "aliases": [
-        "十七中"
+        "荔湾区西关广雅实验学校东风西校区",
+        "西关广雅实验学校东风西校区",
+        "西关广雅东风西"
       ]
     },
     {
-      "school_id": "gz-440104-09652aa5",
-      "name": "广州市铁一中学(越秀校区)",
+      "school_id": "gz-440103-c5d5de44",
+      "name": "西关广雅实验学校(南岸路校区)",
       "stage": "middle",
       "aliases": [
-        "铁一中学"
+        "荔湾区西关广雅实验学校南岸路校区",
+        "西关广雅实验学校"
       ]
     },
     {
-      "school_id": "gz-440104-7f3031fc",
-      "name": "广州市第二中学(应元路校区)",
+      "school_id": "gz-440103-7207525c",
+      "name": "西关广雅实验学校(大坦沙校区)",
       "stage": "middle",
       "aliases": [
-        "第二中学越秀校区",
-        "第二中学",
-        "二中本部"
-      ]
-    },
-    {
-      "school_id": "gz-440104-27ecd0e4",
-      "name": "广州市第十六中学实验学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440104-8964385d",
-      "name": "广州市第十六中学(东湖校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440104-d5f83454",
-      "name": "广州市第七中学实验学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440104-74121d17",
-      "name": "广州市第七中学(初中部)",
-      "stage": "middle",
-      "aliases": [
-        "第七中学本部",
-        "第七中学"
-      ]
-    },
-    {
-      "school_id": "gz-440104-c117279e",
-      "name": "广州市第十六中学东华实验学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440104-819bd7a1",
-      "name": "广州市第十中学",
-      "stage": "middle",
-      "aliases": [
-        "十中"
-      ]
-    },
-    {
-      "school_id": "gz-440104-3b870a8e",
-      "name": "广州市第四中学丰宁学校",
-      "stage": "middle",
-      "aliases": [
-        "丰宁"
-      ]
-    },
-    {
-      "school_id": "gz-440104-099a5868",
-      "name": "广州市第十七中学(西校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440104-7c4a905f",
-      "name": "广东实验中学(越秀校区)",
-      "stage": "middle",
-      "aliases": [
-        "广东实验中学"
-      ]
-    },
-    {
-      "school_id": "gz-440104-191aaa35",
-      "name": "育才中学(东校区)",
-      "stage": "middle",
-      "aliases": [
-        "育才中学本部"
-      ]
-    },
-    {
-      "school_id": "gz-440104-39515a9d",
-      "name": "广州市第三中学实验学校",
-      "stage": "middle",
-      "aliases": [
-        "三中实验"
-      ]
-    },
-    {
-      "school_id": "gz-440104-d9ec2dbb",
-      "name": "广州市第三中学",
-      "stage": "middle",
-      "aliases": [
-        "三中"
-      ]
-    },
-    {
-      "school_id": "gz-440104-f3ca07ff",
-      "name": "广州市执信中学(执信路校区)",
-      "stage": "middle",
-      "aliases": [
-        "执信中学越秀校区",
-        "执信本部"
+        "荔湾区西关广雅实验学校大坦沙校区"
       ]
     },
     {
@@ -7063,41 +7141,6 @@
       "stage": "middle",
       "aliases": [
         "培正本部"
-      ]
-    },
-    {
-      "school_id": "gz-440104-8a1a7b3d",
-      "name": "广州市第十六中学",
-      "stage": "middle",
-      "aliases": [
-        "第十六中学本部"
-      ]
-    },
-    {
-      "school_id": "gz-440104-32444523",
-      "name": "广东实验中学越秀学校(天胜校区)",
-      "stage": "middle",
-      "aliases": [
-        "广东实验中学越秀学校",
-        "省实越秀本部"
-      ]
-    },
-    {
-      "school_id": "gz-440104-7ec82efb",
-      "name": "广州市育才中学(西校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440104-b22c4eca",
-      "name": "广州大学附属中学(黄华路校区)",
-      "stage": "middle",
-      "aliases": [
-        "广州大学附属中学越秀校区",
-        "广州大学附属中学校本部",
-        "广州大学附属中学",
-        "广大附中黄华路",
-        "大学附属中学"
       ]
     },
     {
@@ -7112,14 +7155,155 @@
       ]
     },
     {
+      "school_id": "gz-440104-7c4a905f",
+      "name": "广东实验中学(越秀校区)",
+      "stage": "middle",
+      "aliases": [
+        "广东实验中学"
+      ]
+    },
+    {
+      "school_id": "gz-440104-32444523",
+      "name": "广东实验中学越秀学校(天胜校区)",
+      "stage": "middle",
+      "aliases": [
+        "广东实验中学越秀学校",
+        "省实越秀本部"
+      ]
+    },
+    {
+      "school_id": "gz-440104-b22c4eca",
+      "name": "广州大学附属中学(黄华路校区)",
+      "stage": "middle",
+      "aliases": [
+        "广州大学附属中学越秀校区",
+        "广州大学附属中学校本部",
+        "广州大学附属中学",
+        "广大附中黄华路",
+        "大学附属中学"
+      ]
+    },
+    {
+      "school_id": "gz-440104-10652361",
+      "name": "广州市东风实验学校",
+      "stage": "middle",
+      "aliases": [
+        "东风实验"
+      ]
+    },
+    {
+      "school_id": "gz-440104-68535b94",
+      "name": "广州市八一实验学校(南校区)",
+      "stage": "middle",
+      "aliases": [
+        "八一实验学校",
+        "八一实验"
+      ]
+    },
+    {
+      "school_id": "gz-440104-d972cf95",
+      "name": "广州市华侨外国语学校(华侨新村校区)",
+      "stage": "middle",
+      "aliases": [
+        "华侨外国语学校"
+      ]
+    },
+    {
+      "school_id": "gz-440104-d6c68349",
+      "name": "广州市培正中学矿泉学校",
+      "stage": "middle",
+      "aliases": [
+        "培正矿泉学校",
+        "矿泉中学"
+      ]
+    },
+    {
+      "school_id": "gz-440104-f3ca07ff",
+      "name": "广州市执信中学(执信路校区)",
+      "stage": "middle",
+      "aliases": [
+        "执信中学越秀校区",
+        "执信本部"
+      ]
+    },
+    {
+      "school_id": "gz-440104-1e9bdce3",
+      "name": "广州市执信中学(水荫路校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440104-c77c73b5",
+      "name": "广州市真光学校(长堤校区)",
+      "stage": "middle",
+      "aliases": [
+        "真光学校"
+      ]
+    },
+    {
+      "school_id": "gz-440104-bc48335e",
+      "name": "广州市知用学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440104-74121d17",
+      "name": "广州市第七中学(初中部)",
+      "stage": "middle",
+      "aliases": [
+        "第七中学本部",
+        "第七中学"
+      ]
+    },
+    {
       "school_id": "gz-440104-7b6a95bd",
       "name": "广州市第七中学东山学校",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440104-1e9bdce3",
-      "name": "广州市执信中学(水荫路校区)",
+      "school_id": "gz-440104-d5f83454",
+      "name": "广州市第七中学实验学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440104-d9ec2dbb",
+      "name": "广州市第三中学",
+      "stage": "middle",
+      "aliases": [
+        "三中"
+      ]
+    },
+    {
+      "school_id": "gz-440104-39515a9d",
+      "name": "广州市第三中学实验学校",
+      "stage": "middle",
+      "aliases": [
+        "三中实验"
+      ]
+    },
+    {
+      "school_id": "gz-440104-7f3031fc",
+      "name": "广州市第二中学(应元路校区)",
+      "stage": "middle",
+      "aliases": [
+        "第二中学越秀校区",
+        "第二中学",
+        "二中本部"
+      ]
+    },
+    {
+      "school_id": "gz-440104-9c6632b1",
+      "name": "广州市第十七中学",
+      "stage": "middle",
+      "aliases": [
+        "十七中"
+      ]
+    },
+    {
+      "school_id": "gz-440104-099a5868",
+      "name": "广州市第十七中学(西校区)",
       "stage": "middle",
       "aliases": []
     },
@@ -7133,49 +7317,121 @@
       ]
     },
     {
-      "school_id": "gz-440104-d6c68349",
-      "name": "广州市培正中学矿泉学校",
+      "school_id": "gz-440104-819bd7a1",
+      "name": "广州市第十中学",
       "stage": "middle",
       "aliases": [
-        "培正矿泉学校",
-        "矿泉中学"
+        "十中"
       ]
     },
     {
-      "school_id": "gz-440105-ed868139",
-      "name": "广州市第九十七中学(江南新苑校区)",
+      "school_id": "gz-440104-8a1a7b3d",
+      "name": "广州市第十六中学",
+      "stage": "middle",
+      "aliases": [
+        "第十六中学本部"
+      ]
+    },
+    {
+      "school_id": "gz-440104-8964385d",
+      "name": "广州市第十六中学(东湖校区)",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440105-f0712355",
-      "name": "广州市第九十七中学",
+      "school_id": "gz-440104-c117279e",
+      "name": "广州市第十六中学东华实验学校",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440105-e76b659d",
-      "name": "广州市海珠外国语实验中学",
+      "school_id": "gz-440104-27ecd0e4",
+      "name": "广州市第十六中学实验学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440104-3b870a8e",
+      "name": "广州市第四中学丰宁学校",
       "stage": "middle",
       "aliases": [
-        "海珠实验中学",
-        "海实"
+        "丰宁"
       ]
     },
     {
-      "school_id": "gz-440105-cac39935",
-      "name": "广州市执信中学琶洲实验学校",
+      "school_id": "gz-440104-7ec82efb",
+      "name": "广州市育才中学(西校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440104-cc4aa5b8",
+      "name": "广州市越秀区名德实验学校",
       "stage": "middle",
       "aliases": [
-        "琶洲执信"
+        "名德实验学校",
+        "名德实验"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440104-ff8d7e05",
+      "name": "广州市越秀区育才实验学校",
+      "stage": "middle",
+      "aliases": [
+        "育才实验学校",
+        "育才实验"
       ]
     },
     {
-      "school_id": "gz-440105-eaf414df",
-      "name": "广州市南武中学",
+      "school_id": "gz-440104-09652aa5",
+      "name": "广州市铁一中学(越秀校区)",
       "stage": "middle",
       "aliases": [
-        "南武初中本部"
+        "铁一中学"
+      ]
+    },
+    {
+      "school_id": "gz-440104-4d39b625",
+      "name": "广州海印实验学校",
+      "stage": "middle",
+      "aliases": [
+        "海印实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440104-191aaa35",
+      "name": "育才中学(东校区)",
+      "stage": "middle",
+      "aliases": [
+        "育才中学本部"
+      ]
+    },
+    {
+      "school_id": "gz-440104-1f2d5df9",
+      "name": "越秀区汇泉学校",
+      "stage": "middle",
+      "aliases": [
+        "汇泉学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440104-db01d10e",
+      "name": "雄鹰学校",
+      "stage": "middle",
+      "aliases": [
+        "越秀区雄鹰学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440105-e363a214",
+      "name": "中山大学附属中学",
+      "stage": "middle",
+      "aliases": [
+        "中大附中"
       ]
     },
     {
@@ -7187,58 +7443,42 @@
       ]
     },
     {
-      "school_id": "gz-440105-a34bf4d7",
-      "name": "广州市聚德中学",
+      "school_id": "gz-440105-9a6566db",
+      "name": "华海双语学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440105-6ee54f1d",
+      "name": "南武实验学校",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440105-06e6439a",
-      "name": "广州市海珠外国语实验中学附属学校",
+      "school_id": "gz-440105-f88edb06",
+      "name": "广东实验中学琶洲学校",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440105-53bc2299",
-      "name": "黄埔中学",
+      "school_id": "gz-440105-256ba9d6",
+      "name": "广州市九十七中蓝天学校",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440105-fbd67149",
-      "name": "广州市景中实验中学",
+      "school_id": "gz-440105-dc2408b3",
+      "name": "广州市五中东晓学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440105-06994d39",
+      "name": "广州市五中滨江学校(远安校区)",
       "stage": "middle",
       "aliases": [
-        "赤岗中学",
-        "景中"
-      ]
-    },
-    {
-      "school_id": "gz-440105-83f38819",
-      "name": "广州市第九十七中学晓园学校",
-      "stage": "middle",
-      "aliases": [
-        "九十七中晓园学校",
-        "晓园中学"
-      ]
-    },
-    {
-      "school_id": "gz-440105-352e2fc7",
-      "name": "广州市第二十六中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440105-cb432890",
-      "name": "海珠区六中珠江中学",
-      "stage": "middle",
-      "aliases": [
-        "海珠区六中珠江中学逸景校区",
-        "六中珠江中学逸景校区",
-        "六中珠江鹭江校区",
-        "六中珠江鹭江",
-        "六中逸景校区",
-        "六中逸景"
+        "五中滨江学校"
       ]
     },
     {
@@ -7256,12 +7496,18 @@
       ]
     },
     {
-      "school_id": "gz-440105-003f2037",
-      "name": "广州市新滘中学(贵荣校区)",
+      "school_id": "gz-440105-eaf414df",
+      "name": "广州市南武中学",
       "stage": "middle",
       "aliases": [
-        "新滘中学"
+        "南武初中本部"
       ]
+    },
+    {
+      "school_id": "gz-440105-dd2723fc",
+      "name": "广州市南武中学(岭南画派纪念校区)",
+      "stage": "middle",
+      "aliases": []
     },
     {
       "school_id": "gz-440105-77baeea5",
@@ -7272,68 +7518,93 @@
       ]
     },
     {
+      "school_id": "gz-440105-96460a76",
+      "name": "广州市南武第二实验学校(北校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440105-9da3d734",
+      "name": "广州市南武第二实验学校(南校区)",
+      "stage": "middle",
+      "aliases": [
+        "南武第二实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440105-cac39935",
+      "name": "广州市执信中学琶洲实验学校",
+      "stage": "middle",
+      "aliases": [
+        "琶洲执信"
+      ]
+    },
+    {
       "school_id": "gz-440105-2f31776e",
       "name": "广州市新滘中学(土华校区)",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440105-a1ae8780",
-      "name": "康乐中学",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440105-455eaa08",
-      "name": "广州市第七十八中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440105-12b49e3f",
-      "name": "广州市第六中学",
+      "school_id": "gz-440105-003f2037",
+      "name": "广州市新滘中学(贵荣校区)",
       "stage": "middle",
       "aliases": [
-        "六中本部初中"
+        "新滘中学"
       ]
     },
     {
-      "school_id": "gz-440105-0ffca7e3",
-      "name": "广州市第五中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440105-443b73e7",
-      "name": "海珠中学",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440105-e363a214",
-      "name": "中山大学附属中学",
+      "school_id": "gz-440105-fbd67149",
+      "name": "广州市景中实验中学",
       "stage": "middle",
       "aliases": [
-        "中大附中"
+        "赤岗中学",
+        "景中"
       ]
     },
     {
-      "school_id": "gz-440105-dd2723fc",
-      "name": "广州市南武中学(岭南画派纪念校区)",
+      "school_id": "gz-440105-ca292b2b",
+      "name": "广州市江南外国语学校(北校区)",
+      "stage": "middle",
+      "aliases": [
+        "江南外国语学校"
+      ]
+    },
+    {
+      "school_id": "gz-440105-f8dbd57c",
+      "name": "广州市江南外国语学校(南校区)",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440105-40a80ebb",
-      "name": "广州市第四十一中学",
+      "school_id": "gz-440105-44b3dc01",
+      "name": "广州市海珠区南武文润学校",
       "stage": "middle",
-      "aliases": []
+      "aliases": [
+        "南武文润学校"
+      ]
     },
     {
-      "school_id": "gz-440105-f88edb06",
-      "name": "广东实验中学琶洲学校",
+      "school_id": "gz-440105-0c78a8e1",
+      "name": "广州市海珠区育华学校",
+      "stage": "middle",
+      "aliases": [
+        "育华学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440105-e76b659d",
+      "name": "广州市海珠外国语实验中学",
+      "stage": "middle",
+      "aliases": [
+        "海珠实验中学",
+        "海实"
+      ]
+    },
+    {
+      "school_id": "gz-440105-06e6439a",
+      "name": "广州市海珠外国语实验中学附属学校",
       "stage": "middle",
       "aliases": []
     },
@@ -7346,109 +7617,139 @@
       ]
     },
     {
-      "school_id": "gz-440106-867e6c05",
-      "name": "广州中学(五山校区)",
-      "stage": "middle",
-      "aliases": [
-        "广州中学本部五山",
-        "广州中学"
-      ]
-    },
-    {
-      "school_id": "gz-440106-ef4076c1",
-      "name": "广州市第十八中学",
-      "stage": "middle",
-      "aliases": [
-        "广州市第18中学"
-      ]
-    },
-    {
-      "school_id": "gz-440106-2f8a4424",
-      "name": "广州市天河中学(天河东路校区)",
-      "stage": "middle",
-      "aliases": [
-        "天河中学"
-      ]
-    },
-    {
-      "school_id": "gz-440106-b7d476f7",
-      "name": "骏景中学",
+      "school_id": "gz-440105-455eaa08",
+      "name": "广州市第七十八中学",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440106-8b3ee7d2",
-      "name": "广州市天河中学猎德实验学校",
+      "school_id": "gz-440105-f0712355",
+      "name": "广州市第九十七中学",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440106-7077b270",
-      "name": "广州市长兴中学",
+      "school_id": "gz-440105-ed868139",
+      "name": "广州市第九十七中学(江南新苑校区)",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440106-22156e02",
-      "name": "广州市泰安中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440106-3a61d518",
-      "name": "广州市第十八中学车陂校区",
+      "school_id": "gz-440105-83f38819",
+      "name": "广州市第九十七中学晓园学校",
       "stage": "middle",
       "aliases": [
-        "广州市第18中学"
+        "九十七中晓园学校",
+        "晓园中学"
       ]
     },
     {
-      "school_id": "gz-440106-cc1c335f",
-      "name": "同仁艺体实验中学",
+      "school_id": "gz-440105-352e2fc7",
+      "name": "广州市第二十六中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440105-0ffca7e3",
+      "name": "广州市第五中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440105-12b49e3f",
+      "name": "广州市第六中学",
+      "stage": "middle",
+      "aliases": [
+        "六中本部初中"
+      ]
+    },
+    {
+      "school_id": "gz-440105-40a80ebb",
+      "name": "广州市第四十一中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440105-41b48384",
+      "name": "广州市绿翠现代实验学校滨江校区",
+      "stage": "middle",
+      "aliases": [
+        "绿翠现代实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440105-a34bf4d7",
+      "name": "广州市聚德中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440105-a630438a",
+      "name": "广州海珠华洲实验学校",
+      "stage": "middle",
+      "aliases": [
+        "海珠华洲实验学校",
+        "华洲实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440105-a1ae8780",
+      "name": "康乐中学",
       "stage": "middle",
       "aliases": [],
       "nature": "民办"
     },
     {
-      "school_id": "gz-440106-5a7fbf3a",
-      "name": "广州市第七十五中学(燕塘西校区)",
+      "school_id": "gz-440105-443b73e7",
+      "name": "海珠中学",
       "stage": "middle",
-      "aliases": [
-        "广州市第75中学",
-        "第七十五中学"
-      ]
-    },
-    {
-      "school_id": "gz-440106-b0d40cc4",
-      "name": "南国学校(中学部)",
-      "stage": "middle",
-      "aliases": [
-        "南国学校"
-      ]
-    },
-    {
-      "school_id": "gz-440106-11e15e8d",
-      "name": "暨南大学附属中学",
-      "stage": "middle",
-      "aliases": [
-        "暨南大学附属实验学校初中部",
-        "暨南大学附属实验学校",
-        "暨南第一实验学校",
-        "暨大附中"
-      ]
-    },
-    {
-      "school_id": "gz-440106-fd03e039",
-      "name": "天河区成龙中学",
-      "stage": "middle",
-      "aliases": [
-        "成龙中学"
-      ],
+      "aliases": [],
       "nature": "民办"
     },
     {
-      "school_id": "gz-440106-b9eb24f9",
-      "name": "天泽中学",
+      "school_id": "gz-440105-cb432890",
+      "name": "海珠区六中珠江中学",
+      "stage": "middle",
+      "aliases": [
+        "海珠区六中珠江中学逸景校区",
+        "六中珠江中学逸景校区",
+        "六中珠江鹭江校区",
+        "六中珠江鹭江",
+        "六中逸景校区",
+        "六中逸景"
+      ]
+    },
+    {
+      "school_id": "gz-440105-53bc2299",
+      "name": "黄埔中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440106-9abdc5fd",
+      "name": "东泰学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440106-24ff78f9",
+      "name": "东风学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440106-0c83a9b2",
+      "name": "兴华培智学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440106-ae248365",
+      "name": "凤凰中学",
       "stage": "middle",
       "aliases": [],
       "nature": "民办"
@@ -7472,41 +7773,25 @@
       ]
     },
     {
-      "school_id": "gz-440106-621b20d3",
-      "name": "广州市第七十五中学(天平架校区)",
+      "school_id": "gz-440106-b0d40cc4",
+      "name": "南国学校(中学部)",
       "stage": "middle",
       "aliases": [
-        "广州市第75中学"
+        "南国学校"
       ]
     },
     {
-      "school_id": "gz-440106-d40d0dbe",
-      "name": "广州市奥林匹克中学(黄村西路校区)",
+      "school_id": "gz-440106-77787b4a",
+      "name": "同仁实验学校小学部",
       "stage": "middle",
-      "aliases": [
-        "广州奥林匹克中学",
-        "东圃中学"
-      ]
+      "aliases": [],
+      "nature": "民办"
     },
     {
-      "school_id": "gz-440106-2e9f6f7b",
-      "name": "广州市第一一三中学(乐学校区)",
+      "school_id": "gz-440106-cc1c335f",
+      "name": "同仁艺体实验中学",
       "stage": "middle",
-      "aliases": [
-        "广州市第113中学",
-        "113中学五山本部",
-        "第一一三中学"
-      ]
-    },
-    {
-      "school_id": "gz-440106-bd07878c",
-      "name": "广州市天河区华实学校初中部",
-      "stage": "middle",
-      "aliases": [
-        "华实学校初中部",
-        "天河区华实学校",
-        "华实学校"
-      ],
+      "aliases": [],
       "nature": "民办"
     },
     {
@@ -7517,1525 +7802,8 @@
       "nature": "民办"
     },
     {
-      "school_id": "gz-440106-458838f7",
-      "name": "广州市第十二中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440106-22fcbcd6",
-      "name": "执信中学(天河校区)",
-      "stage": "middle",
-      "aliases": [
-        "执信中学"
-      ]
-    },
-    {
-      "school_id": "gz-440106-8f55ab34",
-      "name": "广州市第八十九中学",
-      "stage": "middle",
-      "aliases": [
-        "第89中学"
-      ]
-    },
-    {
-      "school_id": "gz-440106-0eb93435",
-      "name": "广东实验中学天河学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440106-fa9338a2",
-      "name": "广州奥林匹克中学(智谷校区)",
-      "stage": "middle",
-      "aliases": [
-        "广州奥林匹克中学含智谷校区"
-      ]
-    },
-    {
-      "school_id": "gz-440106-b049d65a",
-      "name": "广州市第一一三中学(东方校区)",
-      "stage": "middle",
-      "aliases": [
-        "广州市第113中学"
-      ]
-    },
-    {
-      "school_id": "gz-440106-90c47ff5",
-      "name": "天荣中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440106-a989804b",
-      "name": "广州中学(名雅校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440106-7c81ab92",
-      "name": "广州市第一一三中学陶育实验学校(暨南校区)",
-      "stage": "middle",
-      "aliases": [
-        "第一一三中学陶育实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440106-dd16c13e",
-      "name": "广州市天河中学(花城校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440106-ae248365",
-      "name": "凤凰中学",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440106-f7cdfb7e",
-      "name": "广州中学教育集团(天润校区)",
-      "stage": "middle",
-      "aliases": [
-        "中学教育集团"
-      ]
-    },
-    {
-      "school_id": "gz-440111-35536ebb",
-      "name": "颜乐天纪念中学",
-      "stage": "middle",
-      "aliases": [
-        "白云区颜乐天纪念中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-7e484346",
-      "name": "广东外语外贸大学实验中学",
-      "stage": "middle",
-      "aliases": [
-        "广外附中"
-      ]
-    },
-    {
-      "school_id": "gz-440111-0ba9a45f",
-      "name": "同和中学",
-      "stage": "middle",
-      "aliases": [
-        "白云区同和中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-b4e0e849",
-      "name": "广州培文外国语学校初中部",
-      "stage": "middle",
-      "aliases": [
-        "白云区广州培文外国语学校",
-        "培文外国语学校初中部",
-        "广州培文外国语学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-b95f2597",
-      "name": "广大附中实验中学(星汇金沙校区)",
-      "stage": "middle",
-      "aliases": [
-        "白云区广大附中实验中学",
-        "广大附中实验中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-048815b3",
-      "name": "景泰中学",
-      "stage": "middle",
-      "aliases": [
-        "白云区景泰中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-06bfc806",
-      "name": "广州市白云区太和中学",
-      "stage": "middle",
-      "aliases": [
-        "太和中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-e337711a",
-      "name": "广州市第六十七中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-f751344d",
-      "name": "广东外语外贸大学实验中学(北校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-b5668c2e",
-      "name": "广州市第一一五中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-4cf10429",
-      "name": "广州市第六十五中学桃园校区",
-      "stage": "middle",
-      "aliases": [
-        "桃园中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-2d42f392",
-      "name": "培英实验学校(云景校区)初中部",
-      "stage": "middle",
-      "aliases": [
-        "白云区培英实验学校云景校区",
-        "培英实验学校云景校区",
-        "培英实验学校初中部"
-      ]
-    },
-    {
-      "school_id": "gz-440111-6becf87b",
-      "name": "广州市白云区神山中学",
-      "stage": "middle",
-      "aliases": [
-        "神山中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-4c9a3eaa",
-      "name": "龙归学校(初中部)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-ea6a6495",
-      "name": "广园中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-6b0e6f77",
-      "name": "白云区六中实验中学(福和校区)",
-      "stage": "middle",
-      "aliases": [
-        "六中实验中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-a072aeb7",
-      "name": "广州市白云区梓元岗中学",
-      "stage": "middle",
-      "aliases": [
-        "梓元岗中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-0078267c",
-      "name": "广大附中实验中学(南校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-0f9c1ce8",
-      "name": "广州市第一一四中学(亭石南路)",
-      "stage": "middle",
-      "aliases": [
-        "第一一四中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-f3edc7ba",
-      "name": "广州市白云区新市中学",
-      "stage": "middle",
-      "aliases": [
-        "新市中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-4ab20f44",
-      "name": "白云六中实验中学(空港校区)",
-      "stage": "middle",
-      "aliases": [
-        "白云区六中实验中学空港校区",
-        "六中实验中学空港校区",
-        "白云六中实验中学",
-        "人和二中"
-      ]
-    },
-    {
-      "school_id": "gz-440111-c8461d5d",
-      "name": "广州市第六十五中学初中部(明德校区)",
-      "stage": "middle",
-      "aliases": [
-        "第六十五中学明德校区、同德校区",
-        "第六十五中学明德校区",
-        "第六十五中学初中部"
-      ]
-    },
-    {
-      "school_id": "gz-440111-a7294ae4",
-      "name": "广州成龙教育集团白云区成龙中学",
-      "stage": "middle",
-      "aliases": [
-        "成龙教育集团白云区成龙中学",
-        "白云区成龙中学",
-        "成龙中学"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-20c36515",
-      "name": "广州市第七十中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-b2b78162",
-      "name": "竹料第三中学",
-      "stage": "middle",
-      "aliases": [
-        "白云区竹料第三中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-63a7bd1d",
-      "name": "广州大同中学(初中部)",
-      "stage": "middle",
-      "aliases": [
-        "广州大同中学",
-        "大同中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-4e13c7d6",
-      "name": "广州彭加木纪念中学(初中部)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-1b7d3f87",
-      "name": "广州市白云中学(汇侨校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-2186a02a",
-      "name": "广州市白云区景泰中学白云湖校区",
-      "stage": "middle",
-      "aliases": [
-        "白云区景泰中学分校区原白云区南悦中学",
-        "景泰中学分校区原白云区南悦中学",
-        "景泰中学白云湖校区",
-        "白云区景泰中学",
-        "景泰中学",
-        "南悦中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-96d35d17",
-      "name": "广州市第七十三中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-d3ffec78",
-      "name": "广东技术师范大学白云实验中学",
-      "stage": "middle",
-      "aliases": [
-        "白云区江高镇第二初级中学",
-        "江高镇第二初级中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-292274e7",
-      "name": "黄石学校(中学部)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-014a9fb2",
-      "name": "广东第二师范学院实验中学(初中部)",
-      "stage": "middle",
-      "aliases": [
-        "广东第二师范学院实验中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-0cf700fb",
-      "name": "广州空港实验中学(东校区)",
-      "stage": "middle",
-      "aliases": [
-        "白云区广州空港实验中学东校区"
-      ]
-    },
-    {
-      "school_id": "gz-440111-2667c5ae",
-      "name": "元培实验中学",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-78d61733",
-      "name": "广州市白云区竹料第一中学北校区",
-      "stage": "middle",
-      "aliases": [
-        "竹料第一中学北校区",
-        "白云区竹料第一中学",
-        "竹料第一中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-6271c94b",
-      "name": "广州市培英中学(岭南校区)",
-      "stage": "middle",
-      "aliases": [
-        "培英中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-6782d2c7",
-      "name": "广州云雅实验学校初中部",
-      "stage": "middle",
-      "aliases": [
-        "云雅实验学校初中部",
-        "白云区云雅实验学校",
-        "云雅实验学校",
-        "云雅实验"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-81f3c313",
-      "name": "华赋学校北校区初中部",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-5c7a7c4a",
-      "name": "广州市白云区民航学校(初中部)",
-      "stage": "middle",
-      "aliases": [
-        "白云区民航学校",
-        "民航学校"
-      ]
-    },
-    {
-      "school_id": "gz-440111-2ed8a6e2",
-      "name": "广州市白云区星悦实验学校(初中部)",
-      "stage": "middle",
-      "aliases": [
-        "星悦实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440111-cc803935",
-      "name": "广州市白云区大朗中学",
-      "stage": "middle",
-      "aliases": [
-        "大朗中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-a3cf5a4f",
-      "name": "广东实验中学(白云校区)",
-      "stage": "middle",
-      "aliases": [
-        "广东实验中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-28c16cca",
-      "name": "广州市铁一中学(白云校区)",
-      "stage": "middle",
-      "aliases": [
-        "铁一中学白云校区初中部",
-        "铁一中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-99d97ada",
-      "name": "广东华侨中学(金沙洲校区)",
-      "stage": "middle",
-      "aliases": [
-        "广东华侨中学白云校区",
-        "广东华侨中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-d2a4a882",
-      "name": "嘉禾中学",
-      "stage": "middle",
-      "aliases": [
-        "白云区嘉禾中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-b50dea4b",
-      "name": "广州市第六十六中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-d28d78f9",
-      "name": "广州彭加木纪念中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-82856abf",
-      "name": "广州市第七中学(桂花校区)",
-      "stage": "middle",
-      "aliases": [
-        "第七中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-297970b9",
-      "name": "石井中学",
-      "stage": "middle",
-      "aliases": [
-        "白云区石井中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-c7b90869",
-      "name": "广州市第六十五中学(同德校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-d4c4285e",
-      "name": "广州空港实验中学(校本部)",
-      "stage": "middle",
-      "aliases": [
-        "白云区广州空港实验中学本部",
-        "广州空港实验中学本部"
-      ]
-    },
-    {
-      "school_id": "gz-440111-e74c2e1d",
-      "name": "广州市白云中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-4ebb4316",
-      "name": "广州市第六十五中学(江府校区)",
-      "stage": "middle",
-      "aliases": [
-        "六十五中学江府校区"
-      ]
-    },
-    {
-      "school_id": "gz-440111-6782f041",
-      "name": "广州市白云中学(棠景校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-0fe2a45d",
-      "name": "龙江中学",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-609bfcf4",
-      "name": "江村中学",
-      "stage": "middle",
-      "aliases": [
-        "白云区江村中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-150715c8",
-      "name": "广州空港实验中学(建南校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-fd1c1c12",
-      "name": "竹料第一中学",
-      "stage": "middle",
-      "aliases": [
-        "白云区竹料第一中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-aca6656a",
-      "name": "白云区珠江中学",
-      "stage": "middle",
-      "aliases": [
-        "珠江中学"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440112-8b4292d7",
-      "name": "广州科学城中学",
-      "stage": "middle",
-      "aliases": [
-        "科学城中学"
-      ]
-    },
-    {
-      "school_id": "gz-440112-4d96554f",
-      "name": "广州市第一一七中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-b5b864ba",
-      "name": "广州市黄埔军校中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-3f877ace",
-      "name": "广州知识城中学(北校区)",
-      "stage": "middle",
-      "aliases": [
-        "广州知识城中学",
-        "知识城中学"
-      ]
-    },
-    {
-      "school_id": "gz-440112-8edaa2d8",
-      "name": "广州石化中学",
-      "stage": "middle",
-      "aliases": [
-        "石化中学"
-      ]
-    },
-    {
-      "school_id": "gz-440112-83167af8",
-      "name": "港湾中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-c7cfbe14",
-      "name": "广州市第一二三中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-cbfb4b61",
-      "name": "广州开发区中学",
-      "stage": "middle",
-      "aliases": [
-        "开发区中学"
-      ]
-    },
-    {
-      "school_id": "gz-440112-550a5ae8",
-      "name": "广州市黄埔区东区中学",
-      "stage": "middle",
-      "aliases": [
-        "东区中学"
-      ]
-    },
-    {
-      "school_id": "gz-440112-632bcdb7",
-      "name": "广州市黄埔区新港中学",
-      "stage": "middle",
-      "aliases": [
-        "新港中学"
-      ]
-    },
-    {
-      "school_id": "gz-440112-ee49f05d",
-      "name": "双沙中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-e3746d8c",
-      "name": "广大附中高新区实验学校(初中部)",
-      "stage": "middle",
-      "aliases": [
-        "广大附中高新区实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440112-ec15555e",
-      "name": "广州知识城中学(南校区)",
-      "stage": "middle",
-      "aliases": [
-        "九佛第二中学"
-      ]
-    },
-    {
-      "school_id": "gz-440112-5b78d24b",
-      "name": "广州市黄埔区丰乐初级中学",
-      "stage": "middle",
-      "aliases": [
-        "丰乐初级中学"
-      ]
-    },
-    {
-      "school_id": "gz-440112-43108516",
-      "name": "广州市第八十六中学初中部",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-06029745",
-      "name": "广州市第八十六中学分校",
-      "stage": "middle",
-      "aliases": [
-        "八十六中初中本部"
-      ]
-    },
-    {
-      "school_id": "gz-440112-674f4721",
-      "name": "黄埔军校纪念中学",
-      "stage": "middle",
-      "aliases": [
-        "黄埔军校纪念中学南校区"
-      ]
-    },
-    {
-      "school_id": "gz-440112-ccf82991",
-      "name": "镇龙第二中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-9366e19f",
-      "name": "广州市第八十八中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-96610f39",
-      "name": "广东省教育研究院黄埔实验学校初中部",
-      "stage": "middle",
-      "aliases": [
-        "广东省教育研究院黄埔实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440112-ff5acfd5",
-      "name": "玉岩中学",
-      "stage": "middle",
-      "aliases": [
-        "玉岩初中"
-      ]
-    },
-    {
-      "school_id": "gz-440112-3847727f",
-      "name": "华南师范大学附属中学(知识城校区)",
-      "stage": "middle",
-      "aliases": [
-        "华南师范大学附属中学",
-        "华附知识城初中"
-      ]
-    },
-    {
-      "school_id": "gz-440112-0cb5a402",
-      "name": "广州市第八十六中学",
-      "stage": "middle",
-      "aliases": [
-        "八十六中学"
-      ]
-    },
-    {
-      "school_id": "gz-440112-87f27cf4",
-      "name": "广州实验中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-12747882",
-      "name": "广州市黄埔军校纪念中学(北校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-badbc2ab",
-      "name": "广州知识城中学(东校区)",
-      "stage": "middle",
-      "aliases": [
-        "九佛中学"
-      ]
-    },
-    {
-      "school_id": "gz-440112-0946f5ef",
-      "name": "玉泉学校-中学部",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-15d63ae7",
-      "name": "玉岩中学附属开发区实验学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-8f5e4721",
-      "name": "广州大学附属中学(大学城校区)",
-      "stage": "middle",
-      "aliases": [
-        "广州大学附属中学番禺校区",
-        "大学附属中学",
-        "大学城广附"
-      ]
-    },
-    {
-      "school_id": "gz-440113-337c0524",
-      "name": "广州南方学院番禺附属中学",
-      "stage": "middle",
-      "aliases": [
-        "南方学院番禺附属中学"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-e7ca2b33",
-      "name": "洛溪新城中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-2570c29b",
-      "name": "广州市番禺区大龙中学",
-      "stage": "middle",
-      "aliases": [
-        "大龙中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-527391ff",
-      "name": "石碁中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-37f452f3",
-      "name": "星海中学",
-      "stage": "middle",
-      "aliases": [
-        "市桥星海中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-cbaa8160",
-      "name": "南村中学",
-      "stage": "middle",
-      "aliases": [
-        "南村中学初中部"
-      ]
-    },
-    {
-      "school_id": "gz-440113-7f18cc62",
-      "name": "桥城中学",
-      "stage": "middle",
-      "aliases": [
-        "市桥桥城中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-0b275c37",
-      "name": "大石中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-24ea052e",
-      "name": "市桥桥兴中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-9fa97423",
-      "name": "石碁第四中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-1b12edfd",
-      "name": "象圣中学",
-      "stage": "middle",
-      "aliases": [
-        "市桥象圣中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-6a13dc63",
-      "name": "广东第二师范学院番禺附属初级中学",
-      "stage": "middle",
-      "aliases": [
-        "广东第二师范学院番禺附属初中",
-        "二师番禺附中",
-        "番禺二师附中"
-      ]
-    },
-    {
-      "school_id": "gz-440113-db326e94",
-      "name": "华南碧桂园学校(中学部)",
-      "stage": "middle",
-      "aliases": [
-        "番禺区华南碧桂园学校",
-        "华南碧桂园学校",
-        "华碧"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-b2a39869",
-      "name": "象达中学",
-      "stage": "middle",
-      "aliases": [
-        "沙湾象达中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-b5ff857b",
-      "name": "广东仲元中学附属学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-eab4ae0e",
-      "name": "富丽中学",
-      "stage": "middle",
-      "aliases": [
-        "大石富丽中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-76992454",
-      "name": "洛浦中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-f744f14a",
-      "name": "沙滘中学",
-      "stage": "middle",
-      "aliases": [
-        "洛浦沙滘中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-a0992d0c",
-      "name": "南村侨联中学",
-      "stage": "middle",
-      "aliases": [
-        "南村镇侨联中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-eca20a50",
-      "name": "化龙中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-303a40d7",
-      "name": "钟村中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-67864b8b",
-      "name": "石楼第二中学",
-      "stage": "middle",
-      "aliases": [
-        "石楼镇第二中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-db61be15",
-      "name": "广州市番禺区育龙中学",
-      "stage": "middle",
-      "aliases": [
-        "育龙中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-51a65e7c",
-      "name": "象骏中学",
-      "stage": "middle",
-      "aliases": [
-        "沙湾象骏中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-3d5242b3",
-      "name": "莲花山中学",
-      "stage": "middle",
-      "aliases": [
-        "石楼镇莲花山中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-6426397c",
-      "name": "番禺区洛浦厦滘学校中学部",
-      "stage": "middle",
-      "aliases": [
-        "洛浦厦滘学校中学部",
-        "番禺区洛浦厦滘学校",
-        "洛浦厦滘学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-f543c46b",
-      "name": "侨联中学",
-      "stage": "middle",
-      "aliases": [
-        "市桥侨联中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-95be9ccc",
-      "name": "番禺中学实验学校",
-      "stage": "middle",
-      "aliases": [
-        "广东番禺中学实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440113-badb274e",
-      "name": "沙头中学",
-      "stage": "middle",
-      "aliases": [
-        "市桥沙头中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-c07e3ddb",
-      "name": "祈福毓贤学校初中部(毓正小学校区)",
-      "stage": "middle",
-      "aliases": [
-        "祈福毓贤学校初中部",
-        "毓贤学校"
-      ]
-    },
-    {
-      "school_id": "gz-440113-35b56f40",
-      "name": "广州大学城初级中学",
-      "stage": "middle",
-      "aliases": [
-        "大学城初级中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-94c76638",
-      "name": "广州市番禺区广铁一中铁英学校(西校区)",
-      "stage": "middle",
-      "aliases": [
-        "番禺区广铁一中铁英学校",
-        "广铁一中铁英学校"
-      ]
-    },
-    {
-      "school_id": "gz-440113-5f62f75c",
-      "name": "广东番禺中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-fe0cfa1f",
-      "name": "象贤中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-6dbdc462",
-      "name": "广东仲元中学(第二校区)",
-      "stage": "middle",
-      "aliases": [
-        "广东仲元中学二校区初中部"
-      ]
-    },
-    {
-      "school_id": "gz-440113-809482e2",
-      "name": "石北中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-83a6a219",
-      "name": "广东第二师范学院番禺附属中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-acf92324",
-      "name": "广东仲元中学",
-      "stage": "middle",
-      "aliases": [
-        "广东仲元中学一校区初中部",
-        "仲元初中部"
-      ]
-    },
-    {
-      "school_id": "gz-440113-e121d1b3",
-      "name": "番禺实验中学",
-      "stage": "middle",
-      "aliases": [
-        "番禺区实验中学",
-        "实验中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-53650c78",
-      "name": "广东番禺中学附属学校",
-      "stage": "middle",
-      "aliases": [
-        "番附番禺中学附属",
-        "番附"
-      ]
-    },
-    {
-      "school_id": "gz-440113-97e0acaa",
-      "name": "广州市铁一中学(番禺校区)",
-      "stage": "middle",
-      "aliases": [
-        "广铁一中番禺校区",
-        "铁一中学",
-        "铁一番禺"
-      ]
-    },
-    {
-      "school_id": "gz-440113-4d474674",
-      "name": "广东番禺中学教育集团兴南学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-443448d2",
-      "name": "番禺区石楼中学",
-      "stage": "middle",
-      "aliases": [
-        "石楼中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-b7541529",
-      "name": "东风中学",
-      "stage": "middle",
-      "aliases": [
-        "市桥东风中学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-34ff409c",
-      "name": "广东仲元中学莲花湾学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440103-e281e7d0",
-      "name": "广州协和学校",
-      "stage": "middle",
-      "aliases": [
-        "协和学校",
-        "协和中学"
-      ]
-    },
-    {
-      "school_id": "gz-440104-bc48335e",
-      "name": "广州市知用学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-d4bb1fa5",
-      "name": "广州市为明学校(光大校区)",
-      "stage": "middle",
-      "aliases": [
-        "为明学校"
-      ]
-    },
-    {
-      "school_id": "gz-440111-c8ae0a7c",
-      "name": "广州市源雅学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-f210a029",
-      "name": "广州市天健学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-bffde68d",
-      "name": "广州新侨学校",
-      "stage": "middle",
-      "aliases": [
-        "新侨学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-999fb9c0",
-      "name": "广州市星执学校",
-      "stage": "middle",
-      "aliases": [
-        "星执"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440114-b5e09ee8",
-      "name": "广州市黄广中学",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440117-83d50e90",
-      "name": "广大附中英豪学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440118-322b6d28",
-      "name": "香江学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440103-9870a631",
-      "name": "广州市西关外国语流花学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440103-6c3ca7d0",
-      "name": "广州荔湾区新苗学校",
-      "stage": "middle",
-      "aliases": [
-        "新苗学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440103-4ab42b76",
-      "name": "广州市荔湾区同心学校",
-      "stage": "middle",
-      "aliases": [
-        "同心学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440103-b894cbeb",
-      "name": "荔湾区新晖学校",
-      "stage": "middle",
-      "aliases": [
-        "新晖学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440103-cc2ff923",
-      "name": "广豪学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440103-c5a0baa6",
-      "name": "广州市荔湾区荔广实验学校",
-      "stage": "middle",
-      "aliases": [
-        "荔广实验学校",
-        "荔广实验"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440103-84d436cd",
-      "name": "博雅中英文学校(海龙校区)",
-      "stage": "middle",
-      "aliases": [
-        "博雅中英文学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440103-815371aa",
-      "name": "荔湾区东沙博雅实验学校",
-      "stage": "middle",
-      "aliases": [
-        "荔湾区博雅实验学校",
-        "东沙博雅实验学校",
-        "博雅实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440103-c5d5de44",
-      "name": "西关广雅实验学校(南岸路校区)",
-      "stage": "middle",
-      "aliases": [
-        "荔湾区西关广雅实验学校南岸路校区",
-        "西关广雅实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440103-523446ce",
-      "name": "中国教育科学研究院荔湾实验学校·禾园",
-      "stage": "middle",
-      "aliases": [
-        "中国教育科学研究院荔湾实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440103-aa6cf7d7",
-      "name": "广州荔湾爱莎国际学校",
-      "stage": "middle",
-      "aliases": [
-        "荔湾爱莎国际学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440104-d972cf95",
-      "name": "广州市华侨外国语学校(华侨新村校区)",
-      "stage": "middle",
-      "aliases": [
-        "华侨外国语学校"
-      ]
-    },
-    {
-      "school_id": "gz-440104-68535b94",
-      "name": "广州市八一实验学校(南校区)",
-      "stage": "middle",
-      "aliases": [
-        "八一实验学校",
-        "八一实验"
-      ]
-    },
-    {
-      "school_id": "gz-440104-10652361",
-      "name": "广州市东风实验学校",
-      "stage": "middle",
-      "aliases": [
-        "东风实验"
-      ]
-    },
-    {
-      "school_id": "gz-440104-c77c73b5",
-      "name": "广州市真光学校(长堤校区)",
-      "stage": "middle",
-      "aliases": [
-        "真光学校"
-      ]
-    },
-    {
-      "school_id": "gz-440104-ff8d7e05",
-      "name": "广州市越秀区育才实验学校",
-      "stage": "middle",
-      "aliases": [
-        "育才实验学校",
-        "育才实验"
-      ]
-    },
-    {
-      "school_id": "gz-440104-db01d10e",
-      "name": "雄鹰学校",
-      "stage": "middle",
-      "aliases": [
-        "越秀区雄鹰学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440104-1f2d5df9",
-      "name": "越秀区汇泉学校",
-      "stage": "middle",
-      "aliases": [
-        "汇泉学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440104-cc4aa5b8",
-      "name": "广州市越秀区名德实验学校",
-      "stage": "middle",
-      "aliases": [
-        "名德实验学校",
-        "名德实验"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440104-4d39b625",
-      "name": "广州海印实验学校",
-      "stage": "middle",
-      "aliases": [
-        "海印实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440105-9da3d734",
-      "name": "广州市南武第二实验学校(南校区)",
-      "stage": "middle",
-      "aliases": [
-        "南武第二实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440105-06994d39",
-      "name": "广州市五中滨江学校(远安校区)",
-      "stage": "middle",
-      "aliases": [
-        "五中滨江学校"
-      ]
-    },
-    {
-      "school_id": "gz-440105-dc2408b3",
-      "name": "广州市五中东晓学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440105-256ba9d6",
-      "name": "广州市九十七中蓝天学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440105-ca292b2b",
-      "name": "广州市江南外国语学校(北校区)",
-      "stage": "middle",
-      "aliases": [
-        "江南外国语学校"
-      ]
-    },
-    {
-      "school_id": "gz-440105-41b48384",
-      "name": "广州市绿翠现代实验学校滨江校区",
-      "stage": "middle",
-      "aliases": [
-        "绿翠现代实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440105-6ee54f1d",
-      "name": "南武实验学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440105-0c78a8e1",
-      "name": "广州市海珠区育华学校",
-      "stage": "middle",
-      "aliases": [
-        "育华学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-c5dec315",
-      "name": "华立学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440105-a630438a",
-      "name": "广州海珠华洲实验学校",
-      "stage": "middle",
-      "aliases": [
-        "海珠华洲实验学校",
-        "华洲实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440105-9a6566db",
-      "name": "华海双语学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440105-44b3dc01",
-      "name": "广州市海珠区南武文润学校",
-      "stage": "middle",
-      "aliases": [
-        "南武文润学校"
-      ]
-    },
-    {
-      "school_id": "gz-440106-b711d94a",
-      "name": "广州市天河外国语学校(珠江新城校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440106-0d1e149e",
-      "name": "广州市天河区汇景实验学校",
-      "stage": "middle",
-      "aliases": [
-        "第四十七中汇景实验学校中学部",
-        "汇景实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440106-dab5b807",
-      "name": "广州市华颖外国语学校",
-      "stage": "middle",
-      "aliases": [
-        "华颖外国语学校华颖中学"
-      ]
-    },
-    {
-      "school_id": "gz-440106-e32237e4",
-      "name": "清华附中湾区学校",
-      "stage": "middle",
-      "aliases": [
-        "清华附中湾区学校智谷校区"
-      ]
-    },
-    {
-      "school_id": "gz-440106-d311ea50",
-      "name": "天河区智谷第一实验学校",
-      "stage": "middle",
-      "aliases": [
-        "智谷第一实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440100-e2d9148e",
-      "name": "暨南大学附属增城实验学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440106-01fd3a87",
-      "name": "广州天省实验学校",
-      "stage": "middle",
-      "aliases": [
-        "天省实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440106-4fac106a",
-      "name": "黄村中英文学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440106-0c83a9b2",
-      "name": "兴华培智学校",
+      "school_id": "gz-440106-0a2c7178",
+      "name": "培智学校",
       "stage": "middle",
       "aliases": [],
       "nature": "民办"
@@ -9048,13 +7816,21 @@
       "nature": "民办"
     },
     {
-      "school_id": "gz-440106-7abd2786",
-      "name": "广州华美英语实验学校",
+      "school_id": "gz-440106-fd03e039",
+      "name": "天河区成龙中学",
       "stage": "middle",
       "aliases": [
-        "华美英语实验学校"
+        "成龙中学"
       ],
       "nature": "民办"
+    },
+    {
+      "school_id": "gz-440106-d311ea50",
+      "name": "天河区智谷第一实验学校",
+      "stage": "middle",
+      "aliases": [
+        "智谷第一实验学校"
+      ]
     },
     {
       "school_id": "gz-440106-4775be07",
@@ -9066,33 +7842,17 @@
       "nature": "民办"
     },
     {
-      "school_id": "gz-440106-c77276d3",
-      "name": "新蕾五星学校",
+      "school_id": "gz-440106-b9eb24f9",
+      "name": "天泽中学",
       "stage": "middle",
       "aliases": [],
       "nature": "民办"
     },
     {
-      "school_id": "gz-440106-3d7736c5",
-      "name": "广州市天河区同仁学校",
-      "stage": "middle",
-      "aliases": [
-        "同仁学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-4bbd4f92",
-      "name": "培智学校",
+      "school_id": "gz-440106-90c47ff5",
+      "name": "天荣中学",
       "stage": "middle",
       "aliases": []
-    },
-    {
-      "school_id": "gz-440106-77787b4a",
-      "name": "同仁实验学校小学部",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
     },
     {
       "school_id": "gz-440106-b52cb528",
@@ -9102,17 +7862,49 @@
       "nature": "民办"
     },
     {
-      "school_id": "gz-440106-eda909f7",
-      "name": "龙圣学校",
+      "school_id": "gz-440106-0eb93435",
+      "name": "广东实验中学天河学校",
       "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
+      "aliases": []
     },
     {
-      "school_id": "gz-440106-4534dc1a",
-      "name": "棠福学校",
+      "school_id": "gz-440106-867e6c05",
+      "name": "广州中学(五山校区)",
       "stage": "middle",
-      "aliases": [],
+      "aliases": [
+        "广州中学本部五山",
+        "广州中学"
+      ]
+    },
+    {
+      "school_id": "gz-440106-a989804b",
+      "name": "广州中学(名雅校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440106-15ca1554",
+      "name": "广州中学天河燕园学校",
+      "stage": "middle",
+      "aliases": [
+        "中学天河燕园学校"
+      ]
+    },
+    {
+      "school_id": "gz-440106-f7cdfb7e",
+      "name": "广州中学教育集团(天润校区)",
+      "stage": "middle",
+      "aliases": [
+        "中学教育集团"
+      ]
+    },
+    {
+      "school_id": "gz-440106-7abd2786",
+      "name": "广州华美英语实验学校",
+      "stage": "middle",
+      "aliases": [
+        "华美英语实验学校"
+      ],
       "nature": "民办"
     },
     {
@@ -9126,17 +7918,78 @@
       "nature": "民办"
     },
     {
-      "school_id": "gz-440111-6646de49",
-      "name": "东风学校",
+      "school_id": "gz-440106-01fd3a87",
+      "name": "广州天省实验学校",
+      "stage": "middle",
+      "aliases": [
+        "天省实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440106-fa9338a2",
+      "name": "广州奥林匹克中学(智谷校区)",
+      "stage": "middle",
+      "aliases": [
+        "广州奥林匹克中学含智谷校区"
+      ]
+    },
+    {
+      "school_id": "gz-440106-dab5b807",
+      "name": "广州市华颖外国语学校",
+      "stage": "middle",
+      "aliases": [
+        "华颖外国语学校华颖中学"
+      ]
+    },
+    {
+      "school_id": "gz-440106-2f8a4424",
+      "name": "广州市天河中学(天河东路校区)",
+      "stage": "middle",
+      "aliases": [
+        "天河中学"
+      ]
+    },
+    {
+      "school_id": "gz-440106-dd16c13e",
+      "name": "广州市天河中学(花城校区)",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440106-9abdc5fd",
-      "name": "东泰学校",
+      "school_id": "gz-440106-8b3ee7d2",
+      "name": "广州市天河中学猎德实验学校",
       "stage": "middle",
-      "aliases": [],
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440106-bd07878c",
+      "name": "广州市天河区华实学校初中部",
+      "stage": "middle",
+      "aliases": [
+        "华实学校初中部",
+        "天河区华实学校",
+        "华实学校"
+      ],
       "nature": "民办"
+    },
+    {
+      "school_id": "gz-440106-3d7736c5",
+      "name": "广州市天河区同仁学校",
+      "stage": "middle",
+      "aliases": [
+        "同仁学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440106-0d1e149e",
+      "name": "广州市天河区汇景实验学校",
+      "stage": "middle",
+      "aliases": [
+        "第四十七中汇景实验学校中学部",
+        "汇景实验学校"
+      ]
     },
     {
       "school_id": "gz-440106-0d03d513",
@@ -9148,748 +8001,14 @@
       "nature": "民办"
     },
     {
-      "school_id": "gz-440106-1b9f7e62",
-      "name": "新昌学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440106-f0ba06c2",
-      "name": "科韵路学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-effbfa28",
-      "name": "广州市白云区龙岗学校",
-      "stage": "middle",
-      "aliases": [
-        "龙岗学校"
-      ]
-    },
-    {
-      "school_id": "gz-440111-525f949a",
-      "name": "新和学校",
-      "stage": "middle",
-      "aliases": [
-        "白云区新和学校"
-      ]
-    },
-    {
-      "school_id": "gz-440100-7564c13b",
-      "name": "石龙中学",
-      "stage": "middle",
-      "aliases": [
-        "白云区石龙中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-fce36a58",
-      "name": "广州市江高三中",
-      "stage": "middle",
-      "aliases": [
-        "江高镇第三初级中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-e6300e34",
-      "name": "东平学校(东平校区)",
-      "stage": "middle",
-      "aliases": [
-        "白云区东平学校",
-        "东平学校"
-      ]
-    },
-    {
-      "school_id": "gz-440111-a53c68e3",
-      "name": "黄石学校(黄石校区)",
-      "stage": "middle",
-      "aliases": [
-        "白云区黄石学校",
-        "黄石学校"
-      ]
-    },
-    {
-      "school_id": "gz-440111-853a71dd",
-      "name": "广州市白云区穗丰学校",
-      "stage": "middle",
-      "aliases": [
-        "穗丰学校"
-      ]
-    },
-    {
-      "school_id": "gz-440111-92e78967",
-      "name": "白云广附云湖实验学校",
-      "stage": "middle",
-      "aliases": [
-        "白云区白云广附云湖实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440111-0d379efe",
-      "name": "广州市白云区龙涛外国语实验学校",
-      "stage": "middle",
-      "aliases": [
-        "龙涛外国语实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-e85f7f8a",
-      "name": "广云外国语学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-4af73d54",
-      "name": "广州应元颐和实验学校",
-      "stage": "middle",
-      "aliases": [
-        "应元颐和实验学校初中部",
-        "应元颐和实验学校",
-        "颐和实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-ce7a2db7",
-      "name": "广州培文外国语学校(小学部)",
-      "stage": "middle",
-      "aliases": [
-        "培文外国语学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-0d08ab54",
-      "name": "省实白云实验学校",
-      "stage": "middle",
-      "aliases": [
-        "白云区白云实验学校",
-        "白云实验学校",
-        "白省"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-f08e9c24",
-      "name": "广州市白云区珠江实验学校",
-      "stage": "middle",
-      "aliases": [
-        "珠江实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-43437f78",
-      "name": "广州市白云区华赋学校(北校区)",
-      "stage": "middle",
-      "aliases": [
-        "白云区华赋学校",
-        "华赋学校",
-        "白云华赋"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-7d12a21e",
-      "name": "广州云雅实验学校",
-      "stage": "middle",
-      "aliases": [
-        "云雅实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-e14818fc",
-      "name": "广州市白云区培英实验学校(同和校区)",
-      "stage": "middle",
-      "aliases": [
-        "培英实验学校",
-        "培英实验"
-      ]
-    },
-    {
-      "school_id": "gz-440111-b694e3ef",
-      "name": "广附华联外语实验学校",
-      "stage": "middle",
-      "aliases": [
-        "广州华联外语实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-620f7d31",
-      "name": "广州市白云区白云外国语中小学",
-      "stage": "middle",
-      "aliases": [
-        "白云区白云外国语中学",
-        "白云外国语中小学",
-        "白云外国语中学"
-      ]
-    },
-    {
-      "school_id": "gz-440111-be9e574f",
-      "name": "京师实验学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440106-540006ea",
-      "name": "广州市实验外语学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-7360ff6d",
-      "name": "广州市庆丰实验学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-d3f7ac89",
-      "name": "广州市白云区华新学校",
-      "stage": "middle",
-      "aliases": [
-        "华新学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-9f6fc18e",
-      "name": "嘉禾新都学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440111-175bd68f",
-      "name": "平沙培英学校",
-      "stage": "middle",
-      "aliases": [
-        "平沙培英"
-      ]
-    },
-    {
-      "school_id": "gz-440112-9d315f50",
-      "name": "广州开发区外国语学校",
-      "stage": "middle",
-      "aliases": [
-        "开发区外国语学校"
-      ]
-    },
-    {
-      "school_id": "gz-440112-f3817fbe",
-      "name": "广州市黄埔区玉岩实验学校",
-      "stage": "middle",
-      "aliases": [
-        "玉岩实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440112-0aa66950",
-      "name": "华峰学校",
+      "school_id": "gz-440106-051b0157",
+      "name": "广州市天河外国语均和学校",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440112-4ed867c7",
-      "name": "广州市黄埔区华实学校",
-      "stage": "middle",
-      "aliases": [
-        "华实学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440112-93566bfa",
-      "name": "华外同文外国语学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440112-12b0184b",
-      "name": "玉泉学校",
-      "stage": "middle",
-      "aliases": [
-        "玉泉学校中学部"
-      ]
-    },
-    {
-      "school_id": "gz-440112-8bbf8f06",
-      "name": "北京师范大学广州实验学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-d62f1348",
-      "name": "广州开元学校",
-      "stage": "middle",
-      "aliases": [
-        "黄埔区开元学校",
-        "开元学校"
-      ]
-    },
-    {
-      "school_id": "gz-440112-e3190fa2",
-      "name": "广州市黄埔区会元学校",
-      "stage": "middle",
-      "aliases": [
-        "万科幸福誉会元学校初中部",
-        "会元学校"
-      ]
-    },
-    {
-      "school_id": "gz-440112-e08700ea",
-      "name": "广东外语外贸大学附属科学城实验学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-cf50e275",
-      "name": "广东外语外贸大学附属黄埔实验学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-ccdabd8f",
-      "name": "东晖学校",
-      "stage": "middle",
-      "aliases": [
-        "黄埔东晖学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440112-21d0cd90",
-      "name": "广州市黄埔国光学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440112-673fa2c9",
-      "name": "中黄外国语实验学校丰巢快递柜",
-      "stage": "middle",
-      "aliases": [
-        "黄埔区中黄外国语实验学校",
-        "中黄外国语实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440112-2132c84e",
-      "name": "东联学校",
-      "stage": "middle",
-      "aliases": [
-        "黄埔东联学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440112-fb457bd7",
-      "name": "南方中英文学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440112-a0244635",
-      "name": "广州市黄埔区苏元学校(西校区)",
-      "stage": "middle",
-      "aliases": [
-        "黄埔区苏元学校",
-        "苏元学校书源",
-        "苏元学校"
-      ]
-    },
-    {
-      "school_id": "gz-440112-705c66e3",
-      "name": "广大附中黄埔实验学校(东校区)",
-      "stage": "middle",
-      "aliases": [
-        "广大附中黄埔实验学校",
-        "广附黄埔实验"
-      ]
-    },
-    {
-      "school_id": "gz-440112-6d1ac70b",
-      "name": "华南师范大学附属黄埔实验学校(南校区)",
-      "stage": "middle",
-      "aliases": [
-        "华南师范大学附属黄埔实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440113-fdabec82",
-      "name": "广州市番禺区少年儿童业余体校",
-      "stage": "middle",
-      "aliases": [
-        "少年儿童业余体校"
-      ]
-    },
-    {
-      "school_id": "gz-440113-3a44d15c",
-      "name": "钟村奥园学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-73d685ac",
-      "name": "广东外语外贸大学番禺实验学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-cdfe162a",
-      "name": "海鸥学校",
-      "stage": "middle",
-      "aliases": [
-        "番禺区石楼镇海鸥学校",
-        "石楼镇海鸥学校",
-        "石楼镇沙南小学"
-      ]
-    },
-    {
-      "school_id": "gz-440113-213843c2",
-      "name": "广大附中番禺实验学校",
-      "stage": "middle",
-      "aliases": [
-        "广州大学附属中学番禺实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440113-b33076d3",
-      "name": "金海岸学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-43d027a5",
-      "name": "广州市番禺区广铁一中铁英学校(东校区)",
-      "stage": "middle",
-      "aliases": [
-        "番禺区广铁一中铁英学校",
-        "广铁一中铁英学校"
-      ]
-    },
-    {
-      "school_id": "gz-440113-f890218e",
-      "name": "市桥金山谷学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-3b63e590",
-      "name": "广州番外外国语学校",
-      "stage": "middle",
-      "aliases": [
-        "番外外国语学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-7b2b848a",
-      "name": "加拿达外国语学校(剑桥郡校区)",
-      "stage": "middle",
-      "aliases": [
-        "剑桥郡加拿达外国语学校",
-        "加拿达外国语学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-f4a10736",
-      "name": "南雅学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-3cc636b8",
-      "name": "广州市番禺区诺德安达学校",
-      "stage": "middle",
-      "aliases": [
-        "诺德安达学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-2264148c",
-      "name": "丽江小学",
-      "stage": "middle",
-      "aliases": [
-        "丽江学校"
-      ]
-    },
-    {
-      "school_id": "gz-440113-1f3378c2",
-      "name": "广州市番禺区隽新学校",
-      "stage": "middle",
-      "aliases": [
-        "隽新学校"
-      ]
-    },
-    {
-      "school_id": "gz-440113-8a0b2cb9",
-      "name": "番禺区锦绣香江学校",
-      "stage": "middle",
-      "aliases": [
-        "锦绣香江学校"
-      ]
-    },
-    {
-      "school_id": "gz-440113-7cdbe028",
-      "name": "广州番禺区毓贤学校",
-      "stage": "middle",
-      "aliases": [
-        "番禺区毓贤学校",
-        "毓贤学校"
-      ]
-    },
-    {
-      "school_id": "gz-440113-2b7d85fc",
-      "name": "嘉诚学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-3d006240",
-      "name": "广州博萃德学校",
-      "stage": "middle",
-      "aliases": [
-        "番禺区博萃德学校",
-        "博萃德学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-c181d193",
-      "name": "祈福英语实验学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-8ef59a4c",
-      "name": "祈福新邨学校",
-      "stage": "middle",
-      "aliases": [
-        "番禺区祈福新邨学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-7997c707",
-      "name": "明德广地实验学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-28a853f8",
-      "name": "广州市番禺区新英才中英文学校",
-      "stage": "middle",
-      "aliases": [
-        "新英才中英文学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-3b338135",
-      "name": "天星学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-0670cc0e",
-      "name": "番禺区金华学校",
-      "stage": "middle",
-      "aliases": [
-        "金华学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-c40a06e1",
-      "name": "京师奥园南奥实验学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-e946f7f3",
-      "name": "会江实验学校",
-      "stage": "middle",
-      "aliases": [
-        "大石会江实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-d7e3e576",
-      "name": "番禺区金海岸实验学校",
-      "stage": "middle",
-      "aliases": [
-        "金海岸实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-757ae826",
-      "name": "新英豪中英文学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-166b5b5c",
-      "name": "新君豪中英文学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-2ca37b61",
-      "name": "大山学校",
-      "stage": "middle",
-      "aliases": [
-        "大石大山学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-62cbe194",
-      "name": "大博学校",
-      "stage": "middle",
-      "aliases": [
-        "番禺区化龙镇大博学校",
-        "化龙镇大博学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-23835acf",
-      "name": "华阳学校",
-      "stage": "middle",
-      "aliases": [
-        "沙湾华阳学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-39879bc6",
-      "name": "番禺鸿翔学校",
-      "stage": "middle",
-      "aliases": [
-        "鸿翔学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-827f636b",
-      "name": "广博学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-ad8632f5",
-      "name": "广州市番禺区香江实验学校",
-      "stage": "middle",
-      "aliases": [
-        "香江实验学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-70ea7542",
-      "name": "大岭学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-000bd12e",
-      "name": "万翔学校",
-      "stage": "middle",
-      "aliases": [],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-a93513f2",
-      "name": "番禺区北新正华学校",
-      "stage": "middle",
-      "aliases": [
-        "北新正华学校",
-        "北正华学校"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440113-c9f8740e",
-      "name": "恒润实验学校",
-      "stage": "middle",
-      "aliases": [
-        "恒润实验"
-      ],
-      "nature": "民办"
-    },
-    {
-      "school_id": "gz-440100-f62df57f",
-      "name": "广东外语外贸大学空港学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440115-815387d3",
-      "name": "广州外国语学校",
-      "stage": "middle",
-      "aliases": [
-        "外国语学校"
-      ]
-    },
-    {
-      "school_id": "gz-440112-3c310bc1",
-      "name": "广州外国语学校附属学校",
-      "stage": "middle",
-      "aliases": [
-        "外国语学校附属学校"
-      ]
-    },
-    {
-      "school_id": "gz-440100-f97f01cb",
-      "name": "广州市南外实验学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440100-c46c7707",
-      "name": "广州理工实验学校",
-      "stage": "middle",
-      "aliases": [
-        "理工实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440100-20eeaab0",
-      "name": "广州斐特思学校",
-      "stage": "middle",
-      "aliases": [
-        "斐特思学校"
-      ]
-    },
-    {
-      "school_id": "gz-440100-c243364a",
-      "name": "广州市黄广附属学校",
+      "school_id": "gz-440106-b711d94a",
+      "name": "广州市天河外国语学校(珠江新城校区)",
       "stage": "middle",
       "aliases": []
     },
@@ -9908,161 +8027,103 @@
       "aliases": []
     },
     {
-      "school_id": "gz-440106-31895452",
-      "name": "清华附中湾区学校（智慧城校区）",
+      "school_id": "gz-440106-d40d0dbe",
+      "name": "广州市奥林匹克中学(黄村西路校区)",
+      "stage": "middle",
+      "aliases": [
+        "广州奥林匹克中学",
+        "东圃中学"
+      ]
+    },
+    {
+      "school_id": "gz-440106-540006ea",
+      "name": "广州市实验外语学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440106-22156e02",
+      "name": "广州市泰安中学",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440106-15ca1554",
-      "name": "广州中学天河燕园学校",
+      "school_id": "gz-440106-b049d65a",
+      "name": "广州市第一一三中学(东方校区)",
       "stage": "middle",
       "aliases": [
-        "中学天河燕园学校"
+        "广州市第113中学"
       ]
     },
     {
-      "school_id": "gz-440106-051b0157",
-      "name": "广州市天河外国语均和学校",
+      "school_id": "gz-440106-2e9f6f7b",
+      "name": "广州市第一一三中学(乐学校区)",
+      "stage": "middle",
+      "aliases": [
+        "广州市第113中学",
+        "113中学五山本部",
+        "第一一三中学"
+      ]
+    },
+    {
+      "school_id": "gz-440106-7c81ab92",
+      "name": "广州市第一一三中学陶育实验学校(暨南校区)",
+      "stage": "middle",
+      "aliases": [
+        "第一一三中学陶育实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440106-621b20d3",
+      "name": "广州市第七十五中学(天平架校区)",
+      "stage": "middle",
+      "aliases": [
+        "广州市第75中学"
+      ]
+    },
+    {
+      "school_id": "gz-440106-5a7fbf3a",
+      "name": "广州市第七十五中学(燕塘西校区)",
+      "stage": "middle",
+      "aliases": [
+        "广州市第75中学",
+        "第七十五中学"
+      ]
+    },
+    {
+      "school_id": "gz-440106-8f55ab34",
+      "name": "广州市第八十九中学",
+      "stage": "middle",
+      "aliases": [
+        "第89中学"
+      ]
+    },
+    {
+      "school_id": "gz-440106-458838f7",
+      "name": "广州市第十二中学",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440111-f5da4352",
-      "name": "广东外语外贸大学实验中学（陈田西校区）",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440113-a5f31e18",
-      "name": "广州市番禺区番雅实验学校",
+      "school_id": "gz-440106-ef4076c1",
+      "name": "广州市第十八中学",
       "stage": "middle",
       "aliases": [
-        "番雅实验学校"
+        "广州市第18中学"
       ]
     },
     {
-      "school_id": "gz-440113-c51f439d",
-      "name": "广州市番禺区番广附创新城学校",
+      "school_id": "gz-440106-3a61d518",
+      "name": "广州市第十八中学车陂校区",
       "stage": "middle",
       "aliases": [
-        "番广附创新城学校"
+        "广州市第18中学"
       ]
     },
     {
-      "school_id": "gz-440113-6609c936",
-      "name": "广州市番禺区番广附万博学校（东校区）",
-      "stage": "middle",
-      "aliases": [
-        "番广附万博学校"
-      ]
-    },
-    {
-      "school_id": "gz-440112-351c1a84",
-      "name": "华中师范大学黄埔实验学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440112-40be421c",
-      "name": "湖南师范大学附属黄埔实验学校北校区",
-      "stage": "middle",
-      "aliases": [
-        "湖南师范大学附属黄埔实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440112-e8878bf7",
-      "name": "广州市玉岩中学附属科学城实验学校",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440111-e128c24f",
-      "name": "广州市培英中学科技城校区",
-      "stage": "middle",
-      "aliases": [
-        "白云湖数字科技城八方物流地块配建学校"
-      ]
-    },
-    {
-      "school_id": "gz-440111-9c7a2c45",
-      "name": "龙归学校（珑璟校区）",
-      "stage": "middle",
-      "aliases": [
-        "白云区龙归学校",
-        "龙归学校"
-      ]
-    },
-    {
-      "school_id": "gz-440112-22ec4fcc",
-      "name": "广东省教育研究院黄埔实验学校（北校区）",
-      "stage": "middle",
-      "aliases": [
-        "广东省教育研究院黄埔实验学校"
-      ]
-    },
-    {
-      "school_id": "gz-440111-7a3148c4",
-      "name": "广州市白云区民航学校(人和校区)",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440103-7207525c",
-      "name": "西关广雅实验学校(大坦沙校区)",
-      "stage": "middle",
-      "aliases": [
-        "荔湾区西关广雅实验学校大坦沙校区"
-      ]
-    },
-    {
-      "school_id": "gz-440103-693412ae",
-      "name": "西关广雅实验学校(东风西路校区)",
-      "stage": "middle",
-      "aliases": [
-        "荔湾区西关广雅实验学校东风西校区",
-        "西关广雅实验学校东风西校区",
-        "西关广雅东风西"
-      ]
-    },
-    {
-      "school_id": "gz-440103-816b22a3",
-      "name": "广州市第四中学(虬园校区)",
-      "stage": "middle",
-      "aliases": [
-        "第四中学初中雁园校区",
-        "广州四中雁园校区",
-        "四中雁园校区"
-      ]
-    },
-    {
-      "school_id": "gz-440111-35860c30",
-      "name": "广州空港实验中学(西校区)",
-      "stage": "middle",
-      "aliases": [
-        "白云区广州空港实验中学西校区"
-      ]
-    },
-    {
-      "school_id": "gz-440112-7127244c",
-      "name": "广铁一中铁铮学校(西校区)",
-      "stage": "middle",
-      "aliases": [
-        "铁铮学校"
-      ]
-    },
-    {
-      "school_id": "gz-440112-d3055548",
-      "name": "广铁一中铁铮学校(东校区)",
-      "stage": "middle",
-      "aliases": [
-        "铁铮学校"
-      ]
-    },
-    {
-      "school_id": "gz-440112-c80ac6ac",
-      "name": "广铁一中铁英中学",
+      "school_id": "gz-440106-7077b270",
+      "name": "广州市长兴中学",
       "stage": "middle",
       "aliases": []
     },
@@ -10076,35 +8137,374 @@
       "nature": "民办"
     },
     {
-      "school_id": "gz-440103-df535585",
-      "name": "广州市西关外国语学校文昌南校区",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440103-ff7538dc",
-      "name": "广东实验中学荔湾学校花地湾校区",
-      "stage": "middle",
-      "aliases": []
-    },
-    {
-      "school_id": "gz-440103-3ea667b1",
-      "name": "君诚博雅实验学校(滘口校区)",
+      "school_id": "gz-440106-22fcbcd6",
+      "name": "执信中学(天河校区)",
       "stage": "middle",
       "aliases": [
-        "君诚博雅实验学校"
+        "执信中学"
+      ]
+    },
+    {
+      "school_id": "gz-440106-1b9f7e62",
+      "name": "新昌学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440106-c77276d3",
+      "name": "新蕾五星学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440106-11e15e8d",
+      "name": "暨南大学附属中学",
+      "stage": "middle",
+      "aliases": [
+        "暨南大学附属实验学校初中部",
+        "暨南大学附属实验学校",
+        "暨南第一实验学校",
+        "暨大附中"
+      ]
+    },
+    {
+      "school_id": "gz-440106-4534dc1a",
+      "name": "棠福学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440106-e32237e4",
+      "name": "清华附中湾区学校",
+      "stage": "middle",
+      "aliases": [
+        "清华附中湾区学校智谷校区"
+      ]
+    },
+    {
+      "school_id": "gz-440106-31895452",
+      "name": "清华附中湾区学校（智慧城校区）",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440106-f0ba06c2",
+      "name": "科韵路学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440106-b7d476f7",
+      "name": "骏景中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440106-4fac106a",
+      "name": "黄村中英文学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440106-eda909f7",
+      "name": "龙圣学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-e6300e34",
+      "name": "东平学校(东平校区)",
+      "stage": "middle",
+      "aliases": [
+        "白云区东平学校",
+        "东平学校"
+      ]
+    },
+    {
+      "school_id": "gz-440111-6646de49",
+      "name": "东风学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-be9e574f",
+      "name": "京师实验学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-2667c5ae",
+      "name": "元培实验中学",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-81f3c313",
+      "name": "华赋学校北校区初中部",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-0ba9a45f",
+      "name": "同和中学",
+      "stage": "middle",
+      "aliases": [
+        "白云区同和中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-d2a4a882",
+      "name": "嘉禾中学",
+      "stage": "middle",
+      "aliases": [
+        "白云区嘉禾中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-9f6fc18e",
+      "name": "嘉禾新都学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-4bbd4f92",
+      "name": "培智学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-2d42f392",
+      "name": "培英实验学校(云景校区)初中部",
+      "stage": "middle",
+      "aliases": [
+        "白云区培英实验学校云景校区",
+        "培英实验学校云景校区",
+        "培英实验学校初中部"
+      ]
+    },
+    {
+      "school_id": "gz-440111-175bd68f",
+      "name": "平沙培英学校",
+      "stage": "middle",
+      "aliases": [
+        "平沙培英"
+      ]
+    },
+    {
+      "school_id": "gz-440111-99d97ada",
+      "name": "广东华侨中学(金沙洲校区)",
+      "stage": "middle",
+      "aliases": [
+        "广东华侨中学白云校区",
+        "广东华侨中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-7e484346",
+      "name": "广东外语外贸大学实验中学",
+      "stage": "middle",
+      "aliases": [
+        "广外附中"
+      ]
+    },
+    {
+      "school_id": "gz-440111-f751344d",
+      "name": "广东外语外贸大学实验中学(北校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-f5da4352",
+      "name": "广东外语外贸大学实验中学（陈田西校区）",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-a3cf5a4f",
+      "name": "广东实验中学(白云校区)",
+      "stage": "middle",
+      "aliases": [
+        "广东实验中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-d3ffec78",
+      "name": "广东技术师范大学白云实验中学",
+      "stage": "middle",
+      "aliases": [
+        "白云区江高镇第二初级中学",
+        "江高镇第二初级中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-014a9fb2",
+      "name": "广东第二师范学院实验中学(初中部)",
+      "stage": "middle",
+      "aliases": [
+        "广东第二师范学院实验中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-e85f7f8a",
+      "name": "广云外国语学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-ea6a6495",
+      "name": "广园中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-0078267c",
+      "name": "广大附中实验中学(南校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-b95f2597",
+      "name": "广大附中实验中学(星汇金沙校区)",
+      "stage": "middle",
+      "aliases": [
+        "白云区广大附中实验中学",
+        "广大附中实验中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-7d12a21e",
+      "name": "广州云雅实验学校",
+      "stage": "middle",
+      "aliases": [
+        "云雅实验学校"
       ],
       "nature": "民办"
     },
     {
-      "school_id": "gz-440105-f8dbd57c",
-      "name": "广州市江南外国语学校(南校区)",
+      "school_id": "gz-440111-6782d2c7",
+      "name": "广州云雅实验学校初中部",
+      "stage": "middle",
+      "aliases": [
+        "云雅实验学校初中部",
+        "白云区云雅实验学校",
+        "云雅实验学校",
+        "云雅实验"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-ce7a2db7",
+      "name": "广州培文外国语学校(小学部)",
+      "stage": "middle",
+      "aliases": [
+        "培文外国语学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-b4e0e849",
+      "name": "广州培文外国语学校初中部",
+      "stage": "middle",
+      "aliases": [
+        "白云区广州培文外国语学校",
+        "培文外国语学校初中部",
+        "广州培文外国语学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-63a7bd1d",
+      "name": "广州大同中学(初中部)",
+      "stage": "middle",
+      "aliases": [
+        "广州大同中学",
+        "大同中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-8629621c",
+      "name": "广州市三元里中学",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440105-96460a76",
-      "name": "广州市南武第二实验学校(北校区)",
+      "school_id": "gz-440111-d4bb1fa5",
+      "name": "广州市为明学校(光大校区)",
+      "stage": "middle",
+      "aliases": [
+        "为明学校"
+      ]
+    },
+    {
+      "school_id": "gz-440111-6271c94b",
+      "name": "广州市培英中学(岭南校区)",
+      "stage": "middle",
+      "aliases": [
+        "培英中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-e128c24f",
+      "name": "广州市培英中学科技城校区",
+      "stage": "middle",
+      "aliases": [
+        "白云湖数字科技城八方物流地块配建学校"
+      ]
+    },
+    {
+      "school_id": "gz-440111-f210a029",
+      "name": "广州市天健学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-7360ff6d",
+      "name": "广州市庆丰实验学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-fce36a58",
+      "name": "广州市江高三中",
+      "stage": "middle",
+      "aliases": [
+        "江高镇第三初级中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-c8ae0a7c",
+      "name": "广州市源雅学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-e74c2e1d",
+      "name": "广州市白云中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-6782f041",
+      "name": "广州市白云中学(棠景校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-1b7d3f87",
+      "name": "广州市白云中学(汇侨校区)",
       "stage": "middle",
       "aliases": []
     },
@@ -10117,22 +8517,882 @@
       ]
     },
     {
-      "school_id": "gz-440106-24ff78f9",
-      "name": "东风学校",
+      "school_id": "gz-440111-d3f7ac89",
+      "name": "广州市白云区华新学校",
+      "stage": "middle",
+      "aliases": [
+        "华新学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-43437f78",
+      "name": "广州市白云区华赋学校(北校区)",
+      "stage": "middle",
+      "aliases": [
+        "白云区华赋学校",
+        "华赋学校",
+        "白云华赋"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-e14818fc",
+      "name": "广州市白云区培英实验学校(同和校区)",
+      "stage": "middle",
+      "aliases": [
+        "培英实验学校",
+        "培英实验"
+      ]
+    },
+    {
+      "school_id": "gz-440111-cc803935",
+      "name": "广州市白云区大朗中学",
+      "stage": "middle",
+      "aliases": [
+        "大朗中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-06bfc806",
+      "name": "广州市白云区太和中学",
+      "stage": "middle",
+      "aliases": [
+        "太和中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-f3edc7ba",
+      "name": "广州市白云区新市中学",
+      "stage": "middle",
+      "aliases": [
+        "新市中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-2ed8a6e2",
+      "name": "广州市白云区星悦实验学校(初中部)",
+      "stage": "middle",
+      "aliases": [
+        "星悦实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440111-2186a02a",
+      "name": "广州市白云区景泰中学白云湖校区",
+      "stage": "middle",
+      "aliases": [
+        "白云区景泰中学分校区原白云区南悦中学",
+        "景泰中学分校区原白云区南悦中学",
+        "景泰中学白云湖校区",
+        "白云区景泰中学",
+        "景泰中学",
+        "南悦中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-a072aeb7",
+      "name": "广州市白云区梓元岗中学",
+      "stage": "middle",
+      "aliases": [
+        "梓元岗中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-7a3148c4",
+      "name": "广州市白云区民航学校(人和校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-5c7a7c4a",
+      "name": "广州市白云区民航学校(初中部)",
+      "stage": "middle",
+      "aliases": [
+        "白云区民航学校",
+        "民航学校"
+      ]
+    },
+    {
+      "school_id": "gz-440111-f08e9c24",
+      "name": "广州市白云区珠江实验学校",
+      "stage": "middle",
+      "aliases": [
+        "珠江实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-620f7d31",
+      "name": "广州市白云区白云外国语中小学",
+      "stage": "middle",
+      "aliases": [
+        "白云区白云外国语中学",
+        "白云外国语中小学",
+        "白云外国语中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-6becf87b",
+      "name": "广州市白云区神山中学",
+      "stage": "middle",
+      "aliases": [
+        "神山中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-853a71dd",
+      "name": "广州市白云区穗丰学校",
+      "stage": "middle",
+      "aliases": [
+        "穗丰学校"
+      ]
+    },
+    {
+      "school_id": "gz-440111-78d61733",
+      "name": "广州市白云区竹料第一中学北校区",
+      "stage": "middle",
+      "aliases": [
+        "竹料第一中学北校区",
+        "白云区竹料第一中学",
+        "竹料第一中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-effbfa28",
+      "name": "广州市白云区龙岗学校",
+      "stage": "middle",
+      "aliases": [
+        "龙岗学校"
+      ]
+    },
+    {
+      "school_id": "gz-440111-0d379efe",
+      "name": "广州市白云区龙涛外国语实验学校",
+      "stage": "middle",
+      "aliases": [
+        "龙涛外国语实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-b5668c2e",
+      "name": "广州市第一一五中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-0f9c1ce8",
+      "name": "广州市第一一四中学(亭石南路)",
+      "stage": "middle",
+      "aliases": [
+        "第一一四中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-82856abf",
+      "name": "广州市第七中学(桂花校区)",
+      "stage": "middle",
+      "aliases": [
+        "第七中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-96d35d17",
+      "name": "广州市第七十三中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-20c36515",
+      "name": "广州市第七十中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-e337711a",
+      "name": "广州市第六十七中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-c7b90869",
+      "name": "广州市第六十五中学(同德校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-4ebb4316",
+      "name": "广州市第六十五中学(江府校区)",
+      "stage": "middle",
+      "aliases": [
+        "六十五中学江府校区"
+      ]
+    },
+    {
+      "school_id": "gz-440111-c8461d5d",
+      "name": "广州市第六十五中学初中部(明德校区)",
+      "stage": "middle",
+      "aliases": [
+        "第六十五中学明德校区、同德校区",
+        "第六十五中学明德校区",
+        "第六十五中学初中部"
+      ]
+    },
+    {
+      "school_id": "gz-440111-4cf10429",
+      "name": "广州市第六十五中学桃园校区",
+      "stage": "middle",
+      "aliases": [
+        "桃园中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-b50dea4b",
+      "name": "广州市第六十六中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-28c16cca",
+      "name": "广州市铁一中学(白云校区)",
+      "stage": "middle",
+      "aliases": [
+        "铁一中学白云校区初中部",
+        "铁一中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-4af73d54",
+      "name": "广州应元颐和实验学校",
+      "stage": "middle",
+      "aliases": [
+        "应元颐和实验学校初中部",
+        "应元颐和实验学校",
+        "颐和实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-d28d78f9",
+      "name": "广州彭加木纪念中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-4e13c7d6",
+      "name": "广州彭加木纪念中学(初中部)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-a7294ae4",
+      "name": "广州成龙教育集团白云区成龙中学",
+      "stage": "middle",
+      "aliases": [
+        "成龙教育集团白云区成龙中学",
+        "白云区成龙中学",
+        "成龙中学"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-0cf700fb",
+      "name": "广州空港实验中学(东校区)",
+      "stage": "middle",
+      "aliases": [
+        "白云区广州空港实验中学东校区"
+      ]
+    },
+    {
+      "school_id": "gz-440111-150715c8",
+      "name": "广州空港实验中学(建南校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-d4c4285e",
+      "name": "广州空港实验中学(校本部)",
+      "stage": "middle",
+      "aliases": [
+        "白云区广州空港实验中学本部",
+        "广州空港实验中学本部"
+      ]
+    },
+    {
+      "school_id": "gz-440111-35860c30",
+      "name": "广州空港实验中学(西校区)",
+      "stage": "middle",
+      "aliases": [
+        "白云区广州空港实验中学西校区"
+      ]
+    },
+    {
+      "school_id": "gz-440111-b694e3ef",
+      "name": "广附华联外语实验学校",
+      "stage": "middle",
+      "aliases": [
+        "广州华联外语实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-525f949a",
+      "name": "新和学校",
+      "stage": "middle",
+      "aliases": [
+        "白云区新和学校"
+      ]
+    },
+    {
+      "school_id": "gz-440111-048815b3",
+      "name": "景泰中学",
+      "stage": "middle",
+      "aliases": [
+        "白云区景泰中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-609bfcf4",
+      "name": "江村中学",
+      "stage": "middle",
+      "aliases": [
+        "白云区江村中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-4ab20f44",
+      "name": "白云六中实验中学(空港校区)",
+      "stage": "middle",
+      "aliases": [
+        "白云区六中实验中学空港校区",
+        "六中实验中学空港校区",
+        "白云六中实验中学",
+        "人和二中"
+      ]
+    },
+    {
+      "school_id": "gz-440111-6b0e6f77",
+      "name": "白云区六中实验中学(福和校区)",
+      "stage": "middle",
+      "aliases": [
+        "六中实验中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-aca6656a",
+      "name": "白云区珠江中学",
+      "stage": "middle",
+      "aliases": [
+        "珠江中学"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-92e78967",
+      "name": "白云广附云湖实验学校",
+      "stage": "middle",
+      "aliases": [
+        "白云区白云广附云湖实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440111-0d08ab54",
+      "name": "省实白云实验学校",
+      "stage": "middle",
+      "aliases": [
+        "白云区白云实验学校",
+        "白云实验学校",
+        "白省"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440111-297970b9",
+      "name": "石井中学",
+      "stage": "middle",
+      "aliases": [
+        "白云区石井中学"
+      ]
+    },
+    {
+      "school_id": "gz-440100-7564c13b",
+      "name": "石龙中学",
+      "stage": "middle",
+      "aliases": [
+        "白云区石龙中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-fd1c1c12",
+      "name": "竹料第一中学",
+      "stage": "middle",
+      "aliases": [
+        "白云区竹料第一中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-b2b78162",
+      "name": "竹料第三中学",
+      "stage": "middle",
+      "aliases": [
+        "白云区竹料第三中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-35536ebb",
+      "name": "颜乐天纪念中学",
+      "stage": "middle",
+      "aliases": [
+        "白云区颜乐天纪念中学"
+      ]
+    },
+    {
+      "school_id": "gz-440111-292274e7",
+      "name": "黄石学校(中学部)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-a53c68e3",
+      "name": "黄石学校(黄石校区)",
+      "stage": "middle",
+      "aliases": [
+        "白云区黄石学校",
+        "黄石学校"
+      ]
+    },
+    {
+      "school_id": "gz-440111-4c9a3eaa",
+      "name": "龙归学校(初中部)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440111-9c7a2c45",
+      "name": "龙归学校（珑璟校区）",
+      "stage": "middle",
+      "aliases": [
+        "白云区龙归学校",
+        "龙归学校"
+      ]
+    },
+    {
+      "school_id": "gz-440111-0fe2a45d",
+      "name": "龙江中学",
       "stage": "middle",
       "aliases": [],
       "nature": "民办"
     },
     {
-      "school_id": "gz-440106-0a2c7178",
-      "name": "培智学校",
+      "school_id": "gz-440112-ccdabd8f",
+      "name": "东晖学校",
+      "stage": "middle",
+      "aliases": [
+        "黄埔东晖学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440112-2132c84e",
+      "name": "东联学校",
+      "stage": "middle",
+      "aliases": [
+        "黄埔东联学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440112-673fa2c9",
+      "name": "中黄外国语实验学校丰巢快递柜",
+      "stage": "middle",
+      "aliases": [
+        "黄埔区中黄外国语实验学校",
+        "中黄外国语实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440112-8bbf8f06",
+      "name": "北京师范大学广州实验学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-351c1a84",
+      "name": "华中师范大学黄埔实验学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-3847727f",
+      "name": "华南师范大学附属中学(知识城校区)",
+      "stage": "middle",
+      "aliases": [
+        "华南师范大学附属中学",
+        "华附知识城初中"
+      ]
+    },
+    {
+      "school_id": "gz-440112-6d1ac70b",
+      "name": "华南师范大学附属黄埔实验学校(南校区)",
+      "stage": "middle",
+      "aliases": [
+        "华南师范大学附属黄埔实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440112-93566bfa",
+      "name": "华外同文外国语学校",
       "stage": "middle",
       "aliases": [],
       "nature": "民办"
+    },
+    {
+      "school_id": "gz-440112-0aa66950",
+      "name": "华峰学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-fb457bd7",
+      "name": "南方中英文学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440112-ee49f05d",
+      "name": "双沙中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-e08700ea",
+      "name": "广东外语外贸大学附属科学城实验学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-cf50e275",
+      "name": "广东外语外贸大学附属黄埔实验学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-96610f39",
+      "name": "广东省教育研究院黄埔实验学校初中部",
+      "stage": "middle",
+      "aliases": [
+        "广东省教育研究院黄埔实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440112-22ec4fcc",
+      "name": "广东省教育研究院黄埔实验学校（北校区）",
+      "stage": "middle",
+      "aliases": [
+        "广东省教育研究院黄埔实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440112-e3746d8c",
+      "name": "广大附中高新区实验学校(初中部)",
+      "stage": "middle",
+      "aliases": [
+        "广大附中高新区实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440112-705c66e3",
+      "name": "广大附中黄埔实验学校(东校区)",
+      "stage": "middle",
+      "aliases": [
+        "广大附中黄埔实验学校",
+        "广附黄埔实验"
+      ]
     },
     {
       "school_id": "gz-440112-87756a6d",
       "name": "广大附中黄埔实验学校(西校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-3c310bc1",
+      "name": "广州外国语学校附属学校",
+      "stage": "middle",
+      "aliases": [
+        "外国语学校附属学校"
+      ]
+    },
+    {
+      "school_id": "gz-440112-87f27cf4",
+      "name": "广州实验中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-e8878bf7",
+      "name": "广州市玉岩中学附属科学城实验学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-4d96554f",
+      "name": "广州市第一一七中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-c7cfbe14",
+      "name": "广州市第一二三中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-9366e19f",
+      "name": "广州市第八十八中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-0cb5a402",
+      "name": "广州市第八十六中学",
+      "stage": "middle",
+      "aliases": [
+        "八十六中学"
+      ]
+    },
+    {
+      "school_id": "gz-440112-06029745",
+      "name": "广州市第八十六中学分校",
+      "stage": "middle",
+      "aliases": [
+        "八十六中初中本部"
+      ]
+    },
+    {
+      "school_id": "gz-440112-43108516",
+      "name": "广州市第八十六中学初中部",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-b5b864ba",
+      "name": "广州市黄埔军校中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-12747882",
+      "name": "广州市黄埔军校纪念中学(北校区)",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-550a5ae8",
+      "name": "广州市黄埔区东区中学",
+      "stage": "middle",
+      "aliases": [
+        "东区中学"
+      ]
+    },
+    {
+      "school_id": "gz-440112-5b78d24b",
+      "name": "广州市黄埔区丰乐初级中学",
+      "stage": "middle",
+      "aliases": [
+        "丰乐初级中学"
+      ]
+    },
+    {
+      "school_id": "gz-440112-e3190fa2",
+      "name": "广州市黄埔区会元学校",
+      "stage": "middle",
+      "aliases": [
+        "万科幸福誉会元学校初中部",
+        "会元学校"
+      ]
+    },
+    {
+      "school_id": "gz-440112-4ed867c7",
+      "name": "广州市黄埔区华实学校",
+      "stage": "middle",
+      "aliases": [
+        "华实学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440112-632bcdb7",
+      "name": "广州市黄埔区新港中学",
+      "stage": "middle",
+      "aliases": [
+        "新港中学"
+      ]
+    },
+    {
+      "school_id": "gz-440112-f3817fbe",
+      "name": "广州市黄埔区玉岩实验学校",
+      "stage": "middle",
+      "aliases": [
+        "玉岩实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440112-a0244635",
+      "name": "广州市黄埔区苏元学校(西校区)",
+      "stage": "middle",
+      "aliases": [
+        "黄埔区苏元学校",
+        "苏元学校书源",
+        "苏元学校"
+      ]
+    },
+    {
+      "school_id": "gz-440112-21d0cd90",
+      "name": "广州市黄埔国光学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440112-d62f1348",
+      "name": "广州开元学校",
+      "stage": "middle",
+      "aliases": [
+        "黄埔区开元学校",
+        "开元学校"
+      ]
+    },
+    {
+      "school_id": "gz-440112-cbfb4b61",
+      "name": "广州开发区中学",
+      "stage": "middle",
+      "aliases": [
+        "开发区中学"
+      ]
+    },
+    {
+      "school_id": "gz-440112-9d315f50",
+      "name": "广州开发区外国语学校",
+      "stage": "middle",
+      "aliases": [
+        "开发区外国语学校"
+      ]
+    },
+    {
+      "school_id": "gz-440112-bffde68d",
+      "name": "广州新侨学校",
+      "stage": "middle",
+      "aliases": [
+        "新侨学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440112-badbc2ab",
+      "name": "广州知识城中学(东校区)",
+      "stage": "middle",
+      "aliases": [
+        "九佛中学"
+      ]
+    },
+    {
+      "school_id": "gz-440112-3f877ace",
+      "name": "广州知识城中学(北校区)",
+      "stage": "middle",
+      "aliases": [
+        "广州知识城中学",
+        "知识城中学"
+      ]
+    },
+    {
+      "school_id": "gz-440112-ec15555e",
+      "name": "广州知识城中学(南校区)",
+      "stage": "middle",
+      "aliases": [
+        "九佛第二中学"
+      ]
+    },
+    {
+      "school_id": "gz-440112-8edaa2d8",
+      "name": "广州石化中学",
+      "stage": "middle",
+      "aliases": [
+        "石化中学"
+      ]
+    },
+    {
+      "school_id": "gz-440112-8b4292d7",
+      "name": "广州科学城中学",
+      "stage": "middle",
+      "aliases": [
+        "科学城中学"
+      ]
+    },
+    {
+      "school_id": "gz-440112-c80ac6ac",
+      "name": "广铁一中铁英中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-d3055548",
+      "name": "广铁一中铁铮学校(东校区)",
+      "stage": "middle",
+      "aliases": [
+        "铁铮学校"
+      ]
+    },
+    {
+      "school_id": "gz-440112-7127244c",
+      "name": "广铁一中铁铮学校(西校区)",
+      "stage": "middle",
+      "aliases": [
+        "铁铮学校"
+      ]
+    },
+    {
+      "school_id": "gz-440112-83167af8",
+      "name": "港湾中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-40be421c",
+      "name": "湖南师范大学附属黄埔实验学校北校区",
+      "stage": "middle",
+      "aliases": [
+        "湖南师范大学附属黄埔实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440112-ff5acfd5",
+      "name": "玉岩中学",
+      "stage": "middle",
+      "aliases": [
+        "玉岩初中"
+      ]
+    },
+    {
+      "school_id": "gz-440112-15d63ae7",
+      "name": "玉岩中学附属开发区实验学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-12b0184b",
+      "name": "玉泉学校",
+      "stage": "middle",
+      "aliases": [
+        "玉泉学校中学部"
+      ]
+    },
+    {
+      "school_id": "gz-440112-0946f5ef",
+      "name": "玉泉学校-中学部",
       "stage": "middle",
       "aliases": []
     },
@@ -10143,14 +9403,760 @@
       "aliases": []
     },
     {
+      "school_id": "gz-440112-ccf82991",
+      "name": "镇龙第二中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440112-674f4721",
+      "name": "黄埔军校纪念中学",
+      "stage": "middle",
+      "aliases": [
+        "黄埔军校纪念中学南校区"
+      ]
+    },
+    {
+      "school_id": "gz-440113-000bd12e",
+      "name": "万翔学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-b7541529",
+      "name": "东风中学",
+      "stage": "middle",
+      "aliases": [
+        "市桥东风中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-2264148c",
+      "name": "丽江小学",
+      "stage": "middle",
+      "aliases": [
+        "丽江学校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-c40a06e1",
+      "name": "京师奥园南奥实验学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-e946f7f3",
+      "name": "会江实验学校",
+      "stage": "middle",
+      "aliases": [
+        "大石会江实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-f543c46b",
+      "name": "侨联中学",
+      "stage": "middle",
+      "aliases": [
+        "市桥侨联中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-7b2b848a",
+      "name": "加拿达外国语学校(剑桥郡校区)",
+      "stage": "middle",
+      "aliases": [
+        "剑桥郡加拿达外国语学校",
+        "加拿达外国语学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-eca20a50",
+      "name": "化龙中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-db326e94",
+      "name": "华南碧桂园学校(中学部)",
+      "stage": "middle",
+      "aliases": [
+        "番禺区华南碧桂园学校",
+        "华南碧桂园学校",
+        "华碧"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-c5dec315",
+      "name": "华立学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-23835acf",
+      "name": "华阳学校",
+      "stage": "middle",
+      "aliases": [
+        "沙湾华阳学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-cbaa8160",
+      "name": "南村中学",
+      "stage": "middle",
+      "aliases": [
+        "南村中学初中部"
+      ]
+    },
+    {
+      "school_id": "gz-440113-a0992d0c",
+      "name": "南村侨联中学",
+      "stage": "middle",
+      "aliases": [
+        "南村镇侨联中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-f4a10736",
+      "name": "南雅学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-2b7d85fc",
+      "name": "嘉诚学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-62cbe194",
+      "name": "大博学校",
+      "stage": "middle",
+      "aliases": [
+        "番禺区化龙镇大博学校",
+        "化龙镇大博学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-2ca37b61",
+      "name": "大山学校",
+      "stage": "middle",
+      "aliases": [
+        "大石大山学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-70ea7542",
+      "name": "大岭学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-0b275c37",
+      "name": "大石中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-3b338135",
+      "name": "天星学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-eab4ae0e",
+      "name": "富丽中学",
+      "stage": "middle",
+      "aliases": [
+        "大石富丽中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-24ea052e",
+      "name": "市桥桥兴中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-f890218e",
+      "name": "市桥金山谷学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-acf92324",
+      "name": "广东仲元中学",
+      "stage": "middle",
+      "aliases": [
+        "广东仲元中学一校区初中部",
+        "仲元初中部"
+      ]
+    },
+    {
+      "school_id": "gz-440113-6dbdc462",
+      "name": "广东仲元中学(第二校区)",
+      "stage": "middle",
+      "aliases": [
+        "广东仲元中学二校区初中部"
+      ]
+    },
+    {
+      "school_id": "gz-440113-34ff409c",
+      "name": "广东仲元中学莲花湾学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-b5ff857b",
+      "name": "广东仲元中学附属学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-73d685ac",
+      "name": "广东外语外贸大学番禺实验学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-5f62f75c",
+      "name": "广东番禺中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-4d474674",
+      "name": "广东番禺中学教育集团兴南学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-53650c78",
+      "name": "广东番禺中学附属学校",
+      "stage": "middle",
+      "aliases": [
+        "番附番禺中学附属",
+        "番附"
+      ]
+    },
+    {
       "school_id": "gz-440113-0bb52d06",
       "name": "广东第二师范学院广州南站附属学校",
       "stage": "middle",
       "aliases": []
     },
     {
-      "school_id": "gz-440111-8629621c",
-      "name": "广州市三元里中学",
+      "school_id": "gz-440113-83a6a219",
+      "name": "广东第二师范学院番禺附属中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-6a13dc63",
+      "name": "广东第二师范学院番禺附属初级中学",
+      "stage": "middle",
+      "aliases": [
+        "广东第二师范学院番禺附属初中",
+        "二师番禺附中",
+        "番禺二师附中"
+      ]
+    },
+    {
+      "school_id": "gz-440113-827f636b",
+      "name": "广博学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-213843c2",
+      "name": "广大附中番禺实验学校",
+      "stage": "middle",
+      "aliases": [
+        "广州大学附属中学番禺实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-337c0524",
+      "name": "广州南方学院番禺附属中学",
+      "stage": "middle",
+      "aliases": [
+        "南方学院番禺附属中学"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-3d006240",
+      "name": "广州博萃德学校",
+      "stage": "middle",
+      "aliases": [
+        "番禺区博萃德学校",
+        "博萃德学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-35b56f40",
+      "name": "广州大学城初级中学",
+      "stage": "middle",
+      "aliases": [
+        "大学城初级中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-8f5e4721",
+      "name": "广州大学附属中学(大学城校区)",
+      "stage": "middle",
+      "aliases": [
+        "广州大学附属中学番禺校区",
+        "大学附属中学",
+        "大学城广附"
+      ]
+    },
+    {
+      "school_id": "gz-440113-999fb9c0",
+      "name": "广州市星执学校",
+      "stage": "middle",
+      "aliases": [
+        "星执"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-2570c29b",
+      "name": "广州市番禺区大龙中学",
+      "stage": "middle",
+      "aliases": [
+        "大龙中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-fdabec82",
+      "name": "广州市番禺区少年儿童业余体校",
+      "stage": "middle",
+      "aliases": [
+        "少年儿童业余体校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-43d027a5",
+      "name": "广州市番禺区广铁一中铁英学校(东校区)",
+      "stage": "middle",
+      "aliases": [
+        "番禺区广铁一中铁英学校",
+        "广铁一中铁英学校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-94c76638",
+      "name": "广州市番禺区广铁一中铁英学校(西校区)",
+      "stage": "middle",
+      "aliases": [
+        "番禺区广铁一中铁英学校",
+        "广铁一中铁英学校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-28a853f8",
+      "name": "广州市番禺区新英才中英文学校",
+      "stage": "middle",
+      "aliases": [
+        "新英才中英文学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-6609c936",
+      "name": "广州市番禺区番广附万博学校（东校区）",
+      "stage": "middle",
+      "aliases": [
+        "番广附万博学校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-c51f439d",
+      "name": "广州市番禺区番广附创新城学校",
+      "stage": "middle",
+      "aliases": [
+        "番广附创新城学校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-a5f31e18",
+      "name": "广州市番禺区番雅实验学校",
+      "stage": "middle",
+      "aliases": [
+        "番雅实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-db61be15",
+      "name": "广州市番禺区育龙中学",
+      "stage": "middle",
+      "aliases": [
+        "育龙中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-3cc636b8",
+      "name": "广州市番禺区诺德安达学校",
+      "stage": "middle",
+      "aliases": [
+        "诺德安达学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-1f3378c2",
+      "name": "广州市番禺区隽新学校",
+      "stage": "middle",
+      "aliases": [
+        "隽新学校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-ad8632f5",
+      "name": "广州市番禺区香江实验学校",
+      "stage": "middle",
+      "aliases": [
+        "香江实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-97e0acaa",
+      "name": "广州市铁一中学(番禺校区)",
+      "stage": "middle",
+      "aliases": [
+        "广铁一中番禺校区",
+        "铁一中学",
+        "铁一番禺"
+      ]
+    },
+    {
+      "school_id": "gz-440113-3b63e590",
+      "name": "广州番外外国语学校",
+      "stage": "middle",
+      "aliases": [
+        "番外外国语学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-7cdbe028",
+      "name": "广州番禺区毓贤学校",
+      "stage": "middle",
+      "aliases": [
+        "番禺区毓贤学校",
+        "毓贤学校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-c9f8740e",
+      "name": "恒润实验学校",
+      "stage": "middle",
+      "aliases": [
+        "恒润实验"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-166b5b5c",
+      "name": "新君豪中英文学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-757ae826",
+      "name": "新英豪中英文学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-7997c707",
+      "name": "明德广地实验学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-37f452f3",
+      "name": "星海中学",
+      "stage": "middle",
+      "aliases": [
+        "市桥星海中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-7f18cc62",
+      "name": "桥城中学",
+      "stage": "middle",
+      "aliases": [
+        "市桥桥城中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-badb274e",
+      "name": "沙头中学",
+      "stage": "middle",
+      "aliases": [
+        "市桥沙头中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-f744f14a",
+      "name": "沙滘中学",
+      "stage": "middle",
+      "aliases": [
+        "洛浦沙滘中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-76992454",
+      "name": "洛浦中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-e7ca2b33",
+      "name": "洛溪新城中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-cdfe162a",
+      "name": "海鸥学校",
+      "stage": "middle",
+      "aliases": [
+        "番禺区石楼镇海鸥学校",
+        "石楼镇海鸥学校",
+        "石楼镇沙南小学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-95be9ccc",
+      "name": "番禺中学实验学校",
+      "stage": "middle",
+      "aliases": [
+        "广东番禺中学实验学校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-a93513f2",
+      "name": "番禺区北新正华学校",
+      "stage": "middle",
+      "aliases": [
+        "北新正华学校",
+        "北正华学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-6426397c",
+      "name": "番禺区洛浦厦滘学校中学部",
+      "stage": "middle",
+      "aliases": [
+        "洛浦厦滘学校中学部",
+        "番禺区洛浦厦滘学校",
+        "洛浦厦滘学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-443448d2",
+      "name": "番禺区石楼中学",
+      "stage": "middle",
+      "aliases": [
+        "石楼中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-0670cc0e",
+      "name": "番禺区金华学校",
+      "stage": "middle",
+      "aliases": [
+        "金华学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-d7e3e576",
+      "name": "番禺区金海岸实验学校",
+      "stage": "middle",
+      "aliases": [
+        "金海岸实验学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-8a0b2cb9",
+      "name": "番禺区锦绣香江学校",
+      "stage": "middle",
+      "aliases": [
+        "锦绣香江学校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-e121d1b3",
+      "name": "番禺实验中学",
+      "stage": "middle",
+      "aliases": [
+        "番禺区实验中学",
+        "实验中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-39879bc6",
+      "name": "番禺鸿翔学校",
+      "stage": "middle",
+      "aliases": [
+        "鸿翔学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-809482e2",
+      "name": "石北中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-67864b8b",
+      "name": "石楼第二中学",
+      "stage": "middle",
+      "aliases": [
+        "石楼镇第二中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-527391ff",
+      "name": "石碁中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-9fa97423",
+      "name": "石碁第四中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-8ef59a4c",
+      "name": "祈福新邨学校",
+      "stage": "middle",
+      "aliases": [
+        "番禺区祈福新邨学校"
+      ],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-c07e3ddb",
+      "name": "祈福毓贤学校初中部(毓正小学校区)",
+      "stage": "middle",
+      "aliases": [
+        "祈福毓贤学校初中部",
+        "毓贤学校"
+      ]
+    },
+    {
+      "school_id": "gz-440113-c181d193",
+      "name": "祈福英语实验学校",
+      "stage": "middle",
+      "aliases": [],
+      "nature": "民办"
+    },
+    {
+      "school_id": "gz-440113-3d5242b3",
+      "name": "莲花山中学",
+      "stage": "middle",
+      "aliases": [
+        "石楼镇莲花山中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-1b12edfd",
+      "name": "象圣中学",
+      "stage": "middle",
+      "aliases": [
+        "市桥象圣中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-fe0cfa1f",
+      "name": "象贤中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-b2a39869",
+      "name": "象达中学",
+      "stage": "middle",
+      "aliases": [
+        "沙湾象达中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-51a65e7c",
+      "name": "象骏中学",
+      "stage": "middle",
+      "aliases": [
+        "沙湾象骏中学"
+      ]
+    },
+    {
+      "school_id": "gz-440113-b33076d3",
+      "name": "金海岸学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-303a40d7",
+      "name": "钟村中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440113-3a44d15c",
+      "name": "钟村奥园学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440114-b5e09ee8",
+      "name": "广州市黄广中学",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440115-815387d3",
+      "name": "广州外国语学校",
+      "stage": "middle",
+      "aliases": [
+        "外国语学校"
+      ]
+    },
+    {
+      "school_id": "gz-440117-83d50e90",
+      "name": "广大附中英豪学校",
+      "stage": "middle",
+      "aliases": []
+    },
+    {
+      "school_id": "gz-440118-322b6d28",
+      "name": "香江学校",
       "stage": "middle",
       "aliases": []
     },

@@ -239,7 +239,14 @@ def main() -> int:
     name_index = {}
     for s in d['schools']:
         if s['school'] in MATCH_OVERRIDES:
-            s['school_id'] = MATCH_OVERRIDES[s['school']]
+            _ov = MATCH_OVERRIDES[s['school']]
+            if _ov:
+                s['school_id'] = _ov
+            else:
+                # 覆盖表 school_id=null = 显式宁缺失（实体表别名误并待桥接等）：
+                # 与 resolve 未命中同路径，原文保留走 schools，并记入构建期审计清单。
+                s.pop('school_id', None)
+                unmatched.append(('quota_matrix', s['school'], s.get('district'), s.get('district') in CITY7))
         else:
             ent = resolve(s['school'], 'middle', AD_MAP.get(s.get('district')))
             if ent:
@@ -337,7 +344,10 @@ def main() -> int:
         ids = {}
         for k in mid_keys:
             if k in MATCH_OVERRIDES:
-                ids[k] = MATCH_OVERRIDES[k]
+                if MATCH_OVERRIDES[k]:
+                    ids[k] = MATCH_OVERRIDES[k]
+                else:
+                    unmatched.append((tag, k, None, None))
                 continue
             ent = resolve(k, 'middle')
             if ent:
