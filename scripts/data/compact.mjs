@@ -14,7 +14,7 @@
  * 运行：node scripts/data/compact.mjs
  * 输出：apps/miniprogram/data/**（git 忽略，由 build.mjs 的构建链路生成）
  */
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, join, relative, sep, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -30,6 +30,10 @@ const DICT_SPEC = {
     dicts: ['group', 'source_url'],
     listDicts: ['feed_school_ids'],
   },
+  // 获奖明细：school（3383 唯一）/project（850）/award（31）高重复值列字典化，原始省 ~2.4MB
+  'data/awards/dist/detailed_records.json': {
+    dicts: ['school', 'project', 'award'],
+  },
 };
 
 /**
@@ -44,31 +48,91 @@ const MP_TRIM = {
 
 /**
  * 编译清单：
- * - WEB_TARGETS：Web 端全部消费（apps/web/src/data/index.ts import 全量，bundle gzip 传输 178KB）
+ * - WEB_TARGETS：Web 端显式消费白名单（apps/web/src 实际 import 的 31 个产物；
+ *   源文件在此登记，输出路径由 SRC_REMAP 决定）。此前为 walkJson 全量编译，data/ 下
+ *   parsed 中间表/构建期表大量混入运行时目录（死代码 ~6.7MB）→ 改为白名单 + 构建自检。
  * - MP_TARGETS：小程序主包当前消费（3 页：index/map/support；主包 ≤2MB）。未消费文件
  *   （详情页/通道页数据）等对应页面落地时加入并配分包。
  */
-function walkJson(dir) {
-  const out = [];
-  for (const entry of readdirSync(dir)) {
-    const p = join(dir, entry);
-    if (statSync(p).isDirectory()) out.push(...walkJson(p));
-    else if (p.endsWith('.json')) out.push(p);
-  }
-  return out;
-}
-const WEB_TARGETS = walkJson(DATA_SRC)
-  .filter((p) => !p.split(sep).some((seg) => seg === 'raw' || seg === '_raw' || seg === 'test'))
-  .map((p) => relative(ROOT, p))
-  .filter((rel) => !basename(rel).startsWith('_partial_'))
-  .filter((rel) => !rel.split(sep).includes('src') || rel.startsWith('data/high/level/') || (rel.startsWith('data/registry/group/src/') && basename(rel) === 'brand_groups.json') || (rel.startsWith('data/middle/enrollment/src/') && basename(rel) === 'middle_enroll_notes.json'))
-  // src 为源数据目录，仅 dist 产物打包；high/level/src 例外：levels.json 人工源即前端消费（无 dist 构建）；
-  // middle/enrollment/src 例外：middle_enroll_notes.json 手工录取备注即详情页招生视图消费（无 dist 构建）；
-  // registry/src 例外：brand_groups.json 手工源即详情页「品牌关联」运行时消费（无 dist 构建）；
-  // 同目录的 groups_anchors 等构建期表，不进前端（source_name_mappings 已退役，2026-09-21）
-  .filter((rel) => !['groups_anchors.json', 'pending_items.json'].includes(basename(rel)))
-  .filter((rel) => !(rel.startsWith('data/primary/enrollment/dist/2026-') && !rel.endsWith('2026-all.json')));
-  // 构建期内部表不进前端包：groups_anchors（merge_groups 锚点）/ pending_items（民办待补/待核实清单）
+const WEB_TARGETS = [
+  // 获奖（六赛事 compiled + 明细；各赛事 parsed 中间产物不编译，明细已聚合进 detailed_records）
+  'data/awards/chuangke/dist/compiled.json',
+  'data/awards/innovation/dist/compiled.json',
+  'data/awards/science_experiment/dist/compiled.json',
+  'data/awards/science_literacy/dist/compiled.json',
+  'data/awards/tech_sports/dist/compiled.json',
+  'data/awards/yueyunbei/dist/compiled.json',
+  'data/awards/dist/detailed_records.json',
+  // 文明校园
+  'data/civilized_campuses/dist/civilized_campus_school_ids.json',
+  // 高中：录取线/高分段/分类（levels 为人工源无 dist 构建）
+  'data/high/cutoff_score/dist/scores_2025.json',
+  'data/high/cutoff_score/dist/scores_2026.json',
+  'data/high/level/src/levels.json',
+  // 初中升学通道（remap 源，输出 linkage/xxx.js）
+  'data/linkage/dist/batch2_scores.json',
+  'data/linkage/dist/district_quota.json',
+  'data/linkage/dist/quota_matrix.json',
+  'data/linkage/dist/ranking_middle.json',
+  'data/linkage/dist/special_matrix.json',
+  'data/linkage/dist/quota_outcome.json',
+  // 初中：2026 招生/排序/样板校
+  'data/middle/enrollment/dist/middle_enrollment_2026.json',
+  'data/middle/org_sort/dist/compiled.json',
+  'data/middle/tier1_schools_all.json',
+  // POI（三学段）
+  'data/poi/dist/high_poi.json',
+  'data/poi/dist/middle_poi.json',
+  'data/poi/dist/primary_poi.json',
+  // 小学：2026 招生合并产物/样板校/小升初（含 remap 与 src 手工源）
+  'data/primary/enrollment/dist/2026-all.json',
+  'data/primary/tier1_schools_all.json',
+  'data/primary/transition/dist/xiaoshengchu_2026.json',
+  'data/middle/enrollment/src/middle_enroll_notes.json',
+  // 实体注册表/教育集团/品牌
+  'data/registry/entity/dist/entities.json',
+  'data/registry/group/dist/education_groups.json',
+  'data/registry/group/dist/non_group_multi_campuses.json',
+  'data/registry/group/src/brand_groups.json',
+  // 特色校
+  'data/specialty_schools/dist/specialty_schools.json',
+];
+
+/** 构建自检：前端 import 的输出 rel（WEB_TARGETS 对应产物）必须全部生成，防白名单漏登记 */
+const WEB_OUTPUT_RELS = [
+  'awards/chuangke/dist/compiled.js',
+  'awards/innovation/dist/compiled.js',
+  'awards/science_experiment/dist/compiled.js',
+  'awards/science_literacy/dist/compiled.js',
+  'awards/tech_sports/dist/compiled.js',
+  'awards/yueyunbei/dist/compiled.js',
+  'awards/dist/detailed_records.js',
+  'civilized_campuses/dist/civilized_campus_school_ids.js',
+  'high/cutoff_score/dist/scores_2025.js',
+  'high/cutoff_score/dist/scores_2026.js',
+  'high/level/src/levels.js',
+  'linkage/batch2_scores.js',
+  'linkage/district_quota.js',
+  'linkage/quota_matrix.js',
+  'linkage/ranking_middle.js',
+  'linkage/special_matrix.js',
+  'linkage/quota_outcome.js',
+  'middle/enrollment/dist/middle_enrollment_2026.js',
+  'middle/org_sort/dist/compiled.js',
+  'middle/tier1_schools_all.js',
+  'poi/dist/high_poi.js',
+  'poi/dist/middle_poi.js',
+  'poi/dist/primary_poi.js',
+  'primary/enrollments/2026-all.js',
+  'primary/tier1_schools_all.js',
+  'primary/xiaoshengchu_2026.js',
+  'primary/middle_enroll_notes.js',
+  'registry/entity/dist/entities.js',
+  'registry/group/dist/education_groups.js',
+  'registry/group/dist/non_group_multi_campuses.js',
+  'registry/group/src/brand_groups.js',
+  'specialty_schools/dist/specialty_schools.js',
+];
 // 小程序主包数据（地图页 + 首页/支撑度消费）：POI/tier1/levels/招生/实体/升学路线/官方录取分
 const MP_MAIN_TARGETS = [
   'data/poi/dist/primary_poi.json',
@@ -259,6 +323,13 @@ const stats = [];
 for (const file of MP_MAIN_TARGETS) stats.push(emit(file, OUT_CJS_MAIN, 'cjs', { trim: MP_TRIM[file] }));
 for (const file of MP_SUB_TARGETS) stats.push(emit(file, OUT_CJS_SUB, 'cjs'));
 for (const file of WEB_TARGETS) stats.push(emit(file, OUT_ESM, 'esm'));
+
+// 构建自检：前端 import 的每个输出 rel 必须已生成（WEB_TARGETS 白名单漏登记源文件时在此报错）
+for (const rel of WEB_OUTPUT_RELS) {
+  if (!existsSync(join(OUT_ESM, rel))) {
+    throw new Error(`[compact] 前端消费产物缺失: ${rel} —— WEB_TARGETS 白名单漏登记对应源文件`);
+  }
+}
 
 stats.sort((a, b) => b.jsKB - a.jsKB);
 let sumJ = 0;
