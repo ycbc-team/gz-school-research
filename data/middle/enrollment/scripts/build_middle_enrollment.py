@@ -441,6 +441,19 @@ def build_yuexiu_official():
             "mechanism": "single_zone", "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
             "group_members": None,
         })
+    # 育才实验学校（2026 越秀公办初中招生计划第 21 号 6 班 + 招生问答第一类直升）：
+    # 面向全区公办小学招收部分直升生（自愿报名，录取后自动放弃公办初中电脑派位资格，
+    # 未录取回原组派位）→ single_lottery（单校电脑抽签），非固定对口小学、不在派位组内。
+    _sid_yc, _sids_yc = match_school_ids("广州市越秀区育才实验学校", "440104")
+    recs.append({
+        "school": "广州市越秀区育才实验学校", "school_id": _sid_yc,
+        **({"school_ids": _sids_yc} if _sids_yc else {}),
+        "plan_classes": 6,
+        "scope": "面向全区公办小学招收部分直升生（自愿报名；录取后不再具有公办初中电脑派位资格）",
+        "mechanism": "single_lottery",
+        "mechanism_note": "2026 越秀公办初中招生计划第 21 号（6 班）；招生问答第一类：面向全区公办小学招收部分直升生，报名人数超计划电脑派位",
+        "group_members": None,
+    })
     return {
         "year": 2026, "district": "越秀区",
         "source": "2022 官方分组表 + 2026 细则（parse_yuexiu_juniors.py 程序化转录）",

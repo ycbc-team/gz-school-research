@@ -76,16 +76,45 @@ def extract_batch2(m):
     }
 
 
+def _school_group_index():
+    """school_id → 首个集团归属（与运行时 registry.ts schoolGroupMap 同口径：
+    education_groups 成员按序取首个归属，brand_groups units 外键仅兜底 education 未命中者）。
+    一校可属多个集团（如黄埔军校中学=黄埔广附+广大附），快照固化「运行时详情页所见归属」：
+    group 字段不来自 ranking_middle 产物（职责已收归 education_groups），由本索引联表生成。"""
+    idx = {}
+    edu = json.load(open(os.path.join(ROOT, "data/registry/group/dist/education_groups.json"), encoding="utf-8")).get("groups", [])
+    for g in edu:
+        for m in g.get("members") or []:
+            sid = m.get("school_id")
+            if sid and sid not in idx:
+                idx[sid] = {"brand": g["brand"], "source": "education"}
+    bg = json.load(open(os.path.join(ROOT, "data/registry/group/src/brand_groups.json"), encoding="utf-8")).get("brands", [])
+    for b in bg:
+        for u in b.get("units") or []:
+            for sid in u.get("school_ids") or []:
+                if sid and sid not in idx:
+                    idx[sid] = {"brand": b["brand"], "source": "brand"}
+    return idx
+
+
 def extract_ranking(m):
     out = []
+    _sg = _school_group_index()
     for s in m.get("schools", []):
+        # group 联表 education_groups/brand_groups（主 id 或 school_ids 任一校区命中），
+        # 任何集团归属增删/漂移都会触发快照 diff（明细-集团一致性回归保护）。
+        grp = None
+        for sid in [s.get("school_id")] + list(s.get("school_ids") or []):
+            if sid and sid in _sg:
+                grp = _sg[sid]
+                break
         out.append({
             "name": s.get("name"),
             "school_id": s.get("school_id"),
             "school_ids": s.get("school_ids"),
             "district": s.get("district"),
             "minban": s.get("minban"),
-            "group": s.get("group"),
+            "group": grp,
             "kaosheng": s.get("kaosheng"),
             "sheng_quota": s.get("sheng_quota"),
             "qu_quota": s.get("qu_quota"),

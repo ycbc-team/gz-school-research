@@ -3315,7 +3315,10 @@
    "qu_quota": 1,
    "school": "广州市天河区东风学校",
    "school_id": "gz-440106-24ff78f9",
-   "school_ids": null,
+   "school_ids": [
+    "gz-440106-24ff78f9",
+    "gz-440111-6646de49"
+   ],
    "sheng_quota": 1,
    "sz": {
     "华南师范大学附属中学（石牌校区）": 0,
@@ -3445,7 +3448,10 @@
    "qu_quota": 1,
    "school": "广州市天河区培智学校",
    "school_id": "gz-440106-0a2c7178",
-   "school_ids": null,
+   "school_ids": [
+    "gz-440106-0a2c7178",
+    "gz-440111-4bbd4f92"
+   ],
    "sheng_quota": 0,
    "sz": {
     "广东实验中学（白云校区）": 0,
@@ -5097,7 +5103,7 @@
    "kaosheng": 261,
    "qu_quota": 72,
    "school": "广东第二师范学院广州南站附属学校",
-   "school_id": null,
+   "school_id": "gz-440113-0bb52d06",
    "school_ids": null,
    "sheng_quota": 13,
    "sz": {},
@@ -7078,7 +7084,7 @@
    "kaosheng": 80,
    "qu_quota": 16,
    "school": "广州市白云区三元里中学",
-   "school_id": null,
+   "school_id": "gz-440111-8629621c",
    "school_ids": null,
    "sheng_quota": 4,
    "sz": {
@@ -8042,7 +8048,7 @@
    "kaosheng": 209,
    "qu_quota": 41,
    "school": "广州市白云区竹料第一中学",
-   "school_id": "gz-440111-fd1c1c12",
+   "school_id": "gz-440111-78d61733",
    "school_ids": null,
    "sheng_quota": 11,
    "sz": {
@@ -11703,7 +11709,10 @@
    "qu_quota": 128,
    "school": "广大附中黄埔实验学校",
    "school_id": "gz-440112-705c66e3",
-   "school_ids": null,
+   "school_ids": [
+    "gz-440112-705c66e3",
+    "gz-440112-87756a6d"
+   ],
    "sheng_quota": 37,
    "sz": {
     "华南师范大学附属中学（知识城校区）": 1,
