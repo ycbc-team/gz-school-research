@@ -1,0 +1,2444 @@
+{
+  "year": 2026,
+  "district": "黄埔区",
+  "kind": "candidate_from_middle_enrollment_transcripts",
+  "source": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+  "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+  "records": [
+    {
+      "name": "下沙小学",
+      "school_id": "gz-440112-68170d72",
+      "official_primary_names": [
+        "下沙小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "东荟花园小学(北校区)",
+      "school_id": "gz-440112-ce5e4e7d",
+      "official_primary_names": [
+        "东荟花园小学（北校区）"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "玉泉学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-12b0184b"
+      ],
+      "direct_feed": [
+        "玉泉学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "东荟花园小学南校区",
+      "school_id": "gz-440112-84a205c9",
+      "official_primary_names": [
+        "东荟花园小学（南校区）"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "玉泉学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-12b0184b"
+      ],
+      "direct_feed": [
+        "玉泉学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "九龙第一小学",
+      "school_id": "gz-440112-ffa4e489",
+      "official_primary_names": [
+        "九龙第一小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州知识城中学(北校区)",
+        "广州知识城中学(东校区)",
+        "广州知识城中学(南校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-3f877ace",
+        "gz-440112-badbc2ab",
+        "gz-440112-ec15555e"
+      ],
+      "direct_feed": [
+        "广州知识城中学(北校区)",
+        "广州知识城中学(东校区)",
+        "广州知识城中学(南校区)"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "九龙第三小学",
+      "school_id": "gz-440112-753aa0d3",
+      "official_primary_names": [
+        "九龙第三小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-f3817fbe"
+      ],
+      "direct_feed": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "九龙第二小学",
+      "school_id": "gz-440112-3f33e75c",
+      "official_primary_names": [
+        "九龙第二小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-f3817fbe"
+      ],
+      "direct_feed": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "九龙第二小学大坦分校",
+      "school_id": "gz-440112-59ba7b57",
+      "official_primary_names": [
+        "九龙第二小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-f3817fbe"
+      ],
+      "direct_feed": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "九龙第四小学新田分校",
+      "school_id": "gz-440112-2a13a6a9",
+      "official_primary_names": [
+        "九龙第四小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-f3817fbe"
+      ],
+      "direct_feed": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "何棠下小学",
+      "school_id": "gz-440112-5147e70b",
+      "official_primary_names": [
+        "何棠下小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州知识城中学(北校区)",
+        "广州知识城中学(东校区)",
+        "广州知识城中学(南校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-3f877ace",
+        "gz-440112-badbc2ab",
+        "gz-440112-ec15555e"
+      ],
+      "direct_feed": [
+        "广州知识城中学(北校区)",
+        "广州知识城中学(东校区)",
+        "广州知识城中学(南校区)"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "光远小学",
+      "school_id": "gz-440112-1fb45e21",
+      "official_primary_names": [
+        "光远小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "玉泉学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-12b0184b"
+      ],
+      "direct_feed": [
+        "玉泉学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "凤凰湖小学",
+      "school_id": "gz-440112-6a9aa43c",
+      "official_primary_names": [
+        "凤凰湖小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第7组"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区会元学校",
+        "广州实验中学",
+        "华南师范大学附属中学(知识城校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-e3190fa2",
+        "gz-440112-87f27cf4",
+        "gz-440112-3847727f"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "凤尾学校",
+      "school_id": "gz-440112-c9a30b3d",
+      "official_primary_names": [
+        "凤尾小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州知识城中学(北校区)",
+        "广州知识城中学(东校区)",
+        "广州知识城中学(南校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-3f877ace",
+        "gz-440112-badbc2ab",
+        "gz-440112-ec15555e"
+      ],
+      "direct_feed": [
+        "广州知识城中学(北校区)",
+        "广州知识城中学(东校区)",
+        "广州知识城中学(南校区)"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "北京师范大学广州实验学校(小学部)",
+      "school_id": "gz-440112-bd4af6d0",
+      "official_primary_names": [
+        "北京师范大学广州实验学校"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第5组"
+      ],
+      "feed_junior_highs": [
+        "北京师范大学广州实验学校",
+        "广铁一中铁英中学",
+        "广州市黄埔区苏元学校(西校区)",
+        "玉岩中学附属开发区实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-8bbf8f06",
+        "gz-440112-c80ac6ac",
+        "gz-440112-a0244635",
+        "gz-440112-15d63ae7"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "华南师范大学附属中学知识城小学",
+      "school_id": "gz-440112-75989411",
+      "official_primary_names": [
+        "华南师范大学附属中学知识城小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第7组"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区会元学校",
+        "广州实验中学",
+        "华南师范大学附属中学(知识城校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-e3190fa2",
+        "gz-440112-87f27cf4",
+        "gz-440112-3847727f"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "华南师范大学附属开发区实验小学",
+      "school_id": "gz-440112-6232b59e",
+      "official_primary_names": [
+        "华南师范大学附属开发区实验小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广大附中黄埔实验学校(东校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-705c66e3"
+      ],
+      "direct_feed": [
+        "广大附中黄埔实验学校(东校区)"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "华南师范大学附属黄埔实验学校(南校区)",
+      "school_id": "gz-440112-6d1ac70b",
+      "official_primary_names": [
+        "华南师范大学附属黄埔实验学校"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "华南师范大学附属黄埔实验学校(南校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-6d1ac70b"
+      ],
+      "direct_feed": [
+        "华南师范大学附属黄埔实验学校(南校区)"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "华峰学校",
+      "school_id": "gz-440112-0aa66950",
+      "official_primary_names": [
+        "华峰学校"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第6组"
+      ],
+      "feed_junior_highs": [
+        "华峰学校",
+        "广铁一中铁英中学",
+        "广州开元学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-0aa66950",
+        "gz-440112-c80ac6ac",
+        "gz-440112-d62f1348"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "南岗小学",
+      "school_id": "gz-440112-9445b99c",
+      "official_primary_names": [
+        "南岗小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第2组"
+      ],
+      "feed_junior_highs": [
+        "广州开发区外国语学校",
+        "广州市黄埔区新港中学",
+        "广州市黄埔区东区中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "南湾小学",
+      "school_id": "gz-440112-286bfe80",
+      "official_primary_names": [
+        "南湾小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第2组"
+      ],
+      "feed_junior_highs": [
+        "广州开发区外国语学校",
+        "广州市黄埔区新港中学",
+        "广州市黄埔区东区中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "夏园小学",
+      "school_id": "gz-440112-78dfcf58",
+      "official_primary_names": [
+        "夏园小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第2组"
+      ],
+      "feed_junior_highs": [
+        "广州开发区外国语学校",
+        "广州市黄埔区新港中学",
+        "广州市黄埔区东区中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "姬堂小学",
+      "school_id": "gz-440112-6d89eb2c",
+      "official_primary_names": [
+        "姬堂小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广东外语外贸大学附属知识城实验小学",
+      "school_id": "gz-440112-284e5309",
+      "official_primary_names": [
+        "广东外语外贸大学附属知识城实验小学（北校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第7组"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区会元学校",
+        "广州实验中学",
+        "华南师范大学附属中学(知识城校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-e3190fa2",
+        "gz-440112-87f27cf4",
+        "gz-440112-3847727f"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广东外语外贸大学附属知识城实验小学(南校区)",
+      "school_id": "gz-440112-abe35401",
+      "official_primary_names": [
+        "广东外语外贸大学附属知识城实验小学（南校区）"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-f3817fbe"
+      ],
+      "direct_feed": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广东外语外贸大学附属科学城实验学校",
+      "school_id": "gz-440112-e08700ea",
+      "official_primary_names": [
+        "广东外语外贸大学附属科学城实验学校"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广东外语外贸大学附属科学城实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-e08700ea"
+      ],
+      "direct_feed": [
+        "广东外语外贸大学附属科学城实验学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广东外语外贸大学附属黄埔实验学校",
+      "school_id": "gz-440112-cf50e275",
+      "official_primary_names": [
+        "广东外语外贸大学附属黄埔实验学校"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广东外语外贸大学附属黄埔实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-cf50e275"
+      ],
+      "direct_feed": [
+        "广东外语外贸大学附属黄埔实验学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广东省教育研究院黄埔实验学校",
+      "school_id": "gz-440112-68f9ff36",
+      "official_primary_names": [
+        "广东省教育研究院黄埔实验学校"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第4组"
+      ],
+      "feed_junior_highs": [
+        "广州科学城中学",
+        "广东省教育研究院黄埔实验学校（北校区）",
+        "广东省教育研究院黄埔实验学校初中部",
+        "北京师范大学广州实验学校",
+        "广铁一中铁英中学",
+        "广州市黄埔区苏元学校(西校区)",
+        "玉岩中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-8b4292d7",
+        "gz-440112-22ec4fcc",
+        "gz-440112-96610f39",
+        "gz-440112-8bbf8f06",
+        "gz-440112-c80ac6ac",
+        "gz-440112-a0244635",
+        "gz-440112-ff5acfd5"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广东省教育研究院黄埔实验学校（北校区）",
+      "school_id": "gz-440112-22ec4fcc",
+      "official_primary_names": [
+        "广东省教育研究院黄埔实验学校"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第4组"
+      ],
+      "feed_junior_highs": [
+        "广州科学城中学",
+        "广东省教育研究院黄埔实验学校（北校区）",
+        "广东省教育研究院黄埔实验学校初中部",
+        "北京师范大学广州实验学校",
+        "广铁一中铁英中学",
+        "广州市黄埔区苏元学校(西校区)",
+        "玉岩中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-8b4292d7",
+        "gz-440112-22ec4fcc",
+        "gz-440112-96610f39",
+        "gz-440112-8bbf8f06",
+        "gz-440112-c80ac6ac",
+        "gz-440112-a0244635",
+        "gz-440112-ff5acfd5"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广大附中高新区实验学校(南校区)",
+      "school_id": "gz-440112-66c2a1f1",
+      "official_primary_names": [
+        "广大附中高新区实验学校（南校区）"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广大附中高新区实验学校(初中部)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-e3746d8c"
+      ],
+      "direct_feed": [
+        "广大附中高新区实验学校(初中部)"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广大附中高新区实验学校北校区(小学部)",
+      "school_id": "gz-440112-035f4f6d",
+      "official_primary_names": [
+        "广大附中高新区实验学校（北校区）"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广大附中高新区实验学校(初中部)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-e3746d8c"
+      ],
+      "direct_feed": [
+        "广大附中高新区实验学校(初中部)"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广大附中黄埔实验学校(西校区)",
+      "school_id": "gz-440112-87756a6d",
+      "official_primary_names": [
+        "广大附中黄埔实验学校（西校区）"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广大附中黄埔实验学校(西校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-87756a6d"
+      ],
+      "direct_feed": [
+        "广大附中黄埔实验学校(西校区)"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市黄埔区东荟花园小学(东校区)",
+      "school_id": "gz-440112-4c58f86c",
+      "official_primary_names": [
+        "东荟花园小学（东校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第4组"
+      ],
+      "feed_junior_highs": [
+        "广州科学城中学",
+        "广东省教育研究院黄埔实验学校（北校区）",
+        "广东省教育研究院黄埔实验学校初中部",
+        "北京师范大学广州实验学校",
+        "广铁一中铁英中学",
+        "广州市黄埔区苏元学校(西校区)",
+        "玉岩中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-8b4292d7",
+        "gz-440112-22ec4fcc",
+        "gz-440112-96610f39",
+        "gz-440112-8bbf8f06",
+        "gz-440112-c80ac6ac",
+        "gz-440112-a0244635",
+        "gz-440112-ff5acfd5"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市黄埔区九龙第二小学(九楼校区)",
+      "school_id": "gz-440112-0484c45e",
+      "official_primary_names": [
+        "九龙第二小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-f3817fbe"
+      ],
+      "direct_feed": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市黄埔区会元学校",
+      "school_id": "gz-440112-e3190fa2",
+      "official_primary_names": [
+        "会元学校"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区会元学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-e3190fa2"
+      ],
+      "direct_feed": [
+        "广州市黄埔区会元学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市黄埔区天景小学",
+      "school_id": "gz-440112-e39ab646",
+      "official_primary_names": [
+        "天景小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第7组"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区会元学校",
+        "广州实验中学",
+        "华南师范大学附属中学(知识城校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-e3190fa2",
+        "gz-440112-87f27cf4",
+        "gz-440112-3847727f"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市黄埔区天誉小学",
+      "school_id": "gz-440112-4991e638",
+      "official_primary_names": [
+        "天誉小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第7组"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区会元学校",
+        "广州实验中学",
+        "华南师范大学附属中学(知识城校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-e3190fa2",
+        "gz-440112-87f27cf4",
+        "gz-440112-3847727f"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市黄埔区天韵小学",
+      "school_id": "gz-440112-86465605",
+      "official_primary_names": [
+        "天韵小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第7组"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区会元学校",
+        "广州实验中学",
+        "华南师范大学附属中学(知识城校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-e3190fa2",
+        "gz-440112-87f27cf4",
+        "gz-440112-3847727f"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市黄埔区新庄小学",
+      "school_id": "gz-440112-f33c9cf8",
+      "official_primary_names": [
+        "新庄小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第6组"
+      ],
+      "feed_junior_highs": [
+        "华峰学校",
+        "广铁一中铁英中学",
+        "广州开元学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-0aa66950",
+        "gz-440112-c80ac6ac",
+        "gz-440112-d62f1348"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市黄埔区新港小学(南校区)",
+      "school_id": "gz-440112-70be890a",
+      "official_primary_names": [
+        "新港小学（东、西、南校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第2组"
+      ],
+      "feed_junior_highs": [
+        "广州开发区外国语学校",
+        "广州市黄埔区新港中学",
+        "广州市黄埔区东区中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市黄埔区玉树小学",
+      "school_id": "gz-440112-4c67daf9",
+      "official_primary_names": [
+        "玉树小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第3组"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一七中学",
+        "广州市黄埔军校中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-4d96554f",
+        "gz-440112-b5b864ba"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市黄埔区禾丰小学",
+      "school_id": "gz-440112-61ff74b5",
+      "official_primary_names": [
+        "禾丰小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第6组"
+      ],
+      "feed_junior_highs": [
+        "华峰学校",
+        "广铁一中铁英中学",
+        "广州开元学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-0aa66950",
+        "gz-440112-c80ac6ac",
+        "gz-440112-d62f1348"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市黄埔区科学城小学东校区",
+      "school_id": "gz-440112-08b72698",
+      "official_primary_names": [
+        "科学城小学（南、北、东校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第3组"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一七中学",
+        "广州市黄埔军校中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-4d96554f",
+        "gz-440112-b5b864ba"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州市黄埔区联和小学",
+      "school_id": "gz-440112-853c0170",
+      "official_primary_names": [
+        "联和小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第3组"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一七中学",
+        "广州市黄埔军校中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-4d96554f",
+        "gz-440112-b5b864ba"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州开发区第一小学",
+      "school_id": "gz-440112-5a6ea672",
+      "official_primary_names": [
+        "广州开发区第一小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州开发区中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-cbfb4b61"
+      ],
+      "direct_feed": [
+        "广州开发区中学"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州开发区第二小学",
+      "school_id": "gz-440112-e1ec9724",
+      "official_primary_names": [
+        "广州开发区第二小学（南校区）"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州开发区中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-cbfb4b61"
+      ],
+      "direct_feed": [
+        "广州开发区中学"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州开发区第二小学(东校区)",
+      "school_id": "gz-440112-2fd7c889",
+      "official_primary_names": [
+        "广州开发区第二小学（东校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第2组"
+      ],
+      "feed_junior_highs": [
+        "广州开发区外国语学校",
+        "广州市黄埔区新港中学",
+        "广州市黄埔区东区中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州开发区第二小学(北校区)",
+      "school_id": "gz-440112-a26538df",
+      "official_primary_names": [
+        "广州开发区第二小学（北校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第4组"
+      ],
+      "feed_junior_highs": [
+        "广州科学城中学",
+        "广东省教育研究院黄埔实验学校（北校区）",
+        "广东省教育研究院黄埔实验学校初中部",
+        "北京师范大学广州实验学校",
+        "广铁一中铁英中学",
+        "广州市黄埔区苏元学校(西校区)",
+        "玉岩中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-8b4292d7",
+        "gz-440112-22ec4fcc",
+        "gz-440112-96610f39",
+        "gz-440112-8bbf8f06",
+        "gz-440112-c80ac6ac",
+        "gz-440112-a0244635",
+        "gz-440112-ff5acfd5"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州知识城北小学",
+      "school_id": "gz-440112-ba943844",
+      "official_primary_names": [
+        "广州知识城北小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州知识城中学(北校区)",
+        "广州知识城中学(东校区)",
+        "广州知识城中学(南校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-3f877ace",
+        "gz-440112-badbc2ab",
+        "gz-440112-ec15555e"
+      ],
+      "direct_feed": [
+        "广州知识城中学(北校区)",
+        "广州知识城中学(东校区)",
+        "广州知识城中学(南校区)"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州知识城广实小学",
+      "school_id": "gz-440112-86b1d024",
+      "official_primary_names": [
+        "广州知识城广实小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第7组"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区会元学校",
+        "广州实验中学",
+        "华南师范大学附属中学(知识城校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-e3190fa2",
+        "gz-440112-87f27cf4",
+        "gz-440112-3847727f"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州知识城第一小学",
+      "school_id": "gz-440112-8f016a0c",
+      "official_primary_names": [
+        "广州知识城第一小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-f3817fbe"
+      ],
+      "direct_feed": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州石化小学",
+      "school_id": "gz-440112-64ab063c",
+      "official_primary_names": [
+        "石化小学（东、西校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州石化小学(西校区)",
+      "school_id": "gz-440112-0f409071",
+      "official_primary_names": [
+        "石化小学（东、西校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广州科学城实验小学",
+      "school_id": "gz-440112-ac61c82d",
+      "official_primary_names": [
+        "科学城实验小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第3组"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一七中学",
+        "广州市黄埔军校中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-4d96554f",
+        "gz-440112-b5b864ba"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "广铁一中铁英小学",
+      "school_id": "gz-440112-adb9c303",
+      "official_primary_names": [
+        "铁英小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第5组"
+      ],
+      "feed_junior_highs": [
+        "北京师范大学广州实验学校",
+        "广铁一中铁英中学",
+        "广州市黄埔区苏元学校(西校区)",
+        "玉岩中学附属开发区实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-8bbf8f06",
+        "gz-440112-c80ac6ac",
+        "gz-440112-a0244635",
+        "gz-440112-15d63ae7"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "庙头小学",
+      "school_id": "gz-440112-f36ddf7d",
+      "official_primary_names": [
+        "庙头小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第2组"
+      ],
+      "feed_junior_highs": [
+        "广州开发区外国语学校",
+        "广州市黄埔区新港中学",
+        "广州市黄埔区东区中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "开元学校（东校区）(小学部)",
+      "school_id": "gz-440112-549c8532",
+      "official_primary_names": [
+        "开元学校（东校区）"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州开元学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-d62f1348"
+      ],
+      "direct_feed": [
+        "广州开元学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "怡园小学(东校区)",
+      "school_id": "gz-440112-23b184e9",
+      "official_primary_names": [
+        "怡园小学（东、西、北校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "怡园小学(西校区)",
+      "school_id": "gz-440112-6fdd05af",
+      "official_primary_names": [
+        "怡园小学（东、西、北校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "怡园小学北校区",
+      "school_id": "gz-440112-49401733",
+      "official_primary_names": [
+        "怡园小学（东、西、北校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "怡瑞小学",
+      "school_id": "gz-440112-077c17bc",
+      "official_primary_names": [
+        "怡瑞小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "文冲小学",
+      "school_id": "gz-440112-6ce2c3db",
+      "official_primary_names": [
+        "文冲小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "文船小学",
+      "school_id": "gz-440112-9e481bef",
+      "official_primary_names": [
+        "文船小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "双沙中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-ee49f05d"
+      ],
+      "direct_feed": [
+        "双沙中学"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "新港小学(东校区)",
+      "school_id": "gz-440112-880cd8fa",
+      "official_primary_names": [
+        "新港小学（东、西、南校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第2组"
+      ],
+      "feed_junior_highs": [
+        "广州开发区外国语学校",
+        "广州市黄埔区新港中学",
+        "广州市黄埔区东区中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "新港小学西校区",
+      "school_id": "gz-440112-3953d88c",
+      "official_primary_names": [
+        "新港小学（东、西、南校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第2组"
+      ],
+      "feed_junior_highs": [
+        "广州开发区外国语学校",
+        "广州市黄埔区新港中学",
+        "广州市黄埔区东区中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "枫下小学",
+      "school_id": "gz-440112-dcae7622",
+      "official_primary_names": [
+        "枫下小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州知识城中学(北校区)",
+        "广州知识城中学(东校区)",
+        "广州知识城中学(南校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-3f877ace",
+        "gz-440112-badbc2ab",
+        "gz-440112-ec15555e"
+      ],
+      "direct_feed": [
+        "广州知识城中学(北校区)",
+        "广州知识城中学(东校区)",
+        "广州知识城中学(南校区)"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "横沙小学",
+      "school_id": "gz-440112-6e178b7a",
+      "official_primary_names": [
+        "横沙小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "永岗小学",
+      "school_id": "gz-440112-77c8c09a",
+      "official_primary_names": [
+        "永岗小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第6组"
+      ],
+      "feed_junior_highs": [
+        "华峰学校",
+        "广铁一中铁英中学",
+        "广州开元学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-0aa66950",
+        "gz-440112-c80ac6ac",
+        "gz-440112-d62f1348"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "汤村小学",
+      "school_id": "gz-440112-dc7228f1",
+      "official_primary_names": [
+        "汤村小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-f3817fbe"
+      ],
+      "direct_feed": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "汤村小学旺村分校",
+      "school_id": "gz-440112-0db47a7c",
+      "official_primary_names": [
+        "汤村小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-f3817fbe"
+      ],
+      "direct_feed": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "沧联小学",
+      "school_id": "gz-440112-082d09e3",
+      "official_primary_names": [
+        "沧联小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第2组"
+      ],
+      "feed_junior_highs": [
+        "广州开发区外国语学校",
+        "广州市黄埔区新港中学",
+        "广州市黄埔区东区中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-9d315f50",
+        "gz-440112-632bcdb7",
+        "gz-440112-550a5ae8"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "深井小学",
+      "school_id": "gz-440112-2995943b",
+      "official_primary_names": [
+        "深井小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "黄埔军校纪念中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-674f4721"
+      ],
+      "direct_feed": [
+        "黄埔军校纪念中学"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "港湾小学",
+      "school_id": "gz-440112-2898c9fa",
+      "official_primary_names": [
+        "港湾小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "湖南师范大学附属黄埔实验学校北校区",
+      "school_id": "gz-440112-40be421c",
+      "official_primary_names": [
+        "湖南师范大学附属黄埔实验学校"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "湖南师范大学附属黄埔实验学校北校区"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-40be421c"
+      ],
+      "direct_feed": [
+        "湖南师范大学附属黄埔实验学校北校区"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "玉泉学校东校区",
+      "school_id": "gz-440112-04db6ee7",
+      "official_primary_names": [
+        "玉泉学校（东校区）"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "玉泉学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-12b0184b"
+      ],
+      "direct_feed": [
+        "玉泉学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "玉泉学校北校区",
+      "school_id": "gz-440112-78b9dcdf",
+      "official_primary_names": [
+        "玉泉学校（北校区）"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "玉泉学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-12b0184b"
+      ],
+      "direct_feed": [
+        "玉泉学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "玉鸣小学",
+      "school_id": "gz-440112-21dc3ebd",
+      "official_primary_names": [
+        "玉鸣小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "玉泉学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-12b0184b"
+      ],
+      "direct_feed": [
+        "玉泉学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "科学城小学",
+      "school_id": "gz-440112-16ca808f",
+      "official_primary_names": [
+        "科学城小学（南、北、东校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第3组"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一七中学",
+        "广州市黄埔军校中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-4d96554f",
+        "gz-440112-b5b864ba"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "科学城小学(北校区)",
+      "school_id": "gz-440112-dbb48335",
+      "official_primary_names": [
+        "科学城小学（南、北、东校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第3组"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一七中学",
+        "广州市黄埔军校中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-4d96554f",
+        "gz-440112-b5b864ba"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "茅岗小学",
+      "school_id": "gz-440112-8e7fbeef",
+      "official_primary_names": [
+        "茅岗小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "荔园小学",
+      "school_id": "gz-440112-7b923f7c",
+      "official_primary_names": [
+        "荔园小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "萝峰小学（东校区）",
+      "school_id": "gz-440112-b035ab6b",
+      "official_primary_names": [
+        "萝峰小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第4组"
+      ],
+      "feed_junior_highs": [
+        "广州科学城中学",
+        "广东省教育研究院黄埔实验学校（北校区）",
+        "广东省教育研究院黄埔实验学校初中部",
+        "北京师范大学广州实验学校",
+        "广铁一中铁英中学",
+        "广州市黄埔区苏元学校(西校区)",
+        "玉岩中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-8b4292d7",
+        "gz-440112-22ec4fcc",
+        "gz-440112-96610f39",
+        "gz-440112-8bbf8f06",
+        "gz-440112-c80ac6ac",
+        "gz-440112-a0244635",
+        "gz-440112-ff5acfd5"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "贤江小学",
+      "school_id": "gz-440112-7ca62a0b",
+      "official_primary_names": [
+        "贤江小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第6组"
+      ],
+      "feed_junior_highs": [
+        "华峰学校",
+        "广铁一中铁英中学",
+        "广州开元学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-0aa66950",
+        "gz-440112-c80ac6ac",
+        "gz-440112-d62f1348"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "铁铮学校",
+      "school_id": "gz-440112-11ed4c6c",
+      "official_primary_names": [
+        "铁铮学校"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "铁铮学校",
+        "广铁一中铁铮学校(西校区)",
+        "广铁一中铁铮学校(东校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-11ed4c6c",
+        "gz-440112-7127244c",
+        "gz-440112-d3055548"
+      ],
+      "direct_feed": [
+        "铁铮学校",
+        "广铁一中铁铮学校(西校区)",
+        "广铁一中铁铮学校(东校区)"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "长岭居小学",
+      "school_id": "gz-440112-e0419ae0",
+      "official_primary_names": [
+        "长岭居小学（西校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第4组"
+      ],
+      "feed_junior_highs": [
+        "广州科学城中学",
+        "广东省教育研究院黄埔实验学校（北校区）",
+        "广东省教育研究院黄埔实验学校初中部",
+        "北京师范大学广州实验学校",
+        "广铁一中铁英中学",
+        "广州市黄埔区苏元学校(西校区)",
+        "玉岩中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-8b4292d7",
+        "gz-440112-22ec4fcc",
+        "gz-440112-96610f39",
+        "gz-440112-8bbf8f06",
+        "gz-440112-c80ac6ac",
+        "gz-440112-a0244635",
+        "gz-440112-ff5acfd5"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "长岭居小学北校区",
+      "school_id": "gz-440112-80a45eec",
+      "official_primary_names": [
+        "长岭居小学（北校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第5组"
+      ],
+      "feed_junior_highs": [
+        "北京师范大学广州实验学校",
+        "广铁一中铁英中学",
+        "广州市黄埔区苏元学校(西校区)",
+        "玉岩中学附属开发区实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-8bbf8f06",
+        "gz-440112-c80ac6ac",
+        "gz-440112-a0244635",
+        "gz-440112-15d63ae7"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "长岭居小学南校区",
+      "school_id": "gz-440112-70e86492",
+      "official_primary_names": [
+        "长岭居小学（南校区）"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第5组"
+      ],
+      "feed_junior_highs": [
+        "北京师范大学广州实验学校",
+        "广铁一中铁英中学",
+        "广州市黄埔区苏元学校(西校区)",
+        "玉岩中学附属开发区实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-8bbf8f06",
+        "gz-440112-c80ac6ac",
+        "gz-440112-a0244635",
+        "gz-440112-15d63ae7"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "长洲岛小学",
+      "school_id": "gz-440112-fd5af1d7",
+      "official_primary_names": [
+        "长洲岛小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "黄埔军校纪念中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-674f4721"
+      ],
+      "direct_feed": [
+        "黄埔军校纪念中学"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "香雪小学",
+      "school_id": "gz-440112-7f51c626",
+      "official_primary_names": [
+        "香雪小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第4组"
+      ],
+      "feed_junior_highs": [
+        "广州科学城中学",
+        "广东省教育研究院黄埔实验学校（北校区）",
+        "广东省教育研究院黄埔实验学校初中部",
+        "北京师范大学广州实验学校",
+        "广铁一中铁英中学",
+        "广州市黄埔区苏元学校(西校区)",
+        "玉岩中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-8b4292d7",
+        "gz-440112-22ec4fcc",
+        "gz-440112-96610f39",
+        "gz-440112-8bbf8f06",
+        "gz-440112-c80ac6ac",
+        "gz-440112-a0244635",
+        "gz-440112-ff5acfd5"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "鱼珠小学(东校区)",
+      "school_id": "gz-440112-19407197",
+      "official_primary_names": [
+        "鱼珠小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "黄埔军校小学",
+      "school_id": "gz-440112-49e1eaad",
+      "official_primary_names": [
+        "黄埔军校小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第3组"
+      ],
+      "feed_junior_highs": [
+        "广州市第一一七中学",
+        "广州市黄埔军校中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-4d96554f",
+        "gz-440112-b5b864ba"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "黄埔区九龙第四小学",
+      "school_id": "gz-440112-43e15e18",
+      "official_primary_names": [
+        "九龙第四小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-f3817fbe"
+      ],
+      "direct_feed": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "黄埔区教育研究院实验小学",
+      "school_id": "gz-440112-65d5741a",
+      "official_primary_names": [
+        "区教育研究院实验小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "黄埔区高新区第一小学",
+      "school_id": "gz-440112-de05a34b",
+      "official_primary_names": [
+        "广州高新区第一小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第4组"
+      ],
+      "feed_junior_highs": [
+        "广州科学城中学",
+        "广东省教育研究院黄埔实验学校（北校区）",
+        "广东省教育研究院黄埔实验学校初中部",
+        "北京师范大学广州实验学校",
+        "广铁一中铁英中学",
+        "广州市黄埔区苏元学校(西校区)",
+        "玉岩中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-8b4292d7",
+        "gz-440112-22ec4fcc",
+        "gz-440112-96610f39",
+        "gz-440112-8bbf8f06",
+        "gz-440112-c80ac6ac",
+        "gz-440112-a0244635",
+        "gz-440112-ff5acfd5"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "黄埔护林路小学",
+      "school_id": "gz-440112-3b7fc6ac",
+      "official_primary_names": [
+        "护林路小学"
+      ],
+      "groups": [
+        "黄埔区 2026 年小升初电脑随机派位第1组"
+      ],
+      "feed_junior_highs": [
+        "广州市第八十六中学分校",
+        "广州市第八十六中学",
+        "广州市第八十六中学初中部",
+        "广州市第一二三中学",
+        "港湾中学",
+        "广州石化中学",
+        "广大附中黄埔实验学校(东校区)",
+        "广州市黄埔区丰乐初级中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-06029745",
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516",
+        "gz-440112-c7cfbe14",
+        "gz-440112-83167af8",
+        "gz-440112-8edaa2d8",
+        "gz-440112-705c66e3",
+        "gz-440112-5b78d24b"
+      ],
+      "direct_feed": [],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    },
+    {
+      "name": "黄船小学",
+      "school_id": "gz-440112-1c720ed0",
+      "official_primary_names": [
+        "黄船小学"
+      ],
+      "groups": [
+        "对口直升（2026 实施细则附件5）"
+      ],
+      "feed_junior_highs": [
+        "黄埔军校纪念中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-674f4721"
+      ],
+      "direct_feed": [
+        "黄埔军校纪念中学"
+      ],
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "data_gaps": null
+    }
+  ],
+  "unresolved_official_primary_names": []
+}

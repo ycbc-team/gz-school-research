@@ -82,7 +82,7 @@ python3 data/primary/enrollment/scripts/build_primary_2026.py <区>   # 2026 小
 | --- | --- |
 | 外部抓取（高德 API） | `poi/dist/primary_poi.json`、`poi/dist/middle_poi.json`、`poi/dist/high_poi.json`（fetch_* 脚本直写） |
 | 官方转录 | `enrollment/raw/*`（政府官方源文件，小学/小升初/初中招生共用）、`primary/enrollment/parsed/2026-*`（小学招生计划）、`primary/enrollment/parsed/_transcripts/*`（各区官方文件 A 层转录）、`middle/enrollment/parsed/_transcripts/*`（初中转录）、`linkage/raw/*`（政府源文件：名额分配/录取分数/特长生计划原件）、`linkage/parsed/*`（指标/自招/录取线/招生名单转录）、`high/cutoff_score/dist/scores_{2025,2026}.json`（官方录取分） |
-| 人工产物 | `primary|middle/tier1_schools_all.json`（学校信号，已判废弃待重构）、`high/level/src/levels.json`、`middle/org_sort/src/*`、`registry/group/src/brand_groups.json`、`registry/group/parsed/education_groups_2026.json`、`registry/group/parsed/_partial_*`、`registry/private/src/minban_*.md` |
+| 人工产物 | `primary|middle/tier1_schools_all.json`（学校信号，已判废弃待重构）、`high/level/src/levels.json`、`middle/org_sort/src/*`、`registry/group/src/brand_groups.json`、`registry/group/parsed/education_groups_2026.json`、`registry/group/parsed/_partial_*`、`registry/private/src/minban_*.json`（7 区民办采集结构化清单） |
 
 ### 派生层（脚本产物，勿手改；改脚本须重跑并提交）
 

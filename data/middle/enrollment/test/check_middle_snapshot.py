@@ -35,7 +35,7 @@ def extract() -> dict:
     """重跑 build_middle_enrollment.py 到临时目录 → 按区提取结构化快照。"""
     tmp = tempfile.mkdtemp(prefix="middle_snapshot_")
     try:
-        r = subprocess.run(["python3", BUILD, "--out-dir", tmp],
+        r = subprocess.run([sys.executable, BUILD, "--out-dir", tmp],
                            capture_output=True, text=True, cwd=ROOT)
         if r.returncode != 0:
             print("生产脚本重跑失败：build_middle_enrollment.py")

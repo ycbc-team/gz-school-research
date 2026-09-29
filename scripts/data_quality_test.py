@@ -74,7 +74,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 必须先排查官方来源（各区教育局年检/招生计划/积分入学等，表内 source_urls 可追溯），
 # 再 UPDATE_SNAPSHOT=1 显式更新。防止"手写 id 列表"式误标（如 2026-09-18 剑桥郡小学
 # 被误标民办：公办的番禺区剑桥郡小学 vs 民办的剑桥郡加拿达外国语学校）无人感知。
-# 首次固化 2026-09-18：228 所（含剑桥郡小学误标剔除后；另新增 7 区 minban_*.md 查漏补缺
+# 首次固化 2026-09-18：228 所（含剑桥郡小学误标剔除后；另新增 7 区 minban_*.json 查漏补缺
 # 来源链接共 88 所可追溯）。
 # (2026-09-22 弃用 digest，改文件清单快照) PRIVATE_MINBAN_SNAPSHOT = "c3ee85789c726b50"
 POI_PATHS = ["data/poi/dist/primary_poi.json", "data/poi/dist/middle_poi.json", "data/poi/dist/high_poi.json"]

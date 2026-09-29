@@ -26,7 +26,7 @@ SOURCE = "海珠区教育局《2026年海珠区公办小学招生服务地段表
 
 def ocr_lines():
     tmp = "/tmp/haizhu_ocr_lines.json"
-    subprocess.run(["python3", OCR_TOOL, os.path.join(RAW, "haizhu_2026_official.png"), "--json", tmp], check=True)
+    subprocess.run([sys.executable, OCR_TOOL, os.path.join(RAW, "haizhu_2026_official.png"), "--json", tmp], check=True)
     return json.load(open(tmp, encoding="utf-8"))
 
 

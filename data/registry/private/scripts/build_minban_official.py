@@ -2,50 +2,65 @@
 """
 番禺区民办学校名单——官方源自动解析（不允许手工维护）。
 
-来源：data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json
+来源：data/enrollment/raw/panyu_2026_official.xls（原始官方文件）
   《2026年番禺区义务教育阶段学校招生计划、招生地段及条件》→ "民办招生计划" sheet（39 所）。
+  直接解析 xls（xlrd），不再依赖 data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json
+  转录中间产物——原始文件更新 → 重跑本脚本即可感知。
 
 规则：
-- 解析 sheet 学校名（学区合并单元格行 6 cell / 完整行 7 cell）。
+- 解析 sheet 学校名（表头 5 行后，学校名称 = 第 2 列）。
 - 匹配实体：先精确 norm（去 广州市/番禺区/番禺 前缀与括号）→ 未命中再按「区 440113 + 关键词唯一」匹配
   （金星→金星学校、同心→番禺同心小学、名智→番禺名智小学、华立→华立学校、加拿达→加拿达外国语学校剑桥郡校区）。
 - 输出的 school_id 以 source_type="official_panyu_plan" 写入 minban_schools.json；
   官方源条目由本脚本生成，重跑覆盖，禁止手改（官方文件更新 → 重跑本脚本即可感知）。
 
-用法：python3 data/registry/private/scripts/build_minban_official.py [--dry-run]
+用法：python3 data/registry/private/scripts/build_minban_official.py [--dry-run] [--check]
 """
 import json
 import re
 import os
 import sys
 
+import xlrd
+
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-RAW = os.path.join(ROOT, 'data/primary/enrollment/parsed/_transcripts/panyu_2026_official.json')
+RAW = os.path.join(ROOT, 'data/enrollment/raw/panyu_2026_official.xls')
 HIGH_RAW = os.path.join(ROOT, 'data/registry/private/raw/gzzk_2026_minban_high.json')
 TABLE = os.path.join(ROOT, 'data/registry/private/dist/minban_schools.json')
 ENTITIES = os.path.join(ROOT, 'data/registry/entity/dist/entities.json')
 DISTRICT = '440113'
 
+SHEET = '民办招生计划'
+HEADER_ROWS = 5          # 表头区（标题行 0-2 + 列头行 3-4）
+NAME_COL = 1             # 学校名称列
+
 # 官方名 → 关键词（区+关键词唯一才采用）的特殊匹配。
 # 这些官方名与实体名存在街道/镇前缀、同校多实体（小学部/中学部/招生处）等差异，
 # 精确 norm 匹配不到，须用「区+关键词唯一」匹配并带出同校全部实体。
+
+
 def norm(s):
     return (re.sub(r'[（(].*?[)）]', '', s)
             .replace('广州市', '').replace('番禺区', '').replace('番禺', '')
             .replace('有限公司', '').strip())
 
 
+def clean(v):
+    if v is None:
+        return ""
+    if isinstance(v, float):
+        return str(int(v)) if v == int(v) else str(v)
+    return re.sub(r"\s+", " ", str(v)).strip()
+
+
 def parse_plan_names():
-    """解析民办招生计划 sheet → 学校名列表。"""
-    raw = json.load(open(RAW, encoding='utf-8'))
-    rows = raw['sheets']['民办招生计划']
+    """直接解析官方 xls 的「民办招生计划」sheet → 学校名列表。"""
+    wb = xlrd.open_workbook(RAW)
+    sheet = wb.sheet_by_name(SHEET)
     names = []
-    for r in rows[5:]:
-        cells = [str(x).strip() for x in r if str(x).strip()]
-        if not cells or len(cells) < 2:
-            continue
-        name = cells[1] if len(cells) == 7 else cells[0]
-        if name in ('学区', '学校名称', '班数', '人数') or '年番禺' in name:
+    for r in range(HEADER_ROWS, sheet.nrows):
+        name = clean(sheet.cell_value(r, NAME_COL))
+        if not name or name in ('学区', '学校名称', '班数', '人数') or '年番禺' in name:
             continue
         names.append(name)
     return names
@@ -120,7 +135,7 @@ def main():
         if not ok:
             print('[CHECK FAIL] official 民办源被手改或官方文件变化未重跑 → 必须重跑 build_minban_official.py')
             sys.exit(1)
-        print('[CHECK PASS] official 民办源与权威表一致（番禺官方招生计划自动解析，禁手改）')
+        print('[CHECK PASS] official 民办源与权威表一致（番禺官方招生计划 xls 自动解析，禁手改）')
         return
 
     existing = {s['school_id']: s for s in table['schools']}

@@ -1,0 +1,33 @@
+{
+  "year": 2026,
+  "district": "海珠区",
+  "basis": "official middle-enrollment transcripts vs existing xiaoshengchu district dist; entity IDs are compared after each chain's current resolver.",
+  "summary": {
+    "reverse_pairs": 1166,
+    "current_pairs": 1163,
+    "only_reverse": 3,
+    "only_current": 0,
+    "equal": false
+  },
+  "only_reverse": [
+    {
+      "primary_school_id": "gz-440105-5d30ae7e",
+      "primary": "南武文润学校(小学部)",
+      "middle_school_id": "gz-440105-44b3dc01",
+      "middle": "广州市海珠区南武文润学校"
+    },
+    {
+      "primary_school_id": "gz-440105-0adfcd61",
+      "primary": "广州昌岗中路小学分校",
+      "middle_school_id": "gz-440105-747245e1",
+      "middle": "广州市五中附属初级中学"
+    },
+    {
+      "primary_school_id": "gz-440105-98d6d585",
+      "primary": "昌岗中路小学(本校区)",
+      "middle_school_id": "gz-440105-747245e1",
+      "middle": "广州市五中附属初级中学"
+    }
+  ],
+  "only_current": []
+}
