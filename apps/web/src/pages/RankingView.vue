@@ -31,6 +31,8 @@ interface Row {
   /** 第二批次指标结果（dist/quota_outcome，id 粒度；py 层聚合，运行时零推断） */
   sheng_min_score?: number | null;
   qu_min_score?: number | null;
+  sheng_min_3y_avg?: number | null;
+  qu_min_3y_avg?: number | null;
   sheng_waste_rate?: number | null;
   qu_waste_rate?: number | null;
   autonomy_count: number;
@@ -92,6 +94,8 @@ const schools: Row[] = rankingMiddle.schools.map((r) => {
     qu_quota: q?.qu_quota ?? nameRow?.qu_quota ?? null,
     sheng_min_score: oc?.sheng_min_score ?? null,
     qu_min_score: oc?.qu_min_score ?? null,
+    sheng_min_3y_avg: oc?.sheng_min_3y_avg ?? null,
+    qu_min_3y_avg: oc?.qu_min_3y_avg ?? null,
     sheng_waste_rate: oc?.sheng_waste_rate ?? null,
     qu_waste_rate: oc?.qu_waste_rate ?? null,
     autonomy_count: r.autonomy_count,
@@ -168,8 +172,8 @@ const METRIC_META: Record<MetricKey, { label: string; note: string; unit: string
   qu_ratio: { label: '区属指标比例', note: '区属指标数 ÷ 符合名额分配报考资格考生数。反映本区学生获得本区区属指标的机会。', unit: '%', digits: 1 },
   sheng_ratio: { label: '省市属指标比例', note: '省市属高中名额分配指标数 ÷ 符合名额分配报考资格考生数。省市属指标按符合资格考生等比例分配，全区一致。', unit: '%', digits: 1 },
   tekong: { label: '指标×特控率', note: 'Σ(区属高中给该校指标名额 × 该高中特控率) ÷ 符合名额分配报考资格考生数。反映该校符合资格考生经区属指标到校路径预计上特控（一本）线的比例；特控率为喜报/网传口径，缺失的高中名额不计。', unit: '%', digits: 1 },
-  sheng_min: { label: '省市属指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被省市属高中（11 所 20 校区 + 广州外国语学校）录取的最低分（录取序列最后一名，升学分数门槛）。第三批次分数不在此列。', unit: '', digits: 0 },
-  qu_min: { label: '区属指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被本区区属示范高中录取的最低分（录取序列最后一名，升学分数门槛）。第三批次分数不在此列。', unit: '', digits: 0 },
+  sheng_min: { label: '省市属指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被省市属高中（11 所 20 校区 + 广州外国语学校）录取的最低分（录取序列最后一名，升学分数门槛）。第三批次分数不在此列。近3年均值 = 2024/2025/2026 各年该最低分的时间维算术平均（某年无录取记录不参与）。', unit: '', digits: 0 },
+  qu_min: { label: '区属指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被本区区属示范高中录取的最低分（录取序列最后一名，升学分数门槛）。第三批次分数不在此列。近3年均值 = 2024/2025/2026 各年该最低分的时间维算术平均（某年无录取记录不参与）。', unit: '', digits: 0 },
 };
 
 /** 区属/省市属比例指标额外展示一列指标数绝对值 */
@@ -182,9 +186,13 @@ function fmtAbs(v: number | null): string {
   return v == null ? '—' : String(v);
 }
 
-/** 最低分指标模式：表格显示 最低分 / 指标数 / 浪费率 三列（考生数列让位，指标数/浪费率随所选类型） */
+/** 最低分指标模式：表格显示 最低分 / 近3年均值 / 指标数 / 浪费率 四列（考生数列让位，指标数/浪费率随所选类型） */
 const showOutcome = computed(() => metric.value === 'sheng_min' || metric.value === 'qu_min');
 const outcomeQuotaLabel = computed(() => '指标数');
+/** 近3年均值（2024/2025/2026 各年最低分时间维均值，某年无录取不参与） */
+function outcomeMin3y(s: Row): number | null {
+  return metric.value === 'sheng_min' ? (s.sheng_min_3y_avg ?? null) : (s.qu_min_3y_avg ?? null);
+}
 function outcomeQuota(s: Row): number | null {
   return metric.value === 'sheng_min' ? (s.sheng_quota ?? null) : (s.qu_quota ?? null);
 }
@@ -194,14 +202,17 @@ function outcomeWaste(s: Row): number | null {
 function fmtWaste(v: number | null): string {
   return v == null ? '—' : `${(v * 100).toFixed(1)}%`;
 }
+function fmtAvg(v: number | null): string {
+  return v == null ? '—' : v.toFixed(1);
+}
 
 /** 指标口径 / 名额分配符合资格考生数口径问号 popup（PC hover / 触屏点击）。
  *  Teleport 到 body + fixed 定位，避免被 .rank-group overflow 裁剪；
  *  切换指标、页面滚动、窗口缩放时自动收起。 */
-const showHint = ref<'metric' | 'kaosheng' | 'waste' | null>(null);
+const showHint = ref<'metric' | 'kaosheng' | 'waste' | 'avg' | null>(null);
 const hintPos = ref({ top: 0, left: 0 });
 let hintTimer: number | undefined;
-function openHint(kind: 'metric' | 'kaosheng' | 'waste', e: MouseEvent) {
+function openHint(kind: 'metric' | 'kaosheng' | 'waste' | 'avg', e: MouseEvent) {
   clearTimeout(hintTimer);
   const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
   const w = 330;
@@ -215,7 +226,7 @@ function scheduleClose() {
   hintTimer = window.setTimeout(() => { showHint.value = null; }, 160);
 }
 function keepHint() { clearTimeout(hintTimer); }
-function toggleHint(kind: 'metric' | 'kaosheng' | 'waste', e: MouseEvent) {
+function toggleHint(kind: 'metric' | 'kaosheng' | 'waste' | 'avg', e: MouseEvent) {
   if (showHint.value === kind) showHint.value = null;
   else openHint(kind, e);
 }
@@ -235,6 +246,9 @@ const KAOSHENG_NOTE = '本列统计的是“符合名额分配报考资格的考
 
 /** 指标浪费率口径（对数口径，与 canonical quota_outcome note 一致） */
 const WASTE_NOTE = '指标浪费率 = 未完成录取的对数 ÷ 有指标的对数（对数口径）。官方录取分数表按「初中 × 高中」列出全部有指标的对，未填录取分数的对 = 有名额但未完成录取（未达控制线/无人报考/流标）。示例：某初中 10 个省市属录取对中有 2 个无录取分数，浪费率 20%。省市属与区属统一采用对数口径以保证两列可比；该口径以“官方表列出录取对”为分母，与指标总名额（quota）数值略有差异。';
+
+/** 近3年均值口径（时间维均值，非在校生混合均） */
+const AVG_NOTE = '近3年均值 = 2024 / 2025 / 2026 三年“最低分”（该校学生通过第二批次名额分配被省市属（或区属）高中录取的最后一名分数）的算术平均。各年均为同场中考的绝对值分数，可直接平均；某年该校无录取记录（当年未参加该批次 / 无数据）则不参与平均，均值基于实际有录取记录的年份。与“最低分”列（最新 2026 年）并列展示。';
 
 const metricLabel = computed(() => METRIC_META[metric.value].label);
 const metricNote = computed(() => METRIC_META[metric.value].note);
@@ -452,6 +466,7 @@ const groups = computed(() => {
             <col class="col-val">
             <col v-if="showOutcome" class="col-sub">
             <col v-if="showOutcome" class="col-sub">
+            <col v-if="showOutcome" class="col-sub">
             <col v-else-if="showAbs" class="col-sub">
             <col v-else class="col-sub">
           </colgroup>
@@ -466,6 +481,16 @@ const groups = computed(() => {
                   @mouseenter="openHint('metric', $event)"
                   @mouseleave="scheduleClose"
                   @click.stop="toggleHint('metric', $event)"
+                >?</span>
+              </th>
+              <th v-if="showOutcome" class="c-sub">
+                近3年均值
+                <span
+                  class="q-mark"
+                  aria-label="近3年最低分均值口径说明"
+                  @mouseenter="openHint('avg', $event)"
+                  @mouseleave="scheduleClose"
+                  @click.stop="toggleHint('avg', $event)"
                 >?</span>
               </th>
               <th v-if="showOutcome" class="c-sub">{{ outcomeQuotaLabel }}</th>
@@ -508,6 +533,7 @@ const groups = computed(() => {
                 <em v-if="row.s.minban" class="mb-tag">民办</em>
               </td>
               <td class="c-val">{{ fmt(row.v) }}</td>
+              <td v-if="showOutcome" class="c-sub">{{ fmtAvg(outcomeMin3y(row.s)) }}</td>
               <td v-if="showOutcome" class="c-sub">{{ fmtAbs(outcomeQuota(row.s)) }}</td>
               <td v-if="showOutcome" class="c-sub">{{ fmtWaste(outcomeWaste(row.s)) }}</td>
               <td v-else-if="showAbs" class="c-sub">{{ fmtAbs(absValue(row.s)) }}</td>
@@ -537,6 +563,10 @@ const groups = computed(() => {
         <template v-else-if="showHint === 'waste'">
           <div class="hp-title">指标浪费率口径</div>
           <div class="hp-line">{{ WASTE_NOTE }}</div>
+        </template>
+        <template v-else-if="showHint === 'avg'">
+          <div class="hp-title">近3年最低分均值口径</div>
+          <div class="hp-line">{{ AVG_NOTE }}</div>
         </template>
         <template v-else>
           <div class="hp-title">名额分配符合资格考生数口径</div>

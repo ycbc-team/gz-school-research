@@ -137,6 +137,14 @@ def extract_quota_outcome(m):
             "school_ids": v.get("school_ids"),
             "sheng_min_score": v.get("sheng_min_score"),
             "qu_min_score": v.get("qu_min_score"),
+            "sheng_min_3y_avg": v.get("sheng_min_3y_avg"),
+            "qu_min_3y_avg": v.get("qu_min_3y_avg"),
+            "sheng_min_2024": v.get("sheng_min_2024"),
+            "sheng_min_2025": v.get("sheng_min_2025"),
+            "sheng_min_2026": v.get("sheng_min_2026"),
+            "qu_min_2024": v.get("qu_min_2024"),
+            "qu_min_2025": v.get("qu_min_2025"),
+            "qu_min_2026": v.get("qu_min_2026"),
             "sheng_quota": v.get("sheng_quota"),
             "qu_quota": v.get("qu_quota"),
             "sheng_waste_rate": v.get("sheng_waste_rate"),
@@ -286,7 +294,9 @@ def assert_dist_structure() -> list:
     occ = json.load(open(os.path.join(CANON, "quota_outcome.json"), encoding="utf-8"))
     if set(oc) != {"ids", "schools"}:
         errs.append("quota_outcome 顶层键必须仅 ids/schools")
-    oc_allowed = {"sheng_min_score", "qu_min_score", "sheng_quota", "qu_quota",
+    oc_allowed = {"sheng_min_score", "qu_min_score",
+                  "sheng_min_3y_avg", "qu_min_3y_avg",
+                  "sheng_quota", "qu_quota",
                   "sheng_waste_rate", "qu_waste_rate"}
     id_cnt = school_cnt = 0
     for sid, v in (oc.get("ids") or {}).items():
@@ -302,6 +312,10 @@ def assert_dist_structure() -> list:
             w = v.get(k)
             if w is not None and not (0 <= w <= 1):
                 errs.append(f"quota_outcome 浪费率必须 0-1 或 null（前端 ×100）: {w}（{sid}）")
+        for k in ("sheng_min_3y_avg", "qu_min_3y_avg"):
+            a = v.get(k)
+            if a is not None and not isinstance(a, (int, float)):
+                errs.append(f"quota_outcome 近3年均值必须为数值或 null: {a}（{sid}）")
         id_cnt += 1
     for name, v in (oc.get("schools") or {}).items():
         if set(v) - oc_allowed:

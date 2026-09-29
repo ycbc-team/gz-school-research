@@ -83,10 +83,13 @@ export interface DistrictQuota {
 }
 /** 第二批次指标结果聚合（dist/quota_outcome，py 层算好，运行时零推断）：
  *  最低分 = 该校录取对 min_score 最小值（升学分数门槛，同场中考绝对值可比）；
+ *  近3年均值 = 2024/2025/2026 各年最低分的时间维算术平均（某年无录取记录不参与）；
  *  浪费率 = 未录取对 / 有指标对（对数口径，省市属/区属一致）。id 粒度优先 + 原文兜底。 */
 export interface QuotaOutcomeRecord {
   sheng_min_score?: number | null;
   qu_min_score?: number | null;
+  sheng_min_3y_avg?: number | null;
+  qu_min_3y_avg?: number | null;
   sheng_quota?: number | null;
   qu_quota?: number | null;
   sheng_waste_rate?: number | null;
