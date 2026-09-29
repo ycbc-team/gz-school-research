@@ -26,8 +26,8 @@ SNAPSHOT = {
     "innovation": {"records": 522, "matched": 392, "digest": "06e62dfd2dfb991450236c908df191a0deb604f499a33e609711b951f34512f6"},
     "chuangke": {"years": 2, "records": 145, "matched": 113, "digest": "2d43f968d0eeede5c9df96fe9f4343a07863a5525c69927610e6b30f7995b7ae"},
     "science_literacy": {"records": 531, "matched": 352},
-    "tech_sports": {"records": 1340, "matched": 879, "digest": "057ae031736259e1054afb1ebc2e6d292e0533abac7c8180c86d112e54f47b7c"},
-    "details": {"records": 1736, "digest": "ae55ed0fd57889cb28d2e20f2a2669ec3ff0aa76029e3bdae21a79bc551e069b"},
+    "tech_sports": {"records": 2708, "matched": 1850, "digest": "f0d51b3cfa9b6097b542ab6cf02ecce5e18a831a6e354c4a1c221220190e31a7"},
+    "details": {"records": 2707, "digest": "e2212c860410e6d883ab64024d3d1cc86a8718f52dfb2ea03f1ca89c1784bec1"},
 }
 
 
@@ -121,6 +121,14 @@ def main():
     nanwu = find("tech_sports", "广州市南武中学", stage="high", year=2026)
     if not (bool(nanwu) and all(set(r["school_ids"]) == NANWU for r in nanwu)):
         ok = fail("南武中学测向 M18 组未挂高中实体") and ok
+
+    qifu_2024 = find("tech_sports", "广州市番禺区祈福新邨学校", stage="primary", year=2024)
+    if not (bool(qifu_2024) and all(set(r["school_ids"]) == {"gz-440113-1963cc5e"} for r in qifu_2024)):
+        ok = fail("祈福新邨学校 2024 模型系列未精确归属") and ok
+
+    qifu_2025 = find("tech_sports", "广州市番禺区祈福新邨学校", stage="primary", year=2025)
+    if not (bool(qifu_2025) and all(set(r["school_ids"]) == {"gz-440113-1963cc5e"} for r in qifu_2025)):
+        ok = fail("祈福新邨学校 2025 市级总决赛未精确归属") and ok
 
     if not ok:
         print(f"✗ 竞赛构建回归: {len(innovation)} 条创新 + {actual['chuangke']['records']} 条创客 + "
