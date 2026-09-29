@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """升学通道 canonical 业务快照测试 + dist 轻量结构断言（quota_matrix / district_quota /
-batch2_scores / ranking_middle；special_matrix 由 check_special_matrix_snapshot.py 覆盖）。
+batch2_scores / ranking_middle / quota_outcome；special_matrix 由 check_special_matrix_snapshot.py 覆盖）。
 
 用户口径（2026-09-24 拍板）：
   1) 测试快照只用 canonical（既有 school_id 又有 name 的规范表），不再维护 dist 精简快照；
@@ -126,11 +126,35 @@ def extract_ranking(m):
     return sorted(out, key=lambda x: (x["district"] or "", x["name"] or ""))
 
 
+def extract_quota_outcome(m):
+    """quota_outcome：每校最低分/指标数/浪费率 + 调试对数字段 + school_id/school_ids 外键。
+    （调试对数/未录取数只进 canonical，dist 已删——此处快照即调试字段的唯一留档。）"""
+    out = []
+    for v in (m.get("data") or {}).values():
+        out.append({
+            "school": v.get("school"),
+            "school_id": v.get("school_id"),
+            "school_ids": v.get("school_ids"),
+            "sheng_min_score": v.get("sheng_min_score"),
+            "qu_min_score": v.get("qu_min_score"),
+            "sheng_quota": v.get("sheng_quota"),
+            "qu_quota": v.get("qu_quota"),
+            "sheng_waste_rate": v.get("sheng_waste_rate"),
+            "qu_waste_rate": v.get("qu_waste_rate"),
+            "sheng_pairs": v.get("sheng_pairs"),
+            "sheng_failed": v.get("sheng_failed"),
+            "qu_pairs": v.get("qu_pairs"),
+            "qu_failed": v.get("qu_failed"),
+        })
+    return sorted(out, key=lambda x: (x["school"] or ""))
+
+
 PRODUCTS = [
     ("quota_matrix", "canon_quota_matrix_snapshot.json", extract_quota, CANON),
     ("district_quota", "canon_district_quota_snapshot.json", extract_district, CANON),
     ("batch2_scores", "canon_batch2_scores_snapshot.json", extract_batch2, CANON),
     ("ranking_middle", "canon_ranking_middle_snapshot.json", extract_ranking, CANON),
+    ("quota_outcome", "canon_quota_outcome_snapshot.json", extract_quota_outcome, CANON),
     # special_matrix 的 canonical 业务快照由 check_special_matrix_snapshot.py 单独覆盖
     # （重放 B 层 build_special_plan/build_special_matrix，基线 special_matrix_snapshot.json）
 ]
@@ -256,6 +280,42 @@ def assert_dist_structure() -> list:
         if "name" in v:
             errs.append("special_plan 值内不得含 name（实体名由实体表 join）")
 
+    # quota_outcome：ids/schools 并行 + 值字段白名单（最低分/指标数/浪费率）；
+    # 对数守恒（ids+schools 数 = canonical 有值行数）；调试对数字段不得进 dist
+    oc = json.load(open(os.path.join(DIST, "quota_outcome.json"), encoding="utf-8"))
+    occ = json.load(open(os.path.join(CANON, "quota_outcome.json"), encoding="utf-8"))
+    if set(oc) != {"ids", "schools"}:
+        errs.append("quota_outcome 顶层键必须仅 ids/schools")
+    oc_allowed = {"sheng_min_score", "qu_min_score", "sheng_quota", "qu_quota",
+                  "sheng_waste_rate", "qu_waste_rate"}
+    id_cnt = school_cnt = 0
+    for sid, v in (oc.get("ids") or {}).items():
+        if not str(sid).startswith("gz-"):
+            errs.append(f"quota_outcome ids 键必须为 gz- 实体 id: {sid}")
+        if set(v) - oc_allowed:
+            errs.append(f"quota_outcome ids 值含调试/未引用字段（对数只进 canonical）: {sorted(set(v) - oc_allowed)}")
+        if "school" in v:
+            errs.append("quota_outcome ids 值不得含 school 名（应 join 实体表）")
+        if v.get("sheng_min_score") is not None and not isinstance(v["sheng_min_score"], int):
+            errs.append(f"quota_outcome 最低分必须为整数或 null: {v}")
+        for k in ("sheng_waste_rate", "qu_waste_rate"):
+            w = v.get(k)
+            if w is not None and not (0 <= w <= 1):
+                errs.append(f"quota_outcome 浪费率必须 0-1 或 null（前端 ×100）: {w}（{sid}）")
+        id_cnt += 1
+    for name, v in (oc.get("schools") or {}).items():
+        if set(v) - oc_allowed:
+            errs.append(f"quota_outcome schools 值含未引用字段: {sorted(set(v) - oc_allowed)}")
+        school_cnt += 1
+    canon_outcome_rows = sum(1 for v in occ.get("data", {}).values()
+                             if v.get("sheng_min_score") is not None or v.get("qu_min_score") is not None)
+    if id_cnt + school_cnt != len(occ.get("data", {})):
+        errs.append(f"quota_outcome ids({id_cnt})+schools({school_cnt}) ≠ canonical 行数 {len(occ.get('data', {}))}")
+    for v in (occ.get("data") or {}).values():
+        for k in ("sheng_pairs", "sheng_failed", "qu_pairs", "qu_failed"):
+            if v.get(k) is not None and not isinstance(v[k], int):
+                errs.append(f"quota_outcome canonical 对数/未录取数字段必须为整数或 null: {k}")
+
     return errs
 
 
@@ -266,6 +326,7 @@ def run(update: bool) -> int:
     replay(["python3", os.path.join(ROOT, "data/linkage/scripts/build_linkage_batch2.py")])
     replay(["python3", os.path.join(ROOT, "data/linkage/scripts/build_special_matrix.py")])
     replay(["python3", os.path.join(ROOT, "data/linkage/scripts/backfill_school_ids.py")])
+    replay(["python3", os.path.join(ROOT, "data/linkage/scripts/build_quota_outcome.py")])
     replay(["python3", os.path.join(ROOT, "data/linkage/scripts/build_ranking_middle.py")])
 
     os.makedirs(SNAP_DIR, exist_ok=True)

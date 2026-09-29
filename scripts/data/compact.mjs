@@ -93,6 +93,7 @@ const MP_SUB_TARGETS = [
   'data/linkage/dist/special_matrix.json',
   'data/linkage/dist/batch2_scores.json',
   'data/linkage/dist/district_quota.json',
+  'data/linkage/dist/quota_outcome.json',
   'data/registry/group/src/brand_groups.json',
   'data/registry/group/dist/education_groups.json',
 ];
@@ -230,6 +231,7 @@ const SRC_REMAP = {
   'linkage/dist/batch2_scores': 'linkage/batch2_scores',
   'linkage/dist/district_quota': 'linkage/district_quota',
   'linkage/dist/ranking_middle': 'linkage/ranking_middle',
+  'linkage/dist/quota_outcome': 'linkage/quota_outcome',
 };
 const relRaw = relative(DATA_SRC, abs); // 真源 rel（含 .json，注释/统计用）
 const relPath = (SRC_REMAP[relRaw.replace(/\.json$/, '')] ?? relRaw.replace(/\.json$/, '')) + '.json'; // 输出 rel（remap 后保持历史路径）

@@ -21,6 +21,7 @@ import rankingMiddleCompact from './compact/linkage/ranking_middle.js';
 import specialMatrixCompact from './compact/linkage/special_matrix.js';
 import batch2ScoresCompact from './compact/linkage/batch2_scores.js';
 import districtQuotaCompact from './compact/linkage/district_quota.js';
+import quotaOutcomeCompact from './compact/linkage/quota_outcome.js';
 import brandGroupsCompact from './compact/registry/group/src/brand_groups.js';
 import educationGroupsCompact from './compact/registry/group/dist/education_groups.js';
 import nonGroupMultiCampusesCompact from './compact/registry/group/dist/non_group_multi_campuses.js';
@@ -54,6 +55,7 @@ const loaders: DataLoaders = {
   rankingMiddle: cast(hydrate(rankingMiddleCompact)),
   specialMatrix: cast(hydrate(specialMatrixCompact)),
   batch2Scores: cast(hydrate(batch2ScoresCompact)),
+  quotaOutcome: cast(hydrate(quotaOutcomeCompact)),
   highScores2025: cast(hydrate(highScores2025Compact)),
   highScores2026: cast(hydrate(highScores2026Compact)),
   districtQuota: cast(hydrate(districtQuotaCompact)),
@@ -91,6 +93,7 @@ export const quotaMatrix = loaders.quotaMatrix;
 export const rankingMiddle = loaders.rankingMiddle;
 export const specialMatrix = loaders.specialMatrix;
 export const batch2Scores = loaders.batch2Scores;
+export const quotaOutcome = loaders.quotaOutcome;
 export const enrollments = loaders.enrollments;
 export const brandGroups = loaders.brandGroups;
 export const entities = loaders.entities;

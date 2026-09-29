@@ -13,7 +13,7 @@
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 import { useRouter } from 'vue-router';
 import { DISTRICTS } from '@gz/shared';
-import { rankingMiddle, quotaMatrix, entities, middleOrgSort, civilizedCampusSchoolIds, groupOfSchool } from '../data';
+import { rankingMiddle, quotaMatrix, entities, middleOrgSort, civilizedCampusSchoolIds, groupOfSchool, quotaOutcome } from '../data';
 import DetailFilterBar from '../components/DetailFilterBar.vue';
 import DetailPageHeader from '../components/DetailPageHeader.vue';
 import DetailRankingList from '../components/DetailRankingList.vue';
@@ -28,6 +28,11 @@ interface Row {
   kaosheng?: number | null;
   sheng_quota?: number | null;
   qu_quota?: number | null;
+  /** 第二批次指标结果（dist/quota_outcome，id 粒度；py 层聚合，运行时零推断） */
+  sheng_min_score?: number | null;
+  qu_min_score?: number | null;
+  sheng_waste_rate?: number | null;
+  qu_waste_rate?: number | null;
   autonomy_count: number;
   tekong_quota_rate?: number | null;
 }
@@ -59,6 +64,10 @@ const MINBAN_IDS = new Set(
     .map((e) => e.school_id),
 );
 const QUOTA_BY_NAME = new Map(quotaMatrix.schools.map((q) => [q.school, q]));
+/** 指标结果索引：id 粒度优先（dist 只消费 id），无实体原文兜底（前端仅展示不可点） */
+const OUTCOME_BY_ID = new Map<string, (typeof quotaOutcome.ids)[string]>();
+for (const [id, v] of Object.entries(quotaOutcome.ids)) OUTCOME_BY_ID.set(id, v);
+const OUTCOME_BY_NAME = new Map(Object.entries(quotaOutcome.schools));
 
 const schools: Row[] = rankingMiddle.schools.map((r) => {
   const id = r.school_id || '';
@@ -69,6 +78,7 @@ const schools: Row[] = rankingMiddle.schools.map((r) => {
   const name = id ? (NAME_BY_ID.get(id) ?? [])[npos] ?? r.name ?? '' : r.name ?? '';
   if (id) namePos.set(id, npos + 1);
   const nameRow = id ? undefined : QUOTA_BY_NAME.get(name);
+  const oc = id ? OUTCOME_BY_ID.get(id) : OUTCOME_BY_NAME.get(name);
   const grp = groupOfSchool(name, r.school_id);
   return {
     name,
@@ -80,6 +90,10 @@ const schools: Row[] = rankingMiddle.schools.map((r) => {
     kaosheng: q?.kaosheng ?? nameRow?.kaosheng ?? null,
     sheng_quota: q?.sheng_quota ?? nameRow?.sheng_quota ?? null,
     qu_quota: q?.qu_quota ?? nameRow?.qu_quota ?? null,
+    sheng_min_score: oc?.sheng_min_score ?? null,
+    qu_min_score: oc?.qu_min_score ?? null,
+    sheng_waste_rate: oc?.sheng_waste_rate ?? null,
+    qu_waste_rate: oc?.qu_waste_rate ?? null,
     autonomy_count: r.autonomy_count,
     tekong_quota_rate: r.tekong_quota_rate ?? null,
   };
@@ -126,7 +140,7 @@ function goSchool(name: string, id?: string) {
 
 const openMenu = ref<'group' | 'filter' | 'metric' | null>(null);
 const groupBy = ref<'none' | 'district' | 'group'>('none');
-type MetricKey = 'default' | 'qu_ratio' | 'sheng_ratio' | 'tekong';
+type MetricKey = 'default' | 'qu_ratio' | 'sheng_ratio' | 'tekong' | 'sheng_min' | 'qu_min';
 const metric = ref<MetricKey>('default');
 
 const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: string }> }> = [
@@ -139,6 +153,8 @@ const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: stri
     items: [
       { v: 'qu_ratio', l: '区属指标比例（÷名额分配符合资格考生数）' },
       { v: 'sheng_ratio', l: '省市属指标比例（÷名额分配符合资格考生数）' },
+      { v: 'sheng_min', l: '省市属指标最低分（升序）' },
+      { v: 'qu_min', l: '区属指标最低分（升序）' },
     ],
   },
   {
@@ -152,6 +168,8 @@ const METRIC_META: Record<MetricKey, { label: string; note: string; unit: string
   qu_ratio: { label: '区属指标比例', note: '区属指标数 ÷ 符合名额分配报考资格考生数。反映本区学生获得本区区属指标的机会。', unit: '%', digits: 1 },
   sheng_ratio: { label: '省市属指标比例', note: '省市属高中名额分配指标数 ÷ 符合名额分配报考资格考生数。省市属指标按符合资格考生等比例分配，全区一致。', unit: '%', digits: 1 },
   tekong: { label: '指标×特控率', note: 'Σ(区属高中给该校指标名额 × 该高中特控率) ÷ 符合名额分配报考资格考生数。反映该校符合资格考生经区属指标到校路径预计上特控（一本）线的比例；特控率为喜报/网传口径，缺失的高中名额不计。', unit: '%', digits: 1 },
+  sheng_min: { label: '省市属指标最低分', note: '该校通过名额分配录取省市属高中（11 所 20 校区 + 广州外国语学校）的录取序列最后一名分数——即在该校考到多少分能读省市属重点高中（升学分数门槛）。同场中考绝对值可比；升序排行（门槛越低=升学机会越大）。', unit: '', digits: 0 },
+  qu_min: { label: '区属指标最低分', note: '该校通过名额分配录取区属示范高中的录取序列最后一名分数——即在该校考到多少分能读本区区属示范高中（升学分数门槛）。同场中考绝对值可比；升序排行（门槛越低=升学机会越大）。', unit: '', digits: 0 },
 };
 
 /** 区属/省市属比例指标额外展示一列指标数绝对值 */
@@ -162,6 +180,19 @@ function absValue(s: Row): number | null {
 }
 function fmtAbs(v: number | null): string {
   return v == null ? '—' : String(v);
+}
+
+/** 最低分指标模式：表格显示 最低分 / 指标数 / 浪费率 三列（考生数列让位，指标数/浪费率随所选类型） */
+const showOutcome = computed(() => metric.value === 'sheng_min' || metric.value === 'qu_min');
+const outcomeQuotaLabel = computed(() => (metric.value === 'sheng_min' ? '省市属指标数' : '区属指标数'));
+function outcomeQuota(s: Row): number | null {
+  return metric.value === 'sheng_min' ? (s.sheng_quota ?? null) : (s.qu_quota ?? null);
+}
+function outcomeWaste(s: Row): number | null {
+  return metric.value === 'sheng_min' ? (s.sheng_waste_rate ?? null) : (s.qu_waste_rate ?? null);
+}
+function fmtWaste(v: number | null): string {
+  return v == null ? '—' : `${(v * 100).toFixed(1)}%`;
 }
 
 /** 指标口径 / 名额分配符合资格考生数口径问号 popup（PC hover / 触屏点击）。
@@ -215,6 +246,8 @@ function metricValue(s: Row): number | null {
     case 'qu_ratio': return k && s.qu_quota != null ? (s.qu_quota / k) * 100 : null;
     case 'sheng_ratio': return k && s.sheng_quota != null ? (s.sheng_quota / k) * 100 : null;
     case 'tekong': return s.tekong_quota_rate ?? null;
+    case 'sheng_min': return s.sheng_min_score ?? null;
+    case 'qu_min': return s.qu_min_score ?? null;
     default: return null;
   }
 }
@@ -238,13 +271,14 @@ function shortName(name: string): string {
   return n;
 }
 
-/** 组内排序：公办（false）在前、民办（true）在后；同类内按指标倒序（null 置后） */
-function rankSort(a: { v: number | null; minban?: boolean }, b: { v: number | null; minban?: boolean }): number {
+/** 组内排序：公办（false）在前、民办（true）在后；同类内按指标排序。
+ *  最低分指标升序（asc=true，门槛越低越靠前），其余指标降序；null 置后。 */
+function rankSort(a: { v: number | null; minban?: boolean }, b: { v: number | null; minban?: boolean }, asc = false): number {
   if (!!a.minban !== !!b.minban) return a.minban ? 1 : -1;
   if (a.v == null && b.v == null) return 0;
   if (a.v == null) return 1;
   if (b.v == null) return -1;
-  return b.v - a.v;
+  return asc ? a.v - b.v : b.v - a.v;
 }
 
 /** 内部默认排序：机构手工整理档位（data/middle/org_sort/dist/compiled.json，school_id 由
@@ -299,7 +333,8 @@ const districtOrder = DISTRICTS.map((d) => d.name.replace('区', ''));
 
 const groups = computed(() => {
   const rows = schools.filter(districtVisible).filter(civilizedVisible).map((s) => ({ s, v: metricValue(s), minban: !!s.minban }));
-  const sortFn = metric.value === 'default' ? levelSort : rankSort;
+  const asc = metric.value === 'sheng_min' || metric.value === 'qu_min';
+  const sortFn = metric.value === 'default' ? levelSort : (a: { v: number | null; minban?: boolean }, b: { v: number | null; minban?: boolean }) => rankSort(a, b, asc);
   if (groupBy.value === 'none') {
     return [{ key: 'all', title: '', items: rows.slice().sort(sortFn) }];
   }
@@ -409,8 +444,10 @@ const groups = computed(() => {
           <colgroup>
             <col class="col-name">
             <col class="col-val">
-            <col v-if="showAbs" class="col-sub">
-            <col class="col-sub">
+            <col v-if="showOutcome" class="col-sub">
+            <col v-if="showOutcome" class="col-sub">
+            <col v-else-if="showAbs" class="col-sub">
+            <col v-else class="col-sub">
           </colgroup>
           <thead>
             <tr>
@@ -425,8 +462,10 @@ const groups = computed(() => {
                   @click.stop="toggleHint('metric', $event)"
                 >?</span>
               </th>
-              <th v-if="showAbs" class="c-sub">{{ absLabel }}</th>
-              <th class="c-sub">
+              <th v-if="showOutcome" class="c-sub">{{ outcomeQuotaLabel }}</th>
+              <th v-if="showOutcome" class="c-sub">指标浪费率</th>
+              <th v-else-if="showAbs" class="c-sub">{{ absLabel }}</th>
+              <th v-else class="c-sub">
                 考生数
                 <span
                   class="q-mark"
@@ -454,8 +493,10 @@ const groups = computed(() => {
                 <em v-if="row.s.minban" class="mb-tag">民办</em>
               </td>
               <td class="c-val">{{ fmt(row.v) }}</td>
-              <td v-if="showAbs" class="c-sub">{{ fmtAbs(absValue(row.s)) }}</td>
-              <td class="c-sub">{{ row.s.kaosheng ?? '—' }}</td>
+              <td v-if="showOutcome" class="c-sub">{{ fmtAbs(outcomeQuota(row.s)) }}</td>
+              <td v-if="showOutcome" class="c-sub">{{ fmtWaste(outcomeWaste(row.s)) }}</td>
+              <td v-else-if="showAbs" class="c-sub">{{ fmtAbs(absValue(row.s)) }}</td>
+              <td v-else class="c-sub">{{ row.s.kaosheng ?? '—' }}</td>
             </tr>
           </tbody>
         </table>
