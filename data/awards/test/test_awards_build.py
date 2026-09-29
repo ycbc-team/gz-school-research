@@ -29,7 +29,7 @@ SNAPSHOT = {
     "tech_sports": {"records": 2708, "matched": 1850, "digest": "f0d51b3cfa9b6097b542ab6cf02ecce5e18a831a6e354c4a1c221220190e31a7"},
     "science_experiment": {"records": 584, "matched": 411, "digest": "c7c4f8e660cd16218f3d12f1babd719eba2a2d42206f1a1ffee9333fd28ba793"},
     "yueyunbei": {"records": 29771, "matched": 23468, "digest": "22cf834464683876f9d87d1109f12e7eee3d6879dfacc2e07f39105ab017be6b"},
-    "details": {"records": 26586, "digest": "ab5d50b6c0665262a3b1ac3c0e685348d35a6fe167fd3fdea9897e7b1a3778af"},
+    "details": {"records": 26586, "digest": "87e611355bfb24d50bac85066d6d5d52b785d350f08518664366f50f96e159c2"},
 }
 
 

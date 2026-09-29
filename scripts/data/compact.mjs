@@ -30,6 +30,10 @@ const DICT_SPEC = {
     dicts: ['group', 'source_url'],
     listDicts: ['feed_school_ids'],
   },
+  // 获奖明细：school（3383 唯一）/project（850）/award（31）高重复值列字典化，原始省 ~2.4MB
+  'data/awards/dist/detailed_records.json': {
+    dicts: ['school', 'project', 'award'],
+  },
 };
 
 /**
@@ -67,7 +71,10 @@ const WEB_TARGETS = walkJson(DATA_SRC)
   // registry/src 例外：brand_groups.json 手工源即详情页「品牌关联」运行时消费（无 dist 构建）；
   // 同目录的 groups_anchors 等构建期表，不进前端（source_name_mappings 已退役，2026-09-21）
   .filter((rel) => !['groups_anchors.json', 'pending_items.json'].includes(basename(rel)))
-  .filter((rel) => !(rel.startsWith('data/primary/enrollment/dist/2026-') && !rel.endsWith('2026-all.json')));
+  .filter((rel) => !(rel.startsWith('data/primary/enrollment/dist/2026-') && !rel.endsWith('2026-all.json')))
+  // awards/parsed 为中间产物（明细已聚合进 dist/detailed_records.json），前端只消费各赛事 dist/compiled 与顶层 dist/detailed_records；
+  // 此前全量编译 parsed（粤韵杯 5.0M 死代码）→ 过滤，省磁盘与编译时间
+  .filter((rel) => !(rel.startsWith('data/awards/') && rel.split(sep).includes('parsed')));
   // 构建期内部表不进前端包：groups_anchors（merge_groups 锚点）/ pending_items（民办待补/待核实清单）
 // 小程序主包数据（地图页 + 首页/支撑度消费）：POI/tier1/levels/招生/实体/升学路线/官方录取分
 const MP_MAIN_TARGETS = [

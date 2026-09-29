@@ -25,7 +25,6 @@ import {
   techSportsAwards,
   scienceExperimentAwards,
   yueyunbeiAwards,
-  detailedRecords,
   specialtySchools,
   civilizedCampusSchoolIds,
 } from '../data';
@@ -142,17 +141,30 @@ const scienceExperimentData = computed(() => scienceExperimentAwards[schoolId.va
 /** 粤韵杯获奖：按当前 school_id 与学段直接查（小学/初中/高中组），优胜奖不计数 */
 const yueyunbeiData = computed(() => yueyunbeiAwards[schoolId.value]?.yueyunbei_awards?.stages?.[stage.value]);
 const awardYears = computed(() => awardData.value ? Object.keys(awardData.value).sort().reverse() : []);
-const awardRecords = detailedRecords as Array<{ competition?: string; year?: number }>;
-function competitionYearsLabel(competition: string) {
-  const years = [...new Set(awardRecords.filter((record) => record.competition === competition && Number.isFinite(record.year)).map((record) => record.year as number))].sort((a, b) => a - b);
-  return years.length > 1 ? `${years[0]}-${years[years.length - 1]}` : (years[0] || '');
+/** 赛事年份标签：从各赛事 compiled 聚合（school×stage×year 计数）推导全局年份，
+ *  不再依赖 3.8MB 明细数据（gzip 738KB）——详情页只展示年份区间，明细由获奖页消费。 */
+type AwardsIndex = Record<string, { [competition: string]: { stages: Record<string, Record<string, { gold: number; silver: number; bronze: number }>> } }>;
+function competitionYearsLabel(data: AwardsIndex, competition: string) {
+  const years = new Set<number>();
+  for (const entry of Object.values(data)) {
+    const comp = entry[`${competition}_awards`];
+    if (!comp?.stages) continue;
+    for (const byYear of Object.values(comp.stages)) {
+      for (const y of Object.keys(byYear)) {
+        const n = Number(y);
+        if (Number.isFinite(n)) years.add(n);
+      }
+    }
+  }
+  const sorted = [...years].sort((a, b) => a - b);
+  return sorted.length > 1 ? `${sorted[0]}-${sorted[sorted.length - 1]}` : (sorted[0] ? String(sorted[0]) : '');
 }
-const innovationYearsLabel = computed(() => competitionYearsLabel('innovation'));
-const chuangkeYearsLabel = computed(() => competitionYearsLabel('chuangke'));
-const scienceLiteracyYearsLabel = computed(() => competitionYearsLabel('science_literacy'));
-const techSportsYearsLabel = computed(() => competitionYearsLabel('tech_sports'));
-const scienceExperimentYearsLabel = computed(() => competitionYearsLabel('science_experiment'));
-const yueyunbeiYearsLabel = computed(() => competitionYearsLabel('yueyunbei'));
+const innovationYearsLabel = computed(() => competitionYearsLabel(innovationAwards, 'innovation'));
+const chuangkeYearsLabel = computed(() => competitionYearsLabel(chuangkeAwards, 'chuangke'));
+const scienceLiteracyYearsLabel = computed(() => competitionYearsLabel(scienceLiteracyAwards, 'science_literacy'));
+const techSportsYearsLabel = computed(() => competitionYearsLabel(techSportsAwards, 'tech_sports'));
+const scienceExperimentYearsLabel = computed(() => competitionYearsLabel(scienceExperimentAwards, 'science_experiment'));
+const yueyunbeiYearsLabel = computed(() => competitionYearsLabel(yueyunbeiAwards, 'yueyunbei'));
 /** 特色校称号（官方认定·省市各级）：按当前 school_id 或校名匹配 dist 聚合，展开 recognition 池 */
 const specialtyEntry = computed(() => {
   const doc = specialtySchools;

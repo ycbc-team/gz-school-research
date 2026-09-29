@@ -33,7 +33,9 @@ import scienceLiteracyAwardsCompact from './compact/awards/science_literacy/dist
 import techSportsAwardsCompact from './compact/awards/tech_sports/dist/compiled.js';
 import scienceExperimentAwardsCompact from './compact/awards/science_experiment/dist/compiled.js';
 import yueyunbeiAwardsCompact from './compact/awards/yueyunbei/dist/compiled.js';
-import detailedRecordsCompact from './compact/awards/dist/detailed_records.js';
+// 获奖明细（detailed_records）不纳入 loaders：走 loaders 对象字面量会被 createRepository 整体保留进公共
+// chunk（对象属性无法摇树），详情页无需明细却要下载 807KB(gzip)。改为 AwardsView 直接 import + hydrate，
+// 明细只进获奖页专属 chunk。
 import specialtySchoolsCompact from './compact/specialty_schools/dist/specialty_schools.js';
 import civilizedCampusSchoolIdsCompact from './compact/civilized_campuses/dist/civilized_campus_school_ids.js';
 
@@ -72,7 +74,6 @@ const loaders: DataLoaders = {
   techSportsAwards: cast(hydrate(techSportsAwardsCompact)),
   scienceExperimentAwards: cast(hydrate(scienceExperimentAwardsCompact)),
   yueyunbeiAwards: cast(hydrate(yueyunbeiAwardsCompact)),
-  detailedRecords: cast(hydrate(detailedRecordsCompact)),
 };
 
 /** 共享数据仓库（查询/判定/匹配业务逻辑全部来自 @gz/shared，双端单点维护） */
@@ -106,7 +107,6 @@ export const scienceLiteracyAwards = loaders.scienceLiteracyAwards || {};
 export const techSportsAwards = loaders.techSportsAwards || {};
 export const scienceExperimentAwards = loaders.scienceExperimentAwards || {};
 export const yueyunbeiAwards = loaders.yueyunbeiAwards || {};
-export const detailedRecords = loaders.detailedRecords || [];
 export const specialtySchools = cast(hydrate(specialtySchoolsCompact)) as {
   updated: string;
   metric: string;
