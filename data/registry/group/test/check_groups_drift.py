@@ -225,11 +225,16 @@ def _check_non_group_multi_campuses():
 
 
 def _check_backfill_ids():
-    """重跑 backfill_school_ids.py（quota_matrix/district_quota/batch2_scores/special_matrix
-    外键回填 + _school_id_unmatched 未命中清单）到工作树，与入库比对。
+    """重跑完整外键回填生产链（backfill_school_ids.py → optimize_redundancy.mjs，quota_matrix/
+    district_quota/batch2_scores/special_matrix 外键回填 + sz 稀疏化 + _school_id_unmatched
+    未命中清单）到工作树，与入库比对。
 
-    覆盖 backfill_school_ids.py 的改动感知：改脚本后未重跑提交产物，或产物被手改
-    （如 _school_id_unmatched 被手工增删）都会被检出。比对失败还原工作树。"""
+    覆盖生产链脚本的改动感知：改脚本后未重跑提交产物，或产物被手改
+    （如 _school_id_unmatched 被手工增删）都会被检出。比对失败还原工作树。
+
+    注意：入库 dist 为完整链最终产物（quota_matrix 经 optimize 稀疏化为缩进 1），
+    backfill 单独输出为缩进 2 中间态——故重跑必须串上 optimize_redundancy.mjs，
+    与 check_dist_snapshots.py 的 replay 链口径一致，否则必现字节假 diff。"""
     names = ["quota_matrix.json", "special_matrix.json", "batch2_scores.json", "district_quota.json"]
     dist_files = [os.path.join(ROOT, "data/linkage/dist", n) for n in names]
     test_file = os.path.join(ROOT, "data/linkage/test/_school_id_unmatched.json")
@@ -245,16 +250,25 @@ def _check_backfill_ids():
             for f, c in orig.items():
                 open(f, "w", encoding="utf-8").write(c)
             sys.exit(1)
+        r = subprocess.run(["node", os.path.join(ROOT, "scripts/data/optimize_redundancy.mjs")],
+                           capture_output=True, text=True, cwd=ROOT)
+        if r.returncode != 0:
+            _flush_ok()
+            print("生产脚本重跑失败：scripts/data/optimize_redundancy.mjs")
+            print(r.stderr[-2000:])
+            for f, c in orig.items():
+                open(f, "w", encoding="utf-8").write(c)
+            sys.exit(1)
         failed = [f for f in files if open(f, encoding="utf-8").read() != _head(f)]
         if failed:
             _flush_ok()
             for f, c in orig.items():
                 open(f, "w", encoding="utf-8").write(c)
-            print(f"产物一致性: ✗ backfill_school_ids 重跑产物与入库不一致：{', '.join(os.path.basename(f) for f in failed)}")
-            print("  → 说明 backfill_school_ids.py 改动后未重跑提交产物，或产物被手改。"
+            print(f"产物一致性: ✗ 外键回填链重跑产物与入库不一致：{', '.join(os.path.basename(f) for f in failed)}")
+            print("  → 说明生产链脚本（backfill_school_ids.py / optimize_redundancy.mjs）改动后未重跑提交产物，或产物被手改。"
                   "修复须固化到生产脚本后重跑并提交产物。")
             sys.exit(1)
-        _ok_lines.append("产物一致性: ✓ backfill_school_ids 重跑产物与入库完全一致（quota/district_quota/batch2/special/_unmatched）")
+        _ok_lines.append("产物一致性: ✓ 外键回填链重跑产物与入库完全一致（quota/district_quota/batch2/special/_unmatched）")
     except SystemExit:
         raise
     except Exception:
