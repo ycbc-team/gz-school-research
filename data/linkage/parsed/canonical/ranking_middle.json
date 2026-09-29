@@ -5181,7 +5181,7 @@
       "school_id": "gz-440104-4d39b625",
       "school_ids": null,
       "district": "越秀区",
-      "minban": false,
+      "minban": true,
       "kaosheng": 65,
       "sheng_quota": 3,
       "qu_quota": 17,

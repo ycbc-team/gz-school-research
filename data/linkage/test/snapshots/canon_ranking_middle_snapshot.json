@@ -22057,7 +22057,7 @@
    "district": "越秀区",
    "group": null,
    "kaosheng": 65,
-   "minban": false,
+   "minban": true,
    "name": "广州海印实验学校",
    "qu_quota": 17,
    "school_id": "gz-440104-4d39b625",
