@@ -450,7 +450,6 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     stageLabel: STAGE_SHORT[stage],
     district: districtOf,
     badges,
-    nature: entityNature ?? '公办',
     headText,
     legalEntityText,
     poi: poi ? { lng: poi.lng, lat: poi.lat } : null,
