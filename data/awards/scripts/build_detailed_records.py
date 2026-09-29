@@ -9,6 +9,7 @@ OUT = ROOT / "data/awards/dist/detailed_records.json"
 INNOVATION = ROOT / "data/awards/innovation/parsed"
 CHUANGKE = ROOT / "data/awards/chuangke/parsed/chuangke.json"
 SCIENCE_LITERACY = ROOT / "data/awards/science_literacy/parsed"
+TECH_SPORTS = ROOT / "data/awards/tech_sports/parsed"
 
 
 def main():
@@ -53,6 +54,21 @@ def main():
                 "project": record.get("category", ""), "leader": record.get("student", ""),
                 "members": record.get("student", ""), "coach": record.get("coach", ""),
                 "award": record.get("award", ""), "school_ids": record["school_ids"],
+            })
+
+    for tech_path in sorted(TECH_SPORTS.glob("tech_sports_*.json")):
+        doc = json.loads(tech_path.read_text("utf-8"))
+        for record in doc.get("records", []):
+            if not record.get("school_ids"):
+                continue
+            details.append({
+                "competition": "tech_sports", "stage": record["stage"],
+                "year": int(doc["year"]), "school": record["school"],
+                "project": record.get("project", ""),
+                "leader": record.get("student", "") if record.get("type") == "personal" else "",
+                "members": record.get("student", "") if record.get("type") == "team" else "",
+                "coach": record.get("coach", ""), "award": record.get("award", ""),
+                "school_ids": record["school_ids"],
             })
 
     OUT.parent.mkdir(parents=True, exist_ok=True)

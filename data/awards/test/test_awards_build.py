@@ -16,6 +16,9 @@ TIANHE_FOREIGN = {"gz-440106-069ddb41", "gz-440106-b711d94a"}
 XIAOBEI = {"gz-440104-d5497b4b", "gz-440104-98359a64", "gz-440104-4ebbaf83", "gz-440104-1b6d4b9c"}
 HUANSHI_WEST = "gz-440103-65d7792a"
 GUANGFU_HUANGHUA = "gz-440104-b22c4eca"
+SUYUAN = {"gz-440112-8bf29a28", "gz-440112-a0244635"}   # 苏元学校（高中实体 + 西校区初中实体）
+HUIJING = "gz-440106-0d1e149e"                          # 天河区汇景实验学校
+NANWU = {"gz-440105-515da9e2", "gz-440105-dd2723fc"}    # 南武中学高中部 + 岭南画派纪念校区
 
 # 这是完整产物的语义指纹，不依赖 JSON 缩进或字段排列。源文件/匹配规则变化
 # 会触发失败，要求人工核对后再更新；不要为通过测试直接刷新这组值。
@@ -23,7 +26,8 @@ SNAPSHOT = {
     "innovation": {"records": 522, "matched": 392, "digest": "06e62dfd2dfb991450236c908df191a0deb604f499a33e609711b951f34512f6"},
     "chuangke": {"years": 2, "records": 145, "matched": 113, "digest": "2d43f968d0eeede5c9df96fe9f4343a07863a5525c69927610e6b30f7995b7ae"},
     "science_literacy": {"records": 531, "matched": 352},
-    "details": {"records": 857, "digest": "7b3ff7581bc9ed2f4dfaac0b7cbc21886c1740c41adeae974a04dcf0fe859f64"},
+    "tech_sports": {"records": 1340, "matched": 879, "digest": "057ae031736259e1054afb1ebc2e6d292e0533abac7c8180c86d112e54f47b7c"},
+    "details": {"records": 1736, "digest": "ae55ed0fd57889cb28d2e20f2a2669ec3ff0aa76029e3bdae21a79bc551e069b"},
 }
 
 
@@ -61,12 +65,16 @@ def main():
     science = []
     for path in sorted((ROOT / "data/awards/science_literacy/parsed").glob("science_literacy_*.json")):
         science.extend(json.loads(path.read_text("utf-8"))["records"])
+    tech = []
+    for path in sorted((ROOT / "data/awards/tech_sports/parsed").glob("tech_sports_*.json")):
+        tech.extend(json.loads(path.read_text("utf-8"))["records"])
 
     actual = {
         "innovation": {"records": len(innovation), "matched": sum(bool(x["school_ids"]) for x in innovation), "digest": digest(innovation)},
         "chuangke": {"years": len(chuangke), "records": sum(len(y["records"]) for y in chuangke),
                      "matched": sum(bool(r["school_ids"]) for y in chuangke for r in y["records"]), "digest": digest(chuangke)},
         "science_literacy": {"records": len(science), "matched": sum(bool(r["school_ids"]) for r in science)},
+        "tech_sports": {"records": len(tech), "matched": sum(bool(r["school_ids"]) for r in tech), "digest": digest(tech)},
         "details": {"records": len(details), "digest": digest(details)},
     }
     ok = True
@@ -102,9 +110,21 @@ def main():
     if not science_details or not all(r["stage"] in {"primary", "middle", "high"} for r in science_details):
         ok = fail("科学素养大赛学生获奖明细未进入详情产物") and ok
 
+    suyuan = find("tech_sports", "广州市黄埔区苏元学校", stage="secondary", year=2026)
+    if not (bool(suyuan) and any(set(r["school_ids"]) == SUYUAN for r in suyuan)):
+        ok = fail("苏元学校测向 M15 组未归属苏元初高中实体") and ok
+
+    huijing = find("tech_sports", "广州市天河区汇景实验学校", stage="secondary", year=2026)
+    if not (bool(huijing) and all(set(r["school_ids"]) == {HUIJING} for r in huijing)):
+        ok = fail("汇景实验学校中学组团队未精确归属") and ok
+
+    nanwu = find("tech_sports", "广州市南武中学", stage="high", year=2026)
+    if not (bool(nanwu) and all(set(r["school_ids"]) == NANWU for r in nanwu)):
+        ok = fail("南武中学测向 M18 组未挂高中实体") and ok
+
     if not ok:
         print(f"✗ 竞赛构建回归: {len(innovation)} 条创新 + {actual['chuangke']['records']} 条创客 + "
-              f"{actual['science_literacy']['matched']} 条科学素养，失败")
+              f"{actual['science_literacy']['matched']} 条科学素养 + {actual['tech_sports']['matched']} 条科技体育，失败")
         sys.exit(1)
     print("✓ 竞赛构建回归通过")
 
