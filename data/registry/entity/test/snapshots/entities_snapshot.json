@@ -61,7 +61,9 @@
    "stage": "high"
   },
   "gz-440103-0716497c#primary": {
-   "aliases": [],
+   "aliases": [
+    "芳村小学新东学校"
+   ],
    "name": "新东小学",
    "stage": "primary"
   },
@@ -71,7 +73,9 @@
    "stage": "primary"
   },
   "gz-440103-0af2ec57#primary": {
-   "aliases": [],
+   "aliases": [
+    "合兴苑小学鸿图苑学校"
+   ],
    "name": "鸿图苑小学",
    "stage": "primary"
   },
@@ -93,7 +97,9 @@
    "stage": "primary"
   },
   "gz-440103-12a6e568#primary": {
-   "aliases": [],
+   "aliases": [
+    "合兴苑小学葵蓬学校"
+   ],
    "name": "葵蓬小学",
    "stage": "primary"
   },
@@ -108,7 +114,9 @@
    "stage": "primary"
   },
   "gz-440103-193e8ac3#primary": {
-   "aliases": [],
+   "aliases": [
+    "华侨小学汇龙学校"
+   ],
    "name": "汇龙小学",
    "stage": "primary"
   },
@@ -143,7 +151,9 @@
    "stage": "primary"
   },
   "gz-440103-28507a63#primary": {
-   "aliases": [],
+   "aliases": [
+    "芳村小学校本部"
+   ],
    "name": "芳村小学",
    "stage": "primary"
   },
@@ -401,7 +411,9 @@
    "stage": "primary"
   },
   "gz-440103-6ae1c1c0#primary": {
-   "aliases": [],
+   "aliases": [
+    "第四中学附属耀华小学"
+   ],
    "name": "耀华小学",
    "stage": "primary"
   },
@@ -442,7 +454,9 @@
    "stage": "primary"
   },
   "gz-440103-6e10b35d#primary": {
-   "aliases": [],
+   "aliases": [
+    "西关培正小学芳信校区"
+   ],
    "name": "广州市荔湾区西关培正小学(芳信校区)",
    "stage": "primary"
   },
@@ -468,7 +482,8 @@
   },
   "gz-440103-7a85adc9#primary": {
    "aliases": [
-    "海北小学"
+    "海北小学",
+    "西关实验小学海北学校"
    ],
    "name": "荔湾区海北小学",
    "stage": "primary"
@@ -522,7 +537,9 @@
    "stage": "primary"
   },
   "gz-440103-81f7f7f2#primary": {
-   "aliases": [],
+   "aliases": [
+    "真光中学附属鹤洞小学"
+   ],
    "name": "鹤洞小学",
    "stage": "primary"
   },
@@ -612,7 +629,9 @@
    "stage": "middle"
   },
   "gz-440103-9be8c818#primary": {
-   "aliases": [],
+   "aliases": [
+    "真光中学附属西塱小学"
+   ],
    "name": "西塱小学",
    "stage": "primary"
   },
@@ -656,7 +675,9 @@
    "stage": "middle"
   },
   "gz-440103-a5b0f405#primary": {
-   "aliases": [],
+   "aliases": [
+    "蒋光鼐纪念小学三元坊学校"
+   ],
    "name": "三元坊小学",
    "stage": "primary"
   },
@@ -727,7 +748,9 @@
    "stage": "middle"
   },
   "gz-440103-b6850b3c#primary": {
-   "aliases": [],
+   "aliases": [
+    "第一中学双桥学校小学部"
+   ],
    "name": "广州市第一中学双桥学校",
    "stage": "primary"
   },
@@ -881,7 +904,9 @@
    "stage": "middle"
   },
   "gz-440103-e29cf46b#primary": {
-   "aliases": [],
+   "aliases": [
+    "乐贤坊小学宝源学校"
+   ],
    "name": "宝源小学",
    "stage": "primary"
   },

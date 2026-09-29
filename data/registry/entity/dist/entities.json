@@ -25,7 +25,9 @@
       "school_id": "gz-440103-a5b0f405",
       "name": "三元坊小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "蒋光鼐纪念小学三元坊学校"
+      ]
     },
     {
       "school_id": "gz-440111-b1484250",
@@ -1725,7 +1727,9 @@
       "school_id": "gz-440103-e29cf46b",
       "name": "宝源小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "乐贤坊小学宝源学校"
+      ]
     },
     {
       "school_id": "gz-440105-e3769b19",
@@ -3268,7 +3272,9 @@
       "school_id": "gz-440103-b6850b3c",
       "name": "广州市第一中学双桥学校",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "第一中学双桥学校小学部"
+      ]
     },
     {
       "school_id": "gz-440104-d5f83454",
@@ -3405,7 +3411,9 @@
       "school_id": "gz-440103-6e10b35d",
       "name": "广州市荔湾区西关培正小学(芳信校区)",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "西关培正小学芳信校区"
+      ]
     },
     {
       "school_id": "gz-440103-f8cc454e",
@@ -4009,7 +4017,9 @@
       "school_id": "gz-440103-0716497c",
       "name": "新东小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "芳村小学新东学校"
+      ]
     },
     {
       "school_id": "gz-440111-d64313ba",
@@ -4608,7 +4618,9 @@
       "school_id": "gz-440103-193e8ac3",
       "name": "汇龙小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "华侨小学汇龙学校"
+      ]
     },
     {
       "school_id": "gz-440105-ff91e551",
@@ -5651,7 +5663,9 @@
       "school_id": "gz-440103-6ae1c1c0",
       "name": "耀华小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "第四中学附属耀华小学"
+      ]
     },
     {
       "school_id": "gz-440113-20e18398",
@@ -5721,7 +5735,9 @@
       "school_id": "gz-440103-28507a63",
       "name": "芳村小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "芳村小学校本部"
+      ]
     },
     {
       "school_id": "gz-440103-69a306af",
@@ -5824,6 +5840,7 @@
       "name": "荔湾区海北小学",
       "stage": "primary",
       "aliases": [
+        "西关实验小学海北学校",
         "海北小学"
       ]
     },
@@ -5883,7 +5900,9 @@
       "school_id": "gz-440103-12a6e568",
       "name": "葵蓬小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "合兴苑小学葵蓬学校"
+      ]
     },
     {
       "school_id": "gz-440103-143903fe",
@@ -5977,7 +5996,9 @@
       "school_id": "gz-440103-9be8c818",
       "name": "西塱小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "真光中学附属西塱小学"
+      ]
     },
     {
       "school_id": "gz-440103-2da965bd",
@@ -6466,13 +6487,17 @@
       "school_id": "gz-440103-0af2ec57",
       "name": "鸿图苑小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "合兴苑小学鸿图苑学校"
+      ]
     },
     {
       "school_id": "gz-440103-81f7f7f2",
       "name": "鹤洞小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "真光中学附属鹤洞小学"
+      ]
     },
     {
       "school_id": "gz-440111-cd47aae6",
