@@ -4,10 +4,7 @@
   {
    "autonomy_count": 81,
    "district": "天河区",
-   "group": {
-    "brand": "华南师范大学附属中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 443,
    "minban": false,
    "name": "华南师范大学附属中学（五山校区）",
@@ -149,10 +146,7 @@
   {
    "autonomy_count": 343,
    "district": "天河区",
-   "group": {
-    "brand": "广州中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 1482,
    "minban": false,
    "name": "广州中学",
@@ -365,10 +359,7 @@
   {
    "autonomy_count": 26,
    "district": "天河区",
-   "group": {
-    "brand": "奥林匹克教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 655,
    "minban": false,
    "name": "广州奥林匹克中学",
@@ -528,10 +519,7 @@
   {
    "autonomy_count": 5,
    "district": "天河区",
-   "group": {
-    "brand": "天河外国语教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 141,
    "minban": false,
    "name": "广州市华颖外国语学校",
@@ -860,7 +848,10 @@
    "name": "广州市天河区东风学校",
    "qu_quota": 1,
    "school_id": "gz-440106-24ff78f9",
-   "school_ids": null,
+   "school_ids": [
+    "gz-440106-24ff78f9",
+    "gz-440111-6646de49"
+   ],
    "sheng_quota": 1,
    "sz": [
     {
@@ -1138,7 +1129,10 @@
    "name": "广州市天河区培智学校",
    "qu_quota": 1,
    "school_id": "gz-440106-0a2c7178",
-   "school_ids": null,
+   "school_ids": [
+    "gz-440106-0a2c7178",
+    "gz-440111-4bbd4f92"
+   ],
    "sheng_quota": 0,
    "sz": [
     {
@@ -1437,10 +1431,7 @@
   {
    "autonomy_count": 0,
    "district": "天河区",
-   "group": {
-    "brand": "奥林匹克教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 115,
    "minban": false,
    "name": "广州市天河区智谷第一实验学校",
@@ -1545,10 +1536,7 @@
   {
    "autonomy_count": 83,
    "district": "天河区",
-   "group": {
-    "brand": "广州中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 671,
    "minban": false,
    "name": "广州市天河区汇景实验学校",
@@ -1783,10 +1771,7 @@
   {
    "autonomy_count": 57,
    "district": "天河区",
-   "group": {
-    "brand": "天河外国语教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 208,
    "minban": false,
    "name": "广州市天河外国语学校",
@@ -1954,10 +1939,7 @@
   {
    "autonomy_count": 90,
    "district": "天河区",
-   "group": {
-    "brand": "广州市执信中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 484,
    "minban": false,
    "name": "广州市执信中学（天河校区）",
@@ -2064,10 +2046,7 @@
   {
    "autonomy_count": 7,
    "district": "天河区",
-   "group": {
-    "brand": "奥林匹克教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 399,
    "minban": false,
    "name": "广州市泰安中学",
@@ -2162,10 +2141,7 @@
   {
    "autonomy_count": 0,
    "district": "天河区",
-   "group": {
-    "brand": "113中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 1057,
    "minban": false,
    "name": "广州市第一一三中学",
@@ -2288,10 +2264,7 @@
   {
    "autonomy_count": 0,
    "district": "天河区",
-   "group": {
-    "brand": "113中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 105,
    "minban": false,
    "name": "广州市第一一三中学陶育实验学校",
@@ -2604,10 +2577,7 @@
   {
    "autonomy_count": 7,
    "district": "天河区",
-   "group": {
-    "brand": "奥林匹克教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 504,
    "minban": false,
    "name": "广州市第十八中学",
@@ -2717,10 +2687,7 @@
   {
    "autonomy_count": 7,
    "district": "天河区",
-   "group": {
-    "brand": "广州中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 301,
    "minban": false,
    "name": "广州市长兴中学",
@@ -2970,10 +2937,7 @@
   {
    "autonomy_count": 79,
    "district": "天河区",
-   "group": {
-    "brand": "清华附中湾区学校教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 372,
    "minban": false,
    "name": "清华附中湾区学校",
@@ -3241,10 +3205,7 @@
   {
    "autonomy_count": 9,
    "district": "海珠区",
-   "group": {
-    "brand": "广州市第九十七中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 198,
    "minban": false,
    "name": "广州市九十七中晓园学校",
@@ -3304,10 +3265,7 @@
   {
    "autonomy_count": 23,
    "district": "海珠区",
-   "group": {
-    "brand": "广州市第九十七中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 229,
    "minban": false,
    "name": "广州市九十七中蓝天学校",
@@ -3382,10 +3340,7 @@
   {
    "autonomy_count": 58,
    "district": "海珠区",
-   "group": {
-    "brand": "广州五中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 209,
    "minban": false,
    "name": "广州市五中东晓学校",
@@ -3505,10 +3460,7 @@
   {
    "autonomy_count": 16,
    "district": "海珠区",
-   "group": {
-    "brand": "广州五中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 274,
    "minban": false,
    "name": "广州市五中滨江学校",
@@ -3593,10 +3545,7 @@
   {
    "autonomy_count": 127,
    "district": "海珠区",
-   "group": {
-    "brand": "广州五中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 328,
    "minban": false,
    "name": "广州市五中附属初级中学",
@@ -3691,10 +3640,7 @@
   {
    "autonomy_count": 155,
    "district": "海珠区",
-   "group": {
-    "brand": "广州市南武教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 517,
    "minban": false,
    "name": "广州市南武中学",
@@ -3812,10 +3758,7 @@
   {
    "autonomy_count": 61,
    "district": "海珠区",
-   "group": {
-    "brand": "广州市南武教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 253,
    "minban": false,
    "name": "广州市南武中学附属学校",
@@ -3905,10 +3848,7 @@
   {
    "autonomy_count": 64,
    "district": "海珠区",
-   "group": {
-    "brand": "广州市南武教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 277,
    "minban": false,
    "name": "广州市南武实验学校",
@@ -3983,10 +3923,7 @@
   {
    "autonomy_count": 15,
    "district": "海珠区",
-   "group": {
-    "brand": "广州市南武教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 189,
    "minban": false,
    "name": "广州市南武第二实验学校",
@@ -4089,10 +4026,7 @@
   {
    "autonomy_count": 37,
    "district": "海珠区",
-   "group": {
-    "brand": "广州市执信中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 328,
    "minban": false,
    "name": "广州市执信中学琶洲实验学校",
@@ -4192,10 +4126,7 @@
   {
    "autonomy_count": 8,
    "district": "海珠区",
-   "group": {
-    "brand": "广州市第九十七中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 149,
    "minban": false,
    "name": "广州市新滘中学",
@@ -4283,10 +4214,7 @@
   {
    "autonomy_count": 47,
    "district": "海珠区",
-   "group": {
-    "brand": "广州五中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 332,
    "minban": false,
    "name": "广州市景中实验中学",
@@ -4366,10 +4294,7 @@
   {
    "autonomy_count": 136,
    "district": "海珠区",
-   "group": {
-    "brand": "广州市南武教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 667,
    "minban": false,
    "name": "广州市江南外国语学校",
@@ -4662,10 +4587,7 @@
   {
    "autonomy_count": 18,
    "district": "海珠区",
-   "group": {
-    "brand": "广州市第四十一中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 204,
    "minban": false,
    "name": "广州市海珠区劬劳中学",
@@ -4890,10 +4812,7 @@
   {
    "autonomy_count": 9,
    "district": "海珠区",
-   "group": {
-    "brand": "广州市南武教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 66,
    "minban": false,
    "name": "广州市海珠区南武文润学校",
@@ -5048,10 +4967,7 @@
   {
    "autonomy_count": 0,
    "district": "海珠区",
-   "group": {
-    "brand": "广州市第四十一中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 8,
    "minban": false,
    "name": "广州市海珠区黄埔中学",
@@ -5126,10 +5042,7 @@
   {
    "autonomy_count": 67,
    "district": "海珠区",
-   "group": {
-    "brand": "广州五中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 269,
    "minban": false,
    "name": "广州市海珠外国语实验中学",
@@ -5209,10 +5122,7 @@
   {
    "autonomy_count": 55,
    "district": "海珠区",
-   "group": {
-    "brand": "广州五中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 230,
    "minban": false,
    "name": "广州市海珠外国语实验中学附属学校",
@@ -5307,10 +5217,7 @@
   {
    "autonomy_count": 57,
    "district": "海珠区",
-   "group": {
-    "brand": "广州市第九十七中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 361,
    "minban": false,
    "name": "广州市第九十七中学",
@@ -5403,10 +5310,7 @@
   {
    "autonomy_count": 24,
    "district": "海珠区",
-   "group": {
-    "brand": "广州五中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 190,
    "minban": false,
    "name": "广州市第二十六中学",
@@ -5486,10 +5390,7 @@
   {
    "autonomy_count": 120,
    "district": "海珠区",
-   "group": {
-    "brand": "广州五中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 392,
    "minban": false,
    "name": "广州市第五中学",
@@ -5666,10 +5567,7 @@
   {
    "autonomy_count": 25,
    "district": "海珠区",
-   "group": {
-    "brand": "广州市第四十一中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 549,
    "minban": false,
    "name": "广州市第四十一中学",
@@ -5764,10 +5662,7 @@
   {
    "autonomy_count": 205,
    "district": "海珠区",
-   "group": {
-    "brand": "广州五中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 624,
    "minban": false,
    "name": "广州市绿翠现代实验学校",
@@ -5882,10 +5777,7 @@
   {
    "autonomy_count": 19,
    "district": "海珠区",
-   "group": {
-    "brand": "广州五中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 187,
    "minban": false,
    "name": "广州市聚德中学",
@@ -5960,10 +5852,7 @@
   {
    "autonomy_count": 134,
    "district": "番禺区",
-   "group": {
-    "brand": "广东仲元中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 449,
    "minban": false,
    "name": "广东仲元中学",
@@ -6061,10 +5950,7 @@
   {
    "autonomy_count": 23,
    "district": "番禺区",
-   "group": {
-    "brand": "广东仲元中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 174,
    "minban": false,
    "name": "广东仲元中学附属学校",
@@ -6189,10 +6075,7 @@
   {
    "autonomy_count": 16,
    "district": "番禺区",
-   "group": {
-    "brand": "广东番禺中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 142,
    "minban": false,
    "name": "广东番禺中学实验学校",
@@ -6257,10 +6140,7 @@
   {
    "autonomy_count": 52,
    "district": "番禺区",
-   "group": {
-    "brand": "广东番禺中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 381,
    "minban": false,
    "name": "广东番禺中学附属学校",
@@ -6365,7 +6245,7 @@
    "minban": false,
    "name": "广东第二师范学院广州南站附属学校",
    "qu_quota": 72,
-   "school_id": null,
+   "school_id": "gz-440113-0bb52d06",
    "school_ids": null,
    "sheng_quota": 13,
    "sz": [],
@@ -6388,10 +6268,7 @@
   {
    "autonomy_count": 16,
    "district": "番禺区",
-   "group": {
-    "brand": "番广实验教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 115,
    "minban": false,
    "name": "广大附中番禺实验学校",
@@ -6536,10 +6413,7 @@
   {
    "autonomy_count": 131,
    "district": "番禺区",
-   "group": {
-    "brand": "广州大学附属中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 557,
    "minban": false,
    "name": "广州大学附属中学（番禺校区）",
@@ -6646,10 +6520,7 @@
   {
    "autonomy_count": 87,
    "district": "番禺区",
-   "group": {
-    "brand": "广州市执信中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 283,
    "minban": true,
    "name": "广州市星执学校",
@@ -6944,10 +6815,7 @@
   {
    "autonomy_count": 8,
    "district": "番禺区",
-   "group": {
-    "brand": "黄埔广实教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 321,
    "minban": false,
    "name": "广州市番禺区化龙中学",
@@ -7157,10 +7025,7 @@
   {
    "autonomy_count": 15,
    "district": "番禺区",
-   "group": {
-    "brand": "广东番禺中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 363,
    "minban": false,
    "name": "广州市番禺区南村中学",
@@ -7920,10 +7785,7 @@
   {
    "autonomy_count": 1,
    "district": "番禺区",
-   "group": {
-    "brand": "黄埔广实教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 282,
    "minban": false,
    "name": "广州市番禺区实验中学",
@@ -8183,10 +8045,7 @@
   {
    "autonomy_count": 23,
    "district": "番禺区",
-   "group": {
-    "brand": "广东仲元中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 418,
    "minban": false,
    "name": "广州市番禺区市桥侨联中学",
@@ -8486,10 +8345,7 @@
   {
    "autonomy_count": 84,
    "district": "番禺区",
-   "group": {
-    "brand": "市桥桥城中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 700,
    "minban": false,
    "name": "广州市番禺区市桥桥城中学",
@@ -8869,10 +8725,7 @@
   {
    "autonomy_count": 172,
    "district": "番禺区",
-   "group": {
-    "brand": "广铁一中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 883,
    "minban": false,
    "name": "广州市番禺区广铁一中铁英学校",
@@ -9724,10 +9577,7 @@
   {
    "autonomy_count": 4,
    "district": "番禺区",
-   "group": {
-    "brand": "仲元附属学校教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 176,
    "minban": false,
    "name": "广州市番禺区洛浦沙滘中学",
@@ -9962,10 +9812,7 @@
   {
    "autonomy_count": 6,
    "district": "番禺区",
-   "group": {
-    "brand": "黄埔广实教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 227,
    "minban": false,
    "name": "广州市番禺区石楼中学",
@@ -10270,10 +10117,7 @@
   {
    "autonomy_count": 3,
    "district": "番禺区",
-   "group": {
-    "brand": "黄埔广实教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 130,
    "minban": false,
    "name": "广州市番禺区石碁中学",
@@ -10363,10 +10207,7 @@
   {
    "autonomy_count": 9,
    "district": "番禺区",
-   "group": {
-    "brand": "广东仲元中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 376,
    "minban": false,
    "name": "广州市番禺区石碁第四中学",
@@ -11291,10 +11132,7 @@
   {
    "autonomy_count": 109,
    "district": "番禺区",
-   "group": {
-    "brand": "广铁一中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 266,
    "minban": false,
    "name": "广州铁一中学（番禺校区）",
@@ -11433,10 +11271,7 @@
   {
    "autonomy_count": 6,
    "district": "白云区",
-   "group": {
-    "brand": "广外实验中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 359,
    "minban": false,
    "name": "广东外语外贸大学实验中学",
@@ -11510,10 +11345,7 @@
   {
    "autonomy_count": 51,
    "district": "白云区",
-   "group": {
-    "brand": "广东实验中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 400,
    "minban": false,
    "name": "广东实验中学（白云校区）",
@@ -11610,10 +11442,7 @@
   {
    "autonomy_count": 2,
    "district": "白云区",
-   "group": {
-    "brand": "广州大学附属中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 36,
    "minban": true,
    "name": "广州华联外语实验学校",
@@ -11673,10 +11502,7 @@
   {
    "autonomy_count": 6,
    "district": "白云区",
-   "group": {
-    "brand": "广州大同教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 303,
    "minban": false,
    "name": "广州大同中学",
@@ -11746,10 +11572,7 @@
   {
    "autonomy_count": 14,
    "district": "白云区",
-   "group": {
-    "brand": "广州培英教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 180,
    "minban": false,
    "name": "广州市培英中学（岭南校区）",
@@ -11826,10 +11649,7 @@
   {
    "autonomy_count": 181,
    "district": "白云区",
-   "group": {
-    "brand": "广州培英教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 284,
    "minban": false,
    "name": "广州市培英中学（鹤洞校区）",
@@ -12011,10 +11831,7 @@
   {
    "autonomy_count": 6,
    "district": "白云区",
-   "group": {
-    "brand": "广州白云广附教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 225,
    "minban": false,
    "name": "广州市广园中学",
@@ -12189,10 +12006,7 @@
   {
    "autonomy_count": 30,
    "district": "白云区",
-   "group": {
-    "brand": "广州云雅教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 288,
    "minban": true,
    "name": "广州市源雅学校",
@@ -12277,10 +12091,7 @@
   {
    "autonomy_count": 1,
    "district": "白云区",
-   "group": {
-    "brand": "广州市白云中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 32,
    "minban": false,
    "name": "广州市白云中学（棠景校区）",
@@ -12352,10 +12163,7 @@
   {
    "autonomy_count": 3,
    "district": "白云区",
-   "group": {
-    "brand": "广州市白云中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 114,
    "minban": false,
    "name": "广州市白云中学（汇侨校区）",
@@ -12437,7 +12245,7 @@
    "minban": false,
    "name": "广州市白云区三元里中学",
    "qu_quota": 16,
-   "school_id": null,
+   "school_id": "gz-440111-8629621c",
    "school_ids": null,
    "sheng_quota": 4,
    "sz": [
@@ -12517,10 +12325,7 @@
   {
    "autonomy_count": 173,
    "district": "白云区",
-   "group": {
-    "brand": "广州云雅教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 478,
    "minban": true,
    "name": "广州市白云区云雅实验学校",
@@ -12713,10 +12518,7 @@
   {
    "autonomy_count": 1,
    "district": "白云区",
-   "group": {
-    "brand": "广州白云六中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 202,
    "minban": false,
    "name": "广州市白云区六中实验中学（福和校区）",
@@ -12803,10 +12605,7 @@
   {
    "autonomy_count": 1,
    "district": "白云区",
-   "group": {
-    "brand": "广州白云六中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 216,
    "minban": false,
    "name": "广州市白云区六中实验中学（空港校区）",
@@ -12893,10 +12692,7 @@
   {
    "autonomy_count": 59,
    "district": "白云区",
-   "group": {
-    "brand": "华南师范大学附属中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 417,
    "minban": true,
    "name": "广州市白云区华新学校",
@@ -13076,10 +12872,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广州大同教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 62,
    "minban": false,
    "name": "广州市白云区南悦中学",
@@ -13139,10 +12932,7 @@
   {
    "autonomy_count": 19,
    "district": "白云区",
-   "group": {
-    "brand": "广州白云广附教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 458,
    "minban": false,
    "name": "广州市白云区同和中学",
@@ -13247,10 +13037,7 @@
   {
    "autonomy_count": 3,
    "district": "白云区",
-   "group": {
-    "brand": "广州培英教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 216,
    "minban": false,
    "name": "广州市白云区嘉禾中学",
@@ -13475,10 +13262,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广州市白云区白云实验教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 79,
    "minban": false,
    "name": "广州市白云区大朗中学",
@@ -13538,10 +13322,7 @@
   {
    "autonomy_count": 2,
    "district": "白云区",
-   "group": {
-    "brand": "广外实验中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 153,
    "minban": false,
    "name": "广州市白云区太和中学",
@@ -13596,10 +13377,7 @@
   {
    "autonomy_count": 34,
    "district": "白云区",
-   "group": {
-    "brand": "广州培英教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 228,
    "minban": false,
    "name": "广州市白云区平沙培英学校",
@@ -13679,10 +13457,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广东第二师范学院实验教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 240,
    "minban": false,
    "name": "广州市白云区广东第二师范学院实验中学",
@@ -13812,10 +13587,7 @@
   {
    "autonomy_count": 129,
    "district": "白云区",
-   "group": {
-    "brand": "广州白云广附教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 859,
    "minban": false,
    "name": "广州市白云区广大附中实验中学",
@@ -14036,10 +13808,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广州空港实验教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 220,
    "minban": false,
    "name": "广州市白云区广州空港实验中学",
@@ -14239,10 +14008,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广州大同教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 64,
    "minban": false,
    "name": "广州市白云区新和学校",
@@ -14297,10 +14063,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广州市白云中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 133,
    "minban": false,
    "name": "广州市白云区新市中学",
@@ -14365,10 +14128,7 @@
   {
    "autonomy_count": 9,
    "district": "白云区",
-   "group": {
-    "brand": "广州大同教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 150,
    "minban": false,
    "name": "广州市白云区景泰中学",
@@ -14463,10 +14223,7 @@
   {
    "autonomy_count": 37,
    "district": "白云区",
-   "group": {
-    "brand": "广州市第六十五中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 147,
    "minban": false,
    "name": "广州市白云区梓元岗中学",
@@ -14594,10 +14351,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广州市第六十五中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 77,
    "minban": false,
    "name": "广州市白云区江村中学",
@@ -14657,10 +14411,7 @@
   {
    "autonomy_count": 1,
    "district": "白云区",
-   "group": {
-    "brand": "广州市第六十五中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 103,
    "minban": false,
    "name": "广州市白云区江高镇第三初级中学",
@@ -14740,10 +14491,7 @@
   {
    "autonomy_count": 3,
    "district": "白云区",
-   "group": {
-    "brand": "广东技术师范大学实验教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 182,
    "minban": false,
    "name": "广州市白云区江高镇第二初级中学",
@@ -14843,10 +14591,7 @@
   {
    "autonomy_count": 95,
    "district": "白云区",
-   "group": {
-    "brand": "广州白云六中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 594,
    "minban": true,
    "name": "广州市白云区珠江实验学校",
@@ -14991,10 +14736,7 @@
   {
    "autonomy_count": 481,
    "district": "白云区",
-   "group": {
-    "brand": "广州市白云区白云实验教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 613,
    "minban": true,
    "name": "广州市白云区白云实验学校",
@@ -15094,10 +14836,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广州白云广附教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 23,
    "minban": false,
    "name": "广州市白云区白云广附云湖实验学校",
@@ -15147,10 +14886,7 @@
   {
    "autonomy_count": 1,
    "district": "白云区",
-   "group": {
-    "brand": "广州培英教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 108,
    "minban": false,
    "name": "广州市白云区石井中学",
@@ -15210,10 +14946,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广州市第六十五中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 69,
    "minban": false,
    "name": "广州市白云区石龙中学",
@@ -15268,10 +15001,7 @@
   {
    "autonomy_count": 1,
    "district": "白云区",
-   "group": {
-    "brand": "广州市第六十五中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 127,
    "minban": false,
    "name": "广州市白云区神山中学",
@@ -15326,10 +15056,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广外实验中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 29,
    "minban": false,
    "name": "广州市白云区穗丰学校",
@@ -15404,15 +15131,12 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广州大同教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 209,
    "minban": false,
    "name": "广州市白云区竹料第一中学",
    "qu_quota": 41,
-   "school_id": "gz-440111-fd1c1c12",
+   "school_id": "gz-440111-78d61733",
    "school_ids": null,
    "sheng_quota": 11,
    "sz": [
@@ -15527,10 +15251,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广州大同教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 100,
    "minban": false,
    "name": "广州市白云区竹料第三中学",
@@ -15590,10 +15311,7 @@
   {
    "autonomy_count": 2,
    "district": "白云区",
-   "group": {
-    "brand": "广州培英教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 160,
    "minban": false,
    "name": "广州市白云区黄石学校",
@@ -15666,10 +15384,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广州大同教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 68,
    "minban": false,
    "name": "广州市白云区龙岗学校",
@@ -15734,10 +15449,7 @@
   {
    "autonomy_count": 2,
    "district": "白云区",
-   "group": {
-    "brand": "广外实验中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 193,
    "minban": false,
    "name": "广州市白云区龙归学校",
@@ -15955,10 +15667,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广外实验中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 259,
    "minban": false,
    "name": "广州市第一一五中学",
@@ -16038,10 +15747,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广州市白云区白云实验教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 68,
    "minban": false,
    "name": "广州市第一一四中学",
@@ -16086,10 +15792,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广州空港实验教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 79,
    "minban": false,
    "name": "广州市第七十三中学",
@@ -16149,10 +15852,7 @@
   {
    "autonomy_count": 1,
    "district": "白云区",
-   "group": {
-    "brand": "广外实验中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 108,
    "minban": false,
    "name": "广州市第七十中学",
@@ -16212,10 +15912,7 @@
   {
    "autonomy_count": 0,
    "district": "白云区",
-   "group": {
-    "brand": "广州市白云中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 139,
    "minban": false,
    "name": "广州市第六十七中学",
@@ -16290,10 +15987,7 @@
   {
    "autonomy_count": 30,
    "district": "白云区",
-   "group": {
-    "brand": "广州市第六十五中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 228,
    "minban": false,
    "name": "广州市第六十五中学（同德校区）",
@@ -16375,10 +16069,7 @@
   {
    "autonomy_count": 41,
    "district": "白云区",
-   "group": {
-    "brand": "广州市第六十五中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 225,
    "minban": false,
    "name": "广州市第六十五中学（明德校区）",
@@ -16470,10 +16161,7 @@
   {
    "autonomy_count": 32,
    "district": "白云区",
-   "group": {
-    "brand": "广州市第六十五中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 246,
    "minban": false,
    "name": "广州市第六十五中学（桃园校区）",
@@ -16565,10 +16253,7 @@
   {
    "autonomy_count": 101,
    "district": "白云区",
-   "group": {
-    "brand": "广铁一中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 493,
    "minban": false,
    "name": "广州市铁一中学（白云校区）",
@@ -16783,10 +16468,7 @@
   {
    "autonomy_count": 81,
    "district": "荔湾区",
-   "group": {
-    "brand": "广东实验中学荔湾学校教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 510,
    "minban": false,
    "name": "广东实验中学荔湾学校",
@@ -16891,10 +16573,7 @@
   {
    "autonomy_count": 64,
    "district": "荔湾区",
-   "group": {
-    "brand": "广东广雅中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 148,
    "minban": false,
    "name": "广东广雅中学（荔湾校区）",
@@ -17159,10 +16838,7 @@
   {
    "autonomy_count": 557,
    "district": "荔湾区",
-   "group": {
-    "brand": "广州市真光中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 1066,
    "minban": false,
    "name": "广州市真光中学",
@@ -17281,10 +16957,7 @@
   {
    "autonomy_count": 1,
    "district": "荔湾区",
-   "group": {
-    "brand": "广州市真光中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 73,
    "minban": false,
    "name": "广州市真光中学东漖学校",
@@ -17344,10 +17017,7 @@
   {
    "autonomy_count": 11,
    "district": "荔湾区",
-   "group": {
-    "brand": "广州市真光中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 102,
    "minban": false,
    "name": "广州市真光中学文伟学校",
@@ -17387,10 +17057,7 @@
   {
    "autonomy_count": 15,
    "district": "荔湾区",
-   "group": {
-    "brand": "广州市真光中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 254,
    "minban": false,
    "name": "广州市真光中学金道学校",
@@ -17460,10 +17127,7 @@
   {
    "autonomy_count": 171,
    "district": "荔湾区",
-   "group": {
-    "brand": "广州市第一中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 595,
    "minban": false,
    "name": "广州市第一中学",
@@ -17566,10 +17230,7 @@
   {
    "autonomy_count": 3,
    "district": "荔湾区",
-   "group": {
-    "brand": "广州市第一中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 67,
    "minban": false,
    "name": "广州市第一中学十甫学校",
@@ -17644,10 +17305,7 @@
   {
    "autonomy_count": 2,
    "district": "荔湾区",
-   "group": {
-    "brand": "广州市第一中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 109,
    "minban": false,
    "name": "广州市第一中学红岩学校",
@@ -17692,10 +17350,7 @@
   {
    "autonomy_count": 46,
    "district": "荔湾区",
-   "group": {
-    "brand": "广州市第四中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 835,
    "minban": false,
    "name": "广州市第四中学",
@@ -17815,10 +17470,7 @@
   {
    "autonomy_count": 3,
    "district": "荔湾区",
-   "group": {
-    "brand": "广州市第四中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 55,
    "minban": false,
    "name": "广州市第四中学丰宁学校",
@@ -17938,10 +17590,7 @@
   {
    "autonomy_count": 0,
    "district": "荔湾区",
-   "group": {
-    "brand": "广州市第四中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 135,
    "minban": false,
    "name": "广州市第四中学花地学校",
@@ -18001,10 +17650,7 @@
   {
    "autonomy_count": 20,
    "district": "荔湾区",
-   "group": {
-    "brand": "广州市第一中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 166,
    "minban": false,
    "name": "广州市美华中学",
@@ -18689,10 +18335,7 @@
   {
    "autonomy_count": 144,
    "district": "荔湾区",
-   "group": {
-    "brand": "广东广雅中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 426,
    "minban": false,
    "name": "广州市荔湾区西关广雅实验学校",
@@ -18854,10 +18497,7 @@
   {
    "autonomy_count": 31,
    "district": "荔湾区",
-   "group": {
-    "brand": "广州市西关外国语学校教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 573,
    "minban": false,
    "name": "广州市西关外国语学校",
@@ -18975,10 +18615,7 @@
   {
    "autonomy_count": 0,
    "district": "荔湾区",
-   "group": {
-    "brand": "广州市西关外国语学校教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 54,
    "minban": false,
    "name": "广州市西关外国语流花学校",
@@ -19023,10 +18660,7 @@
   {
    "autonomy_count": 2,
    "district": "荔湾区",
-   "group": {
-    "brand": "广州市西关外国语学校教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 120,
    "minban": false,
    "name": "广州市陈嘉庚纪念中学",
@@ -19268,10 +18902,7 @@
   {
    "autonomy_count": 51,
    "district": "越秀区",
-   "group": {
-    "brand": "广东实验中学越秀教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 467,
    "minban": false,
    "name": "广东实验中学越秀学校",
@@ -19366,10 +18997,7 @@
   {
    "autonomy_count": 155,
    "district": "越秀区",
-   "group": {
-    "brand": "广东实验中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 607,
    "minban": false,
    "name": "广东实验中学（越秀校区）",
@@ -19476,10 +19104,7 @@
   {
    "autonomy_count": 80,
    "district": "越秀区",
-   "group": {
-    "brand": "广州大学附属中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 491,
    "minban": false,
    "name": "广州大学附属中学（越秀校区）",
@@ -19586,10 +19211,7 @@
   {
    "autonomy_count": 36,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市执信中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 296,
    "minban": false,
    "name": "广州市东风实验学校",
@@ -19744,10 +19366,7 @@
   {
    "autonomy_count": 50,
    "district": "越秀区",
-   "group": {
-    "brand": "广东实验中学越秀教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 282,
    "minban": false,
    "name": "广州市华侨外国语学校",
@@ -19817,10 +19436,7 @@
   {
    "autonomy_count": 66,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市培正教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 470,
    "minban": false,
    "name": "广州市培正中学",
@@ -19940,10 +19556,7 @@
   {
    "autonomy_count": 7,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市培正教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 97,
    "minban": false,
    "name": "广州市培正中学矿泉学校",
@@ -20018,10 +19631,7 @@
   {
    "autonomy_count": 142,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市执信中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 526,
    "minban": false,
    "name": "广州市执信中学（越秀校区）",
@@ -20143,10 +19753,7 @@
   {
    "autonomy_count": 1,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市第三中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 145,
    "minban": false,
    "name": "广州市真光学校",
@@ -20306,10 +19913,7 @@
   {
    "autonomy_count": 192,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市第七中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 508,
    "minban": false,
    "name": "广州市第七中学",
@@ -20412,10 +20016,7 @@
   {
    "autonomy_count": 29,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市第七中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 291,
    "minban": false,
    "name": "广州市第七中学东山学校",
@@ -20495,10 +20096,7 @@
   {
    "autonomy_count": 24,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市第七中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 220,
    "minban": false,
    "name": "广州市第七中学实验学校",
@@ -20613,10 +20211,7 @@
   {
    "autonomy_count": 47,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市第三中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 469,
    "minban": false,
    "name": "广州市第三中学",
@@ -20711,10 +20306,7 @@
   {
    "autonomy_count": 11,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市第三中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 232,
    "minban": false,
    "name": "广州市第三中学实验学校",
@@ -20799,10 +20391,7 @@
   {
    "autonomy_count": 89,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市第二中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 499,
    "minban": false,
    "name": "广州市第二中学（越秀校区）",
@@ -21097,10 +20686,7 @@
   {
    "autonomy_count": 7,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市第三中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 277,
    "minban": false,
    "name": "广州市第十中学",
@@ -21195,10 +20781,7 @@
   {
    "autonomy_count": 191,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市第十六中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 467,
    "minban": false,
    "name": "广州市第十六中学",
@@ -21306,10 +20889,7 @@
   {
    "autonomy_count": 31,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市第十六中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 313,
    "minban": false,
    "name": "广州市第十六中学东华实验学校",
@@ -21389,10 +20969,7 @@
   {
    "autonomy_count": 143,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市第十六中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 449,
    "minban": false,
    "name": "广州市第十六中学实验学校",
@@ -21482,10 +21059,7 @@
   {
    "autonomy_count": 157,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市育才教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 505,
    "minban": false,
    "name": "广州市育才中学",
@@ -21748,10 +21322,7 @@
   {
    "autonomy_count": 65,
    "district": "越秀区",
-   "group": {
-    "brand": "广州市育才教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 290,
    "minban": false,
    "name": "广州市越秀区育才实验学校",
@@ -21941,10 +21512,7 @@
   {
    "autonomy_count": 85,
    "district": "越秀区",
-   "group": {
-    "brand": "广铁一中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 389,
    "minban": false,
    "name": "广州市铁一中学（越秀校区）",
@@ -22241,10 +21809,7 @@
   {
    "autonomy_count": 37,
    "district": "黄埔区",
-   "group": {
-    "brand": "华南师范大学附属中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 188,
    "minban": false,
    "name": "华南师范大学附属中学（知识城校区）",
@@ -22451,10 +22016,7 @@
   {
    "autonomy_count": 4,
    "district": "黄埔区",
-   "group": {
-    "brand": "黄埔广外教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 94,
    "minban": false,
    "name": "广东外语外贸大学附属科学城实验学校",
@@ -22534,10 +22096,7 @@
   {
    "autonomy_count": 1,
    "district": "黄埔区",
-   "group": {
-    "brand": "黄埔广外教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 143,
    "minban": false,
    "name": "广东外语外贸大学附属黄埔实验学校",
@@ -22622,10 +22181,7 @@
   {
    "autonomy_count": 4,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州市玉岩教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 212,
    "minban": false,
    "name": "广东省教育研究院黄埔实验学校",
@@ -22748,10 +22304,7 @@
   {
    "autonomy_count": 23,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州大学附属中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 184,
    "minban": false,
    "name": "广大附中高新区实验学校",
@@ -22821,16 +22374,16 @@
   {
    "autonomy_count": 176,
    "district": "黄埔区",
-   "group": {
-    "brand": "黄埔广附教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 716,
    "minban": false,
    "name": "广大附中黄埔实验学校",
    "qu_quota": 128,
    "school_id": "gz-440112-705c66e3",
-   "school_ids": null,
+   "school_ids": [
+    "gz-440112-705c66e3",
+    "gz-440112-87756a6d"
+   ],
    "sheng_quota": 37,
    "sz": [
     {
@@ -22939,10 +22492,7 @@
   {
    "autonomy_count": 41,
    "district": "黄埔区",
-   "group": {
-    "brand": "黄埔广实教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 644,
    "minban": false,
    "name": "广州实验中学",
@@ -23202,10 +22752,7 @@
   {
    "autonomy_count": 0,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州科学城教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 266,
    "minban": false,
    "name": "广州市第一一七中学",
@@ -23300,10 +22847,7 @@
   {
    "autonomy_count": 3,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州市第八十六中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 259,
    "minban": false,
    "name": "广州市第一二三中学",
@@ -23398,10 +22942,7 @@
   {
    "autonomy_count": 127,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州市第八十六中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 453,
    "minban": false,
    "name": "广州市第八十六中学",
@@ -23615,10 +23156,7 @@
   {
    "autonomy_count": 67,
    "district": "黄埔区",
-   "group": {
-    "brand": "黄埔广附教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 484,
    "minban": false,
    "name": "广州市黄埔军校中学",
@@ -24036,10 +23574,7 @@
   {
    "autonomy_count": 3,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州市第二中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 217,
    "minban": false,
    "name": "广州市黄埔区会元学校",
@@ -24294,10 +23829,7 @@
   {
    "autonomy_count": 3,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州市玉岩教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 166,
    "minban": false,
    "name": "广州市黄埔区华峰学校",
@@ -24467,10 +23999,7 @@
   {
    "autonomy_count": 27,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州市第二中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 338,
    "minban": false,
    "name": "广州市黄埔区开元学校",
@@ -24555,10 +24084,7 @@
   {
    "autonomy_count": 1,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州市第八十六中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 213,
    "minban": false,
    "name": "广州市黄埔区新港中学",
@@ -24678,10 +24204,7 @@
   {
    "autonomy_count": 2,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州市第八十六中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 192,
    "minban": false,
    "name": "广州市黄埔区港湾中学",
@@ -24781,10 +24304,7 @@
   {
    "autonomy_count": 1,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州市玉岩教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 531,
    "minban": false,
    "name": "广州市黄埔区玉岩实验学校",
@@ -25004,10 +24524,7 @@
   {
    "autonomy_count": 171,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州市第二中学教育集团",
-    "source": "brand"
-   },
+   "group": null,
    "kaosheng": 499,
    "minban": false,
    "name": "广州市黄埔区苏元学校",
@@ -25097,10 +24614,7 @@
   {
    "autonomy_count": 197,
    "district": "黄埔区",
-   "group": {
-    "brand": "广铁一中教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 655,
    "minban": false,
    "name": "广州市黄埔区铁英中学",
@@ -25340,10 +24854,7 @@
   {
    "autonomy_count": 2,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州开发区中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 330,
    "minban": false,
    "name": "广州开发区中学",
@@ -25423,10 +24934,7 @@
   {
    "autonomy_count": 8,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州开发区外国语学校教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 335,
    "minban": false,
    "name": "广州开发区外国语学校",
@@ -25531,10 +25039,7 @@
   {
    "autonomy_count": 0,
    "district": "黄埔区",
-   "group": {
-    "brand": "黄埔广实教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 309,
    "minban": false,
    "name": "广州知识城中学",
@@ -25638,10 +25143,7 @@
   {
    "autonomy_count": 0,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州市第八十六中学教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 148,
    "minban": false,
    "name": "广州石化中学",
@@ -25711,10 +25213,7 @@
   {
    "autonomy_count": 15,
    "district": "黄埔区",
-   "group": {
-    "brand": "广州科学城教育集团",
-    "source": "education"
-   },
+   "group": null,
    "kaosheng": 225,
    "minban": false,
    "name": "广州科学城中学",
