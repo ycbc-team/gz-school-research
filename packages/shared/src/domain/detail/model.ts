@@ -39,6 +39,8 @@ export interface DetailModel {
   stageLabel: string;
   district: string;
   badges: DetailBadge[];
+  /** 办学性质（实体表真源：民办写"民办"，公办默认"公办"） */
+  nature: string;
   headText: string;
   legalEntityText: string;
   poi: { lng: number; lat: number } | null;
@@ -450,6 +452,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     stageLabel: STAGE_SHORT[stage],
     district: districtOf,
     badges,
+    nature: entityNature ?? '公办',
     headText,
     legalEntityText,
     poi: poi ? { lng: poi.lng, lat: poi.lat } : null,
