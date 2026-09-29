@@ -177,8 +177,18 @@ function groupNameOf(gid?: string | null): string {
  * 顺序：对口直升(single_zone) → 多校电脑派位(group_paidui) → 其余按出现顺序（用户：先直升后派位）。
  * 同区同机制多条（多组派位）合并为一块；同校多机制并存时 plan_classes 是全校总计划，
  * 徽章不重复显示班数（避免 9+9=18 误读），由 totalPlanOfMulti 展示一次。
- * 区 Badge 仅在同机制跨区（天河/越秀并存的 2 所）时才显示，其余场景一律不显示（用户：删海珠区 Badge）。 */
+ * 区 Badge 仅在同机制跨区（天河/越秀并存的 2 所）时才显示，其余场景一律不显示（用户：删海珠区 Badge）。
+ * group_paidui 与 single_zone 同样展示 scope（招生服务范围/对口小学）与 mechanism_note（招生说明），
+ * 但跳过纯组名类备注（组名已由行 tag 展示，避免「海珠区…第1组」重复）。 */
 type MechBlock = { district: string; mech: string; label: string; plan: number | null; showDistrict: boolean; enrolls: (typeof middleEnrolls.value)[number][]; rows: { name: string; groupName: string; ids: string[] }[]; textScopes: string[]; notes: string[] };
+/** 纯组名/纯机制名备注跳过展示（组名与机制名已由徽章/行 tag 呈现）：「海珠区 2026 年…第1组」「荔湾区1组电脑派位」「电脑派位」 */
+function isRedundantNote(note: string): boolean {
+  const n = note.trim();
+  if (n === '电脑派位') return true;
+  if (/[第]?\s*[一二三四五六七八九十\d]+\s*组\s*$/.test(n)) return true;
+  if (/^[^；。]{0,14}电脑派位\s*$/.test(n)) return true;
+  return false;
+}
 const MECH_ORDER = ['single_zone', 'group_paidui'];
 const mechanismBlocks = computed<MechBlock[]>(() => {
   if (stage.value !== 'middle') return [];
@@ -211,6 +221,15 @@ const mechanismBlocks = computed<MechBlock[]>(() => {
         const g = gid ? middleEnrollmentGroups[gid] : null;
         const pid = g?.primaryIds ?? {};
         for (const p of Object.keys(pid)) b.rows.push({ name: p, groupName: groupNameOf(gid), ids: pid[p] ?? [] });
+        // 招生服务范围/对口小学：scope_school_ids 命中的段 → 可点击行；未命中段保留为服务范围文本（番禺按户籍划片、白云对口小学）
+        const smap = rec.scope_school_ids ?? {};
+        const parts = (rec.scope ?? '').split(/[、，,;；]/).map(x => x.trim()).filter(Boolean);
+        for (const p of parts) {
+          if (smap[p]?.length) b.rows.push({ name: p, groupName: groupNameOf(gid), ids: smap[p] });
+          else b.textScopes.push(p);
+        }
+        // 招生说明：机制内去重只展示一条；纯组名备注跳过（组名已由行 tag 展示）
+        if (rec.mechanism_note && !isRedundantNote(rec.mechanism_note) && !b.notes.includes(rec.mechanism_note)) b.notes.push(rec.mechanism_note);
       } else if (b.mech === 'single_zone') {
         // 直升小学聚合：scope_school_ids 命中的段 → 可点击行（tag=对口直升，样式同派位生源小学）；
         // 未命中段（划片地段/说明文本）保留为招生服务范围文本；招生说明机制内去重只展示一条
