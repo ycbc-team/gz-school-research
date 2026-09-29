@@ -116,32 +116,118 @@ def _primary_ids(name, adcode):
         ra = _MATCHER.resolve_all(name, preferred_adcode=adcode, preferred_stage="小学")
     return sorted({r["school_id"] for r in ra})
 
-_SCOPE_SPLIT = re.compile(r"[、，,;；]")
+_SCOPE_SPLIT = re.compile(r"[、，,;；\n]")
 # 小学名形态后缀：只对"看起来是小学名"的段做实体匹配，避免划片地段/楼盘/招生条件文本
 # 拆段后的零碎词（如「金山谷」「车陂路以东」「…小学应届毕业生」）被 SchoolMatcher 宽松命中造成误跳转。
 # 带限定词的段（「XX小学（地段生）」「…（不含北校区）」）宁缺毋滥：不匹配则前端保留文本展示。
 _EDU_SUFFIX = ("小学", "学校", "中学", "学院", "幼儿园", "小学部", "初中部", "高中部",
-               "校区", "分校", "教学点", "分部", "附中", "附小", "职中",
+               "校区", "分校", "教学点", "分部", "附中", "附小", "职中", "本部",
                "一小", "二小", "三小", "四小", "五小", "六小", "七小", "八小", "九小", "十小")
+# 截断贪心顺序：复合后缀优先（小学部/初中部/高中部/附小/附中），再单字后缀
+_EDU_TRUNC = ("小学部", "初中部", "高中部", "附小", "附中", "职中", "幼儿园",
+              "小学", "学校", "中学", "学院", "校区", "分校", "教学点", "分部",
+              "一小", "二小", "三小", "四小", "五小", "六小", "七小", "八小", "九小", "十小")
+# 括号内招生条件词：命中即视该括号为「条件注解」（剥离），而非校区/分组限定（保留）。
+# 不含「不含/除外」——（不含北校区）剥掉会误配北校区，宁缺毋滥。
+_COND_KEYWORDS = ("地段生", "地段学生", "户籍生", "摇号", "人户一致", "毕业生", "普通生",
+                  "安置区", "福和雅苑", "汉塘村", "民强村", "新兴村", "明星村",
+                  "统筹生", "政策性照顾", "适龄儿童", "塘贝户籍", "符合条件",
+                  "部分", "全部", "应届", "借读", "优待", "港澳", "人才", "积分", "租户")
+# 招生条件文本阻断词：清洗（剥括号/截断）后候选仍含这些词 = 划片/户籍/计划描述文本而非学校名单，
+# 宁缺（番禺官方无小学名单，纯地段文本不得 fuzzy 吸附成假小学）。
+# 白云/天河候选为纯学校名，实测 140 个候选零命中。
+_CAND_BLOCK = ("户籍", "招生", "面向", "应届", "毕业", "学位", "计划", "资格", "条件",
+               "居住", "政策", "照顾", "适龄", "报名", "录取", "的", "在职", "人员", "子女")
+
+
+def _clean_one(seg):
+    """单个候选清洗：剥条件括号 → 无括号残留则贪心截断尾部条件描述。返回清洗后候选或空。"""
+    seg = seg.strip()
+    if not seg:
+        return ""
+    # 招生条件描述段直接宁缺（「…在职在编人员适龄子女」「…小学应届毕业生」属计划文本，非学校名单；
+    # 截断会产出「暨南大学新造校区」这类假小学，须在截断前拦截）
+    if any(k in seg for k in ("在职在编", "适龄子女", "小学应届毕业生", "户籍的小学", "应届毕业生招生")):
+        return ""
+    # 剥条件括号（校区括号不含条件词则保留，整体按原逻辑匹配）
+    def _drop_cond(m):
+        return "" if any(k in m.group(1) for k in _COND_KEYWORDS) else m.group(0)
+    cleaned = re.sub(r"[（(]([^（）()]*)[）)]", _drop_cond, seg).strip()
+    if not cleaned:
+        return ""
+    if cleaned != seg:
+        seg = cleaned
+    # 无括号残留才截断尾部条件描述（「六中实验小学福和雅苑安置区地段生」→「六中实验小学」）；
+    # 含校区括号的段（「空港实验小学（总校区、北校区）」）整体匹配，不截断防拆坏
+    if "（" not in seg and "(" not in seg:
+        best = None
+        for suf in _EDU_TRUNC:
+            idx = seg.rfind(suf)
+            if idx != -1:
+                best = idx + len(suf) if best is None else max(best, idx + len(suf))
+        if best:
+            seg = seg[:best]
+    return seg
+
+
+def _clean_scope_part(part):
+    """scope 段 → 候选小学名列表（白云 feed 形态清洗，其他区不受影响）：
+    1) 段首整组括号形态（「（太和镇第一小学、…、石湖小学）部分毕业生」）→ 展开括号内学校；
+    2) 含「:」前缀标签（「南校区：竹料一小、竹料二小、竹料四小」「明德校区：明德小学（本部）」）
+       → 取冒号后内容并按顿号拆多子段；
+    其余单段直接清洗。返回 [] 表示本段无候选。"""
+    part = part.strip()
+    if not part:
+        return []
+    # 1) 段首整组括号（先于长度检查——括号内为多校列表，展开后单校名均短）
+    if part.startswith("（") or part.startswith("("):
+        m = re.match(r"^[（(]([^（）()]+)[）)]", part)
+        if m and any(k in part for k in ("毕业生", "部分", "地段", "户籍")):
+            inner = m.group(1).replace("\u0001", "、").replace("\u0002", ",").replace("\u0003", "，")
+            return [s.strip() for s in _SCOPE_SPLIT.split(inner) if s.strip()]
+    if len(part) > 28 and "（" not in part and "(" not in part:
+        return []  # 超长划片文本拦截；含括号段（学校名+长范围括号）剥括号后为短名，交给 _clean_one 后由主循环兜底
+    # 2) 冒号校区标签前缀：取冒号后内容，拆成多子段逐段清洗
+    if "：" in part or ":" in part:
+        rest = re.split(r"[：:]", part)[-1].strip()
+        segs = [s.strip() for s in _SCOPE_SPLIT.split(rest) if s.strip()]
+    else:
+        segs = [part]
+    out = []
+    for seg in segs:
+        c = _clean_one(seg)
+        if c:
+            out.append(c)
+    return out
+
 
 def _scope_primary_ids(scope, adcode):
     """直升小学 scope → {小学名: school_ids}（数据层匹配，前端聚合为可点击行）：
-    按顿号/逗号拆段，逐段 SchoolMatcher 匹配小学实体（preferred_stage='小学'）。
-    仅匹配「小学名形态」（教育词后缀）的段——划片地段/说明文本（天河/番禺/白云部分）
-    匹配不到则整体不输出，前端对该记录保留『招生服务范围』文本展示。宁缺毋滥：匹配不到不猜。"""
+    按顿号/逗号拆段，逐段清洗（条件括号剥离/尾部条件词截断）后 SchoolMatcher 匹配小学实体
+    （preferred_stage='小学'）。仅匹配「小学名形态」（教育词后缀）的段——划片地段/说明文本
+    （天河/番禺/白云部分）匹配不到则整体不输出，前端对该记录保留『招生服务范围』文本展示。
+    宁缺毋滥：匹配不到不猜。"""
     if not scope:
         return {}
+    # 拆段前保护括号内顿号/逗号（校区列表「（总校区、北校区）」、整组小学「（太和…石湖小学）」不被拆散），
+    # _clean_scope_part 内按需还原
+    _prot = re.sub(r"[（(]([^（）()]*)[）)]",
+                   lambda m: m.group(0).replace("、", "\u0001").replace(",", "\u0002").replace("，", "\u0003"),
+                   scope)
     out = {}
-    for part in _SCOPE_SPLIT.split(scope):
-        part = part.strip()
-        if not part or len(part) > 28:
-            continue
-        t = part.rstrip("。；;，,、 ）】]}\u3000 ").rstrip("）")
-        if not t.endswith(_EDU_SUFFIX):
-            continue
-        ids = _primary_ids(part, adcode)
-        if ids:
-            out[part] = ids
+    for part in _SCOPE_SPLIT.split(_prot):
+        for cand in _clean_scope_part(part):
+            cand = cand.replace("\u0001", "、").replace("\u0002", ",").replace("\u0003", "，")
+            if len(cand) > 28:
+                continue
+            t = cand.rstrip("。；;，,、 ）】]}\u3000 ").rstrip("）")
+            if not t.endswith(_EDU_SUFFIX):
+                continue
+            if any(w in cand for w in _CAND_BLOCK):
+                continue
+            ids = _primary_ids(cand, adcode)
+            if ids:
+                out.setdefault(cand, ids)
     return out or None
 
 def _group_name(note):

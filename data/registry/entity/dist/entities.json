@@ -117,13 +117,16 @@
       "school_id": "gz-440111-a0cc79c7",
       "name": "东平学校(万科校区)",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "东平学校小学部"
+      ]
     },
     {
       "school_id": "gz-440111-e6300e34",
       "name": "东平学校(东平校区)",
       "stage": "primary",
       "aliases": [
+        "东平学校小学部",
         "白云区东平学校"
       ]
     },
@@ -890,19 +893,25 @@
       "school_id": "gz-440111-db31a4f7",
       "name": "华师附中实验小学(东校区)",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "华师附小"
+      ]
     },
     {
       "school_id": "gz-440111-1d697e07",
       "name": "华师附中实验小学(北校区)",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "华师附小"
+      ]
     },
     {
       "school_id": "gz-440111-07bdec5f",
       "name": "华师附中实验小学(南校区)",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "华师附小"
+      ]
     },
     {
       "school_id": "gz-440113-de874f8a",
@@ -1672,13 +1681,16 @@
       "school_id": "gz-440111-28563d8a",
       "name": "太和第一小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "太和镇第一小学"
+      ]
     },
     {
       "school_id": "gz-440111-784113ca",
       "name": "太和第二小学(米龙校区)",
       "stage": "primary",
       "aliases": [
+        "太和镇第二小学",
         "太和第二小学"
       ]
     },
@@ -2351,7 +2363,9 @@
       "school_id": "gz-440111-d909827a",
       "name": "广州市培英中学附属小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "培英附小"
+      ]
     },
     {
       "school_id": "gz-440111-ccb0d7b4",
@@ -3086,7 +3100,8 @@
       "name": "广州市白云区神山第一小学",
       "stage": "primary",
       "aliases": [
-        "神山第一小学"
+        "神山第一小学",
+        "神山一小"
       ]
     },
     {
@@ -3095,7 +3110,8 @@
       "stage": "primary",
       "aliases": [
         "神山第二小学",
-        "中八小学"
+        "中八小学",
+        "神山二小"
       ]
     },
     {
@@ -3143,7 +3159,8 @@
       "name": "广州市白云区金沙第二小学",
       "stage": "primary",
       "aliases": [
-        "金沙第二小学"
+        "金沙第二小学",
+        "金沙二小"
       ]
     },
     {
@@ -3263,19 +3280,26 @@
       "school_id": "gz-440111-9f1c9750",
       "name": "广州市第七十三中学·小学部",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "73中小学部"
+      ]
     },
     {
       "school_id": "gz-440111-1fcfbfb4",
       "name": "广州市第六十五中学附属小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "65中附属小学",
+        "65中附小"
+      ]
     },
     {
       "school_id": "gz-440111-ee3748de",
       "name": "广州市第六十五中学附属小学(侨德校区)",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "65附小分校区"
+      ]
     },
     {
       "school_id": "gz-440103-43860928",
@@ -4205,7 +4229,9 @@
       "school_id": "gz-440111-6da8abe9",
       "name": "明德小学(明德校区)",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "明德小学本部"
+      ]
     },
     {
       "school_id": "gz-440113-7997c707",
@@ -4424,7 +4450,9 @@
       "school_id": "gz-440111-104bbb86",
       "name": "槎龙镇泰小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "槎龙小学"
+      ]
     },
     {
       "school_id": "gz-440113-73f80cf9",
@@ -5359,7 +5387,8 @@
       "stage": "primary",
       "aliases": [
         "白云区张村中心小学",
-        "张村中心小学"
+        "张村中心小学",
+        "张村小学"
       ]
     },
     {
@@ -5450,13 +5479,17 @@
       "school_id": "gz-440111-afc74cf2",
       "name": "神山第三小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "神山三小"
+      ]
     },
     {
       "school_id": "gz-440111-4d448f8e",
       "name": "神山第五小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "神山五小"
+      ]
     },
     {
       "school_id": "gz-440111-2e4ba466",
@@ -5511,33 +5544,42 @@
       "school_id": "gz-440111-36817b49",
       "name": "竹料第一小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "竹料一小"
+      ]
     },
     {
       "school_id": "gz-440111-3218439b",
       "name": "竹料第三小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "竹料三小"
+      ]
     },
     {
       "school_id": "gz-440111-96ab2ca3",
       "name": "竹料第二小学(竹三校区)",
       "stage": "primary",
       "aliases": [
-        "竹料第二小学"
+        "竹料第二小学",
+        "竹料二小"
       ]
     },
     {
       "school_id": "gz-440111-d32f5b48",
       "name": "竹料第五小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "竹料五小"
+      ]
     },
     {
       "school_id": "gz-440111-77b8da86",
       "name": "竹料第四小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "竹料四小"
+      ]
     },
     {
       "school_id": "gz-440113-e08ddd50",
@@ -5639,20 +5681,25 @@
       "school_id": "gz-440111-292558c4",
       "name": "良田第一小学",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "良田一小"
+      ]
     },
     {
       "school_id": "gz-440111-883ed42d",
       "name": "良田第三小学(白沙校区)",
       "stage": "primary",
-      "aliases": []
+      "aliases": [
+        "良田三小"
+      ]
     },
     {
       "school_id": "gz-440111-9695819e",
       "name": "良田第二小学(新校区)",
       "stage": "primary",
       "aliases": [
-        "良田第二小学"
+        "良田第二小学",
+        "良田二小"
       ]
     },
     {
@@ -6189,14 +6236,17 @@
       "stage": "primary",
       "aliases": [
         "金盘小学北",
-        "金盆学校"
+        "金盆学校",
+        "良田三小"
       ]
     },
     {
       "school_id": "gz-440111-44cd0b7c",
       "name": "金碧新城小学",
       "stage": "primary",
-      "aliases": [],
+      "aliases": [
+        "金碧小学"
+      ],
       "nature": "民办"
     },
     {
@@ -6638,6 +6688,8 @@
       "name": "龙归学校（珑璟校区）",
       "stage": "primary",
       "aliases": [
+        "白云区龙归学校珑璟校区小学部",
+        "龙归学校珑璟校区小学部",
         "白云区龙归学校珑璟校区",
         "白云区龙归学校"
       ]
