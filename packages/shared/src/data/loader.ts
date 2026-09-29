@@ -72,6 +72,8 @@ export interface DataLoaders {
   chuangkeAwards?: Record<string, { chuangke_awards: { stages: Record<string, Record<string, { gold: number; silver: number; bronze: number }>> } }>;
   /** 科学素养大赛获奖（school_id → stages → years → 金/银/铜） */
   scienceLiteracyAwards?: Record<string, { science_literacy_awards: { stages: Record<string, Record<string, { gold: number; silver: number; bronze: number }>> } }>;
+  /** 科技体育教育竞赛获奖（school_id → stages → years → 金/银/铜；secondary=中学组初高合并，high=测向18岁组） */
+  techSportsAwards?: Record<string, { tech_sports_awards: { stages: Record<string, Record<string, { gold: number; silver: number; bronze: number }>> } }>;
   /** 竞赛获奖明细，供获奖页展示年份、项目与获奖学生 */
   detailedRecords?: Array<Record<string, unknown>>;
 }

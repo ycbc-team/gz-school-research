@@ -30,6 +30,7 @@ import orgSortCompiledCompact from './compact/middle/org_sort/dist/compiled.js';
 import innovationAwardsCompact from './compact/awards/innovation/dist/compiled.js';
 import chuangkeAwardsCompact from './compact/awards/chuangke/dist/compiled.js';
 import scienceLiteracyAwardsCompact from './compact/awards/science_literacy/dist/compiled.js';
+import techSportsAwardsCompact from './compact/awards/tech_sports/dist/compiled.js';
 import detailedRecordsCompact from './compact/awards/dist/detailed_records.js';
 import specialtySchoolsCompact from './compact/specialty_schools/dist/specialty_schools.js';
 import civilizedCampusSchoolIdsCompact from './compact/civilized_campuses/dist/civilized_campus_school_ids.js';
@@ -66,6 +67,7 @@ const loaders: DataLoaders = {
   innovationAwards: cast(hydrate(innovationAwardsCompact)),
   chuangkeAwards: cast(hydrate(chuangkeAwardsCompact)),
   scienceLiteracyAwards: cast(hydrate(scienceLiteracyAwardsCompact)),
+  techSportsAwards: cast(hydrate(techSportsAwardsCompact)),
   detailedRecords: cast(hydrate(detailedRecordsCompact)),
 };
 
@@ -97,6 +99,7 @@ export const entities = loaders.entities;
 export const innovationAwards = loaders.innovationAwards || {};
 export const chuangkeAwards = loaders.chuangkeAwards || {};
 export const scienceLiteracyAwards = loaders.scienceLiteracyAwards || {};
+export const techSportsAwards = loaders.techSportsAwards || {};
 export const detailedRecords = loaders.detailedRecords || [];
 export const specialtySchools = cast(hydrate(specialtySchoolsCompact)) as {
   updated: string;

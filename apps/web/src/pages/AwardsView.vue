@@ -4,7 +4,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { DISTRICTS } from '@gz/shared';
 import { entities, detailedRecords } from '../data';
 
-type Competition = 'innovation' | 'chuangke' | 'science_literacy';
+type Competition = 'innovation' | 'chuangke' | 'science_literacy' | 'tech_sports';
 type GroupBy = 'none' | 'district';
 type AwardStage = 'primary' | 'middle' | 'high' | 'secondary';
 type SelectionStage = Exclude<AwardStage, 'secondary'>;
@@ -18,6 +18,7 @@ const COMPETITIONS: Array<{ value: Competition; label: string }> = [
   { value: 'innovation', label: '创新大赛' },
   { value: 'chuangke', label: '科技创客电视大赛' },
   { value: 'science_literacy', label: '科学素养大赛' },
+  { value: 'tech_sports', label: '科技体育教育竞赛' },
 ];
 const COMPETITION_LABEL = Object.fromEntries(COMPETITIONS.map((item) => [item.value, item.label])) as Record<Competition, string>;
 const STAGES: Array<{ value: SelectionStage; label: string }> = [
@@ -142,7 +143,7 @@ const groups = computed(() => {
 
 watch(() => [route.query.competition, route.query.stage, route.query.school], () => {
   const requested = route.query.competition;
-  if (requested === 'innovation' || requested === 'chuangke' || requested === 'science_literacy') {
+  if (requested === 'innovation' || requested === 'chuangke' || requested === 'science_literacy' || requested === 'tech_sports') {
     selectedEvents.value = new Set(yearsOf(requested).map((itemYear) => eventKey(requested, itemYear)));
   }
   const requestedStage = route.query.stage;
