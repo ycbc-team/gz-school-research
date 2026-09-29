@@ -221,23 +221,30 @@ const mechanismBlocks = computed<MechBlock[]>(() => {
         const g = gid ? middleEnrollmentGroups[gid] : null;
         const pid = g?.primaryIds ?? {};
         for (const p of Object.keys(pid)) b.rows.push({ name: p, groupName: groupNameOf(gid), ids: pid[p] ?? [] });
-        // 招生服务范围/对口小学：scope_school_ids 命中的段 → 可点击行；未命中段保留为服务范围文本（番禺按户籍划片、白云对口小学）
+        // 对口小学：scope_school_ids 命中的段 → 可点击行（单独展示在生源小学列表）；
+        // 招生服务范围直接展示 scope 原文，不从原文中剔除已提取的小学
         const smap = rec.scope_school_ids ?? {};
         const parts = (rec.scope ?? '').split(/[、，,;；]/).map(x => x.trim()).filter(Boolean);
         for (const p of parts) {
           if (smap[p]?.length) b.rows.push({ name: p, groupName: groupNameOf(gid), ids: smap[p] });
-          else b.textScopes.push(p);
+        }
+        if (rec.scope) {
+          const full = rec.scope.trim();
+          if (full && !b.textScopes.includes(full)) b.textScopes.push(full);
         }
         // 招生说明：机制内去重只展示一条；纯组名备注跳过（组名已由行 tag 展示）
         if (rec.mechanism_note && !isRedundantNote(rec.mechanism_note) && !b.notes.includes(rec.mechanism_note)) b.notes.push(rec.mechanism_note);
       } else if (b.mech === 'single_zone') {
-        // 直升小学聚合：scope_school_ids 命中的段 → 可点击行（tag=对口直升，样式同派位生源小学）；
-        // 未命中段（划片地段/说明文本）保留为招生服务范围文本；招生说明机制内去重只展示一条
+        // 直升小学聚合：scope_school_ids 命中的段 → 可点击行（tag=对口直升，单独展示在直升小学列表）；
+        // 招生服务范围直接展示 scope 原文，不从原文中剔除已提取的小学
         const smap = rec.scope_school_ids ?? {};
         const parts = (rec.scope ?? '').split(/[、，,;；]/).map(x => x.trim()).filter(Boolean);
         for (const p of parts) {
           if (smap[p]?.length) b.rows.push({ name: p, groupName: '对口直升', ids: smap[p] });
-          else b.textScopes.push(p);
+        }
+        if (rec.scope) {
+          const full = rec.scope.trim();
+          if (full && !b.textScopes.includes(full)) b.textScopes.push(full);
         }
         if (rec.mechanism_note && !b.notes.includes(rec.mechanism_note)) b.notes.push(rec.mechanism_note);
       }
