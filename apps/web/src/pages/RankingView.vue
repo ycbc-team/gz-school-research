@@ -184,7 +184,7 @@ function fmtAbs(v: number | null): string {
 
 /** 最低分指标模式：表格显示 最低分 / 指标数 / 浪费率 三列（考生数列让位，指标数/浪费率随所选类型） */
 const showOutcome = computed(() => metric.value === 'sheng_min' || metric.value === 'qu_min');
-const outcomeQuotaLabel = computed(() => (metric.value === 'sheng_min' ? '省市属指标数' : '区属指标数'));
+const outcomeQuotaLabel = computed(() => '指标数');
 function outcomeQuota(s: Row): number | null {
   return metric.value === 'sheng_min' ? (s.sheng_quota ?? null) : (s.qu_quota ?? null);
 }
@@ -238,8 +238,11 @@ const WASTE_NOTE = '指标浪费率 = 未完成录取的对数 ÷ 有指标的�
 
 const metricLabel = computed(() => METRIC_META[metric.value].label);
 const metricNote = computed(() => METRIC_META[metric.value].note);
-/** 表格数值列列名：默认排序时仍显示区属指标比例 */
-const columnLabel = computed(() => (metric.value === 'default' ? METRIC_META.qu_ratio.label : METRIC_META[metric.value].label));
+/** 表格数值列列名：默认排序时仍显示区属指标比例；最低分模式缩写为「最低分」 */
+const columnLabel = computed(() => {
+  if (metric.value === 'sheng_min' || metric.value === 'qu_min') return '最低分';
+  return metric.value === 'default' ? METRIC_META.qu_ratio.label : METRIC_META[metric.value].label;
+});
 
 /** 指标取值（null=无数据，排序置后） */
 function metricValue(s: Row): number | null {
@@ -467,7 +470,7 @@ const groups = computed(() => {
               </th>
               <th v-if="showOutcome" class="c-sub">{{ outcomeQuotaLabel }}</th>
               <th v-if="showOutcome" class="c-sub">
-                指标浪费率
+                浪费率
                 <span
                   class="q-mark"
                   aria-label="指标浪费率口径说明"
