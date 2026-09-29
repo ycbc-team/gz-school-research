@@ -426,10 +426,12 @@ def main() -> int:
     print('[special_matrix] 去死字段 + autonomy_plan 转 id 完成 → dist 写入')
 
     # ================= 写 dist =================
+    # 统一 1 空格缩进 + 无尾换行（终态格式，原 optimize_redundancy.mjs 仅剩格式重写已并入此处并删除该 mjs）；
+    # quota_matrix 键序 sort（sz 稀疏化由 conv_sz 承担：只保留 n>0 键，无 null 单元格）。
     for tag, data in dist_out.items():
         _sk = tag == 'quota_matrix'
         (DIST / f'{tag}.json').write_text(
-            json.dumps(data, ensure_ascii=False, indent=2 if _sk else 1, sort_keys=_sk) + '\n', 'utf-8')
+            json.dumps(data, ensure_ascii=False, indent=1, sort_keys=_sk), 'utf-8')
 
     # 未命中清单（构建期审计产物，非运行时数据）：7 区内（需人工桥接）与
     # 7 区外/未知（无实体，链接不可点属正确行为）分列 → 落 test/ 目录

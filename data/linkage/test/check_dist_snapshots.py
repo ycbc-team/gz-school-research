@@ -17,7 +17,8 @@ batch2_scores / ranking_middle；special_matrix 由 check_special_matrix_snapsho
   B 层（parsed/canonical/）：rebuild_quota_matrix → build_district_quota →
       build_linkage_batch2 → build_special_matrix
   C 层：backfill_school_ids（canonical 写回 school_id/middle_school_ids + dist ids/schools
-      拆分）→ optimize_redundancy → build_ranking_middle（canonical 全量 + dist 精简）
+      拆分）→ build_ranking_middle（canonical 全量 + dist 精简；quota_matrix 的 sz 稀疏化
+      与 1 空格缩进已在 backfill 内完成，原 optimize_redundancy.mjs 已并入并删除）
 
 用法：
   python3 data/linkage/test/check_dist_snapshots.py                    # 对比（默认）
@@ -265,7 +266,6 @@ def run(update: bool) -> int:
     replay(["python3", os.path.join(ROOT, "data/linkage/scripts/build_linkage_batch2.py")])
     replay(["python3", os.path.join(ROOT, "data/linkage/scripts/build_special_matrix.py")])
     replay(["python3", os.path.join(ROOT, "data/linkage/scripts/backfill_school_ids.py")])
-    replay(["node", os.path.join(ROOT, "scripts/data/optimize_redundancy.mjs")])
     replay(["python3", os.path.join(ROOT, "data/linkage/scripts/build_ranking_middle.py")])
 
     os.makedirs(SNAP_DIR, exist_ok=True)
