@@ -62,7 +62,10 @@ def main(argv: list[str]) -> int:
     out = {"year": 2026, "districts": meta, "records": records, "minban": minban}
     out_path = os.path.join(out_dir, "2026-all.json")
     os.makedirs(out_dir, exist_ok=True)
-    json.dump(out, open(out_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    # 产物确定性排序（2026-09-29）：records 按 school_id、minban 按 name 稳定排序 + sort_keys
+    records.sort(key=lambda r: (r.get("school_id") or "", r.get("name") or ""))
+    minban.sort(key=lambda m: (m.get("school_id") or "", m.get("name") or ""))
+    json.dump(out, open(out_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1, sort_keys=True)
     print(f"[C 层] {len(DISTRICTS)} 区合并 → {os.path.relpath(out_path, ROOT)}"
           f"（records {len(records)} / minban {len(minban)}，无 school 字段）")
     return 0

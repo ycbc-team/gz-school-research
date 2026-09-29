@@ -12,6 +12,7 @@
 import json
 import os
 import subprocess
+import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 DATA = os.path.join(ROOT, "data", "primary", "enrollment")
@@ -29,7 +30,7 @@ def ocr_lines():
     if os.path.exists(OCR_CACHE):
         return json.load(open(OCR_CACHE, encoding="utf-8"))
     tmp = "/tmp/haizhu_minban_ocr_lines.json"
-    subprocess.run(["python3", OCR_TOOL, os.path.join(RAW, "haizhu_2026_minban_plan.png"), "--json", tmp], check=True)
+    subprocess.run([sys.executable, OCR_TOOL, os.path.join(RAW, "haizhu_2026_minban_plan.png"), "--json", tmp], check=True)
     lines = json.load(open(tmp, encoding="utf-8"))
     os.makedirs(os.path.dirname(OCR_CACHE), exist_ok=True)
     json.dump(lines, open(OCR_CACHE, "w", encoding="utf-8"), ensure_ascii=False)

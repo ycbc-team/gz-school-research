@@ -189,7 +189,20 @@ def legalCampuses(name, entities):
     「九龙第二小学大坦分校」→「九龙第二小学」、「汤村小学旺村分校」→「汤村小学」、
     「新洲小学分校」（key+后缀、无独立分校名）→「新洲小学」等，
     凡「<法人><校区名>(校区|分校|…)」形态一律自动归并，替代「手工给后缀式校区实体补括号式别名」的做法。
+
+    锚定优先（2026-09-29）：官方「一名多校区」复合写法/纯名多校区不在实体表挂载
+    （实体别名规则宁缺毋滥），由 SchoolMatcher.RESOLVE_OVERRIDE 统一承接——本函数先行命中
+    锚定表（merge_groups 等法人推导业务与 resolve 系列同口径）。
     """
+    _ov = SchoolMatcher.RESOLVE_OVERRIDE.get(normName(name))
+    if _ov:
+        _sid_map = {e["school_id"]: e for e in entities}
+        out = []
+        for _sid in _ov:
+            _e = _sid_map.get(_sid)
+            if _e:
+                out.append({"poi_name": _e["name"], "school_id": _e["school_id"]})
+        return out
     key = legalKey(name)
     p = _LC_CACHE.get(id(entities))
     if p is None or p[0] != len(entities):
@@ -259,7 +272,38 @@ class SchoolMatcher:
     # 全部业务共用（原 xs_resolver RESOLVE_OVERRIDE 迁入）。POI 层已剔除的点位名
     # （如「景泰小学柯子岭校区43号A座」）不得残留为匹配规则。
     RESOLVE_OVERRIDE = {
+        # 官方纯名多校区锚定（2026-09-29）：官方文本只写法人短名（不带校区），指向同法人多校区实体。
+        # 实体表 OFFICIAL_PRIMARY_ALIAS 纯名规则「同区同段纯名只挂单实体可收敛」拒绝挂载
+        # （数据质量测试 [3] 拦截：纯名挂多实体且无主 POI → resolve 无法收敛），故在此锚定兜底
+        # （middle/enrollment 等全部业务共用，与数据质量测试无冲突）。
+        # 2026-09-29 修正：真实共享纯名（华师附小/良田三小/太和镇第二小学，每校区都真实叫此名、
+        # 与天河华阳小学同款）已按用户口径回挂实体表 + [3] 豁免（_PRIMARY_SHARED_PLAIN），
+        # 本表只保留「无任何实体真叫此名」的聚合名/合成名（如荔湾 13 条）与跨区同名锚定。
         '龙溪小学': ['gz-440111-fd1c0f9d'],  # 跨区同名：白云民办「龙溪小学」≠ 荔湾公办「西关实验小学龙溪学校」
+        # 荔湾派位组表官方名「一名多校区」复合写法（2026-09-29 迁移）：官方转录把同法人多校区
+        # 写进一个名字（如沙面小学三校区并列），实体表只收「官方名→唯一实体」别名；此类展开
+        # 语义统一收口本锚定表（所有业务 resolve_all/resolve 优先命中，跨区亦成立）。
+        normName('广州市第一中学附属环市西路小学（竹苑校区、绿森林校区）'): ['gz-440103-65d7792a', 'gz-440103-6dbe752e'],
+        normName('广州市西关外国语学校附属流花小学'): ['gz-440103-f51bffec', 'gz-440103-4930321e'],
+        normName('广雅小学（东风西校区、岭南湾畔校区）'): ['gz-440103-5d3549b8', 'gz-440103-9c2a7fdf'],
+        normName('广州市第四中学附属芦荻西小学'): ['gz-440103-43860928', 'gz-440103-ffe16eea'],
+        normName('广州市第一中学附属詹天佑小学'): ['gz-440103-2da965bd', 'gz-440103-7dd6616d'],
+        normName('沙面小学（校本部、岭南校区、御景校区）'): ['gz-440103-ecc193c7', 'gz-440103-554e0beb', 'gz-440103-faabf468'],
+        normName('蒋光鼐纪念小学文昌学校'): ['gz-440103-11e27c02', 'gz-440103-56a8d7a4'],
+        normName('沙面小学（柏悦湾校区、大坦沙校区）'): ['gz-440103-8d072726', 'gz-440103-eeee1923'],
+        normName('林凤娥小学'): ['gz-440103-acad9c9d', 'gz-440103-07e5ea8f'],
+        normName('广州市真光中学附属坑口小学'): ['gz-440103-2bc230e3', 'gz-440103-c9ba5160'],
+        normName('广东实验中学荔湾学校（第一、二、三小学部）'): ['gz-440103-82b9766a', 'gz-440103-b54d0b70', 'gz-440103-9f5557ad'],
+        normName('芳村小学东沙学校'): ['gz-440103-69a306af', 'gz-440103-555bf7d6'],  # 金宇/沙洛（同组两校区）
+        normName('广州市真光中学附属培真小学'): ['gz-440103-47c5196f', 'gz-440103-039a7621'],  # 平西/鹤园（同组两校区）
+        # 黄埔派位组表官方名「一名多校区」聚合写法（2026-09-29 自 HP_MAP 迁移）：官方转录把
+        # 同法人多校区写进括号枚举（如「怡园小学（东、西、北校区）」），无任何实体真叫此名，
+        # 走锚定表展开全部校区实体（与荔湾聚合名同款）。
+        normName('怡园小学（东、西、北校区）'): ['gz-440112-23b184e9', 'gz-440112-49401733', 'gz-440112-6fdd05af'],
+        normName('石化小学（东、西校区）'): ['gz-440112-0f409071', 'gz-440112-64ab063c'],
+        normName('新港小学（东、西、南校区）'): ['gz-440112-3953d88c', 'gz-440112-70be890a', 'gz-440112-880cd8fa'],
+        normName('科学城小学（南、北、东校区）'): ['gz-440112-08b72698', 'gz-440112-16ca808f', 'gz-440112-dbb48335'],
+        normName('长岭居小学（南、北校区）'): ['gz-440112-70e86492', 'gz-440112-80a45eec', 'gz-440112-e0419ae0'],
     }
 
     def __init__(self):
@@ -412,7 +456,7 @@ class SchoolMatcher:
         # 注意「小学部/初中部/高中部」是法人学部（官方原文名，如「清华附中湾区学校小学部」），
         # 不是校区限定——精确匹配学部实体即可，不触发校区精准分支。
         _suffix_campus = matchNorm(coreCampusName(name)).endswith(
-            ("校区", "分校", "教学点", "分教点"))
+            ("校区", "分校", "教学点", "分教点", "校本部"))
         candidates = entities_for(list(self.exact_map.get(normName(name), [])) +
                                   list(self.alias_map.get(normName(name), [])) +
                                   list(self.alias_map.get(matchNorm(name), [])))
