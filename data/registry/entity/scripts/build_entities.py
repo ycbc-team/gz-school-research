@@ -50,7 +50,7 @@ def write(p, obj):
     fp = os.path.join(OUT_ROOT, p)
     os.makedirs(os.path.dirname(fp), exist_ok=True)
     with open(fp, 'w', encoding='utf-8') as f:
-        f.write(json.dumps(obj, ensure_ascii=False, indent=2) + '\n')
+        f.write(json.dumps(obj, ensure_ascii=False, indent=2, sort_keys=True) + '\n')
 
 
 def idKey(adcode, poiNameNorm):
@@ -844,6 +844,7 @@ OFFICIAL_PRIMARY_ALIAS = {
     "华师附小": ["华师附中实验小学(南校区)", "华师附中实验小学(北校区)", "华师附中实验小学(东校区)"],
     "良田三小": ["良田第三小学(金盆校区)", "良田第三小学(白沙校区)"],
     "太和镇第二小学": ["太和镇第二小学(和龙校区)", "太和第二小学(米龙校区)"],  # 米龙实体名缺「镇」（POI 原名），值仍须写实体名
+    "民航学校（人和校区）小学部": "白云区民航学校(人和校区)",  # 2026-09-29 自 BW_MAP 迁移（单值别名）
     # ---- 荔湾 2026 官方派位组表官方名 → 实体名全量下沉（2026-09-29 自 LW_MAP 迁移；
     #      xsc 侧 build_liwan 改由 LW_OFFICIAL_GROUP + 实体别名解析驱动，名字映射统一收口实体表；
     #      值为实体名（POI_NAME_FIX 规范化），与 build_entities 索引口径一致）----
@@ -891,6 +892,14 @@ OFFICIAL_PRIMARY_ALIAS = {
     "华南师范大学附属荔湾小学": "华南师范大学附属荔湾小学",
     "中国教育科学研究院荔湾实验学校（小学部）": "中国教育科学研究院荔湾实验学校小学部",
     "广东实验中学荔湾学校花地湾校区（小学部）": "广东实验中学荔湾学校花地湾校区（小学部）",
+    # ---- 越秀 2026 官方派位组表官方名 → 实体名（2026-09-29 自 YX_MAP 迁移；值须写实体名）----
+    # 官方以「法人名（小学部）」公布、实体以校区/学部名建；单值别名直接挂。
+    "八一实验学校（小学部）": "广州市八一实验学校(南校区)",
+    "知用学校（小学部）": "广州市知用学校",
+    "真光学校（小学部）": "广州市真光学校(一德西校区)",
+    "第七中学实验学校（小学部）": "广州市第七中学实验学校",
+    # 东山培正小学：主实体无括号（by_main 可收敛）+ 海印苑校区共享别名（数据质量 [3] 自动放行）
+    "东山培正小学": ["东山培正小学", "培正小学(海印苑校区)"],
 }
 
 # 纯名判定：与 data_quality_test.py [3] 检查口径一致（无校区/学部/括号/“学校”字样的别名才参与纯名先占；
@@ -1531,6 +1540,8 @@ for e in entities:
     e['aliases'] = sorted(e['aliases'], key=len, reverse=True)  # 稳定：同长度保持插入序（与 mjs Set+sort 等价）
 # 实体保持 POI 表遍历插入序（primary→middle→high）。mjs 原 sort 为 a.localeCompare(a) 笔误（比较自身，
 # 恒 0），等于不排序；此处不复刻笔误、直接保持插入序，产物与既有入库一致。
+# 注意：实体顺序是消歧契约（backfill_school_ids「同 stage 多实体取实体构建顺序第一个」等），
+# 不得排序；键序统一由 write() sort_keys=True 保证（2026-09-29）。
 write('data/registry/entity/dist/entities.json', {
     'year': 2026,
     'note': '学校实体表（由build_entities.py生产）。一个 POI = 一或多个实体，一个实体 = 唯一学段 + 唯一校区；school_id 即主键。事实表用 school_id 引用；district 由 POI.adcode join。集团关系见 brand_groups/education_groups。nature=民办 为办学性质唯一真源（公办不写字段），由 data/registry/private/dist/minban_schools.json（官方文件汇总表）生产。',

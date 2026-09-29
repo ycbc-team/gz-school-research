@@ -141,8 +141,12 @@ def comparison(district, candidate, entity_names):
 
 
 def dump(path, data):
+    # 产物确定性排序（2026-09-29）：records 按 school_id 稳定排序 + sort_keys 统一键序
+    # （compare_* 对账产物无 records 键，仅统一键序）
+    if "records" in data:
+        data["records"].sort(key=lambda r: (r.get("school_id") or "", r.get("name") or ""))
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+        json.dump(data, f, ensure_ascii=False, indent=2, sort_keys=True)
         f.write("\n")
 
 

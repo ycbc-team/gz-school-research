@@ -801,8 +801,10 @@ if __name__ == "__main__":
         # 各区中间产物（统一格式，审计层）
         out = os.path.join(dist_dir, f"middle_enrollment_2026_{dk}.json")
         os.makedirs(os.path.dirname(out), exist_ok=True)
+        # 产物确定性排序（2026-09-29）：records 按 school_id 稳定排序 + sort_keys 统一键序
+        data["records"].sort(key=lambda r: r.get("school_id") or "")
         with open(out, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=1)
+            json.dump(data, f, ensure_ascii=False, indent=1, sort_keys=True)
         districts[dk] = data
         # 统计
         total = len(data["records"])
@@ -845,6 +847,11 @@ if __name__ == "__main__":
               "groups": groups,
               "districts": districts}
     merge_out = os.path.join(out_dir if out_dir is not None else OUT, "middle_enrollment_2026.json")
+    # 顶层 dict 键排序（groups/districts/mechanisms 统一键序，配合区级 records 排序）
+    merged = {"year": merged["year"], "note": merged["note"],
+              "mechanisms": {k: merged["mechanisms"][k] for k in sorted(merged["mechanisms"])},
+              "groups": {k: merged["groups"][k] for k in sorted(merged["groups"])},
+              "districts": {k: merged["districts"][k] for k in sorted(merged["districts"])}}
     with open(merge_out, "w", encoding="utf-8") as f:
-        json.dump(merged, f, ensure_ascii=False, indent=1)
+        json.dump(merged, f, ensure_ascii=False, indent=1, sort_keys=True)
     print(f"合并    -> {merge_out}（{len(districts)} 区）")

@@ -384,8 +384,10 @@ def build(district_key):
         "minban": load_minban(district_key),
     }
     os.makedirs(OUT_DIR, exist_ok=True)
+    # 产物确定性排序（2026-09-29）：records 按 school_id 稳定排序 + sort_keys 统一键序
+    matched.sort(key=lambda r: (r.get("school_id") or "", r.get("name") or ""))
     with open(os.path.join(OUT_DIR, f"2026-{district_key}.json"), "w", encoding="utf-8") as f:
-        json.dump(result, f, ensure_ascii=False, indent=1)
+        json.dump(result, f, ensure_ascii=False, indent=1, sort_keys=True)
     print(f"[{DISTRICT_NAMES[district_key]}] 官方记录 {len(records)} | 匹配 {len(matched)} / 未匹配 {len(unmatched)} / 歧义 {len(ambiguous)} / POI无记录 {len(poi_leftover)}")
     if unmatched:
         print("  未匹配:", sorted(set(unmatched)))
