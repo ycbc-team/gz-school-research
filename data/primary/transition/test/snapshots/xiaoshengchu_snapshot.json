@@ -9169,8 +9169,8 @@
    "data_gaps": null,
    "direct_feed_school_id": "gz-440112-11ed4c6c",
    "feed_school_ids": [
-    "gz-440112-7127244c",
     "gz-440112-d3055548",
+    "gz-440112-7127244c",
     "gz-440112-11ed4c6c"
    ],
    "feed_unresolved": [],
@@ -10212,8 +10212,8 @@
    "direct_feed_school_id": "gz-440112-3f877ace",
    "feed_school_ids": [
     "gz-440112-3f877ace",
-    "gz-440112-ec15555e",
-    "gz-440112-badbc2ab"
+    "gz-440112-badbc2ab",
+    "gz-440112-ec15555e"
    ],
    "feed_unresolved": [],
    "group_id": 128
