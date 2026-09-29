@@ -8005,6 +8005,15 @@
    "feed_unresolved": [],
    "group_id": 110
   },
+  "gz-440111-7d253468": {
+   "data_gaps": null,
+   "direct_feed_school_id": null,
+   "feed_school_ids": [
+    "gz-440111-f5da4352"
+   ],
+   "feed_unresolved": [],
+   "group_id": 110
+  },
   "gz-440111-7e63cbbd": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
@@ -9156,6 +9165,17 @@
    "feed_unresolved": [],
    "group_id": 129
   },
+  "gz-440112-11ed4c6c": {
+   "data_gaps": null,
+   "direct_feed_school_id": "gz-440112-11ed4c6c",
+   "feed_school_ids": [
+    "gz-440112-7127244c",
+    "gz-440112-d3055548",
+    "gz-440112-11ed4c6c"
+   ],
+   "feed_unresolved": [],
+   "group_id": 128
+  },
   "gz-440112-15d63ae7": {
    "data_gaps": "官方 2026 年招生文件未单列（名称疑为早期记录），待核。",
    "direct_feed_school_id": null,
@@ -9481,6 +9501,15 @@
    "direct_feed_school_id": "gz-440112-d62f1348",
    "feed_school_ids": [
     "gz-440112-d62f1348"
+   ],
+   "feed_unresolved": [],
+   "group_id": 128
+  },
+  "gz-440112-56f77a90": {
+   "data_gaps": null,
+   "direct_feed_school_id": "gz-440112-f3817fbe",
+   "feed_school_ids": [
+    "gz-440112-f3817fbe"
    ],
    "feed_unresolved": [],
    "group_id": 128
@@ -10174,6 +10203,17 @@
    "direct_feed_school_id": "gz-440112-674f4721",
    "feed_school_ids": [
     "gz-440112-674f4721"
+   ],
+   "feed_unresolved": [],
+   "group_id": 128
+  },
+  "gz-440112-ffa4e489": {
+   "data_gaps": null,
+   "direct_feed_school_id": "gz-440112-3f877ace",
+   "feed_school_ids": [
+    "gz-440112-3f877ace",
+    "gz-440112-ec15555e",
+    "gz-440112-badbc2ab"
    ],
    "feed_unresolved": [],
    "group_id": 128

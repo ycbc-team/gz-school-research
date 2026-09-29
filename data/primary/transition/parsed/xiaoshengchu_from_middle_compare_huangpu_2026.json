@@ -7,27 +7,15 @@
       "middle_school_id": "gz-440112-12747882",
       "primary": "广州市黄埔区实验小学",
       "primary_school_id": "gz-440112-9e826efe"
+    },
+    {
+      "middle": "广州市黄埔区玉岩实验学校",
+      "middle_school_id": "gz-440112-f3817fbe",
+      "primary": "知识城南安置区（二期）小学（暂定名）",
+      "primary_school_id": "gz-440112-56f77a90"
     }
   ],
   "only_reverse": [
-    {
-      "middle": "广州知识城中学(东校区)",
-      "middle_school_id": "gz-440112-badbc2ab",
-      "primary": "九龙第一小学",
-      "primary_school_id": "gz-440112-ffa4e489"
-    },
-    {
-      "middle": "广州知识城中学(北校区)",
-      "middle_school_id": "gz-440112-3f877ace",
-      "primary": "九龙第一小学",
-      "primary_school_id": "gz-440112-ffa4e489"
-    },
-    {
-      "middle": "广州知识城中学(南校区)",
-      "middle_school_id": "gz-440112-ec15555e",
-      "primary": "九龙第一小学",
-      "primary_school_id": "gz-440112-ffa4e489"
-    },
     {
       "middle": "广州知识城中学(东校区)",
       "middle_school_id": "gz-440112-badbc2ab",
@@ -59,24 +47,6 @@
       "primary_school_id": "gz-440112-adb9c303"
     },
     {
-      "middle": "广铁一中铁铮学校(东校区)",
-      "middle_school_id": "gz-440112-d3055548",
-      "primary": "铁铮学校",
-      "primary_school_id": "gz-440112-11ed4c6c"
-    },
-    {
-      "middle": "广铁一中铁铮学校(西校区)",
-      "middle_school_id": "gz-440112-7127244c",
-      "primary": "铁铮学校",
-      "primary_school_id": "gz-440112-11ed4c6c"
-    },
-    {
-      "middle": "铁铮学校",
-      "middle_school_id": "gz-440112-11ed4c6c",
-      "primary": "铁铮学校",
-      "primary_school_id": "gz-440112-11ed4c6c"
-    },
-    {
       "middle": "玉岩中学附属开发区实验学校",
       "middle_school_id": "gz-440112-15d63ae7",
       "primary": "长岭居小学北校区",
@@ -90,10 +60,10 @@
     }
   ],
   "summary": {
-    "current_pairs": 315,
+    "current_pairs": 322,
     "equal": false,
-    "only_current": 1,
-    "only_reverse": 13,
+    "only_current": 2,
+    "only_reverse": 7,
     "reverse_pairs": 327
   },
   "year": 2026

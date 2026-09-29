@@ -256,11 +256,9 @@ def build_yuexiu():
 
     out, covered_sids = [], set()
     unresolved = []
-    for official, vals in YX_MAP.items():
-        if not vals:
-            print(f'  [越秀] 官方小学实体缺失（官方有、实体无）: {official}')
-            unresolved.append(official)
-            continue
+    # MAP 值（POI 名列表）已随 SchoolMatcher 迁移废弃（2026-09-29），仅键承载官方名全集；
+    # 显式宁缺名单防误配/待核（见各区 _NORESOLVE）
+    for official in YX_MAP:
         hits = matcher.resolve_all(official, preferred_adcode='440104', preferred_stage='小学')
         if not hits:
             unresolved.append(official)
@@ -443,6 +441,11 @@ BW_NOTE = ('2026年白云区义务教育学校招生计划表（公办初中含�
            '以"招生对口小学"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。')
 
 # 官方小学名（初中对口列）→ POI 名。别名依据：区政府义务教育学校基本信息表/招生计划表、更名记录、同址核验。
+# 迁移后 MAP 值（POI 名列表）已废弃，仅键承载官方名全集（SchoolMatcher.resolve_all 解析）；
+# 以下官方小学名显式宁缺（resolve 会误配/官方已并入他校/待核）：
+BW_NORESOLVE = {
+    '江高镇中心小学': 'resolve 误配「广东技术师范大学白云实验小学」(gz-440111-f9ef2295)，宁缺待核',
+}
 BW_MAP = {
     # 新市片
     '广园小学': ['广园小学'],
@@ -756,9 +759,9 @@ def build_baiyun():
     records = []
     covered_sids = set()
     unresolved = []
-    for official, vals in BW_MAP.items():
-        if not vals:
-            print(f'  [白云] 官方对口小学实体缺失（官方有、实体无）: {official}')
+    for official in BW_MAP:
+        if official in BW_NORESOLVE:
+            print(f'  [白云] 显式宁缺（官方有、resolve 误配/待核）: {official}')
             unresolved.append(official)
             continue
         juniors = prim2jun.get(official, [])
@@ -1195,11 +1198,7 @@ def build_panyu():
     records = []
     covered_sids = set()
     unresolved = []
-    for official, vals in PY_MAP.items():
-        if not vals:
-            print(f'  [番禺] 官方公办小学实体缺失: {official}')
-            unresolved.append(official)
-            continue
+    for official in PY_MAP:
         if official not in prim2jun:
             print(f'  [番禺] 未出现在 PY_FEED 的官方小学: {official}')
             continue
@@ -1437,11 +1436,7 @@ def build_haizhu():
     records = []
     covered_sids = set()
     unresolved = []
-    for official, vals in HZ_MAP.items():
-        if not vals:
-            print(f'  [海珠] 官方小学实体缺失: {official}')
-            unresolved.append(official)
-            continue
+    for official in HZ_MAP:
         if official in HZ_PRIM_GROUP:
             g = HZ_PRIM_GROUP[official]
             group_label = f'海珠区公办初中第{g}组电脑派位'
@@ -1744,6 +1739,12 @@ HP_NOTE = ('2026年黄埔区义务教育学校招生工作实施细则（穗埔�
 # - 凤尾小学（官方）：POI 库仅有"凤尾学校"，非官方 2026 名，不强行映射；
 # - 华中师范大学黄埔实验学校：2026-09 新启用公办十二年制（红山街双沙片区，中建海丝城配建），
 #   未在 2026-04-28 招生细则中单列小升初，首届新生 2026 年 9 月入学（hp.gov.cn 揭牌报道）。
+# 迁移后 MAP 值（POI 名列表）已废弃，仅键承载官方名全集（SchoolMatcher.resolve_all 解析）；
+# 以下官方小学名显式宁缺（官方已并入他校/待核未确认同校）：
+HP_NORESOLVE = {
+    '沙步小学（2026并入铁铮学校）': '官方 2026 无沙步小学（并入铁铮学校，附件4 #27 明文），不单列',
+    '凤尾小学': '官方 2026 名"凤尾小学"，POI 仅"凤尾学校"，待核是否同校（不强行映射）',
+}
 HP_MAP = {
     '荔园小学': ['荔园小学'],
     '怡园小学（东、西、北校区）': ['怡园小学(东校区)', '怡园小学(西校区)', '怡园小学北校区'],
@@ -1945,9 +1946,9 @@ def build_huangpu():
     records = []
     covered_sids = set()
     unresolved = []
-    for official, vals in HP_MAP.items():
-        if not vals:
-            print(f'  [黄埔] 官方小学实体缺失: {official}')
+    for official in HP_MAP:
+        if official in HP_NORESOLVE:
+            print(f'  [黄埔] 显式宁缺（官方已并入/待核）: {official}')
             unresolved.append(official)
             continue
         g = HP_PRIM_GROUP.get(official)

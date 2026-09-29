@@ -8900,6 +8900,18 @@
    "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
+   "data_gaps": null,
+   "direct_feed_school_id": null,
+   "feed_school_ids": [
+    "gz-440111-f5da4352"
+   ],
+   "feed_unresolved": [],
+   "group": "白云区小升初对口（单校划片）",
+   "school_id": "gz-440111-7d253468",
+   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 花城实验学校（普通生）",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
@@ -10441,6 +10453,20 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
+   "data_gaps": null,
+   "direct_feed_school_id": "gz-440112-11ed4c6c",
+   "feed_school_ids": [
+    "gz-440112-7127244c",
+    "gz-440112-d3055548",
+    "gz-440112-11ed4c6c"
+   ],
+   "feed_unresolved": [],
+   "group": "对口直升（不参加电脑派位）",
+   "school_id": "gz-440112-11ed4c6c",
+   "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：铁铮学校（九年制学校内部直升）。",
+   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
+  },
+  {
    "data_gaps": "官方 2026 年招生文件未单列（名称疑为早期记录），待核。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
@@ -10860,6 +10886,18 @@
    "group": "对口直升（不参加电脑派位）",
    "school_id": "gz-440112-549c8532",
    "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：开元学校（九年制学校内部直升）。",
+   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
+  },
+  {
+   "data_gaps": null,
+   "direct_feed_school_id": "gz-440112-f3817fbe",
+   "feed_school_ids": [
+    "gz-440112-f3817fbe"
+   ],
+   "feed_unresolved": [],
+   "group": "对口直升（不参加电脑派位）",
+   "school_id": "gz-440112-56f77a90",
+   "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：玉岩实验学校（对口直升）。",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
@@ -11736,6 +11774,20 @@
    "group": "对口直升（不参加电脑派位）",
    "school_id": "gz-440112-fd5af1d7",
    "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：广州市黄埔军校纪念中学（南校区）（对口直升）。",
+   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
+  },
+  {
+   "data_gaps": null,
+   "direct_feed_school_id": "gz-440112-3f877ace",
+   "feed_school_ids": [
+    "gz-440112-3f877ace",
+    "gz-440112-ec15555e",
+    "gz-440112-badbc2ab"
+   ],
+   "feed_unresolved": [],
+   "group": "对口直升（不参加电脑派位）",
+   "school_id": "gz-440112-ffa4e489",
+   "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：广州知识城中学（对口直升）。",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {

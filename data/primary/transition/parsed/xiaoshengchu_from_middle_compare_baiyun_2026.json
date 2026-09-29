@@ -65,12 +65,6 @@
       "primary_school_id": "gz-440111-f9ef2295"
     },
     {
-      "middle": "广东外语外贸大学实验中学（陈田西校区）",
-      "middle_school_id": "gz-440111-f5da4352",
-      "primary": "广州实验教育集团花城实验学校",
-      "primary_school_id": "gz-440111-7d253468"
-    },
-    {
       "middle": "石井中学",
       "middle_school_id": "gz-440111-297970b9",
       "primary": "广州市庆丰实验学校",
@@ -156,10 +150,10 @@
     }
   ],
   "summary": {
-    "current_pairs": 235,
+    "current_pairs": 236,
     "equal": false,
     "only_current": 4,
-    "only_reverse": 21,
+    "only_reverse": 20,
     "reverse_pairs": 252
   },
   "year": 2026
