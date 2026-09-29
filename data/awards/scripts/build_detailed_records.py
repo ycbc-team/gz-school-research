@@ -10,6 +10,8 @@ INNOVATION = ROOT / "data/awards/innovation/parsed"
 CHUANGKE = ROOT / "data/awards/chuangke/parsed/chuangke.json"
 SCIENCE_LITERACY = ROOT / "data/awards/science_literacy/parsed"
 TECH_SPORTS = ROOT / "data/awards/tech_sports/parsed"
+SCIENCE_EXPERIMENT = ROOT / "data/awards/science_experiment/parsed"
+YUEYUNBEI = ROOT / "data/awards/yueyunbei/parsed"
 
 
 def main():
@@ -69,6 +71,32 @@ def main():
                 "members": record.get("student", "") if record.get("type") == "team" else "",
                 "coach": record.get("coach", ""), "award": record.get("award", ""),
                 "school_ids": record["school_ids"],
+            })
+
+    for science_path in sorted(SCIENCE_EXPERIMENT.glob("science_experiment_*.json")):
+        doc = json.loads(science_path.read_text("utf-8"))
+        for record in doc.get("records", []):
+            if not record.get("school_ids"):
+                continue
+            details.append({
+                "competition": "science_experiment", "stage": record["stage"],
+                "year": int(doc["year"]), "school": record["school"],
+                "project": record.get("project", ""), "leader": record.get("student", ""),
+                "members": "", "coach": record.get("coach", ""),
+                "award": record.get("award", ""), "school_ids": record["school_ids"],
+            })
+
+    for yue_path in sorted(YUEYUNBEI.glob("yueyunbei_*.json")):
+        doc = json.loads(yue_path.read_text("utf-8"))
+        for record in doc.get("records", []):
+            if not record.get("school_ids"):
+                continue
+            details.append({
+                "competition": "yueyunbei", "stage": record["stage"],
+                "year": int(doc["year"]), "school": record["school"],
+                "project": record.get("project", ""), "leader": record.get("student", ""),
+                "members": "", "coach": record.get("coach", ""),
+                "award": record.get("award", ""), "school_ids": record["school_ids"],
             })
 
     OUT.parent.mkdir(parents=True, exist_ok=True)

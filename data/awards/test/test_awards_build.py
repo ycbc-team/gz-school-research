@@ -27,7 +27,9 @@ SNAPSHOT = {
     "chuangke": {"years": 2, "records": 145, "matched": 113, "digest": "2d43f968d0eeede5c9df96fe9f4343a07863a5525c69927610e6b30f7995b7ae"},
     "science_literacy": {"records": 531, "matched": 352},
     "tech_sports": {"records": 2708, "matched": 1850, "digest": "f0d51b3cfa9b6097b542ab6cf02ecce5e18a831a6e354c4a1c221220190e31a7"},
-    "details": {"records": 2707, "digest": "e2212c860410e6d883ab64024d3d1cc86a8718f52dfb2ea03f1ca89c1784bec1"},
+    "science_experiment": {"records": 584, "matched": 411, "digest": "c7c4f8e660cd16218f3d12f1babd719eba2a2d42206f1a1ffee9333fd28ba793"},
+    "yueyunbei": {"records": 29771, "matched": 23468, "digest": "22cf834464683876f9d87d1109f12e7eee3d6879dfacc2e07f39105ab017be6b"},
+    "details": {"records": 26586, "digest": "ab5d50b6c0665262a3b1ac3c0e685348d35a6fe167fd3fdea9897e7b1a3778af"},
 }
 
 
@@ -68,6 +70,12 @@ def main():
     tech = []
     for path in sorted((ROOT / "data/awards/tech_sports/parsed").glob("tech_sports_*.json")):
         tech.extend(json.loads(path.read_text("utf-8"))["records"])
+    science_experiment = []
+    for path in sorted((ROOT / "data/awards/science_experiment/parsed").glob("science_experiment_*.json")):
+        science_experiment.extend(json.loads(path.read_text("utf-8"))["records"])
+    yueyunbei = []
+    for path in sorted((ROOT / "data/awards/yueyunbei/parsed").glob("yueyunbei_*.json")):
+        yueyunbei.extend(json.loads(path.read_text("utf-8"))["records"])
 
     actual = {
         "innovation": {"records": len(innovation), "matched": sum(bool(x["school_ids"]) for x in innovation), "digest": digest(innovation)},
@@ -75,6 +83,8 @@ def main():
                      "matched": sum(bool(r["school_ids"]) for y in chuangke for r in y["records"]), "digest": digest(chuangke)},
         "science_literacy": {"records": len(science), "matched": sum(bool(r["school_ids"]) for r in science)},
         "tech_sports": {"records": len(tech), "matched": sum(bool(r["school_ids"]) for r in tech), "digest": digest(tech)},
+        "science_experiment": {"records": len(science_experiment), "matched": sum(bool(r["school_ids"]) for r in science_experiment), "digest": digest(science_experiment)},
+        "yueyunbei": {"records": len(yueyunbei), "matched": sum(bool(r["school_ids"]) for r in yueyunbei), "digest": digest(yueyunbei)},
         "details": {"records": len(details), "digest": digest(details)},
     }
     ok = True
@@ -129,6 +139,14 @@ def main():
     qifu_2025 = find("tech_sports", "广州市番禺区祈福新邨学校", stage="primary", year=2025)
     if not (bool(qifu_2025) and all(set(r["school_ids"]) == {"gz-440113-1963cc5e"} for r in qifu_2025)):
         ok = fail("祈福新邨学校 2025 市级总决赛未精确归属") and ok
+
+    exp = find("science_experiment", "广州市番禺区市桥左边小学", stage="primary", year=2025)
+    if not (bool(exp) and all(set(r["school_ids"]) for r in exp)):
+        ok = fail("科学实验大赛获奖明细未进入详情产物") and ok
+
+    yue = find("yueyunbei", "广州市番禺区祈福新邨学校", stage="primary", year=2026)
+    if not (bool(yue) and all(set(r["school_ids"]) == {"gz-440113-1963cc5e"} for r in yue)):
+        ok = fail("祈福新邨学校 2026 粤韵杯未精确归属") and ok
 
     if not ok:
         print(f"✗ 竞赛构建回归: {len(innovation)} 条创新 + {actual['chuangke']['records']} 条创客 + "

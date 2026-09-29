@@ -23,6 +23,8 @@ import {
   chuangkeAwards,
   scienceLiteracyAwards,
   techSportsAwards,
+  scienceExperimentAwards,
+  yueyunbeiAwards,
   detailedRecords,
   specialtySchools,
   civilizedCampusSchoolIds,
@@ -135,6 +137,10 @@ const techSportsData = computed(() => {
   }
   return stages[techSportsStage.value];
 });
+/** 科学实验大赛获奖：按当前 school_id 与学段直接查（2025 首届） */
+const scienceExperimentData = computed(() => scienceExperimentAwards[schoolId.value]?.science_experiment_awards?.stages?.[stage.value]);
+/** 粤韵杯获奖：按当前 school_id 与学段直接查（小学/初中/高中组），优胜奖不计数 */
+const yueyunbeiData = computed(() => yueyunbeiAwards[schoolId.value]?.yueyunbei_awards?.stages?.[stage.value]);
 const awardYears = computed(() => awardData.value ? Object.keys(awardData.value).sort().reverse() : []);
 const awardRecords = detailedRecords as Array<{ competition?: string; year?: number }>;
 function competitionYearsLabel(competition: string) {
@@ -145,6 +151,8 @@ const innovationYearsLabel = computed(() => competitionYearsLabel('innovation'))
 const chuangkeYearsLabel = computed(() => competitionYearsLabel('chuangke'));
 const scienceLiteracyYearsLabel = computed(() => competitionYearsLabel('science_literacy'));
 const techSportsYearsLabel = computed(() => competitionYearsLabel('tech_sports'));
+const scienceExperimentYearsLabel = computed(() => competitionYearsLabel('science_experiment'));
+const yueyunbeiYearsLabel = computed(() => competitionYearsLabel('yueyunbei'));
 /** 特色校称号（官方认定·省市各级）：按当前 school_id 或校名匹配 dist 聚合，展开 recognition 池 */
 const specialtyEntry = computed(() => {
   const doc = specialtySchools;
@@ -500,7 +508,7 @@ function goCampus(item: { id: string; name: string }) {
     </Teleport>
 
     <!-- 竞赛获奖 -->
-    <div v-if="awardData || chuangkeData || scienceLiteracyData || techSportsData" class="card">
+    <div v-if="awardData || chuangkeData || scienceLiteracyData || techSportsData || scienceExperimentData || yueyunbeiData" class="card">
       <div class="card-title">竞赛获奖</div>
       <div v-if="awardData" class="award-block">
         <RouterLink :to="{ path: '/awards', query: { competition: 'innovation', stage, school: schoolId } }" class="award-name">广州市中小学生创新大赛 ›</RouterLink>
@@ -540,6 +548,26 @@ function goCampus(item: { id: string; name: string }) {
           <span v-if="techSportsData[yr]?.gold" class="medal gold">{{ techSportsData[yr]?.gold }}个一等奖</span>
           <span v-if="techSportsData[yr]?.silver" class="medal silver">{{ techSportsData[yr]?.silver }}个二等奖</span>
           <span v-if="techSportsData[yr]?.bronze" class="medal bronze">{{ techSportsData[yr]?.bronze }}个三等奖</span>
+        </div>
+      </div>
+      <div v-if="scienceExperimentData" class="award-block" style="margin-top:12px">
+        <RouterLink :to="{ path: '/awards', query: { competition: 'science_experiment', stage, school: schoolId } }" class="award-name">广州市中小学科学实验大赛 ›</RouterLink>
+        <p class="sub-note">{{ stageLabel }}组（{{ scienceExperimentYearsLabel }}）</p>
+        <div v-for="yr in Object.keys(scienceExperimentData).sort().reverse()" :key="yr" class="award-year">
+          <span class="award-year-label">{{ yr }}</span>
+          <span v-if="scienceExperimentData[yr]?.gold" class="medal gold">{{ scienceExperimentData[yr]?.gold }}个一等奖</span>
+          <span v-if="scienceExperimentData[yr]?.silver" class="medal silver">{{ scienceExperimentData[yr]?.silver }}个二等奖</span>
+          <span v-if="scienceExperimentData[yr]?.bronze" class="medal bronze">{{ scienceExperimentData[yr]?.bronze }}个三等奖</span>
+        </div>
+      </div>
+      <div v-if="yueyunbeiData" class="award-block" style="margin-top:12px">
+        <RouterLink :to="{ path: '/awards', query: { competition: 'yueyunbei', stage, school: schoolId } }" class="award-name">粤韵杯湾区中小学生文学与艺术素养大赛 ›</RouterLink>
+        <p class="sub-note">{{ stageLabel }}组（{{ yueyunbeiYearsLabel }}）</p>
+        <div v-for="yr in Object.keys(yueyunbeiData).sort().reverse()" :key="yr" class="award-year">
+          <span class="award-year-label">{{ yr }}</span>
+          <span v-if="yueyunbeiData[yr]?.gold" class="medal gold">{{ yueyunbeiData[yr]?.gold }}个一等奖</span>
+          <span v-if="yueyunbeiData[yr]?.silver" class="medal silver">{{ yueyunbeiData[yr]?.silver }}个二等奖</span>
+          <span v-if="yueyunbeiData[yr]?.bronze" class="medal bronze">{{ yueyunbeiData[yr]?.bronze }}个三等奖</span>
         </div>
       </div>
     </div>
