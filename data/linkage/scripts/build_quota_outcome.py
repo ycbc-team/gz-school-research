@@ -35,6 +35,7 @@ LINK = ROOT / 'data' / 'linkage'
 CANON = LINK / 'parsed' / 'canonical'
 DIST = LINK / 'dist'
 ALL = LINK / 'parsed' / 'batch2_scores_all.json'
+NAME_EQ = LINK / 'src' / 'name_equivalents.json'
 
 sys.path.insert(0, str(ROOT / 'data' / 'registry' / 'entity' / 'scripts'))
 from school_match import normName as norm
@@ -70,17 +71,18 @@ def main() -> int:
     for s in q['schools']:
         idx[norm(s['school'])].append(s)
 
-    # 每初中聚合（以 quota_matrix 行键，ALL junior 原文名 norm 匹配）
+    # 官方两表同校异写校正（src/name_equivalents.json：quota 行名 → 录取分数表等价写法）
+    neq = json.load(open(NAME_EQ, encoding='utf-8'))['equivalents'] if NAME_EQ.exists() else {}
+
+    # 每初中聚合（以 quota_matrix 行键，ALL junior 原文名 norm 匹配，含等价写法兜底）
     agg = {}
     unmatched = []
     for s in q['schools']:
-        cands = idx.get(norm(s['school']), [])
         name = s['school']
-        if len(cands) != 1 or cands[0] is not s:
-            # 兜底：直接在 ALL junior 集合里按 norm 找（quota 行名与 ALL 初中名应一致）
-            pass
-        pairs = [r for r in rows if norm(r['junior']) == norm(name)]
-        if not pairs and norm(name) != norm(name):
+        names = [name] + neq.get(name, [])
+        nset = {norm(n) for n in names}
+        pairs = [r for r in rows if norm(r['junior']) in nset]
+        if not pairs:
             unmatched.append(name)
         sheng = [r for r in pairs if is_city(r['senior'])]
         qu = [r for r in pairs if not is_city(r['senior'])]

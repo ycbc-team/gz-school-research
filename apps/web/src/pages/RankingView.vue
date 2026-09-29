@@ -153,8 +153,8 @@ const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: stri
     items: [
       { v: 'qu_ratio', l: '区属指标比例（÷名额分配符合资格考生数）' },
       { v: 'sheng_ratio', l: '省市属指标比例（÷名额分配符合资格考生数）' },
-      { v: 'sheng_min', l: '省市属指标最低分（升序）' },
-      { v: 'qu_min', l: '区属指标最低分（升序）' },
+      { v: 'sheng_min', l: '省市属指标最低分' },
+      { v: 'qu_min', l: '区属指标最低分' },
     ],
   },
   {
@@ -168,8 +168,8 @@ const METRIC_META: Record<MetricKey, { label: string; note: string; unit: string
   qu_ratio: { label: '区属指标比例', note: '区属指标数 ÷ 符合名额分配报考资格考生数。反映本区学生获得本区区属指标的机会。', unit: '%', digits: 1 },
   sheng_ratio: { label: '省市属指标比例', note: '省市属高中名额分配指标数 ÷ 符合名额分配报考资格考生数。省市属指标按符合资格考生等比例分配，全区一致。', unit: '%', digits: 1 },
   tekong: { label: '指标×特控率', note: 'Σ(区属高中给该校指标名额 × 该高中特控率) ÷ 符合名额分配报考资格考生数。反映该校符合资格考生经区属指标到校路径预计上特控（一本）线的比例；特控率为喜报/网传口径，缺失的高中名额不计。', unit: '%', digits: 1 },
-  sheng_min: { label: '省市属指标最低分', note: '该校通过名额分配录取省市属高中（11 所 20 校区 + 广州外国语学校）的录取序列最后一名分数——即在该校考到多少分能读省市属重点高中（升学分数门槛）。同场中考绝对值可比；升序排行（门槛越低=升学机会越大）。', unit: '', digits: 0 },
-  qu_min: { label: '区属指标最低分', note: '该校通过名额分配录取区属示范高中的录取序列最后一名分数——即在该校考到多少分能读本区区属示范高中（升学分数门槛）。同场中考绝对值可比；升序排行（门槛越低=升学机会越大）。', unit: '', digits: 0 },
+  sheng_min: { label: '省市属指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被省市属高中（11 所 20 校区 + 广州外国语学校）录取的最低分（录取序列最后一名，升学分数门槛）。第三批次分数不在此列。', unit: '', digits: 0 },
+  qu_min: { label: '区属指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被本区区属示范高中录取的最低分（录取序列最后一名，升学分数门槛）。第三批次分数不在此列。', unit: '', digits: 0 },
 };
 
 /** 区属/省市属比例指标额外展示一列指标数绝对值 */
@@ -198,10 +198,10 @@ function fmtWaste(v: number | null): string {
 /** 指标口径 / 名额分配符合资格考生数口径问号 popup（PC hover / 触屏点击）。
  *  Teleport 到 body + fixed 定位，避免被 .rank-group overflow 裁剪；
  *  切换指标、页面滚动、窗口缩放时自动收起。 */
-const showHint = ref<'metric' | 'kaosheng' | null>(null);
+const showHint = ref<'metric' | 'kaosheng' | 'waste' | null>(null);
 const hintPos = ref({ top: 0, left: 0 });
 let hintTimer: number | undefined;
-function openHint(kind: 'metric' | 'kaosheng', e: MouseEvent) {
+function openHint(kind: 'metric' | 'kaosheng' | 'waste', e: MouseEvent) {
   clearTimeout(hintTimer);
   const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
   const w = 330;
@@ -215,7 +215,7 @@ function scheduleClose() {
   hintTimer = window.setTimeout(() => { showHint.value = null; }, 160);
 }
 function keepHint() { clearTimeout(hintTimer); }
-function toggleHint(kind: 'metric' | 'kaosheng', e: MouseEvent) {
+function toggleHint(kind: 'metric' | 'kaosheng' | 'waste', e: MouseEvent) {
   if (showHint.value === kind) showHint.value = null;
   else openHint(kind, e);
 }
@@ -232,6 +232,9 @@ onBeforeUnmount(() => {
 
 /** 符合名额分配报考资格考生数：广州市招考办政策口径（官方原文整理） */
 const KAOSHENG_NOTE = '本列统计的是“符合名额分配报考资格的考生数”，不是学校全部应考人数。按广州市招生政策，须同时满足：初中应届毕业、具有广州市户籍（含政策性照顾学生，户籍或资格申报截止当年4月30日），并满足学籍条件——在广州同一初中有三年完整学籍且就读至毕业，或从市外转入广州后在转入学校就读至毕业。未满足上述条件但仍报名参加中考的考生，不计入本列，因此学校实际应考人数通常会更多。';
+
+/** 指标浪费率口径（对数口径，与 canonical quota_outcome note 一致） */
+const WASTE_NOTE = '指标浪费率 = 未完成录取的对数 ÷ 有指标的对数（对数口径）。官方录取分数表按「初中 × 高中」列出全部有指标的对，未填录取分数的对 = 有名额但未完成录取（未达控制线/无人报考/流标）。示例：某初中 10 个省市属录取对中有 2 个无录取分数，浪费率 20%。省市属与区属统一采用对数口径以保证两列可比；该口径以“官方表列出录取对”为分母，与指标总名额（quota）数值略有差异。';
 
 const metricLabel = computed(() => METRIC_META[metric.value].label);
 const metricNote = computed(() => METRIC_META[metric.value].note);
@@ -463,7 +466,16 @@ const groups = computed(() => {
                 >?</span>
               </th>
               <th v-if="showOutcome" class="c-sub">{{ outcomeQuotaLabel }}</th>
-              <th v-if="showOutcome" class="c-sub">指标浪费率</th>
+              <th v-if="showOutcome" class="c-sub">
+                指标浪费率
+                <span
+                  class="q-mark"
+                  aria-label="指标浪费率口径说明"
+                  @mouseenter="openHint('waste', $event)"
+                  @mouseleave="scheduleClose"
+                  @click.stop="toggleHint('waste', $event)"
+                >?</span>
+              </th>
               <th v-else-if="showAbs" class="c-sub">{{ absLabel }}</th>
               <th v-else class="c-sub">
                 考生数
@@ -518,6 +530,10 @@ const groups = computed(() => {
         <template v-if="showHint === 'metric'">
           <div class="hp-title">{{ metricLabel }}</div>
           <div class="hp-line">{{ metricNote }}</div>
+        </template>
+        <template v-else-if="showHint === 'waste'">
+          <div class="hp-title">指标浪费率口径</div>
+          <div class="hp-line">{{ WASTE_NOTE }}</div>
         </template>
         <template v-else>
           <div class="hp-title">名额分配符合资格考生数口径</div>

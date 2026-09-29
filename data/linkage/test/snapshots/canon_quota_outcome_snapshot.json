@@ -7664,21 +7664,21 @@
    "sheng_waste_rate": 1.0
   },
   {
-   "qu_failed": 0,
-   "qu_min_score": null,
-   "qu_pairs": 0,
+   "qu_failed": 2,
+   "qu_min_score": 534,
+   "qu_pairs": 12,
    "qu_quota": 73,
-   "qu_waste_rate": null,
+   "qu_waste_rate": 0.1667,
    "school": "广州铁一中学（番禺校区）",
    "school_id": "gz-440113-97e0acaa",
    "school_ids": [
     "gz-440113-97e0acaa"
    ],
    "sheng_failed": 0,
-   "sheng_min_score": null,
-   "sheng_pairs": 0,
+   "sheng_min_score": 619,
+   "sheng_pairs": 9,
    "sheng_quota": 14,
-   "sheng_waste_rate": null
+   "sheng_waste_rate": 0.0
   },
   {
    "qu_failed": 0,

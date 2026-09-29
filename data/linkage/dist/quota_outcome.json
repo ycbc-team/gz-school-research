@@ -2433,12 +2433,12 @@
    "qu_waste_rate": 0.0
   },
   "gz-440113-97e0acaa": {
-   "sheng_min_score": null,
-   "qu_min_score": null,
+   "sheng_min_score": 619,
+   "qu_min_score": 534,
    "sheng_quota": 14,
    "qu_quota": 73,
-   "sheng_waste_rate": null,
-   "qu_waste_rate": null
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.1667
   },
   "gz-440113-8f5e4721": {
    "sheng_min_score": 603,
