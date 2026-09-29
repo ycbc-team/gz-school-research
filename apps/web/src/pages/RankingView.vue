@@ -209,10 +209,10 @@ function fmtAvg(v: number | null): string {
 /** 指标口径 / 名额分配符合资格考生数口径问号 popup（PC hover / 触屏点击）。
  *  Teleport 到 body + fixed 定位，避免被 .rank-group overflow 裁剪；
  *  切换指标、页面滚动、窗口缩放时自动收起。 */
-const showHint = ref<'metric' | 'kaosheng' | 'waste' | 'avg' | null>(null);
+const showHint = ref<'metric' | 'kaosheng' | 'waste' | null>(null);
 const hintPos = ref({ top: 0, left: 0 });
 let hintTimer: number | undefined;
-function openHint(kind: 'metric' | 'kaosheng' | 'waste' | 'avg', e: MouseEvent) {
+function openHint(kind: 'metric' | 'kaosheng' | 'waste', e: MouseEvent) {
   clearTimeout(hintTimer);
   const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
   const w = 330;
@@ -226,7 +226,7 @@ function scheduleClose() {
   hintTimer = window.setTimeout(() => { showHint.value = null; }, 160);
 }
 function keepHint() { clearTimeout(hintTimer); }
-function toggleHint(kind: 'metric' | 'kaosheng' | 'waste' | 'avg', e: MouseEvent) {
+function toggleHint(kind: 'metric' | 'kaosheng' | 'waste', e: MouseEvent) {
   if (showHint.value === kind) showHint.value = null;
   else openHint(kind, e);
 }
@@ -246,9 +246,6 @@ const KAOSHENG_NOTE = '本列统计的是“符合名额分配报考资格的考
 
 /** 指标浪费率口径（对数口径，与 canonical quota_outcome note 一致） */
 const WASTE_NOTE = '指标浪费率 = 未完成录取的对数 ÷ 有指标的对数（对数口径）。官方录取分数表按「初中 × 高中」列出全部有指标的对，未填录取分数的对 = 有名额但未完成录取（未达控制线/无人报考/流标）。示例：某初中 10 个省市属录取对中有 2 个无录取分数，浪费率 20%。省市属与区属统一采用对数口径以保证两列可比；该口径以“官方表列出录取对”为分母，与指标总名额（quota）数值略有差异。';
-
-/** 近3年平均分口径（时间维均值，非在校生混合均） */
-const AVG_NOTE = '近3年平均分 = 2024 / 2025 / 2026 三年“最低分”（该校学生通过第二批次名额分配被省市属（或区属）高中录取的最后一名分数）的算术平均。各年均为同场中考的绝对值分数，可直接平均；某年该校无录取记录（当年未参加该批次 / 无数据）则不参与平均，平均分基于实际有录取记录的年份。与“最低分”列（最新 2026 年）并列展示。';
 
 const metricLabel = computed(() => METRIC_META[metric.value].label);
 const metricNote = computed(() => METRIC_META[metric.value].note);
@@ -464,7 +461,7 @@ const groups = computed(() => {
           <colgroup>
             <col class="col-name">
             <col class="col-val">
-            <col v-if="showOutcome" class="col-sub-avg">
+            <col v-if="showOutcome" class="col-sub">
             <col v-if="showOutcome" class="col-sub">
             <col v-if="showOutcome" class="col-sub">
             <col v-else-if="showAbs" class="col-sub">
@@ -483,16 +480,7 @@ const groups = computed(() => {
                   @click.stop="toggleHint('metric', $event)"
                 >?</span>
               </th>
-              <th v-if="showOutcome" class="c-sub">
-                近3年平均分
-                <span
-                  class="q-mark"
-                  aria-label="近3年最低分平均分口径说明"
-                  @mouseenter="openHint('avg', $event)"
-                  @mouseleave="scheduleClose"
-                  @click.stop="toggleHint('avg', $event)"
-                >?</span>
-              </th>
+              <th v-if="showOutcome" class="c-sub">近3年平均分</th>
               <th v-if="showOutcome" class="c-sub">{{ outcomeQuotaLabel }}</th>
               <th v-if="showOutcome" class="c-sub">
                 浪费率
@@ -564,10 +552,6 @@ const groups = computed(() => {
           <div class="hp-title">指标浪费率口径</div>
           <div class="hp-line">{{ WASTE_NOTE }}</div>
         </template>
-        <template v-else-if="showHint === 'avg'">
-          <div class="hp-title">近3年最低分均值口径</div>
-          <div class="hp-line">{{ AVG_NOTE }}</div>
-        </template>
         <template v-else>
           <div class="hp-title">名额分配符合资格考生数口径</div>
           <div class="hp-line">{{ KAOSHENG_NOTE }}</div>
@@ -600,11 +584,9 @@ const groups = computed(() => {
 }
 .rg-count { font-style: normal; font-size: 11.5px; color: #8a93a3; font-weight: 500; }
 .rank-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 12.5px; }
-/* 列宽统一（colgroup），保证各分组表格列对齐；col-sub 不设宽，均分剩余空间。
- * 最低分模式 5 列：学校 38% / 最低分 17% / 近3年平均分 16% / 指标数、浪费率均分剩余 29%。 */
-.col-name { width: 38%; }
-.col-val { width: 17%; }
-.col-sub-avg { width: 16%; }
+/* 学校列固定宽度（不随指标模式变化），其余列（主值/副值）均分剩余宽度：
+ * 默认/比例/特控率 3 列各 ~37.5%；最低分模式 5 列各 ~18.75%。 */
+.col-name { width: 25%; }
 .rank-table th {
   text-align: left; font-size: 11.5px; color: #8a93a3; font-weight: 600;
   padding: 7px 10px; border-bottom: 1px solid #ecebe6;
