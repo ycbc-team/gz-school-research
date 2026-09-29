@@ -316,13 +316,23 @@ canon.parent.mkdir(parents=True, exist_ok=True)
 with open(canon, 'w', encoding='utf-8') as f:
     json.dump(result, f, ensure_ascii=False, indent=2)
 
-# ================= dist 精简（运行时只消费 school_id/school_ids/autonomy_count：
-#     name/district/minban/group/kaosheng/sheng_quota/qu_quota/tekong_quota_rate/sz
-#     运行时分别从 entities / quota(quota_matrix 运行时模块) / educationGroups 查，
-#     调试与审计字段全部留在 canonical 全量） =================
+# ================= dist 精简（运行时只消费 school_id/school_ids/autonomy_count/tekong_quota_rate：
+#     name/district/minban/kaosheng/sheng_quota/qu_quota/sz 运行时分别从 entities /
+#     quota(quota_matrix 运行时模块) / educationGroups 查；tekong_quota_rate 保留在 dist——
+#     区属高中明细经 district_quota dist 重键为实体 id 后原始高中名丢失，特控率匹配键不可
+#     还原，且解析逻辑在构建脚本（python），前端重算会与 canonical 基线漂移，故由构建期算好
+#     随 dist 下发。无 school_id 的原文行（如海珠区华立学校）按 quota_matrix dist 同款约定
+#     保留 name（运行时按名联 quota_matrix.schools 补区/考生数/名额）。调试与审计字段全部留
+#     在 canonical 全量） =================
 dist = {
     'schools': [
-        {'school_id': s['school_id'], 'school_ids': s['school_ids'], 'autonomy_count': s['autonomy_count']}
+        {
+            'school_id': s['school_id'],
+            'school_ids': s['school_ids'],
+            'autonomy_count': s['autonomy_count'],
+            'tekong_quota_rate': s['tekong_quota_rate'],
+            **({} if s['school_id'] else {'name': s['name']}),
+        }
         for s in out_schools
     ],
 }

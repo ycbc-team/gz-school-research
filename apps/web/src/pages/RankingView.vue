@@ -1,8 +1,10 @@
 <script setup lang="ts">
 /**
  * 初中升学信号明细
- * - 数据真源：data/linkage/dist/ranking_middle.json（data/linkage/scripts/build_ranking_middle.py 聚合，
- *   含名额分配符合资格考生数/省市属·区属指标/2026 自招名单计数/指标到校高中明细+特控率）
+ * - 数据真源：data/linkage/dist（运行时只消费 id 粒度）——行数据在页面按 canonical 同口径
+ *   联表还原：ranking_middle(自招数/特控率) + quota_matrix.name_index/ids(名/区/考生数/省市属·
+ *   区属指标) + entities(民办) + groupOfSchool(集团)；无 school_id 原文行按 dist 自带 name
+ *   联 quota_matrix.schools 补数值。全量审计见 canonical/ranking_middle.json
  * - 分组：不分组 / 按区（区教育局口径）或按教育集团（@gz/shared groupOfSchool，brand 优先）；可叠加行政区位置筛选
  * - 指标（4 选 1）：默认（机构综合口径，school_id 名单见 data/middle/org_sort/dist/compiled.json，真源 data/middle/org_sort/src/*.json）/ 区属指标比例 / 省市属指标比例 / 指标×高中特控率
  * - 榜单口径：所有比例均以「符合名额分配报考资格考生数（kaosheng）」为分母，
@@ -11,7 +13,7 @@
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 import { useRouter } from 'vue-router';
 import { DISTRICTS } from '@gz/shared';
-import { rankingMiddle, entities, middleOrgSort, civilizedCampusSchoolIds } from '../data';
+import { rankingMiddle, quotaMatrix, entities, middleOrgSort, civilizedCampusSchoolIds, groupOfSchool } from '../data';
 import DetailFilterBar from '../components/DetailFilterBar.vue';
 import DetailPageHeader from '../components/DetailPageHeader.vue';
 import DetailRankingList from '../components/DetailRankingList.vue';
@@ -27,12 +29,61 @@ interface Row {
   sheng_quota?: number | null;
   qu_quota?: number | null;
   autonomy_count: number;
-  sz: Array<{ high: string; count: number; tekong?: number | null }>;
   tekong_quota_rate?: number | null;
 }
 
 const router = useRouter();
-const schools = rankingMiddle.schools as Row[];
+
+/** dist 行运行时联表还原（口径与 canonical/ranking_middle.json 一致）：
+ * - ranking_middle：school_id/school_ids/autonomy_count/tekong_quota_rate
+ * - quota_matrix.name_index（官方名→id，构建行序）：反查展示名；同名同 id 多行按出现序配对
+ *   （如荔湾东沙博雅/博雅实验学校同实体两行，行序与 canonical 一致）
+ * - quota_matrix.ids（同序游标）：district/kaosheng/qu_quota/sheng_quota
+ * - quota_matrix.schools：无 school_id 的原文行（dist 自带 name）按名补数值
+ * - entities.nature='民办'：minban；groupOfSchool：集团（brand 优先 + education 兜底） */
+const NAME_BY_ID = new Map<string, string[]>();
+for (const [name, id] of Object.entries(quotaMatrix.name_index)) {
+  if (!NAME_BY_ID.has(id)) NAME_BY_ID.set(id, []);
+  NAME_BY_ID.get(id)!.push(name);
+}
+const QUOTA_BY_ID = new Map<string, typeof quotaMatrix.ids>();
+for (const q of quotaMatrix.ids) {
+  if (!QUOTA_BY_ID.has(q.school_id)) QUOTA_BY_ID.set(q.school_id, []);
+  QUOTA_BY_ID.get(q.school_id)!.push(q);
+}
+const namePos = new Map<string, number>();
+const quotaPos = new Map<string, number>();
+const MINBAN_IDS = new Set(
+  (entities as { entities: Array<{ school_id: string; nature?: string }> }).entities
+    .filter((e) => e.nature === '民办')
+    .map((e) => e.school_id),
+);
+const QUOTA_BY_NAME = new Map(quotaMatrix.schools.map((q) => [q.school, q]));
+
+const schools: Row[] = rankingMiddle.schools.map((r) => {
+  const id = r.school_id || '';
+  const pos = quotaPos.get(id) ?? 0;
+  const q = id ? (QUOTA_BY_ID.get(id) ?? [])[pos] : undefined;
+  if (id) quotaPos.set(id, pos + 1);
+  const npos = namePos.get(id) ?? 0;
+  const name = id ? (NAME_BY_ID.get(id) ?? [])[npos] ?? r.name ?? '' : r.name ?? '';
+  if (id) namePos.set(id, npos + 1);
+  const nameRow = id ? undefined : QUOTA_BY_NAME.get(name);
+  const grp = groupOfSchool(name, r.school_id);
+  return {
+    name,
+    school_id: r.school_id,
+    school_ids: r.school_ids ? r.school_ids.filter((x): x is string => !!x) : null,
+    district: q?.district ?? nameRow?.district ?? '',
+    minban: !!id && MINBAN_IDS.has(id),
+    group: grp ? { brand: grp.brand, source: grp.source } : null,
+    kaosheng: q?.kaosheng ?? nameRow?.kaosheng ?? null,
+    sheng_quota: q?.sheng_quota ?? nameRow?.sheng_quota ?? null,
+    qu_quota: q?.qu_quota ?? nameRow?.qu_quota ?? null,
+    autonomy_count: r.autonomy_count,
+    tekong_quota_rate: r.tekong_quota_rate ?? null,
+  };
+});
 
 /** school_id → 实体（校区名/区），多校区法人行弹窗选校区用 */
 const ENT_BY_ID = new Map(

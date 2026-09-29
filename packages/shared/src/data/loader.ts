@@ -58,12 +58,18 @@ export interface DataLoaders {
   educationGroups?: EducationGroups;
   /** 未入教育集团的同法人多校区（实体表构建期推导；详情页仅作集团缺省时的关联展示） */
   nonGroupMultiCampuses?: Record<string, string[]>;
-  /** 初中升学信号精简运行时表（仅 school_id/school_ids/autonomy_count；名称/区属/民办/集团/名额/特控率运行时按 id 查 entities/quota/educationGroups，全量见 canonical/ranking_middle.json） */
+  /** 初中升学信号精简运行时表（school_id/school_ids/autonomy_count/tekong_quota_rate；
+   *  名称/区属/民办/集团/名额/sz 运行时按 id 查 entities/quota_matrix/educationGroups；
+   *  tekong_quota_rate 由构建期算好随 dist 下发（district_quota dist 重键后高中原名丢失，
+   *  特控率匹配键无法运行时还原）；无 school_id 的原文行按 quota_matrix dist 同款约定保留
+   *  name（运行时按名联 quota_matrix.schools）；全量见 canonical/ranking_middle.json） */
   rankingMiddle: {
     schools: Array<{
       school_id?: string | null;
       school_ids?: Array<string | null> | null;
       autonomy_count: number;
+      tekong_quota_rate?: number | null;
+      name?: string | null;
     }>;
   };
   /** 创新大赛获奖（school_id → stages → years → 金/银/铜） */
