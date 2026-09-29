@@ -585,8 +585,9 @@ const groups = computed(() => {
 .rg-count { font-style: normal; font-size: 11.5px; color: #8a93a3; font-weight: 500; }
 .rank-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 12.5px; }
 /* 学校列固定宽度（不随指标模式变化），其余列（主值/副值）均分剩余宽度：
- * 默认/比例/特控率 3 列各 ~37.5%；最低分模式 5 列各 ~18.75%。 */
-.col-name { width: 25%; }
+ * 默认/比例/特控率 3 列各 ~35%；最低分模式 5 列各 ~17.5%。
+ * 数值列文字居中，列内两侧空隙对称，避免左对齐造成右侧大片空白。 */
+.col-name { width: 30%; }
 .rank-table th {
   text-align: left; font-size: 11.5px; color: #8a93a3; font-weight: 600;
   padding: 7px 10px; border-bottom: 1px solid #ecebe6;
@@ -595,6 +596,9 @@ const groups = computed(() => {
 .rank-table td { padding: 9px 10px; border-bottom: 1px solid #f2f1ec; vertical-align: middle; line-height: 1.5; }
 .rank-table tbody tr:last-child td { border-bottom: none; }
 .rank-table tbody tr:hover { background: #fafbfc; }
+/* 数值列表头与单元格均居中（学校列保持左对齐），列间空隙对称 */
+.rank-table th.c-val, .rank-table th.c-sub { text-align: center; }
+.rank-table td.c-val, .rank-table td.c-sub { text-align: center; }
 .c-val { font-variant-numeric: tabular-nums; font-weight: 600; color: #1a1b1c; white-space: nowrap; }
 .c-sub { color: #6b7280; font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .c-name { overflow-wrap: anywhere; }
