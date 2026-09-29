@@ -3691,10 +3691,10 @@
   {
    "school_id": "gz-440111-b1484250",
    "group": "白云区小升初对口（单校划片）",
-   "feed_school_ids": [],
-   "feed_unresolved": [
-    "广州市三元里中学"
+   "feed_school_ids": [
+    "gz-440111-8629621c"
    ],
+   "feed_unresolved": [],
    "direct_feed_school_id": null,
    "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
    "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排",
@@ -3703,10 +3703,10 @@
   {
    "school_id": "gz-440111-db593ac1",
    "group": "白云区小升初对口（单校划片）",
-   "feed_school_ids": [],
-   "feed_unresolved": [
-    "广州市三元里中学"
+   "feed_school_ids": [
+    "gz-440111-8629621c"
    ],
+   "feed_unresolved": [],
    "direct_feed_school_id": null,
    "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
    "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排",
@@ -3727,10 +3727,10 @@
   {
    "school_id": "gz-440111-23d6fbf3",
    "group": "白云区小升初对口（单校划片）",
-   "feed_school_ids": [],
-   "feed_unresolved": [
-    "广州市三元里中学"
+   "feed_school_ids": [
+    "gz-440111-8629621c"
    ],
+   "feed_unresolved": [],
    "direct_feed_school_id": null,
    "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html",
    "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排",
@@ -5489,8 +5489,8 @@
    "school_id": "gz-440111-36817b49",
    "group": "白云区小升初对口（多校（分校区））",
    "feed_school_ids": [
-    "gz-440111-fd1c1c12",
-    "gz-440111-78d61733"
+    "gz-440111-78d61733",
+    "gz-440111-fd1c1c12"
    ],
    "feed_unresolved": [],
    "direct_feed_school_id": null,
@@ -5502,8 +5502,8 @@
    "school_id": "gz-440111-96ab2ca3",
    "group": "白云区小升初对口（多校（分校区））",
    "feed_school_ids": [
-    "gz-440111-fd1c1c12",
-    "gz-440111-78d61733"
+    "gz-440111-78d61733",
+    "gz-440111-fd1c1c12"
    ],
    "feed_unresolved": [],
    "direct_feed_school_id": null,
@@ -5515,8 +5515,8 @@
    "school_id": "gz-440111-3218439b",
    "group": "白云区小升初对口（多校（分校区））",
    "feed_school_ids": [
-    "gz-440111-fd1c1c12",
-    "gz-440111-78d61733"
+    "gz-440111-78d61733",
+    "gz-440111-fd1c1c12"
    ],
    "feed_unresolved": [],
    "direct_feed_school_id": null,
@@ -5528,8 +5528,8 @@
    "school_id": "gz-440111-77b8da86",
    "group": "白云区小升初对口（单校划片；多校（分校区））",
    "feed_school_ids": [
-    "gz-440111-fd1c1c12",
     "gz-440111-78d61733",
+    "gz-440111-fd1c1c12",
     "gz-440111-b2b78162"
    ],
    "feed_unresolved": [],
@@ -6824,6 +6824,7 @@
    "school_id": "gz-440113-d1526099",
    "group": "番禺区小升初对口（单校（祈福片区））",
    "feed_school_ids": [
+    "gz-440113-c07e3ddb",
     "gz-440113-7cdbe028"
    ],
    "feed_unresolved": [],
@@ -6836,6 +6837,7 @@
    "school_id": "gz-440113-7cdbe028",
    "group": "番禺区小升初对口（单校（九年制））",
    "feed_school_ids": [
+    "gz-440113-c07e3ddb",
     "gz-440113-7cdbe028"
    ],
    "feed_unresolved": [],
@@ -6848,6 +6850,7 @@
    "school_id": "gz-440113-3853a52b",
    "group": "番禺区小升初对口（单校（祈福片区））",
    "feed_school_ids": [
+    "gz-440113-c07e3ddb",
     "gz-440113-7cdbe028"
    ],
    "feed_unresolved": [],
@@ -6896,7 +6899,7 @@
    "school_id": "gz-440113-ecbfeed3",
    "group": "番禺区小升初对口（单校）",
    "feed_school_ids": [
-    "gz-440113-6ddbaaf6"
+    "gz-440113-0bb52d06"
    ],
    "feed_unresolved": [],
    "direct_feed_school_id": null,
@@ -6908,7 +6911,7 @@
    "school_id": "gz-440113-3433c09b",
    "group": "番禺区小升初对口（单校）",
    "feed_school_ids": [
-    "gz-440113-6ddbaaf6"
+    "gz-440113-0bb52d06"
    ],
    "feed_unresolved": [],
    "direct_feed_school_id": null,
@@ -6920,7 +6923,7 @@
    "school_id": "gz-440113-651a0fc2",
    "group": "番禺区小升初对口（单校）",
    "feed_school_ids": [
-    "gz-440113-6ddbaaf6"
+    "gz-440113-0bb52d06"
    ],
    "feed_unresolved": [],
    "direct_feed_school_id": null,
@@ -6932,7 +6935,7 @@
    "school_id": "gz-440113-6ddbaaf6",
    "group": "番禺区小升初对口（单校）",
    "feed_school_ids": [
-    "gz-440113-6ddbaaf6"
+    "gz-440113-0bb52d06"
    ],
    "feed_unresolved": [],
    "direct_feed_school_id": null,
@@ -13882,10 +13885,10 @@
   {
    "school_id": "gz-440112-87756a6d",
    "group": "对口直升（不参加电脑派位）",
-   "feed_school_ids": [],
-   "feed_unresolved": [
-    "广大附中黄埔实验学校（西校区）"
+   "feed_school_ids": [
+    "gz-440112-87756a6d"
    ],
+   "feed_unresolved": [],
    "direct_feed_school_id": "gz-440112-87756a6d",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf",
    "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：广大附中黄埔实验学校（西校区）（九年制学校内部直升）。",

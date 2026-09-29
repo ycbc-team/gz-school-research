@@ -4859,10 +4859,10 @@
     },
     {
       "school_id": "gz-440111-b1484250",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "广州市三元里中学"
+      "feed_school_ids": [
+        "gz-440111-8629621c"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排",
       "group_id": 33,
@@ -4870,10 +4870,10 @@
     },
     {
       "school_id": "gz-440111-db593ac1",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "广州市三元里中学"
+      "feed_school_ids": [
+        "gz-440111-8629621c"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排",
       "group_id": 33,
@@ -4892,10 +4892,10 @@
     },
     {
       "school_id": "gz-440111-23d6fbf3",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "广州市三元里中学"
+      "feed_school_ids": [
+        "gz-440111-8629621c"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排",
       "group_id": 33,
@@ -6512,8 +6512,8 @@
     {
       "school_id": "gz-440111-36817b49",
       "feed_school_ids": [
-        "gz-440111-fd1c1c12",
-        "gz-440111-78d61733"
+        "gz-440111-78d61733",
+        "gz-440111-fd1c1c12"
       ],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -6524,8 +6524,8 @@
     {
       "school_id": "gz-440111-96ab2ca3",
       "feed_school_ids": [
-        "gz-440111-fd1c1c12",
-        "gz-440111-78d61733"
+        "gz-440111-78d61733",
+        "gz-440111-fd1c1c12"
       ],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -6536,8 +6536,8 @@
     {
       "school_id": "gz-440111-3218439b",
       "feed_school_ids": [
-        "gz-440111-fd1c1c12",
-        "gz-440111-78d61733"
+        "gz-440111-78d61733",
+        "gz-440111-fd1c1c12"
       ],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -6548,8 +6548,8 @@
     {
       "school_id": "gz-440111-77b8da86",
       "feed_school_ids": [
-        "gz-440111-fd1c1c12",
         "gz-440111-78d61733",
+        "gz-440111-fd1c1c12",
         "gz-440111-b2b78162"
       ],
       "feed_unresolved": [],
@@ -7733,6 +7733,7 @@
     {
       "school_id": "gz-440113-d1526099",
       "feed_school_ids": [
+        "gz-440113-c07e3ddb",
         "gz-440113-7cdbe028"
       ],
       "feed_unresolved": [],
@@ -7744,6 +7745,7 @@
     {
       "school_id": "gz-440113-7cdbe028",
       "feed_school_ids": [
+        "gz-440113-c07e3ddb",
         "gz-440113-7cdbe028"
       ],
       "feed_unresolved": [],
@@ -7755,6 +7757,7 @@
     {
       "school_id": "gz-440113-3853a52b",
       "feed_school_ids": [
+        "gz-440113-c07e3ddb",
         "gz-440113-7cdbe028"
       ],
       "feed_unresolved": [],
@@ -7799,7 +7802,7 @@
     {
       "school_id": "gz-440113-ecbfeed3",
       "feed_school_ids": [
-        "gz-440113-6ddbaaf6"
+        "gz-440113-0bb52d06"
       ],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -7810,7 +7813,7 @@
     {
       "school_id": "gz-440113-3433c09b",
       "feed_school_ids": [
-        "gz-440113-6ddbaaf6"
+        "gz-440113-0bb52d06"
       ],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -7821,7 +7824,7 @@
     {
       "school_id": "gz-440113-651a0fc2",
       "feed_school_ids": [
-        "gz-440113-6ddbaaf6"
+        "gz-440113-0bb52d06"
       ],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -7832,7 +7835,7 @@
     {
       "school_id": "gz-440113-6ddbaaf6",
       "feed_school_ids": [
-        "gz-440113-6ddbaaf6"
+        "gz-440113-0bb52d06"
       ],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -14288,10 +14291,10 @@
     },
     {
       "school_id": "gz-440112-87756a6d",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "广大附中黄埔实验学校（西校区）"
+      "feed_school_ids": [
+        "gz-440112-87756a6d"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": "gz-440112-87756a6d",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：广大附中黄埔实验学校（西校区）（九年制学校内部直升）。",
       "group_id": 156,
