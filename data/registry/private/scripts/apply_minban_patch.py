@@ -21,7 +21,7 @@ import sys
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 ENTITIES_PATH = os.path.join(REPO, 'data/registry/entity/dist/entities.json')
 MINBAN_TABLE = os.path.join(REPO, 'data/registry/private/dist/minban_schools.json')
-MINBAN_DIR = os.path.join(REPO, 'scripts/registry')
+MINBAN_DIR = os.path.join(REPO, 'data/registry/private/src')
 
 DISTRICTS = {
     '440103': '荔湾', '440104': '越秀', '440105': '海珠',

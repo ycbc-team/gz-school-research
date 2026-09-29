@@ -5062,6 +5062,13 @@
      },
      "mechanism": "single_zone",
      "mechanism_note": "对口直升（2026 义务教育招生细则第九条）"
+    },
+    {
+     "school_id": "gz-440104-ff8d7e05",
+     "plan_classes": 6,
+     "scope": "面向全区公办小学招收部分直升生（自愿报名；录取后不再具有公办初中电脑派位资格）",
+     "mechanism": "single_lottery",
+     "mechanism_note": "2026 越秀公办初中招生计划第 21 号（6 班）；招生问答第一类：面向全区公办小学招收部分直升生，报名人数超计划电脑派位"
     }
    ]
   },

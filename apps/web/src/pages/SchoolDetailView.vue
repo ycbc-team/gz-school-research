@@ -82,6 +82,7 @@ const badges = computed(() => model.value.badges);
 const headText = computed(() => model.value.headText);
 const legalEntityText = computed(() => model.value.legalEntityText);
 const enrollment = computed(() => model.value.enrollment);
+const nature = computed(() => model.value.nature);
 const feedJuniors = computed(() => model.value.feedJuniors);
 const feedGap = computed(() => model.value.feedGap);
 const feedRows = computed(() => model.value.feedRows);
@@ -442,7 +443,7 @@ function goCampus(item: { id: string; name: string }) {
         </template>
       </template>
 
-      <p v-if="!middleEnrolls.length" class="empty">暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。</p>
+      <p v-if="!middleEnrolls.length" class="empty">{{ nature === '民办' ? '暂无招生计划数据：2026 民办初中招生由区教育局统一组织（电脑摇号），以区教育局当年正式文件为准。' : '暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。' }}</p>
     </div>
 
     <!-- 多校区生源小学：弹窗选校区（与初中名额分配明细同款） -->
