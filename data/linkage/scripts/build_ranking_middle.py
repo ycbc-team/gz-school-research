@@ -352,9 +352,16 @@ canon.parent.mkdir(parents=True, exist_ok=True)
 with open(canon, 'w', encoding='utf-8') as f:
     json.dump(result, f, ensure_ascii=False, indent=2)
 
-# ================= dist 精简（删 sz 明细/元数据：sz 无前端消费，调试字段留在 canonical） =================
-dist = {k: v for k, v in result.items() if k not in ('title', 'updated', 'note', 'source')}
-dist['schools'] = [{k: v for k, v in s.items() if k != 'sz'} for s in out_schools]
+# ================= dist 精简（运行时只消费 school_id/school_ids/autonomy_count：
+#     name/district/minban/group/kaosheng/sheng_quota/qu_quota/tekong_quota_rate/sz
+#     运行时分别从 entities / quota(quota_matrix 运行时模块) / educationGroups 查，
+#     调试与审计字段全部留在 canonical 全量） =================
+dist = {
+    'schools': [
+        {'school_id': s['school_id'], 'school_ids': s['school_ids'], 'autonomy_count': s['autonomy_count']}
+        for s in out_schools
+    ],
+}
 with open(DATA / 'linkage' / 'dist' / 'ranking_middle.json', 'w', encoding='utf-8') as f:
     json.dump(dist, f, ensure_ascii=False, indent=2)
 

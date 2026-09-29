@@ -674,7 +674,8 @@ def main():
     _section_lines.append(f"[18] 实体点位后缀检测: {len(_poi_like)} 异常（0 容忍，build_entities NON_SCHOOL_POI 兜底）")
 
     # ---- 19. 初中明细 group 必须由公共集团→school_id 产物支撑（纯 id 一致性）----
-    # build_ranking_middle.py 的 group 只查 data/registry/group/dist/school_groups.json（纯 id）；
+    # build_ranking_middle.py 的 group 由 education_groups 反查（纯 id）；dist 已精简为
+    # school_id/autonomy_count，集团/名称留在 canonical——本检查读 canonical 全量。
     # 任何有 group 的明细行，其 school_id / school_ids 中至少一个必须命中产物且 brand 一致，
     # 否则说明产物漏收（该学校会从集团分组丢失）。无 school_id 的行不应有 group
     # （名称匹配已从运行时删除；如三元里中学 = entities 无实体，属待补真源的数据缺口）。
@@ -685,7 +686,7 @@ def main():
         for _m in _g.get("members") or []:
             if _m.get("school_id"):
                 _sg.setdefault(_m["school_id"], set()).add(_g["brand"])
-    _rm = json.load(open(os.path.join(ROOT, "data/linkage/dist/ranking_middle.json")))["schools"]
+    _rm = json.load(open(os.path.join(ROOT, "data/linkage/parsed/canonical/ranking_middle.json")))["schools"]
     _orphan = 0
     for _s in _rm:
         _g = _s.get("group") or {}

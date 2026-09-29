@@ -432,11 +432,10 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     if (stage === 'primary') return tier ? formatPrimarySignals(tier) : [];
     if (stage !== 'middle') return [];
     const rows = tier ? formatMiddleSignals(tier) : [];
-    // 自主招生为升学数字：统一从 linkage/rankingMiddle（官方自招资格名单）取，tier1 只做学校信号
-    if (repo.rankingMiddle) {
-      const list = repo.rankingMiddle.schools;
-      const byId = schoolId ? list.find((x) => x.school_id === schoolId) : undefined;
-      const recAut = byId ?? list.find((x) => normName(x.name) === normName(schoolName));
+    // 自主招生为升学数字：统一从 linkage/rankingMiddle（官方自招资格名单）取，tier1 只做学校信号。
+    // dist 已精简为 id 粒度（无 name），仅按 school_id 精准匹配（name 回退已随瘦身移除）。
+    if (repo.rankingMiddle && schoolId) {
+      const recAut = repo.rankingMiddle.schools.find((x) => x.school_id === schoolId);
       if (recAut && (recAut.autonomy_count ?? 0) > 0) {
         rows.push({ label: '自主招生', value: `2026 年 ${recAut.autonomy_count} 人（官方资格名单）` });
       }
