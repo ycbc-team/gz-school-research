@@ -85,12 +85,12 @@
       "brand": "广州市第十六中学教育集团",
       "members": [
         {
-          "school_id": "gz-440104-8964385d",
+          "school_id": "gz-440104-8a1a7b3d",
           "role": "核心校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440104-8a1a7b3d",
+          "school_id": "gz-440104-8964385d",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -133,12 +133,12 @@
       "brand": "广州市育才教育集团",
       "members": [
         {
-          "school_id": "gz-440104-191aaa35",
+          "school_id": "gz-440104-7ec82efb",
           "role": "核心校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440104-7ec82efb",
+          "school_id": "gz-440104-191aaa35",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -843,12 +843,12 @@
       "brand": "广州市第九十七中学教育集团",
       "members": [
         {
-          "school_id": "gz-440105-ed868139",
+          "school_id": "gz-440105-f0712355",
           "role": "核心校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440105-f0712355",
+          "school_id": "gz-440105-ed868139",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -863,12 +863,12 @@
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440105-003f2037",
+          "school_id": "gz-440105-2f31776e",
           "role": "成员校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440105-2f31776e",
+          "school_id": "gz-440105-003f2037",
           "role": "成员校",
           "relation_type": "same"
         }
@@ -906,12 +906,12 @@
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440105-9da3d734",
+          "school_id": "gz-440105-96460a76",
           "role": "成员校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440105-96460a76",
+          "school_id": "gz-440105-9da3d734",
           "role": "成员校",
           "relation_type": "same"
         },
@@ -1138,12 +1138,12 @@
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440106-d40d0dbe",
+          "school_id": "gz-440106-fa9338a2",
           "role": "核心校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440106-fa9338a2",
+          "school_id": "gz-440106-d40d0dbe",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -1376,12 +1376,12 @@
       "brand": "113中学教育集团",
       "members": [
         {
-          "school_id": "gz-440106-2e9f6f7b",
+          "school_id": "gz-440106-b049d65a",
           "role": "核心校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440106-b049d65a",
+          "school_id": "gz-440106-2e9f6f7b",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -1415,22 +1415,22 @@
       "brand": "广州市真光中学教育集团",
       "members": [
         {
-          "school_id": "gz-440103-1f4697e3",
-          "role": "核心校",
-          "relation_type": "same"
-        },
-        {
-          "school_id": "gz-440103-9b3ba6d8",
-          "role": "核心校",
-          "relation_type": "same"
-        },
-        {
           "school_id": "gz-440103-042e23a5",
           "role": "核心校",
           "relation_type": "same"
         },
         {
           "school_id": "gz-440103-4bb96190",
+          "role": "核心校",
+          "relation_type": "same"
+        },
+        {
+          "school_id": "gz-440103-1f4697e3",
+          "role": "核心校",
+          "relation_type": "same"
+        },
+        {
+          "school_id": "gz-440103-9b3ba6d8",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -1563,22 +1563,22 @@
       "brand": "广州市第四中学教育集团",
       "members": [
         {
-          "school_id": "gz-440103-3862ee98",
-          "role": "核心校",
-          "relation_type": "same"
-        },
-        {
-          "school_id": "gz-440103-c0d6f9a0",
-          "role": "核心校",
-          "relation_type": "same"
-        },
-        {
           "school_id": "gz-440103-4cda3f9e",
           "role": "核心校",
           "relation_type": "same"
         },
         {
+          "school_id": "gz-440103-3862ee98",
+          "role": "核心校",
+          "relation_type": "same"
+        },
+        {
           "school_id": "gz-440103-816b22a3",
+          "role": "核心校",
+          "relation_type": "same"
+        },
+        {
+          "school_id": "gz-440103-c0d6f9a0",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -1632,12 +1632,12 @@
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440103-dfff68f2",
+          "school_id": "gz-440103-df535585",
           "role": "核心校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440103-df535585",
+          "school_id": "gz-440103-dfff68f2",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -1715,17 +1715,17 @@
           "relation_type": "same"
         },
         {
+          "school_id": "gz-440103-693412ae",
+          "role": "成员校",
+          "relation_type": "same"
+        },
+        {
           "school_id": "gz-440103-c5d5de44",
           "role": "成员校",
           "relation_type": "same"
         },
         {
           "school_id": "gz-440103-7207525c",
-          "role": "成员校",
-          "relation_type": "same"
-        },
-        {
-          "school_id": "gz-440103-693412ae",
           "role": "成员校",
           "relation_type": "same"
         },
@@ -2090,17 +2090,17 @@
           "relation_type": "same"
         },
         {
+          "school_id": "gz-440112-badbc2ab",
+          "role": "成员校",
+          "relation_type": "same"
+        },
+        {
           "school_id": "gz-440112-3f877ace",
           "role": "成员校",
           "relation_type": "same"
         },
         {
           "school_id": "gz-440112-ec15555e",
-          "role": "成员校",
-          "relation_type": "same"
-        },
-        {
-          "school_id": "gz-440112-badbc2ab",
           "role": "成员校",
           "relation_type": "same"
         },
@@ -2203,7 +2203,7 @@
       "brand": "广州市第八十六中学教育集团",
       "members": [
         {
-          "school_id": "gz-440112-43108516",
+          "school_id": "gz-440112-0cb5a402",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -2213,7 +2213,7 @@
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440112-0cb5a402",
+          "school_id": "gz-440112-43108516",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -2537,7 +2537,12 @@
       "brand": "广州市第六十五中学教育集团",
       "members": [
         {
-          "school_id": "gz-440111-4cf10429",
+          "school_id": "gz-440111-c7b90869",
+          "role": "核心校",
+          "relation_type": "same"
+        },
+        {
+          "school_id": "gz-440111-4ebb4316",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -2547,12 +2552,7 @@
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440111-c7b90869",
-          "role": "核心校",
-          "relation_type": "same"
-        },
-        {
-          "school_id": "gz-440111-4ebb4316",
+          "school_id": "gz-440111-4cf10429",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -2632,12 +2632,12 @@
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440111-048815b3",
+          "school_id": "gz-440111-2186a02a",
           "role": "成员校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440111-2186a02a",
+          "school_id": "gz-440111-048815b3",
           "role": "成员校",
           "relation_type": "same"
         },
@@ -2692,17 +2692,17 @@
       "brand": "广州市白云中学教育集团",
       "members": [
         {
-          "school_id": "gz-440111-1b7d3f87",
-          "role": "核心校",
-          "relation_type": "same"
-        },
-        {
           "school_id": "gz-440111-e74c2e1d",
           "role": "核心校",
           "relation_type": "same"
         },
         {
           "school_id": "gz-440111-6782f041",
+          "role": "核心校",
+          "relation_type": "same"
+        },
+        {
+          "school_id": "gz-440111-1b7d3f87",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -2766,12 +2766,12 @@
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440111-d4c4285e",
+          "school_id": "gz-440111-150715c8",
           "role": "核心校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440111-150715c8",
+          "school_id": "gz-440111-d4c4285e",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -2890,12 +2890,12 @@
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440111-b95f2597",
+          "school_id": "gz-440111-0078267c",
           "role": "成员校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440111-0078267c",
+          "school_id": "gz-440111-b95f2597",
           "role": "成员校",
           "relation_type": "same"
         },
@@ -2949,12 +2949,12 @@
       "brand": "广州白云六中教育集团",
       "members": [
         {
-          "school_id": "gz-440111-6b0e6f77",
+          "school_id": "gz-440111-4ab20f44",
           "role": "核心校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440111-4ab20f44",
+          "school_id": "gz-440111-6b0e6f77",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -2983,12 +2983,12 @@
       "brand": "广州云雅教育集团",
       "members": [
         {
-          "school_id": "gz-440111-6782d2c7",
+          "school_id": "gz-440111-7d12a21e",
           "role": "核心校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440111-7d12a21e",
+          "school_id": "gz-440111-6782d2c7",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -3329,12 +3329,12 @@
       "brand": "广东仲元中学教育集团",
       "members": [
         {
-          "school_id": "gz-440113-6dbdc462",
+          "school_id": "gz-440113-acf92324",
           "role": "核心校",
           "relation_type": "same"
         },
         {
-          "school_id": "gz-440113-acf92324",
+          "school_id": "gz-440113-6dbdc462",
           "role": "核心校",
           "relation_type": "same"
         },
@@ -3632,17 +3632,17 @@
           "relation_type": "same"
         },
         {
+          "school_id": "gz-440103-ff7538dc",
+          "role": "核心校",
+          "relation_type": "same"
+        },
+        {
           "school_id": "gz-440104-7c4a905f",
           "role": "核心校",
           "relation_type": "same"
         },
         {
           "school_id": "gz-440111-a3cf5a4f",
-          "role": "核心校",
-          "relation_type": "same"
-        },
-        {
-          "school_id": "gz-440103-ff7538dc",
           "role": "核心校",
           "relation_type": "same"
         },
