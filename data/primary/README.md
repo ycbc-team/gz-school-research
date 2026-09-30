@@ -11,7 +11,8 @@
 | `enrollment/` | **小学招生**（公办小学地段/计划） | 按 raw/parsed/scripts/src/docs 分层；A 层转录 + B 层 SchoolMatcher 匹配，详见 `enrollment/README.md` |
 | `transition/` | 小升初升学路线（xiaoshengchu） | 官方源/解析产物/构建脚本/运行时产物，详见 `transition/README.md`（初中招生为下一步，暂归此处） |
 | `enrollments/` | ~~公办初中招生计划 dist~~（2026-09-23 已迁 `data/middle/enrollment/`，本目录仅剩 .DS_Store） | — |
-| `tier1_schools_all.json` | 口碑学校（第一梯队小学） | 网传/公开信息整理（前端 compact 消费） |
+
+> **口碑/学校信号（tier1）已于 2026-09-30 废弃并归档**：原 `tier1_schools_all.json`（第一梯队小学口碑核验）与 docs 口碑核验文档已迁至 `data/reputation/`（小学数据见 `data/reputation/primary/`），仅归档留档、不参与运行时链路；学校客观事实一律以官方口径业务数据为准。
 
 ## 业务边界
 

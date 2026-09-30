@@ -16,9 +16,7 @@ const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', file),
 const canonSpecial = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/linkage/parsed/canonical/special_matrix.json'), 'utf8'));
 const loaders = {
   primarySchools: load('poi/dist/primary_poi.json'),
-  primaryTier1: load('primary/tier1_schools_all.json'),
   middleSchools: load('poi/dist/middle_poi.json'),
-  middleTier1: load('middle/tier1_schools_all.json'),
   highSchools: load('poi/dist/high_poi.json'),
   highLevels: load('high/level/src/levels.json'),
   enrollments: splitEnrollments(load('primary/enrollment/dist/2026-all.json')),

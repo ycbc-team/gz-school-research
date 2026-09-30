@@ -79,7 +79,7 @@ const kw = ref('');
 const searchOpen = ref(false);
 const searchResults = computed(() => searchSchools(mapPoints, kw.value, repository.entities));
 function badgesOf(pt: MapPointFull) {
-  return repository.schoolBadges(pt.mainStage, { district: districtByAdcode[pt.adcode] || '', tier: pt.tier, rec: pt.rec, name: pt.name, schoolId: pt.ids[pt.mainStage] || pt.school_id, stages: pt.stages });
+  return repository.schoolBadges(pt.mainStage, { district: districtByAdcode[pt.adcode] || '', rec: pt.rec, name: pt.name, schoolId: pt.ids[pt.mainStage] || pt.school_id, stages: pt.stages });
 }
 function pickResult(pt: MapPointFull) {
   if (!map) return;
@@ -120,7 +120,7 @@ let unionNE: { lat: number; lng: number } | null = null;
 function radiusForZoom(_z: number): number {
   return 8;
 }
-/** 单学部点：学段单色圆点，统一样式（不再区分口碑/普通/挂牌） */
+/** 单学部点：学段单色圆点，统一样式 */
 function markerStyle(pt: MapPointFull): L.CircleMarkerOptions {
   return {
     radius: radiusForZoom(map?.getZoom() ?? 13),
@@ -686,7 +686,6 @@ section { position: relative; }
 .s-badges { display: inline-flex; gap: 4px; margin-left: 6px; }
 .badge.b-district { background: #e5e7eb; color: #374151; }
 .badge.b-stage { background: #dbeafe; color: #1e40af; }
-.badge.b-tier { background: #e11d48; }
 .badge.b-license { background: #4b5563; }
 .badge.b-hcity { background: #b45309; }
 .badge.b-hdist { background: #0f766e; }

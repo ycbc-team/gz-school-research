@@ -9,13 +9,11 @@
 import { computed, ref, watch } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import {
-  buildDetailModel, buildAliasTable, matchTier1ByPoiName, normName,
-  formatPrimarySignals, formatMiddleSignals, highScoreRows,
-  type SchoolStage, type SchoolPoi, type Tier1School, type HighLevelSchool,
+  buildDetailModel, normName,
+  type SchoolStage,
 } from '@gz/shared';
 import {
-  repository, primarySchools, middleSchools, highSchools, primaryTier1, middleTier1,
-  highLevels, tier1Schools, middleTier1Schools, entities, matchEnrollment,
+  repository, entities, matchEnrollment,
   middleQuotaSummary, middleEnrollmentsOf, middleEnrollmentGroups, xiaoshengchuOf, schoolBadges, scoresOfSchool,
   isComprehensive, groupOfSchool, resolveSchoolIdOf,
   type BrandUnit,
@@ -74,7 +72,6 @@ const feedJuniors = computed(() => model.value.feedJuniors);
 const feedGap = computed(() => model.value.feedGap);
 const feedRows = computed(() => model.value.feedRows);
 const enrollNote = computed(() => model.value.enrollNote);
-const signalRows = computed(() => model.value.signalRows);
 const admissionRows = computed(() => model.value.admissionRows);
 const gaokaoRows = computed(() => model.value.gaokaoRows);
 const brandCard = computed(() => model.value.brandCard);
@@ -389,19 +386,6 @@ function goCampus(item: { id: string; name: string }) {
       </div>
     </div>
 
-    <!-- 学校信号（历史称号/集团/喜报/录取线等源数据，民间口径非官方评价） -->
-    <div v-if="signalRows.length" class="card">
-      <div class="card-title">学校信号</div>
-      <div class="title-note-row">
-        <span class="title-note">民间口径，非官方评价，仅供参考。</span>
-      </div>
-      <div class="kv">
-        <div class="kv-row" v-for="r in signalRows" :key="r.label">
-          <span>{{ r.label }}</span><b>{{ r.value }}</b>
-        </div>
-      </div>
-    </div>
-
     <!-- 小学 tab：招生计划 + 所在区小升初机制 -->
     <div v-if="stage === 'primary'" class="card">
       <div class="card-title">招生计划（2026）</div>
@@ -696,7 +680,6 @@ function goCampus(item: { id: string; name: string }) {
 
 .badge.b-district { background: #e5e7eb; color: #374151; }
 .badge.b-stage { background: #dbeafe; color: #1e40af; }
-.badge.b-tier { background: #e11d48; }
 .badge.b-license { background: #4b5563; }
 .badge.b-hcity { background: #b45309; }
 .badge.b-national { background: #9f1239; }
@@ -711,9 +694,6 @@ function goCampus(item: { id: string; name: string }) {
 .d-sub { font-size: 12.5px; color: #6b7280; margin: 8px 0 0; line-height: 1.6; }
 .not-included-card { margin: 10px 0 0; padding: 8px 12px; border-radius: 8px; background: #fff7e6; border: 1px solid #ffe1a8; font-size: 12px; color: #9a6700; line-height: 1.6; }
 
-.badge.tier-full { background: #e11d48; }
-.badge.tier-part { background: #f59e0b; }
-.badge.tier-none { background: #8a94a6; }
 .badge.license { background: #4b5563; }
 .badge.h-city { background: #b45309; }
 .badge.h-dist { background: #0f766e; }

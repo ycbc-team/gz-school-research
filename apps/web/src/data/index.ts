@@ -6,12 +6,10 @@
  */
 import { hydrate, splitEnrollments, createRepository, buildPoints, type DataLoaders, type MapPointFull, type MergedEnrollments, type MiddleEnrollmentSnapshot, type MiddleEnrollmentGroups, type MiddleMechanism, type MiddleMechanismDef } from '@gz/shared';
 import primarySchoolsCompact from './compact/poi/dist/primary_poi.js';
-import primaryTier1Compact from './compact/primary/tier1_schools_all.js';
 import entitiesCompact from './compact/registry/entity/dist/entities.js';
 import xiaoshengchu2026Compact from './compact/primary/xiaoshengchu_2026.js';
 import middleEnrollNotesCompact from './compact/primary/middle_enroll_notes.js';
 import middleSchoolsCompact from './compact/poi/dist/middle_poi.js';
-import middleTier1Compact from './compact/middle/tier1_schools_all.js';
 import highSchoolsCompact from './compact/poi/dist/high_poi.js';
 import highLevelsCompact from './compact/high/level/src/levels.js';
 import enroll2026AllCompact from './compact/primary/enrollments/2026-all.js';
@@ -46,9 +44,7 @@ const cast = <T>(v: unknown): T => v as T;
 /** 组装 DataLoaders（结构契约见 @gz/shared/src/data/loader.ts） */
 const loaders: DataLoaders = {
   primarySchools: cast(hydrate(primarySchoolsCompact)),
-  primaryTier1: cast(hydrate(primaryTier1Compact)),
   middleSchools: cast(hydrate(middleSchoolsCompact)),
-  middleTier1: cast(hydrate(middleTier1Compact)),
   highSchools: cast(hydrate(highSchoolsCompact)),
   highLevels: cast(hydrate(highLevelsCompact)),
   enrollments: cast(splitEnrollments(hydrate(enroll2026AllCompact) as unknown as MergedEnrollments)),
@@ -89,9 +85,7 @@ export type { MapPointFull };
 
 /* ================= 数据快照导出（页面/组件直接消费，名称保持迁移前一致） ================= */
 export const primarySchools = loaders.primarySchools;
-export const primaryTier1 = loaders.primaryTier1;
 export const middleSchools = loaders.middleSchools;
-export const middleTier1 = loaders.middleTier1;
 export const highSchools = loaders.highSchools;
 export const highLevels = loaders.highLevels;
 export const highScores2025 = loaders.highScores2025;
@@ -171,8 +165,6 @@ export const {
   resolveSchoolIdOf,
   resolvePoiName,
   groupOfSchool,
-  tier1Schools,
-  middleTier1Schools,
   campuses,
 } = repository;
 

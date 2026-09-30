@@ -18,9 +18,7 @@ const cast = (v) => v;
 /** 主包 loaders（含详情域空壳，供详情页分包展开合并） */
 const baseLoaders = {
   primarySchools: cast(hydrate(require('../data/poi/dist/primary_poi.js'))),
-  primaryTier1: cast(hydrate(require('../data/primary/tier1_schools_all.js'))),
   middleSchools: cast(hydrate(require('../data/poi/dist/middle_poi.js'))),
-  middleTier1: cast(hydrate(require('../data/middle/tier1_schools_all.js'))),
   highSchools: cast(hydrate(require('../data/poi/dist/high_poi.js'))),
   highLevels: cast(hydrate(require('../data/high/level/src/levels.js'))),
   highScores2025: cast(hydrate(require('../data/high/cutoff_score/dist/scores_2025.js'))),
@@ -47,9 +45,7 @@ module.exports = {
   mapPoints,
   // 快照导出（页面直接消费）
   primarySchools: baseLoaders.primarySchools,
-  primaryTier1: baseLoaders.primaryTier1,
   middleSchools: baseLoaders.middleSchools,
-  middleTier1: baseLoaders.middleTier1,
   highSchools: baseLoaders.highSchools,
   highLevels: baseLoaders.highLevels,
   enrollments: baseLoaders.enrollments,

@@ -1,9 +1,8 @@
 /**
- * tier1 信号 → 展示文本（信息卡/列表共用）。
- * JSON 真源为结构化字段，此处格式化为可读文本；无值一律回退「未查到」，
- * 与旧版页面展示口径保持一致（民间口径，非官方评价）。
+ * 展示文本格式化（信息卡/列表共用）。
+ * JSON 真源为结构化字段，此处格式化为可读文本；无值一律回退「未查到」。
  */
-import type { Tier1School, XiaoshengchuRecord } from './types.js';
+import type { XiaoshengchuRecord } from './types.js';
 import type { HighScoreRecord } from './data/types.js';
 import type { SchoolScore } from './data/scores.js';
 
@@ -11,10 +10,6 @@ export interface SignalRow {
   label: string;
   value: string;
   strong?: boolean;
-}
-
-function val(v: unknown): string {
-  return v === null || v === undefined || v === '' ? '未查到' : String(v);
 }
 
 /**
@@ -29,87 +24,6 @@ export function formatXiaoshengchuBrief(xs?: XiaoshengchuRecord | null): string 
   const feed = all.length > 4 ? `${all.slice(0, 4).join('、')}等` : all.join('、');
   const via = /派位/.test(xs.group || '') ? '电脑派位' : '对口';
   return `${via} ${feed}`;
-}
-
-/** 小学信号行：历史称号 / 教育集团 / 班数 / 学位预警 / 对口直升（升学路线改由全量 xiaoshengchu 数据单独承载） */
-export function formatPrimarySignals(s: Tier1School): SignalRow[] {
-  const rows: SignalRow[] = [];
-  if (s.historical_titles && s.historical_titles.length) {
-    const t = s.historical_titles[0]!;
-    const note = (t.note || '').replace(/[（(].*?[)）]/g, '').slice(0, 24);
-    rows.push({ label: t.level || '历史称号', value: `${t.year ?? '?'} 年评定${note ? `（${note}）` : ''}` });
-  }
-  if (s.education_group) {
-    rows.push({
-      label: '教育集团',
-      value: `${s.education_group.name}（${s.education_group.role}）`,
-      strong: true,
-    });
-  }
-  if (s.plan_classes && s.plan_classes.count != null) {
-    rows.push({ label: '2026班数', value: `${s.plan_classes.count} 个班`, strong: true });
-  }
-  const dw = s.degree_warning;
-  if (dw && dw.status && !/未查到|无预警|无$/.test(dw.status)) {
-    rows.push({ label: '学位预警', value: dw.status, strong: true });
-  }
-  if (s.direct_feed) {
-    rows.push({
-      label: '对口直升',
-      value: s.direct_feed.middle_school,
-      strong: true,
-    });
-  }
-  return rows;
-}
-
-/** 初中信号行：中考口碑 / 官方录取线 / 示范性高中 / 教育集团 / 建校年份 / 指标到校
- * 注意：自主招生（升学数字）不在此输出——tier1 只做学校信号，升学信号统一由
- * detail/model.ts 从 linkage/rankingMiddle（官方自招资格名单）取。 */
-export function formatMiddleSignals(s: Tier1School): SignalRow[] {
-  const rows: SignalRow[] = [];
-  const zk = s.zhongkao_rumor;
-  if (zk) {
-    rows.push({
-      label: '中考成绩',
-      value: `${zk.year} 年（${zk.scope}）：${zk.data}${zk.note ? `（${zk.note}）` : ''}`,
-    });
-  } else {
-    rows.push({ label: '中考成绩', value: '未查到' });
-  }
-  const ads = (s.admission_scores || []).filter((a) => a && a.year != null && a.huji != null);
-  if (ads.length) {
-    const latest = ads[ads.length - 1]!;
-    rows.push({
-      label: '中考录取线',
-      value: `${latest.year} 年 户籍生 ${latest.huji} 分`,
-      strong: true,
-    });
-  }
-  if (s.demonstration_high) {
-    rows.push({
-      label: '示范性高中',
-      value: val(s.demonstration_high.level),
-      strong: true,
-    });
-  }
-  if (s.education_group) {
-    rows.push({
-      label: '教育集团',
-      value: `${s.education_group.name}（${s.education_group.role}）`,
-    });
-  }
-  if (s.founded) {
-    rows.push({
-      label: '建校年份',
-      value: `${s.founded.year} 年${s.founded.note ? `（${s.founded.note}）` : ''}`,
-      strong: true,
-    });
-  }
-  if (s.quota_allocation) {
-    rows.push({ label: '指标到校', value: s.quota_allocation.data });
-  }
-  return rows;
 }
 
 /* ---------- 高中中考录取线（官方分数） ---------- */
