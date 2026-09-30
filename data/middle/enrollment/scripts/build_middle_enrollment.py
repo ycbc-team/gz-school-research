@@ -241,6 +241,74 @@ def _group_name(note):
     n = int(raw) if raw.isdigit() else _cn2num(raw)
     return f"电脑派位第{n}组" if n else "电脑派位"
 
+# ---------- 数据层平铺（B 层构建期完成，运行时不再做文本匹配）----------
+def _panyu_explains(stage):
+    """番禺官方表尾「说明：」1-6（转录原文，小学/初中两版），返回 {编号: 内容}。"""
+    d = json.load(open(os.path.join(RAW_PANYU, "panyu_2026_official.json"), encoding="utf-8"))
+    sheet_name = "公办小学招生地段、计划" if stage == "primary" else "公办初中招生范围、计划"
+    rows = d["sheets"][sheet_name]
+    start = next(i for i, r in enumerate(rows) if r and str(r[0]).strip().startswith("说明"))
+    explains = {}
+    for r in rows[start + 1:]:
+        m = re.match(r"^(\d+)\.", str(r[0] or "").strip())
+        if not m:
+            break
+        explains[int(m.group(1))] = str(r[0]).strip()
+    return explains
+
+
+def _tianhe_attachment():
+    """天河细则附件10/11 平铺数据（放 primary 转录目录——小学 B 层附件11 同源使用）"""
+    return json.load(open(os.path.join(RAW_PANYU, "tianhe_attachment.json"), encoding="utf-8"))
+
+
+def _strip_attachment_refs(text):
+    """平铺语义清理：去掉「（…附件N…）」来源注与「附件N #N」表内序号引用，只留具体规则。"""
+    if not text:
+        return text
+    return re.sub(r"（[^（）]*附件\d+[^（）]*）", "", re.sub(r"附件\d+\s*#\d+\s*", "", text))
+
+
+def _expand_middle_texts(data, dk):
+    """B 层构建期平铺（产物即最终形态，双端一致）：
+    番禺 mechanism_note「(见)说明N」→ 说明原文；天河附件10 记录 scope 展开 + 说明/标签修正；
+    荔湾协和初中部说明追加直升条款；全区 mechanism_note/scope 去「附件N」来源注。"""
+    if dk == "panyu":
+        explains = _panyu_explains("middle")
+        for r in data["records"]:
+            mn = r.get("mechanism_note") or ""
+            if "说明" in mn:
+                r["mechanism_note"] = re.sub(r"见?说明(\d+)",
+                                             lambda m: explains.get(int(m.group(1)), m.group(0)), mn)
+    if dk == "tianhe":
+        att = _tianhe_attachment()
+        for r in data["records"]:
+            scope = r.get("scope") or ""
+            if "详见附件10" in scope:
+                school_ids = [x for x in [r.get("school_id"), *(r.get("school_ids") or [])] if x]
+                parts = [att["a10_by_school"][sid] for sid in school_ids if sid in att["a10_by_school"]]
+                if parts:
+                    r["scope"] = scope.replace("详见附件10", "".join(parts))
+                    # 此类学校走「自主报名+电脑派位」，并非划片——覆盖 single_zone 统一模板
+                    r["mechanism_note"] = att["a10_mechanism_note"]
+                    # 机制标签同步覆盖为「电脑派位」（前端优先读记录级 mechanism_label）
+                    r["mechanism_label"] = "电脑派位"
+    if dk == "liwan":
+        extra = "广州协和学校初中部原则上对口招收广州协和学校小学部毕业生（本校直升）。"
+        for r in data["records"]:
+            if r.get("school_id") == "gz-440103-e281e7d0":
+                mn = r.get("mechanism_note") or ""
+                r["mechanism_note"] = f"{mn}；{extra}" if mn else extra
+    for r in data["records"]:
+        mn = r.get("mechanism_note")
+        if mn:
+            r["mechanism_note"] = _strip_attachment_refs(mn)
+        scope = r.get("scope")
+        if scope:
+            r["scope"] = _strip_attachment_refs(scope)
+    return data
+
+
 # 区键 → adcode（SchoolMatcher 匹配用：按本区过滤，不跨区错配）
 _DK_ADCODE = {"yuexiu": "440104", "haizhu": "440105", "tianhe": "440106",
               "huangpu": "440112", "panyu": "440113", "baiyun": "440111", "liwan": "440103"}
@@ -804,6 +872,8 @@ if __name__ == "__main__":
                 "group_members": None,
             })
             print(f"         注入合理无招生说明: {_ent['name']} ({_sid})")
+        # 数据层平铺统一后处理（含 LEFT_NOTES 注入记录）：番禺说明/天河附件10/荔湾协和/附件N 清理
+        data = _expand_middle_texts(data, dk)
         # 各区中间产物（统一格式，审计层）
         out = os.path.join(dist_dir, f"middle_enrollment_2026_{dk}.json")
         os.makedirs(os.path.dirname(out), exist_ok=True)
