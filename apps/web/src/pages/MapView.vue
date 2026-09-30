@@ -82,6 +82,8 @@ function isVisiblePt(pt: MapPointFull): boolean { return isVisible(state(), pt);
 const HIST_KEY = 'gz_web_search_history';
 const kw = ref('');
 const searchPageOpen = ref(false);
+// 头部展开动画：打开瞬间输入框与背景搜索框同尺寸，随后 back 自左侧滑入
+const headAnim = ref(false);
 // 顶部全局导航（header.app-header）高度：搜索中间页从导航下方开始，不遮挡导航栏
 const navH = ref(59);
 function measureNavH() {
@@ -110,10 +112,15 @@ function openSearchPage() {
   assocs.value = [];
   history.value = loadHistory();
   searchPageOpen.value = true;
-  nextTick(() => searchInputEl.value?.focus());
+  headAnim.value = false;
+  nextTick(() => {
+    headAnim.value = true;
+    searchInputEl.value?.focus();
+  });
 }
 function closeSearchPage() {
   searchPageOpen.value = false;
+  headAnim.value = false;
   kw.value = '';
   assocs.value = [];
 }
@@ -540,7 +547,6 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
       <input v-model="kw" class="search-input" placeholder="搜索广州小初高学校" readonly @click="openSearchPage()" />
     </div>
 
-    <div class="panel-divider"></div>
     <div class="filter-bar">
       <div class="fb-col">
         <button class="fb-btn" :class="{ on: openMenu === 'district' }" @click="closeInfo(); openMenu = openMenu === 'district' ? null : 'district'">
@@ -616,7 +622,7 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
 
   <!-- 搜索中间页（全屏层，对齐小程序 index searchpage：历史 / 推荐 / 联想 + 空态） -->
   <div v-if="searchPageOpen" class="search-page" :style="{ top: `${navH}px` }">
-    <div class="search-head">
+    <div class="search-head" :class="{ open: headAnim }">
       <button class="back" @click="closeSearchPage()"><span class="chev"></span></button>
       <div class="sip" :class="{ typed: !!kw }">
         <span class="mag"></span>
@@ -693,43 +699,56 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
 </template>
 
 <style scoped>
-/* 浮层：搜索 + 筛选压在地图上方 */
+/* 浮层：搜索 + 筛选（悬浮胶囊组，对齐小程序 floatbar，无卡片底） */
 section { position: relative; }
 .float-panel {
-  position: absolute; top: 10px; left: 10px; right: 10px; z-index: 1000;
-  background: rgba(255,255,255,0.97); border: 1px solid #e4e3dd; border-radius: 14px;
-  box-shadow: 0 2px 10px rgba(20,30,50,0.12); transition: transform .22s ease, opacity .18s ease;
+  position: absolute; top: 12px; left: 10px; right: 10px; z-index: 1000;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: transform .22s ease, opacity .18s ease;
 }
 .float-panel.float-panel-hidden { transform: translateY(-130%); opacity: 0; pointer-events: none; }
+/* 搜索框胶囊：白底 + 阴影 + 全圆角（小程序 .sbox 84rpx） */
 .search-bar {
   position: relative; display: flex; align-items: center;
-  height: 38px; margin: 6px 8px;
-  background: #F5F7FB; border-radius: 999px;
+  height: 42px;
+  background: rgba(255,255,255,.97); border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(8,14,28,.18);
 }
-.search-bar .mag { flex: none; width: 14px; height: 14px; border: 1.5px solid #8B96AD; border-radius: 50%; position: relative; margin-left: 12px; }
+.search-bar .mag { flex: none; width: 14px; height: 14px; border: 1.5px solid #8B96AD; border-radius: 50%; position: relative; margin-left: 14px; }
 .search-bar .mag::after { content: ''; position: absolute; width: 6px; height: 1.5px; background: #8B96AD; transform: rotate(45deg); right: -4px; bottom: -2px; }
 .search-input {
   flex: 1; min-width: 0; border: none; outline: none; background: transparent;
-  padding: 0 14px 0 8px; font-size: 13.5px; color: #33405C;
+  padding: 0 14px 0 9px; font-size: 13.5px; color: #33405C;
 }
 
 /* ===== 搜索中间页（对齐小程序 index searchpage）：从导航栏下方开始，头部与背景搜索框同位置重叠 ===== */
 .search-page {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 1300;
   background: #F5F7FB; display: flex; flex-direction: column;
-  padding: 17px 19px 0; /* 顶部 17px=导航59+17→背景搜索框顶76；左右 19px 对齐背景胶囊搜索框边缘 */
+  padding: 12px 10px 0; /* 顶部 12px=导航59+12→背景搜索框顶71；左右 10px 对齐悬浮胶囊边缘 */
 }
-/* 头行与背景搜索框几何一致（同高 38px、同左/右 11px、顶部 11px 内边距），打开时输入框原地展开不变位 */
-.search-head { height: 38px; flex: none; display: flex; align-items: center; gap: 9px; }
-.search-head .back { flex: none; width: 30px; height: 30px; border-radius: 50%; background: #F5F7FB; border: 1px solid #E3E8F0; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+/* 头行：打开瞬间 sip 与背景搜索框完全同尺寸（高 42px、宽 569px），随后 back 自左侧滑入、sgo 输入时展开 */
+.search-head { height: 42px; flex: none; display: flex; align-items: center; }
+.search-head .back {
+  flex: none; width: 0; height: 30px; padding: 0; overflow: hidden; opacity: 0;
+  border: 0; background: none; cursor: pointer; margin-right: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: width .22s ease, opacity .18s ease, margin-right .22s ease;
+}
+.search-head.open .back { width: 30px; opacity: 1; margin-right: 9px; }
 .search-head .chev { width: 10px; height: 10px; border-left: 2px solid #10182B; border-bottom: 2px solid #10182B; transform: rotate(45deg); display: block; }
-.search-head .sip { flex: 1; height: 32px; display: flex; align-items: center; gap: 7px; background: #F5F7FB; border: 1px solid #E3E8F0; border-radius: 999px; padding: 0 12px; }
+.search-head .sip { flex: 1; height: 42px; display: flex; align-items: center; gap: 7px; background: #F5F7FB; border: 1px solid #E3E8F0; border-radius: 999px; padding: 0 12px; }
 .search-head .sip.typed { background: #fff; border-color: #98B6EC; box-shadow: 0 0 0 6px rgba(47,92,214,.08); }
 .search-head .sinput { flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font-size: 13.5px; color: #10182B; }
 .search-head .mag { flex: none; width: 12px; height: 12px; border: 1.5px solid #8B96AD; border-radius: 50%; position: relative; }
 .search-head .mag::after { content: ''; position: absolute; width: 5px; height: 1.5px; background: #8B96AD; transform: rotate(45deg); right: -3px; bottom: -1px; }
-.search-head .sgo { flex: none; border: 0; background: #E8EDF6; color: #8B96AD; font-size: 13px; border-radius: 999px; padding: 7px 12px; cursor: pointer; }
-.search-head .sgo.show { background: #2F5CD6; color: #fff; }
+.search-head .sgo {
+  flex: none; max-width: 0; opacity: 0; overflow: hidden; padding: 0; margin-left: 0;
+  border: 0; background: #2F5CD6; color: #fff; font-size: 13px; border-radius: 999px; cursor: pointer;
+  white-space: nowrap;
+  transition: max-width .22s ease, opacity .18s ease, margin-left .22s ease, padding .22s ease;
+}
+.search-head .sgo.show { max-width: 62px; opacity: 1; padding: 7px 12px; margin-left: 9px; }
 .sbody { flex: 1; overflow-y: auto; padding-bottom: 6px; }
 .sblock { margin: 12px 16px 0; background: #fff; border: 1px solid #E3E8F0; border-radius: 14px; padding: 12px 14px 4px; }
 .shd { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
@@ -754,20 +773,21 @@ section { position: relative; }
 .sempty-d { margin-top: 6px; font-size: 12.5px; color: #64708C; line-height: 1.5; text-align: center; }
 .sempty-btn { margin-top: 14px; border: 1px solid #DDE4EF; background: #fff; color: #2F5CD6; font-size: 12.5px; border-radius: 999px; padding: 6px 16px; cursor: pointer; }
 
-/* 搜索与筛选在同一气泡中，上下排列并以细线分隔。 */
-.panel-divider { height: 1px; margin: 0 12px; background: #e4e3dd; }
+/* 筛选胶囊行（对齐小程序 filterrow .chip） */
 .filter-bar {
   position: relative; display: flex; gap: 8px;
-  border-radius: 0 0 14px 14px; padding: 8px;
 }
 .fb-col { flex: 1 1 0; min-width: 0; }
 .fb-btn {
-  width: 100%; border: none; background: transparent; cursor: pointer;
-  font-size: 13px; color: #1a1b1c; padding: 8px 6px; border-radius: 9px;
-  display: flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;
+  width: 100%; border: none; cursor: pointer;
+  height: 32px; border-radius: 999px;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 3px 10px rgba(8,14,28,.16);
+  font-size: 12.5px; color: #33405C; font-weight: 500;
+  display: flex; align-items: center; justify-content: center; gap: 3px; white-space: nowrap;
 }
-.fb-btn:hover { background: #f2f7ff; }
-.fb-btn.on { background: #eaf1fe; color: #1a6bd6; font-weight: 600; }
+.fb-btn:hover { background: #fff; }
+.fb-btn.on { background: #F2F6FE; color: #254BAE; font-weight: 600; }
 .fb-btn .arr { font-size: 10px; color: #8a93a3; }
 .fb-badge {
   background: #1a6bd6; color: #fff; font-style: normal; font-size: 10.5px;
