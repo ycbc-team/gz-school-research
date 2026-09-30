@@ -447,8 +447,12 @@ class SchoolMatcher:
         return out or None
 
     # ---------- 匹配 ----------
-    def resolve_all(self, name, preferred_adcode=None, preferred_stage=None):
+    def resolve_all(self, name, preferred_adcode=None, preferred_stage=None, use_override=True):
         """返回官方名对应的全部同法人校区（泛匹配）；带校区限定的名称只返回其精确实体（精准匹配，宁缺毋滥）。
+        use_override=False（2026-09-30）：名单匹配（civilized/奖项等 resolve(strategy='all')）要的是
+        「法人名→全部校区」的纯展开语义，数据层收敛锚定（RESOLVE_OVERRIDE，如人和镇第二小学→本部，
+        反推转录宁缺专用）不得劫持——否则 src「广州市白云区人和镇第二小学」只收敛到本部、
+        建南校区匹配消失。直接调 resolve_all 的数据层消费方（xs_resolver feed 解析等）保持默认锚定。
         if not name:
             return []
 
@@ -473,10 +477,12 @@ class SchoolMatcher:
                 out.append(e)
             return out
 
-        # 显式锚定白名单（跨区同名/实体合并）：优先于一切规则，跨区亦成立
-        ov = self._override_hits(name)
-        if ov:
-            return ov
+        # 显式锚定白名单（跨区同名/实体合并）：优先于一切规则，跨区亦成立；
+        # use_override=False（名单法人展开语义）跳过数据层收敛锚定
+        if use_override:
+            ov = self._override_hits(name)
+            if ov:
+                return ov
 
         has_campus = bool(re.search(r"[（(].+?[）)]", name or ""))
         # 后缀式校区限定（官方志愿单位名，无括号）：「广州市第四中学初中津园校区」
@@ -701,7 +707,9 @@ class SchoolMatcher:
         if not name:
             return None
         if strategy in {"all", "multi", "campuses"}:
-            return self.resolve_all(name, preferred_adcode, preferred_stage)
+            # strategy="all" 为名单/法人展开语义（civilized/奖项/特色等消费方）：
+            # 不查数据层收敛锚定（use_override=False），恢复「法人名→全部校区」纯展开
+            return self.resolve_all(name, preferred_adcode, preferred_stage, use_override=False)
         if strategy != "single":
             raise ValueError(f"unknown matching strategy: {strategy}")
         # 显式锚定白名单（跨区同名/实体合并）：优先于一切规则
