@@ -75,11 +75,12 @@ Page({
           hasLingjunNote: (rawLinkage.planNotes || []).includes('lingjun'),
         }
       : null;
-    // 升学机制标签 → 徽章（WXML 表达式不支持 map，预计算；配色与初中机制徽章同款）
+    // 升学机制徽章（与初中招生机制徽章同文案同配色，label 取自 shared XS_MECH_LABELS；
+    // WXML 表达式不支持 map，预计算）
     if (model.feedJuniors && model.feedJuniors.mechanisms) {
       model.feedJuniors.mechBadges = model.feedJuniors.mechanisms.map((m) => ({
-        text: m,
-        cls: m === '直升' ? 'zhi_sheng' : m === '派位' ? 'group_paidui' : 'chou_qian',
+        key: m,
+        label: shared.XS_MECH_LABELS[m] || m,
       }));
     }
     wx.setNavigationBarTitle({ title: this.name });

@@ -71,12 +71,6 @@ const nature = computed(() => model.value.nature);
 const feedJuniors = computed(() => model.value.feedJuniors);
 const feedGap = computed(() => model.value.feedGap);
 const feedRows = computed(() => model.value.feedRows);
-/** 升学机制标签 → 徽章配色类（与初中机制徽章同款：直升=zhi_sheng 绿、派位=group_paidui 蓝、抽签=chou_qian 橙） */
-function mechCls(m: string): string {
-  if (m === '直升') return 'zhi_sheng';
-  if (m === '派位') return 'group_paidui';
-  return 'chou_qian';
-}
 const enrollNote = computed(() => model.value.enrollNote);
 const admissionRows = computed(() => model.value.admissionRows);
 const gaokaoRows = computed(() => model.value.gaokaoRows);
@@ -232,6 +226,14 @@ function isRedundantNote(note: string): boolean {
   return false;
 }
 const MECH_ORDER = ['zhi_sheng', 'single_zone', 'group_paidui', 'single_paidui', 'min_zi_zhu'];
+/** 小学升学机制 label（与初中 DEFAULT_DEFS label 同值；机制枚举在数据层固化，前端仅映射文案） */
+const XS_MECH_LABELS: Record<string, string> = {
+  zhi_sheng: '对口直升',
+  single_zone: '单校划片',
+  group_paidui: '多校电脑派位',
+  single_paidui: '电脑派位',
+  min_zi_zhu: '自主招生',
+};
 const mechanismBlocks = computed<MechBlock[]>(() => {
   if (stage.value !== 'middle') return [];
   const byKey = new Map<string, MechBlock>();
@@ -416,9 +418,9 @@ function goCampus(item: { id: string; name: string }) {
     <!-- 小学 tab：升学路线（按升学机制分组标签 + 对口初中列表） -->
     <div v-if="stage === 'primary' && (feedRows.length || feedGap || feedJuniors?.direct_feed)" class="card">
       <div class="card-title">升学路线（2026）</div>
-      <!-- 升学机制标签（直升/派位/抽签），与初中招生机制徽章同款配色 -->
+      <!-- 升学机制徽章（与初中招生机制徽章同文案同配色：对口直升/单校划片/多校电脑派位/电脑派位/自主招生） -->
       <div v-if="feedJuniors?.mechanisms?.length" class="mech-row" style="margin-top:2px;">
-        <span v-for="m in feedJuniors.mechanisms" :key="m" class="badge" :class="mechCls(m)">{{ m }}</span>
+        <span v-for="m in feedJuniors.mechanisms" :key="m" class="badge" :class="m">{{ XS_MECH_LABELS[m] || m }}</span>
       </div>
       <p v-if="feedJuniors?.group" class="sub-note">{{ feedJuniors.group }}</p>
       <p v-if="feedJuniors?.direct_feed" class="sub-note">直升：{{ feedJuniors.direct_feed }}</p>
@@ -431,7 +433,6 @@ function goCampus(item: { id: string; name: string }) {
         </div>
       </div>
       <p v-if="feedGap" class="empty" :style="feedRows.length ? 'margin-top:8px;text-align:left;' : ''">{{ feedGap }}</p>
-      <p v-if="feedRows.length" class="sub-note" style="margin-top:4px;">点击初中可查看该校升学通道详情。</p>
     </div>
 
     <!-- 初中 tab：招生计划（2026）：标题右侧统一放总班数；按机制分组 → 组内再按派位组拆子块 -->
@@ -715,7 +716,6 @@ function goCampus(item: { id: string; name: string }) {
 .badge.group_paidui { background: #1e40af; }
 .badge.single_paidui { background: #dc2626; }
 .badge.min_zi_zhu { background: #7c3aed; }
-.badge.chou_qian { background: #d97706; }
 .badge.no_plan { background: #6b7280; }
 .plan-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
 .plan-total { font-size: 13px; font-weight: 700; color: #1a1b1c; font-variant-numeric: tabular-nums; }

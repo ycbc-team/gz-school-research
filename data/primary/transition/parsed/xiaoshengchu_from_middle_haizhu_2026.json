@@ -31,8 +31,8 @@
         "gz-440105-77baeea5",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第4组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "江南新村第一小学(青凤校区)",
       "official_primary_names": [
@@ -77,8 +77,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第7组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市海珠区昌岗东路小学",
       "official_primary_names": [
@@ -119,9 +119,9 @@
         "gz-440105-f88edb06",
         "gz-440105-747245e1"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第4组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "广州昌岗中路小学分校",
       "official_primary_names": [
@@ -166,9 +166,9 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第3组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "广州市海珠区宝玉直实验小学(南边路校区)",
       "official_primary_names": [
@@ -207,8 +207,8 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "新港路小学(东校区)",
       "official_primary_names": [
@@ -227,7 +227,7 @@
       "feed_school_ids_from_middle": [
         "gz-440105-41b48384"
       ],
-      "groups": [
+      "mechanisms": [
         "zhi_sheng"
       ],
       "name": "大江苑小学",
@@ -267,8 +267,8 @@
         "gz-440105-77baeea5",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第4组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "汇源大街小学",
       "official_primary_names": [
@@ -311,8 +311,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第1组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市海珠外国语实验中学附属小学",
       "official_primary_names": [
@@ -345,8 +345,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第8组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "卫国尧纪念小学",
       "official_primary_names": [
@@ -375,9 +375,9 @@
         "gz-440105-cac39935",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第10组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "新洲小学",
       "official_primary_names": [
@@ -420,9 +420,9 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第1组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "绿翠现代实验学校（小学部）",
       "official_primary_names": [
@@ -461,8 +461,8 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "金影小学",
       "official_primary_names": [
@@ -495,8 +495,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第8组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "三滘小学",
       "official_primary_names": [
@@ -535,8 +535,8 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "赤岗小学",
       "official_primary_names": [
@@ -575,8 +575,8 @@
         "gz-440105-77baeea5",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第4组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "海珠区实验小学",
       "official_primary_names": [
@@ -619,8 +619,8 @@
         "gz-440105-eaf414df",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第5组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "南武小学",
       "official_primary_names": [
@@ -665,8 +665,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第3组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "后乐园街小学",
       "official_primary_names": [
@@ -705,9 +705,9 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "海珠区第二实验小学(江海校区)",
       "official_primary_names": [
@@ -746,8 +746,8 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "东风小学",
       "official_primary_names": [
@@ -776,9 +776,9 @@
         "gz-440105-cac39935",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第10组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "海珠区第三实验小学",
       "official_primary_names": [
@@ -823,9 +823,9 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第3组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "红棉小学(顺意校区)",
       "official_primary_names": [
@@ -868,8 +868,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第1组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "万松园小学(松园校区)",
       "official_primary_names": [
@@ -912,8 +912,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第1组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "大元帅府小学(西校区)",
       "official_primary_names": [
@@ -958,8 +958,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第7组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "晓港西马路小学",
       "official_primary_names": [
@@ -1004,8 +1004,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第7组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "培红小学",
       "official_primary_names": [
@@ -1050,8 +1050,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第7组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "昌岗东路小学(北校区)",
       "official_primary_names": [
@@ -1086,9 +1086,9 @@
         "gz-440105-f88edb06",
         "gz-440105-44b3dc01"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第8组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "南武文润学校(小学部)",
       "official_primary_names": [
@@ -1127,8 +1127,8 @@
         "gz-440105-77baeea5",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第4组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "江南新村第一小学",
       "official_primary_names": [
@@ -1173,8 +1173,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第3组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "新民六街小学(北校区)",
       "official_primary_names": [
@@ -1213,8 +1213,8 @@
         "gz-440105-77baeea5",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第4组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市海珠区实验小学(富基校区)",
       "official_primary_names": [
@@ -1259,8 +1259,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第3组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "菩提路小学(缘觉校区)",
       "official_primary_names": [
@@ -1295,8 +1295,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第9组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市海珠区瀛洲小学",
       "official_primary_names": [
@@ -1341,8 +1341,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第7组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "石溪劬劳小学",
       "official_primary_names": [
@@ -1385,8 +1385,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第1组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "大元帅府小学(东校区)",
       "official_primary_names": [
@@ -1431,8 +1431,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第7组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "五凤小学(南华校区)",
       "official_primary_names": [
@@ -1479,8 +1479,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第2组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "同福中路第一小学",
       "official_primary_names": [
@@ -1519,9 +1519,9 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "知信小学泓景校区",
       "official_primary_names": [
@@ -1560,8 +1560,8 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "龙潭小学(龙潭立交)",
       "official_primary_names": [
@@ -1604,8 +1604,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第1组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "海联路小学",
       "official_primary_names": [
@@ -1644,9 +1644,9 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "知信小学",
       "official_primary_names": [
@@ -1665,7 +1665,7 @@
       "feed_school_ids_from_middle": [
         "gz-440105-77baeea5"
       ],
-      "groups": [
+      "mechanisms": [
         "zhi_sheng"
       ],
       "name": "广州市南武中学附属学校",
@@ -1709,8 +1709,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第1组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "大元帅府小学",
       "official_primary_names": [
@@ -1739,9 +1739,9 @@
         "gz-440105-cac39935",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第10组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "新洲小学分校",
       "official_primary_names": [
@@ -1784,8 +1784,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第1组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "前进路小学",
       "official_primary_names": [
@@ -1824,8 +1824,8 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "新港路小学",
       "official_primary_names": [
@@ -1872,8 +1872,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第2组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "镇泰实验小学",
       "official_primary_names": [
@@ -1916,8 +1916,8 @@
         "gz-440105-eaf414df",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第5组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "晓港湾小学(晓港湾校区)",
       "official_primary_names": [
@@ -1956,8 +1956,8 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "赤岗东小学",
       "official_primary_names": [
@@ -1986,9 +1986,9 @@
         "gz-440105-cac39935",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第10组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "黄埔小学",
       "official_primary_names": [
@@ -2033,8 +2033,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第7组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市海珠区晓园小学",
       "official_primary_names": [
@@ -2073,9 +2073,9 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "海珠区第二实验小学",
       "official_primary_names": [
@@ -2110,8 +2110,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第9组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "北山小学",
       "official_primary_names": [
@@ -2152,9 +2152,9 @@
         "gz-440105-f88edb06",
         "gz-440105-747245e1"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第4组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "昌岗中路小学(本校区)",
       "official_primary_names": [
@@ -2197,8 +2197,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第1组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "万松园小学(云桂校区)",
       "official_primary_names": [
@@ -2243,8 +2243,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第7组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "南燕小学",
       "official_primary_names": [
@@ -2287,8 +2287,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第1组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "基立道小学(长安校区)",
       "official_primary_names": [
@@ -2331,8 +2331,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第1组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "基立道小学",
       "official_primary_names": [
@@ -2375,8 +2375,8 @@
         "gz-440105-eaf414df",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第5组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "海珠区瑞宝小学(北校区)",
       "official_primary_names": [
@@ -2415,9 +2415,9 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "聚德西路小学",
       "official_primary_names": [
@@ -2456,9 +2456,9 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "聚德东小学",
       "official_primary_names": [
@@ -2497,9 +2497,9 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "新港中路小学",
       "official_primary_names": [
@@ -2546,8 +2546,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第2组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "同福中路第一小学(西校区)",
       "official_primary_names": [
@@ -2582,8 +2582,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第9组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "海珠区仑头小学",
       "official_primary_names": [
@@ -2630,8 +2630,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第2组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "宝玉直小学宝贤校区",
       "official_primary_names": [
@@ -2674,8 +2674,8 @@
         "gz-440105-eaf414df",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第5组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "金碧第一小学(西校区)",
       "official_primary_names": [
@@ -2714,8 +2714,8 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "客村小学",
       "official_primary_names": [
@@ -2758,8 +2758,8 @@
         "gz-440105-eaf414df",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第5组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "中山小学",
       "official_primary_names": [
@@ -2792,8 +2792,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第8组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "南武实验小学",
       "official_primary_names": [
@@ -2836,8 +2836,8 @@
         "gz-440105-eaf414df",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第5组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "瑞宝小学(南校区)",
       "official_primary_names": [
@@ -2872,8 +2872,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第9组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "土华小学",
       "official_primary_names": [
@@ -2918,8 +2918,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第7组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "海富小学",
       "official_primary_names": [
@@ -2964,8 +2964,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第3组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "新民六街小学(南校区)",
       "official_primary_names": [
@@ -3004,9 +3004,9 @@
         "gz-440105-77baeea5",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第4组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "海珠区江南新村第二小学",
       "official_primary_names": [
@@ -3045,8 +3045,8 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "逸景第一小学(金穗校区)",
       "official_primary_names": [
@@ -3091,8 +3091,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第7组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "晓港东马路小学",
       "official_primary_names": [
@@ -3121,9 +3121,9 @@
         "gz-440105-cac39935",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第10组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "广州市执信中学琶洲实验学校",
       "official_primary_names": [
@@ -3168,8 +3168,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第3组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "梅园西路小学(南校区)",
       "official_primary_names": [
@@ -3212,8 +3212,8 @@
         "gz-440105-eaf414df",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第5组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "晓港湾小学(瑞宝花园校区)",
       "official_primary_names": [
@@ -3256,8 +3256,8 @@
         "gz-440105-eaf414df",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第5组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市海珠区南武小学(北校区)",
       "official_primary_names": [
@@ -3302,8 +3302,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第3组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市海珠区梅园西路小学(北校区)",
       "official_primary_names": [
@@ -3350,8 +3350,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第2组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "邓世昌纪念小学",
       "official_primary_names": [
@@ -3386,8 +3386,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第9组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市海珠区赤沙小学",
       "official_primary_names": [
@@ -3434,8 +3434,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第2组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "宝玉直小学(宝岗校区)",
       "official_primary_names": [
@@ -3478,8 +3478,8 @@
         "gz-440105-eaf414df",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第5组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "金碧第一小学东校区",
       "official_primary_names": [
@@ -3524,8 +3524,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第7组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "五凤小学",
       "official_primary_names": [
@@ -3572,8 +3572,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第2组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "同福西路小学(龙庆校区)",
       "official_primary_names": [
@@ -3620,8 +3620,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第2组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "海珠镇泰实验小学(同福校区)",
       "official_primary_names": [
@@ -3660,8 +3660,8 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "逸景第一小学(本校区)",
       "official_primary_names": [
@@ -3708,8 +3708,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第2组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "同福中路第一小学(南校区)",
       "official_primary_names": [
@@ -3754,9 +3754,9 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第3组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "广州市海珠区宝玉直实验小学(光大校区)",
       "official_primary_names": [
@@ -3795,9 +3795,9 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "广州市海珠区绿翠小学",
       "official_primary_names": [
@@ -3840,8 +3840,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第1组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "滨江东路小学",
       "official_primary_names": [
@@ -3886,8 +3886,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第3组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "菩提路小学",
       "official_primary_names": [
@@ -3934,8 +3934,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第2组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "鹤鸣五巷小学",
       "official_primary_names": [
@@ -3980,8 +3980,8 @@
         "gz-440105-f0712355",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第3组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市海珠区宝玉直实验星悦小学",
       "official_primary_names": [
@@ -4020,8 +4020,8 @@
         "gz-440105-6ee54f1d",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第6组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "凤江小学",
       "official_primary_names": [
@@ -4064,9 +4064,9 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第1组",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "怡乐路小学(嘉仕校区)",
       "official_primary_names": [
@@ -4109,8 +4109,8 @@
         "gz-440105-f8dbd57c",
         "gz-440105-f88edb06"
       ],
-      "groups": [
-        "海珠区 2026 年公办初中普通电脑派位第1组"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "江南大道中小学",
       "official_primary_names": [

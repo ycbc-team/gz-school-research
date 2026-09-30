@@ -18,6 +18,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第1组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "万松园小学(云桂校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -38,6 +41,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第1组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "万松园小学(松园校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -54,6 +60,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第8组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "三滘小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -73,6 +82,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "东风小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -92,6 +104,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第5组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "中山小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -112,6 +127,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第7组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "五凤小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -132,6 +150,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第7组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "五凤小学(南华校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -151,6 +172,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "凤江小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -171,6 +195,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第1组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "前进路小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -187,6 +214,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第9组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "北山小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -195,6 +225,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "华怡小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -203,6 +234,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "华海双语学校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -211,6 +243,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "华立小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -227,6 +260,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第8组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "南武实验小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -246,6 +282,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第5组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "南武小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -262,6 +301,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第8组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "南武文润学校(小学部)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -282,6 +324,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第7组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "南燕小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -290,6 +335,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "博爱学校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -306,6 +352,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第8组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "卫国尧纪念小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -326,6 +375,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第2组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "同福中路第一小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -346,6 +398,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第2组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "同福中路第一小学(南校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -366,6 +421,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第2组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "同福中路第一小学(西校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -386,6 +444,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第2组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "同福西路小学(龙庆校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -394,6 +455,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "名门珠江小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -413,6 +475,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第3组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "后乐园街小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -429,6 +494,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第9组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "土华小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -449,6 +517,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第7组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "培红小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -469,6 +540,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第1组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "基立道小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -489,6 +563,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第1组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "基立道小学(长安校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -509,6 +586,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第1组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "大元帅府小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -529,6 +609,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第1组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "大元帅府小学(东校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -549,6 +632,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第1组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "大元帅府小学(西校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -559,6 +645,9 @@
     "广州市绿翠现代实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "大江苑小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -567,6 +656,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "奥通小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -587,6 +677,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第2组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "宝玉直小学(宝岗校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -607,6 +700,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第2组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "宝玉直小学宝贤校区",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -626,6 +722,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "客村小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -634,6 +733,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广东实验中学琶洲学校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -642,6 +742,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市为明学校(光大校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -652,6 +753,9 @@
     "广州市南武中学附属学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广州市南武中学附属学校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -667,6 +771,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第10组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市执信中学琶洲实验学校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -675,6 +782,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市海珠区东风第二小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -683,6 +791,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市海珠区华光小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -702,6 +811,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第5组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市海珠区南武小学(北校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -710,6 +822,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市海珠区启能学校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -729,6 +842,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第3组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市海珠区宝玉直实验小学(光大校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -748,6 +864,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第3组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市海珠区宝玉直实验小学(南边路校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -767,6 +886,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第3组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市海珠区宝玉直实验星悦小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -775,6 +897,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市海珠区宝玉直实验第二小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -793,6 +916,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第4组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市海珠区实验小学(富基校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -813,6 +939,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第7组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市海珠区昌岗东路小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -833,6 +962,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第7组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市海珠区晓园小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -852,6 +984,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第3组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市海珠区梅园西路小学(北校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -868,6 +1003,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第9组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市海珠区瀛洲小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -876,6 +1014,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市海珠区第四实验小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -895,6 +1034,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市海珠区绿翠小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -903,6 +1045,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市海珠区育华学校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -919,6 +1062,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第9组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市海珠区赤沙小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -939,6 +1085,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第1组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市海珠外国语实验中学附属小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -947,6 +1096,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市海珠外国语实验中学附属第二小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -965,6 +1115,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第4组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州昌岗中路小学分校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -973,6 +1126,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州海珠华洲实验学校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -981,6 +1135,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州贝赛思学校(琶洲)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1001,6 +1156,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第1组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "怡乐路小学(嘉仕校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1020,6 +1178,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第3组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "新民六街小学(北校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1039,6 +1200,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第3组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "新民六街小学(南校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1054,6 +1218,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第10组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "新洲小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1069,6 +1236,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第10组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "新洲小学分校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1088,6 +1258,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "新港中路小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1107,6 +1280,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "新港路小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1126,6 +1302,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "新港路小学(东校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1146,6 +1325,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第7组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "昌岗东路小学(北校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1164,6 +1346,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第4组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "昌岗中路小学(本校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1172,6 +1357,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "春华学校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1180,6 +1366,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "春晖学校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1188,6 +1375,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "春蕾实验学校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1208,6 +1396,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第7组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "晓港东马路小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1227,6 +1418,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第5组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "晓港湾小学(晓港湾校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1246,6 +1440,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第5组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "晓港湾小学(瑞宝花园校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1266,6 +1463,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第7组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "晓港西马路小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1285,6 +1485,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第3组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "梅园西路小学(南校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1303,6 +1506,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第4组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "汇源大街小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1323,6 +1529,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第1组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "江南大道中小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1341,6 +1550,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第4组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "江南新村第一小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1359,6 +1571,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第4组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "江南新村第一小学(青凤校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1379,6 +1594,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第7组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "海富小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1395,6 +1613,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第9组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "海珠区仑头小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1413,6 +1634,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第4组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "海珠区实验小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1431,6 +1655,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第4组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "海珠区江南新村第二小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1450,6 +1677,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第5组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "海珠区瑞宝小学(北校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1465,6 +1695,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第10组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "海珠区第三实验小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1484,6 +1717,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "海珠区第二实验小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1503,6 +1739,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "海珠区第二实验小学(江海校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1511,6 +1750,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "海珠小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1519,6 +1759,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "海珠康乐小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1539,6 +1780,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第2组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "海珠镇泰实验小学(同福校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1559,6 +1803,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第1组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "海联路小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1579,6 +1826,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第1组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "滨江东路小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1598,6 +1848,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第5组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "瑞宝小学(南校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1617,6 +1870,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "知信小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1636,6 +1892,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "知信小学泓景校区",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1656,6 +1915,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第7组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "石溪劬劳小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1675,6 +1937,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第3组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "红棉小学(顺意校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1695,6 +1960,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第1组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "绿翠现代实验学校（小学部）",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1714,6 +1982,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "聚德东小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1733,6 +2004,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "聚德西路小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1752,6 +2026,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第3组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "菩提路小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1771,6 +2048,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第3组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "菩提路小学(缘觉校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1790,6 +2070,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "赤岗东小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1809,6 +2092,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "赤岗小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1828,6 +2114,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "逸景第一小学(本校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1847,6 +2136,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "逸景第一小学(金穗校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1867,6 +2159,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第2组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "邓世昌纪念小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1886,6 +2181,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "金影小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1905,6 +2203,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第5组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "金碧第一小学(西校区)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1924,6 +2225,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第5组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "金碧第一小学东校区",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1932,6 +2236,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "金雁宏天学校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1952,6 +2257,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第2组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "镇泰实验小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1972,6 +2280,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第2组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "鹤鸣五巷小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1987,6 +2298,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第10组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "黄埔小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -1995,6 +2309,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "龙华学校",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -2003,6 +2318,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "龙海小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -2011,6 +2327,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "龙涛小学",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
@@ -2030,6 +2347,9 @@
     "广东实验中学琶洲学校"
    ],
    "group": "海珠区公办初中第6组电脑派位",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "龙潭小学(龙潭立交)",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   }

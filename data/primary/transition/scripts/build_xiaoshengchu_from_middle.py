@@ -22,6 +22,8 @@ from collections import defaultdict
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 OUT = os.path.join(ROOT, "data", "primary", "transition", "parsed")
 DISTRICTS = ("yuexiu", "liwan", "baiyun", "haizhu", "huangpu")
+# 机制枚举输出顺序（对齐初中 MECH_ORDER：zhi_sheng → single_zone → group_paidui → single_paidui → min_zi_zhu）
+XS_MECH_ORDER = ("zhi_sheng", "single_zone", "group_paidui", "single_paidui", "min_zi_zhu")
 
 sys.path.insert(0, os.path.join(ROOT, "data", "primary", "transition", "scripts"))
 from xs_resolver import XsResolver  # noqa: E402
@@ -69,7 +71,7 @@ def reverse_district(district, entity_names):
                 "name": entity_names.get(primary_id, official_primary),
                 "school_id": primary_id,
                 "official_primary_names": [],
-                "groups": [],
+                "mechanisms": [],
                 "feed_junior_highs": [],
                 "feed_school_ids_from_middle": [],
                 "direct_feed": [],
@@ -79,9 +81,10 @@ def reverse_district(district, entity_names):
             })
             if official_primary not in row["official_primary_names"]:
                 row["official_primary_names"].append(official_primary)
-            note = r.get("mechanism_note") or r.get("mechanism") or ""
-            if note not in row["groups"]:
-                row["groups"].append(note)
+            # 机制直接取自初中转录 mechanism 枚举（与初中枚举对齐，raw 同源）；
+            # 不再取 mechanism_note（那是备注文本，不是机制）。
+            if r.get("mechanism") not in row["mechanisms"]:
+                row["mechanisms"].append(r["mechanism"])
             is_direct = district in {"yuexiu", "haizhu", "huangpu"} and r.get("mechanism") == "single_zone"
             for mid in mids:
                 mid_name = entity_names.get(mid, r.get("school") or mid)
@@ -92,6 +95,8 @@ def reverse_district(district, entity_names):
                 if is_direct and mid_name not in row["direct_feed"]:
                     row["direct_feed"].append(mid_name)
     records = sorted(by_primary.values(), key=lambda r: (r["name"], r["school_id"]))
+    for r in records:
+        r["mechanisms"] = [m for m in XS_MECH_ORDER if m in r["mechanisms"]]
     return {
         "year": 2026,
         "district": source["district"],

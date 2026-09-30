@@ -15,25 +15,16 @@ const GAP_MARKERS = ['待查', '未在', '缺口', '暂缺'];
 const STAGE_LABEL: Record<SchoolStage, string> = { primary: '小学部', middle: '初中部', high: '高中部' };
 const STAGE_SHORT: Record<SchoolStage, string> = { primary: '小学', middle: '初中', high: '高中' };
 
-/** 小学升学机制标签（用户口径：直升 / 派位 / 抽签）。
- * 数据层未结构化机制枚举，group 文本（如「白云区小升初对口（单校划片；多校（部分地段/统筹））」、
- * 「越秀区小升初第一组（多校划片·电脑派位）」、「番禺区小升初对口（电脑抽签）」）是权威分组说明，
- * 这里只做归类展示。顺序固定：直升 → 派位 → 抽签（参照初中机制块 MECH_ORDER 先直升后派位）。
- * 「不参加/不参与…派位」否定语境（如「对口直升（不参加电脑派位）」「协和…不参加荔湾区公办初中派位」）
- * 不计派位；缺口组（「不参与公办派位/待核」等）无机制标签。 */
-export function parseXsMechanisms(group: string | null | undefined): string[] {
-  if (!group) return [];
-  const g = group;
-  const out: string[] = [];
-  // 直升：对口直升 / 单校划片 / 单校（…） / 九年制/十二年制（含内部直升惯例）
-  if (/对口直升|单校划片|单校（|九年制|十二年制|内部直升|直升/.test(g)) out.push('直升');
-  // 派位：电脑派位 / 多校划片 / 多校（…） / 部分毕业生（多校）；排除「不参加/不参与…派位」语境
-  const noPaidui = /不(?:参加|参与)[^。；]*派位/.test(g);
-  if (!noPaidui && /电脑派位|多校划片|多校（|部分毕业生/.test(g)) out.push('派位');
-  // 抽签：电脑抽签 / 摇号
-  if (/抽签|摇号/.test(g)) out.push('抽签');
-  return out;
-}
+/** 小学升学机制徽章 label（与初中招生机制 DEFAULT_DEFS label 完全一致；枚举 key 即配色类名）。
+ * 机制枚举在数据层固化（parsed 转录解析 + from_middle 初中直写；dist 五区以初中反推为准），
+ * 运行时只读数据字段、零文本匹配。 */
+export const XS_MECH_LABELS: Record<string, string> = {
+  zhi_sheng: '对口直升',
+  single_zone: '单校划片',
+  group_paidui: '多校电脑派位',
+  single_paidui: '电脑派位',
+  min_zi_zhu: '自主招生',
+};
 
 export interface DetailRow { label: string; value: string; strong?: boolean }
 export interface DetailBadge { text: string; cls: string }
@@ -153,7 +144,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     if (stage !== 'primary' || !xsRecord) return null;
     return {
       group: xsRecord.group,
-      mechanisms: parseXsMechanisms(xsRecord.group),
+      mechanisms: xsRecord.mechanisms || [],
       feed_junior_highs: xsRecord.feed_junior_highs || [],
       direct_feed: xsRecord.direct_feed,
       source_note: xsRecord.source_note,

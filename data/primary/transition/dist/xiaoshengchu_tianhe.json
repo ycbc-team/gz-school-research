@@ -8,6 +8,9 @@
     "广州市第十八中学"
    ],
    "group": "天河区公办初中对口直升（广州市第十八中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "东圃小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -16,6 +19,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "东明荔园学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -24,6 +28,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "东泰学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -32,6 +37,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "东风学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -40,6 +46,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "东风实验小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -50,6 +57,9 @@
     "广州奥林匹克中学（含智谷校区）"
    ],
    "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "中海康城小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -60,6 +70,9 @@
     "广州市天河区汇景实验学校"
    ],
    "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "五一小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -70,6 +83,9 @@
     "广州市天河区汇景实验学校"
    ],
    "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "五一小学红英校区",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -80,6 +96,9 @@
     "广州市天河区汇景实验学校"
    ],
    "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "五山小学(西校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -90,6 +109,9 @@
     "广州市天河中学"
    ],
    "group": "天河区公办初中对口直升（广州市天河中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "体育东路小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -100,6 +122,9 @@
     "广州市天河中学"
    ],
    "group": "天河区公办初中对口直升（广州市天河中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "体育东路小学兴国学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -110,6 +135,9 @@
     "广州市天河中学"
    ],
    "group": "天河区公办初中对口直升（广州市天河中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "体育东路小学海明学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -120,6 +148,9 @@
     "广州市天荣中学"
    ],
    "group": "天河区公办初中对口直升（广州市天荣中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "体育西路小学(东校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -130,6 +161,9 @@
     "广州市天荣中学"
    ],
    "group": "天河区公办初中对口直升（广州市天荣中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "体育西路小学(西校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -140,6 +174,9 @@
     "广州市长兴中学"
    ],
    "group": "天河区公办初中对口直升（广州市长兴中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "元岗小学(西校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -148,6 +185,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "兴华培智学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -158,6 +196,9 @@
     "广州市天河中学"
    ],
    "group": "天河区公办初中对口直升（广州市天河中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "冼村小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -166,6 +207,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "凤凰中学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -176,6 +218,9 @@
     "广州市第十八中学"
    ],
    "group": "天河区公办初中对口直升（广州市第十八中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "前进小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -186,6 +231,9 @@
     "广州市天河区汇景实验学校"
    ],
    "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "华南农业大学附属小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -196,6 +244,9 @@
     "广州中学"
    ],
    "group": "天河区公办初中对口直升（广州中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "华南师范大学附属小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -206,6 +257,9 @@
     "华南理工大学附属实验学校（初中部）"
    ],
    "group": "天河区九年制/企事业办学校小学部内部直升",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "华南理工大学附属实验学校(小学部)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -216,6 +270,9 @@
     "广州中学"
    ],
    "group": "天河区公办初中对口直升（广州中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "华康小学(海欣校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -226,6 +283,9 @@
     "广州市第一一三中学"
    ],
    "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "华景小学(北校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -236,6 +296,9 @@
     "广州市第一一三中学"
    ],
    "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "华景小学(南校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -246,6 +309,9 @@
     "广州中学"
    ],
    "group": "天河区公办初中对口直升（广州中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "华阳小学(华成校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -256,6 +322,9 @@
     "广州中学"
    ],
    "group": "天河区公办初中对口直升（广州中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "华阳小学(天河东校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -266,6 +335,9 @@
     "广州中学"
    ],
    "group": "天河区公办初中对口直升（广州中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "华阳小学(林和东校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -276,6 +348,9 @@
     "广州市南国学校"
    ],
    "group": "天河区公办初中对口直升（广州市南国学校划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "南国学校(小学部)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -286,6 +361,9 @@
     "广州奥林匹克中学（含智谷校区）"
    ],
    "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "吉山小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -294,6 +372,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "同仁实验学校东校区",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -302,6 +381,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "同仁实验学校小学部",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -312,6 +392,9 @@
     "广州市第一一三中学"
    ],
    "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "员村小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -322,6 +405,9 @@
     "广州市第一一三中学"
    ],
    "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "员村小学(美林分校)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -333,6 +419,9 @@
     "广州市天河外国语均和学校"
    ],
    "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）、广州市天河外国语均和学校划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "均和小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -341,6 +430,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "培智学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -349,6 +439,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "培艺学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -359,6 +450,9 @@
     "广州市第一一三中学"
    ],
    "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "天府路小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -369,6 +463,9 @@
     "广州市第一一三中学"
    ],
    "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "天府路小学翠湖校区",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -379,6 +476,9 @@
     "广州市天河区汇景实验学校"
    ],
    "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "天河区五山小学(东校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -389,6 +489,9 @@
     "广州市第七十五中学"
    ],
    "group": "天河区公办初中对口直升（广州市第七十五中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "天河区侨乐小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -399,6 +502,9 @@
     "广州市泰安中学"
    ],
    "group": "天河区公办初中对口直升（广州市泰安中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "天河区凌塘小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -407,6 +513,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "天河区成龙中学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -417,6 +524,9 @@
     "广州奥林匹克中学（含智谷校区）"
    ],
    "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "天河区新元小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -427,6 +537,9 @@
     "广州市天河区智谷第一实验学校"
    ],
    "group": "天河区九年制/企事业办学校小学部内部直升",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "天河区智谷第一实验学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -437,6 +550,9 @@
     "广州市第一一三中学"
    ],
    "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "天河区石东小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -445,6 +561,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "天河明珠中英文学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -453,6 +570,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "官方未单列（待核）",
+   "mechanisms": [],
    "name": "天河智慧城第一小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -463,6 +581,9 @@
     "广州市天河中学"
    ],
    "group": "天河区公办初中对口直升（广州市天河中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "天河第一小学(华利校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -471,6 +592,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "天泽中学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -479,6 +601,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "天骄中英文学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -489,6 +612,9 @@
     "广州奥林匹克中学（含智谷校区）"
    ],
    "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "奥体东小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -499,6 +625,9 @@
     "广东实验中学天河学校"
    ],
    "group": "天河区九年制/企事业办学校小学部内部直升",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广东实验中学天河学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -509,6 +638,9 @@
     "广州市第八十九中学"
    ],
    "group": "天河区公办初中对口直升（广州市第八十九中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广东生态工程职业学院附属小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -519,6 +651,9 @@
     "广州中学天河燕园学校"
    ],
    "group": "天河区九年制/企事业办学校小学部内部直升",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广州中学天河燕园学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -527,6 +662,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州华美英语实验学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -537,6 +673,9 @@
     "广州市第七十五中学"
    ],
    "group": "天河区公办初中对口直升（广州市第七十五中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州华阳集团侨乐小学(北校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -545,6 +684,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州大华中英文学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -555,6 +695,9 @@
     "广州奥林匹克中学（含智谷校区）"
    ],
    "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州奥林匹克中学（智谷校区）小学部",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -565,6 +708,9 @@
     "广州市华颖外国语学校（广州市华颖中学）"
    ],
    "group": "天河区公办初中对口直升（广州市华颖外国语学校（广州市华颖中学）划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市华颖外国语学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -575,6 +721,9 @@
     "广州市天河中学猎德实验学校"
    ],
    "group": "天河区公办初中对口直升（广州市天河中学猎德实验学校划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河中学猎德实验学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -585,6 +734,9 @@
     "广州市长兴中学"
    ],
    "group": "天河区公办初中对口直升（广州市长兴中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区元岗小学(东校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -595,6 +747,9 @@
     "广州市第七十五中学"
    ],
    "group": "天河区公办初中对口直升（广州市第七十五中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区先烈东小学(沙河校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -603,6 +758,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市天河区华实学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -613,6 +769,9 @@
     "广州中学"
    ],
    "group": "天河区公办初中对口直升（广州中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区华康小学(华文校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -623,6 +782,9 @@
     "广州市第一一三中学"
    ],
    "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区华融小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -633,6 +795,9 @@
     "广州中学"
    ],
    "group": "天河区公办初中对口直升（广州中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区华阳小学(天润校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -643,6 +808,9 @@
     "广州市第八十九中学"
    ],
    "group": "天河区公办初中对口直升（广州市第八十九中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区华阳教育集团高塘石小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -651,6 +819,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市天河区同仁学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -659,6 +828,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市天河区同仁艺体实验小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -667,6 +837,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市天河区启慧学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -677,6 +848,9 @@
     "广州市第七十五中学"
    ],
    "group": "天河区公办初中对口直升（广州市第七十五中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区四海小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -687,6 +861,9 @@
     "广州市第一一三中学"
    ],
    "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区天府路小学建业校区",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -697,6 +874,9 @@
     "广州市天河区智谷第一实验学校"
    ],
    "group": "天河区公办初中对口直升（广州市天河区智谷第一实验学校划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区天英小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -707,6 +887,9 @@
     "广州市长兴中学"
    ],
    "group": "天河区公办初中对口直升（广州市长兴中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区岑村小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -717,6 +900,9 @@
     "广州市第一一三中学"
    ],
    "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区昌乐小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -727,6 +913,9 @@
     "广州市第八十九中学"
    ],
    "group": "天河区公办初中对口直升（广州市第八十九中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区柯木塱小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -737,6 +926,9 @@
     "广州市泰安中学"
    ],
    "group": "天河区公办初中对口直升（广州市泰安中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区棠德南小学(北校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -747,6 +939,9 @@
     "广州市泰安中学"
    ],
    "group": "天河区公办初中对口直升（广州市泰安中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区泰安小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -757,6 +952,9 @@
     "广州市天河中学"
    ],
    "group": "天河区公办初中对口直升（广州市天河中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区第一实验小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -767,6 +965,9 @@
     "广州中学"
    ],
    "group": "天河区公办初中对口直升（广州中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区长征小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -775,6 +976,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市天河区长虹小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -785,6 +987,9 @@
     "广州奥林匹克中学（含智谷校区）"
    ],
    "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区黄村小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -795,6 +1000,9 @@
     "广州中学"
    ],
    "group": "天河区公办初中对口直升（广州中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河区龙口西小学(帝景校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -803,6 +1011,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市天河同仁天兴学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -813,6 +1022,9 @@
     "广州市天河外国语智谷学校"
    ],
    "group": "天河区九年制/企事业办学校小学部内部直升",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广州市天河外国语智谷学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -823,6 +1035,9 @@
     "广州市天河中学"
    ],
    "group": "天河区公办初中对口直升（广州市天河中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市天河第一小学(华穗校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -833,6 +1048,9 @@
     "广州市第一一三中学陶育实验学校"
    ],
    "group": "天河区公办初中对口直升（广州市第一一三中学陶育实验学校划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "广州市第一一三中学陶育实验学校小学部",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -843,6 +1061,9 @@
     "广州市长兴中学"
    ],
    "group": "天河区公办初中对口直升（广州市长兴中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "御景小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -851,6 +1072,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "志才小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -861,6 +1083,9 @@
     "广州市长兴中学"
    ],
    "group": "天河区公办初中对口直升（广州市长兴中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "志远小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -871,6 +1096,9 @@
     "广州市泰安中学"
    ],
    "group": "天河区公办初中对口直升（广州市泰安中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "新塘小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -879,6 +1107,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "新昌学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -887,6 +1116,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "新蕾五星学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -895,6 +1125,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "新蕾学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -905,6 +1136,9 @@
     "广州奥林匹克中学（含智谷校区）"
    ],
    "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "旭景小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -915,6 +1149,9 @@
     "广州市第一一三中学"
    ],
    "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "昌乐小学(旭日校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -925,6 +1162,9 @@
     "暨南大学附属实验学校（初中部）"
    ],
    "group": "天河区九年制/企事业办学校小学部内部直升",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "暨南大学附属实验学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -935,6 +1175,9 @@
     "广州市骏景中学"
    ],
    "group": "天河区公办初中对口直升（广州市骏景中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "棠下小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -945,6 +1188,9 @@
     "广州市泰安中学"
    ],
    "group": "天河区公办初中对口直升（广州市泰安中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "棠东小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -955,6 +1201,9 @@
     "广州市泰安中学"
    ],
    "group": "天河区公办初中对口直升（广州市泰安中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "棠德南小学南校区",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -963,6 +1212,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "棠福学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -973,6 +1223,9 @@
     "广州市天河区汇景实验学校"
    ],
    "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "汇景实验学校（华园校区）小学部",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -983,6 +1236,9 @@
     "广州市天河区汇景实验学校"
    ],
    "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "汇景实验学校（小学部）",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -991,6 +1247,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "汇景新城实验小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1001,6 +1258,9 @@
     "广州市泰安中学"
    ],
    "group": "天河区公办初中对口直升（广州市泰安中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "沐陂小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1011,6 +1271,9 @@
     "广州市第七十五中学"
    ],
    "group": "天河区公办初中对口直升（广州市第七十五中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "沙河小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1022,6 +1285,10 @@
     "清华附中湾区学校（智慧城校区）"
    ],
    "group": "天河区九年制学校内部直升（官方未单列小学部直升，按区属九年制直升惯例）+ 附件10全区电脑派位",
+   "mechanisms": [
+    "zhi_sheng",
+    "min_zi_zhu"
+   ],
    "name": "清华附中湾区学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1033,6 +1300,10 @@
     "清华附中湾区学校（智慧城校区）"
    ],
    "group": "天河区九年制学校内部直升（官方未单列小学部直升，按区属九年制直升惯例）+ 附件10全区电脑派位",
+   "mechanisms": [
+    "zhi_sheng",
+    "min_zi_zhu"
+   ],
    "name": "清华附中湾区学校（智慧城校区）",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1041,6 +1312,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "渔兴小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1051,6 +1323,9 @@
     "广州市第八十九中学"
    ],
    "group": "天河区公办初中对口直升（广州市第八十九中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "渔沙坦小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1061,6 +1336,9 @@
     "广州奥林匹克中学（含智谷校区）"
    ],
    "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "灵秀小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1071,6 +1349,9 @@
     "广州奥林匹克中学（含智谷校区）"
    ],
    "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "珠村小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1081,6 +1362,9 @@
     "广州市第十八中学"
    ],
    "group": "天河区公办初中对口直升（广州市第十八中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "盈彩美居小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1092,6 +1376,9 @@
     "广州市第一一三中学陶育实验学校"
    ],
    "group": "天河区公办初中对口直升（广州市天河中学、广州市第一一三中学陶育实验学校划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "石牌小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1100,6 +1387,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "科韵路学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1110,6 +1398,9 @@
     "广州市第十八中学"
    ],
    "group": "天河区公办初中对口直升（广州市第十八中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "羊城花园小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1120,6 +1411,9 @@
     "广州市第十八中学"
    ],
    "group": "天河区公办初中对口直升（广州市第十八中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "车陂小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1130,6 +1424,9 @@
     "广州市第七十五中学"
    ],
    "group": "天河区公办初中对口直升（广州市第七十五中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "银河小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1140,6 +1437,9 @@
     "广州市第七十五中学"
    ],
    "group": "天河区公办初中对口直升（广州市第七十五中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "银河小学(橡树园校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1150,6 +1450,9 @@
     "广州市长兴中学"
    ],
    "group": "天河区公办初中对口直升（广州市长兴中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "长兴小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1160,6 +1463,9 @@
     "广州市长兴中学"
    ],
    "group": "天河区公办初中对口直升（广州市长兴中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "长湴小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1170,6 +1476,9 @@
     "广州市骏景中学"
    ],
    "group": "天河区公办初中对口直升（广州市骏景中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "骏景小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1178,6 +1487,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "黄村中英文学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1188,6 +1498,9 @@
     "广州中学"
    ],
    "group": "天河区公办初中对口直升（广州中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "龙口西小学(天阳校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1198,6 +1511,9 @@
     "广州中学"
    ],
    "group": "天河区公办初中对口直升（广州中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "龙口西小学(瑞安校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1208,6 +1524,9 @@
     "广州中学"
    ],
    "group": "天河区公办初中对口直升（广州中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "龙口西小学(穗园校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1218,6 +1537,9 @@
     "广州中学"
    ],
    "group": "天河区公办初中对口直升（广州中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "龙口西小学(龙口校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1226,6 +1548,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "龙圣学校",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1236,6 +1559,9 @@
     "广州市天荣中学"
    ],
    "group": "天河区公办初中对口直升（广州市天荣中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "龙岗路小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1246,6 +1572,9 @@
     "广州市第八十九中学"
    ],
    "group": "天河区公办初中对口直升（广州市第八十九中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "龙洞小学",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1256,6 +1585,9 @@
     "广州市第八十九中学"
    ],
    "group": "天河区公办初中对口直升（广州市第八十九中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "龙洞小学(宝翠园校区)",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
@@ -1266,6 +1598,9 @@
     "广州市第八十九中学"
    ],
    "group": "天河区公办初中对口直升（广州市第八十九中学划片）",
+   "mechanisms": [
+    "single_zone"
+   ],
    "name": "龙洞小学世纪绿洲校区",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   }

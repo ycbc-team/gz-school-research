@@ -47,6 +47,8 @@ export interface XiaoshengchuGroup {
   source_urls: string[];
   /** 组级数据缺口说明（记录级覆盖见 XiaoshengchuFactRecord.data_gaps） */
   data_gaps: string | null;
+  /** 升学机制枚举（初中枚举，与 middle/enrollment mechanism 对齐；数据层固化） */
+  mechanism: string[];
 }
 
 /** 真源事实记录（data/primary/transition/dist/xiaoshengchu_2026.json 的 records，school_id 引用实体） */
@@ -57,6 +59,8 @@ export interface XiaoshengchuFactRecord {
   feed_unresolved: string[];
   direct_feed_school_id: string | null;
   source_note?: string;
+  /** 记录级升学机制枚举（初中枚举，与 middle/enrollment mechanism 对齐；dist 五区以初中反推为准） */
+  mechanism?: string[];
   /** 仅当与组级 data_gaps 不同时存在（记录级覆盖） */
   data_gaps?: string | null;
 }
@@ -67,6 +71,8 @@ export interface XiaoshengchuRecord {
   name: string;
   /** 派位/对口分组描述（官方口径，由组表解析） */
   group: string | null;
+  /** 升学机制枚举（初中枚举，与 middle/enrollment mechanism 对齐；数据层固化，运行时零文本匹配） */
+  mechanisms: string[];
   /** 对口/派位初中名单 */
   feed_junior_highs: string[];
   /** 对口直升本校初中（直升场景，与派位名单互斥为主） */

@@ -58,7 +58,7 @@
   <view wx:if="{{model.stage === 'primary' && (model.feedRows.length || model.feedGap || (model.feedJuniors && model.feedJuniors.direct_feed))}}" class="card">
     <view class="card-title">升学路线（2026）</view>
     <view wx:if="{{model.feedJuniors.mechBadges.length}}" class="mech-row">
-      <view wx:for="{{model.feedJuniors.mechBadges}}" wx:key="text" class="badge {{item.cls}}">{{item.text}}</view>
+      <view wx:for="{{model.feedJuniors.mechBadges}}" wx:key="key" class="badge {{item.key}}">{{item.label}}</view>
     </view>
     <view wx:if="{{model.feedJuniors.group}}" class="sub-note">{{model.feedJuniors.group}}</view>
     <view wx:if="{{model.feedJuniors.direct_feed}}" class="sub-note">直升：{{model.feedJuniors.direct_feed}}</view>

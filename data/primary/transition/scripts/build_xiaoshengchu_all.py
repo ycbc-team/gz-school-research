@@ -54,16 +54,68 @@ def load_poi():
     return d['schools'] if isinstance(d, dict) and 'schools' in d else d
 
 
-def rec(name, group, feed, direct_feed, source_url, source_note, data_gaps=None):
+def rec(name, group, feed, direct_feed, source_url, source_note, data_gaps=None, mechanisms=None):
     return {
         'name': name,
         'group': group,
+        'mechanisms': mechanisms if mechanisms is not None else MECH_OF(group),
         'feed_junior_highs': feed,
         'direct_feed': direct_feed,
         'source_url': source_url,
         'source_note': source_note,
         'data_gaps': data_gaps,
     }
+
+
+def MECH_OF(group):
+    """官方小升初分组文本 → 初中机制枚举数组（与 middle/enrollment mechanism 完全对齐）。
+
+    机制在数据层（转录/构建）固化解析，运行时不再做文本匹配——前端只读枚举字段，
+    文案/配色复用初中机制（DEFAULT_DEFS label + 枚举类名）。输出顺序对齐初中 MECH_ORDER：
+    zhi_sheng → single_zone → group_paidui → single_paidui → min_zi_zhu。
+    口径对齐初中各区派位组：
+      海珠/荔湾/越秀/黄埔「第N组电脑派位」→ group_paidui（多校电脑派位，初中同区口径）；
+      天河对口划片 → single_zone（天河初中 zhi_sheng=0，对口划片标 single_zone）；
+      天河附件10 自主报名电脑派位 → min_zi_zhu；番禺电脑抽签 → single_paidui、
+      市桥城区/亚运城配建 → group_paidui（均与初中番禺记录一致）。
+    「不参加/不参与…派位」否定语境不计派位；缺口组（不参与公办派位/待核/官方未单列）→ []。
+    """
+    if not group:
+        return []
+    if '不参与公办' in group or '待核' in group:
+        return []
+    out = []
+
+    def add(k):
+        if k not in out:
+            out.append(k)
+
+    no_paidui = ('不参加' in group) or ('不参与' in group)
+    # ── 直升类（先，对齐初中 MECH_ORDER）──
+    if '对口直升' in group:
+        add('single_zone' if '天河区' in group else 'zhi_sheng')  # 天河对口划片对齐初中 single_zone
+    if '内部直升' in group:
+        add('zhi_sheng')
+    if ('九年制' in group or '十二年制' in group) and '单校（' not in group:
+        add('zhi_sheng')
+    if re.search(r'单校划片|单校（|（单校）', group):
+        add('single_zone')
+    # ── 派位类（后）──
+    if '市桥城区' in group or '亚运城' in group:
+        add('group_paidui')                        # 番禺市桥城区/亚运城配建 → 多校电脑派位
+    if '附件10' in group and '天河区' in group:
+        add('min_zi_zhu')                          # 天河附件10 自主报名电脑派位（初中天河 min_zi_zhu）
+    elif '电脑抽签' in group:
+        add('single_paidui')                       # 番禺电脑抽签 → 电脑派位（初中番禺同口径）
+    elif '电脑派位' in group and not no_paidui:
+        add('group_paidui')                        # 海珠/荔湾/黄埔/越秀派位组 → 多校电脑派位
+    if '多校' in group or '部分毕业生' in group:
+        add('group_paidui')
+    return out
+
+
+# 机制枚举输出顺序（对齐初中 MECH_ORDER；数据层统一排序，前端零排序逻辑）
+XS_MECH_ORDER = ('zhi_sheng', 'single_zone', 'group_paidui', 'single_paidui', 'min_zi_zhu')
 
 
 def build_district(adcode, district_label, name_map, direct_map, no_feed, source_url, source_note, extra_note_fn=None):
@@ -2041,6 +2093,22 @@ DISTRICT_ADCODE = {'yuexiu': '440104', 'liwan': '440103', 'baiyun': '440111', 'p
                    'haizhu': '440105', 'tianhe': '440106', 'huangpu': '440112'}
 
 
+def load_from_middle_mechanisms():
+    """初中反推机制（parsed/from_middle，5 区）：{school_id: [机制枚举]}。
+    dist 的机制以初中反推为准（raw 同源：初中转录层即有 mechanism，from_middle 直接复用）；
+    天河/番禺无 from_middle，保持官方转录解析。"""
+    out = {}
+    for key in ['yuexiu', 'liwan', 'baiyun', 'haizhu', 'huangpu']:
+        p = os.path.join(AUDIT_DIR, f'xiaoshengchu_from_middle_{key}_2026.json')
+        if not os.path.exists(p):
+            continue
+        for r in json.load(open(p, encoding='utf-8'))['records']:
+            sid = r.get('school_id')
+            if sid and r.get('mechanisms'):
+                out[sid] = r['mechanisms']
+    return out
+
+
 def merge_all():
     merged = []
     for key in ['yuexiu', 'liwan', 'baiyun', 'panyu', 'haizhu', 'tianhe', 'huangpu']:
@@ -2054,11 +2122,21 @@ def merge_all():
     # upgrade 只做去重/分组组装，不再做名字匹配；运行时（xiaoshengchu_2026.json）只依赖 school_id
     from xs_resolver import resolve_records
     merged = resolve_records(merged)
+    # dist 机制替换为初中反推（from_middle 五区）：同源且转录层即有 mechanism，官方解析仅作缺口兜底
+    from_middle = load_from_middle_mechanisms()
+    replaced = 0
+    for r in merged:
+        sid = r.get('school_id')
+        if sid and sid in from_middle:
+            r['mechanisms'] = from_middle[sid]
+            replaced += 1
+        # 输出顺序统一对齐初中 MECH_ORDER（zhi_sheng → single_zone → group_paidui → single_paidui → min_zi_zhu）
+        r['mechanisms'] = [m for m in XS_MECH_ORDER if m in (r.get('mechanisms') or [])]
     merged.sort(key=lambda r: (r.get('school_id') or '', r.get('group', '')))
     out_path = os.path.join(OUT_DIR, 'xiaoshengchu_all.json')
     json.dump({'year': 2026, 'records': merged},
               open(out_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1, sort_keys=True)
-    print(f'[汇总] 共 {len(merged)} 条记录 → {out_path}')
+    print(f'[汇总] 共 {len(merged)} 条记录 → {out_path}；机制替换为初中反推 {replaced} 条')
 
 
 if __name__ == '__main__':

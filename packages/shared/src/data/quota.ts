@@ -238,6 +238,7 @@ export function createQuotaApi(loaders: DataLoaders) {
     feed_school_ids: string[]; feed_unresolved: string[];
     direct_feed_school_id: string | null;
     source_note?: string; data_gaps?: string | null;
+    mechanism?: string[];
   };
   const xsGroups = loaders.xiaoshengchu.groups;
   const groupsById = new Map(xsGroups.map((g) => [g.id, g]));
@@ -252,6 +253,7 @@ export function createQuotaApi(loaders: DataLoaders) {
     return {
       name: displayName,
       group: g?.name ?? null,
+      mechanisms: r.mechanism ?? g?.mechanism ?? [],
       feed_junior_highs: [...feedNames, ...(r.feed_unresolved || [])],
       direct_feed: r.direct_feed_school_id ? entityById.get(r.direct_feed_school_id)?.name ?? null : null,
       source_url: g?.source_urls.join('; ') ?? '',
