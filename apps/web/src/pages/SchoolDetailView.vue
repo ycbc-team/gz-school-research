@@ -204,7 +204,7 @@ function groupNameOf(gid?: string | null): string {
  * 同区同机制多条（多组派位）合并为一块；同校多机制并存时 plan_classes 是全校总计划，
  * 徽章不重复显示班数（避免 9+9=18 误读），由 totalPlanOfMulti 展示一次。
  * 区 Badge 仅在同机制跨区（天河/越秀并存的 2 所）时才显示，其余场景一律不显示（用户：删海珠区 Badge）。
- * group_paidui 与 single_zone 同样展示 scope（招生服务范围/对口小学）与 mechanism_note（招生说明），
+ * group_paidui 与 single_zone / zhi_sheng / single_paidui 同样展示 scope（招生服务范围/对口小学）与 mechanism_note（招生说明），
  * 但跳过纯组名类备注（组名已由行 tag 展示，避免「海珠区…第1组」重复）。 */
 /** 派位组子块：按 group_id（多校派位）或单条 enroll（直升/划片/电脑派位）拆分；
  *  每个子块内依次展示：服务范围 → 生源小学 → 招生说明。 */
@@ -274,9 +274,11 @@ const mechanismBlocks = computed<MechBlock[]>(() => {
         notes: [],
         loseText: (m.mechanismDef.can_lose && m.mechanismDef.lose_text) || null,
       };
-      if (b.mech === 'single_zone') {
+      if (b.mech === 'single_zone' || b.mech === 'zhi_sheng' || b.mech === 'single_paidui') {
         // 直升小学：直接遍历 scope_school_ids 解析键（同上：不做 scope 原文分段匹配，
         // 原文段含括号注释/换行/括号内顿号会与解析键不一致导致漏行）；键按原文出现顺序展示
+        // （对口直升 zhi_sheng / 单校电脑派位 single_paidui 记录同口径：scope_school_ids 为解析器
+        // 权威「段→school_ids」结构，按原文出现顺序展示）
         const smap = rec.scope_school_ids ?? {};
         const scopeText = rec.scope ?? '';
         const orderedKeys = Object.keys(smap).sort((a, b) => {
