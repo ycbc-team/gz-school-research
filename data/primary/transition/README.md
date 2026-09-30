@@ -1,6 +1,7 @@
 # 小升初（xiaoshengchu）升学路线业务数据
 
-> 更新：2026-09-21（数据归位 `data/primary/transition/`，按 `raw / parsed / src / scripts / dist / docs` 规整，业务级 README）。
+> 更新：2026-09-30（**五区数据源切换为初中转录反推**——越秀/荔湾/白云/海珠/黄埔的 dist 由
+> `build_xiaoshengchu_from_middle.py` 产出，`build_xiaoshengchu_all.py` 不再构建五区，仅番禺/天河 + 汇总）。
 > 目的：记录广州 7 区全量小学构建 xiaoshengchu 的官方数据源、解析产物与已知缺口。
 > 构建规则见 `data/linkage/README.md` 第五节"xiaoshengchu 数据约束规则"。
 
@@ -10,9 +11,9 @@
 | --- | --- |
 | `raw/` | **已清空（2026-09-23）**。官方源文件全部共享 `data/enrollment/raw/`（小学招生/小升初/初中招生共用同一份政府官方原文件，单一权威源不复制） |
 | `parsed/_transcripts/` | A 层转录产物：各区官方文件的 Read 直读/Vision OCR/脚本解析 json（`<区>_2026*.json` + `haizhu_zone_reference.json` 参照），全部由 `scripts/` 下脚本复现 |
-| `parsed/` | B 层解析唯一真源 `2026-<区>.json`（小学招生/地段表，供构建消费）；另含 C 层审计版 `xiaoshengchu_<区>_2026.json`（完整记录，含 `source_note` 来源说明，仅审计溯源，前端不消费） |
+| `parsed/` | B 层解析唯一真源 `2026-<区>.json`（小学招生/地段表，供构建消费）；另含 C 层审计版 `xiaoshengchu_<区>_2026.json`（完整记录，含 `source_note` 来源说明，仅审计溯源，前端不消费）与**切换前线上基线** `xiaoshengchu_<区>_legacy_2026.json`（2026-09-30 存档，不可变，供反推对账 `from_middle_compare` 固定参照） |
 | `src/` | 手工维护源文件（`_anchors.json` 官方校名→school_id 锚点；初中录取备注 `middle_enroll_notes.json` 已于 2026-09-23 迁 `data/middle/enrollment/src/`） |
-| `scripts/` | 生产脚本：解析（build_district_enrollment/build_baiyun_2026/build_huangpu）、构建（build_xiaoshengchu_all + xs_resolver）、升级（upgrade_xiaoshengchu.mjs）、回填（backfill_xiaoshengchu_missing）、快照（build/check_middle_feed_snapshot） |
+| `scripts/` | 生产脚本：解析（build_district_enrollment/build_baiyun_2026/build_huangpu）、反推（build_xiaoshengchu_from_middle，五区 dist/审计/对账）、构建（build_xiaoshengchu_all：番禺/天河 + 汇总 + xs_resolver）、升级（upgrade_xiaoshengchu.mjs）、回填（backfill_xiaoshengchu_missing）、快照（build/check_middle_feed_snapshot） |
 | `dist/` | 最终运行时产物：`xiaoshengchu_<区>.json`、`xiaoshengchu_all.json`、`xiaoshengchu_2026.json`、`middle_feed_snapshot.json`、`schools-backfill.json`。**`source_note` 仅保留在 parsed 审计层，不入 dist、不展示前端**（2026-10-01 起） |
 | `docs/` | 业务文档（`xiaoshengchu_unmatched_fix_20260914.md`、`对口初中名匹配缺口清单.md`） |
 
@@ -21,7 +22,10 @@
 数据链路（A/B/C/D 四层，全程可重跑；raw 官方源共享 `data/enrollment/raw/`）：
 - **A 层（raw 原文件 → parsed/_transcripts/*.json）**：复现脚本见下表，均用迁移前基线做全量对比（0 真差异或仅修复旧版错漏）
 - **B 层（transcripts → parsed/2026-<区>.json）**：build_district_enrollment.py / build_baiyun_2026.py / build_huangpu.py / build_middle_enrollment.py
-- **C 层（parsed → parsed/xiaoshengchu_<区>_2026.json 审计版 + dist/xiaoshengchu_<区>.json + xiaoshengchu_all.json）**：build_xiaoshengchu_all.py（+ xs_resolver）。审计版保留 `source_note`；dist 版剥离 `source_note`
+- **C 层（parsed → parsed/xiaoshengchu_<区>_2026.json 审计版 + dist/xiaoshengchu_<区>.json + xiaoshengchu_all.json）**：
+  - 五区（越秀/荔湾/白云/海珠/黄埔）：**build_xiaoshengchu_from_middle.py**（初中转录反推）直接产出 dist 与审计版；
+    `build_xiaoshengchu_all.py` 不再构建五区（显式跑单区会提示跳过）。审计版保留 `source_note`；dist 版剥离 `source_note`
+  - 番禺/天河：build_xiaoshengchu_all.py 官方解析（+ xs_resolver）
 - **D 层（→ dist/xiaoshengchu_2026.json 运行时真源）**：upgrade_xiaoshengchu.mjs
 
 > **构建方向（2026-09-23 修正）**：xiaoshengchu 的官方口径本就来自**初中招生公示**（6 区：荔湾派位组/白云公办初中计划/海珠初中派位组/天河初中划片/黄埔小升初分组/番禺公办初中部分；仅越秀用独立 2022 分组表）。

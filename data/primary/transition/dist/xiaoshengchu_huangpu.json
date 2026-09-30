@@ -6,13 +6,14 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -20,21 +21,12 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
-   "data_gaps": "民办（附件8 #5 东联学校）。",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "东联学校",
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
-  },
-  {
    "data_gaps": null,
-   "direct_feed": "玉泉学校",
+   "direct_feed": null,
    "feed_junior_highs": [
     "玉泉学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -43,11 +35,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "玉泉学校",
+   "direct_feed": null,
    "feed_junior_highs": [
     "玉泉学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -56,11 +48,13 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广州知识城中学",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "广州知识城中学"
+    "广州知识城中学(北校区)",
+    "广州知识城中学(东校区)",
+    "广州知识城中学(南校区)"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -69,11 +63,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "玉岩实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "玉岩实验学校"
+    "广州市黄埔区玉岩实验学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -82,11 +76,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "玉岩实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "玉岩实验学校"
+    "广州市黄埔区玉岩实验学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -95,11 +89,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "玉岩实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "玉岩实验学校"
+    "广州市黄埔区玉岩实验学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -108,11 +102,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "玉岩实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "玉岩实验学校"
+    "广州市黄埔区玉岩实验学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -121,11 +115,13 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广州知识城中学",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "广州知识城中学"
+    "广州知识城中学(北校区)",
+    "广州知识城中学(东校区)",
+    "广州知识城中学(南校区)"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -134,11 +130,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "玉泉学校",
+   "direct_feed": null,
    "feed_junior_highs": [
     "玉泉学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -149,11 +145,11 @@
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "会元学校",
+    "广州市黄埔区会元学校",
     "广州实验中学",
-    "华南师范大学附属中学（知识城校区）"
+    "华南师范大学附属中学(知识城校区)"
    ],
-   "group": "黄埔区公办初中电脑派位第7组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -161,11 +157,17 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
-   "data_gaps": "官方 2026 名称为\"凤尾小学\"（九佛街凤尾路28号，hp.gov.cn 2022 文件），POI\"凤尾学校\"非官方名，待核是否同校。",
+   "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
+   "feed_junior_highs": [
+    "广州知识城中学(北校区)",
+    "广州知识城中学(东校区)",
+    "广州知识城中学(南校区)"
+   ],
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "凤尾学校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -174,11 +176,11 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "北京师范大学广州实验学校",
-    "铁英中学",
-    "苏元学校（西校区）",
-    "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）"
+    "广铁一中铁英中学",
+    "广州市黄埔区苏元学校(西校区)",
+    "玉岩中学附属开发区实验学校"
    ],
-   "group": "黄埔区公办初中电脑派位第5组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -186,23 +188,14 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
-   "data_gaps": "2026-09-01 新启用公办十二年制（华中师大与黄埔区合作，红山街双沙片区，中建海丝城配建）；未在 2026-04-28 招生细则单列小升初，首届新生 2026 年 9 月入学（hp.gov.cn 揭牌报道）。",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "华中师范大学黄埔实验学校",
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
-  },
-  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "会元学校",
+    "广州市黄埔区会元学校",
     "广州实验中学",
-    "华南师范大学附属中学（知识城校区）"
+    "华南师范大学附属中学(知识城校区)"
    ],
-   "group": "黄埔区公办初中电脑派位第7组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -211,11 +204,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广大附中黄埔实验学校（东校区）",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "广大附中黄埔实验学校（东校区）"
+    "广大附中黄埔实验学校(东校区)"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -224,11 +217,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "华南师范大学附属黄埔实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "华南师范大学附属黄埔实验学校"
+    "华南师范大学附属黄埔实验学校(南校区)"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -240,10 +233,10 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "华峰学校",
-    "铁英中学",
-    "开元学校"
+    "广铁一中铁英中学",
+    "广州开元学校"
    ],
-   "group": "黄埔区公办初中电脑派位第6组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -255,10 +248,10 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州开发区外国语学校",
-    "新港中学",
-    "东区中学"
+    "广州市黄埔区新港中学",
+    "广州市黄埔区东区中学"
    ],
-   "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -270,10 +263,10 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州开发区外国语学校",
-    "新港中学",
-    "东区中学"
+    "广州市黄埔区新港中学",
+    "广州市黄埔区东区中学"
    ],
-   "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -285,10 +278,10 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州开发区外国语学校",
-    "新港中学",
-    "东区中学"
+    "广州市黄埔区新港中学",
+    "广州市黄埔区东区中学"
    ],
-   "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -300,13 +293,14 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -317,11 +311,11 @@
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "会元学校",
+    "广州市黄埔区会元学校",
     "广州实验中学",
-    "华南师范大学附属中学（知识城校区）"
+    "华南师范大学附属中学(知识城校区)"
    ],
-   "group": "黄埔区公办初中电脑派位第7组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -330,11 +324,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "玉岩实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "玉岩实验学校"
+    "广州市黄埔区玉岩实验学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -343,11 +337,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广东外语外贸大学附属科学城实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
     "广东外语外贸大学附属科学城实验学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -356,11 +350,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广东外语外贸大学附属黄埔实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
     "广东外语外贸大学附属黄埔实验学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -372,13 +366,14 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州科学城中学",
-    "广东省教育研究院黄埔实验学校",
+    "广东省教育研究院黄埔实验学校（北校区）",
+    "广东省教育研究院黄埔实验学校初中部",
     "北京师范大学广州实验学校",
-    "铁英中学",
-    "苏元学校（西校区）",
-    "广州市玉岩中学"
+    "广铁一中铁英中学",
+    "广州市黄埔区苏元学校(西校区)",
+    "玉岩中学"
    ],
-   "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -390,26 +385,27 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州科学城中学",
-    "广东省教育研究院黄埔实验学校",
+    "广东省教育研究院黄埔实验学校（北校区）",
+    "广东省教育研究院黄埔实验学校初中部",
     "北京师范大学广州实验学校",
-    "铁英中学",
-    "苏元学校（西校区）",
-    "广州市玉岩中学"
+    "广铁一中铁英中学",
+    "广州市黄埔区苏元学校(西校区)",
+    "玉岩中学"
    ],
-   "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
-   "name": "广东省教育研究院黄埔实验学校(北校区)",
+   "name": "广东省教育研究院黄埔实验学校（北校区）",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
    "data_gaps": null,
-   "direct_feed": "广大附中高新区实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "广大附中高新区实验学校"
+    "广大附中高新区实验学校(初中部)"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -418,11 +414,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广大附中高新区实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "广大附中高新区实验学校"
+    "广大附中高新区实验学校(初中部)"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -431,11 +427,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广大附中黄埔实验学校（西校区）",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "广大附中黄埔实验学校（西校区）"
+    "广大附中黄埔实验学校(西校区)"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -443,35 +439,18 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
-   "data_gaps": "官方 2026 年招生文件未单列（名称疑为早期记录），待核。",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市玉岩中学附属科学城实验学校",
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
-  },
-  {
-   "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市黄埔区东区小学",
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
-  },
-  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
     "广州科学城中学",
-    "广东省教育研究院黄埔实验学校",
+    "广东省教育研究院黄埔实验学校（北校区）",
+    "广东省教育研究院黄埔实验学校初中部",
     "北京师范大学广州实验学校",
-    "铁英中学",
-    "苏元学校（西校区）",
-    "广州市玉岩中学"
+    "广铁一中铁英中学",
+    "广州市黄埔区苏元学校(西校区)",
+    "玉岩中学"
    ],
-   "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -480,11 +459,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "玉岩实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "玉岩实验学校"
+    "广州市黄埔区玉岩实验学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -493,11 +472,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "会元学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "会元学校"
+    "广州市黄埔区会元学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -508,11 +487,11 @@
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "会元学校",
+    "广州市黄埔区会元学校",
     "广州实验中学",
-    "华南师范大学附属中学（知识城校区）"
+    "华南师范大学附属中学(知识城校区)"
    ],
-   "group": "黄埔区公办初中电脑派位第7组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -523,11 +502,11 @@
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "会元学校",
+    "广州市黄埔区会元学校",
     "广州实验中学",
-    "华南师范大学附属中学（知识城校区）"
+    "华南师范大学附属中学(知识城校区)"
    ],
-   "group": "黄埔区公办初中电脑派位第7组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -538,11 +517,11 @@
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "会元学校",
+    "广州市黄埔区会元学校",
     "广州实验中学",
-    "华南师范大学附属中学（知识城校区）"
+    "华南师范大学附属中学(知识城校区)"
    ],
-   "group": "黄埔区公办初中电脑派位第7组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -551,11 +530,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广州市黄埔军校纪念中学（北校区）",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "广州市黄埔军校纪念中学（北校区）"
+    "广州市黄埔军校纪念中学(北校区)"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -567,10 +546,10 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "华峰学校",
-    "铁英中学",
-    "开元学校"
+    "广铁一中铁英中学",
+    "广州开元学校"
    ],
-   "group": "黄埔区公办初中电脑派位第6组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -582,10 +561,10 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州开发区外国语学校",
-    "新港中学",
-    "东区中学"
+    "广州市黄埔区新港中学",
+    "广州市黄埔区东区中学"
    ],
-   "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -599,7 +578,7 @@
     "广州市第一一七中学",
     "广州市黄埔军校中学"
    ],
-   "group": "黄埔区公办初中电脑派位第3组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -611,10 +590,10 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "华峰学校",
-    "铁英中学",
-    "开元学校"
+    "广铁一中铁英中学",
+    "广州开元学校"
    ],
-   "group": "黄埔区公办初中电脑派位第6组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -628,7 +607,7 @@
     "广州市第一一七中学",
     "广州市黄埔军校中学"
    ],
-   "group": "黄埔区公办初中电脑派位第3组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -642,7 +621,7 @@
     "广州市第一一七中学",
     "广州市黄埔军校中学"
    ],
-   "group": "黄埔区公办初中电脑派位第3组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -651,11 +630,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广州开发区中学",
+   "direct_feed": null,
    "feed_junior_highs": [
     "广州开发区中学"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -664,11 +643,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广州开发区中学",
+   "direct_feed": null,
    "feed_junior_highs": [
     "广州开发区中学"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -680,10 +659,10 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州开发区外国语学校",
-    "新港中学",
-    "东区中学"
+    "广州市黄埔区新港中学",
+    "广州市黄埔区东区中学"
    ],
-   "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -695,13 +674,14 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州科学城中学",
-    "广东省教育研究院黄埔实验学校",
+    "广东省教育研究院黄埔实验学校（北校区）",
+    "广东省教育研究院黄埔实验学校初中部",
     "北京师范大学广州实验学校",
-    "铁英中学",
-    "苏元学校（西校区）",
-    "广州市玉岩中学"
+    "广铁一中铁英中学",
+    "广州市黄埔区苏元学校(西校区)",
+    "玉岩中学"
    ],
-   "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -710,11 +690,13 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广州知识城中学",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "广州知识城中学"
+    "广州知识城中学(北校区)",
+    "广州知识城中学(东校区)",
+    "广州知识城中学(南校区)"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -725,11 +707,11 @@
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "会元学校",
+    "广州市黄埔区会元学校",
     "广州实验中学",
-    "华南师范大学附属中学（知识城校区）"
+    "华南师范大学附属中学(知识城校区)"
    ],
-   "group": "黄埔区公办初中电脑派位第7组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -738,11 +720,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "玉岩实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "玉岩实验学校"
+    "广州市黄埔区玉岩实验学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -750,26 +732,18 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
-   "data_gaps": "2026-09-01 新启用（广州日报 2026-09-01），首届新生 2026 年入学，暂无小升初对口（官方分组表未列）。",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州知识城第二小学",
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
-  },
-  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -781,13 +755,14 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -801,7 +776,7 @@
     "广州市第一一七中学",
     "广州市黄埔军校中学"
    ],
-   "group": "黄埔区公办初中电脑派位第3组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -813,11 +788,11 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "北京师范大学广州实验学校",
-    "铁英中学",
-    "苏元学校（西校区）",
-    "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）"
+    "广铁一中铁英中学",
+    "广州市黄埔区苏元学校(西校区)",
+    "玉岩中学附属开发区实验学校"
    ],
-   "group": "黄埔区公办初中电脑派位第5组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -829,10 +804,10 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州开发区外国语学校",
-    "新港中学",
-    "东区中学"
+    "广州市黄埔区新港中学",
+    "广州市黄埔区东区中学"
    ],
-   "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -841,11 +816,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "开元学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "开元学校"
+    "广州开元学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -854,16 +829,17 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "丰乐初级中学",
+   "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -872,16 +848,17 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "丰乐初级中学",
+   "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -890,16 +867,17 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "丰乐初级中学",
+   "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -911,13 +889,14 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -929,13 +908,14 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -944,11 +924,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "双沙中学",
+   "direct_feed": null,
    "feed_junior_highs": [
     "双沙中学"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -960,10 +940,10 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州开发区外国语学校",
-    "新港中学",
-    "东区中学"
+    "广州市黄埔区新港中学",
+    "广州市黄埔区东区中学"
    ],
-   "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -975,10 +955,10 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州开发区外国语学校",
-    "新港中学",
-    "东区中学"
+    "广州市黄埔区新港中学",
+    "广州市黄埔区东区中学"
    ],
-   "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -987,11 +967,13 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广州知识城中学",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "广州知识城中学"
+    "广州知识城中学(北校区)",
+    "广州知识城中学(东校区)",
+    "广州知识城中学(南校区)"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -1000,17 +982,20 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广州市黄埔军校纪念中学（北校区）",
+   "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学",
+    "广州市黄埔军校纪念中学(北校区)"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
+    "zhi_sheng",
     "group_paidui"
    ],
    "name": "横沙小学",
@@ -1021,10 +1006,10 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "华峰学校",
-    "铁英中学",
-    "开元学校"
+    "广铁一中铁英中学",
+    "广州开元学校"
    ],
-   "group": "黄埔区公办初中电脑派位第6组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1033,11 +1018,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "玉岩实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "玉岩实验学校"
+    "广州市黄埔区玉岩实验学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -1046,11 +1031,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "玉岩实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "玉岩实验学校"
+    "广州市黄埔区玉岩实验学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -1062,10 +1047,10 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州开发区外国语学校",
-    "新港中学",
-    "东区中学"
+    "广州市黄埔区新港中学",
+    "广州市黄埔区东区中学"
    ],
-   "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1074,11 +1059,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广州市黄埔军校纪念中学（南校区）",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "广州市黄埔军校纪念中学（南校区）"
+    "黄埔军校纪念中学"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -1090,13 +1075,14 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1105,11 +1091,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "湖南师范大学附属黄埔实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "湖南师范大学附属黄埔实验学校"
+    "湖南师范大学附属黄埔实验学校北校区"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -1117,21 +1103,12 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
-   "data_gaps": "官方 2026 年招生文件未单列（名称疑为早期记录），待核。",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "玉岩中学附属开发区实验学校",
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
-  },
-  {
    "data_gaps": null,
-   "direct_feed": "玉泉学校",
+   "direct_feed": null,
    "feed_junior_highs": [
     "玉泉学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -1140,11 +1117,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "玉泉学校",
+   "direct_feed": null,
    "feed_junior_highs": [
     "玉泉学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -1153,28 +1130,15 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "玉泉学校",
+   "direct_feed": null,
    "feed_junior_highs": [
     "玉泉学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
    "name": "玉鸣小学",
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
-  },
-  {
-   "data_gaps": null,
-   "direct_feed": "玉岩实验学校",
-   "feed_junior_highs": [
-    "玉岩实验学校"
-   ],
-   "group": "对口直升（不参加电脑派位）",
-   "mechanisms": [
-    "zhi_sheng"
-   ],
-   "name": "知识城南安置区（二期）小学（暂定名）",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
@@ -1184,7 +1148,7 @@
     "广州市第一一七中学",
     "广州市黄埔军校中学"
    ],
-   "group": "黄埔区公办初中电脑派位第3组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1198,7 +1162,7 @@
     "广州市第一一七中学",
     "广州市黄埔军校中学"
    ],
-   "group": "黄埔区公办初中电脑派位第3组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1210,13 +1174,14 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1228,13 +1193,14 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1243,16 +1209,17 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "苏元学校（东校区）",
+   "direct_feed": null,
    "feed_junior_highs": [
     "广州科学城中学",
-    "广东省教育研究院黄埔实验学校",
+    "广东省教育研究院黄埔实验学校（北校区）",
+    "广东省教育研究院黄埔实验学校初中部",
     "北京师范大学广州实验学校",
-    "铁英中学",
-    "苏元学校（西校区）",
-    "广州市玉岩中学"
+    "广铁一中铁英中学",
+    "广州市黄埔区苏元学校(西校区)",
+    "玉岩中学"
    ],
-   "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1264,10 +1231,10 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "华峰学校",
-    "铁英中学",
-    "开元学校"
+    "广铁一中铁英中学",
+    "广州开元学校"
    ],
-   "group": "黄埔区公办初中电脑派位第6组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1276,11 +1243,12 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "铁铮学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "铁铮学校"
+    "广铁一中铁铮学校(西校区)",
+    "广铁一中铁铮学校(东校区)"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -1292,11 +1260,11 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "北京师范大学广州实验学校",
-    "铁英中学",
-    "苏元学校（西校区）",
-    "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）"
+    "广铁一中铁英中学",
+    "广州市黄埔区苏元学校(西校区)",
+    "玉岩中学附属开发区实验学校"
    ],
-   "group": "黄埔区公办初中电脑派位第5组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1308,11 +1276,11 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "北京师范大学广州实验学校",
-    "铁英中学",
-    "苏元学校（西校区）",
-    "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）"
+    "广铁一中铁英中学",
+    "广州市黄埔区苏元学校(西校区)",
+    "玉岩中学附属开发区实验学校"
    ],
-   "group": "黄埔区公办初中电脑派位第5组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1324,13 +1292,14 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州科学城中学",
-    "广东省教育研究院黄埔实验学校",
+    "广东省教育研究院黄埔实验学校（北校区）",
+    "广东省教育研究院黄埔实验学校初中部",
     "北京师范大学广州实验学校",
-    "铁英中学",
-    "苏元学校（西校区）",
-    "广州市玉岩中学"
+    "广铁一中铁英中学",
+    "广州市黄埔区苏元学校(西校区)",
+    "玉岩中学"
    ],
-   "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1339,11 +1308,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广州市黄埔军校纪念中学（南校区）",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "广州市黄埔军校纪念中学（南校区）"
+    "黄埔军校纪念中学"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -1355,13 +1324,14 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州科学城中学",
-    "广东省教育研究院黄埔实验学校",
+    "广东省教育研究院黄埔实验学校（北校区）",
+    "广东省教育研究院黄埔实验学校初中部",
     "北京师范大学广州实验学校",
-    "铁英中学",
-    "苏元学校（西校区）",
-    "广州市玉岩中学"
+    "广铁一中铁英中学",
+    "广州市黄埔区苏元学校(西校区)",
+    "玉岩中学"
    ],
-   "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1373,13 +1343,14 @@
    "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1393,7 +1364,7 @@
     "广州市第一一七中学",
     "广州市黄埔军校中学"
    ],
-   "group": "黄埔区公办初中电脑派位第3组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1402,11 +1373,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "玉岩实验学校",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "玉岩实验学校"
+    "广州市黄埔区玉岩实验学校"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -1415,16 +1386,17 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "丰乐初级中学",
+   "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1432,26 +1404,18 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
-   "data_gaps": "民办（附件8 #1 洋城学校）。",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "黄埔区洋城学校",
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
-  },
-  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
     "广州科学城中学",
-    "广东省教育研究院黄埔实验学校",
+    "广东省教育研究院黄埔实验学校（北校区）",
+    "广东省教育研究院黄埔实验学校初中部",
     "北京师范大学广州实验学校",
-    "铁英中学",
-    "苏元学校（西校区）",
-    "广州市玉岩中学"
+    "广铁一中铁英中学",
+    "广州市黄埔区苏元学校(西校区)",
+    "玉岩中学"
    ],
-   "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1459,26 +1423,18 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
-   "data_gaps": "民办（附件8 #6 国光学校）。",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "黄埔国光小学",
-   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
-  },
-  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
     "广州市第八十六中学",
+    "广州市第八十六中学初中部",
     "广州市第一二三中学",
     "港湾中学",
-    "石化中学",
-    "广大附中黄埔实验学校（东校区）",
-    "丰乐初级中学"
+    "广州石化中学",
+    "广大附中黄埔实验学校(东校区)",
+    "广州市黄埔区丰乐初级中学"
    ],
-   "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "group": "黄埔区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
@@ -1487,11 +1443,11 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": "广州市黄埔军校纪念中学（南校区）",
+   "direct_feed": null,
    "feed_junior_highs": [
-    "广州市黄埔军校纪念中学（南校区）"
+    "黄埔军校纪念中学"
    ],
-   "group": "对口直升（不参加电脑派位）",
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],

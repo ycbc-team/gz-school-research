@@ -26,6 +26,43 @@ DISTRICTS = ("yuexiu", "liwan", "baiyun", "haizhu", "huangpu")
 # 机制枚举输出顺序（对齐初中 MECH_ORDER：zhi_sheng → single_zone → group_paidui → single_paidui → min_zi_zhu）
 XS_MECH_ORDER = ("zhi_sheng", "single_zone", "group_paidui", "single_paidui", "min_zi_zhu")
 
+# 反推候选 → 小升初 dist records 的 group 显示名（按机制生成，含区名——
+# xs_resolver.district_of_group 从 group 提取区名做跨区过滤，必须保留「XX区」前缀）。
+# 反推链路不携带小升初侧「第N组」粒度（组号在初中 mechanism_note/group_id），
+# 组粒度展示由机制枚举承载（前端 Badge 用 mechanisms，group 仅作 sub-note 文本）。
+_GROUP_OF_MECH = {
+    "zhi_sheng": "{区}小升初对口直升（不参加电脑派位）",
+    "single_zone": "{区}小升初对口（单校划片）",
+    "group_paidui": "{区}小升初对口（多校电脑派位）",
+    "single_paidui": "{区}小升初电脑派位",
+    "min_zi_zhu": "{区}小升初自主招生",
+}
+
+
+def to_dist_records(candidate):
+    """反推候选 records → 小升初 dist records（保持 dist 契约字段）：
+    name/group/mechanisms/feed_junior_highs/direct_feed(字符串)/source_url/data_gaps；
+    source_note 属审计层，dist 剥离（与 build_xiaoshengchu_all.dump 同口径）。
+    2026-09-30：五区小升初数据源切换为初中转录反推（用户指示），dist 五区由此转换产出。"""
+    dk = candidate["district"]
+    out = []
+    for r in candidate["records"]:
+        mech = r.get("mechanisms") or []
+        group = _GROUP_OF_MECH.get(mech[0] if mech else None, "{区}不参与公办派位/待核").format(区=dk)
+        direct = r.get("direct_feed") or []
+        out.append({
+            "name": r["name"],
+            "group": group,
+            "mechanisms": mech,
+            "feed_junior_highs": r["feed_junior_highs"],
+            "direct_feed": direct[0] if direct else None,
+            "source_url": r.get("source_url"),
+            "source_note": r.get("source_note"),  # 审计层字段，dist 写入时剥离
+            "data_gaps": r.get("data_gaps"),
+        })
+    out.sort(key=lambda r: r["name"])
+    return out
+
 sys.path.insert(0, os.path.join(ROOT, "data", "primary", "transition", "scripts"))
 from xs_resolver import XsResolver  # noqa: E402
 
@@ -173,7 +210,13 @@ def pairs_from_reverse(candidate):
 
 
 def pairs_from_current(district):
-    path = os.path.join(ROOT, "data", "primary", "transition", "dist", f"xiaoshengchu_{district}.json")
+    # 2026-09-30 数据源切换后：dist 五区 = 反推转换版，线上对账基线固定为切换前存档
+    # （parsed/xiaoshengchu_<区>_legacy_2026.json，git 跟踪、不可变），持续对账「反推 vs 旧线上」；
+    # 缺档时（如新克隆未含 legacy）回退读 dist 当前文件。
+    legacy = os.path.join(ROOT, "data", "primary", "transition", "parsed",
+                          f"xiaoshengchu_{district}_legacy_2026.json")
+    path = legacy if os.path.exists(legacy) else os.path.join(
+        ROOT, "data", "primary", "transition", "dist", f"xiaoshengchu_{district}.json")
     rows = json.load(open(path, encoding="utf-8"))["records"]
     resolver = XsResolver()
     resolved = [resolver.resolve_record(row) for row in rows]
@@ -225,6 +268,7 @@ def main():
     invalid = sorted(set(targets) - set(DISTRICTS))
     if invalid:
         parser.error(f"仅支持：{', '.join(DISTRICTS)}；收到：{', '.join(invalid)}")
+    dist_dir = os.path.join(ROOT, "data", "primary", "transition", "dist")
     for district in targets:
         candidate = reverse_district(district, entity_names)
         report = comparison(district, candidate, entity_names)
@@ -232,9 +276,23 @@ def main():
         diff = os.path.join(args.out_dir, f"xiaoshengchu_from_middle_compare_{district}_2026.json")
         dump(base, candidate)
         dump(diff, report)
+        # 2026-09-30（用户指示）：五区小升初数据源切换为初中转录反推——dist 运行时层与
+        # parsed 审计层（xiaoshengchu_<区>_2026.json）均由反推候选转换产出，
+        # build_xiaoshengchu_all.py 不再构建五区（仅 panyu/tianhe + 汇总）。
+        dist_path = os.path.join(args.out_dir if args.out_dir != OUT else dist_dir,
+                                 f"xiaoshengchu_{district}.json")
+        audit_path = os.path.join(args.out_dir, f"xiaoshengchu_{district}_2026.json")
+        os.makedirs(os.path.dirname(dist_path), exist_ok=True)
+        dist_records = to_dist_records(candidate)
+        runtime = [{k: v for k, v in r.items() if k != "source_note"} for r in dist_records]
+        json.dump({"year": 2026, "district": candidate["district"], "records": runtime},
+                  open(dist_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1, sort_keys=True)
+        json.dump({"year": 2026, "district": candidate["district"], "records": dist_records},
+                  open(audit_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1, sort_keys=True)
         s = report["summary"]
         print(f"{district}: reverse {s['reverse_pairs']} / current {s['current_pairs']}; "
               f"only reverse {s['only_reverse']}, only current {s['only_current']} -> {base}")
+        print(f"  dist {len(dist_records)} 条 -> {dist_path}（五区 dist 由反推产出）")
 
 
 if __name__ == "__main__":

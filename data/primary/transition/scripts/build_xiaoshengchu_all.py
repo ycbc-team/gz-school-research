@@ -21,6 +21,7 @@ POI 库无对应 → 记 data_gaps 缺口（民办/特教/并校残留/官方未
 import json
 import os
 import re
+import subprocess
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))), 'data', 'registry', "entity", 'scripts'))
@@ -2150,12 +2151,29 @@ if __name__ == '__main__':
         del args[i:i + 2]
     target = args[0] if args else 'yuexiu'
     if target in DISTRICTS:
+        if target in ("yuexiu", "liwan", "baiyun", "haizhu", "huangpu"):
+            # 2026-09-30（用户指示）：五区小升初数据源切换为初中转录反推，不再由本脚本构建
+            print(f"[跳过] {target} 小升初数据由 build_xiaoshengchu_from_middle.py 反推产出"
+                  f"（dist/xiaoshengchu_{target}.json），本脚本仅构建番禺/天河并汇总")
+            sys.exit(0)
         _, label, fn = DISTRICTS[target]
         recs, covered, missing = fn()
         dump(target, label, recs, covered, missing)
     elif target == 'all_done':
-        # 全链路：重建 7 区 → 汇总（--out-dir 指定输出目录，快照测试用临时目录，不碰正式 dist）
-        for key in ['yuexiu', 'liwan', 'baiyun', 'panyu', 'haizhu', 'tianhe', 'huangpu']:
+        # 全链路：五区（越秀/荔湾/白云/海珠/黄埔）小升初数据源 = 初中转录反推
+        # （build_xiaoshengchu_from_middle.py 产出 dist，2026-09-30 用户指示不再自建）；
+        # 本脚本仅构建番禺/天河 + 汇总（--out-dir 指定输出目录，快照测试用临时目录，不碰正式 dist）
+        _self_dir = os.path.dirname(os.path.abspath(__file__))
+        _from_middle = [sys.executable, os.path.join(_self_dir, "build_xiaoshengchu_from_middle.py"),
+                        "yuexiu", "liwan", "baiyun", "haizhu", "huangpu"]
+        if "--out-dir" in sys.argv:
+            _i = sys.argv.index("--out-dir")
+            _from_middle += ["--out-dir", sys.argv[_i + 1]]
+        r = subprocess.run(_from_middle, cwd=ROOT)
+        if r.returncode != 0:
+            print("[汇总] 反推脚本失败：五区 dist 未产出，中止")
+            sys.exit(r.returncode)
+        for key in ['panyu', 'tianhe']:
             _, label, fn = DISTRICTS[key]
             recs, covered, missing = fn()
             dump(key, label, recs, covered, missing)

@@ -12,8 +12,8 @@
     "single_zone"
    ],
    "name": "三元里小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -21,13 +21,13 @@
    "feed_junior_highs": [
     "广州市第六十七中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "三元里小学(北校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 机场西小学（广州户籍生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -40,331 +40,241 @@
     "single_zone"
    ],
    "name": "三元里小学南校区",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区东平学校"
+    "东平学校(东平校区)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "东平学校(万科校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区东平学校"
+    "东平学校(东平校区)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "东平学校(东平校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "东方小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "东润小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "为民小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办学校（九年制），不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "京师实验学校",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区同和中学",
-    "广州市白云区培英实验学校（同和校区）"
+    "同和中学",
+    "广州市白云区培英实验学校(同和校区)"
    ],
-   "group": "白云区小升初对口（单校划片；多校（部分地段/统筹））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone",
     "group_paidui"
    ],
    "name": "京溪小学(京溪校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 中黄外国语小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生)；中黄外国语小学（地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区同和中学",
-    "广州市白云区培英实验学校（同和校区）"
+    "同和中学",
+    "广州市白云区培英实验学校(同和校区)"
    ],
-   "group": "白云区小升初对口（单校划片；多校（部分地段/统筹））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone",
     "group_paidui"
    ],
    "name": "京溪小学(怡新校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 中黄外国语小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生)；中黄外国语小学（地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区同和中学",
-    "广州市白云区培英实验学校（同和校区）"
+    "同和中学",
+    "广州市白云区培英实验学校(同和校区)"
    ],
-   "group": "白云区小升初对口（单校划片；多校（部分地段/统筹））",
+   "group": "白云区小升初对口（多校电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
+   "name": "京溪小学(恒大校区)",
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
+  },
+  {
+   "data_gaps": null,
+   "direct_feed": null,
+   "feed_junior_highs": [
+    "广州空港实验中学(东校区)",
+    "广州空港实验中学(校本部)"
+   ],
+   "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
     "group_paidui"
    ],
-   "name": "京溪小学(恒大校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 中黄外国语小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生)；中黄外国语小学（地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": null,
-   "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市白云区广州空港实验中学（东校区）",
-    "广州市白云区广州空港实验中学（本部）"
-   ],
-   "group": "白云区小升初对口（单校划片）",
-   "mechanisms": [
-    "single_zone"
-   ],
    "name": "人和镇第一小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广州空港实验中学（东校区）",
-    "广州市白云区广州空港实验中学（本部）"
+    "广州空港实验中学(东校区)",
+    "广州空港实验中学(校本部)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "group_paidui"
    ],
    "name": "人和镇第一小学(鸦湖校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区六中实验中学（空港校区）"
+    "白云六中实验中学(空港校区)"
    ],
-   "group": "白云区小升初对口（多校（按村分片））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "人和镇第七小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 六中实验小学北校区（除汉塘村、民强村、新兴村、明星村、福和雅苑安置区外）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区六中实验中学（空港校区）"
+    "白云六中实验中学(空港校区)"
    ],
-   "group": "白云区小升初对口（多校（按村分片））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "人和镇第二小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 六中实验小学北校区（除汉塘村、民强村、新兴村、明星村、福和雅苑安置区外）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区六中实验中学（空港校区）"
+    "白云六中实验中学(空港校区)"
    ],
-   "group": "白云区小升初对口（多校（按村分片））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "人和镇第五小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 六中实验小学北校区（除汉塘村、民强村、新兴村、明星村、福和雅苑安置区外）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区六中实验中学（空港校区）"
+    "白云六中实验中学(空港校区)"
    ],
-   "group": "白云区小升初对口（多校（按村分片））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "人和镇第五小学(太成校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 六中实验小学北校区（除汉塘村、民强村、新兴村、明星村、福和雅苑安置区外）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广州空港实验中学（东校区）",
-    "广州市白云区广州空港实验中学（本部）"
+    "广州空港实验中学(东校区)",
+    "广州空港实验中学(校本部)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "group_paidui"
    ],
    "name": "人和镇第六小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "元下田小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "公度小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区嘉禾中学"
+    "嘉禾中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "加禾小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 颐和实验小学(地段生和符合条件的统筹生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办学校，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "华中师范大学白云学校",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "华丰小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市培英中学（岭南校区）"
+    "广州市培英中学(岭南校区)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "华师附中实验小学(东校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 华师附小(地段生和符合条件的统筹生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市培英中学（岭南校区）"
+    "广州市培英中学(岭南校区)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "华师附中实验小学(北校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 华师附小(地段生和符合条件的统筹生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市培英中学（岭南校区）"
+    "广州市培英中学(岭南校区)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "华师附中实验小学(南校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 华师附小(地段生和符合条件的统筹生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "华龙小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -372,13 +282,13 @@
    "feed_junior_highs": [
     "广州市第七十中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "南园小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -386,63 +296,42 @@
    "feed_junior_highs": [
     "广州市第七十中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "南村小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市六十五中学（江府校区）"
+    "广州市第六十五中学(江府校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "双岗小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 江村小学（塘贝户籍）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区同和中学",
-    "广州市白云区培英实验学校（同和校区）"
+    "同和中学",
+    "广州市白云区培英实验学校(同和校区)"
    ],
-   "group": "白云区小升初对口（单校划片；多校（部分地段/统筹））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone",
     "group_paidui"
    ],
    "name": "同和小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 中黄外国语小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生)；中黄外国语小学（地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "同心小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "启明小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -450,33 +339,13 @@
    "feed_junior_highs": [
     "广州市白云区大朗中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "唐阁小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "嘉龙小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "国泰小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -484,41 +353,41 @@
    "feed_junior_highs": [
     "广州市第七十中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "夏良学校",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区景泰中学分校区（原广州市白云区南悦中学）"
+    "广州市白云区景泰中学白云湖校区"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "夏茅小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区石井中学"
+    "石井中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "大冈小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 金碧小学（地段生）；庆丰实验学校新庄地段学生",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -526,13 +395,13 @@
    "feed_junior_highs": [
     "广州市白云区神山中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "大岭小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -540,13 +409,13 @@
    "feed_junior_highs": [
     "广州市白云区大朗中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "大朗小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -555,37 +424,27 @@
     "广州市第一一五中学",
     "广州市白云区太和中学"
    ],
-   "group": "白云区小升初对口（部分毕业生（多校））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "大沥小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 （太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）；（太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区江高镇第二初级中学"
+    "广东技术师范大学白云实验中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "大田小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "天宏小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -594,13 +453,13 @@
     "广州市第一一五中学",
     "广州市白云区太和中学"
    ],
-   "group": "白云区小升初对口（部分毕业生（多校））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "太和第一小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 （太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）；（太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -609,13 +468,13 @@
     "广州市第一一五中学",
     "广州市白云区太和中学"
    ],
-   "group": "白云区小升初对口（部分毕业生（多校））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "太和第二小学(米龙校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 （太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）；（太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -624,76 +483,56 @@
     "广州市第一一五中学",
     "广州市白云区太和中学"
    ],
-   "group": "白云区小升初对口（部分毕业生（多校））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "太和镇第二小学(和龙校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 （太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）；（太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "小太阳小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市第六十五中学（明德校区、同德校区）"
+    "广州市第六十五中学初中部(明德校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "岭南花园小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 明德校区：明德小学（本部）、同德小学、岭南花园小学（地段生）、65附小分校区（地段生）；同德校区：明德小学富康校区",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "平安小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区平沙培英学校"
+    "平沙培英学校"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "平沙培英学校",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市铁一中学（白云校区）",
-    "广州市白云区颜乐天纪念中学"
+    "广州市铁一中学(白云校区)",
+    "颜乐天纪念中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "平沙小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -706,8 +545,8 @@
     "single_zone"
    ],
    "name": "广东外语外贸大学实验中学小学部",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -720,82 +559,67 @@
     "single_zone"
    ],
    "name": "广东外语外贸大学实验中学（陈田西校区）小学部",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 花城实验学校（普通生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "2026官方初中对口表未列（公办，太和镇），待核",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广东技术师范大学白云实验小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广东第二师范学院实验中学"
+    "广东技术师范大学白云实验中学",
+    "江村中学"
+   ],
+   "group": "白云区小升初对口（单校划片）",
+   "mechanisms": [
+    "single_zone",
+    "group_paidui"
+   ],
+   "name": "广东技术师范大学白云实验小学",
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
+  },
+  {
+   "data_gaps": null,
+   "direct_feed": null,
+   "feed_junior_highs": [
+    "广东第二师范学院实验中学(初中部)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "广东第二师范学院实验小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市广园中学"
+    "广园中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "广园小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 培英附小部分户籍生（摇号产生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区同和中学",
-    "广州市白云区培英实验学校（同和校区）"
+    "同和中学",
+    "广州市白云区培英实验学校(同和校区)"
    ],
-   "group": "白云区小升初对口（单校划片；多校（部分地段/统筹））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone",
     "group_paidui"
    ],
    "name": "广州中黄外国语小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 中黄外国语小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生)；中黄外国语小学（地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办学校，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州培文外国语学校(小学部)",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办学校（培英实验学校小学部），不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州培英实验学校小学部",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -808,90 +632,84 @@
     "single_zone"
    ],
    "name": "广州实验教育集团花城实验学校",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 花城实验学校（普通生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办学校，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市嘉美学校",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市广园中学",
-    "广州市白云区民航学校",
-    "广州市白云区景泰中学"
+    "广园中学",
+    "广州市白云区民航学校(初中部)",
+    "广州市白云区民航学校(人和校区)",
+    "景泰中学",
+    "广州市白云区景泰中学白云湖校区"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "广州市培英中学附属小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 培英附小部分户籍生（摇号产生）；培英附小部分户籍生（摇号产生）；景泰小学（柯子岭地段人户一致地段生）；培英附小部分户籍生（摇号产生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市培英中学（科技城校区）"
+    "广州市培英中学科技城校区"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "广州市培英中学附属科技城小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市第一一四中学"
+    "广州市第一一四中学(亭石南路)",
+    "石井中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "广州市庆丰实验学校",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 庆丰实验学校（庆丰、兴隆围地段学生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区黄石学校"
+    "黄石学校(中学部)",
+    "黄石学校(黄石校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "广州市方圆实验小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 方圆实验小学（地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云中学（棠景校区）"
+    "广州市白云中学(棠景校区)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "广州市白云中学棠景校区小学部",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -899,121 +717,70 @@
    "feed_junior_highs": [
     "广州市白云区新市中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "广州市白云中学附属小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市白云区东辉小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区培英实验学校（云景校区）"
+    "培英实验学校(云景校区)初中部"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "广州市白云区云英实验附属小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 云英实验学校（小学部）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区同和中学",
-    "广州市白云区培英实验学校（同和校区）"
+    "同和中学",
+    "广州市白云区培英实验学校(同和校区)"
    ],
-   "group": "白云区小升初对口（单校划片；多校（部分地段/统筹））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone",
     "group_paidui"
    ],
    "name": "广州市白云区京溪小学(白天鹅校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 中黄外国语小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生)；中黄外国语小学（地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广州空港实验中学（西校区）"
+    "广州空港实验中学(西校区)"
    ],
-   "group": "白云区小升初对口（多校（按校区/村分片））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "广州市白云区人和镇第二小学(建南校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 空港实验小学（总校区、北校区）；六中实验小学南校区（除民强村、新兴村外）；六中实验小学北校区（汉塘村、明星村）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办学校，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市白云区元培实验中小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办学校（九年制），不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市白云区华赋学校(南校区)",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市白云区博海小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区东平学校"
+    "东平学校(东平校区)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "广州市白云区培英中学附属第三小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "2026官方初中对口表未列（培英系公办新校，对口未公布），待核",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市白云区培英中学附属第二小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -1022,13 +789,13 @@
     "广州市第一一五中学",
     "广州市白云区太和中学"
    ],
-   "group": "白云区小升初对口（部分毕业生（多校））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "广州市白云区大源小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 （太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）；（太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -1037,129 +804,113 @@
     "广州市第一一五中学",
     "广州市白云区太和中学"
    ],
-   "group": "白云区小升初对口（部分毕业生（多校））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "广州市白云区头陂小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 （太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）；（太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区同和中学",
-    "广州市白云区培英实验学校（同和校区）"
+    "同和中学",
+    "广州市白云区培英实验学校(同和校区)"
    ],
-   "group": "白云区小升初对口（单校划片；多校（部分地段/统筹））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone",
     "group_paidui"
    ],
    "name": "广州市白云区广大附中实验小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 中黄外国语小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生)；中黄外国语小学（地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市白云区新园小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办学校，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市白云区新纪元学校",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市白云区新苗小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区星悦实验学校"
+    "广州市白云区星悦实验学校(初中部)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "广州市白云区星悦实验学校",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市第六十五中学（桃园校区）"
+    "广州市第六十五中学桃园校区"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "广州市白云区桃园小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 65中附属小学（地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区白云外国语中学"
+    "广州市白云区民航学校(初中部)",
+    "广州市白云区民航学校(人和校区)"
+   ],
+   "group": "白云区小升初对口（多校电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
+   "name": "广州市白云区民航学校(人和校区)",
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
+  },
+  {
+   "data_gaps": null,
+   "direct_feed": null,
+   "feed_junior_highs": [
+    "广州市白云区白云外国语中小学"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "广州市白云区白云外国语中小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区白云广附云湖实验学校"
+    "白云广附云湖实验学校"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "广州市白云区白云广附云湖实验学校小学部",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区石龙中学"
+    "石龙中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "广州市白云区石华小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -1167,13 +918,13 @@
    "feed_junior_highs": [
     "广州市白云区神山中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "广州市白云区神山第一小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -1181,13 +932,13 @@
    "feed_junior_highs": [
     "广州市白云区神山中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "广州市白云区神山第二小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -1200,18 +951,8 @@
     "single_zone"
    ],
    "name": "广州市白云区穗丰学校",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市白云区育贤小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -1220,214 +961,161 @@
     "广州市第一一五中学",
     "广州市白云区太和中学"
    ],
-   "group": "白云区小升初对口（部分毕业生（多校））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "广州市白云区蓝山小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 （太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）；（太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广东第二师范学院实验中学"
+    "广东第二师范学院实验中学(初中部)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "广州市白云区蟠龙小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广大附中实验中学"
+    "广大附中实验中学(南校区)",
+    "广大附中实验中学(星汇金沙校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "广州市白云区金沙小学(东校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广大附中实验中学"
+    "广大附中实验中学(南校区)",
+    "广大附中实验中学(星汇金沙校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "广州市白云区金沙第二小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市白云区金龙小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市铁一中学（白云校区）",
-    "广州市白云区颜乐天纪念中学"
+    "广州市铁一中学(白云校区)",
+    "颜乐天纪念中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "广州市白云区长红小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市白云区龙兴小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市白云区龙嘉小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市白云区龙江小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广州空港实验中学（东校区）"
+    "广州空港实验中学(东校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "广州市第七十三中学·小学部",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州彭加木纪念中学"
+    "广州彭加木纪念中学(初中部)",
+    "广州彭加木纪念中学",
+    "广州市第六十五中学桃园校区"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "group_paidui"
    ],
    "name": "广州市第六十五中学附属小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 65中附小（除地段生外的广州市户籍学生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州彭加木纪念中学"
+    "广州彭加木纪念中学(初中部)",
+    "广州彭加木纪念中学",
+    "广州市第六十五中学初中部(明德校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "广州市第六十五中学附属小学(侨德校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 65中附小（除地段生外的广州市户籍学生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办学校，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州市金华学校",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办学校（初中段学校的小学部），不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广州白云广雅实验学校-小学部",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广州空港实验中学（西校区）"
+    "广州空港实验中学(西校区)"
    ],
-   "group": "白云区小升初对口（多校（按校区/村分片））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "广州空港实验小学(北校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 空港实验小学（总校区、北校区）；六中实验小学南校区（除民强村、新兴村外）；六中实验小学北校区（汉塘村、明星村）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广州空港实验中学（西校区）"
+    "广州市白云区民航学校(人和校区)"
    ],
-   "group": "白云区小升初对口（多校（按校区/村分片））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "广州空港实验小学(南校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 空港实验小学（总校区、北校区）；六中实验小学南校区（除民强村、新兴村外）；六中实验小学北校区（汉塘村、明星村）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广州空港实验中学（西校区）"
+    "广州空港实验中学(西校区)"
    ],
-   "group": "白云区小升初对口（多校（按校区/村分片））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "广州空港实验小学(总校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 空港实验小学（总校区、北校区）；六中实验小学南校区（除民强村、新兴村外）；六中实验小学北校区（汉塘村、明星村）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -1440,243 +1128,183 @@
     "single_zone"
    ],
    "name": "广州铁路第五小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "广辉小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市六十五中学（江府校区）"
+    "广州市第六十五中学(江府校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "广铁八小",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 江村小学（塘贝户籍）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "才子小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区同和中学",
-    "广州市白云区培英实验学校（同和校区）"
+    "同和中学",
+    "广州市白云区培英实验学校(同和校区)"
    ],
-   "group": "白云区小升初对口（单校划片；多校（部分地段/统筹））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone",
     "group_paidui"
    ],
    "name": "握山小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 中黄外国语小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生)；中黄外国语小学（地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "文星小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区同和中学",
-    "广州市白云区嘉禾中学"
+    "同和中学",
+    "嘉禾中学"
    ],
-   "group": "白云区小升初对口（单校划片；多校（部分地段/统筹））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone",
     "group_paidui"
    ],
    "name": "新兴白云小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 中黄外国语小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区新和学校"
+    "新和学校"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "新和学校小学部",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市六十五中学（江府校区）"
+    "广州市第六十五中学(江府校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "新楼村梁庆贤学校",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 江村小学（塘贝户籍）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "新正小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市铁一中学（白云校区）",
-    "广州市白云区颜乐天纪念中学"
+    "广州市铁一中学(白云校区)",
+    "颜乐天纪念中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "新科小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "新都小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "方正实验小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市第六十五中学（明德校区、同德校区）"
+    "广州市第六十五中学(同德校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "明德小学(富康校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 明德校区：明德小学（本部）、同德小学、岭南花园小学（地段生）、65附小分校区（地段生）；同德校区：明德小学富康校区",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市第六十五中学（明德校区、同德校区）"
+    "广州市第六十五中学初中部(明德校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "明德小学(明德校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 明德校区：明德小学（本部）、同德小学、岭南花园小学（地段生）、65附小分校区（地段生）；同德校区：明德小学富康校区",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市广园中学",
-    "广州市白云区景泰中学"
+    "广园中学",
+    "景泰中学",
+    "广州市白云区景泰中学白云湖校区"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "景泰小学(景泰校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 培英附小部分户籍生（摇号产生）；景泰小学（柯子岭地段人户一致地段生）；培英附小部分户籍生（摇号产生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市广园中学",
-    "广州市白云区景泰中学"
+    "广园中学",
+    "景泰中学",
+    "广州市白云区景泰中学白云湖校区"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "景泰小学(柯子岭校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 培英附小部分户籍生（摇号产生）；景泰小学（柯子岭地段人户一致地段生）；培英附小部分户籍生（摇号产生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区嘉禾中学"
+    "嘉禾中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "望岗小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 颐和实验小学(地段生和符合条件的统筹生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市第一一四中学"
+    "广州市第一一四中学(亭石南路)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "朝阳小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 庆丰实验学校（庆丰、兴隆围地段学生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -1684,27 +1312,28 @@
    "feed_junior_highs": [
     "广州市第六十七中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "机场西小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 机场西小学（广州户籍生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
+    "广州彭加木纪念中学(初中部)",
     "广州彭加木纪念中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "松溪小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 65中附小（除地段生外的广州市户籍学生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -1712,13 +1341,13 @@
    "feed_junior_highs": [
     "广州市白云区新市中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "棠涌小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -1726,166 +1355,160 @@
    "feed_junior_highs": [
     "广州市第六十七中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "棠溪小学(百荣校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 机场西小学（广州户籍生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
+    "广州彭加木纪念中学(初中部)",
     "广州彭加木纪念中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "槎龙镇泰小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 65中附小（除地段生外的广州市户籍学生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广大附中实验中学"
+    "广大附中实验中学(南校区)",
+    "广大附中实验中学(星汇金沙校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "横沙学校",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市六十五中学（江府校区）"
+    "广州市第六十五中学(江府校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "水沥小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 江村小学（塘贝户籍）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区龙归学校"
+    "龙归学校(初中部)",
+    "龙归学校（珑璟校区）"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "永兴小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区同和中学",
-    "广州市白云区嘉禾中学"
+    "同和中学",
+    "嘉禾中学"
    ],
-   "group": "白云区小升初对口（单校划片；多校（部分地段/统筹））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone",
     "group_paidui"
    ],
    "name": "永泰小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 中黄外国语小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云中学（汇侨校区）"
+    "广州市白云中学(汇侨校区)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "汇侨第一小学(汇侨校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云中学（汇侨校区）"
+    "广州市白云中学(汇侨校区)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "汇侨第一小学(纵横缤城校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云中学（汇侨校区）"
+    "广州市白云中学(汇侨校区)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "汇侨第一小学小坪校区",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "江南明珠小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区黄石学校"
+    "黄石学校(中学部)",
+    "黄石学校(黄石校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "江夏小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 方圆实验小学（地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区江村中学",
-    "广州市六十五中学（江府校区）"
+    "江村中学",
+    "广州市第六十五中学(江府校区)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "group_paidui"
    ],
    "name": "江村小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 江村小学（塘贝户籍）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -1894,169 +1517,171 @@
     "广州市第一一五中学",
     "广州市白云区太和中学"
    ],
-   "group": "白云区小升初对口（部分毕业生（多校））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "沙亭岗小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 （太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）；（太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广大附中实验中学"
+    "广大附中实验中学(南校区)",
+    "广大附中实验中学(星汇金沙校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "沙凤小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广大附中实验中学"
+    "广大附中实验中学(南校区)",
+    "广大附中实验中学(星汇金沙校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "沙凤小学(北校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市铁一中学（白云校区）",
-    "广州市白云区颜乐天纪念中学"
+    "广州市铁一中学(白云校区)",
+    "颜乐天纪念中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "清湖小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市第一一四中学"
+    "广州市第一一四中学(亭石南路)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "滘心小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 庆丰实验学校（庆丰、兴隆围地段学生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区石井中学"
+    "石井中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "潭岗小学(凰岗校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 金碧小学（地段生）；庆丰实验学校新庄地段学生",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区石井中学"
+    "石井中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "潭岗小学(潭村校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 金碧小学（地段生）；庆丰实验学校新庄地段学生",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区景泰中学分校区（原广州市白云区南悦中学）"
+    "广州市白云区景泰中学白云湖校区"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "环滘小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广州空港实验中学（西校区）",
-    "广州市白云区六中实验中学（空港校区）"
+    "广州空港实验中学(西校区)",
+    "白云六中实验中学(空港校区)"
    ],
-   "group": "白云区小升初对口（多校（按村分片）；多校（按校区/村分片））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "白云六中实验小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 空港实验小学（总校区、北校区）；六中实验小学南校区（除民强村、新兴村外）；六中实验小学北校区（汉塘村、明星村）；六中实验小学北校区（除汉塘村、民强村、新兴村、明星村、福和雅苑安置区外）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广州空港实验中学（西校区）"
+    "广州空港实验中学(西校区)"
    ],
-   "group": "白云区小升初对口（多校（按校区/村分片））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "白云区六中实验小学(南校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 空港实验小学（总校区、北校区）；六中实验小学南校区（除民强村、新兴村外）；六中实验小学北校区（汉塘村、明星村）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市第六十五中学（明德校区、同德校区）"
+    "广州市第六十五中学初中部(明德校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "白云区同德小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 明德校区：明德小学（本部）、同德小学、岭南花园小学（地段生）、65附小分校区（地段生）；同德校区：明德小学富康校区",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区江高镇第二初级中学"
+    "广东技术师范大学白云实验中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "白云区小塘小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -2064,105 +1689,42 @@
    "feed_junior_highs": [
     "广州市第六十七中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "白云区棠溪小学(棠溪校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 机场西小学（广州户籍生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区民航学校"
+    "广州市白云区民航学校(初中部)",
+    "广州市白云区民航学校(人和校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
-   ],
-   "name": "白云区民航学校(人和校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 培英附小部分户籍生（摇号产生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": null,
-   "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市白云区民航学校"
-   ],
-   "group": "白云区小升初对口（单校划片）",
-   "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "白云区民航学校小学部",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 培英附小部分户籍生（摇号产生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学（原东江小学，2024-09 更名，区政府登记），不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "白云实验附属小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "公办性质待核，2026官方初中对口表未列，待核",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "白云广附同悦实验小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "公办（2023年开学，天悦金沙配建金广附系公办小学），2026官方初中对口表未列，待核",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "白云广附金悦实验小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "白云长江小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "2026官方初中对口表未列（民办），待核",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "白山小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区石井中学"
+    "石井中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "石井张村中心小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 金碧小学（地段生）；庆丰实验学校新庄地段学生",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -2171,271 +1733,242 @@
     "广州市第一一五中学",
     "广州市白云区太和中学"
    ],
-   "group": "白云区小升初对口（部分毕业生（多校））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "石湖小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 （太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）；（太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市铁一中学（白云校区）",
-    "广州市白云区颜乐天纪念中学"
+    "广州市铁一中学(白云校区)",
+    "颜乐天纪念中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "石马小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区石龙中学"
+    "石龙中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "神山第三小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区石龙中学"
+    "石龙中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "神山第五小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区石龙中学"
+    "石龙中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "神山镇沙龙小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区竹料第一中学"
+    "竹料第一中学",
+    "广州市白云区竹料第一中学北校区"
    ],
-   "group": "白云区小升初对口（多校（分校区））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "竹料第一小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 南校区：竹料一小、竹料二小、竹料四小；北校区：竹料一小、竹料三小",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区竹料第一中学"
+    "广州市白云区竹料第一中学北校区"
    ],
-   "group": "白云区小升初对口（多校（分校区））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "竹料第三小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 南校区：竹料一小、竹料二小、竹料四小；北校区：竹料一小、竹料三小",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区竹料第一中学"
+    "竹料第一中学"
    ],
-   "group": "白云区小升初对口（多校（分校区））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "竹料第二小学(竹三校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 南校区：竹料一小、竹料二小、竹料四小；北校区：竹料一小、竹料三小",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区竹料第三中学"
+    "竹料第三中学"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "竹料第五小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区竹料第一中学",
-    "广州市白云区竹料第三中学"
+    "竹料第一中学",
+    "竹料第三中学"
    ],
-   "group": "白云区小升初对口（单校划片；多校（分校区））",
+   "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
     "group_paidui"
    ],
    "name": "竹料第四小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 南校区：竹料一小、竹料二小、竹料四小；北校区：竹料一小、竹料三小",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市第一一四中学"
+    "广州市第一一四中学(亭石南路)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "红星小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 庆丰实验学校（庆丰、兴隆围地段学生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市铁一中学（白云校区）",
-    "广州市白云区颜乐天纪念中学"
+    "广州市铁一中学(白云校区)",
+    "颜乐天纪念中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "罗岗村小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州大同中学"
+    "广州大同中学(初中部)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "良田第一小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州大同中学"
+    "广州大同中学(初中部)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "良田第三小学(白沙校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州大同中学"
+    "广州大同中学(初中部)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "良田第三小学(金盆校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州大同中学"
+    "广州大同中学(初中部)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "良田第二小学(新校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "英才小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区江高镇第二初级中学"
+    "广东技术师范大学白云实验中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "茅山小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "茶山小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "草庄小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -2444,13 +1977,13 @@
     "广州市第一一五中学",
     "广州市白云区太和中学"
    ],
-   "group": "白云区小升初对口（部分毕业生（多校））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "营溪小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 （太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）；（太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -2458,51 +1991,42 @@
    "feed_junior_highs": [
     "广州市白云区新市中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "萧岗小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区江高镇第二初级中学"
+    "广东技术师范大学白云实验中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "蓼江小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
+    "广州彭加木纪念中学(初中部)",
     "广州彭加木纪念中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "螺涌小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 65中附小（除地段生外的广州市户籍学生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "诚美实验小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -2511,33 +2035,13 @@
     "广州市第一一五中学",
     "广州市白云区太和中学"
    ],
-   "group": "白云区小升初对口（部分毕业生（多校））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
     "group_paidui"
    ],
    "name": "谢家庄小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 （太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）；（太和镇第一小学…石湖小学）部分毕业生；蓝山小学（部分地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办学校，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "贤丰实验学校",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办学校，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "贤丰第二实验学校",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -2545,13 +2049,13 @@
    "feed_junior_highs": [
     "广州市第六十七中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "远景小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 机场西小学（广州户籍生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -2559,86 +2063,58 @@
    "feed_junior_highs": [
     "广州市第六十七中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "远景小学(合益校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 机场西小学（广州户籍生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
     "广州市白云区神山中学",
-    "广州市白云区石龙中学"
+    "石龙中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "郭塘小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "金升小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广大附中实验中学"
+    "广大附中实验中学(南校区)",
+    "广大附中实验中学(星汇金沙校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "金广实验学校(御金沙校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广大附中实验中学"
+    "广大附中实验中学(南校区)",
+    "广大附中实验中学(星汇金沙校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "金广实验学校(金域蓝湾校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "金星小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办学校，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "金晖实验学校",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -2646,251 +2122,215 @@
    "feed_junior_highs": [
     "广州市白云区梓元岗中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "金桂园小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 金桂园小学（广州户籍生）、梓元岗/走马岗地段人户一致地段生",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广大附中实验中学"
+    "广大附中实验中学(南校区)",
+    "广大附中实验中学(星汇金沙校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "金沙小学(南校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区广大附中实验中学"
+    "广大附中实验中学(南校区)",
+    "广大附中实验中学(星汇金沙校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "金沙小学(校本部)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "金源小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区石井中学"
+    "石井中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "金碧新城小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 金碧小学（地段生）；庆丰实验学校新庄地段学生",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "锦华小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "锦阳小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市培英中学（岭南校区）"
+    "广州市培英中学(岭南校区)"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "集贤小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 华师附小(地段生和符合条件的统筹生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区同和中学",
-    "广州市白云区嘉禾中学"
+    "同和中学",
+    "嘉禾中学"
    ],
-   "group": "白云区小升初对口（单校划片；多校（部分地段/统筹））",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone",
     "group_paidui"
    ],
    "name": "颐和实验小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 中黄外国语小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生)；颐和实验小学(地段生和符合条件的统筹生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区黄石学校"
+    "黄石学校(中学部)",
+    "黄石学校(黄石校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "马务小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 方圆实验小学（地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "马洞小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市第一一四中学"
+    "广州市第一一四中学(亭石南路)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "鸦岗小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 庆丰实验学校（庆丰、兴隆围地段学生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区嘉禾中学"
+    "嘉禾中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "鹤边镇泰小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 颐和实验小学(地段生和符合条件的统筹生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区黄石学校"
+    "黄石学校(中学部)",
+    "黄石学校(黄石校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "黄石学校(祥景校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 方圆实验小学（地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区黄石学校"
+    "黄石学校(中学部)",
+    "黄石学校(黄石校区)"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "黄石学校(黄石校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 方圆实验小学（地段生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区嘉禾中学"
+    "嘉禾中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "黄边小学(乐得校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 颐和实验小学(地段生和符合条件的统筹生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区嘉禾中学"
+    "嘉禾中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "黄边小学(云山诗意校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 颐和实验小学(地段生和符合条件的统筹生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区嘉禾中学"
+    "嘉禾中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "黄边小学(时代玫瑰园校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 颐和实验小学(地段生和符合条件的统筹生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区嘉禾中学"
+    "嘉禾中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "黄边小学(黄边校区)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 颐和实验小学(地段生和符合条件的统筹生）",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -2903,46 +2343,37 @@
     "single_zone"
    ],
    "name": "龙岗学校-龙岗小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区龙归学校"
+    "龙归学校(初中部)",
+    "龙归学校（珑璟校区）"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "龙归学校(小学部)",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
-    "广州市白云区龙归学校（珑璟校区）"
+    "龙归学校（珑璟校区）"
    ],
    "group": "白云区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
    "name": "龙归学校（珑璟校区）",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办学校，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "龙德学校",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   },
   {
    "data_gaps": null,
@@ -2950,23 +2381,13 @@
    "feed_junior_highs": [
     "广州市白云区大朗中学"
    ],
-   "group": "白云区小升初对口（单校划片）",
+   "group": "白云区小升初对口（多校电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "group_paidui"
    ],
    "name": "龙湖小学",
-   "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 ",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
-  },
-  {
-   "data_gaps": "民办小学，不参与公办派位",
-   "direct_feed": null,
-   "feed_junior_highs": [],
-   "group": "不参与公办派位/待核",
-   "mechanisms": [],
-   "name": "龙溪小学",
-   "source_note": "民办/其他。",
-   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+   "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+   "source_url": null
   }
  ],
  "year": 2026
