@@ -77,7 +77,7 @@ const WEB_TARGETS = [
   // 高中：录取线/高分段/分类（levels 为人工源无 dist 构建）
   'data/high/cutoff_score/dist/scores_2025.json',
   'data/high/cutoff_score/dist/scores_2026.json',
-  'data/high/level/src/levels.json',
+  'data/registry/affiliation/src/levels.json',
   // 初中升学通道（remap 源，输出 linkage/xxx.js）
   'data/linkage/dist/batch2_scores.json',
   'data/linkage/dist/district_quota.json',
@@ -145,7 +145,7 @@ const MP_MAIN_TARGETS = [
   'data/middle/enrollment/src/middle_enroll_notes.json',
   'data/poi/dist/middle_poi.json',
   'data/poi/dist/high_poi.json',
-  'data/high/level/src/levels.json',
+  'data/registry/affiliation/src/levels.json',
   'data/high/cutoff_score/dist/scores_2025.json',
   'data/high/cutoff_score/dist/scores_2026.json',
   'data/registry/entity/dist/entities.json',
@@ -299,6 +299,8 @@ const SRC_REMAP = {
   'linkage/dist/district_quota': 'linkage/district_quota',
   'linkage/dist/ranking_middle': 'linkage/ranking_middle',
   'linkage/dist/quota_outcome': 'linkage/quota_outcome',
+  // affiliation 归位 registry 后，产物 rel 保持历史稳定（前端 import/require 不变）
+  'registry/affiliation/src/levels': 'high/level/src/levels',
 };
 const relRaw = relative(DATA_SRC, abs); // 真源 rel（含 .json，注释/统计用）
 const relPath = (SRC_REMAP[relRaw.replace(/\.json$/, '')] ?? relRaw.replace(/\.json$/, '')) + '.json'; // 输出 rel（remap 后保持历史路径）

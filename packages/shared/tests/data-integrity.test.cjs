@@ -24,7 +24,7 @@ const entities = load('data/registry/entity/dist/entities.json').entities;
 const middlePois = load('data/poi/dist/middle_poi.json').schools;
 const primaryPois = load('data/poi/dist/primary_poi.json').schools;
 const highPois = load('data/poi/dist/high_poi.json').schools;
-const highLevels = load('data/high/level/src/levels.json').schools;
+const highLevels = load('data/registry/affiliation/src/levels.json').schools;
 // canonical=规范表（保留全部原文，dist 内层/外层原文仅 schools 兜底）——
 // OCR 垃圾与名额值校验以 canonical 为准；dist 单独断言 id 结构
 const districtQuotaCanon = load('data/linkage/parsed/canonical/district_quota.json').data;

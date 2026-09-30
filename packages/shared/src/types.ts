@@ -106,7 +106,7 @@ export interface HighLevelSchool {
   indicators: Record<string, string | number | null>;
 }
 
-/** data/high/level/src/levels.json */
+/** data/registry/affiliation/src/levels.json */
 export interface HighLevelsSnapshot {
   updated: string;
   title: string;
