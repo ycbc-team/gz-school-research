@@ -381,7 +381,6 @@ Page({
     try { wx.setStorageSync(HIST_KEY, list); } catch (e) {}
     this.setData({ history: list });
   },
-  hasTier(pt) { return Object.values(pt.tierOf || {}).some(Boolean); },
   buildAssocs(kw) {
     const k = (kw || '').trim();
     if (!k) return [];
@@ -395,8 +394,6 @@ Page({
       if (da !== db) return da - db;
       const sa = STAGE_PRI[a.mainStage], sb = STAGE_PRI[b.mainStage];
       if (sa !== sb) return sa - sb;
-      const ta = this.hasTier(a) ? 0 : 1, tb = this.hasTier(b) ? 0 : 1;
-      if (ta !== tb) return ta - tb;
       return a.name.localeCompare(b.name);
     });
     this.assocPts = pool;

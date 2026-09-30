@@ -26,10 +26,7 @@ export function createRepository(loaders: DataLoaders) {
   const scores = createScoresApi(loaders);
 
   return {
-    /** tier1 学校数组（跨区拍平） */
-    tier1Schools: Object.values(loaders.primaryTier1.districts).flatMap((d) => d.schools),
-    middleTier1Schools: Object.values(loaders.middleTier1.districts).flatMap((d) => d.schools),
-    /** 实体注册表（tier1 匹配别名唯一宿主） */
+    /** 实体注册表（school_id 名称/别名唯一宿主） */
     entities: loaders.entities.entities,
     /** 初中招生计划特殊备注（极少数校区，school_id → 说明，如执信水荫路仅初三就读） */
     middleEnrollNotes: loaders.middleEnrollNotes,
@@ -42,10 +39,7 @@ export function createRepository(loaders: DataLoaders) {
     },
     /** 高中分类/出口数据（高中详情、高中学段判定用） */
     highLevels: loaders.highLevels,
-    /** tier1 快照（小学小升初机制等场景用） */
-    primaryTier1: loaders.primaryTier1,
-    middleTier1: loaders.middleTier1,
-    /** 初中升学信号基础表（全量 334 校自招/指标/特控率，tier1 未覆盖学校详情页补充用） */
+    /** 初中升学信号基础表（全量 334 校自招/指标/特控率，详情页补充用） */
     rankingMiddle: loaders.rankingMiddle,
 
     ...schools,

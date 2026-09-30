@@ -6,7 +6,6 @@
  */
 import type {
   SchoolsSnapshot,
-  Tier1Snapshot,
   HighLevelsSnapshot,
   EnrollmentSnapshot,
   MiddleEnrollmentSnapshot,
@@ -18,9 +17,7 @@ import type { QuotaMatrix, SpecialMatrix, Batch2Scores, DistrictQuota, QuotaOutc
 
 export interface DataLoaders {
   primarySchools: SchoolsSnapshot;
-  primaryTier1: Tier1Snapshot;
   middleSchools: SchoolsSnapshot;
-  middleTier1: Tier1Snapshot;
   highSchools: SchoolsSnapshot;
   highLevels: HighLevelsSnapshot;
   /** 小学 2026 招生计划（7 区） */

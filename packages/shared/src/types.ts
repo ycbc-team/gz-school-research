@@ -20,7 +20,7 @@ export interface SchoolPoi {
   school?: string;
   /** high：levels 清单补点 */
   supplement?: boolean;
-  /** 新校核对补录标记（如「新开办（2026）·待首届成绩」）；无成绩新校不进 tier1 名单但数据可见 */
+  /** 新校核对补录标记（如「新开办（2026）·待首届成绩」） */
   note?: string;
 }
 
@@ -37,119 +37,6 @@ export interface SchoolsSnapshot {
   note?: string;
   districts: DistrictBoundary[];
   schools: SchoolPoi[];
-}
-
-/** 证据条目（真源引用） */
-export interface EvidenceItem {
-  source: string;
-  url: string;
-  note?: string;
-}
-
-/** 历史称号（省/市一级等 2005 年停评的历史荣誉，仅作客观记录） */
-export interface HistoricalTitle {
-  level: string;
-  year: number | null;
-  note: string;
-  source_url: string;
-}
-
-export interface Tier1School {
-  name: string;
-  /** 关联 POI 实体 id 列表（多校区 1:N；由 aliases 匹配 POI 回填；孤儿记录无此字段） */
-  school_ids?: string[];
-  /** 孤儿标记：aliases 未匹配到任何 POI（地图/详情不生效，仅数据保留） */
-  orphan?: boolean;
-  /** 所在区（孤儿记录保留自包含；匹配上的由 POI.adcode join，不存） */
-  district?: string;
-  /** 历史称号（省/市一级等停评荣誉，替代旧 provincial_level_title） */
-  historical_titles: HistoricalTitle[];
-  /** 小学：学位预警（对象化，替代旧 degree_warning 字符串） */
-  degree_warning?: { status: string; year: number; source_url: string } | null;
-  /** 小学：2026 计划班数（对象化，替代旧 plan_classes_2026 数值） */
-  plan_classes?: { year: number; count: number; source_url: string } | null;
-  /** 教育集团身份（含头部标记） */
-  education_group?: {
-    name: string;
-    role: string;
-    is_top_tier: boolean;
-    group_level?: string;
-    source_url: string;
-  };
-  /** 小学：对口直升初中 */
-  direct_feed?: {
-    middle_school: string;
-    middle_school_id: string | null;
-    is_reputable: boolean;
-    source_url: string;
-  };
-  /** 初中：中考口碑喜报（网传口径，非官方；旧 zhongkao 改名 zhongkao_rumor） */
-  zhongkao_rumor?: {
-    year: number;
-    scope: string;
-    data: string;
-    source_url: string;
-    note?: string;
-  };
-  /** 初中：官方中考录取分数（户籍生，新增） */
-  admission_scores?: Array<{
-    year: number;
-    huji: number;
-    source_url: string | Array<{ batch?: number; title?: string; url: string }>;
-  }>;
-  /** 初中：自主招生/名额人数（新增） */
-  autonomy_count?: { year: number; count: number; source_url: string } | null;
-  /** 初中：示范性高中称号 */
-  demonstration_high?: {
-    level: string;
-    year: number | null;
-    source_url: string;
-  } | null;
-  /** 初中：建校年份 */
-  founded?: { year: number; note?: string };
-  /** 初中：名额分配（指标到校）记录 */
-  quota_allocation?: { year: number; data: string; source_url: string };
-  /** 数据缺口说明 */
-  data_gaps: string[];
-  /** 真源证据 */
-  evidence: EvidenceItem[];
-  entity_relation?: string | null;
-  legal_entity?: {
-    name: string;
-    credit_code: string | null;
-    type: string;
-  } | null;
-  opened_year?: number | null;
-  /** 候选名变体（仅孤儿记录保留；匹配上的别名已收敛进 entities.json，本表不再冗余） */
-  aliases?: string[];
-  /** 手工坐标（无 POI 的学校补点） */
-  coords?: { lng: number; lat: number };
-  coord_addr?: string;
-  coord_source?: string;
-}
-
-export interface Tier1District {
-  xiaoshengchu_mechanism: string;
-  group_table_note: string;
-  schools: Tier1School[];
-}
-
-/** data/{primary,middle}/tier1_schools_all.json */
-export interface Tier1Snapshot {
-  title: string;
-  verified_date: string;
-  scope: string;
-  methodology: {
-    dimensions: string[];
-    scoring: string;
-    policy_note: string;
-  };
-  summary: {
-    total_schools: number;
-    by_district: Record<string, number>;
-  };
-  districts: Record<string, Tier1District>;
-  source_urls: string[];
 }
 
 /** 派位/对口分组表（xiaoshengchu 顶层 groups，避免逐记录重复组名/source_url） */

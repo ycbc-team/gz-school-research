@@ -7,11 +7,10 @@
 3. entities 别名跨实体抢名（曾致 4 个东风东校区实体共用"东风东路小学"纯名别名）
 4. 多校区 campus 的 school_id 悬空
 5. 集团核心校/成员名无法匹配到任何 POI
-6. tier1 口碑字段/摘要/school_id 悬空回归
-7. 全量 POI 自我匹配（match_school 对每个 POI 用自身 adcode+学段必须解析回自身 school_id，
+6. 全量 POI 自我匹配（match_school 对每个 POI 用自身 adcode+学段必须解析回自身 school_id，
    防"修复A引入B"的校名匹配全局回归）
-8. 初中招生计划 school_id 存在性 + 区一致性（跨区白名单）+ 合并招生 school_ids 存在性
-9. 校名匹配关键案例 golden（改动后必须逐条复核再更新）
+7. 初中招生计划 school_id 存在性 + 区一致性（跨区白名单）+ 合并招生 school_ids 存在性
+8. 校名匹配关键案例 golden（改动后必须逐条复核再更新）
 
 用法：python3 scripts/data_quality_test.py
 """
@@ -210,59 +209,7 @@ def main():
             continue
         check(g["brand"] in KNOWN_EMPTY, f"[5] 集团无成员: {g['brand']}（已知例外清单外）")
 
-    # ---- 6. tier1 数据质量回归 ----
-    OLD_FIELDS = {"rumor_tier", "rumor_sources", "rumor_notes", "conclusion",
-                  "conclusion_basis", "tier_rank", "tier_rank_note",
-                  "tier1_eligible", "exclude_reason", "provincial_level_title",
-                  "plan_classes_2026", "zhongkao", "reputation"}
-    entity_ids = {e["school_id"] for e in entities}
-
-    def check_tier1(path, stage):
-        d = json.load(open(os.path.join(ROOT, path)))
-        schools = []
-        for dname, dobj in d.get("districts", {}).items():
-            for s in dobj.get("schools", []):
-                s["_district"] = dname
-                schools.append(s)
-        label = f"[6/{stage}]"
-
-        # 6a. 旧字段不得出现
-        for s in schools:
-            leaked = set(s.keys()) & OLD_FIELDS
-            check(not leaked, f"{label} 旧字段残留: {s['name']} → {leaked}")
-
-        # 6b. summary 与实际一致
-        summary = d.get("summary", {})
-        check(summary.get("total_schools") == len(schools),
-              f"{label} summary.total_schools={summary.get('total_schools')} 实际={len(schools)}")
-        actual_by_dist = {}
-        for s in schools:
-            actual_by_dist[s["_district"]] = actual_by_dist.get(s["_district"], 0) + 1
-        check(summary.get("by_district") == actual_by_dist,
-              f"{label} summary.by_district 不一致: {summary.get('by_district')} vs {actual_by_dist}")
-
-        # 6c. 初中不得有增城残留
-        if stage == "middle":
-            check("增城区" not in d.get("districts", {}),
-                  f"{label} 初中数据含增城区（应为7区）")
-
-        # 6d. 必填字段
-        for s in schools:
-            check("name" in s and s["name"], f"{label} 缺 name")
-            check("historical_titles" in s, f"{label} {s['name']} 缺 historical_titles")
-            check("data_gaps" in s, f"{label} {s['name']} 缺 data_gaps")
-            check("evidence" in s, f"{label} {s['name']} 缺 evidence")
-
-        # 6e. school_id 可解析（有则必须存在于 entities）
-        for s in schools:
-            for sid in s.get("school_ids", []):
-                check(sid in entity_ids,
-                      f"{label} {s['name']} school_id 悬空: {sid}")
-
-    check_tier1("data/primary/tier1_schools_all.json", "primary")
-    check_tier1("data/middle/tier1_schools_all.json", "middle")
-
-    # ---- 7. 全量 POI 自我匹配：统一匹配服务对每个 POI 用自身 adcode+学段必须解析回自身 school_id ----
+    # ---- 6. 全量 POI 自我匹配：统一匹配服务对每个 POI 用自身 adcode+学段必须解析回自身 school_id ----
     # 校名匹配规则的核心回归（防"修复A引入B"）：任何 POI 被别的 POI 抢名/被泛名吸走都会在此失败
     # 统一入口：data/registry/entity/scripts/school_match.py（项目唯一匹配库，含行政区/学段收敛）
     sys.path.insert(0, os.path.join(ROOT, "data/registry/entity/scripts"))
@@ -274,9 +221,9 @@ def main():
             r = _matcher.resolve(s["name"],
                                  preferred_adcode=s.get("adcode"), preferred_stage=stage)
             check(r.get("school_id") == s.get("school_id"),
-                  f"[7/{stage}] 自我匹配失败: {s['name']} -> {r.get('school_id')}（应为 {s.get('school_id')}）")
+                  f"[6/{stage}] 自我匹配失败: {s['name']} -> {r.get('school_id')}（应为 {s.get('school_id')}）")
 
-    # ---- 8. 初中招生计划 school_id 一致性：必须存在；区一致（跨区白名单）；合并招生 school_ids 均存在 ----
+    # ---- 7. 初中招生计划 school_id 一致性：必须存在；区一致（跨区白名单）；合并招生 school_ids 均存在 ----
     # （2026-09-24 dist 已不存 school 名，报错以 school_id 标识；官方名单名溯源在 parsed/快照层）
     # 跨区白名单：培英鹤洞校区(白云名单引用荔湾)、四中丰宁学校(荔湾区属，校址纸行路39号在越秀/荔湾交界，高德归越秀)
     CROSS_DISTRICT_OK = {"gz-440103-a3ee807c", "gz-440104-3b870a8e"}
@@ -286,7 +233,7 @@ def main():
         for r in d.get("records", []):
             sid = r.get("school_id")
             if sid:
-                check(sid in poi_ids, f"[8/{d['district']}] 招生记录 school_id 悬空: {sid}")
+                check(sid in poi_ids, f"[7/{d['district']}] 招生记录 school_id 悬空: {sid}")
                 if sid not in CROSS_DISTRICT_OK:
                     # POI 真实 adcode（石龙中学等 school_id 前缀 440100 市属、POI 在白云 440111，
                     # 以 POI 表为准——school_id 前缀 ≠ POI adcode 的个别历史数据不误报）
@@ -300,11 +247,11 @@ def main():
                     adc = _poi_ad
                     expect_ad = {"番禺区": "440113", "越秀区": "440104", "海珠区": "440105",
                                  "荔湾区": "440103", "天河区": "440106", "白云区": "440111", "黄埔区": "440112"}[d["district"]]
-                    check(adc == expect_ad, f"[8/{d['district']}] 招生记录跨区挂错: {sid} (POI 区 {adc} ≠ {expect_ad})")
+                    check(adc == expect_ad, f"[7/{d['district']}] 招生记录跨区挂错: {sid} (POI 区 {adc} ≠ {expect_ad})")
             for sid2 in (r.get("school_ids") or []):
-                check(sid2 in poi_ids, f"[8/{d['district']}] 合并招生 school_ids 悬空: {sid2}")
+                check(sid2 in poi_ids, f"[7/{d['district']}] 合并招生 school_ids 悬空: {sid2}")
 
-    # ---- 9. 关键案例 golden：校名匹配基线（改动后必须逐条复核再更新） ----
+    # ---- 8. 关键案例 golden：校名匹配基线（改动后必须逐条复核再更新） ----
     # 校名取招生记录真实名（与 build_middle_enrollment 输入一致）；缺失为 None
     KEY_CASES = [
         ("广州大学附属中学", "440104", "gz-440104-b22c4eca"),          # 越秀派位 -> 黄华路校区
@@ -323,9 +270,9 @@ def main():
     for name, adcode, expect in KEY_CASES:
         r = _matcher.resolve(name, preferred_adcode=adcode, preferred_stage="初中")
         check((r.get("school_id") or None) == expect,
-              f"[9] 关键案例失配: {name} -> {r.get('school_id')}（应为 {expect}）")
+              f"[8] 关键案例失配: {name} -> {r.get('school_id')}（应为 {expect}）")
 
-    # ---- 10. education_groups 跨区同名撞车校验：core_poi 实体的法人 key（matchNorm(coreCampusName)
+    # ---- 9. education_groups 跨区同名撞车校验：core_poi 实体的法人 key（matchNorm(coreCampusName)
     # 含 aliases 通称）若与组 core/成员法人 key 相同、但存在不同行政区实体 → 报错。
     # 拦截「matchNorm 撞车」型跨法人误并（如海珠/黄埔/番禺实验小学曾归一成「实验小学」互相挂载）。
     # 法人 key 不在组内 → 放行：无括号校区/学部后缀（沙面小学悦江校区）、通称差异（桥城中学）
@@ -368,11 +315,11 @@ def main():
                           and coreCampusName(x.get("name", "")) != _my_legal]
                 if _cross:
                     check(False,
-                          f"[10] 跨区同名撞车: {_g['brand']} core_poi {_cp.get('poi_name')} ({_sid}) "
+                          f"[9] 跨区同名撞车: {_g['brand']} core_poi {_cp.get('poi_name')} ({_sid}) "
                           f"法人 [{_en}] 与其他行政区不同法人撞车: "
                           f"{[(x['name'], x['school_id']) for x in _cross]}")
 
-    # ---- 11. 孤儿学校：公办 + 无招生信息 或 无升学信息（逐一排查清单 + 快照防线）----
+    # ---- 10. 孤儿学校：公办 + 无招生信息 或 无升学信息（逐一排查清单 + 快照防线）----
     # 口径（按学段）：
     #   primary：招生 = 2026 小学地段招生（enrollments/2026-*.json）；升学 = 小升初出口（xiaoshengchu_2026）
     #   middle： 招生 = 2026 初中招生计划（middle/enrollment/dist/middle_enrollment_2026_*.json）；
@@ -481,7 +428,7 @@ def main():
             _orphans.append((_e["school_id"].split("-")[1] if _e.get("school_id") else "?", _e["name"], _e["school_id"], _e["stage"], "+".join(_lacks)))
     _orphans.sort()
     _orphan_lines = [f"      {_o[0]} | {_o[1]} | {_o[2]} | {_o[3]} | {_o[4]}" for _o in _orphans]
-    _section_lines.append(f"[11] 孤儿学校（公办且无招生或无升学，待逐校排查）: {len(_orphans)} 所")
+    _section_lines.append(f"[10] 孤儿学校（公办且无招生或无升学，待逐校排查）: {len(_orphans)} 所")
     _orphan_rows = [f"{_o[0]}|{_o[1]}|{_o[2]}|{_o[3]}|{_o[4]}" for _o in _orphans]
     # 快照（2026-09-22 由 digest 改为文件清单 diff——digest 只能报「变了」看不出哪所
     # 学校增删；基线存 data/registry/entity/dist/orphans_snapshot.json，漂移逐条列出
@@ -489,15 +436,15 @@ def main():
     _ORPHAN_SNAP = os.path.join(ROOT, "data/registry/entity/test/snapshots/orphans_snapshot.json")
     if os.environ.get("UPDATE_SNAPSHOT") == "1":
         json.dump(_orphan_rows, open(_ORPHAN_SNAP, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-        print(f"[11] UPDATE_SNAPSHOT=1：孤儿快照已写入 {os.path.relpath(_ORPHAN_SNAP, ROOT)}（{len(_orphan_rows)} 所）")
+        print(f"[10] UPDATE_SNAPSHOT=1：孤儿快照已写入 {os.path.relpath(_ORPHAN_SNAP, ROOT)}（{len(_orphan_rows)} 所）")
     elif not os.path.exists(_ORPHAN_SNAP):
-        check(False, f"[11] 孤儿快照缺失 {_ORPHAN_SNAP}（先 UPDATE_SNAPSHOT=1 固化当前排查结果）")
+        check(False, f"[10] 孤儿快照缺失 {_ORPHAN_SNAP}（先 UPDATE_SNAPSHOT=1 固化当前排查结果）")
     else:
         _obase = json.load(open(_ORPHAN_SNAP, encoding="utf-8"))
         _odiff = snapshot_diff_lines(_obase, _orphan_rows)
-        check(not _odiff, f"[11] 孤儿学校清单漂移（{len(_odiff)} 处）：\n" + "\n".join(_odiff[:60]))
+        check(not _odiff, f"[10] 孤儿学校清单漂移（{len(_odiff)} 处）：\n" + "\n".join(_odiff[:60]))
 
-    # ---- 12. 同段同址冗余候选：同学段（primary/middle/high）+ 同区 + 坐标距离 ≤200m 的实体（含民办）----
+    # ---- 11. 同段同址冗余候选：同学段（primary/middle/high）+ 同区 + 坐标距离 ≤200m 的实体（含民办）----
     # 复用「全实体坐标检测」思路（相邻点检测，曾用于发现九年一贯/完中同址多学部）：
     # 跨学段同址（小学+初中=九年一贯、初中+高中=完中）是正常办学形态，故只看同学段；
     # 同学段同址是冗余候选（如省实荔湾 初中部/初中部一期 同址北文街2号），须逐一排查
@@ -554,9 +501,9 @@ def main():
             if _d <= 200:
                 _co_pairs.append((round(_d, 1), _a[1], _a[0], _a[2], _a[3], _b[2], _b[3]))
     _co_pairs.sort()
-    _section_lines.append(f"[12] 同段同址冗余候选（同学段+同区+≤200m，含民办）: {len(_co_pairs)} 组")
+    _section_lines.append(f"[11] 同段同址冗余候选（同学段+同区+≤200m，含民办）: {len(_co_pairs)} 组")
 
-    # ---- 13. 小升初记录同组同校不得重复（upgrade 产物层去重防线）----
+    # ---- 12. 小升初记录同组同校不得重复（upgrade 产物层去重防线）----
     # 同一小学多源名（更名残留）/多条源记录（实体合并、源表重复行）解析到同一实体后，
     # 若产物仍出现同 (group_id, school_id) 多行，前端同校重复展示且无声无息。
     # 该检查锁定「upgrade_xiaoshengchu.mjs 已按 (group, school_id) 去重」这一不变量：
@@ -570,10 +517,10 @@ def main():
             continue  # 未解析缺口记录不参与去重判定（逐条保留可排查）
         _k = (_r.get("group_id"), _sid)
         if _k in _xs_keys:
-            check(False, f"[13] 小升初同组同校重复: group_id={_k[0]} school_id={_sid}（{_xs_keys[_k]} 与后续行）")
+            check(False, f"[12] 小升初同组同校重复: group_id={_k[0]} school_id={_sid}（{_xs_keys[_k]} 与后续行）")
         else:
             _xs_keys[_k] = _r.get("source_note", "")[:24]
-    _section_lines.append(f"[13] 小升初同组同校重复检查: {len(_xs_keys)} 唯一组，无重复")
+    _section_lines.append(f"[12] 小升初同组同校重复检查: {len(_xs_keys)} 唯一组，无重复")
 
     _co_lines = [f"      {_p[0]:6.1f}m | {_p[1]} {_p[2]} | {_p[3]} {_p[4]}  <->  {_p[5]} {_p[6]}" for _p in _co_pairs]
     # 快照行含两侧名称（2026-09-22 用户 review 要求）：区|学段|id1|name1|id2|name2，
@@ -584,22 +531,22 @@ def main():
     _CO_SNAP = os.path.join(ROOT, "data/registry/entity/test/snapshots/co_located_snapshot.json")
     if os.environ.get("UPDATE_SNAPSHOT") == "1":
         json.dump(_co_rows, open(_CO_SNAP, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-        print(f"[12] UPDATE_SNAPSHOT=1：同址候选快照已写入 {os.path.relpath(_CO_SNAP, ROOT)}（{len(_co_rows)} 组）")
+        print(f"[11] UPDATE_SNAPSHOT=1：同址候选快照已写入 {os.path.relpath(_CO_SNAP, ROOT)}（{len(_co_rows)} 组）")
     elif not os.path.exists(_CO_SNAP):
-        check(False, f"[12] 同址候选快照缺失 {_CO_SNAP}（先 UPDATE_SNAPSHOT=1 固化当前排查结果）")
+        check(False, f"[11] 同址候选快照缺失 {_CO_SNAP}（先 UPDATE_SNAPSHOT=1 固化当前排查结果）")
     else:
         _cbase = json.load(open(_CO_SNAP, encoding="utf-8"))
         _cdiff = snapshot_diff_lines(_cbase, _co_rows)
-        check(not _cdiff, f"[12] 同段同址候选漂移（{len(_cdiff)} 处）：\n" + "\n".join(_cdiff[:60]))
+        check(not _cdiff, f"[11] 同段同址候选漂移（{len(_cdiff)} 处）：\n" + "\n".join(_cdiff[:60]))
 
-    # ---- 14. 2026 特长生计划官方口径（体育1905不含领军龙 / 艺术1741 / 领军龙116） ----
+    # ---- 13. 2026 特长生计划官方口径（体育1905不含领军龙 / 艺术1741 / 领军龙116） ----
     _sp = json.load(open(os.path.join(ROOT, "data/linkage/parsed/canonical/special_matrix.json"))).get("special_plan_summary", {})
-    check(_sp.get("sports") == 1905, f"[14] 特长生体育计划合计 {_sp.get('sports')} != 1905（官方口径，不含领军龙）")
-    check(_sp.get("arts") == 1741, f"[14] 特长生艺术计划合计 {_sp.get('arts')} != 1741（官方口径）")
-    check(_sp.get("football_special") == 116, f"[14] 领军龙足球试点计划 {_sp.get('football_special')} != 116（官方口径）")
-    _section_lines.append(f"[14] 特长生计划官方口径: 体育 {_sp.get('sports')}（不含领军龙） / 艺术 {_sp.get('arts')} / 领军龙 {_sp.get('football_special')}")
+    check(_sp.get("sports") == 1905, f"[13] 特长生体育计划合计 {_sp.get('sports')} != 1905（官方口径，不含领军龙）")
+    check(_sp.get("arts") == 1741, f"[13] 特长生艺术计划合计 {_sp.get('arts')} != 1741（官方口径）")
+    check(_sp.get("football_special") == 116, f"[13] 领军龙足球试点计划 {_sp.get('football_special')} != 116（官方口径）")
+    _section_lines.append(f"[13] 特长生计划官方口径: 体育 {_sp.get('sports')}（不含领军龙） / 艺术 {_sp.get('arts')} / 领军龙 {_sp.get('football_special')}")
 
-    # ---- 15. 民办学校名单快照（变化即感知）----
+    # ---- 14. 民办学校名单快照（变化即感知）----
     _minban = json.load(open(os.path.join(ROOT, "data/registry/private/dist/minban_schools.json")))
     _minban_ids = sorted(s["school_id"] for s in _minban["schools"])
     # 快照（2026-09-22 由 digest 改为文件清单 diff）：基线存
@@ -607,16 +554,16 @@ def main():
     _MINBAN_SNAP = os.path.join(ROOT, "data/registry/private/test/snapshots/minban_snapshot.json")
     if os.environ.get("UPDATE_SNAPSHOT") == "1":
         json.dump(_minban_ids, open(_MINBAN_SNAP, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-        print(f"[15] UPDATE_SNAPSHOT=1：民办名单快照已写入 {os.path.relpath(_MINBAN_SNAP, ROOT)}（{len(_minban_ids)} 所）")
+        print(f"[14] UPDATE_SNAPSHOT=1：民办名单快照已写入 {os.path.relpath(_MINBAN_SNAP, ROOT)}（{len(_minban_ids)} 所）")
     elif not os.path.exists(_MINBAN_SNAP):
-        check(False, f"[15] 民办名单快照缺失 {_MINBAN_SNAP}（先 UPDATE_SNAPSHOT=1 固化当前排查结果）")
+        check(False, f"[14] 民办名单快照缺失 {_MINBAN_SNAP}（先 UPDATE_SNAPSHOT=1 固化当前排查结果）")
     else:
         _mbase = json.load(open(_MINBAN_SNAP, encoding="utf-8"))
         _mdiff = snapshot_diff_lines(_mbase, _minban_ids)
-        check(not _mdiff, f"[15] 民办名单漂移（{len(_mdiff)} 处）：\n" + "\n".join(_mdiff[:60]))
-    _section_lines.append(f"[15] 民办学校名单: {len(_minban_ids)} 所（快照 minban_snapshot.json，变化即感知）")
+        check(not _mdiff, f"[14] 民办名单漂移（{len(_mdiff)} 处）：\n" + "\n".join(_mdiff[:60]))
+    _section_lines.append(f"[14] 民办学校名单: {len(_minban_ids)} 所（快照 minban_snapshot.json，变化即感知）")
 
-    # ---- 16. 民办学校不得有公办招生/升学信息（0 容忍，有即失败）----
+    # ---- 15. 民办学校不得有公办招生/升学信息（0 容忍，有即失败）----
     # 民办学校在公办划片/派位体系里不应有：真实地段的小学招生、公办初中招生、小升初派位。
     # 民办招生计划（zone 含"民办：无地段，报名人数超计划电脑派位"等）属民办自主招生，放行。
     # 出现 → 立即失败：要么民办误标（如金海岸学校被误标民办后出现公办地段），
@@ -648,10 +595,10 @@ def main():
                     continue
                 _bad_xs.append(f"{os.path.basename(_f)} | {_r.get('school', _r.get('name'))} | {_r.get('school_id')}")
     for _b in _bad_pri + _bad_mid + _bad_xs:
-        check(False, f"[16] 民办学校出现公办招生/升学信息: {_b}")
-    _section_lines.append(f"[16] 民办学校公办招生/升学检测: 小学 {len(_bad_pri)} 异常 / 初中 {len(_bad_mid)} 异常 / 小升初 {len(_bad_xs)} 异常（民办自主招生计划放行，0 容忍）")
+        check(False, f"[15] 民办学校出现公办招生/升学信息: {_b}")
+    _section_lines.append(f"[15] 民办学校公办招生/升学检测: 小学 {len(_bad_pri)} 异常 / 初中 {len(_bad_mid)} 异常 / 小升初 {len(_bad_xs)} 异常（民办自主招生计划放行，0 容忍）")
 
-    # ---- 17. 番禺民办条目必须全部官方源（防手工名单）----
+    # ---- 16. 番禺民办条目必须全部官方源（防手工名单）----
     # 番禺有官方文件（2026 义务教育民办招生计划 sheet + 广州市中考批次民办高中名单），
     # 民办名单必须由 build_minban_official.py 自动解析生成；md/手工不得直接追加番禺
     # （金海岸学校误标民办即为 md 手工追加所致）。manual/legacy 的番禺条目 → 失败。
@@ -660,19 +607,19 @@ def main():
     _panyu_manual = [f"{s['school_id']} | {s.get('name')} | {s.get('source_type')}"
                      for s in _panyu_entries if not s.get("source_type", "").startswith("official")]
     for _b in _panyu_manual:
-        check(False, f"[17] 番禺民办条目非官方源（番禺只能官方解析，禁止手工名单）: {_b}")
-    _section_lines.append(f"[17] 番禺民办条目: {len(_panyu_entries) - len(_panyu_manual)}/{len(_panyu_entries)} 官方源"
+        check(False, f"[16] 番禺民办条目非官方源（番禺只能官方解析，禁止手工名单）: {_b}")
+    _section_lines.append(f"[16] 番禺民办条目: {len(_panyu_entries) - len(_panyu_manual)}/{len(_panyu_entries)} 官方源"
           f"（manual/legacy {len(_panyu_manual)}，0 容忍）")
 
-    # ---- 18. 实体名不得为招生/报名点位（防"招生处"点位实体回归）----
+    # ---- 17. 实体名不得为招生/报名点位（防"招生处"点位实体回归）----
     # 高德 POI 常采集「XX学校招生处/招生办/报名点」等非学校点位（如星执学校小学招生处
     # a36980e5 曾误建实体，与执信中学附属小学同址），build_entities NON_SCHOOL_POI 已过滤；
     # 此处兜底：实体表再出现点位后缀 → 失败（0 容忍）。
     _poi_like = [f"{e['school_id']} | {e['name']}" for e in json.load(open(os.path.join(ROOT, "data/registry/entity/dist/entities.json")))["entities"]
                  if any(x in e['name'] for x in ('招生处', '招生办', '报名点', '报名处', '招生点'))]
     for _b in _poi_like:
-        check(False, f"[18] 实体名为招生/报名点位（非学校，应被 build_entities 过滤）: {_b}")
-    _section_lines.append(f"[18] 实体点位后缀检测: {len(_poi_like)} 异常（0 容忍，build_entities NON_SCHOOL_POI 兜底）")
+        check(False, f"[17] 实体名为招生/报名点位（非学校，应被 build_entities 过滤）: {_b}")
+    _section_lines.append(f"[17] 实体点位后缀检测: {len(_poi_like)} 异常（0 容忍，build_entities NON_SCHOOL_POI 兜底）")
 
     # ---- 汇总：通过时只输出一行结论；失败时逐项输出各序号概要 + 明细 + 失败项 ----
     if failures:

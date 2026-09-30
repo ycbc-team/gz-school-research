@@ -29,23 +29,7 @@
     <view class="kv">
       <view class="kv-row"><text>学段</text><text>{{model.stageLabel}}</text></view>
       <view class="kv-row"><text>所属区</text><text>{{model.district}}</text></view>
-      <view class="kv-row"><text>法人实体</text><text>{{model.legalEntityText}}</text></view>
     </view>
-  </view>
-
-  <!-- 口碑信号 -->
-  <view wx:if="{{model.signalRows.length}}" class="card">
-    <view class="card-title">口碑信号</view>
-    <view class="title-note-row">
-      <view wx:if="{{model.support}}" class="badge sm {{model.support.cls}}">{{model.support.text}}</view>
-      <text class="title-note">民间口径，非官方评价，仅供参考。</text>
-    </view>
-    <view class="kv">
-      <view wx:for="{{model.signalRows}}" wx:key="label" class="kv-row">
-        <text>{{item.label}}</text><text>{{item.value}}</text>
-      </view>
-    </view>
-    <view wx:if="{{model.tierNote}}" class="sub-note">{{model.tierNote}}</view>
   </view>
 
   <!-- 小学：招生计划 -->

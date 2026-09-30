@@ -1,9 +1,7 @@
 /**
- * 学校名归一化与 tier1 梯队匹配。
- * 匹配策略：仅全等匹配（归一化后 === 记录名/别名），不做前缀/包含/模糊匹配；
- * 校区与名称变体一律显式写入 aliases（数据驱动、可审计、可单测）。
+ * 学校名归一化与品牌归属匹配。
+ * 匹配策略：仅全等匹配（归一化后 === 记录名/别名），不做前缀/包含/模糊匹配。
  */
-import type { Tier1School } from './types.js';
 
 /** 归一化校名：去「广州市」前缀、全半角括号统一后去括号、去空白 */
 export function normName(s: string): string {
@@ -22,84 +20,6 @@ export function normName(s: string): string {
  */
 export function looseNorm(s: string): string {
   return normName(s).replace(/(初中部|高中部|小学部|校区|分校|学校|部)$/, '');
-}
-
-/**
- * 构建 (归一化别名, 口碑记录) 表，长别名优先。
- * 2026-09-17 调整：tier1 为废弃网传数据源，不得反向污染实体注册表别名——
- * 口碑记录自身的 name/aliases 直接参与匹配（tier1 模块自洽，按 school_ids 关联实体）；
- * 实体注册表 name/aliases 仅作补充（官方/POI 可靠名），不再承载 tier1 网传标注（如「番禺铁英」）。
- */
-export function buildAliasTable(
-  schools: ReadonlyArray<Tier1School>,
-  entities: ReadonlyArray<{ school_id: string; name: string; aliases?: string[] }>,
-): Array<{ alias: string; school: Tier1School }> {
-  const table: Array<{ alias: string; school: Tier1School }> = [];
-  const seen = new Set<string>();
-  // 1) 口碑记录自身 name/aliases（网传标注留在 tier1 内部，不进实体表）
-  for (const sc of schools) {
-    for (const a of [sc.name, ...(sc.aliases || [])]) {
-      const na = normName(a);
-      if (!na || seen.has(na)) continue;
-      seen.add(na);
-      table.push({ alias: na, school: sc });
-    }
-  }
-  // 2) 实体补充：school_ids 关联实体的 name/aliases（官方/POI 名）
-  const tierBySchoolId = new Map<string, Tier1School>();
-  for (const sc of schools) {
-    for (const sid of sc.school_ids || []) {
-      if (!tierBySchoolId.has(sid)) tierBySchoolId.set(sid, sc);
-    }
-  }
-  for (const e of entities) {
-    const sc = tierBySchoolId.get(e.school_id);
-    if (!sc) continue;
-    for (const a of [e.name, ...(e.aliases || [])]) {
-      const na = normName(a);
-      if (!na || seen.has(na)) continue;
-      seen.add(na);
-      table.push({ alias: na, school: sc });
-    }
-  }
-  table.sort((x, y) => y.alias.length - x.alias.length);
-  return table;
-}
-
-/**
- * 用点位名匹配梯队学校；未命中返回 undefined。
- * 匹配策略：**仅全等匹配**（归一化后的点位名 === 记录名/别名），不做任何前缀/包含/模糊匹配。
- * 校区与名称变体一律显式写入记录的 aliases（数据驱动、可审计、可单测），
- * 避免「广东实验中学越秀学校」被「广东实验中学」前缀误配为本部口碑等历史 bug。
- */
-export function matchTier1ByPoiName(
-  poiName: string,
-  schools: ReadonlyArray<Tier1School>,
-  table?: ReadonlyArray<{ alias: string; school: Tier1School }>,
-  entities?: ReadonlyArray<{ school_id: string; name: string; aliases?: string[] }>,
-): Tier1School | undefined {
-  const t = table ?? buildAliasTable(schools, entities ?? []);
-  const pn = normName(poiName);
-  if (!pn) return undefined;
-  for (const { alias, school } of t) {
-    if (pn === alias) return school;
-  }
-  return undefined;
-}
-
-/** 给一组点位批量打上匹配到的梯队结论（含 aliases 表，只需构建一次） */
-export function attachTier1ToPois(
-  pois: ReadonlyArray<{ name: string }>,
-  tier1Schools: ReadonlyArray<Tier1School>,
-  entities: ReadonlyArray<{ school_id: string; name: string; aliases?: string[] }>,
-): Map<string, Tier1School> {
-  const table = buildAliasTable(tier1Schools, entities);
-  const hits = new Map<string, Tier1School>();
-  for (const p of pois) {
-    const hit = matchTier1ByPoiName(p.name, tier1Schools, table);
-    if (hit) hits.set(p.name, hit);
-  }
-  return hits;
 }
 
 /** 品牌单位的最小形状（与 apps/web brandGroups 的 BrandUnit 兼容） */

@@ -84,17 +84,15 @@ const WEB_TARGETS = [
   'data/linkage/dist/ranking_middle.json',
   'data/linkage/dist/special_matrix.json',
   'data/linkage/dist/quota_outcome.json',
-  // 初中：2026 招生/排序/样板校
+  // 初中：2026 招生/排序
   'data/middle/enrollment/dist/middle_enrollment_2026.json',
   'data/middle/org_sort/dist/compiled.json',
-  'data/middle/tier1_schools_all.json',
   // POI（三学段）
   'data/poi/dist/high_poi.json',
   'data/poi/dist/middle_poi.json',
   'data/poi/dist/primary_poi.json',
-  // 小学：2026 招生合并产物/样板校/小升初（含 remap 与 src 手工源）
+  // 小学：2026 招生合并产物/小升初（含 remap 与 src 手工源）
   'data/primary/enrollment/dist/2026-all.json',
-  'data/primary/tier1_schools_all.json',
   'data/primary/transition/dist/xiaoshengchu_2026.json',
   'data/middle/enrollment/src/middle_enroll_notes.json',
   // 实体注册表/教育集团/品牌
@@ -127,12 +125,10 @@ const WEB_OUTPUT_RELS = [
   'linkage/quota_outcome.js',
   'middle/enrollment/dist/middle_enrollment_2026.js',
   'middle/org_sort/dist/compiled.js',
-  'middle/tier1_schools_all.js',
   'poi/dist/high_poi.js',
   'poi/dist/middle_poi.js',
   'poi/dist/primary_poi.js',
   'primary/enrollments/2026-all.js',
-  'primary/tier1_schools_all.js',
   'primary/xiaoshengchu_2026.js',
   'primary/middle_enroll_notes.js',
   'registry/entity/dist/entities.js',
@@ -141,14 +137,12 @@ const WEB_OUTPUT_RELS = [
   'registry/group/src/brand_groups.js',
   'specialty_schools/dist/specialty_schools.js',
 ];
-// 小程序主包数据（地图页 + 首页/支撑度消费）：POI/tier1/levels/招生/实体/升学路线/官方录取分
+// 小程序主包数据（地图页 + 首页消费）：POI/levels/招生/实体/升学路线/官方录取分
 const MP_MAIN_TARGETS = [
   'data/poi/dist/primary_poi.json',
-  'data/primary/tier1_schools_all.json',
   'data/primary/transition/dist/xiaoshengchu_2026.json',
   'data/middle/enrollment/src/middle_enroll_notes.json',
   'data/poi/dist/middle_poi.json',
-  'data/middle/tier1_schools_all.json',
   'data/poi/dist/high_poi.json',
   'data/high/level/src/levels.json',
   'data/high/cutoff_score/dist/scores_2025.json',

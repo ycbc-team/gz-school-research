@@ -186,7 +186,9 @@
 
 **数据字段引用（本屏各模块所用）**
 
-- **学校信号（学位预警 / 省一级 / 多维印证）**：`data/primary/tier1_schools_all.json` → `{ districts: [{ schools: [...] }] }`，每条含 `degree_warning{status,year,source_url}`、`historical_titles[]{level,year,note,source_url}`、`education_group{name,role,is_top_tier,group_level}`、`data_gaps[]`、`evidence[]{source,url,note}`（另含 `plan_classes, legal_entity, entity_relation`）。标题右侧"民间口径"小字对应 `evidence` 来源为非官方项。
+> **模块废弃说明（2026-09-30）**：本文"学校信号"模块所依赖的 `tier1_schools_all.json`（口碑/学校信号）已废弃归档至 `data/reputation/`，Web/小程序不再展示学校信号卡；本 PRD 保留原设计描述仅供回溯。学校客观事实（招生/升学路线/名额分配/录取线/教育集团等）见 `data/` 下官方口径业务数据。
+
+- **学校信号（学位预警 / 省一级 / 多维印证）**【已废弃，仅留档】：原数据 `data/primary/tier1_schools_all.json` → `{ districts: [{ schools: [...] }] }`，每条含 `degree_warning{status,year,source_url}`、`historical_titles[]{level,year,note,source_url}`、`education_group{name,role,is_top_tier,group_level}`、`data_gaps[]`、`evidence[]{source,url,note}`（另含 `plan_classes, legal_entity, entity_relation`）。标题右侧"民间口径"小字对应 `evidence` 来源为非官方项。
 - **招生计划（2026）**：小学视角 `data/primary/enrollment/dist/2026-*.json` → `{ records: [...] }`，每条含 `school, school_id, plan_classes?, zone?, source, district, note, poi_name, lng, lat`；初中视角 `data/middle/enrollment/dist/middle_enrollment_2026_*.json` → `{ records: [...] }`，每条含 `school, school_id, plan_classes?, scope?, mechanism, mechanism_note, group_members?, school_ids?`（展示口径与规则标签映射详见 07B）。无具体信息的字段不展示。
 - **升学路线参考（2026）**：小学视角 `data/primary/transition/dist/xiaoshengchu_2026.json` → `{ records: [...], groups: [...] }`，每条记录含 `school_id, group_id, feed_school_ids[], direct_feed_school_id?, feed_unresolved, source_note, data_gaps`；`groups[]{id, name, source_urls, data_gaps}`。展示仅列对口 / 派位初中名（由 `feed_school_ids` / `direct_feed_school_id` 经 `entities` 解析为校名），校名为可点击链接（跳转 `school_id`）。<b>初中视角（升高中）</b>：指标到校 / 名额分配数据待补充，字段结构拟参照本模式（`feed_school_ids` 指向高中 school_id，经 `entities` 解析为校名）。
 - **所在区招生细则（2026）**：对应区招生政策说明（区教育局口径，来源见 `data/primary/enrollment/dist/2026-*.json` 顶层的 `source_url` 字段）。
@@ -216,7 +218,7 @@
 **数据字段引用（初中态各模块所用）**
 
 - **学段判定 / 配色 / tab 色点**：同 01「数据字段引用」——`entities[].stage`（`primary`/`middle`/`high`）、`STAGE_LABEL`、`STAGE_PRIORITY`（高中 &gt; 初中 &gt; 小学）；tab 色点取 UI 自定学段色（小学蓝 #2F5CD6／初中橙 #E8850C／高中绿 #0F9D58）。
-- **学校信号（中考成绩 / 中考录取线 / 示范性高中 / 建校年份）**：**项目内暂无初中中考口径数据源，数据待补充**（与小学学校信号字段不同——小学取 `tier1_schools_all.json` 的学位预警 / 省一级 / 多维印证；初中四行字段为中考民间口径，需新建数据文件后接入，标题小字「民间口径，非官方评价，仅供参考」）。
+- **学校信号（中考成绩 / 中考录取线 / 示范性高中 / 建校年份）**【已废弃，仅留档】：**项目内暂无初中中考口径数据源，数据待补充**（与小学学校信号字段不同——小学取 `tier1_schools_all.json` 的学位预警 / 省一级 / 多维印证；初中四行字段为中考民间口径，需新建数据文件后接入，标题小字「民间口径，非官方评价，仅供参考」）。
 - **招生计划（2026）· 初中**：`data/middle/enrollment/dist/middle_enrollment_2026_*.json` → `{ records: [...] }`，每条含 `school, school_id, plan_classes?, scope?, mechanism, mechanism_note, group_members?, school_ids?`。
   - 招生规则标签：`mechanism` 枚举 → 标签文案映射：`single_zone` →「单校划片」（含对口直升）、`group_paidui` →「多校电脑派位」、`single_lottery` →「单校电脑抽签」（7 区真实分布：`single_lottery` 仅番禺 1 例，其余为 `group_paidui` / `single_zone`）；
   - 计划班数＝`plan_classes`、招生范围＝`scope`、派位组成员＝`group_members`（仅 `group_paidui`，为同组初中校名数组）、官方备注＝`mechanism_note`；无具体信息字段不展示；

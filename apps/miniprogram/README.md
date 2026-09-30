@@ -11,7 +11,7 @@ apps/miniprogram/
 ├── pages/
 │   ├── index/            # 入口：数据统计 + 功能入口
 │   ├── map/              # 小学分布地图（内置 <map>，GCJ-02 直接可用；区筛选）
-│   └── support/          # 口碑学校支撑度列表（小学/初中切换）
+│   └── policy/           # 使用说明 / 数据口径声明
 ├── utils/data.js         # 数据加载：shared cjs + data js 产物
 ├── shared/               # 【构建产物，git 忽略】@gz/shared 的 CommonJS 输出
 └── data/                 # 【构建产物，git 忽略】data/*.json 转成的 CommonJS 模块
@@ -35,5 +35,5 @@ npm run build:mp          # 生成 shared/ 与 data/（从 data/ JSON 唯一真�
 
 ## 待完善
 
-- 地图 marker 聚类与梯队配色（当前为统一样式 + 名称标注）
+- 地图 marker 聚类与配色（当前为统一样式 + 名称标注）
 - 学校详情页、对比、路线规划（与 Web 端共用 shared 逻辑）
