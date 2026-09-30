@@ -4775,7 +4775,12 @@
    "plan_classes": 7,
    "school": "广州协和学校初中部",
    "school_id": "gz-440103-e281e7d0",
-   "scope": null
+   "scope": null,
+   "scope_school_ids": {
+    "广州市协和学校（小学部）": [
+     "gz-440103-33b32c4c"
+    ]
+   }
   },
   {
    "_group_primaries": [
