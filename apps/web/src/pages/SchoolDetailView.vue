@@ -71,6 +71,12 @@ const nature = computed(() => model.value.nature);
 const feedJuniors = computed(() => model.value.feedJuniors);
 const feedGap = computed(() => model.value.feedGap);
 const feedRows = computed(() => model.value.feedRows);
+/** 升学机制标签 → 徽章配色类（与初中机制徽章同款：直升=zhi_sheng 绿、派位=group_paidui 蓝、抽签=chou_qian 橙） */
+function mechCls(m: string): string {
+  if (m === '直升') return 'zhi_sheng';
+  if (m === '派位') return 'group_paidui';
+  return 'chou_qian';
+}
 const enrollNote = computed(() => model.value.enrollNote);
 const admissionRows = computed(() => model.value.admissionRows);
 const gaokaoRows = computed(() => model.value.gaokaoRows);
@@ -407,10 +413,14 @@ function goCampus(item: { id: string; name: string }) {
       <p v-else class="empty">未在 2026 招生计划中匹配到招生地段（数据覆盖七区；分校区、新建校暂缺，后续补录）。</p>
     </div>
 
-    <!-- 小学 tab：升学路线（对口初中 · 派位/直升） -->
+    <!-- 小学 tab：升学路线（按升学机制分组标签 + 对口初中列表） -->
     <div v-if="stage === 'primary' && (feedRows.length || feedGap || feedJuniors?.direct_feed)" class="card">
       <div class="card-title">升学路线（2026）</div>
-      <p v-if="feedJuniors?.group" class="sub-note">分组：{{ feedJuniors.group }}</p>
+      <!-- 升学机制标签（直升/派位/抽签），与初中招生机制徽章同款配色 -->
+      <div v-if="feedJuniors?.mechanisms?.length" class="mech-row" style="margin-top:2px;">
+        <span v-for="m in feedJuniors.mechanisms" :key="m" class="badge" :class="mechCls(m)">{{ m }}</span>
+      </div>
+      <p v-if="feedJuniors?.group" class="sub-note">{{ feedJuniors.group }}</p>
       <p v-if="feedJuniors?.direct_feed" class="sub-note">直升：{{ feedJuniors.direct_feed }}</p>
       <div v-if="feedRows.length" class="feed-list">
         <div v-for="r in feedRows" :key="r.name" class="feed-item">
@@ -705,6 +715,7 @@ function goCampus(item: { id: string; name: string }) {
 .badge.group_paidui { background: #1e40af; }
 .badge.single_paidui { background: #dc2626; }
 .badge.min_zi_zhu { background: #7c3aed; }
+.badge.chou_qian { background: #d97706; }
 .badge.no_plan { background: #6b7280; }
 .plan-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
 .plan-total { font-size: 13px; font-weight: 700; color: #1a1b1c; font-variant-numeric: tabular-nums; }

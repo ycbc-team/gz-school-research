@@ -15,6 +15,26 @@ const GAP_MARKERS = ['待查', '未在', '缺口', '暂缺'];
 const STAGE_LABEL: Record<SchoolStage, string> = { primary: '小学部', middle: '初中部', high: '高中部' };
 const STAGE_SHORT: Record<SchoolStage, string> = { primary: '小学', middle: '初中', high: '高中' };
 
+/** 小学升学机制标签（用户口径：直升 / 派位 / 抽签）。
+ * 数据层未结构化机制枚举，group 文本（如「白云区小升初对口（单校划片；多校（部分地段/统筹））」、
+ * 「越秀区小升初第一组（多校划片·电脑派位）」、「番禺区小升初对口（电脑抽签）」）是权威分组说明，
+ * 这里只做归类展示。顺序固定：直升 → 派位 → 抽签（参照初中机制块 MECH_ORDER 先直升后派位）。
+ * 「不参加/不参与…派位」否定语境（如「对口直升（不参加电脑派位）」「协和…不参加荔湾区公办初中派位」）
+ * 不计派位；缺口组（「不参与公办派位/待核」等）无机制标签。 */
+export function parseXsMechanisms(group: string | null | undefined): string[] {
+  if (!group) return [];
+  const g = group;
+  const out: string[] = [];
+  // 直升：对口直升 / 单校划片 / 单校（…） / 九年制/十二年制（含内部直升惯例）
+  if (/对口直升|单校划片|单校（|九年制|十二年制|内部直升|直升/.test(g)) out.push('直升');
+  // 派位：电脑派位 / 多校划片 / 多校（…） / 部分毕业生（多校）；排除「不参加/不参与…派位」语境
+  const noPaidui = /不(?:参加|参与)[^。；]*派位/.test(g);
+  if (!noPaidui && /电脑派位|多校划片|多校（|部分毕业生/.test(g)) out.push('派位');
+  // 抽签：电脑抽签 / 摇号
+  if (/抽签|摇号/.test(g)) out.push('抽签');
+  return out;
+}
+
 export interface DetailRow { label: string; value: string; strong?: boolean }
 export interface DetailBadge { text: string; cls: string }
 export interface FeedRow { name: string; poiName: string | null; summary: string | null; hasQuota: boolean }
@@ -50,7 +70,7 @@ export interface DetailModel {
     school_id: string; plan_classes?: number | null; plan_count?: number | null; nature?: string;
     zone?: string; note?: string; district?: string; source?: string; matchedBy: string;
   } | null;
-  feedJuniors: { group: string | null; feed_junior_highs: string[]; direct_feed: string | null; source_note?: string } | null;
+  feedJuniors: { group: string | null; mechanisms: string[]; feed_junior_highs: string[]; direct_feed: string | null; source_note?: string } | null;
   feedGap: string | null;
   feedRows: FeedRow[];
   /* 初中 */
@@ -133,6 +153,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     if (stage !== 'primary' || !xsRecord) return null;
     return {
       group: xsRecord.group,
+      mechanisms: parseXsMechanisms(xsRecord.group),
       feed_junior_highs: xsRecord.feed_junior_highs || [],
       direct_feed: xsRecord.direct_feed,
       source_note: xsRecord.source_note,

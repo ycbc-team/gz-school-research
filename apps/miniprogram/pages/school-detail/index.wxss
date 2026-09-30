@@ -15,6 +15,11 @@
 .badge.b-hdist { background: #0f766e; }
 .badge.b-minban { background: #9333ea; }
 .badge.b-full { background: #e11d48; }
+/* 升学机制徽章（与初中招生机制徽章同款配色：直升绿 / 派位蓝 / 抽签橙） */
+.badge.zhi_sheng { background: #047857; }
+.badge.group_paidui { background: #1e40af; }
+.badge.chou_qian { background: #d97706; }
+.mech-row { display: flex; flex-wrap: wrap; gap: 12rpx; margin: 4rpx 0 8rpx; }
 .badge.b-part { background: #f59e0b; }
 .badge.b-none { background: #8a94a6; }
 .d-sub { font-size: 24rpx; color: #6b7280; margin-top: 12rpx; line-height: 1.6; }

@@ -75,6 +75,13 @@ Page({
           hasLingjunNote: (rawLinkage.planNotes || []).includes('lingjun'),
         }
       : null;
+    // 升学机制标签 → 徽章（WXML 表达式不支持 map，预计算；配色与初中机制徽章同款）
+    if (model.feedJuniors && model.feedJuniors.mechanisms) {
+      model.feedJuniors.mechBadges = model.feedJuniors.mechanisms.map((m) => ({
+        text: m,
+        cls: m === '直升' ? 'zhi_sheng' : m === '派位' ? 'group_paidui' : 'chou_qian',
+      }));
+    }
     wx.setNavigationBarTitle({ title: this.name });
     this.setData({ model, linkage, activeStage: stage });
   },
