@@ -1913,6 +1913,7 @@
       "award": "二等奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -8652,5 +8653,5 @@
       "stage": "high"
     }
   ],
-  "compiled_schools": 179
+  "compiled_schools": 180
 }

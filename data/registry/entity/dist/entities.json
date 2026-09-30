@@ -529,12 +529,6 @@
     },
     {
       "aliases": [],
-      "name": "人和镇第四小学",
-      "school_id": "gz-440111-369dffe8",
-      "stage": "primary"
-    },
-    {
-      "aliases": [],
       "name": "会江实验学校",
       "nature": "民办",
       "school_id": "gz-440113-e946f7f3",
@@ -1244,7 +1238,9 @@
       "stage": "primary"
     },
     {
-      "aliases": [],
+      "aliases": [
+        "滨江西路第一小学"
+      ],
       "name": "同福中路第一小学(西校区)",
       "school_id": "gz-440105-a72d7648",
       "stage": "primary"
@@ -3289,6 +3285,7 @@
     },
     {
       "aliases": [
+        "人和镇第四小学",
         "73中小学部"
       ],
       "name": "广州市第七十三中学·小学部",
@@ -4921,14 +4918,6 @@
     },
     {
       "aliases": [
-        "滨江西路第一小学"
-      ],
-      "name": "海珠区滨江西路第一小学",
-      "school_id": "gz-440105-bf39b5bb",
-      "stage": "primary"
-    },
-    {
-      "aliases": [
         "瑞宝小学"
       ],
       "name": "海珠区瑞宝小学(北校区)",
@@ -6373,21 +6362,15 @@
       "stage": "primary"
     },
     {
-      "aliases": [
-        "长岭居小学西校区"
-      ],
-      "name": "长岭居小学",
-      "school_id": "gz-440112-e0419ae0",
-      "stage": "primary"
-    },
-    {
       "aliases": [],
       "name": "长岭居小学北校区",
       "school_id": "gz-440112-80a45eec",
       "stage": "primary"
     },
     {
-      "aliases": [],
+      "aliases": [
+        "长岭居小学"
+      ],
       "name": "长岭居小学南校区",
       "school_id": "gz-440112-70e86492",
       "stage": "primary"
@@ -7558,7 +7541,8 @@
     },
     {
       "aliases": [
-        "五中滨江学校"
+        "五中滨江学校",
+        "第七十八中学"
       ],
       "name": "广州市五中滨江学校(远安校区)",
       "school_id": "gz-440105-06994d39",
@@ -7697,12 +7681,6 @@
       ],
       "name": "广州市海珠实验中学(东校区)",
       "school_id": "gz-440105-badc0974",
-      "stage": "middle"
-    },
-    {
-      "aliases": [],
-      "name": "广州市第七十八中学",
-      "school_id": "gz-440105-455eaa08",
       "stage": "middle"
     },
     {
@@ -8330,13 +8308,6 @@
       "stage": "middle"
     },
     {
-      "aliases": [],
-      "name": "华赋学校北校区初中部",
-      "nature": "民办",
-      "school_id": "gz-440111-81f3c313",
-      "stage": "middle"
-    },
-    {
       "aliases": [
         "白云区同和中学"
       ],
@@ -8467,17 +8438,9 @@
     },
     {
       "aliases": [
-        "云雅实验学校"
-      ],
-      "name": "广州云雅实验学校",
-      "nature": "民办",
-      "school_id": "gz-440111-7d12a21e",
-      "stage": "middle"
-    },
-    {
-      "aliases": [
         "云雅实验学校初中部",
         "白云区云雅实验学校",
+        "广州云雅实验学校",
         "云雅实验学校",
         "云雅实验"
       ],
@@ -8610,6 +8573,7 @@
     },
     {
       "aliases": [
+        "华赋学校北校区初中部",
         "白云区华赋学校",
         "华赋学校",
         "白云华赋"
@@ -9249,14 +9213,9 @@
     },
     {
       "aliases": [
-        "八十六中初中本部"
+        "八十六中初中本部",
+        "第八十六中学分校"
       ],
-      "name": "广州市第八十六中学分校",
-      "school_id": "gz-440112-06029745",
-      "stage": "middle"
-    },
-    {
-      "aliases": [],
       "name": "广州市第八十六中学初中部",
       "school_id": "gz-440112-43108516",
       "stage": "middle"
@@ -9317,7 +9276,8 @@
     },
     {
       "aliases": [
-        "玉岩实验学校"
+        "玉岩实验学校",
+        "镇龙第二中学"
       ],
       "name": "广州市黄埔区玉岩实验学校",
       "school_id": "gz-440112-f3817fbe",
@@ -9467,28 +9427,11 @@
     },
     {
       "aliases": [
+        "玉泉学校-中学部",
         "玉泉学校中学部"
       ],
       "name": "玉泉学校",
       "school_id": "gz-440112-12b0184b",
-      "stage": "middle"
-    },
-    {
-      "aliases": [],
-      "name": "玉泉学校-中学部",
-      "school_id": "gz-440112-0946f5ef",
-      "stage": "middle"
-    },
-    {
-      "aliases": [],
-      "name": "铁铮学校",
-      "school_id": "gz-440112-11ed4c6c",
-      "stage": "middle"
-    },
-    {
-      "aliases": [],
-      "name": "镇龙第二中学",
-      "school_id": "gz-440112-ccf82991",
       "stage": "middle"
     },
     {
@@ -10734,7 +10677,10 @@
       "stage": "high"
     },
     {
-      "aliases": [],
+      "aliases": [
+        "白云中学南区",
+        "白云中学北区"
+      ],
       "name": "广州市白云中学",
       "school_id": "gz-440111-e74c2e1d",
       "stage": "high"
@@ -11157,18 +11103,6 @@
       "aliases": [],
       "name": "广州市第七十五中学(燕塘东校区)",
       "school_id": "gz-440106-5b430017",
-      "stage": "high"
-    },
-    {
-      "aliases": [],
-      "name": "广州市白云中学(北区)",
-      "school_id": "gz-440111-5849b586",
-      "stage": "high"
-    },
-    {
-      "aliases": [],
-      "name": "广州市白云中学(南区)",
-      "school_id": "gz-440111-15fa03a9",
       "stage": "high"
     },
     {

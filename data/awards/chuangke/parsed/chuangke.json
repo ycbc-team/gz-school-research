@@ -166,6 +166,7 @@
           "award": "二等奖",
           "type": "personal",
           "school_ids": [
+            "gz-440104-08dedf9a",
             "gz-440104-a41d6d8d"
           ],
           "stage": "primary"
@@ -1521,8 +1522,7 @@
           "award": "一等奖",
           "type": "personal",
           "school_ids": [
-            "gz-440111-6782d2c7",
-            "gz-440111-7d12a21e"
+            "gz-440111-6782d2c7"
           ],
           "stage": "secondary"
         },

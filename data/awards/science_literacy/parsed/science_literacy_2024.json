@@ -117,8 +117,6 @@
       "coach": "高伟光",
       "award": "一等奖",
       "school_ids": [
-        "gz-440111-15fa03a9",
-        "gz-440111-5849b586",
         "gz-440111-e74c2e1d"
       ],
       "stage": "high"
@@ -162,7 +160,8 @@
       "coach": "刘洋",
       "award": "二等奖",
       "school_ids": [
-        "gz-440106-3bc362f9"
+        "gz-440106-3bc362f9",
+        "gz-440106-8d6ca869"
       ],
       "stage": "primary"
     },
@@ -175,7 +174,6 @@
       "coach": "杜思奇",
       "award": "二等奖",
       "school_ids": [
-        "gz-440112-4991e638",
         "gz-440113-060386bb"
       ],
       "stage": "primary"
@@ -202,6 +200,7 @@
       "coach": "吴进、郑子良",
       "award": "二等奖",
       "school_ids": [
+        "gz-440105-0adfcd61",
         "gz-440105-98d6d585"
       ],
       "stage": "primary"
@@ -314,8 +313,7 @@
       "coach": "雷娇燕",
       "award": "二等奖",
       "school_ids": [
-        "gz-440104-8a1a7b3d",
-        "gz-440106-52f7f4b7"
+        "gz-440104-8a1a7b3d"
       ],
       "stage": "high"
     },
@@ -328,8 +326,7 @@
       "coach": "胡绮妙",
       "award": "二等奖",
       "school_ids": [
-        "gz-440104-8a1a7b3d",
-        "gz-440106-52f7f4b7"
+        "gz-440104-8a1a7b3d"
       ],
       "stage": "high"
     },
@@ -470,7 +467,8 @@
       "coach": "林乐欣",
       "award": "三等奖",
       "school_ids": [
-        "gz-440103-039a7621"
+        "gz-440103-039a7621",
+        "gz-440103-47c5196f"
       ],
       "stage": "primary"
     },
@@ -537,7 +535,8 @@
       "award": "三等奖",
       "school_ids": [
         "gz-440103-a3ee807c",
-        "gz-440111-6271c94b"
+        "gz-440111-6271c94b",
+        "gz-440111-e128c24f"
       ],
       "stage": "middle"
     },
@@ -1077,8 +1076,7 @@
       "coach": "巴佳燕",
       "award": "二等奖",
       "school_ids": [
-        "gz-440104-8a1a7b3d",
-        "gz-440106-52f7f4b7"
+        "gz-440104-8a1a7b3d"
       ],
       "stage": "high"
     },
@@ -1409,8 +1407,7 @@
       "coach": "王敏",
       "award": "三等奖",
       "school_ids": [
-        "gz-440104-8a1a7b3d",
-        "gz-440106-52f7f4b7"
+        "gz-440104-8a1a7b3d"
       ],
       "stage": "high"
     },
@@ -1512,6 +1509,7 @@
       "coach": "刘书航",
       "award": "一等奖",
       "school_ids": [
+        "gz-440103-4930321e",
         "gz-440103-f51bffec"
       ],
       "stage": "primary"
@@ -1566,8 +1564,7 @@
       "coach": "邢星",
       "award": "一等奖",
       "school_ids": [
-        "gz-440104-8a1a7b3d",
-        "gz-440106-52f7f4b7"
+        "gz-440104-8a1a7b3d"
       ],
       "stage": "high"
     },
@@ -1882,7 +1879,6 @@
       "coach": "崔丽珊、黎文杰、黎丽华、雷子晴、古丽欣",
       "award": "三等奖",
       "school_ids": [
-        "gz-440112-4991e638",
         "gz-440113-060386bb"
       ],
       "stage": "primary"
@@ -1896,7 +1892,6 @@
       "coach": "崔丽珊、雷子晴、古丽欣、黎丽华、黎文杰",
       "award": "三等奖",
       "school_ids": [
-        "gz-440112-4991e638",
         "gz-440113-060386bb"
       ],
       "stage": "primary"
@@ -2048,8 +2043,7 @@
       "coach": "雷娇燕",
       "award": "三等奖",
       "school_ids": [
-        "gz-440104-8a1a7b3d",
-        "gz-440106-52f7f4b7"
+        "gz-440104-8a1a7b3d"
       ],
       "stage": "high"
     },
@@ -2196,7 +2190,8 @@
       "award": "一等奖",
       "school_ids": [
         "gz-440103-a3ee807c",
-        "gz-440111-6271c94b"
+        "gz-440111-6271c94b",
+        "gz-440111-e128c24f"
       ],
       "stage": "middle"
     },
@@ -2225,8 +2220,7 @@
       "coach": "陈广滨",
       "award": "一等奖",
       "school_ids": [
-        "gz-440104-8a1a7b3d",
-        "gz-440106-52f7f4b7"
+        "gz-440104-8a1a7b3d"
       ],
       "stage": "high"
     },
@@ -2288,6 +2282,7 @@
       "coach": "林锶灵",
       "award": "二等奖",
       "school_ids": [
+        "gz-440105-70055626",
         "gz-440105-75e59f1d"
       ],
       "stage": "primary"
@@ -2413,8 +2408,7 @@
       "coach": "陈广滨",
       "award": "二等奖",
       "school_ids": [
-        "gz-440104-8a1a7b3d",
-        "gz-440106-52f7f4b7"
+        "gz-440104-8a1a7b3d"
       ],
       "stage": "high"
     },
@@ -2502,6 +2496,7 @@
       "coach": "黄梓茵、吴进",
       "award": "三等奖",
       "school_ids": [
+        "gz-440105-0adfcd61",
         "gz-440105-98d6d585"
       ],
       "stage": "primary"
@@ -2671,7 +2666,9 @@
       "student": "秦羽晨",
       "coach": "郭奕红",
       "award": "三等奖",
-      "school_ids": [],
+      "school_ids": [
+        "gz-440112-4ed867c7"
+      ],
       "stage": "middle"
     },
     {
@@ -2887,7 +2884,7 @@
         "gz-440106-269a9629",
         "gz-440106-3bc362f9",
         "gz-440106-4a26a58c",
-        "gz-440106-b69bcbc4",
+        "gz-440106-8d6ca869",
         "gz-440106-e591e421"
       ],
       "stage": "primary"
@@ -2901,6 +2898,7 @@
       "coach": "杜嘉华、梁泽贤、徐晨皓",
       "award": "一等奖",
       "school_ids": [
+        "gz-440106-a565a93c",
         "gz-440112-3847727f"
       ],
       "stage": "middle"
@@ -2983,7 +2981,7 @@
       "coach": "周澍杰、张奕宸、欧阳翠红",
       "award": "二等奖",
       "school_ids": [
-        "gz-440106-11e15e8d",
+        "gz-440106-05ed1da2",
         "gz-440106-617fa509",
         "gz-440106-a52ecc01"
       ],
@@ -3025,6 +3023,7 @@
       "coach": "杜嘉华、梁泽贤、徐晨皓",
       "award": "二等奖",
       "school_ids": [
+        "gz-440106-a565a93c",
         "gz-440112-3847727f"
       ],
       "stage": "middle"
@@ -3190,12 +3189,7 @@
       "student": "李文迪、王腾、邓凯鑫",
       "coach": "陈丽欢",
       "award": "三等奖",
-      "school_ids": [
-        "gz-440105-6299c301",
-        "gz-440111-07bdec5f",
-        "gz-440111-1d697e07",
-        "gz-440111-db31a4f7"
-      ],
+      "school_ids": [],
       "stage": "primary"
     },
     {
@@ -3224,8 +3218,7 @@
         "gz-440106-867e6c05",
         "gz-440106-a989804b",
         "gz-440106-b049d65a",
-        "gz-440106-bd07878c",
-        "gz-440112-4ed867c7"
+        "gz-440106-bd07878c"
       ],
       "stage": "middle"
     },
@@ -3317,8 +3310,7 @@
       "coach": "巴佳燕",
       "award": "三等奖",
       "school_ids": [
-        "gz-440104-8a1a7b3d",
-        "gz-440106-52f7f4b7"
+        "gz-440104-8a1a7b3d"
       ],
       "stage": "high"
     },
@@ -3336,5 +3328,5 @@
       "stage": "high"
     }
   ],
-  "compiled_schools": 141
+  "compiled_schools": 140
 }

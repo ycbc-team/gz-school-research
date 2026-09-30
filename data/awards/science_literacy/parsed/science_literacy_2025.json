@@ -139,6 +139,8 @@
       "coach": "梁美欣",
       "award": "一等奖",
       "school_ids": [
+        "gz-440103-362ee1b6",
+        "gz-440103-554e0beb",
         "gz-440103-8d072726",
         "gz-440103-ecc193c7",
         "gz-440103-eeee1923",
@@ -257,7 +259,8 @@
       "coach": "谢桥红",
       "award": "一等奖",
       "school_ids": [
-        "gz-440112-12b0184b"
+        "gz-440112-04db6ee7",
+        "gz-440112-78b9dcdf"
       ],
       "stage": "primary"
     },
@@ -369,7 +372,8 @@
       "coach": "陈桦宇、黄颍雯、李彩平",
       "award": "一等奖",
       "school_ids": [
-        "gz-440112-12b0184b"
+        "gz-440112-04db6ee7",
+        "gz-440112-78b9dcdf"
       ],
       "stage": "primary"
     },
@@ -395,6 +399,8 @@
       "coach": "林洁婷",
       "award": "一等奖",
       "school_ids": [
+        "gz-440103-362ee1b6",
+        "gz-440103-554e0beb",
         "gz-440103-8d072726",
         "gz-440103-ecc193c7",
         "gz-440103-eeee1923",
@@ -701,7 +707,8 @@
       "award": "二等奖",
       "school_ids": [
         "gz-440103-a3ee807c",
-        "gz-440111-6271c94b"
+        "gz-440111-6271c94b",
+        "gz-440111-e128c24f"
       ],
       "stage": "middle"
     },
@@ -786,7 +793,9 @@
       "student": "谢叡衡、杨子贤",
       "coach": "许冬梅",
       "award": "二等奖",
-      "school_ids": [],
+      "school_ids": [
+        "gz-440111-cb67f3e8"
+      ],
       "stage": "high"
     },
     {
@@ -848,6 +857,8 @@
       "coach": "陈华",
       "award": "二等奖",
       "school_ids": [
+        "gz-440103-362ee1b6",
+        "gz-440103-554e0beb",
         "gz-440103-8d072726",
         "gz-440103-ecc193c7",
         "gz-440103-eeee1923",
@@ -964,6 +975,7 @@
       "coach": "李雪玲",
       "award": "二等奖",
       "school_ids": [
+        "gz-440105-c1a01cbf",
         "gz-440105-e76b659d"
       ],
       "stage": "high"
@@ -1055,7 +1067,8 @@
       "coach": "谢桥红",
       "award": "二等奖",
       "school_ids": [
-        "gz-440112-12b0184b"
+        "gz-440112-04db6ee7",
+        "gz-440112-78b9dcdf"
       ],
       "stage": "primary"
     },
@@ -1413,9 +1426,7 @@
       "student": "陈曦",
       "coach": "刘平、高菁",
       "award": "二等奖",
-      "school_ids": [
-        "gz-440111-2d42f392"
-      ],
+      "school_ids": [],
       "stage": "middle"
     },
     {
@@ -1515,7 +1526,8 @@
       "coach": "廖楚婷",
       "award": "二等奖",
       "school_ids": [
-        "gz-440112-12b0184b"
+        "gz-440112-04db6ee7",
+        "gz-440112-78b9dcdf"
       ],
       "stage": "primary"
     },
@@ -1651,7 +1663,9 @@
       "student": "陈啸宇",
       "coach": "许冬梅",
       "award": "二等奖",
-      "school_ids": [],
+      "school_ids": [
+        "gz-440111-cb67f3e8"
+      ],
       "stage": "high"
     },
     {
@@ -1698,7 +1712,8 @@
       "coach": "林九灵、曹欣欣",
       "award": "三等奖",
       "school_ids": [
-        "gz-440112-12b0184b"
+        "gz-440112-04db6ee7",
+        "gz-440112-78b9dcdf"
       ],
       "stage": "primary"
     },
@@ -2652,7 +2667,8 @@
       "award": "三等奖",
       "school_ids": [
         "gz-440103-a3ee807c",
-        "gz-440111-6271c94b"
+        "gz-440111-6271c94b",
+        "gz-440111-e128c24f"
       ],
       "stage": "middle"
     },
@@ -2692,7 +2708,8 @@
       "award": "三等奖",
       "school_ids": [
         "gz-440103-a3ee807c",
-        "gz-440111-6271c94b"
+        "gz-440111-6271c94b",
+        "gz-440111-e128c24f"
       ],
       "stage": "middle"
     },
@@ -2776,9 +2793,7 @@
       "student": "柳近彤",
       "coach": "吴兰妮",
       "award": "三等奖",
-      "school_ids": [
-        "gz-440112-8b4292d7"
-      ],
+      "school_ids": [],
       "stage": "primary"
     },
     {
@@ -2791,6 +2806,7 @@
       "award": "三等奖",
       "school_ids": [
         "gz-440111-50352c96",
+        "gz-440111-514cf237",
         "gz-440111-5d802050"
       ],
       "stage": "primary"
@@ -3055,7 +3071,8 @@
       "coach": "廖楚婷",
       "award": "三等奖",
       "school_ids": [
-        "gz-440112-12b0184b"
+        "gz-440112-04db6ee7",
+        "gz-440112-78b9dcdf"
       ],
       "stage": "primary"
     },
@@ -3335,6 +3352,7 @@
       "coach": "李雪玲",
       "award": "三等奖",
       "school_ids": [
+        "gz-440105-c1a01cbf",
         "gz-440105-e76b659d"
       ],
       "stage": "high"
@@ -3348,6 +3366,7 @@
       "coach": "李雪玲",
       "award": "三等奖",
       "school_ids": [
+        "gz-440105-c1a01cbf",
         "gz-440105-e76b659d"
       ],
       "stage": "high"
@@ -3450,5 +3469,5 @@
       "stage": "high"
     }
   ],
-  "compiled_schools": 148
+  "compiled_schools": 154
 }

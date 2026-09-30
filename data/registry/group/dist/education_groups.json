@@ -2215,11 +2215,6 @@
         {
           "relation_type": "same",
           "role": "核心校",
-          "school_id": "gz-440112-06029745"
-        },
-        {
-          "relation_type": "same",
-          "role": "核心校",
           "school_id": "gz-440112-0cb5a402"
         },
         {
@@ -2704,22 +2699,12 @@
         {
           "relation_type": "same",
           "role": "核心校",
-          "school_id": "gz-440111-15fa03a9"
-        },
-        {
-          "relation_type": "same",
-          "role": "核心校",
           "school_id": "gz-440111-1b7d3f87"
         },
         {
           "relation_type": "same",
           "role": "成员校",
           "school_id": "gz-440111-292274e7"
-        },
-        {
-          "relation_type": "same",
-          "role": "核心校",
-          "school_id": "gz-440111-5849b586"
         },
         {
           "relation_type": "same",
@@ -3001,11 +2986,6 @@
           "relation_type": "same",
           "role": "核心校",
           "school_id": "gz-440111-6782d2c7"
-        },
-        {
-          "relation_type": "same",
-          "role": "核心校",
-          "school_id": "gz-440111-7d12a21e"
         },
         {
           "relation_type": "same",

@@ -122,8 +122,12 @@ def run(update: bool) -> int:
         diffs += diff_dict(b.get("minban", {}), n.get("minban", {}), f"{dname}.minban")
         diffs += diff_dict({u: True for u in b.get("unmatched", [])},
                            {u: True for u in n.get("unmatched", [])}, f"{dname}.unmatched")
-        diffs += diff_dict({a: True for a in b.get("ambiguous", [])},
-                           {a: True for a in n.get("ambiguous", [])}, f"{dname}.ambiguous")
+        # B 层 ambiguous 为 dict（{school, poi, compete_with}，见 build_primary_2026.py），
+        # 2026-09-30 首次出现非空 ambiguous 时暴露：按 dict 展开无法直接作 dict 键
+        # （TypeError: unhashable），故序列化为可比较字符串再入 diff。
+        diffs += diff_dict({json.dumps(a, ensure_ascii=False, sort_keys=True): True for a in b.get("ambiguous", [])},
+                           {json.dumps(a, ensure_ascii=False, sort_keys=True): True for a in n.get("ambiguous", [])},
+                           f"{dname}.ambiguous")
     if diffs:
         print("小学招生快照: ✗ 产物与基线不一致（新增/删除/修改已逐条列出）：")
         print("\n".join(diffs[:40]))

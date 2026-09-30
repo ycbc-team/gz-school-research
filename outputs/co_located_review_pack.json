@@ -1,0 +1,2609 @@
+[
+ {
+  "snapshot_line": "440105|primary|gz-440105-a72d7648|同福中路第一小学(西校区)|gz-440105-bf39b5bb|海珠区滨江西路第一小学",
+  "district": "440105",
+  "stage": "primary",
+  "id1": "gz-440105-a72d7648",
+  "name1": "同福中路第一小学(西校区)",
+  "entity1": [
+   {
+    "name": "同福中路第一小学(西校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "同福中路第一小学(西校区)",
+    113.253931,
+    23.105482
+   ]
+  ],
+  "id2": "gz-440105-bf39b5bb",
+  "name2": "海珠区滨江西路第一小学",
+  "entity2": [
+   {
+    "name": "海珠区滨江西路第一小学",
+    "stage": "primary",
+    "aliases": [
+     "滨江西路第一小学"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "海珠区滨江西路第一小学",
+    113.253931,
+    23.105482
+   ]
+  ],
+  "distance_m": 0.0
+ },
+ {
+  "snapshot_line": "440112|middle|gz-440112-7127244c|广铁一中铁铮学校(西校区)|gz-440112-11ed4c6c|铁铮学校",
+  "district": "440112",
+  "stage": "middle",
+  "id1": "gz-440112-7127244c",
+  "name1": "广铁一中铁铮学校(西校区)",
+  "entity1": [
+   {
+    "name": "广铁一中铁铮学校(西校区)",
+    "stage": "middle",
+    "aliases": [
+     "铁铮学校"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "广铁一中铁铮学校(西校区)",
+    113.529539,
+    23.08332
+   ]
+  ],
+  "id2": "gz-440112-11ed4c6c",
+  "name2": "铁铮学校",
+  "entity2": [
+   {
+    "name": "铁铮学校",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   },
+   {
+    "name": "铁铮学校",
+    "stage": "middle",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "铁铮学校",
+    113.529539,
+    23.08332
+   ],
+   [
+    "middle",
+    "铁铮学校",
+    113.529539,
+    23.08332
+   ]
+  ],
+  "distance_m": 0.0
+ },
+ {
+  "snapshot_line": "440111|primary|gz-440111-369dffe8|人和镇第四小学|gz-440111-9f1c9750|广州市第七十三中学·小学部",
+  "district": "440111",
+  "stage": "primary",
+  "id1": "gz-440111-369dffe8",
+  "name1": "人和镇第四小学",
+  "entity1": [
+   {
+    "name": "人和镇第四小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "人和镇第四小学",
+    113.30328,
+    23.342258
+   ]
+  ],
+  "id2": "gz-440111-9f1c9750",
+  "name2": "广州市第七十三中学·小学部",
+  "entity2": [
+   {
+    "name": "广州市第七十三中学·小学部",
+    "stage": "primary",
+    "aliases": [
+     "73中小学部"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "广州市第七十三中学·小学部",
+    113.303195,
+    23.342037
+   ]
+  ],
+  "distance_m": 26.1
+ },
+ {
+  "snapshot_line": "440112|middle|gz-440112-06029745|广州市第八十六中学分校|gz-440112-43108516|广州市第八十六中学初中部",
+  "district": "440112",
+  "stage": "middle",
+  "id1": "gz-440112-06029745",
+  "name1": "广州市第八十六中学分校",
+  "entity1": [
+   {
+    "name": "广州市第八十六中学分校",
+    "stage": "middle",
+    "aliases": [
+     "八十六中初中本部"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "广州市第八十六中学分校",
+    113.455772,
+    23.112276
+   ]
+  ],
+  "id2": "gz-440112-43108516",
+  "name2": "广州市第八十六中学初中部",
+  "entity2": [
+   {
+    "name": "广州市第八十六中学初中部",
+    "stage": "middle",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "middle",
+    "广州市第八十六中学初中部",
+    113.456042,
+    23.112321
+   ]
+  ],
+  "distance_m": 28.1
+ },
+ {
+  "snapshot_line": "440112|middle|gz-440112-f3817fbe|广州市黄埔区玉岩实验学校|gz-440112-ccf82991|镇龙第二中学",
+  "district": "440112",
+  "stage": "middle",
+  "id1": "gz-440112-f3817fbe",
+  "name1": "广州市黄埔区玉岩实验学校",
+  "entity1": [
+   {
+    "name": "广州市黄埔区玉岩实验学校",
+    "stage": "middle",
+    "aliases": [
+     "玉岩实验学校"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "广州市黄埔区玉岩实验学校",
+    113.577048,
+    23.271957
+   ]
+  ],
+  "id2": "gz-440112-ccf82991",
+  "name2": "镇龙第二中学",
+  "entity2": [
+   {
+    "name": "镇龙第二中学",
+    "stage": "middle",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "middle",
+    "镇龙第二中学",
+    113.577352,
+    23.271917
+   ]
+  ],
+  "distance_m": 31.4
+ },
+ {
+  "snapshot_line": "440111|high|gz-440111-e74c2e1d|广州市白云中学|gz-440111-15fa03a9|广州市白云中学(南区)",
+  "district": "440111",
+  "stage": "high",
+  "id1": "gz-440111-e74c2e1d",
+  "name1": "广州市白云中学",
+  "entity1": [
+   {
+    "name": "广州市白云中学",
+    "stage": "middle",
+    "aliases": [],
+    "nature": null
+   },
+   {
+    "name": "广州市白云中学",
+    "stage": "high",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "广州市白云中学",
+    113.207471,
+    23.146083
+   ],
+   [
+    "high",
+    "广州市白云中学",
+    113.207471,
+    23.146083
+   ]
+  ],
+  "id2": "gz-440111-15fa03a9",
+  "name2": "广州市白云中学(南区)",
+  "entity2": [
+   {
+    "name": "广州市白云中学(南区)",
+    "stage": "high",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "high",
+    "广州市白云中学(南区)",
+    113.207422,
+    23.145605
+   ]
+  ],
+  "distance_m": 53.4
+ },
+ {
+  "snapshot_line": "440105|middle|gz-440105-06994d39|广州市五中滨江学校(远安校区)|gz-440105-455eaa08|广州市第七十八中学",
+  "district": "440105",
+  "stage": "middle",
+  "id1": "gz-440105-06994d39",
+  "name1": "广州市五中滨江学校(远安校区)",
+  "entity1": [
+   {
+    "name": "广州市五中滨江学校(远安校区)",
+    "stage": "middle",
+    "aliases": [
+     "五中滨江学校"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "广州市五中滨江学校(远安校区)",
+    113.282752,
+    23.106085
+   ]
+  ],
+  "id2": "gz-440105-455eaa08",
+  "name2": "广州市第七十八中学",
+  "entity2": [
+   {
+    "name": "广州市第七十八中学",
+    "stage": "middle",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "middle",
+    "广州市第七十八中学",
+    113.283325,
+    23.106375
+   ]
+  ],
+  "distance_m": 66.9
+ },
+ {
+  "snapshot_line": "440111|middle|gz-440111-7d12a21e|广州云雅实验学校|gz-440111-6782d2c7|广州云雅实验学校初中部",
+  "district": "440111",
+  "stage": "middle",
+  "id1": "gz-440111-7d12a21e",
+  "name1": "广州云雅实验学校",
+  "entity1": [
+   {
+    "name": "广州云雅实验学校",
+    "stage": "middle",
+    "aliases": [
+     "云雅实验学校"
+    ],
+    "nature": "民办"
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "广州云雅实验学校",
+    113.239894,
+    23.200853
+   ]
+  ],
+  "id2": "gz-440111-6782d2c7",
+  "name2": "广州云雅实验学校初中部",
+  "entity2": [
+   {
+    "name": "广州云雅实验学校初中部",
+    "stage": "middle",
+    "aliases": [
+     "云雅实验学校初中部",
+     "白云区云雅实验学校",
+     "云雅实验学校",
+     "云雅实验"
+    ],
+    "nature": "民办"
+   }
+  ],
+  "poi2": [
+   [
+    "middle",
+    "广州云雅实验学校初中部",
+    113.239475,
+    23.201325
+   ]
+  ],
+  "distance_m": 67.7
+ },
+ {
+  "snapshot_line": "440113|middle|gz-440113-ad8632f5|广州市番禺区香江实验学校|gz-440113-8a0b2cb9|番禺区锦绣香江学校",
+  "district": "440113",
+  "stage": "middle",
+  "id1": "gz-440113-ad8632f5",
+  "name1": "广州市番禺区香江实验学校",
+  "entity1": [
+   {
+    "name": "广州市番禺区香江实验学校",
+    "stage": "primary",
+    "aliases": [
+     "香江实验学校"
+    ],
+    "nature": "民办"
+   },
+   {
+    "name": "广州市番禺区香江实验学校",
+    "stage": "middle",
+    "aliases": [
+     "香江实验学校"
+    ],
+    "nature": "民办"
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "广州市番禺区香江实验学校",
+    113.342595,
+    22.990699
+   ],
+   [
+    "middle",
+    "广州市番禺区香江实验学校",
+    113.342595,
+    22.990699
+   ]
+  ],
+  "id2": "gz-440113-8a0b2cb9",
+  "name2": "番禺区锦绣香江学校",
+  "entity2": [
+   {
+    "name": "番禺区锦绣香江学校",
+    "stage": "primary",
+    "aliases": [
+     "南村镇锦绣香江学校",
+     "锦绣香江学校"
+    ],
+    "nature": null
+   },
+   {
+    "name": "番禺区锦绣香江学校",
+    "stage": "middle",
+    "aliases": [
+     "锦绣香江学校"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "番禺区锦绣香江学校",
+    113.342312,
+    22.990088
+   ],
+   [
+    "middle",
+    "番禺区锦绣香江学校",
+    113.342312,
+    22.990088
+   ]
+  ],
+  "distance_m": 73.9
+ },
+ {
+  "snapshot_line": "440113|primary|gz-440113-ad8632f5|广州市番禺区香江实验学校|gz-440113-8a0b2cb9|番禺区锦绣香江学校",
+  "district": "440113",
+  "stage": "primary",
+  "id1": "gz-440113-ad8632f5",
+  "name1": "广州市番禺区香江实验学校",
+  "entity1": [
+   {
+    "name": "广州市番禺区香江实验学校",
+    "stage": "primary",
+    "aliases": [
+     "香江实验学校"
+    ],
+    "nature": "民办"
+   },
+   {
+    "name": "广州市番禺区香江实验学校",
+    "stage": "middle",
+    "aliases": [
+     "香江实验学校"
+    ],
+    "nature": "民办"
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "广州市番禺区香江实验学校",
+    113.342595,
+    22.990699
+   ],
+   [
+    "middle",
+    "广州市番禺区香江实验学校",
+    113.342595,
+    22.990699
+   ]
+  ],
+  "id2": "gz-440113-8a0b2cb9",
+  "name2": "番禺区锦绣香江学校",
+  "entity2": [
+   {
+    "name": "番禺区锦绣香江学校",
+    "stage": "primary",
+    "aliases": [
+     "南村镇锦绣香江学校",
+     "锦绣香江学校"
+    ],
+    "nature": null
+   },
+   {
+    "name": "番禺区锦绣香江学校",
+    "stage": "middle",
+    "aliases": [
+     "锦绣香江学校"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "番禺区锦绣香江学校",
+    113.342312,
+    22.990088
+   ],
+   [
+    "middle",
+    "番禺区锦绣香江学校",
+    113.342312,
+    22.990088
+   ]
+  ],
+  "distance_m": 73.9
+ },
+ {
+  "snapshot_line": "440112|primary|gz-440112-e0419ae0|长岭居小学|gz-440112-70e86492|长岭居小学南校区",
+  "district": "440112",
+  "stage": "primary",
+  "id1": "gz-440112-e0419ae0",
+  "name1": "长岭居小学",
+  "entity1": [
+   {
+    "name": "长岭居小学",
+    "stage": "primary",
+    "aliases": [
+     "长岭居小学西校区"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "长岭居小学",
+    113.504061,
+    23.214588
+   ]
+  ],
+  "id2": "gz-440112-70e86492",
+  "name2": "长岭居小学南校区",
+  "entity2": [
+   {
+    "name": "长岭居小学南校区",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "长岭居小学南校区",
+    113.503553,
+    23.215112
+   ]
+  ],
+  "distance_m": 78.0
+ },
+ {
+  "snapshot_line": "440105|primary|gz-440105-620e4a9a|新民六街小学(北校区)|gz-440105-c6c4ab1f|新民六街小学(南校区)",
+  "district": "440105",
+  "stage": "primary",
+  "id1": "gz-440105-620e4a9a",
+  "name1": "新民六街小学(北校区)",
+  "entity1": [
+   {
+    "name": "新民六街小学(北校区)",
+    "stage": "primary",
+    "aliases": [
+     "新民六街小学"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "新民六街小学(北校区)",
+    113.252803,
+    23.094718
+   ]
+  ],
+  "id2": "gz-440105-c6c4ab1f",
+  "name2": "新民六街小学(南校区)",
+  "entity2": [
+   {
+    "name": "新民六街小学(南校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "新民六街小学(南校区)",
+    113.25292,
+    23.093906
+   ]
+  ],
+  "distance_m": 91.1
+ },
+ {
+  "snapshot_line": "440104|middle|gz-440104-d9ec2dbb|广州市第三中学|gz-440104-cc4aa5b8|广州市越秀区名德实验学校",
+  "district": "440104",
+  "stage": "middle",
+  "id1": "gz-440104-d9ec2dbb",
+  "name1": "广州市第三中学",
+  "entity1": [
+   {
+    "name": "广州市第三中学",
+    "stage": "middle",
+    "aliases": [
+     "三中"
+    ],
+    "nature": null
+   },
+   {
+    "name": "广州市第三中学",
+    "stage": "high",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "广州市第三中学",
+    113.258968,
+    23.114932
+   ],
+   [
+    "high",
+    "广州市第三中学",
+    113.258968,
+    23.114932
+   ]
+  ],
+  "id2": "gz-440104-cc4aa5b8",
+  "name2": "广州市越秀区名德实验学校",
+  "entity2": [
+   {
+    "name": "广州市越秀区名德实验学校",
+    "stage": "middle",
+    "aliases": [
+     "名德实验学校",
+     "名德实验"
+    ],
+    "nature": "民办"
+   }
+  ],
+  "poi2": [
+   [
+    "middle",
+    "广州市越秀区名德实验学校",
+    113.259656,
+    23.114377
+   ]
+  ],
+  "distance_m": 93.6
+ },
+ {
+  "snapshot_line": "440111|primary|gz-440111-9cb22aa4|华中师范大学白云学校|gz-440111-aac310d1|黄边小学(黄边校区)",
+  "district": "440111",
+  "stage": "primary",
+  "id1": "gz-440111-9cb22aa4",
+  "name1": "华中师范大学白云学校",
+  "entity1": [
+   {
+    "name": "华中师范大学白云学校",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "华中师范大学白云学校",
+    113.278325,
+    23.224625
+   ]
+  ],
+  "id2": "gz-440111-aac310d1",
+  "name2": "黄边小学(黄边校区)",
+  "entity2": [
+   {
+    "name": "黄边小学(黄边校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "黄边小学(黄边校区)",
+    113.278592,
+    23.225465
+   ]
+  ],
+  "distance_m": 97.3
+ },
+ {
+  "snapshot_line": "440105|primary|gz-440105-fb52e367|凤江小学|gz-440105-0bb7bcc4|海珠康乐小学",
+  "district": "440105",
+  "stage": "primary",
+  "id1": "gz-440105-fb52e367",
+  "name1": "凤江小学",
+  "entity1": [
+   {
+    "name": "凤江小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "凤江小学",
+    113.307382,
+    23.091244
+   ]
+  ],
+  "id2": "gz-440105-0bb7bcc4",
+  "name2": "海珠康乐小学",
+  "entity2": [
+   {
+    "name": "海珠康乐小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": "民办"
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "海珠康乐小学",
+    113.30648,
+    23.090958
+   ]
+  ],
+  "distance_m": 97.6
+ },
+ {
+  "snapshot_line": "440104|primary|gz-440104-61ab7589|广州市满族小学(大德校区)|gz-440104-4bc1a5b6|广州市满族小学(象牙校区)",
+  "district": "440104",
+  "stage": "primary",
+  "id1": "gz-440104-61ab7589",
+  "name1": "广州市满族小学(大德校区)",
+  "entity1": [
+   {
+    "name": "广州市满族小学(大德校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "广州市满族小学(大德校区)",
+    113.260403,
+    23.118419
+   ]
+  ],
+  "id2": "gz-440104-4bc1a5b6",
+  "name2": "广州市满族小学(象牙校区)",
+  "entity2": [
+   {
+    "name": "广州市满族小学(象牙校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "广州市满族小学(象牙校区)",
+    113.261228,
+    23.118886
+   ]
+  ],
+  "distance_m": 99.1
+ },
+ {
+  "snapshot_line": "440113|primary|gz-440113-05e4d0b9|先锋小学|gz-440113-3139c20f|南阳里小学东校区",
+  "district": "440113",
+  "stage": "primary",
+  "id1": "gz-440113-05e4d0b9",
+  "name1": "先锋小学",
+  "entity1": [
+   {
+    "name": "先锋小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "先锋小学",
+    113.362658,
+    22.936862
+   ]
+  ],
+  "id2": "gz-440113-3139c20f",
+  "name2": "南阳里小学东校区",
+  "entity2": [
+   {
+    "name": "南阳里小学东校区",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "南阳里小学东校区",
+    113.36176,
+    22.936448
+   ]
+  ],
+  "distance_m": 102.8
+ },
+ {
+  "snapshot_line": "440111|middle|gz-440111-81f3c313|华赋学校北校区初中部|gz-440111-43437f78|广州市白云区华赋学校(北校区)",
+  "district": "440111",
+  "stage": "middle",
+  "id1": "gz-440111-81f3c313",
+  "name1": "华赋学校北校区初中部",
+  "entity1": [
+   {
+    "name": "华赋学校北校区初中部",
+    "stage": "middle",
+    "aliases": [],
+    "nature": "民办"
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "华赋学校北校区初中部",
+    113.347504,
+    23.24445
+   ]
+  ],
+  "id2": "gz-440111-43437f78",
+  "name2": "广州市白云区华赋学校(北校区)",
+  "entity2": [
+   {
+    "name": "广州市白云区华赋学校(北校区)",
+    "stage": "middle",
+    "aliases": [
+     "白云区华赋学校",
+     "华赋学校",
+     "白云华赋"
+    ],
+    "nature": "民办"
+   }
+  ],
+  "poi2": [
+   [
+    "middle",
+    "广州市白云区华赋学校(北校区)",
+    113.347371,
+    23.245369
+   ]
+  ],
+  "distance_m": 103.1
+ },
+ {
+  "snapshot_line": "440106|primary|gz-440106-579bdc60|吉山小学|gz-440106-3d7736c5|广州市天河区同仁学校",
+  "district": "440106",
+  "stage": "primary",
+  "id1": "gz-440106-579bdc60",
+  "name1": "吉山小学",
+  "entity1": [
+   {
+    "name": "吉山小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "吉山小学",
+    113.428889,
+    23.13223
+   ]
+  ],
+  "id2": "gz-440106-3d7736c5",
+  "name2": "广州市天河区同仁学校",
+  "entity2": [
+   {
+    "name": "广州市天河区同仁学校",
+    "stage": "primary",
+    "aliases": [
+     "同仁学校"
+    ],
+    "nature": "民办"
+   },
+   {
+    "name": "广州市天河区同仁学校",
+    "stage": "middle",
+    "aliases": [
+     "同仁学校"
+    ],
+    "nature": "民办"
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "广州市天河区同仁学校",
+    113.429919,
+    23.132411
+   ],
+   [
+    "middle",
+    "广州市天河区同仁学校",
+    113.429919,
+    23.132411
+   ]
+  ],
+  "distance_m": 107.2
+ },
+ {
+  "snapshot_line": "440106|primary|gz-440106-95cb8bc4|广州华阳集团侨乐小学(北校区)|gz-440106-0d03d513|广州市天河同仁天兴学校",
+  "district": "440106",
+  "stage": "primary",
+  "id1": "gz-440106-95cb8bc4",
+  "name1": "广州华阳集团侨乐小学(北校区)",
+  "entity1": [
+   {
+    "name": "广州华阳集团侨乐小学(北校区)",
+    "stage": "primary",
+    "aliases": [
+     "华阳集团侨乐小学",
+     "侨乐小学北校区",
+     "侨乐小学"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "广州华阳集团侨乐小学(北校区)",
+    113.332507,
+    23.170913
+   ]
+  ],
+  "id2": "gz-440106-0d03d513",
+  "name2": "广州市天河同仁天兴学校",
+  "entity2": [
+   {
+    "name": "广州市天河同仁天兴学校",
+    "stage": "primary",
+    "aliases": [],
+    "nature": "民办"
+   },
+   {
+    "name": "广州市天河同仁天兴学校",
+    "stage": "middle",
+    "aliases": [
+     "同仁天兴学校"
+    ],
+    "nature": "民办"
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "广州市天河同仁天兴学校",
+    113.333472,
+    23.171401
+   ],
+   [
+    "middle",
+    "广州市天河同仁天兴学校",
+    113.333472,
+    23.171401
+   ]
+  ],
+  "distance_m": 112.6
+ },
+ {
+  "snapshot_line": "440104|primary|gz-440104-29c39d65|红火炬小学(东校区)|gz-440104-e865c755|越秀区启智学校(白云路校区)",
+  "district": "440104",
+  "stage": "primary",
+  "id1": "gz-440104-29c39d65",
+  "name1": "红火炬小学(东校区)",
+  "entity1": [
+   {
+    "name": "红火炬小学(东校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "红火炬小学(东校区)",
+    113.281577,
+    23.120051
+   ]
+  ],
+  "id2": "gz-440104-e865c755",
+  "name2": "越秀区启智学校(白云路校区)",
+  "entity2": [
+   {
+    "name": "越秀区启智学校(白云路校区)",
+    "stage": "primary",
+    "aliases": [
+     "越秀区培智学校",
+     "启智学校",
+     "培智学校"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "越秀区启智学校(白云路校区)",
+    113.282437,
+    23.119388
+   ]
+  ],
+  "distance_m": 114.8
+ },
+ {
+  "snapshot_line": "440111|primary|gz-440111-c4a9b707|新正小学|gz-440111-449b9bbd|金沙小学(校本部)",
+  "district": "440111",
+  "stage": "primary",
+  "id1": "gz-440111-c4a9b707",
+  "name1": "新正小学",
+  "entity1": [
+   {
+    "name": "新正小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": "民办"
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "新正小学",
+    113.199825,
+    23.151278
+   ]
+  ],
+  "id2": "gz-440111-449b9bbd",
+  "name2": "金沙小学(校本部)",
+  "entity2": [
+   {
+    "name": "金沙小学(校本部)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "金沙小学(校本部)",
+    113.199733,
+    23.152333
+   ]
+  ],
+  "distance_m": 117.7
+ },
+ {
+  "snapshot_line": "440105|primary|gz-440105-8f7381ac|赤岗东小学|gz-440105-0b2bc8c5|龙涛小学",
+  "district": "440105",
+  "stage": "primary",
+  "id1": "gz-440105-8f7381ac",
+  "name1": "赤岗东小学",
+  "entity1": [
+   {
+    "name": "赤岗东小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "赤岗东小学",
+    113.333767,
+    23.088537
+   ]
+  ],
+  "id2": "gz-440105-0b2bc8c5",
+  "name2": "龙涛小学",
+  "entity2": [
+   {
+    "name": "龙涛小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": "民办"
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "龙涛小学",
+    113.333364,
+    23.089531
+   ]
+  ],
+  "distance_m": 118.0
+ },
+ {
+  "snapshot_line": "440106|primary|gz-440106-77787b4a|同仁实验学校小学部|gz-440106-f56704cf|棠东小学",
+  "district": "440106",
+  "stage": "primary",
+  "id1": "gz-440106-77787b4a",
+  "name1": "同仁实验学校小学部",
+  "entity1": [
+   {
+    "name": "同仁实验学校小学部",
+    "stage": "primary",
+    "aliases": [],
+    "nature": "民办"
+   },
+   {
+    "name": "同仁实验学校小学部",
+    "stage": "middle",
+    "aliases": [],
+    "nature": "民办"
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "同仁实验学校小学部",
+    113.385775,
+    23.126925
+   ],
+   [
+    "middle",
+    "同仁实验学校小学部",
+    113.385775,
+    23.126925
+   ]
+  ],
+  "id2": "gz-440106-f56704cf",
+  "name2": "棠东小学",
+  "entity2": [
+   {
+    "name": "棠东小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "棠东小学",
+    113.384598,
+    23.127484
+   ]
+  ],
+  "distance_m": 135.5
+ },
+ {
+  "snapshot_line": "440105|middle|gz-440105-96460a76|广州市南武第二实验学校(北校区)|gz-440105-9da3d734|广州市南武第二实验学校(南校区)",
+  "district": "440105",
+  "stage": "middle",
+  "id1": "gz-440105-96460a76",
+  "name1": "广州市南武第二实验学校(北校区)",
+  "entity1": [
+   {
+    "name": "广州市南武第二实验学校(北校区)",
+    "stage": "middle",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "广州市南武第二实验学校(北校区)",
+    113.255564,
+    23.103685
+   ]
+  ],
+  "id2": "gz-440105-9da3d734",
+  "name2": "广州市南武第二实验学校(南校区)",
+  "entity2": [
+   {
+    "name": "广州市南武第二实验学校(南校区)",
+    "stage": "middle",
+    "aliases": [
+     "南武第二实验学校"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "middle",
+    "广州市南武第二实验学校(南校区)",
+    113.255871,
+    23.102484
+   ]
+  ],
+  "distance_m": 137.2
+ },
+ {
+  "snapshot_line": "440112|middle|gz-440112-12b0184b|玉泉学校|gz-440112-0946f5ef|玉泉学校-中学部",
+  "district": "440112",
+  "stage": "middle",
+  "id1": "gz-440112-12b0184b",
+  "name1": "玉泉学校",
+  "entity1": [
+   {
+    "name": "玉泉学校",
+    "stage": "middle",
+    "aliases": [
+     "玉泉学校中学部"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "玉泉学校",
+    113.528251,
+    23.159096
+   ]
+  ],
+  "id2": "gz-440112-0946f5ef",
+  "name2": "玉泉学校-中学部",
+  "entity2": [
+   {
+    "name": "玉泉学校-中学部",
+    "stage": "middle",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "middle",
+    "玉泉学校-中学部",
+    113.528599,
+    23.160305
+   ]
+  ],
+  "distance_m": 139.1
+ },
+ {
+  "snapshot_line": "440106|primary|gz-440106-5e40124c|龙口西小学(天阳校区)|gz-440106-53bc251b|龙口西小学(穗园校区)",
+  "district": "440106",
+  "stage": "primary",
+  "id1": "gz-440106-5e40124c",
+  "name1": "龙口西小学(天阳校区)",
+  "entity1": [
+   {
+    "name": "龙口西小学(天阳校区)",
+    "stage": "primary",
+    "aliases": [
+     "龙口西小学"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "龙口西小学(天阳校区)",
+    113.340327,
+    23.144326
+   ]
+  ],
+  "id2": "gz-440106-53bc251b",
+  "name2": "龙口西小学(穗园校区)",
+  "entity2": [
+   {
+    "name": "龙口西小学(穗园校区)",
+    "stage": "primary",
+    "aliases": [
+     "龙口西小学"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "龙口西小学(穗园校区)",
+    113.340534,
+    23.14558
+   ]
+  ],
+  "distance_m": 141.0
+ },
+ {
+  "snapshot_line": "440104|primary|gz-440104-98359a64|小北路小学(天香街校区)|gz-440104-4ebbaf83|小北路小学(小北路校区)",
+  "district": "440104",
+  "stage": "primary",
+  "id1": "gz-440104-98359a64",
+  "name1": "小北路小学(天香街校区)",
+  "entity1": [
+   {
+    "name": "小北路小学(天香街校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "小北路小学(天香街校区)",
+    113.270795,
+    23.133551
+   ]
+  ],
+  "id2": "gz-440104-4ebbaf83",
+  "name2": "小北路小学(小北路校区)",
+  "entity2": [
+   {
+    "name": "小北路小学(小北路校区)",
+    "stage": "primary",
+    "aliases": [
+     "小北路小学小北校区"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "小北路小学(小北路校区)",
+    113.272193,
+    23.133564
+   ]
+  ],
+  "distance_m": 143.0
+ },
+ {
+  "snapshot_line": "440103|primary|gz-440103-4e0aa3d7|乐贤坊小学(荔枝湾校区)|gz-440103-e29cf46b|宝源小学",
+  "district": "440103",
+  "stage": "primary",
+  "id1": "gz-440103-4e0aa3d7",
+  "name1": "乐贤坊小学(荔枝湾校区)",
+  "entity1": [
+   {
+    "name": "乐贤坊小学(荔枝湾校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "乐贤坊小学(荔枝湾校区)",
+    113.239164,
+    23.122034
+   ]
+  ],
+  "id2": "gz-440103-e29cf46b",
+  "name2": "宝源小学",
+  "entity2": [
+   {
+    "name": "宝源小学",
+    "stage": "primary",
+    "aliases": [
+     "乐贤坊小学宝源学校"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "宝源小学",
+    113.240389,
+    23.121371
+   ]
+  ],
+  "distance_m": 145.4
+ },
+ {
+  "snapshot_line": "440104|primary|gz-440104-ef94e34a|东川路小学|gz-440104-e20758df|东川路小学(南校区)",
+  "district": "440104",
+  "stage": "primary",
+  "id1": "gz-440104-ef94e34a",
+  "name1": "东川路小学",
+  "entity1": [
+   {
+    "name": "东川路小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "东川路小学",
+    113.285872,
+    23.122312
+   ]
+  ],
+  "id2": "gz-440104-e20758df",
+  "name2": "东川路小学(南校区)",
+  "entity2": [
+   {
+    "name": "东川路小学(南校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "东川路小学(南校区)",
+    113.285348,
+    23.121095
+   ]
+  ],
+  "distance_m": 145.5
+ },
+ {
+  "snapshot_line": "440113|primary|gz-440113-e5318201|大石中心小学|gz-440113-19ba1c04|番禺大石小学",
+  "district": "440113",
+  "stage": "primary",
+  "id1": "gz-440113-e5318201",
+  "name1": "大石中心小学",
+  "entity1": [
+   {
+    "name": "大石中心小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "大石中心小学",
+    113.309478,
+    23.016619
+   ]
+  ],
+  "id2": "gz-440113-19ba1c04",
+  "name2": "番禺大石小学",
+  "entity2": [
+   {
+    "name": "番禺大石小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "番禺大石小学",
+    113.309839,
+    23.01791
+   ]
+  ],
+  "distance_m": 148.2
+ },
+ {
+  "snapshot_line": "440106|middle|gz-440106-90c47ff5|天荣中学|gz-440106-458838f7|广州市第十二中学",
+  "district": "440106",
+  "stage": "middle",
+  "id1": "gz-440106-90c47ff5",
+  "name1": "天荣中学",
+  "entity1": [
+   {
+    "name": "天荣中学",
+    "stage": "middle",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "天荣中学",
+    113.320198,
+    23.129441
+   ]
+  ],
+  "id2": "gz-440106-458838f7",
+  "name2": "广州市第十二中学",
+  "entity2": [
+   {
+    "name": "广州市第十二中学",
+    "stage": "middle",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "middle",
+    "广州市第十二中学",
+    113.318725,
+    23.129225
+   ]
+  ],
+  "distance_m": 152.5
+ },
+ {
+  "snapshot_line": "440104|primary|gz-440104-f815e0be|东风东路小学(东风广场校区)|gz-440104-ec171256|东风东路小学天伦校区",
+  "district": "440104",
+  "stage": "primary",
+  "id1": "gz-440104-f815e0be",
+  "name1": "东风东路小学(东风广场校区)",
+  "entity1": [
+   {
+    "name": "东风东路小学(东风广场校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "东风东路小学(东风广场校区)",
+    113.311462,
+    23.133666
+   ]
+  ],
+  "id2": "gz-440104-ec171256",
+  "name2": "东风东路小学天伦校区",
+  "entity2": [
+   {
+    "name": "东风东路小学天伦校区",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "东风东路小学天伦校区",
+    113.311944,
+    23.134967
+   ]
+  ],
+  "distance_m": 152.8
+ },
+ {
+  "snapshot_line": "440111|high|gz-440111-e74c2e1d|广州市白云中学|gz-440111-5849b586|广州市白云中学(北区)",
+  "district": "440111",
+  "stage": "high",
+  "id1": "gz-440111-e74c2e1d",
+  "name1": "广州市白云中学",
+  "entity1": [
+   {
+    "name": "广州市白云中学",
+    "stage": "middle",
+    "aliases": [],
+    "nature": null
+   },
+   {
+    "name": "广州市白云中学",
+    "stage": "high",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "广州市白云中学",
+    113.207471,
+    23.146083
+   ],
+   [
+    "high",
+    "广州市白云中学",
+    113.207471,
+    23.146083
+   ]
+  ],
+  "id2": "gz-440111-5849b586",
+  "name2": "广州市白云中学(北区)",
+  "entity2": [
+   {
+    "name": "广州市白云中学(北区)",
+    "stage": "high",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "high",
+    "广州市白云中学(北区)",
+    113.207587,
+    23.147487
+   ]
+  ],
+  "distance_m": 156.6
+ },
+ {
+  "snapshot_line": "440103|middle|gz-440103-a3ee807c|广州市培英中学(鹤洞校区)|gz-440103-1f4697e3|广州市真光中学初中部(本部校区)",
+  "district": "440103",
+  "stage": "middle",
+  "id1": "gz-440103-a3ee807c",
+  "name1": "广州市培英中学(鹤洞校区)",
+  "entity1": [
+   {
+    "name": "广州市培英中学(鹤洞校区)",
+    "stage": "middle",
+    "aliases": [
+     "培英中学"
+    ],
+    "nature": null
+   },
+   {
+    "name": "广州市培英中学(鹤洞校区)",
+    "stage": "high",
+    "aliases": [
+     "培英中学"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "广州市培英中学(鹤洞校区)",
+    113.242165,
+    23.076723
+   ],
+   [
+    "high",
+    "广州市培英中学(鹤洞校区)",
+    113.242165,
+    23.076723
+   ]
+  ],
+  "id2": "gz-440103-1f4697e3",
+  "name2": "广州市真光中学初中部(本部校区)",
+  "entity2": [
+   {
+    "name": "广州市真光中学初中部(本部校区)",
+    "stage": "middle",
+    "aliases": [
+     "真光中学初中部",
+     "真光本部"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "middle",
+    "广州市真光中学初中部(本部校区)",
+    113.243256,
+    23.075685
+   ]
+  ],
+  "distance_m": 160.6
+ },
+ {
+  "snapshot_line": "440104|primary|gz-440104-3582dbe1|永曜北小学|gz-440104-a7ac857e|红火炬小学(西校区)",
+  "district": "440104",
+  "stage": "primary",
+  "id1": "gz-440104-3582dbe1",
+  "name1": "永曜北小学",
+  "entity1": [
+   {
+    "name": "永曜北小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "永曜北小学",
+    113.278543,
+    23.119785
+   ]
+  ],
+  "id2": "gz-440104-a7ac857e",
+  "name2": "红火炬小学(西校区)",
+  "entity2": [
+   {
+    "name": "红火炬小学(西校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "红火炬小学(西校区)",
+    113.279895,
+    23.120604
+   ]
+  ],
+  "distance_m": 165.6
+ },
+ {
+  "snapshot_line": "440105|primary|gz-440105-d9bd3fb7|广州市海珠区梅园西路小学(北校区)|gz-440105-ced71c28|梅园西路小学(南校区)",
+  "district": "440105",
+  "stage": "primary",
+  "id1": "gz-440105-d9bd3fb7",
+  "name1": "广州市海珠区梅园西路小学(北校区)",
+  "entity1": [
+   {
+    "name": "广州市海珠区梅园西路小学(北校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "广州市海珠区梅园西路小学(北校区)",
+    113.255965,
+    23.093646
+   ]
+  ],
+  "id2": "gz-440105-ced71c28",
+  "name2": "梅园西路小学(南校区)",
+  "entity2": [
+   {
+    "name": "梅园西路小学(南校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "梅园西路小学(南校区)",
+    113.256101,
+    23.092157
+   ]
+  ],
+  "distance_m": 166.2
+ },
+ {
+  "snapshot_line": "440104|primary|gz-440104-fb8d99a5|海珠中路小学(七株榕校区)|gz-440104-75ece0ce|海珠中路小学(海珠中校区)",
+  "district": "440104",
+  "stage": "primary",
+  "id1": "gz-440104-fb8d99a5",
+  "name1": "海珠中路小学(七株榕校区)",
+  "entity1": [
+   {
+    "name": "海珠中路小学(七株榕校区)",
+    "stage": "primary",
+    "aliases": [
+     "海珠中路小学"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "海珠中路小学(七株榕校区)",
+    113.255581,
+    23.119478
+   ]
+  ],
+  "id2": "gz-440104-75ece0ce",
+  "name2": "海珠中路小学(海珠中校区)",
+  "entity2": [
+   {
+    "name": "海珠中路小学(海珠中校区)",
+    "stage": "primary",
+    "aliases": [
+     "海珠中路小学"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "海珠中路小学(海珠中校区)",
+    113.25542,
+    23.117987
+   ]
+  ],
+  "distance_m": 166.6
+ },
+ {
+  "snapshot_line": "440106|primary|gz-440106-73e86142|五山小学(西校区)|gz-440106-7548682a|天河区五山小学(东校区)",
+  "district": "440106",
+  "stage": "primary",
+  "id1": "gz-440106-73e86142",
+  "name1": "五山小学(西校区)",
+  "entity1": [
+   {
+    "name": "五山小学(西校区)",
+    "stage": "primary",
+    "aliases": [
+     "五山小学"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "五山小学(西校区)",
+    113.354736,
+    23.148911
+   ]
+  ],
+  "id2": "gz-440106-7548682a",
+  "name2": "天河区五山小学(东校区)",
+  "entity2": [
+   {
+    "name": "天河区五山小学(东校区)",
+    "stage": "primary",
+    "aliases": [
+     "五山小学"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "天河区五山小学(东校区)",
+    113.355858,
+    23.150018
+   ]
+  ],
+  "distance_m": 168.3
+ },
+ {
+  "snapshot_line": "440105|primary|gz-440105-9c3cc015|基立道小学(长安校区)|gz-440105-6299c301|广州市海珠区实验小学(富基校区)",
+  "district": "440105",
+  "stage": "primary",
+  "id1": "gz-440105-9c3cc015",
+  "name1": "基立道小学(长安校区)",
+  "entity1": [
+   {
+    "name": "基立道小学(长安校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "基立道小学(长安校区)",
+    113.272033,
+    23.107904
+   ]
+  ],
+  "id2": "gz-440105-6299c301",
+  "name2": "广州市海珠区实验小学(富基校区)",
+  "entity2": [
+   {
+    "name": "广州市海珠区实验小学(富基校区)",
+    "stage": "primary",
+    "aliases": [
+     "实验小学富基校区"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "广州市海珠区实验小学(富基校区)",
+    113.2729,
+    23.109199
+   ]
+  ],
+  "distance_m": 169.1
+ },
+ {
+  "snapshot_line": "440113|primary|gz-440113-f7272e24|南村镇中心小学|gz-440113-50cf6c94|南村镇雅居乐小学",
+  "district": "440113",
+  "stage": "primary",
+  "id1": "gz-440113-f7272e24",
+  "name1": "南村镇中心小学",
+  "entity1": [
+   {
+    "name": "南村镇中心小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "南村镇中心小学",
+    113.377543,
+    23.007198
+   ]
+  ],
+  "id2": "gz-440113-50cf6c94",
+  "name2": "南村镇雅居乐小学",
+  "entity2": [
+   {
+    "name": "南村镇雅居乐小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "南村镇雅居乐小学",
+    113.377157,
+    23.005719
+   ]
+  ],
+  "distance_m": 169.1
+ },
+ {
+  "snapshot_line": "440104|primary|gz-440104-28241fd3|云山小学|gz-440104-737bb916|雄鹰学校(小学部)",
+  "district": "440104",
+  "stage": "primary",
+  "id1": "gz-440104-28241fd3",
+  "name1": "云山小学",
+  "entity1": [
+   {
+    "name": "云山小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "云山小学",
+    113.298335,
+    23.159715
+   ]
+  ],
+  "id2": "gz-440104-737bb916",
+  "name2": "雄鹰学校(小学部)",
+  "entity2": [
+   {
+    "name": "雄鹰学校(小学部)",
+    "stage": "primary",
+    "aliases": [
+     "雄鹰学校"
+    ],
+    "nature": "民办"
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "雄鹰学校(小学部)",
+    113.298712,
+    23.158227
+   ]
+  ],
+  "distance_m": 169.9
+ },
+ {
+  "snapshot_line": "440113|middle|gz-440113-43d027a5|广州市番禺区广铁一中铁英学校(东校区)|gz-440113-94c76638|广州市番禺区广铁一中铁英学校(西校区)",
+  "district": "440113",
+  "stage": "middle",
+  "id1": "gz-440113-43d027a5",
+  "name1": "广州市番禺区广铁一中铁英学校(东校区)",
+  "entity1": [
+   {
+    "name": "广州市番禺区广铁一中铁英学校(东校区)",
+    "stage": "middle",
+    "aliases": [
+     "番禺区广铁一中铁英学校",
+     "广铁一中铁英学校"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "广州市番禺区广铁一中铁英学校(东校区)",
+    113.491981,
+    22.946639
+   ]
+  ],
+  "id2": "gz-440113-94c76638",
+  "name2": "广州市番禺区广铁一中铁英学校(西校区)",
+  "entity2": [
+   {
+    "name": "广州市番禺区广铁一中铁英学校(西校区)",
+    "stage": "middle",
+    "aliases": [
+     "番禺区广铁一中铁英学校",
+     "广铁一中铁英学校"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "middle",
+    "广州市番禺区广铁一中铁英学校(西校区)",
+    113.493625,
+    22.946925
+   ]
+  ],
+  "distance_m": 171.3
+ },
+ {
+  "snapshot_line": "440113|primary|gz-440113-2aaaed97|云星小学|gz-440113-b14ead20|市桥富都小学",
+  "district": "440113",
+  "stage": "primary",
+  "id1": "gz-440113-2aaaed97",
+  "name1": "云星小学",
+  "entity1": [
+   {
+    "name": "云星小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "云星小学",
+    113.366571,
+    22.953237
+   ]
+  ],
+  "id2": "gz-440113-b14ead20",
+  "name2": "市桥富都小学",
+  "entity2": [
+   {
+    "name": "市桥富都小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "市桥富都小学",
+    113.365286,
+    22.952232
+   ]
+  ],
+  "distance_m": 172.6
+ },
+ {
+  "snapshot_line": "440106|primary|gz-440106-ba79c3ea|广州市天河区昌乐小学|gz-440106-4eab4155|昌乐小学(旭日校区)",
+  "district": "440106",
+  "stage": "primary",
+  "id1": "gz-440106-ba79c3ea",
+  "name1": "广州市天河区昌乐小学",
+  "entity1": [
+   {
+    "name": "广州市天河区昌乐小学",
+    "stage": "primary",
+    "aliases": [
+     "昌乐小学"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "广州市天河区昌乐小学",
+    113.359726,
+    23.119759
+   ]
+  ],
+  "id2": "gz-440106-4eab4155",
+  "name2": "昌乐小学(旭日校区)",
+  "entity2": [
+   {
+    "name": "昌乐小学(旭日校区)",
+    "stage": "primary",
+    "aliases": [
+     "昌乐小学"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "昌乐小学(旭日校区)",
+    113.35902,
+    23.118332
+   ]
+  ],
+  "distance_m": 174.3
+ },
+ {
+  "snapshot_line": "440103|middle|gz-440103-2dc142ec|广州市第一中学(初中部)|gz-440103-2653da64|广州市第一中学(姜中宏校区)",
+  "district": "440103",
+  "stage": "middle",
+  "id1": "gz-440103-2dc142ec",
+  "name1": "广州市第一中学(初中部)",
+  "entity1": [
+   {
+    "name": "广州市第一中学(初中部)",
+    "stage": "middle",
+    "aliases": [
+     "一中本部"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "广州市第一中学(初中部)",
+    113.234873,
+    23.113999
+   ]
+  ],
+  "id2": "gz-440103-2653da64",
+  "name2": "广州市第一中学(姜中宏校区)",
+  "entity2": [
+   {
+    "name": "广州市第一中学(姜中宏校区)",
+    "stage": "middle",
+    "aliases": [
+     "第一中学中宏校区",
+     "一中姜中宏"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "middle",
+    "广州市第一中学(姜中宏校区)",
+    113.235444,
+    23.112518
+   ]
+  ],
+  "distance_m": 174.7
+ },
+ {
+  "snapshot_line": "440105|primary|gz-440105-67352caa|石溪劬劳小学|gz-440105-b6333034|金碧第一小学(西校区)",
+  "district": "440105",
+  "stage": "primary",
+  "id1": "gz-440105-67352caa",
+  "name1": "石溪劬劳小学",
+  "entity1": [
+   {
+    "name": "石溪劬劳小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "石溪劬劳小学",
+    113.282008,
+    23.06861
+   ]
+  ],
+  "id2": "gz-440105-b6333034",
+  "name2": "金碧第一小学(西校区)",
+  "entity2": [
+   {
+    "name": "金碧第一小学(西校区)",
+    "stage": "primary",
+    "aliases": [
+     "金碧第一小学"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "金碧第一小学(西校区)",
+    113.282708,
+    23.070055
+   ]
+  ],
+  "distance_m": 175.9
+ },
+ {
+  "snapshot_line": "440103|primary|gz-440103-5d3549b8|广雅小学|gz-440103-6dbe752e|荔湾区环市西路小学(绿森林校区)",
+  "district": "440103",
+  "stage": "primary",
+  "id1": "gz-440103-5d3549b8",
+  "name1": "广雅小学",
+  "entity1": [
+   {
+    "name": "广雅小学",
+    "stage": "primary",
+    "aliases": [
+     "荔湾区广雅小学岭南湾畔校区",
+     "广雅小学岭南湾畔校区"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "广雅小学",
+    113.240077,
+    23.151347
+   ]
+  ],
+  "id2": "gz-440103-6dbe752e",
+  "name2": "荔湾区环市西路小学(绿森林校区)",
+  "entity2": [
+   {
+    "name": "荔湾区环市西路小学(绿森林校区)",
+    "stage": "primary",
+    "aliases": [
+     "第一中学附属环市西路小学绿森林校区"
+    ],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "荔湾区环市西路小学(绿森林校区)",
+    113.240153,
+    23.152967
+   ]
+  ],
+  "distance_m": 180.3
+ },
+ {
+  "snapshot_line": "440103|primary|gz-440103-9f5557ad|广东实验中学荔湾学校(第三小学部)|gz-440103-815371aa|荔湾区东沙博雅实验学校",
+  "district": "440103",
+  "stage": "primary",
+  "id1": "gz-440103-9f5557ad",
+  "name1": "广东实验中学荔湾学校(第三小学部)",
+  "entity1": [
+   {
+    "name": "广东实验中学荔湾学校(第三小学部)",
+    "stage": "primary",
+    "aliases": [
+     "广东实验中学荔湾学校"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "广东实验中学荔湾学校(第三小学部)",
+    113.247261,
+    23.06284
+   ]
+  ],
+  "id2": "gz-440103-815371aa",
+  "name2": "荔湾区东沙博雅实验学校",
+  "entity2": [
+   {
+    "name": "荔湾区东沙博雅实验学校",
+    "stage": "primary",
+    "aliases": [
+     "东沙博雅实验学校"
+    ],
+    "nature": "民办"
+   },
+   {
+    "name": "荔湾区东沙博雅实验学校",
+    "stage": "middle",
+    "aliases": [
+     "东沙博雅实验学校"
+    ],
+    "nature": "民办"
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "荔湾区东沙博雅实验学校",
+    113.248992,
+    23.063209
+   ],
+   [
+    "middle",
+    "荔湾区东沙博雅实验学校",
+    113.248992,
+    23.063209
+   ]
+  ],
+  "distance_m": 181.8
+ },
+ {
+  "snapshot_line": "440104|primary|gz-440104-29c39d65|红火炬小学(东校区)|gz-440104-a7ac857e|红火炬小学(西校区)",
+  "district": "440104",
+  "stage": "primary",
+  "id1": "gz-440104-29c39d65",
+  "name1": "红火炬小学(东校区)",
+  "entity1": [
+   {
+    "name": "红火炬小学(东校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "红火炬小学(东校区)",
+    113.281577,
+    23.120051
+   ]
+  ],
+  "id2": "gz-440104-a7ac857e",
+  "name2": "红火炬小学(西校区)",
+  "entity2": [
+   {
+    "name": "红火炬小学(西校区)",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "红火炬小学(西校区)",
+    113.279895,
+    23.120604
+   ]
+  ],
+  "distance_m": 182.7
+ },
+ {
+  "snapshot_line": "440111|primary|gz-440111-e85f7f8a|广云外国语学校|gz-440111-919c20e3|龙德学校",
+  "district": "440111",
+  "stage": "primary",
+  "id1": "gz-440111-e85f7f8a",
+  "name1": "广云外国语学校",
+  "entity1": [
+   {
+    "name": "广云外国语学校",
+    "stage": "primary",
+    "aliases": [],
+    "nature": "民办"
+   },
+   {
+    "name": "广云外国语学校",
+    "stage": "middle",
+    "aliases": [],
+    "nature": "民办"
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "广云外国语学校",
+    113.231789,
+    23.183343
+   ],
+   [
+    "middle",
+    "广云外国语学校",
+    113.231789,
+    23.183343
+   ]
+  ],
+  "id2": "gz-440111-919c20e3",
+  "name2": "龙德学校",
+  "entity2": [
+   {
+    "name": "龙德学校",
+    "stage": "primary",
+    "aliases": [],
+    "nature": "民办"
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "龙德学校",
+    113.230044,
+    23.182977
+   ]
+  ],
+  "distance_m": 183.0
+ },
+ {
+  "snapshot_line": "440105|primary|gz-440105-3225e37f|东风小学|gz-440105-6d9709b2|广州市海珠区东风第二小学",
+  "district": "440105",
+  "stage": "primary",
+  "id1": "gz-440105-3225e37f",
+  "name1": "东风小学",
+  "entity1": [
+   {
+    "name": "东风小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "东风小学",
+    113.323111,
+    23.083206
+   ]
+  ],
+  "id2": "gz-440105-6d9709b2",
+  "name2": "广州市海珠区东风第二小学",
+  "entity2": [
+   {
+    "name": "广州市海珠区东风第二小学",
+    "stage": "primary",
+    "aliases": [
+     "东风第二小学"
+    ],
+    "nature": "民办"
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "广州市海珠区东风第二小学",
+    113.321495,
+    23.082442
+   ]
+  ],
+  "distance_m": 185.9
+ },
+ {
+  "snapshot_line": "440105|primary|gz-440105-cb999042|广州市海珠区启能学校|gz-440105-ff91e551|江南大道中小学",
+  "district": "440105",
+  "stage": "primary",
+  "id1": "gz-440105-cb999042",
+  "name1": "广州市海珠区启能学校",
+  "entity1": [
+   {
+    "name": "广州市海珠区启能学校",
+    "stage": "primary",
+    "aliases": [
+     "启能学校"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "广州市海珠区启能学校",
+    113.269672,
+    23.104307
+   ]
+  ],
+  "id2": "gz-440105-ff91e551",
+  "name2": "江南大道中小学",
+  "entity2": [
+   {
+    "name": "江南大道中小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "江南大道中小学",
+    113.271002,
+    23.105451
+   ]
+  ],
+  "distance_m": 186.2
+ },
+ {
+  "snapshot_line": "440103|middle|gz-440103-2dc142ec|广州市第一中学(初中部)|gz-440103-41cb6344|广州市西关培英中学(西校区)",
+  "district": "440103",
+  "stage": "middle",
+  "id1": "gz-440103-2dc142ec",
+  "name1": "广州市第一中学(初中部)",
+  "entity1": [
+   {
+    "name": "广州市第一中学(初中部)",
+    "stage": "middle",
+    "aliases": [
+     "一中本部"
+    ],
+    "nature": null
+   }
+  ],
+  "poi1": [
+   [
+    "middle",
+    "广州市第一中学(初中部)",
+    113.234873,
+    23.113999
+   ]
+  ],
+  "id2": "gz-440103-41cb6344",
+  "name2": "广州市西关培英中学(西校区)",
+  "entity2": [
+   {
+    "name": "广州市西关培英中学(西校区)",
+    "stage": "middle",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "middle",
+    "广州市西关培英中学(西校区)",
+    113.233714,
+    23.115334
+   ]
+  ],
+  "distance_m": 190.0
+ },
+ {
+  "snapshot_line": "440105|primary|gz-440105-d30140a6|华怡小学|gz-440105-24c1be5c|赤岗小学",
+  "district": "440105",
+  "stage": "primary",
+  "id1": "gz-440105-d30140a6",
+  "name1": "华怡小学",
+  "entity1": [
+   {
+    "name": "华怡小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": "民办"
+   }
+  ],
+  "poi1": [
+   [
+    "primary",
+    "华怡小学",
+    113.330361,
+    23.092249
+   ]
+  ],
+  "id2": "gz-440105-24c1be5c",
+  "name2": "赤岗小学",
+  "entity2": [
+   {
+    "name": "赤岗小学",
+    "stage": "primary",
+    "aliases": [],
+    "nature": null
+   }
+  ],
+  "poi2": [
+   [
+    "primary",
+    "赤岗小学",
+    113.33072,
+    23.090504
+   ]
+  ],
+  "distance_m": 197.5
+ }
+]

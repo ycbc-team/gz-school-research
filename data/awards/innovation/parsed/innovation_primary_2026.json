@@ -93,9 +93,10 @@
       "members": "周楚惟",
       "coach": "崔冠利、 黎韵怡",
       "school_ids": [
+        "gz-440106-ed39fc64",
         "gz-440106-efcdec9d"
       ],
-      "match_type": "single"
+      "match_type": "multi"
     },
     {
       "school": "广州市天河区龙口西小学",
@@ -479,9 +480,10 @@
       "members": "彭嘉茵、 陈家辰",
       "coach": "徐桂梅、 曾燕",
       "school_ids": [
+        "gz-440106-ed39fc64",
         "gz-440106-efcdec9d"
       ],
-      "match_type": "single"
+      "match_type": "multi"
     },
     {
       "school": "广东实验中学荔湾学校（第一小学部）",
@@ -663,7 +665,7 @@
       "members": "谢沛霖、 林洛霆、 李看看",
       "coach": "欧阳翠红、 全海欣",
       "school_ids": [
-        "gz-440106-11e15e8d"
+        "gz-440106-05ed1da2"
       ],
       "match_type": "single"
     },
@@ -864,9 +866,10 @@
       "members": "曾彦莎、 吴畅泽",
       "coach": "吴进",
       "school_ids": [
+        "gz-440105-0adfcd61",
         "gz-440105-98d6d585"
       ],
-      "match_type": "single"
+      "match_type": "multi"
     },
     {
       "school": "广州市南沙区金隆小学",
@@ -1109,7 +1112,7 @@
       "members": "李临渊、 杨宛愉、 余美霖、 谭力榕",
       "coach": "欧阳翠红",
       "school_ids": [
-        "gz-440106-11e15e8d"
+        "gz-440106-05ed1da2"
       ],
       "match_type": "single"
     },
@@ -1128,5 +1131,5 @@
       "match_type": "multi"
     }
   ],
-  "compiled_schools": 60
+  "compiled_schools": 62
 }

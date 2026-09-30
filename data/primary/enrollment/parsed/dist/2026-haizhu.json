@@ -1081,13 +1081,13 @@
   },
   {
    "district": "海珠区",
-   "lat": 23.105482,
-   "lng": 113.253931,
+   "lat": null,
+   "lng": null,
    "note": "",
    "phone": "",
    "plan_classes": null,
-   "poi_name": "海珠区滨江西路第一小学",
-   "school": "海珠区滨江西路第一小学",
+   "poi_name": "",
+   "school": "",
    "school_id": "gz-440105-bf39b5bb",
    "source": "海珠区教育局《2026年海珠区公办小学招生服务地段表》（官网正文图，Vision OCR）",
    "zone": "2026 年官方招生计划未单列（同福中路第一小学教育集团成员校）"

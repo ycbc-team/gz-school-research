@@ -114,6 +114,19 @@
       }
     }
   },
+  "gz-440103-ff7538dc": {
+    "innovation_awards": {
+      "stages": {
+        "middle": {
+          "2024": {
+            "gold": 1,
+            "silver": 0,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
   "gz-440104-7c4a905f": {
     "innovation_awards": {
       "stages": {
@@ -379,6 +392,19 @@
       }
     }
   },
+  "gz-440106-3a61d518": {
+    "innovation_awards": {
+      "stages": {
+        "middle": {
+          "2024": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 2
+          }
+        }
+      }
+    }
+  },
   "gz-440106-ef4076c1": {
     "innovation_awards": {
       "stages": {
@@ -613,6 +639,19 @@
     }
   },
   "gz-440112-0cb5a402": {
+    "innovation_awards": {
+      "stages": {
+        "middle": {
+          "2025": {
+            "gold": 0,
+            "silver": 2,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
+  "gz-440112-43108516": {
     "innovation_awards": {
       "stages": {
         "middle": {
@@ -883,6 +922,19 @@
       }
     }
   },
+  "gz-440106-a565a93c": {
+    "innovation_awards": {
+      "stages": {
+        "middle": {
+          "2026": {
+            "gold": 0,
+            "silver": 1,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
   "gz-440112-3847727f": {
     "innovation_awards": {
       "stages": {
@@ -1085,7 +1137,7 @@
       }
     }
   },
-  "gz-440106-11e15e8d": {
+  "gz-440106-05ed1da2": {
     "innovation_awards": {
       "stages": {
         "primary": {
@@ -1134,24 +1186,6 @@
       }
     }
   },
-  "gz-440106-b69bcbc4": {
-    "innovation_awards": {
-      "stages": {
-        "primary": {
-          "2024": {
-            "gold": 1,
-            "silver": 0,
-            "bronze": 0
-          },
-          "2026": {
-            "gold": 0,
-            "silver": 1,
-            "bronze": 0
-          }
-        }
-      }
-    }
-  },
   "gz-440112-adb9c303": {
     "innovation_awards": {
       "stages": {
@@ -1159,24 +1193,6 @@
           "2024": {
             "gold": 1,
             "silver": 0,
-            "bronze": 0
-          }
-        }
-      }
-    }
-  },
-  "gz-440112-4991e638": {
-    "innovation_awards": {
-      "stages": {
-        "primary": {
-          "2024": {
-            "gold": 1,
-            "silver": 0,
-            "bronze": 2
-          },
-          "2025": {
-            "gold": 0,
-            "silver": 1,
             "bronze": 0
           }
         }
@@ -1289,6 +1305,19 @@
       }
     }
   },
+  "gz-440103-3fb4fd56": {
+    "innovation_awards": {
+      "stages": {
+        "primary": {
+          "2024": {
+            "gold": 2,
+            "silver": 0,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
   "gz-440106-d343b055": {
     "innovation_awards": {
       "stages": {
@@ -1351,6 +1380,24 @@
       }
     }
   },
+  "gz-440105-0adfcd61": {
+    "innovation_awards": {
+      "stages": {
+        "primary": {
+          "2024": {
+            "gold": 1,
+            "silver": 1,
+            "bronze": 0
+          },
+          "2026": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
   "gz-440105-98d6d585": {
     "innovation_awards": {
       "stages": {
@@ -1399,6 +1446,42 @@
           "2024": {
             "gold": 1,
             "silver": 0,
+            "bronze": 0
+          },
+          "2025": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
+  "gz-440103-362ee1b6": {
+    "innovation_awards": {
+      "stages": {
+        "primary": {
+          "2024": {
+            "gold": 0,
+            "silver": 2,
+            "bronze": 0
+          },
+          "2025": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
+  "gz-440103-554e0beb": {
+    "innovation_awards": {
+      "stages": {
+        "primary": {
+          "2024": {
+            "gold": 0,
+            "silver": 2,
             "bronze": 0
           },
           "2025": {
@@ -1704,6 +1787,19 @@
       }
     }
   },
+  "gz-440106-8d6ca869": {
+    "innovation_awards": {
+      "stages": {
+        "primary": {
+          "2024": {
+            "gold": 0,
+            "silver": 1,
+            "bronze": 2
+          }
+        }
+      }
+    }
+  },
   "gz-440111-565db7e9": {
     "innovation_awards": {
       "stages": {
@@ -1928,6 +2024,19 @@
       }
     }
   },
+  "gz-440112-08b72698": {
+    "innovation_awards": {
+      "stages": {
+        "primary": {
+          "2024": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
   "gz-440112-16ca808f": {
     "innovation_awards": {
       "stages": {
@@ -2068,19 +2177,12 @@
       }
     }
   },
-  "gz-440106-d8e69757": {
+  "gz-440106-a7cac9ec": {
     "innovation_awards": {
       "stages": {
         "primary": {
           "2025": {
             "gold": 1,
-            "silver": 0,
-            "bronze": 1
-          }
-        },
-        "high": {
-          "2025": {
-            "gold": 0,
             "silver": 0,
             "bronze": 1
           }
@@ -2595,6 +2697,19 @@
       }
     }
   },
+  "gz-440106-ed39fc64": {
+    "innovation_awards": {
+      "stages": {
+        "primary": {
+          "2026": {
+            "gold": 1,
+            "silver": 1,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
   "gz-440106-efcdec9d": {
     "innovation_awards": {
       "stages": {
@@ -2752,6 +2867,19 @@
     }
   },
   "gz-440103-82b9766a": {
+    "innovation_awards": {
+      "stages": {
+        "primary": {
+          "2026": {
+            "gold": 0,
+            "silver": 1,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
+  "gz-440106-b69bcbc4": {
     "innovation_awards": {
       "stages": {
         "primary": {
@@ -3077,19 +3205,6 @@
       }
     }
   },
-  "gz-440106-52f7f4b7": {
-    "innovation_awards": {
-      "stages": {
-        "high": {
-          "2024": {
-            "gold": 0,
-            "silver": 1,
-            "bronze": 0
-          }
-        }
-      }
-    }
-  },
   "gz-440104-028e64d6": {
     "innovation_awards": {
       "stages": {
@@ -3286,6 +3401,19 @@
       }
     }
   },
+  "gz-440106-d8e69757": {
+    "innovation_awards": {
+      "stages": {
+        "high": {
+          "2025": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
   "gz-440103-04c54db8": {
     "innovation_awards": {
       "stages": {
@@ -3385,32 +3513,6 @@
     }
   },
   "gz-440103-c62eab6a": {
-    "innovation_awards": {
-      "stages": {
-        "high": {
-          "2026": {
-            "gold": 0,
-            "silver": 1,
-            "bronze": 0
-          }
-        }
-      }
-    }
-  },
-  "gz-440111-15fa03a9": {
-    "innovation_awards": {
-      "stages": {
-        "high": {
-          "2026": {
-            "gold": 0,
-            "silver": 1,
-            "bronze": 0
-          }
-        }
-      }
-    }
-  },
-  "gz-440111-5849b586": {
     "innovation_awards": {
       "stages": {
         "high": {

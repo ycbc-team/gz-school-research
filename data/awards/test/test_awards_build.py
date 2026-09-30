@@ -23,13 +23,13 @@ NANWU = {"gz-440105-515da9e2", "gz-440105-dd2723fc"}    # 南武中学高中部 
 # 这是完整产物的语义指纹，不依赖 JSON 缩进或字段排列。源文件/匹配规则变化
 # 会触发失败，要求人工核对后再更新；不要为通过测试直接刷新这组值。
 SNAPSHOT = {
-    "innovation": {"records": 522, "matched": 392, "digest": "06e62dfd2dfb991450236c908df191a0deb604f499a33e609711b951f34512f6"},
-    "chuangke": {"years": 2, "records": 145, "matched": 113, "digest": "2d43f968d0eeede5c9df96fe9f4343a07863a5525c69927610e6b30f7995b7ae"},
+    "innovation": {"records": 522, "matched": 392, "digest": "1d97fd1365f4c8c1810848950cd3118561b3d096d14e4c5c154521608686dd60"},
+    "chuangke": {"years": 2, "records": 145, "matched": 113, "digest": "0c3a7ea3929e7f6d9343dd86631e6b0a1e69e7c6648d7eda4c61b2365dd608a1"},
     "science_literacy": {"records": 531, "matched": 352},
-    "tech_sports": {"records": 2708, "matched": 1850, "digest": "f0d51b3cfa9b6097b542ab6cf02ecce5e18a831a6e354c4a1c221220190e31a7"},
-    "science_experiment": {"records": 584, "matched": 411, "digest": "c7c4f8e660cd16218f3d12f1babd719eba2a2d42206f1a1ffee9333fd28ba793"},
-    "yueyunbei": {"records": 29771, "matched": 23468, "digest": "22cf834464683876f9d87d1109f12e7eee3d6879dfacc2e07f39105ab017be6b"},
-    "details": {"records": 26586, "digest": "87e611355bfb24d50bac85066d6d5d52b785d350f08518664366f50f96e159c2"},
+    "tech_sports": {"records": 2708, "matched": 1850, "digest": "0a8449be95306525728236c4f352a16bc654ad5d0efe4678918b65e44c7b136c"},
+    "science_experiment": {"records": 584, "matched": 411, "digest": "d81cf0667a768350e5e1c7f30710f004b4f12668ac813c2542c7c381b64b5b82"},
+    "yueyunbei": {"records": 29771, "matched": 23565, "digest": "570d46473f3e305a3a7a63db12cbfd68bfb1dcb14bf05270c97e1ae374b34bf9"},
+    "details": {"records": 26683, "digest": "0c24756276668c27f9b6dd705153bd12e9f4b046610ef54239f09a666eec90bd"},
 }
 
 

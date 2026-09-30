@@ -322,11 +322,9 @@
       "members": "钟绮珊、赖心妍、冯雅妍、凌振轩、董子涵",
       "coach": "高伟光",
       "school_ids": [
-        "gz-440111-15fa03a9",
-        "gz-440111-5849b586",
         "gz-440111-e74c2e1d"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广州市增城区职业技术学校",
@@ -658,5 +656,5 @@
       "match_type": "single"
     }
   ],
-  "compiled_schools": 27
+  "compiled_schools": 25
 }

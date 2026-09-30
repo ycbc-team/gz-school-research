@@ -1314,10 +1314,7 @@
     },
     {
       "school_id": "gz-440111-6782d2c7",
-      "school_ids": [
-        "gz-440111-6782d2c7",
-        "gz-440111-7d12a21e"
-      ],
+      "school_ids": null,
       "autonomy_count": 173,
       "tekong_quota_rate": 2.7
     },
@@ -1451,9 +1448,8 @@
       "tekong_quota_rate": 2.5
     },
     {
-      "school_id": "gz-440112-06029745",
+      "school_id": "gz-440112-0cb5a402",
       "school_ids": [
-        "gz-440112-06029745",
         "gz-440112-0cb5a402",
         "gz-440112-43108516"
       ],

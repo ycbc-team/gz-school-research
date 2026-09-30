@@ -6382,9 +6382,7 @@
       "award": "一等奖",
       "type": "personal",
       "school_ids": [
-        "gz-440112-70e86492",
-        "gz-440112-80a45eec",
-        "gz-440112-e0419ae0"
+        "gz-440112-70e86492"
       ],
       "stage": "primary"
     },
@@ -6567,9 +6565,7 @@
       "award": "一等奖",
       "type": "personal",
       "school_ids": [
-        "gz-440112-70e86492",
-        "gz-440112-80a45eec",
-        "gz-440112-e0419ae0"
+        "gz-440112-70e86492"
       ],
       "stage": "primary"
     },
@@ -6867,6 +6863,7 @@
       "award": "一等奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -7787,6 +7784,7 @@
       "award": "二等奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -9735,6 +9733,7 @@
       "award": "二等奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -12474,6 +12473,7 @@
       "award": "二等奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -16328,6 +16328,7 @@
       "award": "三等奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -19998,7 +19999,9 @@
       "coach": "梁丽玲",
       "award": "优胜奖",
       "type": "personal",
-      "school_ids": [],
+      "school_ids": [
+        "gz-440103-6ae1c1c0"
+      ],
       "stage": "primary"
     },
     {
@@ -38139,6 +38142,7 @@
       "award": "三等奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -38827,6 +38831,7 @@
       "award": "三等奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -46102,7 +46107,6 @@
       "award": "三等奖",
       "type": "personal",
       "school_ids": [
-        "gz-440112-06029745",
         "gz-440112-0cb5a402",
         "gz-440112-43108516"
       ],
@@ -49865,6 +49869,7 @@
       "award": "铜奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -50115,7 +50120,9 @@
       "coach": "蔡沛璇",
       "award": "铜奖",
       "type": "personal",
-      "school_ids": [],
+      "school_ids": [
+        "gz-440103-6ae1c1c0"
+      ],
       "stage": "primary"
     },
     {
@@ -50694,6 +50701,7 @@
       "award": "铜奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -51241,9 +51249,7 @@
       "award": "铜奖",
       "type": "personal",
       "school_ids": [
-        "gz-440112-70e86492",
-        "gz-440112-80a45eec",
-        "gz-440112-e0419ae0"
+        "gz-440112-70e86492"
       ],
       "stage": "primary"
     },
@@ -53193,6 +53199,7 @@
       "award": "优胜奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -53381,7 +53388,9 @@
       "coach": "蔡沛璇",
       "award": "优胜奖",
       "type": "personal",
-      "school_ids": [],
+      "school_ids": [
+        "gz-440103-6ae1c1c0"
+      ],
       "stage": "primary"
     },
     {
@@ -55138,6 +55147,7 @@
       "award": "优胜奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -58706,6 +58716,7 @@
       "award": "金奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -62267,6 +62278,7 @@
       "award": "铜奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -63537,6 +63549,7 @@
       "award": "铜奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -67519,6 +67532,7 @@
       "award": "优胜奖",
       "type": "personal",
       "school_ids": [
+        "gz-440104-08dedf9a",
         "gz-440104-a41d6d8d"
       ],
       "stage": "primary"
@@ -67587,7 +67601,9 @@
       "coach": "郭逸武",
       "award": "优胜奖",
       "type": "personal",
-      "school_ids": [],
+      "school_ids": [
+        "gz-440104-bc48335e"
+      ],
       "stage": "primary"
     },
     {
@@ -74710,8 +74726,7 @@
       "award": "金奖",
       "type": "personal",
       "school_ids": [
-        "gz-440111-6782d2c7",
-        "gz-440111-7d12a21e"
+        "gz-440111-6782d2c7"
       ],
       "stage": "middle"
     },
@@ -76859,8 +76874,7 @@
       "award": "银奖",
       "type": "personal",
       "school_ids": [
-        "gz-440111-6782d2c7",
-        "gz-440111-7d12a21e"
+        "gz-440111-6782d2c7"
       ],
       "stage": "middle"
     },
@@ -77238,8 +77252,7 @@
       "award": "银奖",
       "type": "personal",
       "school_ids": [
-        "gz-440111-6782d2c7",
-        "gz-440111-7d12a21e"
+        "gz-440111-6782d2c7"
       ],
       "stage": "middle"
     },
@@ -78410,8 +78423,7 @@
       "award": "铜奖",
       "type": "personal",
       "school_ids": [
-        "gz-440111-6782d2c7",
-        "gz-440111-7d12a21e"
+        "gz-440111-6782d2c7"
       ],
       "stage": "middle"
     },
@@ -78554,8 +78566,7 @@
       "award": "铜奖",
       "type": "personal",
       "school_ids": [
-        "gz-440111-6782d2c7",
-        "gz-440111-7d12a21e"
+        "gz-440111-6782d2c7"
       ],
       "stage": "middle"
     },
@@ -81913,8 +81924,7 @@
       "award": "优胜奖",
       "type": "personal",
       "school_ids": [
-        "gz-440111-6782d2c7",
-        "gz-440111-7d12a21e"
+        "gz-440111-6782d2c7"
       ],
       "stage": "middle"
     },
@@ -83721,8 +83731,6 @@
       "award": "金奖",
       "type": "personal",
       "school_ids": [
-        "gz-440111-15fa03a9",
-        "gz-440111-5849b586",
         "gz-440111-e74c2e1d"
       ],
       "stage": "high"
@@ -84263,8 +84271,6 @@
       "award": "铜奖",
       "type": "personal",
       "school_ids": [
-        "gz-440111-15fa03a9",
-        "gz-440111-5849b586",
         "gz-440111-e74c2e1d"
       ],
       "stage": "high"
@@ -92039,9 +92045,7 @@
       "award": "优胜奖",
       "type": "personal",
       "school_ids": [
-        "gz-440112-70e86492",
-        "gz-440112-80a45eec",
-        "gz-440112-e0419ae0"
+        "gz-440112-70e86492"
       ],
       "stage": "primary"
     },
@@ -95436,7 +95440,9 @@
       "coach": "曾蔼庄",
       "award": "优胜奖",
       "type": "personal",
-      "school_ids": [],
+      "school_ids": [
+        "gz-440104-bc48335e"
+      ],
       "stage": "primary"
     },
     {
@@ -109078,7 +109084,6 @@
       "award": "银奖",
       "type": "personal",
       "school_ids": [
-        "gz-440112-06029745",
         "gz-440112-0cb5a402",
         "gz-440112-43108516"
       ],
@@ -109486,7 +109491,6 @@
       "award": "银奖",
       "type": "personal",
       "school_ids": [
-        "gz-440112-06029745",
         "gz-440112-0cb5a402",
         "gz-440112-43108516"
       ],
@@ -111354,8 +111358,7 @@
       "award": "铜奖",
       "type": "personal",
       "school_ids": [
-        "gz-440111-6782d2c7",
-        "gz-440111-7d12a21e"
+        "gz-440111-6782d2c7"
       ],
       "stage": "middle"
     },
@@ -111383,8 +111386,7 @@
       "award": "铜奖",
       "type": "personal",
       "school_ids": [
-        "gz-440111-6782d2c7",
-        "gz-440111-7d12a21e"
+        "gz-440111-6782d2c7"
       ],
       "stage": "middle"
     },
@@ -112493,8 +112495,7 @@
       "award": "优胜奖",
       "type": "personal",
       "school_ids": [
-        "gz-440111-6782d2c7",
-        "gz-440111-7d12a21e"
+        "gz-440111-6782d2c7"
       ],
       "stage": "middle"
     },
@@ -113688,8 +113689,7 @@
       "award": "优胜奖",
       "type": "personal",
       "school_ids": [
-        "gz-440111-6782d2c7",
-        "gz-440111-7d12a21e"
+        "gz-440111-6782d2c7"
       ],
       "stage": "middle"
     },
@@ -113703,8 +113703,7 @@
       "award": "优胜奖",
       "type": "personal",
       "school_ids": [
-        "gz-440111-6782d2c7",
-        "gz-440111-7d12a21e"
+        "gz-440111-6782d2c7"
       ],
       "stage": "middle"
     },
@@ -114431,8 +114430,7 @@
       "award": "优胜奖",
       "type": "personal",
       "school_ids": [
-        "gz-440111-6782d2c7",
-        "gz-440111-7d12a21e"
+        "gz-440111-6782d2c7"
       ],
       "stage": "middle"
     },
@@ -116017,5 +116015,5 @@
       "stage": "high"
     }
   ],
-  "compiled_schools": 998
+  "compiled_schools": 994
 }

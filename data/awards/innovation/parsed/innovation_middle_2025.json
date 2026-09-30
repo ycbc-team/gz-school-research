@@ -143,9 +143,10 @@
       "members": "郭可、 刘国庆、 罗恩、 冯诗淇",
       "coach": "余世娟、 马毅勇",
       "school_ids": [
-        "gz-440112-0cb5a402"
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516"
       ],
-      "match_type": "single"
+      "match_type": "multi"
     },
     {
       "school": "广州奥林匹克中学",
@@ -170,9 +171,10 @@
       "members": "林泓安、 张胡郢越、 林正朗、 李润阳",
       "coach": "余世娟、 马毅勇",
       "school_ids": [
-        "gz-440112-0cb5a402"
+        "gz-440112-0cb5a402",
+        "gz-440112-43108516"
       ],
-      "match_type": "single"
+      "match_type": "multi"
     },
     {
       "school": "广州市第八十九中学",
@@ -496,5 +498,5 @@
       "match_type": "single"
     }
   ],
-  "compiled_schools": 20
+  "compiled_schools": 21
 }

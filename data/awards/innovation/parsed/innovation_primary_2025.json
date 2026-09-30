@@ -40,7 +40,7 @@
       "members": "张妙依、 张心扬",
       "coach": "欧阳翠红、 冯冠嘟",
       "school_ids": [
-        "gz-440106-11e15e8d"
+        "gz-440106-05ed1da2"
       ],
       "match_type": "single"
     },
@@ -133,7 +133,7 @@
       "members": "刘北鲲、 周扬翕、 吴星雨、 李临渊",
       "coach": "欧阳翠红",
       "school_ids": [
-        "gz-440106-11e15e8d"
+        "gz-440106-05ed1da2"
       ],
       "match_type": "single"
     },
@@ -263,7 +263,7 @@
       "members": "魏昭宇、 戴子晴、 潘令仪、 郭乔恩、 李豫桐",
       "coach": "陈月颜、 陈芳芳、 张送英",
       "school_ids": [
-        "gz-440106-d8e69757"
+        "gz-440106-a7cac9ec"
       ],
       "match_type": "single"
     },
@@ -406,10 +406,9 @@
       "members": "欧阳宏宇、 吴博涛、 李佳洋",
       "coach": "杜思奇、 吴文锋、 崔丽珊",
       "school_ids": [
-        "gz-440112-4991e638",
         "gz-440113-060386bb"
       ],
-      "match_type": "multi"
+      "match_type": "single"
     },
     {
       "school": "广东外语外贸大学附属科学城实验学校",
@@ -651,7 +650,7 @@
       "members": "崔允蓝、 谢月灵、 李妍思",
       "coach": "陈月颜",
       "school_ids": [
-        "gz-440106-d8e69757"
+        "gz-440106-a7cac9ec"
       ],
       "match_type": "single"
     },
@@ -755,7 +754,7 @@
       "members": "谢彦儒、 张峻、 刘城鑫、 赵稷丰",
       "coach": "欧阳翠红、 张树林",
       "school_ids": [
-        "gz-440106-11e15e8d"
+        "gz-440106-05ed1da2"
       ],
       "match_type": "single"
     },
@@ -792,6 +791,8 @@
       "members": "凌云志",
       "coach": "江华姿、 邓庆辉",
       "school_ids": [
+        "gz-440103-362ee1b6",
+        "gz-440103-554e0beb",
         "gz-440103-8d072726",
         "gz-440103-ecc193c7",
         "gz-440103-eeee1923",
@@ -1190,5 +1191,5 @@
       "match_type": "single"
     }
   ],
-  "compiled_schools": 63
+  "compiled_schools": 64
 }

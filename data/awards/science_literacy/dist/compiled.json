@@ -109,32 +109,6 @@
       }
     }
   },
-  "gz-440111-15fa03a9": {
-    "science_literacy_awards": {
-      "stages": {
-        "high": {
-          "2024": {
-            "gold": 1,
-            "silver": 0,
-            "bronze": 0
-          }
-        }
-      }
-    }
-  },
-  "gz-440111-5849b586": {
-    "science_literacy_awards": {
-      "stages": {
-        "high": {
-          "2024": {
-            "gold": 1,
-            "silver": 0,
-            "bronze": 0
-          }
-        }
-      }
-    }
-  },
   "gz-440111-e74c2e1d": {
     "science_literacy_awards": {
       "stages": {
@@ -256,14 +230,14 @@
       }
     }
   },
-  "gz-440112-4991e638": {
+  "gz-440106-8d6ca869": {
     "science_literacy_awards": {
       "stages": {
         "primary": {
           "2024": {
-            "gold": 0,
+            "gold": 1,
             "silver": 1,
-            "bronze": 2
+            "bronze": 0
           }
         }
       }
@@ -283,6 +257,19 @@
     }
   },
   "gz-440104-2aa7d451": {
+    "science_literacy_awards": {
+      "stages": {
+        "primary": {
+          "2024": {
+            "gold": 0,
+            "silver": 1,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
+  "gz-440105-0adfcd61": {
     "science_literacy_awards": {
       "stages": {
         "primary": {
@@ -411,19 +398,6 @@
             "gold": 1,
             "silver": 0,
             "bronze": 0
-          }
-        }
-      }
-    }
-  },
-  "gz-440106-52f7f4b7": {
-    "science_literacy_awards": {
-      "stages": {
-        "high": {
-          "2024": {
-            "gold": 2,
-            "silver": 4,
-            "bronze": 3
           }
         }
       }
@@ -585,7 +559,7 @@
           "2024": {
             "gold": 3,
             "silver": 1,
-            "bronze": 2
+            "bronze": 1
           }
         }
       }
@@ -605,6 +579,19 @@
     }
   },
   "gz-440103-039a7621": {
+    "science_literacy_awards": {
+      "stages": {
+        "primary": {
+          "2024": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
+  "gz-440103-47c5196f": {
     "science_literacy_awards": {
       "stages": {
         "primary": {
@@ -708,6 +695,24 @@
     }
   },
   "gz-440111-6271c94b": {
+    "science_literacy_awards": {
+      "stages": {
+        "middle": {
+          "2024": {
+            "gold": 1,
+            "silver": 0,
+            "bronze": 1
+          },
+          "2025": {
+            "gold": 0,
+            "silver": 1,
+            "bronze": 2
+          }
+        }
+      }
+    }
+  },
+  "gz-440111-e128c24f": {
     "science_literacy_awards": {
       "stages": {
         "middle": {
@@ -1194,6 +1199,19 @@
       }
     }
   },
+  "gz-440103-4930321e": {
+    "science_literacy_awards": {
+      "stages": {
+        "primary": {
+          "2024": {
+            "gold": 1,
+            "silver": 0,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
   "gz-440103-f51bffec": {
     "science_literacy_awards": {
       "stages": {
@@ -1539,6 +1557,19 @@
       }
     }
   },
+  "gz-440105-70055626": {
+    "science_literacy_awards": {
+      "stages": {
+        "primary": {
+          "2024": {
+            "gold": 0,
+            "silver": 1,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
   "gz-440105-75e59f1d": {
     "science_literacy_awards": {
       "stages": {
@@ -1723,6 +1754,19 @@
       }
     }
   },
+  "gz-440112-4ed867c7": {
+    "science_literacy_awards": {
+      "stages": {
+        "middle": {
+          "2024": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
   "gz-440106-269a9629": {
     "science_literacy_awards": {
       "stages": {
@@ -1749,13 +1793,13 @@
       }
     }
   },
-  "gz-440106-b69bcbc4": {
+  "gz-440106-a565a93c": {
     "science_literacy_awards": {
       "stages": {
-        "primary": {
+        "middle": {
           "2024": {
             "gold": 1,
-            "silver": 0,
+            "silver": 1,
             "bronze": 0
           }
         }
@@ -1775,7 +1819,7 @@
       }
     }
   },
-  "gz-440106-11e15e8d": {
+  "gz-440106-05ed1da2": {
     "science_literacy_awards": {
       "stages": {
         "primary": {
@@ -1970,74 +2014,7 @@
       }
     }
   },
-  "gz-440111-07bdec5f": {
-    "science_literacy_awards": {
-      "stages": {
-        "primary": {
-          "2024": {
-            "gold": 0,
-            "silver": 0,
-            "bronze": 1
-          },
-          "2025": {
-            "gold": 0,
-            "silver": 0,
-            "bronze": 1
-          }
-        }
-      }
-    }
-  },
-  "gz-440111-1d697e07": {
-    "science_literacy_awards": {
-      "stages": {
-        "primary": {
-          "2024": {
-            "gold": 0,
-            "silver": 0,
-            "bronze": 1
-          },
-          "2025": {
-            "gold": 0,
-            "silver": 0,
-            "bronze": 1
-          }
-        }
-      }
-    }
-  },
-  "gz-440111-db31a4f7": {
-    "science_literacy_awards": {
-      "stages": {
-        "primary": {
-          "2024": {
-            "gold": 0,
-            "silver": 0,
-            "bronze": 1
-          },
-          "2025": {
-            "gold": 0,
-            "silver": 0,
-            "bronze": 1
-          }
-        }
-      }
-    }
-  },
   "gz-440106-bd07878c": {
-    "science_literacy_awards": {
-      "stages": {
-        "middle": {
-          "2024": {
-            "gold": 0,
-            "silver": 0,
-            "bronze": 1
-          }
-        }
-      }
-    }
-  },
-  "gz-440112-4ed867c7": {
     "science_literacy_awards": {
       "stages": {
         "middle": {
@@ -2148,6 +2125,32 @@
           "2025": {
             "gold": 1,
             "silver": 0,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
+  "gz-440103-362ee1b6": {
+    "science_literacy_awards": {
+      "stages": {
+        "primary": {
+          "2025": {
+            "gold": 2,
+            "silver": 1,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
+  "gz-440103-554e0beb": {
+    "science_literacy_awards": {
+      "stages": {
+        "primary": {
+          "2025": {
+            "gold": 2,
+            "silver": 1,
             "bronze": 0
           }
         }
@@ -2278,7 +2281,7 @@
       }
     }
   },
-  "gz-440112-12b0184b": {
+  "gz-440112-04db6ee7": {
     "science_literacy_awards": {
       "stages": {
         "primary": {
@@ -2287,12 +2290,18 @@
             "silver": 2,
             "bronze": 2
           }
-        },
-        "middle": {
+        }
+      }
+    }
+  },
+  "gz-440112-78b9dcdf": {
+    "science_literacy_awards": {
+      "stages": {
+        "primary": {
           "2025": {
-            "gold": 0,
-            "silver": 1,
-            "bronze": 0
+            "gold": 2,
+            "silver": 2,
+            "bronze": 2
           }
         }
       }
@@ -2506,6 +2515,19 @@
       }
     }
   },
+  "gz-440111-cb67f3e8": {
+    "science_literacy_awards": {
+      "stages": {
+        "high": {
+          "2025": {
+            "gold": 0,
+            "silver": 2,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
   "gz-440113-a5d5f364": {
     "science_literacy_awards": {
       "stages": {
@@ -2579,6 +2601,19 @@
             "gold": 0,
             "silver": 2,
             "bronze": 0
+          }
+        }
+      }
+    }
+  },
+  "gz-440105-c1a01cbf": {
+    "science_literacy_awards": {
+      "stages": {
+        "high": {
+          "2025": {
+            "gold": 0,
+            "silver": 1,
+            "bronze": 2
           }
         }
       }
@@ -2760,6 +2795,19 @@
       }
     }
   },
+  "gz-440112-12b0184b": {
+    "science_literacy_awards": {
+      "stages": {
+        "middle": {
+          "2025": {
+            "gold": 0,
+            "silver": 1,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
   "gz-440106-d042314d": {
     "science_literacy_awards": {
       "stages": {
@@ -2768,19 +2816,6 @@
             "gold": 0,
             "silver": 1,
             "bronze": 1
-          }
-        }
-      }
-    }
-  },
-  "gz-440111-2d42f392": {
-    "science_literacy_awards": {
-      "stages": {
-        "middle": {
-          "2025": {
-            "gold": 0,
-            "silver": 1,
-            "bronze": 0
           }
         }
       }
@@ -2969,6 +3004,45 @@
     }
   },
   "gz-440104-c248f5af": {
+    "science_literacy_awards": {
+      "stages": {
+        "primary": {
+          "2025": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
+  "gz-440111-07bdec5f": {
+    "science_literacy_awards": {
+      "stages": {
+        "primary": {
+          "2025": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
+  "gz-440111-1d697e07": {
+    "science_literacy_awards": {
+      "stages": {
+        "primary": {
+          "2025": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
+  "gz-440111-db31a4f7": {
     "science_literacy_awards": {
       "stages": {
         "primary": {
@@ -3306,7 +3380,7 @@
       }
     }
   },
-  "gz-440112-8b4292d7": {
+  "gz-440111-50352c96": {
     "science_literacy_awards": {
       "stages": {
         "primary": {
@@ -3319,7 +3393,7 @@
       }
     }
   },
-  "gz-440111-50352c96": {
+  "gz-440111-514cf237": {
     "science_literacy_awards": {
       "stages": {
         "primary": {

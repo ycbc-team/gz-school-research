@@ -343,6 +343,19 @@
       }
     }
   },
+  "gz-440104-08dedf9a": {
+    "chuangke_awards": {
+      "stages": {
+        "primary": {
+          "2024": {
+            "gold": 0,
+            "silver": 1,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
   "gz-440104-a41d6d8d": {
     "chuangke_awards": {
       "stages": {
@@ -1495,19 +1508,6 @@
     }
   },
   "gz-440111-6782d2c7": {
-    "chuangke_awards": {
-      "stages": {
-        "secondary": {
-          "2025": {
-            "gold": 1,
-            "silver": 0,
-            "bronze": 0
-          }
-        }
-      }
-    }
-  },
-  "gz-440111-7d12a21e": {
     "chuangke_awards": {
       "stages": {
         "secondary": {

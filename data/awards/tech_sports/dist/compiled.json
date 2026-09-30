@@ -1166,29 +1166,6 @@
       }
     }
   },
-  "gz-440112-06029745": {
-    "tech_sports_awards": {
-      "stages": {
-        "secondary": {
-          "2024": {
-            "gold": 2,
-            "silver": 6,
-            "bronze": 6
-          },
-          "2025": {
-            "gold": 1,
-            "silver": 3,
-            "bronze": 5
-          },
-          "2026": {
-            "gold": 4,
-            "silver": 6,
-            "bronze": 4
-          }
-        }
-      }
-    }
-  },
   "gz-440112-0cb5a402": {
     "tech_sports_awards": {
       "stages": {
@@ -7033,6 +7010,19 @@
       }
     }
   },
+  "gz-440104-08dedf9a": {
+    "tech_sports_awards": {
+      "stages": {
+        "primary": {
+          "2025": {
+            "gold": 1,
+            "silver": 0,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
   "gz-440104-a41d6d8d": {
     "tech_sports_awards": {
       "stages": {
@@ -9658,33 +9648,7 @@
       }
     }
   },
-  "gz-440111-15fa03a9": {
-    "tech_sports_awards": {
-      "stages": {
-        "secondary": {
-          "2026": {
-            "gold": 0,
-            "silver": 1,
-            "bronze": 0
-          }
-        }
-      }
-    }
-  },
   "gz-440111-1b7d3f87": {
-    "tech_sports_awards": {
-      "stages": {
-        "secondary": {
-          "2026": {
-            "gold": 0,
-            "silver": 1,
-            "bronze": 0
-          }
-        }
-      }
-    }
-  },
-  "gz-440111-5849b586": {
     "tech_sports_awards": {
       "stages": {
         "secondary": {
