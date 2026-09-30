@@ -50,12 +50,13 @@
 
   <!-- 小学：招生计划 -->
   <view wx:if="{{model.stage === 'primary'}}" class="card">
-    <view class="card-title">招生计划（2026）</view>
+    <view class="plan-head">
+      <view class="card-title" style="margin-bottom:0;">招生计划（2026）</view>
+      <view wx:if="{{model.enrollment && model.enrollment.plan_classes != null}}" class="plan-total">计划 {{model.enrollment.plan_classes}} 个班</view>
+    </view>
     <block wx:if="{{model.enrollment}}">
       <view class="kv">
-        <view class="kv-row"><text>计划班数</text><text>{{model.enrollment.plan_classes || '—'}} 个班</text></view>
-        <view wx:if="{{model.enrollment.nature}}" class="kv-row"><text>办学性质</text><text>{{model.enrollment.nature}}</text></view>
-        <view wx:if="{{model.enrollment.source}}" class="kv-row"><text>数据来源</text><text>{{model.enrollment.source}}</text></view>
+        <view wx:if="{{model.enrollment.plan_count}}" class="kv-row"><text>计划人数</text><text>{{model.enrollment.plan_count}} 人</text></view>
       </view>
       <view wx:if="{{model.enrollment.zone}}" class="zone-block">
         <view class="zone-label">招生地段（对口）</view>

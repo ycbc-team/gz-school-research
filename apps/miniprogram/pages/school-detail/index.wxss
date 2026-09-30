@@ -31,6 +31,8 @@
   padding: 24rpx 28rpx; margin-bottom: 20rpx;
 }
 .card-title { font-size: 27rpx; font-weight: 700; color: #1a1b1c; margin-bottom: 16rpx; }
+.plan-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12rpx; margin-bottom: 16rpx; }
+.plan-total { font-size: 26rpx; font-weight: 700; color: #1a1b1c; }
 .sub-note { font-size: 21rpx; color: #9aa0a6; line-height: 1.6; margin-bottom: 14rpx; }
 .empty { font-size: 24rpx; color: #9aa0a6; line-height: 1.6; }
 .title-note-row { display: flex; align-items: center; gap: 10rpx; margin-bottom: 14rpx; }

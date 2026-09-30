@@ -405,12 +405,12 @@ function goCampus(item: { id: string; name: string }) {
 
     <!-- 小学 tab：招生计划 + 所在区小升初机制 -->
     <div v-if="stage === 'primary'" class="card">
-      <div class="card-title">招生计划（2026）</div>
+      <div class="plan-head">
+        <div class="card-title" style="margin-bottom:0;">招生计划（2026）</div>
+        <div v-if="enrollment?.plan_classes != null" class="plan-total">计划 {{ enrollment.plan_classes }} 个班</div>
+      </div>
       <div v-if="enrollment" class="kv">
-        <div class="kv-row"><span>计划班数</span><b>{{ enrollment.plan_classes ?? '—' }} 个班</b></div>
         <div class="kv-row" v-if="enrollment.plan_count"><span>计划人数</span><b>{{ enrollment.plan_count }} 人</b></div>
-        <div class="kv-row" v-if="enrollment.nature"><span>办学性质</span><b>{{ enrollment.nature }}</b></div>
-        <div class="kv-row" v-if="enrollment.source"><span>数据来源</span><b>{{ enrollment.source }}</b></div>
         <div v-if="enrollment.zone" class="zone-block">
           <div class="zone-label">招生地段（对口）</div>
           <p>{{ enrollment.zone }}</p>
