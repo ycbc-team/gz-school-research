@@ -17,9 +17,12 @@
                （班数/范围 raw 未抽，留空）
 
 mechanism 枚举（区级定义，UI 据此渲染）:
-  single_zone     单校划片（对口直升/直接安排，无落选概念）
+  single_zone     单校划片（按地段/对口小学直接安排，无落选概念）
+  zhi_sheng       对口直升（小学对口直升初中，不参加电脑派位）
   group_paidui    多校电脑派位（组内学校兜底，不安排到组外）
-  single_lottery  单校电脑抽签（自愿报名+超额抽签，未中签回原学区）
+  single_paidui   电脑派位（自愿报名+超额电脑派位，未派中回原学区）
+  min_zi_zhu      自主招生（民办/企事业办学校初中部）
+  no_plan         2026 无招生计划
 """
 import json, os, re, sys
 
@@ -271,8 +274,8 @@ def _strip_attachment_refs(text):
 
 def _expand_middle_texts(data, dk):
     """B 层构建期平铺（产物即最终形态，双端一致）：
-    番禺 mechanism_note「(见)说明N」→ 说明原文；天河附件10 记录 scope 展开 + 说明/标签修正；
-    荔湾协和初中部说明追加直升条款；全区 mechanism_note/scope 去「附件N」来源注。"""
+    番禺 mechanism_note「(见)说明N」→ 说明原文；天河附件10 记录 scope 展开 + 机制归位 single_paidui；
+    全区 mechanism_note/scope 去「附件N」来源注。"""
     if dk == "panyu":
         explains = _panyu_explains("middle")
         for r in data["records"]:
@@ -289,16 +292,9 @@ def _expand_middle_texts(data, dk):
                 parts = [att["a10_by_school"][sid] for sid in school_ids if sid in att["a10_by_school"]]
                 if parts:
                     r["scope"] = scope.replace("详见附件10", "".join(parts))
-                    # 此类学校走「自主报名+电脑派位」，并非划片——覆盖 single_zone 统一模板
-                    r["mechanism_note"] = att["a10_mechanism_note"]
-                    # 机制标签同步覆盖为「电脑派位」（前端优先读记录级 mechanism_label）
-                    r["mechanism_label"] = "电脑派位"
-    if dk == "liwan":
-        extra = "广州协和学校初中部原则上对口招收广州协和学校小学部毕业生（本校直升）。"
-        for r in data["records"]:
-            if r.get("school_id") == "gz-440103-e281e7d0":
-                mn = r.get("mechanism_note") or ""
-                r["mechanism_note"] = f"{mn}；{extra}" if mn else extra
+                    # 此类学校走「自主报名+电脑派位」，机制本身即电脑派位 → 直接归位 single_paidui（不再 label 覆盖）
+                    r["mechanism"] = "single_paidui"
+                    r["mechanism_note"] = None
     for r in data["records"]:
         mn = r.get("mechanism_note")
         if mn:
@@ -314,10 +310,13 @@ _DK_ADCODE = {"yuexiu": "440104", "haizhu": "440105", "tianhe": "440106",
               "huangpu": "440112", "panyu": "440113", "baiyun": "440111", "liwan": "440103"}
 
 # 区级枚举定义：UI 直接用 label / lose_text
+# 机制是招生方式本身（对口直升/电脑派位/划片…），从官方文本解析时直接归位；不再用 label 覆盖
 MECHANISMS = {
     "single_zone":    {"label": "单校划片",     "can_lose": False, "lose_text": None},
+    "zhi_sheng":      {"label": "对口直升",     "can_lose": False, "lose_text": None},
     "group_paidui":   {"label": "多校电脑派位", "can_lose": False, "lose_text": "派位组内学校随机分配，组内兜底，不安排到组外。"},
-    "single_lottery": {"label": "单校电脑抽签", "can_lose": True,  "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时由区教育局统一组织电脑抽签；未中签者按区招生简章回户籍地学区申请入读公办初中，不保证安排到本校。"},
+    "single_paidui":  {"label": "电脑派位",     "can_lose": True,  "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时由区教育局统一组织电脑派位；未派中者回户籍地学区申请入读公办初中，不保证安排到本校。"},
+    "min_zi_zhu":     {"label": "自主招生",     "can_lose": False, "lose_text": None},
     "no_plan":        {"label": "2026 无招生计划", "can_lose": False, "lose_text": None},
 }
 
@@ -339,7 +338,7 @@ def build_panyu():
         except: plan_n = None
 
         if "电脑抽签" in note:
-            mech = "single_lottery"
+            mech = "single_paidui"
         elif "电脑派位" in note:
             mech = "group_paidui"
         else:
@@ -385,18 +384,18 @@ def build_panyu():
             "group_members": members,
         })
     # 区属初中面向全区（或属地镇街）招生简章批次（2026-09-24 补解析，转录 panyu_2026_quju.json）：
-    # 自愿报名、超计划电脑抽签；中签自动取消属地正常安排的学位、未中签回户籍地学区 → single_lottery。
-    # 与计划表（属地划片/派位）互补，同校并存为两种机制（如仲元一校区 市桥划片 + 面向全区抽签）。
+    # 自愿报名、超计划电脑派位；中签自动取消属地正常安排的学位、未派中回户籍地学区 → single_paidui。
+    # 与计划表（属地划片/派位）互补，同校并存为两种机制（如仲元一校区 市桥划片 + 面向全区电脑派位）。
     quju = json.load(open(os.path.join(RAW, "panyu_2026_quju.json")))
     for q in quju["records"]:
         qsid, qsids = match_school_ids(q["school"], "440113")
-        qnote = (f"区属初中{q['batch']}批次：招生 {q['plan_people']} 人（自愿报名，超计划电脑抽签；"
-                 f"中签自动取消属地正常安排的学位，未中签回户籍地学区）。{q['note']}")
+        qnote = (f"区属初中{q['batch']}批次：招生 {q['plan_people']} 人（自愿报名，超计划电脑派位；"
+                 f"中签自动取消属地正常安排的学位，未派中回户籍地学区）。{q['note']}")
         recs.append({
             "school": q["school"], "school_id": qsid,
             **({"school_ids": qsids} if qsids else {}),
             "plan_classes": None, "scope": None,
-            "mechanism": "single_lottery", "mechanism_note": qnote,
+            "mechanism": "single_paidui", "mechanism_note": qnote,
             "group_members": None,
         })
     return {
@@ -484,19 +483,26 @@ def build_liwan():
         r["school_id"] = _sid
         if _sids:
             r["school_ids"] = _sids
-    # 附件1 计划表有、派位组无的学校：市属/单列（协和学校初中部等），单列 single_zone 记录
+    # 附件1 计划表有、派位组无的学校：市属/单列（协和学校初中部等）。
+    # 协和初中部官方正文「原则上对口招收小学部毕业生（本校直升）」→ 机制 zhi_sheng，note 留「单列」计划特点；
+    # 其余单列校无直升依据 → single_zone。
     group_schools = {r["school"].strip() for r in recs}
     for r in plan["records"]:
         nm = r["school"].strip()
         if nm in group_schools:
             continue
         _sid, _sids = match_school_ids(nm, "440103")
+        if nm == "广州市协和学校初中部" or nm == "广州协和学校初中部":
+            _mech, _note = "zhi_sheng", ("2026 荔湾区公办初中一年级招生计划单列，不在电脑派位分组表内。"
+                                         "广州协和学校初中部原则上对口招收广州协和学校小学部毕业生（本校直升）。")
+        else:
+            _mech, _note = "single_zone", "2026 荔湾区公办初中一年级招生计划单列，不在电脑派位分组表内。"
         recs.append({
             "school": nm, "school_id": _sid,
             **({"school_ids": _sids} if _sids else {}),
             "plan_classes": r["plan"], "scope": None,
-            "mechanism": "single_zone",
-            "mechanism_note": "2026 荔湾区公办初中一年级招生计划（附件1）单列，不在电脑派位分组表内。",
+            "mechanism": _mech,
+            "mechanism_note": _note,
             "group_members": None,
         })
     return {
@@ -522,29 +528,33 @@ def build_from_xiaoshengchu(district_key, district_name, adcode):
                 rec_map[j] = {"school": j, "school_id": None, "plan_classes": None,
                               "scope": None, "mechanism": None,
                               "mechanism_note": None, "group_members": None}
-            # 机制判定：先排除"不参加电脑派位"，再判派位/直升
+            # 机制判定：先排除"不参加电脑派位"，再判对口直升/划片/派位。
+            # 机制是招生方式本身，从组名直接归位（对口直升 → zhi_sheng，不再并进 single_zone）
             if "不参加" in group or "不参与" in group:
                 continue
-            elif "对口直升" in group or "单校" in group or "九年制" in group or "内部直升" in group:
+            elif "对口直升" in group or "九年制" in group or "内部直升" in group:
+                mech = "zhi_sheng"
+            elif "单校" in group:
                 mech = "single_zone"
             elif "电脑派位" in group or "多校" in group:
                 mech = "group_paidui"
             else:
                 mech = "group_paidui"
-            # 同一初中在多个小学记录里出现，取最严格机制（single_lottery > group_paidui > single_zone）
-            order = {"single_zone":1, "group_paidui":2, "single_lottery":3}
+            # 同一初中在多个小学记录里出现，取最严格机制（single_paidui > group_paidui > single_zone ≈ zhi_sheng）
+            order = {"single_zone":1, "zhi_sheng":1, "group_paidui":2, "single_paidui":3}
             cur = rec_map[j]["mechanism"]
             if cur is None or order.get(mech,0) > order.get(cur,0):
                 rec_map[j]["mechanism"] = mech
-                rec_map[j]["mechanism_note"] = group
+                # 对口直升/单校划片：组名即机制名（「对口直升（细则第九条）」等），标签已展示机制 → note 清空
+                rec_map[j]["mechanism_note"] = None if mech in ("zhi_sheng", "single_zone") else group
             # 组内成员：同一 group 名下的所有初中
             if mech == "group_paidui":
                 group_members_map.setdefault(group, set()).add(j)
-    # 回填 group_members；mechanism 为 None 的（"不参加电脑派位"记录里的初中）默认 single_zone
+    # 回填 group_members；mechanism 为 None 的（"不参加电脑派位"记录里的初中）默认对口直升（不参加派位=直接安排）
     for j, rec in rec_map.items():
         if rec["mechanism"] is None:
-            rec["mechanism"] = "single_zone"
-            rec["mechanism_note"] = "对口直升（不参加电脑派位）"
+            rec["mechanism"] = "zhi_sheng"
+            rec["mechanism_note"] = None
         if rec["mechanism"] == "group_paidui" and rec["mechanism_note"]:
             rec["group_members"] = sorted(group_members_map.get(rec["mechanism_note"], set()))
     recs = []
@@ -583,7 +593,7 @@ def build_yuexiu_official():
                 "mechanism": "group_paidui", "mechanism_note": note,
                 "group_members": members, "_group_primaries": g["primaries"],
             })
-    # 直升（细则第九条）：已派位的初中追加 single_zone 直升规则（一校多规则，官方真实并存）
+    # 直升（细则第九条）：已派位的初中追加 zhi_sheng 直升规则（一校多规则，官方真实并存）
     for pri, junior in tr["direct_feed"].items():
         _sid, _sids = match_school_ids(junior, "440104")
         _ss = _scope_primary_ids(pri, "440104") if pri else None
@@ -592,19 +602,20 @@ def build_yuexiu_official():
             **({"school_ids": _sids} if _sids else {}),
             "plan_classes": None, "scope": pri,
             **({"scope_school_ids": _ss} if _ss else {}),
-            "mechanism": "single_zone", "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
+            # 细则第九条对口直升：机制 zhi_sheng，note 不再重复机制名
+            "mechanism": "zhi_sheng", "mechanism_note": None,
             "group_members": None,
         })
     # 育才实验学校（2026 越秀公办初中招生计划第 21 号 6 班 + 招生问答第一类直升）：
     # 面向全区公办小学招收部分直升生（自愿报名，录取后自动放弃公办初中电脑派位资格，
-    # 未录取回原组派位）→ single_lottery（单校电脑抽签），非固定对口小学、不在派位组内。
+    # 未录取回原组派位）→ single_paidui（电脑派位），非固定对口小学、不在派位组内。
     _sid_yc, _sids_yc = match_school_ids("广州市越秀区育才实验学校", "440104")
     recs.append({
         "school": "广州市越秀区育才实验学校", "school_id": _sid_yc,
         **({"school_ids": _sids_yc} if _sids_yc else {}),
         "plan_classes": 6,
         "scope": "面向全区公办小学招收部分直升生（自愿报名；录取后不再具有公办初中电脑派位资格）",
-        "mechanism": "single_lottery",
+        "mechanism": "single_paidui",
         "mechanism_note": "2026 越秀公办初中招生计划第 21 号（6 班）；招生问答第一类：面向全区公办小学招收部分直升生，报名人数超计划电脑派位",
         "group_members": None,
     })
@@ -643,7 +654,8 @@ def build_haizhu_official():
             **({"school_ids": _sids} if _sids else {}),
             "plan_classes": plan_classes.get(junior), "scope": pri,
             **({"scope_school_ids": _ss} if _ss else {}),
-            "mechanism": "single_zone", "mechanism_note": "对口直升（初中招生问答正文）",
+            # 正文对口直升：机制 zhi_sheng，note 不再重复机制名
+            "mechanism": "zhi_sheng", "mechanism_note": None,
             "group_members": None,
         })
     return {
@@ -674,7 +686,8 @@ def build_tianhe_official():
             **({"school_ids": sids} if sids else {}),
             "plan_classes": r["plan_classes"], "scope": _zone,
             **({"scope_school_ids": _ss} if _ss else {}),
-            "mechanism": "single_zone", "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+            # 附件6 公办划片：机制 single_zone，note 不再重复机制名（附件10 电脑派位记录由 _expand_middle_texts 覆盖为 single_paidui）
+            "mechanism": "single_zone", "mechanism_note": None,
             "group_members": None,
         })
     for r in tr["qiye"]:
@@ -683,7 +696,8 @@ def build_tianhe_official():
             "school": SCHOOL_NORM.get(r["school"], r["school"]), "school_id": _sid,
             **({"school_ids": _sids} if _sids else {}),
             "plan_classes": r["plan_classes"], "scope": None,
-            "mechanism": "single_zone", "mechanism_note": "企事业办学校招生（附件7）",
+            # 附件7 企事业办学校：官方口径自主招生（华附初中部附件10 电脑派位段转录待补，已知缺口）
+            "mechanism": "min_zi_zhu", "mechanism_note": None,
             "group_members": None,
         })
     for r in tr["minban"]:
@@ -699,7 +713,8 @@ def build_tianhe_official():
             "school": _school_norm, "school_id": _sid,
             **({"school_ids": _sids} if _sids else {}),
             "plan_classes": r["plan_classes"], "scope": None,
-            "mechanism": "single_zone", "mechanism_note": "民办学校初中部自主招生（附件8）",
+            # 附件8 民办学校初中部：自主招生 → min_zi_zhu，note 不再重复机制名
+            "mechanism": "min_zi_zhu", "mechanism_note": None,
             "group_members": None,
         })
     return {
@@ -733,7 +748,8 @@ def build_huangpu_official():
             **({"school_ids": _sids} if _sids else {}),
             "plan_classes": None, "scope": _zh_scope,
             **({"scope_school_ids": _ss} if _ss else {}),
-            "mechanism": "single_zone", "mechanism_note": "对口直升（2026 实施细则附件5）",
+            # 附件5 对口直升：机制 zhi_sheng，note 不再重复机制名
+            "mechanism": "zhi_sheng", "mechanism_note": None,
             "group_members": None,
         })
     return {

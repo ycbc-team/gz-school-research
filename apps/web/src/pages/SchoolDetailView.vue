@@ -202,21 +202,22 @@ function groupNameOf(gid?: string | null): string {
   return (gid ? middleEnrollmentGroups[gid]?.name : null) || '组内可填报';
 }
 /** 机制块线性排列：每机制一块（徽章 + 招生服务范围/招生说明 + 该机制生源小学）。
- * 顺序：对口直升(single_zone) → 多校电脑派位(group_paidui) → 其余按出现顺序（用户：先直升后派位）。
+ * 顺序：对口直升(zhi_sheng) → 单校划片(single_zone) → 多校电脑派位(group_paidui) → 电脑派位(single_paidui)
+ * → 自主招生(min_zi_zhu)（用户：先直升后派位）。
  * 同区同机制多条（多组派位）合并为一块；同校多机制并存时 plan_classes 是全校总计划，
  * 徽章不重复显示班数（避免 9+9=18 误读），由 totalPlanOfMulti 展示一次。
  * 区 Badge 仅在同机制跨区（天河/越秀并存的 2 所）时才显示，其余场景一律不显示（用户：删海珠区 Badge）。
  * group_paidui 与 single_zone 同样展示 scope（招生服务范围/对口小学）与 mechanism_note（招生说明），
  * 但跳过纯组名类备注（组名已由行 tag 展示，避免「海珠区…第1组」重复）。 */
-/** 派位组子块：按 group_id（多校派位）或单条 enroll（直升/单校摇号）拆分；
+/** 派位组子块：按 group_id（多校派位）或单条 enroll（直升/划片/电脑派位）拆分；
  *  每个子块内依次展示：服务范围 → 生源小学 → 招生说明。 */
 type SubBlock = {
   key: string;
-  groupName: string;            // 派位组名（如「电脑派位第4组」）；直升/单校摇号为空
+  groupName: string;            // 派位组名（如「电脑派位第4组」）；直升/划片/电脑派位为空
   rows: { name: string; ids: string[] }[];
   textScopes: string[];
   notes: string[];
-  loseText: string | null;      // 单校摇号未中警示
+  loseText: string | null;      // 电脑派位未中警示
 };
 type MechBlock = { district: string; mech: string; label: string; showDistrict: boolean; subBlocks: SubBlock[] };
 /** 纯组名/纯机制名备注跳过展示（组名已由子块标题呈现）：「海珠区…第1组」「荔湾区1组电脑派位」「电脑派位」 */
@@ -227,7 +228,7 @@ function isRedundantNote(note: string): boolean {
   if (/^[^；。]{0,14}电脑派位\s*$/.test(n)) return true;
   return false;
 }
-const MECH_ORDER = ['single_zone', 'group_paidui', 'single_lottery'];
+const MECH_ORDER = ['zhi_sheng', 'single_zone', 'group_paidui', 'single_paidui', 'min_zi_zhu'];
 const mechanismBlocks = computed<MechBlock[]>(() => {
   if (stage.value !== 'middle') return [];
   const byKey = new Map<string, MechBlock>();
@@ -267,7 +268,7 @@ const mechanismBlocks = computed<MechBlock[]>(() => {
       if (rec.scope) pushText(sub.textScopes, rec.scope.trim());
       if (rec.mechanism_note && !isRedundantNote(rec.mechanism_note)) pushText(sub.notes, rec.mechanism_note);
     } else {
-      // 对口直升 / 单校摇号：每条 enroll 一个子块，不设组标题
+      // 对口直升 / 单校划片 / 电脑派位 / 自主招生：每条 enroll 一个子块，不设组标题
       const sub: SubBlock = {
         key: `enroll-${b.subBlocks.length}`,
         groupName: '',
@@ -721,8 +722,10 @@ function goCampus(item: { id: string; name: string }) {
 
 /* 初中招生机制徽章 */
 .badge.single_zone { background: #0f766e; }
+.badge.zhi_sheng { background: #047857; }
 .badge.group_paidui { background: #1e40af; }
-.badge.single_lottery { background: #dc2626; }
+.badge.single_paidui { background: #dc2626; }
+.badge.min_zi_zhu { background: #7c3aed; }
 .badge.no_plan { background: #6b7280; }
 .plan-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
 .plan-total { font-size: 13px; font-weight: 700; color: #1a1b1c; font-variant-numeric: tabular-nums; }

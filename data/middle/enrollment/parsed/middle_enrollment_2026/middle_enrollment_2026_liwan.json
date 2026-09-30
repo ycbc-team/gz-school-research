@@ -4770,8 +4770,8 @@
   },
   {
    "group_members": null,
-   "mechanism": "single_zone",
-   "mechanism_note": "2026 荔湾区公办初中一年级招生计划单列，不在电脑派位分组表内。；广州协和学校初中部原则上对口招收广州协和学校小学部毕业生（本校直升）。",
+   "mechanism": "zhi_sheng",
+   "mechanism_note": "2026 荔湾区公办初中一年级招生计划单列，不在电脑派位分组表内。广州协和学校初中部原则上对口招收广州协和学校小学部毕业生（本校直升）。",
    "plan_classes": 7,
    "school": "广州协和学校初中部",
    "school_id": "gz-440103-e281e7d0",

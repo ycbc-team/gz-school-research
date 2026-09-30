@@ -272,7 +272,7 @@ export interface EnrollmentSnapshot {
 }
 
 /** data/middle/enrollment/dist/middle_enrollment_2026_*.json —— 初中视角招生计划 */
-export type MiddleMechanism = 'single_zone' | 'group_paidui' | 'single_lottery' | 'no_plan';
+export type MiddleMechanism = 'single_zone' | 'zhi_sheng' | 'group_paidui' | 'single_paidui' | 'min_zi_zhu' | 'no_plan';
 export interface MiddleMechanismDef {
   label: string;
   can_lose: boolean;
@@ -290,8 +290,6 @@ export interface MiddleEnrollmentRecord {
   scope_school_ids?: Record<string, string[]>;
   mechanism: MiddleMechanism;
   mechanism_note: string | null;
-  /** 记录级机制标签覆盖（B 层附件10 电脑派位记录标「电脑派位」，覆盖 single_zone 模板「单校划片」） */
-  mechanism_label?: string | null;
   /** dist 合并结构（2026-09-23）：组表 group_id（派位/直升组）；2026-09-24 dist 不再存 school 名称（前端按 school_id 联查实体名，parsed 审计层保留） */
   group_id?: string | null;
 }

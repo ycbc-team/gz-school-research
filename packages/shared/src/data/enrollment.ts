@@ -111,8 +111,10 @@ export interface MiddleEnrollmentMatch {
 }
 const DEFAULT_DEFS: Record<MiddleMechanism, MiddleMechanismDef> = {
   single_zone: { label: '单校划片', can_lose: false, lose_text: null },
+  zhi_sheng: { label: '对口直升', can_lose: false, lose_text: null },
   group_paidui: { label: '多校电脑派位', can_lose: false, lose_text: '组内学校兜底。' },
-  single_lottery: { label: '单校电脑抽签', can_lose: true, lose_text: '未中签回原学区。' },
+  single_paidui: { label: '电脑派位', can_lose: true, lose_text: '未派中回原学区。' },
+  min_zi_zhu: { label: '自主招生', can_lose: false, lose_text: null },
   no_plan: { label: '2026 无招生计划', can_lose: false, lose_text: null },
 };
 export function createMiddleEnrollmentApi(loaders: DataLoaders) {
@@ -130,9 +132,7 @@ export function createMiddleEnrollmentApi(loaders: DataLoaders) {
       const r = r0;
       if (r.school_id && !byId.has(r.school_id)) byId.set(r.school_id, r);
       const def = mechanisms[r.mechanism] || DEFAULT_DEFS[r.mechanism];
-      // 机制标签：记录级 mechanism_label（B 层附件10 电脑派位记录覆盖）优先，否则机制定义 label
-      const label = r.mechanism_label ?? def.label;
-      const match: MiddleEnrollmentMatch = { record: r, mechanismDef: { ...def, label }, district: snap.district };
+      const match: MiddleEnrollmentMatch = { record: r, mechanismDef: def, district: snap.district };
       // 去重：school_id 可能同时出现在 school_ids（如执信天河 22fcbcd6），避免 byIdAll 同一记录重复索引
       const ids = [...new Set(r.school_id ? [r.school_id, ...(r.school_ids || [])] : (r.school_ids || []))];
       for (const id of ids) {

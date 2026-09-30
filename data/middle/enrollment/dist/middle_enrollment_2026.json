@@ -1433,8 +1433,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 18,
      "school_id": null,
      "school_ids": [
@@ -1457,8 +1457,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 13,
      "school_id": "gz-440105-06994d39",
      "scope": "怡乐路小学",
@@ -1653,8 +1653,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 14,
      "school_id": "gz-440105-40a80ebb",
      "scope": "红棉小学",
@@ -1665,8 +1665,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 14,
      "school_id": "gz-440105-40a80ebb",
      "scope": "宝玉直实验小学",
@@ -1694,8 +1694,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 16,
      "school_id": "gz-440105-41b48384",
      "scope": "绿翠现代实验学校（小学部）",
@@ -1706,8 +1706,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 16,
      "school_id": "gz-440105-41b48384",
      "scope": "新港中路小学",
@@ -1718,8 +1718,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 16,
      "school_id": "gz-440105-41b48384",
      "scope": "大江苑小学",
@@ -1730,8 +1730,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 16,
      "school_id": "gz-440105-41b48384",
      "scope": "绿翠小学",
@@ -1742,8 +1742,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 3,
      "school_id": "gz-440105-44b3dc01",
      "scope": "南武文润学校（小学部）",
@@ -1794,8 +1794,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 9,
      "school_id": "gz-440105-747245e1",
      "scope": "昌岗中路小学",
@@ -1831,8 +1831,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 8,
      "school_id": "gz-440105-77baeea5",
      "scope": "南武中学附属学校",
@@ -1875,8 +1875,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 10,
      "school_id": "gz-440105-a34bf4d7",
      "scope": "聚德东小学",
@@ -1887,8 +1887,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 10,
      "school_id": "gz-440105-a34bf4d7",
      "scope": "聚德西路小学",
@@ -1955,8 +1955,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 9,
      "school_id": "gz-440105-cac39935",
      "scope": "执信中学琶洲实验学校（小学部）",
@@ -1967,8 +1967,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 9,
      "school_id": "gz-440105-cac39935",
      "scope": "新洲小学",
@@ -2068,8 +2068,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 11,
      "school_id": "gz-440105-e58a8300",
      "scope": "第三实验小学",
@@ -2080,8 +2080,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 11,
      "school_id": "gz-440105-e58a8300",
      "scope": "黄埔小学",
@@ -2204,8 +2204,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 10,
      "school_id": "gz-440105-fbd67149",
      "scope": "第二实验小学",
@@ -2217,8 +2217,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（初中招生问答正文）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": 10,
      "school_id": "gz-440105-fbd67149",
      "scope": "知信小学",
@@ -2262,8 +2262,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": null,
      "school_ids": [
@@ -2278,8 +2278,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": null,
      "school_ids": [
@@ -2315,15 +2315,15 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-12747882",
      "scope": "横沙城中村改造项目范围"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-12b0184b",
      "scope": "东荟花园小学（南校区）、东荟花园小学（北校区）、玉泉学校（东校区）、玉泉学校（北校区）、玉鸣小学、光远小学",
@@ -2357,15 +2357,15 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-15d63ae7",
      "scope": "长岭花园住宅小区、岭雅花园住宅小区、仕林花园住宅小区、云臻园住宅小区"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-351c1a84",
      "scope": "双沙旧村改造项目范围"
@@ -2379,8 +2379,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-40be421c",
      "scope": "湖南师范大学附属黄埔实验学校",
@@ -2415,8 +2415,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-5b78d24b",
      "scope": "黄埔花园住宅小区、怡港花园住宅小区"
@@ -2430,8 +2430,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-674f4721",
      "scope": "长洲岛小学、深井小学、黄船小学",
@@ -2448,8 +2448,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-6d1ac70b",
      "scope": "华南师范大学附属黄埔实验学校",
@@ -2468,8 +2468,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-705c66e3",
      "scope": "华南师范大学附属开发区实验小学",
@@ -2488,8 +2488,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-87756a6d",
      "scope": "广大附中黄埔实验学校（西校区）",
@@ -2564,8 +2564,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-a0244635",
      "scope": "萝峰旧村改造项目范围"
@@ -2611,8 +2611,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-cbfb4b61",
      "scope": "广州开发区第一小学、广州开发区第二小学（南校区）",
@@ -2626,8 +2626,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-cf50e275",
      "scope": "广东外语外贸大学附属黄埔实验学校",
@@ -2646,8 +2646,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-d62f1348",
      "scope": "开元学校（东校区）",
@@ -2658,8 +2658,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-e08700ea",
      "scope": "广东外语外贸大学附属科学城实验学校",
@@ -2678,8 +2678,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-e3190fa2",
      "scope": "会元学校",
@@ -2690,8 +2690,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-e3746d8c",
      "scope": "广大附中高新区实验学校（北校区）、广大附中高新区实验学校（南校区）",
@@ -2705,15 +2705,15 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-e8878bf7",
      "scope": "刘村社区（荷村）旧村改造项目范围"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-ee49f05d",
      "scope": "文船小学",
@@ -2724,8 +2724,8 @@
      }
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440112-f3817fbe",
      "scope": "九龙第二小学、九龙第三小学、九龙第四小学、广州知识城第一小学、广东外语外贸大学附属知识城实验小学（南校区）、汤村小学、知识城南安置区（二期）小学（暂定名）",
@@ -4130,8 +4130,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "2026 荔湾区公办初中一年级招生计划单列，不在电脑派位分组表内。；广州协和学校初中部原则上对口招收广州协和学校小学部毕业生（本校直升）。",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": "2026 荔湾区公办初中一年级招生计划单列，不在电脑派位分组表内。广州协和学校初中部原则上对口招收广州协和学校小学部毕业生（本校直升）。",
      "plan_classes": 7,
      "school_id": "gz-440103-e281e7d0",
      "scope": null
@@ -4414,8 +4414,8 @@
      "scope": "具有桥南街保利香逸花园、城南源著、可逸江畔、可逸阳光、番禺金业花园、番禺奥林匹克花园、金奥花园（爱巢）、冠军城户籍的小学应届毕业生（必须是业主子女身份）。"
     },
     {
-     "mechanism": "single_lottery",
-     "mechanism_note": "区属初中面向全区批次：招生 80 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍应届小学毕业生及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
+     "mechanism": "single_paidui",
+     "mechanism_note": "区属初中面向全区批次：招生 80 人（自愿报名，超计划电脑派位；中签自动取消属地正常安排的学位，未派中回户籍地学区）。面向番禺区户籍应届小学毕业生及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
      "plan_classes": null,
      "school_id": "gz-440113-53650c78",
      "scope": null
@@ -4449,22 +4449,22 @@
      "scope": "350个学位面向大龙街招生，首先安排番禺区大龙街傍江东村和傍江西村股民及股民子女入读广东仲元中学，余下学位面向大龙街户籍小学应届毕业生招生；100个学位面向番禺区户籍的小学应届毕业生及实际居住地在番禺区的广州市政策性照顾学生招生。"
     },
     {
-     "mechanism": "single_lottery",
-     "mechanism_note": "区属初中面向大龙街批次：招生 350 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向大龙街招生，首先安排番禺区大龙街傍江东村和傍江西村现有股民及股民子女（小学应届毕业生）入读，余下学位面向大龙街户籍的小学应届毕业生招生；两村股民及股民子女不需要网上报名；按学校要求申请宿位。",
+     "mechanism": "single_paidui",
+     "mechanism_note": "区属初中面向大龙街批次：招生 350 人（自愿报名，超计划电脑派位；中签自动取消属地正常安排的学位，未派中回户籍地学区）。面向大龙街招生，首先安排番禺区大龙街傍江东村和傍江西村现有股民及股民子女（小学应届毕业生）入读，余下学位面向大龙街户籍的小学应届毕业生招生；两村股民及股民子女不需要网上报名；按学校要求申请宿位。",
      "plan_classes": null,
      "school_id": "gz-440113-6dbdc462",
      "scope": null
     },
     {
-     "mechanism": "single_lottery",
-     "mechanism_note": "区属初中面向全区批次：招生 100 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍的小学应届毕业生（不含大龙街户籍及具有市桥城区电脑派位资格的小学应届毕业生）及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
+     "mechanism": "single_paidui",
+     "mechanism_note": "区属初中面向全区批次：招生 100 人（自愿报名，超计划电脑派位；中签自动取消属地正常安排的学位，未派中回户籍地学区）。面向番禺区户籍的小学应届毕业生（不含大龙街户籍及具有市桥城区电脑派位资格的小学应届毕业生）及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
      "plan_classes": null,
      "school_id": "gz-440113-6dbdc462",
      "scope": null
     },
     {
-     "mechanism": "single_lottery",
-     "mechanism_note": "区属初中面向港澳生批次：招生 20 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。需符合以下条件之一：1.其父母或法定监护人至少一方在番禺区居住、工作，且持在番禺区申领的港澳居民居住证的港澳居民随迁子女（非穗籍小学应届毕业生）；2.持有在番禺区申领的港澳居民居住证，且其父母或法定监护人至少一方具有番禺区户籍、在番禺区居住、工作的港澳籍小学应届毕业生。",
+     "mechanism": "single_paidui",
+     "mechanism_note": "区属初中面向港澳生批次：招生 20 人（自愿报名，超计划电脑派位；中签自动取消属地正常安排的学位，未派中回户籍地学区）。需符合以下条件之一：1.其父母或法定监护人至少一方在番禺区居住、工作，且持在番禺区申领的港澳居民居住证的港澳居民随迁子女（非穗籍小学应届毕业生）；2.持有在番禺区申领的港澳居民居住证，且其父母或法定监护人至少一方具有番禺区户籍、在番禺区居住、工作的港澳籍小学应届毕业生。",
      "plan_classes": null,
      "school_id": "gz-440113-6dbdc462",
      "scope": null
@@ -4498,7 +4498,7 @@
      "scope": "锦绣香江户籍的小学应届毕业生（必须是业主子女身份）。"
     },
     {
-     "mechanism": "single_lottery",
+     "mechanism": "single_paidui",
      "mechanism_note": "电脑抽签；招生计划以市教育局下达为准",
      "plan_classes": 14,
      "school_id": "gz-440113-8f5e4721",
@@ -4512,8 +4512,8 @@
      "scope": "珑翠花园（南区、北区）、瑞麓府户籍的小学应届毕业生（必须是业主子女身份）。"
     },
     {
-     "mechanism": "single_lottery",
-     "mechanism_note": "区属初中面向全区批次：招生 60 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍应届小学毕业生及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
+     "mechanism": "single_paidui",
+     "mechanism_note": "区属初中面向全区批次：招生 60 人（自愿报名，超计划电脑派位；中签自动取消属地正常安排的学位，未派中回户籍地学区）。面向番禺区户籍应届小学毕业生及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
      "plan_classes": null,
      "school_id": "gz-440113-95be9ccc",
      "scope": null
@@ -4555,8 +4555,8 @@
      "scope": "80%的招生计划面向具有市桥城区电脑派位资格(见番禺区教育局当年发布的公办初中招生计划、招生地段及条件表格中市桥城区电脑派位部分内容)的小学应届毕业生招生；20%的招生计划面向番禺区户籍的小学应届毕业生(不含大龙街户籍及具有市桥城区电脑派位资格的小学应届毕业生)及实际居住地在番禺区的广州市政策性照顾学生招生。"
     },
     {
-     "mechanism": "single_lottery",
-     "mechanism_note": "区属初中面向全区批次：招生 90 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向番禺区户籍的小学应届毕业生（不含大龙街户籍及具有市桥城区电脑派位资格的小学应届毕业生）及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
+     "mechanism": "single_paidui",
+     "mechanism_note": "区属初中面向全区批次：招生 90 人（自愿报名，超计划电脑派位；中签自动取消属地正常安排的学位，未派中回户籍地学区）。面向番禺区户籍的小学应届毕业生（不含大龙街户籍及具有市桥城区电脑派位资格的小学应届毕业生）及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
      "plan_classes": null,
      "school_id": "gz-440113-acf92324",
      "scope": null
@@ -4583,8 +4583,8 @@
      "scope": "南天名苑、吉祥北园C区D区、吉祥北街24幢26幢28幢、吉祥楼、新吉祥楼、海天花园、裕景花园西区、海棠居、彩虹花园东区西区户籍的小学应届毕业生（必须是业主子女身份）；洛溪村户籍的小学应届毕业生（必须是村民子女身份）。"
     },
     {
-     "mechanism": "single_lottery",
-     "mechanism_note": "区属初中面向属地镇街批次：招生 60 人（自愿报名，超计划电脑抽签；中签自动取消属地正常安排的学位，未中签回户籍地学区）。面向洛浦街户籍应届小学毕业生及实际居住地在洛浦街的广州市政策性照顾学生招生；无住宿条件。",
+     "mechanism": "single_paidui",
+     "mechanism_note": "区属初中面向属地镇街批次：招生 60 人（自愿报名，超计划电脑派位；中签自动取消属地正常安排的学位，未派中回户籍地学区）。面向洛浦街户籍应届小学毕业生及实际居住地在洛浦街的广州市政策性照顾学生招生；无住宿条件。",
      "plan_classes": null,
      "school_id": "gz-440113-b5ff857b",
      "scope": null
@@ -4705,7 +4705,7 @@
    "records": [
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 14,
      "school_id": null,
      "school_ids": [
@@ -4716,7 +4716,7 @@
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 40,
      "school_id": null,
      "school_ids": [
@@ -4728,7 +4728,7 @@
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 28,
      "school_id": null,
      "school_ids": [
@@ -4739,7 +4739,7 @@
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 14,
      "school_id": null,
      "school_ids": [
@@ -4750,7 +4750,7 @@
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 14,
      "school_id": null,
      "school_ids": [
@@ -4761,7 +4761,7 @@
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 20,
      "school_id": null,
      "school_ids": [
@@ -4772,7 +4772,7 @@
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 6,
      "school_id": null,
      "school_ids": [
@@ -4782,9 +4782,8 @@
      "scope": "合生骏景、湖雍花园"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_label": "电脑派位",
-     "mechanism_note": "公办初中电脑派位招生",
+     "mechanism": "single_paidui",
+     "mechanism_note": null,
      "plan_classes": 6,
      "school_id": null,
      "school_ids": [
@@ -4794,9 +4793,8 @@
      "scope": "广州市天河外国语学校智慧城校区：招生计划10个班、360人。其中，9个班、324人面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）；20人面向具有天河户籍、且在长湴小学就读的长湴股份合作经济联社股东直系亲属子女招生，16人面向具有天河户籍、且在岑村小学就读的岑村股份合作经济联社股东直系亲属子女招生，当报名人数不足时，剩余招生计划纳入9个班，面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。广州市天河外国语学校珠江新城校区：招生计划6个班、216人。面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_label": "电脑派位",
-     "mechanism_note": "公办初中电脑派位招生",
+     "mechanism": "single_paidui",
+     "mechanism_note": null,
      "plan_classes": "8+8",
      "school_id": null,
      "school_ids": [
@@ -4806,8 +4804,8 @@
      "scope": "清华附中湾区学校智慧城校区：招生计划8个班、336人。其中，296人面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）；40人面向具有天河户籍、且在岑村小学就读的岑村股份合作经济联社股东直系亲属子女招生，当报名人数不足时，剩余招生计划面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。清华附中湾区学校智谷校区：招生计划8个班、336人。面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 7,
      "school_id": null,
      "school_ids": [
@@ -4817,93 +4815,92 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 16,
      "school_id": "gz-440106-01fd3a87",
      "scope": null
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 6,
      "school_id": "gz-440106-051b0157",
      "scope": "润熙花园、珠江四季花园"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 2,
      "school_id": "gz-440106-0a2c7178",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 2,
      "school_id": "gz-440106-0c83a9b2",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 2,
      "school_id": "gz-440106-0d03d513",
      "scope": null
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 20,
      "school_id": "gz-440106-0d1e149e",
      "scope": "科韵路（广园快速路立交至北环高速段）以西，广园铁路以北，东莞庄路161号—天源路—长兴路以东，五山街地界—华观路以南；原五山华院小区"
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 6,
      "school_id": "gz-440106-0eb93435",
      "scope": "保利天瑞"
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": "4+1（特教）",
      "school_id": "gz-440106-11e15e8d",
      "scope": "保利棠馨花园"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "企事业办学校招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 6,
      "school_id": "gz-440106-11e15e8d",
      "scope": null
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 6,
      "school_id": "gz-440106-15ca1554",
      "scope": "恒越花园、雅序苑"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 2,
      "school_id": "gz-440106-1b9f7e62",
      "scope": null
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 10,
      "school_id": "gz-440106-22156e02",
      "scope": "车陂路（单号）以西，中山大道西（单号）以北，光华路（双号）以东，广深铁路以南"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_label": "电脑派位",
-     "mechanism_note": "公办初中电脑派位招生",
+     "mechanism": "single_paidui",
+     "mechanism_note": null,
      "plan_classes": 10,
      "school_id": "gz-440106-22fcbcd6",
      "school_ids": [
@@ -4913,169 +4910,169 @@
      "scope": "广州市执信中学天河校区：总招生计划10个班、420人。其中，3个班招生计划面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）；7个班招生计划面向珠吉街范围内的灵秀小学、奥体东小学、吉山小学、珠村小学、体育东教育集团均和小学等公办小学地段范围内“人户一致”的天河区学籍小学毕业生招生，当报名人数不足时，剩余招生计划面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。广州市执信中学天河校区：总招生计划10个班、420人。其中，3个班招生计划面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）；7个班招生计划面向珠吉街范围内的灵秀小学、奥体东小学、吉山小学、珠村小学、体育东教育集团均和小学等公办小学地段范围内“人户一致”的天河区学籍小学毕业生招生，当报名人数不足时，剩余招生计划面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 2,
      "school_id": "gz-440106-23e66d3b",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 2,
      "school_id": "gz-440106-24ff78f9",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 3,
      "school_id": "gz-440106-3d7736c5",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 3,
      "school_id": "gz-440106-4534dc1a",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 6,
      "school_id": "gz-440106-4775be07",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 4,
      "school_id": "gz-440106-4fac106a",
      "scope": null
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 8,
      "school_id": "gz-440106-7077b270",
      "scope": "长兴街东界以西，长兴街南界以北，元岗街西界以东，元岗街北界接长兴街北界以南"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 2,
      "school_id": "gz-440106-72c4c319",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 3,
      "school_id": "gz-440106-77787b4a",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 10,
      "school_id": "gz-440106-7abd2786",
      "scope": null
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 4,
      "school_id": "gz-440106-7c81ab92",
      "scope": "华南快速干线以西，天河路—中山大道以南，黄埔大道以北，石牌西路以东"
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": "4+1（特教）",
      "school_id": "gz-440106-8b3ee7d2",
      "scope": "海清路以西，临江大道以北，猎德路以东，海明路以南"
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 18,
      "school_id": "gz-440106-8f55ab34",
      "scope": "凤凰街东界—凤凰街南界—龙洞街南界—龙洞街西界—龙洞街北界—凤凰街北界"
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 8,
      "school_id": "gz-440106-90c47ff5",
      "scope": "广州大道以东，天河路以南，天河东路（单号）以西，黄埔大道西以北；水福路—豪景苑—先烈东路—龙岗路—水荫四横路东段—广州大道中—水荫横路—水荫路环形范围以内"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 3,
      "school_id": "gz-440106-9abdc5fd",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "企事业办学校招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 4,
      "school_id": "gz-440106-9bed7efb",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "企事业办学校招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 8,
      "school_id": "gz-440106-a565a93c",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 2,
      "school_id": "gz-440106-ae248365",
      "scope": null
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 4,
      "school_id": "gz-440106-b0d40cc4",
      "scope": "潭村路—平江路以西，临江大道以北，马场路以东，黄埔大道以南"
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 8,
      "school_id": "gz-440106-b7d476f7",
      "scope": "车陂路（中山大道路口至珠江段）以西，珠江至村五骏景路转黄埔大道至科韵路口以北，科韵路以东，中山大道1110号车陂路399号以南"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 3,
      "school_id": "gz-440106-b9eb24f9",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 6,
      "school_id": "gz-440106-bd07878c",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 3,
      "school_id": "gz-440106-c77276d3",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 4,
      "school_id": "gz-440106-c8bf2650",
      "scope": null
@@ -5096,28 +5093,28 @@
     },
     {
      "mechanism": "single_zone",
-     "mechanism_note": "公办初中划片招生",
+     "mechanism_note": null,
      "plan_classes": 4,
      "school_id": "gz-440106-dab5b807",
      "scope": "员村二横路员村西街转员村南街以西，珠江以北，潭村路—平江路以东，黄埔大道以南"
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 3,
      "school_id": "gz-440106-eda909f7",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 3,
      "school_id": "gz-440106-f0ba06c2",
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "民办学校初中部自主招生",
+     "mechanism": "min_zi_zhu",
+     "mechanism_note": null,
      "plan_classes": 3,
      "school_id": "gz-440106-fd03e039",
      "scope": null
@@ -5371,8 +5368,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": null,
      "school_ids": [
@@ -5411,8 +5408,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440104-09652aa5",
      "scope": "铁一小学",
@@ -5631,8 +5628,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440104-68535b94",
      "scope": "八一实验学校（小学部）",
@@ -5819,8 +5816,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440104-99aef0e5",
      "scope": "东山培正小学",
@@ -5968,8 +5965,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440104-bc48335e",
      "scope": "知用学校（小学部）",
@@ -6020,8 +6017,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440104-c77c73b5",
      "scope": "真光学校（小学部）",
@@ -6040,8 +6037,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440104-d5f83454",
      "scope": "第七中学实验学校（小学部）",
@@ -6076,8 +6073,8 @@
      "scope": null
     },
     {
-     "mechanism": "single_zone",
-     "mechanism_note": "对口直升（2026 义务教育招生细则第九条）",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school_id": "gz-440104-d972cf95",
      "scope": "华侨外国语学校（小学部）",
@@ -6220,7 +6217,7 @@
      "scope": null
     },
     {
-     "mechanism": "single_lottery",
+     "mechanism": "single_paidui",
      "mechanism_note": "2026 越秀公办初中招生计划第 21 号（6 班）；招生问答第一类：面向全区公办小学招收部分直升生，报名人数超计划电脑派位",
      "plan_classes": 6,
      "school_id": "gz-440104-ff8d7e05",
@@ -7256,19 +7253,29 @@
    "label": "多校电脑派位",
    "lose_text": "派位组内学校随机分配，组内兜底，不安排到组外。"
   },
+  "min_zi_zhu": {
+   "can_lose": false,
+   "label": "自主招生",
+   "lose_text": null
+  },
   "no_plan": {
    "can_lose": false,
    "label": "2026 无招生计划",
    "lose_text": null
   },
-  "single_lottery": {
+  "single_paidui": {
    "can_lose": true,
-   "label": "单校电脑抽签",
-   "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时由区教育局统一组织电脑抽签；未中签者按区招生简章回户籍地学区申请入读公办初中，不保证安排到本校。"
+   "label": "电脑派位",
+   "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时由区教育局统一组织电脑派位；未派中者回户籍地学区申请入读公办初中，不保证安排到本校。"
   },
   "single_zone": {
    "can_lose": false,
    "label": "单校划片",
+   "lose_text": null
+  },
+  "zhi_sheng": {
+   "can_lose": false,
+   "label": "对口直升",
    "lose_text": null
   }
  },
