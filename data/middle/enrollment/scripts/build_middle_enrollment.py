@@ -274,12 +274,21 @@ def _strip_attachment_refs(text):
 
 def _strip_list_numbers(text):
     """去招生说明里的数字序号（「2.凡小区内配建…」「； 3.市桥富豪…」「）2.持有…」）→ 只留内容。
-    前缀标点（；/。/：/）/（/，）保留作分隔，序号限两位内且后随中文/数字/引号才删，
+    前缀标点（；/。/：/）/（/，/、）保留作分隔，序号限两位内且后随中文/数字/引号才删，
     防误删正文数字（「3公里」「近6年」等无点号）。"""
     if not text:
         return text
     return re.sub(r"(^|[；;，,、。）(（:：])\s*(\d{1,2})\.(?=[\u4e00-\u9fff0-9“”\"A-Za-z（(])",
                   r"\1", text)
+
+
+def _strip_concat_joiner(text):
+    """多条说明平铺后残留的拼接顿号：句号/分号/逗号等后紧跟的顿号
+    （「招生方案。、房地产开发商…」→「招生方案。房地产开发商…」）。
+    只清标点后的顿号，正文「（一、二期）」「1、2、3、4幢」等前面是汉字不受影响。"""
+    if not text:
+        return text
+    return re.sub(r"([。；;，,！？!?])\s*、", r"\1", text)
 
 
 def _expand_middle_texts(data, dk):
@@ -308,7 +317,7 @@ def _expand_middle_texts(data, dk):
     for r in data["records"]:
         mn = r.get("mechanism_note")
         if mn:
-            r["mechanism_note"] = _strip_list_numbers(_strip_attachment_refs(mn))
+            r["mechanism_note"] = _strip_concat_joiner(_strip_list_numbers(_strip_attachment_refs(mn)))
         scope = r.get("scope")
         if scope:
             r["scope"] = _strip_attachment_refs(scope)
