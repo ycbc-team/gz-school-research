@@ -29,12 +29,14 @@ export const CLASS_CFG = {
 export type ClsKey = keyof typeof CLASS_CFG;
 export const ALL_GRADES = Object.keys(CLASS_CFG) as ClsKey[];
 
-/** 学段点色（用户要求：小学/初中/高中各一色；小学紫避免与品牌蓝撞色） */
+/** 学段点色（与小程序首页《知性蓝》marker 配色对齐，2026-09-30 双端统一） */
 export const STAGE_COLOR: Record<SchoolStage, string> = {
-  primary: '#8B5CF6', // 小学 · 紫
-  middle: '#DC2626', // 初中 · 红
-  high: '#10B981', // 高中 · 绿
+  primary: '#2F5CD6', // 小学 · 蓝（知性蓝 ib-500）
+  middle: '#E8850C', // 初中 · 橙
+  high: '#0F9D58', // 高中 · 绿
 };
+/** marker 选中态描边/光晕色（知性蓝 ib-500）：Web 选中描边与小程序首页选中光晕共用 */
+export const MARKER_SELECTED_COLOR = '#2F5CD6';
 /** 学段优先级：多学部点主学部取最高（信息卡用主学部） */
 export const STAGE_PRIORITY: Record<SchoolStage, number> = { primary: 0, middle: 1, high: 2 };
 

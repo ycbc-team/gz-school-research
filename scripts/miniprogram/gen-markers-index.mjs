@@ -1,24 +1,20 @@
 /**
- * 首页专用 marker 图标生成（构建期）：按 UI 稿《知性蓝》学段分色生成 PNG。
- * 与 map 页的 gen-markers.mjs 同源逻辑，仅替换「学段分色」唯一真源与输出目录，
- * 不改动 map 页任何文件。产物：apps/miniprogram/assets/markers-index/
+ * 首页 marker 图标生成（构建期）：按 @gz/shared 学段分色唯一真源生成 PNG（与 Web MapView 共用，2026-09-30 双端统一）。
+ * 与已下线的老地图页 marker 生成脚本（gen-markers.mjs）同源逻辑，仅保留首页一套产物。
+ * 产物：apps/miniprogram/assets/markers-index/
  *   普通 marker-{p|m|h|pm|ph|mh|pmh}.png + 同名 -sel.png（选中态，知性蓝光晕）
  */
 import { deflateSync, inflateSync } from 'node:zlib';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+const require = createRequire(import.meta.url);
 
-// 学段分色唯一真源：UI 稿《知性蓝》—— 小学蓝 / 初中橙 / 高中绿
-const STAGE_COLOR = {
-  primary: '#2F5CD6',
-  middle: '#E8850C',
-  high: '#0F9D58',
-};
-// 选中态描边光晕色：知性蓝 ib-500
-const SELECTED_COLOR = '#2F5CD6';
+// 颜色唯一真源：@gz/shared（STAGE_COLOR / MARKER_SELECTED_COLOR，与 Web MapView 共用；build:mp 前置已构建 shared）
+const { STAGE_COLOR, MARKER_SELECTED_COLOR } = require(join(ROOT, 'packages', 'shared', 'dist', 'cjs', 'index.js'));
 
 const SIZE = 48;
 const D = 30;
@@ -35,7 +31,7 @@ const HALO_OUT = 23.0;     // 光晕外缘半径（离 48px 画布边 1px）
 const HALO_GLOW_A = 0.42;  // 光晕内缘不透明度
 const HALO_RING_A = 0.95;  // 外缘实心环不透明度
 
-/* ---------- PNG 编码（最小实现，与 gen-markers.mjs 同构） ---------- */
+/* ---------- PNG 编码（最小实现） ---------- */
 const CRC_TABLE = (() => {
   const t = new Int32Array(256);
   for (let n = 0; n < 256; n++) {
@@ -102,7 +98,7 @@ function draw(stages, selected) {
   const r = D / 2;
   const buf = Buffer.alloc(SIZE * SIZE * 4);
   const n = colors.length;
-  const blue = hexToRgb(SELECTED_COLOR);
+  const blue = hexToRgb(MARKER_SELECTED_COLOR);
   const white = hexToRgb(STROKE);
   const strokeW = selected ? SEL_STROKE_W : STROKE_W;
   for (let y = 0; y < SIZE; y++) {

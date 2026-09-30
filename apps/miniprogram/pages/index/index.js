@@ -2,7 +2,7 @@
  * 首页（地图首页）· 知性蓝 UI 稿重构版。
  * 复用 @gz/shared 的筛选状态机 / 搜索 / 点位构建（shared 不变），
  * 仅实现首页自己的展示、搜索页、筛选半窗、底部悬浮导航与学校卡。
- * 地图页（pages/map）保持原样，本页为独立的新首页。
+ * 老地图页（pages/map）已下线：详情页"在地图中查看"通过 getApp().pendingFocus + switchTab 回到本页定位。
  */
 const { shared, repository, mapPoints } = require('../../utils/data.js');
 const {
@@ -118,6 +118,14 @@ Page({
     if (tab) {
       tab.setData({ selected: 0 });
       tab.setData({ hidden: !!(this.data.card || this.data.menu) });
+    }
+    // 详情页"在地图中查看"：switchTab 回到本页后定位目标学校（对齐原 pages/map 的 focus 行为：放大居中 + 信息卡）
+    const app = getApp();
+    if (app && app.pendingFocus) {
+      const name = app.pendingFocus;
+      app.pendingFocus = null;
+      const pt = mapPoints.find((p) => p.school_id === name) || mapPoints.find((p) => p.name === name) || mapPoints.find((p) => p.name.includes(name));
+      if (pt) this.focusPoint(pt);
     }
   },
   onHide() {

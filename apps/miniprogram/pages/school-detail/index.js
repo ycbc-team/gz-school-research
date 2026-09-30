@@ -98,10 +98,13 @@ Page({
   switchStage(e) { this.applyStage(e.currentTarget.dataset.stage); },
 
   viewOnMap() {
-    wx.navigateTo({ url: `/pages/map/map?focus=${encodeURIComponent(this.schoolId || this.name)}` });
+    // 老地图页（pages/map）已下线：写入全局定位请求后 switchTab 回首页地图，由首页 onShow 定位
+    const app = getApp();
+    app.pendingFocus = this.schoolId || this.name;
+    wx.switchTab({ url: '/pages/index/index' });
   },
   goBack() {
-    wx.navigateBack({ delta: 1, fail: () => wx.reLaunch({ url: '/pages/map/map' }) });
+    wx.navigateBack({ delta: 1, fail: () => wx.reLaunch({ url: '/pages/index/index' }) });
   },
 
   /** 详情页内跳转：feed 初中/小学、品牌行、覆盖初中（Web 路由风格 to） */

@@ -9,8 +9,7 @@ apps/miniprogram/
 ├── project.config.json   # 微信开发者工具配置（appid: touristappid，可替换为你的 AppID）
 ├── app.json / app.js / app.wxss / sitemap.json
 ├── pages/
-│   ├── index/            # 入口：数据统计 + 功能入口
-│   ├── map/              # 小学分布地图（内置 <map>，GCJ-02 直接可用；区筛选）
+│   ├── index/            # 首页：地图首页（内置 <map>，GCJ-02 直接可用；三级筛选 + 搜索 + 学校卡）
 │   └── policy/           # 使用说明 / 数据口径声明
 ├── utils/data.js         # 数据加载：shared cjs + data js 产物
 ├── shared/               # 【构建产物，git 忽略】@gz/shared 的 CommonJS 输出
@@ -20,7 +19,7 @@ apps/miniprogram/
 ## 使用
 
 ```bash
-npm run build:mp          # 生成 shared/ 与 data/（从 data/ JSON 唯一真源）
+npm run build:mp          # 生成 shared/、data/ 与首页 marker 图标（assets/markers-index/，构建产物不入库）
 ```
 
 然后用微信开发者工具「导入项目」选择 `apps/miniprogram/` 目录即可预览。
@@ -35,5 +34,4 @@ npm run build:mp          # 生成 shared/ 与 data/（从 data/ JSON 唯一真�
 
 ## 待完善
 
-- 地图 marker 聚类与配色（当前为统一样式 + 名称标注）
-- 学校详情页、对比、路线规划（与 Web 端共用 shared 逻辑）
+- 地图 marker 聚类（当前为全量点位渲染）

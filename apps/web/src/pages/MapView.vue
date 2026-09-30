@@ -15,6 +15,7 @@ defineOptions({ name: 'MapView' });
 import {
   DISTRICTS,
   STAGE_COLOR,
+  MARKER_SELECTED_COLOR,
   STAGE_LABEL,
   STAGE_TABS,
   SCHOOL_NATURE_TABS,
@@ -35,11 +36,14 @@ import {
   natureAll,
   isVisible,
   searchSchools,
+  buildAssocResults,
+  buildRecommendList,
   buildInfoModel,
   type SchoolStage,
   type ClsKey,
   type SchoolNature,
   type MapPointFull,
+  type AssocResult,
 } from '@gz/shared';
 import { mapPoints, repository } from '../data';
 
@@ -74,19 +78,87 @@ const flipGradeLabel = computed(() => (gradeAllOn.value ? '全不选' : '全选'
 const flipNatureLabel = computed(() => (natureAllOn.value ? '全不选' : '全选'));
 function isVisiblePt(pt: MapPointFull): boolean { return isVisible(state(), pt); }
 
-/* ========== 学校搜索 ========== */
+/* ========== 搜索中间页（全屏层，对齐小程序首页搜索页：历史 / 推荐 / 联想 + 空态；历史存 localStorage） ========== */
+const HIST_KEY = 'gz_web_search_history';
 const kw = ref('');
-const searchOpen = ref(false);
-const searchResults = computed(() => searchSchools(mapPoints, kw.value, repository.entities));
-function badgesOf(pt: MapPointFull) {
-  return repository.schoolBadges(pt.mainStage, { district: districtByAdcode[pt.adcode] || '', rec: pt.rec, name: pt.name, schoolId: pt.ids[pt.mainStage] || pt.school_id, stages: pt.stages });
+const searchPageOpen = ref(false);
+// 头部展开动画：打开瞬间输入框与背景搜索框同尺寸，随后 back 自左侧滑入
+const headAnim = ref(false);
+// 顶部全局导航（header.app-header）高度：搜索中间页从导航下方开始，不遮挡导航栏
+const navH = ref(59);
+function measureNavH() {
+  const h = document.querySelector('header.app-header');
+  navH.value = h ? Math.round(h.getBoundingClientRect().height) : 59;
 }
-function pickResult(pt: MapPointFull) {
-  if (!map) return;
-  map.flyTo([pt.lat, pt.lng], 15, { duration: 0.8 });
-  showInfo(pt);
+const assocs = ref<AssocResult[]>([]);
+const history = ref<string[]>([]);
+const recommends = ref<string[]>(buildRecommendList(mapPoints));
+const searchInputEl = ref<HTMLInputElement | null>(null);
+function loadHistory(): string[] {
+  try { return JSON.parse(localStorage.getItem(HIST_KEY) || '[]') as string[]; } catch { return []; }
+}
+function saveHistory(k: string) {
+  if (!k) return;
+  let list = loadHistory().filter((x) => x !== k);
+  list.unshift(k);
+  if (list.length > 10) list = list.slice(0, 10);
+  history.value = list;
+  try { localStorage.setItem(HIST_KEY, JSON.stringify(list)); } catch { /* 隐私模式等忽略 */ }
+}
+function openSearchPage() {
+  closeInfo();
+  openMenu.value = null;
   kw.value = '';
-  searchOpen.value = false;
+  assocs.value = [];
+  history.value = loadHistory();
+  searchPageOpen.value = true;
+  headAnim.value = false;
+  nextTick(() => {
+    headAnim.value = true;
+    searchInputEl.value?.focus();
+  });
+}
+function closeSearchPage() {
+  searchPageOpen.value = false;
+  headAnim.value = false;
+  kw.value = '';
+  assocs.value = [];
+}
+function onSearchInput() {
+  assocs.value = kw.value ? buildAssocResults(mapPoints, kw.value, repository.entities) : [];
+}
+function onSearchConfirm() {
+  const k = (kw.value || '').trim();
+  if (!k) return;
+  saveHistory(k);
+  const first = assocs.value[0];
+  if (first) pickAssocByName(first.name);
+  // 无匹配：停留中间页展示空态（对齐小程序）
+}
+function tapHistory(h: string) { kw.value = h; onSearchInput(); nextTick(() => searchInputEl.value?.focus()); }
+function tapRecommend(name: string) { saveHistory(name); pickAssocByName(name); }
+function tapAssoc(name: string) { saveHistory((kw.value || '').trim()); pickAssocByName(name); }
+function pickAssocByName(name: string) {
+  closeSearchPage();
+  focusSchool(name);
+}
+function clearHistory() {
+  history.value = [];
+  try { localStorage.removeItem(HIST_KEY); } catch { /* ignore */ }
+}
+/** 空态「清空并重新搜索」：重置筛选 + 清空输入并聚焦（对齐小程序 clearAndResearch） */
+function clearAndResearch() {
+  resetFilters();
+  kw.value = '';
+  assocs.value = [];
+  nextTick(() => searchInputEl.value?.focus());
+}
+function resetFilters() {
+  const s = initialFilterState();
+  selectedDistricts.value = s.selectedDistricts;
+  selectedStages.value = s.selectedStages;
+  selectedGrades.value = s.selectedGrades;
+  selectedNatures.value = s.selectedNatures;
 }
 
 /* ========== 地图 ========== */
@@ -132,9 +204,7 @@ function markerStyle(pt: MapPointFull): L.CircleMarkerOptions {
   };
 }
 let iconUid = 0;
-/** 选中态描边（品牌蓝，抽屉打开时高亮当前点位） */
-const SELECTED_COLOR = '#1a6bd6';
-/** 多学部点：SVG 圆内垂直分色（2 段=上/下，3 段=上/中/下），白描边，统一样式 */
+/** 多学部点：SVG 圆内垂直分色（2 段=上/下，3 段=上/中/下），白描边，统一样式；选中态描边用 shared MARKER_SELECTED_COLOR（对齐小程序首页选中光晕） */
 function buildMultiIcon(pt: MapPointFull, r: number, selected = false): L.DivIcon {
   const size = r * 2;
   const center = size / 2;
@@ -142,7 +212,7 @@ function buildMultiIcon(pt: MapPointFull, r: number, selected = false): L.DivIco
   const n = pt.stages.length;
   const uid = 'poiClip' + (++iconUid);
   const weight = selected ? 3.5 : 1.2;
-  const stroke = selected ? SELECTED_COLOR : 'rgba(255,255,255,0.85)';
+  const stroke = selected ? MARKER_SELECTED_COLOR : 'rgba(255,255,255,0.85)';
   const segs = pt.stages
     .map((st, i) => {
       const y = center - rr + (i * (rr * 2)) / n;
@@ -176,6 +246,8 @@ function renderPoints() {
     rendered.push(item);
   }
 }
+/** 上一次生效的区域选择：区域变化且收窄（非全选）时自动适配视野到结果范围（对齐小程序 confirmSheet 的 fitVisible 行为） */
+let prevDistricts = new Set(selectedDistricts.value);
 function applyFilters() {
   if (!map) return;
   for (const it of rendered) {
@@ -192,6 +264,42 @@ function applyFilters() {
       }
     }
   }
+  // 行政区是「地理维度」：选区变化且收窄（非全选、结果非空）时，把视野自动适配到筛选结果范围，
+  // 否则会出现「人停在番禺、筛了荔湾、地图却不动」的错位（对齐小程序 confirmSheet；学段/性质是属性维度，不移动相机）
+  const cur = selectedDistricts.value;
+  const unchanged = cur.size === prevDistricts.size && [...cur].every((a) => prevDistricts.has(a));
+  const narrowed = cur.size > 0 && cur.size < DISTRICTS.length;
+  if (!unchanged && narrowed && rendered.some((it) => isVisiblePt(it.pt))) fitVisible();
+  prevDistricts = new Set(cur);
+}
+/** 视野适配：把地图缩放到恰好容纳当前全部可见点（对齐小程序 fitVisible；最小跨度兜底，避免单点直接放到最大级别） */
+function fitVisible() {
+  if (!map) return;
+  const pts = rendered.filter((it) => isVisiblePt(it.pt)).map((it) => it.pt);
+  if (!pts.length) return;
+  let minLat = Infinity, maxLat = -Infinity, minLng = Infinity, maxLng = -Infinity;
+  for (const p of pts) {
+    if (p.lat < minLat) minLat = p.lat;
+    if (p.lat > maxLat) maxLat = p.lat;
+    if (p.lng < minLng) minLng = p.lng;
+    if (p.lng > maxLng) maxLng = p.lng;
+  }
+  const MIN_SPAN = 0.012; // ≈ 1.3km：单点 / 极窄范围时避免 fitBounds 直接放到最大级别
+  if (maxLat - minLat < MIN_SPAN) { const c = (minLat + maxLat) / 2; minLat = c - MIN_SPAN / 2; maxLat = c + MIN_SPAN / 2; }
+  if (maxLng - minLng < MIN_SPAN) { const c = (minLng + maxLng) / 2; minLng = c - MIN_SPAN / 2; maxLng = c + MIN_SPAN / 2; }
+  // 聚焦系数：fitBounds 默认「恰好容纳」导致 zoom 偏小、区域视野过大（用户反馈 2026-09-30）。
+  // 把范围向中心收缩 30% 再 fit，等效放大约 0.5 级 zoom；如需更聚焦可调小 FOCUS。
+  const FOCUS = 0.7;
+  const clat = (minLat + maxLat) / 2, clng = (minLng + maxLng) / 2;
+  minLat = clat + (minLat - clat) * FOCUS;
+  maxLat = clat + (maxLat - clat) * FOCUS;
+  minLng = clng + (minLng - clng) * FOCUS;
+  maxLng = clng + (maxLng - clng) * FOCUS;
+  // 留白对齐小程序 fitVisible [上,右,下,左] = [150,70,200,70]：上避让头部，下避让图例/底部导航
+  map.fitBounds([[minLat, minLng], [maxLat, maxLng]], {
+    paddingTopLeft: L.point(70, 150),
+    paddingBottomRight: L.point(70, 200),
+  });
 }
 watch([selectedDistricts, selectedStages, selectedNatures, selectedGrades], applyFilters);
 function renderBoundaries() {
@@ -240,10 +348,11 @@ function coreCenter(): [number, number] | null {
 
 onMounted(() => {
   fitMapPage();
+  measureNavH();
   window.addEventListener('resize', fitMapPage);
   window.visualViewport?.addEventListener('resize', fitMapPage);
   // 字体加载完成会改变头部高度（窄屏换行），字体就绪后重新精确测量一次
-  document.fonts?.ready.then(fitMapPage).catch(() => {});
+  document.fonts?.ready.then(() => { fitMapPage(); measureNavH(); }).catch(() => {});
   if (!mapEl.value) return;
   const cc = coreCenter();
   map = L.map(mapEl.value, {
@@ -318,7 +427,7 @@ let activeItem: RenderedItem | null = null;
 function setSelected(item: RenderedItem, on: boolean) {
   if (item.pt.stages.length === 1) {
     const m = item.marker as unknown as L.CircleMarker;
-    if (on) m.setStyle({ weight: 3.5, color: SELECTED_COLOR });
+    if (on) m.setStyle({ weight: 3.5, color: MARKER_SELECTED_COLOR });
     else m.setStyle(markerStyle(item.pt));
   } else {
     item.marker.setIcon(buildMultiIcon(item.pt, radiusForZoom(map?.getZoom() ?? 13), on));
@@ -334,7 +443,7 @@ function showInfo(pt: MapPointFull) {
   if (activeItem) setSelected(activeItem, true);
   active.value = pt;
   openMenu.value = null;
-  searchOpen.value = false;
+  closeSearchPage();
   // 点击点位：放大并居中到屏幕中央（多学部垂直分色在小缩放下看不清）
   if (map) {
     focusingPoint = true;
@@ -433,17 +542,11 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
   <!-- 浮层：搜索 + 筛选（压在地图上方） -->
   <div class="float-panel" :class="{ 'float-panel-hidden': !!infoModel }">
     <div class="search-bar">
-      <input v-model="kw" class="search-input" placeholder="搜索学校名，如：华南师范大学附属中学" @focus="closeInfo(); searchOpen = true" />
-      <ul v-if="searchOpen && kw.trim()" class="search-drop">
-        <li v-for="r in searchResults" :key="r.name + r.adcode" @mousedown.prevent="pickResult(r)">
-          <b>{{ r.name }}</b>
-          <span class="s-badges"><span v-for="b in badgesOf(r)" :key="b.cls + b.text" class="badge sm" :class="b.cls">{{ b.text }}</span></span>
-        </li>
-        <li v-if="!searchResults.length" class="search-empty">无匹配学校</li>
-      </ul>
+      <span class="mag"></span>
+      <!-- readonly + @click：仅用户点击时打开全屏搜索中间页；不用 @focus，避免加载/热更新后自动聚焦误触发弹层 -->
+      <input v-model="kw" class="search-input" placeholder="搜索广州小初高学校" readonly @click="openSearchPage()" />
     </div>
 
-    <div class="panel-divider"></div>
     <div class="filter-bar">
       <div class="fb-col">
         <button class="fb-btn" :class="{ on: openMenu === 'district' }" @click="closeInfo(); openMenu = openMenu === 'district' ? null : 'district'">
@@ -513,9 +616,56 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
     </div>
   </div>
 
-  <!-- 搜索/筛选遮罩：touchstart 即收起，避免触摸被吞导致地图无法拖动（click 兼容桌面） -->
-  <div v-if="openMenu || searchOpen" class="pop-mask" @touchstart="openMenu = null; searchOpen = false;" @click="openMenu = null; searchOpen = false;"></div>
+  <!-- 筛选遮罩：touchstart 即收起，避免触摸被吞导致地图无法拖动（click 兼容桌面） -->
+  <div v-if="openMenu" class="pop-mask" @touchstart="openMenu = null" @click="openMenu = null"></div>
   <div ref="mapEl" class="map"></div>
+
+  <!-- 搜索中间页（全屏层，对齐小程序 index searchpage：历史 / 推荐 / 联想 + 空态） -->
+  <div v-if="searchPageOpen" class="search-page" :style="{ top: `${navH}px` }">
+    <div class="search-head" :class="{ open: headAnim }">
+      <button class="back" @click="closeSearchPage()"><span class="chev"></span></button>
+      <div class="sip" :class="{ typed: !!kw }">
+        <span class="mag"></span>
+        <input ref="searchInputEl" v-model="kw" class="sinput" placeholder="支持广州小初高学校搜索" @input="onSearchInput" @keyup.enter="onSearchConfirm" />
+      </div>
+      <button class="sgo" :class="{ show: !!kw }" @click="onSearchConfirm">搜索</button>
+    </div>
+    <div class="sbody">
+      <template v-if="!kw">
+        <div v-if="history.length" class="sblock">
+          <div class="shd"><span class="sht">历史记录</span><span class="clr" @click="clearHistory">清空</span></div>
+          <div class="pillwrap">
+            <button v-for="h in history" :key="h" class="pill" @click="tapHistory(h)">{{ h }}</button>
+          </div>
+        </div>
+        <div class="sblock">
+          <div class="shd"><span class="sht">快速搜索省市属高中（按拼音首字母排序）</span></div>
+          <div class="slist">
+            <button v-for="r in recommends" :key="r" class="srow" @click="tapRecommend(r)">
+              <span class="nm">{{ r }}</span>
+            </button>
+          </div>
+        </div>
+      </template>
+      <template v-else>
+        <div class="sug">
+          <!-- 联想词条右侧标签：行政区固定带「区」字；多学段学校按学段拆成多枚标签，不合并为一枚 -->
+          <button v-for="(a, i) in assocs" :key="a.name + '-' + i" class="srow" @click="tapAssoc(a.name)">
+            <span class="nm">{{ a.name }}</span>
+            <span v-if="a.district" class="tag tag-dist">{{ a.district }}</span>
+            <span v-for="st in a.stages" :key="st" class="tag tag-stage">{{ st }}</span>
+          </button>
+          <div v-if="!assocs.length" class="sempty">
+            <div class="sempty-ico"><span class="sempty-mag"></span></div>
+            <div class="sempty-t">未找到相关学校</div>
+            <div class="sempty-d">没有找到与「{{ kw }}」匹配的学校</div>
+            <div class="sempty-d">试试换个关键词，或放宽筛选条件</div>
+            <button class="sempty-btn" @click="clearAndResearch">清空并重新搜索</button>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
 
   <!-- 图例：点位颜色含义 -->
   <div class="map-legend">
@@ -549,50 +699,95 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
 </template>
 
 <style scoped>
-/* 浮层：搜索 + 筛选压在地图上方 */
+/* 浮层：搜索 + 筛选（悬浮胶囊组，对齐小程序 floatbar，无卡片底） */
 section { position: relative; }
 .float-panel {
-  position: absolute; top: 10px; left: 10px; right: 10px; z-index: 1000;
-  background: rgba(255,255,255,0.97); border: 1px solid #e4e3dd; border-radius: 14px;
-  box-shadow: 0 2px 10px rgba(20,30,50,0.12); transition: transform .22s ease, opacity .18s ease;
+  position: absolute; top: 12px; left: 10px; right: 10px; z-index: 1000;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: transform .22s ease, opacity .18s ease;
 }
 .float-panel.float-panel-hidden { transform: translateY(-130%); opacity: 0; pointer-events: none; }
-.search-bar { position: relative; }
+/* 搜索框胶囊：白底 + 阴影 + 全圆角（小程序 .sbox 84rpx） */
+.search-bar {
+  position: relative; display: flex; align-items: center;
+  height: 42px;
+  background: rgba(255,255,255,.97); border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(8,14,28,.18);
+}
+.search-bar .mag { flex: none; width: 14px; height: 14px; border: 1.5px solid #8B96AD; border-radius: 50%; position: relative; margin-left: 14px; }
+.search-bar .mag::after { content: ''; position: absolute; width: 6px; height: 1.5px; background: #8B96AD; transform: rotate(45deg); right: -4px; bottom: -2px; }
 .search-input {
-  width: 100%; box-sizing: border-box; border: none; border-radius: 14px 14px 0 0;
-  background: transparent; padding: 11px 14px; font-size: 13.5px; outline: none;
+  flex: 1; min-width: 0; border: none; outline: none; background: transparent;
+  padding: 0 14px 0 9px; font-size: 13.5px; color: #33405C;
 }
-.search-input:focus { border-color: #9bbbf4; }
-.search-drop {
-  position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 1300;
-  list-style: none; margin: 0; padding: 4px; background: #fff;
-  border: 1px solid #e4e3dd; border-radius: 12px; box-shadow: 0 8px 28px rgba(20,30,50,0.16);
-  max-height: 320px; overflow-y: auto;
-}
-.search-drop li {
-  display: flex; justify-content: space-between; align-items: center; gap: 10px;
-  padding: 9px 10px; font-size: 13px; cursor: pointer; border-radius: 8px;
-}
-.search-drop li:hover { background: #f2f7ff; }
-.search-drop li b { font-weight: 600; color: #1a1b1c; }
-.search-drop li .s-badges { color: #6b7280; font-size: 11.5px; white-space: nowrap; }
-.search-empty { color: #6b7280; font-size: 12.5px; text-align: center; }
-.search-empty:hover { background: none !important; }
 
-/* 搜索与筛选在同一气泡中，上下排列并以细线分隔。 */
-.panel-divider { height: 1px; margin: 0 12px; background: #e4e3dd; }
+/* ===== 搜索中间页（对齐小程序 index searchpage）：从导航栏下方开始，头部与背景搜索框同位置重叠 ===== */
+.search-page {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 1300;
+  background: #F5F7FB; display: flex; flex-direction: column;
+  padding: 12px 10px 0; /* 顶部 12px=导航59+12→背景搜索框顶71；左右 10px 对齐悬浮胶囊边缘 */
+}
+/* 头行：打开瞬间 sip 与背景搜索框完全同尺寸（高 42px、宽 569px），随后 back 自左侧滑入、sgo 输入时展开 */
+.search-head { height: 42px; flex: none; display: flex; align-items: center; }
+.search-head .back {
+  flex: none; width: 0; height: 30px; padding: 0; overflow: hidden; opacity: 0;
+  border: 0; background: none; cursor: pointer; margin-right: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: width .22s ease, opacity .18s ease, margin-right .22s ease;
+}
+.search-head.open .back { width: 30px; opacity: 1; margin-right: 9px; }
+.search-head .chev { width: 10px; height: 10px; border-left: 2px solid #10182B; border-bottom: 2px solid #10182B; transform: rotate(45deg); display: block; }
+.search-head .sip { flex: 1; height: 42px; display: flex; align-items: center; gap: 7px; background: rgba(255,255,255,.97); border-radius: 999px; padding: 0 12px; box-shadow: 0 4px 16px rgba(8,14,28,.18); }
+.search-head .sip.typed { background: #fff; box-shadow: 0 0 0 6px rgba(47,92,214,.08), 0 4px 16px rgba(8,14,28,.18); }
+.search-head .sinput { flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font-size: 13.5px; color: #10182B; }
+.search-head .mag { flex: none; width: 12px; height: 12px; border: 1.5px solid #8B96AD; border-radius: 50%; position: relative; }
+.search-head .mag::after { content: ''; position: absolute; width: 5px; height: 1.5px; background: #8B96AD; transform: rotate(45deg); right: -3px; bottom: -1px; }
+.search-head .sgo {
+  flex: none; max-width: 0; opacity: 0; overflow: hidden; padding: 0; margin-left: 0;
+  border: 0; background: #2F5CD6; color: #fff; font-size: 13px; border-radius: 999px; cursor: pointer;
+  white-space: nowrap;
+  transition: max-width .22s ease, opacity .18s ease, margin-left .22s ease, padding .22s ease;
+}
+.search-head .sgo.show { max-width: 62px; opacity: 1; padding: 7px 12px; margin-left: 9px; }
+.sbody { flex: 1; overflow-y: auto; padding-bottom: 6px; }
+.sblock { margin: 12px 0 0; background: #fff; border: 1px solid #E3E8F0; border-radius: 14px; padding: 12px 14px 4px; }
+.shd { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+.shd .sht { font-size: 12.5px; font-weight: 600; color: #33405C; }
+.shd .clr { font-size: 12px; color: #8B96AD; cursor: pointer; border: 0; background: none; padding: 0; }
+.pillwrap { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill { border: 1px solid #E3E8F0; background: #fff; color: #10182B; font-size: 12.5px; border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+.slist { display: flex; flex-direction: column; }
+.srow { display: flex; align-items: center; gap: 7px; width: 100%; padding: 11px 0; border: 0; border-bottom: 1px solid #EFF2F7; background: none; cursor: pointer; text-align: left; font-family: inherit; }
+.srow:last-child { border-bottom: none; }
+.srow .nm { flex: 1; font-size: 13.5px; color: #10182B; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.sug { padding: 4px 16px 0; }
+.sug .srow { padding: 14px 0; }
+.sug .srow .nm { font-size: 14px; }
+.tag { flex: none; font-size: 11.5px; border-radius: 4px; padding: 1px 6px; }
+.tag-dist { background: #EEF3FE; color: #3A62C8; }
+.tag-stage { background: #E9F6FB; color: #1F7A9B; }
+.sempty { display: flex; flex-direction: column; align-items: center; padding: 48px 20px 60px; }
+.sempty-ico { width: 44px; height: 44px; border: 2px solid #C9D3E6; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.sempty-mag { width: 16px; height: 16px; border: 2px solid #C9D3E6; border-radius: 50%; }
+.sempty-t { margin-top: 18px; font-size: 15.5px; font-weight: 600; color: #10182B; }
+.sempty-d { margin-top: 6px; font-size: 12.5px; color: #64708C; line-height: 1.5; text-align: center; }
+.sempty-btn { margin-top: 14px; border: 1px solid #DDE4EF; background: #fff; color: #2F5CD6; font-size: 12.5px; border-radius: 999px; padding: 6px 16px; cursor: pointer; }
+
+/* 筛选胶囊行（对齐小程序 filterrow .chip） */
 .filter-bar {
   position: relative; display: flex; gap: 8px;
-  border-radius: 0 0 14px 14px; padding: 8px;
 }
 .fb-col { flex: 1 1 0; min-width: 0; }
 .fb-btn {
-  width: 100%; border: none; background: transparent; cursor: pointer;
-  font-size: 13px; color: #1a1b1c; padding: 8px 6px; border-radius: 9px;
-  display: flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap;
+  width: 100%; border: none; cursor: pointer;
+  height: 32px; border-radius: 999px;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 3px 10px rgba(8,14,28,.16);
+  font-size: 12.5px; color: #33405C; font-weight: 500;
+  display: flex; align-items: center; justify-content: center; gap: 3px; white-space: nowrap;
 }
-.fb-btn:hover { background: #f2f7ff; }
-.fb-btn.on { background: #eaf1fe; color: #1a6bd6; font-weight: 600; }
+.fb-btn:hover { background: #fff; }
+.fb-btn.on { background: #F2F6FE; color: #254BAE; font-weight: 600; }
 .fb-btn .arr { font-size: 10px; color: #8a93a3; }
 .fb-badge {
   background: #1a6bd6; color: #fff; font-style: normal; font-size: 10.5px;
