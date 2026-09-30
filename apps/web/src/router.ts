@@ -7,7 +7,6 @@ export const router = createRouter({
     // 页面和其数据域一起按路由加载；首页不为地图/详情/排行提前下载完整快照。
     { path: '/', name: 'home', component: () => import('./pages/HomeView.vue') },
     { path: '/map', name: 'map', component: () => import('./pages/MapView.vue') },
-    { path: '/policy', name: 'policy', component: () => import('./pages/PolicyView.vue') },
     { path: '/linkage', name: 'linkage', component: () => import('./pages/LinkageView.vue') },
     { path: '/primary', name: 'primary-ranking', component: () => import('./pages/PrimaryRankingView.vue') },
     { path: '/middle', name: 'ranking', component: () => import('./pages/RankingView.vue') },
@@ -18,12 +17,8 @@ export const router = createRouter({
     { path: '/school/:stage/:name', redirect: (to) => ({ path: `/school/${to.params.name}`, query: { stage: to.params.stage } }) },
   ],
   // 详情页跳转后回到顶部；浏览器后退/前进恢复原滚动位置。
-  // 学校详情页「见说明N」链接带 ?explain=N：不在 scrollBehavior 里定位（懒加载组件
-  // 初始导航时 el 定位不可靠，且 { top: 0 } 会覆盖组件滚动），让位给 PolicyView
-  // onMounted/watch 负责 scrollIntoView。
   scrollBehavior(to, _from, savedPosition) {
     if (savedPosition) return savedPosition;
-    if (to.name === 'policy' && to.query.explain) return undefined;
     return { top: 0 };
   },
 });

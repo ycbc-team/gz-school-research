@@ -2019,6 +2019,19 @@
       }
     }
   },
+  "gz-440106-f7cdfb7e": {
+    "science_experiment_awards": {
+      "stages": {
+        "middle": {
+          "2025": {
+            "gold": 0,
+            "silver": 0,
+            "bronze": 1
+          }
+        }
+      }
+    }
+  },
   "gz-440105-eaf414df": {
     "science_experiment_awards": {
       "stages": {

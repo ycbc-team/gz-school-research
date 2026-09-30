@@ -109,6 +109,24 @@
       }
     }
   },
+  "gz-440106-f7cdfb7e": {
+    "science_literacy_awards": {
+      "stages": {
+        "middle": {
+          "2024": {
+            "gold": 1,
+            "silver": 1,
+            "bronze": 1
+          },
+          "2025": {
+            "gold": 1,
+            "silver": 0,
+            "bronze": 0
+          }
+        }
+      }
+    }
+  },
   "gz-440111-e74c2e1d": {
     "science_literacy_awards": {
       "stages": {

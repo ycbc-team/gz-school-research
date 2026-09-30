@@ -3561,6 +3561,29 @@
       }
     }
   },
+  "gz-440106-f7cdfb7e": {
+    "tech_sports_awards": {
+      "stages": {
+        "secondary": {
+          "2024": {
+            "gold": 0,
+            "silver": 2,
+            "bronze": 2
+          },
+          "2025": {
+            "gold": 1,
+            "silver": 4,
+            "bronze": 2
+          },
+          "2026": {
+            "gold": 0,
+            "silver": 4,
+            "bronze": 4
+          }
+        }
+      }
+    }
+  },
   "gz-440113-1963cc5e": {
     "tech_sports_awards": {
       "stages": {

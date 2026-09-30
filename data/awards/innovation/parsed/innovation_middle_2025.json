@@ -212,7 +212,8 @@
       "coach": "陈紫红、 李祺忭、 吴珍",
       "school_ids": [
         "gz-440106-867e6c05",
-        "gz-440106-a989804b"
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e"
       ],
       "match_type": "multi"
     },
@@ -239,7 +240,8 @@
       "coach": "朱茵仪",
       "school_ids": [
         "gz-440106-867e6c05",
-        "gz-440106-a989804b"
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e"
       ],
       "match_type": "multi"
     },
@@ -498,5 +500,5 @@
       "match_type": "single"
     }
   ],
-  "compiled_schools": 21
+  "compiled_schools": 22
 }
