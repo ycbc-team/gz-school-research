@@ -143,7 +143,8 @@ export function createMiddleEnrollmentApi(loaders: DataLoaders) {
       if (r.school_id && !byId.has(r.school_id)) byId.set(r.school_id, r);
       const def = mechanisms[r.mechanism] || DEFAULT_DEFS[r.mechanism];
       const match: MiddleEnrollmentMatch = { record: r, mechanismDef: def, district: snap.district };
-      const ids = r.school_id ? [r.school_id, ...(r.school_ids || [])] : (r.school_ids || []);
+      // 去重：school_id 可能同时出现在 school_ids（如执信天河 22fcbcd6），避免 byIdAll 同一记录重复索引
+      const ids = [...new Set(r.school_id ? [r.school_id, ...(r.school_ids || [])] : (r.school_ids || []))];
       for (const id of ids) {
         const arr = byIdAll.get(id) || [];
         arr.push(match);
