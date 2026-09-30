@@ -2953,13 +2953,13 @@
    "records": {
     "华南师范大学附属中学初中部": {
      "group_members": null,
-     "mechanism": "min_zi_zhu",
+     "mechanism": "single_paidui",
      "mechanism_note": null,
      "plan_classes": 8,
      "school": "华南师范大学附属中学初中部",
      "school_id": "gz-440106-a565a93c",
      "school_ids": null,
-     "scope": null
+     "scope": "华南师范大学附属中学：初中部招生计划4个班、168人。面向学校周边3公里范围内的天河区公办、企事业办小学的穗籍毕业生招生（含符合条件的广州市政策性照顾学生）。具体学校名单如下：华景小学、天府路小学、南国学校（小学部）、体育东路小学、体育东路小学海明学校、体育东路小学兴国学校、石牌小学、汇景实验学校（小学部）、华康小学、龙口西小学、员村小学、昌乐小学、五山小学、体育西小学、华阳小学、天河区第一实验小学、华融小学、五一小学、华颖外国语学校（小学部）、天河中学猎德实验学校（小学部）、一一三中学陶育实验学校（小学部）、冼村小学、华南农业大学附属小学、华南师范大学附属小学、长征小学、天河第一小学、华南理工大学附属实验学校（小学部）、暨南大学附属实验学校（小学部）。"
     },
     "华南理工大学附属实验学校": {
      "group_members": null,
@@ -2983,13 +2983,13 @@
     },
     "广东实验中学天河学校": {
      "group_members": null,
-     "mechanism": "single_zone",
+     "mechanism": "single_paidui",
      "mechanism_note": null,
-     "plan_classes": 6,
+     "plan_classes": null,
      "school": "广东实验中学天河学校",
      "school_id": "gz-440106-0eb93435",
      "school_ids": null,
-     "scope": "保利天瑞"
+     "scope": "广东实验中学天河学校：初中部电脑派位招生计划84人。面向学校周边3公里范围内的天河区公办、企事业办小学的穗籍毕业生招生（含符合条件的广州市政策性照顾学生）。具体学校名单如下：岑村小学、棠东小学、沐陂小学、五山小学、员村小学、昌乐小学、棠下小学、华景小学、车陂小学、棠德南小学、泰安小学、骏景小学、华融小学、中海康城小学、天府路小学、御景小学、华南师范大学附属小学、华南农业大学附属小学、华颖外国语学校（小学部）、汇景实验学校（小学部）、华南理工大学附属实验学校（小学部）。"
     },
     "广州中学": {
      "group_members": null,
@@ -3008,7 +3008,7 @@
     "广州中学天河燕园学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": null,
+     "mechanism_note": "剩余计划面向兴华、沙东、沙河、元岗4个街道范围内公办、企事业单位配套小区的天河户籍跨地段生、返区生（电脑派位）",
      "plan_classes": 6,
      "school": "广州中学天河燕园学校",
      "school_id": "gz-440106-15ca1554",
@@ -3050,18 +3050,18 @@
     },
     "广州市华颖外国语学校": {
      "group_members": null,
-     "mechanism": "single_zone",
+     "mechanism": "single_paidui",
      "mechanism_note": null,
-     "plan_classes": 4,
+     "plan_classes": null,
      "school": "广州市华颖外国语学校",
      "school_id": "gz-440106-dab5b807",
      "school_ids": null,
-     "scope": "员村二横路员村西街转员村南街以西，珠江以北，潭村路—平江路以东，黄埔大道以南"
+     "scope": "广州市华颖外国语学校：初中部电脑派位招生计划60人。面向学校周边5公里范围内的天河区公办、企事业办小学的穗籍毕业生招生（含符合条件的广州市政策性照顾学生）。具体学校名单如下：汇景实验学校（小学部）、南国学校（小学部）、天河中学猎德实验学校（小学部）、一一三中学陶育实验学校（小学部）、棠东小学、体育东路小学、体育东路小学海明学校、体育东路小学兴国学校、体育西路小学、石牌小学、华阳小学、五山小学、员村小学、昌乐小学、棠下小学、石东小学、华康小学、华景小学、龙口西小学、东圃小学、车陂小学、棠德南小学、天河区第一实验小学、泰安小学、骏景小学、冼村小学、新元小学、华融小学、中海康城小学、旭景小学、天府路小学、五一小学、天河第一小学、华南师范大学附属小学、华南农业大学附属小学、长征小学、华南理工大学附属实验学校（小学部）、暨南大学附属实验学校（小学部）。"
     },
     "广州市南国学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": null,
+     "mechanism_note": "含港澳子弟45人招生计划",
      "plan_classes": 4,
      "school": "广州市南国学校",
      "school_id": "gz-440106-b0d40cc4",
@@ -3084,7 +3084,7 @@
     "广州市天河中学猎德实验学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": null,
+     "mechanism_note": "特教班1个，招收5名特殊儿童，优先招收本校小学特教班毕业生",
      "plan_classes": "4+1（特教）",
      "school": "广州市天河中学猎德实验学校",
      "school_id": "gz-440106-8b3ee7d2",
@@ -3267,7 +3267,7 @@
     "广州市天河区暨南第一实验学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": null,
+     "mechanism_note": "特教班1个，招收10名特殊儿童",
      "plan_classes": "4+1（特教）",
      "school": "广州市天河区暨南第一实验学校",
      "school_id": "gz-440106-11e15e8d",
@@ -3287,7 +3287,7 @@
     "广州市天河区汇景实验学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": null,
+     "mechanism_note": "华园校区在招收完政策保障小区地段学生外，剩余计划面向五山街公办、企事业单位办小学的天河户籍毕业生（电脑派位）",
      "plan_classes": 20,
      "school": "广州市天河区汇景实验学校",
      "school_id": "gz-440106-0d1e149e",
@@ -3327,7 +3327,7 @@
     "广州市天河外国语均和学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": null,
+     "mechanism_note": "剩余计划面向珠吉、前进、黄村、车陂4个街道范围内公办、企事业单位配套小区的天河户籍毕业生（电脑派位）",
      "plan_classes": 6,
      "school": "广州市天河外国语均和学校",
      "school_id": "gz-440106-051b0157",
@@ -3337,7 +3337,7 @@
     "广州市天河外国语学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": null,
+     "mechanism_note": "剩余计划面向岗顶街道范围内公办、企事业单位配套小区及东圃快速路以北区域内公办完全小学的天河户籍毕业生（电脑派位）",
      "plan_classes": 6,
      "school": "广州市天河外国语学校",
      "school_id": null,
@@ -3452,7 +3452,7 @@
     "广州市第一一三中学陶育实验学校": {
      "group_members": null,
      "mechanism": "single_zone",
-     "mechanism_note": null,
+     "mechanism_note": "含港澳子弟45人招生计划",
      "plan_classes": 4,
      "school": "广州市第一一三中学陶育实验学校",
      "school_id": "gz-440106-7c81ab92",

@@ -666,8 +666,13 @@ def build_haizhu_official():
     }
 
 def build_tianhe_official():
-    """天河：附件6 公办 24（划片范围+班数）+ 附件7 企事业 3 + 附件8 民办初中部 24。"""
+    """天河：附件6 公办 24（划片范围+班数）+ 附件7 企事业 3 + 附件8 民办初中部 24。
+    附件10 电脑派位：天外/清华/执信 zone 直接引用 → _expand_middle_texts 展开；华颖/省实
+    note 声明「部分招生计划采用电脑派位方式招生，详见附件10」→ 一校多规则，本处追加 single_paidui 记录；
+    华附（附件7 企事业办）备注「其中面向天河区电脑派位招收4班168人」→ scope 补附件10 段、机制 single_paidui。"""
     tr = json.load(open(os.path.join(RAW, "tianhe_2026_juniors.json")))
+    att = _tianhe_attachment()
+    a10 = att["a10_by_school"]
     recs = []
     for r in tr["gongban"]:
         school = SCHOOL_NORM.get(r["school"], r["school"])
@@ -686,18 +691,37 @@ def build_tianhe_official():
             **({"school_ids": sids} if sids else {}),
             "plan_classes": r["plan_classes"], "scope": _zone,
             **({"scope_school_ids": _ss} if _ss else {}),
-            # 附件6 公办划片：机制 single_zone，note 不再重复机制名（附件10 电脑派位记录由 _expand_middle_texts 覆盖为 single_paidui）
-            "mechanism": "single_zone", "mechanism_note": None,
+            # 附件6 公办划片：机制 single_zone（附件10 全量派位记录 zone「详见附件10」由 _expand_middle_texts 覆盖为 single_paidui）；
+            # note 不再重复机制名；华颖/省实「部分招生计划…详见附件10」由下方追加的 single_paidui 记录承载，划片记录 note 清空
+            "mechanism": "single_zone",
+            "mechanism_note": None if "详见附件10" in (r.get("note") or "") else (r.get("note") or None),
             "group_members": None,
         })
+        # 华颖/省实：官方 note「部分招生计划采用电脑派位方式招生，详见附件10」→ 划片之外的附加电脑派位批次，
+        # 一校多规则追加 single_paidui 记录（scope=附件10 段原文）
+        if sid in a10 and "详见附件10" in (r.get("note") or ""):
+            _a10_ss = _scope_primary_ids(a10[sid], "440106") if a10[sid] else None
+            recs.append({
+                "school": school, "school_id": sid,
+                **({"school_ids": sids} if sids else {}),
+                "plan_classes": None, "scope": a10[sid],
+                **({"scope_school_ids": _a10_ss} if _a10_ss else {}),
+                "mechanism": "single_paidui", "mechanism_note": None,
+                "group_members": None,
+            })
     for r in tr["qiye"]:
         _sid, _sids = match_school_ids(r["school"], "440106")
+        _scope = a10.get(_sid) if _sid else None
+        _ss = _scope_primary_ids(_scope, "440106") if _scope else None
         recs.append({
             "school": SCHOOL_NORM.get(r["school"], r["school"]), "school_id": _sid,
             **({"school_ids": _sids} if _sids else {}),
-            "plan_classes": r["plan_classes"], "scope": None,
-            # 附件7 企事业办学校：官方口径自主招生（华附初中部附件10 电脑派位段转录待补，已知缺口）
-            "mechanism": "min_zi_zhu", "mechanism_note": None,
+            "plan_classes": r["plan_classes"], "scope": _scope,
+            **({"scope_school_ids": _ss} if _ss else {}),
+            # 附件7 企事业办：华附备注「其中，面向天河区电脑派位招收4个班168人」→ 机制 single_paidui + scope=附件10 段；
+            # 其余企事业办（华工附/暨大附）无电脑派位依据 → min_zi_zhu（自主招生）
+            "mechanism": "single_paidui" if _sid in a10 else "min_zi_zhu",
+            "mechanism_note": None,
             "group_members": None,
         })
     for r in tr["minban"]:
