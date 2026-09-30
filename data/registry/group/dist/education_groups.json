@@ -1341,6 +1341,11 @@
           "relation_type": "same",
           "role": "成员校",
           "school_id": "gz-440106-efcdec9d"
+        },
+        {
+          "relation_type": "same",
+          "role": "核心校",
+          "school_id": "gz-440106-f7cdfb7e"
         }
       ],
       "source_urls": [
