@@ -481,8 +481,13 @@ for group in out["groups"]:
         runtime_group["source_urls"] = group["source_urls"]
     runtime_groups.append(runtime_group)
 out = {"groups": runtime_groups}
+# 产物确定性排序（2026-09-29）：members 按 school_id 稳定排序 + sort_keys 统一键序。
+# 注意：groups 数组顺序是 brand 归属契约（registry.ts 按数组顺序保留 school 首个集团归属），
+# 不得排序；groups 顺序由 merge_groups 源数据遍历顺序决定（确定性输入 → 产物确定）。
+for _g in out["groups"]:
+    _g["members"].sort(key=lambda m: (m.get("school_id") or "", m.get("name") or ""))
 with open(OUT_PATH, "w") as f:
-    json.dump(out, f, ensure_ascii=False, indent=2)
+    json.dump(out, f, ensure_ascii=False, indent=2, sort_keys=True)
 
 print(f"\n已写入 {OUT_PATH}")
 

@@ -1,23 +1,28 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { DISTRICTS } from '@gz/shared';
-import { entities, detailedRecords } from '../data';
+import { DISTRICTS, hydrate } from '@gz/shared';
+import { entities } from '../data';
+import detailedRecordsCompact from '../data/compact/awards/dist/detailed_records.js';
 
-type Competition = 'innovation' | 'chuangke' | 'science_literacy';
+type Competition = 'innovation' | 'chuangke' | 'science_literacy' | 'tech_sports' | 'science_experiment' | 'yueyunbei';
 type GroupBy = 'none' | 'district';
 type AwardStage = 'primary' | 'middle' | 'high' | 'secondary';
 type SelectionStage = Exclude<AwardStage, 'secondary'>;
-interface AwardRecord { competition: Competition; stage: AwardStage; year: number; school: string; project: string; leader?: string; members?: string; award: string; school_ids: string[]; }
+interface AwardRecord { competition: Competition; stage: AwardStage; year: number; school: string; project: string; person?: string; award: string; school_ids: string[]; }
 interface AwardSchool { key: string; name: string; district: string; stage: AwardStage; ids: string[]; records: AwardRecord[]; }
 
 const route = useRoute();
 const router = useRouter();
-const records = detailedRecords as unknown as AwardRecord[];
+/** 明细仅本页消费：直接 hydrate compact（不走 loaders，避免进公共 chunk 拖累详情页） */
+const records = hydrate(detailedRecordsCompact) as unknown as AwardRecord[];
 const COMPETITIONS: Array<{ value: Competition; label: string }> = [
   { value: 'innovation', label: '创新大赛' },
   { value: 'chuangke', label: '科技创客电视大赛' },
   { value: 'science_literacy', label: '科学素养大赛' },
+  { value: 'tech_sports', label: '科技体育教育竞赛' },
+  { value: 'science_experiment', label: '科学实验大赛' },
+  { value: 'yueyunbei', label: '粤韵杯' },
 ];
 const COMPETITION_LABEL = Object.fromEntries(COMPETITIONS.map((item) => [item.value, item.label])) as Record<Competition, string>;
 const STAGES: Array<{ value: SelectionStage; label: string }> = [
@@ -142,7 +147,7 @@ const groups = computed(() => {
 
 watch(() => [route.query.competition, route.query.stage, route.query.school], () => {
   const requested = route.query.competition;
-  if (requested === 'innovation' || requested === 'chuangke' || requested === 'science_literacy') {
+  if (requested === 'innovation' || requested === 'chuangke' || requested === 'science_literacy' || requested === 'tech_sports' || requested === 'science_experiment' || requested === 'yueyunbei') {
     selectedEvents.value = new Set(yearsOf(requested).map((itemYear) => eventKey(requested, itemYear)));
   }
   const requestedStage = route.query.stage;
@@ -215,7 +220,7 @@ function goBack() { window.history.back(); }
           <div v-for="(record, index) in school.records" :key="index" class="record-row">
             <div class="record-meta"><span class="year">{{ record.year }}</span><span class="medal" :class="medalClass(record.award)">{{ record.award }}</span><span v-if="selectedEvents.size !== yearsOf(record.competition).length" class="competition-tag">{{ COMPETITION_LABEL[record.competition] }}</span></div>
             <div class="project"><span class="record-label">项目</span>{{ record.project }}</div>
-            <div class="person"><span class="record-label">参赛学生</span>{{ record.members || record.leader }}</div>
+            <div class="person"><span class="record-label">参赛学生</span>{{ record.person }}</div>
           </div>
         </div>
         <p v-if="!group.schools.length" class="empty">没有符合当前筛选条件的获奖记录。</p>

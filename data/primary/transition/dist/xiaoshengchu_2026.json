@@ -156,14 +156,6 @@
     },
     {
       "id": 19,
-      "name": "协和学校（市属十二年制，小学部直升本校初中部，不参加荔湾区公办初中派位）",
-      "source_urls": [
-        "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
-      ],
-      "data_gaps": null
-    },
-    {
-      "id": 20,
       "name": "荔湾区小升初第5组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -171,7 +163,7 @@
       "data_gaps": null
     },
     {
-      "id": 21,
+      "id": 20,
       "name": "荔湾区小升初第6组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -179,7 +171,7 @@
       "data_gaps": null
     },
     {
-      "id": 22,
+      "id": 21,
       "name": "荔湾区小升初第7组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -187,7 +179,7 @@
       "data_gaps": null
     },
     {
-      "id": 23,
+      "id": 22,
       "name": "荔湾区小升初第8组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -195,7 +187,7 @@
       "data_gaps": null
     },
     {
-      "id": 24,
+      "id": 23,
       "name": "荔湾区小升初第9组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -203,7 +195,7 @@
       "data_gaps": null
     },
     {
-      "id": 25,
+      "id": 24,
       "name": "荔湾区小升初第10组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -211,7 +203,7 @@
       "data_gaps": null
     },
     {
-      "id": 26,
+      "id": 25,
       "name": "荔湾区小升初第11组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -219,7 +211,7 @@
       "data_gaps": null
     },
     {
-      "id": 27,
+      "id": 26,
       "name": "荔湾区小升初第12组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -227,7 +219,7 @@
       "data_gaps": null
     },
     {
-      "id": 28,
+      "id": 27,
       "name": "荔湾区小升初第13组（电脑派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
@@ -235,8 +227,16 @@
       "data_gaps": null
     },
     {
-      "id": 29,
+      "id": 28,
       "name": "荔湾区小升初第14组（电脑派位）",
+      "source_urls": [
+        "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
+      ],
+      "data_gaps": null
+    },
+    {
+      "id": 29,
+      "name": "协和学校（市属十二年制，小学部直升本校初中部，不参加荔湾区公办初中派位）",
       "source_urls": [
         "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
       ],
@@ -3520,14 +3520,29 @@
       "data_gaps": null
     },
     {
-      "school_id": "gz-440103-33b32c4c",
+      "school_id": "gz-440103-b62c9e61",
       "feed_school_ids": [
-        "gz-440103-e281e7d0"
+        "gz-440103-1f4697e3",
+        "gz-440103-042e23a5",
+        "gz-440103-2dc142ec",
+        "gz-440103-2653da64",
+        "gz-440103-3862ee98",
+        "gz-440103-816b22a3",
+        "gz-440103-b41a3512",
+        "gz-440103-dfff68f2",
+        "gz-440103-df535585",
+        "gz-440103-d78c848a",
+        "gz-440103-41cb6344",
+        "gz-440103-81794a0d",
+        "gz-440104-3b870a8e",
+        "gz-440103-c5d5de44",
+        "gz-440103-693412ae",
+        "gz-440103-bb7f78f0"
       ],
       "feed_unresolved": [],
-      "direct_feed_school_id": "gz-440103-e281e7d0",
-      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。 广州市协和学校面向对口直升。",
-      "group_id": 19,
+      "direct_feed_school_id": null,
+      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
+      "group_id": 18,
       "data_gaps": null
     },
     {
@@ -3609,6 +3624,33 @@
       "data_gaps": null
     },
     {
+      "school_id": "gz-440103-faabf468",
+      "feed_school_ids": [
+        "gz-440103-1f4697e3",
+        "gz-440103-042e23a5",
+        "gz-440103-2dc142ec",
+        "gz-440103-2653da64",
+        "gz-440103-3862ee98",
+        "gz-440103-816b22a3",
+        "gz-440103-b41a3512",
+        "gz-440103-dfff68f2",
+        "gz-440103-df535585",
+        "gz-440103-c9f13fde",
+        "gz-440103-8e11a7d3",
+        "gz-440103-81794a0d",
+        "gz-440103-d78c848a",
+        "gz-440103-41cb6344",
+        "gz-440103-c5d5de44",
+        "gz-440103-693412ae",
+        "gz-440103-bb7f78f0"
+      ],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
+      "group_id": 19,
+      "data_gaps": null
+    },
+    {
       "school_id": "gz-440103-ecc193c7",
       "feed_school_ids": [
         "gz-440103-1f4697e3",
@@ -3632,7 +3674,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 20,
+      "group_id": 19,
       "data_gaps": null
     },
     {
@@ -3659,34 +3701,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 20,
-      "data_gaps": null
-    },
-    {
-      "school_id": "gz-440103-faabf468",
-      "feed_school_ids": [
-        "gz-440103-1f4697e3",
-        "gz-440103-042e23a5",
-        "gz-440103-2dc142ec",
-        "gz-440103-2653da64",
-        "gz-440103-3862ee98",
-        "gz-440103-816b22a3",
-        "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
-        "gz-440103-c9f13fde",
-        "gz-440103-8e11a7d3",
-        "gz-440103-81794a0d",
-        "gz-440103-d78c848a",
-        "gz-440103-41cb6344",
-        "gz-440103-c5d5de44",
-        "gz-440103-693412ae",
-        "gz-440103-bb7f78f0"
-      ],
-      "feed_unresolved": [],
-      "direct_feed_school_id": null,
-      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 20,
+      "group_id": 19,
       "data_gaps": null
     },
     {
@@ -3713,7 +3728,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 20,
+      "group_id": 19,
       "data_gaps": null
     },
     {
@@ -3740,7 +3755,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 20,
+      "group_id": 19,
       "data_gaps": null
     },
     {
@@ -3762,6 +3777,32 @@
         "gz-440103-41cb6344",
         "gz-440103-c5d5de44",
         "gz-440103-693412ae",
+        "gz-440103-bb7f78f0"
+      ],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
+      "group_id": 19,
+      "data_gaps": null
+    },
+    {
+      "school_id": "gz-440103-eeee1923",
+      "feed_school_ids": [
+        "gz-440103-1f4697e3",
+        "gz-440103-2dc142ec",
+        "gz-440103-2653da64",
+        "gz-440103-c0d6f9a0",
+        "gz-440103-816b22a3",
+        "gz-440103-b41a3512",
+        "gz-440103-dfff68f2",
+        "gz-440103-df535585",
+        "gz-440103-d78c848a",
+        "gz-440103-41cb6344",
+        "gz-440103-b0abf891",
+        "gz-440103-b6850b3c",
+        "gz-440103-c5d5de44",
+        "gz-440103-693412ae",
+        "gz-440103-7207525c",
         "gz-440103-bb7f78f0"
       ],
       "feed_unresolved": [],
@@ -3793,33 +3834,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 21,
-      "data_gaps": null
-    },
-    {
-      "school_id": "gz-440103-eeee1923",
-      "feed_school_ids": [
-        "gz-440103-1f4697e3",
-        "gz-440103-2dc142ec",
-        "gz-440103-2653da64",
-        "gz-440103-c0d6f9a0",
-        "gz-440103-816b22a3",
-        "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
-        "gz-440103-d78c848a",
-        "gz-440103-41cb6344",
-        "gz-440103-b0abf891",
-        "gz-440103-b6850b3c",
-        "gz-440103-c5d5de44",
-        "gz-440103-693412ae",
-        "gz-440103-7207525c",
-        "gz-440103-bb7f78f0"
-      ],
-      "feed_unresolved": [],
-      "direct_feed_school_id": null,
-      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 21,
+      "group_id": 20,
       "data_gaps": null
     },
     {
@@ -3845,7 +3860,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 21,
+      "group_id": 20,
       "data_gaps": null
     },
     {
@@ -3856,8 +3871,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-2c188507",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -3868,7 +3881,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 22,
+      "group_id": 21,
       "data_gaps": null
     },
     {
@@ -3879,8 +3892,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-2c188507",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -3891,7 +3902,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 22,
+      "group_id": 21,
       "data_gaps": null
     },
     {
@@ -3902,8 +3913,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-2c188507",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -3914,7 +3923,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 22,
+      "group_id": 21,
       "data_gaps": null
     },
     {
@@ -3925,8 +3934,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-2c188507",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -3937,7 +3944,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 22,
+      "group_id": 21,
       "data_gaps": null
     },
     {
@@ -3948,8 +3955,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-2c188507",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -3960,7 +3965,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 22,
+      "group_id": 21,
       "data_gaps": null
     },
     {
@@ -3971,8 +3976,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-2c188507",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -3983,7 +3986,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 22,
+      "group_id": 21,
       "data_gaps": null
     },
     {
@@ -3994,9 +3997,28 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-2c188507",
+        "gz-440103-523446ce",
+        "gz-440103-53cac770",
+        "gz-440103-ff7538dc",
+        "gz-440103-7207525c",
+        "gz-440103-bb7f78f0"
+      ],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
+      "group_id": 21,
+      "data_gaps": null
+    },
+    {
+      "school_id": "gz-440103-728466ce",
+      "feed_school_ids": [
+        "gz-440103-1f4697e3",
+        "gz-440103-9b3ba6d8",
+        "gz-440103-4bb96190",
+        "gz-440103-c0d6f9a0",
+        "gz-440103-b41a3512",
+        "gz-440103-f05eda96",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
         "gz-440103-ff7538dc",
@@ -4010,29 +4032,6 @@
       "data_gaps": null
     },
     {
-      "school_id": "gz-440103-728466ce",
-      "feed_school_ids": [
-        "gz-440103-1f4697e3",
-        "gz-440103-9b3ba6d8",
-        "gz-440103-4bb96190",
-        "gz-440103-c0d6f9a0",
-        "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
-        "gz-440103-f05eda96",
-        "gz-440103-523446ce",
-        "gz-440103-53cac770",
-        "gz-440103-ff7538dc",
-        "gz-440103-7207525c",
-        "gz-440103-bb7f78f0"
-      ],
-      "feed_unresolved": [],
-      "direct_feed_school_id": null,
-      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 23,
-      "data_gaps": null
-    },
-    {
       "school_id": "gz-440103-6e10b35d",
       "feed_school_ids": [
         "gz-440103-1f4697e3",
@@ -4040,8 +4039,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f05eda96",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4052,7 +4049,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 23,
+      "group_id": 22,
       "data_gaps": null
     },
     {
@@ -4063,8 +4060,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f05eda96",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4075,7 +4070,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 23,
+      "group_id": 22,
       "data_gaps": null
     },
     {
@@ -4086,8 +4081,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f05eda96",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4098,7 +4091,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 23,
+      "group_id": 22,
       "data_gaps": null
     },
     {
@@ -4109,8 +4102,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f05eda96",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4121,7 +4112,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 23,
+      "group_id": 22,
       "data_gaps": null
     },
     {
@@ -4132,8 +4123,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f05eda96",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4144,7 +4133,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 23,
+      "group_id": 22,
       "data_gaps": null
     },
     {
@@ -4155,8 +4144,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f05eda96",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4167,7 +4154,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 23,
+      "group_id": 22,
       "data_gaps": null
     },
     {
@@ -4178,9 +4165,28 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f05eda96",
+        "gz-440103-523446ce",
+        "gz-440103-53cac770",
+        "gz-440103-ff7538dc",
+        "gz-440103-7207525c",
+        "gz-440103-bb7f78f0"
+      ],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
+      "group_id": 22,
+      "data_gaps": null
+    },
+    {
+      "school_id": "gz-440103-7a85adc9",
+      "feed_school_ids": [
+        "gz-440103-1f4697e3",
+        "gz-440103-9b3ba6d8",
+        "gz-440103-4bb96190",
+        "gz-440103-c0d6f9a0",
+        "gz-440103-b41a3512",
+        "gz-440103-2c188507",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
         "gz-440103-ff7538dc",
@@ -4194,29 +4200,6 @@
       "data_gaps": null
     },
     {
-      "school_id": "gz-440103-7a85adc9",
-      "feed_school_ids": [
-        "gz-440103-1f4697e3",
-        "gz-440103-9b3ba6d8",
-        "gz-440103-4bb96190",
-        "gz-440103-c0d6f9a0",
-        "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
-        "gz-440103-2c188507",
-        "gz-440103-523446ce",
-        "gz-440103-53cac770",
-        "gz-440103-ff7538dc",
-        "gz-440103-7207525c",
-        "gz-440103-bb7f78f0"
-      ],
-      "feed_unresolved": [],
-      "direct_feed_school_id": null,
-      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 24,
-      "data_gaps": null
-    },
-    {
       "school_id": "gz-440103-f8cc454e",
       "feed_school_ids": [
         "gz-440103-1f4697e3",
@@ -4224,8 +4207,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-2c188507",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4236,7 +4217,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 24,
+      "group_id": 23,
       "data_gaps": null
     },
     {
@@ -4247,9 +4228,28 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-2c188507",
+        "gz-440103-523446ce",
+        "gz-440103-53cac770",
+        "gz-440103-ff7538dc",
+        "gz-440103-7207525c",
+        "gz-440103-bb7f78f0"
+      ],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
+      "group_id": 23,
+      "data_gaps": null
+    },
+    {
+      "school_id": "gz-440103-0e2f79ce",
+      "feed_school_ids": [
+        "gz-440103-1f4697e3",
+        "gz-440103-9b3ba6d8",
+        "gz-440103-4bb96190",
+        "gz-440103-c0d6f9a0",
+        "gz-440103-b41a3512",
+        "gz-440103-55453ba4",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
         "gz-440103-ff7538dc",
@@ -4263,29 +4263,6 @@
       "data_gaps": null
     },
     {
-      "school_id": "gz-440103-0e2f79ce",
-      "feed_school_ids": [
-        "gz-440103-1f4697e3",
-        "gz-440103-9b3ba6d8",
-        "gz-440103-4bb96190",
-        "gz-440103-c0d6f9a0",
-        "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
-        "gz-440103-55453ba4",
-        "gz-440103-523446ce",
-        "gz-440103-53cac770",
-        "gz-440103-ff7538dc",
-        "gz-440103-7207525c",
-        "gz-440103-bb7f78f0"
-      ],
-      "feed_unresolved": [],
-      "direct_feed_school_id": null,
-      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 25,
-      "data_gaps": null
-    },
-    {
       "school_id": "gz-440103-a5de21fb",
       "feed_school_ids": [
         "gz-440103-1f4697e3",
@@ -4293,8 +4270,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-55453ba4",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4305,7 +4280,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 25,
+      "group_id": 24,
       "data_gaps": null
     },
     {
@@ -4316,8 +4291,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-55453ba4",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4328,7 +4301,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 25,
+      "group_id": 24,
       "data_gaps": null
     },
     {
@@ -4339,9 +4312,28 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-55453ba4",
+        "gz-440103-523446ce",
+        "gz-440103-53cac770",
+        "gz-440103-ff7538dc",
+        "gz-440103-7207525c",
+        "gz-440103-bb7f78f0"
+      ],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
+      "group_id": 24,
+      "data_gaps": null
+    },
+    {
+      "school_id": "gz-440103-28507a63",
+      "feed_school_ids": [
+        "gz-440103-1f4697e3",
+        "gz-440103-9b3ba6d8",
+        "gz-440103-4bb96190",
+        "gz-440103-c0d6f9a0",
+        "gz-440103-b41a3512",
+        "gz-440103-f203d28d",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
         "gz-440103-ff7538dc",
@@ -4355,15 +4347,13 @@
       "data_gaps": null
     },
     {
-      "school_id": "gz-440103-28507a63",
+      "school_id": "gz-440103-9ff7c5c3",
       "feed_school_ids": [
         "gz-440103-1f4697e3",
         "gz-440103-9b3ba6d8",
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f203d28d",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4374,7 +4364,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 26,
+      "group_id": 25,
       "data_gaps": null
     },
     {
@@ -4385,8 +4375,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f203d28d",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4397,30 +4385,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 26,
-      "data_gaps": null
-    },
-    {
-      "school_id": "gz-440103-69a306af",
-      "feed_school_ids": [
-        "gz-440103-1f4697e3",
-        "gz-440103-9b3ba6d8",
-        "gz-440103-4bb96190",
-        "gz-440103-c0d6f9a0",
-        "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
-        "gz-440103-f203d28d",
-        "gz-440103-523446ce",
-        "gz-440103-53cac770",
-        "gz-440103-ff7538dc",
-        "gz-440103-7207525c",
-        "gz-440103-bb7f78f0"
-      ],
-      "feed_unresolved": [],
-      "direct_feed_school_id": null,
-      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 26,
+      "group_id": 25,
       "data_gaps": null
     },
     {
@@ -4431,8 +4396,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f203d28d",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4443,7 +4406,28 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 26,
+      "group_id": 25,
+      "data_gaps": null
+    },
+    {
+      "school_id": "gz-440103-69a306af",
+      "feed_school_ids": [
+        "gz-440103-1f4697e3",
+        "gz-440103-9b3ba6d8",
+        "gz-440103-4bb96190",
+        "gz-440103-c0d6f9a0",
+        "gz-440103-b41a3512",
+        "gz-440103-f203d28d",
+        "gz-440103-523446ce",
+        "gz-440103-53cac770",
+        "gz-440103-ff7538dc",
+        "gz-440103-7207525c",
+        "gz-440103-bb7f78f0"
+      ],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
+      "group_id": 25,
       "data_gaps": null
     },
     {
@@ -4454,8 +4438,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f203d28d",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4466,30 +4448,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 26,
-      "data_gaps": null
-    },
-    {
-      "school_id": "gz-440103-2bc230e3",
-      "feed_school_ids": [
-        "gz-440103-1f4697e3",
-        "gz-440103-9b3ba6d8",
-        "gz-440103-4bb96190",
-        "gz-440103-c0d6f9a0",
-        "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
-        "gz-440103-f203d28d",
-        "gz-440103-523446ce",
-        "gz-440103-53cac770",
-        "gz-440103-ff7538dc",
-        "gz-440103-7207525c",
-        "gz-440103-bb7f78f0"
-      ],
-      "feed_unresolved": [],
-      "direct_feed_school_id": null,
-      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 26,
+      "group_id": 25,
       "data_gaps": null
     },
     {
@@ -4500,8 +4459,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f203d28d",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4512,7 +4469,28 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 26,
+      "group_id": 25,
+      "data_gaps": null
+    },
+    {
+      "school_id": "gz-440103-2bc230e3",
+      "feed_school_ids": [
+        "gz-440103-1f4697e3",
+        "gz-440103-9b3ba6d8",
+        "gz-440103-4bb96190",
+        "gz-440103-c0d6f9a0",
+        "gz-440103-b41a3512",
+        "gz-440103-f203d28d",
+        "gz-440103-523446ce",
+        "gz-440103-53cac770",
+        "gz-440103-ff7538dc",
+        "gz-440103-7207525c",
+        "gz-440103-bb7f78f0"
+      ],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
+      "group_id": 25,
       "data_gaps": null
     },
     {
@@ -4523,8 +4501,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f203d28d",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4535,7 +4511,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 26,
+      "group_id": 25,
       "data_gaps": null
     },
     {
@@ -4546,8 +4522,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f203d28d",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4558,7 +4532,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 26,
+      "group_id": 25,
       "data_gaps": null
     },
     {
@@ -4569,8 +4543,6 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f203d28d",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
@@ -4581,7 +4553,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 26,
+      "group_id": 25,
       "data_gaps": null
     },
     {
@@ -4592,12 +4564,30 @@
         "gz-440103-4bb96190",
         "gz-440103-c0d6f9a0",
         "gz-440103-b41a3512",
-        "gz-440103-dfff68f2",
-        "gz-440103-df535585",
         "gz-440103-f203d28d",
         "gz-440103-523446ce",
         "gz-440103-53cac770",
         "gz-440103-ff7538dc",
+        "gz-440103-7207525c",
+        "gz-440103-bb7f78f0"
+      ],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
+      "group_id": 25,
+      "data_gaps": null
+    },
+    {
+      "school_id": "gz-440103-9f5557ad",
+      "feed_school_ids": [
+        "gz-440103-1f4697e3",
+        "gz-440103-9b3ba6d8",
+        "gz-440103-4bb96190",
+        "gz-440103-53cac770",
+        "gz-440103-ff7538dc",
+        "gz-440103-55453ba4",
+        "gz-440103-f203d28d",
+        "gz-440103-523446ce",
         "gz-440103-7207525c",
         "gz-440103-bb7f78f0"
       ],
@@ -4624,7 +4614,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 27,
+      "group_id": 26,
       "data_gaps": null
     },
     {
@@ -4644,27 +4634,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 27,
-      "data_gaps": null
-    },
-    {
-      "school_id": "gz-440103-9f5557ad",
-      "feed_school_ids": [
-        "gz-440103-1f4697e3",
-        "gz-440103-9b3ba6d8",
-        "gz-440103-4bb96190",
-        "gz-440103-53cac770",
-        "gz-440103-ff7538dc",
-        "gz-440103-55453ba4",
-        "gz-440103-f203d28d",
-        "gz-440103-523446ce",
-        "gz-440103-7207525c",
-        "gz-440103-bb7f78f0"
-      ],
-      "feed_unresolved": [],
-      "direct_feed_school_id": null,
-      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 27,
+      "group_id": 26,
       "data_gaps": null
     },
     {
@@ -4684,7 +4654,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 27,
+      "group_id": 26,
       "data_gaps": null
     },
     {
@@ -4703,7 +4673,7 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
-      "group_id": 28,
+      "group_id": 27,
       "data_gaps": null
     },
     {
@@ -4722,6 +4692,17 @@
       "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。",
+      "group_id": 28,
+      "data_gaps": null
+    },
+    {
+      "school_id": "gz-440103-33b32c4c",
+      "feed_school_ids": [
+        "gz-440103-e281e7d0"
+      ],
+      "feed_unresolved": [],
+      "direct_feed_school_id": "gz-440103-e281e7d0",
+      "source_note": "2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。 广州市协和学校面向对口直升。",
       "group_id": 29,
       "data_gaps": null
     },
@@ -4859,10 +4840,10 @@
     },
     {
       "school_id": "gz-440111-b1484250",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "广州市三元里中学"
+      "feed_school_ids": [
+        "gz-440111-8629621c"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排",
       "group_id": 33,
@@ -4870,10 +4851,10 @@
     },
     {
       "school_id": "gz-440111-db593ac1",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "广州市三元里中学"
+      "feed_school_ids": [
+        "gz-440111-8629621c"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排",
       "group_id": 33,
@@ -4892,10 +4873,10 @@
     },
     {
       "school_id": "gz-440111-23d6fbf3",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "广州市三元里中学"
+      "feed_school_ids": [
+        "gz-440111-8629621c"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": null,
       "source_note": "2026年白云区义务教育学校招生计划表（公办初中含小升初对口）——附表2\"公办初中\"sheet，以\"招生对口小学\"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。 因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排",
       "group_id": 33,
@@ -6512,8 +6493,8 @@
     {
       "school_id": "gz-440111-36817b49",
       "feed_school_ids": [
-        "gz-440111-fd1c1c12",
-        "gz-440111-78d61733"
+        "gz-440111-78d61733",
+        "gz-440111-fd1c1c12"
       ],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -6524,8 +6505,8 @@
     {
       "school_id": "gz-440111-96ab2ca3",
       "feed_school_ids": [
-        "gz-440111-fd1c1c12",
-        "gz-440111-78d61733"
+        "gz-440111-78d61733",
+        "gz-440111-fd1c1c12"
       ],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -6536,8 +6517,8 @@
     {
       "school_id": "gz-440111-3218439b",
       "feed_school_ids": [
-        "gz-440111-fd1c1c12",
-        "gz-440111-78d61733"
+        "gz-440111-78d61733",
+        "gz-440111-fd1c1c12"
       ],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -6548,8 +6529,8 @@
     {
       "school_id": "gz-440111-77b8da86",
       "feed_school_ids": [
-        "gz-440111-fd1c1c12",
         "gz-440111-78d61733",
+        "gz-440111-fd1c1c12",
         "gz-440111-b2b78162"
       ],
       "feed_unresolved": [],
@@ -7733,6 +7714,7 @@
     {
       "school_id": "gz-440113-d1526099",
       "feed_school_ids": [
+        "gz-440113-c07e3ddb",
         "gz-440113-7cdbe028"
       ],
       "feed_unresolved": [],
@@ -7744,6 +7726,7 @@
     {
       "school_id": "gz-440113-7cdbe028",
       "feed_school_ids": [
+        "gz-440113-c07e3ddb",
         "gz-440113-7cdbe028"
       ],
       "feed_unresolved": [],
@@ -7755,6 +7738,7 @@
     {
       "school_id": "gz-440113-3853a52b",
       "feed_school_ids": [
+        "gz-440113-c07e3ddb",
         "gz-440113-7cdbe028"
       ],
       "feed_unresolved": [],
@@ -7799,7 +7783,7 @@
     {
       "school_id": "gz-440113-ecbfeed3",
       "feed_school_ids": [
-        "gz-440113-6ddbaaf6"
+        "gz-440113-0bb52d06"
       ],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -7810,7 +7794,7 @@
     {
       "school_id": "gz-440113-3433c09b",
       "feed_school_ids": [
-        "gz-440113-6ddbaaf6"
+        "gz-440113-0bb52d06"
       ],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -7821,7 +7805,7 @@
     {
       "school_id": "gz-440113-651a0fc2",
       "feed_school_ids": [
-        "gz-440113-6ddbaaf6"
+        "gz-440113-0bb52d06"
       ],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -7832,7 +7816,7 @@
     {
       "school_id": "gz-440113-6ddbaaf6",
       "feed_school_ids": [
-        "gz-440113-6ddbaaf6"
+        "gz-440113-0bb52d06"
       ],
       "feed_unresolved": [],
       "direct_feed_school_id": null,
@@ -14288,10 +14272,10 @@
     },
     {
       "school_id": "gz-440112-87756a6d",
-      "feed_school_ids": [],
-      "feed_unresolved": [
-        "广大附中黄埔实验学校（西校区）"
+      "feed_school_ids": [
+        "gz-440112-87756a6d"
       ],
+      "feed_unresolved": [],
       "direct_feed_school_id": "gz-440112-87756a6d",
       "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 对口直升：广大附中黄埔实验学校（西校区）（九年制学校内部直升）。",
       "group_id": 156,

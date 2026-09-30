@@ -22,7 +22,9 @@ import {
   innovationAwards,
   chuangkeAwards,
   scienceLiteracyAwards,
-  detailedRecords,
+  techSportsAwards,
+  scienceExperimentAwards,
+  yueyunbeiAwards,
   specialtySchools,
   civilizedCampusSchoolIds,
 } from '../data';
@@ -82,6 +84,7 @@ const badges = computed(() => model.value.badges);
 const headText = computed(() => model.value.headText);
 const legalEntityText = computed(() => model.value.legalEntityText);
 const enrollment = computed(() => model.value.enrollment);
+const nature = computed(() => model.value.nature);
 const feedJuniors = computed(() => model.value.feedJuniors);
 const feedGap = computed(() => model.value.feedGap);
 const feedRows = computed(() => model.value.feedRows);
@@ -112,15 +115,56 @@ const chuangkeStage = computed(() => stage.value === 'middle' || stage.value ===
 const chuangkeData = computed(() => chuangkeAwards[schoolId.value]?.chuangke_awards?.stages?.[chuangkeStage.value]);
 const chuangkeGroupLabel = computed(() => chuangkeStage.value === 'secondary' ? '中学组（初中+高中）' : stageLabel.value);
 const scienceLiteracyData = computed(() => scienceLiteracyAwards[schoolId.value]?.science_literacy_awards?.stages?.[stage.value]);
+/** 科技体育教育竞赛：小学组及测向10-12岁→primary；中学组及测向15岁→secondary（初高合并）；测向18岁→high。
+ *  高中详情页合并 secondary（中学组）+ high（测向18岁）两档。 */
+const techSportsStage = computed(() => (stage.value === 'middle' ? 'secondary' : stage.value));
+const techSportsData = computed(() => {
+  const stages = techSportsAwards[schoolId.value]?.tech_sports_awards?.stages;
+  if (!stages) return undefined;
+  if (stage.value === 'high') {
+    const merged: Record<string, { gold: number; silver: number; bronze: number }> = {};
+    for (const key of ['secondary', 'high'] as const) {
+      for (const [year, counts] of Object.entries(stages[key] || {})) {
+        merged[year] = {
+          gold: (merged[year]?.gold || 0) + counts.gold,
+          silver: (merged[year]?.silver || 0) + counts.silver,
+          bronze: (merged[year]?.bronze || 0) + counts.bronze,
+        };
+      }
+    }
+    return Object.keys(merged).length ? merged : undefined;
+  }
+  return stages[techSportsStage.value];
+});
+/** 科学实验大赛获奖：按当前 school_id 与学段直接查（2025 首届） */
+const scienceExperimentData = computed(() => scienceExperimentAwards[schoolId.value]?.science_experiment_awards?.stages?.[stage.value]);
+/** 粤韵杯获奖：按当前 school_id 与学段直接查（小学/初中/高中组），优胜奖不计数 */
+const yueyunbeiData = computed(() => yueyunbeiAwards[schoolId.value]?.yueyunbei_awards?.stages?.[stage.value]);
 const awardYears = computed(() => awardData.value ? Object.keys(awardData.value).sort().reverse() : []);
-const awardRecords = detailedRecords as Array<{ competition?: string; year?: number }>;
-function competitionYearsLabel(competition: string) {
-  const years = [...new Set(awardRecords.filter((record) => record.competition === competition && Number.isFinite(record.year)).map((record) => record.year as number))].sort((a, b) => a - b);
-  return years.length > 1 ? `${years[0]}-${years[years.length - 1]}` : (years[0] || '');
+/** 赛事年份标签：从各赛事 compiled 聚合（school×stage×year 计数）推导全局年份，
+ *  不再依赖 3.8MB 明细数据（gzip 738KB）——详情页只展示年份区间，明细由获奖页消费。 */
+type AwardsIndex = Record<string, { [competition: string]: { stages: Record<string, Record<string, { gold: number; silver: number; bronze: number }>> } }>;
+function competitionYearsLabel(data: AwardsIndex, competition: string) {
+  const years = new Set<number>();
+  for (const entry of Object.values(data)) {
+    const comp = entry[`${competition}_awards`];
+    if (!comp?.stages) continue;
+    for (const byYear of Object.values(comp.stages)) {
+      for (const y of Object.keys(byYear)) {
+        const n = Number(y);
+        if (Number.isFinite(n)) years.add(n);
+      }
+    }
+  }
+  const sorted = [...years].sort((a, b) => a - b);
+  return sorted.length > 1 ? `${sorted[0]}-${sorted[sorted.length - 1]}` : (sorted[0] ? String(sorted[0]) : '');
 }
-const innovationYearsLabel = computed(() => competitionYearsLabel('innovation'));
-const chuangkeYearsLabel = computed(() => competitionYearsLabel('chuangke'));
-const scienceLiteracyYearsLabel = computed(() => competitionYearsLabel('science_literacy'));
+const innovationYearsLabel = computed(() => competitionYearsLabel(innovationAwards, 'innovation'));
+const chuangkeYearsLabel = computed(() => competitionYearsLabel(chuangkeAwards, 'chuangke'));
+const scienceLiteracyYearsLabel = computed(() => competitionYearsLabel(scienceLiteracyAwards, 'science_literacy'));
+const techSportsYearsLabel = computed(() => competitionYearsLabel(techSportsAwards, 'tech_sports'));
+const scienceExperimentYearsLabel = computed(() => competitionYearsLabel(scienceExperimentAwards, 'science_experiment'));
+const yueyunbeiYearsLabel = computed(() => competitionYearsLabel(yueyunbeiAwards, 'yueyunbei'));
 /** 特色校称号（官方认定·省市各级）：按当前 school_id 或校名匹配 dist 聚合，展开 recognition 池 */
 const specialtyEntry = computed(() => {
   const doc = specialtySchools;
@@ -176,8 +220,18 @@ function groupNameOf(gid?: string | null): string {
  * 顺序：对口直升(single_zone) → 多校电脑派位(group_paidui) → 其余按出现顺序（用户：先直升后派位）。
  * 同区同机制多条（多组派位）合并为一块；同校多机制并存时 plan_classes 是全校总计划，
  * 徽章不重复显示班数（避免 9+9=18 误读），由 totalPlanOfMulti 展示一次。
- * 区 Badge 仅在同机制跨区（天河/越秀并存的 2 所）时才显示，其余场景一律不显示（用户：删海珠区 Badge）。 */
+ * 区 Badge 仅在同机制跨区（天河/越秀并存的 2 所）时才显示，其余场景一律不显示（用户：删海珠区 Badge）。
+ * group_paidui 与 single_zone 同样展示 scope（招生服务范围/对口小学）与 mechanism_note（招生说明），
+ * 但跳过纯组名类备注（组名已由行 tag 展示，避免「海珠区…第1组」重复）。 */
 type MechBlock = { district: string; mech: string; label: string; plan: number | null; showDistrict: boolean; enrolls: (typeof middleEnrolls.value)[number][]; rows: { name: string; groupName: string; ids: string[] }[]; textScopes: string[]; notes: string[] };
+/** 纯组名/纯机制名备注跳过展示（组名与机制名已由徽章/行 tag 呈现）：「海珠区 2026 年…第1组」「荔湾区1组电脑派位」「电脑派位」 */
+function isRedundantNote(note: string): boolean {
+  const n = note.trim();
+  if (n === '电脑派位') return true;
+  if (/[第]?\s*[一二三四五六七八九十\d]+\s*组\s*$/.test(n)) return true;
+  if (/^[^；。]{0,14}电脑派位\s*$/.test(n)) return true;
+  return false;
+}
 const MECH_ORDER = ['single_zone', 'group_paidui'];
 const mechanismBlocks = computed<MechBlock[]>(() => {
   if (stage.value !== 'middle') return [];
@@ -210,14 +264,30 @@ const mechanismBlocks = computed<MechBlock[]>(() => {
         const g = gid ? middleEnrollmentGroups[gid] : null;
         const pid = g?.primaryIds ?? {};
         for (const p of Object.keys(pid)) b.rows.push({ name: p, groupName: groupNameOf(gid), ids: pid[p] ?? [] });
+        // 对口小学：scope_school_ids 命中的段 → 可点击行（单独展示在生源小学列表）；
+        // 招生服务范围直接展示 scope 原文，不从原文中剔除已提取的小学
+        const smap = rec.scope_school_ids ?? {};
+        const parts = (rec.scope ?? '').split(/[、，,;；]/).map(x => x.trim()).filter(Boolean);
+        for (const p of parts) {
+          if (smap[p]?.length) b.rows.push({ name: p, groupName: groupNameOf(gid), ids: smap[p] });
+        }
+        if (rec.scope) {
+          const full = rec.scope.trim();
+          if (full && !b.textScopes.includes(full)) b.textScopes.push(full);
+        }
+        // 招生说明：机制内去重只展示一条；纯组名备注跳过（组名已由行 tag 展示）
+        if (rec.mechanism_note && !isRedundantNote(rec.mechanism_note) && !b.notes.includes(rec.mechanism_note)) b.notes.push(rec.mechanism_note);
       } else if (b.mech === 'single_zone') {
-        // 直升小学聚合：scope_school_ids 命中的段 → 可点击行（tag=对口直升，样式同派位生源小学）；
-        // 未命中段（划片地段/说明文本）保留为招生服务范围文本；招生说明机制内去重只展示一条
+        // 直升小学聚合：scope_school_ids 命中的段 → 可点击行（tag=对口直升，单独展示在直升小学列表）；
+        // 招生服务范围直接展示 scope 原文，不从原文中剔除已提取的小学
         const smap = rec.scope_school_ids ?? {};
         const parts = (rec.scope ?? '').split(/[、，,;；]/).map(x => x.trim()).filter(Boolean);
         for (const p of parts) {
           if (smap[p]?.length) b.rows.push({ name: p, groupName: '对口直升', ids: smap[p] });
-          else b.textScopes.push(p);
+        }
+        if (rec.scope) {
+          const full = rec.scope.trim();
+          if (full && !b.textScopes.includes(full)) b.textScopes.push(full);
         }
         if (rec.mechanism_note && !b.notes.includes(rec.mechanism_note)) b.notes.push(rec.mechanism_note);
       }
@@ -442,7 +512,7 @@ function goCampus(item: { id: string; name: string }) {
         </template>
       </template>
 
-      <p v-if="!middleEnrolls.length" class="empty">暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。</p>
+      <p v-if="!middleEnrolls.length" class="empty">{{ nature === '民办' ? '暂无招生计划数据：2026 民办初中招生由区教育局统一组织（电脑摇号），以区教育局当年正式文件为准。' : '暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。' }}</p>
     </div>
 
     <!-- 多校区生源小学：弹窗选校区（与初中名额分配明细同款） -->
@@ -457,7 +527,7 @@ function goCampus(item: { id: string; name: string }) {
     </Teleport>
 
     <!-- 竞赛获奖 -->
-    <div v-if="awardData || chuangkeData || scienceLiteracyData" class="card">
+    <div v-if="awardData || chuangkeData || scienceLiteracyData || techSportsData || scienceExperimentData || yueyunbeiData" class="card">
       <div class="card-title">竞赛获奖</div>
       <div v-if="awardData" class="award-block">
         <RouterLink :to="{ path: '/awards', query: { competition: 'innovation', stage, school: schoolId } }" class="award-name">广州市中小学生创新大赛 ›</RouterLink>
@@ -487,6 +557,36 @@ function goCampus(item: { id: string; name: string }) {
           <span v-if="scienceLiteracyData[yr]?.gold" class="medal gold">{{ scienceLiteracyData[yr]?.gold }}个一等奖</span>
           <span v-if="scienceLiteracyData[yr]?.silver" class="medal silver">{{ scienceLiteracyData[yr]?.silver }}个二等奖</span>
           <span v-if="scienceLiteracyData[yr]?.bronze" class="medal bronze">{{ scienceLiteracyData[yr]?.bronze }}个三等奖</span>
+        </div>
+      </div>
+      <div v-if="techSportsData" class="award-block" style="margin-top:12px">
+        <RouterLink :to="{ path: '/awards', query: { competition: 'tech_sports', stage, school: schoolId } }" class="award-name">广州市中小学生科技体育教育竞赛 ›</RouterLink>
+        <p class="sub-note">{{ stage === 'high' ? '中学组 + 测向18岁组' : techSportsStage === 'secondary' ? '中学组（初中+高中）' : stageLabel + '组' }}（{{ techSportsYearsLabel }}）</p>
+        <div v-for="yr in Object.keys(techSportsData).sort().reverse()" :key="yr" class="award-year">
+          <span class="award-year-label">{{ yr }}</span>
+          <span v-if="techSportsData[yr]?.gold" class="medal gold">{{ techSportsData[yr]?.gold }}个一等奖</span>
+          <span v-if="techSportsData[yr]?.silver" class="medal silver">{{ techSportsData[yr]?.silver }}个二等奖</span>
+          <span v-if="techSportsData[yr]?.bronze" class="medal bronze">{{ techSportsData[yr]?.bronze }}个三等奖</span>
+        </div>
+      </div>
+      <div v-if="scienceExperimentData" class="award-block" style="margin-top:12px">
+        <RouterLink :to="{ path: '/awards', query: { competition: 'science_experiment', stage, school: schoolId } }" class="award-name">广州市中小学科学实验大赛 ›</RouterLink>
+        <p class="sub-note">{{ stageLabel }}组（{{ scienceExperimentYearsLabel }}）</p>
+        <div v-for="yr in Object.keys(scienceExperimentData).sort().reverse()" :key="yr" class="award-year">
+          <span class="award-year-label">{{ yr }}</span>
+          <span v-if="scienceExperimentData[yr]?.gold" class="medal gold">{{ scienceExperimentData[yr]?.gold }}个一等奖</span>
+          <span v-if="scienceExperimentData[yr]?.silver" class="medal silver">{{ scienceExperimentData[yr]?.silver }}个二等奖</span>
+          <span v-if="scienceExperimentData[yr]?.bronze" class="medal bronze">{{ scienceExperimentData[yr]?.bronze }}个三等奖</span>
+        </div>
+      </div>
+      <div v-if="yueyunbeiData" class="award-block" style="margin-top:12px">
+        <RouterLink :to="{ path: '/awards', query: { competition: 'yueyunbei', stage, school: schoolId } }" class="award-name">粤韵杯湾区中小学生文学与艺术素养大赛 ›</RouterLink>
+        <p class="sub-note">{{ stageLabel }}组（{{ yueyunbeiYearsLabel }}）</p>
+        <div v-for="yr in Object.keys(yueyunbeiData).sort().reverse()" :key="yr" class="award-year">
+          <span class="award-year-label">{{ yr }}</span>
+          <span v-if="yueyunbeiData[yr]?.gold" class="medal gold">{{ yueyunbeiData[yr]?.gold }}个一等奖</span>
+          <span v-if="yueyunbeiData[yr]?.silver" class="medal silver">{{ yueyunbeiData[yr]?.silver }}个二等奖</span>
+          <span v-if="yueyunbeiData[yr]?.bronze" class="medal bronze">{{ yueyunbeiData[yr]?.bronze }}个三等奖</span>
         </div>
       </div>
     </div>

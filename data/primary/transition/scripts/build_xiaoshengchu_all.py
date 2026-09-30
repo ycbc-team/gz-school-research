@@ -24,7 +24,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))), 'data', 'registry', "entity", 'scripts'))
-from school_match import normName, resolve_primary_entities  # noqa: E402  统一校名匹配（实体表别名+规则）
+from school_match import SchoolMatcher, normName, resolve_primary_entities  # noqa: E402  统一校名匹配（实体表别名+锚定表+规则）
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 DATA = os.path.join(ROOT, 'data', 'primary', 'transition')
@@ -33,14 +33,15 @@ OUT_DIR = os.path.join(DATA, 'dist')
 
 
 def load_entities_primary():
-    """primary 实体 + POI join 区码（district 由 POI.adcode 提供）。"""
+    """primary 实体 + POI join 区码（district 由 POI.adcode 提供）。school_id 供实体驱动 build 去重/缺口判定。"""
     poi_by_sid = {p['school_id']: p for p in load_poi() if p.get('school_id')}
     out = []
     for e in json.load(open(os.path.join(ROOT, 'data', 'registry', 'entity', 'dist', 'entities.json'), encoding='utf-8'))['entities']:
         if e['stage'] != 'primary':
             continue
         p = poi_by_sid.get(e['school_id'])
-        out.append({'name': e['name'], 'aliases': e.get('aliases', []), 'adcode': p['adcode'] if p else None})
+        out.append({'name': e['name'], 'aliases': e.get('aliases', []), 'adcode': p['adcode'] if p else None,
+                    'school_id': e['school_id']})
     return out
 
 # ---------- 公共 ----------
@@ -238,15 +239,51 @@ YX_NO_FEED = {
 
 
 def build_yuexiu():
-    def note_fn(official, pn):
+    """越秀：官方派位组表 11 组（YX_MAP 键驱动官方名全集；名字→实体解析全走 SchoolMatcher）。
+
+    2026-09-29 迁移：官方名→实体名映射下沉实体表（OFFICIAL_PRIMARY_ALIAS 单值别名 +
+    东山培正共享别名），本函数不再消费 YX_MAP 的 POI 名列表，改由 SchoolMatcher.resolve_all
+    展开实体记录（记录名=实体名，school_id 层与迁移前一致）；YX_DIRECT 直升与 YX_NO_FEED 缺口保留。"""
+    matcher = SchoolMatcher.load()
+
+    def note_fn(official, ent_name):
         g = YX_OFFICIAL_GROUP[official]
         direct = YX_DIRECT.get(official)
         feed = YX_JUNIORS[g].copy()
         if direct and direct not in feed:
             feed.insert(0, direct)
         return feed, f'越秀区小升初第{g}组（多校划片·电脑派位）', direct
-    return build_district('440104', '越秀区', YX_MAP, YX_DIRECT, YX_NO_FEED,
-                          YX_SRC, YX_NOTE, note_fn)
+
+    out, covered_sids = [], set()
+    unresolved = []
+    # MAP 值（POI 名列表）已随 SchoolMatcher 迁移废弃（2026-09-29），仅键承载官方名全集；
+    # 显式宁缺名单防误配/待核（见各区 _NORESOLVE）
+    for official in YX_MAP:
+        hits = matcher.resolve_all(official, preferred_adcode='440104', preferred_stage='小学')
+        if not hits:
+            unresolved.append(official)
+            continue
+        for r in hits:
+            ent_name = r['matched_name']
+            if r['school_id'] in covered_sids:
+                continue
+            feed, group, direct = note_fn(official, ent_name)
+            out.append(rec(ent_name, group, feed, direct, YX_SRC,
+                           YX_NOTE + (f' {direct}面向对口直升。' if direct else ''), None))
+            covered_sids.add(r['school_id'])
+    if unresolved:
+        print('  [越秀] 官方小学实体别名未命中:', unresolved)
+    # 缺口（民办/特殊：遍历越秀 primary POI，未覆盖 → YX_NO_FEED 说明或 missing）
+    missing = []
+    for p in (s for s in load_poi() if s.get('adcode') == '440104'):
+        if p.get('school_id') in covered_sids:
+            continue
+        if p['name'] in YX_NO_FEED:
+            out.append(rec(p['name'], '不参与公办电脑派位', [], None, YX_SRC,
+                           '民办/特殊教育/官方未单列。', YX_NO_FEED[p['name']]))
+        else:
+            missing.append(p['name'])
+    return out, covered_sids, missing
 
 
 # ---------- 荔湾 ----------
@@ -255,84 +292,6 @@ LW_SRC = 'http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.ht
 LW_NOTE = ('2026年荔湾区公办初中招生方案附件3《电脑派位分组表》（14组，每组15-16个初中志愿单位）；'
            '九年制/十二年制学校小学部按所在组参与派位，部分学校可本校直升（协和、真光附属等）。')
 
-# 官方分组表小学名 → POI 名（别名依据：集团化更名、单校区历史名、官网联系表地址核验）
-LW_MAP = {
-    # 1组
-    '广州市第一中学附属环市西路小学（竹苑校区、绿森林校区）': ['环市西路小学', '荔湾区环市西路小学(绿森林校区)'],
-    '广州市西关外国语学校附属流花小学': ['广州市流花路小学', '流花路小学(东校区)'],
-    '华侨小学翠园学校': ['广州市荔湾区华侨小学翠园学校'],
-    '广雅小学（东风西校区、岭南湾畔校区）': ['广雅小学', '广雅小学(东风西校区)'],
-    # 2组
-    '华侨小学（校本部）': ['荔湾区华侨小学(西校区)'],   # 单校区（南岸路61号，官方2025联系表+抖音2026确认单校区），POI"(西校区)"为历史称呼
-    '华侨小学汇龙学校': ['汇龙小学'],
-    '广州市西关外国语学校（泮溪校区）': ['广州市西关外国语学校泮溪校区'],
-    '广州市西关外国语学校附属西华小学': ['西华路小学'],   # 曾用名=广州市荔湾区西华路小学（天眼查）
-    '广州市第四中学附属芦荻西小学': ['广州市第四中学附属芦荻西小学', '芦荻西小学(桃源校区)'],
-    # 3组
-    '乐贤坊小学（校本部）': ['乐贤坊小学'],
-    '乐贤坊小学（荔枝湾校区）': ['乐贤坊小学(荔枝湾校区)'],
-    '乐贤坊小学宝源学校': ['宝源小学'],   # 乐贤坊教育集团宝源学校=原宝源小学
-    '蒋光鼐纪念小学三元坊学校': ['三元坊小学'],   # NAME_MAP 已核（2024 集团化更名）
-    '西关实验小学（光复校区）': ['西关实验小学'],
-    '广州市第四中学附属耀华小学': ['耀华小学'],
-    # 4组
-    '西关培正小学（恩宁校区）': ['西关培正小学'],
-    '西关培正小学（如意坊校区）': ['西关培正小学'],   # 2026-09-10 高德核对：如意坊校区无独立 POI，坐标复用恩宁校区本部
-    '广州市协和学校（小学部）': ['广州市协和学校（小学部）'],   # 2026-09-10 中学层复用（坐标取自广州协和学校/应元颐和）；市属十二年制，
-                                                         # 小学部直升本校初中部，不参加荔湾派位（2026荔湾方案明文）
-    '广州市第一中学附属詹天佑小学': ['詹天佑小学', '詹天佑小学(珠玑校区)'],
-    '乐贤坊小学龙津学校': ['乐贤坊小学龙津学校'],
-    # 5组
-    '沙面小学（校本部、岭南校区、御景校区）': ['沙面小学(本校区)', '沙面小学岭南校区', '沙面小学(御景校区)'],
-    '蒋光鼐纪念小学': ['蒋光鼐纪念小学'],
-    '蒋光鼐纪念小学文昌学校': ['广州市荔湾区文昌小学', '广州市荔湾区文昌小学(东校区)'],   # 2024 更名（新快网2025-03）
-    # 6组
-    '沙面小学（柏悦湾校区、大坦沙校区）': ['沙面小学(柏悦湾校区)', '沙面小学(大坦沙校区)'],
-    '广州市第一中学双桥学校（小学部）': ['广州市第一中学双桥学校'],   # 2026-09-10 高德 exact（九年制，小学部→初中部直升）
-    # 7组
-    '康有为纪念小学（校本部）': ['广州市荔湾区康有为纪念小学(白鹅潭校区)'],   # 主校区（2025官方联系表唯一列出的康有为小学）
-    '康有为纪念小学（东漖校区）': ['康有为纪念小学东漖校区'],
-    '合兴苑小学': ['合兴苑小学'],
-    '合兴苑小学鸿图苑学校': ['鸿图苑小学'],   # 原鸿图苑小学（2023 并入合兴苑集团）
-    '西关实验小学（芳和校区）': ['西关实验小学(芳和校区)'],
-    '西关实验小学（芳园校区）': ['西关实验小学(芳园校区)'],
-    '广州市真光中学初中部茶滘校区北区（小学部）': ['广州市真光中学茶滘校区北区（小学部）'],   # POI 名省略"初中部"字样，同址同校区
-    # 8组
-    '西关培正小学（凯粤湾校区）': ['西关培正小学(凯粤湾校区)'],
-    '西关培正小学（芳信校区）': ['广州市荔湾区西关培正小学(芳信校区)'],
-    '林凤娥小学': ['林凤娥小学', '林凤娥小学(荔江美筑校区)'],
-    '康有为纪念小学五眼桥学校': ['康有为纪念小学五眼桥学校'],
-    '康有为纪念小学南塘学校': ['康有为纪念小学南塘学校'],
-    '合兴苑小学葵蓬学校': ['葵蓬小学'],   # 原葵蓬小学（2023 并入合兴苑集团）
-    '广州市真光中学附属小学（滘口校区）': ['广州市真光中学附属小学(滘口校区)'],   # 唯一校区（滘口），POI 标注建设中
-    # 9组
-    '西关实验小学海北学校': ['荔湾区海北小学'],   # 原海北小学（西关实验小学教育集团）
-    '西关实验小学增滘学校': ['广州市荔湾区西关实验小学增滘学校'],
-    '西关实验小学龙溪学校': ['广州市荔湾区龙溪小学'],   # 原龙溪小学（西关实验小学教育集团）
-    # 10组
-    '何香凝纪念学校': ['何香凝纪念学校'],
-    '芳村小学南漖学校': ['广州市荔湾区芳村小学南漖学校'],
-    '康有为纪念小学海中学校': ['康有为纪念小学海中学校'],
-    '广州市真光中学附属西塱小学': ['西塱小学'],   # NAME_MAP 已核
-    # 11组
-    '芳村小学（校本部）': ['芳村小学'],
-    '芳村小学（沙涌校区）': ['芳村小学'],   # 2026-09-10 高德核对：沙涌校区无独立 POI，坐标复用校本部（芳村小学 11 组派位）
-    '芳村小学新东学校': ['新东小学'],   # 原新东小学（芳村小学教育集团）
-    '芳村小学东沙学校': ['芳村小学东沙学校', '东沙小学(沙洛校区)'],   # 沙洛校区=芳村小学东沙学校沙洛校区（区政府2026-03场馆表）
-    '芳村小学实验学校': ['广州市荔湾区芳村实验小学'],   # 原芳村实验小学（芳村小学教育集团）
-    '广州市真光中学附属坑口小学': ['广州市坑口小学', '坑口小学四季花园校区'],   # NAME_MAP 已核（坑口小学）
-    '广州市真光中学附属鹤洞小学': ['鹤洞小学'],   # NAME_MAP 已核
-    '广州市真光中学附属培真小学': ['培真小学(平西校区)', '广州市真光中学附属培真小学(广船校区)'],
-    '广东外语外贸大学附属荔湾小学': ['广东外语外贸大学附属荔湾小学'],
-    # 12组
-    '广东实验中学荔湾学校（第一、二、三小学部）': ['广东实验中学荔湾学校第一小学部', '广东实验中学荔湾学校附属第二小学',
-                                         '广东实验中学荔湾学校(第三小学部)'],
-    '华南师范大学附属荔湾小学': ['华南师范大学附属荔湾小学'],
-    # 13组
-    '中国教育科学研究院荔湾实验学校（小学部）': ['中国教育科学研究院荔湾实验学校小学部'],   # NAME_MAP 已核
-    # 14组
-    '广东实验中学荔湾学校花地湾校区（小学部）': ['广东实验中学荔湾学校花地湾校区（小学部）'],   # 2026-09-10 中学层复用（坐标取自省实荔湾(初中部)，14 组派位）
-}
 
 # 组号 -> 初中志愿池（官方分组表原文）
 LW_JUNIORS = {
@@ -407,6 +366,11 @@ for _g, _names in [
     for n in _names:
         LW_OFFICIAL_GROUP[n] = _g
 
+# 官方名纯名歧义特判（2026-09-29 迁移说明）：下列官方转录名不带校区后缀，指向同组多校区实体。
+# 实体表 OFFICIAL_PRIMARY_ALIAS 的纯名别名规则「同区同段纯名只挂单实体可收敛」拒绝此类挂载
+# （数据质量测试 [3] 拦截：纯名挂多实体且无主 POI → resolve 无法收敛），因此实体表不挂，
+# 由 SchoolMatcher.RESOLVE_OVERRIDE 锚定表统一承接（所有业务共用，见 school_match.py）。
+
 # 不参与派位/官方未单列（POI 名 → 说明）
 LW_NO_FEED = {
     '君诚博雅实验学校(滘口校区)': '民办学校，不参与公办派位',  # 高德误名「广佛新城校区」=滘口校区（官方地址滘口村377），2026-09-18 并入
@@ -418,6 +382,14 @@ LW_NO_FEED = {
 
 
 def build_liwan():
+    """荔湾：官方派位组表 15 组（LW_OFFICIAL_GROUP 官方名→组号 × LW_JUNIORS 组内初中）。
+
+    2026-09-29 迁移：官方名→实体名映射全量下沉实体表（OFFICIAL_PRIMARY_ALIAS 收单值别名；
+    官方名「一名多校区」复合写法由 SchoolMatcher.RESOLVE_OVERRIDE 锚定表统一承接），
+    本函数不再维护名字映射表，改由 LW_OFFICIAL_GROUP 驱动 + SchoolMatcher.resolve_all
+    （实体别名 + 锚定表，所有业务同口径）展开校区记录；协和直升与 LW_NO_FEED 缺口保留。"""
+    matcher = SchoolMatcher.load()
+
     def note_fn(official, pn):
         if official == '广州市协和学校（小学部）':
             # 市属十二年制：小学部直升本校初中部，不参加荔湾派位（2026荔湾方案未列入分组表）
@@ -425,8 +397,41 @@ def build_liwan():
             return ['广州市协和学校'], '协和学校（市属十二年制，小学部直升本校初中部，不参加荔湾区公办初中派位）', '广州市协和学校'
         g = LW_OFFICIAL_GROUP[official]
         return LW_JUNIORS[g].copy(), f'荔湾区小升初第{g}组（电脑派位）', None
-    return build_district('440103', '荔湾区', LW_MAP, None, LW_NO_FEED,
-                          LW_SRC, LW_NOTE, note_fn)
+
+    out, covered_sids = [], set()
+    unresolved = []
+    # 1) 组表官方名 → 实体表别名解析 → 校区记录（LW_OFFICIAL_GROUP 键序 = 组 1..14 序）
+    for official in LW_OFFICIAL_GROUP:
+        hits = matcher.resolve_all(official, preferred_adcode='440103', preferred_stage='小学')
+        if not hits:
+            unresolved.append(official)
+            continue
+        for r in hits:
+            ent_name = r['matched_name']
+            if ent_name in covered_sids or r['school_id'] in covered_sids:
+                continue
+            feed, group, direct = note_fn(official, ent_name)
+            out.append(rec(ent_name, group, feed, direct, LW_SRC,
+                           LW_NOTE + (f' {direct}面向对口直升。' if direct else ''), None))
+            covered_sids.add(r['school_id'])
+    if unresolved:
+        print('  [荔湾] 官方小学实体别名未命中:', unresolved)
+    # 2) 协和单列（市属直升，不在分组表）
+    if '广州市协和学校（小学部）' not in covered_sids:
+        feed, group, direct = note_fn('广州市协和学校（小学部）', '广州市协和学校（小学部）')
+        out.append(rec('广州市协和学校（小学部）', group, feed, direct, LW_SRC,
+                       LW_NOTE + ' 广州市协和学校面向对口直升。', None))
+    # 3) 缺口（民办/特殊：遍历荔湾 primary POI，未覆盖 → LW_NO_FEED 说明或 missing）
+    missing = []
+    for p in (s for s in load_poi() if s.get('adcode') == '440103'):
+        if p.get('school_id') in covered_sids:
+            continue
+        if p['name'] in LW_NO_FEED:
+            out.append(rec(p['name'], '不参与公办电脑派位', [], None, LW_SRC,
+                           '民办/特殊教育/官方未单列。', LW_NO_FEED[p['name']]))
+        else:
+            missing.append(p['name'])
+    return out, covered_sids, missing
 
 
 # ---------- 白云 ----------
@@ -436,6 +441,11 @@ BW_NOTE = ('2026年白云区义务教育学校招生计划表（公办初中含�
            '以"招生对口小学"列反向构建（单校划片为主，部分多校分片/部分毕业生/摇号）。')
 
 # 官方小学名（初中对口列）→ POI 名。别名依据：区政府义务教育学校基本信息表/招生计划表、更名记录、同址核验。
+# 迁移后 MAP 值（POI 名列表）已废弃，仅键承载官方名全集（SchoolMatcher.resolve_all 解析）；
+# 以下官方小学名显式宁缺（resolve 会误配/官方已并入他校/待核）：
+BW_NORESOLVE = {
+    '江高镇中心小学': 'resolve 误配「广东技术师范大学白云实验小学」(gz-440111-f9ef2295)，宁缺待核',
+}
 BW_MAP = {
     # 新市片
     '广园小学': ['广园小学'],
@@ -733,6 +743,12 @@ BW_NO_FEED = {
 
 
 def build_baiyun():
+    """白云：官方初中对口表（BW_FEED 官方小学名→初中）× BW_MAP 键驱动官方名全集。
+
+    2026-09-29 迁移：官方名→实体名映射下沉实体表（OFFICIAL_PRIMARY_ALIAS 单值别名 +
+    纯名共享别名），本函数不再消费 BW_MAP 的 POI 名列表，改由 SchoolMatcher.resolve_all
+    展开实体记录（记录名=实体名，school_id 层与迁移前一致）；BW_NO_FEED 缺口保留。"""
+    matcher = SchoolMatcher.load()
     # 反向：官方小学名 → [初中]
     prim2jun = {}
     jun2note = {}
@@ -740,50 +756,49 @@ def build_baiyun():
         jun2note[jn] = note
         for p in prims:
             prim2jun.setdefault(p, []).append((jn, mech))
-    # 官方小学名 → POI 记录
-    poi = load_poi()
     records = []
-    covered = set()
-    mapped_vals = set()
-    for vals in BW_MAP.values():
-        mapped_vals.update(vals)
-    # 校验 POI 名存在
-    poi_names = {s['name'] for s in poi if s['adcode'] == '440111'}
-    for official, vals in BW_MAP.items():
-        for v in vals:
-            if v not in poi_names:
-                print(f'  [白云] 映射目标不存在于 POI: {v}（来自 {official}）')
-    for official, poi_names_list in BW_MAP.items():
-        if not poi_names_list:
-            print(f'  [白云] 官方对口小学 POI 缺失（官方有、POI 无）: {official}')
+    covered_sids = set()
+    unresolved = []
+    for official in BW_MAP:
+        if official in BW_NORESOLVE:
+            print(f'  [白云] 显式宁缺（官方有、resolve 误配/待核）: {official}')
+            unresolved.append(official)
             continue
         juniors = prim2jun.get(official, [])
         if not juniors:
             print(f'  [白云] 未出现在 BW_FEED 的官方小学: {official}')
             continue
+        hits = matcher.resolve_all(official, preferred_adcode='440111', preferred_stage='小学')
+        if not hits:
+            unresolved.append(official)
+            continue
         mech_set = {m for _, m in juniors}
         mech_label = '；'.join(sorted(mech_set))
-        for pn in poi_names_list:
-            if pn in covered:
+        jn_list = [j for j, _ in juniors]
+        notes = [jun2note.get(j, '') for j in jn_list]
+        note_txt = '；'.join(n for n in notes if n)
+        for r in hits:
+            ent_name = r['matched_name']
+            if r['school_id'] in covered_sids:
                 continue
-            jn_list = [j for j, _ in juniors]
-            notes = [jun2note.get(j, '') for j in jn_list]
-            note_txt = '；'.join(n for n in notes if n)
-            records.append(rec(pn, f'白云区小升初对口（{mech_label}）', jn_list, None, BW_SRC,
+            records.append(rec(ent_name, f'白云区小升初对口（{mech_label}）', jn_list, None, BW_SRC,
                                BW_NOTE + ' ' + note_txt, None))
-            covered.add(pn)
+            covered_sids.add(r['school_id'])
+    if unresolved:
+        print('  [白云] 官方小学实体别名未命中:', unresolved)
     # 未覆盖 POI → 缺口
     missing = []
-    for s in poi:
-        if s['adcode'] != '440111':
+    for s in load_poi():
+        if s.get('adcode') != '440111':
             continue
-        if s['name'] not in covered:
-            if s['name'] in BW_NO_FEED:
-                records.append(rec(s['name'], '不参与公办派位/待核', [], None, BW_SRC,
-                                   '民办/其他。', BW_NO_FEED[s['name']]))
-            else:
-                missing.append(s['name'])
-    return records, covered, missing
+        if s.get('school_id') in covered_sids:
+            continue
+        if s['name'] in BW_NO_FEED:
+            records.append(rec(s['name'], '不参与公办派位/待核', [], None, BW_SRC,
+                               '民办/其他。', BW_NO_FEED[s['name']]))
+        else:
+            missing.append(s['name'])
+    return records, covered_sids, missing
 
 
 # ---------- 番禺 ----------
@@ -1171,42 +1186,48 @@ PY_NO_FEED = {
 
 
 def build_panyu():
-    poi = load_poi()
+    """番禺：官方小学招生地段（PY_FEED 官方名→对口初中）× PY_MAP 键驱动官方名全集。
+
+    2026-09-29 迁移：官方名→实体名解析全由实体表 OFFICIAL_PRIMARY_ALIAS 承担（番禺无
+    需额外下沉），本函数改由 SchoolMatcher.resolve_all 展开实体记录（记录名=实体名，
+    school_id 层与迁移前一致）；PY_NO_FEED 缺口保留。"""
+    matcher = SchoolMatcher.load()
     prim2jun = {}
     for official, (mech, jns, note) in PY_FEED.items():
         prim2jun[official] = (mech, jns, note)
-    poi_names = {s['name'] for s in poi if s['adcode'] == '440113'}
     records = []
-    covered = set()
-    for official, vals in PY_MAP.items():
-        for v in vals:
-            if v not in poi_names:
-                print(f'  [番禺] 映射目标不存在于 POI: {v}（来自 {official}）')
-    for official, vals in PY_MAP.items():
-        if not vals:
-            print(f'  [番禺] 官方公办小学 POI 缺失: {official}')
-            continue
+    covered_sids = set()
+    unresolved = []
+    for official in PY_MAP:
         if official not in prim2jun:
             print(f'  [番禺] 未出现在 PY_FEED 的官方小学: {official}')
             continue
         mech, jns, note = prim2jun[official]
-        for pn in vals:
-            if pn in covered:
-                continue
-            records.append(rec(pn, f'番禺区小升初对口（{mech}）', jns, None, PY_SRC,
-                               PY_NOTE + ' ' + note, None))
-            covered.add(pn)
-    missing = []
-    for s in poi:
-        if s['adcode'] != '440113':
+        hits = matcher.resolve_all(official, preferred_adcode='440113', preferred_stage='小学')
+        if not hits:
+            unresolved.append(official)
             continue
-        if s['name'] not in covered:
-            if s['name'] in PY_NO_FEED:
-                records.append(rec(s['name'], '不参与公办派位/待核', [], None, PY_SRC,
-                                   '民办/其他。', PY_NO_FEED[s['name']]))
-            else:
-                missing.append(s['name'])
-    return records, covered, missing
+        for r in hits:
+            ent_name = r['matched_name']
+            if r['school_id'] in covered_sids:
+                continue
+            records.append(rec(ent_name, f'番禺区小升初对口（{mech}）', jns, None, PY_SRC,
+                               PY_NOTE + ' ' + note, None))
+            covered_sids.add(r['school_id'])
+    if unresolved:
+        print('  [番禺] 官方小学实体别名未命中:', unresolved)
+    missing = []
+    for s in load_poi():
+        if s.get('adcode') != '440113':
+            continue
+        if s.get('school_id') in covered_sids:
+            continue
+        if s['name'] in PY_NO_FEED:
+            records.append(rec(s['name'], '不参与公办派位/待核', [], None, PY_SRC,
+                               '民办/其他。', PY_NO_FEED[s['name']]))
+        else:
+            missing.append(s['name'])
+    return records, covered_sids, missing
 
 
 # ---------- 海珠 ----------
@@ -1406,18 +1427,16 @@ HZ_NO_FEED = {
 
 
 def build_haizhu():
-    poi = load_poi()
-    poi_names = {s['name'] for s in poi if s['adcode'] == '440105'}
+    """海珠：官方分组表（HZ_MAP 键驱动官方名全集；HZ_PRIM_GROUP/HZ_DIRECT 组与直升）。
+
+    2026-09-29 迁移：官方名→实体名映射全量由实体表 OFFICIAL_PRIMARY_ALIAS 承担（海珠无
+    需额外下沉），本函数改由 SchoolMatcher.resolve_all 展开实体记录（记录名=实体名，
+    school_id 层与迁移前一致）；HZ_NO_FEED 缺口保留。"""
+    matcher = SchoolMatcher.load()
     records = []
-    covered = set()
-    for official, vals in HZ_MAP.items():
-        for v in vals:
-            if v not in poi_names:
-                print(f'  [海珠] 映射目标不存在于 POI: {v}（来自 {official}）')
-    for official, vals in HZ_MAP.items():
-        if not vals:
-            print(f'  [海珠] 官方小学 POI 缺失: {official}')
-            continue
+    covered_sids = set()
+    unresolved = []
+    for official in HZ_MAP:
         if official in HZ_PRIM_GROUP:
             g = HZ_PRIM_GROUP[official]
             group_label = f'海珠区公办初中第{g}组电脑派位'
@@ -1433,22 +1452,30 @@ def build_haizhu():
             else:
                 note = f'对口直升：{direct}。'
                 jns = [direct]
-        for pn in vals:
-            if pn in covered:
-                continue
-            records.append(rec(pn, group_label, jns, direct, HZ_SRC, HZ_NOTE + ' ' + note, None))
-            covered.add(pn)
-    missing = []
-    for s in poi:
-        if s['adcode'] != '440105':
+        hits = matcher.resolve_all(official, preferred_adcode='440105', preferred_stage='小学')
+        if not hits:
+            unresolved.append(official)
             continue
-        if s['name'] not in covered:
-            if s['name'] in HZ_NO_FEED:
-                records.append(rec(s['name'], '不参与公办派位/待核', [], None, HZ_SRC,
-                                   '民办/其他。', HZ_NO_FEED[s['name']]))
-            else:
-                missing.append(s['name'])
-    return records, covered, missing
+        for r in hits:
+            ent_name = r['matched_name']
+            if r['school_id'] in covered_sids:
+                continue
+            records.append(rec(ent_name, group_label, jns, direct, HZ_SRC, HZ_NOTE + ' ' + note, None))
+            covered_sids.add(r['school_id'])
+    if unresolved:
+        print('  [海珠] 官方小学实体别名未命中:', unresolved)
+    missing = []
+    for s in load_poi():
+        if s.get('adcode') != '440105':
+            continue
+        if s.get('school_id') in covered_sids:
+            continue
+        if s['name'] in HZ_NO_FEED:
+            records.append(rec(s['name'], '不参与公办派位/待核', [], None, HZ_SRC,
+                               '民办/其他。', HZ_NO_FEED[s['name']]))
+        else:
+            missing.append(s['name'])
+    return records, covered_sids, missing
 
 
 # ---------- 天河 ----------
@@ -1712,6 +1739,12 @@ HP_NOTE = ('2026年黄埔区义务教育学校招生工作实施细则（穗埔�
 # - 凤尾小学（官方）：POI 库仅有"凤尾学校"，非官方 2026 名，不强行映射；
 # - 华中师范大学黄埔实验学校：2026-09 新启用公办十二年制（红山街双沙片区，中建海丝城配建），
 #   未在 2026-04-28 招生细则中单列小升初，首届新生 2026 年 9 月入学（hp.gov.cn 揭牌报道）。
+# 迁移后 MAP 值（POI 名列表）已废弃，仅键承载官方名全集（SchoolMatcher.resolve_all 解析）；
+# 以下官方小学名显式宁缺（官方已并入他校/待核未确认同校）：
+HP_NORESOLVE = {
+    '沙步小学（2026并入铁铮学校）': '官方 2026 无沙步小学（并入铁铮学校，附件4 #27 明文），不单列',
+    '凤尾小学': '官方 2026 名"凤尾小学"，POI 仅"凤尾学校"，待核是否同校（不强行映射）',
+}
 HP_MAP = {
     '荔园小学': ['荔园小学'],
     '怡园小学（东、西、北校区）': ['怡园小学(东校区)', '怡园小学(西校区)', '怡园小学北校区'],
@@ -1903,17 +1936,20 @@ HP_NO_FEED = {
 
 
 def build_huangpu():
-    poi = load_poi()
-    poi_names = {s['name'] for s in poi if s['adcode'] == '440112'}
+    """黄埔：官方分组表（HP_MAP 键驱动官方名全集；HP_PRIM_GROUP/HP_DIRECT 组与直升）。
+
+    2026-09-29 迁移：官方名「一名多校区」聚合写法（怡园/石化/新港/科学城/长岭居 5 条）下沉
+    SchoolMatcher.RESOLVE_OVERRIDE 锚定表，其余单值解析全由实体表 OFFICIAL_PRIMARY_ALIAS
+    承担；本函数改由 SchoolMatcher.resolve_all 展开实体记录（记录名=实体名，school_id 层
+    与迁移前一致）；HP_NO_FEED 缺口保留。"""
+    matcher = SchoolMatcher.load()
     records = []
-    covered = set()
-    for official, vals in HP_MAP.items():
-        for v in vals:
-            if v not in poi_names:
-                print(f'  [黄埔] 映射目标不存在于 POI: {v}（来自 {official}）')
-    for official, vals in HP_MAP.items():
-        if not vals:
-            print(f'  [黄埔] 官方小学 POI 缺失: {official}')
+    covered_sids = set()
+    unresolved = []
+    for official in HP_MAP:
+        if official in HP_NORESOLVE:
+            print(f'  [黄埔] 显式宁缺（官方已并入/待核）: {official}')
+            unresolved.append(official)
             continue
         g = HP_PRIM_GROUP.get(official)
         if g:
@@ -1932,23 +1968,31 @@ def build_huangpu():
             else:
                 note = f'对口直升：{dn}（{cond}）。'
                 feed = [dn]
-        for pn in vals:
-            if pn in covered:
-                continue
-            records.append(rec(pn, group_label, feed, direct[0] if direct else None, HP_SRC,
-                               HP_NOTE + ' ' + note, None))
-            covered.add(pn)
-    missing = []
-    for s in poi:
-        if s['adcode'] != '440112':
+        hits = matcher.resolve_all(official, preferred_adcode='440112', preferred_stage='小学')
+        if not hits:
+            unresolved.append(official)
             continue
-        if s['name'] not in covered:
-            if s['name'] in HP_NO_FEED:
-                records.append(rec(s['name'], '不参与公办派位/待核', [], None, HP_SRC,
-                                   '民办/待核。', HP_NO_FEED[s['name']]))
-            else:
-                missing.append(s['name'])
-    return records, covered, missing
+        for r in hits:
+            ent_name = r['matched_name']
+            if r['school_id'] in covered_sids:
+                continue
+            records.append(rec(ent_name, group_label, feed, direct[0] if direct else None, HP_SRC,
+                               HP_NOTE + ' ' + note, None))
+            covered_sids.add(r['school_id'])
+    if unresolved:
+        print('  [黄埔] 官方小学实体别名未命中:', unresolved)
+    missing = []
+    for s in load_poi():
+        if s.get('adcode') != '440112':
+            continue
+        if s.get('school_id') in covered_sids:
+            continue
+        if s['name'] in HP_NO_FEED:
+            records.append(rec(s['name'], '不参与公办派位/待核', [], None, HP_SRC,
+                               '民办/待核。', HP_NO_FEED[s['name']]))
+        else:
+            missing.append(s['name'])
+    return records, covered_sids, missing
 
 
 # ---------- 主流程 ----------
@@ -1966,8 +2010,11 @@ DISTRICTS = {
 
 def dump(district, label, records, covered, missing):
     path = os.path.join(OUT_DIR, f'xiaoshengchu_{district}.json')
+    # 产物确定性排序（2026-09-29）：records 按 name 稳定排序 + sort_keys 统一键序，
+    # 构建逻辑再变也不产生顺序 diff（跨版本 review 只看内容增删）。
+    records.sort(key=lambda r: r['name'])
     json.dump({'year': 2026, 'district': label, 'records': records},
-              open(path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+              open(path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1, sort_keys=True)
     poi = load_poi()
     total = len([s for s in poi if s['adcode'] == DISTRICT_ADCODE[district]])
     print(f'[构建] {label}: 覆盖 {len(covered)} POI 条（含校区拆分），未覆盖缺口 {len(missing)} → {path}')
@@ -1995,9 +2042,10 @@ def merge_all():
     # upgrade 只做去重/分组组装，不再做名字匹配；运行时（xiaoshengchu_2026.json）只依赖 school_id
     from xs_resolver import resolve_records
     merged = resolve_records(merged)
+    merged.sort(key=lambda r: (r.get('school_id') or '', r.get('group', '')))
     out_path = os.path.join(OUT_DIR, 'xiaoshengchu_all.json')
     json.dump({'year': 2026, 'records': merged},
-              open(out_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+              open(out_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1, sort_keys=True)
     print(f'[汇总] 共 {len(merged)} 条记录 → {out_path}')
 
 

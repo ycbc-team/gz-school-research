@@ -54,13 +54,14 @@ parsed/_ocr/*.json + parsed/_transcripts/*.json ──audit_transcripts.py──
 复现命令：
 
 ```bash
-python3 data/middle/enrollment/scripts/parse_baiyun_juniors.py      # 白云 59 初中（读共享官方 xlsx）
-python3 data/middle/enrollment/scripts/parse_liwan_groups.py       # 荔湾派位组 15 行（读共享 raw/liwan_2026_a3.docx）
-python3 data/middle/enrollment/scripts/parse_yuexiu_juniors.py     # 越秀 11 组×10 初中 + 8 直升（程序化读官方 html）
-python3 data/middle/enrollment/scripts/build_juniors_ocr.py        # 海珠/天河/黄埔 OCR 原文落盘（机器可复现）
-python3 data/middle/enrollment/scripts/build_juniors_transcripts.py # 海珠/天河/黄埔转录组装+校验（重跑与入库零差异）
-python3 data/middle/enrollment/scripts/audit_transcripts.py        # 转录 ↔ OCR 交叉审计（量化可追溯命中率）
-python3 data/middle/enrollment/scripts/build_middle_enrollment.py  # 7 区中间统一格式 + dist 合并一份
+# 首次在当前 worktree 运行：bash scripts/setup_python_env.sh
+.venv/bin/python data/middle/enrollment/scripts/parse_baiyun_juniors.py      # 白云 59 初中（读共享官方 xlsx）
+.venv/bin/python data/middle/enrollment/scripts/parse_liwan_groups.py       # 荔湾派位组 15 行（读共享 raw/liwan_2026_a3.docx）
+.venv/bin/python data/middle/enrollment/scripts/parse_yuexiu_juniors.py     # 越秀 11 组×10 初中 + 8 直升（程序化读官方 html）
+.venv/bin/python data/middle/enrollment/scripts/build_juniors_ocr.py        # 海珠/天河/黄埔 OCR 原文落盘（机器可复现）
+.venv/bin/python data/middle/enrollment/scripts/build_juniors_transcripts.py # 海珠/天河/黄埔转录组装+校验（重跑与入库零差异）
+.venv/bin/python data/middle/enrollment/scripts/audit_transcripts.py        # 转录 ↔ OCR 交叉审计（量化可追溯命中率）
+.venv/bin/python data/middle/enrollment/scripts/build_middle_enrollment.py  # 7 区中间统一格式 + dist 合并一份
 ```
 
 > 越秀/海珠初中源为官网网页（2026-09-23 补录官方原件入共享 raw：

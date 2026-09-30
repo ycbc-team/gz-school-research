@@ -239,7 +239,14 @@ def main() -> int:
     name_index = {}
     for s in d['schools']:
         if s['school'] in MATCH_OVERRIDES:
-            s['school_id'] = MATCH_OVERRIDES[s['school']]
+            _ov = MATCH_OVERRIDES[s['school']]
+            if _ov:
+                s['school_id'] = _ov
+            else:
+                # 覆盖表 school_id=null = 显式宁缺失（实体表别名误并待桥接等）：
+                # 与 resolve 未命中同路径，原文保留走 schools，并记入构建期审计清单。
+                s.pop('school_id', None)
+                unmatched.append(('quota_matrix', s['school'], s.get('district'), s.get('district') in CITY7))
         else:
             ent = resolve(s['school'], 'middle', AD_MAP.get(s.get('district')))
             if ent:
@@ -337,7 +344,10 @@ def main() -> int:
         ids = {}
         for k in mid_keys:
             if k in MATCH_OVERRIDES:
-                ids[k] = MATCH_OVERRIDES[k]
+                if MATCH_OVERRIDES[k]:
+                    ids[k] = MATCH_OVERRIDES[k]
+                else:
+                    unmatched.append((tag, k, None, None))
                 continue
             ent = resolve(k, 'middle')
             if ent:
@@ -426,10 +436,12 @@ def main() -> int:
     print('[special_matrix] 去死字段 + autonomy_plan 转 id 完成 → dist 写入')
 
     # ================= 写 dist =================
+    # 统一 1 空格缩进 + 无尾换行（终态格式，原 optimize_redundancy.mjs 仅剩格式重写已并入此处并删除该 mjs）；
+    # quota_matrix 键序 sort（sz 稀疏化由 conv_sz 承担：只保留 n>0 键，无 null 单元格）。
     for tag, data in dist_out.items():
         _sk = tag == 'quota_matrix'
         (DIST / f'{tag}.json').write_text(
-            json.dumps(data, ensure_ascii=False, indent=2 if _sk else 1, sort_keys=_sk) + '\n', 'utf-8')
+            json.dumps(data, ensure_ascii=False, indent=1, sort_keys=_sk), 'utf-8')
 
     # 未命中清单（构建期审计产物，非运行时数据）：7 区内（需人工桥接）与
     # 7 区外/未知（无实体，链接不可点属正确行为）分列 → 落 test/ 目录

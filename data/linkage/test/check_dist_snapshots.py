@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """升学通道 canonical 业务快照测试 + dist 轻量结构断言（quota_matrix / district_quota /
-batch2_scores / ranking_middle；special_matrix 由 check_special_matrix_snapshot.py 覆盖）。
+batch2_scores / ranking_middle / quota_outcome；special_matrix 由 check_special_matrix_snapshot.py 覆盖）。
 
 用户口径（2026-09-24 拍板）：
   1) 测试快照只用 canonical（既有 school_id 又有 name 的规范表），不再维护 dist 精简快照；
@@ -17,7 +17,8 @@ batch2_scores / ranking_middle；special_matrix 由 check_special_matrix_snapsho
   B 层（parsed/canonical/）：rebuild_quota_matrix → build_district_quota →
       build_linkage_batch2 → build_special_matrix
   C 层：backfill_school_ids（canonical 写回 school_id/middle_school_ids + dist ids/schools
-      拆分）→ optimize_redundancy → build_ranking_middle（canonical 全量 + dist 精简）
+      拆分）→ build_ranking_middle（canonical 全量 + dist 精简；quota_matrix 的 sz 稀疏化
+      与 1 空格缩进已在 backfill 内完成，原 optimize_redundancy.mjs 已并入并删除）
 
 用法：
   python3 data/linkage/test/check_dist_snapshots.py                    # 对比（默认）
@@ -76,16 +77,45 @@ def extract_batch2(m):
     }
 
 
+def _school_group_index():
+    """school_id → 首个集团归属（与运行时 registry.ts schoolGroupMap 同口径：
+    education_groups 成员按序取首个归属，brand_groups units 外键仅兜底 education 未命中者）。
+    一校可属多个集团（如黄埔军校中学=黄埔广附+广大附），快照固化「运行时详情页所见归属」：
+    group 字段不来自 ranking_middle 产物（职责已收归 education_groups），由本索引联表生成。"""
+    idx = {}
+    edu = json.load(open(os.path.join(ROOT, "data/registry/group/dist/education_groups.json"), encoding="utf-8")).get("groups", [])
+    for g in edu:
+        for m in g.get("members") or []:
+            sid = m.get("school_id")
+            if sid and sid not in idx:
+                idx[sid] = {"brand": g["brand"], "source": "education"}
+    bg = json.load(open(os.path.join(ROOT, "data/registry/group/src/brand_groups.json"), encoding="utf-8")).get("brands", [])
+    for b in bg:
+        for u in b.get("units") or []:
+            for sid in u.get("school_ids") or []:
+                if sid and sid not in idx:
+                    idx[sid] = {"brand": b["brand"], "source": "brand"}
+    return idx
+
+
 def extract_ranking(m):
     out = []
+    _sg = _school_group_index()
     for s in m.get("schools", []):
+        # group 联表 education_groups/brand_groups（主 id 或 school_ids 任一校区命中），
+        # 任何集团归属增删/漂移都会触发快照 diff（明细-集团一致性回归保护）。
+        grp = None
+        for sid in [s.get("school_id")] + list(s.get("school_ids") or []):
+            if sid and sid in _sg:
+                grp = _sg[sid]
+                break
         out.append({
             "name": s.get("name"),
             "school_id": s.get("school_id"),
             "school_ids": s.get("school_ids"),
             "district": s.get("district"),
             "minban": s.get("minban"),
-            "group": s.get("group"),
+            "group": grp,
             "kaosheng": s.get("kaosheng"),
             "sheng_quota": s.get("sheng_quota"),
             "qu_quota": s.get("qu_quota"),
@@ -96,11 +126,43 @@ def extract_ranking(m):
     return sorted(out, key=lambda x: (x["district"] or "", x["name"] or ""))
 
 
+def extract_quota_outcome(m):
+    """quota_outcome：每校最低分/指标数/浪费率 + 调试对数字段 + school_id/school_ids 外键。
+    （调试对数/未录取数只进 canonical，dist 已删——此处快照即调试字段的唯一留档。）"""
+    out = []
+    for v in (m.get("data") or {}).values():
+        out.append({
+            "school": v.get("school"),
+            "school_id": v.get("school_id"),
+            "school_ids": v.get("school_ids"),
+            "sheng_min_score": v.get("sheng_min_score"),
+            "qu_min_score": v.get("qu_min_score"),
+            "sheng_min_3y_avg": v.get("sheng_min_3y_avg"),
+            "qu_min_3y_avg": v.get("qu_min_3y_avg"),
+            "sheng_min_2024": v.get("sheng_min_2024"),
+            "sheng_min_2025": v.get("sheng_min_2025"),
+            "sheng_min_2026": v.get("sheng_min_2026"),
+            "qu_min_2024": v.get("qu_min_2024"),
+            "qu_min_2025": v.get("qu_min_2025"),
+            "qu_min_2026": v.get("qu_min_2026"),
+            "sheng_quota": v.get("sheng_quota"),
+            "qu_quota": v.get("qu_quota"),
+            "sheng_waste_rate": v.get("sheng_waste_rate"),
+            "qu_waste_rate": v.get("qu_waste_rate"),
+            "sheng_pairs": v.get("sheng_pairs"),
+            "sheng_failed": v.get("sheng_failed"),
+            "qu_pairs": v.get("qu_pairs"),
+            "qu_failed": v.get("qu_failed"),
+        })
+    return sorted(out, key=lambda x: (x["school"] or ""))
+
+
 PRODUCTS = [
     ("quota_matrix", "canon_quota_matrix_snapshot.json", extract_quota, CANON),
     ("district_quota", "canon_district_quota_snapshot.json", extract_district, CANON),
     ("batch2_scores", "canon_batch2_scores_snapshot.json", extract_batch2, CANON),
     ("ranking_middle", "canon_ranking_middle_snapshot.json", extract_ranking, CANON),
+    ("quota_outcome", "canon_quota_outcome_snapshot.json", extract_quota_outcome, CANON),
     # special_matrix 的 canonical 业务快照由 check_special_matrix_snapshot.py 单独覆盖
     # （重放 B 层 build_special_plan/build_special_matrix，基线 special_matrix_snapshot.json）
 ]
@@ -226,6 +288,48 @@ def assert_dist_structure() -> list:
         if "name" in v:
             errs.append("special_plan 值内不得含 name（实体名由实体表 join）")
 
+    # quota_outcome：ids/schools 并行 + 值字段白名单（最低分/指标数/浪费率）；
+    # 对数守恒（ids+schools 数 = canonical 有值行数）；调试对数字段不得进 dist
+    oc = json.load(open(os.path.join(DIST, "quota_outcome.json"), encoding="utf-8"))
+    occ = json.load(open(os.path.join(CANON, "quota_outcome.json"), encoding="utf-8"))
+    if set(oc) != {"ids", "schools"}:
+        errs.append("quota_outcome 顶层键必须仅 ids/schools")
+    oc_allowed = {"sheng_min_score", "qu_min_score",
+                  "sheng_min_3y_avg", "qu_min_3y_avg",
+                  "sheng_quota", "qu_quota",
+                  "sheng_waste_rate", "qu_waste_rate"}
+    id_cnt = school_cnt = 0
+    for sid, v in (oc.get("ids") or {}).items():
+        if not str(sid).startswith("gz-"):
+            errs.append(f"quota_outcome ids 键必须为 gz- 实体 id: {sid}")
+        if set(v) - oc_allowed:
+            errs.append(f"quota_outcome ids 值含调试/未引用字段（对数只进 canonical）: {sorted(set(v) - oc_allowed)}")
+        if "school" in v:
+            errs.append("quota_outcome ids 值不得含 school 名（应 join 实体表）")
+        if v.get("sheng_min_score") is not None and not isinstance(v["sheng_min_score"], int):
+            errs.append(f"quota_outcome 最低分必须为整数或 null: {v}")
+        for k in ("sheng_waste_rate", "qu_waste_rate"):
+            w = v.get(k)
+            if w is not None and not (0 <= w <= 1):
+                errs.append(f"quota_outcome 浪费率必须 0-1 或 null（前端 ×100）: {w}（{sid}）")
+        for k in ("sheng_min_3y_avg", "qu_min_3y_avg"):
+            a = v.get(k)
+            if a is not None and not isinstance(a, (int, float)):
+                errs.append(f"quota_outcome 近3年均值必须为数值或 null: {a}（{sid}）")
+        id_cnt += 1
+    for name, v in (oc.get("schools") or {}).items():
+        if set(v) - oc_allowed:
+            errs.append(f"quota_outcome schools 值含未引用字段: {sorted(set(v) - oc_allowed)}")
+        school_cnt += 1
+    canon_outcome_rows = sum(1 for v in occ.get("data", {}).values()
+                             if v.get("sheng_min_score") is not None or v.get("qu_min_score") is not None)
+    if id_cnt + school_cnt != len(occ.get("data", {})):
+        errs.append(f"quota_outcome ids({id_cnt})+schools({school_cnt}) ≠ canonical 行数 {len(occ.get('data', {}))}")
+    for v in (occ.get("data") or {}).values():
+        for k in ("sheng_pairs", "sheng_failed", "qu_pairs", "qu_failed"):
+            if v.get(k) is not None and not isinstance(v[k], int):
+                errs.append(f"quota_outcome canonical 对数/未录取数字段必须为整数或 null: {k}")
+
     return errs
 
 
@@ -236,7 +340,7 @@ def run(update: bool) -> int:
     replay(["python3", os.path.join(ROOT, "data/linkage/scripts/build_linkage_batch2.py")])
     replay(["python3", os.path.join(ROOT, "data/linkage/scripts/build_special_matrix.py")])
     replay(["python3", os.path.join(ROOT, "data/linkage/scripts/backfill_school_ids.py")])
-    replay(["node", os.path.join(ROOT, "scripts/data/optimize_redundancy.mjs")])
+    replay(["python3", os.path.join(ROOT, "data/linkage/scripts/build_quota_outcome.py")])
     replay(["python3", os.path.join(ROOT, "data/linkage/scripts/build_ranking_middle.py")])
 
     os.makedirs(SNAP_DIR, exist_ok=True)

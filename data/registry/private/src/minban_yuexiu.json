@@ -1,0 +1,218 @@
+{
+ "adcode": "440104",
+ "district": "越秀区",
+ "generated": "2026-09-14",
+ "data_basis": "越秀区教育局 2025 年、2026 年义务教育学校招生计划（越教字〔2025〕25号、越教字〔2026〕26号）",
+ "entity_basis": "`data/registry/entity/dist/entities.json`（越秀区共 145 条，本次从 0 所民办开始补齐）",
+ "status": "",
+ "conclusions": [
+  "越秀区**民办初中 4 所**：名德实验、海印实验、汇泉学校（中学部）、雄鹰学校（中学部）。",
+  "越秀区**民办小学 2 所**：雄鹰学校（小学部）、汇泉学校（小学部）。",
+  "越秀区**无民办高中**（市教育局明确：越秀区是全市唯一没有民办高中的区，5050 个普高学位全部公办）。",
+  "历史知名民办校（育才实验、二中应元）均已于 2022 年\"公参民\"脱钩中**转公**；四中聚贤、真光实验、香江中学等均不在越秀区辖内。"
+ ],
+ "sources": [],
+ "sections": {
+  "mark_nature": [
+   {
+    "school_id": "gz-440104-cc4aa5b8",
+    "name": "广州市越秀区名德实验学校",
+    "stage": "middle",
+    "source_urls": [
+     "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf",
+     "http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html"
+    ],
+    "source_ref": "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf ；http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html",
+    "note": "民办初中，2025/2026 年招 6 个班；地址越秀区一德路旧部前街56号之三；越秀区政府网站标\"九年一贯制\"，但近年民办小学招生计划中无该校小学部，实际仅以初中招生"
+   },
+   {
+    "school_id": "gz-440104-4d39b625",
+    "name": "广州海印实验学校",
+    "stage": "middle",
+    "source_urls": [
+     "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf",
+     "http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html"
+    ],
+    "source_ref": "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf ；http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html",
+    "note": "民办初中（原广州培道实验学校），2025/2026 年招 4 个班；地址越秀区回龙路4-2号；非营利全日制全寄宿初级中学，**无小学部**"
+   },
+   {
+    "school_id": "gz-440104-1f2d5df9",
+    "name": "越秀区汇泉学校",
+    "stage": "middle",
+    "source_urls": [
+     "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf",
+     "http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html"
+    ],
+    "source_ref": "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf ；http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html",
+    "note": "民办九年一贯制学校中学部，2025/2026 年招 4 个班；地址越秀区矿泉街北站路144号（御景花园对面）；2017 年起由广州十六中托管"
+   },
+   {
+    "school_id": "gz-440104-1f2d5df9",
+    "name": "越秀区汇泉学校",
+    "stage": "primary",
+    "source_urls": [
+     "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf",
+     "http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html"
+    ],
+    "source_ref": "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf ；http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html",
+    "note": "民办九年一贯制学校小学部，2025/2026 年招 4 个班"
+   },
+   {
+    "school_id": "gz-440104-db01d10e",
+    "name": "雄鹰学校",
+    "stage": "middle",
+    "source_urls": [
+     "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf",
+     "http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html"
+    ],
+    "source_ref": "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf ；http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html",
+    "note": "民办九年一贯制学校中学部，2025/2026 年招 2 个班；地址越秀区广园路云泉路163号大院；主要招收随迁子女"
+   },
+   {
+    "school_id": "gz-440104-714a8af4",
+    "name": "广州至灵学校",
+    "stage": "primary",
+    "source_urls": [
+     "https://www.zlschool.com.cn/?page_id=608",
+     "https://www.gddpf.org.cn/ywzc/jyjy/jy/content/post_595450.html"
+    ],
+    "source_ref": "学校章程 https://www.zlschool.com.cn/?page_id=608 ；广东省残联特殊教育学校一览 https://www.gddpf.org.cn/ywzc/jyjy/jy/content/post_595450.html",
+    "note": "民办非营利特殊教育康复机构（1985 年创办，小学部/初中部/职高班），面向 6-18 岁智障/孤独症儿童，非普通小学地段招生；2026-09-22 越秀 POI 未匹配核实补标（官方民办小学计划未含，特教渠道报名）"
+   }
+  ],
+  "already_marked": [],
+  "need_entity": [
+   {
+    "official_name": "广州市越秀区雄鹰学校（小学部）",
+    "stage": "primary",
+    "source_urls": [
+     "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf",
+     "http://www.yuexiu.gov.cn/ggfw/ztfw/jy/jyjgyl/zxjy/content/post_8739325.html"
+    ],
+    "source_ref": "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf ；http://www.yuexiu.gov.cn/ggfw/ztfw/jy/jyjgyl/zxjy/content/post_8739325.html",
+    "suggested_name": "广州市越秀区雄鹰学校(小学部)"
+   }
+  ],
+  "need_verify": [
+   {
+    "name": "广州海印实验学校",
+    "school_id": "gz-440104-4d39b625",
+    "stage": "primary",
+    "source_urls": [
+     "https://jiaoshi.com.cn/school/cmmz7j4st106pgs8sa7mq7cmh",
+     "http://zs.gzeducms.cn//u/cms/www/file/mbcz/2024/1.pdf"
+    ],
+    "source_ref": "https://jiaoshi.com.cn/school/cmmz7j4st106pgs8sa7mq7cmh ；http://zs.gzeducms.cn//u/cms/www/file/mbcz/2024/1.pdf",
+    "reason": "实体表中同一 school_id 下挂了 primary + middle 两个 stage，但海印实验官方明确为\"非营利民办全日制全寄宿**初级中学**\"，2022-2026 年民办小学招生计划中均无该校。该 primary 阶段实体疑似历史误植，建议后续从实体表清理或在 nature 标注时备注\"仅认 middle 为民办\"，**本次未在第一节列出该 primary 行**，待项目 owner 决定是否删除该误植实体"
+   },
+   {
+    "name": "广州市越秀区名德实验学校（小学部）",
+    "source_urls": [
+     "http://www.yuexiu.gov.cn/ggfw/ztfw/jy/jyjgyl/xxjy/mindex.html",
+     "http://www.gzmdsy.com/gzmdsy/html/2/c21.htm"
+    ],
+    "source_ref": "http://www.yuexiu.gov.cn/ggfw/ztfw/jy/jyjgyl/xxjy/mindex.html ；http://www.gzmdsy.com/gzmdsy/html/2/c21.htm",
+    "reason": "越秀区政府网站将名德实验列在\"小学教育\"栏目并称\"九年一贯制\"，但 2025/2026 年官方民办小学招生计划中无名德实验小学部，学校官网近年招生公告也以初中/插班生为主。疑似曾有小学部但近年停招小一，**实体表中也无 primary 阶段实体**，暂不新增，待核实是否仍在办小学"
+   }
+  ],
+  "excluded": [
+   {
+    "name": "广州市越秀区育才实验学校",
+    "school_id": "gz-440104-ff8d7e05",
+    "reason": "2022 年\"公参民\"脱钩中转公，现为越秀区属公办寄宿制初级中学，列入 2025/2026 年公办初中招生计划第 21 位",
+    "source_urls": [
+     "https://static.nfapp.southcn.com/content/202207/08/c6667024.html?enterColumnId=94",
+     "https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf"
+    ]
+   },
+   {
+    "name": "广州市越秀区二中应元学校",
+    "school_id": "gz-440104-1b6d4b9c",
+    "reason": "2022 年转公并入广州二中初中部，2022 年起不再以\"二中应元\"名义招生；原场地 2023 年改为小北路小学应元校区（实体表 gz-440104-1b6d4b9c 已记为公办小学）",
+    "source_urls": [
+     "https://ep.ycwb.com/epaper/ycwb/html/2022-08/30/content_3_521180.htm",
+     "https://static.nfapp.southcn.com/content/202207/08/c6667024.html?enterColumnId=94"
+    ]
+   },
+   {
+    "name": "广州市第四中学聚贤中学",
+    "reason": "位于**荔湾区**（非越秀区辖），2022 年转公为广州市第四中学初中雁园校区",
+    "source_urls": [
+     "http://news.ycwb.com/2022-08/30/content_41012399.htm"
+    ]
+   },
+   {
+    "name": "广州市真光实验学校",
+    "reason": "位于**荔湾区**（非越秀区辖），2022 年转公为广州市真光中学初中部实验校区",
+    "source_urls": [
+     "http://news.ycwb.com/2022-08/30/content_41012399.htm",
+     "https://static.nfapp.southcn.com/content/202310/19/c8211284.html?enterColumnId=38"
+    ]
+   },
+   {
+    "name": "广州市香江中学",
+    "reason": "位于**增城区**翡翠绿洲小区（非越秀区辖），虽历史上由越秀区育才实验学校托管至 2022 年，但校址不在越秀区",
+    "source_urls": [
+     "https://shangnaxue.net/school/1267794205588176897.html",
+     "https://m.k12zx.com/new/41344.html"
+    ]
+   },
+   {
+    "name": "越秀区民办高中（任何校名）",
+    "reason": "越秀区是全市唯一没有民办高中的区，2025 年 5050 个普高学位全部为公办性质",
+    "source_urls": [
+     "https://jyj.gz.gov.cn/gk/zfxxgkml/gzdt/content/post_10271256.html"
+    ]
+   }
+  ]
+ },
+ "notes": {
+  "verification_basis": [
+   "越秀区教育局《2025 年越秀区义务教育学校招生计划》（越教字〔2025〕25号）：https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf",
+   "越秀区教育局《2026 年越秀区义务教育学校招生计划》（越教字〔2026〕26号）：http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html",
+   "越秀区 2025 年民办初中电脑摇号结果（明确\"越秀区民办学校共 4 所\"）：http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zxjyxx/content/post_10539270.html",
+   "越秀区 2025 年度局管民办学校年检结论（4 所民办中小学，与招生计划名单完全吻合）：http://news.dayoo.com/gzrbrmt/202607/23/170639_54982963.htm",
+   "广州市教育局关于越秀区无民办高中的表述：https://jyj.gz.gov.cn/gk/zfxxgkml/gzdt/content/post_10271256.html",
+   "广州市义务教育学校招生报名系统民办初中/小学报名数据：https://zs.gzeducms.cn/u/cms/www/file/mbcz/2025/C34752DA039423DE2E063C81CA8C01E5A.pdf",
+   "越秀区教育局民办学校教师从教津贴公示（雄鹰、汇泉均被官方认定为\"义务教育阶段九年一贯制民办学校\"）：http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xxtg/content/post_10436009.html"
+  ],
+  "summary": [],
+  "todos": [
+   "[ ] 将第一节 5 条实体记录的 `nature` 字段补标为 `民办`。",
+   "[ ] 第二节新增\"雄鹰学校小学部\" primary 阶段实体（地址：云泉路163号大院）。",
+   "[ ] 第三节两个待核实项：海印实验 primary 误植实体是否清理；名德实验小学部是否仍在办。"
+  ],
+  "section_prose": {
+   "核心结论": [
+    "- 越秀区**民办初中 4 所**：名德实验、海印实验、汇泉学校（中学部）、雄鹰学校（中学部）。",
+    "- 越秀区**民办小学 2 所**：雄鹰学校（小学部）、汇泉学校（小学部）。",
+    "- 越秀区**无民办高中**（市教育局明确：越秀区是全市唯一没有民办高中的区，5050 个普高学位全部公办）。",
+    "- 历史知名民办校（育才实验、二中应元）均已于 2022 年\"公参民\"脱钩中**转公**；四中聚贤、真光实验、香江中学等均不在越秀区辖内。"
+   ],
+   "一": [
+    "说明：以上 5 条实体记录的 `nature` 字段当前为空（match_school.py 显示\"公办(未标)\"为缺省态），应统一补标为 `民办`。"
+   ],
+   "二": [],
+   "三": [],
+   "四": [],
+   "附": [
+    "1. **一手官方来源**（优先级最高）：",
+    "- 越秀区教育局《2025 年越秀区义务教育学校招生计划》（越教字〔2025〕25号）：https://www.yuexiu.gov.cn/attachment/7/7805/7805489/10237601.pdf",
+    "- 越秀区教育局《2026 年越秀区义务教育学校招生计划》（越教字〔2026〕26号）：http://www.yuexiu.gov.cn/gzyxjy/gkmlpt/content/10/10790/mpost_10790617.html",
+    "- 越秀区 2025 年民办初中电脑摇号结果（明确\"越秀区民办学校共 4 所\"）：http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zxjyxx/content/post_10539270.html",
+    "- 越秀区 2025 年度局管民办学校年检结论（4 所民办中小学，与招生计划名单完全吻合）：http://news.dayoo.com/gzrbrmt/202607/23/170639_54982963.htm",
+    "- 广州市教育局关于越秀区无民办高中的表述：https://jyj.gz.gov.cn/gk/zfxxgkml/gzdt/content/post_10271256.html",
+    "2. **辅助可信来源**：",
+    "- 广州市义务教育学校招生报名系统民办初中/小学报名数据：https://zs.gzeducms.cn/u/cms/www/file/mbcz/2025/C34752DA039423DE2E063C81CA8C01E5A.pdf",
+    "- 越秀区教育局民办学校教师从教津贴公示（雄鹰、汇泉均被官方认定为\"义务教育阶段九年一贯制民办学校\"）：http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/xxtg/content/post_10436009.html",
+    "3. **实体匹配方式**：对每所确认民办校使用 `python3 scripts/registry/match_school.py 440104 \"<校名>\"`，并辅以在 `entities.json` 中按关键词 grep 校验别名。"
+   ],
+   "待办": [
+    "- [ ] 将第一节 5 条实体记录的 `nature` 字段补标为 `民办`。",
+    "- [ ] 第二节新增\"雄鹰学校小学部\" primary 阶段实体（地址：云泉路163号大院）。",
+    "- [ ] 第三节两个待核实项：海印实验 primary 误植实体是否清理；名德实验小学部是否仍在办。"
+   ]
+  }
+ }
+}

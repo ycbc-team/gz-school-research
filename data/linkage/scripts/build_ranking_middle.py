@@ -65,30 +65,6 @@ def py_loose2(s: str) -> str:
     return re.sub(r'(初中部|高中部|小学部|校区|分校|学校|部)$', '', n).strip()
 
 
-brand_groups = load('registry/group/src/brand_groups.json')['brands']
-# education: group brand + 全部成员名（core_poi/members/campuses 的 name/poi_name）
-education_groups = load('registry/group/dist/education_groups.json')['groups']
-
-# education_groups 为集团唯一真源；构建时反建 school_id 索引，与详情页同一口径。
-SCHOOL_GROUPS = {
-    member['school_id']: {'brand': group['brand'], 'source': 'education'}
-    for group in education_groups
-    for member in group.get('members') or []
-    if member.get('school_id')
-}
-
-
-def group_of(school_id=None, school_ids=None):
-    """集团归属：纯 school_id 匹配公共产物（按集团聚合，与详情页 groupOfSchool 同一真源）。
-    school_ids = 多校区法人行校区实体数组：任一个 id 命中产物即归属该集团
-    （如 quota 行「广州市第八十六中学」主 id 为分校实体不在产物，但 school_ids 含主校实体 → 命中）。"""
-    for sid in [school_id] + list(school_ids or []):
-        if sid and sid in SCHOOL_GROUPS:
-            _b, _src = SCHOOL_GROUPS[sid]['brand'], SCHOOL_GROUPS[sid]['source']
-            return {'brand': _b, 'source': _src}
-    return None
-
-
 # ---------------- 载入 ----------------
 # C 层脚本读 B 层规范表（canonical，既 id 又 name），不依赖其他 C 层脚本的 dist 精简产物
 quota = load('linkage/parsed/canonical/quota_matrix.json')
@@ -142,9 +118,7 @@ for sc in levels.get('schools', []):
 
 # ---------------- 别名表 ----------------
 # 历史口碑校区名 → quota_matrix school 名（招考办口径）。
-# 现候选底直接用 quota_matrix 的 school 名，此表主要用于：
-#   1) group_of 反查（quota 校区名未命中集团时，回退到口碑口径名再匹配）；
-#   2) EXTRA_SCHOOLS 补充学校解析。
+# 现候选底直接用 quota_matrix 的 school 名，此表主要用于 find_quota 名定位。
 QUOTA_ALIAS = {
     '广东实验中学（初中部）': '广东实验中学（越秀校区）',
     '广州市执信中学（执信路校区）': '广州市执信中学（越秀校区）',
@@ -231,10 +205,6 @@ AUT_ALIAS = {
 }
 
 quota_by_name = {s['school']: s for s in quota['schools']}
-# 反查表：quota 名 → 历史口碑口径名（用于 group_of 回退匹配）
-QUOTA_REVERSE = {v: k for k, v in QUOTA_ALIAS.items()}
-
-
 def find_quota(name: str):
     qn = QUOTA_ALIAS.get(name)
     if qn and qn in quota_by_name:
@@ -263,11 +233,6 @@ def find_aut(name: str) -> int:
 def tekong_of(high_name: str):
     """按校区名（规范化括号）查特控率"""
     return tekong_by_name.get(canon_bracket(high_name))
-
-
-def group_resolve(school_id=None, school_ids=None):
-    """集团匹配：纯 id 查公共产物（按集团聚合，与详情页同源）。"""
-    return group_of(school_id, school_ids)
 
 
 # ---------------- 聚合 ----------------
@@ -304,7 +269,6 @@ def build_row(name: str, district: str, school_id=None, school_ids=None):
         'school_ids': school_ids,
         'district': district,
         'minban': bool(school_id and school_id in MINBAN_IDS),
-        'group': group_resolve(school_id, school_ids),
         'kaosheng': kaosheng,
         'sheng_quota': sheng_quota,
         'qu_quota': qu_quota,
@@ -352,9 +316,26 @@ canon.parent.mkdir(parents=True, exist_ok=True)
 with open(canon, 'w', encoding='utf-8') as f:
     json.dump(result, f, ensure_ascii=False, indent=2)
 
-# ================= dist 精简（删 sz 明细/元数据：sz 无前端消费，调试字段留在 canonical） =================
-dist = {k: v for k, v in result.items() if k not in ('title', 'updated', 'note', 'source')}
-dist['schools'] = [{k: v for k, v in s.items() if k != 'sz'} for s in out_schools]
+# ================= dist 精简（运行时只消费 school_id/school_ids/autonomy_count/tekong_quota_rate：
+#     name/district/minban/kaosheng/sheng_quota/qu_quota/sz 运行时分别从 entities /
+#     quota(quota_matrix 运行时模块) / educationGroups 查；tekong_quota_rate 保留在 dist——
+#     区属高中明细经 district_quota dist 重键为实体 id 后原始高中名丢失，特控率匹配键不可
+#     还原，且解析逻辑在构建脚本（python），前端重算会与 canonical 基线漂移，故由构建期算好
+#     随 dist 下发。无 school_id 的原文行（如海珠区华立学校）按 quota_matrix dist 同款约定
+#     保留 name（运行时按名联 quota_matrix.schools 补区/考生数/名额）。调试与审计字段全部留
+#     在 canonical 全量） =================
+dist = {
+    'schools': [
+        {
+            'school_id': s['school_id'],
+            'school_ids': s['school_ids'],
+            'autonomy_count': s['autonomy_count'],
+            'tekong_quota_rate': s['tekong_quota_rate'],
+            **({} if s['school_id'] else {'name': s['name']}),
+        }
+        for s in out_schools
+    ],
+}
 with open(DATA / 'linkage' / 'dist' / 'ranking_middle.json', 'w', encoding='utf-8') as f:
     json.dump(dist, f, ensure_ascii=False, indent=2)
 
@@ -365,4 +346,4 @@ print('7区分布:', {k: _dist[k] for k in ['荔湾区', '越秀区', '海珠区
 print('quota 未匹配:', missing_quota if missing_quota else '无')
 # 校验：抽查
 for s in out_schools[:6]:
-    print(f"  {s['name']} | 考生={s['kaosheng']} 省={s['sheng_quota']} 区={s['qu_quota']} 自招={s['autonomy_count']} 特控={s['tekong_quota_rate']} group={s['group']}")
+    print(f"  {s['name']} | 考生={s['kaosheng']} 省={s['sheng_quota']} 区={s['qu_quota']} 自招={s['autonomy_count']} 特控={s['tekong_quota_rate']}")

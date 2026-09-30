@@ -226,10 +226,14 @@ def _check_non_group_multi_campuses():
 
 def _check_backfill_ids():
     """重跑 backfill_school_ids.py（quota_matrix/district_quota/batch2_scores/special_matrix
-    外键回填 + _school_id_unmatched 未命中清单）到工作树，与入库比对。
+    外键回填 + sz 稀疏化 + _school_id_unmatched 未命中清单）到工作树，与入库比对。
 
-    覆盖 backfill_school_ids.py 的改动感知：改脚本后未重跑提交产物，或产物被手改
-    （如 _school_id_unmatched 被手工增删）都会被检出。比对失败还原工作树。"""
+    覆盖生产脚本的改动感知：改脚本后未重跑提交产物，或产物被手改
+    （如 _school_id_unmatched 被手工增删）都会被检出。比对失败还原工作树。
+
+    注意：quota_matrix 的 sz 稀疏化（只保留 n>0 键）与 1 空格缩进已在 backfill 内完成，
+    dist 即最终形态（原 optimize_redundancy.mjs 格式接力已并入 backfill 并删除），
+    单脚本重跑即与入库字节一致，与 check_dist_snapshots.py 的 replay 链口径统一。"""
     names = ["quota_matrix.json", "special_matrix.json", "batch2_scores.json", "district_quota.json"]
     dist_files = [os.path.join(ROOT, "data/linkage/dist", n) for n in names]
     test_file = os.path.join(ROOT, "data/linkage/test/_school_id_unmatched.json")

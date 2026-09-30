@@ -53,7 +53,9 @@ def main():
 
     # ---------- C 层：运行时产物 ----------
     run([py, os.path.join(SCRIPTS, "backfill_school_ids.py")], "C1 SchoolMatcher 回填 school_id")
-    run(["node", os.path.join(ROOT, "scripts", "data", "optimize_redundancy.mjs")], "C2 去冗余优化")
+    # C2 optimize_redundancy.mjs 已于 2026-09-29 删除：sz 稀疏化 + 缩进终态 + 无尾换行
+    # 已并入 backfill_school_ids.py 单脚本；此处不再串接（重跑即字节一致）
+    run([py, os.path.join(SCRIPTS, "build_quota_outcome.py")], "C2 指标结果聚合（省市属/区属最低分 + 浪费率）")
     run([py, os.path.join(SCRIPTS, "build_ranking_middle.py")], "C3 初中升学信号聚合")
 
     # ---------- 校验 ----------

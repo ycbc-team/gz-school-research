@@ -1,0 +1,14 @@
+{
+  "basis": "official middle-enrollment transcripts vs existing xiaoshengchu district dist; entity IDs are compared after each chain's current resolver.",
+  "district": "越秀区",
+  "only_current": [],
+  "only_reverse": [],
+  "summary": {
+    "current_pairs": 878,
+    "equal": true,
+    "only_current": 0,
+    "only_reverse": 0,
+    "reverse_pairs": 878
+  },
+  "year": 2026
+}

@@ -12,6 +12,9 @@
 *.preview
 ~$*
 
+# 每个 worktree 独立的 Python 解析环境（由 scripts/setup_python_env.sh 创建）
+.venv/
+
 # 隐私与敏感信息
 *.key
 *.pem

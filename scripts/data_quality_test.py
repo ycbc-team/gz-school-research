@@ -74,7 +74,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 必须先排查官方来源（各区教育局年检/招生计划/积分入学等，表内 source_urls 可追溯），
 # 再 UPDATE_SNAPSHOT=1 显式更新。防止"手写 id 列表"式误标（如 2026-09-18 剑桥郡小学
 # 被误标民办：公办的番禺区剑桥郡小学 vs 民办的剑桥郡加拿达外国语学校）无人感知。
-# 首次固化 2026-09-18：228 所（含剑桥郡小学误标剔除后；另新增 7 区 minban_*.md 查漏补缺
+# 首次固化 2026-09-18：228 所（含剑桥郡小学误标剔除后；另新增 7 区 minban_*.json 查漏补缺
 # 来源链接共 88 所可追溯）。
 # (2026-09-22 弃用 digest，改文件清单快照) PRIVATE_MINBAN_SNAPSHOT = "c3ee85789c726b50"
 POI_PATHS = ["data/poi/dist/primary_poi.json", "data/poi/dist/middle_poi.json", "data/poi/dist/high_poi.json"]
@@ -162,7 +162,8 @@ def main():
     # 匹配器/构建脚本按官方名解析出全部校区实体，不构成匹配歧义。新增共享裸名需同步更新本集合。
     _PRIMARY_SHARED_PLAIN = {'华康小学', '华阳小学', '龙口西小学', '华景小学', '天府路小学', '员村小学',
                              '昌乐小学', '五山小学', '银河小学', '侨乐小学', '龙洞小学', '天河第一小学',
-                             '体育西路小学', '元岗小学', '棠德南小学', '海珠中路小学'}
+                             '体育西路小学', '元岗小学', '棠德南小学', '海珠中路小学',
+                             '华师附小', '良田三小', '太和镇第二小学'}  # 白云官方 feed 纯名共享（2026-09-29 回挂实体表）
     # 官方初中法人名共享裸名豁免（与 build_entities.py SHARED_LEGAL_ALIAS 数字简称键同步）：
     # 天河附件6 官方用阿拉伯数字简称（广州市第N中学）公布，同法人多校区并列招生是业务事实
     # （第75中=燕塘西+天平架、第113中=乐学+东方），match_school_ids 按官方名 resolve_all
@@ -672,32 +673,6 @@ def main():
     for _b in _poi_like:
         check(False, f"[18] 实体名为招生/报名点位（非学校，应被 build_entities 过滤）: {_b}")
     _section_lines.append(f"[18] 实体点位后缀检测: {len(_poi_like)} 异常（0 容忍，build_entities NON_SCHOOL_POI 兜底）")
-
-    # ---- 19. 初中明细 group 必须由公共集团→school_id 产物支撑（纯 id 一致性）----
-    # build_ranking_middle.py 的 group 只查 data/registry/group/dist/school_groups.json（纯 id）；
-    # 任何有 group 的明细行，其 school_id / school_ids 中至少一个必须命中产物且 brand 一致，
-    # 否则说明产物漏收（该学校会从集团分组丢失）。无 school_id 的行不应有 group
-    # （名称匹配已从运行时删除；如三元里中学 = entities 无实体，属待补真源的数据缺口）。
-    # education_groups 为集团唯一运行时产物（school_groups.json 已废弃删除）；
-    # 一校可属多个集团（如黄埔军校中学=黄埔广附+广大附），school_id 索引为多值 set。
-    _sg = {}
-    for _g in json.load(open(os.path.join(ROOT, "data/registry/group/dist/education_groups.json")))["groups"]:
-        for _m in _g.get("members") or []:
-            if _m.get("school_id"):
-                _sg.setdefault(_m["school_id"], set()).add(_g["brand"])
-    _rm = json.load(open(os.path.join(ROOT, "data/linkage/dist/ranking_middle.json")))["schools"]
-    _orphan = 0
-    for _s in _rm:
-        _g = _s.get("group") or {}
-        if not _g:
-            continue
-        _ids = [i for i in [_s.get("school_id")] + list(_s.get("school_ids") or []) if i and i in _sg]
-        if not _ids:
-            _orphan += 1
-            check(False, f"[19] 明细 {_s['name']} 有 group 但 school_id(s) 无 education_groups 产物支撑: {_g.get('brand')}")
-        elif not any(_b == _g["brand"] for _i in _ids for _b in _sg[_i]):
-            check(False, f"[19] 明细 {_s['name']} 产物 brand 不一致: 产物={_sg[_ids[0]]} 明细={_g['brand']}")
-    _section_lines.append(f"[19] 明细分组-产物一致性: {sum(1 for s in _rm if s.get('group'))} 有 group，{_orphan} 孤儿（0 容忍）")
 
     # ---- 汇总：通过时只输出一行结论；失败时逐项输出各序号概要 + 明细 + 失败项 ----
     if failures:

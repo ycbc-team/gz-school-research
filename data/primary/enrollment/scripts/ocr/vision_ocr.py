@@ -22,22 +22,38 @@ def ocr(path):
     cg = Quartz.CGImageSourceCreateImageAtIndex(src, 0, None)
     req = Vision.VNRecognizeTextRequest.alloc().init()
     req.setRecognitionLevel_(Vision.VNRequestTextRecognitionLevelAccurate)
+    # 新版 macOS 默认 revision 可能仍是仅支持英文的 v1；显式选择支持
+    # 简体中文的最高 revision，避免 setRecognitionLanguages_ 后静默失败。
+    revisions = []
+    for revision in Vision.VNRecognizeTextRequest.supportedRevisions():
+        languages, error = (
+            Vision.VNRecognizeTextRequest
+            .supportedRecognitionLanguagesForTextRecognitionLevel_revision_error_(
+                Vision.VNRequestTextRecognitionLevelAccurate, revision, None
+            )
+        )
+        if error is None and "zh-Hans" in languages:
+            revisions.append(revision)
+    if not revisions:
+        raise SystemExit("当前 macOS Vision 未提供支持 zh-Hans 的文字识别 revision")
+    req.setRevision_(max(revisions))
     req.setRecognitionLanguages_(["zh-Hans", "en-US"])
     req.setUsesLanguageCorrection_(True)
     handler = Vision.VNImageRequestHandler.alloc().initWithCGImage_options_(cg, None)
-    ok = handler.performRequests_error_([req], None)
+    ok, error = handler.performRequests_error_([req], None)
+    if not ok:
+        raise SystemExit(f"Vision OCR 执行失败: {error or '未知错误'}")
     out = []
-    if ok:
-        for o in req.results():
-            b = o.boundingBox()  # 归一化 (x, y, w, h)，原点左下
-            txt = o.topCandidates_(1)[0].string()
-            out.append({
-                "text": txt,
-                "x": b.origin.x,
-                "y": 1.0 - b.origin.y - b.size.height,  # 转为左上原点
-                "w": b.size.width,
-                "h": b.size.height,
-            })
+    for o in req.results() or []:
+        b = o.boundingBox()  # 归一化 (x, y, w, h)，原点左下
+        txt = o.topCandidates_(1)[0].string()
+        out.append({
+            "text": txt,
+            "x": b.origin.x,
+            "y": 1.0 - b.origin.y - b.size.height,  # 转为左上原点
+            "w": b.size.width,
+            "h": b.size.height,
+        })
     out.sort(key=lambda r: (round(r["y"], 3), r["x"]))
     return out
 

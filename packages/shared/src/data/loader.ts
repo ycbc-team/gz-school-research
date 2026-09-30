@@ -14,7 +14,7 @@ import type {
   MiddleMechanismDef,
   MiddleEnrollmentGroups,
 } from '../types.js';
-import type { QuotaMatrix, SpecialMatrix, Batch2Scores, DistrictQuota, HighScores, BrandGroups, EducationGroups } from './types.js';
+import type { QuotaMatrix, SpecialMatrix, Batch2Scores, DistrictQuota, QuotaOutcome, HighScores, BrandGroups, EducationGroups } from './types.js';
 
 export interface DataLoaders {
   primarySchools: SchoolsSnapshot;
@@ -40,6 +40,8 @@ export interface DataLoaders {
   highScores2026: HighScores;
   /** 区属指标到校（另一 agent 数据；dist 双层 ids/schools 并行，backfill 键 id 化） */
   districtQuota: DistrictQuota;
+  /** 第二批次指标结果聚合（省市属/区属最低分 + 指标浪费率；py 层算好，运行时零推断） */
+  quotaOutcome: QuotaOutcome;
   /** 实体注册表（school_id 外键 → 名称/别名/办学性质）；nature=民办 为办学性质唯一真源（公办不写字段） */
   entities: { entities: Array<{ school_id: string; name: string; stage: string; aliases: string[]; nature?: string }> };
   /** 小学 2026 升学路线事实表（group 提为顶层 groups，记录按 group_id 引用） */
@@ -58,14 +60,18 @@ export interface DataLoaders {
   educationGroups?: EducationGroups;
   /** 未入教育集团的同法人多校区（实体表构建期推导；详情页仅作集团缺省时的关联展示） */
   nonGroupMultiCampuses?: Record<string, string[]>;
-  /** 初中升学信号排行榜基础表（自招/指标到校/特控率聚合，见 data/linkage/scripts/build_ranking_middle.py） */
+  /** 初中升学信号精简运行时表（school_id/school_ids/autonomy_count/tekong_quota_rate；
+   *  名称/区属/民办/集团/名额/sz 运行时按 id 查 entities/quota_matrix/educationGroups；
+   *  tekong_quota_rate 由构建期算好随 dist 下发（district_quota dist 重键后高中原名丢失，
+   *  特控率匹配键无法运行时还原）；无 school_id 的原文行按 quota_matrix dist 同款约定保留
+   *  name（运行时按名联 quota_matrix.schools）；全量见 canonical/ranking_middle.json） */
   rankingMiddle: {
     schools: Array<{
-      name: string; school_id?: string | null; district: string;
-      group?: { brand: string; source: 'brand' | 'education' } | null;
-      kaosheng?: number | null; sheng_quota?: number | null; qu_quota?: number | null;
-      autonomy_count: number; sz: Array<{ high: string; count: number; tekong?: number | null }>;
+      school_id?: string | null;
+      school_ids?: Array<string | null> | null;
+      autonomy_count: number;
       tekong_quota_rate?: number | null;
+      name?: string | null;
     }>;
   };
   /** 创新大赛获奖（school_id → stages → years → 金/银/铜） */
@@ -74,6 +80,12 @@ export interface DataLoaders {
   chuangkeAwards?: Record<string, { chuangke_awards: { stages: Record<string, Record<string, { gold: number; silver: number; bronze: number }>> } }>;
   /** 科学素养大赛获奖（school_id → stages → years → 金/银/铜） */
   scienceLiteracyAwards?: Record<string, { science_literacy_awards: { stages: Record<string, Record<string, { gold: number; silver: number; bronze: number }>> } }>;
+  /** 科技体育教育竞赛获奖（school_id → stages → years → 金/银/铜；secondary=中学组初高合并，high=测向18岁组） */
+  techSportsAwards?: Record<string, { tech_sports_awards: { stages: Record<string, Record<string, { gold: number; silver: number; bronze: number }>> } }>;
+  /** 科学实验大赛获奖（school_id → stages → years → 金/银/铜） */
+  scienceExperimentAwards?: Record<string, { science_experiment_awards: { stages: Record<string, Record<string, { gold: number; silver: number; bronze: number }>> } }>;
+  /** 粤韵杯获奖（school_id → stages → years → 金/银/铜；优胜奖不计数） */
+  yueyunbeiAwards?: Record<string, { yueyunbei_awards: { stages: Record<string, Record<string, { gold: number; silver: number; bronze: number }>> } }>;
   /** 竞赛获奖明细，供获奖页展示年份、项目与获奖学生 */
   detailedRecords?: Array<Record<string, unknown>>;
 }

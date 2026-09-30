@@ -1,0 +1,5036 @@
+{
+ "ids": {
+  "gz-440103-2653da64": {
+   "sheng_min_score": 668,
+   "qu_min_score": 591,
+   "sheng_min_3y_avg": 658.0,
+   "qu_min_3y_avg": 589.3,
+   "sheng_quota": 31,
+   "qu_quota": 187,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-3862ee98": {
+   "sheng_min_score": 647,
+   "qu_min_score": 590,
+   "sheng_min_3y_avg": 672.7,
+   "qu_min_3y_avg": 591.3,
+   "sheng_quota": 43,
+   "qu_quota": 262,
+   "sheng_waste_rate": 0.15,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-c9f13fde": {
+   "sheng_min_score": 645,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 669.7,
+   "qu_min_3y_avg": 596.7,
+   "sheng_quota": 12,
+   "qu_quota": 72,
+   "sheng_waste_rate": 0.5,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-b41a3512": {
+   "sheng_min_score": 693,
+   "qu_min_score": 590,
+   "sheng_min_3y_avg": 659.3,
+   "qu_min_3y_avg": 589.7,
+   "sheng_quota": 30,
+   "qu_quota": 180,
+   "sheng_waste_rate": 0.2222,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-81794a0d": {
+   "sheng_min_score": 716,
+   "qu_min_score": 588,
+   "sheng_min_3y_avg": 704.5,
+   "qu_min_3y_avg": 591.0,
+   "sheng_quota": 3,
+   "qu_quota": 23,
+   "sheng_waste_rate": 0.6667,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-3b870a8e": {
+   "sheng_min_score": null,
+   "qu_min_score": 586,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 595.3,
+   "sheng_quota": 3,
+   "qu_quota": 19,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.1429
+  },
+  "gz-440103-d78c848a": {
+   "sheng_min_score": 684,
+   "qu_min_score": 587,
+   "sheng_min_3y_avg": 681.0,
+   "qu_min_3y_avg": 588.3,
+   "sheng_quota": 7,
+   "qu_quota": 44,
+   "sheng_waste_rate": 0.5,
+   "qu_waste_rate": 0.1667
+  },
+  "gz-440103-eb3cb5c6": {
+   "sheng_min_score": 660,
+   "qu_min_score": 598,
+   "sheng_min_3y_avg": 684.3,
+   "qu_min_3y_avg": 601.0,
+   "sheng_quota": 6,
+   "qu_quota": 42,
+   "sheng_waste_rate": 0.2,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-b0abf891": {
+   "sheng_min_score": 691,
+   "qu_min_score": 608,
+   "sheng_min_3y_avg": 694.3,
+   "qu_min_3y_avg": 598.0,
+   "sheng_quota": 8,
+   "qu_quota": 58,
+   "sheng_waste_rate": 0.2857,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-9870a631": {
+   "sheng_min_score": 668,
+   "qu_min_score": 574,
+   "sheng_min_3y_avg": 681.7,
+   "qu_min_3y_avg": 590.7,
+   "sheng_quota": 3,
+   "qu_quota": 19,
+   "sheng_waste_rate": 0.3333,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-f05eda96": {
+   "sheng_min_score": 703,
+   "qu_min_score": 583,
+   "sheng_min_3y_avg": 703.0,
+   "qu_min_3y_avg": 592.0,
+   "sheng_quota": 6,
+   "qu_quota": 38,
+   "sheng_waste_rate": 0.75,
+   "qu_waste_rate": 0.2857
+  },
+  "gz-440103-2c188507": {
+   "sheng_min_score": 677,
+   "qu_min_score": 575,
+   "sheng_min_3y_avg": 696.7,
+   "qu_min_3y_avg": 597.7,
+   "sheng_quota": 4,
+   "qu_quota": 25,
+   "sheng_waste_rate": 0.75,
+   "qu_waste_rate": 0.1429
+  },
+  "gz-440103-55453ba4": {
+   "sheng_min_score": 653,
+   "qu_min_score": 582,
+   "sheng_min_3y_avg": 653.0,
+   "qu_min_3y_avg": 588.0,
+   "sheng_quota": 5,
+   "qu_quota": 35,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.1429
+  },
+  "gz-440103-f203d28d": {
+   "sheng_min_score": 688,
+   "qu_min_score": 574,
+   "sheng_min_3y_avg": 706.3,
+   "qu_min_3y_avg": 589.3,
+   "sheng_quota": 13,
+   "qu_quota": 88,
+   "sheng_waste_rate": 0.7,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-958c2ab9": {
+   "sheng_min_score": 679,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 681.7,
+   "qu_min_3y_avg": 589.7,
+   "sheng_quota": 7,
+   "qu_quota": 47,
+   "sheng_waste_rate": 0.5,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-e7a8679d": {
+   "sheng_min_score": null,
+   "qu_min_score": 679,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 679.0,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-6c3ca7d0": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 0,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": null
+  },
+  "gz-440103-4ab42b76": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440103-b894cbeb": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 0,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": null
+  },
+  "gz-440103-cc2ff923": {
+   "sheng_min_score": null,
+   "qu_min_score": 682,
+   "sheng_min_3y_avg": 705.0,
+   "qu_min_3y_avg": 650.0,
+   "sheng_quota": 1,
+   "qu_quota": 2,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.5
+  },
+  "gz-440103-c5a0baa6": {
+   "sheng_min_score": 692,
+   "qu_min_score": 578,
+   "sheng_min_3y_avg": 698.7,
+   "qu_min_3y_avg": 597.0,
+   "sheng_quota": 8,
+   "qu_quota": 49,
+   "sheng_waste_rate": 0.1429,
+   "qu_waste_rate": 0.1429
+  },
+  "gz-440103-84d436cd": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440103-815371aa": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440103-821faa89": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440103-3ea667b1": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 0,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": null
+  },
+  "gz-440103-957da59e": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 0,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": null
+  },
+  "gz-440103-042e23a5": {
+   "sheng_min_score": 667,
+   "qu_min_score": 574,
+   "sheng_min_3y_avg": 649.0,
+   "qu_min_3y_avg": 583.7,
+   "sheng_quota": 55,
+   "qu_quota": 335,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-e281e7d0": {
+   "sheng_min_score": 657,
+   "qu_min_score": 587,
+   "sheng_min_3y_avg": 647.0,
+   "qu_min_3y_avg": 590.0,
+   "sheng_quota": 11,
+   "qu_quota": 65,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-693412ae": {
+   "sheng_min_score": 690,
+   "qu_min_score": 574,
+   "sheng_min_3y_avg": 664.3,
+   "qu_min_3y_avg": 583.3,
+   "sheng_quota": 22,
+   "qu_quota": 134,
+   "sheng_waste_rate": 0.1429,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-523446ce": {
+   "sheng_min_score": 663,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 672.0,
+   "qu_min_3y_avg": 599.3,
+   "sheng_quota": 17,
+   "qu_quota": 104,
+   "sheng_waste_rate": 0.0909,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-53cac770": {
+   "sheng_min_score": 683,
+   "qu_min_score": 575,
+   "sheng_min_3y_avg": 656.3,
+   "qu_min_3y_avg": 582.7,
+   "sheng_quota": 26,
+   "qu_quota": 160,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-bb7f78f0": {
+   "sheng_min_score": 692,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 687.3,
+   "qu_min_3y_avg": 584.0,
+   "sheng_quota": 8,
+   "qu_quota": 46,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.4286
+  },
+  "gz-440103-5143f5a1": {
+   "sheng_min_score": null,
+   "qu_min_score": 599,
+   "sheng_min_3y_avg": 686.0,
+   "qu_min_3y_avg": 620.5,
+   "sheng_quota": 2,
+   "qu_quota": 14,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.6
+  },
+  "gz-440104-d9ec2dbb": {
+   "sheng_min_score": 610,
+   "qu_min_score": 585,
+   "sheng_min_3y_avg": 654.0,
+   "qu_min_3y_avg": 590.3,
+   "sheng_quota": 24,
+   "qu_quota": 123,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-74121d17": {
+   "sheng_min_score": 638,
+   "qu_min_score": 585,
+   "sheng_min_3y_avg": 665.0,
+   "qu_min_3y_avg": 589.7,
+   "sheng_quota": 26,
+   "qu_quota": 133,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-819bd7a1": {
+   "sheng_min_score": 624,
+   "qu_min_score": 605,
+   "sheng_min_3y_avg": 664.3,
+   "qu_min_3y_avg": 616.7,
+   "sheng_quota": 14,
+   "qu_quota": 73,
+   "sheng_waste_rate": 0.3,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-0a17f1eb": {
+   "sheng_min_score": 635,
+   "qu_min_score": 606,
+   "sheng_min_3y_avg": 626.3,
+   "qu_min_3y_avg": 596.7,
+   "sheng_quota": 18,
+   "qu_quota": 92,
+   "sheng_waste_rate": 0.0769,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-8a1a7b3d": {
+   "sheng_min_score": 649,
+   "qu_min_score": 584,
+   "sheng_min_3y_avg": 638.7,
+   "qu_min_3y_avg": 595.0,
+   "sheng_quota": 24,
+   "qu_quota": 122,
+   "sheng_waste_rate": 0.0714,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-9c6632b1": {
+   "sheng_min_score": 650,
+   "qu_min_score": 607,
+   "sheng_min_3y_avg": 634.7,
+   "qu_min_3y_avg": 604.7,
+   "sheng_quota": 18,
+   "qu_quota": 90,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-32444523": {
+   "sheng_min_score": 701,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 676.0,
+   "qu_min_3y_avg": 599.0,
+   "sheng_quota": 24,
+   "qu_quota": 122,
+   "sheng_waste_rate": 0.125,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-39515a9d": {
+   "sheng_min_score": 696,
+   "qu_min_score": 616,
+   "sheng_min_3y_avg": 701.3,
+   "qu_min_3y_avg": 608.7,
+   "sheng_quota": 12,
+   "qu_quota": 61,
+   "sheng_waste_rate": 0.1111,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-c117279e": {
+   "sheng_min_score": 652,
+   "qu_min_score": 597,
+   "sheng_min_3y_avg": 679.0,
+   "qu_min_3y_avg": 611.7,
+   "sheng_quota": 16,
+   "qu_quota": 82,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-99aef0e5": {
+   "sheng_min_score": 681,
+   "qu_min_score": 587,
+   "sheng_min_3y_avg": 669.7,
+   "qu_min_3y_avg": 595.0,
+   "sheng_quota": 24,
+   "qu_quota": 123,
+   "sheng_waste_rate": 0.0667,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-191aaa35": {
+   "sheng_min_score": 660,
+   "qu_min_score": 595,
+   "sheng_min_3y_avg": 645.0,
+   "qu_min_3y_avg": 600.5,
+   "sheng_quota": 26,
+   "qu_quota": 132,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-27ecd0e4": {
+   "sheng_min_score": 691,
+   "qu_min_score": 588,
+   "sheng_min_3y_avg": 660.3,
+   "qu_min_3y_avg": 601.0,
+   "sheng_quota": 23,
+   "qu_quota": 118,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-bc48335e": {
+   "sheng_min_score": 650,
+   "qu_min_score": 611,
+   "sheng_min_3y_avg": 657.7,
+   "qu_min_3y_avg": 608.7,
+   "sheng_quota": 18,
+   "qu_quota": 92,
+   "sheng_waste_rate": 0.0909,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-d972cf95": {
+   "sheng_min_score": 698,
+   "qu_min_score": 589,
+   "sheng_min_3y_avg": 664.0,
+   "qu_min_3y_avg": 592.3,
+   "sheng_quota": 15,
+   "qu_quota": 74,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-68535b94": {
+   "sheng_min_score": 647,
+   "qu_min_score": 601,
+   "sheng_min_3y_avg": 669.3,
+   "qu_min_3y_avg": 596.3,
+   "sheng_quota": 13,
+   "qu_quota": 66,
+   "sheng_waste_rate": 0.1,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-10652361": {
+   "sheng_min_score": 692,
+   "qu_min_score": 588,
+   "sheng_min_3y_avg": 682.3,
+   "qu_min_3y_avg": 597.3,
+   "sheng_quota": 15,
+   "qu_quota": 77,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-c77c73b5": {
+   "sheng_min_score": 654,
+   "qu_min_score": 611,
+   "sheng_min_3y_avg": 678.7,
+   "qu_min_3y_avg": 608.0,
+   "sheng_quota": 8,
+   "qu_quota": 43,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-7b6a95bd": {
+   "sheng_min_score": 686,
+   "qu_min_score": 593,
+   "sheng_min_3y_avg": 667.7,
+   "qu_min_3y_avg": 605.7,
+   "sheng_quota": 15,
+   "qu_quota": 76,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-d5f83454": {
+   "sheng_min_score": 687,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 687.7,
+   "qu_min_3y_avg": 595.0,
+   "sheng_quota": 11,
+   "qu_quota": 58,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-d6c68349": {
+   "sheng_min_score": 662,
+   "qu_min_score": 607,
+   "sheng_min_3y_avg": 673.0,
+   "qu_min_3y_avg": 600.7,
+   "sheng_quota": 5,
+   "qu_quota": 28,
+   "sheng_waste_rate": 0.4,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-7f3031fc": {
+   "sheng_min_score": 654,
+   "qu_min_score": 584,
+   "sheng_min_3y_avg": 674.5,
+   "qu_min_3y_avg": 588.5,
+   "sheng_quota": 26,
+   "qu_quota": 131,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-7c4a905f": {
+   "sheng_min_score": 621,
+   "qu_min_score": 588,
+   "sheng_min_3y_avg": 623.0,
+   "qu_min_3y_avg": 589.0,
+   "sheng_quota": 32,
+   "qu_quota": 159,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-b22c4eca": {
+   "sheng_min_score": 670,
+   "qu_min_score": 587,
+   "sheng_min_3y_avg": 659.3,
+   "qu_min_3y_avg": 590.7,
+   "sheng_quota": 26,
+   "qu_quota": 129,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-09652aa5": {
+   "sheng_min_score": 676,
+   "qu_min_score": 593,
+   "sheng_min_3y_avg": 657.3,
+   "qu_min_3y_avg": 594.3,
+   "sheng_quota": 20,
+   "qu_quota": 102,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-1560332d": {
+   "sheng_min_score": 649,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 645.0,
+   "qu_min_3y_avg": 598.5,
+   "sheng_quota": 33,
+   "qu_quota": 98,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-ff8d7e05": {
+   "sheng_min_score": 665,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 668.0,
+   "qu_min_3y_avg": 595.0,
+   "sheng_quota": 15,
+   "qu_quota": 76,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-db01d10e": {
+   "sheng_min_score": null,
+   "qu_min_score": 674,
+   "sheng_min_3y_avg": 732.0,
+   "qu_min_3y_avg": 674.0,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-f3ca07ff": {
+   "sheng_min_score": 646,
+   "qu_min_score": 587,
+   "sheng_min_3y_avg": 650.3,
+   "qu_min_3y_avg": 590.3,
+   "sheng_quota": 27,
+   "qu_quota": 138,
+   "sheng_waste_rate": 0.0769,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-1f2d5df9": {
+   "sheng_min_score": 722,
+   "qu_min_score": 640,
+   "sheng_min_3y_avg": 709.0,
+   "qu_min_3y_avg": 632.0,
+   "sheng_quota": 2,
+   "qu_quota": 7,
+   "sheng_waste_rate": 0.5,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-cc4aa5b8": {
+   "sheng_min_score": 651,
+   "qu_min_score": 591,
+   "sheng_min_3y_avg": 673.3,
+   "qu_min_3y_avg": 600.3,
+   "sheng_quota": 9,
+   "qu_quota": 43,
+   "sheng_waste_rate": 0.1429,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440104-4d39b625": {
+   "sheng_min_score": 678,
+   "qu_min_score": 596,
+   "sheng_min_3y_avg": 677.3,
+   "qu_min_3y_avg": 605.3,
+   "sheng_quota": 3,
+   "qu_quota": 17,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-0ffca7e3": {
+   "sheng_min_score": 643,
+   "qu_min_score": 591,
+   "sheng_min_3y_avg": 661.0,
+   "qu_min_3y_avg": 588.3,
+   "sheng_quota": 20,
+   "qu_quota": 94,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-352e2fc7": {
+   "sheng_min_score": 690,
+   "qu_min_score": 596,
+   "sheng_min_3y_avg": 674.0,
+   "qu_min_3y_avg": 607.7,
+   "sheng_quota": 10,
+   "qu_quota": 51,
+   "sheng_waste_rate": 0.3333,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-96460a76": {
+   "sheng_min_score": 645,
+   "qu_min_score": 607,
+   "sheng_min_3y_avg": 642.5,
+   "qu_min_3y_avg": 617.5,
+   "sheng_quota": 10,
+   "qu_quota": 45,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-b210556b": {
+   "sheng_min_score": 636,
+   "qu_min_score": 598,
+   "sheng_min_3y_avg": 661.7,
+   "qu_min_3y_avg": 609.3,
+   "sheng_quota": 28,
+   "qu_quota": 131,
+   "sheng_waste_rate": 0.1333,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-e76b659d": {
+   "sheng_min_score": 687,
+   "qu_min_score": 590,
+   "sheng_min_3y_avg": 674.3,
+   "qu_min_3y_avg": 604.0,
+   "sheng_quota": 14,
+   "qu_quota": 64,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-eaf414df": {
+   "sheng_min_score": 654,
+   "qu_min_score": 604,
+   "sheng_min_3y_avg": 675.5,
+   "qu_min_3y_avg": 610.0,
+   "sheng_quota": 27,
+   "qu_quota": 124,
+   "sheng_waste_rate": 0.0625,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-06994d39": {
+   "sheng_min_score": 691,
+   "qu_min_score": 600,
+   "sheng_min_3y_avg": 669.3,
+   "qu_min_3y_avg": 599.7,
+   "sheng_quota": 14,
+   "qu_quota": 75,
+   "sheng_waste_rate": 0.5455,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-dc2408b3": {
+   "sheng_min_score": 667,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 668.3,
+   "qu_min_3y_avg": 604.0,
+   "sheng_quota": 11,
+   "qu_quota": 50,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-f0712355": {
+   "sheng_min_score": 695,
+   "qu_min_score": 585,
+   "sheng_min_3y_avg": 681.3,
+   "qu_min_3y_avg": 600.7,
+   "sheng_quota": 19,
+   "qu_quota": 86,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-06e6439a": {
+   "sheng_min_score": 679,
+   "qu_min_score": 596,
+   "sheng_min_3y_avg": 666.0,
+   "qu_min_3y_avg": 599.3,
+   "sheng_quota": 12,
+   "qu_quota": 63,
+   "sheng_waste_rate": 0.1667,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-83f38819": {
+   "sheng_min_score": 700,
+   "qu_min_score": 617,
+   "sheng_min_3y_avg": 674.0,
+   "qu_min_3y_avg": 609.7,
+   "sheng_quota": 10,
+   "qu_quota": 54,
+   "sheng_waste_rate": 0.5714,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-256ba9d6": {
+   "sheng_min_score": 654,
+   "qu_min_score": 615,
+   "sheng_min_3y_avg": 665.0,
+   "qu_min_3y_avg": 626.7,
+   "sheng_quota": 12,
+   "qu_quota": 55,
+   "sheng_waste_rate": 0.2222,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-ca292b2b": {
+   "sheng_min_score": 653,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 651.7,
+   "qu_min_3y_avg": 609.3,
+   "sheng_quota": 34,
+   "qu_quota": 160,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-fbd67149": {
+   "sheng_min_score": 692,
+   "qu_min_score": 606,
+   "sheng_min_3y_avg": 662.3,
+   "qu_min_3y_avg": 606.7,
+   "sheng_quota": 17,
+   "qu_quota": 79,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-41b48384": {
+   "sheng_min_score": 630,
+   "qu_min_score": 591,
+   "sheng_min_3y_avg": 651.0,
+   "qu_min_3y_avg": 601.3,
+   "sheng_quota": 32,
+   "qu_quota": 149,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-a34bf4d7": {
+   "sheng_min_score": 690,
+   "qu_min_score": 608,
+   "sheng_min_3y_avg": 694.3,
+   "qu_min_3y_avg": 610.0,
+   "sheng_quota": 10,
+   "qu_quota": 45,
+   "sheng_waste_rate": 0.1111,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-b53da186": {
+   "sheng_min_score": 610,
+   "qu_min_score": 593,
+   "sheng_min_3y_avg": 659.0,
+   "qu_min_3y_avg": 594.7,
+   "sheng_quota": 11,
+   "qu_quota": 56,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-003f2037": {
+   "sheng_min_score": 673,
+   "qu_min_score": 597,
+   "sheng_min_3y_avg": 685.0,
+   "qu_min_3y_avg": 600.3,
+   "sheng_quota": 8,
+   "qu_quota": 41,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.1111
+  },
+  "gz-440105-53bc2299": {
+   "sheng_min_score": null,
+   "qu_min_score": 651,
+   "sheng_min_3y_avg": 709.0,
+   "qu_min_3y_avg": 645.3,
+   "sheng_quota": 1,
+   "qu_quota": 2,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-e363a214": {
+   "sheng_min_score": 626,
+   "qu_min_score": 596,
+   "sheng_min_3y_avg": 646.0,
+   "qu_min_3y_avg": 589.3,
+   "sheng_quota": 18,
+   "qu_quota": 83,
+   "sheng_waste_rate": 0.0769,
+   "qu_waste_rate": 0.3333
+  },
+  "gz-440105-6ee54f1d": {
+   "sheng_min_score": 675,
+   "qu_min_score": 616,
+   "sheng_min_3y_avg": 682.0,
+   "qu_min_3y_avg": 618.3,
+   "sheng_quota": 14,
+   "qu_quota": 66,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-cb432890": {
+   "sheng_min_score": 672,
+   "qu_min_score": 589,
+   "sheng_min_3y_avg": 649.0,
+   "qu_min_3y_avg": 588.7,
+   "sheng_quota": 34,
+   "qu_quota": 158,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-baa048f9": {
+   "sheng_min_score": 695,
+   "qu_min_score": 593,
+   "sheng_min_3y_avg": 688.0,
+   "qu_min_3y_avg": 601.3,
+   "sheng_quota": 9,
+   "qu_quota": 44,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-12b49e3f": {
+   "sheng_min_score": 715,
+   "qu_min_score": 596,
+   "sheng_min_3y_avg": 709.3,
+   "qu_min_3y_avg": 598.3,
+   "sheng_quota": 3,
+   "qu_quota": 13,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.1667
+  },
+  "gz-440105-cac39935": {
+   "sheng_min_score": 663,
+   "qu_min_score": 590,
+   "sheng_min_3y_avg": 678.3,
+   "qu_min_3y_avg": 590.3,
+   "sheng_quota": 17,
+   "qu_quota": 79,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-747245e1": {
+   "sheng_min_score": 610,
+   "qu_min_score": 590,
+   "sheng_min_3y_avg": 656.3,
+   "qu_min_3y_avg": 607.3,
+   "sheng_quota": 17,
+   "qu_quota": 79,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-77baeea5": {
+   "sheng_min_score": 703,
+   "qu_min_score": 608,
+   "sheng_min_3y_avg": 703.0,
+   "qu_min_3y_avg": 608.0,
+   "sheng_quota": 13,
+   "qu_quota": 61,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-443b73e7": {
+   "sheng_min_score": 634,
+   "qu_min_score": 636,
+   "sheng_min_3y_avg": 674.3,
+   "qu_min_3y_avg": 626.0,
+   "sheng_quota": 1,
+   "qu_quota": 5,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.25
+  },
+  "gz-440105-0c78a8e1": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 0,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": null
+  },
+  "gz-440105-a1ae8780": {
+   "sheng_min_score": 659,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 659.0,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440105-a630438a": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440105-9a6566db": {
+   "sheng_min_score": 741,
+   "qu_min_score": 617,
+   "sheng_min_3y_avg": 719.0,
+   "qu_min_3y_avg": 607.3,
+   "sheng_quota": 1,
+   "qu_quota": 5,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440105-44b3dc01": {
+   "sheng_min_score": 720,
+   "qu_min_score": 640,
+   "sheng_min_3y_avg": 709.0,
+   "qu_min_3y_avg": 636.0,
+   "sheng_quota": 3,
+   "qu_quota": 16,
+   "sheng_waste_rate": 0.3333,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-ef4076c1": {
+   "sheng_min_score": 642,
+   "qu_min_score": 606,
+   "sheng_min_3y_avg": 652.3,
+   "qu_min_3y_avg": 610.3,
+   "sheng_quota": 26,
+   "qu_quota": 140,
+   "sheng_waste_rate": 0.1176,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-867e6c05": {
+   "sheng_min_score": 632,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 626.5,
+   "qu_min_3y_avg": 591.5,
+   "sheng_quota": 76,
+   "qu_quota": 362,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-5a7fbf3a": {
+   "sheng_min_score": 615,
+   "qu_min_score": 632,
+   "sheng_min_3y_avg": 642.0,
+   "qu_min_3y_avg": 625.0,
+   "sheng_quota": 32,
+   "qu_quota": 152,
+   "sheng_waste_rate": 0.0556,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-8f55ab34": {
+   "sheng_min_score": 642,
+   "qu_min_score": 601,
+   "sheng_min_3y_avg": 643.0,
+   "qu_min_3y_avg": 608.7,
+   "sheng_quota": 29,
+   "qu_quota": 140,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-2e9f6f7b": {
+   "sheng_min_score": 646,
+   "qu_min_score": 593,
+   "sheng_min_3y_avg": 661.7,
+   "qu_min_3y_avg": 592.0,
+   "sheng_quota": 54,
+   "qu_quota": 258,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-069ddb41": {
+   "sheng_min_score": 611,
+   "qu_min_score": 600,
+   "sheng_min_3y_avg": 645.0,
+   "qu_min_3y_avg": 597.0,
+   "sheng_quota": 10,
+   "qu_quota": 51,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-d40d0dbe": {
+   "sheng_min_score": 625,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 627.0,
+   "qu_min_3y_avg": 611.0,
+   "sheng_quota": 33,
+   "qu_quota": 160,
+   "sheng_waste_rate": 0.0556,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-2f8a4424": {
+   "sheng_min_score": 677,
+   "qu_min_score": 599,
+   "sheng_min_3y_avg": 670.0,
+   "qu_min_3y_avg": 599.0,
+   "sheng_quota": 34,
+   "qu_quota": 165,
+   "sheng_waste_rate": 0.0625,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-90c47ff5": {
+   "sheng_min_score": 670,
+   "qu_min_score": 612,
+   "sheng_min_3y_avg": 677.0,
+   "qu_min_3y_avg": 607.3,
+   "sheng_quota": 13,
+   "qu_quota": 65,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-7077b270": {
+   "sheng_min_score": 653,
+   "qu_min_score": 621,
+   "sheng_min_3y_avg": 654.0,
+   "qu_min_3y_avg": 623.3,
+   "sheng_quota": 15,
+   "qu_quota": 84,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-b7d476f7": {
+   "sheng_min_score": 632,
+   "qu_min_score": 620,
+   "sheng_min_3y_avg": 644.3,
+   "qu_min_3y_avg": 611.7,
+   "sheng_quota": 12,
+   "qu_quota": 57,
+   "sheng_waste_rate": 0.2727,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-22156e02": {
+   "sheng_min_score": 679,
+   "qu_min_score": 597,
+   "sheng_min_3y_avg": 656.0,
+   "qu_min_3y_avg": 603.7,
+   "sheng_quota": 20,
+   "qu_quota": 111,
+   "sheng_waste_rate": 0.0833,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-0d1e149e": {
+   "sheng_min_score": 652,
+   "qu_min_score": 602,
+   "sheng_min_3y_avg": 665.3,
+   "qu_min_3y_avg": 605.3,
+   "sheng_quota": 34,
+   "qu_quota": 164,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-dab5b807": {
+   "sheng_min_score": 647,
+   "qu_min_score": 623,
+   "sheng_min_3y_avg": 651.7,
+   "qu_min_3y_avg": 628.7,
+   "sheng_quota": 7,
+   "qu_quota": 35,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-8b3ee7d2": {
+   "sheng_min_score": 653,
+   "qu_min_score": 604,
+   "sheng_min_3y_avg": 674.7,
+   "qu_min_3y_avg": 620.3,
+   "sheng_quota": 6,
+   "qu_quota": 28,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-7c81ab92": {
+   "sheng_min_score": 652,
+   "qu_min_score": 633,
+   "sheng_min_3y_avg": 664.3,
+   "qu_min_3y_avg": 621.0,
+   "sheng_quota": 5,
+   "qu_quota": 26,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-22fcbcd6": {
+   "sheng_min_score": 654,
+   "qu_min_score": 587,
+   "sheng_min_3y_avg": 642.0,
+   "qu_min_3y_avg": 595.7,
+   "sheng_quota": 25,
+   "qu_quota": 118,
+   "sheng_waste_rate": 0.125,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-e32237e4": {
+   "sheng_min_score": 658,
+   "qu_min_score": 593,
+   "sheng_min_3y_avg": 658.0,
+   "qu_min_3y_avg": 604.7,
+   "sheng_quota": 19,
+   "qu_quota": 91,
+   "sheng_waste_rate": 0.0833,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-d311ea50": {
+   "sheng_min_score": 708,
+   "qu_min_score": 600,
+   "sheng_min_3y_avg": 708.0,
+   "qu_min_3y_avg": 600.0,
+   "sheng_quota": 5,
+   "qu_quota": 28,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.2222
+  },
+  "gz-440106-9bed7efb": {
+   "sheng_min_score": 649,
+   "qu_min_score": 626,
+   "sheng_min_3y_avg": 679.3,
+   "qu_min_3y_avg": 622.3,
+   "sheng_quota": 6,
+   "qu_quota": 30,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-11e15e8d": {
+   "sheng_min_score": 682,
+   "qu_min_score": 597,
+   "sheng_min_3y_avg": 682.0,
+   "qu_min_3y_avg": 597.0,
+   "sheng_quota": 8,
+   "qu_quota": 38,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-a565a93c": {
+   "sheng_min_score": 672,
+   "qu_min_score": 585,
+   "sheng_min_3y_avg": 649.5,
+   "qu_min_3y_avg": 585.5,
+   "sheng_quota": 22,
+   "qu_quota": 108,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-01fd3a87": {
+   "sheng_min_score": 657,
+   "qu_min_score": 584,
+   "sheng_min_3y_avg": 658.0,
+   "qu_min_3y_avg": 590.0,
+   "sheng_quota": 30,
+   "qu_quota": 142,
+   "sheng_waste_rate": 0.0625,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-4fac106a": {
+   "sheng_min_score": 713,
+   "qu_min_score": 689,
+   "sheng_min_3y_avg": 713.0,
+   "qu_min_3y_avg": 686.5,
+   "sheng_quota": 1,
+   "qu_quota": 5,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-0c83a9b2": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 674.0,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "gz-440106-23e66d3b": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "gz-440106-bd07878c": {
+   "sheng_min_score": 642,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 670.5,
+   "qu_min_3y_avg": 608.5,
+   "sheng_quota": 8,
+   "qu_quota": 38,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-7abd2786": {
+   "sheng_min_score": 639,
+   "qu_min_score": 599,
+   "sheng_min_3y_avg": 692.7,
+   "qu_min_3y_avg": 602.0,
+   "sheng_quota": 5,
+   "qu_quota": 24,
+   "sheng_waste_rate": 0.2,
+   "qu_waste_rate": 0.1111
+  },
+  "gz-440106-b0d40cc4": {
+   "sheng_min_score": 713,
+   "qu_min_score": 623,
+   "sheng_min_3y_avg": 699.7,
+   "qu_min_3y_avg": 622.0,
+   "sheng_quota": 4,
+   "qu_quota": 19,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-4775be07": {
+   "sheng_min_score": 738,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 712.3,
+   "qu_min_3y_avg": 618.0,
+   "sheng_quota": 2,
+   "qu_quota": 13,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-c77276d3": {
+   "sheng_min_score": null,
+   "qu_min_score": 657,
+   "sheng_min_3y_avg": 709.0,
+   "qu_min_3y_avg": 657.5,
+   "sheng_quota": 1,
+   "qu_quota": 2,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.5
+  },
+  "gz-440106-3d7736c5": {
+   "sheng_min_score": null,
+   "qu_min_score": 715,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 715.0,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-b9eb24f9": {
+   "sheng_min_score": 698,
+   "qu_min_score": 653,
+   "sheng_min_3y_avg": 698.0,
+   "qu_min_3y_avg": 660.0,
+   "sheng_quota": 1,
+   "qu_quota": 2,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-0a2c7178": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440106-77787b4a": {
+   "sheng_min_score": null,
+   "qu_min_score": 671,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 654.0,
+   "sheng_quota": 1,
+   "qu_quota": 2,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.5
+  },
+  "gz-440106-b52cb528": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 686.0,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440106-eda909f7": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 645.0,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "gz-440106-4534dc1a": {
+   "sheng_min_score": null,
+   "qu_min_score": 645,
+   "sheng_min_3y_avg": 680.0,
+   "qu_min_3y_avg": 633.0,
+   "sheng_quota": 1,
+   "qu_quota": 3,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.3333
+  },
+  "gz-440106-72c4c319": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 0,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": null
+  },
+  "gz-440106-fd03e039": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "gz-440106-24ff78f9": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 631.0,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440106-9abdc5fd": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 710.0,
+   "sheng_quota": 0,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "gz-440106-cc1c335f": {
+   "sheng_min_score": 665,
+   "qu_min_score": 593,
+   "sheng_min_3y_avg": 692.3,
+   "qu_min_3y_avg": 631.7,
+   "sheng_quota": 1,
+   "qu_quota": 5,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-ae248365": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "gz-440106-0d03d513": {
+   "sheng_min_score": 702,
+   "qu_min_score": 605,
+   "sheng_min_3y_avg": 702.0,
+   "qu_min_3y_avg": 633.5,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-1b9f7e62": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 700.5,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440106-f0ba06c2": {
+   "sheng_min_score": 716,
+   "qu_min_score": 651,
+   "sheng_min_3y_avg": 722.5,
+   "qu_min_3y_avg": 664.3,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-a3cf5a4f": {
+   "sheng_min_score": 693,
+   "qu_min_score": 568,
+   "sheng_min_3y_avg": 693.0,
+   "qu_min_3y_avg": 568.0,
+   "sheng_quota": 21,
+   "qu_quota": 65,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-0ba9a45f": {
+   "sheng_min_score": 677,
+   "qu_min_score": 603,
+   "sheng_min_3y_avg": 674.3,
+   "qu_min_3y_avg": 593.3,
+   "sheng_quota": 24,
+   "qu_quota": 74,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-ea6a6495": {
+   "sheng_min_score": 692,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 683.7,
+   "qu_min_3y_avg": 592.3,
+   "sheng_quota": 12,
+   "qu_quota": 36,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-6b0e6f77": {
+   "sheng_min_score": 699,
+   "qu_min_score": 596,
+   "sheng_min_3y_avg": 678.5,
+   "qu_min_3y_avg": 595.5,
+   "sheng_quota": 10,
+   "qu_quota": 33,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440103-a3ee807c": {
+   "sheng_min_score": 713,
+   "qu_min_score": 573,
+   "sheng_min_3y_avg": 691.5,
+   "qu_min_3y_avg": 586.5,
+   "sheng_quota": 15,
+   "qu_quota": 46,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.1
+  },
+  "gz-440111-014a9fb2": {
+   "sheng_min_score": 667,
+   "qu_min_score": 596,
+   "sheng_min_3y_avg": 665.7,
+   "qu_min_3y_avg": 585.3,
+   "sheng_quota": 12,
+   "qu_quota": 39,
+   "sheng_waste_rate": 0.7,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-effbfa28": {
+   "sheng_min_score": 670,
+   "qu_min_score": 609,
+   "sheng_min_3y_avg": 688.7,
+   "qu_min_3y_avg": 588.3,
+   "sheng_quota": 3,
+   "qu_quota": 13,
+   "sheng_waste_rate": 0.3333,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-525f949a": {
+   "sheng_min_score": null,
+   "qu_min_score": 562,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 576.0,
+   "sheng_quota": 3,
+   "qu_quota": 12,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.1429
+  },
+  "gz-440111-78d61733": {
+   "sheng_min_score": 636,
+   "qu_min_score": 593,
+   "sheng_min_3y_avg": 659.0,
+   "qu_min_3y_avg": 592.0,
+   "sheng_quota": 11,
+   "qu_quota": 41,
+   "sheng_waste_rate": 0.6667,
+   "qu_waste_rate": 0.1
+  },
+  "gz-440111-b2b78162": {
+   "sheng_min_score": 690,
+   "qu_min_score": 588,
+   "sheng_min_3y_avg": 664.0,
+   "qu_min_3y_avg": 586.3,
+   "sheng_quota": 5,
+   "qu_quota": 19,
+   "sheng_waste_rate": 0.8,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-63a7bd1d": {
+   "sheng_min_score": 686,
+   "qu_min_score": 566,
+   "sheng_min_3y_avg": 682.5,
+   "qu_min_3y_avg": 577.5,
+   "sheng_quota": 16,
+   "qu_quota": 59,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-06bfc806": {
+   "sheng_min_score": 681,
+   "qu_min_score": 591,
+   "sheng_min_3y_avg": 691.5,
+   "qu_min_3y_avg": 589.7,
+   "sheng_quota": 8,
+   "qu_quota": 30,
+   "sheng_waste_rate": 0.1667,
+   "qu_waste_rate": 0.1
+  },
+  "gz-440111-b5668c2e": {
+   "sheng_min_score": 678,
+   "qu_min_score": 569,
+   "sheng_min_3y_avg": 679.0,
+   "qu_min_3y_avg": 579.3,
+   "sheng_quota": 13,
+   "qu_quota": 51,
+   "sheng_waste_rate": 0.5455,
+   "qu_waste_rate": 0.1
+  },
+  "gz-440111-20c36515": {
+   "sheng_min_score": null,
+   "qu_min_score": 589,
+   "sheng_min_3y_avg": 688.0,
+   "qu_min_3y_avg": 595.3,
+   "sheng_quota": 6,
+   "qu_quota": 21,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-4c9a3eaa": {
+   "sheng_min_score": 689,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 697.7,
+   "qu_min_3y_avg": 598.7,
+   "sheng_quota": 10,
+   "qu_quota": 37,
+   "sheng_waste_rate": 0.1111,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-6becf87b": {
+   "sheng_min_score": 696,
+   "qu_min_score": 600,
+   "sheng_min_3y_avg": 696.0,
+   "qu_min_3y_avg": 600.3,
+   "sheng_quota": 6,
+   "qu_quota": 24,
+   "sheng_waste_rate": 0.5,
+   "qu_waste_rate": 0.1111
+  },
+  "gz-440100-7564c13b": {
+   "sheng_min_score": 682,
+   "qu_min_score": 589,
+   "sheng_min_3y_avg": 658.5,
+   "qu_min_3y_avg": 585.0,
+   "sheng_quota": 3,
+   "qu_quota": 13,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-d3ffec78": {
+   "sheng_min_score": 686,
+   "qu_min_score": 596,
+   "sheng_min_3y_avg": 680.0,
+   "qu_min_3y_avg": 606.7,
+   "sheng_quota": 9,
+   "qu_quota": 29,
+   "sheng_waste_rate": 0.5714,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-fce36a58": {
+   "sheng_min_score": 650,
+   "qu_min_score": 593,
+   "sheng_min_3y_avg": 656.5,
+   "qu_min_3y_avg": 585.0,
+   "sheng_quota": 5,
+   "qu_quota": 20,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.125
+  },
+  "gz-440111-d28d78f9": {
+   "sheng_min_score": 672,
+   "qu_min_score": 595,
+   "sheng_min_3y_avg": 677.5,
+   "qu_min_3y_avg": 605.0,
+   "sheng_quota": 6,
+   "qu_quota": 19,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-0f9c1ce8": {
+   "sheng_min_score": 656,
+   "qu_min_score": 612,
+   "sheng_min_3y_avg": 650.5,
+   "qu_min_3y_avg": 612.3,
+   "sheng_quota": 3,
+   "qu_quota": 11,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-cc803935": {
+   "sheng_min_score": 685,
+   "qu_min_score": 600,
+   "sheng_min_3y_avg": 685.3,
+   "qu_min_3y_avg": 609.3,
+   "sheng_quota": 4,
+   "qu_quota": 13,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-d2a4a882": {
+   "sheng_min_score": 670,
+   "qu_min_score": 611,
+   "sheng_min_3y_avg": 685.3,
+   "qu_min_3y_avg": 599.3,
+   "sheng_quota": 11,
+   "qu_quota": 42,
+   "sheng_waste_rate": 0.6667,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-f3edc7ba": {
+   "sheng_min_score": 611,
+   "qu_min_score": 578,
+   "sheng_min_3y_avg": 670.3,
+   "qu_min_3y_avg": 583.0,
+   "sheng_quota": 7,
+   "qu_quota": 25,
+   "sheng_waste_rate": 0.1667,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-8629621c": {
+   "sheng_min_score": 680,
+   "qu_min_score": 596,
+   "sheng_min_3y_avg": 689.0,
+   "qu_min_3y_avg": 602.7,
+   "sheng_quota": 4,
+   "qu_quota": 16,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-96d35d17": {
+   "sheng_min_score": 684,
+   "qu_min_score": 582,
+   "sheng_min_3y_avg": 680.0,
+   "qu_min_3y_avg": 575.7,
+   "sheng_quota": 4,
+   "qu_quota": 16,
+   "sheng_waste_rate": 0.5,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-4ab20f44": {
+   "sheng_min_score": 634,
+   "qu_min_score": 599,
+   "sheng_min_3y_avg": 647.5,
+   "qu_min_3y_avg": 597.0,
+   "sheng_quota": 11,
+   "qu_quota": 35,
+   "sheng_waste_rate": 0.7273,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-609bfcf4": {
+   "sheng_min_score": null,
+   "qu_min_score": 607,
+   "sheng_min_3y_avg": 664.5,
+   "qu_min_3y_avg": 592.7,
+   "sheng_quota": 4,
+   "qu_quota": 15,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-7e484346": {
+   "sheng_min_score": 670,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 676.7,
+   "qu_min_3y_avg": 574.0,
+   "sheng_quota": 18,
+   "qu_quota": 58,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-6271c94b": {
+   "sheng_min_score": 691,
+   "qu_min_score": 597,
+   "sheng_min_3y_avg": 691.0,
+   "qu_min_3y_avg": 597.0,
+   "sheng_quota": 9,
+   "qu_quota": 29,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-e6300e34": {
+   "sheng_min_score": 707,
+   "qu_min_score": 603,
+   "sheng_min_3y_avg": 712.0,
+   "qu_min_3y_avg": 587.3,
+   "sheng_quota": 3,
+   "qu_quota": 9,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-c8461d5d": {
+   "sheng_min_score": 675,
+   "qu_min_score": 614,
+   "sheng_min_3y_avg": 675.0,
+   "qu_min_3y_avg": 614.0,
+   "sheng_quota": 12,
+   "qu_quota": 36,
+   "sheng_waste_rate": 0.0909,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-292274e7": {
+   "sheng_min_score": 676,
+   "qu_min_score": 614,
+   "sheng_min_3y_avg": 676.3,
+   "qu_min_3y_avg": 596.7,
+   "sheng_quota": 8,
+   "qu_quota": 31,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-2186a02a": {
+   "sheng_min_score": 628,
+   "qu_min_score": 620,
+   "sheng_min_3y_avg": 628.0,
+   "qu_min_3y_avg": 577.7,
+   "sheng_quota": 3,
+   "qu_quota": 12,
+   "sheng_waste_rate": 0.3333,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-853a71dd": {
+   "sheng_min_score": null,
+   "qu_min_score": 562,
+   "sheng_min_3y_avg": 635.0,
+   "qu_min_3y_avg": 572.3,
+   "sheng_quota": 1,
+   "qu_quota": 6,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-28c16cca": {
+   "sheng_min_score": 643,
+   "qu_min_score": 566,
+   "sheng_min_3y_avg": 662.0,
+   "qu_min_3y_avg": 570.7,
+   "sheng_quota": 25,
+   "qu_quota": 80,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-92e78967": {
+   "sheng_min_score": 713,
+   "qu_min_score": 598,
+   "sheng_min_3y_avg": 713.0,
+   "qu_min_3y_avg": 598.0,
+   "sheng_quota": 1,
+   "qu_quota": 4,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-0cf700fb": {
+   "sheng_min_score": 606,
+   "qu_min_score": 586,
+   "sheng_min_3y_avg": 660.0,
+   "qu_min_3y_avg": 572.7,
+   "sheng_quota": 11,
+   "qu_quota": 42,
+   "sheng_waste_rate": 0.4,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-297970b9": {
+   "sheng_min_score": 666,
+   "qu_min_score": 598,
+   "sheng_min_3y_avg": 682.3,
+   "qu_min_3y_avg": 602.3,
+   "sheng_quota": 6,
+   "qu_quota": 21,
+   "sheng_waste_rate": 0.6667,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-99d97ada": {
+   "sheng_min_score": 700,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 671.5,
+   "qu_min_3y_avg": 601.5,
+   "sheng_quota": 3,
+   "qu_quota": 6,
+   "sheng_waste_rate": 0.3333,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-c7b90869": {
+   "sheng_min_score": 714,
+   "qu_min_score": 577,
+   "sheng_min_3y_avg": 695.5,
+   "qu_min_3y_avg": 585.0,
+   "sheng_quota": 12,
+   "qu_quota": 37,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-0d379efe": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 722.0,
+   "qu_min_3y_avg": 564.0,
+   "sheng_quota": 14,
+   "qu_quota": 42,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": null
+  },
+  "gz-440111-e85f7f8a": {
+   "sheng_min_score": 704,
+   "qu_min_score": 593,
+   "sheng_min_3y_avg": 705.0,
+   "qu_min_3y_avg": 611.5,
+   "sheng_quota": 4,
+   "qu_quota": 12,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-4af73d54": {
+   "sheng_min_score": 719,
+   "qu_min_score": 637,
+   "sheng_min_3y_avg": 720.0,
+   "qu_min_3y_avg": 623.0,
+   "sheng_quota": 2,
+   "qu_quota": 6,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-b4e0e849": {
+   "sheng_min_score": 666,
+   "qu_min_score": 556,
+   "sheng_min_3y_avg": 681.0,
+   "qu_min_3y_avg": 558.7,
+   "sheng_quota": 19,
+   "qu_quota": 59,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-c8ae0a7c": {
+   "sheng_min_score": 659,
+   "qu_min_score": 557,
+   "sheng_min_3y_avg": 667.0,
+   "qu_min_3y_avg": 594.3,
+   "sheng_quota": 15,
+   "qu_quota": 46,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-0078267c": {
+   "sheng_min_score": 648,
+   "qu_min_score": 556,
+   "sheng_min_3y_avg": 679.3,
+   "qu_min_3y_avg": 554.7,
+   "sheng_quota": 44,
+   "qu_quota": 139,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-0d08ab54": {
+   "sheng_min_score": 631,
+   "qu_min_score": 561,
+   "sheng_min_3y_avg": 668.3,
+   "qu_min_3y_avg": 566.0,
+   "sheng_quota": 32,
+   "qu_quota": 99,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-f08e9c24": {
+   "sheng_min_score": 690,
+   "qu_min_score": 571,
+   "sheng_min_3y_avg": 681.3,
+   "qu_min_3y_avg": 579.3,
+   "sheng_quota": 31,
+   "qu_quota": 96,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-43437f78": {
+   "sheng_min_score": 638,
+   "qu_min_score": 560,
+   "sheng_min_3y_avg": 674.7,
+   "qu_min_3y_avg": 555.7,
+   "sheng_quota": 19,
+   "qu_quota": 58,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.2
+  },
+  "gz-440111-6782d2c7": {
+   "sheng_min_score": 625,
+   "qu_min_score": 564,
+   "sheng_min_3y_avg": 657.7,
+   "qu_min_3y_avg": 559.7,
+   "sheng_quota": 25,
+   "qu_quota": 77,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-e14818fc": {
+   "sheng_min_score": 659,
+   "qu_min_score": 565,
+   "sheng_min_3y_avg": 659.0,
+   "qu_min_3y_avg": 565.0,
+   "sheng_quota": 14,
+   "qu_quota": 43,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-a072aeb7": {
+   "sheng_min_score": 695,
+   "qu_min_score": 606,
+   "sheng_min_3y_avg": 706.3,
+   "qu_min_3y_avg": 617.7,
+   "sheng_quota": 8,
+   "qu_quota": 24,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-5c7a7c4a": {
+   "sheng_min_score": 700,
+   "qu_min_score": 603,
+   "sheng_min_3y_avg": 683.0,
+   "qu_min_3y_avg": 593.0,
+   "sheng_quota": 3,
+   "qu_quota": 10,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-b694e3ef": {
+   "sheng_min_score": 717,
+   "qu_min_score": 557,
+   "sheng_min_3y_avg": 717.0,
+   "qu_min_3y_avg": 582.5,
+   "sheng_quota": 2,
+   "qu_quota": 6,
+   "sheng_waste_rate": 0.5,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-620f7d31": {
+   "sheng_min_score": 653,
+   "qu_min_score": 603,
+   "sheng_min_3y_avg": 670.3,
+   "qu_min_3y_avg": 591.0,
+   "sheng_quota": 6,
+   "qu_quota": 18,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-be9e574f": {
+   "sheng_min_score": 693,
+   "qu_min_score": 554,
+   "sheng_min_3y_avg": 679.7,
+   "qu_min_3y_avg": 574.3,
+   "sheng_quota": 8,
+   "qu_quota": 24,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.1111
+  },
+  "gz-440111-aca6656a": {
+   "sheng_min_score": 693,
+   "qu_min_score": 556,
+   "sheng_min_3y_avg": 693.0,
+   "qu_min_3y_avg": 609.0,
+   "sheng_quota": 1,
+   "qu_quota": 3,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-2667c5ae": {
+   "sheng_min_score": 690,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 690.0,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": null
+  },
+  "gz-440111-0fe2a45d": {
+   "sheng_min_score": 712,
+   "qu_min_score": 561,
+   "sheng_min_3y_avg": 712.0,
+   "qu_min_3y_avg": 616.0,
+   "sheng_quota": 1,
+   "qu_quota": 2,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440106-540006ea": {
+   "sheng_min_score": 690,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 693.3,
+   "qu_min_3y_avg": 568.0,
+   "sheng_quota": 13,
+   "qu_quota": 42,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.2
+  },
+  "gz-440111-7360ff6d": {
+   "sheng_min_score": 699,
+   "qu_min_score": 606,
+   "sheng_min_3y_avg": 701.7,
+   "qu_min_3y_avg": 595.7,
+   "sheng_quota": 6,
+   "qu_quota": 20,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-d3f7ac89": {
+   "sheng_min_score": 658,
+   "qu_min_score": 566,
+   "sheng_min_3y_avg": 674.3,
+   "qu_min_3y_avg": 562.3,
+   "sheng_quota": 21,
+   "qu_quota": 67,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-9f6fc18e": {
+   "sheng_min_score": null,
+   "qu_min_score": 653,
+   "sheng_min_3y_avg": 694.0,
+   "qu_min_3y_avg": 656.5,
+   "sheng_quota": 1,
+   "qu_quota": 2,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-048815b3": {
+   "sheng_min_score": 709,
+   "qu_min_score": 601,
+   "sheng_min_3y_avg": 697.3,
+   "qu_min_3y_avg": 604.3,
+   "sheng_quota": 8,
+   "qu_quota": 24,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-1b7d3f87": {
+   "sheng_min_score": 655,
+   "qu_min_score": 606,
+   "sheng_min_3y_avg": 655.0,
+   "qu_min_3y_avg": 606.0,
+   "sheng_quota": 6,
+   "qu_quota": 18,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-4cf10429": {
+   "sheng_min_score": 701,
+   "qu_min_score": 570,
+   "sheng_min_3y_avg": 701.0,
+   "qu_min_3y_avg": 570.0,
+   "sheng_quota": 13,
+   "qu_quota": 40,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-e337711a": {
+   "sheng_min_score": 667,
+   "qu_min_score": 604,
+   "sheng_min_3y_avg": 668.7,
+   "qu_min_3y_avg": 613.0,
+   "sheng_quota": 7,
+   "qu_quota": 27,
+   "sheng_waste_rate": 0.1667,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-a7294ae4": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 699.5,
+   "qu_min_3y_avg": 630.0,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440111-175bd68f": {
+   "sheng_min_score": 702,
+   "qu_min_score": 603,
+   "sheng_min_3y_avg": 682.7,
+   "qu_min_3y_avg": 588.0,
+   "sheng_quota": 12,
+   "qu_quota": 37,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440111-6782f041": {
+   "sheng_min_score": 667,
+   "qu_min_score": 615,
+   "sheng_min_3y_avg": 667.0,
+   "qu_min_3y_avg": 615.0,
+   "sheng_quota": 2,
+   "qu_quota": 5,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-06029745": {
+   "sheng_min_score": 646,
+   "qu_min_score": 600,
+   "sheng_min_3y_avg": 648.7,
+   "qu_min_3y_avg": 606.7,
+   "sheng_quota": 23,
+   "qu_quota": 81,
+   "sheng_waste_rate": 0.0667,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-9d315f50": {
+   "sheng_min_score": 655,
+   "qu_min_score": 576,
+   "sheng_min_3y_avg": 667.7,
+   "qu_min_3y_avg": 577.3,
+   "sheng_quota": 17,
+   "qu_quota": 60,
+   "sheng_waste_rate": 0.1818,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-c7cfbe14": {
+   "sheng_min_score": 633,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 647.0,
+   "qu_min_3y_avg": 601.0,
+   "sheng_quota": 13,
+   "qu_quota": 55,
+   "sheng_waste_rate": 0.1,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-8edaa2d8": {
+   "sheng_min_score": 641,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 682.0,
+   "qu_min_3y_avg": 607.0,
+   "sheng_quota": 8,
+   "qu_quota": 31,
+   "sheng_waste_rate": 0.1667,
+   "qu_waste_rate": 0.1429
+  },
+  "gz-440112-83167af8": {
+   "sheng_min_score": 654,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 640.3,
+   "qu_min_3y_avg": 596.0,
+   "sheng_quota": 10,
+   "qu_quota": 40,
+   "sheng_waste_rate": 0.2222,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-632bcdb7": {
+   "sheng_min_score": 664,
+   "qu_min_score": 589,
+   "sheng_min_3y_avg": 691.0,
+   "qu_min_3y_avg": 591.3,
+   "sheng_quota": 11,
+   "qu_quota": 45,
+   "sheng_waste_rate": 0.3333,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-ee49f05d": {
+   "sheng_min_score": null,
+   "qu_min_score": 627,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 617.3,
+   "sheng_quota": 2,
+   "qu_quota": 6,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.2
+  },
+  "gz-440112-cbfb4b61": {
+   "sheng_min_score": 658,
+   "qu_min_score": 595,
+   "sheng_min_3y_avg": 669.7,
+   "qu_min_3y_avg": 595.3,
+   "sheng_quota": 17,
+   "qu_quota": 59,
+   "sheng_waste_rate": 0.0833,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-550a5ae8": {
+   "sheng_min_score": 695,
+   "qu_min_score": 624,
+   "sheng_min_3y_avg": 695.0,
+   "qu_min_3y_avg": 575.0,
+   "sheng_quota": 2,
+   "qu_quota": 7,
+   "sheng_waste_rate": 0.5,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-8b4292d7": {
+   "sheng_min_score": 672,
+   "qu_min_score": 591,
+   "sheng_min_3y_avg": 661.7,
+   "qu_min_3y_avg": 587.0,
+   "sheng_quota": 11,
+   "qu_quota": 40,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-4d96554f": {
+   "sheng_min_score": 673,
+   "qu_min_score": 606,
+   "sheng_min_3y_avg": 642.7,
+   "qu_min_3y_avg": 603.7,
+   "sheng_quota": 14,
+   "qu_quota": 56,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-f3817fbe": {
+   "sheng_min_score": 607,
+   "qu_min_score": 595,
+   "sheng_min_3y_avg": 622.7,
+   "qu_min_3y_avg": 584.7,
+   "sheng_quota": 27,
+   "qu_quota": 113,
+   "sheng_waste_rate": 0.5294,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-0aa66950": {
+   "sheng_min_score": 683,
+   "qu_min_score": 601,
+   "sheng_min_3y_avg": 652.5,
+   "qu_min_3y_avg": 578.7,
+   "sheng_quota": 8,
+   "qu_quota": 36,
+   "sheng_waste_rate": 0.4286,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-4ed867c7": {
+   "sheng_min_score": 684,
+   "qu_min_score": 612,
+   "sheng_min_3y_avg": 684.0,
+   "qu_min_3y_avg": 612.0,
+   "sheng_quota": 23,
+   "qu_quota": 79,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-e085f4fa": {
+   "sheng_min_score": 697,
+   "qu_min_score": 546,
+   "sheng_min_3y_avg": 697.0,
+   "qu_min_3y_avg": 546.0,
+   "sheng_quota": 15,
+   "qu_quota": 53,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-93566bfa": {
+   "sheng_min_score": 686,
+   "qu_min_score": 569,
+   "sheng_min_3y_avg": 700.0,
+   "qu_min_3y_avg": 591.0,
+   "sheng_quota": 5,
+   "qu_quota": 16,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-12b0184b": {
+   "sheng_min_score": 649,
+   "qu_min_score": 588,
+   "sheng_min_3y_avg": 652.3,
+   "qu_min_3y_avg": 597.0,
+   "sheng_quota": 23,
+   "qu_quota": 80,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-8bbf8f06": {
+   "sheng_min_score": 645,
+   "qu_min_score": 591,
+   "sheng_min_3y_avg": 653.7,
+   "qu_min_3y_avg": 580.3,
+   "sheng_quota": 26,
+   "qu_quota": 91,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-d62f1348": {
+   "sheng_min_score": 654,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 656.3,
+   "qu_min_3y_avg": 580.0,
+   "sheng_quota": 17,
+   "qu_quota": 60,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-e3190fa2": {
+   "sheng_min_score": 677,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 678.3,
+   "qu_min_3y_avg": 589.3,
+   "sheng_quota": 18,
+   "qu_quota": 39,
+   "sheng_waste_rate": 0.1818,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-96610f39": {
+   "sheng_min_score": 633,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 672.0,
+   "qu_min_3y_avg": 589.7,
+   "sheng_quota": 11,
+   "qu_quota": 45,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-bffde68d": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "gz-440112-c80ac6ac": {
+   "sheng_min_score": 636,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 648.7,
+   "qu_min_3y_avg": 585.3,
+   "sheng_quota": 34,
+   "qu_quota": 117,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-87f27cf4": {
+   "sheng_min_score": 648,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 663.7,
+   "qu_min_3y_avg": 591.0,
+   "sheng_quota": 33,
+   "qu_quota": 115,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-b5b864ba": {
+   "sheng_min_score": 638,
+   "qu_min_score": 602,
+   "sheng_min_3y_avg": 637.3,
+   "qu_min_3y_avg": 589.3,
+   "sheng_quota": 25,
+   "qu_quota": 86,
+   "sheng_waste_rate": 0.0667,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-e08700ea": {
+   "sheng_min_score": 679,
+   "qu_min_score": 593,
+   "sheng_min_3y_avg": 683.0,
+   "qu_min_3y_avg": 606.0,
+   "sheng_quota": 5,
+   "qu_quota": 17,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-cf50e275": {
+   "sheng_min_score": 681,
+   "qu_min_score": 604,
+   "sheng_min_3y_avg": 690.0,
+   "qu_min_3y_avg": 606.5,
+   "sheng_quota": 7,
+   "qu_quota": 25,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-40be421c": {
+   "sheng_min_score": 687,
+   "qu_min_score": 598,
+   "sheng_min_3y_avg": 689.5,
+   "qu_min_3y_avg": 599.5,
+   "sheng_quota": 14,
+   "qu_quota": 49,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-3f877ace": {
+   "sheng_min_score": 688,
+   "qu_min_score": 564,
+   "sheng_min_3y_avg": 688.0,
+   "qu_min_3y_avg": 566.5,
+   "sheng_quota": 16,
+   "qu_quota": 55,
+   "sheng_waste_rate": 0.9091,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-3847727f": {
+   "sheng_min_score": 707,
+   "qu_min_score": 584,
+   "sheng_min_3y_avg": 707.0,
+   "qu_min_3y_avg": 584.0,
+   "sheng_quota": 10,
+   "qu_quota": 34,
+   "sheng_waste_rate": 0.125,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-5b78d24b": {
+   "sheng_min_score": 652,
+   "qu_min_score": 615,
+   "sheng_min_3y_avg": 652.0,
+   "qu_min_3y_avg": 615.0,
+   "sheng_quota": 11,
+   "qu_quota": 39,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-e3746d8c": {
+   "sheng_min_score": 646,
+   "qu_min_score": 659,
+   "sheng_min_3y_avg": 646.0,
+   "qu_min_3y_avg": 659.0,
+   "sheng_quota": 9,
+   "qu_quota": 33,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-ccdabd8f": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "gz-440112-21d0cd90": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440112-673fa2c9": {
+   "sheng_min_score": 678,
+   "qu_min_score": 596,
+   "sheng_min_3y_avg": 678.0,
+   "qu_min_3y_avg": 599.7,
+   "sheng_quota": 2,
+   "qu_quota": 6,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-2132c84e": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 683.0,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 0,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": null
+  },
+  "gz-440112-674f4721": {
+   "sheng_min_score": 656,
+   "qu_min_score": 610,
+   "sheng_min_3y_avg": 664.0,
+   "qu_min_3y_avg": 604.0,
+   "sheng_quota": 19,
+   "qu_quota": 65,
+   "sheng_waste_rate": 0.0769,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-fb457bd7": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 671.0,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440112-a0244635": {
+   "sheng_min_score": 655,
+   "qu_min_score": 572,
+   "sheng_min_3y_avg": 643.3,
+   "qu_min_3y_avg": 561.3,
+   "sheng_quota": 26,
+   "qu_quota": 89,
+   "sheng_waste_rate": 0.0714,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-705c66e3": {
+   "sheng_min_score": 626,
+   "qu_min_score": 562,
+   "sheng_min_3y_avg": 629.0,
+   "qu_min_3y_avg": 560.0,
+   "sheng_quota": 37,
+   "qu_quota": 128,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440112-6d1ac70b": {
+   "sheng_min_score": 663,
+   "qu_min_score": 632,
+   "sheng_min_3y_avg": 679.3,
+   "qu_min_3y_avg": 619.0,
+   "sheng_quota": 9,
+   "qu_quota": 32,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-53650c78": {
+   "sheng_min_score": 627,
+   "qu_min_score": 506,
+   "sheng_min_3y_avg": 661.0,
+   "qu_min_3y_avg": 508.7,
+   "sheng_quota": 20,
+   "qu_quota": 105,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0833
+  },
+  "gz-440113-e121d1b3": {
+   "sheng_min_score": 671,
+   "qu_min_score": 528,
+   "sheng_min_3y_avg": 664.0,
+   "qu_min_3y_avg": 533.0,
+   "sheng_quota": 14,
+   "qu_quota": 87,
+   "sheng_waste_rate": 0.1818,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-b7541529": {
+   "sheng_min_score": 658,
+   "qu_min_score": 515,
+   "sheng_min_3y_avg": 669.3,
+   "qu_min_3y_avg": 523.7,
+   "sheng_quota": 25,
+   "qu_quota": 133,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-f543c46b": {
+   "sheng_min_score": 681,
+   "qu_min_score": 503,
+   "sheng_min_3y_avg": 668.0,
+   "qu_min_3y_avg": 525.0,
+   "sheng_quota": 21,
+   "qu_quota": 115,
+   "sheng_waste_rate": 0.0625,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-fdabec82": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440113-badb274e": {
+   "sheng_min_score": 700,
+   "qu_min_score": 504,
+   "sheng_min_3y_avg": 678.3,
+   "qu_min_3y_avg": 532.7,
+   "sheng_quota": 11,
+   "qu_quota": 60,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-b5ff857b": {
+   "sheng_min_score": 652,
+   "qu_min_score": 528,
+   "sheng_min_3y_avg": 678.7,
+   "qu_min_3y_avg": 540.7,
+   "sheng_quota": 9,
+   "qu_quota": 48,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-303a40d7": {
+   "sheng_min_score": 656,
+   "qu_min_score": 512,
+   "sheng_min_3y_avg": 653.3,
+   "qu_min_3y_avg": 524.7,
+   "sheng_quota": 23,
+   "qu_quota": 123,
+   "sheng_waste_rate": 0.0667,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-0bb52d06": {
+   "sheng_min_score": 647,
+   "qu_min_score": 521,
+   "sheng_min_3y_avg": 671.0,
+   "qu_min_3y_avg": 535.3,
+   "sheng_quota": 13,
+   "qu_quota": 72,
+   "sheng_waste_rate": 0.4,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-3a44d15c": {
+   "sheng_min_score": 683,
+   "qu_min_score": 555,
+   "sheng_min_3y_avg": 690.3,
+   "qu_min_3y_avg": 543.3,
+   "sheng_quota": 3,
+   "qu_quota": 15,
+   "sheng_waste_rate": 0.3333,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-0b275c37": {
+   "sheng_min_score": 658,
+   "qu_min_score": 516,
+   "sheng_min_3y_avg": 657.7,
+   "qu_min_3y_avg": 535.7,
+   "sheng_quota": 30,
+   "qu_quota": 160,
+   "sheng_waste_rate": 0.1111,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-76992454": {
+   "sheng_min_score": 636,
+   "qu_min_score": 523,
+   "sheng_min_3y_avg": 645.3,
+   "qu_min_3y_avg": 545.3,
+   "sheng_quota": 10,
+   "qu_quota": 55,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0833
+  },
+  "gz-440113-f744f14a": {
+   "sheng_min_score": 671,
+   "qu_min_score": 523,
+   "sheng_min_3y_avg": 653.3,
+   "qu_min_3y_avg": 532.0,
+   "sheng_quota": 9,
+   "qu_quota": 49,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-eab4ae0e": {
+   "sheng_min_score": 680,
+   "qu_min_score": 522,
+   "sheng_min_3y_avg": 664.7,
+   "qu_min_3y_avg": 528.0,
+   "sheng_quota": 13,
+   "qu_quota": 72,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-e7ca2b33": {
+   "sheng_min_score": 680,
+   "qu_min_score": 517,
+   "sheng_min_3y_avg": 669.7,
+   "qu_min_3y_avg": 518.3,
+   "sheng_quota": 18,
+   "qu_quota": 96,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-cbaa8160": {
+   "sheng_min_score": 670,
+   "qu_min_score": 520,
+   "sheng_min_3y_avg": 668.7,
+   "qu_min_3y_avg": 535.7,
+   "sheng_quota": 19,
+   "qu_quota": 112,
+   "sheng_waste_rate": 0.1538,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-a0992d0c": {
+   "sheng_min_score": 605,
+   "qu_min_score": 524,
+   "sheng_min_3y_avg": 625.7,
+   "qu_min_3y_avg": 533.0,
+   "sheng_quota": 20,
+   "qu_quota": 63,
+   "sheng_waste_rate": 0.1818,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-acf92324": {
+   "sheng_min_score": 670,
+   "qu_min_score": 513,
+   "sheng_min_3y_avg": 652.0,
+   "qu_min_3y_avg": 514.5,
+   "sheng_quota": 23,
+   "qu_quota": 124,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-6a13dc63": {
+   "sheng_min_score": 653,
+   "qu_min_score": 506,
+   "sheng_min_3y_avg": 662.3,
+   "qu_min_3y_avg": 518.0,
+   "sheng_quota": 14,
+   "qu_quota": 77,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-95be9ccc": {
+   "sheng_min_score": 676,
+   "qu_min_score": 524,
+   "sheng_min_3y_avg": 677.5,
+   "qu_min_3y_avg": 527.0,
+   "sheng_quota": 7,
+   "qu_quota": 39,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0909
+  },
+  "gz-440113-73d685ac": {
+   "sheng_min_score": 701,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 711.5,
+   "qu_min_3y_avg": 575.0,
+   "sheng_quota": 4,
+   "qu_quota": 21,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.375
+  },
+  "gz-440113-eca20a50": {
+   "sheng_min_score": 647,
+   "qu_min_score": 520,
+   "sheng_min_3y_avg": 662.7,
+   "qu_min_3y_avg": 539.0,
+   "sheng_quota": 16,
+   "qu_quota": 99,
+   "sheng_waste_rate": 0.3636,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-443448d2": {
+   "sheng_min_score": 686,
+   "qu_min_score": 512,
+   "sheng_min_3y_avg": 666.0,
+   "qu_min_3y_avg": 528.3,
+   "sheng_quota": 12,
+   "qu_quota": 71,
+   "sheng_waste_rate": 0.1818,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-67864b8b": {
+   "sheng_min_score": 699,
+   "qu_min_score": 516,
+   "sheng_min_3y_avg": 683.7,
+   "qu_min_3y_avg": 527.7,
+   "sheng_quota": 13,
+   "qu_quota": 68,
+   "sheng_waste_rate": 0.6,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-cdfe162a": {
+   "sheng_min_score": 636,
+   "qu_min_score": 518,
+   "sheng_min_3y_avg": 674.7,
+   "qu_min_3y_avg": 518.3,
+   "sheng_quota": 12,
+   "qu_quota": 63,
+   "sheng_waste_rate": 0.5556,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-527391ff": {
+   "sheng_min_score": 683,
+   "qu_min_score": 535,
+   "sheng_min_3y_avg": 701.3,
+   "qu_min_3y_avg": 533.3,
+   "sheng_quota": 7,
+   "qu_quota": 40,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-db61be15": {
+   "sheng_min_score": 659,
+   "qu_min_score": 517,
+   "sheng_min_3y_avg": 661.3,
+   "qu_min_3y_avg": 534.7,
+   "sheng_quota": 11,
+   "qu_quota": 60,
+   "sheng_waste_rate": 0.125,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-2570c29b": {
+   "sheng_min_score": 634,
+   "qu_min_score": 513,
+   "sheng_min_3y_avg": 634.3,
+   "qu_min_3y_avg": 521.3,
+   "sheng_quota": 18,
+   "qu_quota": 96,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-3d5242b3": {
+   "sheng_min_score": null,
+   "qu_min_score": 547,
+   "sheng_min_3y_avg": 717.0,
+   "qu_min_3y_avg": 536.0,
+   "sheng_quota": 5,
+   "qu_quota": 30,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-213843c2": {
+   "sheng_min_score": 689,
+   "qu_min_score": 531,
+   "sheng_min_3y_avg": 707.0,
+   "qu_min_3y_avg": 520.0,
+   "sheng_quota": 6,
+   "qu_quota": 32,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0909
+  },
+  "gz-440113-b2a39869": {
+   "sheng_min_score": 697,
+   "qu_min_score": 516,
+   "sheng_min_3y_avg": 672.3,
+   "qu_min_3y_avg": 525.3,
+   "sheng_quota": 27,
+   "qu_quota": 146,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-51a65e7c": {
+   "sheng_min_score": 681,
+   "qu_min_score": 512,
+   "sheng_min_3y_avg": 683.7,
+   "qu_min_3y_avg": 534.7,
+   "sheng_quota": 10,
+   "qu_quota": 52,
+   "sheng_waste_rate": 0.375,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-b33076d3": {
+   "sheng_min_score": 666,
+   "qu_min_score": 532,
+   "sheng_min_3y_avg": 682.0,
+   "qu_min_3y_avg": 536.0,
+   "sheng_quota": 2,
+   "qu_quota": 13,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.2222
+  },
+  "gz-440113-43d027a5": {
+   "sheng_min_score": 679,
+   "qu_min_score": 501,
+   "sheng_min_3y_avg": 679.0,
+   "qu_min_3y_avg": 501.0,
+   "sheng_quota": 46,
+   "qu_quota": 243,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-f890218e": {
+   "sheng_min_score": 710,
+   "qu_min_score": 527,
+   "sheng_min_3y_avg": 704.3,
+   "qu_min_3y_avg": 535.0,
+   "sheng_quota": 6,
+   "qu_quota": 34,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.2
+  },
+  "gz-440113-3b63e590": {
+   "sheng_min_score": 700,
+   "qu_min_score": 559,
+   "sheng_min_3y_avg": 696.3,
+   "qu_min_3y_avg": 568.0,
+   "sheng_quota": 6,
+   "qu_quota": 31,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.3333
+  },
+  "gz-440113-7b2b848a": {
+   "sheng_min_score": 670,
+   "qu_min_score": 527,
+   "sheng_min_3y_avg": 680.0,
+   "qu_min_3y_avg": 552.7,
+   "sheng_quota": 2,
+   "qu_quota": 11,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.25
+  },
+  "gz-440113-f4a10736": {
+   "sheng_min_score": 682,
+   "qu_min_score": 510,
+   "sheng_min_3y_avg": 670.7,
+   "qu_min_3y_avg": 534.3,
+   "sheng_quota": 8,
+   "qu_quota": 43,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0833
+  },
+  "gz-440113-3cc636b8": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440113-2264148c": {
+   "sheng_min_score": 675,
+   "qu_min_score": 530,
+   "sheng_min_3y_avg": 678.7,
+   "qu_min_3y_avg": 523.0,
+   "sheng_quota": 6,
+   "qu_quota": 33,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0909
+  },
+  "gz-440113-1f3378c2": {
+   "sheng_min_score": 680,
+   "qu_min_score": 538,
+   "sheng_min_3y_avg": 680.0,
+   "qu_min_3y_avg": 538.0,
+   "sheng_quota": 3,
+   "qu_quota": 15,
+   "sheng_waste_rate": 0.3333,
+   "qu_waste_rate": 0.1111
+  },
+  "gz-440113-37f452f3": {
+   "sheng_min_score": 637,
+   "qu_min_score": 499,
+   "sheng_min_3y_avg": 654.3,
+   "qu_min_3y_avg": 528.0,
+   "sheng_quota": 31,
+   "qu_quota": 164,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-9fa97423": {
+   "sheng_min_score": 650,
+   "qu_min_score": 523,
+   "sheng_min_3y_avg": 644.0,
+   "qu_min_3y_avg": 543.0,
+   "sheng_quota": 19,
+   "qu_quota": 117,
+   "sheng_waste_rate": 0.0833,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-1b12edfd": {
+   "sheng_min_score": 610,
+   "qu_min_score": 518,
+   "sheng_min_3y_avg": 627.0,
+   "qu_min_3y_avg": 524.3,
+   "sheng_quota": 11,
+   "qu_quota": 62,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-8a0b2cb9": {
+   "sheng_min_score": 671,
+   "qu_min_score": 512,
+   "sheng_min_3y_avg": 694.7,
+   "qu_min_3y_avg": 522.7,
+   "sheng_quota": 4,
+   "qu_quota": 21,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-7cdbe028": {
+   "sheng_min_score": 689,
+   "qu_min_score": 501,
+   "sheng_min_3y_avg": 685.7,
+   "qu_min_3y_avg": 513.0,
+   "sheng_quota": 27,
+   "qu_quota": 146,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-7f18cc62": {
+   "sheng_min_score": 648,
+   "qu_min_score": 499,
+   "sheng_min_3y_avg": 657.0,
+   "qu_min_3y_avg": 505.0,
+   "sheng_quota": 36,
+   "qu_quota": 193,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-24ea052e": {
+   "sheng_min_score": 638,
+   "qu_min_score": 504,
+   "sheng_min_3y_avg": 653.7,
+   "qu_min_3y_avg": 505.0,
+   "sheng_quota": 34,
+   "qu_quota": 183,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-97e0acaa": {
+   "sheng_min_score": 619,
+   "qu_min_score": 534,
+   "sheng_min_3y_avg": 651.3,
+   "qu_min_3y_avg": 532.7,
+   "sheng_quota": 14,
+   "qu_quota": 73,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.1667
+  },
+  "gz-440113-8f5e4721": {
+   "sheng_min_score": 603,
+   "qu_min_score": 503,
+   "sheng_min_3y_avg": 641.3,
+   "qu_min_3y_avg": 508.0,
+   "sheng_quota": 29,
+   "qu_quota": 154,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-2b7d85fc": {
+   "sheng_min_score": 652,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 652.0,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": null
+  },
+  "gz-440113-3d006240": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440113-c181d193": {
+   "sheng_min_score": 627,
+   "qu_min_score": 609,
+   "sheng_min_3y_avg": 685.7,
+   "qu_min_3y_avg": 567.3,
+   "sheng_quota": 7,
+   "qu_quota": 40,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.6667
+  },
+  "gz-440113-8ef59a4c": {
+   "sheng_min_score": 726,
+   "qu_min_score": 560,
+   "sheng_min_3y_avg": 701.3,
+   "qu_min_3y_avg": 573.0,
+   "sheng_quota": 10,
+   "qu_quota": 52,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.5833
+  },
+  "gz-440113-999fb9c0": {
+   "sheng_min_score": 630,
+   "qu_min_score": 513,
+   "sheng_min_3y_avg": 650.7,
+   "qu_min_3y_avg": 521.0,
+   "sheng_quota": 14,
+   "qu_quota": 78,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.1667
+  },
+  "gz-440113-337c0524": {
+   "sheng_min_score": 704,
+   "qu_min_score": 502,
+   "sheng_min_3y_avg": 679.3,
+   "qu_min_3y_avg": 512.3,
+   "sheng_quota": 16,
+   "qu_quota": 88,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0833
+  },
+  "gz-440113-db326e94": {
+   "sheng_min_score": 684,
+   "qu_min_score": 513,
+   "sheng_min_3y_avg": 677.7,
+   "qu_min_3y_avg": 510.0,
+   "sheng_quota": 8,
+   "qu_quota": 46,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-7997c707": {
+   "sheng_min_score": 724,
+   "qu_min_score": 625,
+   "sheng_min_3y_avg": 709.5,
+   "qu_min_3y_avg": 619.3,
+   "sheng_quota": 1,
+   "qu_quota": 4,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-28a853f8": {
+   "sheng_min_score": 728,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 714.5,
+   "qu_min_3y_avg": 596.0,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440113-3b338135": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 0,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": null
+  },
+  "gz-440113-0670cc0e": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 554.0,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "gz-440113-c40a06e1": {
+   "sheng_min_score": 695,
+   "qu_min_score": 551,
+   "sheng_min_3y_avg": 706.3,
+   "qu_min_3y_avg": 536.7,
+   "sheng_quota": 3,
+   "qu_quota": 19,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.25
+  },
+  "gz-440113-e946f7f3": {
+   "sheng_min_score": null,
+   "qu_min_score": 690,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 690.0,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-d7e3e576": {
+   "sheng_min_score": 687,
+   "qu_min_score": 511,
+   "sheng_min_3y_avg": 646.3,
+   "qu_min_3y_avg": 517.3,
+   "sheng_quota": 15,
+   "qu_quota": 80,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-757ae826": {
+   "sheng_min_score": null,
+   "qu_min_score": 598,
+   "sheng_min_3y_avg": 697.0,
+   "qu_min_3y_avg": 650.3,
+   "sheng_quota": 1,
+   "qu_quota": 4,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.5
+  },
+  "gz-440113-166b5b5c": {
+   "sheng_min_score": 699,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 699.0,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": null
+  },
+  "gz-440113-2ca37b61": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "gz-440113-6426397c": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440113-62cbe194": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 520.0,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440113-23835acf": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 0,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": null
+  },
+  "gz-440113-39879bc6": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "gz-440113-827f636b": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "gz-440113-ad8632f5": {
+   "sheng_min_score": 712,
+   "qu_min_score": 507,
+   "sheng_min_3y_avg": 683.3,
+   "qu_min_3y_avg": 509.3,
+   "sheng_quota": 15,
+   "qu_quota": 81,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440113-70ea7542": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 601.0,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "gz-440113-000bd12e": {
+   "sheng_min_score": 691,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 691.0,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": null
+  },
+  "gz-440113-a93513f2": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 3,
+   "qu_quota": 19,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": null
+  },
+  "gz-440113-c9f8740e": {
+   "sheng_min_score": 711,
+   "qu_min_score": 539,
+   "sheng_min_3y_avg": 693.0,
+   "qu_min_3y_avg": 550.3,
+   "sheng_quota": 7,
+   "qu_quota": 36,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.3
+  },
+  "gz-440100-f62df57f": {
+   "sheng_min_score": 649,
+   "qu_min_score": 553,
+   "sheng_min_3y_avg": 649.0,
+   "qu_min_3y_avg": 553.0,
+   "sheng_quota": 14,
+   "qu_quota": 57,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440114-b5e09ee8": {
+   "sheng_min_score": 636,
+   "qu_min_score": 537,
+   "sheng_min_3y_avg": 644.7,
+   "qu_min_3y_avg": 543.0,
+   "sheng_quota": 31,
+   "qu_quota": 123,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440115-815387d3": {
+   "sheng_min_score": 661,
+   "qu_min_score": 571,
+   "sheng_min_3y_avg": 667.7,
+   "qu_min_3y_avg": 533.7,
+   "sheng_quota": 25,
+   "qu_quota": 95,
+   "sheng_waste_rate": 0.0667,
+   "qu_waste_rate": 0.1667
+  },
+  "gz-440112-3c310bc1": {
+   "sheng_min_score": 675,
+   "qu_min_score": 536,
+   "sheng_min_3y_avg": 693.0,
+   "qu_min_3y_avg": 558.0,
+   "sheng_quota": 12,
+   "qu_quota": 45,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440100-f97f01cb": {
+   "sheng_min_score": 666,
+   "qu_min_score": 566,
+   "sheng_min_3y_avg": 694.0,
+   "qu_min_3y_avg": 546.3,
+   "sheng_quota": 8,
+   "qu_quota": 29,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.1667
+  },
+  "gz-440100-c46c7707": {
+   "sheng_min_score": 681,
+   "qu_min_score": 554,
+   "sheng_min_3y_avg": 695.7,
+   "qu_min_3y_avg": 547.3,
+   "sheng_quota": 11,
+   "qu_quota": 30,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440118-322b6d28": {
+   "sheng_min_score": 651,
+   "qu_min_score": 552,
+   "sheng_min_3y_avg": 686.0,
+   "qu_min_3y_avg": 538.3,
+   "sheng_quota": 10,
+   "qu_quota": 27,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "gz-440100-c243364a": {
+   "sheng_min_score": 636,
+   "qu_min_score": 552,
+   "sheng_min_3y_avg": 673.0,
+   "qu_min_3y_avg": 546.0,
+   "sheng_quota": 13,
+   "qu_quota": 35,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.1429
+  }
+ },
+ "schools": {
+  "广州市海珠区华立学校": {
+   "sheng_min_score": null,
+   "qu_min_score": 615,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 615.0,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区秀全中学": {
+   "sheng_min_score": 655,
+   "qu_min_score": 542,
+   "sheng_min_3y_avg": 658.3,
+   "qu_min_3y_avg": 546.3,
+   "sheng_quota": 28,
+   "qu_quota": 112,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区邝维煜纪念中学": {
+   "sheng_min_score": 685,
+   "qu_min_score": 540,
+   "sheng_min_3y_avg": 669.7,
+   "qu_min_3y_avg": 544.7,
+   "sheng_quota": 14,
+   "qu_quota": 64,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区实验中学": {
+   "sheng_min_score": 668,
+   "qu_min_score": 552,
+   "sheng_min_3y_avg": 658.7,
+   "qu_min_3y_avg": 551.7,
+   "sheng_quota": 33,
+   "qu_quota": 132,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区育才学校": {
+   "sheng_min_score": null,
+   "qu_min_score": 560,
+   "sheng_min_3y_avg": 662.5,
+   "qu_min_3y_avg": 563.7,
+   "sheng_quota": 4,
+   "qu_quota": 19,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区新华街培新学校": {
+   "sheng_min_score": 664,
+   "qu_min_score": 556,
+   "sheng_min_3y_avg": 671.7,
+   "qu_min_3y_avg": 564.7,
+   "sheng_quota": 11,
+   "qu_quota": 46,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区新雅街清埔初级中学": {
+   "sheng_min_score": 649,
+   "qu_min_score": 562,
+   "sheng_min_3y_avg": 650.5,
+   "qu_min_3y_avg": 554.5,
+   "sheng_quota": 24,
+   "qu_quota": 112,
+   "sheng_waste_rate": 0.1333,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区秀全街九潭初级中学": {
+   "sheng_min_score": 687,
+   "qu_min_score": 556,
+   "sheng_min_3y_avg": 670.0,
+   "qu_min_3y_avg": 549.7,
+   "sheng_quota": 12,
+   "qu_quota": 56,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区新华街云山学校": {
+   "sheng_min_score": 681,
+   "qu_min_score": 553,
+   "sheng_min_3y_avg": 678.3,
+   "qu_min_3y_avg": 549.7,
+   "sheng_quota": 27,
+   "qu_quota": 107,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区邝维煜纪念中学附属北兴中学（榴花校区）": {
+   "sheng_min_score": 682,
+   "qu_min_score": 590,
+   "sheng_min_3y_avg": 682.0,
+   "qu_min_3y_avg": 590.0,
+   "sheng_quota": 9,
+   "qu_quota": 42,
+   "sheng_waste_rate": 0.1429,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区邝维煜纪念中学附属北兴中学（北兴校区）": {
+   "sheng_min_score": 688,
+   "qu_min_score": 570,
+   "sheng_min_3y_avg": 688.0,
+   "qu_min_3y_avg": 570.0,
+   "sheng_quota": 11,
+   "qu_quota": 50,
+   "sheng_waste_rate": 0.3,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区花东学校（花东校区）": {
+   "sheng_min_score": 643,
+   "qu_min_score": 572,
+   "sheng_min_3y_avg": 643.0,
+   "qu_min_3y_avg": 572.0,
+   "sheng_quota": 15,
+   "qu_quota": 62,
+   "sheng_waste_rate": 0.1,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区邝维煜纪念中学附属大塘中学": {
+   "sheng_min_score": 660,
+   "qu_min_score": 561,
+   "sheng_min_3y_avg": 660.0,
+   "qu_min_3y_avg": 561.0,
+   "sheng_quota": 9,
+   "qu_quota": 43,
+   "sheng_waste_rate": 0.3333,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区花东镇迳口初级中学": {
+   "sheng_min_score": 668,
+   "qu_min_score": 552,
+   "sheng_min_3y_avg": 671.7,
+   "qu_min_3y_avg": 570.7,
+   "sheng_quota": 7,
+   "qu_quota": 30,
+   "sheng_waste_rate": 0.3333,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区花东学校（联安校区）": {
+   "sheng_min_score": null,
+   "qu_min_score": 562,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 562.0,
+   "sheng_quota": 6,
+   "qu_quota": 26,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区花山镇花山初级中学": {
+   "sheng_min_score": 630,
+   "qu_min_score": 558,
+   "sheng_min_3y_avg": 649.0,
+   "qu_min_3y_avg": 557.3,
+   "sheng_quota": 23,
+   "qu_quota": 92,
+   "sheng_waste_rate": 0.2143,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区花山镇华侨初级中学": {
+   "sheng_min_score": 630,
+   "qu_min_score": 582,
+   "sheng_min_3y_avg": 626.0,
+   "qu_min_3y_avg": 581.3,
+   "sheng_quota": 25,
+   "qu_quota": 63,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区梯面镇梯面初级中学": {
+   "sheng_min_score": null,
+   "qu_min_score": 551,
+   "sheng_min_3y_avg": 691.0,
+   "qu_min_3y_avg": 560.7,
+   "sheng_quota": 4,
+   "qu_quota": 15,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区狮岭镇芙蓉初级中学": {
+   "sheng_min_score": 695,
+   "qu_min_score": 560,
+   "sheng_min_3y_avg": 697.0,
+   "qu_min_3y_avg": 563.3,
+   "sheng_quota": 5,
+   "qu_quota": 19,
+   "sheng_waste_rate": 0.75,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区狮岭中学": {
+   "sheng_min_score": 622,
+   "qu_min_score": 553,
+   "sheng_min_3y_avg": 642.0,
+   "qu_min_3y_avg": 554.7,
+   "sheng_quota": 12,
+   "qu_quota": 57,
+   "sheng_waste_rate": 0.125,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区狮岭镇狮峰初级中学": {
+   "sheng_min_score": 655,
+   "qu_min_score": 561,
+   "sheng_min_3y_avg": 645.0,
+   "qu_min_3y_avg": 561.3,
+   "sheng_quota": 20,
+   "qu_quota": 93,
+   "sheng_waste_rate": 0.1667,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区花城街长岗初级中学": {
+   "sheng_min_score": 653,
+   "qu_min_score": 566,
+   "sheng_min_3y_avg": 658.0,
+   "qu_min_3y_avg": 559.0,
+   "sheng_quota": 13,
+   "qu_quota": 60,
+   "sheng_waste_rate": 0.1,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区狮岭镇冯村初级中学": {
+   "sheng_min_score": 695,
+   "qu_min_score": 560,
+   "sheng_min_3y_avg": 702.7,
+   "qu_min_3y_avg": 546.3,
+   "sheng_quota": 5,
+   "qu_quota": 20,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区秀全中学附属赤坭中学（巴江校区）": {
+   "sheng_min_score": 676,
+   "qu_min_score": 542,
+   "sheng_min_3y_avg": 676.0,
+   "qu_min_3y_avg": 542.0,
+   "sheng_quota": 7,
+   "qu_quota": 36,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区秀全中学附属赤坭中学（三和庄校区）": {
+   "sheng_min_score": 664,
+   "qu_min_score": 550,
+   "sheng_min_3y_avg": 664.0,
+   "qu_min_3y_avg": 550.0,
+   "sheng_quota": 4,
+   "qu_quota": 21,
+   "sheng_waste_rate": 0.75,
+   "qu_waste_rate": 0.1667
+  },
+  "广州市花都区炭步镇炭步初级中学": {
+   "sheng_min_score": 669,
+   "qu_min_score": 539,
+   "sheng_min_3y_avg": 687.0,
+   "qu_min_3y_avg": 548.0,
+   "sheng_quota": 7,
+   "qu_quota": 31,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区炭步镇第二初级中学": {
+   "sheng_min_score": 663,
+   "qu_min_score": 559,
+   "sheng_min_3y_avg": 655.7,
+   "qu_min_3y_avg": 550.3,
+   "sheng_quota": 9,
+   "qu_quota": 42,
+   "sheng_waste_rate": 0.1429,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区雅瑶中学": {
+   "sheng_min_score": 656,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 673.3,
+   "qu_min_3y_avg": 570.7,
+   "sheng_quota": 25,
+   "qu_quota": 60,
+   "sheng_waste_rate": 0.1818,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区圆玄中学": {
+   "sheng_min_score": 673,
+   "qu_min_score": 562,
+   "sheng_min_3y_avg": 664.7,
+   "qu_min_3y_avg": 554.0,
+   "sheng_quota": 12,
+   "qu_quota": 56,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区秀全外国语学校": {
+   "sheng_min_score": 712,
+   "qu_min_score": 552,
+   "sheng_min_3y_avg": 693.7,
+   "qu_min_3y_avg": 547.7,
+   "sheng_quota": 35,
+   "qu_quota": 139,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区秀雅学校": {
+   "sheng_min_score": 673,
+   "qu_min_score": 558,
+   "sheng_min_3y_avg": 683.3,
+   "qu_min_3y_avg": 557.3,
+   "sheng_quota": 20,
+   "qu_quota": 94,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区新雅街镜湖学校": {
+   "sheng_min_score": 682,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 682.0,
+   "qu_min_3y_avg": 582.7,
+   "sheng_quota": 3,
+   "qu_quota": 14,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "华南师范大学附属花都学校": {
+   "sheng_min_score": 698,
+   "qu_min_score": 541,
+   "sheng_min_3y_avg": 681.3,
+   "qu_min_3y_avg": 536.3,
+   "sheng_quota": 16,
+   "qu_quota": 66,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区邝维煜纪念中学附属雅正学校": {
+   "sheng_min_score": 696,
+   "qu_min_score": 554,
+   "sheng_min_3y_avg": 680.7,
+   "qu_min_3y_avg": 547.7,
+   "sheng_quota": 11,
+   "qu_quota": 53,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广东广雅中学（花都校区）": {
+   "sheng_min_score": 646,
+   "qu_min_score": 538,
+   "sheng_min_3y_avg": 669.0,
+   "qu_min_3y_avg": 535.7,
+   "sheng_quota": 23,
+   "qu_quota": 94,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广大附中花都学校": {
+   "sheng_min_score": 674,
+   "qu_min_score": 554,
+   "sheng_min_3y_avg": 674.7,
+   "qu_min_3y_avg": 556.7,
+   "sheng_quota": 17,
+   "qu_quota": 70,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区颐和学校": {
+   "sheng_min_score": 682,
+   "qu_min_score": 541,
+   "sheng_min_3y_avg": 683.0,
+   "qu_min_3y_avg": 581.3,
+   "sheng_quota": 2,
+   "qu_quota": 8,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区华万学校": {
+   "sheng_min_score": 681,
+   "qu_min_score": 540,
+   "sheng_min_3y_avg": 673.3,
+   "qu_min_3y_avg": 539.0,
+   "sheng_quota": 9,
+   "qu_quota": 38,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区花广金狮学校": {
+   "sheng_min_score": 680,
+   "qu_min_score": 550,
+   "sheng_min_3y_avg": 670.0,
+   "qu_min_3y_avg": 542.3,
+   "sheng_quota": 9,
+   "qu_quota": 35,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区花执灵格风学校": {
+   "sheng_min_score": 718,
+   "qu_min_score": 543,
+   "sheng_min_3y_avg": 713.7,
+   "qu_min_3y_avg": 547.0,
+   "sheng_quota": 6,
+   "qu_quota": 23,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区翰林学校": {
+   "sheng_min_score": 719,
+   "qu_min_score": 574,
+   "sheng_min_3y_avg": 705.3,
+   "qu_min_3y_avg": 565.0,
+   "sheng_quota": 1,
+   "qu_quota": 2,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.5
+  },
+  "广州市花都区花广学校": {
+   "sheng_min_score": 688,
+   "qu_min_score": 553,
+   "sheng_min_3y_avg": 690.0,
+   "qu_min_3y_avg": 555.7,
+   "sheng_quota": 13,
+   "qu_quota": 53,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区哈博学校": {
+   "sheng_min_score": 691,
+   "qu_min_score": 573,
+   "sheng_min_3y_avg": 691.0,
+   "qu_min_3y_avg": 573.0,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区博雅学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "广州市花都区新蓝天学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "广州市花都区志才学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 0,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": null
+  },
+  "广州市花都区花广新晖学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 640.0,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 1.0
+  },
+  "广州市花都区凤凰学校": {
+   "sheng_min_score": 620,
+   "qu_min_score": 569,
+   "sheng_min_3y_avg": 649.5,
+   "qu_min_3y_avg": 597.7,
+   "sheng_quota": 1,
+   "qu_quota": 4,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.3333
+  },
+  "广州市花都区新星学校": {
+   "sheng_min_score": null,
+   "qu_min_score": 638,
+   "sheng_min_3y_avg": 671.0,
+   "qu_min_3y_avg": 665.0,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区阳光学校": {
+   "sheng_min_score": 709,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 709.0,
+   "qu_min_3y_avg": 625.0,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 1.0
+  },
+  "广州市花都区华晨学校": {
+   "sheng_min_score": 707,
+   "qu_min_score": 603,
+   "sheng_min_3y_avg": 694.5,
+   "qu_min_3y_avg": 603.5,
+   "sheng_quota": 1,
+   "qu_quota": 3,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市花都区新徽弘儒学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 691.0,
+   "qu_min_3y_avg": 634.0,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "广州市花都区金砖学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "广州市南沙第一中学": {
+   "sheng_min_score": 652,
+   "qu_min_score": 556,
+   "sheng_min_3y_avg": 672.0,
+   "qu_min_3y_avg": 552.7,
+   "sheng_quota": 28,
+   "qu_quota": 107,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙黄阁中学": {
+   "sheng_min_score": 658,
+   "qu_min_score": 556,
+   "sheng_min_3y_avg": 674.3,
+   "qu_min_3y_avg": 545.0,
+   "sheng_quota": 7,
+   "qu_quota": 32,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙横沥中学": {
+   "sheng_min_score": null,
+   "qu_min_score": 578,
+   "sheng_min_3y_avg": 676.5,
+   "qu_min_3y_avg": 562.0,
+   "sheng_quota": 6,
+   "qu_quota": 24,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙万顷沙中学": {
+   "sheng_min_score": 686,
+   "qu_min_score": 570,
+   "sheng_min_3y_avg": 684.7,
+   "qu_min_3y_avg": 557.3,
+   "sheng_quota": 7,
+   "qu_quota": 26,
+   "sheng_waste_rate": 0.8333,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙区新垦学校": {
+   "sheng_min_score": null,
+   "qu_min_score": 542,
+   "sheng_min_3y_avg": 750.0,
+   "qu_min_3y_avg": 539.0,
+   "sheng_quota": 5,
+   "qu_quota": 21,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.3333
+  },
+  "广东第二师范学院附属南沙珠江学校": {
+   "sheng_min_score": 652,
+   "qu_min_score": 552,
+   "sheng_min_3y_avg": 675.0,
+   "qu_min_3y_avg": 554.0,
+   "sheng_quota": 9,
+   "qu_quota": 36,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙区维港青藤中学": {
+   "sheng_min_score": 695,
+   "qu_min_score": 603,
+   "sheng_min_3y_avg": 695.0,
+   "qu_min_3y_avg": 603.0,
+   "sheng_quota": 1,
+   "qu_quota": 5,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.3333
+  },
+  "广州市南沙区新徽学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "广州市南沙东涌中学": {
+   "sheng_min_score": 603,
+   "qu_min_score": 533,
+   "sheng_min_3y_avg": 648.3,
+   "qu_min_3y_avg": 539.7,
+   "sheng_quota": 22,
+   "qu_quota": 96,
+   "sheng_waste_rate": 0.5,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙鱼窝头中学": {
+   "sheng_min_score": 681,
+   "qu_min_score": 525,
+   "sheng_min_3y_avg": 670.3,
+   "qu_min_3y_avg": 533.3,
+   "sheng_quota": 11,
+   "qu_quota": 49,
+   "sheng_waste_rate": 0.6,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙鱼窝头第二中学": {
+   "sheng_min_score": 682,
+   "qu_min_score": 552,
+   "sheng_min_3y_avg": 678.3,
+   "qu_min_3y_avg": 556.3,
+   "sheng_quota": 8,
+   "qu_quota": 37,
+   "sheng_waste_rate": 0.5714,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙大岗中学": {
+   "sheng_min_score": 691,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 675.0,
+   "qu_min_3y_avg": 559.0,
+   "sheng_quota": 5,
+   "qu_quota": 21,
+   "sheng_waste_rate": 0.75,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙潭山中学": {
+   "sheng_min_score": 665,
+   "qu_min_score": 554,
+   "sheng_min_3y_avg": 656.5,
+   "qu_min_3y_avg": 555.3,
+   "sheng_quota": 14,
+   "qu_quota": 53,
+   "sheng_waste_rate": 0.6364,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙灵山中学": {
+   "sheng_min_score": 647,
+   "qu_min_score": 567,
+   "sheng_min_3y_avg": 659.0,
+   "qu_min_3y_avg": 555.0,
+   "sheng_quota": 12,
+   "qu_quota": 46,
+   "sheng_waste_rate": 0.1111,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙榄核中学": {
+   "sheng_min_score": 673,
+   "qu_min_score": 572,
+   "sheng_min_3y_avg": 682.3,
+   "qu_min_3y_avg": 557.3,
+   "sheng_quota": 20,
+   "qu_quota": 76,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙榄核第二中学": {
+   "sheng_min_score": 703,
+   "qu_min_score": 585,
+   "sheng_min_3y_avg": 676.3,
+   "qu_min_3y_avg": 564.7,
+   "sheng_quota": 10,
+   "qu_quota": 39,
+   "sheng_waste_rate": 0.5556,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙区朝阳学校": {
+   "sheng_min_score": 675,
+   "qu_min_score": 539,
+   "sheng_min_3y_avg": 690.0,
+   "qu_min_3y_avg": 528.0,
+   "sheng_quota": 15,
+   "qu_quota": 57,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "华南师范大学附属南沙中学": {
+   "sheng_min_score": 657,
+   "qu_min_score": 543,
+   "sheng_min_3y_avg": 663.0,
+   "qu_min_3y_avg": 553.0,
+   "sheng_quota": 18,
+   "qu_quota": 70,
+   "sheng_waste_rate": 0.0833,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙区芦湾新徽学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 641.0,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "广州市南沙麒麟中学": {
+   "sheng_min_score": 685,
+   "qu_min_score": 559,
+   "sheng_min_3y_avg": 676.7,
+   "qu_min_3y_avg": 558.7,
+   "sheng_quota": 4,
+   "qu_quota": 19,
+   "sheng_waste_rate": 0.75,
+   "qu_waste_rate": 0.0
+  },
+  "广州市第二中学南沙天元学校": {
+   "sheng_min_score": 631,
+   "qu_min_score": 547,
+   "sheng_min_3y_avg": 654.3,
+   "qu_min_3y_avg": 536.7,
+   "sheng_quota": 24,
+   "qu_quota": 92,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州大学附属中学南沙实验学校": {
+   "sheng_min_score": 690,
+   "qu_min_score": 552,
+   "sheng_min_3y_avg": 681.0,
+   "qu_min_3y_avg": 558.7,
+   "sheng_quota": 27,
+   "qu_quota": 101,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙区湾区实验学校": {
+   "sheng_min_score": 653,
+   "qu_min_score": 563,
+   "sheng_min_3y_avg": 674.3,
+   "qu_min_3y_avg": 556.3,
+   "sheng_quota": 18,
+   "qu_quota": 68,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市执信中学南沙学校": {
+   "sheng_min_score": 698,
+   "qu_min_score": 560,
+   "sheng_min_3y_avg": 689.0,
+   "qu_min_3y_avg": 556.3,
+   "sheng_quota": 13,
+   "qu_quota": 49,
+   "sheng_waste_rate": 0.0909,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙区滨海实验学校": {
+   "sheng_min_score": 674,
+   "qu_min_score": 543,
+   "sheng_min_3y_avg": 658.0,
+   "qu_min_3y_avg": 545.3,
+   "sheng_quota": 17,
+   "qu_quota": 64,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市南沙区金沙学校": {
+   "sheng_min_score": 671,
+   "qu_min_score": 557,
+   "sheng_min_3y_avg": 669.0,
+   "qu_min_3y_avg": 572.0,
+   "sheng_quota": 14,
+   "qu_quota": 62,
+   "sheng_waste_rate": 0.0833,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区吕田中学": {
+   "sheng_min_score": 676,
+   "qu_min_score": 530,
+   "sheng_min_3y_avg": 675.0,
+   "qu_min_3y_avg": 528.3,
+   "sheng_quota": 9,
+   "qu_quota": 37,
+   "sheng_waste_rate": 0.6667,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区良口中学": {
+   "sheng_min_score": 645,
+   "qu_min_score": 522,
+   "sheng_min_3y_avg": 656.0,
+   "qu_min_3y_avg": 511.0,
+   "sheng_quota": 13,
+   "qu_quota": 52,
+   "sheng_waste_rate": 0.5,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区第五中学": {
+   "sheng_min_score": 642,
+   "qu_min_score": 512,
+   "sheng_min_3y_avg": 657.0,
+   "qu_min_3y_avg": 514.0,
+   "sheng_quota": 13,
+   "qu_quota": 31,
+   "sheng_waste_rate": 0.4286,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区桃园中学": {
+   "sheng_min_score": 655,
+   "qu_min_score": 528,
+   "sheng_min_3y_avg": 662.0,
+   "qu_min_3y_avg": 518.3,
+   "sheng_quota": 9,
+   "qu_quota": 42,
+   "sheng_waste_rate": 0.2,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区河东中学": {
+   "sheng_min_score": 656,
+   "qu_min_score": 523,
+   "sheng_min_3y_avg": 669.7,
+   "qu_min_3y_avg": 524.0,
+   "sheng_quota": 22,
+   "qu_quota": 102,
+   "sheng_waste_rate": 0.4615,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区神岗中学": {
+   "sheng_min_score": 660,
+   "qu_min_score": 511,
+   "sheng_min_3y_avg": 675.3,
+   "qu_min_3y_avg": 515.0,
+   "sheng_quota": 12,
+   "qu_quota": 55,
+   "sheng_waste_rate": 0.4,
+   "qu_waste_rate": 0.0
+  },
+  "广东外语外贸大学从化实验中学": {
+   "sheng_min_score": 663,
+   "qu_min_score": 512,
+   "sheng_min_3y_avg": 662.7,
+   "qu_min_3y_avg": 523.3,
+   "sheng_quota": 19,
+   "qu_quota": 76,
+   "sheng_waste_rate": 0.3333,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区太平中学": {
+   "sheng_min_score": 671,
+   "qu_min_score": 519,
+   "sheng_min_3y_avg": 664.3,
+   "qu_min_3y_avg": 514.0,
+   "sheng_quota": 10,
+   "qu_quota": 45,
+   "sheng_waste_rate": 0.7778,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区太平第二中学": {
+   "sheng_min_score": 657,
+   "qu_min_score": 515,
+   "sheng_min_3y_avg": 667.7,
+   "qu_min_3y_avg": 532.3,
+   "sheng_quota": 14,
+   "qu_quota": 55,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区城郊中学": {
+   "sheng_min_score": 667,
+   "qu_min_score": 507,
+   "sheng_min_3y_avg": 639.3,
+   "qu_min_3y_avg": 513.3,
+   "sheng_quota": 25,
+   "qu_quota": 117,
+   "sheng_waste_rate": 0.6,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区民乐中学": {
+   "sheng_min_score": 652,
+   "qu_min_score": 520,
+   "sheng_min_3y_avg": 652.0,
+   "qu_min_3y_avg": 521.3,
+   "sheng_quota": 6,
+   "qu_quota": 26,
+   "sheng_waste_rate": 0.6667,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区棋杆中学": {
+   "sheng_min_score": 657,
+   "qu_min_score": 523,
+   "sheng_min_3y_avg": 671.7,
+   "qu_min_3y_avg": 528.7,
+   "sheng_quota": 11,
+   "qu_quota": 52,
+   "sheng_waste_rate": 0.6667,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区鳌头中学": {
+   "sheng_min_score": 652,
+   "qu_min_score": 543,
+   "sheng_min_3y_avg": 647.7,
+   "qu_min_3y_avg": 541.0,
+   "sheng_quota": 25,
+   "qu_quota": 116,
+   "sheng_waste_rate": 0.5714,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区龙潭中学": {
+   "sheng_min_score": 654,
+   "qu_min_score": 514,
+   "sheng_min_3y_avg": 664.3,
+   "qu_min_3y_avg": 527.3,
+   "sheng_quota": 19,
+   "qu_quota": 88,
+   "sheng_waste_rate": 0.5714,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区从化中学": {
+   "sheng_min_score": 700,
+   "qu_min_score": 503,
+   "sheng_min_3y_avg": 678.0,
+   "qu_min_3y_avg": 505.0,
+   "sheng_quota": 16,
+   "qu_quota": 75,
+   "sheng_waste_rate": 0.0909,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区第二中学": {
+   "sheng_min_score": 656,
+   "qu_min_score": 525,
+   "sheng_min_3y_avg": 669.3,
+   "qu_min_3y_avg": 532.7,
+   "sheng_quota": 20,
+   "qu_quota": 80,
+   "sheng_waste_rate": 0.4667,
+   "qu_waste_rate": 0.0
+  },
+  "广东外语外贸大学从化第三中学": {
+   "sheng_min_score": 670,
+   "qu_min_score": 515,
+   "sheng_min_3y_avg": 670.0,
+   "qu_min_3y_avg": 515.0,
+   "sheng_quota": 13,
+   "qu_quota": 53,
+   "sheng_waste_rate": 0.5556,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区第四中学": {
+   "sheng_min_score": 687,
+   "qu_min_score": 516,
+   "sheng_min_3y_avg": 686.0,
+   "qu_min_3y_avg": 532.0,
+   "sheng_quota": 12,
+   "qu_quota": 49,
+   "sheng_waste_rate": 0.1,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区流溪中学": {
+   "sheng_min_score": 699,
+   "qu_min_score": 515,
+   "sheng_min_3y_avg": 692.7,
+   "qu_min_3y_avg": 517.7,
+   "sheng_quota": 16,
+   "qu_quota": 64,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区第七中学": {
+   "sheng_min_score": 654,
+   "qu_min_score": 512,
+   "sheng_min_3y_avg": 665.0,
+   "qu_min_3y_avg": 519.3,
+   "sheng_quota": 27,
+   "qu_quota": 107,
+   "sheng_waste_rate": 0.1765,
+   "qu_waste_rate": 0.0
+  },
+  "广州大学附属中学从化实验学校": {
+   "sheng_min_score": 679,
+   "qu_min_score": 504,
+   "sheng_min_3y_avg": 675.5,
+   "qu_min_3y_avg": 516.0,
+   "sheng_quota": 10,
+   "qu_quota": 24,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市第六中学（从化校区）": {
+   "sheng_min_score": 680,
+   "qu_min_score": 512,
+   "sheng_min_3y_avg": 680.0,
+   "qu_min_3y_avg": 512.0,
+   "sheng_quota": 14,
+   "qu_quota": 56,
+   "sheng_waste_rate": 0.2,
+   "qu_waste_rate": 0.0
+  },
+  "广州英豪学校": {
+   "sheng_min_score": 670,
+   "qu_min_score": 518,
+   "sheng_min_3y_avg": 693.0,
+   "qu_min_3y_avg": 510.7,
+   "sheng_quota": 5,
+   "qu_quota": 21,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市龙外实验学校": {
+   "sheng_min_score": 673,
+   "qu_min_score": 587,
+   "sheng_min_3y_avg": 673.0,
+   "qu_min_3y_avg": 587.0,
+   "sheng_quota": 5,
+   "qu_quota": 22,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区博大学校": {
+   "sheng_min_score": null,
+   "qu_min_score": 582,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 582.0,
+   "sheng_quota": 1,
+   "qu_quota": 3,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市从化区黄外翰林实验学校": {
+   "sheng_min_score": 677,
+   "qu_min_score": 512,
+   "sheng_min_3y_avg": 692.3,
+   "qu_min_3y_avg": 512.7,
+   "sheng_quota": 9,
+   "qu_quota": 38,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广大附中增城实验中学": {
+   "sheng_min_score": 633,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 663.0,
+   "qu_min_3y_avg": 566.7,
+   "sheng_quota": 36,
+   "qu_quota": 99,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区新塘镇第二中学": {
+   "sheng_min_score": 674,
+   "qu_min_score": 581,
+   "sheng_min_3y_avg": 672.7,
+   "qu_min_3y_avg": 575.0,
+   "sheng_quota": 10,
+   "qu_quota": 32,
+   "sheng_waste_rate": 0.4286,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区新塘镇第三中学": {
+   "sheng_min_score": 646,
+   "qu_min_score": 552,
+   "sheng_min_3y_avg": 663.0,
+   "qu_min_3y_avg": 559.7,
+   "sheng_quota": 23,
+   "qu_quota": 62,
+   "sheng_waste_rate": 0.1818,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区新塘镇菊泉中学": {
+   "sheng_min_score": 674,
+   "qu_min_score": 578,
+   "sheng_min_3y_avg": 666.7,
+   "qu_min_3y_avg": 572.7,
+   "sheng_quota": 11,
+   "qu_quota": 37,
+   "sheng_waste_rate": 0.1429,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区水电二局学校": {
+   "sheng_min_score": 655,
+   "qu_min_score": 593,
+   "sheng_min_3y_avg": 677.7,
+   "qu_min_3y_avg": 592.0,
+   "sheng_quota": 3,
+   "qu_quota": 10,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区新塘镇天伦学校": {
+   "sheng_min_score": 709,
+   "qu_min_score": 598,
+   "sheng_min_3y_avg": 713.0,
+   "qu_min_3y_avg": 579.0,
+   "sheng_quota": 4,
+   "qu_quota": 15,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区新塘镇大敦中学": {
+   "sheng_min_score": null,
+   "qu_min_score": 553,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 562.7,
+   "sheng_quota": 4,
+   "qu_quota": 15,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区永宁街永新中学": {
+   "sheng_min_score": 635,
+   "qu_min_score": 563,
+   "sheng_min_3y_avg": 643.7,
+   "qu_min_3y_avg": 551.0,
+   "sheng_quota": 29,
+   "qu_quota": 79,
+   "sheng_waste_rate": 0.3077,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区合生育才学校": {
+   "sheng_min_score": 682,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 649.5,
+   "qu_min_3y_avg": 569.5,
+   "sheng_quota": 11,
+   "qu_quota": 29,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区华南师范大学附属新塘学校": {
+   "sheng_min_score": 708,
+   "qu_min_score": 600,
+   "sheng_min_3y_avg": 686.5,
+   "qu_min_3y_avg": 580.5,
+   "sheng_quota": 5,
+   "qu_quota": 14,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区新塘镇沙埔中学": {
+   "sheng_min_score": 673,
+   "qu_min_score": 562,
+   "sheng_min_3y_avg": 670.0,
+   "qu_min_3y_avg": 556.0,
+   "sheng_quota": 12,
+   "qu_quota": 32,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区仙村中学": {
+   "sheng_min_score": 656,
+   "qu_min_score": 593,
+   "sheng_min_3y_avg": 656.3,
+   "qu_min_3y_avg": 572.7,
+   "sheng_quota": 28,
+   "qu_quota": 77,
+   "sheng_waste_rate": 0.1765,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区华南师范大学附属增江学校": {
+   "sheng_min_score": 721,
+   "qu_min_score": 593,
+   "sheng_min_3y_avg": 721.0,
+   "qu_min_3y_avg": 593.0,
+   "sheng_quota": 6,
+   "qu_quota": 17,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州增城外国语实验中学": {
+   "sheng_min_score": 655,
+   "qu_min_score": 585,
+   "sheng_min_3y_avg": 655.0,
+   "qu_min_3y_avg": 579.3,
+   "sheng_quota": 71,
+   "qu_quota": 117,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区石滩镇港侨中学": {
+   "sheng_min_score": 640,
+   "qu_min_score": 568,
+   "sheng_min_3y_avg": 656.0,
+   "qu_min_3y_avg": 560.7,
+   "sheng_quota": 14,
+   "qu_quota": 48,
+   "sheng_waste_rate": 0.6667,
+   "qu_waste_rate": 0.1429
+  },
+  "广州市增城区三江中学": {
+   "sheng_min_score": 651,
+   "qu_min_score": 573,
+   "sheng_min_3y_avg": 643.0,
+   "qu_min_3y_avg": 567.0,
+   "sheng_quota": 21,
+   "qu_quota": 69,
+   "sheng_waste_rate": 0.625,
+   "qu_waste_rate": 0.0
+  },
+  "华南师范大学附属中学增城学校": {
+   "sheng_min_score": 665,
+   "qu_min_score": 552,
+   "sheng_min_3y_avg": 668.5,
+   "qu_min_3y_avg": 559.0,
+   "sheng_quota": 34,
+   "qu_quota": 56,
+   "sheng_waste_rate": 0.0667,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区朱村中学": {
+   "sheng_min_score": 676,
+   "qu_min_score": 554,
+   "sheng_min_3y_avg": 660.0,
+   "qu_min_3y_avg": 561.7,
+   "sheng_quota": 26,
+   "qu_quota": 71,
+   "sheng_waste_rate": 0.2,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区永宁中学": {
+   "sheng_min_score": 684,
+   "qu_min_score": 587,
+   "sheng_min_3y_avg": 678.0,
+   "qu_min_3y_avg": 592.5,
+   "sheng_quota": 10,
+   "qu_quota": 27,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区中新中学": {
+   "sheng_min_score": 633,
+   "qu_min_score": 572,
+   "sheng_min_3y_avg": 639.7,
+   "qu_min_3y_avg": 558.0,
+   "sheng_quota": 20,
+   "qu_quota": 55,
+   "sheng_waste_rate": 0.4545,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区永安学校": {
+   "sheng_min_score": 705,
+   "qu_min_score": 604,
+   "sheng_min_3y_avg": 705.0,
+   "qu_min_3y_avg": 604.0,
+   "sheng_quota": 5,
+   "qu_quota": 14,
+   "sheng_waste_rate": 0.6,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区中新镇福和中学": {
+   "sheng_min_score": 646,
+   "qu_min_score": 549,
+   "sheng_min_3y_avg": 651.3,
+   "qu_min_3y_avg": 544.0,
+   "sheng_quota": 26,
+   "qu_quota": 87,
+   "sheng_waste_rate": 0.6429,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区派潭镇实验学校": {
+   "sheng_min_score": 630,
+   "qu_min_score": 571,
+   "sheng_min_3y_avg": 635.5,
+   "qu_min_3y_avg": 559.0,
+   "sheng_quota": 32,
+   "qu_quota": 87,
+   "sheng_waste_rate": 0.8571,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区正果中学": {
+   "sheng_min_score": 660,
+   "qu_min_score": 594,
+   "sheng_min_3y_avg": 650.7,
+   "qu_min_3y_avg": 569.3,
+   "sheng_quota": 19,
+   "qu_quota": 63,
+   "sheng_waste_rate": 0.4167,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区小楼中学": {
+   "sheng_min_score": 664,
+   "qu_min_score": 565,
+   "sheng_min_3y_avg": 684.7,
+   "qu_min_3y_avg": 568.3,
+   "sheng_quota": 17,
+   "qu_quota": 58,
+   "sheng_waste_rate": 0.5833,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区华侨中学": {
+   "sheng_min_score": 678,
+   "qu_min_score": 577,
+   "sheng_min_3y_avg": 662.3,
+   "qu_min_3y_avg": 574.3,
+   "sheng_quota": 23,
+   "qu_quota": 78,
+   "sheng_waste_rate": 0.3077,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区荔城街第二中学": {
+   "sheng_min_score": null,
+   "qu_min_score": 574,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 562.0,
+   "sheng_quota": 6,
+   "qu_quota": 20,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区荔城街第三中学": {
+   "sheng_min_score": 626,
+   "qu_min_score": 552,
+   "sheng_min_3y_avg": 649.7,
+   "qu_min_3y_avg": 566.0,
+   "sheng_quota": 26,
+   "qu_quota": 87,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区荔城街荔景中学": {
+   "sheng_min_score": 641,
+   "qu_min_score": 582,
+   "sheng_min_3y_avg": 649.3,
+   "qu_min_3y_avg": 570.3,
+   "sheng_quota": 24,
+   "qu_quota": 83,
+   "sheng_waste_rate": 0.1333,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区挂绿实验学校": {
+   "sheng_min_score": 653,
+   "qu_min_score": 566,
+   "sheng_min_3y_avg": 671.0,
+   "qu_min_3y_avg": 562.7,
+   "sheng_quota": 20,
+   "qu_quota": 68,
+   "sheng_waste_rate": 0.8571,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区英华学校": {
+   "sheng_min_score": 634,
+   "qu_min_score": 569,
+   "sheng_min_3y_avg": 666.7,
+   "qu_min_3y_avg": 574.3,
+   "sheng_quota": 14,
+   "qu_quota": 38,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区奥体学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 1,
+   "qu_quota": 3,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 1.0
+  },
+  "广州市增城区增城中学（初中部）": {
+   "sheng_min_score": 675,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 660.3,
+   "qu_min_3y_avg": 572.7,
+   "sheng_quota": 35,
+   "qu_quota": 94,
+   "sheng_waste_rate": 0.1667,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区第二中学": {
+   "sheng_min_score": 650,
+   "qu_min_score": 575,
+   "sheng_min_3y_avg": 640.7,
+   "qu_min_3y_avg": 566.0,
+   "sheng_quota": 35,
+   "qu_quota": 116,
+   "sheng_waste_rate": 0.25,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区应元学校": {
+   "sheng_min_score": 617,
+   "qu_min_score": 572,
+   "sheng_min_3y_avg": 652.3,
+   "qu_min_3y_avg": 551.3,
+   "sheng_quota": 24,
+   "qu_quota": 64,
+   "sheng_waste_rate": 0.0625,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区华商外语实验学校": {
+   "sheng_min_score": 687,
+   "qu_min_score": 552,
+   "sheng_min_3y_avg": 684.3,
+   "qu_min_3y_avg": 554.3,
+   "sheng_quota": 5,
+   "qu_quota": 14,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市斐思学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 0,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": null
+  },
+  "广州市增城区东江外语实验学校": {
+   "sheng_min_score": 715,
+   "qu_min_score": 554,
+   "sheng_min_3y_avg": 707.0,
+   "qu_min_3y_avg": 543.3,
+   "sheng_quota": 10,
+   "qu_quota": 28,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.1667
+  },
+  "广州市增城区五星学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "广州市增城区新星学校": {
+   "sheng_min_score": null,
+   "qu_min_score": 636,
+   "sheng_min_3y_avg": 712.0,
+   "qu_min_3y_avg": 606.0,
+   "sheng_quota": 1,
+   "qu_quota": 3,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区新雅新世界实验学校": {
+   "sheng_min_score": null,
+   "qu_min_score": 577,
+   "sheng_min_3y_avg": 715.0,
+   "qu_min_3y_avg": 577.0,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区凤凰城中英文学校": {
+   "sheng_min_score": 684,
+   "qu_min_score": 556,
+   "sheng_min_3y_avg": 678.0,
+   "qu_min_3y_avg": 551.0,
+   "sheng_quota": 8,
+   "qu_quota": 21,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区新蕾学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 701.0,
+   "qu_min_3y_avg": 593.0,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": null
+  },
+  "广州市增城区英才学校": {
+   "sheng_min_score": 657,
+   "qu_min_score": 586,
+   "sheng_min_3y_avg": 662.3,
+   "qu_min_3y_avg": 584.7,
+   "sheng_quota": 5,
+   "qu_quota": 14,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区春晖学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": null,
+   "sheng_quota": 0,
+   "qu_quota": 0,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": null
+  },
+  "广州市增城区海伦堡学校": {
+   "sheng_min_score": null,
+   "qu_min_score": 646,
+   "sheng_min_3y_avg": 700.0,
+   "qu_min_3y_avg": 624.0,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区荔湖城外国语学校": {
+   "sheng_min_score": 647,
+   "qu_min_score": 599,
+   "sheng_min_3y_avg": 674.0,
+   "qu_min_3y_avg": 587.3,
+   "sheng_quota": 5,
+   "qu_quota": 13,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区官湖学校": {
+   "sheng_min_score": 734,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 734.0,
+   "qu_min_3y_avg": 611.0,
+   "sheng_quota": 1,
+   "qu_quota": 0,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": null
+  },
+  "广州市增城区横岭学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": 689.0,
+   "qu_min_3y_avg": 575.0,
+   "sheng_quota": 0,
+   "qu_quota": 1,
+   "sheng_waste_rate": null,
+   "qu_waste_rate": 1.0
+  },
+  "广州市增城区香江学校": {
+   "sheng_min_score": 667,
+   "qu_min_score": 563,
+   "sheng_min_3y_avg": 688.7,
+   "qu_min_3y_avg": 570.0,
+   "sheng_quota": 6,
+   "qu_quota": 17,
+   "sheng_waste_rate": 0.5,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区碧桂园学校": {
+   "sheng_min_score": 717,
+   "qu_min_score": 592,
+   "sheng_min_3y_avg": 697.3,
+   "qu_min_3y_avg": 576.7,
+   "sheng_quota": 3,
+   "qu_quota": 9,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区东园学校": {
+   "sheng_min_score": null,
+   "qu_min_score": null,
+   "sheng_min_3y_avg": null,
+   "qu_min_3y_avg": 586.0,
+   "sheng_quota": 1,
+   "qu_quota": 1,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 1.0
+  },
+  "广州市增城区华大彦宏学校": {
+   "sheng_min_score": null,
+   "qu_min_score": 611,
+   "sheng_min_3y_avg": 702.0,
+   "qu_min_3y_avg": 596.7,
+   "sheng_quota": 1,
+   "qu_quota": 4,
+   "sheng_waste_rate": 1.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区雨露实验学校": {
+   "sheng_min_score": 721,
+   "qu_min_score": 564,
+   "sheng_min_3y_avg": 716.3,
+   "qu_min_3y_avg": 581.7,
+   "sheng_quota": 4,
+   "qu_quota": 10,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区暨实学校": {
+   "sheng_min_score": 646,
+   "qu_min_score": 554,
+   "sheng_min_3y_avg": 665.0,
+   "qu_min_3y_avg": 557.7,
+   "sheng_quota": 8,
+   "qu_quota": 23,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市执信中学增城实验学校": {
+   "sheng_min_score": 659,
+   "qu_min_score": 560,
+   "sheng_min_3y_avg": 687.3,
+   "qu_min_3y_avg": 559.3,
+   "sheng_quota": 24,
+   "qu_quota": 64,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  },
+  "广州市增城区广中实验中学": {
+   "sheng_min_score": 700,
+   "qu_min_score": 556,
+   "sheng_min_3y_avg": 707.7,
+   "qu_min_3y_avg": 586.7,
+   "sheng_quota": 4,
+   "qu_quota": 12,
+   "sheng_waste_rate": 0.0,
+   "qu_waste_rate": 0.0
+  }
+ }
+}

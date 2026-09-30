@@ -1,8 +1,10 @@
 <script setup lang="ts">
 /**
  * 初中升学信号明细
- * - 数据真源：data/linkage/dist/ranking_middle.json（data/linkage/scripts/build_ranking_middle.py 聚合，
- *   含名额分配符合资格考生数/省市属·区属指标/2026 自招名单计数/指标到校高中明细+特控率）
+ * - 数据真源：data/linkage/dist（运行时只消费 id 粒度）——行数据在页面按 canonical 同口径
+ *   联表还原：ranking_middle(自招数/特控率) + quota_matrix.name_index/ids(名/区/考生数/省市属·
+ *   区属指标) + entities(民办) + groupOfSchool(集团)；无 school_id 原文行按 dist 自带 name
+ *   联 quota_matrix.schools 补数值。全量审计见 canonical/ranking_middle.json
  * - 分组：不分组 / 按区（区教育局口径）或按教育集团（@gz/shared groupOfSchool，brand 优先）；可叠加行政区位置筛选
  * - 指标（4 选 1）：默认（机构综合口径，school_id 名单见 data/middle/org_sort/dist/compiled.json，真源 data/middle/org_sort/src/*.json）/ 区属指标比例 / 省市属指标比例 / 指标×高中特控率
  * - 榜单口径：所有比例均以「符合名额分配报考资格考生数（kaosheng）」为分母，
@@ -11,7 +13,7 @@
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 import { useRouter } from 'vue-router';
 import { DISTRICTS } from '@gz/shared';
-import { rankingMiddle, entities, middleOrgSort, civilizedCampusSchoolIds } from '../data';
+import { rankingMiddle, quotaMatrix, entities, middleOrgSort, civilizedCampusSchoolIds, groupOfSchool, quotaOutcome } from '../data';
 import DetailFilterBar from '../components/DetailFilterBar.vue';
 import DetailPageHeader from '../components/DetailPageHeader.vue';
 import DetailRankingList from '../components/DetailRankingList.vue';
@@ -26,13 +28,80 @@ interface Row {
   kaosheng?: number | null;
   sheng_quota?: number | null;
   qu_quota?: number | null;
+  /** 第二批次指标结果（dist/quota_outcome，id 粒度；py 层聚合，运行时零推断） */
+  sheng_min_score?: number | null;
+  qu_min_score?: number | null;
+  sheng_min_3y_avg?: number | null;
+  qu_min_3y_avg?: number | null;
+  sheng_waste_rate?: number | null;
+  qu_waste_rate?: number | null;
   autonomy_count: number;
-  sz: Array<{ high: string; count: number; tekong?: number | null }>;
   tekong_quota_rate?: number | null;
 }
 
 const router = useRouter();
-const schools = rankingMiddle.schools as Row[];
+
+/** dist 行运行时联表还原（口径与 canonical/ranking_middle.json 一致）：
+ * - ranking_middle：school_id/school_ids/autonomy_count/tekong_quota_rate
+ * - quota_matrix.name_index（官方名→id，构建行序）：反查展示名；同名同 id 多行按出现序配对
+ *   （如荔湾东沙博雅/博雅实验学校同实体两行，行序与 canonical 一致）
+ * - quota_matrix.ids（同序游标）：district/kaosheng/qu_quota/sheng_quota
+ * - quota_matrix.schools：无 school_id 的原文行（dist 自带 name）按名补数值
+ * - entities.nature='民办'：minban；groupOfSchool：集团（brand 优先 + education 兜底） */
+const NAME_BY_ID = new Map<string, string[]>();
+for (const [name, id] of Object.entries(quotaMatrix.name_index)) {
+  if (!NAME_BY_ID.has(id)) NAME_BY_ID.set(id, []);
+  NAME_BY_ID.get(id)!.push(name);
+}
+const QUOTA_BY_ID = new Map<string, typeof quotaMatrix.ids>();
+for (const q of quotaMatrix.ids) {
+  if (!QUOTA_BY_ID.has(q.school_id)) QUOTA_BY_ID.set(q.school_id, []);
+  QUOTA_BY_ID.get(q.school_id)!.push(q);
+}
+const namePos = new Map<string, number>();
+const quotaPos = new Map<string, number>();
+const MINBAN_IDS = new Set(
+  (entities as { entities: Array<{ school_id: string; nature?: string }> }).entities
+    .filter((e) => e.nature === '民办')
+    .map((e) => e.school_id),
+);
+const QUOTA_BY_NAME = new Map(quotaMatrix.schools.map((q) => [q.school, q]));
+/** 指标结果索引：id 粒度优先（dist 只消费 id），无实体原文兜底（前端仅展示不可点） */
+const OUTCOME_BY_ID = new Map<string, (typeof quotaOutcome.ids)[string]>();
+for (const [id, v] of Object.entries(quotaOutcome.ids)) OUTCOME_BY_ID.set(id, v);
+const OUTCOME_BY_NAME = new Map(Object.entries(quotaOutcome.schools));
+
+const schools: Row[] = rankingMiddle.schools.map((r) => {
+  const id = r.school_id || '';
+  const pos = quotaPos.get(id) ?? 0;
+  const q = id ? (QUOTA_BY_ID.get(id) ?? [])[pos] : undefined;
+  if (id) quotaPos.set(id, pos + 1);
+  const npos = namePos.get(id) ?? 0;
+  const name = id ? (NAME_BY_ID.get(id) ?? [])[npos] ?? r.name ?? '' : r.name ?? '';
+  if (id) namePos.set(id, npos + 1);
+  const nameRow = id ? undefined : QUOTA_BY_NAME.get(name);
+  const oc = id ? OUTCOME_BY_ID.get(id) : OUTCOME_BY_NAME.get(name);
+  const grp = groupOfSchool(name, r.school_id);
+  return {
+    name,
+    school_id: r.school_id,
+    school_ids: r.school_ids ? r.school_ids.filter((x): x is string => !!x) : null,
+    district: q?.district ?? nameRow?.district ?? '',
+    minban: !!id && MINBAN_IDS.has(id),
+    group: grp ? { brand: grp.brand, source: grp.source } : null,
+    kaosheng: q?.kaosheng ?? nameRow?.kaosheng ?? null,
+    sheng_quota: q?.sheng_quota ?? nameRow?.sheng_quota ?? null,
+    qu_quota: q?.qu_quota ?? nameRow?.qu_quota ?? null,
+    sheng_min_score: oc?.sheng_min_score ?? null,
+    qu_min_score: oc?.qu_min_score ?? null,
+    sheng_min_3y_avg: oc?.sheng_min_3y_avg ?? null,
+    qu_min_3y_avg: oc?.qu_min_3y_avg ?? null,
+    sheng_waste_rate: oc?.sheng_waste_rate ?? null,
+    qu_waste_rate: oc?.qu_waste_rate ?? null,
+    autonomy_count: r.autonomy_count,
+    tekong_quota_rate: r.tekong_quota_rate ?? null,
+  };
+});
 
 /** school_id → 实体（校区名/区），多校区法人行弹窗选校区用 */
 const ENT_BY_ID = new Map(
@@ -75,7 +144,7 @@ function goSchool(name: string, id?: string) {
 
 const openMenu = ref<'group' | 'filter' | 'metric' | null>(null);
 const groupBy = ref<'none' | 'district' | 'group'>('none');
-type MetricKey = 'default' | 'qu_ratio' | 'sheng_ratio' | 'tekong';
+type MetricKey = 'default' | 'qu_ratio' | 'sheng_ratio' | 'tekong' | 'sheng_min' | 'qu_min';
 const metric = ref<MetricKey>('default');
 
 const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: string }> }> = [
@@ -88,6 +157,8 @@ const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: stri
     items: [
       { v: 'qu_ratio', l: '区属指标比例（÷名额分配符合资格考生数）' },
       { v: 'sheng_ratio', l: '省市属指标比例（÷名额分配符合资格考生数）' },
+      { v: 'sheng_min', l: '省市属指标最低分' },
+      { v: 'qu_min', l: '区属指标最低分' },
     ],
   },
   {
@@ -101,6 +172,8 @@ const METRIC_META: Record<MetricKey, { label: string; note: string; unit: string
   qu_ratio: { label: '区属指标比例', note: '区属指标数 ÷ 符合名额分配报考资格考生数。反映本区学生获得本区区属指标的机会。', unit: '%', digits: 1 },
   sheng_ratio: { label: '省市属指标比例', note: '省市属高中名额分配指标数 ÷ 符合名额分配报考资格考生数。省市属指标按符合资格考生等比例分配，全区一致。', unit: '%', digits: 1 },
   tekong: { label: '指标×特控率', note: 'Σ(区属高中给该校指标名额 × 该高中特控率) ÷ 符合名额分配报考资格考生数。反映该校符合资格考生经区属指标到校路径预计上特控（一本）线的比例；特控率为喜报/网传口径，缺失的高中名额不计。', unit: '%', digits: 1 },
+  sheng_min: { label: '省市属指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被省市属高中（11 所 20 校区 + 广州外国语学校）录取的最低分（录取序列最后一名，升学分数门槛）。第三批次分数不在此列。近3年平均分 = 2024/2025/2026 各年该最低分的时间维算术平均（某年无录取记录不参与）。', unit: '', digits: 0 },
+  qu_min: { label: '区属指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被本区区属示范高中录取的最低分（录取序列最后一名，升学分数门槛）。第三批次分数不在此列。近3年平均分 = 2024/2025/2026 各年该最低分的时间维算术平均（某年无录取记录不参与）。', unit: '', digits: 0 },
 };
 
 /** 区属/省市属比例指标额外展示一列指标数绝对值 */
@@ -113,13 +186,33 @@ function fmtAbs(v: number | null): string {
   return v == null ? '—' : String(v);
 }
 
+/** 最低分指标模式：表格显示 最低分 / 近3年平均分 / 指标数 / 浪费率 四列（考生数列让位，指标数/浪费率随所选类型） */
+const showOutcome = computed(() => metric.value === 'sheng_min' || metric.value === 'qu_min');
+const outcomeQuotaLabel = computed(() => '指标数');
+/** 近3年平均分（2024/2025/2026 各年最低分时间维均值，某年无录取不参与） */
+function outcomeMin3y(s: Row): number | null {
+  return metric.value === 'sheng_min' ? (s.sheng_min_3y_avg ?? null) : (s.qu_min_3y_avg ?? null);
+}
+function outcomeQuota(s: Row): number | null {
+  return metric.value === 'sheng_min' ? (s.sheng_quota ?? null) : (s.qu_quota ?? null);
+}
+function outcomeWaste(s: Row): number | null {
+  return metric.value === 'sheng_min' ? (s.sheng_waste_rate ?? null) : (s.qu_waste_rate ?? null);
+}
+function fmtWaste(v: number | null): string {
+  return v == null ? '—' : `${(v * 100).toFixed(1)}%`;
+}
+function fmtAvg(v: number | null): string {
+  return v == null ? '—' : v.toFixed(1);
+}
+
 /** 指标口径 / 名额分配符合资格考生数口径问号 popup（PC hover / 触屏点击）。
  *  Teleport 到 body + fixed 定位，避免被 .rank-group overflow 裁剪；
  *  切换指标、页面滚动、窗口缩放时自动收起。 */
-const showHint = ref<'metric' | 'kaosheng' | null>(null);
+const showHint = ref<'metric' | 'kaosheng' | 'waste' | null>(null);
 const hintPos = ref({ top: 0, left: 0 });
 let hintTimer: number | undefined;
-function openHint(kind: 'metric' | 'kaosheng', e: MouseEvent) {
+function openHint(kind: 'metric' | 'kaosheng' | 'waste', e: MouseEvent) {
   clearTimeout(hintTimer);
   const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
   const w = 330;
@@ -133,7 +226,7 @@ function scheduleClose() {
   hintTimer = window.setTimeout(() => { showHint.value = null; }, 160);
 }
 function keepHint() { clearTimeout(hintTimer); }
-function toggleHint(kind: 'metric' | 'kaosheng', e: MouseEvent) {
+function toggleHint(kind: 'metric' | 'kaosheng' | 'waste', e: MouseEvent) {
   if (showHint.value === kind) showHint.value = null;
   else openHint(kind, e);
 }
@@ -151,10 +244,16 @@ onBeforeUnmount(() => {
 /** 符合名额分配报考资格考生数：广州市招考办政策口径（官方原文整理） */
 const KAOSHENG_NOTE = '本列统计的是“符合名额分配报考资格的考生数”，不是学校全部应考人数。按广州市招生政策，须同时满足：初中应届毕业、具有广州市户籍（含政策性照顾学生，户籍或资格申报截止当年4月30日），并满足学籍条件——在广州同一初中有三年完整学籍且就读至毕业，或从市外转入广州后在转入学校就读至毕业。未满足上述条件但仍报名参加中考的考生，不计入本列，因此学校实际应考人数通常会更多。';
 
+/** 指标浪费率口径（对数口径，与 canonical quota_outcome note 一致） */
+const WASTE_NOTE = '指标浪费率 = 未完成录取的对数 ÷ 有指标的对数（对数口径）。官方录取分数表按「初中 × 高中」列出全部有指标的对，未填录取分数的对 = 有名额但未完成录取（未达控制线/无人报考/流标）。示例：某初中 10 个省市属录取对中有 2 个无录取分数，浪费率 20%。省市属与区属统一采用对数口径以保证两列可比；该口径以“官方表列出录取对”为分母，与指标总名额（quota）数值略有差异。';
+
 const metricLabel = computed(() => METRIC_META[metric.value].label);
 const metricNote = computed(() => METRIC_META[metric.value].note);
-/** 表格数值列列名：默认排序时仍显示区属指标比例 */
-const columnLabel = computed(() => (metric.value === 'default' ? METRIC_META.qu_ratio.label : METRIC_META[metric.value].label));
+/** 表格数值列列名：默认排序时仍显示区属指标比例；最低分模式缩写为「最低分」 */
+const columnLabel = computed(() => {
+  if (metric.value === 'sheng_min' || metric.value === 'qu_min') return '最低分';
+  return metric.value === 'default' ? METRIC_META.qu_ratio.label : METRIC_META[metric.value].label;
+});
 
 /** 指标取值（null=无数据，排序置后） */
 function metricValue(s: Row): number | null {
@@ -164,6 +263,8 @@ function metricValue(s: Row): number | null {
     case 'qu_ratio': return k && s.qu_quota != null ? (s.qu_quota / k) * 100 : null;
     case 'sheng_ratio': return k && s.sheng_quota != null ? (s.sheng_quota / k) * 100 : null;
     case 'tekong': return s.tekong_quota_rate ?? null;
+    case 'sheng_min': return s.sheng_min_score ?? null;
+    case 'qu_min': return s.qu_min_score ?? null;
     default: return null;
   }
 }
@@ -187,13 +288,14 @@ function shortName(name: string): string {
   return n;
 }
 
-/** 组内排序：公办（false）在前、民办（true）在后；同类内按指标倒序（null 置后） */
-function rankSort(a: { v: number | null; minban?: boolean }, b: { v: number | null; minban?: boolean }): number {
+/** 组内排序：公办（false）在前、民办（true）在后；同类内按指标排序。
+ *  最低分指标升序（asc=true，门槛越低越靠前），其余指标降序；null 置后。 */
+function rankSort(a: { v: number | null; minban?: boolean }, b: { v: number | null; minban?: boolean }, asc = false): number {
   if (!!a.minban !== !!b.minban) return a.minban ? 1 : -1;
   if (a.v == null && b.v == null) return 0;
   if (a.v == null) return 1;
   if (b.v == null) return -1;
-  return b.v - a.v;
+  return asc ? a.v - b.v : b.v - a.v;
 }
 
 /** 内部默认排序：机构手工整理档位（data/middle/org_sort/dist/compiled.json，school_id 由
@@ -248,7 +350,8 @@ const districtOrder = DISTRICTS.map((d) => d.name.replace('区', ''));
 
 const groups = computed(() => {
   const rows = schools.filter(districtVisible).filter(civilizedVisible).map((s) => ({ s, v: metricValue(s), minban: !!s.minban }));
-  const sortFn = metric.value === 'default' ? levelSort : rankSort;
+  const asc = metric.value === 'sheng_min' || metric.value === 'qu_min';
+  const sortFn = metric.value === 'default' ? levelSort : (a: { v: number | null; minban?: boolean }, b: { v: number | null; minban?: boolean }) => rankSort(a, b, asc);
   if (groupBy.value === 'none') {
     return [{ key: 'all', title: '', items: rows.slice().sort(sortFn) }];
   }
@@ -358,8 +461,11 @@ const groups = computed(() => {
           <colgroup>
             <col class="col-name">
             <col class="col-val">
-            <col v-if="showAbs" class="col-sub">
-            <col class="col-sub">
+            <col v-if="showOutcome" class="col-sub">
+            <col v-if="showOutcome" class="col-sub">
+            <col v-if="showOutcome" class="col-sub">
+            <col v-else-if="showAbs" class="col-sub">
+            <col v-else class="col-sub">
           </colgroup>
           <thead>
             <tr>
@@ -374,8 +480,20 @@ const groups = computed(() => {
                   @click.stop="toggleHint('metric', $event)"
                 >?</span>
               </th>
-              <th v-if="showAbs" class="c-sub">{{ absLabel }}</th>
-              <th class="c-sub">
+              <th v-if="showOutcome" class="c-sub">近3年平均分</th>
+              <th v-if="showOutcome" class="c-sub">{{ outcomeQuotaLabel }}</th>
+              <th v-if="showOutcome" class="c-sub">
+                浪费率
+                <span
+                  class="q-mark"
+                  aria-label="指标浪费率口径说明"
+                  @mouseenter="openHint('waste', $event)"
+                  @mouseleave="scheduleClose"
+                  @click.stop="toggleHint('waste', $event)"
+                >?</span>
+              </th>
+              <th v-else-if="showAbs" class="c-sub">{{ absLabel }}</th>
+              <th v-else class="c-sub">
                 考生数
                 <span
                   class="q-mark"
@@ -403,8 +521,11 @@ const groups = computed(() => {
                 <em v-if="row.s.minban" class="mb-tag">民办</em>
               </td>
               <td class="c-val">{{ fmt(row.v) }}</td>
-              <td v-if="showAbs" class="c-sub">{{ fmtAbs(absValue(row.s)) }}</td>
-              <td class="c-sub">{{ row.s.kaosheng ?? '—' }}</td>
+              <td v-if="showOutcome" class="c-sub">{{ fmtAvg(outcomeMin3y(row.s)) }}</td>
+              <td v-if="showOutcome" class="c-sub">{{ fmtAbs(outcomeQuota(row.s)) }}</td>
+              <td v-if="showOutcome" class="c-sub">{{ fmtWaste(outcomeWaste(row.s)) }}</td>
+              <td v-else-if="showAbs" class="c-sub">{{ fmtAbs(absValue(row.s)) }}</td>
+              <td v-else class="c-sub">{{ row.s.kaosheng ?? '—' }}</td>
             </tr>
           </tbody>
         </table>
@@ -426,6 +547,10 @@ const groups = computed(() => {
         <template v-if="showHint === 'metric'">
           <div class="hp-title">{{ metricLabel }}</div>
           <div class="hp-line">{{ metricNote }}</div>
+        </template>
+        <template v-else-if="showHint === 'waste'">
+          <div class="hp-title">指标浪费率口径</div>
+          <div class="hp-line">{{ WASTE_NOTE }}</div>
         </template>
         <template v-else>
           <div class="hp-title">名额分配符合资格考生数口径</div>
@@ -459,9 +584,10 @@ const groups = computed(() => {
 }
 .rg-count { font-style: normal; font-size: 11.5px; color: #8a93a3; font-weight: 500; }
 .rank-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 12.5px; }
-/* 列宽统一（colgroup），保证各分组表格列对齐；col-sub 不设宽，均分剩余空间 */
-.col-name { width: 42%; }
-.col-val { width: 26%; }
+/* 学校列固定宽度（不随指标模式变化），其余列（主值/副值）均分剩余宽度：
+ * 默认/比例/特控率 3 列各 ~35%；最低分模式 5 列各 ~17.5%。
+ * 数值列文字居中，列内两侧空隙对称，避免左对齐造成右侧大片空白。 */
+.col-name { width: 30%; }
 .rank-table th {
   text-align: left; font-size: 11.5px; color: #8a93a3; font-weight: 600;
   padding: 7px 10px; border-bottom: 1px solid #ecebe6;
@@ -470,6 +596,9 @@ const groups = computed(() => {
 .rank-table td { padding: 9px 10px; border-bottom: 1px solid #f2f1ec; vertical-align: middle; line-height: 1.5; }
 .rank-table tbody tr:last-child td { border-bottom: none; }
 .rank-table tbody tr:hover { background: #fafbfc; }
+/* 数值列表头与单元格均居中（学校列保持左对齐），列间空隙对称 */
+.rank-table th.c-val, .rank-table th.c-sub { text-align: center; }
+.rank-table td.c-val, .rank-table td.c-sub { text-align: center; }
 .c-val { font-variant-numeric: tabular-nums; font-weight: 600; color: #1a1b1c; white-space: nowrap; }
 .c-sub { color: #6b7280; font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .c-name { overflow-wrap: anywhere; }

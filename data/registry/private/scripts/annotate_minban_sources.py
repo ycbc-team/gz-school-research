@@ -1,24 +1,39 @@
 #!/usr/bin/env python3
 """
-民办名单来源标注：把 minban_*.md（手工互补区）与历史遗留分开标注。
+民办名单来源标注：把 minban_*.json（手工互补区）与历史遗留分开标注。
 
-- manual：data/registry/private/src/minban_*.md 中出现的 school_id（排除"公办/勿混淆/非同一所/排除/转公"段，
-  如番禺剑桥郡小学为公办不得标 manual）。
-- legacy：既不在官方源（official_*）也不在 md 的历史已标条目（2026-09-14 前 POI/tier1/levels
-  等历史来源，来源待逐条追溯）。
+- manual：data/registry/private/src/minban_*.json 中出现的 school_id
+  （mark_nature / already_marked / need_entity / need_verify 节；excluded 节是
+  公办/转公/误植等"非民办"行，不参与 manual 标注——JSON 结构化表达替代了旧 md
+  的"行内关键词排除"启发式）。
+- legacy：既不在官方源（official_*）也不在 JSON 的历史已标条目（2026-09-14 前
+  POI/tier1/levels 等历史来源，来源待逐条追溯）。
 
 用法：python3 data/registry/private/scripts/annotate_minban_sources.py [--dry-run]
 """
 import json
-import re
+import glob
 import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 TABLE = os.path.join(ROOT, 'data/registry/private/dist/minban_schools.json')
-MINBAN_DIR = os.path.join(ROOT, 'scripts/registry')
-SID_RE = re.compile(r'gz-\d{6}-[0-9a-f]{8}')
-EXCLUDE_WORDS = ('公办', '勿混淆', '非同一所', '排除', '转公')
+SRC_DIR = os.path.join(ROOT, 'data/registry/private/src')
+
+# 这些节表示"人工核实确认为民办/需补实体/待核实的民办候选"，视为 manual 来源；
+# excluded 节（公办/转公/误植）不参与。
+MANUAL_SECTIONS = ('mark_nature', 'already_marked', 'need_entity', 'need_verify')
+
+
+def collect_manual_ids():
+    manual_ids = set()
+    for f in sorted(glob.glob(os.path.join(SRC_DIR, 'minban_*.json'))):
+        data = json.load(open(f, encoding='utf-8'))
+        for sec in MANUAL_SECTIONS:
+            for r in data.get('sections', {}).get(sec, []):
+                if r.get('school_id'):
+                    manual_ids.add(r['school_id'])
+    return manual_ids
 
 
 def main():
@@ -26,18 +41,7 @@ def main():
 
     table = json.load(open(TABLE, encoding='utf-8'))
     by_id = {s['school_id']: s for s in table['schools']}
-
-    # 1. 收集 md 里出现的 school_id（排除段除外）
-    manual_ids = set()
-    for f in sorted(os.listdir(MINBAN_DIR)):
-        if not re.match(r'minban_[a-z]+\.md$', f):
-            continue
-        txt = open(os.path.join(MINBAN_DIR, f), encoding='utf-8').read()
-        for sm in SID_RE.finditer(txt):
-            line = txt[max(0, txt.rfind('\n', 0, sm.start())):txt.find('\n', sm.end())]
-            if any(w in line for w in EXCLUDE_WORDS):
-                continue
-            manual_ids.add(sm.group(0))
+    manual_ids = collect_manual_ids()
 
     n_manual = n_legacy = 0
     for sid, s in by_id.items():
