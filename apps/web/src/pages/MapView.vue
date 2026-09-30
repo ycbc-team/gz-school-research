@@ -99,13 +99,18 @@ function saveHistory(k: string) {
 }
 function openSearchPage() {
   closeInfo();
+  openMenu.value = null;
   kw.value = '';
   assocs.value = [];
   history.value = loadHistory();
   searchPageOpen.value = true;
   nextTick(() => searchInputEl.value?.focus());
 }
-function closeSearchPage() { searchPageOpen.value = false; }
+function closeSearchPage() {
+  searchPageOpen.value = false;
+  kw.value = '';
+  assocs.value = [];
+}
 function onSearchInput() {
   assocs.value = kw.value ? buildAssocResults(mapPoints, kw.value, repository.entities) : [];
 }
@@ -118,9 +123,9 @@ function onSearchConfirm() {
   // 无匹配：停留中间页展示空态（对齐小程序）
 }
 function tapHistory(h: string) { kw.value = h; onSearchInput(); nextTick(() => searchInputEl.value?.focus()); }
-function tapRecommend(name: string) { pickAssocByName(name); }
+function tapRecommend(name: string) { saveHistory(name); pickAssocByName(name); }
+function tapAssoc(name: string) { saveHistory((kw.value || '').trim()); pickAssocByName(name); }
 function pickAssocByName(name: string) {
-  saveHistory(name);
   closeSearchPage();
   focusSchool(name);
 }
@@ -523,8 +528,8 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
   <!-- 浮层：搜索 + 筛选（压在地图上方） -->
   <div class="float-panel" :class="{ 'float-panel-hidden': !!infoModel }">
     <div class="search-bar">
-      <!-- readonly：避免在背景输入，点击即打开全屏搜索中间页（对齐小程序） -->
-      <input v-model="kw" class="search-input" placeholder="搜索学校名，如：华南师范大学附属中学" readonly @focus="openSearchPage()" />
+      <!-- readonly + @click：仅用户点击时打开全屏搜索中间页；不用 @focus，避免加载/热更新后自动聚焦误触发弹层 -->
+      <input v-model="kw" class="search-input" placeholder="搜索学校名，如：华南师范大学附属中学" readonly @click="openSearchPage()" />
     </div>
 
     <div class="panel-divider"></div>
@@ -631,7 +636,7 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
       <template v-else>
         <div class="sug">
           <!-- 联想词条右侧标签：行政区固定带「区」字；多学段学校按学段拆成多枚标签，不合并为一枚 -->
-          <button v-for="(a, i) in assocs" :key="a.name + '-' + i" class="srow" @click="pickAssocByName(a.name)">
+          <button v-for="(a, i) in assocs" :key="a.name + '-' + i" class="srow" @click="tapAssoc(a.name)">
             <span class="nm">{{ a.name }}</span>
             <span v-if="a.district" class="tag tag-dist">{{ a.district }}</span>
             <span v-for="st in a.stages" :key="st" class="tag tag-stage">{{ st }}</span>
@@ -696,7 +701,7 @@ section { position: relative; }
 .search-input:focus { border-color: #9bbbf4; }
 
 /* ===== 搜索中间页（全屏层，对齐小程序 index searchpage） ===== */
-.search-page { position: fixed; inset: 0; z-index: 400; background: #F5F7FB; display: flex; flex-direction: column; }
+.search-page { position: fixed; inset: 0; z-index: 1300; background: #F5F7FB; display: flex; flex-direction: column; }
 .search-head { height: 44px; flex: none; display: flex; align-items: center; gap: 9px; padding: 0 12px; border-bottom: 1px solid #EFF2F7; }
 .search-head .back { flex: none; width: 28px; height: 28px; border: 0; background: none; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .search-head .chev { width: 10px; height: 10px; border-left: 2px solid #10182B; border-bottom: 2px solid #10182B; transform: rotate(45deg); display: block; }
