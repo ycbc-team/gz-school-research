@@ -632,12 +632,10 @@
       "data_gaps": null,
       "direct_feed": [],
       "feed_junior_highs": [
-        "广州市白云区竹料第一中学北校区",
-        "竹料第一中学"
+        "广州市白云区竹料第一中学北校区"
       ],
       "feed_school_ids_from_middle": [
-        "gz-440111-78d61733",
-        "gz-440111-fd1c1c12"
+        "gz-440111-78d61733"
       ],
       "mechanisms": [
         "group_paidui"
@@ -654,12 +652,12 @@
       "data_gaps": null,
       "direct_feed": [],
       "feed_junior_highs": [
-        "广州市白云区竹料第一中学北校区",
-        "竹料第一中学"
+        "竹料第一中学",
+        "广州市白云区竹料第一中学北校区"
       ],
       "feed_school_ids_from_middle": [
-        "gz-440111-78d61733",
-        "gz-440111-fd1c1c12"
+        "gz-440111-fd1c1c12",
+        "gz-440111-78d61733"
       ],
       "mechanisms": [
         "group_paidui"
@@ -1345,12 +1343,10 @@
       "data_gaps": null,
       "direct_feed": [],
       "feed_junior_highs": [
-        "广州市第六十五中学初中部(明德校区)",
-        "广州市第六十五中学(同德校区)"
+        "广州市第六十五中学初中部(明德校区)"
       ],
       "feed_school_ids_from_middle": [
-        "gz-440111-c8461d5d",
-        "gz-440111-c7b90869"
+        "gz-440111-c8461d5d"
       ],
       "mechanisms": [
         "group_paidui"
@@ -1367,21 +1363,16 @@
       "data_gaps": null,
       "direct_feed": [],
       "feed_junior_highs": [
-        "广东外语外贸大学实验中学（陈田西校区）",
-        "广东外语外贸大学实验中学",
-        "广东外语外贸大学实验中学(北校区)"
+        "广东外语外贸大学实验中学"
       ],
       "feed_school_ids_from_middle": [
-        "gz-440111-f5da4352",
-        "gz-440111-7e484346",
-        "gz-440111-f751344d"
+        "gz-440111-7e484346"
       ],
       "mechanisms": [
         "single_zone"
       ],
       "name": "广东外语外贸大学实验中学小学部",
       "official_primary_names": [
-        "广东外语外贸大学实验中学（陈田西校区小学部）",
         "广东外语外贸大学实验中学小学部"
       ],
       "school_id": "gz-440111-6e11e279",
@@ -1415,25 +1406,18 @@
       "direct_feed": [],
       "feed_junior_highs": [
         "广州空港实验中学(西校区)",
-        "白云六中实验中学(空港校区)",
-        "白云区六中实验中学(福和校区)",
-        "广州市白云区民航学校(人和校区)"
+        "白云六中实验中学(空港校区)"
       ],
       "feed_school_ids_from_middle": [
         "gz-440111-35860c30",
-        "gz-440111-4ab20f44",
-        "gz-440111-6b0e6f77",
-        "gz-440111-7a3148c4"
+        "gz-440111-4ab20f44"
       ],
       "mechanisms": [
-        "single_zone",
         "group_paidui"
       ],
       "name": "白云六中实验小学",
       "official_primary_names": [
-        "广州市白云区六中实验小学北校区",
-        "广州市白云区六中实验小学",
-        "六中实验小学"
+        "广州市白云区六中实验小学北校区"
       ],
       "school_id": "gz-440111-6f991ca4",
       "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
@@ -1547,12 +1531,10 @@
       "data_gaps": null,
       "direct_feed": [],
       "feed_junior_highs": [
-        "广州市白云区竹料第一中学北校区",
         "竹料第一中学",
         "竹料第三中学"
       ],
       "feed_school_ids_from_middle": [
-        "gz-440111-78d61733",
         "gz-440111-fd1c1c12",
         "gz-440111-b2b78162"
       ],
@@ -1800,12 +1782,10 @@
       "data_gaps": null,
       "direct_feed": [],
       "feed_junior_highs": [
-        "广州市第六十五中学初中部(明德校区)",
-        "广州市第六十五中学(同德校区)"
+        "广州市第六十五中学初中部(明德校区)"
       ],
       "feed_school_ids_from_middle": [
-        "gz-440111-c8461d5d",
-        "gz-440111-c7b90869"
+        "gz-440111-c8461d5d"
       ],
       "mechanisms": [
         "group_paidui"
@@ -1986,11 +1966,9 @@
       "data_gaps": null,
       "direct_feed": [],
       "feed_junior_highs": [
-        "广州市白云区竹料第一中学北校区",
         "竹料第一中学"
       ],
       "feed_school_ids_from_middle": [
-        "gz-440111-78d61733",
         "gz-440111-fd1c1c12"
       ],
       "mechanisms": [
@@ -2198,12 +2176,10 @@
       "data_gaps": null,
       "direct_feed": [],
       "feed_junior_highs": [
-        "广州市第六十五中学初中部(明德校区)",
-        "广州市第六十五中学(同德校区)"
+        "广州市第六十五中学初中部(明德校区)"
       ],
       "feed_school_ids_from_middle": [
-        "gz-440111-c8461d5d",
-        "gz-440111-c7b90869"
+        "gz-440111-c8461d5d"
       ],
       "mechanisms": [
         "group_paidui"
@@ -2576,22 +2552,17 @@
       "data_gaps": null,
       "direct_feed": [],
       "feed_junior_highs": [
-        "广东外语外贸大学实验中学（陈田西校区）",
-        "广东外语外贸大学实验中学",
-        "广东外语外贸大学实验中学(北校区)"
+        "广东外语外贸大学实验中学（陈田西校区）"
       ],
       "feed_school_ids_from_middle": [
-        "gz-440111-f5da4352",
-        "gz-440111-7e484346",
-        "gz-440111-f751344d"
+        "gz-440111-f5da4352"
       ],
       "mechanisms": [
         "single_zone"
       ],
       "name": "广东外语外贸大学实验中学（陈田西校区）小学部",
       "official_primary_names": [
-        "广东外语外贸大学实验中学（陈田西校区小学部）",
-        "广东外语外贸大学实验中学小学部"
+        "广东外语外贸大学实验中学（陈田西校区小学部）"
       ],
       "school_id": "gz-440111-c553e806",
       "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
@@ -2601,11 +2572,9 @@
       "data_gaps": null,
       "direct_feed": [],
       "feed_junior_highs": [
-        "广州市第六十五中学初中部(明德校区)",
         "广州市第六十五中学(同德校区)"
       ],
       "feed_school_ids_from_middle": [
-        "gz-440111-c8461d5d",
         "gz-440111-c7b90869"
       ],
       "mechanisms": [
@@ -2623,24 +2592,17 @@
       "data_gaps": null,
       "direct_feed": [],
       "feed_junior_highs": [
-        "广州空港实验中学(西校区)",
-        "白云区六中实验中学(福和校区)",
-        "广州市白云区民航学校(人和校区)"
+        "广州空港实验中学(西校区)"
       ],
       "feed_school_ids_from_middle": [
-        "gz-440111-35860c30",
-        "gz-440111-6b0e6f77",
-        "gz-440111-7a3148c4"
+        "gz-440111-35860c30"
       ],
       "mechanisms": [
-        "single_zone",
         "group_paidui"
       ],
       "name": "白云区六中实验小学(南校区)",
       "official_primary_names": [
-        "广州市白云区六中实验小学南校区",
-        "广州市白云区六中实验小学",
-        "六中实验小学"
+        "广州市白云区六中实验小学南校区"
       ],
       "school_id": "gz-440111-c6ba2aa0",
       "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
@@ -3262,25 +3224,19 @@
       "feed_junior_highs": [
         "广州彭加木纪念中学(初中部)",
         "广州彭加木纪念中学",
-        "广州市第六十五中学桃园校区",
-        "广州市第六十五中学初中部(明德校区)",
-        "广州市第六十五中学(同德校区)"
+        "广州市第六十五中学初中部(明德校区)"
       ],
       "feed_school_ids_from_middle": [
         "gz-440111-4e13c7d6",
         "gz-440111-d28d78f9",
-        "gz-440111-4cf10429",
-        "gz-440111-c8461d5d",
-        "gz-440111-c7b90869"
+        "gz-440111-c8461d5d"
       ],
       "mechanisms": [
-        "single_zone",
         "group_paidui"
       ],
       "name": "广州市第六十五中学附属小学(侨德校区)",
       "official_primary_names": [
         "65中附小",
-        "65中附属小学",
         "65附小分校区"
       ],
       "school_id": "gz-440111-ee3748de",
@@ -3353,20 +3309,17 @@
       "data_gaps": null,
       "direct_feed": [],
       "feed_junior_highs": [
-        "广州空港实验中学(西校区)",
-        "白云六中实验中学(空港校区)"
+        "广州空港实验中学(西校区)"
       ],
       "feed_school_ids_from_middle": [
-        "gz-440111-35860c30",
-        "gz-440111-4ab20f44"
+        "gz-440111-35860c30"
       ],
       "mechanisms": [
         "group_paidui"
       ],
       "name": "广州市白云区人和镇第二小学(建南校区)",
       "official_primary_names": [
-        "人和镇第二小学（建南校区）",
-        "白云区人和镇第二小学"
+        "人和镇第二小学（建南校区）"
       ],
       "school_id": "gz-440111-f5b57c5c",
       "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",

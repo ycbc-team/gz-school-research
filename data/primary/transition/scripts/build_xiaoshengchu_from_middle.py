@@ -16,6 +16,7 @@ import argparse
 import importlib.util
 import json
 import os
+import re
 import sys
 from collections import defaultdict
 
@@ -55,6 +56,50 @@ def primary_ids(record, district):
     return [(name, sid) for name, ids in (record.get("scope_school_ids") or {}).items() for sid in ids]
 
 
+def campus_assign(record, mids, entity_names):
+    """多校区聚合记录：scope 原文分行「XX校区：小学、…」→ {校区实体id: [行内小学名]}。
+
+    2026-09-30（修复1）：官方中学「一名多校区」聚合记录（如「广州市第六十五中学（明德校区、
+    同德校区）」一行、feed 分行「明德校区：…」/「同德校区：…」）——每所小学只对口其所在
+    校区，不得全组合挂到全部校区。行标签↔校区实体按「实体名包含标签」匹配（不依赖 school_ids
+    顺序）；解析不出标签的行不归属（调用方兜底全组合，不丢数据）。
+    """
+    scope = record.get("scope") or ""
+    out = {}
+    # 法人主体实体（实体名无校区标识，如「广州市白云区竹料第一中学」）：官方「南校区：…」
+    # 分行中「南校区/本部/校本部/总校区」等主体语义标签即指该法人实体（无独立南校区实体），
+    # 标签匹配不到任何校区实体名时兜底归属法人主体（65中 两校区实体均带校区标识 → 不受影响）。
+    _CAMPUS_IDENT = ("校区", "分校", "教学点", "分教点", "分部", "本部")
+    legal_mids = [m for m in mids
+                  if not any(k in (entity_names.get(m) or "") for k in _CAMPUS_IDENT)]
+    for ln in [x.strip() for x in scope.split("\n") if x.strip()]:
+        m = re.match(r"^(.+?)[：:](.+)$", ln)
+        if not m:
+            continue
+        tag, rest = m.group(1).strip(), m.group(2).strip()
+        if "校区" not in tag:
+            continue
+        names = [s.strip() for s in MIDDLE._SCOPE_SPLIT.split(rest) if s.strip()]
+        hit = None
+        for mid in mids:
+            nm = (entity_names.get(mid) or "").replace("（", "").replace("）", "").replace("(", "").replace(")", "")
+            if tag in nm:
+                hit = mid
+                break
+        if not hit and tag in ("南校区", "本部", "校本部", "总校区", "主校区", "正校") and legal_mids:
+            hit = legal_mids[0]
+        if hit:
+            out.setdefault(hit, []).extend(names)
+    return out
+
+
+def _same_school(a, b):
+    """行内小学名（清洗后）与 scope_school_ids 键比较：剥括号后全等，或双向包含兜底。"""
+    na = a.replace("（", "(").replace("）", ")").replace("(", "").replace(")", "")
+    nb = b.replace("（", "(").replace("）", ")").replace("(", "").replace(")", "")
+    return na == nb or na in nb or nb in na
+
+
 def reverse_district(district, entity_names):
     # 2026-09-30：与 middle/enrollment 主流程一致，先应用 src/inferred_feed_schools.json
     # 推断回填（协和学校小学部直升、黄埔军校纪念中学北校区等官方未逐校列名场景），
@@ -69,6 +114,11 @@ def reverse_district(district, entity_names):
             continue
         if r.get("_group_primaries") and not primaries:
             unresolved_primary_names.update(r["_group_primaries"])
+        # 修复1（2026-09-30）：多校区聚合记录（如 65中明德+同德）按 scope 分行标签
+        # 「XX校区：小学、…」归属各校区实体；行内小学名清洗后与 scope_school_ids 键
+        # 比较（行名可能是「65附小分校区（地段生）」→ 键「65附小分校区」）。单校区
+        # 记录/无标签行兜底全组合（不丢数据）。
+        campus_map = campus_assign(r, mids, entity_names) if len(mids) > 1 else {}
         for official_primary, primary_id in primaries:
             row = by_primary.setdefault(primary_id, {
                 "name": entity_names.get(primary_id, official_primary),
@@ -89,7 +139,13 @@ def reverse_district(district, entity_names):
             if r.get("mechanism") not in row["mechanisms"]:
                 row["mechanisms"].append(r["mechanism"])
             is_direct = district in {"yuexiu", "haizhu", "huangpu"} and r.get("mechanism") == "single_zone"
-            for mid in mids:
+            if campus_map:
+                effective = [mid for mid, names in campus_map.items()
+                             if any(_same_school(nm, official_primary) for nm in names)]
+                mids_for_pair = effective or mids  # 无标签归属行兜底全组合
+            else:
+                mids_for_pair = mids
+            for mid in mids_for_pair:
                 mid_name = entity_names.get(mid, r.get("school") or mid)
                 if mid_name not in row["feed_junior_highs"]:
                     row["feed_junior_highs"].append(mid_name)

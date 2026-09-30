@@ -3,31 +3,55 @@
   "district": "白云区",
   "only_current": [
     {
-      "middle": "广州空港实验中学(西校区)",
-      "middle_school_id": "gz-440111-35860c30",
-      "primary": "广州空港实验小学(南校区)",
-      "primary_school_id": "gz-440111-31528abe"
-    }
-  ],
-  "only_reverse": [
-    {
       "middle": "广州市第六十五中学(同德校区)",
       "middle_school_id": "gz-440111-c7b90869",
       "primary": "岭南花园小学",
       "primary_school_id": "gz-440111-87790ad3"
     },
     {
-      "middle": "广东外语外贸大学实验中学",
-      "middle_school_id": "gz-440111-7e484346",
-      "primary": "广东外语外贸大学实验中学（陈田西校区）小学部",
-      "primary_school_id": "gz-440111-c553e806"
+      "middle": "广州空港实验中学(西校区)",
+      "middle_school_id": "gz-440111-35860c30",
+      "primary": "广州空港实验小学(南校区)",
+      "primary_school_id": "gz-440111-31528abe"
     },
     {
-      "middle": "广东外语外贸大学实验中学(北校区)",
-      "middle_school_id": "gz-440111-f751344d",
-      "primary": "广东外语外贸大学实验中学（陈田西校区）小学部",
-      "primary_school_id": "gz-440111-c553e806"
+      "middle": "广州市第六十五中学初中部(明德校区)",
+      "middle_school_id": "gz-440111-c8461d5d",
+      "primary": "明德小学(富康校区)",
+      "primary_school_id": "gz-440111-c5b02b25"
     },
+    {
+      "middle": "广州市第六十五中学(同德校区)",
+      "middle_school_id": "gz-440111-c7b90869",
+      "primary": "明德小学(明德校区)",
+      "primary_school_id": "gz-440111-6da8abe9"
+    },
+    {
+      "middle": "广州市第六十五中学(同德校区)",
+      "middle_school_id": "gz-440111-c7b90869",
+      "primary": "白云区同德小学",
+      "primary_school_id": "gz-440111-a2117640"
+    },
+    {
+      "middle": "竹料第一中学",
+      "middle_school_id": "gz-440111-fd1c1c12",
+      "primary": "竹料第三小学",
+      "primary_school_id": "gz-440111-3218439b"
+    },
+    {
+      "middle": "广州市白云区竹料第一中学北校区",
+      "middle_school_id": "gz-440111-78d61733",
+      "primary": "竹料第二小学(竹三校区)",
+      "primary_school_id": "gz-440111-96ab2ca3"
+    },
+    {
+      "middle": "广州市白云区竹料第一中学北校区",
+      "middle_school_id": "gz-440111-78d61733",
+      "primary": "竹料第四小学",
+      "primary_school_id": "gz-440111-77b8da86"
+    }
+  ],
+  "only_reverse": [
     {
       "middle": "广东技术师范大学白云实验中学",
       "middle_school_id": "gz-440111-d3ffec78",
@@ -47,22 +71,10 @@
       "primary_school_id": "gz-440111-7360ff6d"
     },
     {
-      "middle": "白云六中实验中学(空港校区)",
-      "middle_school_id": "gz-440111-4ab20f44",
-      "primary": "广州市白云区人和镇第二小学(建南校区)",
-      "primary_school_id": "gz-440111-f5b57c5c"
-    },
-    {
       "middle": "广州市第六十五中学桃园校区",
       "middle_school_id": "gz-440111-4cf10429",
       "primary": "广州市第六十五中学附属小学",
       "primary_school_id": "gz-440111-1fcfbfb4"
-    },
-    {
-      "middle": "广州市第六十五中学(同德校区)",
-      "middle_school_id": "gz-440111-c7b90869",
-      "primary": "广州市第六十五中学附属小学(侨德校区)",
-      "primary_school_id": "gz-440111-ee3748de"
     },
     {
       "middle": "广州市第六十五中学初中部(明德校区)",
@@ -71,66 +83,18 @@
       "primary_school_id": "gz-440111-ee3748de"
     },
     {
-      "middle": "广州市第六十五中学桃园校区",
-      "middle_school_id": "gz-440111-4cf10429",
-      "primary": "广州市第六十五中学附属小学(侨德校区)",
-      "primary_school_id": "gz-440111-ee3748de"
-    },
-    {
       "middle": "广州市白云区民航学校(人和校区)",
       "middle_school_id": "gz-440111-7a3148c4",
       "primary": "广州空港实验小学(南校区)",
       "primary_school_id": "gz-440111-31528abe"
-    },
-    {
-      "middle": "广州市第六十五中学(同德校区)",
-      "middle_school_id": "gz-440111-c7b90869",
-      "primary": "明德小学(富康校区)",
-      "primary_school_id": "gz-440111-c5b02b25"
-    },
-    {
-      "middle": "广州市第六十五中学(同德校区)",
-      "middle_school_id": "gz-440111-c7b90869",
-      "primary": "明德小学(明德校区)",
-      "primary_school_id": "gz-440111-6da8abe9"
-    },
-    {
-      "middle": "广州市白云区民航学校(人和校区)",
-      "middle_school_id": "gz-440111-7a3148c4",
-      "primary": "白云六中实验小学",
-      "primary_school_id": "gz-440111-6f991ca4"
-    },
-    {
-      "middle": "白云区六中实验中学(福和校区)",
-      "middle_school_id": "gz-440111-6b0e6f77",
-      "primary": "白云六中实验小学",
-      "primary_school_id": "gz-440111-6f991ca4"
-    },
-    {
-      "middle": "广州市白云区民航学校(人和校区)",
-      "middle_school_id": "gz-440111-7a3148c4",
-      "primary": "白云区六中实验小学(南校区)",
-      "primary_school_id": "gz-440111-c6ba2aa0"
-    },
-    {
-      "middle": "白云区六中实验中学(福和校区)",
-      "middle_school_id": "gz-440111-6b0e6f77",
-      "primary": "白云区六中实验小学(南校区)",
-      "primary_school_id": "gz-440111-c6ba2aa0"
-    },
-    {
-      "middle": "广州市第六十五中学(同德校区)",
-      "middle_school_id": "gz-440111-c7b90869",
-      "primary": "白云区同德小学",
-      "primary_school_id": "gz-440111-a2117640"
     }
   ],
   "summary": {
-    "current_pairs": 236,
+    "current_pairs": 238,
     "equal": false,
-    "only_current": 1,
-    "only_reverse": 19,
-    "reverse_pairs": 254
+    "only_current": 8,
+    "only_reverse": 6,
+    "reverse_pairs": 236
   },
   "year": 2026
 }

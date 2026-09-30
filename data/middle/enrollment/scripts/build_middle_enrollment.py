@@ -56,6 +56,12 @@ def match_school_ids(name, adcode=None):
         # 带校区/学部限定（括号式或后缀式）：精准匹配该校区/学部实体，宁缺毋滥（不展开其它校区）。
         # 「校本部/初中部/高中部/小学部」是无括号后缀限定（官方明确指该校区/学部），
         # 不得按法人名展开全部校区（如「广州市第一中学初中部」只指初中部实体）。
+        # 2026-09-30：RESOLVE_OVERRIDE 聚合名锚定（官方一行多校区，如「第六十五中学
+        # （明德校区、同德校区）」）显式展开全部锚定校区（school_id=None + school_ids=全部），
+        # 不落 resolve 单值（单值只会命中首个别名校区）；未命中锚定保持单校区精准。
+        _ov = _MATCHER._override_hits(name)
+        if _ov and len(_ov) > 1:
+            return None, sorted(r["school_id"] for r in _ov)
         r = _MATCHER.resolve(name, preferred_adcode=adcode, preferred_stage="初中")
         return (r.get("school_id") or None), None
     # 无校区限定：法人全部校区展开（单校区回退 school_id；多校区 school_ids）
@@ -141,6 +147,10 @@ _COND_KEYWORDS = ("地段生", "地段学生", "户籍生", "摇号", "人户一
 # 白云/天河候选为纯学校名，实测 140 个候选零命中。
 _CAND_BLOCK = ("户籍", "招生", "面向", "应届", "毕业", "学位", "计划", "资格", "条件",
                "居住", "政策", "照顾", "适龄", "报名", "录取", "的", "在职", "人员", "子女")
+# 范围限定词（修复2，2026-09-30）：官方原文段含这些词 = 明确限定招收范围（地段/村/安置区），
+# 清洗后候选若无校区限定（法人多校区展开）则宁缺不猜，防止把范围外校区误挂到该初中。
+_SCOPE_RANGE_WORDS = ("不含", "不包含", "除外", "村", "雅苑", "安置区", "旧村", "地块",
+                      "住宅小区", "项目范围", "改造项目")
 
 
 def _clean_one(seg):
@@ -173,7 +183,7 @@ def _clean_one(seg):
     return seg
 
 
-def _clean_scope_part(part):
+def _clean_scope_part(part, adcode=None):
     """scope 段 → 候选小学名列表（白云 feed 形态清洗，其他区不受影响）：
     1) 段首整组括号形态（「（太和镇第一小学、…、石湖小学）部分毕业生」）→ 展开括号内学校；
     2) 含「:」前缀标签（「南校区：竹料一小、竹料二小、竹料四小」「明德校区：明德小学（本部）」）
@@ -199,8 +209,21 @@ def _clean_scope_part(part):
     out = []
     for seg in segs:
         c = _clean_one(seg)
-        if c:
-            out.append(c)
+        if not c:
+            continue
+        # 修复2（2026-09-30）：范围限定宁缺——官方原文段含招收范围限定词（不含/村/雅苑/
+        # 安置区/旧村/地块/住宅小区/改造项目等），清洗后候选又无校区限定（法人多校区展开
+        # 无法确定官方所指校区）→ 宁缺不猜。如 seq44「六中实验小学（民强村、新兴村）」
+        # 只收民强/新兴村的六中实小（本部），不得展开南校区误挂民航人和；seq43
+        # 「六中实验小学福和雅苑安置区地段生」同理。范围词必须出现在被剥掉的内容里
+        # （条件括号/尾部描述，c != seg）——「汤村小学」「旺村分校」等校名自带「村」字
+        # 不触发；RESOLVE_OVERRIDE 锚定段（如「三元里小学（不含北校区）」）清洗后保留
+        # 括号（c == seg）天然豁免，锚定已显式给出校区。
+        if adcode and c != seg and any(w in seg for w in _SCOPE_RANGE_WORDS):
+            ids = _primary_ids(c, adcode)
+            if len(ids) > 1 and not _MATCHER._override_hits(c):
+                continue
+        out.append(c)
     return out
 
 
@@ -219,7 +242,7 @@ def _scope_primary_ids(scope, adcode):
                    scope)
     out = {}
     for part in _SCOPE_SPLIT.split(_prot):
-        for cand in _clean_scope_part(part):
+        for cand in _clean_scope_part(part, adcode):
             cand = cand.replace("\u0001", "、").replace("\u0002", ",").replace("\u0003", "，")
             if len(cand) > 28:
                 continue
@@ -478,10 +501,6 @@ def build_baiyun():
         # 三元里中学（2026 涉拆迁停招，官方地址三元里群英大街34号）：实体+POI 已补，显式挂 id
         if school == "广州市三元里中学":
             sid = "gz-440111-8629621c"
-        # 明德校区+同德校区合并招生（官方同一条记录）：school_id 置 None，school_ids 列出两校区共担
-        if school == "广州市第六十五中学（明德校区、同德校区）":
-            sid = None
-            sids = ["gz-440111-c8461d5d", "gz-440111-c7b90869"]
         _ss = _scope_primary_ids(feed, "440111") if feed else None
         recs.append({
             "school": school, "school_id": sid,
