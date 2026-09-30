@@ -56,7 +56,10 @@ def primary_ids(record, district):
 
 
 def reverse_district(district, entity_names):
-    source = MIDDLE.BUILDERS[district]()
+    # 2026-09-30：与 middle/enrollment 主流程一致，先应用 src/inferred_feed_schools.json
+    # 推断回填（协和学校小学部直升、黄埔军校纪念中学北校区等官方未逐校列名场景），
+    # 否则反推链拿到的 scope_school_ids 缺这些手工标注生源小学。
+    source = MIDDLE.apply_inferred_feeds(MIDDLE.BUILDERS[district]())
     by_primary = {}
     unresolved_primary_names = set()
     for r in source["records"]:

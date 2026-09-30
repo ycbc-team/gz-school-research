@@ -1202,7 +1202,8 @@
         "港湾中学",
         "广州石化中学",
         "广大附中黄埔实验学校(东校区)",
-        "广州市黄埔区丰乐初级中学"
+        "广州市黄埔区丰乐初级中学",
+        "广州市黄埔军校纪念中学(北校区)"
       ],
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
@@ -1211,9 +1212,11 @@
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
         "gz-440112-705c66e3",
-        "gz-440112-5b78d24b"
+        "gz-440112-5b78d24b",
+        "gz-440112-12747882"
       ],
       "mechanisms": [
+        "zhi_sheng",
         "group_paidui"
       ],
       "name": "横沙小学",
@@ -1791,6 +1794,26 @@
         "文船小学"
       ],
       "school_id": "gz-440112-9e481bef",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市黄埔军校纪念中学(北校区)"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-12747882"
+      ],
+      "mechanisms": [
+        "zhi_sheng"
+      ],
+      "name": "广州市黄埔区实验小学",
+      "official_primary_names": [
+        "广州市黄埔区实验小学"
+      ],
+      "school_id": "gz-440112-9e826efe",
       "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
       "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
     },
