@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+import { useRoute } from 'vue-router';
 import { DISTRICTS } from '@gz/shared';
 import { primarySchools, civilizedCampusSchoolIds } from '../data';
+import { queryScalar, querySet, useQuerySync } from '../routeQuery';
 import DetailFilterBar from '../components/DetailFilterBar.vue';
 import DetailPageHeader from '../components/DetailPageHeader.vue';
 import DetailRankingList from '../components/DetailRankingList.vue';
@@ -9,10 +11,12 @@ import DetailRankingList from '../components/DetailRankingList.vue';
 type Group = 'none' | 'district';
 const CIVILIZED_FILTERS = [['national', '全国文明校园'], ['provincial', '广东省文明校园'], ['municipal', '广州市文明校园'], ['advanced', '创建先进学校（储备）'], ['other', '其他']] as const;
 type CivilizedKey = typeof CIVILIZED_FILTERS[number][0];
-const groupBy = ref<Group>('none');
+/** 筛选/排序状态同步到 URL query：详情页返回时浏览器恢复 URL，组件重建据此还原（见 routeQuery.ts）。 */
+const route = useRoute();
+const groupBy = ref<Group>(queryScalar(route.query.group, ['district'] as const, 'none'));
 const open = ref<'group' | 'filter' | null>(null);
-const selectedDistricts = ref(new Set(DISTRICTS.map((d) => d.adcode)));
-const honor = ref<Set<CivilizedKey> | null>(null);
+const selectedDistricts = ref(querySet<string>(route.query.districts) ?? new Set(DISTRICTS.map((d) => d.adcode)));
+const honor = ref<Set<CivilizedKey> | null>(querySet<CivilizedKey>(route.query.honor, new Set(CIVILIZED_FILTERS.map(([key]) => key))) ?? null);
 const allDistricts = computed(() => selectedDistricts.value.size === DISTRICTS.length);
 const allHonors = computed(() => honor.value === null);
 function toggleDistrict(id: string) { const n = new Set(selectedDistricts.value); n.has(id) ? n.delete(id) : n.add(id); selectedDistricts.value = n; }
@@ -33,6 +37,18 @@ const groups = computed(() => {
   return DISTRICTS.map((d) => ({ title: d.name, rows: rows.filter((s) => s.adcode === d.adcode) })).filter((g) => g.rows.length);
 });
 const filterCount = computed(() => (allDistricts.value ? 0 : selectedDistricts.value.size) + (allHonors.value ? 0 : honor.value!.size));
+useQuerySync(
+  () => ({
+    group: groupBy.value === 'none' ? undefined : groupBy.value,
+    districts: allDistricts.value ? undefined : [...selectedDistricts.value].join(','),
+    honor: honor.value ? [...honor.value].join(',') : undefined,
+  }),
+  (q) => {
+    groupBy.value = queryScalar(q.group, ['district'] as const, 'none');
+    selectedDistricts.value = querySet<string>(q.districts) ?? new Set(DISTRICTS.map((d) => d.adcode));
+    honor.value = querySet<CivilizedKey>(q.honor, new Set(CIVILIZED_FILTERS.map(([key]) => key))) ?? null;
+  },
+);
 </script>
 
 <template>
