@@ -737,8 +737,8 @@ section { position: relative; }
 }
 .search-head.open .back { width: 30px; opacity: 1; margin-right: 9px; }
 .search-head .chev { width: 10px; height: 10px; border-left: 2px solid #10182B; border-bottom: 2px solid #10182B; transform: rotate(45deg); display: block; }
-.search-head .sip { flex: 1; height: 42px; display: flex; align-items: center; gap: 7px; background: #F5F7FB; border: 1px solid #E3E8F0; border-radius: 999px; padding: 0 12px; }
-.search-head .sip.typed { background: #fff; border-color: #98B6EC; box-shadow: 0 0 0 6px rgba(47,92,214,.08); }
+.search-head .sip { flex: 1; height: 42px; display: flex; align-items: center; gap: 7px; background: rgba(255,255,255,.97); border-radius: 999px; padding: 0 12px; box-shadow: 0 4px 16px rgba(8,14,28,.18); }
+.search-head .sip.typed { background: #fff; box-shadow: 0 0 0 6px rgba(47,92,214,.08), 0 4px 16px rgba(8,14,28,.18); }
 .search-head .sinput { flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font-size: 13.5px; color: #10182B; }
 .search-head .mag { flex: none; width: 12px; height: 12px; border: 1.5px solid #8B96AD; border-radius: 50%; position: relative; }
 .search-head .mag::after { content: ''; position: absolute; width: 5px; height: 1.5px; background: #8B96AD; transform: rotate(45deg); right: -3px; bottom: -1px; }
