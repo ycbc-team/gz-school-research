@@ -264,13 +264,18 @@ const mechanismBlocks = computed<MechBlock[]>(() => {
         const g = gid ? middleEnrollmentGroups[gid] : null;
         const pid = g?.primaryIds ?? {};
         for (const p of Object.keys(pid)) b.rows.push({ name: p, groupName: groupNameOf(gid), ids: pid[p] ?? [] });
-        // 对口小学：scope_school_ids 命中的段 → 可点击行（单独展示在生源小学列表）；
-        // 招生服务范围直接展示 scope 原文，不从原文中剔除已提取的小学
+        // 生源小学：直接遍历 scope_school_ids 解析键 → 可点击行。
+        // 不做 scope 原文分段精确匹配：原文段常含括号注释（如「（除民强村、新兴村外）」）、换行、
+        // 括号内顿号（如「（总校区、北校区）」），与解析键不一致会漏行；scope_school_ids 是解析器
+        // 输出的权威「段→school_ids」结构。键本身即 scope 原文片段，按原文出现顺序展示（未命中的兜底排后），
+        // 招生服务范围全文仍由下方 textScopes 展示。
         const smap = rec.scope_school_ids ?? {};
-        const parts = (rec.scope ?? '').split(/[、，,;；]/).map(x => x.trim()).filter(Boolean);
-        for (const p of parts) {
-          if (smap[p]?.length) b.rows.push({ name: p, groupName: groupNameOf(gid), ids: smap[p] });
-        }
+        const scopeText = rec.scope ?? '';
+        const orderedKeys = Object.keys(smap).sort((a, b) => {
+          const ia = scopeText.indexOf(a), ib = scopeText.indexOf(b);
+          return (ia === -1 ? 1e9 : ia) - (ib === -1 ? 1e9 : ib);
+        });
+        for (const p of orderedKeys) b.rows.push({ name: p, groupName: groupNameOf(gid), ids: smap[p] ?? [] });
         if (rec.scope) {
           const full = rec.scope.trim();
           if (full && !b.textScopes.includes(full)) b.textScopes.push(full);
@@ -278,13 +283,15 @@ const mechanismBlocks = computed<MechBlock[]>(() => {
         // 招生说明：机制内去重只展示一条；纯组名备注跳过（组名已由行 tag 展示）
         if (rec.mechanism_note && !isRedundantNote(rec.mechanism_note) && !b.notes.includes(rec.mechanism_note)) b.notes.push(rec.mechanism_note);
       } else if (b.mech === 'single_zone') {
-        // 直升小学聚合：scope_school_ids 命中的段 → 可点击行（tag=对口直升，单独展示在直升小学列表）；
-        // 招生服务范围直接展示 scope 原文，不从原文中剔除已提取的小学
+        // 直升小学：直接遍历 scope_school_ids 解析键（同上：不做 scope 原文分段匹配，原文段含
+        // 括号注释/换行/括号内顿号会与解析键不一致导致漏行）；键按原文出现顺序展示
         const smap = rec.scope_school_ids ?? {};
-        const parts = (rec.scope ?? '').split(/[、，,;；]/).map(x => x.trim()).filter(Boolean);
-        for (const p of parts) {
-          if (smap[p]?.length) b.rows.push({ name: p, groupName: '对口直升', ids: smap[p] });
-        }
+        const scopeText = rec.scope ?? '';
+        const orderedKeys = Object.keys(smap).sort((a, b) => {
+          const ia = scopeText.indexOf(a), ib = scopeText.indexOf(b);
+          return (ia === -1 ? 1e9 : ia) - (ib === -1 ? 1e9 : ib);
+        });
+        for (const p of orderedKeys) b.rows.push({ name: p, groupName: '对口直升', ids: smap[p] ?? [] });
         if (rec.scope) {
           const full = rec.scope.trim();
           if (full && !b.textScopes.includes(full)) b.textScopes.push(full);
