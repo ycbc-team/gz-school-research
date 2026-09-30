@@ -3,12 +3,6 @@
   "district": "黄埔区",
   "only_current": [
     {
-      "middle": "广州市黄埔军校纪念中学(北校区)",
-      "middle_school_id": "gz-440112-12747882",
-      "primary": "广州市黄埔区实验小学",
-      "primary_school_id": "gz-440112-9e826efe"
-    },
-    {
       "middle": "广州市黄埔区玉岩实验学校",
       "middle_school_id": "gz-440112-f3817fbe",
       "primary": "知识城南安置区（二期）小学（暂定名）",
@@ -47,6 +41,12 @@
       "primary_school_id": "gz-440112-adb9c303"
     },
     {
+      "middle": "广州市黄埔军校纪念中学(北校区)",
+      "middle_school_id": "gz-440112-12747882",
+      "primary": "横沙小学",
+      "primary_school_id": "gz-440112-6e178b7a"
+    },
+    {
       "middle": "玉岩中学附属开发区实验学校",
       "middle_school_id": "gz-440112-15d63ae7",
       "primary": "长岭居小学北校区",
@@ -62,9 +62,9 @@
   "summary": {
     "current_pairs": 305,
     "equal": false,
-    "only_current": 2,
-    "only_reverse": 7,
-    "reverse_pairs": 310
+    "only_current": 1,
+    "only_reverse": 8,
+    "reverse_pairs": 312
   },
   "year": 2026
 }

@@ -738,6 +738,26 @@
       "data_gaps": null,
       "direct_feed": [],
       "feed_junior_highs": [
+        "广州协和学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440103-e281e7d0"
+      ],
+      "mechanisms": [
+        "zhi_sheng"
+      ],
+      "name": "广州市协和学校（小学部）",
+      "official_primary_names": [
+        "广州市协和学校（小学部）"
+      ],
+      "school_id": "gz-440103-33b32c4c",
+      "source_note": "荔湾区教育局 2026 公办初中招生派位组表（parsed/_transcripts/liwan_2026_groups.json）+ 附件1 公办初中一年级招生计划（raw/liwan_2026_a1.docx，转录 liwan_2026_plan.json）",
+      "source_url": null
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
         "广州市真光中学初中部(本部校区)",
         "广州市真光中学初中部实验校区",
         "广州市真光中学(芳花校区)",
