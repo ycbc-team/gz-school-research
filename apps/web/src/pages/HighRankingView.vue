@@ -1,15 +1,19 @@
 <script setup lang="ts">
 /** UI only: 高中明细的行、分组、录取线口径与排序均由 @gz/shared ViewModel 提供。 */
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
+import { useRoute } from 'vue-router';
 import { DISTRICTS, buildHighRankingGroups, type HighRankingFilterKey, type HighRankingGroupBy, type HighRankingSortBy } from '@gz/shared';
 import { entities, highLevels, highSchools, highScores2025, highScores2026, civilizedCampusSchoolIds } from '../data';
+import { queryScalar, querySet, useQuerySync } from '../routeQuery';
 import DetailFilterBar from '../components/DetailFilterBar.vue';
 import DetailPageHeader from '../components/DetailPageHeader.vue';
 import DetailRankingList from '../components/DetailRankingList.vue';
 
+/** 筛选/排序状态同步到 URL query：详情页返回时浏览器恢复 URL，组件重建据此还原（见 routeQuery.ts）。 */
+const route = useRoute();
 const openMenu = ref<'group' | 'filter' | 'sort' | null>(null);
-const groupBy = ref<HighRankingGroupBy>('none');
-const selectedDistricts = ref(new Set(DISTRICTS.map((district) => district.adcode)));
+const groupBy = ref<HighRankingGroupBy>(queryScalar(route.query.group, ['category', 'district'] as const, 'none'));
+const selectedDistricts = ref(querySet<string>(route.query.districts) ?? new Set(DISTRICTS.map((district) => district.adcode)));
 const SCHOOL_FILTERS: Array<{ label: string; key: HighRankingFilterKey }> = [
   { label: '省市属示范', key: 'province-municipal-demo' },
   ...DISTRICTS.map((district) => ({ label: `${district.name}属示范`, key: `district-demo:${district.name}属` as HighRankingFilterKey })),
@@ -17,10 +21,10 @@ const SCHOOL_FILTERS: Array<{ label: string; key: HighRankingFilterKey }> = [
   { label: '民办高中', key: 'private' },
 ];
 /** null 表示不限制；全选时包含分类尚未标注的点位。 */
-const selectedFilters = ref<Set<HighRankingFilterKey> | null>(null);
+const selectedFilters = ref<Set<HighRankingFilterKey> | null>(querySet<HighRankingFilterKey>(route.query.filters, new Set(SCHOOL_FILTERS.map((f) => f.key))) ?? null);
 const CIVILIZED_FILTERS = [['national', '全国文明校园'], ['provincial', '广东省文明校园'], ['municipal', '广州市文明校园'], ['advanced', '创建先进学校（储备）'], ['other', '其他']] as const;
 type CivilizedKey = typeof CIVILIZED_FILTERS[number][0];
-const selectedCivilized = ref<Set<CivilizedKey> | null>(null);
+const selectedCivilized = ref<Set<CivilizedKey> | null>(querySet<CivilizedKey>(route.query.honor, new Set(CIVILIZED_FILTERS.map(([v]) => v))) ?? null);
 const civilizedAllOn = computed(() => selectedCivilized.value === null);
 function civilizedOn(key: CivilizedKey) { return civilizedAllOn.value || selectedCivilized.value!.has(key); }
 function toggleCivilized(key: CivilizedKey) { const next = new Set(selectedCivilized.value || CIVILIZED_FILTERS.map(([v]) => v)); next.has(key) ? next.delete(key) : next.add(key); selectedCivilized.value = next; }
@@ -28,7 +32,7 @@ function civilizedVisible(id?: string | null) { return civilizedAllOn.value || (
 function toggleAllFilters() { selectedFilters.value = filterAllOn.value ? new Set() : null; }
 function toggleAllDistricts() { selectedDistricts.value = districtAllOn.value ? new Set() : new Set(DISTRICTS.map((d) => d.adcode)); }
 function toggleAllCivilized() { selectedCivilized.value = civilizedAllOn.value ? new Set() : null; }
-const sortBy = ref<HighRankingSortBy>('score2026');
+const sortBy = ref<HighRankingSortBy>(queryScalar(route.query.sort, ['score2025', 'average'] as const, 'score2026'));
 const groups = computed(() => buildHighRankingGroups(
   { highSchools, highLevels, highScores2025, highScores2026, entities },
   { groupBy: groupBy.value, districtAdcodes: [...selectedDistricts.value], filters: selectedFilters.value ? [...selectedFilters.value] : undefined, sortBy: sortBy.value },
@@ -53,6 +57,23 @@ function toggleDistrict(adcode: string) {
 function flipDistricts() {
   selectedDistricts.value = districtAllOn.value ? new Set() : new Set(DISTRICTS.map((district) => district.adcode));
 }
+/** 分组/筛选/排序状态同步到 URL query（见 routeQuery.ts） */
+useQuerySync(
+  () => ({
+    group: groupBy.value === 'none' ? undefined : groupBy.value,
+    districts: districtAllOn.value ? undefined : [...selectedDistricts.value].join(','),
+    filters: selectedFilters.value ? [...selectedFilters.value].join(',') : undefined,
+    honor: selectedCivilized.value ? [...selectedCivilized.value].join(',') : undefined,
+    sort: sortBy.value === 'score2026' ? undefined : sortBy.value,
+  }),
+  (q) => {
+    groupBy.value = queryScalar(q.group, ['category', 'district'] as const, 'none');
+    selectedDistricts.value = querySet<string>(q.districts) ?? new Set(DISTRICTS.map((district) => district.adcode));
+    selectedFilters.value = querySet<HighRankingFilterKey>(q.filters, new Set(SCHOOL_FILTERS.map((f) => f.key))) ?? null;
+    selectedCivilized.value = querySet<CivilizedKey>(q.honor, new Set(CIVILIZED_FILTERS.map(([v]) => v))) ?? null;
+    sortBy.value = queryScalar(q.sort, ['score2025', 'average'] as const, 'score2026');
+  },
+);
 const showHint = ref(false);
 const hintPos = ref({ top: 0, left: 0 });
 let hintTimer: number | undefined;

@@ -17,8 +17,10 @@ export const router = createRouter({
     { path: '/school/:stage/:name', redirect: (to) => ({ path: `/school/${to.params.name}`, query: { stage: to.params.stage } }) },
   ],
   // 详情页跳转后回到顶部；浏览器后退/前进恢复原滚动位置。
+  // 明细页筛选/排序同步到 URL 属于同路径仅 query 变化，不应触发滚动（false = 不滚动）。
   scrollBehavior(to, _from, savedPosition) {
     if (savedPosition) return savedPosition;
+    if (to.path === _from.path) return false;
     return { top: 0 };
   },
 });

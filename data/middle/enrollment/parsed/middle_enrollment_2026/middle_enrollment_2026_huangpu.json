@@ -141,7 +141,15 @@
    "plan_classes": null,
    "school": "广州市黄埔军校纪念中学（北校区）",
    "school_id": "gz-440112-12747882",
-   "scope": "横沙城中村改造项目范围"
+   "scope": "横沙城中村改造项目范围",
+   "scope_school_ids": {
+    "广州市黄埔区实验小学": [
+     "gz-440112-9e826efe"
+    ],
+    "横沙小学": [
+     "gz-440112-6e178b7a"
+    ]
+   }
   },
   {
    "group_members": null,
