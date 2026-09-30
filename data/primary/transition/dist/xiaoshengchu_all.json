@@ -465,6 +465,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "2026年9月新开学（沙面小学教育集团第六校区），未入2026年4月发布的派位分组表，派位归属待2027年表确认（南方+2026-08-31）",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办电脑派位",
+   "mechanisms": [],
+   "school_id": "gz-440103-362ee1b6",
+   "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -511,6 +521,16 @@
    ],
    "school_id": "gz-440103-3b74bf4e",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办电脑派位",
+   "mechanisms": [],
+   "school_id": "gz-440103-3ea667b1",
+   "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
   {
    "data_gaps": null,
@@ -1317,6 +1337,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办电脑派位",
+   "mechanisms": [],
+   "school_id": "gz-440103-8e79820c",
+   "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -1861,6 +1891,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "2021年起暂停招生（人户一致地段并入大坦沙岛配套学校安排），2026分组表未列（南方+2021-05）",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办电脑派位",
+   "mechanisms": [],
+   "school_id": "gz-440103-f067bab2",
+   "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -2230,6 +2270,16 @@
     "group_paidui"
    ],
    "school_id": "gz-440104-1b6d4b9c",
+   "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办电脑派位",
+   "mechanisms": [],
+   "school_id": "gz-440104-1f2d5df9",
    "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
   },
   {
@@ -2954,6 +3004,26 @@
    "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
   },
   {
+   "data_gaps": "民办特殊教育学校（非营利，1985 年创办），不参与公办电脑派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办电脑派位",
+   "mechanisms": [],
+   "school_id": "gz-440104-714a8af4",
+   "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
+  },
+  {
+   "data_gaps": "民办学校（九年一贯制），2026 官方小升初对口表未列，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办电脑派位",
+   "mechanisms": [],
+   "school_id": "gz-440104-737bb916",
+   "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -3657,6 +3727,16 @@
    "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
   },
   {
+   "data_gaps": "特殊教育学校，不参与公办电脑派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办电脑派位",
+   "mechanisms": [],
+   "school_id": "gz-440104-e865c755",
+   "source_url": "http://www.yuexiu.gov.cn/gzjg/qzf/qjyj/jyzl/gk/zswd/content/post_8301356.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -3883,6 +3963,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-067354f4",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -3936,6 +4026,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-0b2bc8c5",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -3964,6 +4064,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-0bb7bcc4",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -3986,6 +4096,16 @@
     "group_paidui"
    ],
    "school_id": "gz-440105-0c129848",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
+   "data_gaps": "民办学校（九年一贯），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-0c78a8e1",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
@@ -4072,6 +4192,16 @@
     "group_paidui"
    ],
    "school_id": "gz-440105-120ea859",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-12dcb841",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
@@ -4191,6 +4321,16 @@
     "group_paidui"
    ],
    "school_id": "gz-440105-24c1be5c",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-2e535171",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
@@ -4371,6 +4511,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-33928ddd",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -4398,6 +4548,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
+   "data_gaps": "2026官方分组表未列（海珠外国语实验附属第二小学），待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-4325dad0",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -4422,6 +4582,26 @@
     "group_paidui"
    ],
    "school_id": "gz-440105-43efe82f",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-47f6ec47",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
+   "data_gaps": "民办学校（国际学校），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-4d41d915",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
@@ -4503,6 +4683,16 @@
     "group_paidui"
    ],
    "school_id": "gz-440105-5a60ff79",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-5a8bf708",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
@@ -4759,6 +4949,16 @@
     "group_paidui"
    ],
    "school_id": "gz-440105-6d928e8e",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
+   "data_gaps": "2026官方分组表未列（东风第二小学），待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-6d9709b2",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
@@ -5180,6 +5380,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
+   "data_gaps": "民办学校（双语），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-9a6566db",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -5315,6 +5525,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
+   "data_gaps": "2026官方分组表未列（第四实验小学），待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-9fe1488c",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -5393,6 +5613,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
+   "data_gaps": "民办学校（九年一贯），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-a630438a",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -5421,6 +5651,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-ae968480",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -5440,6 +5680,16 @@
     "group_paidui"
    ],
    "school_id": "gz-440105-afcd1a8d",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-b43b0c72",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
@@ -5550,6 +5800,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-baa048f9",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -5644,6 +5904,16 @@
     "group_paidui"
    ],
    "school_id": "gz-440105-c0ae765e",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
+   "data_gaps": "2026官方分组表未列（宝玉直实验第二小学），待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-c2bf0a84",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
@@ -5771,6 +6041,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
+   "data_gaps": "特殊教育学校，不参与普通电脑派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-cb999042",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -5825,6 +6105,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-d30140a6",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -5876,6 +6166,16 @@
     "group_paidui"
    ],
    "school_id": "gz-440105-d9bd3fb7",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-e038f3fb",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
@@ -6008,6 +6308,16 @@
     "group_paidui"
    ],
    "school_id": "gz-440105-e4ec8bee",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-e778fd4e",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
@@ -6148,6 +6458,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-f0a0a476",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -6228,6 +6548,16 @@
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-f6b48b9e",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -6253,6 +6583,16 @@
     "group_paidui"
    ],
    "school_id": "gz-440105-f7b3c0a3",
+   "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
+  },
+  {
+   "data_gaps": "公办初中（2025年开办，全区小学可参与摇号），非小学实体",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440105-f88edb06",
    "source_url": "https://www.haizhu.gov.cn/gzhzjy/gkmlpt/content/10/10799/mpost_10799155.html"
   },
   {
@@ -8156,6 +8496,36 @@
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-020c5253",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-03ca4bd7",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-03e2f01b",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -8242,6 +8612,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-11210d19",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -8285,6 +8665,26 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办学校（初中段学校的小学部），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-13575da4",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-148947c8",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -8297,6 +8697,26 @@
    ],
    "school_id": "gz-440111-14a87ed8",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-15953ece",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-15a27204",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -8314,6 +8734,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办学校（培英实验学校小学部），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-1701a8ea",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -8326,6 +8756,16 @@
    ],
    "school_id": "gz-440111-175bd68f",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-17aab34c",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -8414,6 +8854,16 @@
    ],
    "school_id": "gz-440111-1fcfbfb4",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-2018bd49",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -8518,6 +8968,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-2abc753d",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -8547,6 +9007,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-2dbed89a",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -8559,6 +9029,26 @@
    ],
    "school_id": "gz-440111-2e4ba466",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办学校（九年制），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-2ec509e7",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-3028b238",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -8603,6 +9093,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-32bb2663",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -8616,6 +9116,26 @@
    ],
    "school_id": "gz-440111-36817b49",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-381929f4",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-39672288",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -8702,6 +9222,26 @@
    ],
    "school_id": "gz-440111-3f73f47c",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-43281bfc",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-43d37a48",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -8819,6 +9359,16 @@
    ],
    "school_id": "gz-440111-50352c96",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-50cbf803",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -8951,6 +9501,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-5b14a4f5",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -9066,6 +9626,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-6b8ac68f",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -9140,6 +9710,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-7137dd14",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -9152,6 +9732,16 @@
    ],
    "school_id": "gz-440111-714c07ba",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-71bacd5a",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -9316,6 +9906,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-7e63cbbd",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -9342,6 +9942,16 @@
    ],
    "school_id": "gz-440111-81bcdb32",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-83b47043",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -9472,6 +10082,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-8ea6750c",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -9484,6 +10104,16 @@
    ],
    "school_id": "gz-440111-908072a9",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-919c20e3",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -9499,6 +10129,16 @@
    ],
    "school_id": "gz-440111-9588f926",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-9688546a",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -9560,6 +10200,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-9a67da9e",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -9574,6 +10224,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-9bd31440",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -9586,6 +10246,16 @@
    ],
    "school_id": "gz-440111-9c7a2c45",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-9cb22aa4",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -9659,6 +10329,26 @@
    ],
    "school_id": "gz-440111-a0f0324a",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学（原东江小学，2024-09 更名，区政府登记），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-a1459fb9",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "公办性质待核，2026官方初中对口表未列，待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-a17bfeb8",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -9776,6 +10466,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-ad38690f",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -9864,6 +10564,26 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-b3d8d324",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-b5b26ace",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -9890,6 +10610,46 @@
    ],
    "school_id": "gz-440111-bc3ea2c7",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-bcf22267",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办学校（九年制），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-be9e574f",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-bf9d18d3",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-c03b19f7",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -9919,6 +10679,36 @@
    ],
    "school_id": "gz-440111-c162b90b",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-c1662288",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-c4a9b707",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-c5445d0e",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -9976,6 +10766,16 @@
    ],
    "school_id": "gz-440111-c780791c",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-c9b1916c",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -10046,6 +10846,26 @@
    ],
    "school_id": "gz-440111-cd47aae6",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-cd94e05f",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-ce7a2db7",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -10138,6 +10958,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "公办（2023年开学，天悦金沙配建金广附系公办小学），2026官方初中对口表未列，待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-d9c64fa9",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -10151,6 +10981,16 @@
    ],
    "school_id": "gz-440111-dace2460",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-dad3339a",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -10251,6 +11091,16 @@
    ],
    "school_id": "gz-440111-e16cd8e1",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-e194def0",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -10369,6 +11219,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-ecab6a27",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -10382,6 +11242,36 @@
    ],
    "school_id": "gz-440111-ecfe32b2",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-ed17a272",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-ed25f5e3",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "2026官方初中对口表未列（民办），待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-eddb7ecc",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -10443,6 +11333,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-f335b626",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -10487,6 +11387,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "2026官方初中对口表未列（培英系公办新校，对口未公布），待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-fa619bb6",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -10517,6 +11427,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-fd1c0f9d",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -10544,6 +11464,36 @@
    ],
    "school_id": "gz-440111-fdf75778",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-feec64ce",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-ff8918f3",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440111-ff902ce9",
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -10704,6 +11654,16 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
+   "data_gaps": "官方 2026 年招生文件未单列（名称疑为早期记录），待核。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440112-15d63ae7",
+   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -10765,6 +11725,26 @@
     "zhi_sheng"
    ],
    "school_id": "gz-440112-1fb45e21",
+   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
+  },
+  {
+   "data_gaps": "民办（附件8 #6 国光学校）。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440112-202efa5a",
+   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
+  },
+  {
+   "data_gaps": "民办（附件8 #5 东联学校）。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440112-2132c84e",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
@@ -10919,6 +11899,26 @@
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
+   "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440112-30388f7c",
+   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
+  },
+  {
+   "data_gaps": "2026-09-01 新启用公办十二年制（华中师大与黄埔区合作，红山街双沙片区，中建海丝城配建）；未在 2026-04-28 招生细则单列小升初，首届新生 2026 年 9 月入学（hp.gov.cn 揭牌报道）。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440112-351c1a84",
+   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
+  },
+  {
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
@@ -10994,6 +11994,16 @@
     "zhi_sheng"
    ],
    "school_id": "gz-440112-43e15e18",
+   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
+  },
+  {
+   "data_gaps": "民办（附件8 #1 洋城学校）。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440112-4517600f",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
@@ -11276,6 +12286,16 @@
     "group_paidui"
    ],
    "school_id": "gz-440112-68f9ff36",
+   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
+  },
+  {
+   "data_gaps": "2026-09-01 新启用（广州日报 2026-09-01），首届新生 2026 年入学，暂无小升初对口（官方分组表未列）。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440112-69dd6742",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {
@@ -12045,6 +13065,16 @@
     "group_paidui"
    ],
    "school_id": "gz-440112-e39ab646",
+   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
+  },
+  {
+   "data_gaps": "官方 2026 年招生文件未单列（名称疑为早期记录），待核。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "school_id": "gz-440112-e8878bf7",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
   {

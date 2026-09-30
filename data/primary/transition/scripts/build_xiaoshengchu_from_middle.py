@@ -284,6 +284,30 @@ def main():
         audit_path = os.path.join(args.out_dir, f"xiaoshengchu_{district}_2026.json")
         os.makedirs(os.path.dirname(dist_path), exist_ok=True)
         dist_records = to_dist_records(candidate)
+        # 2026-09-30：反推仅覆盖官方初中转录出现的生源小学；无对口公办初中的
+        # 民办/特教/新开学校（切换前 legacy 的 data_gaps 兜底记录）并入 dist，
+        # 避免这些公办小学变孤儿（data_quality 孤儿清单 +14 处漂移触发）。
+        # 仅并「无 feed 且有 data_gaps 说明」的记录；反推已覆盖的同名小学不重复。
+        legacy_path = os.path.join(ROOT, "data", "primary", "transition", "parsed",
+                                   f"xiaoshengchu_{district}_legacy_2026.json")
+        if os.path.exists(legacy_path):
+            have = {r["name"] for r in dist_records}
+            for r in json.load(open(legacy_path, encoding="utf-8"))["records"]:
+                if (r.get("feed_junior_highs") or []) or not r.get("data_gaps"):
+                    continue
+                if r["name"] in have:
+                    continue
+                dist_records.append({
+                    "name": r["name"],
+                    "group": r.get("group") or f"{candidate['district']}不参与公办派位/待核",
+                    "mechanisms": [],
+                    "feed_junior_highs": [],
+                    "direct_feed": None,
+                    "source_url": r.get("source_url"),
+                    "source_note": r.get("source_note"),
+                    "data_gaps": r.get("data_gaps"),
+                })
+            dist_records.sort(key=lambda r: r["name"])
         runtime = [{k: v for k, v in r.items() if k != "source_note"} for r in dist_records]
         json.dump({"year": 2026, "district": candidate["district"], "records": runtime},
                   open(dist_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1, sort_keys=True)

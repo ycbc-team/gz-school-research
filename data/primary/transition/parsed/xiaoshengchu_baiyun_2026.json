@@ -72,6 +72,46 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "东方小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "东润小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "为民小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办学校（九年制），不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "京师实验学校",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -221,6 +261,26 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "元下田小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "公度小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -233,6 +293,26 @@
    "name": "加禾小学",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "华中师范大学白云学校",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "华丰小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -275,6 +355,16 @@
    "name": "华师附中实验小学(南校区)",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "华龙小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -334,6 +424,26 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "同心小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "启明小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -346,6 +456,26 @@
    "name": "唐阁小学",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "嘉龙小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "国泰小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -447,6 +577,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "天宏小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -492,6 +632,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "小太阳小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -504,6 +654,16 @@
    "name": "岭南花园小学",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "平安小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -622,6 +782,26 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州培文外国语学校(小学部)",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办学校（培英实验学校小学部），不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州培英实验学校小学部",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -634,6 +814,16 @@
    "name": "广州实验教育集团花城实验学校",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市嘉美学校",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -726,6 +916,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市白云区东辉小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -769,6 +969,36 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市白云区元培实验中小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办学校（九年制），不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市白云区华赋学校(南校区)",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市白云区博海小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -781,6 +1011,16 @@
    "name": "广州市白云区培英中学附属第三小学",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "2026官方初中对口表未列（培英系公办新校，对口未公布），待核",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市白云区培英中学附属第二小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -826,6 +1066,36 @@
    "name": "广州市白云区广大附中实验小学",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市白云区新园小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市白云区新纪元学校",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市白云区新苗小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -955,6 +1225,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市白云区育贤小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -1014,6 +1294,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市白云区金龙小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -1027,6 +1317,36 @@
    "name": "广州市白云区长红小学",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市白云区龙兴小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市白云区龙嘉小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市白云区龙江小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -1074,6 +1394,26 @@
    "name": "广州市第六十五中学附属小学(侨德校区)",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州市金华学校",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办学校（初中段学校的小学部），不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广州白云广雅实验学校-小学部",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -1132,6 +1472,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "广辉小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -1144,6 +1494,16 @@
    "name": "广铁八小",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "才子小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -1159,6 +1519,16 @@
    "name": "握山小学",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "文星小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -1204,6 +1574,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "新正小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -1217,6 +1597,26 @@
    "name": "新科小学",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "新都小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "方正实验小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -1480,6 +1880,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "江南明珠小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -1711,6 +2121,56 @@
    "name": "白云区民航学校小学部",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学（原东江小学，2024-09 更名，区政府登记），不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "白云实验附属小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "公办性质待核，2026官方初中对口表未列，待核",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "白云广附同悦实验小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "公办（2023年开学，天悦金沙配建金广附系公办小学），2026官方初中对口表未列，待核",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "白云广附金悦实验小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "白云长江小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "2026官方初中对口表未列（民办），待核",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "白山小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -1957,6 +2417,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "英才小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -1969,6 +2439,26 @@
    "name": "茅山小学",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "茶山小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "草庄小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -2029,6 +2519,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "诚美实验小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -2042,6 +2542,26 @@
    "name": "谢家庄小学",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "贤丰实验学校",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "贤丰第二实验学校",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -2087,6 +2607,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "金升小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -2115,6 +2645,26 @@
    "name": "金广实验学校(金域蓝湾校区)",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "金星小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "金晖实验学校",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -2161,6 +2711,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "金源小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -2173,6 +2733,26 @@
    "name": "金碧新城小学",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "锦华小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "锦阳小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -2217,6 +2797,16 @@
    "name": "马务小学",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "马洞小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   },
   {
    "data_gaps": null,
@@ -2376,6 +2966,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "龙德学校",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -2388,6 +2988,16 @@
    "name": "龙湖小学",
    "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办派位/待核",
+   "mechanisms": [],
+   "name": "龙溪小学",
+   "source_note": null,
+   "source_url": "https://www.by.gov.cn/zwfw/zdfw/xwsq/zcwj/content/post_10791741.html"
   }
  ],
  "year": 2026

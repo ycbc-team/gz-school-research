@@ -55,11 +55,11 @@ test('真实数据：机制归类与初中枚举对齐（数据驱动）', () =>
   // 白云单校划片 → single_zone
   assert.deepEqual(mechsOf(primaryBy('440111', /白云区小升初对口（单校划片）/, ['single_zone'])), ['single_zone']);
   // 越秀派位组 → group_paidui（初中同区口径）
-  assert.deepEqual(mechsOf(primaryBy('440104', /越秀区小升初第.+组（多校划片·电脑派位）/, ['group_paidui'])), ['group_paidui']);
+  assert.deepEqual(mechsOf(primaryBy('440104', /越秀区小升初对口（多校电脑派位）/, ['group_paidui'])), ['group_paidui']);
   // 越秀直升+派位并存（九年制小学，初中反推精确）→ zhi_sheng 先行
-  assert.deepEqual(mechsOf(primaryBy('440104', /越秀区小升初第.+组（多校划片·电脑派位）/, ['zhi_sheng', 'group_paidui'])), ['zhi_sheng', 'group_paidui']);
+  assert.deepEqual(mechsOf(primaryBy('440104', /越秀区小升初对口直升（不参加电脑派位）/, ['zhi_sheng', 'group_paidui'])), ['zhi_sheng', 'group_paidui']);
   // 海珠派位组 → group_paidui
-  assert.deepEqual(mechsOf(primaryBy('440105', /海珠区公办初中第.+组电脑派位/, ['group_paidui'])), ['group_paidui']);
+  assert.deepEqual(mechsOf(primaryBy('440105', /海珠区小升初对口（多校电脑派位）/, ['group_paidui'])), ['group_paidui']);
   // 天河对口划片 → single_zone（天河初中 zhi_sheng=0，对口划片标 single_zone）
   assert.deepEqual(mechsOf(primaryBy('440106', /天河区公办初中对口直升（广州中学划片）/, ['single_zone'])), ['single_zone']);
   // 天河九年制内部直升 + 附件10 → zhi_sheng + min_zi_zhu（直升先行）
@@ -69,7 +69,7 @@ test('真实数据：机制归类与初中枚举对齐（数据驱动）', () =>
   // 番禺市桥城区 → group_paidui
   assert.deepEqual(mechsOf(primaryBy('440113', /番禺区小升初对口（市桥城区电脑派位（多校））/, ['group_paidui'])), ['group_paidui']);
   // 缺口组无徽章
-  assert.deepEqual(mechsOf(primaryBy('440111', /不参与公办派位/, [])), []);
+  assert.deepEqual(mechsOf(primaryBy('440106', /不参与公办派位/, [])), []);
 });
 
 test('label 与初中机制文案一致', () => {

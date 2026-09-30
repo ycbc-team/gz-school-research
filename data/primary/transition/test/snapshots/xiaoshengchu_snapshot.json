@@ -9,328 +9,468 @@
    "name": "荔湾区小升初对口直升（不参加电脑派位）"
   },
   "10": {
-   "data_gaps": "民办（附件8 #14 培智学校，九年制）。",
+   "data_gaps": "特殊教育学校，不参与公办电脑派位",
+   "name": "不参与公办电脑派位"
+  },
+  "100": {
+   "data_gaps": null,
+   "name": "番禺区小升初对口（亚运城配建初中电脑派位）"
+  },
+  "101": {
+   "data_gaps": null,
+   "name": "番禺区小升初对口（多校（按户籍分片））"
+  },
+  "102": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "name": "不参与公办派位/待核"
+  },
+  "103": {
+   "data_gaps": "民办学校（小学部），不参与公办派位",
+   "name": "不参与公办派位/待核"
+  },
+  "104": {
+   "data_gaps": null,
+   "name": "番禺区小升初对口（单校（小区配建））"
+  },
+  "105": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "name": "不参与公办派位/待核"
+  },
+  "106": {
+   "data_gaps": null,
+   "name": "番禺区小升初对口（单校（沙头街））"
+  },
+  "107": {
+   "data_gaps": null,
+   "name": "番禺区小升初对口（单校（东环街））"
+  },
+  "108": {
+   "data_gaps": null,
+   "name": "番禺区小升初对口（单校（桥南街））"
+  },
+  "109": {
+   "data_gaps": "民办中学（南方学院附中），非小学实体",
    "name": "不参与公办派位/待核"
   },
   "11": {
    "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州中学划片）"
+   "name": "海珠区小升初对口（多校电脑派位）"
   },
-  "12": {
+  "110": {
    "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市第七十五中学划片）"
+   "name": "番禺区小升初对口（单校（祈福片区））"
   },
-  "13": {
-   "data_gaps": "民办（九年制，2026 附件8 民办计划在册）。",
+  "111": {
+   "data_gaps": null,
+   "name": "番禺区小升初对口（电脑抽签）"
+  },
+  "112": {
+   "data_gaps": "2026官方公办小学表未列（石楼大岭村，大岭村户籍初中对口石楼中学），待核",
    "name": "不参与公办派位/待核"
   },
+  "113": {
+   "data_gaps": null,
+   "name": "番禺区小升初对口（单校（九年制））"
+  },
+  "114": {
+   "data_gaps": "民办小学（星执学校附小），不参与公办派位",
+   "name": "不参与公办派位/待核"
+  },
+  "115": {
+   "data_gaps": null,
+   "name": "番禺区小升初对口（多校（50%/50%））"
+  },
+  "116": {
+   "data_gaps": null,
+   "name": "番禺区小升初对口（多校（按小区分片））"
+  },
+  "117": {
+   "data_gaps": null,
+   "name": "番禺区小升初对口（多校（股民/非股民））"
+  },
+  "12": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "name": "不参与公办派位/待核"
+  },
+  "13": {
+   "data_gaps": null,
+   "name": "海珠区小升初对口直升（不参加电脑派位）"
+  },
   "14": {
-   "data_gaps": "民办（附件8 #6 同仁学校，天兴校区 POI，九年制）。",
+   "data_gaps": "民办小学，不参与公办派位",
    "name": "不参与公办派位/待核"
   },
   "15": {
-   "data_gaps": "民办（附件8 #32 同仁艺体实验小学）。",
+   "data_gaps": "民办学校（九年一贯），不参与公办派位",
    "name": "不参与公办派位/待核"
   },
   "16": {
-   "data_gaps": "民办（附件8 #31 汇景新城实验小学，与公办汇景实验学校（初中）无关）。",
+   "data_gaps": "2026官方分组表未列（海珠外国语实验附属第二小学），待核",
    "name": "不参与公办派位/待核"
   },
   "17": {
-   "data_gaps": "民办（附件8 #17 新昌学校）。",
+   "data_gaps": "民办学校（国际学校），不参与公办派位",
    "name": "不参与公办派位/待核"
   },
   "18": {
-   "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）、广州市天河外国语均和学校划片）"
+   "data_gaps": "2026官方分组表未列（东风第二小学），待核",
+   "name": "不参与公办派位/待核"
   },
   "19": {
-   "data_gaps": "民办（附件8 #22 培艺学校）。",
+   "data_gaps": "民办学校（双语），不参与公办派位",
    "name": "不参与公办派位/待核"
   },
   "2": {
-   "data_gaps": null,
-   "name": "越秀区小升初对口（多校电脑派位）"
+   "data_gaps": "2026年9月新开学（沙面小学教育集团第六校区），未入2026年4月发布的派位分组表，派位归属待2027年表确认（南方+2026-08-31）",
+   "name": "不参与公办电脑派位"
   },
   "20": {
-   "data_gaps": "民办（附件8 #11 东风学校，九年制，小学3班）。",
+   "data_gaps": "2026官方分组表未列（第四实验小学），待核",
    "name": "不参与公办派位/待核"
   },
   "21": {
-   "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市天河中学划片）"
+   "data_gaps": "2026官方分组表未列（宝玉直实验第二小学），待核",
+   "name": "不参与公办派位/待核"
   },
   "22": {
-   "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市第八十九中学划片）"
+   "data_gaps": "特殊教育学校，不参与普通电脑派位",
+   "name": "不参与公办派位/待核"
   },
   "23": {
-   "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市天河中学、广州市第一一三中学陶育实验学校划片）"
+   "data_gaps": "公办初中（2025年开办，全区小学可参与摇号），非小学实体",
+   "name": "不参与公办派位/待核"
   },
   "24": {
    "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市第一一三中学划片）"
+   "name": "天河区公办初中对口直升（广州市天河区智谷第一实验学校划片）"
   },
   "25": {
-   "data_gaps": null,
-   "name": "天河区九年制学校内部直升（官方未单列小学部直升，按区属九年制直升惯例）+ 附件10全区电脑派位"
+   "data_gaps": "民办（附件8 #27 新蕾学校）。",
+   "name": "不参与公办派位/待核"
   },
   "26": {
    "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市骏景中学划片）"
+   "name": "天河区公办初中对口直升（广州市泰安中学划片）"
   },
   "27": {
    "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市第一一三中学陶育实验学校划片）"
+   "name": "天河区九年制/企事业办学校小学部内部直升"
   },
   "28": {
-   "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）"
+   "data_gaps": "民办（附件8 #14 培智学校，九年制）。",
+   "name": "不参与公办派位/待核"
   },
   "29": {
    "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市长兴中学划片）"
+   "name": "天河区公办初中对口直升（广州中学划片）"
   },
   "3": {
-   "data_gaps": null,
-   "name": "越秀区小升初对口直升（不参加电脑派位）"
+   "data_gaps": "民办学校，不参与公办派位",
+   "name": "不参与公办电脑派位"
   },
   "30": {
    "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市第十八中学划片）"
+   "name": "天河区公办初中对口直升（广州市第七十五中学划片）"
   },
   "31": {
-   "data_gaps": "特殊教育学校（公办特教，招收中重度智力残疾适龄儿童，无小升初对口）。",
+   "data_gaps": "民办（九年制，2026 附件8 民办计划在册）。",
    "name": "不参与公办派位/待核"
   },
   "32": {
-   "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）"
+   "data_gaps": "民办（附件8 #6 同仁学校，天兴校区 POI，九年制）。",
+   "name": "不参与公办派位/待核"
   },
   "33": {
-   "data_gaps": "民办（附件8 #6 同仁学校，九年制，小学4班）。",
+   "data_gaps": "民办（附件8 #32 同仁艺体实验小学）。",
    "name": "不参与公办派位/待核"
   },
   "34": {
-   "data_gaps": "民办（附件8 #10 棠福学校，九年制，小学3班）。",
+   "data_gaps": "民办（附件8 #31 汇景新城实验小学，与公办汇景实验学校（初中）无关）。",
    "name": "不参与公办派位/待核"
   },
   "35": {
-   "data_gaps": "民办（附件8 #19 明珠中英文学校，九年制，小学6班）。",
+   "data_gaps": "民办（附件8 #17 新昌学校）。",
    "name": "不参与公办派位/待核"
   },
   "36": {
-   "data_gaps": "民办（附件8 #26 东风实验小学）。",
-   "name": "不参与公办派位/待核"
+   "data_gaps": null,
+   "name": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）、广州市天河外国语均和学校划片）"
   },
   "37": {
-   "data_gaps": "民办（附件8 #28 长虹小学，已入育华教育集团，POI 用集团名）。",
+   "data_gaps": "民办（附件8 #22 培艺学校）。",
    "name": "不参与公办派位/待核"
   },
   "38": {
-   "data_gaps": "民办（附件8 #15 大华学校原校名\"大华中英文学校\"，2026-09 微澜图书馆佐证）。",
+   "data_gaps": "民办（附件8 #11 东风学校，九年制，小学3班）。",
    "name": "不参与公办派位/待核"
   },
   "39": {
-   "data_gaps": "民办（附件8 #8 同仁实验学校，小学部 POI）。",
-   "name": "不参与公办派位/待核"
+   "data_gaps": null,
+   "name": "天河区公办初中对口直升（广州市天河中学划片）"
   },
   "4": {
-   "data_gaps": null,
-   "name": "海珠区小升初对口（多校电脑派位）"
+   "data_gaps": "2021年起暂停招生（人户一致地段并入大坦沙岛配套学校安排），2026分组表未列（南方+2021-05）",
+   "name": "不参与公办电脑派位"
   },
   "40": {
-   "data_gaps": "民办（附件8 #1 华美英语实验学校，十二年制，小学4班）。",
-   "name": "不参与公办派位/待核"
+   "data_gaps": null,
+   "name": "天河区公办初中对口直升（广州市第八十九中学划片）"
   },
   "41": {
    "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市天河中学猎德实验学校划片）"
+   "name": "天河区公办初中对口直升（广州市天河中学、广州市第一一三中学陶育实验学校划片）"
   },
   "42": {
-   "data_gaps": "民办（附件8 #25 华实学校，九年制）。",
-   "name": "不参与公办派位/待核"
+   "data_gaps": null,
+   "name": "天河区公办初中对口直升（广州市第一一三中学划片）"
   },
   "43": {
-   "data_gaps": "民办，2025 年度已停办（2024 年检不合格），2026 年民办招生计划未单列。",
-   "name": "不参与公办派位/待核"
+   "data_gaps": null,
+   "name": "天河区九年制学校内部直升（官方未单列小学部直升，按区属九年制直升惯例）+ 附件10全区电脑派位"
   },
   "44": {
-   "data_gaps": "民办（附件8 #12 东泰学校，九年制，小学3班）。",
-   "name": "不参与公办派位/待核"
+   "data_gaps": null,
+   "name": "天河区公办初中对口直升（广州市骏景中学划片）"
   },
   "45": {
    "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市南国学校划片）"
+   "name": "天河区公办初中对口直升（广州市第一一三中学陶育实验学校划片）"
   },
   "46": {
-   "data_gaps": "官方2026年划片表未单列对口初中，待区教育局补充。",
-   "name": "官方未单列（待核）"
+   "data_gaps": null,
+   "name": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）"
   },
   "47": {
    "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市天荣中学划片）"
+   "name": "天河区公办初中对口直升（广州市长兴中学划片）"
   },
   "48": {
-   "data_gaps": "民办（附件8 #16 凤凰中学，九年制，小学3班）。",
-   "name": "不参与公办派位/待核"
+   "data_gaps": null,
+   "name": "天河区公办初中对口直升（广州市第十八中学划片）"
   },
   "49": {
-   "data_gaps": "民办（附件8 #24 天骄中英文学校，2026 小学部无计划）。",
+   "data_gaps": "特殊教育学校（公办特教，招收中重度智力残疾适龄儿童，无小升初对口）。",
    "name": "不参与公办派位/待核"
   },
   "5": {
    "data_gaps": null,
-   "name": "海珠区小升初对口直升（不参加电脑派位）"
+   "name": "越秀区小升初对口（多校电脑派位）"
   },
   "50": {
-   "data_gaps": "民办（附件8 #13 天泽中学，九年制，小学2班）。",
-   "name": "不参与公办派位/待核"
+   "data_gaps": null,
+   "name": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）"
   },
   "51": {
-   "data_gaps": "民办（附件8 #5 新蕾五星学校）。",
+   "data_gaps": "民办（附件8 #6 同仁学校，九年制，小学4班）。",
    "name": "不参与公办派位/待核"
   },
   "52": {
-   "data_gaps": "民办（附件8 #29 渔兴小学）。",
+   "data_gaps": "民办（附件8 #10 棠福学校，九年制，小学3班）。",
    "name": "不参与公办派位/待核"
   },
   "53": {
-   "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市华颖外国语学校（广州市华颖中学）划片）"
+   "data_gaps": "民办（附件8 #19 明珠中英文学校，九年制，小学6班）。",
+   "name": "不参与公办派位/待核"
   },
   "54": {
-   "data_gaps": "民办（附件8 #30 东明荔园学校）。",
+   "data_gaps": "民办（附件8 #26 东风实验小学）。",
    "name": "不参与公办派位/待核"
   },
   "55": {
-   "data_gaps": "民办（附件8 #8 同仁实验学校，东校区 POI）。",
+   "data_gaps": "民办（附件8 #28 长虹小学，已入育华教育集团，POI 用集团名）。",
    "name": "不参与公办派位/待核"
   },
   "56": {
-   "data_gaps": "民办（附件8 #18 科韵路学校，九年制，小学5班）。",
+   "data_gaps": "民办（附件8 #15 大华学校原校名\"大华中英文学校\"，2026-09 微澜图书馆佐证）。",
    "name": "不参与公办派位/待核"
   },
   "57": {
-   "data_gaps": "民办（附件8 #9 成龙中学，九年制，小学3班）。",
+   "data_gaps": "民办（附件8 #8 同仁实验学校，小学部 POI）。",
    "name": "不参与公办派位/待核"
   },
   "58": {
-   "data_gaps": null,
-   "name": "白云区小升初对口（多校电脑派位）"
+   "data_gaps": "民办（附件8 #1 华美英语实验学校，十二年制，小学4班）。",
+   "name": "不参与公办派位/待核"
   },
   "59": {
    "data_gaps": null,
-   "name": "白云区小升初对口（单校划片）"
+   "name": "天河区公办初中对口直升（广州市天河中学猎德实验学校划片）"
   },
   "6": {
    "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市天河区智谷第一实验学校划片）"
+   "name": "越秀区小升初对口直升（不参加电脑派位）"
   },
   "60": {
-   "data_gaps": null,
-   "name": "黄埔区小升初对口直升（不参加电脑派位）"
+   "data_gaps": "民办（附件8 #25 华实学校，九年制）。",
+   "name": "不参与公办派位/待核"
   },
   "61": {
-   "data_gaps": null,
-   "name": "黄埔区小升初对口（多校电脑派位）"
+   "data_gaps": "民办，2025 年度已停办（2024 年检不合格），2026 年民办招生计划未单列。",
+   "name": "不参与公办派位/待核"
   },
   "62": {
-   "data_gaps": "民办学校（九年制），不参与公办派位",
+   "data_gaps": "民办（附件8 #12 东泰学校，九年制，小学3班）。",
    "name": "不参与公办派位/待核"
   },
   "63": {
    "data_gaps": null,
-   "name": "番禺区小升初对口（单校）"
+   "name": "天河区公办初中对口直升（广州市南国学校划片）"
   },
   "64": {
-   "data_gaps": null,
-   "name": "番禺区小升初对口（市桥城区电脑派位（多校））"
+   "data_gaps": "官方2026年划片表未单列对口初中，待区教育局补充。",
+   "name": "官方未单列（待核）"
   },
   "65": {
    "data_gaps": null,
-   "name": "番禺区小升初对口（亚运城配建初中电脑派位）"
+   "name": "天河区公办初中对口直升（广州市天荣中学划片）"
   },
   "66": {
-   "data_gaps": null,
-   "name": "番禺区小升初对口（多校（按户籍分片））"
+   "data_gaps": "民办（附件8 #16 凤凰中学，九年制，小学3班）。",
+   "name": "不参与公办派位/待核"
   },
   "67": {
-   "data_gaps": "民办学校，不参与公办派位",
+   "data_gaps": "民办（附件8 #24 天骄中英文学校，2026 小学部无计划）。",
    "name": "不参与公办派位/待核"
   },
   "68": {
-   "data_gaps": "民办学校（小学部），不参与公办派位",
+   "data_gaps": "民办（附件8 #13 天泽中学，九年制，小学2班）。",
    "name": "不参与公办派位/待核"
   },
   "69": {
-   "data_gaps": null,
-   "name": "番禺区小升初对口（单校（小区配建））"
-  },
-  "7": {
-   "data_gaps": "民办（附件8 #27 新蕾学校）。",
+   "data_gaps": "民办（附件8 #5 新蕾五星学校）。",
    "name": "不参与公办派位/待核"
   },
+  "7": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "name": "不参与公办电脑派位"
+  },
   "70": {
-   "data_gaps": "民办小学，不参与公办派位",
+   "data_gaps": "民办（附件8 #29 渔兴小学）。",
    "name": "不参与公办派位/待核"
   },
   "71": {
    "data_gaps": null,
-   "name": "番禺区小升初对口（单校（沙头街））"
+   "name": "天河区公办初中对口直升（广州市华颖外国语学校（广州市华颖中学）划片）"
   },
   "72": {
-   "data_gaps": null,
-   "name": "番禺区小升初对口（单校（东环街））"
+   "data_gaps": "民办（附件8 #30 东明荔园学校）。",
+   "name": "不参与公办派位/待核"
   },
   "73": {
-   "data_gaps": null,
-   "name": "番禺区小升初对口（单校（桥南街））"
+   "data_gaps": "民办（附件8 #8 同仁实验学校，东校区 POI）。",
+   "name": "不参与公办派位/待核"
   },
   "74": {
-   "data_gaps": "民办中学（南方学院附中），非小学实体",
+   "data_gaps": "民办（附件8 #18 科韵路学校，九年制，小学5班）。",
    "name": "不参与公办派位/待核"
   },
   "75": {
-   "data_gaps": null,
-   "name": "番禺区小升初对口（单校（祈福片区））"
+   "data_gaps": "民办（附件8 #9 成龙中学，九年制，小学3班）。",
+   "name": "不参与公办派位/待核"
   },
   "76": {
-   "data_gaps": null,
-   "name": "番禺区小升初对口（电脑抽签）"
+   "data_gaps": "民办小学，不参与公办派位",
+   "name": "不参与公办派位/待核"
   },
   "77": {
-   "data_gaps": "2026官方公办小学表未列（石楼大岭村，大岭村户籍初中对口石楼中学），待核",
+   "data_gaps": "民办学校，不参与公办派位",
    "name": "不参与公办派位/待核"
   },
   "78": {
    "data_gaps": null,
-   "name": "番禺区小升初对口（单校（九年制））"
+   "name": "白云区小升初对口（多校电脑派位）"
   },
   "79": {
-   "data_gaps": "民办小学（星执学校附小），不参与公办派位",
-   "name": "不参与公办派位/待核"
+   "data_gaps": null,
+   "name": "白云区小升初对口（单校划片）"
   },
   "8": {
-   "data_gaps": null,
-   "name": "天河区公办初中对口直升（广州市泰安中学划片）"
+   "data_gaps": "民办特殊教育学校（非营利，1985 年创办），不参与公办电脑派位",
+   "name": "不参与公办电脑派位"
   },
   "80": {
-   "data_gaps": null,
-   "name": "番禺区小升初对口（多校（50%/50%））"
+   "data_gaps": "民办学校（初中段学校的小学部），不参与公办派位",
+   "name": "不参与公办派位/待核"
   },
   "81": {
-   "data_gaps": null,
-   "name": "番禺区小升初对口（多校（按小区分片））"
+   "data_gaps": "民办学校（培英实验学校小学部），不参与公办派位",
+   "name": "不参与公办派位/待核"
   },
   "82": {
+   "data_gaps": "民办学校（九年制），不参与公办派位",
+   "name": "不参与公办派位/待核"
+  },
+  "83": {
+   "data_gaps": "民办小学（原东江小学，2024-09 更名，区政府登记），不参与公办派位",
+   "name": "不参与公办派位/待核"
+  },
+  "84": {
+   "data_gaps": "公办性质待核，2026官方初中对口表未列，待核",
+   "name": "不参与公办派位/待核"
+  },
+  "85": {
+   "data_gaps": "公办（2023年开学，天悦金沙配建金广附系公办小学），2026官方初中对口表未列，待核",
+   "name": "不参与公办派位/待核"
+  },
+  "86": {
+   "data_gaps": "2026官方初中对口表未列（民办），待核",
+   "name": "不参与公办派位/待核"
+  },
+  "87": {
+   "data_gaps": "2026官方初中对口表未列（培英系公办新校，对口未公布），待核",
+   "name": "不参与公办派位/待核"
+  },
+  "88": {
    "data_gaps": null,
-   "name": "番禺区小升初对口（多校（股民/非股民））"
+   "name": "黄埔区小升初对口直升（不参加电脑派位）"
+  },
+  "89": {
+   "data_gaps": null,
+   "name": "黄埔区小升初对口（多校电脑派位）"
   },
   "9": {
+   "data_gaps": "民办学校（九年一贯制），2026 官方小升初对口表未列，不参与公办派位",
+   "name": "不参与公办电脑派位"
+  },
+  "90": {
+   "data_gaps": "官方 2026 年招生文件未单列（名称疑为早期记录），待核。",
+   "name": "不参与公办派位/待核"
+  },
+  "91": {
+   "data_gaps": "民办（附件8 #6 国光学校）。",
+   "name": "不参与公办派位/待核"
+  },
+  "92": {
+   "data_gaps": "民办（附件8 #5 东联学校）。",
+   "name": "不参与公办派位/待核"
+  },
+  "93": {
+   "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。",
+   "name": "不参与公办派位/待核"
+  },
+  "94": {
+   "data_gaps": "2026-09-01 新启用公办十二年制（华中师大与黄埔区合作，红山街双沙片区，中建海丝城配建）；未在 2026-04-28 招生细则单列小升初，首届新生 2026 年 9 月入学（hp.gov.cn 揭牌报道）。",
+   "name": "不参与公办派位/待核"
+  },
+  "95": {
+   "data_gaps": "民办（附件8 #1 洋城学校）。",
+   "name": "不参与公办派位/待核"
+  },
+  "96": {
+   "data_gaps": "2026-09-01 新启用（广州日报 2026-09-01），首届新生 2026 年入学，暂无小升初对口（官方分组表未列）。",
+   "name": "不参与公办派位/待核"
+  },
+  "97": {
+   "data_gaps": "民办学校（九年制），不参与公办派位",
+   "name": "不参与公办派位/待核"
+  },
+  "98": {
    "data_gaps": null,
-   "name": "天河区九年制/企事业办学校小学部内部直升"
+   "name": "番禺区小升初对口（单校）"
+  },
+  "99": {
+   "data_gaps": null,
+   "name": "番禺区小升初对口（市桥城区电脑派位（多校））"
   }
  },
  "note": "小升初升学事实表快照（非产物字节，source_url/source_note 不入快照；records 按 school_id 索引，groups 为分组维表）。更新：--update-snapshot。",
@@ -709,6 +849,13 @@
    "feed_unresolved": [],
    "group_id": 1
   },
+  "gz-440103-362ee1b6": {
+   "data_gaps": "2026年9月新开学（沙面小学教育集团第六校区），未入2026年4月发布的派位分组表，派位归属待2027年表确认（南方+2026-08-31）",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 2
+  },
   "gz-440103-3aa658a6": {
    "data_gaps": null,
    "direct_feed_school_id": null,
@@ -746,6 +893,13 @@
    ],
    "feed_unresolved": [],
    "group_id": 0
+  },
+  "gz-440103-3ea667b1": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 3
   },
   "gz-440103-3fb4fd56": {
    "data_gaps": null,
@@ -1406,6 +1560,13 @@
    ],
    "group_id": 0
   },
+  "gz-440103-8e79820c": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 3
+  },
   "gz-440103-9be8c818": {
    "data_gaps": null,
    "direct_feed_school_id": null,
@@ -1850,6 +2011,13 @@
    ],
    "group_id": 0
   },
+  "gz-440103-f067bab2": {
+   "data_gaps": "2021年起暂停招生（人户一致地段并入大坦沙岛配套学校安排），2026分组表未列（南方+2021-05）",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 4
+  },
   "gz-440103-f2da8e6f": {
    "data_gaps": null,
    "direct_feed_school_id": null,
@@ -1992,7 +2160,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-05b607d4": {
    "data_gaps": null,
@@ -2013,7 +2181,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-08dedf9a": {
    "data_gaps": null,
@@ -2033,7 +2201,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 3
+   "group_id": 6
   },
   "gz-440104-096e075d": {
    "data_gaps": null,
@@ -2052,7 +2220,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-123d52ca": {
    "data_gaps": null,
@@ -2071,7 +2239,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-12a17af1": {
    "data_gaps": null,
@@ -2090,7 +2258,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-1549fb3f": {
    "data_gaps": null,
@@ -2110,7 +2278,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-194c5aee": {
    "data_gaps": null,
@@ -2130,7 +2298,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-1b6d4b9c": {
    "data_gaps": null,
@@ -2149,7 +2317,14 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
+  },
+  "gz-440104-1f2d5df9": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 7
   },
   "gz-440104-21810797": {
    "data_gaps": null,
@@ -2169,7 +2344,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-247f2aa0": {
    "data_gaps": null,
@@ -2189,7 +2364,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-28241fd3": {
    "data_gaps": null,
@@ -2210,7 +2385,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-284b2f82": {
    "data_gaps": null,
@@ -2230,7 +2405,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-29c39d65": {
    "data_gaps": null,
@@ -2250,7 +2425,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-2aa7d451": {
    "data_gaps": null,
@@ -2270,7 +2445,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-2f27f4d6": {
    "data_gaps": null,
@@ -2290,7 +2465,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 3
+   "group_id": 6
   },
   "gz-440104-3582dbe1": {
    "data_gaps": null,
@@ -2310,7 +2485,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-39cb8355": {
    "data_gaps": null,
@@ -2331,7 +2506,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-3ee00f36": {
    "data_gaps": null,
@@ -2351,7 +2526,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-402961f4": {
    "data_gaps": null,
@@ -2372,7 +2547,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-4144068a": {
    "data_gaps": null,
@@ -2391,7 +2566,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-4328882a": {
    "data_gaps": null,
@@ -2411,7 +2586,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-4a2cb348": {
    "data_gaps": null,
@@ -2430,7 +2605,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-4bc1a5b6": {
    "data_gaps": null,
@@ -2449,7 +2624,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-4d534f13": {
    "data_gaps": null,
@@ -2469,7 +2644,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-4ebbaf83": {
    "data_gaps": null,
@@ -2488,7 +2663,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-4f1b1584": {
    "data_gaps": null,
@@ -2508,7 +2683,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-536b71e4": {
    "data_gaps": null,
@@ -2527,7 +2702,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-54a43537": {
    "data_gaps": null,
@@ -2546,7 +2721,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 3
+   "group_id": 6
   },
   "gz-440104-57f60d53": {
    "data_gaps": null,
@@ -2565,7 +2740,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-5c2c5080": {
    "data_gaps": null,
@@ -2585,7 +2760,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-61ab7589": {
    "data_gaps": null,
@@ -2604,7 +2779,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-62c3dac8": {
    "data_gaps": null,
@@ -2624,7 +2799,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-66d8a730": {
    "data_gaps": null,
@@ -2643,7 +2818,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-682141d8": {
    "data_gaps": null,
@@ -2663,7 +2838,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-68535b94": {
    "data_gaps": null,
@@ -2683,7 +2858,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 3
+   "group_id": 6
   },
   "gz-440104-6d749319": {
    "data_gaps": null,
@@ -2703,7 +2878,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-70308e00": {
    "data_gaps": null,
@@ -2722,7 +2897,21 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
+  },
+  "gz-440104-714a8af4": {
+   "data_gaps": "民办特殊教育学校（非营利，1985 年创办），不参与公办电脑派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 8
+  },
+  "gz-440104-737bb916": {
+   "data_gaps": "民办学校（九年一贯制），2026 官方小升初对口表未列，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 9
   },
   "gz-440104-7425dd47": {
    "data_gaps": null,
@@ -2743,7 +2932,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-755a5101": {
    "data_gaps": null,
@@ -2763,7 +2952,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 3
+   "group_id": 6
   },
   "gz-440104-75b54a5d": {
    "data_gaps": null,
@@ -2783,7 +2972,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-75ece0ce": {
    "data_gaps": null,
@@ -2802,7 +2991,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-78acda29": {
    "data_gaps": null,
@@ -2822,7 +3011,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-8d568c2d": {
    "data_gaps": null,
@@ -2842,7 +3031,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-982a248f": {
    "data_gaps": null,
@@ -2863,7 +3052,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 3
+   "group_id": 6
   },
   "gz-440104-98359a64": {
    "data_gaps": null,
@@ -2882,7 +3071,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-9878ac5c": {
    "data_gaps": null,
@@ -2901,7 +3090,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-9bc8be8d": {
    "data_gaps": null,
@@ -2920,7 +3109,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-9f1371be": {
    "data_gaps": null,
@@ -2939,7 +3128,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-a41d6d8d": {
    "data_gaps": null,
@@ -2959,7 +3148,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 3
+   "group_id": 6
   },
   "gz-440104-a7ac857e": {
    "data_gaps": null,
@@ -2979,7 +3168,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-a8aeed6e": {
    "data_gaps": null,
@@ -3000,7 +3189,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-b5f37ad3": {
    "data_gaps": null,
@@ -3021,7 +3210,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-bc48335e": {
    "data_gaps": null,
@@ -3040,7 +3229,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 3
+   "group_id": 6
   },
   "gz-440104-bff4ab82": {
    "data_gaps": null,
@@ -3060,7 +3249,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-c22567c9": {
    "data_gaps": null,
@@ -3080,7 +3269,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-c22d0a68": {
    "data_gaps": null,
@@ -3100,7 +3289,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-c248f5af": {
    "data_gaps": null,
@@ -3119,7 +3308,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-d353f467": {
    "data_gaps": null,
@@ -3140,7 +3329,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-d53d3175": {
    "data_gaps": null,
@@ -3160,7 +3349,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-d5497b4b": {
    "data_gaps": null,
@@ -3179,7 +3368,7 @@
     "gz-440104-1560332d"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-d5f83454": {
    "data_gaps": null,
@@ -3199,7 +3388,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 3
+   "group_id": 6
   },
   "gz-440104-d9540a45": {
    "data_gaps": null,
@@ -3219,7 +3408,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-de3fcbdf": {
    "data_gaps": null,
@@ -3240,7 +3429,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-e20758df": {
    "data_gaps": null,
@@ -3260,7 +3449,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-e7bae9f9": {
    "data_gaps": null,
@@ -3280,7 +3469,14 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
+  },
+  "gz-440104-e865c755": {
+   "data_gaps": "特殊教育学校，不参与公办电脑派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 10
   },
   "gz-440104-e866fccb": {
    "data_gaps": null,
@@ -3300,7 +3496,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-ea7fbd42": {
    "data_gaps": null,
@@ -3321,7 +3517,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-ec171256": {
    "data_gaps": null,
@@ -3342,7 +3538,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-ef94e34a": {
    "data_gaps": null,
@@ -3362,7 +3558,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-f1e5ed2e": {
    "data_gaps": null,
@@ -3382,7 +3578,7 @@
     "gz-440104-09652aa5"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-f6a9a29c": {
    "data_gaps": null,
@@ -3402,7 +3598,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-f815e0be": {
    "data_gaps": null,
@@ -3423,7 +3619,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440104-fb8d99a5": {
    "data_gaps": null,
@@ -3442,7 +3638,7 @@
     "gz-440104-f3ca07ff"
    ],
    "feed_unresolved": [],
-   "group_id": 2
+   "group_id": 5
   },
   "gz-440105-03249aab": {
    "data_gaps": null,
@@ -3461,7 +3657,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-067354f4": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 12
   },
   "gz-440105-0a076492": {
    "data_gaps": null,
@@ -3483,7 +3686,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-0adfcd61": {
    "data_gaps": null,
@@ -3503,7 +3706,14 @@
     "gz-440105-747245e1"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
+  },
+  "gz-440105-0b2bc8c5": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 14
   },
   "gz-440105-0b34687e": {
    "data_gaps": null,
@@ -3525,7 +3735,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
+  },
+  "gz-440105-0bb7bcc4": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 14
   },
   "gz-440105-0c129848": {
    "data_gaps": null,
@@ -3545,7 +3762,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-0c78a8e1": {
+   "data_gaps": "民办学校（九年一贯），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 15
   },
   "gz-440105-0e063d81": {
    "data_gaps": null,
@@ -3554,7 +3778,7 @@
     "gz-440105-41b48384"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-1115e834": {
    "data_gaps": null,
@@ -3573,7 +3797,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-119a0fc4": {
    "data_gaps": null,
@@ -3595,7 +3819,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-120ea859": {
    "data_gaps": null,
@@ -3611,7 +3835,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-12dcb841": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 14
   },
   "gz-440105-144c802c": {
    "data_gaps": null,
@@ -3625,7 +3856,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-156b7542": {
    "data_gaps": null,
@@ -3647,7 +3878,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-16c497f1": {
    "data_gaps": null,
@@ -3667,7 +3898,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-1d12ba8a": {
    "data_gaps": null,
@@ -3683,7 +3914,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-24c1be5c": {
    "data_gaps": null,
@@ -3703,7 +3934,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-2e535171": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 14
   },
   "gz-440105-2fd44dc2": {
    "data_gaps": null,
@@ -3722,7 +3960,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-303a320d": {
    "data_gaps": null,
@@ -3744,7 +3982,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-31887c8b": {
    "data_gaps": null,
@@ -3766,7 +4004,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-32173950": {
    "data_gaps": null,
@@ -3786,7 +4024,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-3225e37f": {
    "data_gaps": null,
@@ -3806,7 +4044,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-32607027": {
    "data_gaps": null,
@@ -3820,7 +4058,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-33326ac8": {
    "data_gaps": null,
@@ -3842,7 +4080,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
+  },
+  "gz-440105-33928ddd": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 12
   },
   "gz-440105-38acf449": {
    "data_gaps": null,
@@ -3864,7 +4109,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-4325dad0": {
+   "data_gaps": "2026官方分组表未列（海珠外国语实验附属第二小学），待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 16
   },
   "gz-440105-43efe82f": {
    "data_gaps": null,
@@ -3886,7 +4138,21 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-47f6ec47": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 14
+  },
+  "gz-440105-4d41d915": {
+   "data_gaps": "民办学校（国际学校），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 17
   },
   "gz-440105-50446cf8": {
    "data_gaps": null,
@@ -3908,7 +4174,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-546af63c": {
    "data_gaps": null,
@@ -3930,7 +4196,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-5a60ff79": {
    "data_gaps": null,
@@ -3952,7 +4218,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-5a8bf708": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 12
   },
   "gz-440105-5d30ae7e": {
    "data_gaps": null,
@@ -3969,7 +4242,7 @@
     "gz-440105-44b3dc01"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-5f57ea62": {
    "data_gaps": null,
@@ -3988,7 +4261,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-620e4a9a": {
    "data_gaps": null,
@@ -4010,7 +4283,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-6299c301": {
    "data_gaps": null,
@@ -4029,7 +4302,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-65a05c45": {
    "data_gaps": null,
@@ -4051,7 +4324,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-6670c35d": {
    "data_gaps": null,
@@ -4068,7 +4341,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-67352caa": {
    "data_gaps": null,
@@ -4090,7 +4363,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-673bc2d0": {
    "data_gaps": null,
@@ -4112,7 +4385,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-6ccff34c": {
    "data_gaps": null,
@@ -4134,7 +4407,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-6d928e8e": {
    "data_gaps": null,
@@ -4157,7 +4430,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-6d9709b2": {
+   "data_gaps": "2026官方分组表未列（东风第二小学），待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 18
   },
   "gz-440105-70055626": {
    "data_gaps": null,
@@ -4177,7 +4457,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-729ba61d": {
    "data_gaps": null,
@@ -4197,7 +4477,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-73ec69fd": {
    "data_gaps": null,
@@ -4219,7 +4499,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-75e59f1d": {
    "data_gaps": null,
@@ -4239,7 +4519,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-77baeea5": {
    "data_gaps": null,
@@ -4248,7 +4528,7 @@
     "gz-440105-77baeea5"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-79eb6dd3": {
    "data_gaps": null,
@@ -4270,7 +4550,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-7b8769fe": {
    "data_gaps": null,
@@ -4284,7 +4564,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-7c21f1f5": {
    "data_gaps": null,
@@ -4306,7 +4586,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-8250cba3": {
    "data_gaps": null,
@@ -4326,7 +4606,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-8df58f4e": {
    "data_gaps": null,
@@ -4349,7 +4629,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-8e18d77c": {
    "data_gaps": null,
@@ -4371,7 +4651,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-8f7381ac": {
    "data_gaps": null,
@@ -4391,7 +4671,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-91815d7d": {
    "data_gaps": null,
@@ -4405,7 +4685,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-92aebdbb": {
    "data_gaps": null,
@@ -4427,7 +4707,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-94dfa7d6": {
    "data_gaps": null,
@@ -4447,7 +4727,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-978c0e97": {
    "data_gaps": null,
@@ -4464,7 +4744,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-98d6d585": {
    "data_gaps": null,
@@ -4484,7 +4764,14 @@
     "gz-440105-747245e1"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
+  },
+  "gz-440105-9a6566db": {
+   "data_gaps": "民办学校（双语），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 19
   },
   "gz-440105-9aac697e": {
    "data_gaps": null,
@@ -4506,7 +4793,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-9c176b75": {
    "data_gaps": null,
@@ -4528,7 +4815,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-9c3cc015": {
    "data_gaps": null,
@@ -4550,7 +4837,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-9c99afdb": {
    "data_gaps": null,
@@ -4572,7 +4859,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-9f84928b": {
    "data_gaps": null,
@@ -4594,7 +4881,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-9fe1488c": {
+   "data_gaps": "2026官方分组表未列（第四实验小学），待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 20
   },
   "gz-440105-a0156453": {
    "data_gaps": null,
@@ -4614,7 +4908,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-a01790aa": {
    "data_gaps": null,
@@ -4634,7 +4928,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-a1b73980": {
    "data_gaps": null,
@@ -4654,7 +4948,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
+  },
+  "gz-440105-a630438a": {
+   "data_gaps": "民办学校（九年一贯），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 15
   },
   "gz-440105-a72d7648": {
    "data_gaps": null,
@@ -4677,7 +4978,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-ae968480": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 14
   },
   "gz-440105-afcd1a8d": {
    "data_gaps": null,
@@ -4694,7 +5002,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-b43b0c72": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 14
   },
   "gz-440105-b623a7e1": {
    "data_gaps": null,
@@ -4717,7 +5032,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-b6333034": {
    "data_gaps": null,
@@ -4739,7 +5054,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-b97dbd3f": {
    "data_gaps": null,
@@ -4759,7 +5074,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-b9e32196": {
    "data_gaps": null,
@@ -4781,7 +5096,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-baa048f9": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 12
   },
   "gz-440105-bd4e447c": {
    "data_gaps": null,
@@ -4797,7 +5119,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-be68be0b": {
    "data_gaps": null,
@@ -4819,7 +5141,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-bf453ac9": {
    "data_gaps": null,
@@ -4836,7 +5158,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-c0ae765e": {
    "data_gaps": null,
@@ -4858,7 +5180,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-c2bf0a84": {
+   "data_gaps": "2026官方分组表未列（宝玉直实验第二小学），待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 21
   },
   "gz-440105-c6c4ab1f": {
    "data_gaps": null,
@@ -4880,7 +5209,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-c78f12b3": {
    "data_gaps": null,
@@ -4899,7 +5228,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-c7fe8d46": {
    "data_gaps": null,
@@ -4919,7 +5248,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-c8394a32": {
    "data_gaps": null,
@@ -4941,7 +5270,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-cac39935": {
    "data_gaps": null,
@@ -4955,7 +5284,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
+  },
+  "gz-440105-cb999042": {
+   "data_gaps": "特殊教育学校，不参与普通电脑派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 22
   },
   "gz-440105-ced71c28": {
    "data_gaps": null,
@@ -4977,7 +5313,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-d20f3a98": {
    "data_gaps": null,
@@ -4999,7 +5335,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-d30140a6": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 14
   },
   "gz-440105-d424c49e": {
    "data_gaps": null,
@@ -5021,7 +5364,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-d9bd3fb7": {
    "data_gaps": null,
@@ -5043,7 +5386,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-e038f3fb": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 14
   },
   "gz-440105-e1b9fdfe": {
    "data_gaps": null,
@@ -5066,7 +5416,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-e2de50d2": {
    "data_gaps": null,
@@ -5083,7 +5433,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-e3769b19": {
    "data_gaps": null,
@@ -5106,7 +5456,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-e4c4ee36": {
    "data_gaps": null,
@@ -5128,7 +5478,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-e4ec8bee": {
    "data_gaps": null,
@@ -5150,7 +5500,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-e778fd4e": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 12
   },
   "gz-440105-e78504df": {
    "data_gaps": null,
@@ -5173,7 +5530,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-e7dd050a": {
    "data_gaps": null,
@@ -5196,7 +5553,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-ec2b47c2": {
    "data_gaps": null,
@@ -5216,7 +5573,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-ec3a9a47": {
    "data_gaps": null,
@@ -5239,7 +5596,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-ed9be985": {
    "data_gaps": null,
@@ -5261,7 +5618,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
+  },
+  "gz-440105-f0a0a476": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 12
   },
   "gz-440105-f34fb561": {
    "data_gaps": null,
@@ -5281,7 +5645,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-f4c3c3cc": {
    "data_gaps": null,
@@ -5303,7 +5667,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-f55ff85b": {
    "data_gaps": null,
@@ -5325,7 +5689,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-f6b48b9e": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 12
   },
   "gz-440105-f7b3c0a3": {
    "data_gaps": null,
@@ -5348,7 +5719,14 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
+  },
+  "gz-440105-f88edb06": {
+   "data_gaps": "公办初中（2025年开办，全区小学可参与摇号），非小学实体",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 23
   },
   "gz-440105-f9f802eb": {
    "data_gaps": null,
@@ -5370,7 +5748,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-fb52e367": {
    "data_gaps": null,
@@ -5390,7 +5768,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440105-feb37b34": {
    "data_gaps": null,
@@ -5412,7 +5790,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 5
+   "group_id": 13
   },
   "gz-440105-ff91e551": {
    "data_gaps": null,
@@ -5434,7 +5812,7 @@
     "gz-440105-f88edb06"
    ],
    "feed_unresolved": [],
-   "group_id": 4
+   "group_id": 11
   },
   "gz-440106-012cd2c9": {
    "data_gaps": null,
@@ -5443,14 +5821,14 @@
     "gz-440106-d311ea50"
    ],
    "feed_unresolved": [],
-   "group_id": 6
+   "group_id": 24
   },
   "gz-440106-02473a1e": {
    "data_gaps": "民办（附件8 #27 新蕾学校）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 7
+   "group_id": 25
   },
   "gz-440106-049702a3": {
    "data_gaps": null,
@@ -5459,7 +5837,7 @@
     "gz-440106-22156e02"
    ],
    "feed_unresolved": [],
-   "group_id": 8
+   "group_id": 26
   },
   "gz-440106-05ed1da2": {
    "data_gaps": null,
@@ -5468,14 +5846,14 @@
     "gz-440106-11e15e8d"
    ],
    "feed_unresolved": [],
-   "group_id": 9
+   "group_id": 27
   },
   "gz-440106-0a2c7178": {
    "data_gaps": "民办（附件8 #14 培智学校，九年制）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 10
+   "group_id": 28
   },
   "gz-440106-0b79aecf": {
    "data_gaps": null,
@@ -5486,7 +5864,7 @@
     "gz-440106-f7cdfb7e"
    ],
    "feed_unresolved": [],
-   "group_id": 11
+   "group_id": 29
   },
   "gz-440106-0b7b33c7": {
    "data_gaps": null,
@@ -5496,14 +5874,14 @@
     "gz-440106-621b20d3"
    ],
    "feed_unresolved": [],
-   "group_id": 12
+   "group_id": 30
   },
   "gz-440106-0c83a9b2": {
    "data_gaps": "民办（九年制，2026 附件8 民办计划在册）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 13
+   "group_id": 31
   },
   "gz-440106-0cf43f53": {
    "data_gaps": null,
@@ -5512,14 +5890,14 @@
     "gz-440106-22156e02"
    ],
    "feed_unresolved": [],
-   "group_id": 8
+   "group_id": 26
   },
   "gz-440106-0d03d513": {
    "data_gaps": "民办（附件8 #6 同仁学校，天兴校区 POI，九年制）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 14
+   "group_id": 32
   },
   "gz-440106-0eb93435": {
    "data_gaps": null,
@@ -5528,21 +5906,21 @@
     "gz-440106-0eb93435"
    ],
    "feed_unresolved": [],
-   "group_id": 9
+   "group_id": 27
   },
   "gz-440106-118c9e6b": {
    "data_gaps": "民办（附件8 #32 同仁艺体实验小学）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 15
+   "group_id": 33
   },
   "gz-440106-11f65b1a": {
    "data_gaps": "民办（附件8 #31 汇景新城实验小学，与公办汇景实验学校（初中）无关）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 16
+   "group_id": 34
   },
   "gz-440106-155698db": {
    "data_gaps": null,
@@ -5553,7 +5931,7 @@
     "gz-440106-f7cdfb7e"
    ],
    "feed_unresolved": [],
-   "group_id": 11
+   "group_id": 29
   },
   "gz-440106-15ca1554": {
    "data_gaps": null,
@@ -5562,7 +5940,7 @@
     "gz-440106-15ca1554"
    ],
    "feed_unresolved": [],
-   "group_id": 9
+   "group_id": 27
   },
   "gz-440106-182b1ae3": {
    "data_gaps": null,
@@ -5573,14 +5951,14 @@
     "gz-440106-f7cdfb7e"
    ],
    "feed_unresolved": [],
-   "group_id": 11
+   "group_id": 29
   },
   "gz-440106-1b9f7e62": {
    "data_gaps": "民办（附件8 #17 新昌学校）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 17
+   "group_id": 35
   },
   "gz-440106-1c0a974d": {
    "data_gaps": null,
@@ -5590,14 +5968,14 @@
     "gz-440106-051b0157"
    ],
    "feed_unresolved": [],
-   "group_id": 18
+   "group_id": 36
   },
   "gz-440106-23e66d3b": {
    "data_gaps": "民办（附件8 #22 培艺学校）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 19
+   "group_id": 37
   },
   "gz-440106-23f2dfc8": {
    "data_gaps": null,
@@ -5606,7 +5984,7 @@
     "gz-440106-9bed7efb"
    ],
    "feed_unresolved": [],
-   "group_id": 9
+   "group_id": 27
   },
   "gz-440106-24586ef1": {
    "data_gaps": null,
@@ -5617,14 +5995,14 @@
     "gz-440106-f7cdfb7e"
    ],
    "feed_unresolved": [],
-   "group_id": 11
+   "group_id": 29
   },
   "gz-440106-24ff78f9": {
    "data_gaps": "民办（附件8 #11 东风学校，九年制，小学3班）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 20
+   "group_id": 38
   },
   "gz-440106-269a9629": {
    "data_gaps": null,
@@ -5634,7 +6012,7 @@
     "gz-440106-dd16c13e"
    ],
    "feed_unresolved": [],
-   "group_id": 21
+   "group_id": 39
   },
   "gz-440106-2a11e3df": {
    "data_gaps": null,
@@ -5643,7 +6021,7 @@
     "gz-440106-8f55ab34"
    ],
    "feed_unresolved": [],
-   "group_id": 22
+   "group_id": 40
   },
   "gz-440106-2ab62791": {
    "data_gaps": null,
@@ -5654,7 +6032,7 @@
     "gz-440106-7c81ab92"
    ],
    "feed_unresolved": [],
-   "group_id": 23
+   "group_id": 41
   },
   "gz-440106-2cd346f1": {
    "data_gaps": null,
@@ -5664,7 +6042,7 @@
     "gz-440106-b049d65a"
    ],
    "feed_unresolved": [],
-   "group_id": 24
+   "group_id": 42
   },
   "gz-440106-31895452": {
    "data_gaps": null,
@@ -5674,7 +6052,7 @@
     "gz-440106-31895452"
    ],
    "feed_unresolved": [],
-   "group_id": 25
+   "group_id": 43
   },
   "gz-440106-3332b6cb": {
    "data_gaps": null,
@@ -5684,7 +6062,7 @@
     "gz-440106-621b20d3"
    ],
    "feed_unresolved": [],
-   "group_id": 12
+   "group_id": 30
   },
   "gz-440106-34cffe8f": {
    "data_gaps": null,
@@ -5693,7 +6071,7 @@
     "gz-440106-b7d476f7"
    ],
    "feed_unresolved": [],
-   "group_id": 26
+   "group_id": 44
   },
   "gz-440106-35cad4e6": {
    "data_gaps": null,
@@ -5702,7 +6080,7 @@
     "gz-440106-7c81ab92"
    ],
    "feed_unresolved": [],
-   "group_id": 27
+   "group_id": 45
   },
   "gz-440106-368a8ac7": {
    "data_gaps": null,
@@ -5712,7 +6090,7 @@
     "gz-440106-b049d65a"
    ],
    "feed_unresolved": [],
-   "group_id": 24
+   "group_id": 42
   },
   "gz-440106-394a30e4": {
    "data_gaps": null,
@@ -5721,7 +6099,7 @@
     "gz-440106-fa9338a2"
    ],
    "feed_unresolved": [],
-   "group_id": 28
+   "group_id": 46
   },
   "gz-440106-39c57599": {
    "data_gaps": null,
@@ -5730,7 +6108,7 @@
     "gz-440106-7077b270"
    ],
    "feed_unresolved": [],
-   "group_id": 29
+   "group_id": 47
   },
   "gz-440106-39e2039f": {
    "data_gaps": null,
@@ -5740,14 +6118,14 @@
     "gz-440106-3a61d518"
    ],
    "feed_unresolved": [],
-   "group_id": 30
+   "group_id": 48
   },
   "gz-440106-3aefa8d1": {
    "data_gaps": "特殊教育学校（公办特教，招收中重度智力残疾适龄儿童，无小升初对口）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 31
+   "group_id": 49
   },
   "gz-440106-3bbeefd0": {
    "data_gaps": null,
@@ -5756,7 +6134,7 @@
     "gz-440106-7077b270"
    ],
    "feed_unresolved": [],
-   "group_id": 29
+   "group_id": 47
   },
   "gz-440106-3bc362f9": {
    "data_gaps": null,
@@ -5765,7 +6143,7 @@
     "gz-440106-0d1e149e"
    ],
    "feed_unresolved": [],
-   "group_id": 32
+   "group_id": 50
   },
   "gz-440106-3bf77656": {
    "data_gaps": null,
@@ -5775,14 +6153,14 @@
     "gz-440106-b049d65a"
    ],
    "feed_unresolved": [],
-   "group_id": 24
+   "group_id": 42
   },
   "gz-440106-3d7736c5": {
    "data_gaps": "民办（附件8 #6 同仁学校，九年制，小学4班）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 33
+   "group_id": 51
   },
   "gz-440106-3f600b79": {
    "data_gaps": null,
@@ -5792,7 +6170,7 @@
     "gz-440106-b049d65a"
    ],
    "feed_unresolved": [],
-   "group_id": 24
+   "group_id": 42
   },
   "gz-440106-404ea6c6": {
    "data_gaps": null,
@@ -5801,7 +6179,7 @@
     "gz-440106-fa9338a2"
    ],
    "feed_unresolved": [],
-   "group_id": 28
+   "group_id": 46
   },
   "gz-440106-4462c607": {
    "data_gaps": null,
@@ -5811,21 +6189,21 @@
     "gz-440106-b049d65a"
    ],
    "feed_unresolved": [],
-   "group_id": 24
+   "group_id": 42
   },
   "gz-440106-4534dc1a": {
    "data_gaps": "民办（附件8 #10 棠福学校，九年制，小学3班）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 34
+   "group_id": 52
   },
   "gz-440106-4775be07": {
    "data_gaps": "民办（附件8 #19 明珠中英文学校，九年制，小学6班）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 35
+   "group_id": 53
   },
   "gz-440106-4a26a58c": {
    "data_gaps": null,
@@ -5835,7 +6213,7 @@
     "gz-440106-dd16c13e"
    ],
    "feed_unresolved": [],
-   "group_id": 21
+   "group_id": 39
   },
   "gz-440106-4ca3816f": {
    "data_gaps": null,
@@ -5844,7 +6222,7 @@
     "gz-440106-b7d476f7"
    ],
    "feed_unresolved": [],
-   "group_id": 26
+   "group_id": 44
   },
   "gz-440106-4d4c3ab8": {
    "data_gaps": null,
@@ -5854,7 +6232,7 @@
     "gz-440106-3a61d518"
    ],
    "feed_unresolved": [],
-   "group_id": 30
+   "group_id": 48
   },
   "gz-440106-4dbb5b90": {
    "data_gaps": null,
@@ -5864,7 +6242,7 @@
     "gz-440106-b049d65a"
    ],
    "feed_unresolved": [],
-   "group_id": 24
+   "group_id": 42
   },
   "gz-440106-4dc94b4b": {
    "data_gaps": null,
@@ -5875,7 +6253,7 @@
     "gz-440106-f7cdfb7e"
    ],
    "feed_unresolved": [],
-   "group_id": 11
+   "group_id": 29
   },
   "gz-440106-4eab4155": {
    "data_gaps": null,
@@ -5885,7 +6263,7 @@
     "gz-440106-b049d65a"
    ],
    "feed_unresolved": [],
-   "group_id": 24
+   "group_id": 42
   },
   "gz-440106-4efbbcb7": {
    "data_gaps": null,
@@ -5895,14 +6273,14 @@
     "gz-440106-621b20d3"
    ],
    "feed_unresolved": [],
-   "group_id": 12
+   "group_id": 30
   },
   "gz-440106-4fac106a": {
    "data_gaps": "民办（九年制，2026 附件8 民办计划在册）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 13
+   "group_id": 31
   },
   "gz-440106-51651124": {
    "data_gaps": null,
@@ -5911,7 +6289,7 @@
     "gz-440106-fa9338a2"
    ],
    "feed_unresolved": [],
-   "group_id": 28
+   "group_id": 46
   },
   "gz-440106-53bc251b": {
    "data_gaps": null,
@@ -5922,7 +6300,7 @@
     "gz-440106-f7cdfb7e"
    ],
    "feed_unresolved": [],
-   "group_id": 11
+   "group_id": 29
   },
   "gz-440106-576b72fe": {
    "data_gaps": null,
@@ -5932,7 +6310,7 @@
     "gz-440106-3a61d518"
    ],
    "feed_unresolved": [],
-   "group_id": 30
+   "group_id": 48
   },
   "gz-440106-579bdc60": {
    "data_gaps": null,
@@ -5941,7 +6319,7 @@
     "gz-440106-fa9338a2"
    ],
    "feed_unresolved": [],
-   "group_id": 28
+   "group_id": 46
   },
   "gz-440106-59e89ce7": {
    "data_gaps": null,
@@ -5950,7 +6328,7 @@
     "gz-440106-fa9338a2"
    ],
    "feed_unresolved": [],
-   "group_id": 28
+   "group_id": 46
   },
   "gz-440106-5be25e1e": {
    "data_gaps": null,
@@ -5959,7 +6337,7 @@
     "gz-440106-8f55ab34"
    ],
    "feed_unresolved": [],
-   "group_id": 22
+   "group_id": 40
   },
   "gz-440106-5e40124c": {
    "data_gaps": null,
@@ -5970,7 +6348,7 @@
     "gz-440106-f7cdfb7e"
    ],
    "feed_unresolved": [],
-   "group_id": 11
+   "group_id": 29
   },
   "gz-440106-617fa509": {
    "data_gaps": null,
@@ -5979,7 +6357,7 @@
     "gz-440106-0d1e149e"
    ],
    "feed_unresolved": [],
-   "group_id": 32
+   "group_id": 50
   },
   "gz-440106-6618e0e7": {
    "data_gaps": null,
@@ -5989,14 +6367,14 @@
     "gz-440106-b049d65a"
    ],
    "feed_unresolved": [],
-   "group_id": 24
+   "group_id": 42
   },
   "gz-440106-682a616f": {
    "data_gaps": "民办（附件8 #26 东风实验小学）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 36
+   "group_id": 54
   },
   "gz-440106-6cc686a8": {
    "data_gaps": null,
@@ -6005,14 +6383,14 @@
     "gz-440106-7077b270"
    ],
    "feed_unresolved": [],
-   "group_id": 29
+   "group_id": 47
   },
   "gz-440106-6db53919": {
    "data_gaps": "民办（附件8 #28 长虹小学，已入育华教育集团，POI 用集团名）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 37
+   "group_id": 55
   },
   "gz-440106-6dc5833a": {
    "data_gaps": null,
@@ -6022,14 +6400,14 @@
     "gz-440106-b049d65a"
    ],
    "feed_unresolved": [],
-   "group_id": 24
+   "group_id": 42
   },
   "gz-440106-72c4c319": {
    "data_gaps": "民办（附件8 #15 大华学校原校名\"大华中英文学校\"，2026-09 微澜图书馆佐证）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 38
+   "group_id": 56
   },
   "gz-440106-73e86142": {
    "data_gaps": null,
@@ -6038,7 +6416,7 @@
     "gz-440106-0d1e149e"
    ],
    "feed_unresolved": [],
-   "group_id": 32
+   "group_id": 50
   },
   "gz-440106-7548682a": {
    "data_gaps": null,
@@ -6047,14 +6425,14 @@
     "gz-440106-0d1e149e"
    ],
    "feed_unresolved": [],
-   "group_id": 32
+   "group_id": 50
   },
   "gz-440106-77787b4a": {
    "data_gaps": "民办（附件8 #8 同仁实验学校，小学部 POI）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 39
+   "group_id": 57
   },
   "gz-440106-78aa2e37": {
    "data_gaps": null,
@@ -6063,14 +6441,14 @@
     "gz-440106-7077b270"
    ],
    "feed_unresolved": [],
-   "group_id": 29
+   "group_id": 47
   },
   "gz-440106-7abd2786": {
    "data_gaps": "民办（附件8 #1 华美英语实验学校，十二年制，小学4班）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 40
+   "group_id": 58
   },
   "gz-440106-8224c016": {
    "data_gaps": null,
@@ -6079,7 +6457,7 @@
     "gz-440106-fa9338a2"
    ],
    "feed_unresolved": [],
-   "group_id": 28
+   "group_id": 46
   },
   "gz-440106-85c4ddcd": {
    "data_gaps": null,
@@ -6088,7 +6466,7 @@
     "gz-440106-8f55ab34"
    ],
    "feed_unresolved": [],
-   "group_id": 22
+   "group_id": 40
   },
   "gz-440106-8755820f": {
    "data_gaps": null,
@@ -6097,7 +6475,7 @@
     "gz-440106-22156e02"
    ],
    "feed_unresolved": [],
-   "group_id": 8
+   "group_id": 26
   },
   "gz-440106-8a39842a": {
    "data_gaps": null,
@@ -6106,7 +6484,7 @@
     "gz-440106-8f55ab34"
    ],
    "feed_unresolved": [],
-   "group_id": 22
+   "group_id": 40
   },
   "gz-440106-8b3ee7d2": {
    "data_gaps": null,
@@ -6115,14 +6493,14 @@
     "gz-440106-8b3ee7d2"
    ],
    "feed_unresolved": [],
-   "group_id": 41
+   "group_id": 59
   },
   "gz-440106-8d124051": {
    "data_gaps": "民办（附件8 #25 华实学校，九年制）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 42
+   "group_id": 60
   },
   "gz-440106-8d6ca869": {
    "data_gaps": null,
@@ -6131,7 +6509,7 @@
     "gz-440106-0d1e149e"
    ],
    "feed_unresolved": [],
-   "group_id": 32
+   "group_id": 50
   },
   "gz-440106-93dce356": {
    "data_gaps": null,
@@ -6141,7 +6519,7 @@
     "gz-440106-3a61d518"
    ],
    "feed_unresolved": [],
-   "group_id": 30
+   "group_id": 48
   },
   "gz-440106-952cd2e6": {
    "data_gaps": null,
@@ -6151,7 +6529,7 @@
     "gz-440106-621b20d3"
    ],
    "feed_unresolved": [],
-   "group_id": 12
+   "group_id": 30
   },
   "gz-440106-95cb8bc4": {
    "data_gaps": null,
@@ -6161,7 +6539,7 @@
     "gz-440106-621b20d3"
    ],
    "feed_unresolved": [],
-   "group_id": 12
+   "group_id": 30
   },
   "gz-440106-96bdd212": {
    "data_gaps": null,
@@ -6171,14 +6549,14 @@
     "gz-440106-621b20d3"
    ],
    "feed_unresolved": [],
-   "group_id": 12
+   "group_id": 30
   },
   "gz-440106-989fdd47": {
    "data_gaps": "民办，2025 年度已停办（2024 年检不合格），2026 年民办招生计划未单列。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 43
+   "group_id": 61
   },
   "gz-440106-997cb2e4": {
    "data_gaps": null,
@@ -6187,7 +6565,7 @@
     "gz-440106-22156e02"
    ],
    "feed_unresolved": [],
-   "group_id": 8
+   "group_id": 26
   },
   "gz-440106-9a67aee6": {
    "data_gaps": null,
@@ -6196,14 +6574,14 @@
     "gz-440106-fa9338a2"
    ],
    "feed_unresolved": [],
-   "group_id": 28
+   "group_id": 46
   },
   "gz-440106-9abdc5fd": {
    "data_gaps": "民办（附件8 #12 东泰学校，九年制，小学3班）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 44
+   "group_id": 62
   },
   "gz-440106-a1517ba5": {
    "data_gaps": null,
@@ -6212,7 +6590,7 @@
     "gz-440106-8f55ab34"
    ],
    "feed_unresolved": [],
-   "group_id": 22
+   "group_id": 40
   },
   "gz-440106-a38b3c64": {
    "data_gaps": null,
@@ -6221,7 +6599,7 @@
     "gz-440106-7077b270"
    ],
    "feed_unresolved": [],
-   "group_id": 29
+   "group_id": 47
   },
   "gz-440106-a52ecc01": {
    "data_gaps": null,
@@ -6230,7 +6608,7 @@
     "gz-440106-fa9338a2"
    ],
    "feed_unresolved": [],
-   "group_id": 28
+   "group_id": 46
   },
   "gz-440106-a56ce4ac": {
    "data_gaps": null,
@@ -6239,7 +6617,7 @@
     "gz-440106-8f55ab34"
    ],
    "feed_unresolved": [],
-   "group_id": 22
+   "group_id": 40
   },
   "gz-440106-a64c6e57": {
    "data_gaps": null,
@@ -6248,7 +6626,7 @@
     "gz-440106-b0d40cc4"
    ],
    "feed_unresolved": [],
-   "group_id": 45
+   "group_id": 63
   },
   "gz-440106-a7cac9ec": {
    "data_gaps": null,
@@ -6257,14 +6635,14 @@
     "gz-440106-fa9338a2"
    ],
    "feed_unresolved": [],
-   "group_id": 28
+   "group_id": 46
   },
   "gz-440106-aa276b34": {
    "data_gaps": "官方2026年划片表未单列对口初中，待区教育局补充。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 46
+   "group_id": 64
   },
   "gz-440106-ac6650f4": {
    "data_gaps": null,
@@ -6273,7 +6651,7 @@
     "gz-440106-90c47ff5"
    ],
    "feed_unresolved": [],
-   "group_id": 47
+   "group_id": 65
   },
   "gz-440106-ad7011bb": {
    "data_gaps": null,
@@ -6284,14 +6662,14 @@
     "gz-440106-f7cdfb7e"
    ],
    "feed_unresolved": [],
-   "group_id": 11
+   "group_id": 29
   },
   "gz-440106-ae248365": {
    "data_gaps": "民办（附件8 #16 凤凰中学，九年制，小学3班）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 48
+   "group_id": 66
   },
   "gz-440106-b2701f92": {
    "data_gaps": null,
@@ -6302,14 +6680,14 @@
     "gz-440106-f7cdfb7e"
    ],
    "feed_unresolved": [],
-   "group_id": 11
+   "group_id": 29
   },
   "gz-440106-b52cb528": {
    "data_gaps": "民办（附件8 #24 天骄中英文学校，2026 小学部无计划）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 49
+   "group_id": 67
   },
   "gz-440106-b6375b93": {
    "data_gaps": null,
@@ -6319,7 +6697,7 @@
     "gz-440106-621b20d3"
    ],
    "feed_unresolved": [],
-   "group_id": 12
+   "group_id": 30
   },
   "gz-440106-b69bcbc4": {
    "data_gaps": null,
@@ -6329,7 +6707,7 @@
     "gz-440106-dd16c13e"
    ],
    "feed_unresolved": [],
-   "group_id": 21
+   "group_id": 39
   },
   "gz-440106-b7efb60d": {
    "data_gaps": null,
@@ -6338,14 +6716,14 @@
     "gz-440106-22156e02"
    ],
    "feed_unresolved": [],
-   "group_id": 8
+   "group_id": 26
   },
   "gz-440106-b9eb24f9": {
    "data_gaps": "民办（附件8 #13 天泽中学，九年制，小学2班）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 50
+   "group_id": 68
   },
   "gz-440106-ba79c3ea": {
    "data_gaps": null,
@@ -6355,7 +6733,7 @@
     "gz-440106-b049d65a"
    ],
    "feed_unresolved": [],
-   "group_id": 24
+   "group_id": 42
   },
   "gz-440106-bd76b30f": {
    "data_gaps": null,
@@ -6365,7 +6743,7 @@
     "gz-440106-dd16c13e"
    ],
    "feed_unresolved": [],
-   "group_id": 21
+   "group_id": 39
   },
   "gz-440106-bee8ea7b": {
    "data_gaps": null,
@@ -6374,7 +6752,7 @@
     "gz-440106-7077b270"
    ],
    "feed_unresolved": [],
-   "group_id": 29
+   "group_id": 47
   },
   "gz-440106-c351d016": {
    "data_gaps": null,
@@ -6383,21 +6761,21 @@
     "gz-440106-22156e02"
    ],
    "feed_unresolved": [],
-   "group_id": 8
+   "group_id": 26
   },
   "gz-440106-c77276d3": {
    "data_gaps": "民办（附件8 #5 新蕾五星学校）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 51
+   "group_id": 69
   },
   "gz-440106-c7779946": {
    "data_gaps": "民办（附件8 #29 渔兴小学）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 52
+   "group_id": 70
   },
   "gz-440106-cdfda274": {
    "data_gaps": null,
@@ -6407,7 +6785,7 @@
     "gz-440106-dd16c13e"
    ],
    "feed_unresolved": [],
-   "group_id": 21
+   "group_id": 39
   },
   "gz-440106-cfa9a54a": {
    "data_gaps": null,
@@ -6417,7 +6795,7 @@
     "gz-440106-3a61d518"
    ],
    "feed_unresolved": [],
-   "group_id": 30
+   "group_id": 48
   },
   "gz-440106-d042314d": {
    "data_gaps": null,
@@ -6426,7 +6804,7 @@
     "gz-440106-d042314d"
    ],
    "feed_unresolved": [],
-   "group_id": 9
+   "group_id": 27
   },
   "gz-440106-d311ea50": {
    "data_gaps": null,
@@ -6435,7 +6813,7 @@
     "gz-440106-d311ea50"
    ],
    "feed_unresolved": [],
-   "group_id": 9
+   "group_id": 27
   },
   "gz-440106-d343b055": {
    "data_gaps": null,
@@ -6444,7 +6822,7 @@
     "gz-440106-90c47ff5"
    ],
    "feed_unresolved": [],
-   "group_id": 47
+   "group_id": 65
   },
   "gz-440106-d85cc235": {
    "data_gaps": null,
@@ -6453,7 +6831,7 @@
     "gz-440106-7077b270"
    ],
    "feed_unresolved": [],
-   "group_id": 29
+   "group_id": 47
   },
   "gz-440106-dab5b807": {
    "data_gaps": null,
@@ -6462,7 +6840,7 @@
     "gz-440106-dab5b807"
    ],
    "feed_unresolved": [],
-   "group_id": 53
+   "group_id": 71
   },
   "gz-440106-e32237e4": {
    "data_gaps": null,
@@ -6472,14 +6850,14 @@
     "gz-440106-31895452"
    ],
    "feed_unresolved": [],
-   "group_id": 25
+   "group_id": 43
   },
   "gz-440106-e3bbd1e0": {
    "data_gaps": "民办（附件8 #30 东明荔园学校）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 54
+   "group_id": 72
   },
   "gz-440106-e591e421": {
    "data_gaps": null,
@@ -6490,7 +6868,7 @@
     "gz-440106-f7cdfb7e"
    ],
    "feed_unresolved": [],
-   "group_id": 11
+   "group_id": 29
   },
   "gz-440106-e66204ca": {
    "data_gaps": null,
@@ -6501,14 +6879,14 @@
     "gz-440106-f7cdfb7e"
    ],
    "feed_unresolved": [],
-   "group_id": 11
+   "group_id": 29
   },
   "gz-440106-e7f10219": {
    "data_gaps": "民办（附件8 #8 同仁实验学校，东校区 POI）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 55
+   "group_id": 73
   },
   "gz-440106-ecfc1a19": {
    "data_gaps": null,
@@ -6518,7 +6896,7 @@
     "gz-440106-b049d65a"
    ],
    "feed_unresolved": [],
-   "group_id": 24
+   "group_id": 42
   },
   "gz-440106-ed39fc64": {
    "data_gaps": null,
@@ -6527,7 +6905,7 @@
     "gz-440106-0d1e149e"
    ],
    "feed_unresolved": [],
-   "group_id": 32
+   "group_id": 50
   },
   "gz-440106-ed929fc7": {
    "data_gaps": null,
@@ -6536,14 +6914,14 @@
     "gz-440106-8f55ab34"
    ],
    "feed_unresolved": [],
-   "group_id": 22
+   "group_id": 40
   },
   "gz-440106-eda909f7": {
    "data_gaps": "民办（九年制，2026 附件8 民办计划在册）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 13
+   "group_id": 31
   },
   "gz-440106-ee85c675": {
    "data_gaps": null,
@@ -6554,7 +6932,7 @@
     "gz-440106-f7cdfb7e"
    ],
    "feed_unresolved": [],
-   "group_id": 11
+   "group_id": 29
   },
   "gz-440106-efcdec9d": {
    "data_gaps": null,
@@ -6563,14 +6941,14 @@
     "gz-440106-0d1e149e"
    ],
    "feed_unresolved": [],
-   "group_id": 32
+   "group_id": 50
   },
   "gz-440106-f0ba06c2": {
    "data_gaps": "民办（附件8 #18 科韵路学校，九年制，小学5班）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 56
+   "group_id": 74
   },
   "gz-440106-f11f4361": {
    "data_gaps": null,
@@ -6581,7 +6959,7 @@
     "gz-440106-f7cdfb7e"
    ],
    "feed_unresolved": [],
-   "group_id": 11
+   "group_id": 29
   },
   "gz-440106-f56704cf": {
    "data_gaps": null,
@@ -6590,7 +6968,7 @@
     "gz-440106-22156e02"
    ],
    "feed_unresolved": [],
-   "group_id": 8
+   "group_id": 26
   },
   "gz-440106-f69544d1": {
    "data_gaps": null,
@@ -6600,7 +6978,7 @@
     "gz-440106-dd16c13e"
    ],
    "feed_unresolved": [],
-   "group_id": 21
+   "group_id": 39
   },
   "gz-440106-fafdbff4": {
    "data_gaps": null,
@@ -6610,14 +6988,14 @@
     "gz-440106-dd16c13e"
    ],
    "feed_unresolved": [],
-   "group_id": 21
+   "group_id": 39
   },
   "gz-440106-fd03e039": {
    "data_gaps": "民办（附件8 #9 成龙中学，九年制，小学3班）。",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 57
+   "group_id": 75
   },
   "gz-440106-fee58b73": {
    "data_gaps": null,
@@ -6626,7 +7004,28 @@
     "gz-440106-90c47ff5"
    ],
    "feed_unresolved": [],
-   "group_id": 47
+   "group_id": 65
+  },
+  "gz-440111-020c5253": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
+  },
+  "gz-440111-03ca4bd7": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 77
+  },
+  "gz-440111-03e2f01b": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 77
   },
   "gz-440111-04e2c749": {
    "data_gaps": null,
@@ -6635,7 +7034,7 @@
     "gz-440111-d2a4a882"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-06928bc2": {
    "data_gaps": null,
@@ -6645,7 +7044,7 @@
     "gz-440111-06bfc806"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-07bdec5f": {
    "data_gaps": null,
@@ -6654,7 +7053,7 @@
     "gz-440111-6271c94b"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-0b5419e2": {
    "data_gaps": null,
@@ -6663,7 +7062,7 @@
     "gz-440111-4ebb4316"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-0e79b86d": {
    "data_gaps": null,
@@ -6672,7 +7071,7 @@
     "gz-440111-e337711a"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-104bbb86": {
    "data_gaps": null,
@@ -6682,7 +7081,14 @@
     "gz-440111-d28d78f9"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-11210d19": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-1155d875": {
    "data_gaps": null,
@@ -6691,7 +7097,7 @@
     "gz-440111-a072aeb7"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-127e76be": {
    "data_gaps": null,
@@ -6700,7 +7106,7 @@
     "gz-440111-014a9fb2"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-130d875a": {
    "data_gaps": null,
@@ -6710,7 +7116,21 @@
     "gz-440111-35536ebb"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-13575da4": {
+   "data_gaps": "民办学校（初中段学校的小学部），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 80
+  },
+  "gz-440111-148947c8": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-14a87ed8": {
    "data_gaps": null,
@@ -6719,7 +7139,21 @@
     "gz-440111-4ab20f44"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-15953ece": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
+  },
+  "gz-440111-15a27204": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 77
   },
   "gz-440111-162f6ce2": {
    "data_gaps": null,
@@ -6729,7 +7163,14 @@
     "gz-440111-e14818fc"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-1701a8ea": {
+   "data_gaps": "民办学校（培英实验学校小学部），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 81
   },
   "gz-440111-175bd68f": {
    "data_gaps": null,
@@ -6738,7 +7179,14 @@
     "gz-440111-175bd68f"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
+  },
+  "gz-440111-17aab34c": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-183641c4": {
    "data_gaps": null,
@@ -6747,7 +7195,7 @@
     "gz-440111-20c36515"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-183704b2": {
    "data_gaps": null,
@@ -6756,7 +7204,7 @@
     "gz-440111-525f949a"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-19852a22": {
    "data_gaps": null,
@@ -6766,7 +7214,7 @@
     "gz-440111-06bfc806"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-1ae7091a": {
    "data_gaps": null,
@@ -6775,7 +7223,7 @@
     "gz-440111-e337711a"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-1d697e07": {
    "data_gaps": null,
@@ -6784,7 +7232,7 @@
     "gz-440111-6271c94b"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-1fcfbfb4": {
    "data_gaps": null,
@@ -6795,7 +7243,14 @@
     "gz-440111-4cf10429"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
+  },
+  "gz-440111-2018bd49": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-23d6fbf3": {
    "data_gaps": null,
@@ -6804,7 +7259,7 @@
     "gz-440111-8629621c"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-2659ed44": {
    "data_gaps": null,
@@ -6814,7 +7269,7 @@
     "gz-440111-d2a4a882"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-27e5e03f": {
    "data_gaps": null,
@@ -6824,7 +7279,7 @@
     "gz-440111-35536ebb"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-27e6c92d": {
    "data_gaps": null,
@@ -6834,7 +7289,7 @@
     "gz-440111-9c7a2c45"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-28563d8a": {
    "data_gaps": null,
@@ -6844,7 +7299,7 @@
     "gz-440111-06bfc806"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-292558c4": {
    "data_gaps": null,
@@ -6853,7 +7308,7 @@
     "gz-440111-63a7bd1d"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-295f7e58": {
    "data_gaps": null,
@@ -6862,7 +7317,14 @@
     "gz-440111-6becf87b"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-2abc753d": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-2b633ed9": {
    "data_gaps": null,
@@ -6872,7 +7334,7 @@
     "gz-440111-e14818fc"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-2bb2adc7": {
    "data_gaps": null,
@@ -6881,7 +7343,14 @@
     "gz-440111-297970b9"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-2dbed89a": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-2e4ba466": {
    "data_gaps": null,
@@ -6890,7 +7359,21 @@
     "gz-440100-7564c13b"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-2ec509e7": {
+   "data_gaps": "民办学校（九年制），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 82
+  },
+  "gz-440111-3028b238": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-311a2ef8": {
    "data_gaps": null,
@@ -6899,7 +7382,7 @@
     "gz-440111-4ab20f44"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-31528abe": {
    "data_gaps": null,
@@ -6908,7 +7391,7 @@
     "gz-440111-7a3148c4"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-3218439b": {
    "data_gaps": null,
@@ -6917,7 +7400,14 @@
     "gz-440111-78d61733"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-32bb2663": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-36817b49": {
    "data_gaps": null,
@@ -6927,7 +7417,21 @@
     "gz-440111-fd1c1c12"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-381929f4": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
+  },
+  "gz-440111-39672288": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-3a8dded4": {
    "data_gaps": null,
@@ -6936,7 +7440,7 @@
     "gz-440111-d3ffec78"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-3dab2af7": {
    "data_gaps": null,
@@ -6946,7 +7450,7 @@
     "gz-440111-b95f2597"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-3dfefa29": {
    "data_gaps": null,
@@ -6955,7 +7459,7 @@
     "gz-440111-d3ffec78"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-3e1d70e5": {
    "data_gaps": null,
@@ -6964,7 +7468,7 @@
     "gz-440111-0f9c1ce8"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-3eabc7bc": {
    "data_gaps": null,
@@ -6973,7 +7477,7 @@
     "gz-440111-2186a02a"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-3f73f47c": {
    "data_gaps": null,
@@ -6983,7 +7487,21 @@
     "gz-440111-b95f2597"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-43281bfc": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
+  },
+  "gz-440111-43d37a48": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-449b9bbd": {
    "data_gaps": null,
@@ -6993,7 +7511,7 @@
     "gz-440111-b95f2597"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-44cd0b7c": {
    "data_gaps": null,
@@ -7002,7 +7520,7 @@
     "gz-440111-297970b9"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-451fa87e": {
    "data_gaps": null,
@@ -7012,7 +7530,7 @@
     "gz-440111-06bfc806"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-492e4ac6": {
    "data_gaps": null,
@@ -7021,7 +7539,7 @@
     "gz-440111-4ebb4316"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-4a15a4dc": {
    "data_gaps": null,
@@ -7031,7 +7549,7 @@
     "gz-440111-4ebb4316"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-4d448f8e": {
    "data_gaps": null,
@@ -7040,7 +7558,7 @@
     "gz-440100-7564c13b"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-4d7df18c": {
    "data_gaps": null,
@@ -7050,7 +7568,7 @@
     "gz-440111-06bfc806"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-50352c96": {
    "data_gaps": null,
@@ -7059,7 +7577,14 @@
     "gz-440111-1b7d3f87"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
+  },
+  "gz-440111-50cbf803": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-514cf237": {
    "data_gaps": null,
@@ -7068,7 +7593,7 @@
     "gz-440111-1b7d3f87"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-52237906": {
    "data_gaps": null,
@@ -7077,7 +7602,7 @@
     "gz-440111-e337711a"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-53549fe6": {
    "data_gaps": null,
@@ -7086,7 +7611,7 @@
     "gz-440111-ea6a6495"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-53d3305b": {
    "data_gaps": null,
@@ -7096,7 +7621,7 @@
     "gz-440111-b95f2597"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-565db7e9": {
    "data_gaps": null,
@@ -7106,7 +7631,7 @@
     "gz-440111-a53c68e3"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-568b9d31": {
    "data_gaps": null,
@@ -7115,7 +7640,7 @@
     "gz-440111-d3ffec78"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-59df1f3b": {
    "data_gaps": null,
@@ -7124,7 +7649,7 @@
     "gz-440111-d2a4a882"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-59f40d14": {
    "data_gaps": null,
@@ -7134,7 +7659,7 @@
     "gz-440111-a53c68e3"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-5a19f704": {
    "data_gaps": null,
@@ -7144,7 +7669,14 @@
     "gz-440111-e14818fc"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-5b14a4f5": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-5d802050": {
    "data_gaps": null,
@@ -7153,7 +7685,7 @@
     "gz-440111-1b7d3f87"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-604036fa": {
    "data_gaps": null,
@@ -7162,7 +7694,7 @@
     "gz-440111-4ebb4316"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-61672bda": {
    "data_gaps": null,
@@ -7171,7 +7703,7 @@
     "gz-440111-e337711a"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-620f7d31": {
    "data_gaps": null,
@@ -7180,7 +7712,7 @@
     "gz-440111-620f7d31"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-63866efa": {
    "data_gaps": null,
@@ -7189,7 +7721,7 @@
     "gz-440111-014a9fb2"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-645ba6c1": {
    "data_gaps": null,
@@ -7199,7 +7731,7 @@
     "gz-440111-d4c4285e"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-666e141f": {
    "data_gaps": null,
@@ -7208,7 +7740,7 @@
     "gz-440111-2186a02a"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-69ccafc2": {
    "data_gaps": null,
@@ -7218,7 +7750,14 @@
     "gz-440111-35536ebb"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-6b8ac68f": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-6c463f28": {
    "data_gaps": null,
@@ -7228,7 +7767,7 @@
     "gz-440111-d4c4285e"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-6da8abe9": {
    "data_gaps": null,
@@ -7237,7 +7776,7 @@
     "gz-440111-c8461d5d"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-6e11e279": {
    "data_gaps": null,
@@ -7246,7 +7785,7 @@
     "gz-440111-7e484346"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-6f87dc56": {
    "data_gaps": null,
@@ -7256,7 +7795,7 @@
     "gz-440111-b95f2597"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-6f991ca4": {
    "data_gaps": null,
@@ -7266,7 +7805,14 @@
     "gz-440111-4ab20f44"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-7137dd14": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-714c07ba": {
    "data_gaps": null,
@@ -7275,7 +7821,14 @@
     "gz-440111-e337711a"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-71bacd5a": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-71d299d1": {
    "data_gaps": null,
@@ -7284,7 +7837,7 @@
     "gz-440111-6becf87b"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-7360ff6d": {
    "data_gaps": null,
@@ -7294,7 +7847,7 @@
     "gz-440111-297970b9"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-7440b0d4": {
    "data_gaps": null,
@@ -7303,7 +7856,7 @@
     "gz-440111-4ebb4316"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-76eef049": {
    "data_gaps": null,
@@ -7313,7 +7866,7 @@
     "gz-440111-a53c68e3"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-77b8da86": {
    "data_gaps": null,
@@ -7324,7 +7877,7 @@
     "gz-440111-b2b78162"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-77c67c22": {
    "data_gaps": null,
@@ -7334,7 +7887,7 @@
     "gz-440111-d2a4a882"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-784113ca": {
    "data_gaps": null,
@@ -7344,7 +7897,7 @@
     "gz-440111-06bfc806"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-785f3a56": {
    "data_gaps": null,
@@ -7353,7 +7906,7 @@
     "gz-440111-d3ffec78"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-79a8e86f": {
    "data_gaps": null,
@@ -7362,7 +7915,7 @@
     "gz-440111-20c36515"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-7a3148c4": {
    "data_gaps": null,
@@ -7372,7 +7925,7 @@
     "gz-440111-7a3148c4"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-7d253468": {
    "data_gaps": null,
@@ -7381,7 +7934,14 @@
     "gz-440111-f5da4352"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
+  },
+  "gz-440111-7e63cbbd": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 77
   },
   "gz-440111-7f478da2": {
    "data_gaps": null,
@@ -7390,7 +7950,7 @@
     "gz-440111-63a7bd1d"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-81bcdb32": {
    "data_gaps": null,
@@ -7399,7 +7959,14 @@
     "gz-440100-7564c13b"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-83b47043": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-853a71dd": {
    "data_gaps": null,
@@ -7408,7 +7975,7 @@
     "gz-440111-853a71dd"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-858b84af": {
    "data_gaps": null,
@@ -7418,7 +7985,7 @@
     "gz-440111-06bfc806"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-8751e12d": {
    "data_gaps": null,
@@ -7427,7 +7994,7 @@
     "gz-440111-35860c30"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-87790ad3": {
    "data_gaps": null,
@@ -7436,7 +8003,7 @@
     "gz-440111-c8461d5d"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-88372834": {
    "data_gaps": null,
@@ -7445,7 +8012,7 @@
     "gz-440111-2ed8a6e2"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-883ed42d": {
    "data_gaps": null,
@@ -7454,7 +8021,7 @@
     "gz-440111-63a7bd1d"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-88b4ce7e": {
    "data_gaps": null,
@@ -7464,7 +8031,7 @@
     "gz-440111-e14818fc"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-8bed320e": {
    "data_gaps": null,
@@ -7473,7 +8040,7 @@
     "gz-440111-e6300e34"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-8e574b6b": {
    "data_gaps": null,
@@ -7482,7 +8049,14 @@
     "gz-440111-297970b9"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-8ea6750c": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-908072a9": {
    "data_gaps": null,
@@ -7491,7 +8065,14 @@
     "gz-440111-4ab20f44"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-919c20e3": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 77
   },
   "gz-440111-9588f926": {
    "data_gaps": null,
@@ -7501,7 +8082,14 @@
     "gz-440111-06bfc806"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-9688546a": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-9695819e": {
    "data_gaps": null,
@@ -7510,7 +8098,7 @@
     "gz-440111-63a7bd1d"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-96ab2ca3": {
    "data_gaps": null,
@@ -7520,7 +8108,7 @@
     "gz-440111-fd1c1c12"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-97e26d68": {
    "data_gaps": null,
@@ -7531,7 +8119,7 @@
     "gz-440111-048815b3"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-981cfa5b": {
    "data_gaps": null,
@@ -7540,7 +8128,14 @@
     "gz-440111-35860c30"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-9a67da9e": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-9ac6ff52": {
    "data_gaps": null,
@@ -7549,7 +8144,14 @@
     "gz-440111-297970b9"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-9bd31440": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-9c7a2c45": {
    "data_gaps": null,
@@ -7558,7 +8160,14 @@
     "gz-440111-9c7a2c45"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
+  },
+  "gz-440111-9cb22aa4": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 77
   },
   "gz-440111-9e34191e": {
    "data_gaps": null,
@@ -7569,7 +8178,7 @@
     "gz-440111-048815b3"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-9edba702": {
    "data_gaps": null,
@@ -7578,7 +8187,7 @@
     "gz-440111-f3edc7ba"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-9f1c9750": {
    "data_gaps": null,
@@ -7587,7 +8196,7 @@
     "gz-440111-0cf700fb"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-a0cc79c7": {
    "data_gaps": null,
@@ -7596,7 +8205,7 @@
     "gz-440111-e6300e34"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-a0f0324a": {
    "data_gaps": null,
@@ -7606,7 +8215,21 @@
     "gz-440111-d28d78f9"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-a1459fb9": {
+   "data_gaps": "民办小学（原东江小学，2024-09 更名，区政府登记），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 83
+  },
+  "gz-440111-a17bfeb8": {
+   "data_gaps": "公办性质待核，2026官方初中对口表未列，待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 84
   },
   "gz-440111-a2117640": {
    "data_gaps": null,
@@ -7615,7 +8238,7 @@
     "gz-440111-c8461d5d"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-a53c68e3": {
    "data_gaps": null,
@@ -7625,7 +8248,7 @@
     "gz-440111-a53c68e3"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-a8395a4d": {
    "data_gaps": null,
@@ -7635,7 +8258,7 @@
     "gz-440111-7a3148c4"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-a87f6068": {
    "data_gaps": null,
@@ -7645,7 +8268,7 @@
     "gz-440111-b95f2597"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-aac310d1": {
    "data_gaps": null,
@@ -7654,7 +8277,7 @@
     "gz-440111-d2a4a882"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-abb00177": {
    "data_gaps": null,
@@ -7663,7 +8286,7 @@
     "gz-440111-0f9c1ce8"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-aca0bfc6": {
    "data_gaps": null,
@@ -7672,7 +8295,7 @@
     "gz-440111-4cf10429"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-acfb7ee3": {
    "data_gaps": null,
@@ -7681,7 +8304,14 @@
     "gz-440111-92e78967"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
+  },
+  "gz-440111-ad38690f": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 77
   },
   "gz-440111-ae3faca7": {
    "data_gaps": null,
@@ -7691,7 +8321,7 @@
     "gz-440111-e14818fc"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-aec60b7c": {
    "data_gaps": null,
@@ -7701,7 +8331,7 @@
     "gz-440111-e14818fc"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-afc74cf2": {
    "data_gaps": null,
@@ -7710,7 +8340,7 @@
     "gz-440100-7564c13b"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-b0e4d621": {
    "data_gaps": null,
@@ -7720,7 +8350,7 @@
     "gz-440111-b95f2597"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-b1484250": {
    "data_gaps": null,
@@ -7729,7 +8359,7 @@
     "gz-440111-8629621c"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-b14d37bb": {
    "data_gaps": null,
@@ -7739,7 +8369,21 @@
     "gz-440111-06bfc806"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-b3d8d324": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
+  },
+  "gz-440111-b5b26ace": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-bac34523": {
    "data_gaps": null,
@@ -7748,7 +8392,7 @@
     "gz-440111-6782f041"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-bc3ea2c7": {
    "data_gaps": null,
@@ -7757,7 +8401,35 @@
     "gz-440111-f3edc7ba"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-bcf22267": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
+  },
+  "gz-440111-be9e574f": {
+   "data_gaps": "民办学校（九年制），不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 82
+  },
+  "gz-440111-bf9d18d3": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
+  },
+  "gz-440111-c03b19f7": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-c0e812a2": {
    "data_gaps": null,
@@ -7767,7 +8439,7 @@
     "gz-440111-e14818fc"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-c162b90b": {
    "data_gaps": null,
@@ -7776,7 +8448,28 @@
     "gz-440111-6becf87b"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-c1662288": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
+  },
+  "gz-440111-c4a9b707": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
+  },
+  "gz-440111-c5445d0e": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-c553e806": {
    "data_gaps": null,
@@ -7785,7 +8478,7 @@
     "gz-440111-f5da4352"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-c5b02b25": {
    "data_gaps": null,
@@ -7794,7 +8487,7 @@
     "gz-440111-c7b90869"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-c6ba2aa0": {
    "data_gaps": null,
@@ -7803,7 +8496,7 @@
     "gz-440111-35860c30"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-c780791c": {
    "data_gaps": null,
@@ -7813,7 +8506,14 @@
     "gz-440111-b95f2597"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-c9b1916c": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-cb67f3e8": {
    "data_gaps": null,
@@ -7822,7 +8522,7 @@
     "gz-440111-f3edc7ba"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-cbfe874d": {
    "data_gaps": null,
@@ -7831,7 +8531,7 @@
     "gz-440111-0f9c1ce8"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-ccb0d7b4": {
    "data_gaps": null,
@@ -7840,7 +8540,7 @@
     "gz-440111-e128c24f"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-cd427031": {
    "data_gaps": null,
@@ -7849,7 +8549,7 @@
     "gz-440111-20c36515"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-cd47aae6": {
    "data_gaps": null,
@@ -7858,7 +8558,21 @@
     "gz-440111-d2a4a882"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-cd94e05f": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
+  },
+  "gz-440111-ce7a2db7": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 77
   },
   "gz-440111-d32f5b48": {
    "data_gaps": null,
@@ -7867,7 +8581,7 @@
     "gz-440111-b2b78162"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-d39d34e8": {
    "data_gaps": null,
@@ -7877,7 +8591,7 @@
     "gz-440111-35536ebb"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-d4cad06c": {
    "data_gaps": null,
@@ -7886,7 +8600,7 @@
     "gz-440111-d2a4a882"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-d64313ba": {
    "data_gaps": null,
@@ -7896,7 +8610,7 @@
     "gz-440111-d2a4a882"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-d75adb30": {
    "data_gaps": null,
@@ -7905,7 +8619,7 @@
     "gz-440111-cc803935"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-d909827a": {
    "data_gaps": null,
@@ -7918,7 +8632,14 @@
     "gz-440111-048815b3"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-d9c64fa9": {
+   "data_gaps": "公办（2023年开学，天悦金沙配建金广附系公办小学），2026官方初中对口表未列，待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 85
   },
   "gz-440111-dace2460": {
    "data_gaps": null,
@@ -7928,7 +8649,14 @@
     "gz-440111-e14818fc"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-dad3339a": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-db31a4f7": {
    "data_gaps": null,
@@ -7937,7 +8665,7 @@
     "gz-440111-6271c94b"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-db593ac1": {
    "data_gaps": null,
@@ -7946,7 +8674,7 @@
     "gz-440111-8629621c"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-df409e86": {
    "data_gaps": null,
@@ -7956,7 +8684,7 @@
     "gz-440111-06bfc806"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-e09d8e9b": {
    "data_gaps": null,
@@ -7965,7 +8693,7 @@
     "gz-440111-d2a4a882"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-e0eac26d": {
    "data_gaps": null,
@@ -7974,7 +8702,7 @@
     "gz-440111-d2a4a882"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-e128009e": {
    "data_gaps": null,
@@ -7984,7 +8712,7 @@
     "gz-440111-35536ebb"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-e16cd8e1": {
    "data_gaps": null,
@@ -7993,7 +8721,14 @@
     "gz-440111-effbfa28"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
+  },
+  "gz-440111-e194def0": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-e1f6a7a6": {
    "data_gaps": null,
@@ -8002,7 +8737,7 @@
     "gz-440111-cc803935"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-e6300e34": {
    "data_gaps": null,
@@ -8011,7 +8746,7 @@
     "gz-440111-e6300e34"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-e66f2c52": {
    "data_gaps": null,
@@ -8020,7 +8755,7 @@
     "gz-440111-2d42f392"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-e8d9a6bd": {
    "data_gaps": null,
@@ -8029,7 +8764,7 @@
     "gz-440111-4ab20f44"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-e93fb2a5": {
    "data_gaps": null,
@@ -8039,7 +8774,7 @@
     "gz-440111-9c7a2c45"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-e9a84742": {
    "data_gaps": null,
@@ -8049,7 +8784,7 @@
     "gz-440111-a53c68e3"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-eb640c74": {
    "data_gaps": null,
@@ -8059,7 +8794,7 @@
     "gz-440111-b95f2597"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-ec9fa6ca": {
    "data_gaps": null,
@@ -8069,7 +8804,14 @@
     "gz-440111-35536ebb"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-ecab6a27": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-ecfe32b2": {
    "data_gaps": null,
@@ -8079,7 +8821,28 @@
     "gz-440100-7564c13b"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-ed17a272": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
+  },
+  "gz-440111-ed25f5e3": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
+  },
+  "gz-440111-eddb7ecc": {
+   "data_gaps": "2026官方初中对口表未列（民办），待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 86
   },
   "gz-440111-ee3748de": {
    "data_gaps": null,
@@ -8090,7 +8853,7 @@
     "gz-440111-c8461d5d"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-ef705692": {
    "data_gaps": null,
@@ -8099,7 +8862,7 @@
     "gz-440111-cc803935"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-f0bb9b17": {
    "data_gaps": null,
@@ -8109,7 +8872,7 @@
     "gz-440111-d28d78f9"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-f1f9eaff": {
    "data_gaps": null,
@@ -8118,7 +8881,14 @@
     "gz-440111-297970b9"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-f335b626": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 77
   },
   "gz-440111-f5b57c5c": {
    "data_gaps": null,
@@ -8127,7 +8897,7 @@
     "gz-440111-35860c30"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-f8cbbcfe": {
    "data_gaps": null,
@@ -8136,7 +8906,7 @@
     "gz-440111-6271c94b"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-f9ef2295": {
    "data_gaps": null,
@@ -8146,7 +8916,14 @@
     "gz-440111-609bfcf4"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
+  },
+  "gz-440111-fa619bb6": {
+   "data_gaps": "2026官方初中对口表未列（培英系公办新校，对口未公布），待核",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 87
   },
   "gz-440111-fad0ee39": {
    "data_gaps": null,
@@ -8156,7 +8933,7 @@
     "gz-440111-d4c4285e"
    ],
    "feed_unresolved": [],
-   "group_id": 59
+   "group_id": 79
   },
   "gz-440111-fad25567": {
    "data_gaps": null,
@@ -8165,7 +8942,14 @@
     "gz-440111-e337711a"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-fd1c0f9d": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440111-fdf2f84b": {
    "data_gaps": null,
@@ -8174,7 +8958,7 @@
     "gz-440111-0f9c1ce8"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
   },
   "gz-440111-fdf75778": {
    "data_gaps": null,
@@ -8184,7 +8968,28 @@
     "gz-440111-06bfc806"
    ],
    "feed_unresolved": [],
-   "group_id": 58
+   "group_id": 78
+  },
+  "gz-440111-feec64ce": {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 77
+  },
+  "gz-440111-ff8918f3": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
+  },
+  "gz-440111-ff902ce9": {
+   "data_gaps": "民办小学，不参与公办派位",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 76
   },
   "gz-440112-035f4f6d": {
    "data_gaps": null,
@@ -8193,7 +8998,7 @@
     "gz-440112-e3746d8c"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-0484c45e": {
    "data_gaps": null,
@@ -8202,7 +9007,7 @@
     "gz-440112-f3817fbe"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-04db6ee7": {
    "data_gaps": null,
@@ -8211,7 +9016,7 @@
     "gz-440112-12b0184b"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-077c17bc": {
    "data_gaps": null,
@@ -8226,7 +9031,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-082d09e3": {
    "data_gaps": null,
@@ -8237,7 +9042,7 @@
     "gz-440112-550a5ae8"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-08b72698": {
    "data_gaps": null,
@@ -8247,7 +9052,7 @@
     "gz-440112-b5b864ba"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-0aa66950": {
    "data_gaps": null,
@@ -8258,7 +9063,7 @@
     "gz-440112-d62f1348"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-0db47a7c": {
    "data_gaps": null,
@@ -8267,7 +9072,7 @@
     "gz-440112-f3817fbe"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-0f409071": {
    "data_gaps": null,
@@ -8282,7 +9087,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-11ed4c6c": {
    "data_gaps": null,
@@ -8292,7 +9097,14 @@
     "gz-440112-d3055548"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
+  },
+  "gz-440112-15d63ae7": {
+   "data_gaps": "官方 2026 年招生文件未单列（名称疑为早期记录），待核。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 90
   },
   "gz-440112-16ca808f": {
    "data_gaps": null,
@@ -8302,7 +9114,7 @@
     "gz-440112-b5b864ba"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-19407197": {
    "data_gaps": null,
@@ -8317,7 +9129,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-1c720ed0": {
    "data_gaps": null,
@@ -8327,7 +9139,7 @@
     "gz-440112-12747882"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-1fb45e21": {
    "data_gaps": null,
@@ -8336,7 +9148,21 @@
     "gz-440112-12b0184b"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
+  },
+  "gz-440112-202efa5a": {
+   "data_gaps": "民办（附件8 #6 国光学校）。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 91
+  },
+  "gz-440112-2132c84e": {
+   "data_gaps": "民办（附件8 #5 东联学校）。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 92
   },
   "gz-440112-21dc3ebd": {
    "data_gaps": null,
@@ -8345,7 +9171,7 @@
     "gz-440112-12b0184b"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-22ec4fcc": {
    "data_gaps": null,
@@ -8360,7 +9186,7 @@
     "gz-440112-ff5acfd5"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-23b184e9": {
    "data_gaps": null,
@@ -8375,7 +9201,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-284e5309": {
    "data_gaps": null,
@@ -8386,7 +9212,7 @@
     "gz-440112-3847727f"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-286bfe80": {
    "data_gaps": null,
@@ -8397,7 +9223,7 @@
     "gz-440112-550a5ae8"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-2898c9fa": {
    "data_gaps": null,
@@ -8412,7 +9238,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-2995943b": {
    "data_gaps": null,
@@ -8422,7 +9248,7 @@
     "gz-440112-12747882"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-2a13a6a9": {
    "data_gaps": null,
@@ -8431,7 +9257,7 @@
     "gz-440112-f3817fbe"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-2fd7c889": {
    "data_gaps": null,
@@ -8442,7 +9268,21 @@
     "gz-440112-550a5ae8"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
+  },
+  "gz-440112-30388f7c": {
+   "data_gaps": "官方 2026 年小学招生计划未单列（可能已撤并/停招），待核。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 93
+  },
+  "gz-440112-351c1a84": {
+   "data_gaps": "2026-09-01 新启用公办十二年制（华中师大与黄埔区合作，红山街双沙片区，中建海丝城配建）；未在 2026-04-28 招生细则单列小升初，首届新生 2026 年 9 月入学（hp.gov.cn 揭牌报道）。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 94
   },
   "gz-440112-3953d88c": {
    "data_gaps": null,
@@ -8453,7 +9293,7 @@
     "gz-440112-550a5ae8"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-3b7fc6ac": {
    "data_gaps": null,
@@ -8468,7 +9308,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-3f33e75c": {
    "data_gaps": null,
@@ -8477,7 +9317,7 @@
     "gz-440112-f3817fbe"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-40be421c": {
    "data_gaps": null,
@@ -8486,7 +9326,7 @@
     "gz-440112-40be421c"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-43e15e18": {
    "data_gaps": null,
@@ -8495,7 +9335,14 @@
     "gz-440112-f3817fbe"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
+  },
+  "gz-440112-4517600f": {
+   "data_gaps": "民办（附件8 #1 洋城学校）。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 95
   },
   "gz-440112-49401733": {
    "data_gaps": null,
@@ -8510,7 +9357,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-4991e638": {
    "data_gaps": null,
@@ -8521,7 +9368,7 @@
     "gz-440112-3847727f"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-49e1eaad": {
    "data_gaps": null,
@@ -8531,7 +9378,7 @@
     "gz-440112-b5b864ba"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-4c58f86c": {
    "data_gaps": null,
@@ -8546,7 +9393,7 @@
     "gz-440112-ff5acfd5"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-4c67daf9": {
    "data_gaps": null,
@@ -8556,7 +9403,7 @@
     "gz-440112-b5b864ba"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-5147e70b": {
    "data_gaps": null,
@@ -8567,7 +9414,7 @@
     "gz-440112-ec15555e"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-549c8532": {
    "data_gaps": null,
@@ -8576,7 +9423,7 @@
     "gz-440112-d62f1348"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-56f77a90": {
    "data_gaps": null,
@@ -8585,7 +9432,7 @@
     "gz-440112-f3817fbe"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-59ba7b57": {
    "data_gaps": null,
@@ -8594,7 +9441,7 @@
     "gz-440112-f3817fbe"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-5a6ea672": {
    "data_gaps": null,
@@ -8603,7 +9450,7 @@
     "gz-440112-cbfb4b61"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-61ff74b5": {
    "data_gaps": null,
@@ -8614,7 +9461,7 @@
     "gz-440112-d62f1348"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-6232b59e": {
    "data_gaps": null,
@@ -8623,7 +9470,7 @@
     "gz-440112-705c66e3"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-64ab063c": {
    "data_gaps": null,
@@ -8638,7 +9485,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-65d5741a": {
    "data_gaps": null,
@@ -8653,7 +9500,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-66c2a1f1": {
    "data_gaps": null,
@@ -8662,7 +9509,7 @@
     "gz-440112-e3746d8c"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-68170d72": {
    "data_gaps": null,
@@ -8677,7 +9524,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-68f9ff36": {
    "data_gaps": null,
@@ -8692,7 +9539,14 @@
     "gz-440112-ff5acfd5"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
+  },
+  "gz-440112-69dd6742": {
+   "data_gaps": "2026-09-01 新启用（广州日报 2026-09-01），首届新生 2026 年入学，暂无小升初对口（官方分组表未列）。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 96
   },
   "gz-440112-6a9aa43c": {
    "data_gaps": null,
@@ -8703,7 +9557,7 @@
     "gz-440112-3847727f"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-6ce2c3db": {
    "data_gaps": null,
@@ -8718,7 +9572,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-6d1ac70b": {
    "data_gaps": null,
@@ -8727,7 +9581,7 @@
     "gz-440112-6d1ac70b"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-6d89eb2c": {
    "data_gaps": null,
@@ -8742,7 +9596,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-6e178b7a": {
    "data_gaps": null,
@@ -8758,7 +9612,7 @@
     "gz-440112-12747882"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-6fdd05af": {
    "data_gaps": null,
@@ -8773,7 +9627,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-70be890a": {
    "data_gaps": null,
@@ -8784,7 +9638,7 @@
     "gz-440112-550a5ae8"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-70e86492": {
    "data_gaps": null,
@@ -8796,7 +9650,7 @@
     "gz-440112-15d63ae7"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-753aa0d3": {
    "data_gaps": null,
@@ -8805,7 +9659,7 @@
     "gz-440112-f3817fbe"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-75989411": {
    "data_gaps": null,
@@ -8816,7 +9670,7 @@
     "gz-440112-3847727f"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-77c8c09a": {
    "data_gaps": null,
@@ -8827,7 +9681,7 @@
     "gz-440112-d62f1348"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-78b9dcdf": {
    "data_gaps": null,
@@ -8836,7 +9690,7 @@
     "gz-440112-12b0184b"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-78dfcf58": {
    "data_gaps": null,
@@ -8847,7 +9701,7 @@
     "gz-440112-550a5ae8"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-7b923f7c": {
    "data_gaps": null,
@@ -8862,7 +9716,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-7ca62a0b": {
    "data_gaps": null,
@@ -8873,7 +9727,7 @@
     "gz-440112-d62f1348"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-7f51c626": {
    "data_gaps": null,
@@ -8888,7 +9742,7 @@
     "gz-440112-ff5acfd5"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-80a45eec": {
    "data_gaps": null,
@@ -8900,7 +9754,7 @@
     "gz-440112-15d63ae7"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-84a205c9": {
    "data_gaps": null,
@@ -8909,7 +9763,7 @@
     "gz-440112-12b0184b"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-853c0170": {
    "data_gaps": null,
@@ -8919,7 +9773,7 @@
     "gz-440112-b5b864ba"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-86465605": {
    "data_gaps": null,
@@ -8930,7 +9784,7 @@
     "gz-440112-3847727f"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-86b1d024": {
    "data_gaps": null,
@@ -8941,7 +9795,7 @@
     "gz-440112-3847727f"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-87756a6d": {
    "data_gaps": null,
@@ -8950,7 +9804,7 @@
     "gz-440112-87756a6d"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-880cd8fa": {
    "data_gaps": null,
@@ -8961,7 +9815,7 @@
     "gz-440112-550a5ae8"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-8e7fbeef": {
    "data_gaps": null,
@@ -8976,7 +9830,7 @@
     "gz-440112-5b78d24b"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-8f016a0c": {
    "data_gaps": null,
@@ -8985,7 +9839,7 @@
     "gz-440112-f3817fbe"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-9445b99c": {
    "data_gaps": null,
@@ -8996,7 +9850,7 @@
     "gz-440112-550a5ae8"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-970cf240": {
    "data_gaps": null,
@@ -9011,7 +9865,7 @@
     "gz-440112-ff5acfd5"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-9e481bef": {
    "data_gaps": null,
@@ -9020,7 +9874,7 @@
     "gz-440112-ee49f05d"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-9e826efe": {
    "data_gaps": null,
@@ -9029,7 +9883,7 @@
     "gz-440112-12747882"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-a26538df": {
    "data_gaps": null,
@@ -9044,7 +9898,7 @@
     "gz-440112-ff5acfd5"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-abe35401": {
    "data_gaps": null,
@@ -9053,7 +9907,7 @@
     "gz-440112-f3817fbe"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-ac61c82d": {
    "data_gaps": null,
@@ -9063,7 +9917,7 @@
     "gz-440112-b5b864ba"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-adb9c303": {
    "data_gaps": null,
@@ -9075,7 +9929,7 @@
     "gz-440112-15d63ae7"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-b035ab6b": {
    "data_gaps": null,
@@ -9090,7 +9944,7 @@
     "gz-440112-ff5acfd5"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-ba943844": {
    "data_gaps": null,
@@ -9101,7 +9955,7 @@
     "gz-440112-ec15555e"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-bd4af6d0": {
    "data_gaps": null,
@@ -9113,7 +9967,7 @@
     "gz-440112-15d63ae7"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-c9a30b3d": {
    "data_gaps": null,
@@ -9124,7 +9978,7 @@
     "gz-440112-ec15555e"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-ce5e4e7d": {
    "data_gaps": null,
@@ -9133,7 +9987,7 @@
     "gz-440112-12b0184b"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-cf50e275": {
    "data_gaps": null,
@@ -9142,7 +9996,7 @@
     "gz-440112-cf50e275"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-dbb48335": {
    "data_gaps": null,
@@ -9152,7 +10006,7 @@
     "gz-440112-b5b864ba"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-dc7228f1": {
    "data_gaps": null,
@@ -9161,7 +10015,7 @@
     "gz-440112-f3817fbe"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-dcae7622": {
    "data_gaps": null,
@@ -9172,7 +10026,7 @@
     "gz-440112-ec15555e"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-de05a34b": {
    "data_gaps": null,
@@ -9187,7 +10041,7 @@
     "gz-440112-ff5acfd5"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-e08700ea": {
    "data_gaps": null,
@@ -9196,7 +10050,7 @@
     "gz-440112-e08700ea"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-e1ec9724": {
    "data_gaps": null,
@@ -9205,7 +10059,7 @@
     "gz-440112-cbfb4b61"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-e3190fa2": {
    "data_gaps": null,
@@ -9214,7 +10068,7 @@
     "gz-440112-e3190fa2"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-e39ab646": {
    "data_gaps": null,
@@ -9225,7 +10079,14 @@
     "gz-440112-3847727f"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
+  },
+  "gz-440112-e8878bf7": {
+   "data_gaps": "官方 2026 年招生文件未单列（名称疑为早期记录），待核。",
+   "direct_feed_school_id": null,
+   "feed_school_ids": [],
+   "feed_unresolved": [],
+   "group_id": 90
   },
   "gz-440112-f33c9cf8": {
    "data_gaps": null,
@@ -9236,7 +10097,7 @@
     "gz-440112-d62f1348"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-f36ddf7d": {
    "data_gaps": null,
@@ -9247,7 +10108,7 @@
     "gz-440112-550a5ae8"
    ],
    "feed_unresolved": [],
-   "group_id": 61
+   "group_id": 89
   },
   "gz-440112-fd5af1d7": {
    "data_gaps": null,
@@ -9257,7 +10118,7 @@
     "gz-440112-12747882"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440112-ffa4e489": {
    "data_gaps": null,
@@ -9268,14 +10129,14 @@
     "gz-440112-ec15555e"
    ],
    "feed_unresolved": [],
-   "group_id": 60
+   "group_id": 88
   },
   "gz-440113-000bd12e": {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 62
+   "group_id": 97
   },
   "gz-440113-0472fb07": {
    "data_gaps": null,
@@ -9284,7 +10145,7 @@
     "gz-440113-9fa97423"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-05e4d0b9": {
    "data_gaps": null,
@@ -9299,7 +10160,7 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-060386bb": {
    "data_gaps": null,
@@ -9310,7 +10171,7 @@
     "gz-440113-94c76638"
    ],
    "feed_unresolved": [],
-   "group_id": 65
+   "group_id": 100
   },
   "gz-440113-08016deb": {
    "data_gaps": null,
@@ -9319,7 +10180,7 @@
     "gz-440113-2570c29b"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-08c8bc38": {
    "data_gaps": null,
@@ -9329,14 +10190,14 @@
     "gz-440113-cbaa8160"
    ],
    "feed_unresolved": [],
-   "group_id": 66
+   "group_id": 101
   },
   "gz-440113-0b94ed9c": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-0be6a797": {
    "data_gaps": null,
@@ -9345,7 +10206,7 @@
     "gz-440113-eca20a50"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-10617049": {
    "data_gaps": null,
@@ -9356,7 +10217,7 @@
     "gz-440113-94c76638"
    ],
    "feed_unresolved": [],
-   "group_id": 65
+   "group_id": 100
   },
   "gz-440113-137f5825": {
    "data_gaps": null,
@@ -9365,14 +10226,14 @@
     "gz-440113-2570c29b"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-166b5b5c": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-17cbbc12": {
    "data_gaps": null,
@@ -9381,14 +10242,14 @@
     "gz-440113-db61be15"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-1963cc5e": {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 62
+   "group_id": 97
   },
   "gz-440113-19ba1c04": {
    "data_gaps": null,
@@ -9398,7 +10259,7 @@
     "gz-440113-eab4ae0e"
    ],
    "feed_unresolved": [],
-   "group_id": 66
+   "group_id": 101
   },
   "gz-440113-1a2ff58e": {
    "data_gaps": null,
@@ -9407,7 +10268,7 @@
     "gz-440113-db61be15"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-1b1b7fc9": {
    "data_gaps": null,
@@ -9422,14 +10283,14 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-1b3be909": {
    "data_gaps": "民办学校（小学部），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 68
+   "group_id": 103
   },
   "gz-440113-1bb2f980": {
    "data_gaps": null,
@@ -9438,7 +10299,7 @@
     "gz-440113-2570c29b"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-1f3378c2": {
    "data_gaps": null,
@@ -9447,7 +10308,7 @@
     "gz-440113-1f3378c2"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-2019e305": {
    "data_gaps": null,
@@ -9456,7 +10317,7 @@
     "gz-440113-303a40d7"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-20e18398": {
    "data_gaps": null,
@@ -9465,7 +10326,7 @@
     "gz-440113-3d5242b3"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-213843c2": {
    "data_gaps": null,
@@ -9474,7 +10335,7 @@
     "gz-440113-213843c2"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-2264148c": {
    "data_gaps": null,
@@ -9483,14 +10344,14 @@
     "gz-440113-2264148c"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-23835acf": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-256a7199": {
    "data_gaps": null,
@@ -9499,7 +10360,7 @@
     "gz-440113-2570c29b"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-27fbce5f": {
    "data_gaps": null,
@@ -9508,21 +10369,21 @@
     "gz-440113-2570c29b"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-28a853f8": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-2a299f65": {
    "data_gaps": "民办小学，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 70
+   "group_id": 105
   },
   "gz-440113-2aaaed97": {
    "data_gaps": null,
@@ -9531,7 +10392,7 @@
     "gz-440113-badb274e"
    ],
    "feed_unresolved": [],
-   "group_id": 71
+   "group_id": 106
   },
   "gz-440113-2ad239a0": {
    "data_gaps": null,
@@ -9546,7 +10407,7 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-2b3cdaa3": {
    "data_gaps": null,
@@ -9555,14 +10416,14 @@
     "gz-440113-a0992d0c"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-2b7d85fc": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-2ba113ff": {
    "data_gaps": null,
@@ -9571,7 +10432,7 @@
     "gz-440113-2570c29b"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-2c819de7": {
    "data_gaps": null,
@@ -9580,14 +10441,14 @@
     "gz-440113-9fa97423"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-2ca37b61": {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 62
+   "group_id": 97
   },
   "gz-440113-2e38be98": {
    "data_gaps": null,
@@ -9596,7 +10457,7 @@
     "gz-440113-e121d1b3"
    ],
    "feed_unresolved": [],
-   "group_id": 72
+   "group_id": 107
   },
   "gz-440113-2e532852": {
    "data_gaps": null,
@@ -9606,7 +10467,7 @@
     "gz-440113-eab4ae0e"
    ],
    "feed_unresolved": [],
-   "group_id": 66
+   "group_id": 101
   },
   "gz-440113-2e77bfa4": {
    "data_gaps": null,
@@ -9615,7 +10476,7 @@
     "gz-440113-443448d2"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-2f593eda": {
    "data_gaps": null,
@@ -9624,7 +10485,7 @@
     "gz-440113-1b12edfd"
    ],
    "feed_unresolved": [],
-   "group_id": 73
+   "group_id": 108
   },
   "gz-440113-2f64dfc5": {
    "data_gaps": null,
@@ -9633,7 +10494,7 @@
     "gz-440113-f744f14a"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-30384335": {
    "data_gaps": null,
@@ -9642,7 +10503,7 @@
     "gz-440113-303a40d7"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-3139c20f": {
    "data_gaps": null,
@@ -9657,7 +10518,7 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-31904245": {
    "data_gaps": null,
@@ -9666,14 +10527,14 @@
     "gz-440113-cbaa8160"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-337c0524": {
    "data_gaps": "民办中学（南方学院附中），非小学实体",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 74
+   "group_id": 109
   },
   "gz-440113-3433c09b": {
    "data_gaps": null,
@@ -9682,7 +10543,7 @@
     "gz-440113-0bb52d06"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-344839de": {
    "data_gaps": null,
@@ -9691,7 +10552,7 @@
     "gz-440113-303a40d7"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-34ff409c": {
    "data_gaps": null,
@@ -9700,7 +10561,7 @@
     "gz-440113-34ff409c"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-3853a52b": {
    "data_gaps": null,
@@ -9710,7 +10571,7 @@
     "gz-440113-c07e3ddb"
    ],
    "feed_unresolved": [],
-   "group_id": 75
+   "group_id": 110
   },
   "gz-440113-387db763": {
    "data_gaps": null,
@@ -9725,14 +10586,14 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-39879bc6": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-3a44d15c": {
    "data_gaps": null,
@@ -9741,35 +10602,35 @@
     "gz-440113-3a44d15c"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-3b338135": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-3b63e590": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-3cc636b8": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-3d006240": {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 62
+   "group_id": 97
   },
   "gz-440113-40012b3a": {
    "data_gaps": null,
@@ -9778,7 +10639,7 @@
     "gz-440113-67864b8b"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-40353d53": {
    "data_gaps": null,
@@ -9787,7 +10648,7 @@
     "gz-440113-b2a39869"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-42642242": {
    "data_gaps": null,
@@ -9802,7 +10663,7 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-456b28a0": {
    "data_gaps": null,
@@ -9811,7 +10672,7 @@
     "gz-440113-a0992d0c"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-458c9961": {
    "data_gaps": null,
@@ -9820,7 +10681,7 @@
     "gz-440113-b2a39869"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-45fb564f": {
    "data_gaps": null,
@@ -9829,7 +10690,7 @@
     "gz-440113-76992454"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-4603adb3": {
    "data_gaps": null,
@@ -9838,7 +10699,7 @@
     "gz-440113-0b275c37"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-46e121f9": {
    "data_gaps": null,
@@ -9847,7 +10708,7 @@
     "gz-440113-b2a39869"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-49465723": {
    "data_gaps": null,
@@ -9862,7 +10723,7 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-4a147600": {
    "data_gaps": null,
@@ -9871,7 +10732,7 @@
     "gz-440113-8f5e4721"
    ],
    "feed_unresolved": [],
-   "group_id": 76
+   "group_id": 111
   },
   "gz-440113-4b14fdda": {
    "data_gaps": null,
@@ -9880,7 +10741,7 @@
     "gz-440113-e7ca2b33"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-4b195e60": {
    "data_gaps": null,
@@ -9889,7 +10750,7 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 73
+   "group_id": 108
   },
   "gz-440113-4d328503": {
    "data_gaps": null,
@@ -9898,7 +10759,7 @@
     "gz-440113-f890218e"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-4d474674": {
    "data_gaps": null,
@@ -9907,7 +10768,7 @@
     "gz-440113-4d474674"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-4dfb2768": {
    "data_gaps": null,
@@ -9916,7 +10777,7 @@
     "gz-440113-badb274e"
    ],
    "feed_unresolved": [],
-   "group_id": 71
+   "group_id": 106
   },
   "gz-440113-50cf6c94": {
    "data_gaps": null,
@@ -9925,7 +10786,7 @@
     "gz-440113-f4a10736"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-52835776": {
    "data_gaps": null,
@@ -9934,7 +10795,7 @@
     "gz-440113-badb274e"
    ],
    "feed_unresolved": [],
-   "group_id": 71
+   "group_id": 106
   },
   "gz-440113-53650c78": {
    "data_gaps": null,
@@ -9943,7 +10804,7 @@
     "gz-440113-53650c78"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-5a568b43": {
    "data_gaps": null,
@@ -9952,7 +10813,7 @@
     "gz-440113-2570c29b"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-5be7e084": {
    "data_gaps": null,
@@ -9961,7 +10822,7 @@
     "gz-440113-db61be15"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-5f0bcd36": {
    "data_gaps": null,
@@ -9970,7 +10831,7 @@
     "gz-440113-b2a39869"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-604e07fc": {
    "data_gaps": null,
@@ -9979,7 +10840,7 @@
     "gz-440113-527391ff"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-611fa8ce": {
    "data_gaps": null,
@@ -9988,7 +10849,7 @@
     "gz-440113-a0992d0c"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-61f3a5f0": {
    "data_gaps": null,
@@ -9997,7 +10858,7 @@
     "gz-440113-9fa97423"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-651a0fc2": {
    "data_gaps": null,
@@ -10006,7 +10867,7 @@
     "gz-440113-0bb52d06"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-6609c936": {
    "data_gaps": null,
@@ -10015,7 +10876,7 @@
     "gz-440113-6609c936"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-674bdf7c": {
    "data_gaps": null,
@@ -10024,7 +10885,7 @@
     "gz-440113-8f5e4721"
    ],
    "feed_unresolved": [],
-   "group_id": 76
+   "group_id": 111
   },
   "gz-440113-6925d386": {
    "data_gaps": null,
@@ -10033,7 +10894,7 @@
     "gz-440113-db61be15"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-6a1aa76b": {
    "data_gaps": null,
@@ -10042,7 +10903,7 @@
     "gz-440113-b2a39869"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-6afa0ab5": {
    "data_gaps": null,
@@ -10051,14 +10912,14 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 73
+   "group_id": 108
   },
   "gz-440113-6bf19a4c": {
    "data_gaps": "民办小学，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 70
+   "group_id": 105
   },
   "gz-440113-6c8f1008": {
    "data_gaps": null,
@@ -10067,7 +10928,7 @@
     "gz-440113-303a40d7"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-6ddbaaf6": {
    "data_gaps": null,
@@ -10076,14 +10937,14 @@
     "gz-440113-0bb52d06"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-70ea7542": {
    "data_gaps": "2026官方公办小学表未列（石楼大岭村，大岭村户籍初中对口石楼中学），待核",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 77
+   "group_id": 112
   },
   "gz-440113-71a3afa8": {
    "data_gaps": null,
@@ -10092,7 +10953,7 @@
     "gz-440113-eca20a50"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-73d685ac": {
    "data_gaps": null,
@@ -10101,7 +10962,7 @@
     "gz-440113-73d685ac"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-73f80cf9": {
    "data_gaps": null,
@@ -10110,14 +10971,14 @@
     "gz-440113-badb274e"
    ],
    "feed_unresolved": [],
-   "group_id": 71
+   "group_id": 106
   },
   "gz-440113-757ae826": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-7599d6b7": {
    "data_gaps": null,
@@ -10126,7 +10987,7 @@
     "gz-440113-76992454"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-78ca4f13": {
    "data_gaps": null,
@@ -10135,28 +10996,28 @@
     "gz-440113-6a13dc63"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-7997c707": {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 62
+   "group_id": 97
   },
   "gz-440113-7b27f226": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-7b2b848a": {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 62
+   "group_id": 97
   },
   "gz-440113-7cdbe028": {
    "data_gaps": null,
@@ -10166,7 +11027,7 @@
     "gz-440113-c07e3ddb"
    ],
    "feed_unresolved": [],
-   "group_id": 78
+   "group_id": 113
   },
   "gz-440113-7e40fb3a": {
    "data_gaps": null,
@@ -10181,21 +11042,21 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-827f636b": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-82bf431a": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-874cc790": {
    "data_gaps": null,
@@ -10204,21 +11065,21 @@
     "gz-440113-527391ff"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-883c58c4": {
    "data_gaps": "民办小学（星执学校附小），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 79
+   "group_id": 114
   },
   "gz-440113-89b309cd": {
    "data_gaps": "民办小学，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 70
+   "group_id": 105
   },
   "gz-440113-8a0b2cb9": {
    "data_gaps": null,
@@ -10227,7 +11088,7 @@
     "gz-440113-8a0b2cb9"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-8dd348db": {
    "data_gaps": null,
@@ -10236,14 +11097,14 @@
     "gz-440113-cbaa8160"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-8efab2cd": {
    "data_gaps": "民办小学，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 70
+   "group_id": 105
   },
   "gz-440113-8f09e6a7": {
    "data_gaps": null,
@@ -10253,7 +11114,7 @@
     "gz-440113-67864b8b"
    ],
    "feed_unresolved": [],
-   "group_id": 80
+   "group_id": 115
   },
   "gz-440113-9147b86e": {
    "data_gaps": null,
@@ -10262,7 +11123,7 @@
     "gz-440113-2570c29b"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-93b814f8": {
    "data_gaps": null,
@@ -10277,7 +11138,7 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-94550bcb": {
    "data_gaps": null,
@@ -10287,7 +11148,7 @@
     "gz-440113-9fa97423"
    ],
    "feed_unresolved": [],
-   "group_id": 66
+   "group_id": 101
   },
   "gz-440113-97142cde": {
    "data_gaps": null,
@@ -10296,7 +11157,7 @@
     "gz-440113-badb274e"
    ],
    "feed_unresolved": [],
-   "group_id": 71
+   "group_id": 106
   },
   "gz-440113-9856b449": {
    "data_gaps": null,
@@ -10305,7 +11166,7 @@
     "gz-440113-b2a39869"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-9aebded2": {
    "data_gaps": null,
@@ -10314,7 +11175,7 @@
     "gz-440113-2570c29b"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-9c76c8fa": {
    "data_gaps": null,
@@ -10329,7 +11190,7 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-9cbde7de": {
    "data_gaps": null,
@@ -10338,7 +11199,7 @@
     "gz-440113-a0992d0c"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-a3504863": {
    "data_gaps": null,
@@ -10347,14 +11208,14 @@
     "gz-440113-303a40d7"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-a45e4a1a": {
    "data_gaps": "民办学校（小学部），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 68
+   "group_id": 103
   },
   "gz-440113-a4ce8c83": {
    "data_gaps": null,
@@ -10363,7 +11224,7 @@
     "gz-440113-443448d2"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-a5d5f364": {
    "data_gaps": null,
@@ -10374,21 +11235,21 @@
     "gz-440113-94c76638"
    ],
    "feed_unresolved": [],
-   "group_id": 65
+   "group_id": 100
   },
   "gz-440113-a6aa9fb0": {
    "data_gaps": "民办学校（小学部），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 68
+   "group_id": 103
   },
   "gz-440113-a6ae517b": {
    "data_gaps": "民办小学，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 70
+   "group_id": 105
   },
   "gz-440113-a71cba14": {
    "data_gaps": null,
@@ -10397,7 +11258,7 @@
     "gz-440113-e121d1b3"
    ],
    "feed_unresolved": [],
-   "group_id": 72
+   "group_id": 107
   },
   "gz-440113-a83ca86e": {
    "data_gaps": null,
@@ -10406,14 +11267,14 @@
     "gz-440113-76992454"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-a93513f2": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-acbdd815": {
    "data_gaps": null,
@@ -10422,7 +11283,7 @@
     "gz-440113-303a40d7"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-ad58ce33": {
    "data_gaps": null,
@@ -10431,14 +11292,14 @@
     "gz-440113-f744f14a"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-ad8632f5": {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 62
+   "group_id": 97
   },
   "gz-440113-ad96c291": {
    "data_gaps": null,
@@ -10447,7 +11308,7 @@
     "gz-440113-a5f31e18"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-aeeeff61": {
    "data_gaps": null,
@@ -10457,7 +11318,7 @@
     "gz-440113-9fa97423"
    ],
    "feed_unresolved": [],
-   "group_id": 66
+   "group_id": 101
   },
   "gz-440113-b03e50f3": {
    "data_gaps": null,
@@ -10466,7 +11327,7 @@
     "gz-440113-e7ca2b33"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-b14ead20": {
    "data_gaps": null,
@@ -10481,7 +11342,7 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-b2fa3c94": {
    "data_gaps": null,
@@ -10490,7 +11351,7 @@
     "gz-440113-3d5242b3"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-b33076d3": {
    "data_gaps": null,
@@ -10499,7 +11360,7 @@
     "gz-440113-b33076d3"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-b33149c7": {
    "data_gaps": null,
@@ -10508,7 +11369,7 @@
     "gz-440113-eca20a50"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-b43e6169": {
    "data_gaps": null,
@@ -10523,7 +11384,7 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-b44dc073": {
    "data_gaps": null,
@@ -10532,7 +11393,7 @@
     "gz-440113-0b275c37"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-b4549534": {
    "data_gaps": null,
@@ -10541,7 +11402,7 @@
     "gz-440113-1b12edfd"
    ],
    "feed_unresolved": [],
-   "group_id": 73
+   "group_id": 108
   },
   "gz-440113-b56d3009": {
    "data_gaps": null,
@@ -10550,7 +11411,7 @@
     "gz-440113-527391ff"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-b5ff857b": {
    "data_gaps": null,
@@ -10559,7 +11420,7 @@
     "gz-440113-b5ff857b"
    ],
    "feed_unresolved": [],
-   "group_id": 78
+   "group_id": 113
   },
   "gz-440113-b5ffc00d": {
    "data_gaps": null,
@@ -10568,7 +11429,7 @@
     "gz-440113-8f5e4721"
    ],
    "feed_unresolved": [],
-   "group_id": 76
+   "group_id": 111
   },
   "gz-440113-b8ad09ec": {
    "data_gaps": null,
@@ -10577,7 +11438,7 @@
     "gz-440113-51a65e7c"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-b8f8c7f6": {
    "data_gaps": null,
@@ -10586,7 +11447,7 @@
     "gz-440113-badb274e"
    ],
    "feed_unresolved": [],
-   "group_id": 71
+   "group_id": 106
   },
   "gz-440113-bf9bcbfd": {
    "data_gaps": null,
@@ -10595,21 +11456,21 @@
     "gz-440113-95be9ccc"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-c181d193": {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 62
+   "group_id": 97
   },
   "gz-440113-c40a06e1": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-c51f439d": {
    "data_gaps": null,
@@ -10618,7 +11479,7 @@
     "gz-440113-c51f439d"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-c57d3d31": {
    "data_gaps": null,
@@ -10627,14 +11488,14 @@
     "gz-440113-b2a39869"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-c5dec315": {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 67
+   "group_id": 102
   },
   "gz-440113-c6853f20": {
    "data_gaps": null,
@@ -10643,7 +11504,7 @@
     "gz-440113-67864b8b"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-c77d76e6": {
    "data_gaps": null,
@@ -10652,14 +11513,14 @@
     "gz-440113-527391ff"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-c9f8740e": {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 62
+   "group_id": 97
   },
   "gz-440113-ceffdf1a": {
    "data_gaps": null,
@@ -10669,14 +11530,14 @@
     "gz-440113-e7ca2b33"
    ],
    "feed_unresolved": [],
-   "group_id": 66
+   "group_id": 101
   },
   "gz-440113-cf01b95f": {
    "data_gaps": "民办学校（小学部），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 68
+   "group_id": 103
   },
   "gz-440113-d099ba85": {
    "data_gaps": null,
@@ -10685,7 +11546,7 @@
     "gz-440113-76992454"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-d1526099": {
    "data_gaps": null,
@@ -10695,7 +11556,7 @@
     "gz-440113-c07e3ddb"
    ],
    "feed_unresolved": [],
-   "group_id": 75
+   "group_id": 110
   },
   "gz-440113-d34ce178": {
    "data_gaps": null,
@@ -10704,7 +11565,7 @@
     "gz-440113-cdfe162a"
    ],
    "feed_unresolved": [],
-   "group_id": 78
+   "group_id": 113
   },
   "gz-440113-d3d3956a": {
    "data_gaps": null,
@@ -10713,7 +11574,7 @@
     "gz-440113-8f5e4721"
    ],
    "feed_unresolved": [],
-   "group_id": 76
+   "group_id": 111
   },
   "gz-440113-d5329ed5": {
    "data_gaps": null,
@@ -10722,7 +11583,7 @@
     "gz-440113-db61be15"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-d798904c": {
    "data_gaps": null,
@@ -10731,7 +11592,7 @@
     "gz-440113-e121d1b3"
    ],
    "feed_unresolved": [],
-   "group_id": 72
+   "group_id": 107
   },
   "gz-440113-d7b59ed0": {
    "data_gaps": null,
@@ -10740,14 +11601,14 @@
     "gz-440113-f744f14a"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-d7e3e576": {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 62
+   "group_id": 97
   },
   "gz-440113-d9e44af9": {
    "data_gaps": null,
@@ -10756,7 +11617,7 @@
     "gz-440113-db61be15"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-dc890ef7": {
    "data_gaps": null,
@@ -10767,7 +11628,7 @@
     "gz-440113-94c76638"
    ],
    "feed_unresolved": [],
-   "group_id": 65
+   "group_id": 100
   },
   "gz-440113-dccc5e5f": {
    "data_gaps": null,
@@ -10782,7 +11643,7 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-dcd8b268": {
    "data_gaps": null,
@@ -10791,7 +11652,7 @@
     "gz-440113-76992454"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-dd28988f": {
    "data_gaps": null,
@@ -10800,7 +11661,7 @@
     "gz-440113-eab4ae0e"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-dd311f7a": {
    "data_gaps": null,
@@ -10809,7 +11670,7 @@
     "gz-440113-e121d1b3"
    ],
    "feed_unresolved": [],
-   "group_id": 72
+   "group_id": 107
   },
   "gz-440113-de874f8a": {
    "data_gaps": null,
@@ -10818,7 +11679,7 @@
     "gz-440113-a0992d0c"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-dfa3b6c5": {
    "data_gaps": null,
@@ -10827,7 +11688,7 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 73
+   "group_id": 108
   },
   "gz-440113-e08ddd50": {
    "data_gaps": null,
@@ -10836,7 +11697,7 @@
     "gz-440113-51a65e7c"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-e0eeec62": {
    "data_gaps": null,
@@ -10845,7 +11706,7 @@
     "gz-440113-b2a39869"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-e3018f96": {
    "data_gaps": null,
@@ -10856,7 +11717,7 @@
     "gz-440113-94c76638"
    ],
    "feed_unresolved": [],
-   "group_id": 65
+   "group_id": 100
   },
   "gz-440113-e3ec964b": {
    "data_gaps": null,
@@ -10865,7 +11726,7 @@
     "gz-440113-badb274e"
    ],
    "feed_unresolved": [],
-   "group_id": 71
+   "group_id": 106
   },
   "gz-440113-e5318201": {
    "data_gaps": null,
@@ -10874,7 +11735,7 @@
     "gz-440113-0b275c37"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-e694f2ca": {
    "data_gaps": null,
@@ -10889,14 +11750,14 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-e946f7f3": {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed_school_id": null,
    "feed_school_ids": [],
    "feed_unresolved": [],
-   "group_id": 62
+   "group_id": 97
   },
   "gz-440113-ec42b686": {
    "data_gaps": null,
@@ -10905,7 +11766,7 @@
     "gz-440113-1b12edfd"
    ],
    "feed_unresolved": [],
-   "group_id": 73
+   "group_id": 108
   },
   "gz-440113-ecbfeed3": {
    "data_gaps": null,
@@ -10914,7 +11775,7 @@
     "gz-440113-0bb52d06"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-ed0cc9d5": {
    "data_gaps": null,
@@ -10923,7 +11784,7 @@
     "gz-440113-f744f14a"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-f1d49674": {
    "data_gaps": null,
@@ -10938,7 +11799,7 @@
     "gz-440113-24ea052e"
    ],
    "feed_unresolved": [],
-   "group_id": 64
+   "group_id": 99
   },
   "gz-440113-f3431a96": {
    "data_gaps": null,
@@ -10947,7 +11808,7 @@
     "gz-440113-cbaa8160"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-f46b3574": {
    "data_gaps": null,
@@ -10956,7 +11817,7 @@
     "gz-440113-badb274e"
    ],
    "feed_unresolved": [],
-   "group_id": 71
+   "group_id": 106
   },
   "gz-440113-f4a10736": {
    "data_gaps": null,
@@ -10965,7 +11826,7 @@
     "gz-440113-f4a10736"
    ],
    "feed_unresolved": [],
-   "group_id": 78
+   "group_id": 113
   },
   "gz-440113-f6c1c8f2": {
    "data_gaps": null,
@@ -10974,7 +11835,7 @@
     "gz-440113-cbaa8160"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-f7272e24": {
    "data_gaps": null,
@@ -10984,7 +11845,7 @@
     "gz-440113-a0992d0c"
    ],
    "feed_unresolved": [],
-   "group_id": 66
+   "group_id": 101
   },
   "gz-440113-f7af0f1c": {
    "data_gaps": null,
@@ -10994,7 +11855,7 @@
     "gz-440113-443448d2"
    ],
    "feed_unresolved": [],
-   "group_id": 81
+   "group_id": 116
   },
   "gz-440113-f890218e": {
    "data_gaps": null,
@@ -11003,7 +11864,7 @@
     "gz-440113-f890218e"
    ],
    "feed_unresolved": [],
-   "group_id": 69
+   "group_id": 104
   },
   "gz-440113-fc7f04ca": {
    "data_gaps": null,
@@ -11012,7 +11873,7 @@
     "gz-440113-4d474674"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-fd1d0462": {
    "data_gaps": null,
@@ -11021,7 +11882,7 @@
     "gz-440113-eca20a50"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-fde69596": {
    "data_gaps": null,
@@ -11030,7 +11891,7 @@
     "gz-440113-cbaa8160"
    ],
    "feed_unresolved": [],
-   "group_id": 63
+   "group_id": 98
   },
   "gz-440113-fe7b542b": {
    "data_gaps": null,
@@ -11040,7 +11901,7 @@
     "gz-440113-2570c29b"
    ],
    "feed_unresolved": [],
-   "group_id": 82
+   "group_id": 117
   }
  },
  "updated": "2026-09-23",

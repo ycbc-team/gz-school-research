@@ -211,6 +211,16 @@
    "source_url": null
   },
   {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办电脑派位",
+   "mechanisms": [],
+   "name": "君诚博雅实验学校(滘口校区)",
+   "source_note": null,
+   "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
+  },
+  {
    "data_gaps": null,
    "direct_feed": null,
    "feed_junior_highs": [
@@ -630,6 +640,16 @@
    "name": "广州市第四中学附属芦荻西小学(桃源校区)",
    "source_note": "荔湾区教育局 2026 公办初中招生派位组表（parsed/_transcripts/liwan_2026_groups.json）+ 附件1 公办初中一年级招生计划（raw/liwan_2026_a1.docx，转录 liwan_2026_plan.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "民办学校，不参与公办派位",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办电脑派位",
+   "mechanisms": [],
+   "name": "广州市芳村新苗学校(广佛新城校区)",
+   "source_note": null,
+   "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
   {
    "data_gaps": null,
@@ -1300,6 +1320,26 @@
    "name": "沙面小学岭南校区",
    "source_note": "荔湾区教育局 2026 公办初中招生派位组表（parsed/_transcripts/liwan_2026_groups.json）+ 附件1 公办初中一年级招生计划（raw/liwan_2026_a1.docx，转录 liwan_2026_plan.json）",
    "source_url": null
+  },
+  {
+   "data_gaps": "2026年9月新开学（沙面小学教育集团第六校区），未入2026年4月发布的派位分组表，派位归属待2027年表确认（南方+2026-08-31）",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办电脑派位",
+   "mechanisms": [],
+   "name": "沙面小学悦江校区",
+   "source_note": null,
+   "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
+  },
+  {
+   "data_gaps": "2021年起暂停招生（人户一致地段并入大坦沙岛配套学校安排），2026分组表未列（南方+2021-05）",
+   "direct_feed": null,
+   "feed_junior_highs": [],
+   "group": "不参与公办电脑派位",
+   "mechanisms": [],
+   "name": "河沙小学",
+   "source_note": null,
+   "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
   {
    "data_gaps": null,
