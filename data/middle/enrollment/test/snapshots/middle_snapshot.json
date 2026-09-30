@@ -3387,10 +3387,7 @@
      "plan_classes": 10,
      "school": "广州市执信中学天河校区",
      "school_id": "gz-440106-22fcbcd6",
-     "school_ids": [
-      "gz-440104-1e9bdce3",
-      "gz-440106-22fcbcd6"
-     ],
+     "school_ids": null,
      "scope": "详见附件10"
     },
     "广州市泰安中学": {
@@ -3695,8 +3692,7 @@
      "school": "广州市执信中学（执信路校区）",
      "school_id": "gz-440104-f3ca07ff",
      "school_ids": [
-      "gz-440104-1e9bdce3",
-      "gz-440106-22fcbcd6"
+      "gz-440104-1e9bdce3"
      ],
      "scope": null
     },

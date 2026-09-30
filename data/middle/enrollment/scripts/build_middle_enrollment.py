@@ -731,13 +731,18 @@ if __name__ == "__main__":
     }
     # 法人推导与 backfill_school_ids.py 相同：同 stage 下去括号+去「广州市」后同
     # core 名的全部校区实体；只挂白名单内确认办初中的校区（脚本生成不手改）。
+    # 【adcode 维度 2026-09-30】by_core 分组键含 adcode：招生行为按区独立，跨区校区不得
+    # 共享招生记录（如执信中学：越秀执信路/水荫路校区走越秀电脑派位、天河校区在天河
+    # 附件10 单独派位，若按裸 core 合并会把越秀派位组挂到天河校区详情页，出现「天河校区
+    # 招生计划里的越秀小学」错配）。同区校区（如十六中东湖+本部）不受影响。
     def attach_legal_school_ids(data):
         by_core = {}
         for _e in _entities["entities"]:
             if _e.get("stage") != "middle":
                 continue
             _core = re.sub(r"^广州市", "", re.sub(r"[（(][^）)]*[）)]", "", _e["name"]).strip())
-            by_core.setdefault(_core, set()).add(_e["school_id"])
+            _ad = _e["school_id"].split("-")[1] if _e["school_id"].count("-") >= 2 else ""
+            by_core.setdefault((_core, _ad), set()).add(_e["school_id"])
         # 只收 middle 版实体（完中同 id 有 middle+high 双实体，dict 覆盖会误取 high 版导致
         # 该行 attach 被 stage 检查跳过、白名单校区失去共享招生）——setdefault 保 first middle。
         _by_id = {}
@@ -751,7 +756,8 @@ if __name__ == "__main__":
             if not _e or _e.get("stage") != "middle":
                 continue
             _core = re.sub(r"^广州市", "", re.sub(r"[（(][^）)]*[）)]", "", _e["name"]).strip())
-            _sids = sorted((by_core.get(_core, set()) & _CONFIRMED_CAMPUS))
+            _ad = _r["school_id"].split("-")[1] if _r["school_id"].count("-") >= 2 else ""
+            _sids = sorted((by_core.get((_core, _ad), set()) & _CONFIRMED_CAMPUS))
             # 写 school_ids 条件：白名单校区不同于记录本身才写——即「记录 school_id 是 A，
             # 同 core 另有白名单校区 B 时挂 [B]」让 B 共享 A 的招生（2026-09-17 改为单校区也挂，
             # 原 len>1 限制使「官方记录主实体 + 单个白名单校区」场景挂不上，孤儿无法消除）
