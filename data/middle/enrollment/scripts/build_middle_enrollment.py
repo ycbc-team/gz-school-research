@@ -250,7 +250,10 @@ def _scope_primary_ids(scope, adcode):
             # 「XX（不含/除外 XX）」排除限定形态：官方原文带排除括号，剥「）」后不以教育
             # 后缀结尾会被误判为划片文本。此类整体放行，交由 RESOLVE_OVERRIDE 官方原文锚定
             # （如「三元里小学（不含北校区）」→ 校本部+南校区，2026-09-30 修复）。
-            if not t.endswith(_EDU_SUFFIX) and not any(x in cand for x in ("（不含", "（不包含", "（除外")):
+            # 「（暂定名）」同理（2026-09-30）：官方暂定名学校（如黄埔
+            # 「知识城南安置区（二期）小学（暂定名）」）剥「）」后以「（暂定名」结尾，
+            # 不以教育后缀收尾 → 误判丢弃。整体放行交由实体表匹配（实体无则宁缺）。
+            if not t.endswith(_EDU_SUFFIX) and not any(x in cand for x in ("（不含", "（不包含", "（除外", "（暂定名")):
                 continue
             if any(w in cand for w in _CAND_BLOCK):
                 continue

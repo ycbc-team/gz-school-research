@@ -1,14 +1,7 @@
 {
   "basis": "official middle-enrollment transcripts vs existing xiaoshengchu district dist; entity IDs are compared after each chain's current resolver.",
   "district": "黄埔区",
-  "only_current": [
-    {
-      "middle": "广州市黄埔区玉岩实验学校",
-      "middle_school_id": "gz-440112-f3817fbe",
-      "primary": "知识城南安置区（二期）小学（暂定名）",
-      "primary_school_id": "gz-440112-56f77a90"
-    }
-  ],
+  "only_current": [],
   "only_reverse": [
     {
       "middle": "广州知识城中学(东校区)",
@@ -62,9 +55,9 @@
   "summary": {
     "current_pairs": 305,
     "equal": false,
-    "only_current": 1,
+    "only_current": 0,
     "only_reverse": 8,
-    "reverse_pairs": 312
+    "reverse_pairs": 313
   },
   "year": 2026
 }

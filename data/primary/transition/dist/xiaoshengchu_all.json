@@ -11123,6 +11123,20 @@
    "mechanisms": [
     "zhi_sheng"
    ],
+   "school_id": "gz-440112-56f77a90",
+   "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
+  },
+  {
+   "data_gaps": null,
+   "direct_feed_school_id": null,
+   "feed_school_ids": [
+    "gz-440112-f3817fbe"
+   ],
+   "feed_unresolved": [],
+   "group": "黄埔区小升初对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "school_id": "gz-440112-59ba7b57",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },

@@ -864,6 +864,26 @@
       "mechanisms": [
         "zhi_sheng"
       ],
+      "name": "知识城南安置区（二期）小学（暂定名）",
+      "official_primary_names": [
+        "知识城南安置区（二期）小学（暂定名）"
+      ],
+      "school_id": "gz-440112-56f77a90",
+      "source_note": "2026 义务教育学校招生工作实施细则附件5（穗埔教〔2026〕265号）",
+      "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市黄埔区玉岩实验学校"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440112-f3817fbe"
+      ],
+      "mechanisms": [
+        "zhi_sheng"
+      ],
       "name": "九龙第二小学大坦分校",
       "official_primary_names": [
         "九龙第二小学"
