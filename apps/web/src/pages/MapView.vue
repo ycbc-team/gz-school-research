@@ -750,7 +750,7 @@ section { position: relative; }
 }
 .search-head .sgo.show { max-width: 62px; opacity: 1; padding: 7px 12px; margin-left: 9px; }
 .sbody { flex: 1; overflow-y: auto; padding-bottom: 6px; }
-.sblock { margin: 12px 16px 0; background: #fff; border: 1px solid #E3E8F0; border-radius: 14px; padding: 12px 14px 4px; }
+.sblock { margin: 12px 0 0; background: #fff; border: 1px solid #E3E8F0; border-radius: 14px; padding: 12px 14px 4px; }
 .shd { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
 .shd .sht { font-size: 12.5px; font-weight: 600; color: #33405C; }
 .shd .clr { font-size: 12px; color: #8B96AD; cursor: pointer; border: 0; background: none; padding: 0; }
