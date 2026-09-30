@@ -15,6 +15,7 @@ defineOptions({ name: 'MapView' });
 import {
   DISTRICTS,
   STAGE_COLOR,
+  MARKER_SELECTED_COLOR,
   STAGE_LABEL,
   STAGE_TABS,
   SCHOOL_NATURE_TABS,
@@ -132,9 +133,7 @@ function markerStyle(pt: MapPointFull): L.CircleMarkerOptions {
   };
 }
 let iconUid = 0;
-/** 选中态描边（品牌蓝，抽屉打开时高亮当前点位） */
-const SELECTED_COLOR = '#1a6bd6';
-/** 多学部点：SVG 圆内垂直分色（2 段=上/下，3 段=上/中/下），白描边，统一样式 */
+/** 多学部点：SVG 圆内垂直分色（2 段=上/下，3 段=上/中/下），白描边，统一样式；选中态描边用 shared MARKER_SELECTED_COLOR（对齐小程序首页选中光晕） */
 function buildMultiIcon(pt: MapPointFull, r: number, selected = false): L.DivIcon {
   const size = r * 2;
   const center = size / 2;
@@ -142,7 +141,7 @@ function buildMultiIcon(pt: MapPointFull, r: number, selected = false): L.DivIco
   const n = pt.stages.length;
   const uid = 'poiClip' + (++iconUid);
   const weight = selected ? 3.5 : 1.2;
-  const stroke = selected ? SELECTED_COLOR : 'rgba(255,255,255,0.85)';
+  const stroke = selected ? MARKER_SELECTED_COLOR : 'rgba(255,255,255,0.85)';
   const segs = pt.stages
     .map((st, i) => {
       const y = center - rr + (i * (rr * 2)) / n;
@@ -318,7 +317,7 @@ let activeItem: RenderedItem | null = null;
 function setSelected(item: RenderedItem, on: boolean) {
   if (item.pt.stages.length === 1) {
     const m = item.marker as unknown as L.CircleMarker;
-    if (on) m.setStyle({ weight: 3.5, color: SELECTED_COLOR });
+    if (on) m.setStyle({ weight: 3.5, color: MARKER_SELECTED_COLOR });
     else m.setStyle(markerStyle(item.pt));
   } else {
     item.marker.setIcon(buildMultiIcon(item.pt, radiusForZoom(map?.getZoom() ?? 13), on));

@@ -2,7 +2,7 @@
 
 > 本文记录已完成的迁移过程，部分路径和行数已不再代表当前实现。请以 [当前架构](architecture.md) 和代码为准。
 
-> **2026-09-30 更新**：老地图页 `pages/map` 已下线——页面注册、`apps/miniprogram/assets/markers/` 旧图标（shared 学段色生成的那套）与构建脚本 `scripts/miniprogram/gen-markers.mjs` 一并移除。地图功能现由首页 `pages/index`（知性蓝 UI 稿重构版）统一承担；详情页"在地图中查看"改为写入 `getApp().pendingFocus` 后 `switchTab` 回首页，由首页 `onShow` 定位（放大居中 + 信息卡，对齐原 map 页 focus 行为）。小程序 marker 图标仅保留首页一套 `assets/markers-index/`（构建产物，`.gitignore` 忽略，由 `npm run build:mp` 生成）。下表涉及 `pages/map` 的历史行均已更新为当前状态。
+> **2026-09-30 更新**：老地图页 `pages/map` 已下线——页面注册、`apps/miniprogram/assets/markers/` 旧图标（shared 学段色生成的那套）与构建脚本 `scripts/miniprogram/gen-markers.mjs` 一并移除。地图功能现由首页 `pages/index`（知性蓝 UI 稿重构版）统一承担；详情页"在地图中查看"改为写入 `getApp().pendingFocus` 后 `switchTab` 回首页，由首页 `onShow` 定位（放大居中 + 信息卡，对齐原 map 页 focus 行为）。小程序 marker 图标仅保留首页一套 `assets/markers-index/`（构建产物，`.gitignore` 忽略，由 `npm run build:mp` 生成）。**同日 Web marker 配色改为与小程序对齐**：学段分色唯一真源统一为 shared `STAGE_COLOR`（知性蓝：小学蓝 `#2F5CD6` / 初中橙 `#E8850C` / 高中绿 `#0F9D58`），新增 `MARKER_SELECTED_COLOR`（选中态描边/光晕 `#2F5CD6`）双端共用；Web `MapView.vue` 与小程序 `gen-markers-index.mjs` 均从 shared 读取。下表涉及 `pages/map` 的历史行均已更新为当前状态。
 
 > 目标：把小程序从 "三页骨架" 补齐到与 Web 对齐（地图全功能 / 学校详情 / 升学通道 / 政策说明 / 支撑度）。
 > 手段：重构 Web 侧，把业务层与数据层下沉到 
@@ -350,7 +350,7 @@ module.exports = createRepository({
 | 状态管理       | 纯 TS Store + 各端响应式适配，不引入 Pinia/MobX                     | 小程序无法复用框架层，纯 TS 双端零成本                               |
 | 数据共享形态     | loader 注入，shared 不内嵌 JSON                               | 延续 "数据不内嵌" 约定；Web import JSON 与小程序 require CJS 机制不同 |
 | 地图渲染       | 两端各自渲染，共享数据模型                                           | Leaflet 与微信 `<map>` API 完全不同，强行抽象渲染层收益低             |
-| marker 图标  | 构建脚本按 UI 稿《知性蓝》学段分色生成 14 张 PNG（首页）           | 小程序侧唯一真源为 `gen-markers-index.mjs`；Web 仍用 shared `STAGE_COLOR`（MapView.vue） |
+| marker 图标  | 学段分色唯一真源在 shared（`STAGE_COLOR` 知性蓝三色 + `MARKER_SELECTED_COLOR`），双端统一 | 小程序 `gen-markers-index.mjs` 按 shared 生成 14 张 PNG；Web `MapView.vue` 直接引用 shared；~~曾分两套真源~~（map 页旧图标 + 首页硬编码）已合并 |
 | 分包         | 主包：index/policy；分包：school-detail + 相关 data | 主包 2MB 限制（当前 data 已 3.2MB）；~~原建议主包含 map~~ 已随老地图页下线失效 |
 | 重构节奏       | 先下沉 shared + Web 适配零回归，再补小程序                            | 避免 "重构 + 新功能" 同时进行导致的回归面过大                          |
 | 风险：Web 回归  | shared 迁移后跑 `npm run check` + 手测地图 / 详情 / 通道三页          | 导出名不变，改动集中在 import 来源                               |
