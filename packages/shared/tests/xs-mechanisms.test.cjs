@@ -17,7 +17,7 @@ const loaders = {
   primarySchools: load('poi/dist/primary_poi.json'),
   middleSchools: load('poi/dist/middle_poi.json'),
   highSchools: load('poi/dist/high_poi.json'),
-  highLevels: load('high/level/src/levels.json'),
+  highLevels: load('registry/affiliation/src/levels.json'),
   enrollments: splitEnrollments(load('primary/enrollment/dist/2026-all.json')),
   quotaMatrix: load('linkage/dist/quota_matrix.json'),
   specialMatrix: load('linkage/dist/special_matrix.json'),
