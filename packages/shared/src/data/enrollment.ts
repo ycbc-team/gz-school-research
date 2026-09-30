@@ -29,6 +29,18 @@ export interface EnrollmentMatch {
 }
 
 /**
+ * 平铺语义通用清理：去除招生说明/范围里的「附件N」来源引用，只留具体规则。
+ * 1. 括号来源注：（2026 细则附件6）/（2026 实施细则附件5）/（附件1）/（附件7）/（《…细则》附件6）
+ * 2. 计划表序号引用前缀：附件7 #3 小学部5班200人 → 小学部5班200人
+ * 不动正常括注（如「（含符合条件的广州市政策性照顾学生、返区生）」）。
+ */
+function stripAttachmentRefs(text?: string | null): string {
+  return (text ?? '')
+    .replace(/（[^（）]*附件\d+[^（）]*）/g, '')
+    .replace(/附件\d+\s*#\d+\s*/g, '');
+}
+
+/**
  * 小学 2026 招生计划查询域（school_id 外键驱动）：
  * - 构建期已由 Python SchoolMatcher 把官方名 → 实体 school_id 匹配完成，records 只存
  *   school_id + 招生字段（无名字/坐标——实体表/POI 表按 school_id 联查）
@@ -45,9 +57,9 @@ export function createEnrollmentApi(loaders: DataLoaders) {
       ENROLL_BY_ID.set(r.school_id, {
         ...r,
         // 荔湾协和小学部：note 为空时补官方直升条款（初中方案正文三、第3条）
-        note: expandedNote || liwanPrimaryNoteBySchool[r.school_id] || '',
+        note: stripAttachmentRefs(expandedNote) || liwanPrimaryNoteBySchool[r.school_id] || '',
         // 天河清华附中湾区学校小学部 zone「详见附件11」→ 平铺附件11 内容
-        zone: expandTianheAttachment(r.zone, [r.school_id]) ?? undefined,
+        zone: stripAttachmentRefs(expandTianheAttachment(r.zone, [r.school_id]) ?? undefined),
         matchedBy: '',
       });
     }
@@ -133,7 +145,9 @@ export function createMiddleEnrollmentApi(loaders: DataLoaders) {
       const schoolIds = [...new Set([r0.school_id, ...(r0.school_ids ?? [])].filter((v): v is string => !!v))];
       const liwanExtra = liwanMiddleNoteBySchool[r0.school_id ?? ''];
       // 天河附件10 记录（scope 命中「详见附件10」）：mechanism_note 修正为电脑派位标注，覆盖划片模板
-      const a10Note = /详见附件10/.test(r0.scope ?? '') ? tianheA10MechanismNote : expandPanyuNotes(r0.mechanism_note ?? '', 'middle');
+      const a10Note = /详见附件10/.test(r0.scope ?? '')
+        ? tianheA10MechanismNote
+        : stripAttachmentRefs(expandPanyuNotes(r0.mechanism_note ?? '', 'middle'));
       const r = {
         ...r0,
         // 番禺「见说明N」平铺为说明内容；荔湾协和初中部追加官方直升条款
