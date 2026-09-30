@@ -256,7 +256,7 @@ def _panyu_explains(stage):
         m = re.match(r"^(\d+)\.", str(r[0] or "").strip())
         if not m:
             break
-        explains[int(m.group(1))] = str(r[0]).strip()
+        explains[int(m.group(1))] = _strip_list_numbers(str(r[0]).strip())
     return explains
 
 
@@ -278,7 +278,7 @@ def _strip_list_numbers(text):
     防误删正文数字（「3公里」「近6年」等无点号）。"""
     if not text:
         return text
-    return re.sub(r"(^|[；;，,。）(（:：])\s*(\d{1,2})\.(?=[\u4e00-\u9fff0-9“”\"A-Za-z（(])",
+    return re.sub(r"(^|[；;，,、。）(（:：])\s*(\d{1,2})\.(?=[\u4e00-\u9fff0-9“”\"A-Za-z（(])",
                   r"\1", text)
 
 
