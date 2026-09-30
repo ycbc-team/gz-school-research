@@ -14,7 +14,7 @@ import {
 } from '@gz/shared';
 import {
   repository, entities, matchEnrollment,
-  middleQuotaSummary, middleEnrollmentsOf, middleEnrollmentGroups, xiaoshengchuOf, schoolBadges, scoresOfSchool,
+  middleEnrollmentsOf, middleEnrollmentGroups, xiaoshengchuOf, schoolBadges, scoresOfSchool,
   isComprehensive, groupOfSchool, resolveSchoolIdOf,
   type BrandUnit,
   innovationAwards,
@@ -428,8 +428,6 @@ function goCampus(item: { id: string; name: string }) {
         <div v-for="r in feedRows" :key="r.name" class="feed-item">
           <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="feed-name">{{ r.name }}</RouterLink>
           <span v-else class="feed-name" style="color:#6b7280;">{{ r.name }}</span>
-          <span v-if="r.summary" class="tag">{{ r.summary }}</span>
-          <span v-else class="tag tag-dim">区属初中</span>
         </div>
       </div>
       <p v-if="feedGap" class="empty" :style="feedRows.length ? 'margin-top:8px;text-align:left;' : ''">{{ feedGap }}</p>

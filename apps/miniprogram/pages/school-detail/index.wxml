@@ -65,8 +65,6 @@
     <view wx:if="{{model.feedRows.length}}" class="feed-list">
       <view wx:for="{{model.feedRows}}" wx:key="name" class="feed-item">
         <text class="feed-name" data-to="/school/{{item.name}}?stage=middle" bindtap="goSchool">{{item.name}}</text>
-        <text wx:if="{{item.summary}}" class="tag">{{item.summary}}</text>
-        <text wx:else class="tag tag-dim">区属初中</text>
       </view>
     </view>
     <view wx:if="{{model.feedGap}}" class="empty">{{model.feedGap}}</view>

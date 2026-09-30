@@ -28,7 +28,7 @@ export const XS_MECH_LABELS: Record<string, string> = {
 
 export interface DetailRow { label: string; value: string; strong?: boolean }
 export interface DetailBadge { text: string; cls: string }
-export interface FeedRow { name: string; poiName: string | null; summary: string | null; hasQuota: boolean }
+export interface FeedRow { name: string; poiName: string | null }
 export interface BrandRow {
   name: string;
   role: string;
@@ -165,10 +165,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     if (!f) return [];
     return f.feed_junior_highs
       .filter((n) => !GAP_MARKERS.some((m) => n.includes(m)))
-      .map((n) => {
-        const q = repo.middleQuotaSummary(n);
-        return { name: n, poiName: repo.resolvePoiName(n), summary: q ? `省市属 ${q.sheng_quota ?? 0} · 名额考生 ${q.kaosheng ?? '—'}` : null, hasQuota: !!q };
-      });
+      .map((n) => ({ name: n, poiName: repo.resolvePoiName(n) }));
   })();
 
   /* 生源小学反查（middlePrimaryFeed）已停用：2026-09-23 新数据（官方直建派位组对口小学）
