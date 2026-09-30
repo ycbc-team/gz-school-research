@@ -4,7 +4,7 @@
 import type { EnrollmentSnapshot, MiddleEnrollmentSnapshot, MiddleEnrollmentRecord, MiddleMechanismDef, MiddleMechanism } from '../types.js';
 import type { DataLoaders } from './loader.js';
 import { expandPanyuNotes } from './panyuExplains.js';
-import { expandTianheAttachment } from './tianheAttachment.js';
+import { expandTianheAttachment, tianheA10MechanismNote } from './tianheAttachment.js';
 import { liwanPrimaryNoteBySchool, liwanMiddleNoteBySchool } from './liwanNotes.js';
 
 /** 归一：去 广州市/广州 前缀、去括号及括号内容、去 小学/学校/校区 后缀 */
@@ -132,10 +132,12 @@ export function createMiddleEnrollmentApi(loaders: DataLoaders) {
       // 招生说明「见说明N」在数据层平铺为番禺区说明内容（初中版）；天河「详见附件10」按学校展开
       const schoolIds = [...new Set([r0.school_id, ...(r0.school_ids ?? [])].filter((v): v is string => !!v))];
       const liwanExtra = liwanMiddleNoteBySchool[r0.school_id ?? ''];
+      // 天河附件10 记录（scope 命中「详见附件10」）：mechanism_note 修正为电脑派位标注，覆盖划片模板
+      const a10Note = /详见附件10/.test(r0.scope ?? '') ? tianheA10MechanismNote : expandPanyuNotes(r0.mechanism_note ?? '', 'middle');
       const r = {
         ...r0,
         // 番禺「见说明N」平铺为说明内容；荔湾协和初中部追加官方直升条款
-        mechanism_note: (liwanExtra ? `${expandPanyuNotes(r0.mechanism_note ?? '', 'middle')}；${liwanExtra}` : expandPanyuNotes(r0.mechanism_note ?? '', 'middle')),
+        mechanism_note: (liwanExtra ? `${a10Note}；${liwanExtra}` : a10Note),
         scope: expandTianheAttachment(r0.scope, schoolIds),
       };
       if (r.school_id && !byId.has(r.school_id)) byId.set(r.school_id, r);
