@@ -272,6 +272,16 @@ def _strip_attachment_refs(text):
     return re.sub(r"（[^（）]*附件\d+[^（）]*）", "", re.sub(r"附件\d+\s*#\d+\s*", "", text))
 
 
+def _strip_list_numbers(text):
+    """去招生说明里的数字序号（「2.凡小区内配建…」「； 3.市桥富豪…」「）2.持有…」）→ 只留内容。
+    前缀标点（；/。/：/）/（/，）保留作分隔，序号限两位内且后随中文/数字/引号才删，
+    防误删正文数字（「3公里」「近6年」等无点号）。"""
+    if not text:
+        return text
+    return re.sub(r"(^|[；;，,。）(（:：])\s*(\d{1,2})\.(?=[\u4e00-\u9fff0-9“”\"A-Za-z（(])",
+                  r"\1", text)
+
+
 def _expand_middle_texts(data, dk):
     """B 层构建期平铺（产物即最终形态，双端一致）：
     番禺 mechanism_note「(见)说明N」→ 说明原文；天河附件10 记录 scope 展开 + 机制归位 single_paidui；
@@ -298,7 +308,7 @@ def _expand_middle_texts(data, dk):
     for r in data["records"]:
         mn = r.get("mechanism_note")
         if mn:
-            r["mechanism_note"] = _strip_attachment_refs(mn)
+            r["mechanism_note"] = _strip_list_numbers(_strip_attachment_refs(mn))
         scope = r.get("scope")
         if scope:
             r["scope"] = _strip_attachment_refs(scope)

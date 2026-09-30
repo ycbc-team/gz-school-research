@@ -34,6 +34,14 @@ const DICT_SPEC = {
   'data/awards/dist/detailed_records.json': {
     dicts: ['school', 'project', 'award'],
   },
+  // 初中招生：mechanism_note 84% 重复（番禺说明模板/派位组名，73 唯一/630 行）→ 字典化
+  'data/middle/enrollment/dist/middle_enrollment_2026.json': {
+    dicts: ['mechanism_note'],
+  },
+  // 小学招生：note 80% 重复（番禺说明模板等，33 唯一/782 行）→ 字典化
+  'data/primary/enrollment/dist/2026-all.json': {
+    dicts: ['note'],
+  },
 };
 
 /**

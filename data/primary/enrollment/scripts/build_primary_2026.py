@@ -186,6 +186,16 @@ def _strip_attachment_refs(text):
     return re.sub(r"（[^（）]*附件\d+[^（）]*）", "", re.sub(r"附件\d+\s*#\d+\s*", "", text))
 
 
+def _strip_list_numbers(text):
+    """去招生说明里的数字序号（「2.凡小区内配建…」「； 3.市桥富豪…」「）2.持有…」）→ 只留内容。
+    前缀标点（；/。/：/）/（/，）保留作分隔，序号限两位内且后随中文/数字/引号才删，
+    防误删正文数字（「3公里」「近6年」等无点号）。"""
+    if not text:
+        return text
+    return re.sub(r"(^|[；;，,。）(（:：])\s*(\d{1,2})\.(?=[\u4e00-\u9fff0-9“”\"A-Za-z（(])",
+                  r"\1", text)
+
+
 def _expand_primary_texts(records, dk):
     """B 层构建期平铺（产物即最终形态，双端一致）：
     番禺 note「(见)说明N」→ 官方说明原文；天河 zone「详见附件11」→ 附件11 核心内容；
@@ -211,7 +221,7 @@ def _expand_primary_texts(records, dk):
     for r in records:
         note = r.get("note")
         if note:
-            r["note"] = _strip_attachment_refs(note)
+            r["note"] = _strip_list_numbers(_strip_attachment_refs(note))
         zone = r.get("zone")
         if zone:
             r["zone"] = _strip_attachment_refs(zone)
