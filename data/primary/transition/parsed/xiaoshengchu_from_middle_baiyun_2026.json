@@ -2455,6 +2455,26 @@
       "data_gaps": null,
       "direct_feed": [],
       "feed_junior_highs": [
+        "广州市三元里中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-8629621c"
+      ],
+      "groups": [
+        "因涉拆迁，2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排。"
+      ],
+      "name": "三元里小学",
+      "official_primary_names": [
+        "三元里小学（不含北校区）"
+      ],
+      "school_id": "gz-440111-b1484250",
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "source_url": null
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
         "广州市第一一五中学",
         "广州市白云区太和中学"
       ],
@@ -2924,6 +2944,26 @@
         "华师附小"
       ],
       "school_id": "gz-440111-db31a4f7",
+      "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
+      "source_url": null
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市三元里中学"
+      ],
+      "feed_school_ids_from_middle": [
+        "gz-440111-8629621c"
+      ],
+      "groups": [
+        "因涉拆迁，2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排。"
+      ],
+      "name": "三元里小学南校区",
+      "official_primary_names": [
+        "三元里小学（不含北校区）"
+      ],
+      "school_id": "gz-440111-db593ac1",
       "source_note": "白云区教育局 2026 公办初中招生计划（parsed/_transcripts/baiyun_2026_juniors.json）",
       "source_url": null
     },
