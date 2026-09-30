@@ -175,6 +175,8 @@ function renderPoints() {
     rendered.push(item);
   }
 }
+/** 上一次生效的区域选择：区域变化且收窄（非全选）时自动适配视野到结果范围（对齐小程序 confirmSheet 的 fitVisible 行为） */
+let prevDistricts = new Set(selectedDistricts.value);
 function applyFilters() {
   if (!map) return;
   for (const it of rendered) {
@@ -191,6 +193,42 @@ function applyFilters() {
       }
     }
   }
+  // 行政区是「地理维度」：选区变化且收窄（非全选、结果非空）时，把视野自动适配到筛选结果范围，
+  // 否则会出现「人停在番禺、筛了荔湾、地图却不动」的错位（对齐小程序 confirmSheet；学段/性质是属性维度，不移动相机）
+  const cur = selectedDistricts.value;
+  const unchanged = cur.size === prevDistricts.size && [...cur].every((a) => prevDistricts.has(a));
+  const narrowed = cur.size > 0 && cur.size < DISTRICTS.length;
+  if (!unchanged && narrowed && rendered.some((it) => isVisiblePt(it.pt))) fitVisible();
+  prevDistricts = new Set(cur);
+}
+/** 视野适配：把地图缩放到恰好容纳当前全部可见点（对齐小程序 fitVisible；最小跨度兜底，避免单点直接放到最大级别） */
+function fitVisible() {
+  if (!map) return;
+  const pts = rendered.filter((it) => isVisiblePt(it.pt)).map((it) => it.pt);
+  if (!pts.length) return;
+  let minLat = Infinity, maxLat = -Infinity, minLng = Infinity, maxLng = -Infinity;
+  for (const p of pts) {
+    if (p.lat < minLat) minLat = p.lat;
+    if (p.lat > maxLat) maxLat = p.lat;
+    if (p.lng < minLng) minLng = p.lng;
+    if (p.lng > maxLng) maxLng = p.lng;
+  }
+  const MIN_SPAN = 0.012; // ≈ 1.3km：单点 / 极窄范围时避免 fitBounds 直接放到最大级别
+  if (maxLat - minLat < MIN_SPAN) { const c = (minLat + maxLat) / 2; minLat = c - MIN_SPAN / 2; maxLat = c + MIN_SPAN / 2; }
+  if (maxLng - minLng < MIN_SPAN) { const c = (minLng + maxLng) / 2; minLng = c - MIN_SPAN / 2; maxLng = c + MIN_SPAN / 2; }
+  // 聚焦系数：fitBounds 默认「恰好容纳」导致 zoom 偏小、区域视野过大（用户反馈 2026-09-30）。
+  // 把范围向中心收缩 30% 再 fit，等效放大约 0.5 级 zoom；如需更聚焦可调小 FOCUS。
+  const FOCUS = 0.7;
+  const clat = (minLat + maxLat) / 2, clng = (minLng + maxLng) / 2;
+  minLat = clat + (minLat - clat) * FOCUS;
+  maxLat = clat + (maxLat - clat) * FOCUS;
+  minLng = clng + (minLng - clng) * FOCUS;
+  maxLng = clng + (maxLng - clng) * FOCUS;
+  // 留白对齐小程序 fitVisible [上,右,下,左] = [150,70,200,70]：上避让头部，下避让图例/底部导航
+  map.fitBounds([[minLat, minLng], [maxLat, maxLng]], {
+    paddingTopLeft: L.point(70, 150),
+    paddingBottomRight: L.point(70, 200),
+  });
 }
 watch([selectedDistricts, selectedStages, selectedNatures, selectedGrades], applyFilters);
 function renderBoundaries() {
