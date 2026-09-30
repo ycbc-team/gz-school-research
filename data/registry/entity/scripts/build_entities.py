@@ -208,6 +208,12 @@ DROP_CAMPUS = [
     'middle|玉泉学校-中学部',      # = 玉泉学校（法人本部云埔五路38号校园内 139m 冗余中学部 POI；初中无独立分校址，东/北校区均数百米外）
     'middle|铁铮学校',            # 裸名 POI 与西校区 0m 同坐标（官方无独立本部，首开即西校区）；法人名「铁铮学校」已由东/西校区共享别名承继（EXTRA_ENTITY_ALIAS），primary 行保留承载小学部
     'primary|长岭居小学',          # 2021「长岭居小学」=长岭路38号，2022 开北校区后原址改称南校区（78m 同校园）；原别名「西校区」系错误关联（真西校区 3.4km 外）随剔除一并消除
+    # —— 2026-09-30 用户确认：天河区不存在广州市第十二中学 ——
+    # 历史广州十二中在荔湾、2007 年已改制为西关外国语学校；本 POI（天强路/天荣路口，
+    # 距天荣中学 152m）在天河无任何官方办学记录（2026-09-30 review 第13组待人工确认项）。
+    # 用户拍板删除实体与 POI，**不做** REMOVED_POI_ALIAS 别名承继（该校在天河不存在，
+    # 承继别名只会制造错误命中）。孤儿快照/同址快照相应减组。
+    'middle|广州市第十二中学',
 ]
 
 
@@ -1007,6 +1013,11 @@ POI_NAME_FIX = {'广州市第十三中学文德校区': '广州市第十三中�
 # 「广州」/「广州市」混写也归一到同一核心（防计数/挂载分歧）。仅当去「广州」后剩余为泛词
 # （如「广州中学」→「中学」）时保留前缀，避免泛词毁名（历史多次踩坑）。
 BARE_GENERIC = {'中学', '小学', '学校', '幼儿园', '实验中学', '实验学校', '中心小学', '第一小学', '实验小学', '附属小学', '附属中学'}
+# 裸名别名挂载排除（2026-09-30 补建长岭居西校区时引入）：个别 POI 的 bareCore 独苗
+# 与既有 REMOVED_POI_ALIAS/历史名语义冲突时排除。长岭居小学（西校区）：bareCore=「长岭居小学」
+# （南/北校区名无括号故独苗计数=1），但历史「长岭居小学」=南校区（长岭路38号，2022 前本部名），
+# REMOVED_POI_ALIAS 已显式把裸名归南校区——西校区不得抢占裸名，避免 resolve("长岭居小学") 歧义。
+BARE_CORE_ALIAS_EXCLUDE = {'primary|440112|长岭居小学（西校区）'}
 BARE_DISTRICT = re.compile(r'^(荔湾|越秀|海珠|天河|白云|黄埔|番禺)区')
 _BARE_PAREN = re.compile(r'\([^()]*\)')
 
@@ -1073,7 +1084,9 @@ for _stage, _file in stageFiles.items():
         # 多校区共用核心名（万松园小学松园/云桂校区）不挂裸名 → resolve 宁缺毋滥，build 靠 _anchors 锚定。
         rawNorm = _half(pn)
         bareCore = bareCoreOf(rawNorm)
-        if bareCore and bareCore != sn and bareCoreCount.get(_st + '|' + p.get('adcode') + '|' + bareCore) == 1:
+        if (bareCore and bareCore != sn
+                and (_st + '|' + p.get('adcode') + '|' + p.get('name')) not in BARE_CORE_ALIAS_EXCLUDE
+                and bareCoreCount.get(_st + '|' + p.get('adcode') + '|' + bareCore) == 1):
             alias_add(ent['aliases'], bareCore)
         # 实体名自身 norm 的纯名变体先占位（「景泰中学」实体名 = 纯名，别名表不得再挂同区其他实体）
         for v in poiNameAliases(pn, p.get('adcode')):

@@ -6785,6 +6785,12 @@
     },
     {
       "aliases": [],
+      "name": "长岭居小学（西校区）",
+      "school_id": "gz-440112-970cf240",
+      "stage": "primary"
+    },
+    {
+      "aliases": [],
       "name": "广东外语外贸大学空港学校",
       "school_id": "gz-440100-f62df57f",
       "stage": "middle"
@@ -8158,12 +8164,6 @@
       ],
       "name": "广州市第八十九中学",
       "school_id": "gz-440106-8f55ab34",
-      "stage": "middle"
-    },
-    {
-      "aliases": [],
-      "name": "广州市第十二中学",
-      "school_id": "gz-440106-458838f7",
       "stage": "middle"
     },
     {

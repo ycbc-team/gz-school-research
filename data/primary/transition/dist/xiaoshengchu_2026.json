@@ -11991,6 +11991,23 @@
       "data_gaps": null
     },
     {
+      "school_id": "gz-440112-970cf240",
+      "feed_school_ids": [
+        "gz-440112-8b4292d7",
+        "gz-440112-96610f39",
+        "gz-440112-22ec4fcc",
+        "gz-440112-8bbf8f06",
+        "gz-440112-c80ac6ac",
+        "gz-440112-a0244635",
+        "gz-440112-ff5acfd5"
+      ],
+      "feed_unresolved": [],
+      "direct_feed_school_id": null,
+      "source_note": "2026年黄埔区义务教育学校招生工作实施细则（穗埔教〔2026〕265号）附件5《2026年黄埔区小升初电脑随机派位及对口直升分组表》（电脑派位7组 + 对口直升22组，单校划片/多校划片并行）。 第4组电脑派位，组内全部初中为派位池（按派位结果分配，可填志愿）。",
+      "group_id": 134,
+      "data_gaps": null
+    },
+    {
       "school_id": "gz-440112-9e481bef",
       "feed_school_ids": [
         "gz-440112-ee49f05d"
