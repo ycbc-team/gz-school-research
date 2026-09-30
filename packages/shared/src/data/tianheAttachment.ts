@@ -27,8 +27,9 @@ export const tianheA11Text = '清华附中湾区学校智谷校区小学部：20
  * 附件10 记录的招生说明标注（scope 命中「详见附件10」时替换 mechanism_note）：
  * 此类学校走「自主报名+电脑派位」，并非划片招生——覆盖 B 层统一模板
  * 「公办初中划片招生（2026 细则附件6）」的错误标注。
+ * 平铺语义：引用已替换为实际内容，标注中不再保留「附件10」来源字眼。
  */
-export const tianheA10MechanismNote = '公办初中电脑派位招生（2026 细则附件10）';
+export const tianheA10MechanismNote = '公办初中电脑派位招生';
 
 /**
  * 把「详见附件10/11」引用平铺为内容：

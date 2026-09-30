@@ -142,7 +142,9 @@ export function createMiddleEnrollmentApi(loaders: DataLoaders) {
       };
       if (r.school_id && !byId.has(r.school_id)) byId.set(r.school_id, r);
       const def = mechanisms[r.mechanism] || DEFAULT_DEFS[r.mechanism];
-      const match: MiddleEnrollmentMatch = { record: r, mechanismDef: def, district: snap.district };
+      // 附件10 电脑派位记录：机制标签覆盖为「电脑派位」（single_zone 模板的「单校划片」标签不成立）
+      const a10Label = /详见附件10/.test(r0.scope ?? '') ? '电脑派位' : def.label;
+      const match: MiddleEnrollmentMatch = { record: r, mechanismDef: { ...def, label: a10Label }, district: snap.district };
       // 去重：school_id 可能同时出现在 school_ids（如执信天河 22fcbcd6），避免 byIdAll 同一记录重复索引
       const ids = [...new Set(r.school_id ? [r.school_id, ...(r.school_ids || [])] : (r.school_ids || []))];
       for (const id of ids) {
