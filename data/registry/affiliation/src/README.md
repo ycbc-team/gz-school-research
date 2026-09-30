@@ -1,6 +1,6 @@
-# level/src — 高中层级/学校清单源数据
+# affiliation/src — 高中层级/学校清单源数据（隶属/层级人工源）
 
-`levels.json`：人工调研产物（学校清单/分类/指标，含特控率喜报/网传口径），是高中业务共享的人工源数据。
+`levels.json`：人工调研产物（学校清单/分类/指标，含特控率喜报/网传口径；`affiliation` 字段承载省市属/区属/民办归属），是高中业务共享的人工源数据。原位于 `data/high/level/src/`，2026-09-30 随隶属业务归位本目录（`data/registry/affiliation/src/`）。
 
 **消费方：**
 - `data/poi/scripts/build_high_levels_js.py` —— 高中点位清洗依据（学校清单+分类+指标）
