@@ -2,6 +2,8 @@
 
 > 本文记录已完成的迁移过程，部分路径和行数已不再代表当前实现。请以 [当前架构](architecture.md) 和代码为准。
 
+> **2026-09-30 更新**：老地图页 `pages/map` 已下线——页面注册、`apps/miniprogram/assets/markers/` 旧图标（shared 学段色生成的那套）与构建脚本 `scripts/miniprogram/gen-markers.mjs` 一并移除。地图功能现由首页 `pages/index`（知性蓝 UI 稿重构版）统一承担；详情页"在地图中查看"改为写入 `getApp().pendingFocus` 后 `switchTab` 回首页，由首页 `onShow` 定位（放大居中 + 信息卡，对齐原 map 页 focus 行为）。小程序 marker 图标仅保留首页一套 `assets/markers-index/`（构建产物，`.gitignore` 忽略，由 `npm run build:mp` 生成）。下表涉及 `pages/map` 的历史行均已更新为当前状态。
+
 > 目标：把小程序从 "三页骨架" 补齐到与 Web 对齐（地图全功能 / 学校详情 / 升学通道 / 政策说明 / 支撑度）。
 > 手段：重构 Web 侧，把业务层与数据层下沉到 
 >
@@ -23,7 +25,7 @@
 | 功能                   | Web（Vue3）                                       | 小程序（原生）                       | 差距     |
 | -------------------- | ----------------------------------------------- | ----------------------------- | ------ |
 | 首页统计                 | HomeView.vue（96 行）                              | pages/index（基础统计）             | 基本对齐   |
-| 三学段地图                | MapView.vue（764 行）                              | pages/map（仅小学点位 + 区筛选，约 50 行） | **大**  |
+| 三学段地图                | MapView.vue（764 行）                              | pages/index（首页地图：三学段 + 三级筛选 + 搜索 + 信息卡 + 详情跳转） | 已对齐 |
 | 地图七类配色 / 梯队图标        | ✅ 七类配色 + 有支撑加粗 / 晕光 / 挂牌虚线                      | ❌ 单一默认图标                      | **大**  |
 | 地图三级筛选（区域 / 学段 / 分级） | ✅ 贝壳式浮层                                         | ❌ 仅区域单选                       | **大**  |
 | 地图搜索                 | ✅ 按校名搜索 + 徽章                                    | ❌                             | 缺失     |
@@ -295,7 +297,7 @@ module.exports = createRepository({
 
 | 页面                        | 现状 → 目标                                         | 页面 JS 形态                                                                                                   |
 | ------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `pages/map`               | 小学 + 区筛选 → **三学段七类配色 + 三级筛选 + 搜索 + 信息卡 + 详情跳转** | 调用 `buildPoints` + `createMapFilterStore` + `buildInfoModel` + `searchSchools`；`<map>` 的 markers 由共享点位模型渲染 |
+| `pages/index`             | 首页地图（知性蓝重构版）：三学段七类配色 + 三级筛选 + 搜索 + 信息卡 + 详情跳转 | 调用 `buildPoints` + `createMapFilterStore` + `buildInfoModel` + `searchSchools`；`<map>` 的 markers 由共享点位模型渲染。~~`pages/map`~~（老地图页）已于 2026-09-30 下线，此页统一承接地图功能 |
 | `pages/school-detail`（新增） | 详情页                                             | 调用 `buildDetailModel`，WXML 渲染                                                                              |
 | `pages/linkage`（新增）       | 升学通道                                            | 调用 `domain/linkage`                                                                                        |
 | `pages/support`           | 简化列表 → 完整信号列                                    | 调用 `domain/support/table`                                                                                  |
@@ -305,7 +307,7 @@ module.exports = createRepository({
 
 
 
-* **七类配色**：微信 `<map>` 的 `markers[].icon` 需要本地图片路径。方案：由 `map/constants.ts` 的七类配置**生成 7 张小圆点图标 PNG**（构建脚本 `scripts/miniprogram/build.mjs` 增加一步：用 shared 的颜色值渲染 base64/PNG 写入 `apps/miniprogram/assets/markers/`），两端颜色永远一致。
+* **marker 图标**：微信 `<map>` 的 `markers[].icon` 需要本地图片路径。落地：构建脚本 `scripts/miniprogram/build.mjs` 调用 `gen-markers-index.mjs`，按 UI 稿《知性蓝》学段分色（小学蓝 / 初中橙 / 高中绿）生成 **14 张 PNG**（7 学段组合 × 普通/选中）写入 `apps/miniprogram/assets/markers-index/`（构建产物，git 忽略）。~~`assets/markers/`~~（shared 学段色那套，曾对齐 Web MapView）已随老地图页下线。
 
 * **1000+ markers 性能**：915 小学 + 296 初中 + 126 高中 ≈ 1300+ 点，直接全量 `markers` 会卡。方案：
 
@@ -327,7 +329,7 @@ module.exports = createRepository({
 * **当前包体积**：构建产物 `data/` ≈ **3.2MB**、`shared/` ≈ 32KB（2026-09-11 实测）。微信主包上限 2MB / 总包 20MB（含分包）。
 
 
-  * 结论：**必须引入分包**。建议：`pages/index` + `pages/map` 进主包（核心高频），`school-detail` / `linkage` / `support` / `policy` 进 `subpackages`（按需加载）。
+  * 结论：**必须引入分包**。当前落地：`pages/index` + `pages/policy` 进主包，`school-detail` 进 `subpackages`（按需加载）。~~原建议 `pages/map` 进主包~~ 已随老地图页下线失效。
 
   * 补充：`data/linkage/dist/*`（quota/special/batch2 三个 JSON 约 1.2MB）只有 linkage / 详情页用到，可放分包目录内，不进主包。
 
@@ -348,8 +350,8 @@ module.exports = createRepository({
 | 状态管理       | 纯 TS Store + 各端响应式适配，不引入 Pinia/MobX                     | 小程序无法复用框架层，纯 TS 双端零成本                               |
 | 数据共享形态     | loader 注入，shared 不内嵌 JSON                               | 延续 "数据不内嵌" 约定；Web import JSON 与小程序 require CJS 机制不同 |
 | 地图渲染       | 两端各自渲染，共享数据模型                                           | Leaflet 与微信 `<map>` API 完全不同，强行抽象渲染层收益低             |
-| marker 图标  | 构建脚本按共享颜色常量生成 7 类 PNG                                   | 保证两端配色唯一真源在 shared                                  |
-| 分包         | 主包：index/map；分包：detail/linkage/support/policy + 相关 data | 主包 2MB 限制（当前 data 已 3.2MB）                          |
+| marker 图标  | 构建脚本按 UI 稿《知性蓝》学段分色生成 14 张 PNG（首页）           | 小程序侧唯一真源为 `gen-markers-index.mjs`；Web 仍用 shared `STAGE_COLOR`（MapView.vue） |
+| 分包         | 主包：index/policy；分包：school-detail + 相关 data | 主包 2MB 限制（当前 data 已 3.2MB）；~~原建议主包含 map~~ 已随老地图页下线失效 |
 | 重构节奏       | 先下沉 shared + Web 适配零回归，再补小程序                            | 避免 "重构 + 新功能" 同时进行导致的回归面过大                          |
 | 风险：Web 回归  | shared 迁移后跑 `npm run check` + 手测地图 / 详情 / 通道三页          | 导出名不变，改动集中在 import 来源                               |
 | 风险：小程序地图性能 | 1300+ markers                                           | P1 先做筛选降载，P4 做聚类                                    |
@@ -377,7 +379,7 @@ P1  小程序地图补齐（预计 2\~3 天）
 
 &#x20;   ├─ 三级筛选 + 搜索 + 信息卡（cover-view 浮层）+ 详情跳转
 
-&#x20;   └─ 分包结构落地（主包 index/map）
+&#x20;   └─ 分包结构落地（主包 index/policy；~~原 index/map~~ 随老地图页下线调整）
 
 P2  小程序学校详情页（预计 1\~2 天）
 

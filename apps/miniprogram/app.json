@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/map/map",
     "pages/policy/policy"
   ],
   "subpackages": [

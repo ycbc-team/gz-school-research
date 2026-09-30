@@ -1,6 +1,6 @@
 /**
  * 首页专用 marker 图标生成（构建期）：按 UI 稿《知性蓝》学段分色生成 PNG。
- * 与 map 页的 gen-markers.mjs 同源逻辑，仅替换「学段分色」唯一真源与输出目录，
+ * 与已下线的老地图页 marker 生成脚本（gen-markers.mjs）同源逻辑，仅替换「学段分色」唯一真源与输出目录，
  * 不改动 map 页任何文件。产物：apps/miniprogram/assets/markers-index/
  *   普通 marker-{p|m|h|pm|ph|mh|pmh}.png + 同名 -sel.png（选中态，知性蓝光晕）
  */
@@ -35,7 +35,7 @@ const HALO_OUT = 23.0;     // 光晕外缘半径（离 48px 画布边 1px）
 const HALO_GLOW_A = 0.42;  // 光晕内缘不透明度
 const HALO_RING_A = 0.95;  // 外缘实心环不透明度
 
-/* ---------- PNG 编码（最小实现，与 gen-markers.mjs 同构） ---------- */
+/* ---------- PNG 编码（最小实现） ---------- */
 const CRC_TABLE = (() => {
   const t = new Int32Array(256);
   for (let n = 0; n < 256; n++) {
