@@ -3,6 +3,7 @@
  */
 import type { EnrollmentSnapshot, MiddleEnrollmentSnapshot, MiddleEnrollmentRecord, MiddleMechanismDef, MiddleMechanism } from '../types.js';
 import type { DataLoaders } from './loader.js';
+import { expandPanyuNotes } from './panyuExplains.js';
 
 /** 归一：去 广州市/广州 前缀、去括号及括号内容、去 小学/学校/校区 后缀 */
 export function normSchoolName(s: string): string {
@@ -37,7 +38,7 @@ export function createEnrollmentApi(loaders: DataLoaders) {
   // records（公办）+ minban（民办招生计划）统一按 school_id 建索引
   const ENROLL_BY_ID = new Map<string, EnrollmentMatch>();
   for (const e of enrollments) {
-    for (const r of e.records) if (r.school_id) ENROLL_BY_ID.set(r.school_id, { ...r, matchedBy: '' });
+    for (const r of e.records) if (r.school_id) ENROLL_BY_ID.set(r.school_id, { ...r, note: expandPanyuNotes(r.note ?? '', 'primary'), matchedBy: '' });
     for (const m of e.minban || []) {
       const sid = m.school_id;
       if (!sid) continue;
@@ -116,7 +117,8 @@ export function createMiddleEnrollmentApi(loaders: DataLoaders) {
   const byIdAll = new Map<string, MiddleEnrollmentMatch[]>();
   for (const snap of list) {
     for (const r0 of snap.records) {
-      const r = r0;
+      // 招生说明「见说明N」在数据层平铺为番禺区说明内容（初中版），各端（web/小程序）一致展示
+      const r = { ...r0, mechanism_note: expandPanyuNotes(r0.mechanism_note ?? '', 'middle') };
       if (r.school_id && !byId.has(r.school_id)) byId.set(r.school_id, r);
       const def = mechanisms[r.mechanism] || DEFAULT_DEFS[r.mechanism];
       const match: MiddleEnrollmentMatch = { record: r, mechanismDef: def, district: snap.district };
