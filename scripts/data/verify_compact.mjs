@@ -41,9 +41,10 @@ function exists(p) {
   try { statSync(p); return true; } catch { return false; }
 }
 
-/** 主包列裁剪映射（与 compact.mjs MP_TRIM 同步）：比较时对真源做同款裁剪 */
+/** 主包列裁剪映射（与 compact.mjs MP_TRIM 同步）：比较时对真源做同款裁剪
+ *  （source_note 自 2026-10 起仅保留在 parsed 审计层、不入 dist，仅裁剪 source_url） */
 const MP_TRIM = {
-  'primary/xiaoshengchu_2026': ['source_note', 'source_url'],
+  'primary/xiaoshengchu_2026': ['source_url'],
 };
 
 function trimKeys(o, keys) {

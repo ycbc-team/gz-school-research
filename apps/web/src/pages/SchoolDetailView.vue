@@ -421,7 +421,6 @@ function goCampus(item: { id: string; name: string }) {
         </div>
       </div>
       <p v-if="feedGap" class="empty" :style="feedRows.length ? 'margin-top:8px;text-align:left;' : ''">{{ feedGap }}</p>
-      <p v-if="feedJuniors?.source_note" class="sub-note" style="margin-top:8px;">{{ feedJuniors.source_note }}</p>
       <p v-if="feedRows.length" class="sub-note" style="margin-top:4px;">点击初中可查看该校升学通道详情。</p>
     </div>
 

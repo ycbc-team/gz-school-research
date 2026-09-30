@@ -47,11 +47,12 @@ const DICT_SPEC = {
 /**
  * 小程序主包专用列裁剪：地图信息卡不消费的字段不编译进主包产物
  * （详情页在分包，用 Web 全量产物；shapeRecord/formatXiaoshengchuBrief 不读被裁字段）。
- * 收益：source_note ~90KB（信息卡不用）、source_url 已字典化（省 ~2KB）。
+ * 收益：source_url 已字典化（省 ~2KB）；source_note 自 2026-10 起仅保留在 parsed 审计层，
+ * 不再进入 dist 产物，无需裁剪。
  */
 const MP_TRIM = {
-  // 主包地图页/信息卡不消费 source_note（~90KB）与 source_url（详情页分包用全量产物）
-  'data/primary/transition/dist/xiaoshengchu_2026.json': ['source_note', 'source_url'],
+  // 主包地图页/信息卡不消费 source_url（详情页分包用全量产物）
+  'data/primary/transition/dist/xiaoshengchu_2026.json': ['source_url'],
 };
 
 /**

@@ -30,6 +30,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.d
 DATA = os.path.join(ROOT, 'data', 'primary', 'transition')
 RAW = os.path.join(DATA, 'raw')
 OUT_DIR = os.path.join(DATA, 'dist')
+# 审计层：source_note 等来源说明仅保留在 parsed/（xiaoshengchu_<区>_2026.json），不带入 dist 运行时产物
+AUDIT_DIR = os.path.join(os.path.dirname(OUT_DIR), 'parsed')
 
 
 def load_entities_primary():
@@ -453,7 +455,7 @@ BW_MAP = {
     '培英附小': ['广州市培英中学附属小学'],          # 培英附小=培英中学附属小学（官方初中表简称）
     '汇侨第一小学': ['汇侨第一小学(汇侨校区)', '汇侨第一小学(纵横缤城校区)', '汇侨第一小学小坪校区'],
     '广州市白云中学棠景校区小学部': ['广州市白云中学棠景校区小学部'],   # 2026-09-10 中学层复用（坐标取自白云中学汇侨校区，九年制直升）
-    '三元里小学': ['三元里小学', '三元里小学南校区'],   # 官方"三元里小学（不含北校区）"含校本部/南校区；北校区单列
+    '三元里小学（不含北校区）': ['三元里小学', '三元里小学南校区'],   # 官方原文=校本部+南校区（排除语义由 RESOLVE_OVERRIDE 承接）；北校区单列归 67 中
     '三元里小学北校区': ['三元里小学(北校区)'],
     '羊城铁路总公司广州铁路第五小学': ['广州铁路第五小学'],
     '民航学校': ['白云区民航学校小学部'],             # 官方"民航学校（小学部）"
@@ -605,7 +607,7 @@ BW_FEED = {
     '广州市广园中学': ('单校划片', ['广园小学', '景泰小学', '培英附小'], '培英附小部分户籍生（摇号产生）'),
     '广州市白云中学（汇侨校区）': ('单校划片', ['汇侨第一小学'], ''),
     '广州市白云中学（棠景校区）': ('单校划片', ['广州市白云中学棠景校区小学部'], ''),
-    '广州市三元里中学': ('单校划片', ['三元里小学', '羊城铁路总公司广州铁路第五小学'], '因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排'),
+    '广州市三元里中学': ('单校划片', ['三元里小学（不含北校区）', '羊城铁路总公司广州铁路第五小学'], '因涉拆迁2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排'),
     '广州市白云区民航学校': ('单校划片', ['民航学校', '培英附小'], '培英附小部分户籍生（摇号产生）'),
     '广州市白云区新市中学': ('单校划片', ['萧岗小学', '棠涌小学', '白云中学附属小学'], ''),
     '广州市白云区景泰中学': ('单校划片', ['景泰小学', '培英附小'], '景泰小学（柯子岭地段人户一致地段生）；培英附小部分户籍生（摇号产生）'),
@@ -1688,7 +1690,7 @@ def build_tianhe():
             if official == '清华附中湾区学校（小学部）':
                 note += ' 九年制学校小学部毕业生直升本校初中部（官方附件6 未将清湾纳入划片，初中部面向全区自主报名电脑派位）。'
             elif len(feed) > 1:
-                note += ' 官方划片表同时列出多所对口（见 source_note）。'
+                note += ' 官方划片表同时列出多所对口。'
             gaps = None
         for en in ents:   # 多校区官方名 → 全部校区实体名（并列建记录）
             if en in covered:
@@ -2009,11 +2011,21 @@ DISTRICTS = {
 
 
 def dump(district, label, records, covered, missing):
-    path = os.path.join(OUT_DIR, f'xiaoshengchu_{district}.json')
     # 产物确定性排序（2026-09-29）：records 按 name 稳定排序 + sort_keys 统一键序，
     # 构建逻辑再变也不产生顺序 diff（跨版本 review 只看内容增删）。
     records.sort(key=lambda r: r['name'])
+    # 审计层（parsed/）：保留完整记录（含 source_note 来源说明，前端不消费、仅审计溯源）
+    audit_path = os.path.join(AUDIT_DIR, f'xiaoshengchu_{district}_2026.json')
     json.dump({'year': 2026, 'district': label, 'records': records},
+              open(audit_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1, sort_keys=True)
+    # 运行时层（dist/）：剥离 source_note——source_note 仅保留在 parsed 审计层，不带入 dist、不展示前端
+    runtime_records = []
+    for r in records:
+        rr = dict(r)
+        rr.pop('source_note', None)
+        runtime_records.append(rr)
+    path = os.path.join(OUT_DIR, f'xiaoshengchu_{district}.json')
+    json.dump({'year': 2026, 'district': label, 'records': runtime_records},
               open(path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1, sort_keys=True)
     poi = load_poi()
     total = len([s for s in poi if s['adcode'] == DISTRICT_ADCODE[district]])

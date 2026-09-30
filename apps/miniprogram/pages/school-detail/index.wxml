@@ -67,7 +67,6 @@
       </view>
     </view>
     <view wx:if="{{model.feedGap}}" class="empty">{{model.feedGap}}</view>
-    <view wx:if="{{model.feedJuniors.source_note}}" class="sub-note">{{model.feedJuniors.source_note}}</view>
   </view>
 
   <!-- 初中：生源小学 -->

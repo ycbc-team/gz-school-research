@@ -73,7 +73,6 @@ class XsResolver:
             'feed_unresolved': feed_unresolved,
             'direct_feed_school_id': direct,
             'source_url': r.get('source_url'),
-            'source_note': r.get('source_note'),
             'data_gaps': r.get('data_gaps'),
         }
 
@@ -105,7 +104,7 @@ if __name__ == '__main__':
             'feed_school_ids': r.get('feed_school_ids'), 'feed_unresolved': r.get('feed_unresolved'),
             'direct_feed_school_id': r.get('direct_feed_school_id'),
             'source_url': (g.get('source_urls') or [None])[0],
-            'source_note': r.get('source_note'), 'data_gaps': r.get('data_gaps'),
+            'data_gaps': r.get('data_gaps'),
         })
     # 当前 2026 已按 (group, school_id) 去重合并 feed；py 结果先聚合再比对
     agg = {}

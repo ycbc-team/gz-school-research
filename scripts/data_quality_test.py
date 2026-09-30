@@ -583,15 +583,23 @@ def main():
             if _r.get("school_id") in _minban_ids16:
                 _bad_mid.append(f"{os.path.basename(_f)} | {_r.get('school', _r.get('name'))} | {_r.get('school_id')}")
     # 综合表 data/primary/transition/dist/xiaoshengchu_2026.json / xiaoshengchu_all.json 也纳入；
-    # 民办"不参与公办派位"缺口记录（source_note/data_gaps/group 含"民办"）属正常民办升学说明，放行。
+    # 民办"不参与公办派位"缺口记录（group/data_gaps 含"民办"或"不参与公办派位"）属正常民办升学说明，放行。
+    # 注：原判定依赖 source_note 文本（"民办/地段"字样）；source_note 自 2026-10 起仅保留在
+    # parsed 审计层、不入 dist，故改用 group 语义 + 白云区级判定（白云官方对口表明确列出民办
+    # 小学"地段生"对口，如方圆实验小学——该类记录 feed 非空且只能来自官方对口表原文）。
     for _f in sorted(glob.glob(os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_*.json"))):
         _d = json.load(open(_f))
+        # xiaoshengchu_2026.json 的 group 为外键 group_id（维表在 groups），join 拿文本
+        _xs_groups = {g["id"]: g.get("name", "") for g in _d.get("groups", [])}
         for _r in _d.get("records", []):
             if _r.get("school_id") in _minban_ids16:
-                _gap_txt = str(_r.get("source_note") or "") + str(_r.get("data_gaps") or "") + str(_r.get("group") or "")
-                # 放行两类正常民办升学：①"不参与公办派位"缺口（民办/其他）；②民办小学的
-                # "地段生"升公办初中对口（白云官方对口表明确列出"XX小学（地段生）"，如方圆实验小学）
-                if "民办" in _gap_txt or "地段" in _gap_txt:
+                _gname = _xs_groups.get(_r.get("group_id")) or _r.get("group") or ""
+                _gap_txt = str(_r.get("data_gaps") or "") + _gname
+                # 放行两类正常民办升学：①"不参与公办派位"缺口（民办/其他）；②白云民办小学的
+                # "地段生"升公办初中对口（白云官方对口表明确列出，如方圆实验小学）
+                if "民办" in _gap_txt or "不参与公办派位" in _gap_txt:
+                    continue
+                if _r.get("school_id", "").startswith("gz-440111") and _r.get("feed_school_ids"):
                     continue
                 _bad_xs.append(f"{os.path.basename(_f)} | {_r.get('school', _r.get('name'))} | {_r.get('school_id')}")
     for _b in _bad_pri + _bad_mid + _bad_xs:

@@ -13,7 +13,7 @@
  *   feed_school_ids[]    对口/派位初中实体 id（纯外键）
  *   feed_unresolved[]    未解析到 POI 的官方初中名（显式缺口，可审计，不做模糊匹配）
  *   direct_feed_school_id 直升初中实体 id
- *   source_url / source_note / data_gaps
+ *   source_url / data_gaps（source_note 仅保留在 parsed 审计层，不带入 dist、不展示前端）
  * district 由 school_id → POI.adcode join 得到，不存。
  *
  * 用法：node scripts/registry/upgrade_xiaoshengchu.mjs [--src <输入 all.json> --out <输出 2026.json>]
@@ -48,11 +48,11 @@ const outRecords = src.records.map((r) => {
     feed_school_ids: r.feed_school_ids || [],
     feed_unresolved: r.feed_unresolved || [],
     direct_feed_school_id: r.direct_feed_school_id,
-    source_url: r.source_url, source_note: r.source_note, data_gaps: r.data_gaps,
+    source_url: r.source_url, data_gaps: r.data_gaps,
   };
 });
 // 同 (group, school_id) 去重：同一小学多源名/多条源记录（更名残留、实体合并、源表重复行）
-// 解析到同一实体时，feed 并集、保留较完整 note——产物层单条，避免前端同校重复展示。
+// 解析到同一实体时，feed 并集——产物层单条，避免前端同校重复展示。
 // （school_id 为空的历史缺口记录不合并，保持逐条可排查。）
 const deduped = [];
 {
@@ -64,7 +64,6 @@ const deduped = [];
     if (!prev) { byKey.set(k, r); continue; }
     prev.feed_school_ids = [...new Set([...(prev.feed_school_ids || []), ...(r.feed_school_ids || [])])];
     prev.feed_unresolved = [...new Set([...(prev.feed_unresolved || []), ...(r.feed_unresolved || [])])];
-    if (!(prev.feed_school_ids || []).length && (r.feed_school_ids || []).length) prev.source_note = r.source_note;
   }
   deduped.push(...byKey.values());
 }
