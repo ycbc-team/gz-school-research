@@ -11,9 +11,10 @@
  *   消除学校规模差异（学生多则名额自然多，须看比例）
  */
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { DISTRICTS } from '@gz/shared';
 import { rankingMiddle, quotaMatrix, entities, middleOrgSort, civilizedCampusSchoolIds, groupOfSchool, quotaOutcome } from '../data';
+import { queryScalar, querySet, useQuerySync } from '../routeQuery';
 import DetailFilterBar from '../components/DetailFilterBar.vue';
 import DetailPageHeader from '../components/DetailPageHeader.vue';
 import DetailRankingList from '../components/DetailRankingList.vue';
@@ -40,6 +41,7 @@ interface Row {
 }
 
 const router = useRouter();
+const route = useRoute();
 
 /** dist 行运行时联表还原（口径与 canonical/ranking_middle.json 一致）：
  * - ranking_middle：school_id/school_ids/autonomy_count/tekong_quota_rate
@@ -143,9 +145,10 @@ function goSchool(name: string, id?: string) {
 }
 
 const openMenu = ref<'group' | 'filter' | 'metric' | null>(null);
-const groupBy = ref<'none' | 'district' | 'group'>('none');
+/** 筛选/排序状态同步到 URL query：详情页返回时浏览器恢复 URL，组件重建据此还原（见 routeQuery.ts）。 */
+const groupBy = ref<'none' | 'district' | 'group'>(queryScalar(route.query.group, ['district', 'group'] as const, 'none'));
 type MetricKey = 'default' | 'qu_ratio' | 'sheng_ratio' | 'tekong' | 'sheng_min' | 'qu_min';
-const metric = ref<MetricKey>('default');
+const metric = ref<MetricKey>(queryScalar(route.query.metric, ['default', 'qu_ratio', 'sheng_ratio', 'tekong', 'sheng_min', 'qu_min'] as const, 'default'));
 
 const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: string }> }> = [
   {
@@ -314,7 +317,7 @@ function levelSort(a: { s: Row; v: number | null; minban?: boolean }, b: { s: Ro
 }
 
 /** 行政区位置筛选：默认全选，参考高中明细（未列入七区的行仅在全选时保留）。 */
-const selectedDistricts = ref(new Set(DISTRICTS.map((d) => d.adcode)));
+const selectedDistricts = ref(querySet<string>(route.query.districts) ?? new Set(DISTRICTS.map((d) => d.adcode)));
 const districtAllOn = computed(() => selectedDistricts.value.size === DISTRICTS.length);
 function toggleDistrict(adcode: string) {
   const next = new Set(selectedDistricts.value);
@@ -332,7 +335,7 @@ function districtVisible(s: Row): boolean {
 }
 const CIVILIZED_FILTERS = [['national', '全国文明校园'], ['provincial', '广东省文明校园'], ['municipal', '广州市文明校园'], ['advanced', '创建先进学校（储备）'], ['other', '其他']] as const;
 type CivilizedKey = typeof CIVILIZED_FILTERS[number][0];
-const selectedCivilized = ref<Set<CivilizedKey> | null>(null);
+const selectedCivilized = ref<Set<CivilizedKey> | null>(querySet<CivilizedKey>(route.query.honor, new Set(CIVILIZED_FILTERS.map(([v]) => v))) ?? null);
 const civilizedAllOn = computed(() => selectedCivilized.value === null);
 function civilizedOn(key: CivilizedKey) { return civilizedAllOn.value || selectedCivilized.value!.has(key); }
 function toggleCivilized(key: CivilizedKey) { const next = new Set(selectedCivilized.value || CIVILIZED_FILTERS.map(([v]) => v)); next.has(key) ? next.delete(key) : next.add(key); selectedCivilized.value = next; }
@@ -342,6 +345,21 @@ const filterCount = computed(() => (districtAllOn.value ? 0 : selectedDistricts.
 function resetFilters() { selectedDistricts.value = new Set(DISTRICTS.map((d) => d.adcode)); selectedCivilized.value = null; }
 function toggleAllDistricts() { selectedDistricts.value = districtAllOn.value ? new Set() : new Set(DISTRICTS.map((d) => d.adcode)); }
 function toggleAllCivilized() { selectedCivilized.value = civilizedAllOn.value ? new Set() : null; }
+/** 分组/指标/筛选状态同步到 URL query（见 routeQuery.ts） */
+useQuerySync(
+  () => ({
+    group: groupBy.value === 'none' ? undefined : groupBy.value,
+    metric: metric.value === 'default' ? undefined : metric.value,
+    districts: districtAllOn.value ? undefined : [...selectedDistricts.value].join(','),
+    honor: selectedCivilized.value ? [...selectedCivilized.value].join(',') : undefined,
+  }),
+  (q) => {
+    groupBy.value = queryScalar(q.group, ['district', 'group'] as const, 'none');
+    metric.value = queryScalar(q.metric, ['default', 'qu_ratio', 'sheng_ratio', 'tekong', 'sheng_min', 'qu_min'] as const, 'default');
+    selectedDistricts.value = querySet<string>(q.districts) ?? new Set(DISTRICTS.map((d) => d.adcode));
+    selectedCivilized.value = querySet<CivilizedKey>(q.honor, new Set(CIVILIZED_FILTERS.map(([v]) => v))) ?? null;
+  },
+);
 
 const groupLabel = computed(() => ({ none: '不分组', district: '按区', group: '按集团' })[groupBy.value]);
 
