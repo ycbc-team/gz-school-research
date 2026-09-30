@@ -82,6 +82,12 @@ function isVisiblePt(pt: MapPointFull): boolean { return isVisible(state(), pt);
 const HIST_KEY = 'gz_web_search_history';
 const kw = ref('');
 const searchPageOpen = ref(false);
+// 顶部全局导航（header.app-header）高度：搜索中间页从导航下方开始，不遮挡导航栏
+const navH = ref(59);
+function measureNavH() {
+  const h = document.querySelector('header.app-header');
+  navH.value = h ? Math.round(h.getBoundingClientRect().height) : 59;
+}
 const assocs = ref<AssocResult[]>([]);
 const history = ref<string[]>([]);
 const recommends = ref<string[]>(buildRecommendList(mapPoints));
@@ -335,10 +341,11 @@ function coreCenter(): [number, number] | null {
 
 onMounted(() => {
   fitMapPage();
+  measureNavH();
   window.addEventListener('resize', fitMapPage);
   window.visualViewport?.addEventListener('resize', fitMapPage);
   // 字体加载完成会改变头部高度（窄屏换行），字体就绪后重新精确测量一次
-  document.fonts?.ready.then(fitMapPage).catch(() => {});
+  document.fonts?.ready.then(() => { fitMapPage(); measureNavH(); }).catch(() => {});
   if (!mapEl.value) return;
   const cc = coreCenter();
   map = L.map(mapEl.value, {
@@ -528,8 +535,9 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
   <!-- 浮层：搜索 + 筛选（压在地图上方） -->
   <div class="float-panel" :class="{ 'float-panel-hidden': !!infoModel }">
     <div class="search-bar">
+      <span class="mag"></span>
       <!-- readonly + @click：仅用户点击时打开全屏搜索中间页；不用 @focus，避免加载/热更新后自动聚焦误触发弹层 -->
-      <input v-model="kw" class="search-input" placeholder="搜索学校名，如：华南师范大学附属中学" readonly @click="openSearchPage()" />
+      <input v-model="kw" class="search-input" placeholder="搜索广州小初高学校" readonly @click="openSearchPage()" />
     </div>
 
     <div class="panel-divider"></div>
@@ -607,7 +615,7 @@ const infoModel = computed(() => (active.value ? buildInfoModel(active.value, re
   <div ref="mapEl" class="map"></div>
 
   <!-- 搜索中间页（全屏层，对齐小程序 index searchpage：历史 / 推荐 / 联想 + 空态） -->
-  <div v-if="searchPageOpen" class="search-page">
+  <div v-if="searchPageOpen" class="search-page" :style="{ top: `${navH}px` }">
     <div class="search-head">
       <button class="back" @click="closeSearchPage()"><span class="chev"></span></button>
       <div class="sip" :class="{ typed: !!kw }">
@@ -693,24 +701,34 @@ section { position: relative; }
   box-shadow: 0 2px 10px rgba(20,30,50,0.12); transition: transform .22s ease, opacity .18s ease;
 }
 .float-panel.float-panel-hidden { transform: translateY(-130%); opacity: 0; pointer-events: none; }
-.search-bar { position: relative; }
-.search-input {
-  width: 100%; box-sizing: border-box; border: none; border-radius: 14px 14px 0 0;
-  background: transparent; padding: 11px 14px; font-size: 13.5px; outline: none;
+.search-bar {
+  position: relative; display: flex; align-items: center;
+  height: 38px; margin: 6px 8px;
+  background: #F5F7FB; border-radius: 999px;
 }
-.search-input:focus { border-color: #9bbbf4; }
+.search-bar .mag { flex: none; width: 14px; height: 14px; border: 1.5px solid #8B96AD; border-radius: 50%; position: relative; margin-left: 12px; }
+.search-bar .mag::after { content: ''; position: absolute; width: 6px; height: 1.5px; background: #8B96AD; transform: rotate(45deg); right: -4px; bottom: -2px; }
+.search-input {
+  flex: 1; min-width: 0; border: none; outline: none; background: transparent;
+  padding: 0 14px 0 8px; font-size: 13.5px; color: #33405C;
+}
 
-/* ===== 搜索中间页（全屏层，对齐小程序 index searchpage） ===== */
-.search-page { position: fixed; inset: 0; z-index: 1300; background: #F5F7FB; display: flex; flex-direction: column; }
-.search-head { height: 44px; flex: none; display: flex; align-items: center; gap: 9px; padding: 0 12px; border-bottom: 1px solid #EFF2F7; }
-.search-head .back { flex: none; width: 28px; height: 28px; border: 0; background: none; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+/* ===== 搜索中间页（对齐小程序 index searchpage）：从导航栏下方开始，头部与背景搜索框同位置重叠 ===== */
+.search-page {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 1300;
+  background: #F5F7FB; display: flex; flex-direction: column;
+  padding: 17px 19px 0; /* 顶部 17px=导航59+17→背景搜索框顶76；左右 19px 对齐背景胶囊搜索框边缘 */
+}
+/* 头行与背景搜索框几何一致（同高 38px、同左/右 11px、顶部 11px 内边距），打开时输入框原地展开不变位 */
+.search-head { height: 38px; flex: none; display: flex; align-items: center; gap: 9px; }
+.search-head .back { flex: none; width: 30px; height: 30px; border-radius: 50%; background: #F5F7FB; border: 1px solid #E3E8F0; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .search-head .chev { width: 10px; height: 10px; border-left: 2px solid #10182B; border-bottom: 2px solid #10182B; transform: rotate(45deg); display: block; }
-.search-head .sip { flex: 1; height: 32px; display: flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #DDE4EF; border-radius: 8px; padding: 0 10px; }
+.search-head .sip { flex: 1; height: 32px; display: flex; align-items: center; gap: 7px; background: #F5F7FB; border: 1px solid #E3E8F0; border-radius: 999px; padding: 0 12px; }
 .search-head .sip.typed { background: #fff; border-color: #98B6EC; box-shadow: 0 0 0 6px rgba(47,92,214,.08); }
 .search-head .sinput { flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font-size: 13.5px; color: #10182B; }
 .search-head .mag { flex: none; width: 12px; height: 12px; border: 1.5px solid #8B96AD; border-radius: 50%; position: relative; }
 .search-head .mag::after { content: ''; position: absolute; width: 5px; height: 1.5px; background: #8B96AD; transform: rotate(45deg); right: -3px; bottom: -1px; }
-.search-head .sgo { flex: none; border: 0; background: #E8EDF6; color: #8B96AD; font-size: 13px; border-radius: 8px; padding: 7px 12px; cursor: pointer; }
+.search-head .sgo { flex: none; border: 0; background: #E8EDF6; color: #8B96AD; font-size: 13px; border-radius: 999px; padding: 7px 12px; cursor: pointer; }
 .search-head .sgo.show { background: #2F5CD6; color: #fff; }
 .sbody { flex: 1; overflow-y: auto; padding-bottom: 6px; }
 .sblock { margin: 12px 16px 0; background: #fff; border: 1px solid #E3E8F0; border-radius: 14px; padding: 12px 14px 4px; }
