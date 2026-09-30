@@ -4,7 +4,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 14,
    "school": "广州市第18中学",
    "school_id": null,
@@ -17,7 +17,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 40,
    "school": "广州中学",
    "school_id": null,
@@ -31,7 +31,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 28,
    "school": "广州市第113中学",
    "school_id": null,
@@ -44,7 +44,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 14,
    "school": "广州市第75中学",
    "school_id": null,
@@ -57,7 +57,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 14,
    "school": "广州奥林匹克中学",
    "school_id": null,
@@ -70,7 +70,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 20,
    "school": "广州市天河中学",
    "school_id": null,
@@ -83,7 +83,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 6,
    "school": "广州市天河外国语学校",
    "school_id": null,
@@ -96,7 +96,8 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_label": "电脑派位",
+   "mechanism_note": "公办初中电脑派位招生",
    "plan_classes": 6,
    "school": "广州市天河外国语学校（珠江新城校区）、广州市天河外国语学校（智慧城校区）",
    "school_id": null,
@@ -104,12 +105,13 @@
     "gz-440106-069ddb41",
     "gz-440106-b711d94a"
    ],
-   "scope": "详见附件10"
+   "scope": "广州市天河外国语学校智慧城校区：招生计划10个班、360人。其中，9个班、324人面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）；20人面向具有天河户籍、且在长湴小学就读的长湴股份合作经济联社股东直系亲属子女招生，16人面向具有天河户籍、且在岑村小学就读的岑村股份合作经济联社股东直系亲属子女招生，当报名人数不足时，剩余招生计划纳入9个班，面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。广州市天河外国语学校珠江新城校区：招生计划6个班、216人。面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。"
   },
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_label": "电脑派位",
+   "mechanism_note": "公办初中电脑派位招生",
    "plan_classes": "8+8",
    "school": "清华附中湾区学校（智谷校区）、清华附中湾区学校（智慧城校区）",
    "school_id": null,
@@ -117,12 +119,12 @@
     "gz-440106-31895452",
     "gz-440106-e32237e4"
    ],
-   "scope": "详见附件10"
+   "scope": "清华附中湾区学校智慧城校区：招生计划8个班、336人。其中，296人面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）；40人面向具有天河户籍、且在岑村小学就读的岑村股份合作经济联社股东直系亲属子女招生，当报名人数不足时，剩余招生计划面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。清华附中湾区学校智谷校区：招生计划8个班、336人。面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。"
   },
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 7,
    "school": "广州市天河区同仁艺体实验中学",
    "school_id": null,
@@ -135,7 +137,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 16,
    "school": "广州天省实验学校",
    "school_id": "gz-440106-01fd3a87",
@@ -144,7 +146,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 6,
    "school": "广州市天河外国语均和学校",
    "school_id": "gz-440106-051b0157",
@@ -153,7 +155,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 2,
    "school": "广州市天河区培智学校",
    "school_id": "gz-440106-0a2c7178",
@@ -162,7 +164,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 2,
    "school": "广州市天河区兴华培智学校",
    "school_id": "gz-440106-0c83a9b2",
@@ -171,7 +173,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 2,
    "school": "广州市天河区同仁天兴学校",
    "school_id": "gz-440106-0d03d513",
@@ -180,7 +182,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 20,
    "school": "广州市天河区汇景实验学校",
    "school_id": "gz-440106-0d1e149e",
@@ -189,7 +191,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 6,
    "school": "广东实验中学天河学校",
    "school_id": "gz-440106-0eb93435",
@@ -198,7 +200,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": "4+1（特教）",
    "school": "广州市天河区暨南第一实验学校",
    "school_id": "gz-440106-11e15e8d",
@@ -207,7 +209,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "企事业办学校招生（附件7）",
+   "mechanism_note": "企事业办学校招生",
    "plan_classes": 6,
    "school": "暨南大学附属实验学校（初中部）",
    "school_id": "gz-440106-11e15e8d",
@@ -216,7 +218,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 6,
    "school": "广州中学天河燕园学校",
    "school_id": "gz-440106-15ca1554",
@@ -225,7 +227,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 2,
    "school": "广州市天河区新昌学校",
    "school_id": "gz-440106-1b9f7e62",
@@ -234,7 +236,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 10,
    "school": "广州市泰安中学",
    "school_id": "gz-440106-22156e02",
@@ -243,7 +245,8 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_label": "电脑派位",
+   "mechanism_note": "公办初中电脑派位招生",
    "plan_classes": 10,
    "school": "广州市执信中学天河校区",
    "school_id": "gz-440106-22fcbcd6",
@@ -251,12 +254,12 @@
     "gz-440104-1e9bdce3",
     "gz-440106-22fcbcd6"
    ],
-   "scope": "详见附件10"
+   "scope": "广州市执信中学天河校区：总招生计划10个班、420人。其中，3个班招生计划面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）；7个班招生计划面向珠吉街范围内的灵秀小学、奥体东小学、吉山小学、珠村小学、体育东教育集团均和小学等公办小学地段范围内“人户一致”的天河区学籍小学毕业生招生，当报名人数不足时，剩余招生计划面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。广州市执信中学天河校区：总招生计划10个班、420人。其中，3个班招生计划面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）；7个班招生计划面向珠吉街范围内的灵秀小学、奥体东小学、吉山小学、珠村小学、体育东教育集团均和小学等公办小学地段范围内“人户一致”的天河区学籍小学毕业生招生，当报名人数不足时，剩余招生计划面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。"
   },
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 2,
    "school": "广州市天河区培艺学校",
    "school_id": "gz-440106-23e66d3b",
@@ -265,7 +268,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 2,
    "school": "广州市天河区东风学校",
    "school_id": "gz-440106-24ff78f9",
@@ -274,7 +277,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 3,
    "school": "广州市天河区同仁学校",
    "school_id": "gz-440106-3d7736c5",
@@ -283,7 +286,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 3,
    "school": "广州市天河区棠福学校",
    "school_id": "gz-440106-4534dc1a",
@@ -292,7 +295,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 6,
    "school": "广州市天河区明珠中英文学校",
    "school_id": "gz-440106-4775be07",
@@ -301,7 +304,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 4,
    "school": "广州市天河区黄村中英文学校",
    "school_id": "gz-440106-4fac106a",
@@ -310,7 +313,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 8,
    "school": "广州市长兴中学",
    "school_id": "gz-440106-7077b270",
@@ -319,7 +322,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 2,
    "school": "广州市天河区大华学校",
    "school_id": "gz-440106-72c4c319",
@@ -328,7 +331,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 3,
    "school": "广州市天河区同仁实验学校",
    "school_id": "gz-440106-77787b4a",
@@ -337,7 +340,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 10,
    "school": "广州市华美英语实验学校",
    "school_id": "gz-440106-7abd2786",
@@ -346,7 +349,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 4,
    "school": "广州市第一一三中学陶育实验学校",
    "school_id": "gz-440106-7c81ab92",
@@ -355,7 +358,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": "4+1（特教）",
    "school": "广州市天河中学猎德实验学校",
    "school_id": "gz-440106-8b3ee7d2",
@@ -364,7 +367,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 18,
    "school": "广州市第89中学",
    "school_id": "gz-440106-8f55ab34",
@@ -373,7 +376,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 8,
    "school": "广州市天荣中学",
    "school_id": "gz-440106-90c47ff5",
@@ -382,7 +385,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 3,
    "school": "广州市天河区东泰学校",
    "school_id": "gz-440106-9abdc5fd",
@@ -391,7 +394,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "企事业办学校招生（附件7）",
+   "mechanism_note": "企事业办学校招生",
    "plan_classes": 4,
    "school": "华南理工大学附属实验学校",
    "school_id": "gz-440106-9bed7efb",
@@ -400,7 +403,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "企事业办学校招生（附件7）",
+   "mechanism_note": "企事业办学校招生",
    "plan_classes": 8,
    "school": "华南师范大学附属中学初中部",
    "school_id": "gz-440106-a565a93c",
@@ -409,7 +412,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 2,
    "school": "广州市天河区凤凰中学",
    "school_id": "gz-440106-ae248365",
@@ -418,7 +421,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 4,
    "school": "广州市南国学校",
    "school_id": "gz-440106-b0d40cc4",
@@ -427,7 +430,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 8,
    "school": "广州市骏景中学",
    "school_id": "gz-440106-b7d476f7",
@@ -436,7 +439,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 3,
    "school": "广州市天河区天泽中学",
    "school_id": "gz-440106-b9eb24f9",
@@ -445,7 +448,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 6,
    "school": "广州市天河区华实学校",
    "school_id": "gz-440106-bd07878c",
@@ -454,7 +457,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 3,
    "school": "广州市天河区新蕾五星学校",
    "school_id": "gz-440106-c77276d3",
@@ -463,7 +466,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 4,
    "school": "广州思源学校",
    "school_id": "gz-440106-c8bf2650",
@@ -472,7 +475,7 @@
   {
    "group_members": null,
    "mechanism": "no_plan",
-   "mechanism_note": "2026 年官方初中招生计划（《天河区 2026 年义务教育阶段学校招生工作细则》附件6）未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
+   "mechanism_note": "2026 年官方初中招生计划未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
    "plan_classes": null,
    "school": "广州市天河外国语智谷学校",
    "school_id": "gz-440106-d042314d",
@@ -481,7 +484,7 @@
   {
    "group_members": null,
    "mechanism": "no_plan",
-   "mechanism_note": "2026 年官方初中招生计划（《天河区 2026 年义务教育阶段学校招生工作细则》附件6）未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
+   "mechanism_note": "2026 年官方初中招生计划未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
    "plan_classes": null,
    "school": "天河区智谷第一实验学校",
    "school_id": "gz-440106-d311ea50",
@@ -490,7 +493,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "公办初中划片招生（2026 细则附件6）",
+   "mechanism_note": "公办初中划片招生",
    "plan_classes": 4,
    "school": "广州市华颖外国语学校",
    "school_id": "gz-440106-dab5b807",
@@ -499,7 +502,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 3,
    "school": "广州市天河区龙圣学校",
    "school_id": "gz-440106-eda909f7",
@@ -508,7 +511,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 3,
    "school": "广州市天河区科韵路学校",
    "school_id": "gz-440106-f0ba06c2",
@@ -517,7 +520,7 @@
   {
    "group_members": null,
    "mechanism": "single_zone",
-   "mechanism_note": "民办学校初中部自主招生（附件8）",
+   "mechanism_note": "民办学校初中部自主招生",
    "plan_classes": 3,
    "school": "广州市天河区成龙中学",
    "school_id": "gz-440106-fd03e039",

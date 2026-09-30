@@ -159,6 +159,65 @@ def load_records(district_key):
     raise KeyError(dk)
 
 
+# ---------- 数据层平铺（B 层构建期完成，运行时不再做文本匹配）----------
+def _panyu_explains(stage):
+    """番禺官方表尾「说明：」1-6（转录原文），返回 {编号: 内容}。"""
+    t = json.load(open(os.path.join(TRANSCRIPTS, "panyu_2026_official.json"), encoding="utf-8"))
+    sheet_name = "公办小学招生地段、计划" if stage == "primary" else "公办初中招生范围、计划"
+    rows = t["sheets"][sheet_name]
+    start = next(i for i, r in enumerate(rows) if r and str(r[0]).strip().startswith("说明"))
+    explains = {}
+    for r in rows[start + 1:]:
+        m = re.match(r"^(\d+)\.", str(r[0] or "").strip())
+        if not m:
+            break
+        explains[int(m.group(1))] = str(r[0]).strip()
+    return explains
+
+
+def _tianhe_attachment():
+    return json.load(open(os.path.join(TRANSCRIPTS, "tianhe_attachment.json"), encoding="utf-8"))
+
+
+def _strip_attachment_refs(text):
+    """平铺语义清理：去掉「（…附件N…）」来源注与「附件N #N」表内序号引用，只留具体规则。"""
+    if not text:
+        return text
+    return re.sub(r"（[^（）]*附件\d+[^（）]*）", "", re.sub(r"附件\d+\s*#\d+\s*", "", text))
+
+
+def _expand_primary_texts(records, dk):
+    """B 层构建期平铺（产物即最终形态，双端一致）：
+    番禺 note「(见)说明N」→ 官方说明原文；天河 zone「详见附件11」→ 附件11 核心内容；
+    荔湾协和小学部 note 补直升条款；全区 note/zone 去「附件N」来源注。"""
+    if dk == "panyu":
+        explains = _panyu_explains("primary")
+        for r in records:
+            note = r.get("note") or ""
+            if "说明" in note:
+                r["note"] = re.sub(r"见?说明(\d+)",
+                                   lambda m: explains.get(int(m.group(1)), m.group(0)), note)
+    if dk == "tianhe":
+        att = _tianhe_attachment()
+        for r in records:
+            zone = r.get("zone") or ""
+            if "详见附件11" in zone:
+                r["zone"] = zone.replace("详见附件11", att["a11_text"])
+    if dk == "liwan":
+        for r in records:
+            if r.get("school_id") == "gz-440103-33b32c4c" and not (r.get("note") or "").strip():
+                r["note"] = ("广州协和学校初中部原则上对口招收广州协和学校小学部毕业生"
+                             "（小学部直升本校初中部，不参加荔湾区公办初中电脑派位）。")
+    for r in records:
+        note = r.get("note")
+        if note:
+            r["note"] = _strip_attachment_refs(note)
+        zone = r.get("zone")
+        if zone:
+            r["zone"] = _strip_attachment_refs(zone)
+    return records
+
+
 def load_minban(district_key):
     """民办小学招生计划（番禺 sheet / 海珠官方计划表）。
     民办不划地段（报名超计划摇号），故只取 班数/人数 计划 + 实体匹配，不进公办 records。
@@ -376,6 +435,8 @@ def build(district_key):
                             "school_id": _sid,
                             "poi_name": (_poi0 or {}).get("name", ""),
                             "lng": (_poi0 or {}).get("lng"), "lat": (_poi0 or {}).get("lat")})
+    # 数据层平铺（番禺说明/天河附件11/荔湾协和/附件N 来源注清理）——运行时不再做文本匹配
+    matched = _expand_primary_texts(matched, district_key)
     result = {
         "year": 2026, "district": DISTRICT_NAMES[district_key],
         "source": source, "source_url": SOURCE_URLS[district_key],
