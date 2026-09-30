@@ -71,6 +71,7 @@ const nature = computed(() => model.value.nature);
 const feedJuniors = computed(() => model.value.feedJuniors);
 const feedGap = computed(() => model.value.feedGap);
 const feedRows = computed(() => model.value.feedRows);
+const directFeedRow = computed(() => model.value.directFeedRow);
 const enrollNote = computed(() => model.value.enrollNote);
 const admissionRows = computed(() => model.value.admissionRows);
 const gaokaoRows = computed(() => model.value.gaokaoRows);
@@ -417,21 +418,49 @@ function goCampus(item: { id: string; name: string }) {
       <p v-else class="empty">未在 2026 招生计划中匹配到招生地段（数据覆盖七区；分校区、新建校暂缺，后续补录）。</p>
     </div>
 
-    <!-- 小学 tab：升学路线（按升学机制分组标签 + 对口初中列表） -->
+    <!-- 小学 tab：升学路线（按升学机制分块，对齐初中招生UI：直升块=直升学校；派位/划地块=组名+对口初中列表） -->
     <div v-if="stage === 'primary' && (feedRows.length || feedGap || feedJuniors?.direct_feed)" class="card">
       <div class="card-title">升学路线（2026）</div>
-      <!-- 升学机制徽章（与初中招生机制徽章同文案同配色：对口直升/单校划片/多校电脑派位/电脑派位/自主招生） -->
-      <div v-if="feedJuniors?.mechanisms?.length" class="mech-row" style="margin-top:2px;">
-        <span v-for="m in feedJuniors.mechanisms" :key="m" class="badge" :class="m">{{ XS_MECH_LABELS[m] || m }}</span>
-      </div>
-      <p v-if="feedJuniors?.group" class="sub-note">{{ feedJuniors.group }}</p>
-      <p v-if="feedJuniors?.direct_feed" class="sub-note">直升：{{ feedJuniors.direct_feed }}</p>
-      <div v-if="feedRows.length" class="feed-list">
-        <div v-for="r in feedRows" :key="r.name" class="feed-item">
-          <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="feed-name">{{ r.name }}</RouterLink>
-          <span v-else class="feed-name" style="color:#6b7280;">{{ r.name }}</span>
+
+      <!-- 机制枚举已在数据层固化：逐机制分块展示，徽章与初中同文案同配色 -->
+      <template v-if="feedJuniors?.mechanisms?.length">
+        <template v-for="(m, mi) in feedJuniors.mechanisms" :key="m">
+          <!-- 对口直升块：徽章 + 直升去向（可跳转初中详情） -->
+          <div v-if="m === 'zhi_sheng' && directFeedRow" class="sub-block" :style="mi ? 'margin-top:14px;' : 'margin-top:4px;'">
+            <div class="mech-row"><span class="badge" :class="m">{{ XS_MECH_LABELS[m] }}</span></div>
+            <div class="feed-list" style="margin-top:6px;">
+              <div class="feed-item">
+                <RouterLink v-if="directFeedRow.poiName" :to="`/school/${encodeURIComponent(directFeedRow.poiName)}?stage=middle`" class="feed-name">{{ directFeedRow.name }}</RouterLink>
+                <span v-else class="feed-name" style="color:#6b7280;">{{ directFeedRow.name }}</span>
+              </div>
+            </div>
+          </div>
+          <!-- 单校划片/多校电脑派位/抽签等块：徽章 + 派位组说明 + 对口初中列表 -->
+          <div v-else-if="m !== 'zhi_sheng'" class="sub-block" :style="mi ? 'margin-top:14px;' : 'margin-top:4px;'">
+            <div class="mech-row"><span class="badge" :class="m">{{ XS_MECH_LABELS[m] || m }}</span></div>
+            <p v-if="feedJuniors.group" class="sub-note">{{ feedJuniors.group }}</p>
+            <div v-if="feedRows.length" class="feed-list">
+              <div v-for="r in feedRows" :key="r.name" class="feed-item">
+                <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="feed-name">{{ r.name }}</RouterLink>
+                <span v-else class="feed-name" style="color:#6b7280;">{{ r.name }}</span>
+              </div>
+            </div>
+          </div>
+        </template>
+      </template>
+
+      <!-- 无机制枚举（缺口组/旧数据）：退化为原平铺 -->
+      <template v-else>
+        <p v-if="feedJuniors?.group" class="sub-note">{{ feedJuniors.group }}</p>
+        <p v-if="feedJuniors?.direct_feed" class="sub-note">直升：{{ feedJuniors.direct_feed }}</p>
+        <div v-if="feedRows.length" class="feed-list">
+          <div v-for="r in feedRows" :key="r.name" class="feed-item">
+            <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="feed-name">{{ r.name }}</RouterLink>
+            <span v-else class="feed-name" style="color:#6b7280;">{{ r.name }}</span>
+          </div>
         </div>
-      </div>
+      </template>
+
       <p v-if="feedGap" class="empty" :style="feedRows.length ? 'margin-top:8px;text-align:left;' : ''">{{ feedGap }}</p>
     </div>
 

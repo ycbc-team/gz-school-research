@@ -64,6 +64,8 @@ export interface DetailModel {
   feedJuniors: { group: string | null; mechanisms: string[]; feed_junior_highs: string[]; direct_feed: string | null; source_note?: string } | null;
   feedGap: string | null;
   feedRows: FeedRow[];
+  /** 对口直升去向（九年一贯制直升本校/本校初中部），按机制分块时单独成行、可跳转 */
+  directFeedRow: FeedRow | null;
   /* 初中 */
   /** 极少数校区的招生计划特殊备注（如执信水荫路仅初三就读；无备注为 null） */
   enrollNote: string | null;
@@ -166,6 +168,11 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     return f.feed_junior_highs
       .filter((n) => !GAP_MARKERS.some((m) => n.includes(m)))
       .map((n) => ({ name: n, poiName: repo.resolvePoiName(n) }));
+  })();
+  const directFeedRow: FeedRow | null = (() => {
+    const f = feedJuniors;
+    if (!f || !f.direct_feed) return null;
+    return { name: f.direct_feed, poiName: repo.resolvePoiName(f.direct_feed) };
   })();
 
   /* 生源小学反查（middlePrimaryFeed）已停用：2026-09-23 新数据（官方直建派位组对口小学）
@@ -395,6 +402,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     feedJuniors,
     feedGap,
     feedRows,
+    directFeedRow,
     enrollNote: stage === 'middle' && poi?.school_id
       ? (repo.middleEnrollNotes?.[poi.school_id] ?? null)
       : null,

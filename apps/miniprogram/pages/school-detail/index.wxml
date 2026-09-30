@@ -54,19 +54,43 @@
     <view wx:else class="empty">未在 2026 招生计划中匹配到招生地段（数据覆盖七区；分校区、新建校暂缺，后续补录）。</view>
   </view>
 
-  <!-- 小学：升学路线（按升学机制分组标签 + 对口初中列表） -->
+  <!-- 小学：升学路线（按升学机制分块，对齐初中招生UI） -->
   <view wx:if="{{model.stage === 'primary' && (model.feedRows.length || model.feedGap || (model.feedJuniors && model.feedJuniors.direct_feed))}}" class="card">
     <view class="card-title">升学路线（2026）</view>
-    <view wx:if="{{model.feedJuniors.mechBadges.length}}" class="mech-row">
-      <view wx:for="{{model.feedJuniors.mechBadges}}" wx:key="key" class="badge {{item.key}}">{{item.label}}</view>
-    </view>
-    <view wx:if="{{model.feedJuniors.group}}" class="sub-note">{{model.feedJuniors.group}}</view>
-    <view wx:if="{{model.feedJuniors.direct_feed}}" class="sub-note">直升：{{model.feedJuniors.direct_feed}}</view>
-    <view wx:if="{{model.feedRows.length}}" class="feed-list">
-      <view wx:for="{{model.feedRows}}" wx:key="name" class="feed-item">
-        <text class="feed-name" data-to="/school/{{item.name}}?stage=middle" bindtap="goSchool">{{item.name}}</text>
+
+    <!-- 机制枚举已在数据层固化：逐机制分块 -->
+    <block wx:if="{{model.feedBlocks.length}}">
+      <view wx:for="{{model.feedBlocks}}" wx:key="key" class="xs-mech-block {{index === 0 ? 'xs-mech-block-first' : 'xs-mech-block-gap'}}">
+        <view class="mech-row"><view class="badge {{item.key}}">{{item.label}}</view></view>
+        <!-- 对口直升块：直升去向一行，可跳转 -->
+        <view wx:if="{{item.kind === 'direct'}}" class="feed-list">
+          <view class="feed-item">
+            <text class="feed-name" data-to="/school/{{item.name}}?stage=middle" bindtap="goSchool">{{item.name}}</text>
+          </view>
+        </view>
+        <!-- 单校划片/多校电脑派位等块：组说明 + 对口初中列表 -->
+        <block wx:else>
+          <view wx:if="{{item.group}}" class="sub-note">{{item.group}}</view>
+          <view wx:if="{{model.feedRows.length}}" class="feed-list">
+            <view wx:for="{{model.feedRows}}" wx:for-item="row" wx:key="name" class="feed-item">
+              <text class="feed-name" data-to="/school/{{row.name}}?stage=middle" bindtap="goSchool">{{row.name}}</text>
+            </view>
+          </view>
+        </block>
       </view>
-    </view>
+    </block>
+
+    <!-- 无机制枚举（缺口组/旧数据）：退化为原平铺 -->
+    <block wx:else>
+      <view wx:if="{{model.feedJuniors.group}}" class="sub-note">{{model.feedJuniors.group}}</view>
+      <view wx:if="{{model.feedJuniors.direct_feed}}" class="sub-note">直升：{{model.feedJuniors.direct_feed}}</view>
+      <view wx:if="{{model.feedRows.length}}" class="feed-list">
+        <view wx:for="{{model.feedRows}}" wx:key="name" class="feed-item">
+          <text class="feed-name" data-to="/school/{{item.name}}?stage=middle" bindtap="goSchool">{{item.name}}</text>
+        </view>
+      </view>
+    </block>
+
     <view wx:if="{{model.feedGap}}" class="empty">{{model.feedGap}}</view>
   </view>
 

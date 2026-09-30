@@ -75,13 +75,21 @@ Page({
           hasLingjunNote: (rawLinkage.planNotes || []).includes('lingjun'),
         }
       : null;
-    // 升学机制徽章（与初中招生机制徽章同文案同配色，label 取自 shared XS_MECH_LABELS；
-    // WXML 表达式不支持 map，预计算）
+    // 升学路线按机制分块（与初中招生UI对齐：WXML 不支持 map/复杂表达式，预计算块数组）
+    // - 对口直升块：徽章 + 直升去向一行（可跳转初中详情）
+    // - 单校划片/多校电脑派位等块：徽章 + 派位组说明 + 对口初中列表
     if (model.feedJuniors && model.feedJuniors.mechanisms) {
-      model.feedJuniors.mechBadges = model.feedJuniors.mechanisms.map((m) => ({
-        key: m,
-        label: shared.XS_MECH_LABELS[m] || m,
-      }));
+      const blocks = [];
+      model.feedJuniors.mechanisms.forEach((m) => {
+        if (m === 'zhi_sheng') {
+          if (model.directFeedRow) {
+            blocks.push({ key: m, label: shared.XS_MECH_LABELS[m] || m, kind: 'direct', name: model.directFeedRow.name });
+          }
+        } else {
+          blocks.push({ key: m, label: shared.XS_MECH_LABELS[m] || m, kind: 'feed', group: model.feedJuniors.group || '' });
+        }
+      });
+      model.feedBlocks = blocks;
     }
     wx.setNavigationBarTitle({ title: this.name });
     this.setData({ model, linkage, activeStage: stage });

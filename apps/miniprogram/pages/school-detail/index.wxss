@@ -22,6 +22,8 @@
 .badge.single_paidui { background: #dc2626; }
 .badge.min_zi_zhu { background: #7c3aed; }
 .mech-row { display: flex; flex-wrap: wrap; gap: 12rpx; margin: 4rpx 0 8rpx; }
+.xs-mech-block-first { margin-top: 4rpx; }
+.xs-mech-block-gap { margin-top: 28rpx; }
 .badge.b-part { background: #f59e0b; }
 .badge.b-none { background: #8a94a6; }
 .d-sub { font-size: 24rpx; color: #6b7280; margin-top: 12rpx; line-height: 1.6; }
