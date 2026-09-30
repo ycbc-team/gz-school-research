@@ -22,6 +22,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第3组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "三元坊小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -40,6 +43,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第13组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "中国教育科学研究院荔湾实验学校小学部",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -64,6 +70,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第3组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "乐贤坊小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -88,6 +97,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第3组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "乐贤坊小学(荔枝湾校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -112,6 +124,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第4组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "乐贤坊小学龙津学校",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -132,6 +147,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第10组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "何香凝纪念学校",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -151,6 +169,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第12组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "华南师范大学附属荔湾小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -171,6 +192,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第7组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "合兴苑小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -179,6 +203,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办电脑派位",
+   "mechanisms": [],
    "name": "君诚博雅实验学校(滘口校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -199,6 +224,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第11组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "坑口小学四季花园校区",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -223,6 +251,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第3组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "宝源小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -243,6 +274,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第11组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广东外语外贸大学附属荔湾小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -262,6 +296,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第12组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广东实验中学荔湾学校(第三小学部)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -281,6 +318,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第12组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广东实验中学荔湾学校第一小学部",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -299,6 +339,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第14组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广东实验中学荔湾学校花地湾校区（小学部）",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -318,6 +361,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第12组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广东实验中学荔湾学校附属第二小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -328,6 +374,9 @@
     "广州市协和学校"
    ],
    "group": "协和学校（市属十二年制，小学部直升本校初中部，不参加荔湾区公办初中派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广州市协和学校（小学部）",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -348,6 +397,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第11组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市坑口小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -373,6 +425,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第1组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市流花路小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -393,6 +448,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第7组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市真光中学茶滘校区北区（小学部）",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -413,6 +471,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第11组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市真光中学附属培真小学(平西校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -433,6 +494,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第11组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市真光中学附属培真小学(鹤园校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -453,6 +517,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第8组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市真光中学附属小学(滘口校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -477,6 +544,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第6组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市第一中学双桥学校",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -502,6 +572,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第2组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市第四中学附属芦荻西小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -527,6 +600,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第2组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市第四中学附属芦荻西小学(桃源校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -535,6 +611,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办电脑派位",
+   "mechanisms": [],
    "name": "广州市芳村新苗学校(广佛新城校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -560,6 +637,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第1组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市荔湾区华侨小学翠园学校",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -580,6 +660,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第7组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市荔湾区康有为纪念小学(白鹅潭校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -604,6 +687,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第5组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市荔湾区文昌小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -628,6 +714,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第5组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市荔湾区文昌小学(东校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -648,6 +737,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第10组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市荔湾区芳村小学南漖学校",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -668,6 +760,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第11组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市荔湾区芳村小学实验学校",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -688,6 +783,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第8组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市荔湾区西关培正小学(芳信校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -708,6 +806,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第9组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市荔湾区西关实验小学增滘学校",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -728,6 +829,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第9组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市荔湾区龙溪小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -753,6 +857,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第2组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市西关外国语学校泮溪校区",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -778,6 +885,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第1组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广雅小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -803,6 +913,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第1组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广雅小学(东风西校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -823,6 +936,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第7组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "康有为纪念小学东漖校区",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -843,6 +959,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第8组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "康有为纪念小学五眼桥学校",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -863,6 +982,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第8组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "康有为纪念小学南塘学校",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -883,6 +1005,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第10组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "康有为纪念小学海中学校",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -903,6 +1028,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第11组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "新东小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -923,6 +1051,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第8组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "林凤娥小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -943,6 +1074,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第8组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "林凤娥小学(荔江美筑校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -968,6 +1102,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第2组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "汇龙小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -992,6 +1129,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第6组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "沙面小学(大坦沙校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1016,6 +1156,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第5组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "沙面小学(御景校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1040,6 +1183,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第5组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "沙面小学(本校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1064,6 +1210,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第6组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "沙面小学(柏悦湾校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1088,6 +1237,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第5组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "沙面小学岭南校区",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1096,6 +1248,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办电脑派位",
+   "mechanisms": [],
    "name": "沙面小学悦江校区",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1104,6 +1257,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办电脑派位",
+   "mechanisms": [],
    "name": "河沙小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1129,6 +1283,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第1组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "流花路小学(东校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1154,6 +1311,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第1组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "环市西路小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1178,6 +1338,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第3组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "耀华小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1198,6 +1361,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第11组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "芳村小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1218,6 +1384,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第11组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "芳村小学(沙涌校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1238,6 +1407,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第11组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "芳村小学东沙学校(沙洛校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1258,6 +1430,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第11组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "芳村小学东沙学校(金宇校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1283,6 +1458,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第2组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "荔湾区华侨小学(西校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1303,6 +1481,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第9组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "荔湾区海北小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1328,6 +1509,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第1组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "荔湾区环市西路小学(绿森林校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1348,6 +1532,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第8组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "葵蓬小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1372,6 +1559,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第5组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "蒋光鼐纪念小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1396,6 +1586,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第4组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "西关培正小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1416,6 +1609,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第8组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "西关培正小学(凯粤湾校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1440,6 +1636,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第4组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "西关培正小学(如意坊校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1464,6 +1663,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第3组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "西关实验小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1484,6 +1686,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第7组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "西关实验小学(芳和校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1504,6 +1709,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第7组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "西关实验小学(芳园校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1529,6 +1737,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第2组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "西华路小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1549,6 +1760,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第10组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "西塱小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1573,6 +1787,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第4组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "詹天佑小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1597,6 +1814,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第4组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "詹天佑小学(珠玑校区)",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1617,6 +1837,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第7组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "鸿图苑小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   },
@@ -1637,6 +1860,9 @@
     "广东广雅中学初中部"
    ],
    "group": "荔湾区小升初第11组（电脑派位）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "鹤洞小学",
    "source_url": "http://www.lw.gov.cn/zwgkk/zdlyxxgk/jyxx/czjy/content/post_10791678.html"
   }

@@ -13,6 +13,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "下沙小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -21,6 +24,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "东联学校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -31,6 +35,9 @@
     "玉泉学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "东荟花园小学(北校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -41,6 +48,9 @@
     "玉泉学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "东荟花园小学南校区",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -51,6 +61,9 @@
     "广州知识城中学"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "九龙第一小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -61,6 +74,9 @@
     "玉岩实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "九龙第三小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -71,6 +87,9 @@
     "玉岩实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "九龙第二小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -81,6 +100,9 @@
     "玉岩实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "九龙第二小学大坦分校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -91,6 +113,9 @@
     "玉岩实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "九龙第四小学新田分校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -101,6 +126,9 @@
     "广州知识城中学"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "何棠下小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -111,6 +139,9 @@
     "玉泉学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "光远小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -123,6 +154,9 @@
     "华南师范大学附属中学（知识城校区）"
    ],
    "group": "黄埔区公办初中电脑派位第7组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "凤凰湖小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -131,6 +165,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "凤尾学校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -144,6 +179,9 @@
     "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）"
    ],
    "group": "黄埔区公办初中电脑派位第5组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "北京师范大学广州实验学校(小学部)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -152,6 +190,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "华中师范大学黄埔实验学校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -164,6 +203,9 @@
     "华南师范大学附属中学（知识城校区）"
    ],
    "group": "黄埔区公办初中电脑派位第7组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "华南师范大学附属中学知识城小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -174,6 +216,9 @@
     "广大附中黄埔实验学校（东校区）"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "华南师范大学附属开发区实验小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -184,6 +229,9 @@
     "华南师范大学附属黄埔实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "华南师范大学附属黄埔实验学校(南校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -196,6 +244,9 @@
     "开元学校"
    ],
    "group": "黄埔区公办初中电脑派位第6组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "华峰学校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -208,6 +259,9 @@
     "东区中学"
    ],
    "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "南岗小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -220,6 +274,9 @@
     "东区中学"
    ],
    "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "南湾小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -232,6 +289,9 @@
     "东区中学"
    ],
    "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "夏园小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -247,6 +307,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "姬堂小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -259,6 +322,9 @@
     "华南师范大学附属中学（知识城校区）"
    ],
    "group": "黄埔区公办初中电脑派位第7组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广东外语外贸大学附属知识城实验小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -269,6 +335,9 @@
     "玉岩实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广东外语外贸大学附属知识城实验小学(南校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -279,6 +348,9 @@
     "广东外语外贸大学附属科学城实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广东外语外贸大学附属科学城实验学校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -289,6 +361,9 @@
     "广东外语外贸大学附属黄埔实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广东外语外贸大学附属黄埔实验学校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -304,6 +379,9 @@
     "广州市玉岩中学"
    ],
    "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广东省教育研究院黄埔实验学校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -319,6 +397,9 @@
     "广州市玉岩中学"
    ],
    "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广东省教育研究院黄埔实验学校(北校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -329,6 +410,9 @@
     "广大附中高新区实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广大附中高新区实验学校(南校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -339,6 +423,9 @@
     "广大附中高新区实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广大附中高新区实验学校北校区(小学部)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -349,6 +436,9 @@
     "广大附中黄埔实验学校（西校区）"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广大附中黄埔实验学校(西校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -357,6 +447,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市玉岩中学附属科学城实验学校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -365,6 +456,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州市黄埔区东区小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -380,6 +472,9 @@
     "广州市玉岩中学"
    ],
    "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市黄埔区东荟花园小学(东校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -390,6 +485,9 @@
     "玉岩实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广州市黄埔区九龙第二小学(九楼校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -400,6 +498,9 @@
     "会元学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广州市黄埔区会元学校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -412,6 +513,9 @@
     "华南师范大学附属中学（知识城校区）"
    ],
    "group": "黄埔区公办初中电脑派位第7组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市黄埔区天景小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -424,6 +528,9 @@
     "华南师范大学附属中学（知识城校区）"
    ],
    "group": "黄埔区公办初中电脑派位第7组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市黄埔区天誉小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -436,6 +543,9 @@
     "华南师范大学附属中学（知识城校区）"
    ],
    "group": "黄埔区公办初中电脑派位第7组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市黄埔区天韵小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -446,6 +556,9 @@
     "广州市黄埔军校纪念中学（北校区）"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广州市黄埔区实验小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -458,6 +571,9 @@
     "开元学校"
    ],
    "group": "黄埔区公办初中电脑派位第6组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市黄埔区新庄小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -470,6 +586,9 @@
     "东区中学"
    ],
    "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市黄埔区新港小学(南校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -481,6 +600,9 @@
     "广州市黄埔军校中学"
    ],
    "group": "黄埔区公办初中电脑派位第3组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市黄埔区玉树小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -493,6 +615,9 @@
     "开元学校"
    ],
    "group": "黄埔区公办初中电脑派位第6组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市黄埔区禾丰小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -504,6 +629,9 @@
     "广州市黄埔军校中学"
    ],
    "group": "黄埔区公办初中电脑派位第3组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市黄埔区科学城小学东校区",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -515,6 +643,9 @@
     "广州市黄埔军校中学"
    ],
    "group": "黄埔区公办初中电脑派位第3组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州市黄埔区联和小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -525,6 +656,9 @@
     "广州开发区中学"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广州开发区第一小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -535,6 +669,9 @@
     "广州开发区中学"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广州开发区第二小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -547,6 +684,9 @@
     "东区中学"
    ],
    "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州开发区第二小学(东校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -562,6 +702,9 @@
     "广州市玉岩中学"
    ],
    "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州开发区第二小学(北校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -572,6 +715,9 @@
     "广州知识城中学"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广州知识城北小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -584,6 +730,9 @@
     "华南师范大学附属中学（知识城校区）"
    ],
    "group": "黄埔区公办初中电脑派位第7组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州知识城广实小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -594,6 +743,9 @@
     "玉岩实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "广州知识城第一小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -602,6 +754,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "广州知识城第二小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -617,6 +770,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州石化小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -632,6 +788,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州石化小学(西校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -643,6 +802,9 @@
     "广州市黄埔军校中学"
    ],
    "group": "黄埔区公办初中电脑派位第3组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广州科学城实验小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -656,6 +818,9 @@
     "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）"
    ],
    "group": "黄埔区公办初中电脑派位第5组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "广铁一中铁英小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -668,6 +833,9 @@
     "东区中学"
    ],
    "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "庙头小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -678,6 +846,9 @@
     "开元学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "开元学校（东校区）(小学部)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -693,6 +864,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "怡园小学(东校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -708,6 +882,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "怡园小学(西校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -723,6 +900,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "怡园小学北校区",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -738,6 +918,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "怡瑞小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -753,6 +936,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "文冲小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -763,6 +949,9 @@
     "双沙中学"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "文船小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -775,6 +964,9 @@
     "东区中学"
    ],
    "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "新港小学(东校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -787,6 +979,9 @@
     "东区中学"
    ],
    "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "新港小学西校区",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -797,6 +992,9 @@
     "广州知识城中学"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "枫下小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -812,6 +1010,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "横沙小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -824,6 +1025,9 @@
     "开元学校"
    ],
    "group": "黄埔区公办初中电脑派位第6组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "永岗小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -834,6 +1038,9 @@
     "玉岩实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "汤村小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -844,6 +1051,9 @@
     "玉岩实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "汤村小学旺村分校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -856,6 +1066,9 @@
     "东区中学"
    ],
    "group": "黄埔区公办初中电脑派位第2组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "沧联小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -866,6 +1079,9 @@
     "广州市黄埔军校纪念中学（南校区）"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "深井小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -881,6 +1097,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "港湾小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -891,6 +1110,9 @@
     "湖南师范大学附属黄埔实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "湖南师范大学附属黄埔实验学校北校区",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -899,6 +1121,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "玉岩中学附属开发区实验学校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -909,6 +1132,9 @@
     "玉泉学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "玉泉学校东校区",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -919,6 +1145,9 @@
     "玉泉学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "玉泉学校北校区",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -929,6 +1158,9 @@
     "玉泉学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "玉鸣小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -939,6 +1171,9 @@
     "玉岩实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "知识城南安置区（二期）小学（暂定名）",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -950,6 +1185,9 @@
     "广州市黄埔军校中学"
    ],
    "group": "黄埔区公办初中电脑派位第3组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "科学城小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -961,6 +1199,9 @@
     "广州市黄埔军校中学"
    ],
    "group": "黄埔区公办初中电脑派位第3组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "科学城小学(北校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -976,6 +1217,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "茅岗小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -991,6 +1235,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "荔园小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1006,6 +1253,9 @@
     "广州市玉岩中学"
    ],
    "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "萝峰小学（东校区）",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1018,6 +1268,9 @@
     "开元学校"
    ],
    "group": "黄埔区公办初中电脑派位第6组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "贤江小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1028,6 +1281,9 @@
     "铁铮学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "铁铮学校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1041,6 +1297,9 @@
     "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）"
    ],
    "group": "黄埔区公办初中电脑派位第5组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "长岭居小学北校区",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1054,6 +1313,9 @@
     "黄埔区CPPQ-A4-2地块（长岭.雅居建设项目）九年制学校（暂定名）"
    ],
    "group": "黄埔区公办初中电脑派位第5组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "长岭居小学南校区",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1069,6 +1331,9 @@
     "广州市玉岩中学"
    ],
    "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "长岭居小学（西校区）",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1079,6 +1344,9 @@
     "广州市黄埔军校纪念中学（南校区）"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "长洲岛小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1094,6 +1362,9 @@
     "广州市玉岩中学"
    ],
    "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "香雪小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1109,6 +1380,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "鱼珠小学(东校区)",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1120,6 +1394,9 @@
     "广州市黄埔军校中学"
    ],
    "group": "黄埔区公办初中电脑派位第3组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "黄埔军校小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1130,6 +1407,9 @@
     "玉岩实验学校"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "黄埔区九龙第四小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1145,6 +1425,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "黄埔区教育研究院实验小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1153,6 +1436,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "黄埔区洋城学校",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1168,6 +1452,9 @@
     "广州市玉岩中学"
    ],
    "group": "黄埔区公办初中电脑派位第4组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "黄埔区高新区第一小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1176,6 +1463,7 @@
    "direct_feed": null,
    "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
+   "mechanisms": [],
    "name": "黄埔国光小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1191,6 +1479,9 @@
     "丰乐初级中学"
    ],
    "group": "黄埔区公办初中电脑派位第1组（多校划片）",
+   "mechanisms": [
+    "group_paidui"
+   ],
    "name": "黄埔护林路小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   },
@@ -1201,6 +1492,9 @@
     "广州市黄埔军校纪念中学（南校区）"
    ],
    "group": "对口直升（不参加电脑派位）",
+   "mechanisms": [
+    "zhi_sheng"
+   ],
    "name": "黄船小学",
    "source_url": "http://www.hp.gov.cn/attachment/8/8016/8016631/10791836.pdf"
   }

@@ -54,16 +54,17 @@
     <view wx:else class="empty">未在 2026 招生计划中匹配到招生地段（数据覆盖七区；分校区、新建校暂缺，后续补录）。</view>
   </view>
 
-  <!-- 小学：升学路线 -->
+  <!-- 小学：升学路线（按升学机制分组标签 + 对口初中列表） -->
   <view wx:if="{{model.stage === 'primary' && (model.feedRows.length || model.feedGap || (model.feedJuniors && model.feedJuniors.direct_feed))}}" class="card">
     <view class="card-title">升学路线（2026）</view>
-    <view wx:if="{{model.feedJuniors.group}}" class="sub-note">分组：{{model.feedJuniors.group}}</view>
+    <view wx:if="{{model.feedJuniors.mechBadges.length}}" class="mech-row">
+      <view wx:for="{{model.feedJuniors.mechBadges}}" wx:key="key" class="badge {{item.key}}">{{item.label}}</view>
+    </view>
+    <view wx:if="{{model.feedJuniors.group}}" class="sub-note">{{model.feedJuniors.group}}</view>
     <view wx:if="{{model.feedJuniors.direct_feed}}" class="sub-note">直升：{{model.feedJuniors.direct_feed}}</view>
     <view wx:if="{{model.feedRows.length}}" class="feed-list">
       <view wx:for="{{model.feedRows}}" wx:key="name" class="feed-item">
         <text class="feed-name" data-to="/school/{{item.name}}?stage=middle" bindtap="goSchool">{{item.name}}</text>
-        <text wx:if="{{item.summary}}" class="tag">{{item.summary}}</text>
-        <text wx:else class="tag tag-dim">区属初中</text>
       </view>
     </view>
     <view wx:if="{{model.feedGap}}" class="empty">{{model.feedGap}}</view>

@@ -41,14 +41,15 @@ export interface DataLoaders {
   quotaOutcome: QuotaOutcome;
   /** 实体注册表（school_id 外键 → 名称/别名/办学性质）；nature=民办 为办学性质唯一真源（公办不写字段） */
   entities: { entities: Array<{ school_id: string; name: string; stage: string; aliases: string[]; nature?: string }> };
-  /** 小学 2026 升学路线事实表（group 提为顶层 groups，记录按 group_id 引用） */
+  /** 小学 2026 升学路线事实表（group 提为顶层 groups，记录按 group_id 引用；机制枚举数据层固化） */
   xiaoshengchu: {
-    groups: Array<{ id: number; name: string; source_urls: string[]; data_gaps: string | null }>;
+    groups: Array<{ id: number; name: string; source_urls: string[]; data_gaps: string | null; mechanism: string[] }>;
     records: Array<{
       school_id: string; group_id: number;
       feed_school_ids: string[]; feed_unresolved: string[];
       direct_feed_school_id: string | null;
       source_note?: string; data_gaps?: string | null;
+      mechanism?: string[];
     }>;
   };
   /** 学校身份注册表（site 粒度） */

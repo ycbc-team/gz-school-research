@@ -14,7 +14,7 @@ import {
 } from '@gz/shared';
 import {
   repository, entities, matchEnrollment,
-  middleQuotaSummary, middleEnrollmentsOf, middleEnrollmentGroups, xiaoshengchuOf, schoolBadges, scoresOfSchool,
+  middleEnrollmentsOf, middleEnrollmentGroups, xiaoshengchuOf, schoolBadges, scoresOfSchool,
   isComprehensive, groupOfSchool, resolveSchoolIdOf,
   type BrandUnit,
   innovationAwards,
@@ -204,7 +204,7 @@ function groupNameOf(gid?: string | null): string {
  * 同区同机制多条（多组派位）合并为一块；同校多机制并存时 plan_classes 是全校总计划，
  * 徽章不重复显示班数（避免 9+9=18 误读），由 totalPlanOfMulti 展示一次。
  * 区 Badge 仅在同机制跨区（天河/越秀并存的 2 所）时才显示，其余场景一律不显示（用户：删海珠区 Badge）。
- * group_paidui 与 single_zone 同样展示 scope（招生服务范围/对口小学）与 mechanism_note（招生说明），
+ * group_paidui 与 single_zone / zhi_sheng / single_paidui 同样展示 scope（招生服务范围/对口小学）与 mechanism_note（招生说明），
  * 但跳过纯组名类备注（组名已由行 tag 展示，避免「海珠区…第1组」重复）。 */
 /** 派位组子块：按 group_id（多校派位）或单条 enroll（直升/划片/电脑派位）拆分；
  *  每个子块内依次展示：服务范围 → 生源小学 → 招生说明。 */
@@ -226,6 +226,14 @@ function isRedundantNote(note: string): boolean {
   return false;
 }
 const MECH_ORDER = ['zhi_sheng', 'single_zone', 'group_paidui', 'single_paidui', 'min_zi_zhu'];
+/** 小学升学机制 label（与初中 DEFAULT_DEFS label 同值；机制枚举在数据层固化，前端仅映射文案） */
+const XS_MECH_LABELS: Record<string, string> = {
+  zhi_sheng: '对口直升',
+  single_zone: '单校划片',
+  group_paidui: '多校电脑派位',
+  single_paidui: '电脑派位',
+  min_zi_zhu: '自主招生',
+};
 const mechanismBlocks = computed<MechBlock[]>(() => {
   if (stage.value !== 'middle') return [];
   const byKey = new Map<string, MechBlock>();
@@ -274,9 +282,11 @@ const mechanismBlocks = computed<MechBlock[]>(() => {
         notes: [],
         loseText: (m.mechanismDef.can_lose && m.mechanismDef.lose_text) || null,
       };
-      if (b.mech === 'single_zone') {
+      if (b.mech === 'single_zone' || b.mech === 'zhi_sheng' || b.mech === 'single_paidui') {
         // 直升小学：直接遍历 scope_school_ids 解析键（同上：不做 scope 原文分段匹配，
         // 原文段含括号注释/换行/括号内顿号会与解析键不一致导致漏行）；键按原文出现顺序展示
+        // （对口直升 zhi_sheng / 单校电脑派位 single_paidui 记录同口径：scope_school_ids 为解析器
+        // 权威「段→school_ids」结构，按原文出现顺序展示）
         const smap = rec.scope_school_ids ?? {};
         const scopeText = rec.scope ?? '';
         const orderedKeys = Object.keys(smap).sort((a, b) => {
@@ -407,21 +417,22 @@ function goCampus(item: { id: string; name: string }) {
       <p v-else class="empty">未在 2026 招生计划中匹配到招生地段（数据覆盖七区；分校区、新建校暂缺，后续补录）。</p>
     </div>
 
-    <!-- 小学 tab：升学路线（对口初中 · 派位/直升） -->
+    <!-- 小学 tab：升学路线（按升学机制分组标签 + 对口初中列表） -->
     <div v-if="stage === 'primary' && (feedRows.length || feedGap || feedJuniors?.direct_feed)" class="card">
       <div class="card-title">升学路线（2026）</div>
-      <p v-if="feedJuniors?.group" class="sub-note">分组：{{ feedJuniors.group }}</p>
+      <!-- 升学机制徽章（与初中招生机制徽章同文案同配色：对口直升/单校划片/多校电脑派位/电脑派位/自主招生） -->
+      <div v-if="feedJuniors?.mechanisms?.length" class="mech-row" style="margin-top:2px;">
+        <span v-for="m in feedJuniors.mechanisms" :key="m" class="badge" :class="m">{{ XS_MECH_LABELS[m] || m }}</span>
+      </div>
+      <p v-if="feedJuniors?.group" class="sub-note">{{ feedJuniors.group }}</p>
       <p v-if="feedJuniors?.direct_feed" class="sub-note">直升：{{ feedJuniors.direct_feed }}</p>
       <div v-if="feedRows.length" class="feed-list">
         <div v-for="r in feedRows" :key="r.name" class="feed-item">
           <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="feed-name">{{ r.name }}</RouterLink>
           <span v-else class="feed-name" style="color:#6b7280;">{{ r.name }}</span>
-          <span v-if="r.summary" class="tag">{{ r.summary }}</span>
-          <span v-else class="tag tag-dim">区属初中</span>
         </div>
       </div>
       <p v-if="feedGap" class="empty" :style="feedRows.length ? 'margin-top:8px;text-align:left;' : ''">{{ feedGap }}</p>
-      <p v-if="feedRows.length" class="sub-note" style="margin-top:4px;">点击初中可查看该校升学通道详情。</p>
     </div>
 
     <!-- 初中 tab：招生计划（2026）：标题右侧统一放总班数；按机制分组 → 组内再按派位组拆子块 -->

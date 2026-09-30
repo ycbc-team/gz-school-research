@@ -35,6 +35,8 @@ const read = (p) => JSON.parse(fs.readFileSync(path.isAbsolute(p) ? p : path.joi
 const write = (p, o) => fs.writeFileSync(path.isAbsolute(p) ? p : path.join(ROOT, p), JSON.stringify(o, null, 2) + '\n');
 
 const src = read(_src);
+// 机制枚举输出顺序（对齐初中 MECH_ORDER；数据层已固化，这里仅保序去重）
+const XS_MECH_ORDER = ['zhi_sheng', 'single_zone', 'group_paidui', 'single_paidui', 'min_zi_zhu'];
 let primaryHit = 0, feedHit = 0, feedMiss = 0;
 const outRecords = src.records.map((r) => {
   // school_id/feed_school_ids/direct_feed_school_id 由 Python xs_resolver 解析
@@ -45,6 +47,7 @@ const outRecords = src.records.map((r) => {
   return {
     school_id: r.school_id,
     group: r.group,
+    mechanisms: r.mechanisms || [],
     feed_school_ids: r.feed_school_ids || [],
     feed_unresolved: r.feed_unresolved || [],
     direct_feed_school_id: r.direct_feed_school_id,
@@ -64,13 +67,15 @@ const deduped = [];
     if (!prev) { byKey.set(k, r); continue; }
     prev.feed_school_ids = [...new Set([...(prev.feed_school_ids || []), ...(r.feed_school_ids || [])])];
     prev.feed_unresolved = [...new Set([...(prev.feed_unresolved || []), ...(r.feed_unresolved || [])])];
+    prev.mechanisms = XS_MECH_ORDER.filter((m) => (prev.mechanisms || []).includes(m) || (r.mechanisms || []).includes(m));
   }
   deduped.push(...byKey.values());
 }
 // 重复的分组元数据提为维表，事实记录仅保留 group_id，保持与 DataLoaders 契约一致。
+// 机制（初中枚举）在数据层固化解析，dist group 维表携带，运行时零文本匹配。
 const groups = [];
 const groupIdByKey = new Map();
-const records = deduped.map(({ group, source_url, data_gaps, ...fact }) => {
+const records = deduped.map(({ group, source_url, data_gaps, mechanisms, ...fact }) => {
   const name = group || '';
   const sourceUrl = source_url || '';
   const dataGaps = data_gaps ?? null;
@@ -79,10 +84,16 @@ const records = deduped.map(({ group, source_url, data_gaps, ...fact }) => {
   if (groupId === undefined) {
     groupId = groups.length;
     groupIdByKey.set(key, groupId);
-    groups.push({ id: groupId, name, source_urls: sourceUrl ? [sourceUrl] : [], data_gaps: dataGaps });
+    groups.push({ id: groupId, name, source_urls: sourceUrl ? [sourceUrl] : [], data_gaps: dataGaps, mechanism: [...(mechanisms || [])] });
+  } else {
+    const g = groups[groupId];
+    g.mechanism = [...new Set([...(g.mechanism || []), ...(mechanisms || [])])];
   }
-  return { ...fact, group_id: groupId, data_gaps: dataGaps };
+  // 记录级机制（初中反推/官方解析）保留在事实记录——组级并集会混入同组不同小学的机制，记录级才精确
+  return { ...fact, mechanism: mechanisms || [], group_id: groupId, data_gaps: dataGaps };
 });
+// 机制顺序统一对齐初中 MECH_ORDER
+for (const g of groups) g.mechanism = XS_MECH_ORDER.filter((m) => (g.mechanism || []).includes(m));
 write(_out, {
   year: 2026,
   note: '2026 小学→初中升学事实表。学校一律用 school_id 引用（见 entities.json）；feed_school_ids 为对口初中实体 id，feed_unresolved 为 POI 未收录的官方名（显式缺口，不模糊）。district 由 POI join。',

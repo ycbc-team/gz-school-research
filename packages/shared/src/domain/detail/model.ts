@@ -15,9 +15,20 @@ const GAP_MARKERS = ['待查', '未在', '缺口', '暂缺'];
 const STAGE_LABEL: Record<SchoolStage, string> = { primary: '小学部', middle: '初中部', high: '高中部' };
 const STAGE_SHORT: Record<SchoolStage, string> = { primary: '小学', middle: '初中', high: '高中' };
 
+/** 小学升学机制徽章 label（与初中招生机制 DEFAULT_DEFS label 完全一致；枚举 key 即配色类名）。
+ * 机制枚举在数据层固化（parsed 转录解析 + from_middle 初中直写；dist 五区以初中反推为准），
+ * 运行时只读数据字段、零文本匹配。 */
+export const XS_MECH_LABELS: Record<string, string> = {
+  zhi_sheng: '对口直升',
+  single_zone: '单校划片',
+  group_paidui: '多校电脑派位',
+  single_paidui: '电脑派位',
+  min_zi_zhu: '自主招生',
+};
+
 export interface DetailRow { label: string; value: string; strong?: boolean }
 export interface DetailBadge { text: string; cls: string }
-export interface FeedRow { name: string; poiName: string | null; summary: string | null; hasQuota: boolean }
+export interface FeedRow { name: string; poiName: string | null }
 export interface BrandRow {
   name: string;
   role: string;
@@ -50,7 +61,7 @@ export interface DetailModel {
     school_id: string; plan_classes?: number | null; plan_count?: number | null; nature?: string;
     zone?: string; note?: string; district?: string; source?: string; matchedBy: string;
   } | null;
-  feedJuniors: { group: string | null; feed_junior_highs: string[]; direct_feed: string | null; source_note?: string } | null;
+  feedJuniors: { group: string | null; mechanisms: string[]; feed_junior_highs: string[]; direct_feed: string | null; source_note?: string } | null;
   feedGap: string | null;
   feedRows: FeedRow[];
   /* 初中 */
@@ -133,6 +144,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     if (stage !== 'primary' || !xsRecord) return null;
     return {
       group: xsRecord.group,
+      mechanisms: xsRecord.mechanisms || [],
       feed_junior_highs: xsRecord.feed_junior_highs || [],
       direct_feed: xsRecord.direct_feed,
       source_note: xsRecord.source_note,
@@ -153,10 +165,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     if (!f) return [];
     return f.feed_junior_highs
       .filter((n) => !GAP_MARKERS.some((m) => n.includes(m)))
-      .map((n) => {
-        const q = repo.middleQuotaSummary(n);
-        return { name: n, poiName: repo.resolvePoiName(n), summary: q ? `省市属 ${q.sheng_quota ?? 0} · 名额考生 ${q.kaosheng ?? '—'}` : null, hasQuota: !!q };
-      });
+      .map((n) => ({ name: n, poiName: repo.resolvePoiName(n) }));
   })();
 
   /* 生源小学反查（middlePrimaryFeed）已停用：2026-09-23 新数据（官方直建派位组对口小学）

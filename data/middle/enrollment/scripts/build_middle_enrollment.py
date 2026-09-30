@@ -327,6 +327,35 @@ def _expand_middle_texts(data, dk):
     return data
 
 
+def apply_inferred_feeds(data):
+    """特殊学校对口小学推断回填（2026-09-30）：官方 zone/scope 未直接列出小学名单的学校，
+    由 src/inferred_feed_schools.json 显式手工标注（零名字匹配，按 school_id 键控）。
+    仅在 scope_school_ids 为空时回填（官方解析结果优先，不覆盖明文）；
+    键即生源小学名（生源小学行=键→单 id 直链），scope 原文仍由 scope 字段独立展示。
+    依据独立于 xiaoshengchu（该层将废弃，禁止循环依赖），来源说明见 src 表内 note。"""
+    tbl_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            "../src/inferred_feed_schools.json")
+    try:
+        with open(tbl_path, encoding="utf-8") as f:
+            tbl = json.load(f)
+    except FileNotFoundError:
+        return data
+    schools = tbl.get("schools", {})
+    for r in data["records"]:
+        sid = r.get("school_id")
+        if not sid or sid not in schools:
+            continue
+        if r.get("scope_school_ids"):
+            continue  # 官方明文解析已有，推断不覆盖
+        feed = schools[sid].get("scope_school_ids") or {}
+        feed = {k: v for k, v in feed.items() if v}
+        if not feed:
+            continue
+        r["scope_school_ids"] = feed
+        print(f"         特殊对口小学推断回填: {sid} -> {list(feed)}（src/inferred_feed_schools.json）")
+    return data
+
+
 # 区键 → adcode（SchoolMatcher 匹配用：按本区过滤，不跨区错配）
 _DK_ADCODE = {"yuexiu": "440104", "haizhu": "440105", "tianhe": "440106",
               "huangpu": "440112", "panyu": "440113", "baiyun": "440111", "liwan": "440103"}
@@ -936,6 +965,8 @@ if __name__ == "__main__":
             print(f"         注入合理无招生说明: {_ent['name']} ({_sid})")
         # 数据层平铺统一后处理（含 LEFT_NOTES 注入记录）：番禺说明/天河附件10/荔湾协和/附件N 清理
         data = _expand_middle_texts(data, dk)
+        # 特殊学校对口小学推断回填（src/inferred_feed_schools.json，仅官方 scope_school_ids 为空时）
+        data = apply_inferred_feeds(data)
         # 各区中间产物（统一格式，审计层）
         out = os.path.join(dist_dir, f"middle_enrollment_2026_{dk}.json")
         os.makedirs(os.path.dirname(out), exist_ok=True)

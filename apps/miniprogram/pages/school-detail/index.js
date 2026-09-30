@@ -75,6 +75,14 @@ Page({
           hasLingjunNote: (rawLinkage.planNotes || []).includes('lingjun'),
         }
       : null;
+    // 升学机制徽章（与初中招生机制徽章同文案同配色，label 取自 shared XS_MECH_LABELS；
+    // WXML 表达式不支持 map，预计算）
+    if (model.feedJuniors && model.feedJuniors.mechanisms) {
+      model.feedJuniors.mechBadges = model.feedJuniors.mechanisms.map((m) => ({
+        key: m,
+        label: shared.XS_MECH_LABELS[m] || m,
+      }));
+    }
     wx.setNavigationBarTitle({ title: this.name });
     this.setData({ model, linkage, activeStage: stage });
   },

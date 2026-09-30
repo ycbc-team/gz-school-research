@@ -33,8 +33,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "文德路小学(南校区)",
       "official_primary_names": [
@@ -77,8 +77,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第一组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "水荫路小学",
       "official_primary_names": [
@@ -119,9 +119,9 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第五组（组内 10 所初中均可填报）",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "培正小学(海印苑校区)",
       "official_primary_names": [
@@ -161,8 +161,8 @@
         "gz-440104-1560332d",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第十组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "大南路小学",
       "official_primary_names": [
@@ -201,8 +201,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第九组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市满族小学(光塔校区)",
       "official_primary_names": [
@@ -241,8 +241,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第八组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "东风西路小学(东风校区)",
       "official_primary_names": [
@@ -283,8 +283,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第三组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市建设大马路小学",
       "official_primary_names": [
@@ -325,8 +325,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "雅荷塘小学",
       "official_primary_names": [
@@ -365,8 +365,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第四组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "小北路小学(应元校区)",
       "official_primary_names": [
@@ -407,8 +407,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "八旗二马路小学(西校区)",
       "official_primary_names": [
@@ -449,8 +449,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市豪贤路小学",
       "official_primary_names": [
@@ -493,8 +493,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第二组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "云山小学",
       "official_primary_names": [
@@ -535,8 +535,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "文德路小学(正校区)",
       "official_primary_names": [
@@ -577,8 +577,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "红火炬小学(东校区)",
       "official_primary_names": [
@@ -619,8 +619,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "大沙头小学(西校区)",
       "official_primary_names": [
@@ -661,9 +661,9 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第三组（组内 10 所初中均可填报）",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "广州市华侨外国语学校-华侨小学",
       "official_primary_names": [
@@ -705,8 +705,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "永曜北小学",
       "official_primary_names": [
@@ -749,8 +749,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第二组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "中星小学",
       "official_primary_names": [
@@ -791,8 +791,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "清水濠小学",
       "official_primary_names": [
@@ -835,8 +835,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第一组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市越秀区东风东路小学(本部校区)",
       "official_primary_names": [
@@ -875,8 +875,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第八组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "东风西路小学(盘福校区)",
       "official_primary_names": [
@@ -917,8 +917,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "秉正小学(德政中路)",
       "official_primary_names": [
@@ -957,8 +957,8 @@
         "gz-440104-1560332d",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第十组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "旧部前小学",
       "official_primary_names": [
@@ -997,8 +997,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第九组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市满族小学(象牙校区)",
       "official_primary_names": [
@@ -1039,8 +1039,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第五组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "东山实验小学(东校区)",
       "official_primary_names": [
@@ -1079,8 +1079,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第四组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "小北路小学(小北路校区)",
       "official_primary_names": [
@@ -1121,8 +1121,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第三组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "建设六马路小学",
       "official_primary_names": [
@@ -1161,8 +1161,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第四组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "登峰小学下塘校区",
       "official_primary_names": [
@@ -1201,9 +1201,9 @@
         "gz-440104-1560332d",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第十组（组内 10 所初中均可填报）",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "广州市真光学校(一德西校区)",
       "official_primary_names": [
@@ -1243,8 +1243,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第八组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市越秀区东风西路小学流花校区",
       "official_primary_names": [
@@ -1285,8 +1285,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市中山三路小学(南校区)",
       "official_primary_names": [
@@ -1325,8 +1325,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第九组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市满族小学(大德校区)",
       "official_primary_names": [
@@ -1367,8 +1367,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市八旗二马路小学",
       "official_primary_names": [
@@ -1407,8 +1407,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第四组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "桂花岗小学",
       "official_primary_names": [
@@ -1449,8 +1449,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "王圣堂温浩根养正学校",
       "official_primary_names": [
@@ -1491,9 +1491,9 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第五组（组内 10 所初中均可填报）",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "广州市八一实验学校(南校区)",
       "official_primary_names": [
@@ -1535,8 +1535,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "沙涌南小学",
       "official_primary_names": [
@@ -1575,8 +1575,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第九组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市回民小学北校区",
       "official_primary_names": [
@@ -1619,8 +1619,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第一组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "东风东路小学锦城花园校区",
       "official_primary_names": [
@@ -1661,9 +1661,9 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第五组（组内 10 所初中均可填报）",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "广州市越秀区铁一小学",
       "official_primary_names": [
@@ -1705,8 +1705,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "执信南路小学",
       "official_primary_names": [
@@ -1745,8 +1745,8 @@
         "gz-440104-1560332d",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第十组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "海珠中路小学(海珠中校区)",
       "official_primary_names": [
@@ -1787,8 +1787,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第三组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "越秀区环市路小学",
       "official_primary_names": [
@@ -1829,8 +1829,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第五组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "东山实验小学(西校区)",
       "official_primary_names": [
@@ -1873,9 +1873,9 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第一组（组内 10 所初中均可填报）",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "广州市育才学校",
       "official_primary_names": [
@@ -1915,8 +1915,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第四组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "小北路小学(天香街校区)",
       "official_primary_names": [
@@ -1955,8 +1955,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第四组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "登峰小学",
       "official_primary_names": [
@@ -1995,8 +1995,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第八组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市八一希望学校",
       "official_primary_names": [
@@ -2035,8 +2035,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第九组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "朝天小学",
       "official_primary_names": [
@@ -2077,9 +2077,9 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第五组（组内 10 所初中均可填报）",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "东山培正小学",
       "official_primary_names": [
@@ -2121,8 +2121,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "红火炬小学(西校区)",
       "official_primary_names": [
@@ -2165,8 +2165,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第二组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "中星小学(东校区)",
       "official_primary_names": [
@@ -2209,8 +2209,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第二组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "先烈中路小学",
       "official_primary_names": [
@@ -2249,9 +2249,9 @@
         "gz-440104-b22c4eca",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第八组（组内 10 所初中均可填报）",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "广州市知用学校",
       "official_primary_names": [
@@ -2293,8 +2293,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第五组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "越秀区杨箕小学",
       "official_primary_names": [
@@ -2335,8 +2335,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "雅荷塘小学(仓边路校区)",
       "official_primary_names": [
@@ -2377,8 +2377,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广中路小学(广中校区)",
       "official_primary_names": [
@@ -2417,8 +2417,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第八组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "东风西路小学(双井校区)",
       "official_primary_names": [
@@ -2461,8 +2461,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第一组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "农林下路小学",
       "official_primary_names": [
@@ -2503,8 +2503,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "珠光路小学",
       "official_primary_names": [
@@ -2543,8 +2543,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-1560332d"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第四组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "小北路小学(天秀校区)",
       "official_primary_names": [
@@ -2585,9 +2585,9 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
-        "zhi_sheng"
+      "mechanisms": [
+        "zhi_sheng",
+        "group_paidui"
       ],
       "name": "广州市第七中学实验学校",
       "official_primary_names": [
@@ -2629,8 +2629,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第五组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "广州市越秀区五羊小学",
       "official_primary_names": [
@@ -2673,8 +2673,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第二组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "黄花小学",
       "official_primary_names": [
@@ -2715,8 +2715,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "东川路小学(南校区)",
       "official_primary_names": [
@@ -2757,8 +2757,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "中山三路小学",
       "official_primary_names": [
@@ -2799,8 +2799,8 @@
         "gz-440104-7c4a905f",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第五组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "署前路小学",
       "official_primary_names": [
@@ -2843,8 +2843,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第一组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "水荫路小学(东山一品校区)",
       "official_primary_names": [
@@ -2887,8 +2887,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第一组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "东风东路小学天伦校区",
       "official_primary_names": [
@@ -2929,8 +2929,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "东川路小学",
       "official_primary_names": [
@@ -2971,8 +2971,8 @@
         "gz-440104-f3ca07ff",
         "gz-440104-09652aa5"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "中山二路小学",
       "official_primary_names": [
@@ -3013,8 +3013,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "瑶台小学",
       "official_primary_names": [
@@ -3057,8 +3057,8 @@
         "gz-440104-b22c4eca",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第一组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "东风东路小学(东风广场校区)",
       "official_primary_names": [
@@ -3097,8 +3097,8 @@
         "gz-440104-1560332d",
         "gz-440104-f3ca07ff"
       ],
-      "groups": [
-        "越秀区小学升初中电脑派位第十组（组内 10 所初中均可填报）"
+      "mechanisms": [
+        "group_paidui"
       ],
       "name": "海珠中路小学(七株榕校区)",
       "official_primary_names": [
