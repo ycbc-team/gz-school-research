@@ -500,3 +500,20 @@ test('品牌关联：多校区成员通名打开不再全行选中（陶育实�
   assert.equal(jn.find((r) => r.name.includes('暨南校区'))?.isCurrent, true, '初中部详情页应选中暨南校区行');
   assert.equal(jn.find((r) => r.name.includes('小学部'))?.isCurrent, false, '初中部详情页不应选中小学部行');
 });
+
+test('省市属名额×最低分合并：id 合并键，同一高中一行（不拆双行）', () => {
+  // 铁一番禺初中：官方名单名「广州铁一中学（番禺校区）」；二中 2 名额×753、华侨 3 名额×619（sheng_min 硬约束）
+  const model = buildLinkageModel('middle', '广州铁一中学（番禺校区）', repo, 'gz-440113-97e0acaa');
+  const rows = model.batchMerged;
+  assert.ok(rows.length >= 8, '省市属录取去向应完整（>=8 行）');
+  assert.equal(new Set(rows.map((r) => r.campus)).size, rows.length, '每所高中应唯一一行（名额行/最低分行不得拆开）');
+  for (const r of rows) assert.ok(r.n != null || r.min != null, '每行至少有名额或录取最低分其一');
+  const ez = rows.find((r) => r.campusFull.includes('第二中学'));
+  assert.ok(ez, '应存在广州市第二中学行');
+  assert.equal(ez.n, 2, '二中名额应与最低分同行');
+  assert.equal(ez.min, 753, '二中最低分应与名额同行');
+  const hq = rows.find((r) => r.campusFull.includes('华侨'));
+  assert.ok(hq, '应存在广东华侨中学行');
+  assert.equal(hq.n, 3, '华侨名额应与最低分同行');
+  assert.equal(hq.min, 619, '华侨最低分（sheng_min 硬约束）保持不变');
+});

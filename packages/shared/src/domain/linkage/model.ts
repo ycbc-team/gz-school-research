@@ -105,7 +105,8 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
             if (n <= 0) return null;
             const poi = c.id ? poiNameOf(c.id) : null;
             return {
-              campus: c.name, // 与 batch2 原文键对齐（merge 用）
+              key: c.id ?? c.name, // merge 键：实体 id 优先，缺口校区官方原文
+              campus: c.name, // 展示兜底名（campusFull 优先）
               campusFull: poi ?? c.name, // 展示名：实体名优先，缺口校区官方原文
               school: c.school,
               poiName: poi, // 有实体可跳高中详情页；缺口校区 null 不可点
@@ -119,8 +120,12 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
     const batchRows = Object.entries(repo.batch2Of(schoolName)).map(([k, v]) => {
       const nm = nameOfKey(k);
       const ci = campusByRaw.get(k) ?? campusByRaw.get(nm);
+      // merge 键与名额侧同源：ids 层 key=school_id 直接用；schools 层原文行映射到校区实体 id，
+      // 缺口校区（无 id）保持官方原文——杜绝「官方原文 vs 实体名」两套命名拆出双行
+      const key = k.startsWith('gz-') ? k : (ci?.id ?? k);
       return {
-        campus: nm, // 与 quotaRows 的 CAMPUS_NAMES 对齐（实体校区名=官方原文）
+        key,
+        campus: nm, // 展示兜底名
         campusFull: nm,
         school: ci?.school ?? nm,
         // 有实体校区可跳转（实体名）；实体表缺口校区（ci.id=null）不可跳转——不得让
@@ -129,16 +134,16 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
         min: v.min_score,
       };
     });
-    const qmap = new Map<string, { campus: string; campusFull: string; school: string; poiName: string | null; n: number }>(quotaRows.map((r) => [r.campus, r]));
+    const qmap = new Map<string, { campus: string; campusFull: string; school: string; poiName: string | null; n: number }>(quotaRows.map((r) => [r.key, r]));
     const bmap = new Map<string, { campus: string; campusFull: string; school: string; poiName: string | null; min: number | null }>(
-      batchRows.map((r) => [r.campus, { campus: r.campus, campusFull: r.campusFull, school: r.school, poiName: r.poiName, min: r.min ?? null }]),
+      batchRows.map((r) => [r.key, { campus: r.campus, campusFull: r.campusFull, school: r.school, poiName: r.poiName, min: r.min ?? null }]),
     );
     const batchMerged: BatchMergedRow[] = [...new Set([...qmap.keys(), ...bmap.keys()])]
       .map((c) => {
         const q = qmap.get(c);
         const b = bmap.get(c);
         return {
-          campus: c,
+          campus: b?.campus || q?.campus || c,
           campusFull: b?.campusFull || q?.campusFull || c,
           school: b?.school || q?.school || normCampus(c),
           poiName: b?.poiName || q?.poiName || null,
