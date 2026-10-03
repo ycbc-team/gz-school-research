@@ -58,6 +58,17 @@ CITY_PREFIX = [
 # 市属示范高中：官方名额分配面向全市（quota sz 已含），canonical batch2 CITY 名单历史遗漏
 CITY_EXTRA = {'广州外国语学校'}
 
+# TOP14 指标：省市属 20 校区中排除 6 校区（用户拍板 2026-10-03，三年名额分配控制线低位/新校区，
+# 会把强初中的"省市属最低分"拉低到与其实力不符——如铁一番禺被华侨 619 拖累）：
+# 广东华侨中学、广州协和学校、六中（从化校区）、六中（花都校区）、清华附中湾区（智谷/智慧城校区）。
+TOP14_EXCLUDE_EXACT = {'广东华侨中学', '广州协和学校'}
+TOP14_EXCLUDE_SUFFIX = [
+    ('广州市第六中学', '从化校区'),
+    ('广州市第六中学', '花都校区'),
+    ('清华附中湾区学校', '智谷校区'),
+    ('清华附中湾区学校', '智慧城校区'),
+]
+
 # 2024 官方表特有的校区/学部后缀（2025 起不再写），跨年归一在聚合层去后缀后再匹配
 _2024_SUFFIX = re.compile(r'（(初中校区|初中部|校本部)）$')
 
@@ -71,6 +82,18 @@ def is_city(s: str) -> bool:
         if s.startswith(pfx) and s[len(pfx):].startswith('（'):
             return True
     return False
+
+
+def is_top14(s: str) -> bool:
+    """TOP14 指标：省市属 20 校区中排除 6 校区（不含广州外国语学校，其不在 batch2 20 校区内）。"""
+    if s in CITY_EXTRA or not is_city(s):
+        return False
+    if s in TOP14_EXCLUDE_EXACT:
+        return False
+    for pfx, suffix in TOP14_EXCLUDE_SUFFIX:
+        if s.startswith(pfx) and s[len(pfx):].startswith('（' + suffix + '）'):
+            return False
+    return True
 
 
 def year_rows(rows, name, equivalents, matcher):
@@ -147,12 +170,13 @@ def main() -> int:
 
         def dims(ps):
             return summarize([r for r in ps if is_city(r['senior'])]), \
-                   summarize([r for r in ps if not is_city(r['senior'])])
+                   summarize([r for r in ps if not is_city(r['senior'])]), \
+                   summarize([r for r in ps if is_top14(r['senior'])])
 
-        sh, quh = dims(pairs26)
+        sh, quh, t14 = dims(pairs26)
         # 2025 / 2024 各年（跨年归一，只取最低分门槛；浪费率口径逐年名单不同不可比，不进产物）
-        sh25, qu25 = dims(year_rows(rows25, name, neq, matcher))
-        sh24, qu24 = dims(year_rows(rows24, name, neq, matcher))
+        sh25, qu25, t1425 = dims(year_rows(rows25, name, neq, matcher))
+        sh24, qu24, t1424 = dims(year_rows(rows24, name, neq, matcher))
 
         def avg(*vals):
             vs = [v for v in vals if v is not None]
@@ -164,6 +188,7 @@ def main() -> int:
             'school_ids': s.get('school_ids'),
             'sheng_min_score': sh['min_score'],
             'qu_min_score': quh['min_score'],
+            'top14_min_score': t14['min_score'],
             'sheng_min_2024': sh24['min_score'],
             'sheng_min_2025': sh25['min_score'],
             'sheng_min_2026': sh['min_score'],
@@ -172,12 +197,18 @@ def main() -> int:
             'qu_min_2025': qu25['min_score'],
             'qu_min_2026': quh['min_score'],
             'qu_min_3y_avg': avg(qu24['min_score'], qu25['min_score'], quh['min_score']),
+            'top14_min_2024': t1424['min_score'],
+            'top14_min_2025': t1425['min_score'],
+            'top14_min_2026': t14['min_score'],
+            'top14_min_3y_avg': avg(t1424['min_score'], t1425['min_score'], t14['min_score']),
             'sheng_quota': s.get('sheng_quota'),
             'qu_quota': s.get('qu_quota'),
             'sheng_pairs': sh['pairs'],
             'sheng_failed': sh['failed'],
             'qu_pairs': quh['pairs'],
             'qu_failed': quh['failed'],
+            'top14_pairs': t14['pairs'],
+            'top14_failed': t14['failed'],
             'sheng_waste_rate': round(sh['failed'] / sh['pairs'], 4) if sh['pairs'] else None,
             'qu_waste_rate': round(quh['failed'] / quh['pairs'], 4) if quh['pairs'] else None,
         }
@@ -188,10 +219,10 @@ def main() -> int:
     print(f'初中总数 {total} | 有最低分 {with_min} | 有3年均值 {with_3y} | 未命中 2026 ALL 初中名 {len(unmatched)}')
 
     canon = {
-        'title': '第二批次指标结果聚合（省市属/区属最低分 + 指标浪费率 + 近3年最低分均值）',
-        'updated': '2026-09-29',
+        'title': '第二批次指标结果聚合（省市属/TOP14/区属最低分 + 指标浪费率 + 近3年最低分均值）',
+        'updated': '2026-10-03',
         'source': '广州市招考办《2024/2025/2026年广州市高中阶段学校招生录取分数（第二批次招生学校）（按初中学校排序）》+ 名额分配计划汇总表',
-        'note': '省市属 = 11 所 20 校区 + 广州外国语学校（市属，canonical batch2 CITY 名单历史遗漏，聚合层补入）；区属 = 其余示范高中。最低分 = 该校录取对 min_score 最小值（升学分数门槛，同场中考绝对值可比）。近3年最低分均值 = 2024/2025/2026 各年最低分（录取对 min_score 最小值）的时间维算术平均；某年无录取记录不参与平均（初中名单逐年变化，均值基于实际有分年）。浪费率 = 未录取对 / 有指标对（对数口径，2026 一年）；区属无名额逐对明细，统一对数口径保证两列可比；调试字段（pairs/failed/每年最低分）仅 canonical，dist 删除。',
+        'note': '省市属 = 11 所 20 校区 + 广州外国语学校（市属，canonical batch2 CITY 名单历史遗漏，聚合层补入）；区属 = 其余示范高中。TOP14 = 省市属 20 校区中排除 6 校区（广东华侨中学、广州协和学校、六中从化/花都校区、清华附中湾区智谷/智慧城校区，三年名额分配控制线低位或新校区）后的 14 所头部校区，不含广州外国语学校；用户拍板 2026-10-03，用于避免弱校把强初中最低分拉低（如铁一番禺被华侨 619 拖累，TOP14 口径 726）。最低分 = 该校录取对 min_score 最小值（升学分数门槛，同场中考绝对值可比）。近3年最低分均值 = 2024/2025/2026 各年最低分（录取对 min_score 最小值）的时间维算术平均；某年无录取记录不参与平均（初中名单逐年变化，均值基于实际有分年）。浪费率 = 未录取对 / 有指标对（对数口径，2026 一年）；区属无名额逐对明细，统一对数口径保证两列可比；调试字段（pairs/failed/每年最低分）仅 canonical，dist 删除（dist 只留 top14_min_score，不携带 top14 3年均值/对数）。',
         'data': agg,
     }
     (CANON / 'quota_outcome.json').write_text(
@@ -199,7 +230,8 @@ def main() -> int:
 
     # dist：ids（唯一 id 一份）/ schools（无 id 原文 + 多名同 id 且数据不同的冲突行保底原文，
     # 与 backfill district_quota 的 id_conflicts 同款：数据不同不合并、不丢行）。
-    DIST_FIELDS = ['sheng_min_score', 'qu_min_score', 'sheng_min_3y_avg', 'qu_min_3y_avg',
+    DIST_FIELDS = ['sheng_min_score', 'qu_min_score', 'top14_min_score',
+                   'sheng_min_3y_avg', 'qu_min_3y_avg',
                    'sheng_quota', 'qu_quota', 'sheng_waste_rate', 'qu_waste_rate']
     ids, schools = {}, {}
     for name, v in agg.items():
@@ -219,11 +251,13 @@ def main() -> int:
 
     print(f'canonical 写入（{total} 初中）→ dist ids({len(ids)})/schools({len(schools)})')
     # 抽样验证
-    for name in ['中山大学附属中学', '广州市第一中学', '广州市绿翠现代实验学校']:
+    for name in ['中山大学附属中学', '广州市第一中学', '广州市绿翠现代实验学校', '广州市铁一中学（番禺校区）']:
         if name in agg:
             v = agg[name]
-            print(f'  样例 {name}: 省市属最低分={v["sheng_min_score"]} 省市属3年均值={v["sheng_min_3y_avg"]} '
-                  f'（24:{v["sheng_min_2024"]} 25:{v["sheng_min_2025"]} 26:{v["sheng_min_2026"]}） '
+            print(f'  样例 {name}: 省市属最低分={v["sheng_min_score"]} TOP14最低分={v["top14_min_score"]} '
+                  f'TOP14 3年均值={v["top14_min_3y_avg"]} '
+                  f'（24:{v["top14_min_2024"]} 25:{v["top14_min_2025"]} 26:{v["top14_min_2026"]}） '
+                  f'省市属3年均值={v["sheng_min_3y_avg"]} '
                   f'区属最低分={v["qu_min_score"]} 区属3年均值={v["qu_min_3y_avg"]} '
                   f'省市属浪费率={v["sheng_waste_rate"]} 区属浪费率={v["qu_waste_rate"]}')
     return 0

@@ -137,14 +137,19 @@ def extract_quota_outcome(m):
             "school_ids": v.get("school_ids"),
             "sheng_min_score": v.get("sheng_min_score"),
             "qu_min_score": v.get("qu_min_score"),
+            "top14_min_score": v.get("top14_min_score"),
             "sheng_min_3y_avg": v.get("sheng_min_3y_avg"),
             "qu_min_3y_avg": v.get("qu_min_3y_avg"),
+            "top14_min_3y_avg": v.get("top14_min_3y_avg"),
             "sheng_min_2024": v.get("sheng_min_2024"),
             "sheng_min_2025": v.get("sheng_min_2025"),
             "sheng_min_2026": v.get("sheng_min_2026"),
             "qu_min_2024": v.get("qu_min_2024"),
             "qu_min_2025": v.get("qu_min_2025"),
             "qu_min_2026": v.get("qu_min_2026"),
+            "top14_min_2024": v.get("top14_min_2024"),
+            "top14_min_2025": v.get("top14_min_2025"),
+            "top14_min_2026": v.get("top14_min_2026"),
             "sheng_quota": v.get("sheng_quota"),
             "qu_quota": v.get("qu_quota"),
             "sheng_waste_rate": v.get("sheng_waste_rate"),
@@ -153,6 +158,8 @@ def extract_quota_outcome(m):
             "sheng_failed": v.get("sheng_failed"),
             "qu_pairs": v.get("qu_pairs"),
             "qu_failed": v.get("qu_failed"),
+            "top14_pairs": v.get("top14_pairs"),
+            "top14_failed": v.get("top14_failed"),
         })
     return sorted(out, key=lambda x: (x["school"] or ""))
 
@@ -294,7 +301,7 @@ def assert_dist_structure() -> list:
     occ = json.load(open(os.path.join(CANON, "quota_outcome.json"), encoding="utf-8"))
     if set(oc) != {"ids", "schools"}:
         errs.append("quota_outcome 顶层键必须仅 ids/schools")
-    oc_allowed = {"sheng_min_score", "qu_min_score",
+    oc_allowed = {"sheng_min_score", "qu_min_score", "top14_min_score",
                   "sheng_min_3y_avg", "qu_min_3y_avg",
                   "sheng_quota", "qu_quota",
                   "sheng_waste_rate", "qu_waste_rate"}
@@ -308,6 +315,8 @@ def assert_dist_structure() -> list:
             errs.append("quota_outcome ids 值不得含 school 名（应 join 实体表）")
         if v.get("sheng_min_score") is not None and not isinstance(v["sheng_min_score"], int):
             errs.append(f"quota_outcome 最低分必须为整数或 null: {v}")
+        if v.get("top14_min_score") is not None and not isinstance(v["top14_min_score"], int):
+            errs.append(f"quota_outcome TOP14最低分必须为整数或 null: {v}")
         for k in ("sheng_waste_rate", "qu_waste_rate"):
             w = v.get(k)
             if w is not None and not (0 <= w <= 1):
@@ -326,7 +335,7 @@ def assert_dist_structure() -> list:
     if id_cnt + school_cnt != len(occ.get("data", {})):
         errs.append(f"quota_outcome ids({id_cnt})+schools({school_cnt}) ≠ canonical 行数 {len(occ.get('data', {}))}")
     for v in (occ.get("data") or {}).values():
-        for k in ("sheng_pairs", "sheng_failed", "qu_pairs", "qu_failed"):
+        for k in ("sheng_pairs", "sheng_failed", "qu_pairs", "qu_failed", "top14_pairs", "top14_failed"):
             if v.get(k) is not None and not isinstance(v[k], int):
                 errs.append(f"quota_outcome canonical 对数/未录取数字段必须为整数或 null: {k}")
 

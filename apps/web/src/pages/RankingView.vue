@@ -32,6 +32,8 @@ interface Row {
   /** 第二批次指标结果（dist/quota_outcome，id 粒度；py 层聚合，运行时零推断） */
   sheng_min_score?: number | null;
   qu_min_score?: number | null;
+  /** TOP14 指标（dist/quota_outcome）：省市属 20 校区排除 6 校区后的 14 所头部校区最低分 */
+  top14_min_score?: number | null;
   sheng_min_3y_avg?: number | null;
   qu_min_3y_avg?: number | null;
   sheng_waste_rate?: number | null;
@@ -96,6 +98,7 @@ const schools: Row[] = rankingMiddle.schools.map((r) => {
     qu_quota: q?.qu_quota ?? nameRow?.qu_quota ?? null,
     sheng_min_score: oc?.sheng_min_score ?? null,
     qu_min_score: oc?.qu_min_score ?? null,
+    top14_min_score: oc?.top14_min_score ?? null,
     sheng_min_3y_avg: oc?.sheng_min_3y_avg ?? null,
     qu_min_3y_avg: oc?.qu_min_3y_avg ?? null,
     sheng_waste_rate: oc?.sheng_waste_rate ?? null,
@@ -147,8 +150,8 @@ function goSchool(name: string, id?: string) {
 const openMenu = ref<'group' | 'filter' | 'metric' | null>(null);
 /** 筛选/排序状态同步到 URL query：详情页返回时浏览器恢复 URL，组件重建据此还原（见 routeQuery.ts）。 */
 const groupBy = ref<'none' | 'district' | 'group'>(queryScalar(route.query.group, ['district', 'group'] as const, 'none'));
-type MetricKey = 'default' | 'qu_ratio' | 'sheng_ratio' | 'tekong' | 'sheng_min' | 'qu_min';
-const metric = ref<MetricKey>(queryScalar(route.query.metric, ['default', 'qu_ratio', 'sheng_ratio', 'tekong', 'sheng_min', 'qu_min'] as const, 'default'));
+type MetricKey = 'default' | 'qu_ratio' | 'sheng_ratio' | 'tekong' | 'sheng_min' | 'qu_min' | 'top14_min';
+const metric = ref<MetricKey>(queryScalar(route.query.metric, ['default', 'qu_ratio', 'sheng_ratio', 'tekong', 'sheng_min', 'qu_min', 'top14_min'] as const, 'default'));
 
 const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: string }> }> = [
   {
@@ -162,6 +165,7 @@ const METRIC_GROUPS: Array<{ title: string; items: Array<{ v: MetricKey; l: stri
       { v: 'sheng_ratio', l: '省市属指标比例（÷名额分配符合资格考生数）' },
       { v: 'sheng_min', l: '省市属指标最低分' },
       { v: 'qu_min', l: '区属指标最低分' },
+      { v: 'top14_min', l: 'TOP14指标最低分（14所头部省市属校区）' },
     ],
   },
   {
@@ -177,6 +181,7 @@ const METRIC_META: Record<MetricKey, { label: string; note: string; unit: string
   tekong: { label: '指标×特控率', note: 'Σ(区属高中给该校指标名额 × 该高中特控率) ÷ 符合名额分配报考资格考生数。反映该校符合资格考生经区属指标到校路径预计上特控（一本）线的比例；特控率为喜报/网传口径，缺失的高中名额不计。', unit: '%', digits: 1 },
   sheng_min: { label: '省市属指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被省市属高中（11 所 20 校区 + 广州外国语学校）录取的最低分（录取序列最后一名，升学分数门槛）。第三批次分数不在此列。近3年平均分 = 2024/2025/2026 各年该最低分的时间维算术平均（某年无录取记录不参与）。', unit: '', digits: 0 },
   qu_min: { label: '区属指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被本区区属示范高中录取的最低分（录取序列最后一名，升学分数门槛）。第三批次分数不在此列。近3年平均分 = 2024/2025/2026 各年该最低分的时间维算术平均（某年无录取记录不参与）。', unit: '', digits: 0 },
+  top14_min: { label: 'TOP14指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被 TOP14 保留校区录取的最低分（录取序列最后一名，升学分数门槛）。TOP14 = 省市属 11 所 20 校区中排除广东华侨中学、广州协和学校、六中（从化/花都校区）、清华附中湾区（智谷/智慧城校区）6 校区后的 14 所头部校区（三年名额分配控制线均≥650）。排除 6 校区避免弱校把强初中的最低分拉低（如铁一番禺：省市属最低分 619 来自华侨中学，TOP14 口径 726）。本指标仅展示 2026 年最低分；指标数/浪费率按 20 校区指标对数口径计，不适用于该子集。', unit: '', digits: 0 },
 };
 
 /** 区属/省市属比例指标额外展示一列指标数绝对值 */
@@ -191,6 +196,8 @@ function fmtAbs(v: number | null): string {
 
 /** 最低分指标模式：表格显示 最低分 / 近3年平均分 / 指标数 / 浪费率 四列（考生数列让位，指标数/浪费率随所选类型） */
 const showOutcome = computed(() => metric.value === 'sheng_min' || metric.value === 'qu_min');
+/** TOP14 指标模式：只显示 最低分 一列（口径与省市属不同，3年均值/指标数/浪费率不适用） */
+const showTop14 = computed(() => metric.value === 'top14_min');
 const outcomeQuotaLabel = computed(() => '指标数');
 /** 近3年平均分（2024/2025/2026 各年最低分时间维均值，某年无录取不参与） */
 function outcomeMin3y(s: Row): number | null {
@@ -252,8 +259,9 @@ const WASTE_NOTE = '指标浪费率 = 未完成录取的对数 ÷ 有指标的�
 
 const metricLabel = computed(() => METRIC_META[metric.value].label);
 const metricNote = computed(() => METRIC_META[metric.value].note);
-/** 表格数值列列名：默认排序时仍显示区属指标比例；最低分模式缩写为「最低分」 */
+/** 表格数值列列名：默认排序时仍显示区属指标比例；最低分模式缩写为「最低分」；TOP14 模式显示全名 */
 const columnLabel = computed(() => {
+  if (metric.value === 'top14_min') return 'TOP14最低分';
   if (metric.value === 'sheng_min' || metric.value === 'qu_min') return '最低分';
   return metric.value === 'default' ? METRIC_META.qu_ratio.label : METRIC_META[metric.value].label;
 });
@@ -268,6 +276,7 @@ function metricValue(s: Row): number | null {
     case 'tekong': return s.tekong_quota_rate ?? null;
     case 'sheng_min': return s.sheng_min_score ?? null;
     case 'qu_min': return s.qu_min_score ?? null;
+    case 'top14_min': return s.top14_min_score ?? null;
     default: return null;
   }
 }
@@ -355,7 +364,7 @@ useQuerySync(
   }),
   (q) => {
     groupBy.value = queryScalar(q.group, ['district', 'group'] as const, 'none');
-    metric.value = queryScalar(q.metric, ['default', 'qu_ratio', 'sheng_ratio', 'tekong', 'sheng_min', 'qu_min'] as const, 'default');
+    metric.value = queryScalar(q.metric, ['default', 'qu_ratio', 'sheng_ratio', 'tekong', 'sheng_min', 'qu_min', 'top14_min'] as const, 'default');
     selectedDistricts.value = querySet<string>(q.districts) ?? new Set(DISTRICTS.map((d) => d.adcode));
     selectedCivilized.value = querySet<CivilizedKey>(q.honor, new Set(CIVILIZED_FILTERS.map(([v]) => v))) ?? null;
   },
@@ -368,7 +377,7 @@ const districtOrder = DISTRICTS.map((d) => d.name.replace('区', ''));
 
 const groups = computed(() => {
   const rows = schools.filter(districtVisible).filter(civilizedVisible).map((s) => ({ s, v: metricValue(s), minban: !!s.minban }));
-  const asc = metric.value === 'sheng_min' || metric.value === 'qu_min';
+  const asc = metric.value === 'sheng_min' || metric.value === 'qu_min' || metric.value === 'top14_min';
   const sortFn = metric.value === 'default' ? levelSort : (a: { v: number | null; minban?: boolean }, b: { v: number | null; minban?: boolean }) => rankSort(a, b, asc);
   if (groupBy.value === 'none') {
     return [{ key: 'all', title: '', items: rows.slice().sort(sortFn) }];
@@ -483,7 +492,7 @@ const groups = computed(() => {
             <col v-if="showOutcome" class="col-sub">
             <col v-if="showOutcome" class="col-sub">
             <col v-else-if="showAbs" class="col-sub">
-            <col v-else class="col-sub">
+            <col v-else-if="!showTop14" class="col-sub">
           </colgroup>
           <thead>
             <tr>
@@ -511,7 +520,7 @@ const groups = computed(() => {
                 >?</span>
               </th>
               <th v-else-if="showAbs" class="c-sub">{{ absLabel }}</th>
-              <th v-else class="c-sub">
+              <th v-else-if="!showTop14" class="c-sub">
                 考生数
                 <span
                   class="q-mark"
@@ -543,7 +552,7 @@ const groups = computed(() => {
               <td v-if="showOutcome" class="c-sub">{{ fmtAbs(outcomeQuota(row.s)) }}</td>
               <td v-if="showOutcome" class="c-sub">{{ fmtWaste(outcomeWaste(row.s)) }}</td>
               <td v-else-if="showAbs" class="c-sub">{{ fmtAbs(absValue(row.s)) }}</td>
-              <td v-else class="c-sub">{{ row.s.kaosheng ?? '—' }}</td>
+              <td v-else-if="!showTop14" class="c-sub">{{ row.s.kaosheng ?? '—' }}</td>
             </tr>
           </tbody>
         </table>

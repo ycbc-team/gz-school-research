@@ -88,6 +88,8 @@ export interface DistrictQuota {
 export interface QuotaOutcomeRecord {
   sheng_min_score?: number | null;
   qu_min_score?: number | null;
+  /** TOP14 指标（2026-10-03 用户拍板）：省市属 20 校区中排除 6 校区（华侨/协和/六中从化/六中花都/清华智谷/清华智慧城）后的 14 所头部校区最低分 */
+  top14_min_score?: number | null;
   sheng_min_3y_avg?: number | null;
   qu_min_3y_avg?: number | null;
   sheng_quota?: number | null;
