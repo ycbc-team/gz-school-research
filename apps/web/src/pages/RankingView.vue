@@ -34,6 +34,9 @@ interface Row {
   qu_min_score?: number | null;
   /** TOP14 指标（dist/quota_outcome）：省市属 20 校区排除 6 校区后的 14 所头部校区最低分 */
   top14_min_score?: number | null;
+  top14_min_3y_avg?: number | null;
+  top14_quota?: number | null;
+  top14_waste_rate?: number | null;
   sheng_min_3y_avg?: number | null;
   qu_min_3y_avg?: number | null;
   sheng_waste_rate?: number | null;
@@ -99,6 +102,9 @@ const schools: Row[] = rankingMiddle.schools.map((r) => {
     sheng_min_score: oc?.sheng_min_score ?? null,
     qu_min_score: oc?.qu_min_score ?? null,
     top14_min_score: oc?.top14_min_score ?? null,
+    top14_min_3y_avg: oc?.top14_min_3y_avg ?? null,
+    top14_quota: oc?.top14_quota ?? null,
+    top14_waste_rate: oc?.top14_waste_rate ?? null,
     sheng_min_3y_avg: oc?.sheng_min_3y_avg ?? null,
     qu_min_3y_avg: oc?.qu_min_3y_avg ?? null,
     sheng_waste_rate: oc?.sheng_waste_rate ?? null,
@@ -181,7 +187,7 @@ const METRIC_META: Record<MetricKey, { label: string; note: string; unit: string
   tekong: { label: '指标×特控率', note: 'Σ(区属高中给该校指标名额 × 该高中特控率) ÷ 符合名额分配报考资格考生数。反映该校符合资格考生经区属指标到校路径预计上特控（一本）线的比例；特控率为喜报/网传口径，缺失的高中名额不计。', unit: '%', digits: 1 },
   sheng_min: { label: '省市属指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被省市属高中（11 所 20 校区 + 广州外国语学校）录取的最低分（录取序列最后一名，升学分数门槛）。第三批次分数不在此列。近3年平均分 = 2024/2025/2026 各年该最低分的时间维算术平均（某年无录取记录不参与）。', unit: '', digits: 0 },
   qu_min: { label: '区属指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被本区区属示范高中录取的最低分（录取序列最后一名，升学分数门槛）。第三批次分数不在此列。近3年平均分 = 2024/2025/2026 各年该最低分的时间维算术平均（某年无录取记录不参与）。', unit: '', digits: 0 },
-  top14_min: { label: 'TOP14指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被 TOP14 保留校区录取的最低分（录取序列最后一名，升学分数门槛）。TOP14 = 省市属 11 所 20 校区中排除广东华侨中学、广州协和学校、六中（从化/花都校区）、清华附中湾区（智谷/智慧城校区）6 校区后的 14 所头部校区（三年名额分配控制线均≥650）。排除 6 校区避免弱校把强初中的最低分拉低（如铁一番禺：省市属最低分 619 来自华侨中学，TOP14 口径 726）。本指标仅展示 2026 年最低分；指标数/浪费率按 20 校区指标对数口径计，不适用于该子集。', unit: '', digits: 0 },
+  top14_min: { label: 'TOP14指标最低分', note: '该校学生通过第二批次（名额分配/指标到校）被 TOP14 保留校区录取的最低分（录取序列最后一名，升学分数门槛）。TOP14 = 省市属 11 所 20 校区中排除广东华侨中学、广州协和学校、六中（从化/花都校区）、清华附中湾区（智谷/智慧城校区）6 校区后的 14 所头部校区（三年名额分配控制线均≥650）。排除 6 校区避免弱校把强初中的最低分拉低（如铁一番禺：省市属最低分 619 来自华侨中学，TOP14 口径 726）。近3年平均分 = 2024/2025/2026 各年 TOP14 最低分的时间维算术平均（某年无录取记录不参与）。指标数 = 14 校区名额分配指标数合计（quota_matrix.sz 按校区求和，与省市属指标数同源口径）；浪费率 = 未录取对 / 有指标对（对数口径）。', unit: '', digits: 0 },
 };
 
 /** 区属/省市属比例指标额外展示一列指标数绝对值 */
@@ -194,20 +200,27 @@ function fmtAbs(v: number | null): string {
   return v == null ? '—' : String(v);
 }
 
-/** 最低分指标模式：表格显示 最低分 / 近3年平均分 / 指标数 / 浪费率 四列（考生数列让位，指标数/浪费率随所选类型） */
-const showOutcome = computed(() => metric.value === 'sheng_min' || metric.value === 'qu_min');
-/** TOP14 指标模式：只显示 最低分 一列（口径与省市属不同，3年均值/指标数/浪费率不适用） */
+/** 最低分指标模式（省市属/区属/TOP14）：表格显示 最低分 / 近3年平均分 / 指标数 / 浪费率 四列
+ * （考生数列让位；TOP14 模式经 showOutcome 走同一布局，指标数/浪费率为 top14 子集口径） */
+const showOutcome = computed(() => metric.value === 'sheng_min' || metric.value === 'qu_min' || metric.value === 'top14_min');
+/** 兼容旧条件：top14_min 已并入 showOutcome，此标志仅用于 colgroup/thead/tbody 的 v-else 链占位 */
 const showTop14 = computed(() => metric.value === 'top14_min');
 const outcomeQuotaLabel = computed(() => '指标数');
 /** 近3年平均分（2024/2025/2026 各年最低分时间维均值，某年无录取不参与） */
 function outcomeMin3y(s: Row): number | null {
-  return metric.value === 'sheng_min' ? (s.sheng_min_3y_avg ?? null) : (s.qu_min_3y_avg ?? null);
+  if (metric.value === 'sheng_min') return s.sheng_min_3y_avg ?? null;
+  if (metric.value === 'top14_min') return s.top14_min_3y_avg ?? null;
+  return s.qu_min_3y_avg ?? null;
 }
 function outcomeQuota(s: Row): number | null {
-  return metric.value === 'sheng_min' ? (s.sheng_quota ?? null) : (s.qu_quota ?? null);
+  if (metric.value === 'sheng_min') return s.sheng_quota ?? null;
+  if (metric.value === 'top14_min') return s.top14_quota ?? null;
+  return s.qu_quota ?? null;
 }
 function outcomeWaste(s: Row): number | null {
-  return metric.value === 'sheng_min' ? (s.sheng_waste_rate ?? null) : (s.qu_waste_rate ?? null);
+  if (metric.value === 'sheng_min') return s.sheng_waste_rate ?? null;
+  if (metric.value === 'top14_min') return s.top14_waste_rate ?? null;
+  return s.qu_waste_rate ?? null;
 }
 function fmtWaste(v: number | null): string {
   return v == null ? '—' : `${(v * 100).toFixed(1)}%`;

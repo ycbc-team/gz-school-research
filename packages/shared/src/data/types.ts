@@ -90,6 +90,12 @@ export interface QuotaOutcomeRecord {
   qu_min_score?: number | null;
   /** TOP14 指标（2026-10-03 用户拍板）：省市属 20 校区中排除 6 校区（华侨/协和/六中从化/六中花都/清华智谷/清华智慧城）后的 14 所头部校区最低分 */
   top14_min_score?: number | null;
+  /** TOP14 近3年最低分均值（2024/2025/2026 各年 top14 最低分时间维均值，某年无录取不参与） */
+  top14_min_3y_avg?: number | null;
+  /** TOP14 指标数（quota_matrix.sz 中 14 校区指标数求和，与 sheng_quota 同源口径） */
+  top14_quota?: number | null;
+  /** TOP14 浪费率（未录取对 / 有指标对，对数口径，与 sheng_waste_rate 一致） */
+  top14_waste_rate?: number | null;
   sheng_min_3y_avg?: number | null;
   qu_min_3y_avg?: number | null;
   sheng_quota?: number | null;

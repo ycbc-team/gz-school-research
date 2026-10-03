@@ -152,6 +152,7 @@ def extract_quota_outcome(m):
             "top14_min_2026": v.get("top14_min_2026"),
             "sheng_quota": v.get("sheng_quota"),
             "qu_quota": v.get("qu_quota"),
+            "top14_quota": v.get("top14_quota"),
             "sheng_waste_rate": v.get("sheng_waste_rate"),
             "qu_waste_rate": v.get("qu_waste_rate"),
             "sheng_pairs": v.get("sheng_pairs"),
@@ -302,9 +303,9 @@ def assert_dist_structure() -> list:
     if set(oc) != {"ids", "schools"}:
         errs.append("quota_outcome 顶层键必须仅 ids/schools")
     oc_allowed = {"sheng_min_score", "qu_min_score", "top14_min_score",
-                  "sheng_min_3y_avg", "qu_min_3y_avg",
-                  "sheng_quota", "qu_quota",
-                  "sheng_waste_rate", "qu_waste_rate"}
+                  "sheng_min_3y_avg", "qu_min_3y_avg", "top14_min_3y_avg",
+                  "sheng_quota", "qu_quota", "top14_quota",
+                  "sheng_waste_rate", "qu_waste_rate", "top14_waste_rate"}
     id_cnt = school_cnt = 0
     for sid, v in (oc.get("ids") or {}).items():
         if not str(sid).startswith("gz-"):
@@ -317,14 +318,16 @@ def assert_dist_structure() -> list:
             errs.append(f"quota_outcome 最低分必须为整数或 null: {v}")
         if v.get("top14_min_score") is not None and not isinstance(v["top14_min_score"], int):
             errs.append(f"quota_outcome TOP14最低分必须为整数或 null: {v}")
-        for k in ("sheng_waste_rate", "qu_waste_rate"):
+        for k in ("sheng_waste_rate", "qu_waste_rate", "top14_waste_rate"):
             w = v.get(k)
             if w is not None and not (0 <= w <= 1):
                 errs.append(f"quota_outcome 浪费率必须 0-1 或 null（前端 ×100）: {w}（{sid}）")
-        for k in ("sheng_min_3y_avg", "qu_min_3y_avg"):
+        for k in ("sheng_min_3y_avg", "qu_min_3y_avg", "top14_min_3y_avg"):
             a = v.get(k)
             if a is not None and not isinstance(a, (int, float)):
                 errs.append(f"quota_outcome 近3年均值必须为数值或 null: {a}（{sid}）")
+        if v.get("top14_quota") is not None and not isinstance(v["top14_quota"], int):
+            errs.append(f"quota_outcome TOP14指标数必须为整数或 null: {v}")
         id_cnt += 1
     for name, v in (oc.get("schools") or {}).items():
         if set(v) - oc_allowed:
