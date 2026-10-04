@@ -135,10 +135,10 @@
         <view class="qblock-title">区属高中（面向本区）</view>
         <view class="sub-note">数据从官方 PDF 视觉提取，个别个位数可能存在 1~6 个误差，以官方公布为准。</view>
         <view class="tbl">
-          <view class="tbl-row tbl-head"><text>高中</text><text>名额</text></view>
+          <view class="tbl-row tbl-head"><text>高中</text><text>名额</text><text>录取最低分</text></view>
           <view wx:for="{{linkage.districtRows}}" wx:key="name" class="tbl-row">
             <text class="sch-link" data-to="/school/{{item.name}}?stage=high" bindtap="goSchool">{{item.name}}</text>
-            <text class="strong">{{item.n}}</text>
+            <text class="strong">{{item.n}}</text><text>{{item.min || '—'}}</text>
           </view>
         </view>
       </view>

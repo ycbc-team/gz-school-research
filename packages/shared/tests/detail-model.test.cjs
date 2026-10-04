@@ -517,3 +517,29 @@ test('省市属名额×最低分合并：id 合并键，同一高中一行（不
   assert.equal(hq.n, 3, '华侨名额应与最低分同行');
   assert.equal(hq.min, 619, '华侨最低分（sheng_min 硬约束）保持不变');
 });
+
+test('区属名额×最低分合并：区属高中一行 + 广外并入省市属（方案A补全）', () => {
+  // 铁一番禺初中（番禺区）：区属=番禺区属高中；广外属省市属批次应并入 batchMerged
+  const model = buildLinkageModel('middle', '广州铁一中学（番禺校区）', repo, 'gz-440113-97e0acaa');
+  const rows = model.districtRows;
+  assert.ok(rows.length >= 12, '区属逐校明细应完整（>=12 所）');
+  assert.equal(new Set(rows.map((r) => r.name)).size, rows.length, '每所区属高中应唯一一行');
+  for (const r of rows) assert.ok(r.n != null, '区属行必须有名额');
+  const zy = rows.find((r) => r.name.includes('仲元'));
+  assert.ok(zy, '应存在广东仲元中学');
+  assert.equal(zy.n, 7, '仲元名额 7 应与最低分同行');
+  assert.equal(zy.min, 706, '仲元最低分 706 应与名额同行');
+  const py = rows.find((r) => r.name.includes('番禺中学'));
+  assert.equal(py?.n, 9, '番禺中学名额 9');
+  assert.equal(py?.min, 672, '番禺中学最低分 672');
+  const sb = rows.find((r) => r.name.includes('石北'));
+  assert.equal(sb?.n, 5, '石北名额 5');
+  assert.equal(sb?.min, 534, '石北最低分 534（qu_min_score 硬约束）');
+  const sl = rows.find((r) => r.name.includes('石楼'));
+  assert.equal(sl?.min, null, '石楼有名额但未完成录取 → 最低分为 null');
+  // 广外（省市属批次，原 CITY_PREFIX 缺口）现在并入省市属表格：名额 1 × 最低分 725
+  const gw = model.batchMerged.find((r) => r.campusFull.includes('外国语学校'));
+  assert.ok(gw, '广外应出现在省市属表格');
+  assert.equal(gw.n, 1, '广外名额应与最低分同行');
+  assert.equal(gw.min, 725, '广外最低分 725 应与名额同行');
+});

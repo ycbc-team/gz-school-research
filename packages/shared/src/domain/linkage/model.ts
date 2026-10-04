@@ -19,7 +19,7 @@ export interface BatchMergedRow {
   poiName: string | null;
   n: number | null; min: number | null;
 }
-export interface DistrictRow { name: string; poiName: string | null; n: number }
+export interface DistrictRow { name: string; poiName: string | null; n: number; min: number | null }
 export interface HighCoverRow { school: string; poiName: string | null; n: number; districts: string[]; campuses: CampusLink[] }
 
 /** 法人多校区跳转链接：官方升学文件按法人单位公布，一个法人名对应同 stage 全部校区实体；
@@ -117,13 +117,19 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
           .sort((a, b) => b.n - a.n)
       : [];
     const campusByRaw = new Map(campuses.map((c) => [c.name, c]));
+    const campusById = new Map(campuses.filter((c) => c.id != null).map((c) => [c.id!, c]));
+    /** batch2 行按高中归属分流：21 校区（含广州外国语学校）= 省市属（进 batchMerged）；
+     *  其余 = 区属高中（面向本区），与 districtRows 名额按 id merge。 */
+    const cityRows: { key: string; campus: string; campusFull: string; school: string; poiName: string | null; min: number | null }[] = [];
+    const districtMin = new Map<string, { campus: string; campusFull: string; school: string; poiName: string | null; min: number | null }>();
     const batchRows = Object.entries(repo.batch2Of(schoolName)).map(([k, v]) => {
       const nm = nameOfKey(k);
-      const ci = campusByRaw.get(k) ?? campusByRaw.get(nm);
+      const ci = campusByRaw.get(k) ?? campusByRaw.get(nm) ?? campusById.get(k);
+      const isCity = ci != null; // campuses 21 校区命中=省市属（含广外）；区属高中不在 campuses
       // merge 键与名额侧同源：ids 层 key=school_id 直接用；schools 层原文行映射到校区实体 id，
       // 缺口校区（无 id）保持官方原文——杜绝「官方原文 vs 实体名」两套命名拆出双行
       const key = k.startsWith('gz-') ? k : (ci?.id ?? k);
-      return {
+      const row = {
         key,
         campus: nm, // 展示兜底名
         campusFull: nm,
@@ -131,12 +137,15 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
         // 有实体校区可跳转（实体名）；实体表缺口校区（ci.id=null）不可跳转——不得让
         // resolvePoi 名称容错把缺口校区指到别的校区（如广雅花都→荔湾）
         poiName: ci ? (ci.id ? poiOfRow(nm, ci.school) : null) : poiOfKey(k),
-        min: v.min_score,
+        min: v.min_score ?? null,
       };
+      if (isCity) cityRows.push(row);
+      else districtMin.set(key, row);
+      return row;
     });
     const qmap = new Map<string, { campus: string; campusFull: string; school: string; poiName: string | null; n: number }>(quotaRows.map((r) => [r.key, r]));
     const bmap = new Map<string, { campus: string; campusFull: string; school: string; poiName: string | null; min: number | null }>(
-      batchRows.map((r) => [r.key, { campus: r.campus, campusFull: r.campusFull, school: r.school, poiName: r.poiName, min: r.min ?? null }]),
+      cityRows.map((r) => [r.key, { campus: r.campus, campusFull: r.campusFull, school: r.school, poiName: r.poiName, min: r.min ?? null }]),
     );
     const batchMerged: BatchMergedRow[] = [...new Set([...qmap.keys(), ...bmap.keys()])]
       .map((c) => {
@@ -153,7 +162,16 @@ export function buildLinkageModel(stage: 'middle' | 'high', schoolName: string, 
       })
       .sort((a, b) => (b.n ?? 0) - (a.n ?? 0));
     const districtRows: DistrictRow[] = Object.entries(repo.districtQuotaOf(schoolName))
-      .map(([k, n]) => ({ name: nameOfKey(k), poiName: poiOfKey(k), n }))
+      .map(([k, n]) => {
+        // merge 键与 batch2 区属同源：id 直接用，缺口原文保持原文（已 id 化的高中全部走 id 合并）
+        const dm = districtMin.get(k);
+        return {
+          name: dm?.campusFull ?? nameOfKey(k), // 展示名：实体名优先，原文兜底
+          poiName: dm?.poiName ?? poiOfKey(k),
+          n,
+          min: dm?.min ?? null, // 有名额但未完成录取（石楼/石碁类）为 null
+        };
+      })
       .sort((a, b) => b.n - a.n);
     return {
       quota: quota ? { kaosheng: quota.kaosheng, sheng_quota: quota.sheng_quota, qu_quota: quota.qu_quota } : null,

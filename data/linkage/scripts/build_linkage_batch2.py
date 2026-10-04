@@ -31,8 +31,13 @@ def is_city(s):
     return False
 
 rows = json.load(open(ALL, encoding='utf-8'))
-kept = [r for r in rows if is_city(r['senior'])]
-print('省市属高中记录:', len(kept), '/', len(rows))
+# 全量保留：省市属 11 所（20 校区）+ 区属高中（面向本区）+ 广州外国语学校（省市属批次、原 CITY_PREFIX 缺）。
+# 分流不做在 B 层——canonical 是全量规范表，dist 键 id 化后由运行时 repository 按 campuses
+# （21 校区含广外）判定省市属/区属归属。
+kept = rows
+n_city = sum(1 for r in kept if is_city(r['senior']))
+n_other = len(kept) - n_city
+print(f'总记录: {len(kept)} | 省市属校区: {n_city} | 区属(含广州外国语学校): {n_other}')
 
 by_school = defaultdict(list)
 for r in kept:
@@ -65,11 +70,11 @@ print('覆盖初中数:', len(juniors), '| 未录取对:', empty_total)
 
 meta = {
     'title': '第二批次（名额分配）录取分数规范表（B 层）',
-    'updated': '2026-09-09',
-    'scope': '省市属示范11所（含全部校区）',
+    'updated': '2026-10-04',
+    'scope': '全量：省市属示范11所（含全部校区）+ 区属高中（面向本区）+ 广州外国语学校',
     'source': '广州市招考办《2026年广州市高中阶段学校招生录取分数（第二批次招生学校）（按初中学校排序）》',
     'source_url': 'https://gzzk.gz.gov.cn/attachment/8/8050/8050473/10908461.pdf',
-    'note': 'min_score/last_score=该初中通过名额分配实际录取到该校的最低分（未录取为null，指有指标但无人完成录取）；指标计划数 n_ji 需与名额分配计划表合并',
+    'note': 'min_score/last_score=该初中通过名额分配实际录取到该校的最低分（未录取为null，指有指标但无人完成录取）；指标计划数 n_ji 需与名额分配计划表合并；区属高中（面向本区）按初中所在区对齐',
     'data': out,
 }
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
