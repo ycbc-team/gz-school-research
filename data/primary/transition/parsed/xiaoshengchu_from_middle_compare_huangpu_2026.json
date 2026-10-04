@@ -1,26 +1,297 @@
 {
   "basis": "official middle-enrollment transcripts vs existing xiaoshengchu district dist; entity IDs are compared after each chain's current resolver.",
   "district": "黄埔区",
-  "only_current": [],
-  "only_reverse": [
+  "only_current": [
+    {
+      "middle": "玉泉学校",
+      "middle_school_id": "gz-440112-12b0184b",
+      "primary": "东荟花园小学(北校区)",
+      "primary_school_id": "gz-440112-ce5e4e7d"
+    },
+    {
+      "middle": "玉泉学校",
+      "middle_school_id": "gz-440112-12b0184b",
+      "primary": "东荟花园小学南校区",
+      "primary_school_id": "gz-440112-84a205c9"
+    },
     {
       "middle": "广州知识城中学(东校区)",
       "middle_school_id": "gz-440112-badbc2ab",
-      "primary": "凤尾学校",
-      "primary_school_id": "gz-440112-c9a30b3d"
+      "primary": "九龙第一小学",
+      "primary_school_id": "gz-440112-ffa4e489"
     },
     {
       "middle": "广州知识城中学(北校区)",
       "middle_school_id": "gz-440112-3f877ace",
-      "primary": "凤尾学校",
-      "primary_school_id": "gz-440112-c9a30b3d"
+      "primary": "九龙第一小学",
+      "primary_school_id": "gz-440112-ffa4e489"
     },
     {
       "middle": "广州知识城中学(南校区)",
       "middle_school_id": "gz-440112-ec15555e",
-      "primary": "凤尾学校",
-      "primary_school_id": "gz-440112-c9a30b3d"
+      "primary": "九龙第一小学",
+      "primary_school_id": "gz-440112-ffa4e489"
     },
+    {
+      "middle": "广州市黄埔区玉岩实验学校",
+      "middle_school_id": "gz-440112-f3817fbe",
+      "primary": "九龙第三小学",
+      "primary_school_id": "gz-440112-753aa0d3"
+    },
+    {
+      "middle": "广州市黄埔区玉岩实验学校",
+      "middle_school_id": "gz-440112-f3817fbe",
+      "primary": "九龙第二小学",
+      "primary_school_id": "gz-440112-3f33e75c"
+    },
+    {
+      "middle": "广州市黄埔区玉岩实验学校",
+      "middle_school_id": "gz-440112-f3817fbe",
+      "primary": "九龙第二小学大坦分校",
+      "primary_school_id": "gz-440112-59ba7b57"
+    },
+    {
+      "middle": "广州市黄埔区玉岩实验学校",
+      "middle_school_id": "gz-440112-f3817fbe",
+      "primary": "九龙第四小学新田分校",
+      "primary_school_id": "gz-440112-2a13a6a9"
+    },
+    {
+      "middle": "广州知识城中学(东校区)",
+      "middle_school_id": "gz-440112-badbc2ab",
+      "primary": "何棠下小学",
+      "primary_school_id": "gz-440112-5147e70b"
+    },
+    {
+      "middle": "广州知识城中学(北校区)",
+      "middle_school_id": "gz-440112-3f877ace",
+      "primary": "何棠下小学",
+      "primary_school_id": "gz-440112-5147e70b"
+    },
+    {
+      "middle": "广州知识城中学(南校区)",
+      "middle_school_id": "gz-440112-ec15555e",
+      "primary": "何棠下小学",
+      "primary_school_id": "gz-440112-5147e70b"
+    },
+    {
+      "middle": "玉泉学校",
+      "middle_school_id": "gz-440112-12b0184b",
+      "primary": "光远小学",
+      "primary_school_id": "gz-440112-1fb45e21"
+    },
+    {
+      "middle": "广大附中黄埔实验学校(东校区)",
+      "middle_school_id": "gz-440112-705c66e3",
+      "primary": "华南师范大学附属开发区实验小学",
+      "primary_school_id": "gz-440112-6232b59e"
+    },
+    {
+      "middle": "华南师范大学附属黄埔实验学校(南校区)",
+      "middle_school_id": "gz-440112-6d1ac70b",
+      "primary": "华南师范大学附属黄埔实验学校(南校区)",
+      "primary_school_id": "gz-440112-6d1ac70b"
+    },
+    {
+      "middle": "广州市黄埔区玉岩实验学校",
+      "middle_school_id": "gz-440112-f3817fbe",
+      "primary": "广东外语外贸大学附属知识城实验小学(南校区)",
+      "primary_school_id": "gz-440112-abe35401"
+    },
+    {
+      "middle": "广东外语外贸大学附属科学城实验学校",
+      "middle_school_id": "gz-440112-e08700ea",
+      "primary": "广东外语外贸大学附属科学城实验学校",
+      "primary_school_id": "gz-440112-e08700ea"
+    },
+    {
+      "middle": "广东外语外贸大学附属黄埔实验学校",
+      "middle_school_id": "gz-440112-cf50e275",
+      "primary": "广东外语外贸大学附属黄埔实验学校",
+      "primary_school_id": "gz-440112-cf50e275"
+    },
+    {
+      "middle": "广大附中高新区实验学校(初中部)",
+      "middle_school_id": "gz-440112-e3746d8c",
+      "primary": "广大附中高新区实验学校(南校区)",
+      "primary_school_id": "gz-440112-66c2a1f1"
+    },
+    {
+      "middle": "广大附中高新区实验学校(初中部)",
+      "middle_school_id": "gz-440112-e3746d8c",
+      "primary": "广大附中高新区实验学校北校区(小学部)",
+      "primary_school_id": "gz-440112-035f4f6d"
+    },
+    {
+      "middle": "广大附中黄埔实验学校(西校区)",
+      "middle_school_id": "gz-440112-87756a6d",
+      "primary": "广大附中黄埔实验学校(西校区)",
+      "primary_school_id": "gz-440112-87756a6d"
+    },
+    {
+      "middle": "广州市黄埔区玉岩实验学校",
+      "middle_school_id": "gz-440112-f3817fbe",
+      "primary": "广州市黄埔区九龙第二小学(九楼校区)",
+      "primary_school_id": "gz-440112-0484c45e"
+    },
+    {
+      "middle": "广州市黄埔区会元学校",
+      "middle_school_id": "gz-440112-e3190fa2",
+      "primary": "广州市黄埔区会元学校",
+      "primary_school_id": "gz-440112-e3190fa2"
+    },
+    {
+      "middle": "广州市黄埔军校纪念中学(北校区)",
+      "middle_school_id": "gz-440112-12747882",
+      "primary": "广州市黄埔区实验小学",
+      "primary_school_id": "gz-440112-9e826efe"
+    },
+    {
+      "middle": "广州开发区中学",
+      "middle_school_id": "gz-440112-cbfb4b61",
+      "primary": "广州开发区第一小学",
+      "primary_school_id": "gz-440112-5a6ea672"
+    },
+    {
+      "middle": "广州开发区中学",
+      "middle_school_id": "gz-440112-cbfb4b61",
+      "primary": "广州开发区第二小学",
+      "primary_school_id": "gz-440112-e1ec9724"
+    },
+    {
+      "middle": "广州知识城中学(东校区)",
+      "middle_school_id": "gz-440112-badbc2ab",
+      "primary": "广州知识城北小学",
+      "primary_school_id": "gz-440112-ba943844"
+    },
+    {
+      "middle": "广州知识城中学(北校区)",
+      "middle_school_id": "gz-440112-3f877ace",
+      "primary": "广州知识城北小学",
+      "primary_school_id": "gz-440112-ba943844"
+    },
+    {
+      "middle": "广州知识城中学(南校区)",
+      "middle_school_id": "gz-440112-ec15555e",
+      "primary": "广州知识城北小学",
+      "primary_school_id": "gz-440112-ba943844"
+    },
+    {
+      "middle": "广州市黄埔区玉岩实验学校",
+      "middle_school_id": "gz-440112-f3817fbe",
+      "primary": "广州知识城第一小学",
+      "primary_school_id": "gz-440112-8f016a0c"
+    },
+    {
+      "middle": "广州开元学校",
+      "middle_school_id": "gz-440112-d62f1348",
+      "primary": "开元学校（东校区）(小学部)",
+      "primary_school_id": "gz-440112-549c8532"
+    },
+    {
+      "middle": "双沙中学",
+      "middle_school_id": "gz-440112-ee49f05d",
+      "primary": "文船小学",
+      "primary_school_id": "gz-440112-9e481bef"
+    },
+    {
+      "middle": "广州知识城中学(东校区)",
+      "middle_school_id": "gz-440112-badbc2ab",
+      "primary": "枫下小学",
+      "primary_school_id": "gz-440112-dcae7622"
+    },
+    {
+      "middle": "广州知识城中学(北校区)",
+      "middle_school_id": "gz-440112-3f877ace",
+      "primary": "枫下小学",
+      "primary_school_id": "gz-440112-dcae7622"
+    },
+    {
+      "middle": "广州知识城中学(南校区)",
+      "middle_school_id": "gz-440112-ec15555e",
+      "primary": "枫下小学",
+      "primary_school_id": "gz-440112-dcae7622"
+    },
+    {
+      "middle": "广州市黄埔区玉岩实验学校",
+      "middle_school_id": "gz-440112-f3817fbe",
+      "primary": "汤村小学",
+      "primary_school_id": "gz-440112-dc7228f1"
+    },
+    {
+      "middle": "广州市黄埔区玉岩实验学校",
+      "middle_school_id": "gz-440112-f3817fbe",
+      "primary": "汤村小学旺村分校",
+      "primary_school_id": "gz-440112-0db47a7c"
+    },
+    {
+      "middle": "黄埔军校纪念中学",
+      "middle_school_id": "gz-440112-674f4721",
+      "primary": "深井小学",
+      "primary_school_id": "gz-440112-2995943b"
+    },
+    {
+      "middle": "湖南师范大学附属黄埔实验学校北校区",
+      "middle_school_id": "gz-440112-40be421c",
+      "primary": "湖南师范大学附属黄埔实验学校北校区",
+      "primary_school_id": "gz-440112-40be421c"
+    },
+    {
+      "middle": "玉泉学校",
+      "middle_school_id": "gz-440112-12b0184b",
+      "primary": "玉泉学校东校区",
+      "primary_school_id": "gz-440112-04db6ee7"
+    },
+    {
+      "middle": "玉泉学校",
+      "middle_school_id": "gz-440112-12b0184b",
+      "primary": "玉泉学校北校区",
+      "primary_school_id": "gz-440112-78b9dcdf"
+    },
+    {
+      "middle": "玉泉学校",
+      "middle_school_id": "gz-440112-12b0184b",
+      "primary": "玉鸣小学",
+      "primary_school_id": "gz-440112-21dc3ebd"
+    },
+    {
+      "middle": "广州市黄埔区玉岩实验学校",
+      "middle_school_id": "gz-440112-f3817fbe",
+      "primary": "知识城南安置区（二期）小学（暂定名）",
+      "primary_school_id": "gz-440112-56f77a90"
+    },
+    {
+      "middle": "广铁一中铁铮学校(东校区)",
+      "middle_school_id": "gz-440112-d3055548",
+      "primary": "铁铮学校",
+      "primary_school_id": "gz-440112-11ed4c6c"
+    },
+    {
+      "middle": "广铁一中铁铮学校(西校区)",
+      "middle_school_id": "gz-440112-7127244c",
+      "primary": "铁铮学校",
+      "primary_school_id": "gz-440112-11ed4c6c"
+    },
+    {
+      "middle": "黄埔军校纪念中学",
+      "middle_school_id": "gz-440112-674f4721",
+      "primary": "长洲岛小学",
+      "primary_school_id": "gz-440112-fd5af1d7"
+    },
+    {
+      "middle": "广州市黄埔区玉岩实验学校",
+      "middle_school_id": "gz-440112-f3817fbe",
+      "primary": "黄埔区九龙第四小学",
+      "primary_school_id": "gz-440112-43e15e18"
+    },
+    {
+      "middle": "黄埔军校纪念中学",
+      "middle_school_id": "gz-440112-674f4721",
+      "primary": "黄船小学",
+      "primary_school_id": "gz-440112-1c720ed0"
+    }
+  ],
+  "only_reverse": [
     {
       "middle": "玉岩中学附属开发区实验学校",
       "middle_school_id": "gz-440112-15d63ae7",
@@ -32,12 +303,6 @@
       "middle_school_id": "gz-440112-15d63ae7",
       "primary": "广铁一中铁英小学",
       "primary_school_id": "gz-440112-adb9c303"
-    },
-    {
-      "middle": "广州市黄埔军校纪念中学(北校区)",
-      "middle_school_id": "gz-440112-12747882",
-      "primary": "横沙小学",
-      "primary_school_id": "gz-440112-6e178b7a"
     },
     {
       "middle": "玉岩中学附属开发区实验学校",
@@ -55,9 +320,9 @@
   "summary": {
     "current_pairs": 305,
     "equal": false,
-    "only_current": 0,
-    "only_reverse": 8,
-    "reverse_pairs": 313
+    "only_current": 48,
+    "only_reverse": 4,
+    "reverse_pairs": 261
   },
   "year": 2026
 }

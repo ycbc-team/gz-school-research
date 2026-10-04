@@ -4,13 +4,11 @@
   "records": [
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广大附中高新区实验学校(初中部)"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-e3746d8c"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -24,13 +22,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市黄埔区玉岩实验学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-f3817fbe"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -44,13 +40,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "玉泉学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-12b0184b"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -166,13 +160,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市黄埔区玉岩实验学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-f3817fbe"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -218,15 +210,12 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广铁一中铁铮学校(西校区)",
         "广铁一中铁铮学校(东校区)"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-7127244c",
-        "gz-440112-d3055548"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -294,13 +283,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "黄埔军校纪念中学"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-674f4721"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -314,13 +301,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "玉泉学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-12b0184b"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -334,13 +319,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "玉泉学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-12b0184b"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -498,13 +481,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "黄埔军校纪念中学"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-674f4721"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -518,13 +499,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市黄埔区玉岩实验学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-f3817fbe"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -618,13 +597,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市黄埔区玉岩实验学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-f3817fbe"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -638,13 +615,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "湖南师范大学附属黄埔实验学校北校区"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-40be421c"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -658,13 +633,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市黄埔区玉岩实验学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-f3817fbe"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -810,17 +783,13 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州知识城中学(北校区)",
         "广州知识城中学(东校区)",
         "广州知识城中学(南校区)"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-3f877ace",
-        "gz-440112-badbc2ab",
-        "gz-440112-ec15555e"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -834,13 +803,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州开元学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-d62f1348"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -854,13 +821,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市黄埔区玉岩实验学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-f3817fbe"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -874,13 +839,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市黄埔区玉岩实验学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-f3817fbe"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -894,13 +857,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州开发区中学"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-cbfb4b61"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -938,13 +899,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广大附中黄埔实验学校(东校区)"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-705c66e3"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -1022,13 +981,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广大附中高新区实验学校(初中部)"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-e3746d8c"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -1162,13 +1119,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "华南师范大学附属黄埔实验学校(南校区)"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-6d1ac70b"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -1214,7 +1169,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市黄埔军校纪念中学(北校区)"
+      ],
       "feed_junior_highs": [
         "广州市第八十六中学",
         "广州市第八十六中学初中部",
@@ -1222,8 +1179,7 @@
         "港湾中学",
         "广州石化中学",
         "广大附中黄埔实验学校(东校区)",
-        "广州市黄埔区丰乐初级中学",
-        "广州市黄埔军校纪念中学(北校区)"
+        "广州市黄埔区丰乐初级中学"
       ],
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
@@ -1232,8 +1188,7 @@
         "gz-440112-83167af8",
         "gz-440112-8edaa2d8",
         "gz-440112-705c66e3",
-        "gz-440112-5b78d24b",
-        "gz-440112-12747882"
+        "gz-440112-5b78d24b"
       ],
       "mechanisms": [
         "zhi_sheng",
@@ -1331,13 +1286,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市黄埔区玉岩实验学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-f3817fbe"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -1399,13 +1352,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "玉泉学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-12b0184b"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -1557,13 +1508,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "玉泉学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-12b0184b"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -1647,13 +1596,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广大附中黄埔实验学校(西校区)"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-87756a6d"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -1723,13 +1670,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市黄埔区玉岩实验学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-f3817fbe"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -1799,13 +1744,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "双沙中学"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-ee49f05d"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -1819,13 +1762,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市黄埔军校纪念中学(北校区)"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-12747882"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -1871,13 +1812,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市黄埔区玉岩实验学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-f3817fbe"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -1971,17 +1910,13 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州知识城中学(北校区)",
         "广州知识城中学(东校区)",
         "广州知识城中学(南校区)"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-3f877ace",
-        "gz-440112-badbc2ab",
-        "gz-440112-ec15555e"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -2021,17 +1956,13 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州知识城中学(北校区)",
         "广州知识城中学(东校区)",
         "广州知识城中学(南校区)"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-3f877ace",
-        "gz-440112-badbc2ab",
-        "gz-440112-ec15555e"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -2045,13 +1976,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "玉泉学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-12b0184b"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -2065,13 +1994,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广东外语外贸大学附属黄埔实验学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-cf50e275"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -2107,13 +2034,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市黄埔区玉岩实验学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-f3817fbe"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -2127,17 +2052,13 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州知识城中学(北校区)",
         "广州知识城中学(东校区)",
         "广州知识城中学(南校区)"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-3f877ace",
-        "gz-440112-badbc2ab",
-        "gz-440112-ec15555e"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -2183,13 +2104,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广东外语外贸大学附属科学城实验学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-e08700ea"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -2203,13 +2122,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州开发区中学"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-cbfb4b61"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -2223,13 +2140,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市黄埔区会元学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-e3190fa2"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -2315,13 +2230,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "黄埔军校纪念中学"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-674f4721"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -2335,17 +2248,13 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州知识城中学(北校区)",
         "广州知识城中学(东校区)",
         "广州知识城中学(南校区)"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440112-3f877ace",
-        "gz-440112-badbc2ab",
-        "gz-440112-ec15555e"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],

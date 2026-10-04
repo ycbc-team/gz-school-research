@@ -90,7 +90,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "培正中学"
+      ],
       "feed_junior_highs": [
         "广州市第七中学(初中部)",
         "广州市第七中学(桂花校区)",
@@ -632,7 +634,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市华侨外国语学校(华侨新村校区)"
+      ],
       "feed_junior_highs": [
         "广州市第十三中学(禺山校区)",
         "广州市第十七中学(西校区)",
@@ -1174,7 +1178,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市真光学校(长堤校区)"
+      ],
       "feed_junior_highs": [
         "广州市第三中学",
         "广州市第十三中学(禺山校区)",
@@ -1462,7 +1468,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市八一实验学校(南校区)"
+      ],
       "feed_junior_highs": [
         "广州市第七中学(初中部)",
         "广州市第七中学(桂花校区)",
@@ -1632,7 +1640,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市铁一中学(越秀校区)"
+      ],
       "feed_junior_highs": [
         "广州市第七中学(初中部)",
         "广州市第七中学(桂花校区)",
@@ -1842,7 +1852,10 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "育才中学(东校区)",
+        "广州市育才中学(西校区)"
+      ],
       "feed_junior_highs": [
         "广州市第七中学(初中部)",
         "广州市第七中学(桂花校区)",
@@ -2048,7 +2061,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "培正中学"
+      ],
       "feed_junior_highs": [
         "广州市第七中学(初中部)",
         "广州市第七中学(桂花校区)",
@@ -2222,7 +2237,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市知用学校"
+      ],
       "feed_junior_highs": [
         "广州市第三中学",
         "广州市第十七中学(西校区)",
@@ -2556,7 +2573,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市第七中学实验学校"
+      ],
       "feed_junior_highs": [
         "广州市第三中学",
         "广州市第十中学",

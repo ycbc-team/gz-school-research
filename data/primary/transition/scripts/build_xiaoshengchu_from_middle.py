@@ -48,7 +48,16 @@ def to_dist_records(candidate):
     out = []
     for r in candidate["records"]:
         mech = r.get("mechanisms") or []
-        group = _GROUP_OF_MECH.get(mech[0] if mech else None, "{区}不参与公办派位/待核").format(区=dk)
+        # 2026-10-04（修复2）：混合机制（如海珠「对口直升 + 电脑派位」）组名不再取 mech[0]——
+        # 含 group_paidui 时组名取派位模板（与前端「多校电脑派位」徽章一致，避免
+        # 「多校电脑派位」徽章下挂着「不参加电脑派位」组名的自相矛盾）；
+        # 纯直升/单校划片等单机制场景保持 mech[0] 模板；兜底文案不变。
+        if "group_paidui" in mech:
+            group = _GROUP_OF_MECH["group_paidui"].format(区=dk)
+        elif mech:
+            group = _GROUP_OF_MECH.get(mech[0], "{区}不参与公办派位/待核").format(区=dk)
+        else:
+            group = "{区}不参与公办派位/待核".format(区=dk)
         direct = r.get("direct_feed") or []
         out.append({
             "name": r["name"],
@@ -175,7 +184,10 @@ def reverse_district(district, entity_names):
             # 不再取 mechanism_note（那是备注文本，不是机制）。
             if r.get("mechanism") not in row["mechanisms"]:
                 row["mechanisms"].append(r["mechanism"])
-            is_direct = district in {"yuexiu", "haizhu", "huangpu"} and r.get("mechanism") == "single_zone"
+            # 2026-10-04（修复2）：直升判定补齐 zhi_sheng 机制——此前仅认 single_zone，
+            # 海珠/越秀等区 zhi_sheng 直升初中（如五中附属初级中学）被漏判、混入派位 feed、
+            # direct_feed 全空（昌岗中路小学页「直升 + 电脑派位」矛盾根因）。
+            is_direct = district in {"yuexiu", "haizhu", "huangpu"} and r.get("mechanism") in ("single_zone", "zhi_sheng")
             if campus_map:
                 effective = [mid for mid, names in campus_map.items()
                              if any(_same_school(nm, official_primary) for nm in names)]
@@ -184,12 +196,15 @@ def reverse_district(district, entity_names):
                 mids_for_pair = mids
             for mid in mids_for_pair:
                 mid_name = entity_names.get(mid, r.get("school") or mid)
-                if mid_name not in row["feed_junior_highs"]:
-                    row["feed_junior_highs"].append(mid_name)
-                if mid not in row["feed_school_ids_from_middle"]:
-                    row["feed_school_ids_from_middle"].append(mid)
-                if is_direct and mid_name not in row["direct_feed"]:
-                    row["direct_feed"].append(mid_name)
+                # 直升初中只进 direct_feed，不进派位 feed（feed 保持纯派位组列表）
+                if is_direct:
+                    if mid_name not in row["direct_feed"]:
+                        row["direct_feed"].append(mid_name)
+                else:
+                    if mid_name not in row["feed_junior_highs"]:
+                        row["feed_junior_highs"].append(mid_name)
+                    if mid not in row["feed_school_ids_from_middle"]:
+                        row["feed_school_ids_from_middle"].append(mid)
     records = sorted(by_primary.values(), key=lambda r: (r["name"], r["school_id"]))
     for r in records:
         r["mechanisms"] = [m for m in XS_MECH_ORDER if m in r["mechanisms"]]

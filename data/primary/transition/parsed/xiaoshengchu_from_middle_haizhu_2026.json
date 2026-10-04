@@ -90,7 +90,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市五中附属初级中学"
+      ],
       "feed_junior_highs": [
         "广州市第五中学",
         "广州市海珠外国语实验中学",
@@ -102,8 +104,7 @@
         "广州市第九十七中学晓园学校",
         "广州市第二十六中学",
         "广州市南武中学附属学校",
-        "广东实验中学琶洲学校",
-        "广州市五中附属初级中学"
+        "广东实验中学琶洲学校"
       ],
       "feed_school_ids_from_middle": [
         "gz-440105-0ffca7e3",
@@ -116,8 +117,7 @@
         "gz-440105-83f38819",
         "gz-440105-352e2fc7",
         "gz-440105-77baeea5",
-        "gz-440105-f88edb06",
-        "gz-440105-747245e1"
+        "gz-440105-f88edb06"
       ],
       "mechanisms": [
         "zhi_sheng",
@@ -133,7 +133,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市第四十一中学"
+      ],
       "feed_junior_highs": [
         "广州市第五中学",
         "广州市南武第二实验学校(北校区)",
@@ -220,13 +222,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市绿翠现代实验学校滨江校区"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440105-41b48384"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -358,7 +358,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市执信中学琶洲实验学校"
+      ],
       "feed_junior_highs": [
         "广州市第六中学",
         "广州市第四十一中学",
@@ -389,7 +391,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市绿翠现代实验学校滨江校区"
+      ],
       "feed_junior_highs": [
         "广州市第五中学",
         "广州市第二十六中学",
@@ -678,7 +682,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市景中实验中学"
+      ],
       "feed_junior_highs": [
         "广州市第六中学",
         "广州市第九十七中学(江南新苑校区)",
@@ -759,7 +765,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "六中珠江中学(万胜围校区)"
+      ],
       "feed_junior_highs": [
         "广州市第六中学",
         "广州市第四十一中学",
@@ -790,7 +798,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市第四十一中学"
+      ],
       "feed_junior_highs": [
         "广州市第五中学",
         "广州市南武第二实验学校(北校区)",
@@ -1063,7 +1073,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市海珠区南武文润学校"
+      ],
       "feed_junior_highs": [
         "广州市第六中学",
         "广州市第四十一中学",
@@ -1072,8 +1084,7 @@
         "广州市执信中学琶洲实验学校",
         "广州市第九十七中学(江南新苑校区)",
         "广州市第九十七中学",
-        "广东实验中学琶洲学校",
-        "广州市海珠区南武文润学校"
+        "广东实验中学琶洲学校"
       ],
       "feed_school_ids_from_middle": [
         "gz-440105-12b49e3f",
@@ -1083,8 +1094,7 @@
         "gz-440105-cac39935",
         "gz-440105-ed868139",
         "gz-440105-f0712355",
-        "gz-440105-f88edb06",
-        "gz-440105-44b3dc01"
+        "gz-440105-f88edb06"
       ],
       "mechanisms": [
         "zhi_sheng",
@@ -1492,7 +1502,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市景中实验中学"
+      ],
       "feed_junior_highs": [
         "广州市第六中学",
         "广州市第九十七中学(江南新苑校区)",
@@ -1617,7 +1629,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市景中实验中学"
+      ],
       "feed_junior_highs": [
         "广州市第六中学",
         "广州市第九十七中学(江南新苑校区)",
@@ -1658,13 +1672,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州市南武中学附属学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440105-77baeea5"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
@@ -1722,7 +1734,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市执信中学琶洲实验学校"
+      ],
       "feed_junior_highs": [
         "广州市第六中学",
         "广州市第四十一中学",
@@ -1969,7 +1983,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "六中珠江中学(万胜围校区)"
+      ],
       "feed_junior_highs": [
         "广州市第六中学",
         "广州市第四十一中学",
@@ -2046,7 +2062,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市景中实验中学"
+      ],
       "feed_junior_highs": [
         "广州市第六中学",
         "广州市第九十七中学(江南新苑校区)",
@@ -2123,7 +2141,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市五中附属初级中学"
+      ],
       "feed_junior_highs": [
         "广州市第五中学",
         "广州市海珠外国语实验中学",
@@ -2135,8 +2155,7 @@
         "广州市第九十七中学晓园学校",
         "广州市第二十六中学",
         "广州市南武中学附属学校",
-        "广东实验中学琶洲学校",
-        "广州市五中附属初级中学"
+        "广东实验中学琶洲学校"
       ],
       "feed_school_ids_from_middle": [
         "gz-440105-0ffca7e3",
@@ -2149,8 +2168,7 @@
         "gz-440105-83f38819",
         "gz-440105-352e2fc7",
         "gz-440105-77baeea5",
-        "gz-440105-f88edb06",
-        "gz-440105-747245e1"
+        "gz-440105-f88edb06"
       ],
       "mechanisms": [
         "zhi_sheng",
@@ -2388,7 +2406,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市聚德中学"
+      ],
       "feed_junior_highs": [
         "广州市第六中学",
         "广州市第九十七中学(江南新苑校区)",
@@ -2429,7 +2449,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市聚德中学"
+      ],
       "feed_junior_highs": [
         "广州市第六中学",
         "广州市第九十七中学(江南新苑校区)",
@@ -2470,7 +2492,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市绿翠现代实验学校滨江校区"
+      ],
       "feed_junior_highs": [
         "广州市第六中学",
         "广州市第九十七中学(江南新苑校区)",
@@ -2977,7 +3001,10 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市江南外国语学校(北校区)",
+        "广州市江南外国语学校(南校区)"
+      ],
       "feed_junior_highs": [
         "广州市第五中学",
         "广州市海珠外国语实验中学",
@@ -3104,7 +3131,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市执信中学琶洲实验学校"
+      ],
       "feed_junior_highs": [
         "广州市第六中学",
         "广州市第四十一中学",
@@ -3721,7 +3750,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市第四十一中学"
+      ],
       "feed_junior_highs": [
         "广州市第五中学",
         "广州市南武第二实验学校(北校区)",
@@ -3768,7 +3799,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市绿翠现代实验学校滨江校区"
+      ],
       "feed_junior_highs": [
         "广州市第六中学",
         "广州市第九十七中学(江南新苑校区)",
@@ -4033,7 +4066,9 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
+      "direct_feed": [
+        "广州市五中滨江学校(远安校区)"
+      ],
       "feed_junior_highs": [
         "广州市第五中学",
         "广州市第二十六中学",

@@ -56,8 +56,9 @@ test('真实数据：机制归类与初中枚举对齐（数据驱动）', () =>
   assert.deepEqual(mechsOf(primaryBy('440111', /白云区小升初对口（单校划片）/, ['single_zone'])), ['single_zone']);
   // 越秀派位组 → group_paidui（初中同区口径）
   assert.deepEqual(mechsOf(primaryBy('440104', /越秀区小升初对口（多校电脑派位）/, ['group_paidui'])), ['group_paidui']);
-  // 越秀直升+派位并存（九年制小学，初中反推精确）→ zhi_sheng 先行
-  assert.deepEqual(mechsOf(primaryBy('440104', /越秀区小升初对口直升（不参加电脑派位）/, ['zhi_sheng', 'group_paidui'])), ['zhi_sheng', 'group_paidui']);
+  // 越秀直升+派位并存（九年制小学，初中反推精确）→ zhi_sheng 先行。
+  // 2026-10-04（修复2）：混合机制组名随派位组（不再取直升模板），基线同步更新
+  assert.deepEqual(mechsOf(primaryBy('440104', /越秀区小升初对口（多校电脑派位）/, ['zhi_sheng', 'group_paidui'])), ['zhi_sheng', 'group_paidui']);
   // 海珠派位组 → group_paidui
   assert.deepEqual(mechsOf(primaryBy('440105', /海珠区小升初对口（多校电脑派位）/, ['group_paidui'])), ['group_paidui']);
   // 天河对口划片 → single_zone（天河初中 zhi_sheng=0，对口划片标 single_zone）
