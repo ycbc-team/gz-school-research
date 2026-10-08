@@ -491,6 +491,12 @@ class SchoolMatcher:
         # 不是校区限定——精确匹配学部实体即可，不触发校区精准分支。
         _suffix_campus = matchNorm(coreCampusName(name)).endswith(
             ("校区", "分校", "教学点", "分教点", "校本部"))
+        # 括号式学部限定（官方原文名，如「广州市西关外国语学校(初中部)」）：括号内为
+        # 小学部/初中部/高中部，与后缀式学部同义（法人学部，非校区）——精确匹配学部实体，
+        # 候选唯一直接返回；候选多个（别名碰撞，如西外初中部 ↔ 彩虹桥校区初中部同挂
+        # 「西关外国语学校初中部」别名）时回落 single 收敛官方原文精确实体
+        # （resolve 精确命中校本部初中部 gz-440103-b41a3512），与后缀式校区同款兜底。
+        _department = bool(re.search(r"[（(](?:小学部|初中部|高中部)[）)]$", name or ""))
         candidates = entities_for(list(self.exact_map.get(normName(name), [])) +
                                   list(self.alias_map.get(normName(name), [])) +
                                   list(self.alias_map.get(matchNorm(name), [])))
@@ -503,10 +509,11 @@ class SchoolMatcher:
                 candidates = f
             if len(candidates) == 1:
                 return [self._result(e) for e in candidates]
-            # 后缀式校区名（实体表别名共享导致多候选、或实体无别名精确未命中）时，
-            # 以 resolve 单值 substring 收敛到该校区（「广州市西关外国语学校文昌南校区」
-            # → 文昌南实体；「广州市第四中学初中津园校区」→ 四中津园），不做法人展开。
-            if _suffix_campus:
+            # 后缀式校区名/括号式学部名（实体表别名共享导致多候选、或实体无别名精确未命中）时，
+            # 以 resolve 单值 substring 收敛到该校区/学部（「广州市西关外国语学校文昌南校区」
+            # → 文昌南实体；「广州市第四中学初中津园校区」→ 四中津园；
+            # 「广州市西关外国语学校(初中部)」→ 校本部初中部），不做法人展开。
+            if _suffix_campus or _department:
                 _one = self.resolve(name, preferred_adcode, preferred_stage, strategy="single")
                 if _one and _one.get("school_id"):
                     return [_one]
