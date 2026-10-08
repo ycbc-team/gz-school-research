@@ -253,7 +253,7 @@ const mechanismBlocks = computed<MechBlock[]>(() => {
   for (const m of middleEnrolls.value) {
     const key = `${m.district}|${m.record.mechanism}`;
     let b = byKey.get(key);
-    if (!b) { b = { district: m.district, mech: m.record.mechanism, label: m.mechanismDef.label, showDistrict: false, subBlocks: [] }; byKey.set(key, b); order.push(key); }
+    if (!b) { b = { district: m.district, mech: m.record.mechanism, label: m.record.label ?? m.mechanismDef.label, showDistrict: false, subBlocks: [] }; byKey.set(key, b); order.push(key); }
     const rec = m.record;
     // 多校电脑派位：同一 group_id 合并为一个子块，组名作子块标题
     if (b.mech === 'group_paidui' && rec.group_id) {

@@ -191,6 +191,10 @@ export interface MiddleEnrollmentRecord {
   scope_school_ids?: Record<string, string[]>;
   mechanism: MiddleMechanism;
   mechanism_note: string | null;
+  /** 官方用语覆盖枚举 label（2026-10-08：番禺「电脑抽签」vs 区属简章「电脑派位」——
+   * 招生机制本身是报名+超计划随机录取，未派中回学区为兜底路径；官方计划表措辞
+   * 「电脑抽签」。天河/越秀官方原文为「电脑派位」，仅番禺记录覆盖） */
+  label?: string;
   /** dist 合并结构（2026-09-23）：组表 group_id（派位/直升组）；2026-09-24 dist 不再存 school 名称（前端按 school_id 联查实体名，parsed 审计层保留） */
   group_id?: string | null;
 }

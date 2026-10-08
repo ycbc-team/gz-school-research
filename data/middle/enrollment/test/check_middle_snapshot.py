@@ -28,7 +28,7 @@ BUILD = os.path.join(ROOT, "data/middle/enrollment/scripts/build_middle_enrollme
 DISTRICT_KEYS = ["panyu", "baiyun", "liwan", "yuexiu", "haizhu", "tianhe", "huangpu"]
 # 噪音字段：source/source_url（来源描述/URL）不入快照；行键 = school（官方名单名，脚本输入确定）
 RECORD_FIELDS = ("school", "school_id", "school_ids", "plan_classes", "scope",
-                 "mechanism", "mechanism_note", "group_members")
+                 "mechanism", "mechanism_note", "label", "group_members")
 
 
 def extract() -> dict:

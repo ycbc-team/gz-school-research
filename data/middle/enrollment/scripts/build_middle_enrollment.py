@@ -520,12 +520,18 @@ def build_panyu():
         if school == "广东第二师范学院广州南站附属学校":
             sid = "gz-440113-0bb52d06"
         _ss = _scope_primary_ids(scope, "440113") if scope else None
+        # 2026-10-08（官方用语覆盖 label）：番禺计划表措辞「电脑抽签」——招生机制为
+        # 报名+超计划随机录取（未派中回户籍地学区是兜底路径，非本机制）；
+        # 区属简章「超计划电脑派位」同机制（抽签录取）。记录级覆盖枚举 label
+        # （天河/越秀官方原文「电脑派位」保持枚举值不动）。
+        _label = "电脑抽签" if mech == "single_paidui" else None
         recs.append({
             "school": school, "school_id": sid,
             **({"school_ids": sids} if sids else {}),
             "plan_classes": plan_n, "scope": scope,
             **({"scope_school_ids": _ss} if _ss else {}),
             "mechanism": mech, "mechanism_note": note or None,
+            **({"label": _label} if _label else {}),
             "group_members": members,
         })
     # 区属初中面向全区（或属地镇街）招生简章批次（2026-09-24 补解析，转录 panyu_2026_quju.json）：
@@ -541,6 +547,7 @@ def build_panyu():
             **({"school_ids": qsids} if qsids else {}),
             "plan_classes": None, "scope": None,
             "mechanism": "single_paidui", "mechanism_note": qnote,
+            "label": "电脑抽签",  # 2026-10-08：机制为报名+超计划抽签录取，未派中回学区是兜底
             "group_members": None,
         })
     return {

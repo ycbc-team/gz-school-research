@@ -5,6 +5,7 @@
    "records": {
     "培智学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "no_plan",
      "mechanism_note": "特殊教育学校，面向有特殊教育需要的学生招生，不参与普通初中电脑派位；具体入学安排以区教育局当年通知为准。",
      "plan_classes": null,
@@ -15,6 +16,7 @@
     },
     "广东外语外贸大学实验中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -27,6 +29,7 @@
     },
     "广东外语外贸大学实验中学（陈田西校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -39,6 +42,7 @@
     },
     "广东实验中学（白云校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -49,6 +53,7 @@
     },
     "广东第二师范学院实验中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 11,
@@ -59,6 +64,7 @@
     },
     "广州大同中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 14,
@@ -69,6 +75,7 @@
     },
     "广州市三元里中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "因涉拆迁，2026年停止下达招生计划，该校新初一地段生将由指导中心就近安排。",
      "plan_classes": 0,
@@ -79,6 +86,7 @@
     },
     "广州市六十五中学（江府校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -91,6 +99,7 @@
     },
     "广州市培英中学（岭南校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 10,
@@ -101,6 +110,7 @@
     },
     "广州市培英中学（科技城校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -111,6 +121,7 @@
     },
     "广州市培英中学（鹤洞校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -121,6 +132,7 @@
     },
     "广州市广园中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 10,
@@ -131,6 +143,7 @@
     },
     "广州市白云中学（棠景校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 5,
@@ -143,6 +156,7 @@
     },
     "广州市白云中学（汇侨校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 7,
@@ -155,6 +169,7 @@
     },
     "广州市白云区东平学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 9,
@@ -165,6 +180,7 @@
     },
     "广州市白云区云翔学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 3,
@@ -175,6 +191,7 @@
     },
     "广州市白云区六中实验中学（福和校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 5,
@@ -185,6 +202,7 @@
     },
     "广州市白云区六中实验中学（空港校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -195,6 +213,7 @@
     },
     "广州市白云区同和中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "具体见后续发布的方案",
      "plan_classes": 14,
@@ -205,6 +224,7 @@
     },
     "广州市白云区嘉禾中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -215,6 +235,7 @@
     },
     "广州市白云区培英实验学校（云景校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -225,6 +246,7 @@
     },
     "广州市白云区培英实验学校（同和校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "具体见后续发布的方案",
      "plan_classes": 10,
@@ -235,6 +257,7 @@
     },
     "广州市白云区大朗中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 4,
@@ -245,6 +268,7 @@
     },
     "广州市白云区太和中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -255,6 +279,7 @@
     },
     "广州市白云区平沙培英学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -265,6 +290,7 @@
     },
     "广州市白云区广大附中实验中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 32,
@@ -278,6 +304,7 @@
     },
     "广州市白云区广州空港实验中学（东校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 4,
@@ -290,6 +317,7 @@
     },
     "广州市白云区广州空港实验中学（本部）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -302,6 +330,7 @@
     },
     "广州市白云区广州空港实验中学（西校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "建南安置区完全中学建成投入使用后，推动将该校学生搬迁至新学校",
      "plan_classes": 8,
@@ -314,6 +343,7 @@
     },
     "广州市白云区新和学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 4,
@@ -324,6 +354,7 @@
     },
     "广州市白云区新市中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -334,6 +365,7 @@
     },
     "广州市白云区星悦实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 4,
@@ -344,6 +376,7 @@
     },
     "广州市白云区景泰中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -357,6 +390,7 @@
     },
     "广州市白云区景泰中学分校区（原广州市白云区南悦中学）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 5,
@@ -367,6 +401,7 @@
     },
     "广州市白云区梓元岗中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -377,6 +412,7 @@
     },
     "广州市白云区民航学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 5,
@@ -390,6 +426,7 @@
     },
     "广州市白云区民航学校（人和校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -400,6 +437,7 @@
     },
     "广州市白云区江村中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -410,6 +448,7 @@
     },
     "广州市白云区江高镇第二初级中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 9,
@@ -420,6 +459,7 @@
     },
     "广州市白云区白云外国语中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 4,
@@ -430,6 +470,7 @@
     },
     "广州市白云区白云广附云湖实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -440,6 +481,7 @@
     },
     "广州市白云区石井中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -450,6 +492,7 @@
     },
     "广州市白云区石龙中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 4,
@@ -460,6 +503,7 @@
     },
     "广州市白云区神山中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 5,
@@ -470,6 +514,7 @@
     },
     "广州市白云区穗丰学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 4,
@@ -480,6 +525,7 @@
     },
     "广州市白云区竹料第一中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 11,
@@ -493,6 +539,7 @@
     },
     "广州市白云区竹料第三中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 5,
@@ -503,6 +550,7 @@
     },
     "广州市白云区颜乐天纪念中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "具体见后续发布的方案",
      "plan_classes": 10,
@@ -513,6 +561,7 @@
     },
     "广州市白云区黄石学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -526,6 +575,7 @@
     },
     "广州市白云区龙岗学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 4,
@@ -536,6 +586,7 @@
     },
     "广州市白云区龙归学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 10,
@@ -549,6 +600,7 @@
     },
     "广州市白云区龙归学校（珑璟校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 4,
@@ -561,6 +613,7 @@
     },
     "广州市第一一五中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 13,
@@ -571,6 +624,7 @@
     },
     "广州市第一一四中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 5,
@@ -581,6 +635,7 @@
     },
     "广州市第七十中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -591,6 +646,7 @@
     },
     "广州市第六十七中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -601,6 +657,7 @@
     },
     "广州市第六十五中学（明德校区、同德校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 16,
@@ -614,6 +671,7 @@
     },
     "广州市第六十五中学（桃园校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -624,6 +682,7 @@
     },
     "广州市铁一中学（白云校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "具体见后续发布的方案",
      "plan_classes": 8,
@@ -634,6 +693,7 @@
     },
     "广州彭加木纪念中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 7,
@@ -659,6 +719,7 @@
       "广州市执信中学琶洲实验学校",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第10组",
      "plan_classes": 6,
@@ -681,6 +742,7 @@
       "广州市江南外国语学校",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第7组",
      "plan_classes": 12,
@@ -702,6 +764,7 @@
       "广州市南武中学",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第5组",
      "plan_classes": 6,
@@ -712,6 +775,7 @@
     },
     "广州市五中滨江学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": 13,
@@ -722,6 +786,7 @@
     },
     "广州市五中附属初级中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": 9,
@@ -744,6 +809,7 @@
       "广州市江南外国语学校",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第7组",
      "plan_classes": 14,
@@ -757,6 +823,7 @@
     },
     "广州市南武中学附属学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -779,6 +846,7 @@
       "广州市江南外国语学校",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第7组",
      "plan_classes": 8,
@@ -800,6 +868,7 @@
       "广州市第九十七中学",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第3组",
      "plan_classes": 10,
@@ -813,6 +882,7 @@
     },
     "广州市执信中学琶洲实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": 9,
@@ -831,6 +901,7 @@
       "广州市第九十七中学",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第9组",
      "plan_classes": 8,
@@ -844,6 +915,7 @@
     },
     "广州市景中实验中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": 10,
@@ -854,6 +926,7 @@
     },
     "广州市江南外国语学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": 18,
@@ -867,6 +940,7 @@
     },
     "广州市海珠区六中珠江中学（万胜围校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": 11,
@@ -888,6 +962,7 @@
       "广州市南武实验学校",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第6组",
      "plan_classes": 8,
@@ -906,6 +981,7 @@
       "广州市第九十七中学",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第8组",
      "plan_classes": 9,
@@ -916,6 +992,7 @@
     },
     "广州市海珠区南武文润学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": 3,
@@ -933,6 +1010,7 @@
       "广州市执信中学琶洲实验学校",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第10组",
      "plan_classes": 4,
@@ -955,6 +1033,7 @@
       "广州市江南外国语学校",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第7组",
      "plan_classes": 8,
@@ -977,6 +1056,7 @@
       "广州市江南外国语学校",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第7组",
      "plan_classes": 12,
@@ -995,6 +1075,7 @@
       "广州市第九十七中学",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第9组",
      "plan_classes": 10,
@@ -1020,6 +1101,7 @@
       "广州市江南外国语学校",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第7组",
      "plan_classes": null,
@@ -1040,6 +1122,7 @@
       "广州市南武中学附属学校",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第4组",
      "plan_classes": 10,
@@ -1061,6 +1144,7 @@
       "广州市南武中学",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第5组",
      "plan_classes": 12,
@@ -1078,6 +1162,7 @@
       "广州市执信中学琶洲实验学校",
       "广东实验中学琶洲学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "海珠区 2026 年公办初中普通电脑派位第10组",
      "plan_classes": 5,
@@ -1088,6 +1173,7 @@
     },
     "广州市第四十一中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": 14,
@@ -1098,6 +1184,7 @@
     },
     "广州市绿翠现代实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": 16,
@@ -1108,6 +1195,7 @@
     },
     "广州市聚德中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": 10,
@@ -1127,6 +1215,7 @@
       "新港中学",
       "东区中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第2组",
      "plan_classes": null,
@@ -1137,6 +1226,7 @@
     },
     "丰乐初级中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1147,6 +1237,7 @@
     },
     "会元学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1157,6 +1248,7 @@
     },
     "刘村社区旧村改造项目（荷村复建工程项目）AG0222001地块九年制学校（暂定名）": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1172,6 +1264,7 @@
       "苏元学校（西校区）",
       "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第5组",
      "plan_classes": null,
@@ -1186,6 +1279,7 @@
       "广州实验中学",
       "华南师范大学附属中学（知识城校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第7组",
      "plan_classes": null,
@@ -1196,6 +1290,7 @@
     },
     "华南师范大学附属黄埔实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1210,6 +1305,7 @@
       "铁英中学",
       "开元学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第6组",
      "plan_classes": null,
@@ -1220,6 +1316,7 @@
     },
     "双沙中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1230,6 +1327,7 @@
     },
     "双沙旧村改造项目复建区AP0609024S十五号地块学校（暂定名）": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1240,6 +1338,7 @@
     },
     "广东外语外贸大学附属科学城实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1250,6 +1349,7 @@
     },
     "广东外语外贸大学附属黄埔实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1267,6 +1367,7 @@
       "苏元学校（西校区）",
       "广州市玉岩中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第4组",
      "plan_classes": null,
@@ -1280,6 +1381,7 @@
     },
     "广大附中高新区实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1290,6 +1392,7 @@
     },
     "广大附中黄埔实验学校（东校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1300,6 +1403,7 @@
     },
     "广大附中黄埔实验学校（西校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1314,6 +1418,7 @@
       "广州实验中学",
       "华南师范大学附属中学（知识城校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第7组",
      "plan_classes": null,
@@ -1331,6 +1436,7 @@
       "苏元学校（西校区）",
       "广州市玉岩中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第4组",
      "plan_classes": null,
@@ -1344,6 +1450,7 @@
       "广州市第一一七中学",
       "广州市黄埔军校中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第3组",
      "plan_classes": null,
@@ -1361,6 +1468,7 @@
       "广大附中黄埔实验学校（东校区）",
       "丰乐初级中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第1组",
      "plan_classes": null,
@@ -1378,6 +1486,7 @@
       "广大附中黄埔实验学校（东校区）",
       "丰乐初级中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第1组",
      "plan_classes": null,
@@ -1394,6 +1503,7 @@
       "广州市第一一七中学",
       "广州市黄埔军校中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第3组",
      "plan_classes": null,
@@ -1404,6 +1514,7 @@
     },
     "广州市黄埔军校纪念中学（北校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1414,6 +1525,7 @@
     },
     "广州市黄埔军校纪念中学（南校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1424,6 +1536,7 @@
     },
     "广州开发区中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1438,6 +1551,7 @@
       "新港中学",
       "东区中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第2组",
      "plan_classes": null,
@@ -1448,6 +1562,7 @@
     },
     "广州知识城中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1469,6 +1584,7 @@
       "苏元学校（西校区）",
       "广州市玉岩中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第4组",
      "plan_classes": null,
@@ -1479,6 +1595,7 @@
     },
     "开元学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1493,6 +1610,7 @@
       "新港中学",
       "东区中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第2组",
      "plan_classes": null,
@@ -1510,6 +1628,7 @@
       "广大附中黄埔实验学校（东校区）",
       "丰乐初级中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第1组",
      "plan_classes": null,
@@ -1520,6 +1639,7 @@
     },
     "湖南师范大学附属黄埔实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1530,6 +1650,7 @@
     },
     "玉岩实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1540,6 +1661,7 @@
     },
     "玉泉学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1557,6 +1679,7 @@
       "广大附中黄埔实验学校（东校区）",
       "丰乐初级中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第1组",
      "plan_classes": null,
@@ -1567,6 +1690,7 @@
     },
     "苏元学校（东校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1582,6 +1706,7 @@
       "苏元学校（西校区）",
       "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第5组",
      "plan_classes": null,
@@ -1596,6 +1721,7 @@
       "铁英中学",
       "开元学校"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "黄埔区 2026 年小升初电脑随机派位第6组",
      "plan_classes": null,
@@ -1606,6 +1732,7 @@
     },
     "铁铮学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1619,6 +1746,7 @@
     },
     "黄埔区CPPQ-A4-2地块（长岭·雅居建设项目）九年制学校（暂定名）": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -1644,6 +1772,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
      "plan_classes": 10,
@@ -1664,6 +1793,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
      "plan_classes": 20,
@@ -1684,6 +1814,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
      "plan_classes": 6,
@@ -1704,6 +1835,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
      "plan_classes": 4,
@@ -1714,6 +1846,7 @@
     },
     "广州协和学校初中部": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": "2026 荔湾区公办初中一年级招生计划单列，不在电脑派位分组表内。广州协和学校初中部原则上对口招收广州协和学校小学部毕业生（本校直升）。",
      "plan_classes": 7,
@@ -1740,6 +1873,7 @@
       "广州市荔湾区西关广雅实验学校东风西校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
      "plan_classes": 8,
@@ -1763,6 +1897,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
      "plan_classes": 6,
@@ -1783,6 +1918,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
      "plan_classes": 8,
@@ -1809,6 +1945,7 @@
       "广州市荔湾区西关广雅实验学校东风西校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
      "plan_classes": 6,
@@ -1829,6 +1966,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
      "plan_classes": 6,
@@ -1849,6 +1987,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
      "plan_classes": 8,
@@ -1870,6 +2009,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区12组电脑派位",
      "plan_classes": 6,
@@ -1891,6 +2031,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区12组电脑派位",
      "plan_classes": 8,
@@ -1917,6 +2058,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
      "plan_classes": 10,
@@ -1943,6 +2085,7 @@
       "广州市荔湾区西关广雅实验学校东风西校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
      "plan_classes": 5,
@@ -1969,6 +2112,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
      "plan_classes": 2,
@@ -1995,6 +2139,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
      "plan_classes": 7,
@@ -2017,6 +2162,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区8组电脑派位",
      "plan_classes": 6,
@@ -2043,6 +2189,7 @@
       "广州市荔湾区西关广雅实验学校东风西校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区4组电脑派位",
      "plan_classes": 6,
@@ -2069,6 +2216,7 @@
       "广州市荔湾区西关广雅实验学校东风西校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区5组电脑派位",
      "plan_classes": 8,
@@ -2093,6 +2241,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区11组电脑派位",
      "plan_classes": 6,
@@ -2121,6 +2270,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
      "plan_classes": 10,
@@ -2149,6 +2299,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
      "plan_classes": 12,
@@ -2175,6 +2326,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
      "plan_classes": 6,
@@ -2201,6 +2353,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
      "plan_classes": 6,
@@ -2221,6 +2374,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区14组电脑派位",
      "plan_classes": 10,
@@ -2247,6 +2401,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
      "plan_classes": 6,
@@ -2276,6 +2431,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
      "plan_classes": 6,
@@ -2302,6 +2458,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区6组电脑派位",
      "plan_classes": 6,
@@ -2324,6 +2481,7 @@
       "广州市荔湾区西关广雅实验学校大坦沙校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区11组电脑派位",
      "plan_classes": 8,
@@ -2351,6 +2509,7 @@
       "广州市荔湾区西关广雅实验学校东风西校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
      "plan_classes": 8,
@@ -2378,6 +2537,7 @@
       "广州市荔湾区西关广雅实验学校东风西校区",
       "广东广雅中学初中部"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "荔湾区2组电脑派位",
      "plan_classes": 8,
@@ -2393,6 +2553,7 @@
    "records": {
     "丽江学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 4,
@@ -2403,6 +2564,7 @@
     },
     "化龙中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -2413,6 +2575,7 @@
     },
     "南村中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -2423,6 +2586,7 @@
     },
     "南村侨联中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -2433,6 +2597,7 @@
     },
     "南雅学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "凡小区内配建的义务教育公办学校，在解决该小区户籍（含符合广州市政策性照顾条件的业主子女）及附近居民符合“人户一致”条件的适龄儿童、少年入读，以及预留用作解决该年段将户籍迁到该住宅小区的适龄儿童、少年学位后，如有剩余学位，优先解决在小孩入学当年，该住宅小学近6年（或初中近3年）未有安排小孩入读该小区配建公办小学（或初中）的业主（指购房并在申请入学当年5月31日前收楼且拥有该房产100%份额。下同）子女。如果符合上述条件的小孩人数超出所剩余学位数，则按购房先后顺序安排；如果安排符合上述条件的小孩后还有剩余学位，所剩余的学位由各教育指导中心根据本学区实际情况统筹安排。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 6,
@@ -2443,6 +2608,7 @@
     },
     "大石中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "房地产开发商与其所在地镇政府（街道办事处）或教育行政部门签订了住宅小区配建学校学位安排协议的，原则上按协议的相关约定安排业主子女学位。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 16,
@@ -2453,6 +2619,7 @@
     },
     "大石富丽中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "房地产开发商与其所在地镇政府（街道办事处）或教育行政部门签订了住宅小区配建学校学位安排协议的，原则上按协议的相关约定安排业主子女学位。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 10,
@@ -2463,6 +2630,7 @@
     },
     "大龙中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "房地产开发商与其所在地镇政府（街道办事处）或教育行政部门签订了住宅小区配建学校学位安排协议的，原则上按协议的相关约定安排业主子女学位。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 10,
@@ -2481,6 +2649,7 @@
       "市桥桥城中学",
       "市桥桥兴中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 11,
@@ -2499,6 +2668,7 @@
       "市桥桥城中学",
       "市桥桥兴中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 11,
@@ -2517,6 +2687,7 @@
       "市桥桥城中学",
       "市桥桥兴中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 16,
@@ -2535,6 +2706,7 @@
       "市桥桥城中学",
       "市桥桥兴中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 16,
@@ -2553,6 +2725,7 @@
       "市桥桥城中学",
       "市桥桥兴中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 16,
@@ -2563,6 +2736,7 @@
     },
     "市桥沙头中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -2573,6 +2747,7 @@
     },
     "市桥象圣中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 9,
@@ -2583,6 +2758,7 @@
     },
     "市桥金山谷学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "凡小区内配建的义务教育公办学校，在解决该小区户籍（含符合广州市政策性照顾条件的业主子女）及附近居民符合“人户一致”条件的适龄儿童、少年入读，以及预留用作解决该年段将户籍迁到该住宅小区的适龄儿童、少年学位后，如有剩余学位，优先解决在小孩入学当年，该住宅小学近6年（或初中近3年）未有安排小孩入读该小区配建公办小学（或初中）的业主（指购房并在申请入学当年5月31日前收楼且拥有该房产100%份额。下同）子女。如果符合上述条件的小孩人数超出所剩余学位数，则按购房先后顺序安排；如果安排符合上述条件的小孩后还有剩余学位，所剩余的学位由各教育指导中心根据本学区实际情况统筹安排。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 5,
@@ -2593,6 +2769,7 @@
     },
     "广东仲元中学一校区（初中部）": {
      "group_members": null,
+     "label": "电脑抽签",
      "mechanism": "single_paidui",
      "mechanism_note": "区属初中面向全区批次：招生 90 人（自愿报名，超计划电脑派位；中签自动取消属地正常安排的学位，未派中回户籍地学区）。面向番禺区户籍的小学应届毕业生（不含大龙街户籍及具有市桥城区电脑派位资格的小学应届毕业生）及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
      "plan_classes": null,
@@ -2603,6 +2780,7 @@
     },
     "广东仲元中学二校区（初中部）": {
      "group_members": null,
+     "label": "电脑抽签",
      "mechanism": "single_paidui",
      "mechanism_note": "区属初中面向港澳生批次：招生 20 人（自愿报名，超计划电脑派位；中签自动取消属地正常安排的学位，未派中回户籍地学区）。需符合以下条件之一：其父母或法定监护人至少一方在番禺区居住、工作，且持在番禺区申领的港澳居民居住证的港澳居民随迁子女（非穗籍小学应届毕业生）；持有在番禺区申领的港澳居民居住证，且其父母或法定监护人至少一方具有番禺区户籍、在番禺区居住、工作的港澳籍小学应届毕业生。",
      "plan_classes": null,
@@ -2613,6 +2791,7 @@
     },
     "广东仲元中学莲花湾学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "凡小区内配建的义务教育公办学校，在解决该小区户籍（含符合广州市政策性照顾条件的业主子女）及附近居民符合“人户一致”条件的适龄儿童、少年入读，以及预留用作解决该年段将户籍迁到该住宅小区的适龄儿童、少年学位后，如有剩余学位，优先解决在小孩入学当年，该住宅小学近6年（或初中近3年）未有安排小孩入读该小区配建公办小学（或初中）的业主（指购房并在申请入学当年5月31日前收楼且拥有该房产100%份额。下同）子女。如果符合上述条件的小孩人数超出所剩余学位数，则按购房先后顺序安排；如果安排符合上述条件的小孩后还有剩余学位，所剩余的学位由各教育指导中心根据本学区实际情况统筹安排。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 6,
@@ -2623,6 +2802,7 @@
     },
     "广东仲元中学附属学校": {
      "group_members": null,
+     "label": "电脑抽签",
      "mechanism": "single_paidui",
      "mechanism_note": "区属初中面向属地镇街批次：招生 60 人（自愿报名，超计划电脑派位；中签自动取消属地正常安排的学位，未派中回户籍地学区）。面向洛浦街户籍应届小学毕业生及实际居住地在洛浦街的广州市政策性照顾学生招生；无住宿条件。",
      "plan_classes": null,
@@ -2633,6 +2813,7 @@
     },
     "广东外语外贸大学番禺实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "凡小区内配建的义务教育公办学校，在解决该小区户籍（含符合广州市政策性照顾条件的业主子女）及附近居民符合“人户一致”条件的适龄儿童、少年入读，以及预留用作解决该年段将户籍迁到该住宅小区的适龄儿童、少年学位后，如有剩余学位，优先解决在小孩入学当年，该住宅小学近6年（或初中近3年）未有安排小孩入读该小区配建公办小学（或初中）的业主（指购房并在申请入学当年5月31日前收楼且拥有该房产100%份额。下同）子女。如果符合上述条件的小孩人数超出所剩余学位数，则按购房先后顺序安排；如果安排符合上述条件的小孩后还有剩余学位，所剩余的学位由各教育指导中心根据本学区实际情况统筹安排。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 4,
@@ -2643,6 +2824,7 @@
     },
     "广东番禺中学实验学校": {
      "group_members": null,
+     "label": "电脑抽签",
      "mechanism": "single_paidui",
      "mechanism_note": "区属初中面向全区批次：招生 60 人（自愿报名，超计划电脑派位；中签自动取消属地正常安排的学位，未派中回户籍地学区）。面向番禺区户籍应届小学毕业生及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
      "plan_classes": null,
@@ -2653,6 +2835,7 @@
     },
     "广东番禺中学教育集团兴南学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "凡小区内配建的义务教育公办学校，在解决该小区户籍（含符合广州市政策性照顾条件的业主子女）及附近居民符合“人户一致”条件的适龄儿童、少年入读，以及预留用作解决该年段将户籍迁到该住宅小区的适龄儿童、少年学位后，如有剩余学位，优先解决在小孩入学当年，该住宅小学近6年（或初中近3年）未有安排小孩入读该小区配建公办小学（或初中）的业主（指购房并在申请入学当年5月31日前收楼且拥有该房产100%份额。下同）子女。如果符合上述条件的小孩人数超出所剩余学位数，则按购房先后顺序安排；如果安排符合上述条件的小孩后还有剩余学位，所剩余的学位由各教育指导中心根据本学区实际情况统筹安排。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 6,
@@ -2663,6 +2846,7 @@
     },
     "广东番禺中学附属学校": {
      "group_members": null,
+     "label": "电脑抽签",
      "mechanism": "single_paidui",
      "mechanism_note": "区属初中面向全区批次：招生 80 人（自愿报名，超计划电脑派位；中签自动取消属地正常安排的学位，未派中回户籍地学区）。面向番禺区户籍应届小学毕业生及实际居住地在番禺区的广州市政策性照顾学生招生；电脑抽签；按学校要求申请宿位。",
      "plan_classes": null,
@@ -2673,6 +2857,7 @@
     },
     "广东第二师范学院广州南站附属学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 10,
@@ -2683,6 +2868,7 @@
     },
     "广东第二师范学院番禺附属初中": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 10,
@@ -2693,6 +2879,7 @@
     },
     "广大附中番禺实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "凡小区内配建的义务教育公办学校，在解决该小区户籍（含符合广州市政策性照顾条件的业主子女）及附近居民符合“人户一致”条件的适龄儿童、少年入读，以及预留用作解决该年段将户籍迁到该住宅小区的适龄儿童、少年学位后，如有剩余学位，优先解决在小孩入学当年，该住宅小学近6年（或初中近3年）未有安排小孩入读该小区配建公办小学（或初中）的业主（指购房并在申请入学当年5月31日前收楼且拥有该房产100%份额。下同）子女。如果符合上述条件的小孩人数超出所剩余学位数，则按购房先后顺序安排；如果安排符合上述条件的小孩后还有剩余学位，所剩余的学位由各教育指导中心根据本学区实际情况统筹安排。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 4,
@@ -2703,6 +2890,7 @@
     },
     "广州大学附属中学大学城校区": {
      "group_members": null,
+     "label": "电脑抽签",
      "mechanism": "single_paidui",
      "mechanism_note": "电脑抽签；招生计划以市教育局下达为准",
      "plan_classes": 14,
@@ -2713,6 +2901,7 @@
     },
     "广州市番禺区少年儿童业余体校": {
      "group_members": null,
+     "label": null,
      "mechanism": "no_plan",
      "mechanism_note": "区属少年儿童业余体校，以体育后备人才培养为主，不参与普通初中电脑派位；具体招生安排以区教育局当年通知为准。",
      "plan_classes": null,
@@ -2727,6 +2916,7 @@
       "广铁一中铁英学校(西校区)",
       "广铁一中铁英学校(东校区)"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "电脑派位；铁英学校西校区招生计划14个班，铁英学校东校区招生计划14个班；凡小区内配建的义务教育公办学校，在解决该小区户籍（含符合广州市政策性照顾条件的业主子女）及附近居民符合“人户一致”条件的适龄儿童、少年入读，以及预留用作解决该年段将户籍迁到该住宅小区的适龄儿童、少年学位后，如有剩余学位，优先解决在小孩入学当年，该住宅小学近6年（或初中近3年）未有安排小孩入读该小区配建公办小学（或初中）的业主（指购房并在申请入学当年5月31日前收楼且拥有该房产100%份额。下同）子女。如果符合上述条件的小孩人数超出所剩余学位数，则按购房先后顺序安排；如果安排符合上述条件的小孩后还有剩余学位，所剩余的学位由各教育指导中心根据本学区实际情况统筹安排。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 5,
@@ -2741,6 +2931,7 @@
       "广铁一中铁英学校(西校区)",
       "广铁一中铁英学校(东校区)"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "电脑派位；与广铁一中番禺校区同组（见番禺校区行备注）。",
      "plan_classes": 28,
@@ -2754,6 +2945,7 @@
     },
     "毓贤学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "东校区招生计划11个班，西校区招生计划4个班；凡小区内配建的义务教育公办学校，在解决该小区户籍（含符合广州市政策性照顾条件的业主子女）及附近居民符合“人户一致”条件的适龄儿童、少年入读，以及预留用作解决该年段将户籍迁到该住宅小区的适龄儿童、少年学位后，如有剩余学位，优先解决在小孩入学当年，该住宅小学近6年（或初中近3年）未有安排小孩入读该小区配建公办小学（或初中）的业主（指购房并在申请入学当年5月31日前收楼且拥有该房产100%份额。下同）子女。如果符合上述条件的小孩人数超出所剩余学位数，则按购房先后顺序安排；如果安排符合上述条件的小孩后还有剩余学位，所剩余的学位由各教育指导中心根据本学区实际情况统筹安排。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 15,
@@ -2767,6 +2959,7 @@
     },
     "沙湾象达中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "房地产开发商与其所在地镇政府（街道办事处）或教育行政部门签订了住宅小区配建学校学位安排协议的，原则上按协议的相关约定安排业主子女学位。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 15,
@@ -2777,6 +2970,7 @@
     },
     "沙湾象骏中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -2787,6 +2981,7 @@
     },
     "洛浦中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -2797,6 +2992,7 @@
     },
     "洛浦沙滘中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -2807,6 +3003,7 @@
     },
     "洛溪新城中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "房地产开发商与其所在地镇政府（街道办事处）或教育行政部门签订了住宅小区配建学校学位安排协议的，原则上按协议的相关约定安排业主子女学位。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 10,
@@ -2817,6 +3014,7 @@
     },
     "番广附万博学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "凡小区内配建的义务教育公办学校，在解决该小区户籍（含符合广州市政策性照顾条件的业主子女）及附近居民符合“人户一致”条件的适龄儿童、少年入读，以及预留用作解决该年段将户籍迁到该住宅小区的适龄儿童、少年学位后，如有剩余学位，优先解决在小孩入学当年，该住宅小学近6年（或初中近3年）未有安排小孩入读该小区配建公办小学（或初中）的业主（指购房并在申请入学当年5月31日前收楼且拥有该房产100%份额。下同）子女。如果符合上述条件的小孩人数超出所剩余学位数，则按购房先后顺序安排；如果安排符合上述条件的小孩后还有剩余学位，所剩余的学位由各教育指导中心根据本学区实际情况统筹安排。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 7,
@@ -2827,6 +3025,7 @@
     },
     "番广附创新城学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "凡小区内配建的义务教育公办学校，在解决该小区户籍（含符合广州市政策性照顾条件的业主子女）及附近居民符合“人户一致”条件的适龄儿童、少年入读，以及预留用作解决该年段将户籍迁到该住宅小区的适龄儿童、少年学位后，如有剩余学位，优先解决在小孩入学当年，该住宅小学近6年（或初中近3年）未有安排小孩入读该小区配建公办小学（或初中）的业主（指购房并在申请入学当年5月31日前收楼且拥有该房产100%份额。下同）子女。如果符合上述条件的小孩人数超出所剩余学位数，则按购房先后顺序安排；如果安排符合上述条件的小孩后还有剩余学位，所剩余的学位由各教育指导中心根据本学区实际情况统筹安排。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 4,
@@ -2845,6 +3044,7 @@
       "市桥桥城中学",
       "市桥桥兴中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "电脑派位",
      "plan_classes": 6,
@@ -2855,6 +3055,7 @@
     },
     "番雅实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "凡小区内配建的义务教育公办学校，在解决该小区户籍（含符合广州市政策性照顾条件的业主子女）及附近居民符合“人户一致”条件的适龄儿童、少年入读，以及预留用作解决该年段将户籍迁到该住宅小区的适龄儿童、少年学位后，如有剩余学位，优先解决在小孩入学当年，该住宅小学近6年（或初中近3年）未有安排小孩入读该小区配建公办小学（或初中）的业主（指购房并在申请入学当年5月31日前收楼且拥有该房产100%份额。下同）子女。如果符合上述条件的小孩人数超出所剩余学位数，则按购房先后顺序安排；如果安排符合上述条件的小孩后还有剩余学位，所剩余的学位由各教育指导中心根据本学区实际情况统筹安排。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 8,
@@ -2865,6 +3066,7 @@
     },
     "石楼中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -2875,6 +3077,7 @@
     },
     "石楼镇海鸥学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 5,
@@ -2885,6 +3088,7 @@
     },
     "石楼镇第二中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -2895,6 +3099,7 @@
     },
     "石楼镇莲花山中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -2905,6 +3110,7 @@
     },
     "石碁中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "房地产开发商与其所在地镇政府（街道办事处）或教育行政部门签订了住宅小区配建学校学位安排协议的，原则上按协议的相关约定安排业主子女学位。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 4,
@@ -2915,6 +3121,7 @@
     },
     "石碁第四中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "房地产开发商与其所在地镇政府（街道办事处）或教育行政部门签订了住宅小区配建学校学位安排协议的，原则上按协议的相关约定安排业主子女学位。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 10,
@@ -2925,6 +3132,7 @@
     },
     "育龙中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 10,
@@ -2935,6 +3143,7 @@
     },
     "金海岸学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "凡小区内配建的义务教育公办学校，在解决该小区户籍（含符合广州市政策性照顾条件的业主子女）及附近居民符合“人户一致”条件的适龄儿童、少年入读，以及预留用作解决该年段将户籍迁到该住宅小区的适龄儿童、少年学位后，如有剩余学位，优先解决在小孩入学当年，该住宅小学近6年（或初中近3年）未有安排小孩入读该小区配建公办小学（或初中）的业主（指购房并在申请入学当年5月31日前收楼且拥有该房产100%份额。下同）子女。如果符合上述条件的小孩人数超出所剩余学位数，则按购房先后顺序安排；如果安排符合上述条件的小孩后还有剩余学位，所剩余的学位由各教育指导中心根据本学区实际情况统筹安排。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 2,
@@ -2945,6 +3154,7 @@
     },
     "钟村中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "房地产开发商与其所在地镇政府（街道办事处）或教育行政部门签订了住宅小区配建学校学位安排协议的，原则上按协议的相关约定安排业主子女学位。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 12,
@@ -2955,6 +3165,7 @@
     },
     "钟村奥园学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "凡小区内配建的义务教育公办学校，在解决该小区户籍（含符合广州市政策性照顾条件的业主子女）及附近居民符合“人户一致”条件的适龄儿童、少年入读，以及预留用作解决该年段将户籍迁到该住宅小区的适龄儿童、少年学位后，如有剩余学位，优先解决在小孩入学当年，该住宅小学近6年（或初中近3年）未有安排小孩入读该小区配建公办小学（或初中）的业主（指购房并在申请入学当年5月31日前收楼且拥有该房产100%份额。下同）子女。如果符合上述条件的小孩人数超出所剩余学位数，则按购房先后顺序安排；如果安排符合上述条件的小孩后还有剩余学位，所剩余的学位由各教育指导中心根据本学区实际情况统筹安排。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 2,
@@ -2965,6 +3176,7 @@
     },
     "锦绣香江学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "凡小区内配建的义务教育公办学校，在解决该小区户籍（含符合广州市政策性照顾条件的业主子女）及附近居民符合“人户一致”条件的适龄儿童、少年入读，以及预留用作解决该年段将户籍迁到该住宅小区的适龄儿童、少年学位后，如有剩余学位，优先解决在小孩入学当年，该住宅小学近6年（或初中近3年）未有安排小孩入读该小区配建公办小学（或初中）的业主（指购房并在申请入学当年5月31日前收楼且拥有该房产100%份额。下同）子女。如果符合上述条件的小孩人数超出所剩余学位数，则按购房先后顺序安排；如果安排符合上述条件的小孩后还有剩余学位，所剩余的学位由各教育指导中心根据本学区实际情况统筹安排。详细招生细则见相关学校每年发布的招生方案。",
      "plan_classes": 4,
@@ -2975,6 +3187,7 @@
     },
     "隽新学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 4,
@@ -2990,6 +3203,7 @@
    "records": {
     "华南师范大学附属中学初中部": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_paidui",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -3000,6 +3214,7 @@
     },
     "华南理工大学附属实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3010,6 +3225,7 @@
     },
     "广东实验中学天河学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3020,6 +3236,7 @@
     },
     "广州中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 40,
@@ -3034,6 +3251,7 @@
     },
     "广州中学天河燕园学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3044,6 +3262,7 @@
     },
     "广州天省实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 16,
@@ -3054,6 +3273,7 @@
     },
     "广州奥林匹克中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 14,
@@ -3067,6 +3287,7 @@
     },
     "广州奥林匹克中学（含智谷校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3080,6 +3301,7 @@
     },
     "广州市华美英语实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 10,
@@ -3090,6 +3312,7 @@
     },
     "广州市华颖外国语学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_paidui",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3100,6 +3323,7 @@
     },
     "广州市南国学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "含港澳子弟45人招生计划",
      "plan_classes": 4,
@@ -3110,6 +3334,7 @@
     },
     "广州市天河中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 20,
@@ -3123,6 +3348,7 @@
     },
     "广州市天河中学猎德实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "特教班1个，招收5名特殊儿童，优先招收本校小学特教班毕业生",
      "plan_classes": "4+1（特教）",
@@ -3133,6 +3359,7 @@
     },
     "广州市天河区东泰学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 3,
@@ -3143,6 +3370,7 @@
     },
     "广州市天河区东风学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 2,
@@ -3153,6 +3381,7 @@
     },
     "广州市天河区兴华培智学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 2,
@@ -3163,6 +3392,7 @@
     },
     "广州市天河区凤凰中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 2,
@@ -3173,6 +3403,7 @@
     },
     "广州市天河区华实学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -3183,6 +3414,7 @@
     },
     "广州市天河区同仁天兴学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 2,
@@ -3193,6 +3425,7 @@
     },
     "广州市天河区同仁学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 3,
@@ -3203,6 +3436,7 @@
     },
     "广州市天河区同仁实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 3,
@@ -3213,6 +3447,7 @@
     },
     "广州市天河区同仁艺体实验中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 7,
@@ -3226,6 +3461,7 @@
     },
     "广州市天河区培智学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 2,
@@ -3236,6 +3472,7 @@
     },
     "广州市天河区培艺学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 2,
@@ -3246,6 +3483,7 @@
     },
     "广州市天河区大华学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 2,
@@ -3256,6 +3494,7 @@
     },
     "广州市天河区天泽中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 3,
@@ -3266,6 +3505,7 @@
     },
     "广州市天河区成龙中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 3,
@@ -3276,6 +3516,7 @@
     },
     "广州市天河区新昌学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 2,
@@ -3286,6 +3527,7 @@
     },
     "广州市天河区新蕾五星学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 3,
@@ -3296,6 +3538,7 @@
     },
     "广州市天河区明珠中英文学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 6,
@@ -3306,6 +3549,7 @@
     },
     "广州市天河区智谷第一实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3316,6 +3560,7 @@
     },
     "广州市天河区棠福学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 3,
@@ -3326,6 +3571,7 @@
     },
     "广州市天河区汇景实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "华园校区在招收完政策保障小区地段学生外，剩余计划面向五山街公办、企事业单位办小学的天河户籍毕业生（电脑派位）",
      "plan_classes": 20,
@@ -3336,6 +3582,7 @@
     },
     "广州市天河区科韵路学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 3,
@@ -3346,6 +3593,7 @@
     },
     "广州市天河区黄村中英文学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 4,
@@ -3356,6 +3604,7 @@
     },
     "广州市天河区龙圣学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 3,
@@ -3366,6 +3615,7 @@
     },
     "广州市天河外国语均和学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "剩余计划面向珠吉、前进、黄村、车陂4个街道范围内公办、企事业单位配套小区的天河户籍毕业生（电脑派位）",
      "plan_classes": 6,
@@ -3376,6 +3626,7 @@
     },
     "广州市天河外国语学校（珠江新城校区）、广州市天河外国语学校（智慧城校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_paidui",
      "mechanism_note": null,
      "plan_classes": "6+10",
@@ -3389,6 +3640,7 @@
     },
     "广州市天河外国语智谷学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3399,6 +3651,7 @@
     },
     "广州市天荣中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -3409,6 +3662,7 @@
     },
     "广州市执信中学天河校区": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_paidui",
      "mechanism_note": null,
      "plan_classes": 10,
@@ -3419,6 +3673,7 @@
     },
     "广州市泰安中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 10,
@@ -3429,6 +3684,7 @@
     },
     "广州市第113中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 28,
@@ -3442,6 +3698,7 @@
     },
     "广州市第18中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 14,
@@ -3455,6 +3712,7 @@
     },
     "广州市第75中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 14,
@@ -3468,6 +3726,7 @@
     },
     "广州市第89中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 18,
@@ -3478,6 +3737,7 @@
     },
     "广州市第一一三中学陶育实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": "含港澳子弟45人招生计划",
      "plan_classes": 4,
@@ -3488,6 +3748,7 @@
     },
     "广州市长兴中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -3498,6 +3759,7 @@
     },
     "广州市骏景中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 8,
@@ -3508,6 +3770,7 @@
     },
     "广州思源学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "min_zi_zhu",
      "mechanism_note": null,
      "plan_classes": 4,
@@ -3518,6 +3781,7 @@
     },
     "暨南大学附属实验学校（初中部）": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3528,6 +3792,7 @@
     },
     "清华附中湾区学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3541,6 +3806,7 @@
     },
     "清华附中湾区学校（智慧城校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3553,6 +3819,7 @@
     },
     "清华附中湾区学校（智谷校区）、清华附中湾区学校（智慧城校区）": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_paidui",
      "mechanism_note": null,
      "plan_classes": "8+8",
@@ -3582,6 +3849,7 @@
       "广东华侨中学",
       "广州市执信中学（执信路校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3603,6 +3871,7 @@
       "广东华侨中学",
       "广州市执信中学（执信路校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3624,6 +3893,7 @@
       "广州大学附属中学",
       "广州市执信中学（执信路校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3645,6 +3915,7 @@
       "广州大学附属中学",
       "广州市执信中学（执信路校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3666,6 +3937,7 @@
       "广州大学附属中学",
       "广州市执信中学（执信路校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第三组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3676,6 +3948,7 @@
     },
     "广州市八一实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3686,6 +3959,7 @@
     },
     "广州市华侨外国语学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3696,6 +3970,7 @@
     },
     "广州市培正中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3717,6 +3992,7 @@
       "广州大学附属中学",
       "广州市执信中学（执信路校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3738,6 +4014,7 @@
       "广州大学附属中学",
       "广州市执信中学（执信路校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3750,6 +4027,7 @@
     },
     "广州市真光学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3760,6 +4038,7 @@
     },
     "广州市知用学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3781,6 +4060,7 @@
       "广东实验中学",
       "广州市铁一中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第七组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3805,6 +4085,7 @@
       "广州市执信中学（执信路校区）",
       "广州市铁一中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3815,6 +4096,7 @@
     },
     "广州市第七中学实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -3836,6 +4118,7 @@
       "广州大学附属中学",
       "广州市执信中学（执信路校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3857,6 +4140,7 @@
       "广东华侨中学",
       "广州市执信中学（执信路校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3878,6 +4162,7 @@
       "广州大学附属中学",
       "广州市执信中学（执信路校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3899,6 +4184,7 @@
       "广州大学附属中学",
       "广州市执信中学（执信路校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3923,6 +4209,7 @@
       "广东华侨中学",
       "广州市执信中学（执信路校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3944,6 +4231,7 @@
       "广州大学附属中学",
       "广州市执信中学（执信路校区）"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第十一组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3965,6 +4253,7 @@
       "广东实验中学",
       "广东华侨中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第九组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -3989,6 +4278,7 @@
       "广州市执信中学（执信路校区）",
       "广州市铁一中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第六组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -4010,6 +4300,7 @@
       "广州市执信中学（执信路校区）",
       "广东华侨中学"
      ],
+     "label": null,
      "mechanism": "group_paidui",
      "mechanism_note": "越秀区小学升初中电脑派位第四组（组内 10 所初中均可填报）",
      "plan_classes": null,
@@ -4020,6 +4311,7 @@
     },
     "广州市育才中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
@@ -4033,6 +4325,7 @@
     },
     "广州市越秀区育才实验学校": {
      "group_members": null,
+     "label": null,
      "mechanism": "single_paidui",
      "mechanism_note": "2026 越秀公办初中招生计划第 21 号（6 班）；招生问答第一类：面向全区公办小学招收部分直升生，报名人数超计划电脑派位",
      "plan_classes": 6,
@@ -4043,6 +4336,7 @@
     },
     "广州市铁一中学": {
      "group_members": null,
+     "label": null,
      "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
