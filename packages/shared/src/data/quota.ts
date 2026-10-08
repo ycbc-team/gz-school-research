@@ -261,7 +261,7 @@ export function createQuotaApi(loaders: DataLoaders) {
   };
 
   /** 按招生机制拆分初中名单：对口直升取 direct_feed_school_id（单所）；
-   *  其余机制取 feed_school_ids 并排除 direct 目标，避免直升校在派位盒里重复出现 */
+   *  其余机制取 feed_school_ids_by_mechanism[m] 并排除 direct 目标，避免直升校在派位盒里重复出现 */
   function buildRouteGroups(r: FactRec): RouteGroup[] {
     const directId = r.direct_feed_school_id ?? null;
     const directName = directId ? entityById.get(directId)?.name ?? null : null;
@@ -271,7 +271,7 @@ export function createQuotaApi(loaders: DataLoaders) {
       if (m === 'zhi_sheng') {
         schools = directName ? [{ id: directId, name: directName }] : [];
       } else {
-        schools = (r.feed_school_ids || [])
+        schools = (r.feed_school_ids_by_mechanism?.[m] || [])
           .filter((id) => id !== directId)
           .map((id) => ({ id, name: entityById.get(id)?.name ?? id }))
           .filter((s) => s.name);
