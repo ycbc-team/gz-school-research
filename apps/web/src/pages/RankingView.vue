@@ -12,8 +12,8 @@
  */
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import { DISTRICTS } from '@gz/shared';
-import { rankingMiddle, quotaMatrix, entities, middleOrgSort, civilizedCampusSchoolIds, groupOfSchool, quotaOutcome } from '../data';
+import { DISTRICTS, type MiddleMechanism } from '@gz/shared';
+import { rankingMiddle, quotaMatrix, entities, middleOrgSort, civilizedCampusSchoolIds, groupOfSchool, quotaOutcome, middleEnrollments, middleEnrollmentMechanisms } from '../data';
 import { queryScalar, querySet, useQuerySync } from '../routeQuery';
 import DetailFilterBar from '../components/DetailFilterBar.vue';
 import DetailPageHeader from '../components/DetailPageHeader.vue';
@@ -363,10 +363,41 @@ function civilizedOn(key: CivilizedKey) { return civilizedAllOn.value || selecte
 function toggleCivilized(key: CivilizedKey) { const next = new Set(selectedCivilized.value || CIVILIZED_FILTERS.map(([v]) => v)); next.has(key) ? next.delete(key) : next.add(key); selectedCivilized.value = next; }
 function isCivilized(s: Row) { return [s.school_id, ...(s.school_ids || [])].some((id) => !!id && Object.values(civilizedCampusSchoolIds).some((ids) => ids.includes(id))); }
 function civilizedVisible(s: Row) { return civilizedAllOn.value || [...selectedCivilized.value!].some((key) => key === 'other' ? !isCivilized(s) : [s.school_id, ...(s.school_ids || [])].some((id) => !!id && (civilizedCampusSchoolIds[key] || []).includes(id))); }
-const filterCount = computed(() => (districtAllOn.value ? 0 : selectedDistricts.value.size) + (civilizedAllOn.value ? 0 : selectedCivilized.value!.size));
-function resetFilters() { selectedDistricts.value = new Set(DISTRICTS.map((d) => d.adcode)); selectedCivilized.value = null; }
+const filterCount = computed(() => (districtAllOn.value ? 0 : selectedDistricts.value.size) + (civilizedAllOn.value ? 0 : selectedCivilized.value!.size) + (mechAllOn.value ? 0 : selectedMechs.value!.size));
+function resetFilters() { selectedDistricts.value = new Set(DISTRICTS.map((d) => d.adcode)); selectedCivilized.value = null; selectedMechs.value = null; }
 function toggleAllDistricts() { selectedDistricts.value = districtAllOn.value ? new Set() : new Set(DISTRICTS.map((d) => d.adcode)); }
 function toggleAllCivilized() { selectedCivilized.value = civilizedAllOn.value ? new Set() : null; }
+
+/** 招生机制筛选（2026-10-08）：school_id（主 + 校区成员）→ 机制集合，dist 单一真源；
+ * 多选命中任一机制即显示（如仅看「单校划片 + 对口直升」的初中）。 */
+const MECH_BY_SCHOOL = new Map<string, Set<MiddleMechanism>>();
+for (const snap of middleEnrollments) {
+  for (const rec of snap.records) {
+    const ids = [rec.school_id, ...(rec.school_ids || [])].filter((x): x is string => !!x);
+    for (const id of ids) {
+      let set = MECH_BY_SCHOOL.get(id);
+      if (!set) { set = new Set(); MECH_BY_SCHOOL.set(id, set); }
+      set.add(rec.mechanism);
+    }
+  }
+}
+const MECH_FILTER_ORDER: MiddleMechanism[] = ['single_zone', 'zhi_sheng', 'group_paidui', 'single_paidui', 'single_chouqian', 'min_zi_zhu', 'no_plan'];
+const MECH_FILTERS = MECH_FILTER_ORDER.map((m) => [m, middleEnrollmentMechanisms[m]?.label ?? m] as const);
+const selectedMechs = ref<Set<MiddleMechanism> | null>(querySet<MiddleMechanism>(route.query.mechs, new Set(MECH_FILTER_ORDER)) ?? null);
+const mechAllOn = computed(() => selectedMechs.value === null);
+function mechOn(m: MiddleMechanism) { return mechAllOn.value || selectedMechs.value!.has(m); }
+function toggleMech(m: MiddleMechanism) { const next = new Set(selectedMechs.value || MECH_FILTER_ORDER); next.has(m) ? next.delete(m) : next.add(m); selectedMechs.value = next; }
+function toggleAllMechs() { selectedMechs.value = mechAllOn.value ? new Set() : null; }
+function mechVisible(s: Row): boolean {
+  if (mechAllOn.value) return true;
+  for (const id of [s.school_id, ...(s.school_ids || [])]) {
+    if (!id) continue;
+    const set = MECH_BY_SCHOOL.get(id);
+    if (!set) continue;
+    for (const m of set) if (selectedMechs.value!.has(m)) return true;
+  }
+  return false;
+}
 /** 分组/指标/筛选状态同步到 URL query（见 routeQuery.ts） */
 useQuerySync(
   () => ({
@@ -374,12 +405,14 @@ useQuerySync(
     metric: metric.value === 'default' ? undefined : metric.value,
     districts: districtAllOn.value ? undefined : [...selectedDistricts.value].join(','),
     honor: selectedCivilized.value ? [...selectedCivilized.value].join(',') : undefined,
+    mechs: mechAllOn.value ? undefined : [...selectedMechs.value!].join(','),
   }),
   (q) => {
     groupBy.value = queryScalar(q.group, ['district', 'group'] as const, 'none');
     metric.value = queryScalar(q.metric, ['default', 'qu_ratio', 'sheng_ratio', 'tekong', 'sheng_min', 'qu_min', 'top14_min'] as const, 'default');
     selectedDistricts.value = querySet<string>(q.districts) ?? new Set(DISTRICTS.map((d) => d.adcode));
     selectedCivilized.value = querySet<CivilizedKey>(q.honor, new Set(CIVILIZED_FILTERS.map(([v]) => v))) ?? null;
+    selectedMechs.value = querySet<MiddleMechanism>(q.mechs, new Set(MECH_FILTER_ORDER)) ?? null;
   },
 );
 
@@ -389,7 +422,7 @@ const groupLabel = computed(() => ({ none: '不分组', district: '按区', grou
 const districtOrder = DISTRICTS.map((d) => d.name.replace('区', ''));
 
 const groups = computed(() => {
-  const rows = schools.filter(districtVisible).filter(civilizedVisible).map((s) => ({ s, v: metricValue(s), minban: !!s.minban }));
+  const rows = schools.filter(districtVisible).filter(civilizedVisible).filter(mechVisible).map((s) => ({ s, v: metricValue(s), minban: !!s.minban }));
   const asc = metric.value === 'sheng_min' || metric.value === 'qu_min' || metric.value === 'top14_min';
   const sortFn = metric.value === 'default' ? levelSort : (a: { v: number | null; minban?: boolean }, b: { v: number | null; minban?: boolean }) => rankSort(a, b, asc);
   if (groupBy.value === 'none') {
@@ -475,6 +508,7 @@ const groups = computed(() => {
         </div>
         <div class="pop-foot"><button class="pop-link" @click="toggleAllDistricts">{{ districtAllOn ? '全不选' : '全选' }}</button></div>
         <div class="pop-group-title">校园荣誉</div><div class="pop-chips"><button v-for="option in CIVILIZED_FILTERS" :key="option[0]" class="pop-chip" :class="{ on: civilizedOn(option[0]) }" @click="toggleCivilized(option[0])">{{ option[1] }}</button></div><div class="pop-foot"><button class="pop-link" @click="toggleAllCivilized">{{ civilizedAllOn ? '全不选' : '全选' }}</button></div>
+        <div class="pop-group-title">招生机制</div><div class="pop-chips"><button v-for="m in MECH_FILTERS" :key="m[0]" class="pop-chip" :class="{ on: mechOn(m[0]) }" @click="toggleMech(m[0])">{{ m[1] }}</button></div><div class="pop-foot"><button class="pop-link" @click="toggleAllMechs">{{ mechAllOn ? '全不选' : '全选' }}</button></div>
         <div class="pop-foot">
           <button class="pop-link" @click="resetFilters">重置</button>
           <button class="pop-link" @click="openMenu = null">完成</button>
