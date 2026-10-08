@@ -935,9 +935,14 @@ def build_tianhe_official():
             **({"scope_school_ids": _ss} if _ss else {}),
             **({"_group_primaries": TH_A10_POOLS[_sid]} if _sid in TH_A10_POOLS else {}),
             # 附件7 企事业办：华附备注「其中，面向天河区电脑派位招收4个班168人」→ 机制 single_paidui + scope=附件10 段；
-            # 其余企事业办（华工附/暨大附）无电脑派位依据 → min_zi_zhu（自主招生）
+            # 其余企事业办（华工附/暨大附）无电脑派位依据 → min_zi_zhu（自主招生）。
+            # 2026-10-08（用户反馈「自主招生标签无任何招生说明」）：官方附件7 该行备注/范围列为空
+            # （转录忠实）——mechanism_note 补官方框架口径（细则正文可复核：企事业办小学毕业生
+            # 直升其毕业小学对口中学；附件7 未公布初中部招生范围，以本校招生办法为准）。
             "mechanism": "single_paidui" if _sid in a10 else "min_zi_zhu",
-            "mechanism_note": None,
+            "mechanism_note": (None if _sid in a10 else
+                               f"天河细则：企事业办小学毕业生直升其毕业小学对口中学；"
+                               f"附件7 未公布初中部招生范围（{r['school']} 行备注列为空），以本校招生办法为准。"),
             "group_members": None,
         })
     for r in tr["minban"]:
