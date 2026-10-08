@@ -213,8 +213,18 @@ def reverse_district(district, entity_names):
                 mid_name = entity_names.get(mid, r.get("school") or mid)
                 # 直升初中只进 direct_feed，不进派位 feed（feed 保持纯派位组列表）
                 if is_direct:
-                    if mid_name not in row["direct_feed"]:
-                        row["direct_feed"].append(mid_name)
+                    # 2026-10-08（奥中智谷校区小学部）：九年制小学部名含「（XX校区）」标签
+                    # （如「广州奥林匹克中学（智谷校区）小学部」「清华附中湾区学校（智慧城校区）」）
+                    # → 只归属同名校区实体（含校区标签的中学实体），不取合并记录全组合首个
+                    # （黄村西路校区）。无校区标签的小学名保持全组合（现状）。
+                    tag_m = re.search(r"[（(]([^（）()]*?校区)[）)]", official_primary)
+                    tag = tag_m.group(1) if tag_m else None
+                    tagged = [m for m in mids_for_pair
+                              if tag and tag in (entity_names.get(m) or "")]
+                    for mid in (tagged or mids_for_pair):
+                        _mn = entity_names.get(mid, r.get("school") or mid)
+                        if _mn not in row["direct_feed"]:
+                            row["direct_feed"].append(_mn)
                 else:
                     if mid_name not in row["feed_junior_highs"]:
                         row["feed_junior_highs"].append(mid_name)
