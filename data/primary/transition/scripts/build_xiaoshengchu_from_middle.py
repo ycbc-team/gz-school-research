@@ -66,6 +66,7 @@ def to_dist_records(candidate):
             "group": group,
             "mechanisms": mech,
             "feed_junior_highs": r["feed_junior_highs"],
+            "feed_junior_highs_by_mechanism": r.get("feed_junior_highs_by_mechanism") or {},
             "direct_feed": direct[0] if direct else None,
             "source_url": r.get("source_url"),
             "source_note": r.get("source_note"),  # 审计层字段，dist 写入时剥离
@@ -175,6 +176,9 @@ def reverse_district(district, entity_names):
                 "mechanisms": [],
                 "feed_junior_highs": [],
                 "feed_school_ids_from_middle": [],
+                # 2026-10-08（天河双机制拆分）：feed 按机制分组（机制→[初中名]），
+                # 与 feed_junior_highs 同一来源去重维护；前端按机制块渲染各自 feed。
+                "feed_junior_highs_by_mechanism": {},
                 "direct_feed": [],
                 "source_url": source.get("source_url"),
                 "source_note": source.get("source"),
@@ -215,6 +219,9 @@ def reverse_district(district, entity_names):
                         row["feed_junior_highs"].append(mid_name)
                     if mid not in row["feed_school_ids_from_middle"]:
                         row["feed_school_ids_from_middle"].append(mid)
+                    _by_m = row["feed_junior_highs_by_mechanism"].setdefault(_m, [])
+                    if mid_name not in _by_m:
+                        _by_m.append(mid_name)
     records = sorted(by_primary.values(), key=lambda r: (r["name"], r["school_id"]))
     for r in records:
         r["mechanisms"] = [m for m in XS_MECH_ORDER if m in r["mechanisms"]]

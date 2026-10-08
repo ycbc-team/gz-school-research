@@ -52,6 +52,10 @@ const outRecords = src.records.map((r) => {
     feed_unresolved: r.feed_unresolved || [],
     direct_feed_school_id: r.direct_feed_school_id,
     source_url: r.source_url, data_gaps: r.data_gaps,
+    // 2026-10-08（天河双机制拆分）：feed 按机制分组（机制→[初中 id] / [未解析名]），
+    // 由 Python xs_resolver 解析，前端按机制块渲染各自 feed。
+    feed_school_ids_by_mechanism: r.feed_school_ids_by_mechanism || {},
+    feed_unresolved_by_mechanism: r.feed_unresolved_by_mechanism || {},
   };
 });
 // 同 (group, school_id) 去重：同一小学多源名/多条源记录（更名残留、实体合并、源表重复行）
@@ -68,6 +72,19 @@ const deduped = [];
     prev.feed_school_ids = [...new Set([...(prev.feed_school_ids || []), ...(r.feed_school_ids || [])])];
     prev.feed_unresolved = [...new Set([...(prev.feed_unresolved || []), ...(r.feed_unresolved || [])])];
     prev.mechanisms = XS_MECH_ORDER.filter((m) => (prev.mechanisms || []).includes(m) || (r.mechanisms || []).includes(m));
+    // 机制分组 feed 同样并集（同机制跨源记录合并）
+    for (const m of Object.keys(r.feed_school_ids_by_mechanism || {})) {
+      prev.feed_school_ids_by_mechanism[m] = [...new Set([
+        ...(prev.feed_school_ids_by_mechanism[m] || []),
+        ...(r.feed_school_ids_by_mechanism[m] || []),
+      ])];
+    }
+    for (const m of Object.keys(r.feed_unresolved_by_mechanism || {})) {
+      prev.feed_unresolved_by_mechanism[m] = [...new Set([
+        ...(prev.feed_unresolved_by_mechanism[m] || []),
+        ...(r.feed_unresolved_by_mechanism[m] || []),
+      ])];
+    }
   }
   deduped.push(...byKey.values());
 }

@@ -239,6 +239,8 @@ export function createQuotaApi(loaders: DataLoaders) {
     direct_feed_school_id: string | null;
     source_note?: string; data_gaps?: string | null;
     mechanism?: string[];
+    feed_school_ids_by_mechanism?: Record<string, string[]>;
+    feed_unresolved_by_mechanism?: Record<string, string[]>;
   };
   const xsGroups = loaders.xiaoshengchu.groups;
   const groupsById = new Map(xsGroups.map((g) => [g.id, g]));
@@ -250,12 +252,20 @@ export function createQuotaApi(loaders: DataLoaders) {
   function shapeRecord(r: FactRec, displayName: string): XiaoshengchuRecord {
     const feedNames = (r.feed_school_ids || []).map((id) => entityById.get(id)?.name).filter(Boolean) as string[];
     const g = groupsById.get(r.group_id);
+    // 2026-10-08（天河双机制拆分）：feed 按机制分组（名级，含未解析名）；
+    // 前端「升学路线」按机制块渲染各自 feed，单机制学校与旧数据回退全量列表。
+    const byMech: Record<string, string[]> = {};
+    for (const [m, ids] of Object.entries(r.feed_school_ids_by_mechanism || {})) {
+      byMech[m] = (ids.map((id) => entityById.get(id)?.name).filter(Boolean) as string[])
+        .concat(r.feed_unresolved_by_mechanism?.[m] || []);
+    }
     return {
       name: displayName,
       group: g?.name ?? null,
       mechanisms: r.mechanism ?? g?.mechanism ?? [],
       feed_junior_highs: [...feedNames, ...(r.feed_unresolved || [])],
       direct_feed: r.direct_feed_school_id ? entityById.get(r.direct_feed_school_id)?.name ?? null : null,
+      feed_by_mechanism: Object.keys(byMech).length ? byMech : undefined,
       source_url: g?.source_urls.join('; ') ?? '',
       source_note: r.source_note ?? '',
       data_gaps: r.data_gaps ?? g?.data_gaps ?? null,

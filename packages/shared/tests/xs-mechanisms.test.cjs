@@ -61,10 +61,12 @@ test('真实数据：机制归类与初中枚举对齐（数据驱动）', () =>
   assert.deepEqual(mechsOf(primaryBy('440104', /越秀区小升初对口（多校电脑派位）/, ['zhi_sheng', 'group_paidui'])), ['zhi_sheng', 'group_paidui']);
   // 海珠派位组 → group_paidui
   assert.deepEqual(mechsOf(primaryBy('440105', /海珠区小升初对口（多校电脑派位）/, ['group_paidui'])), ['group_paidui']);
-  // 天河对口划片 → single_zone（天河初中 zhi_sheng=0，对口划片标 single_zone）
-  assert.deepEqual(mechsOf(primaryBy('440106', /天河区公办初中对口直升（广州中学划片）/, ['single_zone'])), ['single_zone']);
-  // 天河九年制内部直升 + 附件10 → zhi_sheng + min_zi_zhu（直升先行）
-  assert.deepEqual(mechsOf(primaryBy('440106', /天河区九年制学校内部直升/, ['zhi_sheng', 'min_zi_zhu'])), ['zhi_sheng', 'min_zi_zhu']);
+  // 天河对口划片 → single_zone（天河接入反推后：单校划片保持 feed，组名随反推模板；
+  // 2026-10-08 前小学侧组名为「天河区公办初中对口直升（广州中学划片）」）
+  assert.deepEqual(mechsOf(primaryBy('440106', /天河区小升初对口（单校划片）/, ['single_zone'])), ['single_zone']);
+  // 天河九年制内部直升 → zhi_sheng（反推后组名「天河区小升初对口直升（不参加电脑派位）」；
+  // 华工附/暨大附另挂附件10 派位池 → zhi_sheng + single_paidui，纯直升基线取省实/燕园）
+  assert.deepEqual(mechsOf(primaryBy('440106', /天河区小升初对口直升（不参加电脑派位）/, ['zhi_sheng'])), ['zhi_sheng']);
   // 番禺电脑抽签 → single_paidui（初中番禺同口径）
   assert.deepEqual(mechsOf(primaryBy('440113', /番禺区小升初对口（电脑抽签）/, ['single_paidui'])), ['single_paidui']);
   // 番禺市桥城区 → group_paidui

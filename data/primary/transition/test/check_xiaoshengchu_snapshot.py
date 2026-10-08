@@ -28,8 +28,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.d
 SNAPSHOT = os.path.join(ROOT, "data/primary/transition/test/snapshots/xiaoshengchu_snapshot.json")
 BUILD = os.path.join(ROOT, "data/primary/transition/scripts/build_xiaoshengchu_all.py")
 UPGRADE = os.path.join(ROOT, "data/primary/transition/scripts/upgrade_xiaoshengchu.mjs")
-# 噪音字段：source_urls/source_note（来源描述）不入快照；records 行键 = school_id
-RECORD_FIELDS = ("group_id", "feed_school_ids", "feed_unresolved", "direct_feed_school_id", "data_gaps")
+# 噪音字段：source_urls/source_note（来源描述）不入快照；records 行键 = school_id。
+# feed_school_ids_by_mechanism/feed_unresolved_by_mechanism（2026-10-08 天河双机制拆分）
+# 入快照：机制分组 feed 的任何增删（如派位池名单变更）都能被感知。
+RECORD_FIELDS = ("group_id", "feed_school_ids", "feed_unresolved", "direct_feed_school_id",
+                 "data_gaps", "feed_school_ids_by_mechanism", "feed_unresolved_by_mechanism")
 
 
 def extract() -> dict:

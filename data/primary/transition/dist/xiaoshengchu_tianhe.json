@@ -9,6 +9,15 @@
     "广州市第十八中学",
     "广州市华颖外国语学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校"
+    ],
+    "single_zone": [
+     "广州市第十八中学车陂校区",
+     "广州市第十八中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -62,6 +71,16 @@
     "广州市华颖外国语学校",
     "广东实验中学天河学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校"
+    ],
+    "single_zone": [
+     "广州市奥林匹克中学(黄村西路校区)",
+     "广州奥林匹克中学(智谷校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -78,6 +97,15 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河区汇景实验学校"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -94,6 +122,15 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河区汇景实验学校"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -111,6 +148,16 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河区汇景实验学校"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -128,6 +175,16 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河中学(天河东路校区)",
+     "广州市天河中学(花城校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -145,6 +202,16 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河中学(天河东路校区)",
+     "广州市天河中学(花城校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -162,6 +229,16 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河中学(天河东路校区)",
+     "广州市天河中学(花城校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -178,6 +255,15 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "天荣中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -194,6 +280,15 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "天荣中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -208,6 +303,11 @@
    "feed_junior_highs": [
     "广州市长兴中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市长兴中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -233,6 +333,16 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河中学(天河东路校区)",
+     "广州市天河中学(花城校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -257,6 +367,12 @@
     "广州市第十八中学车陂校区",
     "广州市第十八中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第十八中学车陂校区",
+     "广州市第十八中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -273,6 +389,16 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河区汇景实验学校"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -292,6 +418,18 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州中学(五山校区)",
+     "广州中学(名雅校区)",
+     "广州中学(天润校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -308,6 +446,13 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ]
+   },
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng",
@@ -326,6 +471,17 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州中学(五山校区)",
+     "广州中学(名雅校区)",
+     "广州中学(天润校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -344,6 +500,17 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市第一一三中学(乐学校区)",
+     "广州市第一一三中学(东方校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -362,6 +529,17 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市第一一三中学(乐学校区)",
+     "广州市第一一三中学(东方校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -380,6 +558,17 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州中学(五山校区)",
+     "广州中学(名雅校区)",
+     "广州中学(天润校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -398,6 +587,17 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州中学(五山校区)",
+     "广州中学(名雅校区)",
+     "广州中学(天润校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -416,6 +616,17 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州中学(五山校区)",
+     "广州中学(名雅校区)",
+     "广州中学(天润校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -432,6 +643,15 @@
     "南国学校(中学部)",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "南国学校(中学部)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -448,6 +668,15 @@
     "广州奥林匹克中学(智谷校区)",
     "执信中学(天河校区)"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "执信中学(天河校区)"
+    ],
+    "single_zone": [
+     "广州市奥林匹克中学(黄村西路校区)",
+     "广州奥林匹克中学(智谷校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -484,6 +713,17 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市第一一三中学(乐学校区)",
+     "广州市第一一三中学(东方校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -502,6 +742,17 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市第一一三中学(乐学校区)",
+     "广州市第一一三中学(东方校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -518,6 +769,15 @@
     "广州奥林匹克中学(智谷校区)",
     "执信中学(天河校区)"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "执信中学(天河校区)"
+    ],
+    "single_zone": [
+     "广州市奥林匹克中学(黄村西路校区)",
+     "广州奥林匹克中学(智谷校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -554,6 +814,17 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市第一一三中学(乐学校区)",
+     "广州市第一一三中学(东方校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -572,6 +843,17 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市第一一三中学(乐学校区)",
+     "广州市第一一三中学(东方校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -589,6 +871,16 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河区汇景实验学校"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -604,6 +896,12 @@
     "广州市第七十五中学(燕塘西校区)",
     "广州市第七十五中学(天平架校区)"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第七十五中学(燕塘西校区)",
+     "广州市第七十五中学(天平架校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -617,6 +915,11 @@
    "feed_junior_highs": [
     "广州市泰安中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市泰安中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -641,6 +944,15 @@
     "广州奥林匹克中学(智谷校区)",
     "广州市华颖外国语学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校"
+    ],
+    "single_zone": [
+     "广州市奥林匹克中学(黄村西路校区)",
+     "广州奥林匹克中学(智谷校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -653,6 +965,7 @@
    "data_gaps": null,
    "direct_feed": "天河区智谷第一实验学校",
    "feed_junior_highs": [],
+   "feed_junior_highs_by_mechanism": {},
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
@@ -668,6 +981,15 @@
     "广州市第一一三中学(东方校区)",
     "广州市华颖外国语学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校"
+    ],
+    "single_zone": [
+     "广州市第一一三中学(乐学校区)",
+     "广州市第一一三中学(东方校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -703,6 +1025,16 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河中学(天河东路校区)",
+     "广州市天河中学(花城校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -737,6 +1069,15 @@
     "广州奥林匹克中学(智谷校区)",
     "执信中学(天河校区)"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "执信中学(天河校区)"
+    ],
+    "single_zone": [
+     "广州市奥林匹克中学(黄村西路校区)",
+     "广州奥林匹克中学(智谷校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -749,6 +1090,7 @@
    "data_gaps": null,
    "direct_feed": "广东实验中学天河学校",
    "feed_junior_highs": [],
+   "feed_junior_highs_by_mechanism": {},
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
@@ -762,6 +1104,11 @@
    "feed_junior_highs": [
     "广州市第八十九中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第八十九中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -773,6 +1120,7 @@
    "data_gaps": null,
    "direct_feed": "广州中学天河燕园学校",
    "feed_junior_highs": [],
+   "feed_junior_highs_by_mechanism": {},
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
@@ -796,6 +1144,12 @@
     "广州市第七十五中学(燕塘西校区)",
     "广州市第七十五中学(天平架校区)"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第七十五中学(燕塘西校区)",
+     "广州市第七十五中学(天平架校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -816,6 +1170,7 @@
    "data_gaps": null,
    "direct_feed": "广州市奥林匹克中学(黄村西路校区)",
    "feed_junior_highs": [],
+   "feed_junior_highs_by_mechanism": {},
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
@@ -831,6 +1186,15 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市华颖外国语学校"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -847,6 +1211,15 @@
     "广州市天河中学猎德实验学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河中学猎德实验学校"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -861,6 +1234,11 @@
    "feed_junior_highs": [
     "广州市长兴中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市长兴中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -875,6 +1253,12 @@
     "广州市第七十五中学(燕塘西校区)",
     "广州市第七十五中学(天平架校区)"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第七十五中学(燕塘西校区)",
+     "广州市第七十五中学(天平架校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -901,6 +1285,17 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州中学(五山校区)",
+     "广州中学(名雅校区)",
+     "广州中学(天润校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -919,6 +1314,17 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市第一一三中学(乐学校区)",
+     "广州市第一一三中学(东方校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -937,6 +1343,17 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州中学(五山校区)",
+     "广州中学(名雅校区)",
+     "广州中学(天润校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -951,6 +1368,11 @@
    "feed_junior_highs": [
     "广州市第八十九中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第八十九中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -992,6 +1414,12 @@
     "广州市第七十五中学(燕塘西校区)",
     "广州市第七十五中学(天平架校区)"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第七十五中学(燕塘西校区)",
+     "广州市第七十五中学(天平架校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1009,6 +1437,17 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市第一一三中学(乐学校区)",
+     "广州市第一一三中学(东方校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1023,6 +1462,11 @@
    "feed_junior_highs": [
     "天河区智谷第一实验学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "天河区智谷第一实验学校"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1037,6 +1481,14 @@
     "广州市长兴中学",
     "广东实验中学天河学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广东实验中学天河学校"
+    ],
+    "single_zone": [
+     "广州市长兴中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1055,6 +1507,17 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市第一一三中学(乐学校区)",
+     "广州市第一一三中学(东方校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1069,6 +1532,11 @@
    "feed_junior_highs": [
     "广州市第八十九中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第八十九中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1084,6 +1552,15 @@
     "广州市华颖外国语学校",
     "广东实验中学天河学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校"
+    ],
+    "single_zone": [
+     "广州市泰安中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1100,6 +1577,15 @@
     "广州市华颖外国语学校",
     "广东实验中学天河学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校"
+    ],
+    "single_zone": [
+     "广州市泰安中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1117,6 +1603,16 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河中学(天河东路校区)",
+     "广州市天河中学(花城校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1135,6 +1631,17 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州中学(五山校区)",
+     "广州中学(名雅校区)",
+     "广州中学(天润校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1159,6 +1666,12 @@
     "广州市奥林匹克中学(黄村西路校区)",
     "广州奥林匹克中学(智谷校区)"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市奥林匹克中学(黄村西路校区)",
+     "广州奥林匹克中学(智谷校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1176,6 +1689,17 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州中学(五山校区)",
+     "广州中学(名雅校区)",
+     "广州中学(天润校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1197,6 +1721,7 @@
    "data_gaps": null,
    "direct_feed": "广州市天河外国语智谷学校",
    "feed_junior_highs": [],
+   "feed_junior_highs_by_mechanism": {},
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
@@ -1213,6 +1738,16 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河中学(天河东路校区)",
+     "广州市天河中学(花城校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1229,6 +1764,15 @@
     "广州市第一一三中学陶育实验学校(暨南校区)",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市第一一三中学陶育实验学校(暨南校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1244,6 +1788,14 @@
     "广州市长兴中学",
     "广东实验中学天河学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广东实验中学天河学校"
+    ],
+    "single_zone": [
+     "广州市长兴中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1267,6 +1819,11 @@
    "feed_junior_highs": [
     "广州市长兴中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市长兴中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1280,6 +1837,11 @@
    "feed_junior_highs": [
     "广州市泰安中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市泰安中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1322,6 +1884,15 @@
     "广州奥林匹克中学(智谷校区)",
     "广州市华颖外国语学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校"
+    ],
+    "single_zone": [
+     "广州市奥林匹克中学(黄村西路校区)",
+     "广州奥林匹克中学(智谷校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1340,6 +1911,17 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市第一一三中学(乐学校区)",
+     "广州市第一一三中学(东方校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1355,6 +1937,12 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ]
+   },
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng",
@@ -1371,6 +1959,15 @@
     "广州市华颖外国语学校",
     "广东实验中学天河学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校"
+    ],
+    "single_zone": [
+     "骏景中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1387,6 +1984,15 @@
     "广州市华颖外国语学校",
     "广东实验中学天河学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校"
+    ],
+    "single_zone": [
+     "广州市泰安中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1403,6 +2009,15 @@
     "广州市华颖外国语学校",
     "广东实验中学天河学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校"
+    ],
+    "single_zone": [
+     "广州市泰安中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1429,6 +2044,16 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河区汇景实验学校"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1446,6 +2071,16 @@
     "广东实验中学天河学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河区汇景实验学校"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1470,6 +2105,14 @@
     "广州市泰安中学",
     "广东实验中学天河学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广东实验中学天河学校"
+    ],
+    "single_zone": [
+     "广州市泰安中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1485,6 +2128,12 @@
     "广州市第七十五中学(燕塘西校区)",
     "广州市第七十五中学(天平架校区)"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第七十五中学(燕塘西校区)",
+     "广州市第七十五中学(天平架校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1496,6 +2145,7 @@
    "data_gaps": null,
    "direct_feed": "清华附中湾区学校（智慧城校区）",
    "feed_junior_highs": [],
+   "feed_junior_highs_by_mechanism": {},
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
@@ -1507,6 +2157,7 @@
    "data_gaps": null,
    "direct_feed": "清华附中湾区学校（智慧城校区）",
    "feed_junior_highs": [],
+   "feed_junior_highs_by_mechanism": {},
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
@@ -1529,6 +2180,11 @@
    "feed_junior_highs": [
     "广州市第八十九中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第八十九中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1544,6 +2200,15 @@
     "广州奥林匹克中学(智谷校区)",
     "执信中学(天河校区)"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "执信中学(天河校区)"
+    ],
+    "single_zone": [
+     "广州市奥林匹克中学(黄村西路校区)",
+     "广州奥林匹克中学(智谷校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1560,6 +2225,15 @@
     "广州奥林匹克中学(智谷校区)",
     "执信中学(天河校区)"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "执信中学(天河校区)"
+    ],
+    "single_zone": [
+     "广州市奥林匹克中学(黄村西路校区)",
+     "广州奥林匹克中学(智谷校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1575,6 +2249,12 @@
     "广州市第十八中学车陂校区",
     "广州市第十八中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第十八中学车陂校区",
+     "广州市第十八中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1592,6 +2272,17 @@
     "广州市第一一三中学陶育实验学校(暨南校区)",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州市天河中学(天河东路校区)",
+     "广州市天河中学(花城校区)",
+     "广州市第一一三中学陶育实验学校(暨南校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1616,6 +2307,12 @@
     "广州市第十八中学车陂校区",
     "广州市第十八中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第十八中学车陂校区",
+     "广州市第十八中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1632,6 +2329,16 @@
     "广州市华颖外国语学校",
     "广东实验中学天河学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校"
+    ],
+    "single_zone": [
+     "广州市第十八中学车陂校区",
+     "广州市第十八中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1647,6 +2354,12 @@
     "广州市第七十五中学(燕塘西校区)",
     "广州市第七十五中学(天平架校区)"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第七十五中学(燕塘西校区)",
+     "广州市第七十五中学(天平架校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1661,6 +2374,12 @@
     "广州市第七十五中学(燕塘西校区)",
     "广州市第七十五中学(天平架校区)"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第七十五中学(燕塘西校区)",
+     "广州市第七十五中学(天平架校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1674,6 +2393,11 @@
    "feed_junior_highs": [
     "广州市长兴中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市长兴中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1687,6 +2411,11 @@
    "feed_junior_highs": [
     "广州市长兴中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市长兴中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1702,6 +2431,15 @@
     "广州市华颖外国语学校",
     "广东实验中学天河学校"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "广东实验中学天河学校"
+    ],
+    "single_zone": [
+     "骏景中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1729,6 +2467,17 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州中学(五山校区)",
+     "广州中学(名雅校区)",
+     "广州中学(天润校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1747,6 +2496,17 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州中学(五山校区)",
+     "广州中学(名雅校区)",
+     "广州中学(天润校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1765,6 +2525,17 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州中学(五山校区)",
+     "广州中学(名雅校区)",
+     "广州中学(天润校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1783,6 +2554,17 @@
     "广州市华颖外国语学校",
     "华南师范大学附属中学初中部"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_paidui": [
+     "广州市华颖外国语学校",
+     "华南师范大学附属中学初中部"
+    ],
+    "single_zone": [
+     "广州中学(五山校区)",
+     "广州中学(名雅校区)",
+     "广州中学(天润校区)"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone",
@@ -1806,6 +2588,11 @@
    "feed_junior_highs": [
     "天荣中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "天荣中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1819,6 +2606,11 @@
    "feed_junior_highs": [
     "广州市第八十九中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第八十九中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1832,6 +2624,11 @@
    "feed_junior_highs": [
     "广州市第八十九中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第八十九中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
@@ -1845,6 +2642,11 @@
    "feed_junior_highs": [
     "广州市第八十九中学"
    ],
+   "feed_junior_highs_by_mechanism": {
+    "single_zone": [
+     "广州市第八十九中学"
+    ]
+   },
    "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"

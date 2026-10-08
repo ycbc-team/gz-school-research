@@ -72,6 +72,11 @@ const feedJuniors = computed(() => model.value.feedJuniors);
 const feedGap = computed(() => model.value.feedGap);
 const feedRows = computed(() => model.value.feedRows);
 const directFeedRow = computed(() => model.value.directFeedRow);
+/** 2026-10-08（天河双机制拆分）：机制块的 feed = feedByMechanism[m]（按机制分组，
+ * 详情模型已解析 poiName），缺省回退全量 feedRows（单机制/番禺/旧数据）。 */
+const feedRowsOf = (m: string) => feedJuniors.value?.feedByMechanism?.[m] ?? feedRows.value;
+/** 首个非直升机制（组名只在它下面显示一次，避免多机制块重复同一组名） */
+const firstNonDirectMech = computed(() => (feedJuniors.value?.mechanisms || []).find((m) => m !== 'zhi_sheng') ?? '');
 const enrollNote = computed(() => model.value.enrollNote);
 const admissionRows = computed(() => model.value.admissionRows);
 const gaokaoRows = computed(() => model.value.gaokaoRows);
@@ -435,12 +440,15 @@ function goCampus(item: { id: string; name: string }) {
               </div>
             </div>
           </div>
-          <!-- 单校划片/多校电脑派位/抽签等块：徽章 + 派位组说明 + 对口初中列表 -->
+          <!-- 单校划片/多校电脑派位/抽签等块：徽章 + 派位组说明 + 对口初中列表。
+               2026-10-08（天河双机制拆分）：feed 按机制分组渲染（feedByMechanism[m]，
+               回退全量 feedRows）；组名只在首个非直升机制块显示一次——多机制学校
+               （如天河「单校划片 + 电脑派位」）各机制块分别展示各自名单，不再重复整个混合列表。 -->
           <div v-else-if="m !== 'zhi_sheng'" class="sub-block" :style="mi ? 'margin-top:14px;' : 'margin-top:4px;'">
             <div class="mech-row"><span class="badge" :class="m">{{ XS_MECH_LABELS[m] || m }}</span></div>
-            <p v-if="feedJuniors.group" class="sub-note">{{ feedJuniors.group }}</p>
-            <div v-if="feedRows.length" class="feed-list">
-              <div v-for="r in feedRows" :key="r.name" class="feed-item">
+            <p v-if="m === firstNonDirectMech && feedJuniors.group" class="sub-note">{{ feedJuniors.group }}</p>
+            <div v-if="feedRowsOf(m).length" class="feed-list">
+              <div v-for="r in feedRowsOf(m)" :key="r.name" class="feed-item">
                 <RouterLink v-if="r.poiName" :to="`/school/${encodeURIComponent(r.poiName)}?stage=middle`" class="feed-name">{{ r.name }}</RouterLink>
                 <span v-else class="feed-name" style="color:#6b7280;">{{ r.name }}</span>
               </div>

@@ -64,6 +64,22 @@ class XsResolver:
         direct = None
         if r.get('direct_feed'):
             direct = self.resolve_one(r['direct_feed'], district, 'middle')
+        # 2026-10-08（天河双机制拆分）：feed 按机制分组（single_zone 对口划片 /
+        # single_paidui 电脑派位池 / group_paidui 派位组等），前端按机制块渲染各自 feed，
+        # 避免「单校划片」与「电脑派位」两个板块重复展示同一混合列表（天府路小学翠湖校区反馈）。
+        feed_by_mech_ids, feed_by_mech_unres = {}, {}
+        for _m, _names in (r.get('feed_junior_highs_by_mechanism') or {}).items():
+            _ids, _unres = [], []
+            for name in _names:
+                ids = self.resolve_many(name, district, 'middle')
+                if ids:
+                    _ids.extend(ids)
+                else:
+                    _unres.append(name)
+            if _ids:
+                feed_by_mech_ids[_m] = list(dict.fromkeys(_ids))
+            if _unres:
+                feed_by_mech_unres[_m] = _unres
         return {
             'school_id': school_id,
             'group': r.get('group'),
@@ -75,6 +91,8 @@ class XsResolver:
             'direct_feed_school_id': direct,
             'source_url': r.get('source_url'),
             'data_gaps': r.get('data_gaps'),
+            'feed_school_ids_by_mechanism': feed_by_mech_ids,
+            'feed_unresolved_by_mechanism': feed_by_mech_unres,
         }
 
 

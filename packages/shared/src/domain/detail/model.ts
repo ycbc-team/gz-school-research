@@ -61,7 +61,10 @@ export interface DetailModel {
     school_id: string; plan_classes?: number | null; plan_count?: number | null; nature?: string;
     zone?: string; note?: string; district?: string; source?: string; matchedBy: string;
   } | null;
-  feedJuniors: { group: string | null; mechanisms: string[]; feed_junior_highs: string[]; direct_feed: string | null; source_note?: string } | null;
+  feedJuniors: { group: string | null; mechanisms: string[]; feed_junior_highs: string[]; direct_feed: string | null; source_note?: string;
+    /** 2026-10-08（天河双机制拆分）：feed 按机制分组（机制→初中行，可跳转）；
+     * 无该字段/空 dict 时前端回退 feedRows 全量 */
+    feedByMechanism?: Record<string, FeedRow[]> } | null;
   feedGap: string | null;
   feedRows: FeedRow[];
   /** 对口直升去向（九年一贯制直升本校/本校初中部），按机制分块时单独成行、可跳转 */
@@ -144,12 +147,19 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
   const xsRecord = stage === 'primary' ? repo.xiaoshengchuOf(poi?.school_id ?? null) : null;
   const feedJuniors = (() => {
     if (stage !== 'primary' || !xsRecord) return null;
+    const byMech: Record<string, FeedRow[]> = {};
+    for (const [m, names] of Object.entries(xsRecord.feed_by_mechanism || {})) {
+      byMech[m] = names
+        .filter((n) => !GAP_MARKERS.some((gap) => n.includes(gap)))
+        .map((n) => ({ name: n, poiName: repo.resolvePoiName(n) }));
+    }
     return {
       group: xsRecord.group,
       mechanisms: xsRecord.mechanisms || [],
       feed_junior_highs: xsRecord.feed_junior_highs || [],
       direct_feed: xsRecord.direct_feed,
       source_note: xsRecord.source_note,
+      feedByMechanism: Object.keys(byMech).length ? byMech : undefined,
     };
   })();
   const feedGap = (() => {
