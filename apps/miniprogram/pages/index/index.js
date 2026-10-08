@@ -98,6 +98,11 @@ Page({
     searchHeadRight: 0,
     // 顶部白底常驻条高度（状态栏 + 小程序名行），UI 稿 .topcover
     topcoverH: 60,
+    // 定位授权引导弹窗（UI 稿 01B）
+    locTip: false,            // 定位授权引导弹窗显隐
+    showLoc: false,           // 地图当前位置蓝点
+    locateLat: null,
+    locateLng: null,
   },
 
   onLoad() {
@@ -111,13 +116,14 @@ Page({
     this.renderMarkers();
     this.recommends = this.buildRecommends();
     this.setData({ recommends: this.recommends.map((r) => ({ name: r.name })) });
+    this.maybePromptLocation();
   },
 
   onShow() {
     const tab = this.getTabBar && this.getTabBar();
     if (tab) {
       tab.setData({ selected: 0 });
-      tab.setData({ hidden: !!(this.data.card || this.data.menu) });
+      tab.setData({ hidden: !!(this.data.card || this.data.menu || this.data.locTip) });
     }
     // 详情页"在地图中查看"：switchTab 回到本页后定位目标学校（对齐原 pages/map 的 focus 行为：放大居中 + 信息卡）
     const app = getApp();
@@ -138,6 +144,71 @@ Page({
     const tab = this.getTabBar && this.getTabBar();
     if (tab) tab.setData({ hidden: !!hidden });
   },
+
+  /* ---------- 定位授权引导（UI 稿 01B） ---------- */
+  LOC_DENY_KEY: 'gz_loc_deny_date',
+  // 进入首页后，满足条件才弹出定位授权引导：未授予权限 + 不在 30 天拒绝冷静期 + 本次会话尚未弹过
+  maybePromptLocation() {
+    if (this._locPrompted) return;            // 本次会话最多提示 1 次
+    this._locPrompted = true;
+    // 30 个自然天内曾拒绝系统授权 → 不再自动弹出
+    try {
+      const d = wx.getStorageSync(this.LOC_DENY_KEY);
+      if (d) {
+        const days = (Date.now() - new Date(d + 'T00:00:00').getTime()) / 86400000;
+        if (days >= 0 && days < 30) return;
+      }
+    } catch (e) { /* ignore */ }
+    wx.getSetting({
+      success: (res) => {
+        // 已授权：直接定位，不再弹引导
+        if (res.authSetting['scope.userLocation']) { this.doLocate(); return; }
+        this.showLocTip();                    // 未授权/未询问 → 弹引导弹窗
+      },
+      fail: () => { this.showLocTip(); },
+    });
+  },
+  // 弹 / 收定位引导弹窗：同为底部半窗，需隐藏自定义 tabBar，否则按钮被 tabBar 盖住（UI 稿 01B 帧无底部导航）
+  showLocTip() { this.setData({ locTip: true }); this.setTabBarHidden(true); },
+  hideLocTip() { this.setData({ locTip: false }); this.setTabBarHidden(!!(this.data.card || this.data.menu)); },
+  // 点「开启定位」：触发微信系统位置授权
+  onLocAllow() {
+    this.hideLocTip();
+    wx.getLocation({
+      type: 'gcj02',
+      success: (res) => {
+        this.setData({ showLoc: true, locateLat: res.latitude, locateLng: res.longitude });
+        this.zoomToLocation(res.latitude, res.longitude);   // 定位后自动缩放到至少含一所学校的视野
+      },
+      fail: (err) => {
+        const msg = (err && err.errMsg) || '';
+        // 系统授权点「不允许」：记录拒绝日期，30 天内不再自动弹
+        if (msg.indexOf('auth') >= 0 || msg.indexOf('deny') >= 0) {
+          try { wx.setStorageSync(this.LOC_DENY_KEY, this.todayStr()); } catch (e) {}
+        }
+        wx.showToast({ title: '已保持默认视野', icon: 'none' });
+      },
+    });
+  },
+  // 点「暂不开启」或弹窗外空白 → 关闭弹窗、保持默认视野；本次会话不再自动弹（_locPrompted 已置 true）
+  onLocDeny() { this.hideLocTip(); },
+  todayStr() {
+    const n = new Date();
+    const p = (x) => (x < 10 ? '0' + x : '' + x);
+    return `${n.getFullYear()}-${p(n.getMonth() + 1)}-${p(n.getDate())}`;
+  },
+  doLocate() {
+    wx.getLocation({
+      type: 'gcj02',
+      success: (res) => {
+        this.setData({ showLoc: true, locateLat: res.latitude, locateLng: res.longitude });
+        this.zoomToLocation(res.latitude, res.longitude);
+      },
+      fail: () => {},
+    });
+  },
+  // 定位弹窗内部 catchtap 占位，阻止冒泡到蒙层（避免误触关闭）
+  noop() {},
 
   onReady() {
     this.mapCtx = wx.createMapContext('gzmap', this);
@@ -268,7 +339,8 @@ Page({
   },
 
   /* ---------- 筛选半窗 ---------- */
-  openSheet(e) {
+  // 筛选胶囊统一入口：未展开时点开对应维度；已展开时再点同一维度则收起（UI 稿 04 §1）
+  onChipTap(e) {
     const dim = e.currentTarget.dataset.dim;
     if (this.data.menu === dim) { this.closeSheet(); return; }
     if (!this.data.menu) this.draft = this.committedState();
@@ -276,14 +348,14 @@ Page({
     this.syncDraftView();
     this.setTabBarHidden(true);
   },
-  switchDim(e) {
-    const dim = e.currentTarget.dataset.dim;
-    if (this.data.menu === dim) { this.closeSheet(); return; }
-    this.setData({ menu: dim });
+  closeSheet() {
+    this.setData({ menu: '' });
+    this.draft = this.committedState();
     this.syncDraftView();
-    this.setTabBarHidden(true);
+    this.applyChipLabels();
+    // 收起面板：仅当详情卡 / 定位引导也未占用底部栏时才恢复自定义 tabBar
+    this.setTabBarHidden(!!(this.data.card || this.data.locTip));
   },
-  closeSheet() { this.setData({ menu: '' }); this.draft = this.committedState(); this.syncDraftView(); this.applyChipLabels(); this.setTabBarHidden(false); },
   toggleDistrict(e) { this.draft = toggleDistrict(this.draft, e.currentTarget.dataset.adcode); this.syncDraftView(); },
   toggleStage(e) {
     const s = e.currentTarget.dataset.stage;
@@ -318,6 +390,8 @@ Page({
     this.syncState(this.draft);
     this.renderMarkers();
     this.setData({ menu: '', filterEmpty: this.visible.length === 0 });
+    // 确认收起面板：恢复自定义 tabBar（除非详情卡 / 定位引导仍占用底部栏）
+    this.setTabBarHidden(!!(this.data.card || this.data.locTip));
     // 行政区是「地理维度」：选区变化且收窄（非全选）时，把视野自动适配到筛选结果范围，
     // 否则会出现「人停在番禺、筛了荔湾、地图却不动」的错位（UI 稿 04 帧 / 规范表「筛选半窗」）。
     // 学段 / 办学性质是「属性维度」，不改变学校地理位置，故不移动相机。
@@ -341,7 +415,8 @@ Page({
 
   /* ---------- 搜索页 ---------- */
   openSearch() {
-    this.setData({ searchVisible: true, searchFocus: true, kw: '', assocs: [], history: this.loadHistory() });
+    // 从筛选面板点搜索框：先收起面板（菜单保持收起），再开搜索页（PRD 04 §5）
+    this.setData({ menu: '', searchVisible: true, searchFocus: true, kw: '', assocs: [], history: this.loadHistory() });
     this.setTabBarHidden(true);
   },
   closeSearch() { this.setData({ searchVisible: false, searchFocus: false }); this.setTabBarHidden(!!(this.data.card || this.data.menu)); },
@@ -471,6 +546,45 @@ Page({
         { latitude: target.latitude + latDelta, longitude: target.longitude + lngDelta },
       ],
       padding: [80, 60, 300, 60],
+      fail: applyCenter,
+    });
+  },
+  // 定位后相机：把视野调整到「用户位置 + 最近的一所可见学校」都能框入的范围，
+  // 保证授权定位后周围至少能看到一个学校点位，而不是聚焦过近导致四周无学校。
+  // 同样遵守铁律：只用 includePoints 单向驱动、绝不回写 center，避免抖动。
+  zoomToLocation(lat, lng) {
+    const pts = (this.visible && this.visible.length) ? this.visible : [];
+    let minLat = lat, maxLat = lat, minLng = lng, maxLng = lng;
+    if (pts.length) {
+      // 找离用户最近的可见学校
+      let best = null, bestD = Infinity;
+      for (const p of pts) {
+        const d = (p.lat - lat) ** 2 + (p.lng - lng) ** 2;
+        if (d < bestD) { bestD = d; best = p; }
+      }
+      if (best) {
+        minLat = Math.min(lat, best.lat); maxLat = Math.max(lat, best.lat);
+        minLng = Math.min(lng, best.lng); maxLng = Math.max(lng, best.lng);
+      }
+    }
+    // 最小跨度兜底：即便用户与最近学校几乎重合，也保留 ≈1.3km 可视范围（≈ scale 14，必含若干点位）
+    const MIN_SPAN = 0.012;
+    if (maxLat - minLat < MIN_SPAN) { const c = (minLat + maxLat) / 2; minLat = c - MIN_SPAN / 2; maxLat = c + MIN_SPAN / 2; }
+    if (maxLng - minLng < MIN_SPAN) { const c = (minLng + maxLng) / 2; minLng = c - MIN_SPAN / 2; maxLng = c + MIN_SPAN / 2; }
+    const token = (this.cameraToken || 0) + 1;
+    this.cameraToken = token;
+    const applyCenter = () => {
+      if (this.cameraToken !== token) return;
+      this.setData({ centerLat: (minLat + maxLat) / 2, centerLng: (minLng + maxLng) / 2, scale: 14 });
+    };
+    if (!this.mapCtx || typeof this.mapCtx.includePoints !== 'function') return applyCenter();
+    this.mapCtx.includePoints({
+      points: [
+        { latitude: minLat, longitude: minLng },
+        { latitude: maxLat, longitude: maxLng },
+      ],
+      // padding = [上, 右, 下, 左]：上避让小程序名行 + 搜索框 + 筛选栏；下避让图例 + 底部导航
+      padding: [150, 70, 200, 70],
       fail: applyCenter,
     });
   },

@@ -28,5 +28,11 @@
       { "pagePath": "pages/policy/policy", "text": "政策" }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于在地图上展示你附近的学校并帮你定位筛选"
+    }
+  },
+  "requiredPrivateInfos": ["getLocation"]
 }

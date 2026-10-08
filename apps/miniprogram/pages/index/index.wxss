@@ -54,7 +54,40 @@
   padding: 0 28rpx;
   z-index: 6;
   display: flex; flex-direction: column; gap: 20rpx;
+  transition: background .2s ease, box-shadow .2s ease;
 }
+/* 筛选展开态：整体变为顶部白色面板窗口（搜索框上移胶囊行、下方展开选项） */
+.floatbar.inpanel {
+  z-index: 160;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: 0 12rpx 28rpx rgba(16,24,43,.20);
+  max-height: 86vh;
+  gap: 0;                     /* 纵向间距由子元素 margin-top 显式控制，避免隐藏的品牌行（height:0）仍占据 gap 把搜索框往下顶 */
+}
+/* 关键：.floatbar 已带 padding:0 28rpx，故展开态各子元素左缘天然对齐 28rpx。
+   切勿再给 .sbox.docked / .optscroll 额外加 margin-left / padding-left，
+   否则会出现"搜索框与选项双重内缩、筛选胶囊却未内缩"的左右不齐
+   （即需求方指出的两处间距不一致）。 */
+/* 品牌行（小程序名）：展开时收起，让搜索框上移到胶囊行 */
+.floatbar .brandrow { transition: height .2s ease, opacity .2s ease, margin .2s ease; }
+.floatbar .brandrow.hide { height: 0; opacity: 0; margin: 0; overflow: hidden; pointer-events: none; }
+/* 搜索框：展开态贴胶囊行、右缘对齐胶囊左缘、扁平化（等同 UI 稿 fsearch） */
+.floatbar.inpanel .sbox.docked {
+  height: 64rpx; margin: 0;   /* 左缘由容器 padding 统一提供；右侧仍由 inline margin-right 对齐胶囊 */
+  background: #F5F7FB; border: 1rpx solid #E3E8F0; box-shadow: none;
+  font-size: 26rpx; border-radius: 999px;
+  animation: fpDrop .22s ease;
+}
+/* 筛选栏展开态即 dims：等宽胶囊、8px(16rpx) 间距、扁平化；横向 padding 交由容器统一，仅留底部留白 */
+.floatbar.inpanel .filterrow.dims {
+  gap: 16rpx; margin-top: 16rpx; padding: 0 0 16rpx; border-bottom: 1rpx solid #EFF2F7;
+}
+.floatbar.inpanel .filterrow.dims .chip {
+  box-shadow: none; background: #fff; border: 1rpx solid #E3E8F0;
+}
+.floatbar.inpanel .optscroll { flex: 1 1 auto; min-height: 0; overflow: hidden; margin-top: 16rpx; padding: 0; animation: fpDrop .24s ease; }
+.floatbar.inpanel .sfoot { margin-top: auto; animation: fpDrop .26s ease; }
 /* 顶部白底常驻条：盖住地图顶部（状态栏 + 小程序名行），UI 稿 .topcover */
 .topcover {
   position: absolute; left: 0; right: 0; top: 0;
@@ -161,33 +194,10 @@
 .tag-demo { background: #F1EDFD; color: #5B49C9; }
 .tag-nat { background: #E9F7F0; color: #1F7A55; }
 
-/* 筛选半窗 */
-.bglayer { position: absolute; inset: 0; z-index: 300; display: flex; flex-direction: column; }
-.mask { position: absolute; inset: 0; background: rgba(16,24,43,.42); z-index: 150; }
-.sheet {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 160; /* 高于 .mask(150)，半窗内容不被遮罩压暗 */
-  background: #fff; border-radius: 40rpx 40rpx 0 0;
-  box-shadow: 0 -16rpx 60rpx rgba(16,24,43,.16);
-  display: flex; flex-direction: column; max-height: 82%;
-}
-.sheet .sheettop { display: flex; align-items: center; gap: 18rpx; padding: 16rpx 28rpx 24rpx; }
-.sheet .back {
-  width: 80rpx; height: 80rpx; border-radius: 50%;
-  background: #F5F7FB; border: 1rpx solid #E3E8F0;
-  display: flex; align-items: center; justify-content: center; flex: none;
-}
-.sheet .sip {
-  flex: 1; height: 72rpx; border-radius: 999px;
-  background: #F5F7FB; border: 1rpx solid #E3E8F0;
-  display: flex; align-items: center; gap: 12rpx; padding: 0 26rpx;
-  font-size: 27rpx; color: #8B96AD;
-}
-.sheet .sgo-lite {
-  height: 64rpx; padding: 0 28rpx; border-radius: 999px;
-  border: 1rpx solid #C3D5F6; color: #254BAE; background: #fff;
-  font-size: 26rpx; font-weight: 600; display: flex; align-items: center; flex: none;
-}
-.sheet .dims { display: flex; gap: 16rpx; padding: 0 28rpx 24rpx; border-bottom: 1rpx solid #EFF2F7; }
+/* 蒙层（筛选展开时压暗地图、点击收起面板） */
+.mask { position: absolute; inset: 0; z-index: 150; background: rgba(16,24,43,.42); animation: maskIn .2s ease; }
+
+/* 选项区 / 选项 / 学段分组（筛选面板体，复用） */
 .optscroll { flex: 1; overflow: hidden; padding: 32rpx 32rpx 0; }
 .opts { display: flex; flex-wrap: wrap; gap: 18rpx; }
 .opt {
@@ -214,6 +224,10 @@
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 6rpx 16rpx rgba(47,92,214,.28);
 }
+
+/* 筛选面板展开动画 */
+@keyframes maskIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fpDrop { from { opacity: 0; transform: translateY(-8rpx); } to { opacity: 1; transform: none; } }
 
 /* 搜索页（全屏层） */
 .searchpage { position: absolute; inset: 0; background: #F5F7FB; z-index: 400; display: flex; flex-direction: column; }
@@ -308,3 +322,28 @@
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 6rpx 16rpx rgba(47,92,214,.28);
 }
+
+/* 定位授权引导弹窗（UI 稿 01B，底部半窗 + 蒙层压暗） */
+.loctip-mask { position: absolute; inset: 0; z-index: 350; display: flex; align-items: flex-end; background: rgba(16,24,43,.42); }
+.loctip {
+  position: relative; z-index: 1; width: 100%;
+  background: #fff; border-radius: 40rpx 40rpx 0 0;
+  padding: 12rpx 32rpx calc(env(safe-area-inset-bottom) + 40rpx);
+  box-shadow: 0 -12rpx 44rpx rgba(8,14,28,.22);
+}
+.loctip-handle { width: 72rpx; height: 8rpx; border-radius: 4rpx; background: #E3E8F0; margin: 0 auto 28rpx; }
+.loctip-title { font-size: 34rpx; font-weight: 700; color: #10182B; }
+.loctip-desc { margin-top: 18rpx; font-size: 27rpx; color: #64708C; line-height: 1.75; }
+.loctip-btns { display: flex; align-items: center; gap: 24rpx; margin-top: 32rpx; }
+.loctip-allow {
+  flex: 1; height: 88rpx; border-radius: 999px;
+  background: #2F5CD6; color: #fff; font-size: 32rpx; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6rpx 16rpx rgba(47,92,214,.28);
+}
+.loctip-deny {
+  flex: none; height: 88rpx; padding: 0 36rpx; border-radius: 999px;
+  background: #fff; border: 1rpx solid #E3E8F0; color: #33405C;
+  font-size: 28rpx; display: flex; align-items: center; justify-content: center;
+}
+.loctip-foot { margin-top: 24rpx; font-size: 22rpx; color: #8B96AD; text-align: center; }
