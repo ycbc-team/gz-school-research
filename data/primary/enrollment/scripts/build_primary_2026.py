@@ -97,12 +97,19 @@ def _poi_for(matcher, school, adcode, poi_pool, r):
 
 
 def resolve_records(matcher, school, adcode, poi_pool):
-    """实体表匹配：带校区名 → resolve 单值；无校区名 → resolve_all 展开同法人全部校区
-    （用户定：铁英中学等法人多校区应展开为多条校区记录，不再锚定单校区）。"""
+    """实体表匹配：无校区名 → resolve_all 展开同法人全部校区；
+    带校区名 → 先 resolve_all（RESOLVE_OVERRIDE 聚合名锚定表命中时展开全部锚定校区，
+    如「天府路小学（东方、翠湖校区）」→ 主实体+翠湖校区两记录，2026-10-08 复用
+    SchoolMatcher 既有锚定机制；非锚定带括号行 resolve_all 语义=精确命中该校区实体），
+    未命中回落 resolve 单值（原行为）。"""
     has_campus = bool(re.search(r"[（(][^）()]*[)）]", school))
     if not has_campus:
         rs = matcher.resolve_all(school, preferred_adcode=adcode, preferred_stage="小学")
         pois = [_poi_for(matcher, school, adcode, poi_pool, r) for r in rs]
+        return [poi for poi in pois if poi]
+    rs = matcher.resolve_all(school, preferred_adcode=adcode, preferred_stage="小学")
+    pois = [_poi_for(matcher, school, adcode, poi_pool, r) for r in rs]
+    if pois:
         return [poi for poi in pois if poi]
     r = matcher.resolve(school, preferred_adcode=adcode, preferred_stage="小学")
     poi = _poi_for(matcher, school, adcode, poi_pool, r)
