@@ -2473,7 +2473,7 @@
     },
     "市桥东风中学": {
      "group_members": null,
-     "mechanism": "single_zone",
+     "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 11,
      "school": "市桥东风中学",
@@ -2483,7 +2483,7 @@
     },
     "市桥侨联中学": {
      "group_members": null,
-     "mechanism": "single_zone",
+     "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 11,
      "school": "市桥侨联中学",
@@ -2493,7 +2493,7 @@
     },
     "市桥星海中学": {
      "group_members": null,
-     "mechanism": "single_zone",
+     "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 16,
      "school": "市桥星海中学",
@@ -2503,7 +2503,7 @@
     },
     "市桥桥兴中学": {
      "group_members": null,
-     "mechanism": "single_zone",
+     "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 16,
      "school": "市桥桥兴中学",
@@ -2513,7 +2513,7 @@
     },
     "市桥桥城中学": {
      "group_members": null,
-     "mechanism": "single_zone",
+     "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 16,
      "school": "市桥桥城中学",

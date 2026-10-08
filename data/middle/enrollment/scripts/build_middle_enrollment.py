@@ -382,6 +382,59 @@ def apply_inferred_feeds(data):
     return data
 
 
+def apply_xs_reverse_primaries(data, district):
+    """番禺初中对口小学反推回填（2026-10-08 用户要求）：用小升初事实
+    （xiaoshengchu_2026.json，番禺小学→初中 feed_school_ids_by_mechanism）反转，
+    列出每所初中的招生对口/生源小学。
+
+    口径：
+    - 机制对齐——初中 mechanism 只收同机制的小学 feed（single_zone 单校对口 /
+      group_paidui 派位池 / single_paidui 电脑抽签池）；区属初中面向全区批次
+      （single_paidui，自愿报名超计划派位）无固定名单，机制过滤后自然为空，不挂。
+    - 仅当 scope_school_ids 为空时回填（官方明文解析优先；番禺初中无明文小学名单，全回填）。
+    - 键 = 生源小学实体名 → [school_id]（与天河附件6 明文同构）。
+    - 无循环依赖：番禺小升初由小学表 PY_FEED 直接转录（build_xiaoshengchu_all.py），
+      不走初中反推，此处仅单向消费 xiaoshengchu dist。"""
+    if district != "panyu":
+        return data
+    xs_path = os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_2026.json")
+    if not os.path.exists(xs_path):
+        print("         [番禺反推回填] xiaoshengchu_2026.json 不存在，跳过")
+        return data
+    xs = json.load(open(xs_path, encoding="utf-8"))
+    ent = json.load(open(os.path.join(ROOT, "data/registry/entity/dist/entities.json"), encoding="utf-8"))
+    name_by_id = {e["school_id"]: e["name"] for e in ent["entities"]}
+    rev = {}  # 初中 id -> {机制: {小学名: [小学id]}}
+    for r in xs["records"]:
+        if not r.get("school_id", "").startswith("gz-440113"):
+            continue
+        pname = name_by_id.get(r["school_id"], r["school_id"])
+        for m, ids in (r.get("feed_school_ids_by_mechanism") or {}).items():
+            for jid in ids:
+                rev.setdefault(jid, {}).setdefault(m, {}).setdefault(pname, []).append(r["school_id"])
+    n_filled = 0
+    for r in data["records"]:
+        sids = [r["school_id"]] if r.get("school_id") else []
+        sids += list(r.get("school_ids") or [])
+        if not any(s in rev for s in sids):
+            continue
+        if r.get("scope_school_ids"):
+            continue  # 官方明文解析已有，反推不覆盖
+        mech = r.get("mechanism")
+        primaries = {}
+        for s in sids:
+            for k, v in (rev.get(s) or {}).get(mech, {}).items():
+                primaries.setdefault(k, []).extend(v)
+        if not primaries:
+            continue  # 机制错配/面向全区批次无固定名单，不挂
+        scope_ids = {k: list(dict.fromkeys(v)) for k, v in sorted(primaries.items())}
+        r["scope_school_ids"] = scope_ids
+        n_filled += 1
+        print(f"         小升初反推对口小学回填: {r.get('school_id') or r.get('school_ids')} -> {len(scope_ids)} 所（{mech}）")
+    print(f"         番禺反推回填合计: {n_filled} 条初中记录")
+    return data
+
+
 # 区键 → adcode（SchoolMatcher 匹配用：按本区过滤，不跨区错配）
 _DK_ADCODE = {"yuexiu": "440104", "haizhu": "440105", "tianhe": "440106",
               "huangpu": "440112", "panyu": "440113", "baiyun": "440111", "liwan": "440103"}
@@ -398,6 +451,16 @@ MECHANISMS = {
 }
 
 # ---------- 番禺 ----------
+# 市桥城区电脑派位组（2026-10-08 机制修正）：官方《公办初中招生计划、招生范围及条件》表中
+# 该组 7 校为合并单元格——仲元一校区 scope 明文「80% 面向具有市桥城区电脑派位资格…的小学
+# 应届毕业生招生」；东风/侨联/星海/桥城 4 行 scope 为空（属组，转录沿用上行缺失）；桥兴为
+# 组员另有桥南街补充地段文本；番实 note 明文「电脑派位」。原判定只查 note 漏判 6 校为
+# single_zone，与小学表 PY_FEED「市桥城区电脑派位（多校）→ 7 校池」口径不一致，修正为
+# group_paidui（名单与小学侧同源，见 PY_FEED 市桥城区组）。
+SQ_GROUP = ["广东仲元中学一校区（初中部）", "番禺区实验中学", "市桥东风中学", "市桥侨联中学",
+            "市桥星海中学", "市桥桥城中学", "市桥桥兴中学"]
+
+
 def build_panyu():
     d = json.load(open(os.path.join(RAW_PANYU, "panyu_2026_official.json")))
     rows = d["sheets"]["公办初中招生范围、计划"]
@@ -414,7 +477,10 @@ def build_panyu():
             plan_n = int(float(plan)) if plan else None
         except: plan_n = None
 
-        if "电脑抽签" in note:
+        # 2026-10-08（机制修正）：市桥城区电脑派位组 7 校先于文本判定（官方合并单元格/明文口径）
+        if school in SQ_GROUP:
+            mech = "group_paidui"
+        elif "电脑抽签" in note:
             mech = "single_paidui"
         elif "电脑派位" in note:
             mech = "group_paidui"
@@ -1090,6 +1156,8 @@ if __name__ == "__main__":
         data = _expand_middle_texts(data, dk)
         # 特殊学校对口小学推断回填（src/inferred_feed_schools.json，仅官方 scope_school_ids 为空时）
         data = apply_inferred_feeds(data)
+        # 番禺初中对口小学小升初反推回填（2026-10-08；机制对齐，仅番禺执行）
+        data = apply_xs_reverse_primaries(data, dk)
         # 各区中间产物（统一格式，审计层）
         out = os.path.join(dist_dir, f"middle_enrollment_2026_{dk}.json")
         os.makedirs(os.path.dirname(out), exist_ok=True)
