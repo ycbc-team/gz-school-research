@@ -7,7 +7,7 @@
 import { normName } from '../../support.js';
 import { highScoreRows } from '../../format.js';
 import { ADCODE_TO_DISTRICT } from '../../const.js';
-import type { HighLevelSchool, SchoolStage, SchoolPoi, SchoolsSnapshot } from '../../types.js';
+import type { HighLevelSchool, SchoolStage, SchoolPoi, SchoolsSnapshot, RouteGroup } from '../../types.js';
 import type { Repository } from '../../data/repository.js';
 import type { BrandUnit } from '../../data/types.js';
 
@@ -62,6 +62,8 @@ export interface DetailModel {
     zone?: string; note?: string; district?: string; source?: string; matchedBy: string;
   } | null;
   feedJuniors: { group: string | null; mechanisms: string[]; feed_junior_highs: string[]; direct_feed: string | null; source_note?: string } | null;
+  /** 按招生机制拆分的升学路线分组（多机制小学一项一盒；单机制数组长为 1） */
+  routeGroups: RouteGroup[];
   feedGap: string | null;
   feedRows: FeedRow[];
   /** 对口直升去向（九年一贯制直升本校/本校初中部），按机制分块时单独成行、可跳转 */
@@ -152,6 +154,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
       source_note: xsRecord.source_note,
     };
   })();
+  const routeGroups: RouteGroup[] = (stage === 'primary' && xsRecord) ? (xsRecord.routeGroups || []) : [];
   const feedGap = (() => {
     if (stage !== 'primary') return null;
     if (!xsRecord) return '本校未进入 2026 公办小学对口/派位名单。民办校无公办对口名单，以官方摇号 / 直升政策为准；公办新建校或未收录点位以最新官方公告为准。';
@@ -400,6 +403,7 @@ export function buildDetailModel(stage: SchoolStage, name: string, repo: Reposit
     poi: poi ? { lng: poi.lng, lat: poi.lat } : null,
     enrollment: enrollment ? { ...enrollment, nature: entityNature || '公办' } : null,
     feedJuniors,
+    routeGroups,
     feedGap,
     feedRows,
     directFeedRow,

@@ -1,110 +1,103 @@
-/* 学校详情页（三学段统一，移动端卡片布局） */
-.page { max-width: 720px; margin: 0 auto; padding: 20rpx 24rpx 60rpx; background: #f4f3ee; min-height: 100vh; box-sizing: border-box; }
-.topbar { display: flex; gap: 24rpx; margin-bottom: 20rpx; }
-.tb-btn { color: #1a6bd6; font-size: 26rpx; }
-.d-head { margin-bottom: 24rpx; }
-.d-name { font-size: 38rpx; font-weight: 700; line-height: 1.4; }
-.d-badges { display: flex; align-items: center; gap: 10rpx; flex-wrap: wrap; margin-top: 14rpx; }
-.badge { font-size: 22rpx; font-weight: 700; color: #fff; border-radius: 10rpx; padding: 4rpx 16rpx; }
-.badge.sm { font-size: 21rpx; padding: 2rpx 12rpx; }
-.badge.b-district { background: #e5e7eb; color: #374151; }
-.badge.b-stage { background: #dbeafe; color: #1e40af; }
-.badge.b-tier { background: #e11d48; }
-.badge.b-license { background: #4b5563; }
-.badge.b-hcity { background: #b45309; }
-.badge.b-hdist { background: #0f766e; }
-.badge.b-minban { background: #9333ea; }
-.badge.b-full { background: #e11d48; }
-/* 升学机制徽章（与初中招生机制徽章同款配色：对口直升绿/单校划片青/多校电脑派位蓝/电脑派位红/自主招生紫） */
-.badge.zhi_sheng { background: #047857; }
-.badge.single_zone { background: #0f766e; }
-.badge.group_paidui { background: #1e40af; }
-.badge.single_paidui { background: #dc2626; }
-.badge.min_zi_zhu { background: #7c3aed; }
-.mech-row { display: flex; flex-wrap: wrap; gap: 12rpx; margin: 4rpx 0 8rpx; }
-.xs-mech-block-first { margin-top: 4rpx; }
-.xs-mech-block-gap { margin-top: 28rpx; }
-.badge.b-part { background: #f59e0b; }
-.badge.b-none { background: #8a94a6; }
-.d-sub { font-size: 24rpx; color: #6b7280; margin-top: 12rpx; line-height: 1.6; }
+/* 学校详情页（07 / 07B / 07C / 07D / 07E / 07F 重绘）· 知性蓝规范 */
+.page { background: #ffffff; min-height: 100vh; box-sizing: border-box; }
 
-.stage-tabs { display: flex; gap: 14rpx; margin-bottom: 20rpx; }
-.stage-tab {
-  padding: 10rpx 28rpx; border: 1rpx solid #d9d9d9; border-radius: 999rpx;
-  background: #fff; font-size: 26rpx; color: #1a1b1c;
+/* 顶栏：‹ 返回 / 校名 / ✕（自定义导航，避让右上角系统胶囊） */
+.dtop {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 98px 14px 16px;
+  border-bottom: 1px solid #E3E8F0;
+  position: sticky; top: 0; z-index: 4; background: #ffffff;
 }
-.stage-tab.on { background: #1a73e8; color: #fff; border-color: #1a73e8; }
-
-.card {
-  background: #fff; border: 1rpx solid #e4e3dd; border-radius: 22rpx;
-  padding: 24rpx 28rpx; margin-bottom: 20rpx;
+.dtop .back, .dtop .close {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #F5F7FB; border: 1px solid #E3E8F0;
+  display: flex; align-items: center; justify-content: center;
+  color: #33405C; flex: none; font-size: 24px; line-height: 1;
 }
-.card-title { font-size: 27rpx; font-weight: 700; color: #1a1b1c; margin-bottom: 16rpx; }
-.plan-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12rpx; margin-bottom: 16rpx; }
-.plan-total { font-size: 26rpx; font-weight: 700; color: #1a1b1c; }
-.sub-note { font-size: 21rpx; color: #9aa0a6; line-height: 1.6; margin-bottom: 14rpx; }
-.empty { font-size: 24rpx; color: #9aa0a6; line-height: 1.6; }
-.title-note-row { display: flex; align-items: center; gap: 10rpx; margin-bottom: 14rpx; }
-.title-note { font-size: 21rpx; color: #9aa0a6; }
+.dtop .tt { flex: 1; text-align: center; font-size: 16px; font-weight: 600; color: #10182B; }
 
-.kv { display: flex; flex-direction: column; gap: 12rpx; }
-.kv-row { display: flex; gap: 16rpx; font-size: 25rpx; align-items: baseline; }
-.kv-row text:first-child { flex: none; width: 190rpx; color: #6b7280; font-size: 23rpx; }
-.kv-row text:last-child { font-weight: 500; line-height: 1.6; }
-.proj-list { display: flex; flex-direction: column; gap: 4rpx; padding-left: 210rpx; margin: -4rpx 0 8rpx; }
-.proj-row { display: flex; gap: 16rpx; font-size: 23rpx; color: #6b7280; }
-.proj-row text:first-child { flex: none; width: 220rpx; }
-.proj-note { color: #9ca3af; font-size: 21rpx; }
-.plan-note { font-size: 22rpx; color: #8a8f98; line-height: 1.6; margin: 0 0 16rpx; padding: 12rpx 16rpx; background: #f7f8fa; border-radius: 12rpx; }
+.dbody { padding: 0 16px 26px; }
 
-.zone-block { margin-top: 16rpx; }
-.zone-label { font-size: 22rpx; color: #6b7280; font-weight: 600; margin-bottom: 8rpx; }
-.zone-text {
-  background: #f7f6f2; border-radius: 12rpx; padding: 14rpx 18rpx;
-  font-size: 24rpx; color: #444; line-height: 1.7;
-  white-space: pre-line; /* zone 树结构含 \n 换行，保留层级缩进 */
+/* 校名 + 标签 */
+.dh1 { font-size: 20px; font-weight: 700; margin-top: 16px; color: #10182B; }
+.dbody .dtags { display: flex; gap: 6px; margin-top: 9px; flex-wrap: wrap; }
+
+/* 多学段 tab 条（胶囊式，吸顶于顶栏之下） */
+.stagebar {
+  display: flex; gap: 10px; margin: 14px -16px 2px;
+  padding: 0 16px 8px; position: sticky; top: 64px; z-index: 3;
+  background: #ffffff;
 }
-
-.feed-list { display: flex; flex-direction: column; gap: 12rpx; }
-.feed-item { display: flex; align-items: center; gap: 14rpx; flex-wrap: wrap; font-size: 25rpx; }
-.feed-name { color: #1a6bd6; font-weight: 500; }
-.tag { font-size: 21rpx; color: #6b7280; background: #f1f0ec; border-radius: 8rpx; padding: 3rpx 14rpx; }
-.tag-dim { color: #9aa0a6; }
-.tag-now { background: #9bbbf4; color: #fff; }
-
-.tbl { display: flex; flex-direction: column; gap: 8rpx; }
-.tbl-row { display: flex; align-items: center; gap: 14rpx; font-size: 24rpx; padding: 8rpx 10rpx; border-radius: 8rpx; }
-.tbl-row text:first-child { flex: 1; min-width: 0; }
-.tbl-row view:first-child { flex: 1; min-width: 0; }
-.tbl-row text:nth-child(n+2) { flex: none; width: 88rpx; text-align: right; }
-.tbl-row .strong { color: #1a1b1c; font-weight: 700; }
-.tbl-head { background: #f7f6f2; font-size: 22rpx; color: #6b7280; font-weight: 600; }
-.sch-link { color: #1a6bd6; }
-.sub-links { display: flex; flex-wrap: wrap; gap: 16rpx; margin-top: 6rpx; }
-.sub-links .sch-link { color: #4b8be0; font-size: 22rpx; }
-
-.qblock { margin-top: 18rpx; padding-top: 16rpx; border-top: 1rpx dashed #e4e3dd; }
-.qblock:first-of-type { margin-top: 6rpx; }
-.qblock-title { font-size: 24rpx; font-weight: 700; color: #374151; margin-bottom: 10rpx; }
-
-.d-foot { display: flex; justify-content: space-between; margin-top: 10rpx; }
-
-/* 品牌关联 */
-.brand-head { font-size: 25rpx; font-weight: 700; color: #1a1b1c; margin-bottom: 8rpx; }
-.brand-note {
-  font-size: 23rpx; color: #444; line-height: 1.7; margin-bottom: 16rpx;
-  background: #f7f6f2; border-radius: 12rpx; padding: 14rpx 18rpx;
+.stagebar .stab {
+  flex: 1; display: inline-flex; align-items: center; justify-content: center;
+  height: 34px; padding: 0 20px; border-radius: 999px;
+  border: 1px solid #E3E8F0; background: #ffffff;
+  font-size: 13.5px; font-weight: 600; color: #8B96AD;
 }
-.brand-group { margin-bottom: 16rpx; }
-.brand-group-title { font-size: 22rpx; font-weight: 700; color: #6b7280; margin-bottom: 10rpx; }
-.brand-group-title.same { color: #1e40af; }
-.brand-group-title.independent { color: #b45309; }
-.brand-row {
-  border: 1rpx solid #eee; border-radius: 14rpx; padding: 14rpx 16rpx; margin-bottom: 10rpx;
-}
-.brand-row.current { border-color: #9bbbf4; background: rgba(155,187,244,0.08); }
-.brand-row-main { display: flex; align-items: center; gap: 10rpx; flex-wrap: wrap; font-size: 25rpx; }
-.brand-name-link { color: #1a6bd6; font-weight: 600; }
-.brand-name-plain { font-weight: 600; }
-.brand-row-badges { display: flex; gap: 8rpx; flex-wrap: wrap; margin-top: 10rpx; }
-.brand-reason { font-size: 21rpx; color: #6b7280; line-height: 1.6; margin-top: 10rpx; }
+.stagebar .stab.on { background: #F2F6FE; border-color: #98B6EC; color: #254BAE; }
+.stagebar .stab-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+.stagebar .stab.p .stab-dot { background: #2F5CD6; }
+.stagebar .stab.m .stab-dot { background: #E8850C; }
+.stagebar .stab.h .stab-dot { background: #0F9D58; }
+
+/* 模块 */
+.dmod { margin-top: 16px; padding-top: 14px; border-top: 1px solid #EFF2F7; }
+.dmod-h { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
+.dmod-h-t { font-size: 15px; font-weight: 700; color: #33405C; }
+.dmod-h .dmod-meta { margin-left: auto; flex: none; font-size: 12.5px; font-weight: 600; color: #2F5CD6; }
+
+/* 键值行 */
+.kv { display: flex; gap: 24px; padding: 7px 0; font-size: 13px; line-height: 1.6; }
+.kv .k { width: 108px; flex: none; white-space: nowrap; color: #64708C; }
+.kv .v { flex: 1; min-width: 0; color: #33405C; }
+
+/* 招生地段长文本 */
+.zone { font-size: 12.5px; line-height: 1.6; color: #33405C; white-space: pre-line; }
+
+/* 升学路线 / 关联校区链接行 */
+.route { display: flex; align-items: center; gap: 8px; padding: 7px 0; font-size: 12.5px; font-weight: 600; color: #33405C; }
+.route .lk, .grp-row .lk { display: inline-flex; align-items: center; gap: 4px; color: #2F5CD6; }
+.route .lk::after, .grp-row .lk::after { content: "›"; font-size: 15px; line-height: 1; margin-top: -2px; opacity: .7; }
+
+/* 升学路线 · 多机制逐条「招生方式 N」行（标签紧跟左侧文案，不右对齐） */
+.route-block { margin-top: 12px; }
+.route-h { display: flex; align-items: center; gap: 8px; margin: 4px 0 7px; font-size: 13px; font-weight: 700; color: #33405C; }
+.route-h .rh-n { font-weight: 700; }
+.route-h .tag { margin: 0; flex: none; }
+
+/* 提示框 */
+.dnote { font-size: 11px; color: #8B96AD; background: #F5F7FB; border-radius: 8px; padding: 8px 10px; margin-top: 8px; line-height: 1.6; }
+
+/* 分组容器 */
+.pubbox { border: 1px dashed #E3E8F0; border-radius: 10px; padding: 9px 12px; font-size: 12px; color: #64708C; margin: 8px 0 0; }
+.grp-t { font-size: 13px; font-weight: 700; color: #33405C; margin: 14px 0 7px; }
+.grpbox { background: #FAFBFC; border: 1px solid #EFF2F7; border-radius: 10px; padding: 8px 12px 10px; }
+.grp-l { font-size: 13px; font-weight: 600; color: #64708C; margin: 6px 0 2px; }
+.grp-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 12.5px; font-weight: 600; color: #33405C; }
+
+/* 当前查看标 */
+.pill { height: 26px; padding: 0 12px; border-radius: 999px; font-size: 11.5px; font-weight: 600; display: inline-flex; align-items: center; flex: none; }
+.pill.cur { background: #F2F6FE; color: #254BAE; border: 1px solid #C9D8F5; }
+
+/* 小节标题（批次/明细表等） */
+.dsub { font-size: 13px; font-weight: 400; color: #64708C; margin: 10px 0 2px; }
+.ddiv { border-top: 1.5px dashed #E3E8F0; margin: 12px 0 4px; }
+
+/* 明细表（chartbox） */
+.chartbox { border: 1px solid #EFF2F7; border-radius: 10px; padding: 10px 12px; margin: 8px 0 0; font-size: 12px; color: #33405C; }
+.thead { display: grid; grid-template-columns: 1fr 64px 84px; gap: 6px; font-weight: 700; color: #33405C; padding-bottom: 6px; border-bottom: 1px solid #EFF2F7; }
+.trow { display: grid; grid-template-columns: 1fr 64px 84px; gap: 6px; align-items: center; padding: 7px 0; font-size: 13px; color: #33405C; }
+.trow .tc { text-align: right; }
+.proj { display: flex; flex-direction: column; gap: 4px; margin: 4px 0 8px; }
+.proj-row { display: flex; gap: 16px; font-size: 12.5px; color: #64708C; }
+.proj-row .pc { margin-left: auto; }
+
+/* 标签（行政区 / 学段 / 办学性质 / 招生方式） */
+.tag { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: 999px; font-size: 11.5px; font-weight: 600; }
+.tag.m { margin-left: 6px; }
+.tag-dist { background: #EEF3FE; color: #3A62C8; }
+.tag-stage { background: #E9F6FB; color: #1F7A9B; }
+.tag-nature { background: #E9F7F0; color: #1F7A55; }
+.tag-mech { background: #F2F6FE; color: #2F5CD6; border: 1px solid #98B6EC; }
+
+.pad-bottom { height: calc(env(safe-area-inset-bottom) + 24px); }

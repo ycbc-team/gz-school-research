@@ -141,45 +141,56 @@
 .legend .lg-dot { width: 18rpx; height: 18rpx; border-radius: 50%; flex: none; }
 .legend .lg-multi { background: conic-gradient(#2F5CD6 0 33.33%, #E8850C 33.33% 66.66%, #0F9D58 66.66% 100%); }
 
-/* 学校卡（最上层，盖住 tabBar；弹出时由 JS 隐藏自定义 tabBar，详情卡/筛选半窗均覆盖底部导航栏） */
+/* 学校卡（最上层，盖住 tabBar；弹出时由 JS 隐藏自定义 tabBar，详情卡/筛选半窗均覆盖底部导航栏）。
+   高度由 inline style height:{{cardH}}px（= 屏幕高 * 45%）控制，内部为纵向 flex：handle / tab / 校名 / 预览 自适应填满。 */
 .cardbot {
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 200;
   background: #fff; border-radius: 36rpx 36rpx 0 0;
-  padding: 10rpx 32rpx 28rpx;
+  padding: 8rpx 32rpx calc(env(safe-area-inset-bottom) + 8rpx);
   box-shadow: 0 -12rpx 44rpx rgba(8,14,28,.22);
+  display: flex; flex-direction: column;
 }
-.cardbot .handle { width: 72rpx; height: 8rpx; border-radius: 4rpx; background: #E3E8F0; margin: 0 auto 20rpx; }
-.cardbot .cbhead { display: block; }
+.cardbot .handle { width: 72rpx; height: 8rpx; border-radius: 4rpx; background: #E3E8F0; margin: 6rpx auto 16rpx; flex: none; }
+.cardbot .cbhead { display: block; flex: none; }
 .cardbot .cbtop { display: flex; align-items: flex-start; }
 .cardbot .nm { flex: 1; font-size: 32rpx; font-weight: 600; line-height: 1.35; }
 .cardbot .cbtags { display: flex; gap: 12rpx; margin-top: 20rpx; flex-wrap: wrap; }
-.cardbot .cbrow {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-top: 24rpx; padding-top: 24rpx; border-top: 1rpx solid #EFF2F7;
-  font-size: 25rpx; color: #64708C;
+
+/* 多学段学段 tab 条（06C）：handle 之下、校名之上；左对齐、按内容宽度排列（不拉伸占满整行） */
+.cardbot .cbstagebar { display: flex; align-items: center; gap: 16rpx; margin: 8rpx 0 16rpx; flex: none; }
+.cardbot .cbstage {
+  display: inline-flex; align-items: center; height: 60rpx; padding: 0 24rpx;
+  border-radius: 999px; background: #F2F4F8; color: #5A647C;
+  font-size: 25rpx; font-weight: 500; border: 1rpx solid transparent;
 }
+.cardbot .cbstage.on { background: #F2F6FE; color: #254BAE; font-weight: 600; border-color: #C3D5F6; }
+.cardbot .cbstage-dot { width: 16rpx; height: 16rpx; border-radius: 50%; margin-right: 10rpx; flex: none; }
+.cardbot .cbstage-dot.primary { background: #2F5CD6; }
+.cardbot .cbstage-dot.middle { background: #E8850C; }
+.cardbot .cbstage-dot.high { background: #0F9D58; }
+
+/* 半窗预览模块区（截取详情长图顶部，flex 填满剩余高度 + 底部渐隐遮罩） */
+.cardbot .cbpreview { position: relative; flex: 1; min-height: 0; margin-top: 8rpx; overflow: hidden; }
+.cardbot .cbmod { padding-top: 24rpx; margin-top: 24rpx; border-top: 1rpx solid #EFF2F7; }
+.cardbot .cbmod:first-child { padding-top: 0; margin-top: 0; border-top: none; }
+.cardbot .cbmod-h { font-size: 27rpx; font-weight: 600; color: #10182B; margin-bottom: 14rpx; }
+.cardbot .cbkv { display: flex; align-items: flex-start; justify-content: space-between; gap: 16rpx; padding: 9rpx 0; font-size: 25rpx; line-height: 1.5; }
+.cardbot .cbkv .k { color: #64708C; flex: none; }
+.cardbot .cbkv .v { color: #10182B; text-align: right; }
+.cardbot .cbnote { font-size: 24rpx; color: #8A94A8; line-height: 1.6; padding: 8rpx 0; }
+/* 底部渐隐遮罩 */
+.cardbot .cbfade { position: absolute; left: 0; right: 0; bottom: 0; height: 120rpx; background: linear-gradient(to bottom, rgba(255,255,255,0), #fff); pointer-events: none; }
+/* 「展开详情」胶囊：叠于渐隐区之上（右下角，不单独占行） */
 .cardbot .cbmore {
+  position: absolute; right: 24rpx; bottom: calc(env(safe-area-inset-bottom) + 24rpx); z-index: 3;
   height: 68rpx; padding: 0 32rpx; border-radius: 999px;
   background: #F2F6FE; color: #254BAE; font-size: 26rpx; font-weight: 600;
   display: flex; align-items: center; border: 1rpx solid #E2EBFB;
 }
-.cardbot .cbmore.solid { background: #2F5CD6; color: #fff; border-color: #2F5CD6; box-shadow: 0 6rpx 16rpx rgba(47,92,214,.28); }
 /* 关闭按钮（右上） */
 .cardbot .cclose {
   position: absolute; top: 18rpx; right: 24rpx; width: 56rpx; height: 56rpx; line-height: 52rpx; text-align: center;
   border-radius: 50%; background: #F2F4F8; color: #5A647C; font-size: 40rpx; font-weight: 600;
-}
-/* 展开态：盖到状态栏下方，可滚动 */
-.cardbot.expanded {
-  top: calc(env(safe-area-inset-top) + 84rpx); bottom: 0; border-radius: 36rpx;
-  overflow-y: auto; padding-bottom: calc(env(safe-area-inset-bottom) + 48rpx);
-}
-.cardbot .cbexpand { display: flex; flex-direction: column; gap: 18rpx; margin-top: 24rpx; }
-.cardbot .cbtip { font-size: 24rpx; color: #8A94A8; }
-.cardbot .cbreturn {
-  position: sticky; bottom: 0; margin-top: 28rpx; height: 84rpx; border-radius: 999px;
-  background: #F2F6FE; color: #254BAE; font-size: 27rpx; font-weight: 600;
-  display: flex; align-items: center; justify-content: center; border: 1rpx solid #E2EBFB;
 }
 
 /* 通用标签 Tag（4 类色） */

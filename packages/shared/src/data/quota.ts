@@ -3,7 +3,7 @@
  * 区属指标到校（district_quota）/ 小学升学路线（xiaoshengchu）+ 生源反查。
  */
 import { normName, looseNorm } from '../support.js';
-import type { XiaoshengchuRecord } from '../types.js';
+import type { XiaoshengchuRecord, RouteGroup, RouteSchool } from '../types.js';
 import type { DataLoaders } from './loader.js';
 import { normSchoolName } from './enrollment.js';
 import type { QuotaSchool, QuotaRowId, QuotaRowName, Batch2Record } from './types.js';
@@ -246,6 +246,41 @@ export function createQuotaApi(loaders: DataLoaders) {
   const factByPrimaryId = new Map<string, FactRec>();
   for (const r of facts) if (r.school_id) factByPrimaryId.set(r.school_id, r);
 
+  /** 小学升学机制 → 展示标签与优先级（与 detail/model.ts 的 XS_MECH_LABELS 保持一致；
+   *  quota 不直接 import detail 以避免循环依赖，此处为权威枚举的本地镜像） */
+  const XS_MECH_LABELS: Record<string, string> = {
+    zhi_sheng: '对口直升',
+    single_zone: '单校划片',
+    group_paidui: '多校电脑派位',
+    single_paidui: '电脑派位',
+    min_zi_zhu: '自主招生',
+  };
+  const XS_MECH_PRIORITY: Record<string, number> = {
+    zhi_sheng: 0, group_paidui: 1, single_zone: 2, single_paidui: 3, min_zi_zhu: 4,
+  };
+
+  /** 按招生机制拆分初中名单：对口直升取 direct_feed_school_id（单所）；
+   *  其余机制取 feed_school_ids 并排除 direct 目标，避免直升校在派位盒里重复出现 */
+  function buildRouteGroups(r: FactRec): RouteGroup[] {
+    const directId = r.direct_feed_school_id ?? null;
+    const directName = directId ? entityById.get(directId)?.name ?? null : null;
+    const groups: RouteGroup[] = [];
+    for (const m of r.mechanism ?? []) {
+      let schools: RouteSchool[] = [];
+      if (m === 'zhi_sheng') {
+        schools = directName ? [{ id: directId, name: directName }] : [];
+      } else {
+        schools = (r.feed_school_ids || [])
+          .filter((id) => id !== directId)
+          .map((id) => ({ id, name: entityById.get(id)?.name ?? id }))
+          .filter((s) => s.name);
+      }
+      if (schools.length) groups.push({ mechanism: m, label: XS_MECH_LABELS[m] || m, schools });
+    }
+    groups.sort((a, b) => (XS_MECH_PRIORITY[a.mechanism] ?? 9) - (XS_MECH_PRIORITY[b.mechanism] ?? 9));
+    return groups;
+  }
+
   /** 把事实 record 适配成页面在用的旧形状（feed_junior_highs: 字符串数组） */
   function shapeRecord(r: FactRec, displayName: string): XiaoshengchuRecord {
     const feedNames = (r.feed_school_ids || []).map((id) => entityById.get(id)?.name).filter(Boolean) as string[];
@@ -259,6 +294,7 @@ export function createQuotaApi(loaders: DataLoaders) {
       source_url: g?.source_urls.join('; ') ?? '',
       source_note: r.source_note ?? '',
       data_gaps: r.data_gaps ?? g?.data_gaps ?? null,
+      routeGroups: buildRouteGroups(r),
     } as XiaoshengchuRecord;
   }
   /**

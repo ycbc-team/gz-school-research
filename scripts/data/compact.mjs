@@ -163,6 +163,9 @@ const MP_SUB_TARGETS = [
   'data/linkage/dist/quota_outcome.json',
   'data/registry/group/src/brand_groups.json',
   'data/registry/group/dist/education_groups.json',
+  // 初中 2026 招生计划（一校多规则：mechanism/plan_classes/scope/派位组生源小学），
+  // 详情页 07B「招生计划（2026年）」模块消费（Web 端同名产物已编译）
+  'data/middle/enrollment/dist/middle_enrollment_2026.json',
 ];
 
 /* ---------- JS 字面量序列化（保留 undefined 稀疏空位） ---------- */

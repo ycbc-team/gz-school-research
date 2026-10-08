@@ -81,6 +81,24 @@ export interface XiaoshengchuRecord {
   source_note: string;
   /** 数据缺口说明（feed 为空时必填原因，如民办不参与公办派位） */
   data_gaps: string | null;
+  /** 按招生机制拆分的升学路线分组（多机制小学一项一盒；单机制数组长为 1） */
+  routeGroups: RouteGroup[];
+}
+
+/** 升学路线分组下的单所学校（含实体 id 用于跳转定位） */
+export interface RouteSchool {
+  id: string | null;
+  name: string;
+}
+
+/** 按招生机制（mechanism）拆分的升学路线分组 */
+export interface RouteGroup {
+  /** 机制 key（zhi_sheng / single_zone / group_paidui / single_paidui / min_zi_zhu） */
+  mechanism: string;
+  /** 机制中文标签（XS_MECH_LABELS） */
+  label: string;
+  /** 该机制对应的对口 / 派位初中 */
+  schools: RouteSchool[];
 }
 
 /** data/primary/transition/dist/xiaoshengchu_2026.json */
