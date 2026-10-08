@@ -114,6 +114,7 @@ const DEFAULT_DEFS: Record<MiddleMechanism, MiddleMechanismDef> = {
   zhi_sheng: { label: '对口直升', can_lose: false, lose_text: null },
   group_paidui: { label: '多校电脑派位', can_lose: false, lose_text: '组内学校兜底。' },
   single_paidui: { label: '电脑派位', can_lose: true, lose_text: '未派中回原学区。' },
+  single_chouqian: { label: '电脑抽签', can_lose: true, lose_text: '未派中回原学区。' },
   min_zi_zhu: { label: '自主招生', can_lose: false, lose_text: null },
   no_plan: { label: '2026 无招生计划', can_lose: false, lose_text: null },
 };

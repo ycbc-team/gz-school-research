@@ -12,7 +12,7 @@
  *   - 可选字段字典：{ $cols, $rows, $dicts: { 字段: 唯一值数组 } }
  *     字典字段行内存索引（null 不索引，行内直接存 null）。
  *   - 可选列表元素字典：{ $cols, $rows, $listDicts: { 字段: 唯一元素数组 } }
- *     列表字段（如 feed_school_ids 实体 id 数组）行内存元素索引。
+ *     列表字段（如初中实体 id 数组）行内存元素索引。
  * - 其余结构原样保留，递归水合。
  */
 export interface CompactArray {

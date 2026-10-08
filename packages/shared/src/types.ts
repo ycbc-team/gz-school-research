@@ -55,14 +55,20 @@ export interface XiaoshengchuGroup {
 export interface XiaoshengchuFactRecord {
   school_id: string;
   group_id: number;
-  feed_school_ids: string[];
-  feed_unresolved: string[];
   direct_feed_school_id: string | null;
   source_note?: string;
   /** 记录级升学机制枚举（初中枚举，与 middle/enrollment mechanism 对齐；dist 五区以初中反推为准） */
   mechanism?: string[];
   /** 仅当与组级 data_gaps 不同时存在（记录级覆盖） */
   data_gaps?: string | null;
+  /** 2026-10-08（天河双机制拆分）：feed 按机制分组（机制→[初中 id]；single_zone 划片 /
+   * single_paidui 电脑派位池 / single_chouqian 电脑抽签池 / group_paidui 派位组各自成组），
+   * 前端按机制块渲染对应 feed。
+   * 2026-10-08（字段精简）：全量扁平 feed_school_ids/feed_unresolved 已删除，
+   * 全量列表由消费方从本分组并集派生（单一真源，避免两套数据不一致）。 */
+  feed_school_ids_by_mechanism?: Record<string, string[]>;
+  /** 同上：未解析初中名按机制分组（显式缺口，可审计） */
+  feed_unresolved_by_mechanism?: Record<string, string[]>;
 }
 
 /** 运行时展示形状（quota.ts shapeRecord 适配输出） */
@@ -77,6 +83,9 @@ export interface XiaoshengchuRecord {
   feed_junior_highs: string[];
   /** 对口直升本校初中（直升场景，与派位名单互斥为主） */
   direct_feed: string | null;
+  /** 2026-10-08（天河双机制拆分）：feed 按机制分组（机制→[初中名，含未解析名]），
+   * 前端「升学路线」按机制块渲染各自 feed；无该字段/空 dict 时前端回退 feed_junior_highs 全量 */
+  feed_by_mechanism?: Record<string, string[]>;
   source_url: string;
   source_note: string;
   /** 数据缺口说明（feed 为空时必填原因，如民办不参与公办派位） */
@@ -183,7 +192,7 @@ export interface EnrollmentSnapshot {
 }
 
 /** data/middle/enrollment/dist/middle_enrollment_2026_*.json —— 初中视角招生计划 */
-export type MiddleMechanism = 'single_zone' | 'zhi_sheng' | 'group_paidui' | 'single_paidui' | 'min_zi_zhu' | 'no_plan';
+export type MiddleMechanism = 'single_zone' | 'zhi_sheng' | 'group_paidui' | 'single_paidui' | 'single_chouqian' | 'min_zi_zhu' | 'no_plan';
 export interface MiddleMechanismDef {
   label: string;
   can_lose: boolean;

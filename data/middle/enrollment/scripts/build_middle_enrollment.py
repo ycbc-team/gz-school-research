@@ -21,6 +21,9 @@ mechanism 枚举（区级定义，UI 据此渲染）:
   zhi_sheng       对口直升（小学对口直升初中，不参加电脑派位）
   group_paidui    多校电脑派位（组内学校兜底，不安排到组外）
   single_paidui   电脑派位（自愿报名+超额电脑派位，未派中回原学区）
+  single_chouqian 电脑抽签（2026-10-08：番禺报名+超计划电脑抽签录取——官方计划表「电脑抽签」、
+                  区属简章「超计划电脑派位」同机制（随机录取），未派中回户籍地学区为兜底路径；
+                  天河/越秀官方原文为「电脑派位」保持 single_paidui）
   min_zi_zhu      自主招生（民办/企事业办学校初中部）
   no_plan         2026 无招生计划
 """
@@ -29,6 +32,12 @@ import json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 RAW = os.path.join(ROOT, "data", "middle", "enrollment", "parsed", "_transcripts")  # 本业务初中转录
 RAW_PANYU = os.path.join(ROOT, "data", "primary", "enrollment", "parsed", "_transcripts")  # 番禺共享转录（官方 xls 4 sheets：小学/初中/民办共用）
+
+# 特殊逻辑数据表（src/，特殊文本/名单不进脚本）：
+#   tianhe_qiye_notes.json（2026-10-08）：附件7 非电脑派位企事业办学校（华工附中/暨大附）
+#   备注列官方为空 → mechanism_note 官方框架口径（school_id 键控）
+_SRC_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../src")
+TIANHE_QIYE_NOTES = json.load(open(os.path.join(_SRC_DIR, "tianhe_qiye_notes.json"), encoding="utf-8"))["notes"]
 OUT = os.path.join(ROOT, "data", "middle", "enrollment", "dist")  # 最终合并产物（前端消费）
 OUT_PARSED = os.path.join(ROOT, "data", "middle", "enrollment", "parsed", "middle_enrollment_2026")  # 中间统一格式（各区独立，审计层）
 
@@ -382,6 +391,59 @@ def apply_inferred_feeds(data):
     return data
 
 
+def apply_xs_reverse_primaries(data, district):
+    """番禺初中对口小学反推回填（2026-10-08 用户要求）：用小升初事实
+    （xiaoshengchu_2026.json，番禺小学→初中 feed_school_ids_by_mechanism）反转，
+    列出每所初中的招生对口/生源小学。
+
+    口径：
+    - 机制对齐——初中 mechanism 只收同机制的小学 feed（single_zone 单校对口 /
+      group_paidui 派位池 / single_paidui 电脑抽签池）；区属初中面向全区批次
+      （single_paidui，自愿报名超计划派位）无固定名单，机制过滤后自然为空，不挂。
+    - 仅当 scope_school_ids 为空时回填（官方明文解析优先；番禺初中无明文小学名单，全回填）。
+    - 键 = 生源小学实体名 → [school_id]（与天河附件6 明文同构）。
+    - 无循环依赖：番禺小升初由小学表 PY_FEED 直接转录（build_xiaoshengchu_all.py），
+      不走初中反推，此处仅单向消费 xiaoshengchu dist。"""
+    if district != "panyu":
+        return data
+    xs_path = os.path.join(ROOT, "data/primary/transition/dist/xiaoshengchu_2026.json")
+    if not os.path.exists(xs_path):
+        print("         [番禺反推回填] xiaoshengchu_2026.json 不存在，跳过")
+        return data
+    xs = json.load(open(xs_path, encoding="utf-8"))
+    ent = json.load(open(os.path.join(ROOT, "data/registry/entity/dist/entities.json"), encoding="utf-8"))
+    name_by_id = {e["school_id"]: e["name"] for e in ent["entities"]}
+    rev = {}  # 初中 id -> {机制: {小学名: [小学id]}}
+    for r in xs["records"]:
+        if not r.get("school_id", "").startswith("gz-440113"):
+            continue
+        pname = name_by_id.get(r["school_id"], r["school_id"])
+        for m, ids in (r.get("feed_school_ids_by_mechanism") or {}).items():
+            for jid in ids:
+                rev.setdefault(jid, {}).setdefault(m, {}).setdefault(pname, []).append(r["school_id"])
+    n_filled = 0
+    for r in data["records"]:
+        sids = [r["school_id"]] if r.get("school_id") else []
+        sids += list(r.get("school_ids") or [])
+        if not any(s in rev for s in sids):
+            continue
+        if r.get("scope_school_ids"):
+            continue  # 官方明文解析已有，反推不覆盖
+        mech = r.get("mechanism")
+        primaries = {}
+        for s in sids:
+            for k, v in (rev.get(s) or {}).get(mech, {}).items():
+                primaries.setdefault(k, []).extend(v)
+        if not primaries:
+            continue  # 机制错配/面向全区批次无固定名单，不挂
+        scope_ids = {k: list(dict.fromkeys(v)) for k, v in sorted(primaries.items())}
+        r["scope_school_ids"] = scope_ids
+        n_filled += 1
+        print(f"         小升初反推对口小学回填: {r.get('school_id') or r.get('school_ids')} -> {len(scope_ids)} 所（{mech}）")
+    print(f"         番禺反推回填合计: {n_filled} 条初中记录")
+    return data
+
+
 # 区键 → adcode（SchoolMatcher 匹配用：按本区过滤，不跨区错配）
 _DK_ADCODE = {"yuexiu": "440104", "haizhu": "440105", "tianhe": "440106",
               "huangpu": "440112", "panyu": "440113", "baiyun": "440111", "liwan": "440103"}
@@ -393,11 +455,22 @@ MECHANISMS = {
     "zhi_sheng":      {"label": "对口直升",     "can_lose": False, "lose_text": None},
     "group_paidui":   {"label": "多校电脑派位", "can_lose": False, "lose_text": "派位组内学校随机分配，组内兜底，不安排到组外。"},
     "single_paidui":  {"label": "电脑派位",     "can_lose": True,  "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时由区教育局统一组织电脑派位；未派中者回户籍地学区申请入读公办初中，不保证安排到本校。"},
+    "single_chouqian": {"label": "电脑抽签",    "can_lose": True,  "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时电脑抽签随机录取；未派中者回户籍地学区申请入读公办初中，不保证安排到本校。"},
     "min_zi_zhu":     {"label": "自主招生",     "can_lose": False, "lose_text": None},
     "no_plan":        {"label": "2026 无招生计划", "can_lose": False, "lose_text": None},
 }
 
 # ---------- 番禺 ----------
+# 市桥城区电脑派位组（2026-10-08 机制修正）：官方《公办初中招生计划、招生范围及条件》表中
+# 该组 7 校为合并单元格——仲元一校区 scope 明文「80% 面向具有市桥城区电脑派位资格…的小学
+# 应届毕业生招生」；东风/侨联/星海/桥城 4 行 scope 为空（属组，转录沿用上行缺失）；桥兴为
+# 组员另有桥南街补充地段文本；番实 note 明文「电脑派位」。原判定只查 note 漏判 6 校为
+# single_zone，与小学表 PY_FEED「市桥城区电脑派位（多校）→ 7 校池」口径不一致，修正为
+# group_paidui（名单与小学侧同源，见 PY_FEED 市桥城区组）。
+SQ_GROUP = ["广东仲元中学一校区（初中部）", "番禺区实验中学", "市桥东风中学", "市桥侨联中学",
+            "市桥星海中学", "市桥桥城中学", "市桥桥兴中学"]
+
+
 def build_panyu():
     d = json.load(open(os.path.join(RAW_PANYU, "panyu_2026_official.json")))
     rows = d["sheets"]["公办初中招生范围、计划"]
@@ -414,8 +487,13 @@ def build_panyu():
             plan_n = int(float(plan)) if plan else None
         except: plan_n = None
 
-        if "电脑抽签" in note:
-            mech = "single_paidui"
+        # 2026-10-08（机制修正）：市桥城区电脑派位组 7 校先于文本判定（官方合并单元格/明文口径）
+        if school in SQ_GROUP:
+            mech = "group_paidui"
+        elif "电脑抽签" in note:
+            # 2026-10-08（机制枚举化）：官方计划表措辞「电脑抽签」→ single_chouqian
+            # （报名+超计划电脑抽签录取；未派中回户籍地学区是兜底路径，非本机制）
+            mech = "single_chouqian"
         elif "电脑派位" in note:
             mech = "group_paidui"
         else:
@@ -425,9 +503,11 @@ def build_panyu():
         members = None
         if mech == "group_paidui" and "铁英" in note:
             members = ["广铁一中番禺校区", "广铁一中铁英学校(西校区)", "广铁一中铁英学校(东校区)"]
-        # 市桥城区多校派位组（番实验+其他7校）
-        if mech == "group_paidui" and school == "番禺区实验中学":
-            members = ["广东仲元中学一校区（初中部）","广东番禺中学附属学校","番禺区实验中学","市桥东风中学","市桥侨联中学","市桥星海中学","市桥桥城中学","市桥桥兴中学"]
+        # 市桥城区电脑派位组 7 校统一 members（2026-10-08：与小学表 PY_FEED 同源名单——
+        # 原番实特判名单含误入的「广东番禺中学附属学校」（实为小区配建单校），剔除；
+        # 7 校共享 group_id → 前端合并为同一派位组子块，组标题「电脑派位」）
+        elif mech == "group_paidui" and school in SQ_GROUP:
+            members = list(SQ_GROUP)
 
         sid, sids = match_school_ids(school, "440113")
         # 铁英学校 = 东/西两校区合计 28 班（官方无单校区拆分）：school_id 置 None，school_ids 列出两校区，
@@ -461,7 +541,9 @@ def build_panyu():
             "group_members": members,
         })
     # 区属初中面向全区（或属地镇街）招生简章批次（2026-09-24 补解析，转录 panyu_2026_quju.json）：
-    # 自愿报名、超计划电脑派位；中签自动取消属地正常安排的学位、未派中回户籍地学区 → single_paidui。
+    # 自愿报名、超计划电脑派位；中签自动取消属地正常安排的学位、未派中回户籍地学区。
+    # 2026-10-08（机制枚举化）：招生机制本身是报名+超计划电脑抽签（未派中回学区是兜底路径，
+    # 非本机制）→ single_chouqian（区属简章「超计划电脑派位」同机制，抽签录取）。
     # 与计划表（属地划片/派位）互补，同校并存为两种机制（如仲元一校区 市桥划片 + 面向全区电脑派位）。
     quju = json.load(open(os.path.join(RAW, "panyu_2026_quju.json")))
     for q in quju["records"]:
@@ -472,7 +554,7 @@ def build_panyu():
             "school": q["school"], "school_id": qsid,
             **({"school_ids": qsids} if qsids else {}),
             "plan_classes": None, "scope": None,
-            "mechanism": "single_paidui", "mechanism_note": qnote,
+            "mechanism": "single_chouqian", "mechanism_note": qnote,
             "group_members": None,
         })
     return {
@@ -738,6 +820,57 @@ def build_haizhu_official():
         "records": recs,
     }
 
+# 附件10 电脑派位可报名小学名单（官方小学名，2026-10-08 天河接入反推时按
+# tianhe_attachment.json a10_by_school 原文逐字定稿；同一学校仅收「可报名」小学，不含校方自身）：
+#   华附初中部 a565a93c：面向学校周边 3km 天河公办/企事业办小学穗籍毕业生（28 所）
+#   华颖初中部 dab5b807：面向学校周边 5km（38 所）
+#   省实天河初中部 0eb93435：面向学校周边 3km（21 所）
+#   执信天河校区 22fcbcd6：7 班面向珠吉街范围「人户一致」（5 所，官方点名）
+# 用作 single_paidui 记录的 _group_primaries / scope_school_ids，供小升初反推链产出
+# 「可报名派位」feed 条目（与海珠派位组进 feed 同口径）；清湾两校区/天外两校区为
+# 全区自主报名（无点名小学），不在此表。历史小学侧 TH_PAIWEI 的 3 处混入错误
+# （华附池误含「华南师范大学附属中学（初中部）」、省实池误含自身、华颖池误含自身）
+# 不继承，以本表为准。
+TH_A10_POOLS = {
+    "gz-440106-a565a93c": [  # 华附初中部 3km（官方 28 所；转录原文「体育西小学」按实体全称「体育西路小学」收录）
+        "华景小学", "天府路小学", "南国学校（小学部）", "体育东路小学", "体育东路小学海明学校",
+        "体育东路小学兴国学校", "石牌小学", "汇景实验学校（小学部）", "华康小学", "龙口西小学",
+        "员村小学", "昌乐小学", "五山小学", "体育西路小学", "华阳小学", "天河区第一实验小学",
+        "华融小学", "五一小学", "华颖外国语学校（小学部）", "天河中学猎德实验学校（小学部）",
+        "一一三中学陶育实验学校（小学部）", "冼村小学", "华南农业大学附属小学",
+        "华南师范大学附属小学", "长征小学", "天河第一小学",
+        "华南理工大学附属实验学校（小学部）", "暨南大学附属实验学校（小学部）",
+    ],
+    "gz-440106-dab5b807": [  # 华颖初中部 5km（官方 38 所）
+        "汇景实验学校（小学部）", "南国学校（小学部）", "天河中学猎德实验学校（小学部）",
+        "一一三中学陶育实验学校（小学部）", "棠东小学", "体育东路小学",
+        "体育东路小学海明学校", "体育东路小学兴国学校", "体育西路小学", "石牌小学",
+        "华阳小学", "五山小学", "员村小学", "昌乐小学", "棠下小学", "石东小学", "华康小学",
+        "华景小学", "龙口西小学", "东圃小学", "车陂小学", "棠德南小学", "天河区第一实验小学",
+        "泰安小学", "骏景小学", "冼村小学", "新元小学", "华融小学", "中海康城小学",
+        "旭景小学", "天府路小学", "五一小学", "天河第一小学", "华南师范大学附属小学",
+        "华南农业大学附属小学", "长征小学", "华南理工大学附属实验学校（小学部）",
+        "暨南大学附属实验学校（小学部）",
+    ],
+    "gz-440106-0eb93435": [  # 省实天河初中部 3km（官方 21 所）
+        "岑村小学", "棠东小学", "沐陂小学", "五山小学", "员村小学", "昌乐小学", "棠下小学",
+        "华景小学", "车陂小学", "棠德南小学", "泰安小学", "骏景小学", "华融小学",
+        "中海康城小学", "天府路小学", "御景小学", "华南师范大学附属小学",
+        "华南农业大学附属小学", "华颖外国语学校（小学部）", "汇景实验学校（小学部）",
+        "华南理工大学附属实验学校（小学部）",
+    ],
+    "gz-440106-22fcbcd6": [  # 执信天河校区 7 班（珠吉街「人户一致」，官方点名 5 所）
+        "灵秀小学", "奥体东小学", "吉山小学", "珠村小学", "体育东教育集团均和小学",
+    ],
+}
+
+def _a10_scope_primaries(sid, adcode="440106"):
+    """附件10 池小学名 → {小学名: [school_id]}（反推链 primary_ids 的 scope_school_ids 形态）。"""
+    names = TH_A10_POOLS.get(sid)
+    if not names:
+        return None
+    return {n: _primary_ids(n, adcode) for n in names}
+
 def build_tianhe_official():
     """天河：附件6 公办 24（划片范围+班数）+ 附件7 企事业 3 + 附件8 民办初中部 24。
     附件10 电脑派位：天外/清华/执信 zone 直接引用 → _expand_middle_texts 展开；华颖/省实
@@ -759,21 +892,35 @@ def build_tianhe_official():
             sid, sids = match_school_ids(school, "440106")
         _zone = r.get("zone")
         _ss = _scope_primary_ids(_zone, "440106") if _zone else None
+        # 2026-10-08（天河接入反推）：zone「详见附件10」的行（天外两校区/清湾两校区/执信）
+        # 直接归位 single_paidui（DIST 路径 _expand_middle_texts 同向覆盖，此处前置使反推链
+        # 拿到正确机制）；执信附件10 池有点名小学 → _group_primaries 挂池（清湾/天外全区无名单）。
+        _a10_zone = bool(_zone) and "详见附件10" in _zone
+        _pool = TH_A10_POOLS.get(sid) if _a10_zone else None
+        # 2026-10-08（天河详情页生源小学修复）：附件6 对口小学列（primaries）此前仅挂
+        # _group_primaries（反推链内存消费），dist 序列化丢弃 → 详情页「生源小学」段
+        # （scope_school_ids，前端 Object.keys 遍历）天河 single_zone 初中全空。
+        # 现在同步写入 scope_school_ids（同 _a10_scope_primaries 的 {小学名: [school_id]} 形态）。
+        _pri_ss = ({n: _primary_ids(n, "440106") for n in (r["primaries"] or [])}
+                   if r.get("primaries") else None)
+        _ss_final = _a10_scope_primaries(sid) if _pool else (_pri_ss or _ss)
         recs.append({
             "school": school, "school_id": sid,
             **({"school_ids": sids} if sids else {}),
             "plan_classes": r["plan_classes"], "scope": _zone,
-            **({"scope_school_ids": _ss} if _ss else {}),
-            # 附件6 公办划片：机制 single_zone（附件10 全量派位记录 zone「详见附件10」由 _expand_middle_texts 覆盖为 single_paidui）；
+            **({"scope_school_ids": _ss_final} if _ss_final else {}),
+            # 附件6 公办划片：机制 single_zone（zone 引用附件10 的行归位 single_paidui）；
             # note 不再重复机制名；华颖/省实「部分招生计划…详见附件10」由下方追加的 single_paidui 记录承载，划片记录 note 清空
-            "mechanism": "single_zone",
+            "mechanism": "single_paidui" if _a10_zone else "single_zone",
             "mechanism_note": None if "详见附件10" in (r.get("note") or "") else (r.get("note") or None),
             "group_members": None,
+            "_group_primaries": r["primaries"] or None,  # 附件6 对口小学列 → 反推链生源
+            **({"_group_primaries": _pool} if _pool else {}),
         })
         # 华颖/省实：官方 note「部分招生计划采用电脑派位方式招生，详见附件10」→ 划片之外的附加电脑派位批次，
-        # 一校多规则追加 single_paidui 记录（scope=附件10 段原文）
+        # 一校多规则追加 single_paidui 记录（scope=附件10 段原文；_group_primaries=附件10 点名池 → 反推链生源）
         if sid in a10 and "详见附件10" in (r.get("note") or ""):
-            _a10_ss = _scope_primary_ids(a10[sid], "440106") if a10[sid] else None
+            _a10_ss = _a10_scope_primaries(sid)
             recs.append({
                 "school": school, "school_id": sid,
                 **({"school_ids": sids} if sids else {}),
@@ -781,20 +928,25 @@ def build_tianhe_official():
                 **({"scope_school_ids": _a10_ss} if _a10_ss else {}),
                 "mechanism": "single_paidui", "mechanism_note": None,
                 "group_members": None,
+                "_group_primaries": TH_A10_POOLS.get(sid),
             })
     for r in tr["qiye"]:
         _sid, _sids = match_school_ids(r["school"], "440106")
         _scope = a10.get(_sid) if _sid else None
-        _ss = _scope_primary_ids(_scope, "440106") if _scope else None
+        _ss = _a10_scope_primaries(_sid) if _sid in TH_A10_POOLS else (_scope_primary_ids(_scope, "440106") if _scope else None)
         recs.append({
             "school": SCHOOL_NORM.get(r["school"], r["school"]), "school_id": _sid,
             **({"school_ids": _sids} if _sids else {}),
             "plan_classes": r["plan_classes"], "scope": _scope,
             **({"scope_school_ids": _ss} if _ss else {}),
+            **({"_group_primaries": TH_A10_POOLS[_sid]} if _sid in TH_A10_POOLS else {}),
             # 附件7 企事业办：华附备注「其中，面向天河区电脑派位招收4个班168人」→ 机制 single_paidui + scope=附件10 段；
-            # 其余企事业办（华工附/暨大附）无电脑派位依据 → min_zi_zhu（自主招生）
+            # 其余企事业办（华工附/暨大附）无电脑派位依据 → min_zi_zhu（自主招生）。
+            # 2026-10-08（用户反馈「自主招生标签无任何招生说明」）：官方附件7 该行备注/范围列为空
+            # （转录忠实）——mechanism_note 从 src/tianhe_qiye_notes.json 读官方框架口径
+            # （细则正文可复核），特殊文本不进脚本。
             "mechanism": "single_paidui" if _sid in a10 else "min_zi_zhu",
-            "mechanism_note": None,
+            "mechanism_note": (None if _sid in a10 else TIANHE_QIYE_NOTES.get(_sid)),
             "group_members": None,
         })
     for r in tr["minban"]:
@@ -813,6 +965,40 @@ def build_tianhe_official():
             # 附件8 民办学校初中部：自主招生 → min_zi_zhu，note 不再重复机制名
             "mechanism": "min_zi_zhu", "mechanism_note": None,
             "group_members": None,
+        })
+    # 2026-10-08（天河接入反推）：附件6 之外的一贯制学校小学部内部直升——
+    # 智谷第一实验/省实/燕园/天外智谷/华工附/暨大附/清湾两校区/奥中智谷校区小学部
+    # 官方未在附件6 单列小学部对口（智谷第一实验 seq17 仅列天英小学；省实/燕园/天外智谷
+    # 仅列地段；清湾/奥中智谷为校区小学部），按九年/十二年制内部直升惯例补 zhi_sheng 记录，
+    # 供小升初反推链产出 direct_feed（与越秀/海珠/黄埔直升口径统一）；
+    # 附件6 在册的汇景/华颖/南国/猎德/陶育小学部对口已由对口小学列覆盖（single_zone），不重复。
+    _TH_NINE_YEAR = (
+        # (初中显示名, 小学部生源名)；school_id 由 match_school_ids 解析（九年制同实体双学段 → 自feed）
+        ("广州市天河区智谷第一实验学校", "天河区智谷第一实验学校"),
+        ("广东实验中学天河学校", "广东实验中学天河学校"),
+        ("广州中学天河燕园学校", "广州中学天河燕园学校"),
+        ("广州市天河外国语智谷学校", "广州市天河外国语智谷学校"),
+        ("华南理工大学附属实验学校", "华南理工大学附属实验学校(小学部)"),
+        ("暨南大学附属实验学校（初中部）", "暨南大学附属实验学校"),
+        ("广州奥林匹克中学（含智谷校区）", "广州奥林匹克中学（智谷校区）小学部"),
+        ("清华附中湾区学校", "清华附中湾区学校"),
+        ("清华附中湾区学校（智慧城校区）", "清华附中湾区学校（智慧城校区）"),
+    )
+    for _school, _pri in _TH_NINE_YEAR:
+        _sid, _sids = match_school_ids(_school, "440106")
+        if not _sid and not _sids:
+            continue
+        _ny_ss = {_pri: _primary_ids(_pri, "440106")}
+        recs.append({
+            "school": _school, "school_id": _sid,
+            **({"school_ids": _sids} if _sids else {}),
+            "plan_classes": None, "scope": None,
+            # 一贯制小学部内部直升：机制 zhi_sheng（不参加电脑派位）
+            "mechanism": "zhi_sheng", "mechanism_note": None,
+            "group_members": None, "_group_primaries": [_pri],
+            # 2026-10-08（天河详情页生源小学修复）：小学部生源同步写 scope_school_ids，
+            # 使九年制初中详情页「生源小学」段可展示直升小学部。
+            **({"scope_school_ids": _ny_ss} if _ny_ss.get(_pri) else {}),
         })
     return {
         "year": 2026, "district": "天河区",
@@ -989,6 +1175,8 @@ if __name__ == "__main__":
         data = _expand_middle_texts(data, dk)
         # 特殊学校对口小学推断回填（src/inferred_feed_schools.json，仅官方 scope_school_ids 为空时）
         data = apply_inferred_feeds(data)
+        # 番禺初中对口小学小升初反推回填（2026-10-08；机制对齐，仅番禺执行）
+        data = apply_xs_reverse_primaries(data, dk)
         # 各区中间产物（统一格式，审计层）
         out = os.path.join(dist_dir, f"middle_enrollment_2026_{dk}.json")
         os.makedirs(os.path.dirname(out), exist_ok=True)

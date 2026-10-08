@@ -9,7 +9,9 @@
   data/primary/transition/parsed/xiaoshengchu_from_middle_<区>_2026.json
   data/primary/transition/parsed/xiaoshengchu_from_middle_compare_<区>_2026.json
 
-默认仅处理可直接反推的五区：越秀、荔湾、白云、海珠、黄埔。
+默认处理可反推的六区：越秀、荔湾、白云、海珠、黄埔、天河。
+（2026-10-08 天河接入：附件6 对口小学列 + 九年制小学部直升 zhi_sheng + 附件10 派位池，
+均挂载在初中直建记录 _group_primaries 上，由本脚本反推。）
 现有 dist/xiaoshengchu_<区>.json 只读，用于比较，绝不覆盖。
 """
 import argparse
@@ -22,7 +24,7 @@ from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 OUT = os.path.join(ROOT, "data", "primary", "transition", "parsed")
-DISTRICTS = ("yuexiu", "liwan", "baiyun", "haizhu", "huangpu")
+DISTRICTS = ("yuexiu", "liwan", "baiyun", "haizhu", "huangpu", "tianhe")
 # 机制枚举输出顺序（对齐初中 MECH_ORDER：zhi_sheng → single_zone → group_paidui → single_paidui → min_zi_zhu）
 XS_MECH_ORDER = ("zhi_sheng", "single_zone", "group_paidui", "single_paidui", "min_zi_zhu")
 
@@ -63,7 +65,9 @@ def to_dist_records(candidate):
             "name": r["name"],
             "group": group,
             "mechanisms": mech,
-            "feed_junior_highs": r["feed_junior_highs"],
+            # 2026-10-08（字段精简）：feed 只以机制分组形态输出（feed_junior_highs_by_mechanism），
+            # 全量扁平列表由消费方从分组并集派生，单一真源。
+            "feed_junior_highs_by_mechanism": r.get("feed_junior_highs_by_mechanism") or {},
             "direct_feed": direct[0] if direct else None,
             "source_url": r.get("source_url"),
             "source_note": r.get("source_note"),  # 审计层字段，dist 写入时剥离
@@ -173,6 +177,9 @@ def reverse_district(district, entity_names):
                 "mechanisms": [],
                 "feed_junior_highs": [],
                 "feed_school_ids_from_middle": [],
+                # 2026-10-08（天河双机制拆分）：feed 按机制分组（机制→[初中名]），
+                # 与 feed_junior_highs 同一来源去重维护；前端按机制块渲染各自 feed。
+                "feed_junior_highs_by_mechanism": {},
                 "direct_feed": [],
                 "source_url": source.get("source_url"),
                 "source_note": source.get("source"),
@@ -187,7 +194,15 @@ def reverse_district(district, entity_names):
             # 2026-10-04（修复2）：直升判定补齐 zhi_sheng 机制——此前仅认 single_zone，
             # 海珠/越秀等区 zhi_sheng 直升初中（如五中附属初级中学）被漏判、混入派位 feed、
             # direct_feed 全空（昌岗中路小学页「直升 + 电脑派位」矛盾根因）。
-            is_direct = district in {"yuexiu", "haizhu", "huangpu"} and r.get("mechanism") in ("single_zone", "zhi_sheng")
+            # 2026-10-08（天河接入）：天河九年制小学部直升（zhi_sheng）→ direct_feed，
+            # 与越秀/海珠/黄埔统一；天河单校划片（single_zone，附件6 对口）保持 feed
+            # （与白云单校划片同口径），不入 direct。
+            # 2026-10-08（荔湾统一）：荔湾协和学校小学部直升（唯一 zhi_sheng，inferred 回填）
+            # → direct_feed，与越秀/海珠/黄埔/天河一致；荔湾无 single_zone（派位组转录），
+            # 集合内包含 single_zone 仅为防御，不影响现行数据。
+            _m = r.get("mechanism")
+            is_direct = ((_m in ("single_zone", "zhi_sheng") and district in {"yuexiu", "haizhu", "huangpu", "liwan"})
+                         or (_m == "zhi_sheng" and district == "tianhe"))
             if campus_map:
                 effective = [mid for mid, names in campus_map.items()
                              if any(_same_school(nm, official_primary) for nm in names)]
@@ -198,13 +213,26 @@ def reverse_district(district, entity_names):
                 mid_name = entity_names.get(mid, r.get("school") or mid)
                 # 直升初中只进 direct_feed，不进派位 feed（feed 保持纯派位组列表）
                 if is_direct:
-                    if mid_name not in row["direct_feed"]:
-                        row["direct_feed"].append(mid_name)
+                    # 2026-10-08（奥中智谷校区小学部）：九年制小学部名含「（XX校区）」标签
+                    # （如「广州奥林匹克中学（智谷校区）小学部」「清华附中湾区学校（智慧城校区）」）
+                    # → 只归属同名校区实体（含校区标签的中学实体），不取合并记录全组合首个
+                    # （黄村西路校区）。无校区标签的小学名保持全组合（现状）。
+                    tag_m = re.search(r"[（(]([^（）()]*?校区)[）)]", official_primary)
+                    tag = tag_m.group(1) if tag_m else None
+                    tagged = [m for m in mids_for_pair
+                              if tag and tag in (entity_names.get(m) or "")]
+                    for mid in (tagged or mids_for_pair):
+                        _mn = entity_names.get(mid, r.get("school") or mid)
+                        if _mn not in row["direct_feed"]:
+                            row["direct_feed"].append(_mn)
                 else:
                     if mid_name not in row["feed_junior_highs"]:
                         row["feed_junior_highs"].append(mid_name)
                     if mid not in row["feed_school_ids_from_middle"]:
                         row["feed_school_ids_from_middle"].append(mid)
+                    _by_m = row["feed_junior_highs_by_mechanism"].setdefault(_m, [])
+                    if mid_name not in _by_m:
+                        _by_m.append(mid_name)
     records = sorted(by_primary.values(), key=lambda r: (r["name"], r["school_id"]))
     for r in records:
         r["mechanisms"] = [m for m in XS_MECH_ORDER if m in r["mechanisms"]]
@@ -235,9 +263,11 @@ def pairs_from_current(district):
     rows = json.load(open(path, encoding="utf-8"))["records"]
     resolver = XsResolver()
     resolved = [resolver.resolve_record(row) for row in rows]
+    # 2026-10-08（字段精简）：resolve_record 只输出机制分组形态，全量对并集派生
     return {(r["school_id"], mid)
             for r in resolved if r.get("school_id")
-            for mid in r.get("feed_school_ids") or []}
+            for _ids in (r.get("feed_school_ids_by_mechanism") or {}).values()
+            for mid in _ids}
 
 
 def comparison(district, candidate, entity_names):
@@ -302,6 +332,8 @@ def main():
         # 2026-09-30：反推仅覆盖官方初中转录出现的生源小学；无对口公办初中的
         # 民办/特教/新开学校（切换前 legacy 的 data_gaps 兜底记录）并入 dist，
         # 避免这些公办小学变孤儿（data_quality 孤儿清单 +14 处漂移触发）。
+        # 2026-10-08：天河切换前同样建 legacy 快照（parsed/xiaoshengchu_tianhe_legacy_2026.json），
+        # 民办/特教/待核 gap 记录由本步并入。
         # 仅并「无 feed 且有 data_gaps 说明」的记录；反推已覆盖的同名小学不重复。
         legacy_path = os.path.join(ROOT, "data", "primary", "transition", "parsed",
                                    f"xiaoshengchu_{district}_legacy_2026.json")
@@ -316,7 +348,6 @@ def main():
                     "name": r["name"],
                     "group": r.get("group") or f"{candidate['district']}不参与公办派位/待核",
                     "mechanisms": [],
-                    "feed_junior_highs": [],
                     "direct_feed": None,
                     "source_url": r.get("source_url"),
                     "source_note": r.get("source_note"),
@@ -331,7 +362,7 @@ def main():
         s = report["summary"]
         print(f"{district}: reverse {s['reverse_pairs']} / current {s['current_pairs']}; "
               f"only reverse {s['only_reverse']}, only current {s['only_current']} -> {base}")
-        print(f"  dist {len(dist_records)} 条 -> {dist_path}（五区 dist 由反推产出）")
+        print(f"  dist {len(dist_records)} 条 -> {dist_path}（六区 dist 由反推产出）")
 
 
 if __name__ == "__main__":

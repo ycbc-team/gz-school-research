@@ -2,6 +2,13 @@
  "district": "天河区",
  "records": [
   {
+   "_group_primaries": [
+    "前进小学",
+    "车陂小学",
+    "东圃小学",
+    "羊城花园小学",
+    "盈彩美居小学"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": null,
@@ -12,9 +19,33 @@
     "gz-440106-3a61d518",
     "gz-440106-ef4076c1"
    ],
-   "scope": "天河区界（莲溪村）以西，天河区界（珠江）以北，车陂路以东，中山大道中以南"
+   "scope": "天河区界（莲溪村）以西，天河区界（珠江）以北，车陂路以东，中山大道中以南",
+   "scope_school_ids": {
+    "东圃小学": [
+     "gz-440106-4d4c3ab8"
+    ],
+    "前进小学": [
+     "gz-440106-576b72fe"
+    ],
+    "盈彩美居小学": [
+     "gz-440106-39e2039f"
+    ],
+    "羊城花园小学": [
+     "gz-440106-cfa9a54a"
+    ],
+    "车陂小学": [
+     "gz-440106-93dce356"
+    ]
+   }
   },
   {
+   "_group_primaries": [
+    "华康小学",
+    "华阳小学",
+    "龙口西小学",
+    "长征小学",
+    "华师附小"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": null,
@@ -26,9 +57,42 @@
     "gz-440106-a989804b",
     "gz-440106-f7cdfb7e"
    ],
-   "scope": "华南快速干线（北起广园快速路立交，南至中山大道）以西，中山大道—天河路以北，广州大道—林和西横路—林和西路至广园东路、瘦狗岭路9号以东，广园快速路东至广园立交以南；粤垦路533号—623号（单号）等"
+   "scope": "华南快速干线（北起广园快速路立交，南至中山大道）以西，中山大道—天河路以北，广州大道—林和西横路—林和西路至广园东路、瘦狗岭路9号以东，广园快速路东至广园立交以南；粤垦路533号—623号（单号）等",
+   "scope_school_ids": {
+    "华师附小": [
+     "gz-440106-f11f4361"
+    ],
+    "华康小学": [
+     "gz-440106-4dc94b4b",
+     "gz-440106-ad7011bb"
+    ],
+    "华阳小学": [
+     "gz-440106-0b79aecf",
+     "gz-440106-155698db",
+     "gz-440106-182b1ae3",
+     "gz-440106-e591e421"
+    ],
+    "长征小学": [
+     "gz-440106-b2701f92"
+    ],
+    "龙口西小学": [
+     "gz-440106-24586ef1",
+     "gz-440106-53bc251b",
+     "gz-440106-5e40124c",
+     "gz-440106-e66204ca",
+     "gz-440106-ee85c675"
+    ]
+   }
   },
   {
+   "_group_primaries": [
+    "华景小学",
+    "天府路小学",
+    "员村小学",
+    "石东小学",
+    "昌乐小学",
+    "华融小学"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": null,
@@ -39,9 +103,41 @@
     "gz-440106-2e9f6f7b",
     "gz-440106-b049d65a"
    ],
-   "scope": "荷光路单号7号到269号转中山大道西（单号1号到293号）—天府路以西，黄埔大道以东，广园快速路以南；员村片区等"
+   "scope": "荷光路单号7号到269号转中山大道西（单号1号到293号）—天府路以西，黄埔大道以东，广园快速路以南；员村片区等",
+   "scope_school_ids": {
+    "华景小学": [
+     "gz-440106-2cd346f1",
+     "gz-440106-3f600b79"
+    ],
+    "华融小学": [
+     "gz-440106-368a8ac7"
+    ],
+    "员村小学": [
+     "gz-440106-3bf77656",
+     "gz-440106-4462c607"
+    ],
+    "天府路小学": [
+     "gz-440106-4dbb5b90",
+     "gz-440106-6dc5833a",
+     "gz-440106-ecfc1a19"
+    ],
+    "昌乐小学": [
+     "gz-440106-4eab4155",
+     "gz-440106-ba79c3ea"
+    ],
+    "石东小学": [
+     "gz-440106-6618e0e7"
+    ]
+   }
   },
   {
+   "_group_primaries": [
+    "先烈东小学",
+    "沙河小学",
+    "银河小学",
+    "四海小学",
+    "侨乐小学"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": null,
@@ -52,9 +148,39 @@
     "gz-440106-5a7fbf3a",
     "gz-440106-621b20d3"
    ],
-   "scope": "天河北路东界—林和西路以西，林和西路至广州大道中以北，水荫四横路东段转龙岗东路先烈东路转濂泉路至沙东街西界以东，兴华街北界以南；西坑一横巷等"
+   "scope": "天河北路东界—林和西路以西，林和西路至广州大道中以北，水荫四横路东段转龙岗东路先烈东路转濂泉路至沙东街西界以东，兴华街北界以南；西坑一横巷等",
+   "scope_school_ids": {
+    "侨乐小学": [
+     "gz-440106-3332b6cb",
+     "gz-440106-95cb8bc4"
+    ],
+    "先烈东小学": [
+     "gz-440106-0b7b33c7"
+    ],
+    "四海小学": [
+     "gz-440106-b6375b93"
+    ],
+    "沙河小学": [
+     "gz-440106-4efbbcb7"
+    ],
+    "银河小学": [
+     "gz-440106-952cd2e6",
+     "gz-440106-96bdd212"
+    ]
+   }
   },
   {
+   "_group_primaries": [
+    "黄村小学",
+    "珠村小学",
+    "吉山小学",
+    "新元小学",
+    "中海康城小学",
+    "旭景小学",
+    "灵秀小学",
+    "奥体东小学",
+    "体育东教育集团均和小学"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": null,
@@ -65,9 +191,47 @@
     "gz-440106-d40d0dbe",
     "gz-440106-fa9338a2"
    ],
-   "scope": "中山大道中1099号至尖塔路1号以西，中山大道中1099号转车陂路转广深铁路至科韵路以北，科韵路接新滘路以东，新塘街南界接吉岐街西界；智谷校区招生地段：广氮花园、棠安花园、天健上城、阳华国花苑、天河壹品、金地峯荟、消防总队经济适用房"
+   "scope": "中山大道中1099号至尖塔路1号以西，中山大道中1099号转车陂路转广深铁路至科韵路以北，科韵路接新滘路以东，新塘街南界接吉岐街西界；智谷校区招生地段：广氮花园、棠安花园、天健上城、阳华国花苑、天河壹品、金地峯荟、消防总队经济适用房",
+   "scope_school_ids": {
+    "中海康城小学": [
+     "gz-440106-59e89ce7"
+    ],
+    "体育东教育集团均和小学": [
+     "gz-440106-1c0a974d"
+    ],
+    "吉山小学": [
+     "gz-440106-579bdc60"
+    ],
+    "奥体东小学": [
+     "gz-440106-394a30e4"
+    ],
+    "新元小学": [
+     "gz-440106-51651124"
+    ],
+    "旭景小学": [
+     "gz-440106-404ea6c6"
+    ],
+    "灵秀小学": [
+     "gz-440106-a52ecc01"
+    ],
+    "珠村小学": [
+     "gz-440106-8224c016"
+    ],
+    "黄村小学": [
+     "gz-440106-9a67aee6"
+    ]
+   }
   },
   {
+   "_group_primaries": [
+    "体育东路小学",
+    "体育东路小学兴国学校",
+    "体育东路小学海明学校",
+    "冼村小学",
+    "天河第一实验小学",
+    "石牌小学",
+    "天河第一小学"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": null,
@@ -78,26 +242,38 @@
     "gz-440106-2f8a4424",
     "gz-440106-dd16c13e"
    ],
-   "scope": "西至体育东路—黄埔大道—广州大道，北至天河路以南230—560号（双号），东至石牌西路—黄埔大道西—马场路（单号），南至猎德街南界（包括猎心沙）"
+   "scope": "西至体育东路—黄埔大道—广州大道，北至天河路以南230—560号（双号），东至石牌西路—黄埔大道西—马场路（单号），南至猎德街南界（包括猎心沙）",
+   "scope_school_ids": {
+    "体育东路小学": [
+     "gz-440106-fafdbff4"
+    ],
+    "体育东路小学兴国学校": [
+     "gz-440106-cdfda274"
+    ],
+    "体育东路小学海明学校": [
+     "gz-440106-bd76b30f"
+    ],
+    "冼村小学": [
+     "gz-440106-f69544d1"
+    ],
+    "天河第一实验小学": [
+     "gz-440106-b69bcbc4"
+    ],
+    "天河第一小学": [
+     "gz-440106-269a9629",
+     "gz-440106-4a26a58c"
+    ],
+    "石牌小学": [
+     "gz-440106-2ab62791"
+    ]
+   }
   },
   {
-   "group_members": null,
-   "mechanism": "single_zone",
-   "mechanism_note": "剩余计划面向岗顶街道范围内公办、企事业单位配套小区及东圃快速路以北区域内公办完全小学的天河户籍毕业生（电脑派位）",
-   "plan_classes": 6,
-   "school": "广州市天河外国语学校",
-   "school_id": null,
-   "school_ids": [
-    "gz-440106-069ddb41",
-    "gz-440106-b711d94a"
-   ],
-   "scope": "合生骏景、湖雍花园"
-  },
-  {
+   "_group_primaries": null,
    "group_members": null,
    "mechanism": "single_paidui",
    "mechanism_note": null,
-   "plan_classes": 6,
+   "plan_classes": "6+10",
    "school": "广州市天河外国语学校（珠江新城校区）、广州市天河外国语学校（智慧城校区）",
    "school_id": null,
    "school_ids": [
@@ -107,6 +283,7 @@
    "scope": "广州市天河外国语学校智慧城校区：招生计划10个班、360人。其中，9个班、324人面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）；20人面向具有天河户籍、且在长湴小学就读的长湴股份合作经济联社股东直系亲属子女招生，16人面向具有天河户籍、且在岑村小学就读的岑村股份合作经济联社股东直系亲属子女招生，当报名人数不足时，剩余招生计划纳入9个班，面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。广州市天河外国语学校珠江新城校区：招生计划6个班、216人。面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。"
   },
   {
+   "_group_primaries": null,
    "group_members": null,
    "mechanism": "single_paidui",
    "mechanism_note": null,
@@ -133,6 +310,49 @@
    "scope": null
   },
   {
+   "_group_primaries": [
+    "广州奥林匹克中学（智谷校区）小学部"
+   ],
+   "group_members": null,
+   "mechanism": "zhi_sheng",
+   "mechanism_note": null,
+   "plan_classes": null,
+   "school": "广州奥林匹克中学（含智谷校区）",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-d40d0dbe",
+    "gz-440106-fa9338a2"
+   ],
+   "scope": null,
+   "scope_school_ids": {
+    "广州奥林匹克中学（智谷校区）小学部": [
+     "gz-440106-a7cac9ec"
+    ]
+   }
+  },
+  {
+   "_group_primaries": [
+    "清华附中湾区学校"
+   ],
+   "group_members": null,
+   "mechanism": "zhi_sheng",
+   "mechanism_note": null,
+   "plan_classes": null,
+   "school": "清华附中湾区学校",
+   "school_id": null,
+   "school_ids": [
+    "gz-440106-31895452",
+    "gz-440106-e32237e4"
+   ],
+   "scope": null,
+   "scope_school_ids": {
+    "清华附中湾区学校": [
+     "gz-440106-31895452",
+     "gz-440106-e32237e4"
+    ]
+   }
+  },
+  {
    "group_members": null,
    "mechanism": "min_zi_zhu",
    "mechanism_note": null,
@@ -142,6 +362,7 @@
    "scope": null
   },
   {
+   "_group_primaries": null,
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": "剩余计划面向珠吉、前进、黄村、车陂4个街道范围内公办、企事业单位配套小区的天河户籍毕业生（电脑派位）",
@@ -178,15 +399,39 @@
    "scope": null
   },
   {
+   "_group_primaries": [
+    "五山小学",
+    "五一小学",
+    "华农附小",
+    "汇景实验学校（小学部）"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": "华园校区在招收完政策保障小区地段学生外，剩余计划面向五山街公办、企事业单位办小学的天河户籍毕业生（电脑派位）",
    "plan_classes": 20,
    "school": "广州市天河区汇景实验学校",
    "school_id": "gz-440106-0d1e149e",
-   "scope": "科韵路（广园快速路立交至北环高速段）以西，广园铁路以北，东莞庄路161号—天源路—长兴路以东，五山街地界—华观路以南；原五山华院小区"
+   "scope": "科韵路（广园快速路立交至北环高速段）以西，广园铁路以北，东莞庄路161号—天源路—长兴路以东，五山街地界—华观路以南；原五山华院小区",
+   "scope_school_ids": {
+    "五一小学": [
+     "gz-440106-3bc362f9",
+     "gz-440106-8d6ca869"
+    ],
+    "五山小学": [
+     "gz-440106-73e86142",
+     "gz-440106-7548682a"
+    ],
+    "华农附小": [
+     "gz-440106-617fa509"
+    ],
+    "汇景实验学校（小学部）": [
+     "gz-440106-ed39fc64",
+     "gz-440106-efcdec9d"
+    ]
+   }
   },
   {
+   "_group_primaries": null,
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": null,
@@ -196,6 +441,29 @@
    "scope": "保利天瑞"
   },
   {
+   "_group_primaries": [
+    "岑村小学",
+    "棠东小学",
+    "沐陂小学",
+    "五山小学",
+    "员村小学",
+    "昌乐小学",
+    "棠下小学",
+    "华景小学",
+    "车陂小学",
+    "棠德南小学",
+    "泰安小学",
+    "骏景小学",
+    "华融小学",
+    "中海康城小学",
+    "天府路小学",
+    "御景小学",
+    "华南师范大学附属小学",
+    "华南农业大学附属小学",
+    "华颖外国语学校（小学部）",
+    "汇景实验学校（小学部）",
+    "华南理工大学附属实验学校（小学部）"
+   ],
    "group_members": null,
    "mechanism": "single_paidui",
    "mechanism_note": null,
@@ -216,6 +484,9 @@
     ],
     "华南师范大学附属小学": [
      "gz-440106-f11f4361"
+    ],
+    "华南理工大学附属实验学校（小学部）": [
+     "gz-440106-23f2dfc8"
     ],
     "华景小学": [
      "gz-440106-2cd346f1",
@@ -275,24 +546,50 @@
    }
   },
   {
+   "_group_primaries": [
+    "广东实验中学天河学校"
+   ],
    "group_members": null,
-   "mechanism": "single_zone",
-   "mechanism_note": "特教班1个，招收10名特殊儿童",
-   "plan_classes": "4+1（特教）",
-   "school": "广州市天河区暨南第一实验学校",
-   "school_id": "gz-440106-11e15e8d",
-   "scope": "保利棠馨花园"
+   "mechanism": "zhi_sheng",
+   "mechanism_note": null,
+   "plan_classes": null,
+   "school": "广东实验中学天河学校",
+   "school_id": "gz-440106-0eb93435",
+   "scope": null,
+   "scope_school_ids": {
+    "广东实验中学天河学校": [
+     "gz-440106-0eb93435"
+    ]
+   }
   },
   {
    "group_members": null,
    "mechanism": "min_zi_zhu",
-   "mechanism_note": null,
+   "mechanism_note": "天河细则：企事业办小学毕业生直升其毕业小学对口中学；附件7 未公布初中部招生范围（暨南大学附属实验学校 行备注列为空），以本校招生办法为准。",
    "plan_classes": 6,
    "school": "暨南大学附属实验学校（初中部）",
    "school_id": "gz-440106-11e15e8d",
    "scope": null
   },
   {
+   "_group_primaries": [
+    "暨南大学附属实验学校"
+   ],
+   "group_members": null,
+   "mechanism": "zhi_sheng",
+   "mechanism_note": null,
+   "plan_classes": null,
+   "school": "暨南大学附属实验学校（初中部）",
+   "school_id": "gz-440106-11e15e8d",
+   "scope": null,
+   "scope_school_ids": {
+    "暨南大学附属实验学校": [
+     "gz-440106-05ed1da2"
+    ]
+   }
+  },
+  {
+   "_group_primaries": null,
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": "剩余计划面向兴华、沙东、沙河、元岗4个街道范围内公办、企事业单位配套小区的天河户籍跨地段生、返区生（电脑派位）",
@@ -300,6 +597,23 @@
    "school": "广州中学天河燕园学校",
    "school_id": "gz-440106-15ca1554",
    "scope": "恒越花园、雅序苑"
+  },
+  {
+   "_group_primaries": [
+    "广州中学天河燕园学校"
+   ],
+   "group_members": null,
+   "mechanism": "zhi_sheng",
+   "mechanism_note": null,
+   "plan_classes": null,
+   "school": "广州中学天河燕园学校",
+   "school_id": "gz-440106-15ca1554",
+   "scope": null,
+   "scope_school_ids": {
+    "广州中学天河燕园学校": [
+     "gz-440106-15ca1554"
+    ]
+   }
   },
   {
    "group_members": null,
@@ -311,22 +625,75 @@
    "scope": null
   },
   {
+   "_group_primaries": [
+    "棠德南小学",
+    "泰安小学",
+    "棠东小学",
+    "新塘小学",
+    "沐陂小学",
+    "凌塘小学"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": null,
    "plan_classes": 10,
    "school": "广州市泰安中学",
    "school_id": "gz-440106-22156e02",
-   "scope": "车陂路（单号）以西，中山大道西（单号）以北，光华路（双号）以东，广深铁路以南"
+   "scope": "车陂路（单号）以西，中山大道西（单号）以北，光华路（双号）以东，广深铁路以南",
+   "scope_school_ids": {
+    "凌塘小学": [
+     "gz-440106-0cf43f53"
+    ],
+    "新塘小学": [
+     "gz-440106-049702a3"
+    ],
+    "棠东小学": [
+     "gz-440106-f56704cf"
+    ],
+    "棠德南小学": [
+     "gz-440106-8755820f",
+     "gz-440106-997cb2e4"
+    ],
+    "沐陂小学": [
+     "gz-440106-c351d016"
+    ],
+    "泰安小学": [
+     "gz-440106-b7efb60d"
+    ]
+   }
   },
   {
+   "_group_primaries": [
+    "灵秀小学",
+    "奥体东小学",
+    "吉山小学",
+    "珠村小学",
+    "体育东教育集团均和小学"
+   ],
    "group_members": null,
    "mechanism": "single_paidui",
    "mechanism_note": null,
    "plan_classes": 10,
    "school": "广州市执信中学天河校区",
    "school_id": "gz-440106-22fcbcd6",
-   "scope": "广州市执信中学天河校区：总招生计划10个班、420人。其中，3个班招生计划面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）；7个班招生计划面向珠吉街范围内的灵秀小学、奥体东小学、吉山小学、珠村小学、体育东教育集团均和小学等公办小学地段范围内“人户一致”的天河区学籍小学毕业生招生，当报名人数不足时，剩余招生计划面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。"
+   "scope": "广州市执信中学天河校区：总招生计划10个班、420人。其中，3个班招生计划面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）；7个班招生计划面向珠吉街范围内的灵秀小学、奥体东小学、吉山小学、珠村小学、体育东教育集团均和小学等公办小学地段范围内“人户一致”的天河区学籍小学毕业生招生，当报名人数不足时，剩余招生计划面向天河区穗籍小学毕业生招生（含符合条件的广州市政策性照顾学生、返区生）。",
+   "scope_school_ids": {
+    "体育东教育集团均和小学": [
+     "gz-440106-1c0a974d"
+    ],
+    "吉山小学": [
+     "gz-440106-579bdc60"
+    ],
+    "奥体东小学": [
+     "gz-440106-394a30e4"
+    ],
+    "灵秀小学": [
+     "gz-440106-a52ecc01"
+    ],
+    "珠村小学": [
+     "gz-440106-8224c016"
+    ]
+   }
   },
   {
    "group_members": null,
@@ -345,6 +712,26 @@
    "school": "广州市天河区东风学校",
    "school_id": "gz-440106-24ff78f9",
    "scope": null
+  },
+  {
+   "_group_primaries": [
+    "清华附中湾区学校（智慧城校区）"
+   ],
+   "group_members": null,
+   "mechanism": "zhi_sheng",
+   "mechanism_note": null,
+   "plan_classes": null,
+   "school": "清华附中湾区学校（智慧城校区）",
+   "school_id": "gz-440106-31895452",
+   "school_ids": [
+    "gz-440106-e32237e4"
+   ],
+   "scope": null,
+   "scope_school_ids": {
+    "清华附中湾区学校（智慧城校区）": [
+     "gz-440106-31895452"
+    ]
+   }
   },
   {
    "group_members": null,
@@ -383,13 +770,42 @@
    "scope": null
   },
   {
+   "_group_primaries": [
+    "元岗小学",
+    "长湴小学",
+    "岑村小学",
+    "长兴小学",
+    "御景小学",
+    "志远小学"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": null,
    "plan_classes": 8,
    "school": "广州市长兴中学",
    "school_id": "gz-440106-7077b270",
-   "scope": "长兴街东界以西，长兴街南界以北，元岗街西界以东，元岗街北界接长兴街北界以南"
+   "scope": "长兴街东界以西，长兴街南界以北，元岗街西界以东，元岗街北界接长兴街北界以南",
+   "scope_school_ids": {
+    "元岗小学": [
+     "gz-440106-6cc686a8",
+     "gz-440106-a38b3c64"
+    ],
+    "岑村小学": [
+     "gz-440106-bee8ea7b"
+    ],
+    "御景小学": [
+     "gz-440106-78aa2e37"
+    ],
+    "志远小学": [
+     "gz-440106-d85cc235"
+    ],
+    "长兴小学": [
+     "gz-440106-3bbeefd0"
+    ],
+    "长湴小学": [
+     "gz-440106-39c57599"
+    ]
+   }
   },
   {
    "group_members": null,
@@ -419,40 +835,99 @@
    "scope": null
   },
   {
+   "_group_primaries": [
+    "一一三中学陶育实验学校（小学部）",
+    "石牌小学"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": "含港澳子弟45人招生计划",
    "plan_classes": 4,
    "school": "广州市第一一三中学陶育实验学校",
    "school_id": "gz-440106-7c81ab92",
-   "scope": "华南快速干线以西，天河路—中山大道以南，黄埔大道以北，石牌西路以东"
+   "scope": "华南快速干线以西，天河路—中山大道以南，黄埔大道以北，石牌西路以东",
+   "scope_school_ids": {
+    "一一三中学陶育实验学校（小学部）": [
+     "gz-440106-35cad4e6"
+    ],
+    "石牌小学": [
+     "gz-440106-2ab62791"
+    ]
+   }
   },
   {
+   "_group_primaries": [
+    "天河中学猎德实验学校（小学部）"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": "特教班1个，招收5名特殊儿童，优先招收本校小学特教班毕业生",
    "plan_classes": "4+1（特教）",
    "school": "广州市天河中学猎德实验学校",
    "school_id": "gz-440106-8b3ee7d2",
-   "scope": "海清路以西，临江大道以北，猎德路以东，海明路以南"
+   "scope": "海清路以西，临江大道以北，猎德路以东，海明路以南",
+   "scope_school_ids": {
+    "天河中学猎德实验学校（小学部）": [
+     "gz-440106-8b3ee7d2"
+    ]
+   }
   },
   {
+   "_group_primaries": [
+    "渔沙坦小学",
+    "龙洞小学",
+    "高塘石小学",
+    "柯木塱小学",
+    "广东生态工程职业学院附属小学"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": null,
    "plan_classes": 18,
    "school": "广州市第89中学",
    "school_id": "gz-440106-8f55ab34",
-   "scope": "凤凰街东界—凤凰街南界—龙洞街南界—龙洞街西界—龙洞街北界—凤凰街北界"
+   "scope": "凤凰街东界—凤凰街南界—龙洞街南界—龙洞街西界—龙洞街北界—凤凰街北界",
+   "scope_school_ids": {
+    "广东生态工程职业学院附属小学": [
+     "gz-440106-8a39842a"
+    ],
+    "柯木塱小学": [
+     "gz-440106-5be25e1e"
+    ],
+    "渔沙坦小学": [
+     "gz-440106-85c4ddcd"
+    ],
+    "高塘石小学": [
+     "gz-440106-ed929fc7"
+    ],
+    "龙洞小学": [
+     "gz-440106-2a11e3df",
+     "gz-440106-a1517ba5",
+     "gz-440106-a56ce4ac"
+    ]
+   }
   },
   {
+   "_group_primaries": [
+    "龙岗路小学",
+    "体育西路小学"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": null,
    "plan_classes": 8,
    "school": "广州市天荣中学",
    "school_id": "gz-440106-90c47ff5",
-   "scope": "广州大道以东，天河路以南，天河东路（单号）以西，黄埔大道西以北；水福路—豪景苑—先烈东路—龙岗路—水荫四横路东段—广州大道中—水荫横路—水荫路环形范围以内"
+   "scope": "广州大道以东，天河路以南，天河东路（单号）以西，黄埔大道西以北；水福路—豪景苑—先烈东路—龙岗路—水荫四横路东段—广州大道中—水荫横路—水荫路环形范围以内",
+   "scope_school_ids": {
+    "体育西路小学": [
+     "gz-440106-d343b055",
+     "gz-440106-fee58b73"
+    ],
+    "龙岗路小学": [
+     "gz-440106-ac6650f4"
+    ]
+   }
   },
   {
    "group_members": null,
@@ -466,13 +941,60 @@
   {
    "group_members": null,
    "mechanism": "min_zi_zhu",
-   "mechanism_note": null,
+   "mechanism_note": "天河细则：企事业办小学毕业生直升其毕业小学对口中学；附件7 未公布初中部招生范围（华南理工大学附属实验学校 行备注列为空），以本校招生办法为准。",
    "plan_classes": 4,
    "school": "华南理工大学附属实验学校",
    "school_id": "gz-440106-9bed7efb",
    "scope": null
   },
   {
+   "_group_primaries": [
+    "华南理工大学附属实验学校(小学部)"
+   ],
+   "group_members": null,
+   "mechanism": "zhi_sheng",
+   "mechanism_note": null,
+   "plan_classes": null,
+   "school": "华南理工大学附属实验学校",
+   "school_id": "gz-440106-9bed7efb",
+   "scope": null,
+   "scope_school_ids": {
+    "华南理工大学附属实验学校(小学部)": [
+     "gz-440106-23f2dfc8"
+    ]
+   }
+  },
+  {
+   "_group_primaries": [
+    "华景小学",
+    "天府路小学",
+    "南国学校（小学部）",
+    "体育东路小学",
+    "体育东路小学海明学校",
+    "体育东路小学兴国学校",
+    "石牌小学",
+    "汇景实验学校（小学部）",
+    "华康小学",
+    "龙口西小学",
+    "员村小学",
+    "昌乐小学",
+    "五山小学",
+    "体育西路小学",
+    "华阳小学",
+    "天河区第一实验小学",
+    "华融小学",
+    "五一小学",
+    "华颖外国语学校（小学部）",
+    "天河中学猎德实验学校（小学部）",
+    "一一三中学陶育实验学校（小学部）",
+    "冼村小学",
+    "华南农业大学附属小学",
+    "华南师范大学附属小学",
+    "长征小学",
+    "天河第一小学",
+    "华南理工大学附属实验学校（小学部）",
+    "暨南大学附属实验学校（小学部）"
+   ],
    "group_members": null,
    "mechanism": "single_paidui",
    "mechanism_note": null,
@@ -500,6 +1022,10 @@
     ],
     "体育东路小学海明学校": [
      "gz-440106-bd76b30f"
+    ],
+    "体育西路小学": [
+     "gz-440106-d343b055",
+     "gz-440106-fee58b73"
     ],
     "冼村小学": [
      "gz-440106-f69544d1"
@@ -559,6 +1085,9 @@
      "gz-440106-4eab4155",
      "gz-440106-ba79c3ea"
     ],
+    "暨南大学附属实验学校（小学部）": [
+     "gz-440106-05ed1da2"
+    ],
     "汇景实验学校（小学部）": [
      "gz-440106-ed39fc64",
      "gz-440106-efcdec9d"
@@ -588,22 +1117,42 @@
    "scope": null
   },
   {
+   "_group_primaries": [
+    "南国学校（小学部）"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": "含港澳子弟45人招生计划",
    "plan_classes": 4,
    "school": "广州市南国学校",
    "school_id": "gz-440106-b0d40cc4",
-   "scope": "潭村路—平江路以西，临江大道以北，马场路以东，黄埔大道以南"
+   "scope": "潭村路—平江路以西，临江大道以北，马场路以东，黄埔大道以南",
+   "scope_school_ids": {
+    "南国学校（小学部）": [
+     "gz-440106-a64c6e57"
+    ]
+   }
   },
   {
+   "_group_primaries": [
+    "棠下小学",
+    "骏景小学"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": null,
    "plan_classes": 8,
    "school": "广州市骏景中学",
    "school_id": "gz-440106-b7d476f7",
-   "scope": "车陂路（中山大道路口至珠江段）以西，珠江至村五骏景路转黄埔大道至科韵路口以北，科韵路以东，中山大道1110号车陂路399号以南"
+   "scope": "车陂路（中山大道路口至珠江段）以西，珠江至村五骏景路转黄埔大道至科韵路口以北，科韵路以东，中山大道1110号车陂路399号以南",
+   "scope_school_ids": {
+    "棠下小学": [
+     "gz-440106-34cffe8f"
+    ],
+    "骏景小学": [
+     "gz-440106-4ca3816f"
+    ]
+   }
   },
   {
    "group_members": null,
@@ -642,33 +1191,124 @@
    "scope": null
   },
   {
+   "_group_primaries": null,
    "group_members": null,
-   "mechanism": "no_plan",
-   "mechanism_note": "2026 年官方初中招生计划未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
+   "mechanism": "single_zone",
+   "mechanism_note": "在招收完合生缦云、湖樾花园小区地段学生外，剩余计划面向环城高速以东、沈海高速以南、天河区东届线以西、广园快速路以北区域内公办完全小学的天河户籍毕业生招生。由学生自主报名，若报名人数大于招生计划数，则以电脑派位方式产生录取结果。",
+   "plan_classes": 6,
+   "school": "广州市天河外国语智谷学校",
+   "school_id": "gz-440106-d042314d",
+   "scope": "合生缦云、湖樾花园"
+  },
+  {
+   "_group_primaries": [
+    "广州市天河外国语智谷学校"
+   ],
+   "group_members": null,
+   "mechanism": "zhi_sheng",
+   "mechanism_note": null,
    "plan_classes": null,
    "school": "广州市天河外国语智谷学校",
    "school_id": "gz-440106-d042314d",
-   "scope": null
+   "scope": null,
+   "scope_school_ids": {
+    "广州市天河外国语智谷学校": [
+     "gz-440106-d042314d"
+    ]
+   }
   },
   {
+   "_group_primaries": [
+    "天英小学"
+   ],
    "group_members": null,
-   "mechanism": "no_plan",
-   "mechanism_note": "2026 年官方初中招生计划未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
-   "plan_classes": null,
-   "school": "天河区智谷第一实验学校",
+   "mechanism": "single_zone",
+   "mechanism_note": "特教班1个，招收10名特殊儿童",
+   "plan_classes": "4+1（特教）",
+   "school": "广州市天河区智谷第一实验学校",
    "school_id": "gz-440106-d311ea50",
-   "scope": null
+   "scope": "保利棠馨花园",
+   "scope_school_ids": {
+    "天英小学": [
+     "gz-440106-012cd2c9"
+    ]
+   }
   },
   {
+   "_group_primaries": [
+    "天河区智谷第一实验学校"
+   ],
+   "group_members": null,
+   "mechanism": "zhi_sheng",
+   "mechanism_note": null,
+   "plan_classes": null,
+   "school": "广州市天河区智谷第一实验学校",
+   "school_id": "gz-440106-d311ea50",
+   "scope": null,
+   "scope_school_ids": {
+    "天河区智谷第一实验学校": [
+     "gz-440106-d311ea50"
+    ]
+   }
+  },
+  {
+   "_group_primaries": [
+    "华颖外国语学校（小学部）"
+   ],
    "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": null,
    "plan_classes": 4,
    "school": "广州市华颖外国语学校",
    "school_id": "gz-440106-dab5b807",
-   "scope": "员村二横路员村西街转员村南街以西，珠江以北，潭村路—平江路以东，黄埔大道以南"
+   "scope": "员村二横路员村西街转员村南街以西，珠江以北，潭村路—平江路以东，黄埔大道以南",
+   "scope_school_ids": {
+    "华颖外国语学校（小学部）": [
+     "gz-440106-dab5b807"
+    ]
+   }
   },
   {
+   "_group_primaries": [
+    "汇景实验学校（小学部）",
+    "南国学校（小学部）",
+    "天河中学猎德实验学校（小学部）",
+    "一一三中学陶育实验学校（小学部）",
+    "棠东小学",
+    "体育东路小学",
+    "体育东路小学海明学校",
+    "体育东路小学兴国学校",
+    "体育西路小学",
+    "石牌小学",
+    "华阳小学",
+    "五山小学",
+    "员村小学",
+    "昌乐小学",
+    "棠下小学",
+    "石东小学",
+    "华康小学",
+    "华景小学",
+    "龙口西小学",
+    "东圃小学",
+    "车陂小学",
+    "棠德南小学",
+    "天河区第一实验小学",
+    "泰安小学",
+    "骏景小学",
+    "冼村小学",
+    "新元小学",
+    "华融小学",
+    "中海康城小学",
+    "旭景小学",
+    "天府路小学",
+    "五一小学",
+    "天河第一小学",
+    "华南师范大学附属小学",
+    "华南农业大学附属小学",
+    "长征小学",
+    "华南理工大学附属实验学校（小学部）",
+    "暨南大学附属实验学校（小学部）"
+   ],
    "group_members": null,
    "mechanism": "single_paidui",
    "mechanism_note": null,
@@ -767,6 +1407,9 @@
     "昌乐小学": [
      "gz-440106-4eab4155",
      "gz-440106-ba79c3ea"
+    ],
+    "暨南大学附属实验学校（小学部）": [
+     "gz-440106-05ed1da2"
     ],
     "棠下小学": [
      "gz-440106-34cffe8f"

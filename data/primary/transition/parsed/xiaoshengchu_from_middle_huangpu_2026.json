@@ -8,6 +8,7 @@
         "广大附中高新区实验学校(初中部)"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -26,6 +27,7 @@
         "广州市黄埔区玉岩实验学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -44,6 +46,7 @@
         "玉泉学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -68,6 +71,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -96,6 +110,13 @@
         "广州市黄埔区新港中学",
         "广州市黄埔区东区中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州开发区外国语学校",
+          "广州市黄埔区新港中学",
+          "广州市黄埔区东区中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-9d315f50",
         "gz-440112-632bcdb7",
@@ -119,6 +140,12 @@
         "广州市第一一七中学",
         "广州市黄埔军校中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一七中学",
+          "广州市黄埔军校中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-4d96554f",
         "gz-440112-b5b864ba"
@@ -142,6 +169,13 @@
         "广铁一中铁英中学",
         "广州开元学校"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "华峰学校",
+          "广铁一中铁英中学",
+          "广州开元学校"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0aa66950",
         "gz-440112-c80ac6ac",
@@ -164,6 +198,7 @@
         "广州市黄埔区玉岩实验学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -188,6 +223,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -215,6 +261,7 @@
         "广铁一中铁铮学校(东校区)"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -234,6 +281,12 @@
         "广州市第一一七中学",
         "广州市黄埔军校中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一七中学",
+          "广州市黄埔军校中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-4d96554f",
         "gz-440112-b5b864ba"
@@ -261,6 +314,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -287,6 +351,7 @@
         "黄埔军校纪念中学"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -305,6 +370,7 @@
         "玉泉学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -323,6 +389,7 @@
         "玉泉学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -347,6 +414,17 @@
         "广州市黄埔区苏元学校(西校区)",
         "玉岩中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州科学城中学",
+          "广东省教育研究院黄埔实验学校（北校区）",
+          "广东省教育研究院黄埔实验学校初中部",
+          "北京师范大学广州实验学校",
+          "广铁一中铁英中学",
+          "广州市黄埔区苏元学校(西校区)",
+          "玉岩中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-8b4292d7",
         "gz-440112-22ec4fcc",
@@ -379,6 +457,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -407,6 +496,13 @@
         "广州实验中学",
         "华南师范大学附属中学(知识城校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市黄埔区会元学校",
+          "广州实验中学",
+          "华南师范大学附属中学(知识城校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-e3190fa2",
         "gz-440112-87f27cf4",
@@ -431,6 +527,13 @@
         "广州市黄埔区新港中学",
         "广州市黄埔区东区中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州开发区外国语学校",
+          "广州市黄埔区新港中学",
+          "广州市黄埔区东区中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-9d315f50",
         "gz-440112-632bcdb7",
@@ -459,6 +562,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -485,6 +599,7 @@
         "黄埔军校纪念中学"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -503,6 +618,7 @@
         "广州市黄埔区玉岩实验学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -523,6 +639,13 @@
         "广州市黄埔区新港中学",
         "广州市黄埔区东区中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州开发区外国语学校",
+          "广州市黄埔区新港中学",
+          "广州市黄埔区东区中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-9d315f50",
         "gz-440112-632bcdb7",
@@ -547,6 +670,13 @@
         "广州市黄埔区新港中学",
         "广州市黄埔区东区中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州开发区外国语学校",
+          "广州市黄埔区新港中学",
+          "广州市黄埔区东区中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-9d315f50",
         "gz-440112-632bcdb7",
@@ -575,6 +705,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -601,6 +742,7 @@
         "广州市黄埔区玉岩实验学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -619,6 +761,7 @@
         "湖南师范大学附属黄埔实验学校北校区"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -637,6 +780,7 @@
         "广州市黄埔区玉岩实验学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -661,6 +805,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -689,6 +844,13 @@
         "广州实验中学",
         "华南师范大学附属中学(知识城校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市黄埔区会元学校",
+          "广州实验中学",
+          "华南师范大学附属中学(知识城校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-e3190fa2",
         "gz-440112-87f27cf4",
@@ -712,6 +874,12 @@
         "广州市第一一七中学",
         "广州市黄埔军校中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一七中学",
+          "广州市黄埔军校中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-4d96554f",
         "gz-440112-b5b864ba"
@@ -739,6 +907,17 @@
         "广州市黄埔区苏元学校(西校区)",
         "玉岩中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州科学城中学",
+          "广东省教育研究院黄埔实验学校（北校区）",
+          "广东省教育研究院黄埔实验学校初中部",
+          "北京师范大学广州实验学校",
+          "广铁一中铁英中学",
+          "广州市黄埔区苏元学校(西校区)",
+          "玉岩中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-8b4292d7",
         "gz-440112-22ec4fcc",
@@ -766,6 +945,12 @@
         "广州市第一一七中学",
         "广州市黄埔军校中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一七中学",
+          "广州市黄埔军校中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-4d96554f",
         "gz-440112-b5b864ba"
@@ -789,6 +974,7 @@
         "广州知识城中学(南校区)"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -807,6 +993,7 @@
         "广州开元学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -825,6 +1012,7 @@
         "广州市黄埔区玉岩实验学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -843,6 +1031,7 @@
         "广州市黄埔区玉岩实验学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -861,6 +1050,7 @@
         "广州开发区中学"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -881,6 +1071,13 @@
         "广铁一中铁英中学",
         "广州开元学校"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "华峰学校",
+          "广铁一中铁英中学",
+          "广州开元学校"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0aa66950",
         "gz-440112-c80ac6ac",
@@ -903,6 +1100,7 @@
         "广大附中黄埔实验学校(东校区)"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -927,6 +1125,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -959,6 +1168,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -985,6 +1205,7 @@
         "广大附中高新区实验学校(初中部)"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -1009,6 +1230,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -1041,6 +1273,17 @@
         "广州市黄埔区苏元学校(西校区)",
         "玉岩中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州科学城中学",
+          "广东省教育研究院黄埔实验学校（北校区）",
+          "广东省教育研究院黄埔实验学校初中部",
+          "北京师范大学广州实验学校",
+          "广铁一中铁英中学",
+          "广州市黄埔区苏元学校(西校区)",
+          "玉岩中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-8b4292d7",
         "gz-440112-22ec4fcc",
@@ -1069,6 +1312,13 @@
         "广州实验中学",
         "华南师范大学附属中学(知识城校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市黄埔区会元学校",
+          "广州实验中学",
+          "华南师范大学附属中学(知识城校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-e3190fa2",
         "gz-440112-87f27cf4",
@@ -1097,6 +1347,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -1123,6 +1384,7 @@
         "华南师范大学附属黄埔实验学校(南校区)"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -1147,6 +1409,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -1181,6 +1454,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -1214,6 +1498,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -1242,6 +1537,13 @@
         "广州市黄埔区新港中学",
         "广州市黄埔区东区中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州开发区外国语学校",
+          "广州市黄埔区新港中学",
+          "广州市黄埔区东区中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-9d315f50",
         "gz-440112-632bcdb7",
@@ -1267,6 +1569,14 @@
         "广州市黄埔区苏元学校(西校区)",
         "玉岩中学附属开发区实验学校"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "北京师范大学广州实验学校",
+          "广铁一中铁英中学",
+          "广州市黄埔区苏元学校(西校区)",
+          "玉岩中学附属开发区实验学校"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-8bbf8f06",
         "gz-440112-c80ac6ac",
@@ -1290,6 +1600,7 @@
         "广州市黄埔区玉岩实验学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -1310,6 +1621,13 @@
         "广州实验中学",
         "华南师范大学附属中学(知识城校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市黄埔区会元学校",
+          "广州实验中学",
+          "华南师范大学附属中学(知识城校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-e3190fa2",
         "gz-440112-87f27cf4",
@@ -1334,6 +1652,13 @@
         "广铁一中铁英中学",
         "广州开元学校"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "华峰学校",
+          "广铁一中铁英中学",
+          "广州开元学校"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0aa66950",
         "gz-440112-c80ac6ac",
@@ -1356,6 +1681,7 @@
         "玉泉学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -1376,6 +1702,13 @@
         "广州市黄埔区新港中学",
         "广州市黄埔区东区中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州开发区外国语学校",
+          "广州市黄埔区新港中学",
+          "广州市黄埔区东区中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-9d315f50",
         "gz-440112-632bcdb7",
@@ -1404,6 +1737,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -1432,6 +1776,13 @@
         "广铁一中铁英中学",
         "广州开元学校"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "华峰学校",
+          "广铁一中铁英中学",
+          "广州开元学校"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0aa66950",
         "gz-440112-c80ac6ac",
@@ -1460,6 +1811,17 @@
         "广州市黄埔区苏元学校(西校区)",
         "玉岩中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州科学城中学",
+          "广东省教育研究院黄埔实验学校（北校区）",
+          "广东省教育研究院黄埔实验学校初中部",
+          "北京师范大学广州实验学校",
+          "广铁一中铁英中学",
+          "广州市黄埔区苏元学校(西校区)",
+          "玉岩中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-8b4292d7",
         "gz-440112-22ec4fcc",
@@ -1489,6 +1851,14 @@
         "广州市黄埔区苏元学校(西校区)",
         "玉岩中学附属开发区实验学校"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "北京师范大学广州实验学校",
+          "广铁一中铁英中学",
+          "广州市黄埔区苏元学校(西校区)",
+          "玉岩中学附属开发区实验学校"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-8bbf8f06",
         "gz-440112-c80ac6ac",
@@ -1512,6 +1882,7 @@
         "玉泉学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -1531,6 +1902,12 @@
         "广州市第一一七中学",
         "广州市黄埔军校中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一七中学",
+          "广州市黄埔军校中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-4d96554f",
         "gz-440112-b5b864ba"
@@ -1554,6 +1931,13 @@
         "广州实验中学",
         "华南师范大学附属中学(知识城校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市黄埔区会元学校",
+          "广州实验中学",
+          "华南师范大学附属中学(知识城校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-e3190fa2",
         "gz-440112-87f27cf4",
@@ -1578,6 +1962,13 @@
         "广州实验中学",
         "华南师范大学附属中学(知识城校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市黄埔区会元学校",
+          "广州实验中学",
+          "华南师范大学附属中学(知识城校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-e3190fa2",
         "gz-440112-87f27cf4",
@@ -1600,6 +1991,7 @@
         "广大附中黄埔实验学校(西校区)"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -1620,6 +2012,13 @@
         "广州市黄埔区新港中学",
         "广州市黄埔区东区中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州开发区外国语学校",
+          "广州市黄埔区新港中学",
+          "广州市黄埔区东区中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-9d315f50",
         "gz-440112-632bcdb7",
@@ -1648,6 +2047,17 @@
         "广大附中黄埔实验学校(东校区)",
         "广州市黄埔区丰乐初级中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第八十六中学",
+          "广州市第八十六中学初中部",
+          "广州市第一二三中学",
+          "港湾中学",
+          "广州石化中学",
+          "广大附中黄埔实验学校(东校区)",
+          "广州市黄埔区丰乐初级中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0cb5a402",
         "gz-440112-43108516",
@@ -1674,6 +2084,7 @@
         "广州市黄埔区玉岩实验学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -1694,6 +2105,13 @@
         "广州市黄埔区新港中学",
         "广州市黄埔区东区中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州开发区外国语学校",
+          "广州市黄埔区新港中学",
+          "广州市黄埔区东区中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-9d315f50",
         "gz-440112-632bcdb7",
@@ -1722,6 +2140,17 @@
         "广州市黄埔区苏元学校(西校区)",
         "玉岩中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州科学城中学",
+          "广东省教育研究院黄埔实验学校（北校区）",
+          "广东省教育研究院黄埔实验学校初中部",
+          "北京师范大学广州实验学校",
+          "广铁一中铁英中学",
+          "广州市黄埔区苏元学校(西校区)",
+          "玉岩中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-8b4292d7",
         "gz-440112-22ec4fcc",
@@ -1748,6 +2177,7 @@
         "双沙中学"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -1766,6 +2196,7 @@
         "广州市黄埔军校纪念中学(北校区)"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -1790,6 +2221,17 @@
         "广州市黄埔区苏元学校(西校区)",
         "玉岩中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州科学城中学",
+          "广东省教育研究院黄埔实验学校（北校区）",
+          "广东省教育研究院黄埔实验学校初中部",
+          "北京师范大学广州实验学校",
+          "广铁一中铁英中学",
+          "广州市黄埔区苏元学校(西校区)",
+          "玉岩中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-8b4292d7",
         "gz-440112-22ec4fcc",
@@ -1816,6 +2258,7 @@
         "广州市黄埔区玉岩实验学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -1835,6 +2278,12 @@
         "广州市第一一七中学",
         "广州市黄埔军校中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一七中学",
+          "广州市黄埔军校中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-4d96554f",
         "gz-440112-b5b864ba"
@@ -1859,6 +2308,14 @@
         "广州市黄埔区苏元学校(西校区)",
         "玉岩中学附属开发区实验学校"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "北京师范大学广州实验学校",
+          "广铁一中铁英中学",
+          "广州市黄埔区苏元学校(西校区)",
+          "玉岩中学附属开发区实验学校"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-8bbf8f06",
         "gz-440112-c80ac6ac",
@@ -1888,6 +2345,17 @@
         "广州市黄埔区苏元学校(西校区)",
         "玉岩中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州科学城中学",
+          "广东省教育研究院黄埔实验学校（北校区）",
+          "广东省教育研究院黄埔实验学校初中部",
+          "北京师范大学广州实验学校",
+          "广铁一中铁英中学",
+          "广州市黄埔区苏元学校(西校区)",
+          "玉岩中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-8b4292d7",
         "gz-440112-22ec4fcc",
@@ -1916,6 +2384,7 @@
         "广州知识城中学(南校区)"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -1937,6 +2406,14 @@
         "广州市黄埔区苏元学校(西校区)",
         "玉岩中学附属开发区实验学校"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "北京师范大学广州实验学校",
+          "广铁一中铁英中学",
+          "广州市黄埔区苏元学校(西校区)",
+          "玉岩中学附属开发区实验学校"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-8bbf8f06",
         "gz-440112-c80ac6ac",
@@ -1962,6 +2439,7 @@
         "广州知识城中学(南校区)"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -1980,6 +2458,7 @@
         "玉泉学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -1998,6 +2477,7 @@
         "广东外语外贸大学附属黄埔实验学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -2017,6 +2497,12 @@
         "广州市第一一七中学",
         "广州市黄埔军校中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一七中学",
+          "广州市黄埔军校中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-4d96554f",
         "gz-440112-b5b864ba"
@@ -2038,6 +2524,7 @@
         "广州市黄埔区玉岩实验学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -2058,6 +2545,7 @@
         "广州知识城中学(南校区)"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -2082,6 +2570,17 @@
         "广州市黄埔区苏元学校(西校区)",
         "玉岩中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州科学城中学",
+          "广东省教育研究院黄埔实验学校（北校区）",
+          "广东省教育研究院黄埔实验学校初中部",
+          "北京师范大学广州实验学校",
+          "广铁一中铁英中学",
+          "广州市黄埔区苏元学校(西校区)",
+          "玉岩中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-8b4292d7",
         "gz-440112-22ec4fcc",
@@ -2108,6 +2607,7 @@
         "广东外语外贸大学附属科学城实验学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -2126,6 +2626,7 @@
         "广州开发区中学"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -2144,6 +2645,7 @@
         "广州市黄埔区会元学校"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -2164,6 +2666,13 @@
         "广州实验中学",
         "华南师范大学附属中学(知识城校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市黄埔区会元学校",
+          "广州实验中学",
+          "华南师范大学附属中学(知识城校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-e3190fa2",
         "gz-440112-87f27cf4",
@@ -2188,6 +2697,13 @@
         "广铁一中铁英中学",
         "广州开元学校"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "华峰学校",
+          "广铁一中铁英中学",
+          "广州开元学校"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-0aa66950",
         "gz-440112-c80ac6ac",
@@ -2212,6 +2728,13 @@
         "广州市黄埔区新港中学",
         "广州市黄埔区东区中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州开发区外国语学校",
+          "广州市黄埔区新港中学",
+          "广州市黄埔区东区中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440112-9d315f50",
         "gz-440112-632bcdb7",
@@ -2234,6 +2757,7 @@
         "黄埔军校纪念中学"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
@@ -2254,6 +2778,7 @@
         "广州知识城中学(南校区)"
       ],
       "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
       "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"

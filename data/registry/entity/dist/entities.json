@@ -803,7 +803,9 @@
       "stage": "primary"
     },
     {
-      "aliases": [],
+      "aliases": [
+        "华农附小"
+      ],
       "name": "华南农业大学附属小学",
       "school_id": "gz-440106-617fa509",
       "stage": "primary"
@@ -815,7 +817,9 @@
       "stage": "primary"
     },
     {
-      "aliases": [],
+      "aliases": [
+        "华师附小"
+      ],
       "name": "华南师范大学附属小学",
       "school_id": "gz-440106-f11f4361",
       "stage": "primary"

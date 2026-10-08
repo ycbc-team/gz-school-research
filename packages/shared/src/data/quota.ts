@@ -235,10 +235,11 @@ export function createQuotaApi(loaders: DataLoaders) {
   }
   type FactRec = {
     school_id: string; group_id: number;
-    feed_school_ids: string[]; feed_unresolved: string[];
     direct_feed_school_id: string | null;
     source_note?: string; data_gaps?: string | null;
     mechanism?: string[];
+    feed_school_ids_by_mechanism?: Record<string, string[]>;
+    feed_unresolved_by_mechanism?: Record<string, string[]>;
   };
   const xsGroups = loaders.xiaoshengchu.groups;
   const groupsById = new Map(xsGroups.map((g) => [g.id, g]));
@@ -283,14 +284,25 @@ export function createQuotaApi(loaders: DataLoaders) {
 
   /** 把事实 record 适配成页面在用的旧形状（feed_junior_highs: 字符串数组） */
   function shapeRecord(r: FactRec, displayName: string): XiaoshengchuRecord {
-    const feedNames = (r.feed_school_ids || []).map((id) => entityById.get(id)?.name).filter(Boolean) as string[];
+    // 2026-10-08（字段精简）：扁平 feed_school_ids/feed_unresolved 已删，全量列表由机制分组并集派生
+    const feedNames = (Object.values(r.feed_school_ids_by_mechanism || {}).flat() || [])
+      .map((id) => entityById.get(id)?.name).filter(Boolean) as string[];
+    const feedUnresolved = Object.values(r.feed_unresolved_by_mechanism || {}).flat() || [];
     const g = groupsById.get(r.group_id);
+    // 2026-10-08（天河双机制拆分）：feed 按机制分组（名级，含未解析名）；
+    // 前端「升学路线」按机制块渲染各自 feed，单机制学校与旧数据回退全量列表。
+    const byMech: Record<string, string[]> = {};
+    for (const [m, ids] of Object.entries(r.feed_school_ids_by_mechanism || {})) {
+      byMech[m] = (ids.map((id) => entityById.get(id)?.name).filter(Boolean) as string[])
+        .concat(r.feed_unresolved_by_mechanism?.[m] || []);
+    }
     return {
       name: displayName,
       group: g?.name ?? null,
       mechanisms: r.mechanism ?? g?.mechanism ?? [],
-      feed_junior_highs: [...feedNames, ...(r.feed_unresolved || [])],
+      feed_junior_highs: [...feedNames, ...feedUnresolved],
       direct_feed: r.direct_feed_school_id ? entityById.get(r.direct_feed_school_id)?.name ?? null : null,
+      feed_by_mechanism: Object.keys(byMech).length ? byMech : undefined,
       source_url: g?.source_urls.join('; ') ?? '',
       source_note: r.source_note ?? '',
       data_gaps: r.data_gaps ?? g?.data_gaps ?? null,
@@ -309,8 +321,8 @@ export function createQuotaApi(loaders: DataLoaders) {
   }
 
   /**
-   * 反查：某初中实体的生源小学。数据匹配只用 school_id（事实表 feed_school_ids /
-   * direct_feed_school_id 均为 id），零名字匹配。
+   * 反查：某初中实体的生源小学。数据匹配只用 school_id（事实表
+   * feed_school_ids_by_mechanism 各机制分组并集 / direct_feed_school_id 均为 id），零名字匹配。
    * direct_feed 语义：仅当该小学的对口直升目标就是「当前查询的初中」时非空（值为该初中名），
    * 否则一律为 null——避免把「小学直升其它初中」误标成「直升本校」（派位组内可填报 ≠ 对口直升）。
    */
@@ -318,7 +330,8 @@ export function createQuotaApi(loaders: DataLoaders) {
     if (!middleId) return [];
     const out: { primary: string; group: string | null; direct_feed: string | null }[] = [];
     for (const r of facts) {
-      const inGroup = (r.feed_school_ids || []).includes(middleId);
+      const feedAll = Object.values(r.feed_school_ids_by_mechanism || {}).flat() || [];
+      const inGroup = feedAll.includes(middleId);
       const directHere = r.direct_feed_school_id === middleId;
       if (!inGroup && !directHere) continue;
       const pe = r.school_id ? entityById.get(r.school_id) : null;

@@ -56,11 +56,17 @@ def load_poi():
 
 
 def rec(name, group, feed, direct_feed, source_url, source_note, data_gaps=None, mechanisms=None):
+    mech = mechanisms if mechanisms is not None else MECH_OF(group)
+    # 2026-10-08（番禺机制分组对齐）：番禺全单机制（154 条有 feed 记录机制长度=1，
+    # 无双机制），构建层直接按机制归组，与反推六区产物结构对齐（feed_junior_highs_by_mechanism
+    # 由 resolve_record 解析成 feed_school_ids_by_mechanism）；缺口记录 feed 空 → 空 dict。
+    # 2026-10-08（字段精简）：feed 只以机制分组形态输出，全量扁平列表由消费方并集派生。
+    by_mech = {mech[0]: list(feed)} if (feed and mech) else {}
     return {
         'name': name,
         'group': group,
-        'mechanisms': mechanisms if mechanisms is not None else MECH_OF(group),
-        'feed_junior_highs': feed,
+        'mechanisms': mech,
+        'feed_junior_highs_by_mechanism': by_mech,
         'direct_feed': direct_feed,
         'source_url': source_url,
         'source_note': source_note,
@@ -107,7 +113,7 @@ def MECH_OF(group):
     if '附件10' in group and '天河区' in group:
         add('min_zi_zhu')                          # 天河附件10 自主报名电脑派位（初中天河 min_zi_zhu）
     elif '电脑抽签' in group:
-        add('single_paidui')                       # 番禺电脑抽签 → 电脑派位（初中番禺同口径）
+        add('single_chouqian')                     # 番禺电脑抽签（报名+超计划随机录取；2026-10-08 枚举化）
     elif '电脑派位' in group and not no_paidui:
         add('group_paidui')                        # 海珠/荔湾/黄埔/越秀派位组 → 多校电脑派位
     if '多校' in group or '部分毕业生' in group:
@@ -116,7 +122,7 @@ def MECH_OF(group):
 
 
 # 机制枚举输出顺序（对齐初中 MECH_ORDER；数据层统一排序，前端零排序逻辑）
-XS_MECH_ORDER = ('zhi_sheng', 'single_zone', 'group_paidui', 'single_paidui', 'min_zi_zhu')
+XS_MECH_ORDER = ('zhi_sheng', 'single_zone', 'group_paidui', 'single_chouqian', 'single_paidui', 'min_zi_zhu')
 
 
 def build_district(adcode, district_label, name_map, direct_map, no_feed, source_url, source_note, extra_note_fn=None):
@@ -1201,7 +1207,7 @@ PY_NO_FEED = {
     '嘉诚学校': '民办学校，不参与公办派位',
     '天星学校': '民办学校，不参与公办派位',
     '大山学校': '民办学校（九年制），不参与公办派位',
-    '大岭学校': '2026官方公办小学表未列（石楼大岭村，大岭村户籍初中对口石楼中学），待核',
+    '大岭学校': '民办学校（九年制，石楼镇，2026 民办招生计划在册），不参与公办派位（大岭村户籍公办对口石楼中学，由石楼镇何澄溪小学承载）',
     '广博学校': '民办学校，不参与公办派位',
     '广州南方学院番禺附属中学': '民办中学（南方学院附中），非小学实体',
     '广州南方学院番禺附属小学': '民办小学，不参与公办派位',
@@ -2095,11 +2101,11 @@ DISTRICT_ADCODE = {'yuexiu': '440104', 'liwan': '440103', 'baiyun': '440111', 'p
 
 
 def load_from_middle_mechanisms():
-    """初中反推机制（parsed/from_middle，5 区）：{school_id: [机制枚举]}。
+    """初中反推机制（parsed/from_middle，6 区）：{school_id: [机制枚举]}。
     dist 的机制以初中反推为准（raw 同源：初中转录层即有 mechanism，from_middle 直接复用）；
-    天河/番禺无 from_middle，保持官方转录解析。"""
+    番禺无 from_middle，保持官方转录解析。"""
     out = {}
-    for key in ['yuexiu', 'liwan', 'baiyun', 'haizhu', 'huangpu']:
+    for key in ['yuexiu', 'liwan', 'baiyun', 'haizhu', 'huangpu', 'tianhe']:
         p = os.path.join(AUDIT_DIR, f'xiaoshengchu_from_middle_{key}_2026.json')
         if not os.path.exists(p):
             continue
@@ -2151,29 +2157,31 @@ if __name__ == '__main__':
         del args[i:i + 2]
     target = args[0] if args else 'yuexiu'
     if target in DISTRICTS:
-        if target in ("yuexiu", "liwan", "baiyun", "haizhu", "huangpu"):
-            # 2026-09-30（用户指示）：五区小升初数据源切换为初中转录反推，不再由本脚本构建
+        if target in ("yuexiu", "liwan", "baiyun", "haizhu", "huangpu", "tianhe"):
+            # 2026-09-30（用户指示）：五区小升初数据源切换为初中转录反推，不再由本脚本构建；
+            # 2026-10-08：天河接入初中反推（附件6/10/7 对口/派位池/九年制直升），同样不再自建
             print(f"[跳过] {target} 小升初数据由 build_xiaoshengchu_from_middle.py 反推产出"
-                  f"（dist/xiaoshengchu_{target}.json），本脚本仅构建番禺/天河并汇总")
+                  f"（dist/xiaoshengchu_{target}.json），本脚本仅构建番禺并汇总")
             sys.exit(0)
         _, label, fn = DISTRICTS[target]
         recs, covered, missing = fn()
         dump(target, label, recs, covered, missing)
     elif target == 'all_done':
-        # 全链路：五区（越秀/荔湾/白云/海珠/黄埔）小升初数据源 = 初中转录反推
-        # （build_xiaoshengchu_from_middle.py 产出 dist，2026-09-30 用户指示不再自建）；
-        # 本脚本仅构建番禺/天河 + 汇总（--out-dir 指定输出目录，快照测试用临时目录，不碰正式 dist）
+        # 全链路：六区（越秀/荔湾/白云/海珠/黄埔/天河）小升初数据源 = 初中转录反推
+        # （build_xiaoshengchu_from_middle.py 产出 dist；五区 2026-09-30、天河 2026-10-08 接入，
+        #  用户指示不再自建）；本脚本仅构建番禺 + 汇总
+        # （--out-dir 指定输出目录，快照测试用临时目录，不碰正式 dist）
         _self_dir = os.path.dirname(os.path.abspath(__file__))
         _from_middle = [sys.executable, os.path.join(_self_dir, "build_xiaoshengchu_from_middle.py"),
-                        "yuexiu", "liwan", "baiyun", "haizhu", "huangpu"]
+                        "yuexiu", "liwan", "baiyun", "haizhu", "huangpu", "tianhe"]
         if "--out-dir" in sys.argv:
             _i = sys.argv.index("--out-dir")
             _from_middle += ["--out-dir", sys.argv[_i + 1]]
         r = subprocess.run(_from_middle, cwd=ROOT)
         if r.returncode != 0:
-            print("[汇总] 反推脚本失败：五区 dist 未产出，中止")
+            print("[汇总] 反推脚本失败：六区 dist 未产出，中止")
             sys.exit(r.returncode)
-        for key in ['panyu', 'tianhe']:
+        for key in ['panyu']:
             _, label, fn = DISTRICTS[key]
             recs, covered, missing = fn()
             dump(key, label, recs, covered, missing)

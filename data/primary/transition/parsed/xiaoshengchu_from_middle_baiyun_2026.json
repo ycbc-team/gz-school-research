@@ -8,6 +8,11 @@
       "feed_junior_highs": [
         "嘉禾中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "嘉禾中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-d2a4a882"
       ],
@@ -29,6 +34,12 @@
         "广州市第一一五中学",
         "广州市白云区太和中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一五中学",
+          "广州市白云区太和中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-b5668c2e",
         "gz-440111-06bfc806"
@@ -50,6 +61,11 @@
       "feed_junior_highs": [
         "广州市培英中学(岭南校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市培英中学(岭南校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-6271c94b"
       ],
@@ -70,6 +86,11 @@
       "feed_junior_highs": [
         "广州市第六十五中学(江府校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十五中学(江府校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4ebb4316"
       ],
@@ -90,6 +111,11 @@
       "feed_junior_highs": [
         "广州市第六十七中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十七中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-e337711a"
       ],
@@ -111,6 +137,12 @@
         "广州彭加木纪念中学(初中部)",
         "广州彭加木纪念中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州彭加木纪念中学(初中部)",
+          "广州彭加木纪念中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4e13c7d6",
         "gz-440111-d28d78f9"
@@ -132,6 +164,11 @@
       "feed_junior_highs": [
         "广州市白云区梓元岗中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区梓元岗中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-a072aeb7"
       ],
@@ -152,6 +189,11 @@
       "feed_junior_highs": [
         "广东第二师范学院实验中学(初中部)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广东第二师范学院实验中学(初中部)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-014a9fb2"
       ],
@@ -173,6 +215,12 @@
         "广州市铁一中学(白云校区)",
         "颜乐天纪念中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市铁一中学(白云校区)",
+          "颜乐天纪念中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-28c16cca",
         "gz-440111-35536ebb"
@@ -194,6 +242,11 @@
       "feed_junior_highs": [
         "白云六中实验中学(空港校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "白云六中实验中学(空港校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4ab20f44"
       ],
@@ -215,6 +268,12 @@
         "同和中学",
         "广州市白云区培英实验学校(同和校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "同和中学",
+          "广州市白云区培英实验学校(同和校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0ba9a45f",
         "gz-440111-e14818fc"
@@ -236,6 +295,11 @@
       "feed_junior_highs": [
         "平沙培英学校"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "平沙培英学校"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-175bd68f"
       ],
@@ -256,6 +320,11 @@
       "feed_junior_highs": [
         "广州市第七十中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第七十中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-20c36515"
       ],
@@ -276,6 +345,11 @@
       "feed_junior_highs": [
         "新和学校"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "新和学校"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-525f949a"
       ],
@@ -297,6 +371,12 @@
         "广州市第一一五中学",
         "广州市白云区太和中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一五中学",
+          "广州市白云区太和中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-b5668c2e",
         "gz-440111-06bfc806"
@@ -318,6 +398,11 @@
       "feed_junior_highs": [
         "广州市第六十七中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十七中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-e337711a"
       ],
@@ -338,6 +423,11 @@
       "feed_junior_highs": [
         "广州市培英中学(岭南校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市培英中学(岭南校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-6271c94b"
       ],
@@ -360,6 +450,15 @@
         "广州彭加木纪念中学",
         "广州市第六十五中学桃园校区"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州彭加木纪念中学(初中部)",
+          "广州彭加木纪念中学"
+        ],
+        "single_zone": [
+          "广州市第六十五中学桃园校区"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4e13c7d6",
         "gz-440111-d28d78f9",
@@ -384,6 +483,11 @@
       "feed_junior_highs": [
         "广州市三元里中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市三元里中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-8629621c"
       ],
@@ -405,6 +509,12 @@
         "同和中学",
         "嘉禾中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "同和中学",
+          "嘉禾中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0ba9a45f",
         "gz-440111-d2a4a882"
@@ -427,6 +537,12 @@
         "广州市铁一中学(白云校区)",
         "颜乐天纪念中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市铁一中学(白云校区)",
+          "颜乐天纪念中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-28c16cca",
         "gz-440111-35536ebb"
@@ -449,6 +565,12 @@
         "龙归学校(初中部)",
         "龙归学校（珑璟校区）"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "龙归学校(初中部)",
+          "龙归学校（珑璟校区）"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4c9a3eaa",
         "gz-440111-9c7a2c45"
@@ -471,6 +593,12 @@
         "广州市第一一五中学",
         "广州市白云区太和中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一五中学",
+          "广州市白云区太和中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-b5668c2e",
         "gz-440111-06bfc806"
@@ -492,6 +620,11 @@
       "feed_junior_highs": [
         "广州大同中学(初中部)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州大同中学(初中部)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-63a7bd1d"
       ],
@@ -512,6 +645,11 @@
       "feed_junior_highs": [
         "广州市白云区神山中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区神山中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-6becf87b"
       ],
@@ -533,6 +671,12 @@
         "同和中学",
         "广州市白云区培英实验学校(同和校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "同和中学",
+          "广州市白云区培英实验学校(同和校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0ba9a45f",
         "gz-440111-e14818fc"
@@ -554,6 +698,11 @@
       "feed_junior_highs": [
         "石井中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "石井中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-297970b9"
       ],
@@ -574,6 +723,11 @@
       "feed_junior_highs": [
         "石龙中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "石龙中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440100-7564c13b"
       ],
@@ -594,6 +748,11 @@
       "feed_junior_highs": [
         "白云六中实验中学(空港校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "白云六中实验中学(空港校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4ab20f44"
       ],
@@ -614,6 +773,11 @@
       "feed_junior_highs": [
         "广州市白云区民航学校(人和校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区民航学校(人和校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-7a3148c4"
       ],
@@ -634,6 +798,11 @@
       "feed_junior_highs": [
         "广州市白云区竹料第一中学北校区"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区竹料第一中学北校区"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-78d61733"
       ],
@@ -655,6 +824,12 @@
         "竹料第一中学",
         "广州市白云区竹料第一中学北校区"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "竹料第一中学",
+          "广州市白云区竹料第一中学北校区"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-fd1c1c12",
         "gz-440111-78d61733"
@@ -676,6 +851,11 @@
       "feed_junior_highs": [
         "广东技术师范大学白云实验中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广东技术师范大学白云实验中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-d3ffec78"
       ],
@@ -697,6 +877,12 @@
         "广大附中实验中学(南校区)",
         "广大附中实验中学(星汇金沙校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广大附中实验中学(南校区)",
+          "广大附中实验中学(星汇金沙校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0078267c",
         "gz-440111-b95f2597"
@@ -718,6 +904,11 @@
       "feed_junior_highs": [
         "广东技术师范大学白云实验中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广东技术师范大学白云实验中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-d3ffec78"
       ],
@@ -738,6 +929,11 @@
       "feed_junior_highs": [
         "广州市第一一四中学(亭石南路)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一四中学(亭石南路)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0f9c1ce8"
       ],
@@ -758,6 +954,11 @@
       "feed_junior_highs": [
         "广州市白云区景泰中学白云湖校区"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市白云区景泰中学白云湖校区"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-2186a02a"
       ],
@@ -779,6 +980,12 @@
         "广大附中实验中学(南校区)",
         "广大附中实验中学(星汇金沙校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广大附中实验中学(南校区)",
+          "广大附中实验中学(星汇金沙校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0078267c",
         "gz-440111-b95f2597"
@@ -801,6 +1008,12 @@
         "广大附中实验中学(南校区)",
         "广大附中实验中学(星汇金沙校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广大附中实验中学(南校区)",
+          "广大附中实验中学(星汇金沙校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0078267c",
         "gz-440111-b95f2597"
@@ -822,6 +1035,11 @@
       "feed_junior_highs": [
         "石井中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "石井中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-297970b9"
       ],
@@ -843,6 +1061,12 @@
         "广州市第一一五中学",
         "广州市白云区太和中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一五中学",
+          "广州市白云区太和中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-b5668c2e",
         "gz-440111-06bfc806"
@@ -864,6 +1088,11 @@
       "feed_junior_highs": [
         "广州市第六十五中学(江府校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十五中学(江府校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4ebb4316"
       ],
@@ -885,6 +1114,14 @@
         "江村中学",
         "广州市第六十五中学(江府校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十五中学(江府校区)"
+        ],
+        "single_zone": [
+          "江村中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-609bfcf4",
         "gz-440111-4ebb4316"
@@ -907,6 +1144,11 @@
       "feed_junior_highs": [
         "石龙中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "石龙中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440100-7564c13b"
       ],
@@ -928,6 +1170,12 @@
         "广州市第一一五中学",
         "广州市白云区太和中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一五中学",
+          "广州市白云区太和中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-b5668c2e",
         "gz-440111-06bfc806"
@@ -949,6 +1197,11 @@
       "feed_junior_highs": [
         "广州市白云中学(汇侨校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市白云中学(汇侨校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-1b7d3f87"
       ],
@@ -969,6 +1222,11 @@
       "feed_junior_highs": [
         "广州市白云中学(汇侨校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市白云中学(汇侨校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-1b7d3f87"
       ],
@@ -989,6 +1247,11 @@
       "feed_junior_highs": [
         "广州市第六十七中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十七中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-e337711a"
       ],
@@ -1009,6 +1272,11 @@
       "feed_junior_highs": [
         "广园中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广园中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-ea6a6495"
       ],
@@ -1030,6 +1298,12 @@
         "广大附中实验中学(南校区)",
         "广大附中实验中学(星汇金沙校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广大附中实验中学(南校区)",
+          "广大附中实验中学(星汇金沙校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0078267c",
         "gz-440111-b95f2597"
@@ -1052,6 +1326,12 @@
         "黄石学校(中学部)",
         "黄石学校(黄石校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "黄石学校(中学部)",
+          "黄石学校(黄石校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-292274e7",
         "gz-440111-a53c68e3"
@@ -1073,6 +1353,11 @@
       "feed_junior_highs": [
         "广东技术师范大学白云实验中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广东技术师范大学白云实验中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-d3ffec78"
       ],
@@ -1093,6 +1378,11 @@
       "feed_junior_highs": [
         "嘉禾中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "嘉禾中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-d2a4a882"
       ],
@@ -1114,6 +1404,12 @@
         "黄石学校(中学部)",
         "黄石学校(黄石校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "黄石学校(中学部)",
+          "黄石学校(黄石校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-292274e7",
         "gz-440111-a53c68e3"
@@ -1136,6 +1432,12 @@
         "同和中学",
         "广州市白云区培英实验学校(同和校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "同和中学",
+          "广州市白云区培英实验学校(同和校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0ba9a45f",
         "gz-440111-e14818fc"
@@ -1157,6 +1459,11 @@
       "feed_junior_highs": [
         "广州市白云中学(汇侨校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市白云中学(汇侨校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-1b7d3f87"
       ],
@@ -1177,6 +1484,11 @@
       "feed_junior_highs": [
         "广州市第六十五中学(江府校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十五中学(江府校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4ebb4316"
       ],
@@ -1197,6 +1509,11 @@
       "feed_junior_highs": [
         "广州市第六十七中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十七中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-e337711a"
       ],
@@ -1217,6 +1534,11 @@
       "feed_junior_highs": [
         "广州市白云区白云外国语中小学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市白云区白云外国语中小学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-620f7d31"
       ],
@@ -1237,6 +1559,11 @@
       "feed_junior_highs": [
         "广东第二师范学院实验中学(初中部)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广东第二师范学院实验中学(初中部)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-014a9fb2"
       ],
@@ -1258,6 +1585,14 @@
         "广州空港实验中学(东校区)",
         "广州空港实验中学(校本部)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州空港实验中学(东校区)"
+        ],
+        "single_zone": [
+          "广州空港实验中学(校本部)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0cf700fb",
         "gz-440111-d4c4285e"
@@ -1280,6 +1615,11 @@
       "feed_junior_highs": [
         "广州市白云区景泰中学白云湖校区"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市白云区景泰中学白云湖校区"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-2186a02a"
       ],
@@ -1301,6 +1641,12 @@
         "广州市铁一中学(白云校区)",
         "颜乐天纪念中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市铁一中学(白云校区)",
+          "颜乐天纪念中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-28c16cca",
         "gz-440111-35536ebb"
@@ -1323,6 +1669,14 @@
         "广州空港实验中学(东校区)",
         "广州空港实验中学(校本部)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州空港实验中学(东校区)"
+        ],
+        "single_zone": [
+          "广州空港实验中学(校本部)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0cf700fb",
         "gz-440111-d4c4285e"
@@ -1345,6 +1699,11 @@
       "feed_junior_highs": [
         "广州市第六十五中学初中部(明德校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十五中学初中部(明德校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-c8461d5d"
       ],
@@ -1365,6 +1724,11 @@
       "feed_junior_highs": [
         "广东外语外贸大学实验中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广东外语外贸大学实验中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-7e484346"
       ],
@@ -1386,6 +1750,12 @@
         "广大附中实验中学(南校区)",
         "广大附中实验中学(星汇金沙校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广大附中实验中学(南校区)",
+          "广大附中实验中学(星汇金沙校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0078267c",
         "gz-440111-b95f2597"
@@ -1408,6 +1778,12 @@
         "广州空港实验中学(西校区)",
         "白云六中实验中学(空港校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州空港实验中学(西校区)",
+          "白云六中实验中学(空港校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-35860c30",
         "gz-440111-4ab20f44"
@@ -1429,6 +1805,11 @@
       "feed_junior_highs": [
         "广州市第六十七中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十七中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-e337711a"
       ],
@@ -1449,6 +1830,11 @@
       "feed_junior_highs": [
         "广州市白云区神山中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区神山中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-6becf87b"
       ],
@@ -1470,6 +1856,12 @@
         "广州市第一一四中学(亭石南路)",
         "石井中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一四中学(亭石南路)",
+          "石井中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0f9c1ce8",
         "gz-440111-297970b9"
@@ -1491,6 +1883,11 @@
       "feed_junior_highs": [
         "广州市第六十五中学(江府校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十五中学(江府校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4ebb4316"
       ],
@@ -1512,6 +1909,12 @@
         "黄石学校(中学部)",
         "黄石学校(黄石校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "黄石学校(中学部)",
+          "黄石学校(黄石校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-292274e7",
         "gz-440111-a53c68e3"
@@ -1534,6 +1937,14 @@
         "竹料第一中学",
         "竹料第三中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "竹料第一中学"
+        ],
+        "single_zone": [
+          "竹料第三中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-fd1c1c12",
         "gz-440111-b2b78162"
@@ -1557,6 +1968,12 @@
         "同和中学",
         "嘉禾中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "同和中学",
+          "嘉禾中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0ba9a45f",
         "gz-440111-d2a4a882"
@@ -1579,6 +1996,12 @@
         "广州市第一一五中学",
         "广州市白云区太和中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一五中学",
+          "广州市白云区太和中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-b5668c2e",
         "gz-440111-06bfc806"
@@ -1600,6 +2023,11 @@
       "feed_junior_highs": [
         "广东技术师范大学白云实验中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广东技术师范大学白云实验中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-d3ffec78"
       ],
@@ -1620,6 +2048,11 @@
       "feed_junior_highs": [
         "广州市第七十中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第七十中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-20c36515"
       ],
@@ -1641,6 +2074,12 @@
         "广州市白云区民航学校(初中部)",
         "广州市白云区民航学校(人和校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区民航学校(初中部)",
+          "广州市白云区民航学校(人和校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-5c7a7c4a",
         "gz-440111-7a3148c4"
@@ -1662,6 +2101,11 @@
       "feed_junior_highs": [
         "广东外语外贸大学实验中学（陈田西校区）"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广东外语外贸大学实验中学（陈田西校区）"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-f5da4352"
       ],
@@ -1682,6 +2126,11 @@
       "feed_junior_highs": [
         "广州大同中学(初中部)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州大同中学(初中部)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-63a7bd1d"
       ],
@@ -1702,6 +2151,11 @@
       "feed_junior_highs": [
         "石龙中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "石龙中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440100-7564c13b"
       ],
@@ -1722,6 +2176,11 @@
       "feed_junior_highs": [
         "广州市白云区穗丰学校"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市白云区穗丰学校"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-853a71dd"
       ],
@@ -1743,6 +2202,12 @@
         "广州市第一一五中学",
         "广州市白云区太和中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一五中学",
+          "广州市白云区太和中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-b5668c2e",
         "gz-440111-06bfc806"
@@ -1764,6 +2229,11 @@
       "feed_junior_highs": [
         "广州空港实验中学(西校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州空港实验中学(西校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-35860c30"
       ],
@@ -1784,6 +2254,11 @@
       "feed_junior_highs": [
         "广州市第六十五中学初中部(明德校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十五中学初中部(明德校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-c8461d5d"
       ],
@@ -1804,6 +2279,11 @@
       "feed_junior_highs": [
         "广州市白云区星悦实验学校(初中部)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市白云区星悦实验学校(初中部)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-2ed8a6e2"
       ],
@@ -1824,6 +2304,11 @@
       "feed_junior_highs": [
         "广州大同中学(初中部)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州大同中学(初中部)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-63a7bd1d"
       ],
@@ -1845,6 +2330,12 @@
         "同和中学",
         "广州市白云区培英实验学校(同和校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "同和中学",
+          "广州市白云区培英实验学校(同和校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0ba9a45f",
         "gz-440111-e14818fc"
@@ -1866,6 +2357,11 @@
       "feed_junior_highs": [
         "东平学校(东平校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "东平学校(东平校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-e6300e34"
       ],
@@ -1886,6 +2382,11 @@
       "feed_junior_highs": [
         "石井中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "石井中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-297970b9"
       ],
@@ -1906,6 +2407,11 @@
       "feed_junior_highs": [
         "白云六中实验中学(空港校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "白云六中实验中学(空港校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4ab20f44"
       ],
@@ -1927,6 +2433,12 @@
         "广州市第一一五中学",
         "广州市白云区太和中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一五中学",
+          "广州市白云区太和中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-b5668c2e",
         "gz-440111-06bfc806"
@@ -1948,6 +2460,11 @@
       "feed_junior_highs": [
         "广州大同中学(初中部)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州大同中学(初中部)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-63a7bd1d"
       ],
@@ -1968,6 +2485,11 @@
       "feed_junior_highs": [
         "竹料第一中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "竹料第一中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-fd1c1c12"
       ],
@@ -1990,6 +2512,13 @@
         "景泰中学",
         "广州市白云区景泰中学白云湖校区"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广园中学",
+          "景泰中学",
+          "广州市白云区景泰中学白云湖校区"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-ea6a6495",
         "gz-440111-048815b3",
@@ -2012,6 +2541,11 @@
       "feed_junior_highs": [
         "广州空港实验中学(西校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州空港实验中学(西校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-35860c30"
       ],
@@ -2032,6 +2566,11 @@
       "feed_junior_highs": [
         "石井中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "石井中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-297970b9"
       ],
@@ -2052,6 +2591,11 @@
       "feed_junior_highs": [
         "龙归学校（珑璟校区）"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "龙归学校（珑璟校区）"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-9c7a2c45"
       ],
@@ -2074,6 +2618,13 @@
         "景泰中学",
         "广州市白云区景泰中学白云湖校区"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广园中学",
+          "景泰中学",
+          "广州市白云区景泰中学白云湖校区"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-ea6a6495",
         "gz-440111-048815b3",
@@ -2096,6 +2647,11 @@
       "feed_junior_highs": [
         "广州市白云区新市中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区新市中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-f3edc7ba"
       ],
@@ -2116,6 +2672,11 @@
       "feed_junior_highs": [
         "广州空港实验中学(东校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州空港实验中学(东校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0cf700fb"
       ],
@@ -2136,6 +2697,11 @@
       "feed_junior_highs": [
         "东平学校(东平校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "东平学校(东平校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-e6300e34"
       ],
@@ -2157,6 +2723,12 @@
         "广州彭加木纪念中学(初中部)",
         "广州彭加木纪念中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州彭加木纪念中学(初中部)",
+          "广州彭加木纪念中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4e13c7d6",
         "gz-440111-d28d78f9"
@@ -2178,6 +2750,11 @@
       "feed_junior_highs": [
         "广州市第六十五中学初中部(明德校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十五中学初中部(明德校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-c8461d5d"
       ],
@@ -2199,6 +2776,12 @@
         "黄石学校(中学部)",
         "黄石学校(黄石校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "黄石学校(中学部)",
+          "黄石学校(黄石校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-292274e7",
         "gz-440111-a53c68e3"
@@ -2221,6 +2804,12 @@
         "广州市白云区民航学校(初中部)",
         "广州市白云区民航学校(人和校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区民航学校(初中部)",
+          "广州市白云区民航学校(人和校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-5c7a7c4a",
         "gz-440111-7a3148c4"
@@ -2243,6 +2832,12 @@
         "广大附中实验中学(南校区)",
         "广大附中实验中学(星汇金沙校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广大附中实验中学(南校区)",
+          "广大附中实验中学(星汇金沙校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0078267c",
         "gz-440111-b95f2597"
@@ -2264,6 +2859,11 @@
       "feed_junior_highs": [
         "嘉禾中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "嘉禾中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-d2a4a882"
       ],
@@ -2284,6 +2884,11 @@
       "feed_junior_highs": [
         "广州市第一一四中学(亭石南路)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一四中学(亭石南路)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0f9c1ce8"
       ],
@@ -2304,6 +2909,11 @@
       "feed_junior_highs": [
         "广州市第六十五中学桃园校区"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第六十五中学桃园校区"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4cf10429"
       ],
@@ -2324,6 +2934,11 @@
       "feed_junior_highs": [
         "白云广附云湖实验学校"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "白云广附云湖实验学校"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-92e78967"
       ],
@@ -2345,6 +2960,12 @@
         "同和中学",
         "广州市白云区培英实验学校(同和校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "同和中学",
+          "广州市白云区培英实验学校(同和校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0ba9a45f",
         "gz-440111-e14818fc"
@@ -2367,6 +2988,12 @@
         "同和中学",
         "广州市白云区培英实验学校(同和校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "同和中学",
+          "广州市白云区培英实验学校(同和校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0ba9a45f",
         "gz-440111-e14818fc"
@@ -2388,6 +3015,11 @@
       "feed_junior_highs": [
         "石龙中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "石龙中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440100-7564c13b"
       ],
@@ -2409,6 +3041,12 @@
         "广大附中实验中学(南校区)",
         "广大附中实验中学(星汇金沙校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广大附中实验中学(南校区)",
+          "广大附中实验中学(星汇金沙校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0078267c",
         "gz-440111-b95f2597"
@@ -2430,6 +3068,11 @@
       "feed_junior_highs": [
         "广州市三元里中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市三元里中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-8629621c"
       ],
@@ -2451,6 +3094,12 @@
         "广州市第一一五中学",
         "广州市白云区太和中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一五中学",
+          "广州市白云区太和中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-b5668c2e",
         "gz-440111-06bfc806"
@@ -2472,6 +3121,11 @@
       "feed_junior_highs": [
         "广州市白云中学(棠景校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市白云中学(棠景校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-6782f041"
       ],
@@ -2492,6 +3146,11 @@
       "feed_junior_highs": [
         "广州市白云区新市中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区新市中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-f3edc7ba"
       ],
@@ -2513,6 +3172,12 @@
         "同和中学",
         "广州市白云区培英实验学校(同和校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "同和中学",
+          "广州市白云区培英实验学校(同和校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0ba9a45f",
         "gz-440111-e14818fc"
@@ -2534,6 +3199,11 @@
       "feed_junior_highs": [
         "广州市白云区神山中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区神山中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-6becf87b"
       ],
@@ -2554,6 +3224,11 @@
       "feed_junior_highs": [
         "广东外语外贸大学实验中学（陈田西校区）"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广东外语外贸大学实验中学（陈田西校区）"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-f5da4352"
       ],
@@ -2574,6 +3249,11 @@
       "feed_junior_highs": [
         "广州市第六十五中学(同德校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十五中学(同德校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-c7b90869"
       ],
@@ -2594,6 +3274,11 @@
       "feed_junior_highs": [
         "广州空港实验中学(西校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州空港实验中学(西校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-35860c30"
       ],
@@ -2615,6 +3300,12 @@
         "广大附中实验中学(南校区)",
         "广大附中实验中学(星汇金沙校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广大附中实验中学(南校区)",
+          "广大附中实验中学(星汇金沙校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0078267c",
         "gz-440111-b95f2597"
@@ -2636,6 +3327,11 @@
       "feed_junior_highs": [
         "广州市白云区新市中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区新市中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-f3edc7ba"
       ],
@@ -2656,6 +3352,11 @@
       "feed_junior_highs": [
         "广州市第一一四中学(亭石南路)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一四中学(亭石南路)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0f9c1ce8"
       ],
@@ -2676,6 +3377,11 @@
       "feed_junior_highs": [
         "广州市培英中学科技城校区"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市培英中学科技城校区"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-e128c24f"
       ],
@@ -2696,6 +3402,11 @@
       "feed_junior_highs": [
         "广州市第七十中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第七十中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-20c36515"
       ],
@@ -2716,6 +3427,11 @@
       "feed_junior_highs": [
         "嘉禾中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "嘉禾中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-d2a4a882"
       ],
@@ -2736,6 +3452,11 @@
       "feed_junior_highs": [
         "竹料第三中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "竹料第三中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-b2b78162"
       ],
@@ -2757,6 +3478,12 @@
         "广州市铁一中学(白云校区)",
         "颜乐天纪念中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市铁一中学(白云校区)",
+          "颜乐天纪念中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-28c16cca",
         "gz-440111-35536ebb"
@@ -2778,6 +3505,11 @@
       "feed_junior_highs": [
         "嘉禾中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "嘉禾中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-d2a4a882"
       ],
@@ -2799,6 +3531,12 @@
         "同和中学",
         "嘉禾中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "同和中学",
+          "嘉禾中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0ba9a45f",
         "gz-440111-d2a4a882"
@@ -2820,6 +3558,11 @@
       "feed_junior_highs": [
         "广州市白云区大朗中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区大朗中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-cc803935"
       ],
@@ -2844,6 +3587,15 @@
         "景泰中学",
         "广州市白云区景泰中学白云湖校区"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广园中学",
+          "广州市白云区民航学校(初中部)",
+          "广州市白云区民航学校(人和校区)",
+          "景泰中学",
+          "广州市白云区景泰中学白云湖校区"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-ea6a6495",
         "gz-440111-5c7a7c4a",
@@ -2869,6 +3621,12 @@
         "同和中学",
         "广州市白云区培英实验学校(同和校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "同和中学",
+          "广州市白云区培英实验学校(同和校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0ba9a45f",
         "gz-440111-e14818fc"
@@ -2890,6 +3648,11 @@
       "feed_junior_highs": [
         "广州市培英中学(岭南校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市培英中学(岭南校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-6271c94b"
       ],
@@ -2910,6 +3673,11 @@
       "feed_junior_highs": [
         "广州市三元里中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市三元里中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-8629621c"
       ],
@@ -2931,6 +3699,12 @@
         "广州市第一一五中学",
         "广州市白云区太和中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一五中学",
+          "广州市白云区太和中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-b5668c2e",
         "gz-440111-06bfc806"
@@ -2952,6 +3726,11 @@
       "feed_junior_highs": [
         "嘉禾中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "嘉禾中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-d2a4a882"
       ],
@@ -2972,6 +3751,11 @@
       "feed_junior_highs": [
         "嘉禾中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "嘉禾中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-d2a4a882"
       ],
@@ -2993,6 +3777,12 @@
         "广州市铁一中学(白云校区)",
         "颜乐天纪念中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市铁一中学(白云校区)",
+          "颜乐天纪念中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-28c16cca",
         "gz-440111-35536ebb"
@@ -3014,6 +3804,11 @@
       "feed_junior_highs": [
         "广州市白云区龙岗学校"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市白云区龙岗学校"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-effbfa28"
       ],
@@ -3034,6 +3829,11 @@
       "feed_junior_highs": [
         "广州市白云区大朗中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区大朗中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-cc803935"
       ],
@@ -3054,6 +3854,11 @@
       "feed_junior_highs": [
         "东平学校(东平校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "东平学校(东平校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-e6300e34"
       ],
@@ -3074,6 +3879,11 @@
       "feed_junior_highs": [
         "培英实验学校(云景校区)初中部"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "培英实验学校(云景校区)初中部"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-2d42f392"
       ],
@@ -3094,6 +3904,11 @@
       "feed_junior_highs": [
         "白云六中实验中学(空港校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "白云六中实验中学(空港校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4ab20f44"
       ],
@@ -3115,6 +3930,12 @@
         "龙归学校(初中部)",
         "龙归学校（珑璟校区）"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "龙归学校(初中部)",
+          "龙归学校（珑璟校区）"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4c9a3eaa",
         "gz-440111-9c7a2c45"
@@ -3137,6 +3958,12 @@
         "黄石学校(中学部)",
         "黄石学校(黄石校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "黄石学校(中学部)",
+          "黄石学校(黄石校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-292274e7",
         "gz-440111-a53c68e3"
@@ -3159,6 +3986,12 @@
         "广大附中实验中学(南校区)",
         "广大附中实验中学(星汇金沙校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广大附中实验中学(南校区)",
+          "广大附中实验中学(星汇金沙校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0078267c",
         "gz-440111-b95f2597"
@@ -3181,6 +4014,12 @@
         "广州市铁一中学(白云校区)",
         "颜乐天纪念中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市铁一中学(白云校区)",
+          "颜乐天纪念中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-28c16cca",
         "gz-440111-35536ebb"
@@ -3203,6 +4042,12 @@
         "广州市白云区神山中学",
         "石龙中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区神山中学",
+          "石龙中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-6becf87b",
         "gz-440100-7564c13b"
@@ -3226,6 +4071,13 @@
         "广州彭加木纪念中学",
         "广州市第六十五中学初中部(明德校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州彭加木纪念中学(初中部)",
+          "广州彭加木纪念中学",
+          "广州市第六十五中学初中部(明德校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4e13c7d6",
         "gz-440111-d28d78f9",
@@ -3249,6 +4101,11 @@
       "feed_junior_highs": [
         "广州市白云区大朗中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市白云区大朗中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-cc803935"
       ],
@@ -3270,6 +4127,12 @@
         "广州彭加木纪念中学(初中部)",
         "广州彭加木纪念中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州彭加木纪念中学(初中部)",
+          "广州彭加木纪念中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-4e13c7d6",
         "gz-440111-d28d78f9"
@@ -3291,6 +4154,11 @@
       "feed_junior_highs": [
         "石井中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "石井中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-297970b9"
       ],
@@ -3311,6 +4179,11 @@
       "feed_junior_highs": [
         "广州空港实验中学(西校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州空港实验中学(西校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-35860c30"
       ],
@@ -3331,6 +4204,11 @@
       "feed_junior_highs": [
         "广州市培英中学(岭南校区)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市培英中学(岭南校区)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-6271c94b"
       ],
@@ -3352,6 +4230,14 @@
         "广东技术师范大学白云实验中学",
         "江村中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广东技术师范大学白云实验中学"
+        ],
+        "single_zone": [
+          "江村中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-d3ffec78",
         "gz-440111-609bfcf4"
@@ -3375,6 +4261,14 @@
         "广州空港实验中学(东校区)",
         "广州空港实验中学(校本部)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州空港实验中学(东校区)"
+        ],
+        "single_zone": [
+          "广州空港实验中学(校本部)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0cf700fb",
         "gz-440111-d4c4285e"
@@ -3397,6 +4291,11 @@
       "feed_junior_highs": [
         "广州市第六十七中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第六十七中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-e337711a"
       ],
@@ -3417,6 +4316,11 @@
       "feed_junior_highs": [
         "广州市第一一四中学(亭石南路)"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一四中学(亭石南路)"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-0f9c1ce8"
       ],
@@ -3438,6 +4342,12 @@
         "广州市第一一五中学",
         "广州市白云区太和中学"
       ],
+      "feed_junior_highs_by_mechanism": {
+        "group_paidui": [
+          "广州市第一一五中学",
+          "广州市白云区太和中学"
+        ]
+      },
       "feed_school_ids_from_middle": [
         "gz-440111-b5668c2e",
         "gz-440111-06bfc806"

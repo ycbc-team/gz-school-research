@@ -46,10 +46,11 @@ export interface DataLoaders {
     groups: Array<{ id: number; name: string; source_urls: string[]; data_gaps: string | null; mechanism: string[] }>;
     records: Array<{
       school_id: string; group_id: number;
-      feed_school_ids: string[]; feed_unresolved: string[];
       direct_feed_school_id: string | null;
       source_note?: string; data_gaps?: string | null;
       mechanism?: string[];
+      feed_school_ids_by_mechanism?: Record<string, string[]>;
+      feed_unresolved_by_mechanism?: Record<string, string[]>;
     }>;
   };
   /** 学校身份注册表（site 粒度） */

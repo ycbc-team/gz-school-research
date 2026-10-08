@@ -1,0 +1,3280 @@
+{
+  "district": "天河区",
+  "kind": "candidate_from_middle_enrollment_transcripts",
+  "records": [
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "天河区智谷第一实验学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "天河区智谷第一实验学校"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-d311ea50"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "广州市天河区天英小学",
+      "official_primary_names": [
+        "天英小学"
+      ],
+      "school_id": "gz-440106-012cd2c9",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市泰安中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市泰安中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-22156e02"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "新塘小学",
+      "official_primary_names": [
+        "新塘小学"
+      ],
+      "school_id": "gz-440106-049702a3",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [
+        "暨南大学附属中学"
+      ],
+      "feed_junior_highs": [
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "zhi_sheng",
+        "single_paidui"
+      ],
+      "name": "暨南大学附属实验学校",
+      "official_primary_names": [
+        "暨南大学附属实验学校（小学部）",
+        "暨南大学附属实验学校"
+      ],
+      "school_id": "gz-440106-05ed1da2",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州中学(五山校区)",
+        "广州中学(名雅校区)",
+        "广州中学(天润校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州中学(五山校区)",
+          "广州中学(名雅校区)",
+          "广州中学(天润校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "华阳小学(华成校区)",
+      "official_primary_names": [
+        "华阳小学"
+      ],
+      "school_id": "gz-440106-0b79aecf",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第七十五中学(燕塘西校区)",
+        "广州市第七十五中学(天平架校区)"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第七十五中学(燕塘西校区)",
+          "广州市第七十五中学(天平架校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-5a7fbf3a",
+        "gz-440106-621b20d3"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "广州市天河区先烈东小学(沙河校区)",
+      "official_primary_names": [
+        "先烈东小学"
+      ],
+      "school_id": "gz-440106-0b7b33c7",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市泰安中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市泰安中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-22156e02"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "天河区凌塘小学",
+      "official_primary_names": [
+        "凌塘小学"
+      ],
+      "school_id": "gz-440106-0cf43f53",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [
+        "广东实验中学天河学校"
+      ],
+      "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
+      "feed_school_ids_from_middle": [],
+      "mechanisms": [
+        "zhi_sheng"
+      ],
+      "name": "广东实验中学天河学校",
+      "official_primary_names": [
+        "广东实验中学天河学校"
+      ],
+      "school_id": "gz-440106-0eb93435",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州中学(五山校区)",
+        "广州中学(名雅校区)",
+        "广州中学(天润校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州中学(五山校区)",
+          "广州中学(名雅校区)",
+          "广州中学(天润校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "华阳小学(林和东校区)",
+      "official_primary_names": [
+        "华阳小学"
+      ],
+      "school_id": "gz-440106-155698db",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [
+        "广州中学天河燕园学校"
+      ],
+      "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
+      "feed_school_ids_from_middle": [],
+      "mechanisms": [
+        "zhi_sheng"
+      ],
+      "name": "广州中学天河燕园学校",
+      "official_primary_names": [
+        "广州中学天河燕园学校"
+      ],
+      "school_id": "gz-440106-15ca1554",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州中学(五山校区)",
+        "广州中学(名雅校区)",
+        "广州中学(天润校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州中学(五山校区)",
+          "广州中学(名雅校区)",
+          "广州中学(天润校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市天河区华阳小学(天润校区)",
+      "official_primary_names": [
+        "华阳小学"
+      ],
+      "school_id": "gz-440106-182b1ae3",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市奥林匹克中学(黄村西路校区)",
+        "广州奥林匹克中学(智谷校区)",
+        "执信中学(天河校区)"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "执信中学(天河校区)"
+        ],
+        "single_zone": [
+          "广州市奥林匹克中学(黄村西路校区)",
+          "广州奥林匹克中学(智谷校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-d40d0dbe",
+        "gz-440106-fa9338a2",
+        "gz-440106-22fcbcd6"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "均和小学",
+      "official_primary_names": [
+        "体育东教育集团均和小学"
+      ],
+      "school_id": "gz-440106-1c0a974d",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [
+        "华南理工大学附属实验学校(中学部)"
+      ],
+      "feed_junior_highs": [
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "zhi_sheng",
+        "single_paidui"
+      ],
+      "name": "华南理工大学附属实验学校(小学部)",
+      "official_primary_names": [
+        "华南理工大学附属实验学校（小学部）",
+        "华南理工大学附属实验学校(小学部)"
+      ],
+      "school_id": "gz-440106-23f2dfc8",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州中学(五山校区)",
+        "广州中学(名雅校区)",
+        "广州中学(天润校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州中学(五山校区)",
+          "广州中学(名雅校区)",
+          "广州中学(天润校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市天河区龙口西小学(帝景校区)",
+      "official_primary_names": [
+        "龙口西小学"
+      ],
+      "school_id": "gz-440106-24586ef1",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河中学(天河东路校区)",
+        "广州市天河中学(花城校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河中学(天河东路校区)",
+          "广州市天河中学(花城校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2f8a4424",
+        "gz-440106-dd16c13e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市天河第一小学(华穗校区)",
+      "official_primary_names": [
+        "天河第一小学"
+      ],
+      "school_id": "gz-440106-269a9629",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第八十九中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第八十九中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-8f55ab34"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "龙洞小学",
+      "official_primary_names": [
+        "龙洞小学"
+      ],
+      "school_id": "gz-440106-2a11e3df",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河中学(天河东路校区)",
+        "广州市天河中学(花城校区)",
+        "广州市华颖外国语学校",
+        "广州市第一一三中学陶育实验学校(暨南校区)",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河中学(天河东路校区)",
+          "广州市天河中学(花城校区)",
+          "广州市第一一三中学陶育实验学校(暨南校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2f8a4424",
+        "gz-440106-dd16c13e",
+        "gz-440106-dab5b807",
+        "gz-440106-7c81ab92",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "石牌小学",
+      "official_primary_names": [
+        "石牌小学"
+      ],
+      "school_id": "gz-440106-2ab62791",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第一一三中学(乐学校区)",
+        "广州市第一一三中学(东方校区)",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市第一一三中学(乐学校区)",
+          "广州市第一一三中学(东方校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-b049d65a",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "华景小学(北校区)",
+      "official_primary_names": [
+        "华景小学"
+      ],
+      "school_id": "gz-440106-2cd346f1",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [
+        "清华附中湾区学校（智慧城校区）",
+        "清华附中湾区学校"
+      ],
+      "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
+      "feed_school_ids_from_middle": [],
+      "mechanisms": [
+        "zhi_sheng"
+      ],
+      "name": "清华附中湾区学校（智慧城校区）",
+      "official_primary_names": [
+        "清华附中湾区学校",
+        "清华附中湾区学校（智慧城校区）"
+      ],
+      "school_id": "gz-440106-31895452",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第七十五中学(燕塘西校区)",
+        "广州市第七十五中学(天平架校区)"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第七十五中学(燕塘西校区)",
+          "广州市第七十五中学(天平架校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-5a7fbf3a",
+        "gz-440106-621b20d3"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "天河区侨乐小学",
+      "official_primary_names": [
+        "侨乐小学"
+      ],
+      "school_id": "gz-440106-3332b6cb",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "骏景中学",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校"
+        ],
+        "single_zone": [
+          "骏景中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-b7d476f7",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "棠下小学",
+      "official_primary_names": [
+        "棠下小学"
+      ],
+      "school_id": "gz-440106-34cffe8f",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市华颖外国语学校",
+        "广州市第一一三中学陶育实验学校(暨南校区)",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市第一一三中学陶育实验学校(暨南校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-dab5b807",
+        "gz-440106-7c81ab92",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市第一一三中学陶育实验学校小学部",
+      "official_primary_names": [
+        "一一三中学陶育实验学校（小学部）"
+      ],
+      "school_id": "gz-440106-35cad4e6",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第一一三中学(乐学校区)",
+        "广州市第一一三中学(东方校区)",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市第一一三中学(乐学校区)",
+          "广州市第一一三中学(东方校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-b049d65a",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市天河区华融小学",
+      "official_primary_names": [
+        "华融小学"
+      ],
+      "school_id": "gz-440106-368a8ac7",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市奥林匹克中学(黄村西路校区)",
+        "广州奥林匹克中学(智谷校区)",
+        "执信中学(天河校区)"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "执信中学(天河校区)"
+        ],
+        "single_zone": [
+          "广州市奥林匹克中学(黄村西路校区)",
+          "广州奥林匹克中学(智谷校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-d40d0dbe",
+        "gz-440106-fa9338a2",
+        "gz-440106-22fcbcd6"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "奥体东小学",
+      "official_primary_names": [
+        "奥体东小学"
+      ],
+      "school_id": "gz-440106-394a30e4",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市长兴中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市长兴中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-7077b270"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "长湴小学",
+      "official_primary_names": [
+        "长湴小学"
+      ],
+      "school_id": "gz-440106-39c57599",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第十八中学车陂校区",
+        "广州市第十八中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第十八中学车陂校区",
+          "广州市第十八中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-3a61d518",
+        "gz-440106-ef4076c1"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "盈彩美居小学",
+      "official_primary_names": [
+        "盈彩美居小学"
+      ],
+      "school_id": "gz-440106-39e2039f",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市长兴中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市长兴中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-7077b270"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "长兴小学",
+      "official_primary_names": [
+        "长兴小学"
+      ],
+      "school_id": "gz-440106-3bbeefd0",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河区汇景实验学校",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河区汇景实验学校"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-0d1e149e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "五一小学",
+      "official_primary_names": [
+        "五一小学"
+      ],
+      "school_id": "gz-440106-3bc362f9",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第一一三中学(乐学校区)",
+        "广州市第一一三中学(东方校区)",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市第一一三中学(乐学校区)",
+          "广州市第一一三中学(东方校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-b049d65a",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "员村小学(美林分校)",
+      "official_primary_names": [
+        "员村小学"
+      ],
+      "school_id": "gz-440106-3bf77656",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第一一三中学(乐学校区)",
+        "广州市第一一三中学(东方校区)",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市第一一三中学(乐学校区)",
+          "广州市第一一三中学(东方校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-b049d65a",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "华景小学(南校区)",
+      "official_primary_names": [
+        "华景小学"
+      ],
+      "school_id": "gz-440106-3f600b79",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市奥林匹克中学(黄村西路校区)",
+        "广州奥林匹克中学(智谷校区)",
+        "广州市华颖外国语学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校"
+        ],
+        "single_zone": [
+          "广州市奥林匹克中学(黄村西路校区)",
+          "广州奥林匹克中学(智谷校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-d40d0dbe",
+        "gz-440106-fa9338a2",
+        "gz-440106-dab5b807"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "旭景小学",
+      "official_primary_names": [
+        "旭景小学"
+      ],
+      "school_id": "gz-440106-404ea6c6",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第一一三中学(乐学校区)",
+        "广州市第一一三中学(东方校区)",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市第一一三中学(乐学校区)",
+          "广州市第一一三中学(东方校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-b049d65a",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "员村小学",
+      "official_primary_names": [
+        "员村小学"
+      ],
+      "school_id": "gz-440106-4462c607",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河中学(天河东路校区)",
+        "广州市天河中学(花城校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河中学(天河东路校区)",
+          "广州市天河中学(花城校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2f8a4424",
+        "gz-440106-dd16c13e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "天河第一小学(华利校区)",
+      "official_primary_names": [
+        "天河第一小学"
+      ],
+      "school_id": "gz-440106-4a26a58c",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "骏景中学",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校"
+        ],
+        "single_zone": [
+          "骏景中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-b7d476f7",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "骏景小学",
+      "official_primary_names": [
+        "骏景小学"
+      ],
+      "school_id": "gz-440106-4ca3816f",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第十八中学车陂校区",
+        "广州市第十八中学",
+        "广州市华颖外国语学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校"
+        ],
+        "single_zone": [
+          "广州市第十八中学车陂校区",
+          "广州市第十八中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-3a61d518",
+        "gz-440106-ef4076c1",
+        "gz-440106-dab5b807"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "东圃小学",
+      "official_primary_names": [
+        "东圃小学"
+      ],
+      "school_id": "gz-440106-4d4c3ab8",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第一一三中学(乐学校区)",
+        "广州市第一一三中学(东方校区)",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市第一一三中学(乐学校区)",
+          "广州市第一一三中学(东方校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-b049d65a",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "天府路小学翠湖校区",
+      "official_primary_names": [
+        "天府路小学"
+      ],
+      "school_id": "gz-440106-4dbb5b90",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州中学(五山校区)",
+        "广州中学(名雅校区)",
+        "广州中学(天润校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州中学(五山校区)",
+          "广州中学(名雅校区)",
+          "广州中学(天润校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市天河区华康小学(华文校区)",
+      "official_primary_names": [
+        "华康小学"
+      ],
+      "school_id": "gz-440106-4dc94b4b",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第一一三中学(乐学校区)",
+        "广州市第一一三中学(东方校区)",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市第一一三中学(乐学校区)",
+          "广州市第一一三中学(东方校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-b049d65a",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "昌乐小学(旭日校区)",
+      "official_primary_names": [
+        "昌乐小学"
+      ],
+      "school_id": "gz-440106-4eab4155",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第七十五中学(燕塘西校区)",
+        "广州市第七十五中学(天平架校区)"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第七十五中学(燕塘西校区)",
+          "广州市第七十五中学(天平架校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-5a7fbf3a",
+        "gz-440106-621b20d3"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "沙河小学",
+      "official_primary_names": [
+        "沙河小学"
+      ],
+      "school_id": "gz-440106-4efbbcb7",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市奥林匹克中学(黄村西路校区)",
+        "广州奥林匹克中学(智谷校区)",
+        "广州市华颖外国语学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校"
+        ],
+        "single_zone": [
+          "广州市奥林匹克中学(黄村西路校区)",
+          "广州奥林匹克中学(智谷校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-d40d0dbe",
+        "gz-440106-fa9338a2",
+        "gz-440106-dab5b807"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "天河区新元小学",
+      "official_primary_names": [
+        "新元小学"
+      ],
+      "school_id": "gz-440106-51651124",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州中学(五山校区)",
+        "广州中学(名雅校区)",
+        "广州中学(天润校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州中学(五山校区)",
+          "广州中学(名雅校区)",
+          "广州中学(天润校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "龙口西小学(穗园校区)",
+      "official_primary_names": [
+        "龙口西小学"
+      ],
+      "school_id": "gz-440106-53bc251b",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第十八中学车陂校区",
+        "广州市第十八中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第十八中学车陂校区",
+          "广州市第十八中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-3a61d518",
+        "gz-440106-ef4076c1"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "前进小学",
+      "official_primary_names": [
+        "前进小学"
+      ],
+      "school_id": "gz-440106-576b72fe",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市奥林匹克中学(黄村西路校区)",
+        "广州奥林匹克中学(智谷校区)",
+        "执信中学(天河校区)"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "执信中学(天河校区)"
+        ],
+        "single_zone": [
+          "广州市奥林匹克中学(黄村西路校区)",
+          "广州奥林匹克中学(智谷校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-d40d0dbe",
+        "gz-440106-fa9338a2",
+        "gz-440106-22fcbcd6"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "吉山小学",
+      "official_primary_names": [
+        "吉山小学"
+      ],
+      "school_id": "gz-440106-579bdc60",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市奥林匹克中学(黄村西路校区)",
+        "广州奥林匹克中学(智谷校区)",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校"
+        ],
+        "single_zone": [
+          "广州市奥林匹克中学(黄村西路校区)",
+          "广州奥林匹克中学(智谷校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-d40d0dbe",
+        "gz-440106-fa9338a2",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "中海康城小学",
+      "official_primary_names": [
+        "中海康城小学"
+      ],
+      "school_id": "gz-440106-59e89ce7",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第八十九中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第八十九中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-8f55ab34"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "广州市天河区柯木塱小学",
+      "official_primary_names": [
+        "柯木塱小学"
+      ],
+      "school_id": "gz-440106-5be25e1e",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州中学(五山校区)",
+        "广州中学(名雅校区)",
+        "广州中学(天润校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州中学(五山校区)",
+          "广州中学(名雅校区)",
+          "广州中学(天润校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "龙口西小学(天阳校区)",
+      "official_primary_names": [
+        "龙口西小学"
+      ],
+      "school_id": "gz-440106-5e40124c",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河区汇景实验学校",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河区汇景实验学校"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-0d1e149e",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "华南农业大学附属小学",
+      "official_primary_names": [
+        "华农附小",
+        "华南农业大学附属小学"
+      ],
+      "school_id": "gz-440106-617fa509",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第一一三中学(乐学校区)",
+        "广州市第一一三中学(东方校区)",
+        "广州市华颖外国语学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校"
+        ],
+        "single_zone": [
+          "广州市第一一三中学(乐学校区)",
+          "广州市第一一三中学(东方校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-b049d65a",
+        "gz-440106-dab5b807"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "天河区石东小学",
+      "official_primary_names": [
+        "石东小学"
+      ],
+      "school_id": "gz-440106-6618e0e7",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市长兴中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市长兴中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-7077b270"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "广州市天河区元岗小学(东校区)",
+      "official_primary_names": [
+        "元岗小学"
+      ],
+      "school_id": "gz-440106-6cc686a8",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第一一三中学(乐学校区)",
+        "广州市第一一三中学(东方校区)",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市第一一三中学(乐学校区)",
+          "广州市第一一三中学(东方校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-b049d65a",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "天府路小学",
+      "official_primary_names": [
+        "天府路小学"
+      ],
+      "school_id": "gz-440106-6dc5833a",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河区汇景实验学校",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河区汇景实验学校"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-0d1e149e",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "五山小学(西校区)",
+      "official_primary_names": [
+        "五山小学"
+      ],
+      "school_id": "gz-440106-73e86142",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河区汇景实验学校",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河区汇景实验学校"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-0d1e149e",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "天河区五山小学(东校区)",
+      "official_primary_names": [
+        "五山小学"
+      ],
+      "school_id": "gz-440106-7548682a",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市长兴中学",
+        "广东实验中学天河学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广东实验中学天河学校"
+        ],
+        "single_zone": [
+          "广州市长兴中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-7077b270",
+        "gz-440106-0eb93435"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "御景小学",
+      "official_primary_names": [
+        "御景小学"
+      ],
+      "school_id": "gz-440106-78aa2e37",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市奥林匹克中学(黄村西路校区)",
+        "广州奥林匹克中学(智谷校区)",
+        "执信中学(天河校区)"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "执信中学(天河校区)"
+        ],
+        "single_zone": [
+          "广州市奥林匹克中学(黄村西路校区)",
+          "广州奥林匹克中学(智谷校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-d40d0dbe",
+        "gz-440106-fa9338a2",
+        "gz-440106-22fcbcd6"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "珠村小学",
+      "official_primary_names": [
+        "珠村小学"
+      ],
+      "school_id": "gz-440106-8224c016",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第八十九中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第八十九中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-8f55ab34"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "渔沙坦小学",
+      "official_primary_names": [
+        "渔沙坦小学"
+      ],
+      "school_id": "gz-440106-85c4ddcd",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市泰安中学",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校"
+        ],
+        "single_zone": [
+          "广州市泰安中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-22156e02",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市天河区棠德南小学(北校区)",
+      "official_primary_names": [
+        "棠德南小学"
+      ],
+      "school_id": "gz-440106-8755820f",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第八十九中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第八十九中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-8f55ab34"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "广东生态工程职业学院附属小学",
+      "official_primary_names": [
+        "广东生态工程职业学院附属小学"
+      ],
+      "school_id": "gz-440106-8a39842a",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市华颖外国语学校",
+        "广州市天河中学猎德实验学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河中学猎德实验学校"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-dab5b807",
+        "gz-440106-8b3ee7d2",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市天河中学猎德实验学校",
+      "official_primary_names": [
+        "天河中学猎德实验学校（小学部）"
+      ],
+      "school_id": "gz-440106-8b3ee7d2",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河区汇景实验学校",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河区汇景实验学校"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-0d1e149e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "五一小学红英校区",
+      "official_primary_names": [
+        "五一小学"
+      ],
+      "school_id": "gz-440106-8d6ca869",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第十八中学车陂校区",
+        "广州市第十八中学",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校"
+        ],
+        "single_zone": [
+          "广州市第十八中学车陂校区",
+          "广州市第十八中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-3a61d518",
+        "gz-440106-ef4076c1",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "车陂小学",
+      "official_primary_names": [
+        "车陂小学"
+      ],
+      "school_id": "gz-440106-93dce356",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第七十五中学(燕塘西校区)",
+        "广州市第七十五中学(天平架校区)"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第七十五中学(燕塘西校区)",
+          "广州市第七十五中学(天平架校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-5a7fbf3a",
+        "gz-440106-621b20d3"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "银河小学(橡树园校区)",
+      "official_primary_names": [
+        "银河小学"
+      ],
+      "school_id": "gz-440106-952cd2e6",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第七十五中学(燕塘西校区)",
+        "广州市第七十五中学(天平架校区)"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第七十五中学(燕塘西校区)",
+          "广州市第七十五中学(天平架校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-5a7fbf3a",
+        "gz-440106-621b20d3"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "广州华阳集团侨乐小学(北校区)",
+      "official_primary_names": [
+        "侨乐小学"
+      ],
+      "school_id": "gz-440106-95cb8bc4",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第七十五中学(燕塘西校区)",
+        "广州市第七十五中学(天平架校区)"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第七十五中学(燕塘西校区)",
+          "广州市第七十五中学(天平架校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-5a7fbf3a",
+        "gz-440106-621b20d3"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "银河小学",
+      "official_primary_names": [
+        "银河小学"
+      ],
+      "school_id": "gz-440106-96bdd212",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市泰安中学",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校"
+        ],
+        "single_zone": [
+          "广州市泰安中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-22156e02",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "棠德南小学南校区",
+      "official_primary_names": [
+        "棠德南小学"
+      ],
+      "school_id": "gz-440106-997cb2e4",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市奥林匹克中学(黄村西路校区)",
+        "广州奥林匹克中学(智谷校区)"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市奥林匹克中学(黄村西路校区)",
+          "广州奥林匹克中学(智谷校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-d40d0dbe",
+        "gz-440106-fa9338a2"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "广州市天河区黄村小学",
+      "official_primary_names": [
+        "黄村小学"
+      ],
+      "school_id": "gz-440106-9a67aee6",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第八十九中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第八十九中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-8f55ab34"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "龙洞小学世纪绿洲校区",
+      "official_primary_names": [
+        "龙洞小学"
+      ],
+      "school_id": "gz-440106-a1517ba5",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市长兴中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市长兴中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-7077b270"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "元岗小学(西校区)",
+      "official_primary_names": [
+        "元岗小学"
+      ],
+      "school_id": "gz-440106-a38b3c64",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市奥林匹克中学(黄村西路校区)",
+        "广州奥林匹克中学(智谷校区)",
+        "执信中学(天河校区)"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "执信中学(天河校区)"
+        ],
+        "single_zone": [
+          "广州市奥林匹克中学(黄村西路校区)",
+          "广州奥林匹克中学(智谷校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-d40d0dbe",
+        "gz-440106-fa9338a2",
+        "gz-440106-22fcbcd6"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "灵秀小学",
+      "official_primary_names": [
+        "灵秀小学"
+      ],
+      "school_id": "gz-440106-a52ecc01",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第八十九中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第八十九中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-8f55ab34"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "龙洞小学(宝翠园校区)",
+      "official_primary_names": [
+        "龙洞小学"
+      ],
+      "school_id": "gz-440106-a56ce4ac",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市华颖外国语学校",
+        "南国学校(中学部)",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "南国学校(中学部)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-dab5b807",
+        "gz-440106-b0d40cc4",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "南国学校(小学部)",
+      "official_primary_names": [
+        "南国学校（小学部）"
+      ],
+      "school_id": "gz-440106-a64c6e57",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [
+        "广州奥林匹克中学(智谷校区)"
+      ],
+      "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
+      "feed_school_ids_from_middle": [],
+      "mechanisms": [
+        "zhi_sheng"
+      ],
+      "name": "广州奥林匹克中学（智谷校区）小学部",
+      "official_primary_names": [
+        "广州奥林匹克中学（智谷校区）小学部"
+      ],
+      "school_id": "gz-440106-a7cac9ec",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "天荣中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "天荣中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-90c47ff5"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "龙岗路小学",
+      "official_primary_names": [
+        "龙岗路小学"
+      ],
+      "school_id": "gz-440106-ac6650f4",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州中学(五山校区)",
+        "广州中学(名雅校区)",
+        "广州中学(天润校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州中学(五山校区)",
+          "广州中学(名雅校区)",
+          "广州中学(天润校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "华康小学(海欣校区)",
+      "official_primary_names": [
+        "华康小学"
+      ],
+      "school_id": "gz-440106-ad7011bb",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州中学(五山校区)",
+        "广州中学(名雅校区)",
+        "广州中学(天润校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州中学(五山校区)",
+          "广州中学(名雅校区)",
+          "广州中学(天润校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市天河区长征小学",
+      "official_primary_names": [
+        "长征小学"
+      ],
+      "school_id": "gz-440106-b2701f92",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第七十五中学(燕塘西校区)",
+        "广州市第七十五中学(天平架校区)"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第七十五中学(燕塘西校区)",
+          "广州市第七十五中学(天平架校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-5a7fbf3a",
+        "gz-440106-621b20d3"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "广州市天河区四海小学",
+      "official_primary_names": [
+        "四海小学"
+      ],
+      "school_id": "gz-440106-b6375b93",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河中学(天河东路校区)",
+        "广州市天河中学(花城校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河中学(天河东路校区)",
+          "广州市天河中学(花城校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2f8a4424",
+        "gz-440106-dd16c13e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市天河区第一实验小学",
+      "official_primary_names": [
+        "天河第一实验小学",
+        "天河区第一实验小学"
+      ],
+      "school_id": "gz-440106-b69bcbc4",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市泰安中学",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校"
+        ],
+        "single_zone": [
+          "广州市泰安中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-22156e02",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市天河区泰安小学",
+      "official_primary_names": [
+        "泰安小学"
+      ],
+      "school_id": "gz-440106-b7efb60d",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第一一三中学(乐学校区)",
+        "广州市第一一三中学(东方校区)",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市第一一三中学(乐学校区)",
+          "广州市第一一三中学(东方校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-b049d65a",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市天河区昌乐小学",
+      "official_primary_names": [
+        "昌乐小学"
+      ],
+      "school_id": "gz-440106-ba79c3ea",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河中学(天河东路校区)",
+        "广州市天河中学(花城校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河中学(天河东路校区)",
+          "广州市天河中学(花城校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2f8a4424",
+        "gz-440106-dd16c13e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "体育东路小学海明学校",
+      "official_primary_names": [
+        "体育东路小学海明学校"
+      ],
+      "school_id": "gz-440106-bd76b30f",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市长兴中学",
+        "广东实验中学天河学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广东实验中学天河学校"
+        ],
+        "single_zone": [
+          "广州市长兴中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-7077b270",
+        "gz-440106-0eb93435"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市天河区岑村小学",
+      "official_primary_names": [
+        "岑村小学"
+      ],
+      "school_id": "gz-440106-bee8ea7b",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市泰安中学",
+        "广东实验中学天河学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广东实验中学天河学校"
+        ],
+        "single_zone": [
+          "广州市泰安中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-22156e02",
+        "gz-440106-0eb93435"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "沐陂小学",
+      "official_primary_names": [
+        "沐陂小学"
+      ],
+      "school_id": "gz-440106-c351d016",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河中学(天河东路校区)",
+        "广州市天河中学(花城校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河中学(天河东路校区)",
+          "广州市天河中学(花城校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2f8a4424",
+        "gz-440106-dd16c13e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "体育东路小学兴国学校",
+      "official_primary_names": [
+        "体育东路小学兴国学校"
+      ],
+      "school_id": "gz-440106-cdfda274",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第十八中学车陂校区",
+        "广州市第十八中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第十八中学车陂校区",
+          "广州市第十八中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-3a61d518",
+        "gz-440106-ef4076c1"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "羊城花园小学",
+      "official_primary_names": [
+        "羊城花园小学"
+      ],
+      "school_id": "gz-440106-cfa9a54a",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [
+        "广州市天河外国语智谷学校"
+      ],
+      "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
+      "feed_school_ids_from_middle": [],
+      "mechanisms": [
+        "zhi_sheng"
+      ],
+      "name": "广州市天河外国语智谷学校",
+      "official_primary_names": [
+        "广州市天河外国语智谷学校"
+      ],
+      "school_id": "gz-440106-d042314d",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [
+        "天河区智谷第一实验学校"
+      ],
+      "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
+      "feed_school_ids_from_middle": [],
+      "mechanisms": [
+        "zhi_sheng"
+      ],
+      "name": "天河区智谷第一实验学校",
+      "official_primary_names": [
+        "天河区智谷第一实验学校"
+      ],
+      "school_id": "gz-440106-d311ea50",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "天荣中学",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "天荣中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-90c47ff5",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "体育西路小学(西校区)",
+      "official_primary_names": [
+        "体育西路小学"
+      ],
+      "school_id": "gz-440106-d343b055",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市长兴中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市长兴中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-7077b270"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "志远小学",
+      "official_primary_names": [
+        "志远小学"
+      ],
+      "school_id": "gz-440106-d85cc235",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市华颖外国语学校"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市华颖外国语学校",
+      "official_primary_names": [
+        "华颖外国语学校（小学部）"
+      ],
+      "school_id": "gz-440106-dab5b807",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [
+        "清华附中湾区学校（智慧城校区）",
+        "清华附中湾区学校"
+      ],
+      "feed_junior_highs": [],
+      "feed_junior_highs_by_mechanism": {},
+      "feed_school_ids_from_middle": [],
+      "mechanisms": [
+        "zhi_sheng"
+      ],
+      "name": "清华附中湾区学校",
+      "official_primary_names": [
+        "清华附中湾区学校"
+      ],
+      "school_id": "gz-440106-e32237e4",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州中学(五山校区)",
+        "广州中学(名雅校区)",
+        "广州中学(天润校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州中学(五山校区)",
+          "广州中学(名雅校区)",
+          "广州中学(天润校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "华阳小学(天河东校区)",
+      "official_primary_names": [
+        "华阳小学"
+      ],
+      "school_id": "gz-440106-e591e421",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州中学(五山校区)",
+        "广州中学(名雅校区)",
+        "广州中学(天润校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州中学(五山校区)",
+          "广州中学(名雅校区)",
+          "广州中学(天润校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "龙口西小学(龙口校区)",
+      "official_primary_names": [
+        "龙口西小学"
+      ],
+      "school_id": "gz-440106-e66204ca",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第一一三中学(乐学校区)",
+        "广州市第一一三中学(东方校区)",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市第一一三中学(乐学校区)",
+          "广州市第一一三中学(东方校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2e9f6f7b",
+        "gz-440106-b049d65a",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "广州市天河区天府路小学建业校区",
+      "official_primary_names": [
+        "天府路小学"
+      ],
+      "school_id": "gz-440106-ecfc1a19",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河区汇景实验学校",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河区汇景实验学校"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-0d1e149e",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "汇景实验学校（华园校区）小学部",
+      "official_primary_names": [
+        "汇景实验学校（小学部）"
+      ],
+      "school_id": "gz-440106-ed39fc64",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市第八十九中学"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_zone": [
+          "广州市第八十九中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-8f55ab34"
+      ],
+      "mechanisms": [
+        "single_zone"
+      ],
+      "name": "广州市天河区华阳教育集团高塘石小学",
+      "official_primary_names": [
+        "高塘石小学"
+      ],
+      "school_id": "gz-440106-ed929fc7",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州中学(五山校区)",
+        "广州中学(名雅校区)",
+        "广州中学(天润校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州中学(五山校区)",
+          "广州中学(名雅校区)",
+          "广州中学(天润校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "龙口西小学(瑞安校区)",
+      "official_primary_names": [
+        "龙口西小学"
+      ],
+      "school_id": "gz-440106-ee85c675",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河区汇景实验学校",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河区汇景实验学校"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-0d1e149e",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "汇景实验学校（小学部）",
+      "official_primary_names": [
+        "汇景实验学校（小学部）"
+      ],
+      "school_id": "gz-440106-efcdec9d",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州中学(五山校区)",
+        "广州中学(名雅校区)",
+        "广州中学(天润校区)",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州中学(五山校区)",
+          "广州中学(名雅校区)",
+          "广州中学(天润校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-867e6c05",
+        "gz-440106-a989804b",
+        "gz-440106-f7cdfb7e",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "华南师范大学附属小学",
+      "official_primary_names": [
+        "华师附小",
+        "华南师范大学附属小学"
+      ],
+      "school_id": "gz-440106-f11f4361",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市泰安中学",
+        "广州市华颖外国语学校",
+        "广东实验中学天河学校"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "广东实验中学天河学校"
+        ],
+        "single_zone": [
+          "广州市泰安中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-22156e02",
+        "gz-440106-dab5b807",
+        "gz-440106-0eb93435"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "棠东小学",
+      "official_primary_names": [
+        "棠东小学"
+      ],
+      "school_id": "gz-440106-f56704cf",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河中学(天河东路校区)",
+        "广州市天河中学(花城校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河中学(天河东路校区)",
+          "广州市天河中学(花城校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2f8a4424",
+        "gz-440106-dd16c13e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "冼村小学",
+      "official_primary_names": [
+        "冼村小学"
+      ],
+      "school_id": "gz-440106-f69544d1",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "广州市天河中学(天河东路校区)",
+        "广州市天河中学(花城校区)",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "广州市天河中学(天河东路校区)",
+          "广州市天河中学(花城校区)"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-2f8a4424",
+        "gz-440106-dd16c13e",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "体育东路小学",
+      "official_primary_names": [
+        "体育东路小学"
+      ],
+      "school_id": "gz-440106-fafdbff4",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    },
+    {
+      "data_gaps": null,
+      "direct_feed": [],
+      "feed_junior_highs": [
+        "天荣中学",
+        "广州市华颖外国语学校",
+        "华南师范大学附属中学初中部"
+      ],
+      "feed_junior_highs_by_mechanism": {
+        "single_paidui": [
+          "广州市华颖外国语学校",
+          "华南师范大学附属中学初中部"
+        ],
+        "single_zone": [
+          "天荣中学"
+        ]
+      },
+      "feed_school_ids_from_middle": [
+        "gz-440106-90c47ff5",
+        "gz-440106-dab5b807",
+        "gz-440106-a565a93c"
+      ],
+      "mechanisms": [
+        "single_zone",
+        "single_paidui"
+      ],
+      "name": "体育西路小学(东校区)",
+      "official_primary_names": [
+        "体育西路小学"
+      ],
+      "school_id": "gz-440106-fee58b73",
+      "source_note": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+      "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
+    }
+  ],
+  "source": "2026 义务教育阶段学校招生工作细则附件6/7/8（穗天教〔2026〕2号）",
+  "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf",
+  "unresolved_official_primary_names": [],
+  "year": 2026
+}
