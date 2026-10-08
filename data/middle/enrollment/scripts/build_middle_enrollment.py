@@ -815,12 +815,18 @@ def build_tianhe_official():
         # 拿到正确机制）；执信附件10 池有点名小学 → _group_primaries 挂池（清湾/天外全区无名单）。
         _a10_zone = bool(_zone) and "详见附件10" in _zone
         _pool = TH_A10_POOLS.get(sid) if _a10_zone else None
+        # 2026-10-08（天河详情页生源小学修复）：附件6 对口小学列（primaries）此前仅挂
+        # _group_primaries（反推链内存消费），dist 序列化丢弃 → 详情页「生源小学」段
+        # （scope_school_ids，前端 Object.keys 遍历）天河 single_zone 初中全空。
+        # 现在同步写入 scope_school_ids（同 _a10_scope_primaries 的 {小学名: [school_id]} 形态）。
+        _pri_ss = ({n: _primary_ids(n, "440106") for n in (r["primaries"] or [])}
+                   if r.get("primaries") else None)
+        _ss_final = _a10_scope_primaries(sid) if _pool else (_pri_ss or _ss)
         recs.append({
             "school": school, "school_id": sid,
             **({"school_ids": sids} if sids else {}),
             "plan_classes": r["plan_classes"], "scope": _zone,
-            **({"scope_school_ids": _ss} if _ss else {}),
-            **({"scope_school_ids": _a10_scope_primaries(sid)} if _pool else {}),
+            **({"scope_school_ids": _ss_final} if _ss_final else {}),
             # 附件6 公办划片：机制 single_zone（zone 引用附件10 的行归位 single_paidui）；
             # note 不再重复机制名；华颖/省实「部分招生计划…详见附件10」由下方追加的 single_paidui 记录承载，划片记录 note 清空
             "mechanism": "single_paidui" if _a10_zone else "single_zone",
@@ -897,6 +903,7 @@ def build_tianhe_official():
         _sid, _sids = match_school_ids(_school, "440106")
         if not _sid and not _sids:
             continue
+        _ny_ss = {_pri: _primary_ids(_pri, "440106")}
         recs.append({
             "school": _school, "school_id": _sid,
             **({"school_ids": _sids} if _sids else {}),
@@ -904,6 +911,9 @@ def build_tianhe_official():
             # 一贯制小学部内部直升：机制 zhi_sheng（不参加电脑派位）
             "mechanism": "zhi_sheng", "mechanism_note": None,
             "group_members": None, "_group_primaries": [_pri],
+            # 2026-10-08（天河详情页生源小学修复）：小学部生源同步写 scope_school_ids，
+            # 使九年制初中详情页「生源小学」段可展示直升小学部。
+            **({"scope_school_ids": _ny_ss} if _ny_ss.get(_pri) else {}),
         })
     return {
         "year": 2026, "district": "天河区",
