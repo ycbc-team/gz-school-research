@@ -55,8 +55,6 @@ export interface XiaoshengchuGroup {
 export interface XiaoshengchuFactRecord {
   school_id: string;
   group_id: number;
-  feed_school_ids: string[];
-  feed_unresolved: string[];
   direct_feed_school_id: string | null;
   source_note?: string;
   /** 记录级升学机制枚举（初中枚举，与 middle/enrollment mechanism 对齐；dist 五区以初中反推为准） */
@@ -64,7 +62,9 @@ export interface XiaoshengchuFactRecord {
   /** 仅当与组级 data_gaps 不同时存在（记录级覆盖） */
   data_gaps?: string | null;
   /** 2026-10-08（天河双机制拆分）：feed 按机制分组（机制→[初中 id]；single_zone 划片 /
-   * single_paidui 电脑派位池 / group_paidui 派位组各自成组），前端按机制块渲染对应 feed */
+   * single_paidui 电脑派位池 / group_paidui 派位组各自成组），前端按机制块渲染对应 feed。
+   * 2026-10-08（字段精简）：全量扁平 feed_school_ids/feed_unresolved 已删除，
+   * 全量列表由消费方从本分组并集派生（单一真源，避免两套数据不一致）。 */
   feed_school_ids_by_mechanism?: Record<string, string[]>;
   /** 同上：未解析初中名按机制分组（显式缺口，可审计） */
   feed_unresolved_by_mechanism?: Record<string, string[]>;

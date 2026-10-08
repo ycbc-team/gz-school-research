@@ -30,7 +30,9 @@ def recompute():
     group_by_id = {g["id"]: g["name"] for g in xs["groups"]}
     feeds = {}
     for r in xs["records"]:
-        feed_ids = r.get("feed_school_ids") or []
+        feed_ids = []
+        for ids in (r.get("feed_school_ids_by_mechanism") or {}).values():
+            feed_ids.extend(ids)
         mid = r.get("direct_feed_school_id")
         if not feed_ids and not mid:
             continue

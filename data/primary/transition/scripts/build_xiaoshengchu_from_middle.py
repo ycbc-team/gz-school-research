@@ -65,7 +65,8 @@ def to_dist_records(candidate):
             "name": r["name"],
             "group": group,
             "mechanisms": mech,
-            "feed_junior_highs": r["feed_junior_highs"],
+            # 2026-10-08（字段精简）：feed 只以机制分组形态输出（feed_junior_highs_by_mechanism），
+            # 全量扁平列表由消费方从分组并集派生，单一真源。
             "feed_junior_highs_by_mechanism": r.get("feed_junior_highs_by_mechanism") or {},
             "direct_feed": direct[0] if direct else None,
             "source_url": r.get("source_url"),
@@ -252,9 +253,11 @@ def pairs_from_current(district):
     rows = json.load(open(path, encoding="utf-8"))["records"]
     resolver = XsResolver()
     resolved = [resolver.resolve_record(row) for row in rows]
+    # 2026-10-08（字段精简）：resolve_record 只输出机制分组形态，全量对并集派生
     return {(r["school_id"], mid)
             for r in resolved if r.get("school_id")
-            for mid in r.get("feed_school_ids") or []}
+            for _ids in (r.get("feed_school_ids_by_mechanism") or {}).values()
+            for mid in _ids}
 
 
 def comparison(district, candidate, entity_names):
@@ -335,7 +338,6 @@ def main():
                     "name": r["name"],
                     "group": r.get("group") or f"{candidate['district']}不参与公办派位/待核",
                     "mechanisms": [],
-                    "feed_junior_highs": [],
                     "direct_feed": None,
                     "source_url": r.get("source_url"),
                     "source_note": r.get("source_note"),

@@ -599,7 +599,9 @@ def main():
                 # "地段生"升公办初中对口（白云官方对口表明确列出，如方圆实验小学）
                 if "民办" in _gap_txt or "不参与公办派位" in _gap_txt:
                     continue
-                if _r.get("school_id", "").startswith("gz-440111") and _r.get("feed_school_ids"):
+                # 2026-10-08（字段精简）：feed 机制分组并集非空 → 白云民办小学有公办对口升学
+                _feed_all = [i for _ids in (_r.get("feed_school_ids_by_mechanism") or {}).values() for i in _ids]
+                if _r.get("school_id", "").startswith("gz-440111") and _feed_all:
                     continue
                 _bad_xs.append(f"{os.path.basename(_f)} | {_r.get('school', _r.get('name'))} | {_r.get('school_id')}")
     for _b in _bad_pri + _bad_mid + _bad_xs:

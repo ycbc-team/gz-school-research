@@ -4,11 +4,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第十八中学车陂校区",
-    "广州市第十八中学",
-    "广州市华颖外国语学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校"
@@ -29,7 +24,6 @@
   {
    "data_gaps": "民办（附件8 #30 东明荔园学校）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "东明荔园学校",
@@ -38,7 +32,6 @@
   {
    "data_gaps": "民办（附件8 #12 东泰学校，九年制，小学3班）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "东泰学校",
@@ -47,7 +40,6 @@
   {
    "data_gaps": "民办（附件8 #11 东风学校，九年制，小学3班）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "东风学校",
@@ -56,7 +48,6 @@
   {
    "data_gaps": "民办（附件8 #26 东风实验小学）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "东风实验小学",
@@ -65,12 +56,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市奥林匹克中学(黄村西路校区)",
-    "广州奥林匹克中学(智谷校区)",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -92,11 +77,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河区汇景实验学校",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -117,11 +97,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河区汇景实验学校",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -142,12 +117,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河区汇景实验学校",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -169,12 +138,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河中学(天河东路校区)",
-    "广州市天河中学(花城校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -196,12 +159,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河中学(天河东路校区)",
-    "广州市天河中学(花城校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -223,12 +180,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河中学(天河东路校区)",
-    "广州市天河中学(花城校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -250,11 +201,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "天荣中学",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -275,11 +221,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "天荣中学",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -300,9 +241,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市长兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市长兴中学"
@@ -318,7 +256,6 @@
   {
    "data_gaps": "民办（九年制，2026 附件8 民办计划在册）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "兴华培智学校",
@@ -327,12 +264,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河中学(天河东路校区)",
-    "广州市天河中学(花城校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -354,7 +285,6 @@
   {
    "data_gaps": "民办（附件8 #16 凤凰中学，九年制，小学3班）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "凤凰中学",
@@ -363,10 +293,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第十八中学车陂校区",
-    "广州市第十八中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第十八中学车陂校区",
@@ -383,12 +309,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河区汇景实验学校",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -410,14 +330,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州中学(五山校区)",
-    "广州中学(名雅校区)",
-    "广州中学(天润校区)",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -441,11 +353,6 @@
   {
    "data_gaps": null,
    "direct_feed": "华南理工大学附属实验学校(中学部)",
-   "feed_junior_highs": [
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -464,13 +371,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州中学(五山校区)",
-    "广州中学(名雅校区)",
-    "广州中学(天润校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -493,13 +393,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第一一三中学(乐学校区)",
-    "广州市第一一三中学(东方校区)",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -522,13 +415,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第一一三中学(乐学校区)",
-    "广州市第一一三中学(东方校区)",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -551,13 +437,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州中学(五山校区)",
-    "广州中学(名雅校区)",
-    "广州中学(天润校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -580,13 +459,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州中学(五山校区)",
-    "广州中学(名雅校区)",
-    "广州中学(天润校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -609,13 +481,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州中学(五山校区)",
-    "广州中学(名雅校区)",
-    "广州中学(天润校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -638,11 +503,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市华颖外国语学校",
-    "南国学校(中学部)",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -663,11 +523,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市奥林匹克中学(黄村西路校区)",
-    "广州奥林匹克中学(智谷校区)",
-    "执信中学(天河校区)"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "执信中学(天河校区)"
@@ -688,7 +543,6 @@
   {
    "data_gaps": "民办（附件8 #8 同仁实验学校，东校区 POI）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "同仁实验学校东校区",
@@ -697,7 +551,6 @@
   {
    "data_gaps": "民办（附件8 #8 同仁实验学校，小学部 POI）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "同仁实验学校小学部",
@@ -706,13 +559,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第一一三中学(乐学校区)",
-    "广州市第一一三中学(东方校区)",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -735,13 +581,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第一一三中学(乐学校区)",
-    "广州市第一一三中学(东方校区)",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -764,11 +603,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市奥林匹克中学(黄村西路校区)",
-    "广州奥林匹克中学(智谷校区)",
-    "执信中学(天河校区)"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "执信中学(天河校区)"
@@ -789,7 +623,6 @@
   {
    "data_gaps": "民办（附件8 #14 培智学校，九年制）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "培智学校",
@@ -798,7 +631,6 @@
   {
    "data_gaps": "民办（附件8 #22 培艺学校）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "培艺学校",
@@ -807,13 +639,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第一一三中学(乐学校区)",
-    "广州市第一一三中学(东方校区)",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -836,13 +661,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第一一三中学(乐学校区)",
-    "广州市第一一三中学(东方校区)",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -865,12 +683,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河区汇景实验学校",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -892,10 +704,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第七十五中学(燕塘西校区)",
-    "广州市第七十五中学(天平架校区)"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第七十五中学(燕塘西校区)",
@@ -912,9 +720,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市泰安中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市泰安中学"
@@ -930,7 +735,6 @@
   {
    "data_gaps": "民办（附件8 #9 成龙中学，九年制，小学3班）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "天河区成龙中学",
@@ -939,11 +743,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市奥林匹克中学(黄村西路校区)",
-    "广州奥林匹克中学(智谷校区)",
-    "广州市华颖外国语学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校"
@@ -964,7 +763,6 @@
   {
    "data_gaps": null,
    "direct_feed": "天河区智谷第一实验学校",
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
@@ -976,11 +774,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第一一三中学(乐学校区)",
-    "广州市第一一三中学(东方校区)",
-    "广州市华颖外国语学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校"
@@ -1001,7 +794,6 @@
   {
    "data_gaps": "民办（附件8 #19 明珠中英文学校，九年制，小学6班）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "天河明珠中英文学校",
@@ -1010,7 +802,6 @@
   {
    "data_gaps": "官方2026年划片表未单列对口初中，待区教育局补充。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "官方未单列（待核）",
    "mechanisms": [],
    "name": "天河智慧城第一小学",
@@ -1019,12 +810,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河中学(天河东路校区)",
-    "广州市天河中学(花城校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1046,7 +831,6 @@
   {
    "data_gaps": "民办（附件8 #13 天泽中学，九年制，小学2班）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "天泽中学",
@@ -1055,7 +839,6 @@
   {
    "data_gaps": "民办（附件8 #24 天骄中英文学校，2026 小学部无计划）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "天骄中英文学校",
@@ -1064,11 +847,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市奥林匹克中学(黄村西路校区)",
-    "广州奥林匹克中学(智谷校区)",
-    "执信中学(天河校区)"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "执信中学(天河校区)"
@@ -1089,7 +867,6 @@
   {
    "data_gaps": null,
    "direct_feed": "广东实验中学天河学校",
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
@@ -1101,9 +878,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第八十九中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第八十九中学"
@@ -1119,7 +893,6 @@
   {
    "data_gaps": null,
    "direct_feed": "广州中学天河燕园学校",
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
@@ -1131,7 +904,6 @@
   {
    "data_gaps": "民办（附件8 #1 华美英语实验学校，十二年制，小学4班）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "广州华美英语实验学校",
@@ -1140,10 +912,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第七十五中学(燕塘西校区)",
-    "广州市第七十五中学(天平架校区)"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第七十五中学(燕塘西校区)",
@@ -1160,7 +928,6 @@
   {
    "data_gaps": "民办（附件8 #15 大华学校原校名\"大华中英文学校\"，2026-09 微澜图书馆佐证）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "广州大华中英文学校",
@@ -1169,7 +936,6 @@
   {
    "data_gaps": null,
    "direct_feed": "广州市奥林匹克中学(黄村西路校区)",
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
@@ -1181,11 +947,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广东实验中学天河学校",
@@ -1206,11 +967,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市华颖外国语学校",
-    "广州市天河中学猎德实验学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1231,9 +987,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市长兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市长兴中学"
@@ -1249,10 +1002,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第七十五中学(燕塘西校区)",
-    "广州市第七十五中学(天平架校区)"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第七十五中学(燕塘西校区)",
@@ -1269,7 +1018,6 @@
   {
    "data_gaps": "民办（附件8 #25 华实学校，九年制）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "广州市天河区华实学校",
@@ -1278,13 +1026,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州中学(五山校区)",
-    "广州中学(名雅校区)",
-    "广州中学(天润校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1307,13 +1048,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第一一三中学(乐学校区)",
-    "广州市第一一三中学(东方校区)",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1336,13 +1070,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州中学(五山校区)",
-    "广州中学(名雅校区)",
-    "广州中学(天润校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1365,9 +1092,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第八十九中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第八十九中学"
@@ -1383,7 +1107,6 @@
   {
    "data_gaps": "民办（附件8 #6 同仁学校，九年制，小学4班）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "广州市天河区同仁学校",
@@ -1392,7 +1115,6 @@
   {
    "data_gaps": "民办（附件8 #32 同仁艺体实验小学）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "广州市天河区同仁艺体实验小学",
@@ -1401,7 +1123,6 @@
   {
    "data_gaps": "特殊教育学校（公办特教，招收中重度智力残疾适龄儿童，无小升初对口）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "广州市天河区启慧学校",
@@ -1410,10 +1131,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第七十五中学(燕塘西校区)",
-    "广州市第七十五中学(天平架校区)"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第七十五中学(燕塘西校区)",
@@ -1430,13 +1147,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第一一三中学(乐学校区)",
-    "广州市第一一三中学(东方校区)",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1459,9 +1169,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "天河区智谷第一实验学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "天河区智谷第一实验学校"
@@ -1477,10 +1184,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市长兴中学",
-    "广东实验中学天河学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广东实验中学天河学校"
@@ -1500,13 +1203,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第一一三中学(乐学校区)",
-    "广州市第一一三中学(东方校区)",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1529,9 +1225,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第八十九中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第八十九中学"
@@ -1547,11 +1240,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市泰安中学",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1572,11 +1260,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市泰安中学",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1597,12 +1280,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河中学(天河东路校区)",
-    "广州市天河中学(花城校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1624,13 +1301,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州中学(五山校区)",
-    "广州中学(名雅校区)",
-    "广州中学(天润校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1653,7 +1323,6 @@
   {
    "data_gaps": "民办（附件8 #28 长虹小学，已入育华教育集团，POI 用集团名）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "广州市天河区长虹小学",
@@ -1662,10 +1331,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市奥林匹克中学(黄村西路校区)",
-    "广州奥林匹克中学(智谷校区)"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市奥林匹克中学(黄村西路校区)",
@@ -1682,13 +1347,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州中学(五山校区)",
-    "广州中学(名雅校区)",
-    "广州中学(天润校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1711,7 +1369,6 @@
   {
    "data_gaps": "民办（附件8 #6 同仁学校，天兴校区 POI，九年制）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "广州市天河同仁天兴学校",
@@ -1720,7 +1377,6 @@
   {
    "data_gaps": null,
    "direct_feed": "广州市天河外国语智谷学校",
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
@@ -1732,12 +1388,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河中学(天河东路校区)",
-    "广州市天河中学(花城校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1759,11 +1409,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市华颖外国语学校",
-    "广州市第一一三中学陶育实验学校(暨南校区)",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1784,10 +1429,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市长兴中学",
-    "广东实验中学天河学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广东实验中学天河学校"
@@ -1807,7 +1448,6 @@
   {
    "data_gaps": "民办，2025 年度已停办（2024 年检不合格），2026 年民办招生计划未单列。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "志才小学",
@@ -1816,9 +1456,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市长兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市长兴中学"
@@ -1834,9 +1471,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市泰安中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市泰安中学"
@@ -1852,7 +1486,6 @@
   {
    "data_gaps": "民办（附件8 #17 新昌学校）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "新昌学校",
@@ -1861,7 +1494,6 @@
   {
    "data_gaps": "民办（附件8 #5 新蕾五星学校）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "新蕾五星学校",
@@ -1870,7 +1502,6 @@
   {
    "data_gaps": "民办（附件8 #27 新蕾学校）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "新蕾学校",
@@ -1879,11 +1510,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市奥林匹克中学(黄村西路校区)",
-    "广州奥林匹克中学(智谷校区)",
-    "广州市华颖外国语学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校"
@@ -1904,13 +1530,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第一一三中学(乐学校区)",
-    "广州市第一一三中学(东方校区)",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1933,10 +1552,6 @@
   {
    "data_gaps": null,
    "direct_feed": "暨南大学附属中学",
-   "feed_junior_highs": [
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1954,11 +1569,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "骏景中学",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -1979,11 +1589,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市泰安中学",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -2004,11 +1609,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市泰安中学",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -2029,7 +1629,6 @@
   {
    "data_gaps": "民办（附件8 #10 棠福学校，九年制，小学3班）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "棠福学校",
@@ -2038,12 +1637,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河区汇景实验学校",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -2065,12 +1658,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河区汇景实验学校",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -2092,7 +1679,6 @@
   {
    "data_gaps": "民办（附件8 #31 汇景新城实验小学，与公办汇景实验学校（初中）无关）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "汇景新城实验小学",
@@ -2101,10 +1687,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市泰安中学",
-    "广东实验中学天河学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广东实验中学天河学校"
@@ -2124,10 +1706,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第七十五中学(燕塘西校区)",
-    "广州市第七十五中学(天平架校区)"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第七十五中学(燕塘西校区)",
@@ -2144,7 +1722,6 @@
   {
    "data_gaps": null,
    "direct_feed": "清华附中湾区学校（智慧城校区）",
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
@@ -2156,7 +1733,6 @@
   {
    "data_gaps": null,
    "direct_feed": "清华附中湾区学校（智慧城校区）",
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
@@ -2168,7 +1744,6 @@
   {
    "data_gaps": "民办（附件8 #29 渔兴小学）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "渔兴小学",
@@ -2177,9 +1752,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第八十九中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第八十九中学"
@@ -2195,11 +1767,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市奥林匹克中学(黄村西路校区)",
-    "广州奥林匹克中学(智谷校区)",
-    "执信中学(天河校区)"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "执信中学(天河校区)"
@@ -2220,11 +1787,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市奥林匹克中学(黄村西路校区)",
-    "广州奥林匹克中学(智谷校区)",
-    "执信中学(天河校区)"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "执信中学(天河校区)"
@@ -2245,10 +1807,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第十八中学车陂校区",
-    "广州市第十八中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第十八中学车陂校区",
@@ -2265,13 +1823,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市天河中学(天河东路校区)",
-    "广州市天河中学(花城校区)",
-    "广州市华颖外国语学校",
-    "广州市第一一三中学陶育实验学校(暨南校区)",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -2294,7 +1845,6 @@
   {
    "data_gaps": "民办（附件8 #18 科韵路学校，九年制，小学5班）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "科韵路学校",
@@ -2303,10 +1853,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第十八中学车陂校区",
-    "广州市第十八中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第十八中学车陂校区",
@@ -2323,12 +1869,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第十八中学车陂校区",
-    "广州市第十八中学",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -2350,10 +1890,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第七十五中学(燕塘西校区)",
-    "广州市第七十五中学(天平架校区)"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第七十五中学(燕塘西校区)",
@@ -2370,10 +1906,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第七十五中学(燕塘西校区)",
-    "广州市第七十五中学(天平架校区)"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第七十五中学(燕塘西校区)",
@@ -2390,9 +1922,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市长兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市长兴中学"
@@ -2408,9 +1937,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市长兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市长兴中学"
@@ -2426,11 +1952,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "骏景中学",
-    "广州市华颖外国语学校",
-    "广东实验中学天河学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -2451,7 +1972,6 @@
   {
    "data_gaps": "民办（九年制，2026 附件8 民办计划在册）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "黄村中英文学校",
@@ -2460,13 +1980,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州中学(五山校区)",
-    "广州中学(名雅校区)",
-    "广州中学(天润校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -2489,13 +2002,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州中学(五山校区)",
-    "广州中学(名雅校区)",
-    "广州中学(天润校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -2518,13 +2024,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州中学(五山校区)",
-    "广州中学(名雅校区)",
-    "广州中学(天润校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -2547,13 +2046,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州中学(五山校区)",
-    "广州中学(名雅校区)",
-    "广州中学(天润校区)",
-    "广州市华颖外国语学校",
-    "华南师范大学附属中学初中部"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州市华颖外国语学校",
@@ -2576,7 +2068,6 @@
   {
    "data_gaps": "民办（九年制，2026 附件8 民办计划在册）。",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "group": "不参与公办派位/待核",
    "mechanisms": [],
    "name": "龙圣学校",
@@ -2585,9 +2076,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "天荣中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "天荣中学"
@@ -2603,9 +2091,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第八十九中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第八十九中学"
@@ -2621,9 +2106,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第八十九中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第八十九中学"
@@ -2639,9 +2121,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州市第八十九中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广州市第八十九中学"

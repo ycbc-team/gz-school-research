@@ -24,11 +24,12 @@ const OUT_CJS_MAIN = process.argv[2] || join(ROOT, 'apps', 'miniprogram', 'data'
 const OUT_CJS_SUB = process.argv[3] || join(ROOT, 'apps', 'miniprogram', 'pages', 'school-detail', 'data');
 const OUT_ESM = process.argv[4] || join(ROOT, 'apps', 'web', 'src', 'data', 'compact');
 
-/** 高重复值字段 → 字典化（值唯一数少才启用）；listDicts 为数组元素字典（如 feed_school_ids 实体 id 列表） */
+/** 高重复值字段 → 字典化（值唯一数少才启用）；listDicts 为数组元素字典（如初中实体 id 列表）。
+ * 2026-10-08：xiaoshengchu 记录扁平 feed_school_ids 已删（feed 只以机制分组形态
+ * feed_school_ids_by_mechanism 存在，Record<string,string[]> 结构暂不做元素字典化）。 */
 const DICT_SPEC = {
   'data/primary/transition/dist/xiaoshengchu_2026.json': {
     dicts: ['group', 'source_url'],
-    listDicts: ['feed_school_ids'],
   },
   // 获奖明细：school（3383 唯一）/project（850）/award（31）高重复值列字典化，原始省 ~2.4MB
   'data/awards/dist/detailed_records.json': {

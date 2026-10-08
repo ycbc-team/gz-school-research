@@ -4,7 +4,6 @@
   {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -14,9 +13,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "洛浦中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "洛浦中学"
@@ -32,15 +28,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -62,15 +49,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -92,9 +70,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "大龙中学"
@@ -110,9 +85,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "番禺区实验中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "番禺区实验中学"
@@ -128,9 +100,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石碁第四中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "石碁第四中学"
@@ -146,9 +115,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "丽江学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "丽江学校"
@@ -164,9 +130,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥沙头中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥沙头中学"
@@ -182,9 +145,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "沙湾象达中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "沙湾象达中学"
@@ -200,7 +160,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -210,7 +169,6 @@
   {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -220,9 +178,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石楼中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "石楼中学"
@@ -238,10 +193,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学二校区（初中部）",
-    "大龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学二校区（初中部）",
@@ -258,9 +209,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "大龙中学"
@@ -276,15 +224,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -306,9 +245,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "沙湾象达中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "沙湾象达中学"
@@ -324,9 +260,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "育龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "育龙中学"
@@ -342,9 +275,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石碁第四中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "石碁第四中学"
@@ -360,7 +290,6 @@
   {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -370,7 +299,6 @@
   {
    "data_gaps": "民办学校（小学部），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -380,9 +308,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "化龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "化龙中学"
@@ -398,9 +323,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "化龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "化龙中学"
@@ -416,9 +338,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "化龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "化龙中学"
@@ -434,9 +353,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州大学附属中学大学城校区"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州大学附属中学大学城校区"
@@ -452,9 +368,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东番禺中学教育集团兴南学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广东番禺中学教育集团兴南学校"
@@ -470,7 +383,6 @@
   {
    "data_gaps": "民办学校（小学部），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -480,9 +392,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "南村侨联中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "南村侨联中学"
@@ -498,7 +407,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -508,7 +416,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -518,9 +425,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "南村中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "南村中学"
@@ -536,9 +440,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥沙头中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥沙头中学"
@@ -554,9 +455,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥桥兴中学"
@@ -572,10 +470,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "南村中学",
-    "南村侨联中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "南村中学",
@@ -592,9 +486,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "南村中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "南村中学"
@@ -610,9 +501,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "南雅学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "南雅学校"
@@ -628,9 +516,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石楼镇第二中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "石楼镇第二中学"
@@ -646,9 +531,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石碁中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "石碁中学"
@@ -664,9 +546,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东第二师范学院广州南站附属学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广东第二师范学院广州南站附属学校"
@@ -682,15 +561,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -712,15 +582,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -742,9 +603,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "南雅学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "南雅学校"
@@ -760,7 +618,6 @@
   {
    "data_gaps": "民办学校（小学部），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -770,9 +627,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "南村侨联中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "南村侨联中学"
@@ -788,7 +642,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -798,9 +651,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "南村中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "南村中学"
@@ -816,10 +666,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东番禺中学教育集团兴南学校",
-    "南村中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东番禺中学教育集团兴南学校",
@@ -836,9 +682,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "化龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "化龙中学"
@@ -854,7 +697,6 @@
   {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -864,7 +706,6 @@
   {
    "data_gaps": "民办学校（九年制，石楼镇，2026 民办招生计划在册），不参与公办派位（大岭村户籍公办对口石楼中学，由石楼镇何澄溪小学承载）",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -874,9 +715,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥沙头中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥沙头中学"
@@ -892,9 +730,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大石中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "大石中学"
@@ -910,9 +745,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥沙头中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥沙头中学"
@@ -928,7 +760,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -938,9 +769,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大石富丽中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "大石富丽中学"
@@ -956,9 +784,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥金山谷学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥金山谷学校"
@@ -974,9 +799,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥沙头中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥沙头中学"
@@ -992,9 +814,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "育龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "育龙中学"
@@ -1010,9 +829,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "番禺区实验中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "番禺区实验中学"
@@ -1028,9 +844,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "南村中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "南村中学"
@@ -1046,15 +859,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -1076,15 +880,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -1106,15 +901,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -1136,9 +922,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥象圣中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥象圣中学"
@@ -1154,15 +937,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -1184,9 +958,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥桥兴中学"
@@ -1202,9 +973,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥金山谷学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥金山谷学校"
@@ -1220,9 +988,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥桥兴中学"
@@ -1238,9 +1003,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学莲花湾学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广东仲元中学莲花湾学校"
@@ -1256,9 +1018,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学附属学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广东仲元中学附属学校"
@@ -1274,9 +1033,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东外语外贸大学番禺实验学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广东外语外贸大学番禺实验学校"
@@ -1292,9 +1048,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "大龙中学"
@@ -1310,9 +1063,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东番禺中学实验学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广东番禺中学实验学校"
@@ -1328,9 +1078,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东番禺中学教育集团兴南学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广东番禺中学教育集团兴南学校"
@@ -1346,9 +1093,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东番禺中学附属学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广东番禺中学附属学校"
@@ -1364,9 +1108,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东第二师范学院番禺附属初中"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广东第二师范学院番禺附属初中"
@@ -1382,7 +1123,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1392,9 +1132,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广大附中番禺实验学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广大附中番禺实验学校"
@@ -1410,7 +1147,6 @@
   {
    "data_gaps": "民办中学（南方学院附中），非小学实体",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1420,7 +1156,6 @@
   {
    "data_gaps": "民办小学，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1430,7 +1165,6 @@
   {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1440,7 +1174,6 @@
   {
    "data_gaps": "民办学校（小学部），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1450,9 +1183,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州大学附属中学大学城校区"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州大学附属中学大学城校区"
@@ -1468,9 +1198,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州大学附属中学大学城校区"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州大学附属中学大学城校区"
@@ -1486,9 +1213,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "番雅实验学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "番雅实验学校"
@@ -1504,10 +1228,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广铁一中番禺校区",
-    "广铁一中铁英学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广铁一中番禺校区",
@@ -1524,10 +1244,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广铁一中番禺校区",
-    "广铁一中铁英学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广铁一中番禺校区",
@@ -1544,10 +1260,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广铁一中番禺校区",
-    "广铁一中铁英学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广铁一中番禺校区",
@@ -1564,10 +1276,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广铁一中番禺校区",
-    "广铁一中铁英学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广铁一中番禺校区",
@@ -1584,9 +1292,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东第二师范学院广州南站附属学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广东第二师范学院广州南站附属学校"
@@ -1602,7 +1307,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1612,9 +1316,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "毓贤学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "毓贤学校"
@@ -1630,9 +1331,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "番广附万博学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "番广附万博学校"
@@ -1648,9 +1346,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "番广附创新城学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "番广附创新城学校"
@@ -1666,9 +1361,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "南村侨联中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "南村侨联中学"
@@ -1684,7 +1376,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1694,9 +1385,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "隽新学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "隽新学校"
@@ -1712,7 +1400,6 @@
   {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1722,7 +1409,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1732,7 +1418,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1742,9 +1427,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "毓贤学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "毓贤学校"
@@ -1760,15 +1442,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -1790,9 +1463,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "沙湾象骏中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "沙湾象骏中学"
@@ -1808,7 +1478,6 @@
   {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1818,7 +1487,6 @@
   {
    "data_gaps": "民办小学（星执学校附小），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1828,9 +1496,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "育龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "育龙中学"
@@ -1846,7 +1511,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1856,9 +1520,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "大龙中学"
@@ -1874,10 +1535,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大石中学",
-    "大石富丽中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "大石中学",
@@ -1894,7 +1551,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1904,9 +1560,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "大龙中学"
@@ -1922,9 +1575,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "洛浦沙滘中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "洛浦沙滘中学"
@@ -1940,7 +1590,6 @@
   {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1950,7 +1599,6 @@
   {
    "data_gaps": "民办小学，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -1960,15 +1608,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -1990,9 +1629,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "育龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "育龙中学"
@@ -2008,9 +1644,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥沙头中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥沙头中学"
@@ -2026,7 +1659,6 @@
   {
    "data_gaps": "民办小学，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -2036,9 +1668,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "毓贤学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "毓贤学校"
@@ -2054,9 +1683,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "大龙中学"
@@ -2072,9 +1698,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石碁中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "石碁中学"
@@ -2090,9 +1713,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥沙头中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥沙头中学"
@@ -2108,9 +1728,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "南村侨联中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "南村侨联中学"
@@ -2126,9 +1743,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石楼镇海鸥学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "石楼镇海鸥学校"
@@ -2144,15 +1758,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -2174,15 +1779,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -2204,9 +1800,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥沙头中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥沙头中学"
@@ -2222,9 +1815,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "育龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "育龙中学"
@@ -2240,9 +1830,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "沙湾象达中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "沙湾象达中学"
@@ -2258,9 +1845,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "沙湾象达中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "沙湾象达中学"
@@ -2276,9 +1860,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "沙湾象达中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "沙湾象达中学"
@@ -2294,9 +1875,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "洛浦沙滘中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "洛浦沙滘中学"
@@ -2312,9 +1890,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大石中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "大石中学"
@@ -2330,9 +1905,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "洛浦沙滘中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "洛浦沙滘中学"
@@ -2348,9 +1920,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "洛浦中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "洛浦中学"
@@ -2366,10 +1935,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学附属学校",
-    "洛溪新城中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学附属学校",
@@ -2386,9 +1951,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "洛浦中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "洛浦中学"
@@ -2404,9 +1966,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "洛溪新城中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "洛溪新城中学"
@@ -2422,9 +1981,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "洛溪新城中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "洛溪新城中学"
@@ -2440,9 +1996,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石碁第四中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "石碁第四中学"
@@ -2458,9 +2011,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石楼镇第二中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "石楼镇第二中学"
@@ -2476,9 +2026,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "洛浦沙滘中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "洛浦沙滘中学"
@@ -2494,10 +2041,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广铁一中番禺校区",
-    "广铁一中铁英学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广铁一中番禺校区",
@@ -2514,9 +2057,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "南村侨联中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "南村侨联中学"
@@ -2532,7 +2072,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -2542,9 +2081,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "南村中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "南村中学"
@@ -2560,9 +2096,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "洛浦中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "洛浦中学"
@@ -2578,7 +2111,6 @@
   {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -2588,9 +2120,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "锦绣香江学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "锦绣香江学校"
@@ -2606,7 +2135,6 @@
   {
    "data_gaps": "民办小学，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -2616,7 +2144,6 @@
   {
    "data_gaps": "民办小学，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -2626,10 +2153,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大石中学",
-    "大石富丽中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "大石中学",
@@ -2646,7 +2169,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -2656,9 +2178,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东第二师范学院广州南站附属学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广东第二师范学院广州南站附属学校"
@@ -2674,9 +2193,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "大龙中学"
@@ -2692,10 +2208,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石楼中学",
-    "石楼镇第二中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "石楼中学",
@@ -2712,10 +2224,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石碁中学",
-    "石碁第四中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "石碁中学",
@@ -2732,10 +2240,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石碁中学",
-    "石碁第四中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "石碁中学",
@@ -2752,9 +2256,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石碁中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "石碁中学"
@@ -2770,9 +2271,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大石中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "大石中学"
@@ -2788,7 +2286,6 @@
   {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -2798,7 +2295,6 @@
   {
    "data_gaps": "民办学校（九年制），不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -2808,9 +2304,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "沙湾象达中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "沙湾象达中学"
@@ -2826,9 +2319,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广州大学附属中学大学城校区"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_paidui": [
      "广州大学附属中学大学城校区"
@@ -2844,9 +2334,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "沙湾象骏中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "沙湾象骏中学"
@@ -2862,9 +2349,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "大龙中学"
@@ -2880,9 +2364,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石楼镇莲花山中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "石楼镇莲花山中学"
@@ -2898,9 +2379,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "钟村中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "钟村中学"
@@ -2916,9 +2394,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石碁中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "石碁中学"
@@ -2934,9 +2409,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "大龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "大龙中学"
@@ -2952,9 +2424,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥象圣中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥象圣中学"
@@ -2970,9 +2439,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "沙湾象达中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "沙湾象达中学"
@@ -2988,9 +2454,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石楼镇莲花山中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "石楼镇莲花山中学"
@@ -3006,9 +2469,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "番禺区实验中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "番禺区实验中学"
@@ -3024,9 +2484,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "洛浦中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "洛浦中学"
@@ -3042,15 +2499,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -3072,9 +2520,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "钟村中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "钟村中学"
@@ -3090,9 +2535,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石楼中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "石楼中学"
@@ -3108,10 +2550,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "石楼镇第二中学",
-    "石楼中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "石楼镇第二中学",
@@ -3128,7 +2566,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -3138,9 +2575,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "育龙中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "育龙中学"
@@ -3156,7 +2590,6 @@
   {
    "data_gaps": "民办学校，不参与公办派位",
    "direct_feed": null,
-   "feed_junior_highs": [],
    "feed_junior_highs_by_mechanism": {},
    "group": "不参与公办派位/待核",
    "mechanisms": [],
@@ -3166,9 +2599,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "金海岸学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "金海岸学校"
@@ -3184,9 +2614,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "钟村中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "钟村中学"
@@ -3202,9 +2629,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "钟村中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "钟村中学"
@@ -3220,9 +2644,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "钟村奥园学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "钟村奥园学校"
@@ -3238,9 +2659,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "钟村中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "钟村中学"
@@ -3256,9 +2674,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "钟村中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "钟村中学"
@@ -3274,9 +2689,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "市桥象圣中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "市桥象圣中学"
@@ -3292,9 +2704,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东第二师范学院广州南站附属学校"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "广东第二师范学院广州南站附属学校"
@@ -3310,15 +2719,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "广东仲元中学一校区（初中部）",
-    "番禺区实验中学",
-    "市桥东风中学",
-    "市桥侨联中学",
-    "市桥星海中学",
-    "市桥桥城中学",
-    "市桥桥兴中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "group_paidui": [
      "广东仲元中学一校区（初中部）",
@@ -3340,9 +2740,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "沙湾象达中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "沙湾象达中学"
@@ -3358,9 +2755,6 @@
   {
    "data_gaps": null,
    "direct_feed": null,
-   "feed_junior_highs": [
-    "番禺区实验中学"
-   ],
    "feed_junior_highs_by_mechanism": {
     "single_zone": [
      "番禺区实验中学"

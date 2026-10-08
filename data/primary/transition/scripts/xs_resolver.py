@@ -51,16 +51,12 @@ class XsResolver:
         return [e['school_id'] for e in rs if e.get('school_id')]
 
     def resolve_record(self, r):
-        """对一条 xiaoshengchu 记录解析 school_id / feed_school_ids / direct_feed_school_id。"""
+        """对一条 xiaoshengchu 记录解析 school_id / feed_school_ids_by_mechanism / direct_feed_school_id。
+        2026-10-08（字段精简）：feed 只以机制分组形态输出（feed_school_ids_by_mechanism /
+        feed_unresolved_by_mechanism），不再输出全量扁平 feed_school_ids/feed_unresolved——
+        全量列表由各消费方从分组并集派生（单一真源，避免两套数据不一致）。"""
         district = district_of_group(r.get('group'))
         school_id = self.resolve_one(r.get('name'), district, 'primary')
-        feed_ids, feed_unresolved = [], []
-        for name in r.get('feed_junior_highs') or []:
-            ids = self.resolve_many(name, district, 'middle')
-            if ids:
-                feed_ids.extend(ids)
-            else:
-                feed_unresolved.append(name)
         direct = None
         if r.get('direct_feed'):
             direct = self.resolve_one(r['direct_feed'], district, 'middle')
@@ -68,7 +64,14 @@ class XsResolver:
         # single_paidui 电脑派位池 / group_paidui 派位组等），前端按机制块渲染各自 feed，
         # 避免「单校划片」与「电脑派位」两个板块重复展示同一混合列表（天府路小学翠湖校区反馈）。
         feed_by_mech_ids, feed_by_mech_unres = {}, {}
-        for _m, _names in (r.get('feed_junior_highs_by_mechanism') or {}).items():
+        # 2026-10-08（字段精简）：运行时记录 feed 只以 by_mechanism 形态；legacy/旧 dist
+        # （反推对账层输入）仍为扁平 feed_junior_highs 旧格式 → 按首个机制单机制兜底归组
+        # （与番禺构建层归组同口径；反推区旧存档均为单机制为主的逐校名单）。
+        _by_mech = (r.get('feed_junior_highs_by_mechanism') or {})
+        if not _by_mech and r.get('feed_junior_highs'):
+            _m0 = (r.get('mechanisms') or ['single_zone'])[0]
+            _by_mech = {_m0: list(r['feed_junior_highs'])}
+        for _m, _names in _by_mech.items():
             _ids, _unres = [], []
             for name in _names:
                 ids = self.resolve_many(name, district, 'middle')
@@ -77,17 +80,13 @@ class XsResolver:
                 else:
                     _unres.append(name)
             if _ids:
-                feed_by_mech_ids[_m] = list(dict.fromkeys(_ids))
+                feed_by_mech_ids[_m] = list(dict.fromkeys(_ids))  # 保序去重：法人名 resolve_all 全校区展开
             if _unres:
                 feed_by_mech_unres[_m] = _unres
         return {
             'school_id': school_id,
             'group': r.get('group'),
             'mechanisms': r.get('mechanisms') or [],  # 机制枚举（数据层固化，运行时零文本匹配）
-            'feed_school_ids': list(dict.fromkeys(feed_ids)),  # 保序去重：法人名 resolve_all 全校区展开
-            # 与校区名单独解析可能命中同一实体（如「XX中学」→本部+东校区，「XX中学东校区」→东校区，
-            # 东校区 id 会重复出现）；upgrade 跨记录合并时另有 Set，但单条内重复无意义，直接去重。
-            'feed_unresolved': feed_unresolved,
             'direct_feed_school_id': direct,
             'source_url': r.get('source_url'),
             'data_gaps': r.get('data_gaps'),
@@ -120,7 +119,8 @@ if __name__ == '__main__':
         g = groups[r['group_id']]
         cur_recs.append({
             'school_id': r.get('school_id'), 'group': g.get('name'),
-            'feed_school_ids': r.get('feed_school_ids'), 'feed_unresolved': r.get('feed_unresolved'),
+            'feed_school_ids': set().union(*(r.get('feed_school_ids_by_mechanism') or {}).values()),
+            'feed_unresolved': set().union(*(r.get('feed_unresolved_by_mechanism') or {}).values()),
             'direct_feed_school_id': r.get('direct_feed_school_id'),
             'source_url': (g.get('source_urls') or [None])[0],
             'data_gaps': r.get('data_gaps'),
@@ -129,11 +129,13 @@ if __name__ == '__main__':
     agg = {}
     for r in resolved:
         k = (r['school_id'], r['group'])
+        fs = set().union(*(r.get('feed_school_ids_by_mechanism') or {}).values())
+        fu = set().union(*(r.get('feed_unresolved_by_mechanism') or {}).values())
         if k not in agg:
-            agg[k] = (set(r['feed_school_ids']), set(r['feed_unresolved']))
+            agg[k] = (fs, fu)
         else:
-            agg[k][0].update(r['feed_school_ids'])
-            agg[k][1].update(r['feed_unresolved'])
+            agg[k][0].update(fs)
+            agg[k][1].update(fu)
     cur_map = {}
     for c in cur_recs:
         k = (c['school_id'], c['group'])

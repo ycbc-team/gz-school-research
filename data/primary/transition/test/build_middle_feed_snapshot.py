@@ -28,11 +28,14 @@ def main():
     group_by_id = {g["id"]: g["name"] for g in xs["groups"]}
 
     # 与 @gz/shared quota.ts middlePrimaryFeed 同逻辑：records 顺序遍历，
-    # feed_school_ids 含目标 或 direct_feed_school_id == 目标 → 该记录的小学
+    # feed 机制分组并集含目标 或 direct_feed_school_id == 目标 → 该记录的小学
+    # （2026-10-08 字段精简：扁平 feed_school_ids 已删，改遍历 by_mechanism 各键值）
     feeds: dict[str, list[dict]] = {}
     for r in xs["records"]:
         mid = r.get("direct_feed_school_id")
-        feed_ids = r.get("feed_school_ids") or []
+        feed_ids = []
+        for ids in (r.get("feed_school_ids_by_mechanism") or {}).values():
+            feed_ids.extend(ids)
         if not feed_ids and not mid:
             continue
         primary_name = entity_by_id.get(r.get("school_id"), "(未知)")

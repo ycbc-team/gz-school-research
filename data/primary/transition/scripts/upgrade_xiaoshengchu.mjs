@@ -10,8 +10,9 @@
  * 事实表只存事实与来源，不存维度：
  *   school_id            小学实体（=POI 点位实体）
  *   group                派位/对口分组文本（事实）
- *   feed_school_ids[]    对口/派位初中实体 id（纯外键）
- *   feed_unresolved[]    未解析到 POI 的官方初中名（显式缺口，可审计，不做模糊匹配）
+ *   feed_school_ids_by_mechanism  对口/派位初中实体 id 按机制分组（机制→[id]，纯外键；
+ *                                 全量列表由消费方并集派生——2026-10-08 字段精简，扁平字段已删）
+ *   feed_unresolved_by_mechanism  未解析到 POI 的官方初中名按机制分组（显式缺口，可审计）
  *   direct_feed_school_id 直升初中实体 id
  *   source_url / data_gaps（source_note 仅保留在 parsed 审计层，不带入 dist、不展示前端）
  * district 由 school_id → POI.adcode join 得到，不存。
@@ -39,21 +40,20 @@ const src = read(_src);
 const XS_MECH_ORDER = ['zhi_sheng', 'single_zone', 'group_paidui', 'single_paidui', 'min_zi_zhu'];
 let primaryHit = 0, feedHit = 0, feedMiss = 0;
 const outRecords = src.records.map((r) => {
-  // school_id/feed_school_ids/direct_feed_school_id 由 Python xs_resolver 解析
+  // school_id / feed_school_ids_by_mechanism / direct_feed_school_id 由 Python xs_resolver 解析
   // （见 build_xiaoshengchu_all.py merge_all → scripts/primary/xs_resolver.py）
   if (r.school_id) primaryHit++;
-  feedHit += (r.feed_school_ids || []).length;
-  feedMiss += (r.feed_unresolved || []).length;
+  for (const ids of Object.values(r.feed_school_ids_by_mechanism || {})) feedHit += (ids || []).length;
+  for (const names of Object.values(r.feed_unresolved_by_mechanism || {})) feedMiss += (names || []).length;
   return {
     school_id: r.school_id,
     group: r.group,
     mechanisms: r.mechanisms || [],
-    feed_school_ids: r.feed_school_ids || [],
-    feed_unresolved: r.feed_unresolved || [],
     direct_feed_school_id: r.direct_feed_school_id,
     source_url: r.source_url, data_gaps: r.data_gaps,
     // 2026-10-08（天河双机制拆分）：feed 按机制分组（机制→[初中 id] / [未解析名]），
-    // 由 Python xs_resolver 解析，前端按机制块渲染各自 feed。
+    // 由 Python xs_resolver 解析，前端按机制块渲染各自 feed；
+    // 2026-10-08（字段精简）：不再输出全量扁平 feed_school_ids/feed_unresolved。
     feed_school_ids_by_mechanism: r.feed_school_ids_by_mechanism || {},
     feed_unresolved_by_mechanism: r.feed_unresolved_by_mechanism || {},
   };
@@ -69,10 +69,8 @@ const deduped = [];
     const k = `${r.group || ''}\u0000${r.school_id}`;
     const prev = byKey.get(k);
     if (!prev) { byKey.set(k, r); continue; }
-    prev.feed_school_ids = [...new Set([...(prev.feed_school_ids || []), ...(r.feed_school_ids || [])])];
-    prev.feed_unresolved = [...new Set([...(prev.feed_unresolved || []), ...(r.feed_unresolved || [])])];
     prev.mechanisms = XS_MECH_ORDER.filter((m) => (prev.mechanisms || []).includes(m) || (r.mechanisms || []).includes(m));
-    // 机制分组 feed 同样并集（同机制跨源记录合并）
+    // 机制分组 feed 并集（同机制跨源记录合并；全量列表由消费方并集派生）
     for (const m of Object.keys(r.feed_school_ids_by_mechanism || {})) {
       prev.feed_school_ids_by_mechanism[m] = [...new Set([
         ...(prev.feed_school_ids_by_mechanism[m] || []),
@@ -113,10 +111,10 @@ const records = deduped.map(({ group, source_url, data_gaps, mechanisms, ...fact
 for (const g of groups) g.mechanism = XS_MECH_ORDER.filter((m) => (g.mechanism || []).includes(m));
 write(_out, {
   year: 2026,
-  note: '2026 小学→初中升学事实表。学校一律用 school_id 引用（见 entities.json）；feed_school_ids 为对口初中实体 id，feed_unresolved 为 POI 未收录的官方名（显式缺口，不模糊）。district 由 POI join。',
+  note: '2026 小学→初中升学事实表。学校一律用 school_id 引用（见 entities.json）；feed_school_ids_by_mechanism 为对口初中实体 id 按机制分组（全量列表由消费方并集派生），feed_unresolved_by_mechanism 为 POI 未收录的官方名（显式缺口，不模糊）。district 由 POI join。',
   groups,
   records,
 });
 console.log(`records: ${records.length} | groups: ${groups.length}`);
 console.log(`小学 record 解析 school_id: ${primaryHit}/${records.length}`);
-console.log(`feed 初中名 解析: ${feedHit}（未解析 ${feedMiss}）；未解析唯一名: ${new Set(records.flatMap(r=>r.feed_unresolved)).size}`);
+console.log(`feed 初中名 解析: ${feedHit}（未解析 ${feedMiss}）；未解析唯一名: ${new Set(records.flatMap((r) => Object.values(r.feed_unresolved_by_mechanism || {}).flat())).size}`);

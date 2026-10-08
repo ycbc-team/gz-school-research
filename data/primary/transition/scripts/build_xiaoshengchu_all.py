@@ -60,12 +60,12 @@ def rec(name, group, feed, direct_feed, source_url, source_note, data_gaps=None,
     # 2026-10-08（番禺机制分组对齐）：番禺全单机制（154 条有 feed 记录机制长度=1，
     # 无双机制），构建层直接按机制归组，与反推六区产物结构对齐（feed_junior_highs_by_mechanism
     # 由 resolve_record 解析成 feed_school_ids_by_mechanism）；缺口记录 feed 空 → 空 dict。
+    # 2026-10-08（字段精简）：feed 只以机制分组形态输出，全量扁平列表由消费方并集派生。
     by_mech = {mech[0]: list(feed)} if (feed and mech) else {}
     return {
         'name': name,
         'group': group,
         'mechanisms': mech,
-        'feed_junior_highs': feed,
         'feed_junior_highs_by_mechanism': by_mech,
         'direct_feed': direct_feed,
         'source_url': source_url,
