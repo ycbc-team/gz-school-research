@@ -374,10 +374,8 @@
   },
   {
    "data_gaps": null,
-   "direct_feed": null,
-   "feed_junior_highs": [
-    "广州协和学校"
-   ],
+   "direct_feed": "广州协和学校",
+   "feed_junior_highs": [],
    "group": "荔湾区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"

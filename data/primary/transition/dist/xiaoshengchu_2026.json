@@ -1353,11 +1353,9 @@
     },
     {
       "school_id": "gz-440103-33b32c4c",
-      "feed_school_ids": [
-        "gz-440103-e281e7d0"
-      ],
+      "feed_school_ids": [],
       "feed_unresolved": [],
-      "direct_feed_school_id": null,
+      "direct_feed_school_id": "gz-440103-e281e7d0",
       "mechanism": [
         "zhi_sheng"
       ],

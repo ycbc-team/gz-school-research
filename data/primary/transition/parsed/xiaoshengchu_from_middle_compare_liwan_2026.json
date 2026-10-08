@@ -1,14 +1,21 @@
 {
   "basis": "official middle-enrollment transcripts vs existing xiaoshengchu district dist; entity IDs are compared after each chain's current resolver.",
   "district": "荔湾区",
-  "only_current": [],
+  "only_current": [
+    {
+      "middle": "广州协和学校",
+      "middle_school_id": "gz-440103-e281e7d0",
+      "primary": "广州市协和学校（小学部）",
+      "primary_school_id": "gz-440103-33b32c4c"
+    }
+  ],
   "only_reverse": [],
   "summary": {
     "current_pairs": 980,
-    "equal": true,
-    "only_current": 0,
+    "equal": false,
+    "only_current": 1,
     "only_reverse": 0,
-    "reverse_pairs": 980
+    "reverse_pairs": 979
   },
   "year": 2026
 }

@@ -192,8 +192,11 @@ def reverse_district(district, entity_names):
             # 2026-10-08（天河接入）：天河九年制小学部直升（zhi_sheng）→ direct_feed，
             # 与越秀/海珠/黄埔统一；天河单校划片（single_zone，附件6 对口）保持 feed
             # （与白云单校划片同口径），不入 direct。
+            # 2026-10-08（荔湾统一）：荔湾协和学校小学部直升（唯一 zhi_sheng，inferred 回填）
+            # → direct_feed，与越秀/海珠/黄埔/天河一致；荔湾无 single_zone（派位组转录），
+            # 集合内包含 single_zone 仅为防御，不影响现行数据。
             _m = r.get("mechanism")
-            is_direct = ((_m in ("single_zone", "zhi_sheng") and district in {"yuexiu", "haizhu", "huangpu"})
+            is_direct = ((_m in ("single_zone", "zhi_sheng") and district in {"yuexiu", "haizhu", "huangpu", "liwan"})
                          or (_m == "zhi_sheng" and district == "tianhe"))
             if campus_map:
                 effective = [mid for mid, names in campus_map.items()

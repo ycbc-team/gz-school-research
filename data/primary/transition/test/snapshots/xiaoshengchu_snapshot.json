@@ -746,10 +746,8 @@
   },
   "gz-440103-33b32c4c": {
    "data_gaps": null,
-   "direct_feed_school_id": null,
-   "feed_school_ids": [
-    "gz-440103-e281e7d0"
-   ],
+   "direct_feed_school_id": "gz-440103-e281e7d0",
+   "feed_school_ids": [],
    "feed_unresolved": [],
    "group_id": 1
   },

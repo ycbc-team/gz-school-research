@@ -436,10 +436,8 @@
   },
   {
    "data_gaps": null,
-   "direct_feed_school_id": null,
-   "feed_school_ids": [
-    "gz-440103-e281e7d0"
-   ],
+   "direct_feed_school_id": "gz-440103-e281e7d0",
+   "feed_school_ids": [],
    "feed_unresolved": [],
    "group": "荔湾区小升初对口直升（不参加电脑派位）",
    "mechanisms": [

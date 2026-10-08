@@ -736,13 +736,11 @@
     },
     {
       "data_gaps": null,
-      "direct_feed": [],
-      "feed_junior_highs": [
+      "direct_feed": [
         "广州协和学校"
       ],
-      "feed_school_ids_from_middle": [
-        "gz-440103-e281e7d0"
-      ],
+      "feed_junior_highs": [],
+      "feed_school_ids_from_middle": [],
       "mechanisms": [
         "zhi_sheng"
       ],
