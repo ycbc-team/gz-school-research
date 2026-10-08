@@ -32,6 +32,12 @@ import json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 RAW = os.path.join(ROOT, "data", "middle", "enrollment", "parsed", "_transcripts")  # 本业务初中转录
 RAW_PANYU = os.path.join(ROOT, "data", "primary", "enrollment", "parsed", "_transcripts")  # 番禺共享转录（官方 xls 4 sheets：小学/初中/民办共用）
+
+# 特殊逻辑数据表（src/，特殊文本/名单不进脚本）：
+#   tianhe_qiye_notes.json（2026-10-08）：附件7 非电脑派位企事业办学校（华工附中/暨大附）
+#   备注列官方为空 → mechanism_note 官方框架口径（school_id 键控）
+_SRC_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../src")
+TIANHE_QIYE_NOTES = json.load(open(os.path.join(_SRC_DIR, "tianhe_qiye_notes.json"), encoding="utf-8"))["notes"]
 OUT = os.path.join(ROOT, "data", "middle", "enrollment", "dist")  # 最终合并产物（前端消费）
 OUT_PARSED = os.path.join(ROOT, "data", "middle", "enrollment", "parsed", "middle_enrollment_2026")  # 中间统一格式（各区独立，审计层）
 
@@ -937,12 +943,10 @@ def build_tianhe_official():
             # 附件7 企事业办：华附备注「其中，面向天河区电脑派位招收4个班168人」→ 机制 single_paidui + scope=附件10 段；
             # 其余企事业办（华工附/暨大附）无电脑派位依据 → min_zi_zhu（自主招生）。
             # 2026-10-08（用户反馈「自主招生标签无任何招生说明」）：官方附件7 该行备注/范围列为空
-            # （转录忠实）——mechanism_note 补官方框架口径（细则正文可复核：企事业办小学毕业生
-            # 直升其毕业小学对口中学；附件7 未公布初中部招生范围，以本校招生办法为准）。
+            # （转录忠实）——mechanism_note 从 src/tianhe_qiye_notes.json 读官方框架口径
+            # （细则正文可复核），特殊文本不进脚本。
             "mechanism": "single_paidui" if _sid in a10 else "min_zi_zhu",
-            "mechanism_note": (None if _sid in a10 else
-                               f"天河细则：企事业办小学毕业生直升其毕业小学对口中学；"
-                               f"附件7 未公布初中部招生范围（{r['school']} 行备注列为空），以本校招生办法为准。"),
+            "mechanism_note": (None if _sid in a10 else TIANHE_QIYE_NOTES.get(_sid)),
             "group_members": None,
         })
     for r in tr["minban"]:
