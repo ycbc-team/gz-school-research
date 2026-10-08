@@ -491,9 +491,11 @@ def build_panyu():
         members = None
         if mech == "group_paidui" and "铁英" in note:
             members = ["广铁一中番禺校区", "广铁一中铁英学校(西校区)", "广铁一中铁英学校(东校区)"]
-        # 市桥城区多校派位组（番实验+其他7校）
-        if mech == "group_paidui" and school == "番禺区实验中学":
-            members = ["广东仲元中学一校区（初中部）","广东番禺中学附属学校","番禺区实验中学","市桥东风中学","市桥侨联中学","市桥星海中学","市桥桥城中学","市桥桥兴中学"]
+        # 市桥城区电脑派位组 7 校统一 members（2026-10-08：与小学表 PY_FEED 同源名单——
+        # 原番实特判名单含误入的「广东番禺中学附属学校」（实为小区配建单校），剔除；
+        # 7 校共享 group_id → 前端合并为同一派位组子块，组标题「电脑派位」）
+        elif mech == "group_paidui" and school in SQ_GROUP:
+            members = list(SQ_GROUP)
 
         sid, sids = match_school_ids(school, "440113")
         # 铁英学校 = 东/西两校区合计 28 班（官方无单校区拆分）：school_id 置 None，school_ids 列出两校区，

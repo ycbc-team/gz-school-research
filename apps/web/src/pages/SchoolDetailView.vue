@@ -288,7 +288,9 @@ const mechanismBlocks = computed<MechBlock[]>(() => {
         notes: [],
         loseText: (m.mechanismDef.can_lose && m.mechanismDef.lose_text) || null,
       };
-      if (b.mech === 'single_zone' || b.mech === 'zhi_sheng' || b.mech === 'single_paidui') {
+      // 2026-10-08（番禺派位组兜底）：group_paidui 一并渲染 scope_school_ids——
+      // 无 group_id 的多校派位记录（如番禺仲元二校区）走本分支，否则生源小学不显示。
+      if (b.mech === 'single_zone' || b.mech === 'zhi_sheng' || b.mech === 'single_paidui' || b.mech === 'group_paidui') {
         // 直升小学：直接遍历 scope_school_ids 解析键（同上：不做 scope 原文分段匹配，
         // 原文段含括号注释/换行/括号内顿号会与解析键不一致导致漏行）；键按原文出现顺序展示
         // （对口直升 zhi_sheng / 单校电脑派位 single_paidui 记录同口径：scope_school_ids 为解析器

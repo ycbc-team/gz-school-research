@@ -4413,6 +4413,7 @@
      }
     },
     {
+     "group_id": "panyu-2",
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 16,
@@ -4542,6 +4543,7 @@
      }
     },
     {
+     "group_id": "panyu-2",
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 16,
@@ -4816,6 +4818,7 @@
      }
     },
     {
+     "group_id": "panyu-2",
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 16,
@@ -5001,6 +5004,7 @@
      }
     },
     {
+     "group_id": "panyu-2",
      "mechanism": "group_paidui",
      "mechanism_note": "学生按学校要求申请宿位。",
      "plan_classes": 10,
@@ -5126,6 +5130,7 @@
      "scope": null
     },
     {
+     "group_id": "panyu-2",
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 11,
@@ -5406,6 +5411,7 @@
      }
     },
     {
+     "group_id": "panyu-2",
      "mechanism": "group_paidui",
      "mechanism_note": null,
      "plan_classes": 11,
