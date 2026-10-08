@@ -17175,7 +17175,11 @@
    "feed_school_ids": [
     "gz-440113-9fa97423"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-9fa97423"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17192,7 +17196,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -17205,7 +17219,13 @@
     "gz-440113-43d027a5",
     "gz-440113-94c76638"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-97e0acaa",
+     "gz-440113-43d027a5",
+     "gz-440113-94c76638"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 80
@@ -17216,7 +17236,11 @@
    "feed_school_ids": [
     "gz-440113-2570c29b"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-2570c29b"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17228,7 +17252,12 @@
     "gz-440113-4d474674",
     "gz-440113-cbaa8160"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-4d474674",
+     "gz-440113-cbaa8160"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 81
@@ -17248,7 +17277,11 @@
    "feed_school_ids": [
     "gz-440113-eca20a50"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-eca20a50"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17261,7 +17294,13 @@
     "gz-440113-43d027a5",
     "gz-440113-94c76638"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-97e0acaa",
+     "gz-440113-43d027a5",
+     "gz-440113-94c76638"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 80
@@ -17272,7 +17311,11 @@
    "feed_school_ids": [
     "gz-440113-2570c29b"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-2570c29b"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17292,7 +17335,11 @@
    "feed_school_ids": [
     "gz-440113-db61be15"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-db61be15"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17313,7 +17360,12 @@
     "gz-440113-0b275c37",
     "gz-440113-eab4ae0e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-0b275c37",
+     "gz-440113-eab4ae0e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 81
@@ -17324,7 +17376,11 @@
    "feed_school_ids": [
     "gz-440113-db61be15"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-db61be15"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17341,7 +17397,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -17361,7 +17427,11 @@
    "feed_school_ids": [
     "gz-440113-2570c29b"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-2570c29b"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17372,7 +17442,11 @@
    "feed_school_ids": [
     "gz-440113-1f3378c2"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-1f3378c2"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -17383,7 +17457,11 @@
    "feed_school_ids": [
     "gz-440113-303a40d7"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-303a40d7"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17394,7 +17472,11 @@
    "feed_school_ids": [
     "gz-440113-3d5242b3"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-3d5242b3"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17405,7 +17487,11 @@
    "feed_school_ids": [
     "gz-440113-213843c2"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-213843c2"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -17416,7 +17502,11 @@
    "feed_school_ids": [
     "gz-440113-2264148c"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-2264148c"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -17436,7 +17526,11 @@
    "feed_school_ids": [
     "gz-440113-2570c29b"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-2570c29b"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17447,7 +17541,11 @@
    "feed_school_ids": [
     "gz-440113-2570c29b"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-2570c29b"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17476,7 +17574,11 @@
    "feed_school_ids": [
     "gz-440113-badb274e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-badb274e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 86
@@ -17493,7 +17595,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -17504,7 +17616,11 @@
    "feed_school_ids": [
     "gz-440113-a0992d0c"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-a0992d0c"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17524,7 +17640,11 @@
    "feed_school_ids": [
     "gz-440113-2570c29b"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-2570c29b"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17535,7 +17655,11 @@
    "feed_school_ids": [
     "gz-440113-9fa97423"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-9fa97423"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17555,7 +17679,11 @@
    "feed_school_ids": [
     "gz-440113-e121d1b3"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-e121d1b3"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 87
@@ -17567,7 +17695,12 @@
     "gz-440113-0b275c37",
     "gz-440113-eab4ae0e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-0b275c37",
+     "gz-440113-eab4ae0e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 81
@@ -17578,7 +17711,11 @@
    "feed_school_ids": [
     "gz-440113-443448d2"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-443448d2"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17589,7 +17726,11 @@
    "feed_school_ids": [
     "gz-440113-1b12edfd"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-1b12edfd"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 88
@@ -17600,7 +17741,11 @@
    "feed_school_ids": [
     "gz-440113-f744f14a"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-f744f14a"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17611,7 +17756,11 @@
    "feed_school_ids": [
     "gz-440113-303a40d7"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-303a40d7"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17628,7 +17777,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -17639,7 +17798,11 @@
    "feed_school_ids": [
     "gz-440113-cbaa8160"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-cbaa8160"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17659,7 +17822,11 @@
    "feed_school_ids": [
     "gz-440113-0bb52d06"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-0bb52d06"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17670,7 +17837,11 @@
    "feed_school_ids": [
     "gz-440113-303a40d7"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-303a40d7"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17681,7 +17852,11 @@
    "feed_school_ids": [
     "gz-440113-34ff409c"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-34ff409c"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -17693,7 +17868,12 @@
     "gz-440113-7cdbe028",
     "gz-440113-c07e3ddb"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-7cdbe028",
+     "gz-440113-c07e3ddb"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 90
@@ -17710,7 +17890,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -17730,7 +17920,11 @@
    "feed_school_ids": [
     "gz-440113-3a44d15c"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-3a44d15c"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -17777,7 +17971,11 @@
    "feed_school_ids": [
     "gz-440113-67864b8b"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-67864b8b"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17788,7 +17986,11 @@
    "feed_school_ids": [
     "gz-440113-b2a39869"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-b2a39869"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17805,7 +18007,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -17816,7 +18028,11 @@
    "feed_school_ids": [
     "gz-440113-a0992d0c"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-a0992d0c"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17827,7 +18043,11 @@
    "feed_school_ids": [
     "gz-440113-b2a39869"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-b2a39869"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17838,7 +18058,11 @@
    "feed_school_ids": [
     "gz-440113-76992454"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-76992454"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17849,7 +18073,11 @@
    "feed_school_ids": [
     "gz-440113-0b275c37"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-0b275c37"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17860,7 +18088,11 @@
    "feed_school_ids": [
     "gz-440113-b2a39869"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-b2a39869"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17877,7 +18109,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -17888,7 +18130,11 @@
    "feed_school_ids": [
     "gz-440113-8f5e4721"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_paidui": [
+     "gz-440113-8f5e4721"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 91
@@ -17899,7 +18145,11 @@
    "feed_school_ids": [
     "gz-440113-e7ca2b33"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-e7ca2b33"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17910,7 +18160,11 @@
    "feed_school_ids": [
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 88
@@ -17921,7 +18175,11 @@
    "feed_school_ids": [
     "gz-440113-f890218e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-f890218e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -17932,7 +18190,11 @@
    "feed_school_ids": [
     "gz-440113-4d474674"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-4d474674"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -17943,7 +18205,11 @@
    "feed_school_ids": [
     "gz-440113-badb274e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-badb274e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 86
@@ -17954,7 +18220,11 @@
    "feed_school_ids": [
     "gz-440113-f4a10736"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-f4a10736"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -17965,7 +18235,11 @@
    "feed_school_ids": [
     "gz-440113-badb274e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-badb274e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 86
@@ -17976,7 +18250,11 @@
    "feed_school_ids": [
     "gz-440113-53650c78"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-53650c78"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -17987,7 +18265,11 @@
    "feed_school_ids": [
     "gz-440113-2570c29b"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-2570c29b"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -17998,7 +18280,11 @@
    "feed_school_ids": [
     "gz-440113-db61be15"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-db61be15"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18009,7 +18295,11 @@
    "feed_school_ids": [
     "gz-440113-b2a39869"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-b2a39869"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18020,7 +18310,11 @@
    "feed_school_ids": [
     "gz-440113-527391ff"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-527391ff"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18031,7 +18325,11 @@
    "feed_school_ids": [
     "gz-440113-a0992d0c"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-a0992d0c"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18042,7 +18340,11 @@
    "feed_school_ids": [
     "gz-440113-9fa97423"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-9fa97423"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18053,7 +18355,11 @@
    "feed_school_ids": [
     "gz-440113-0bb52d06"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-0bb52d06"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18064,7 +18370,11 @@
    "feed_school_ids": [
     "gz-440113-6609c936"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-6609c936"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -18075,7 +18385,11 @@
    "feed_school_ids": [
     "gz-440113-8f5e4721"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_paidui": [
+     "gz-440113-8f5e4721"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 91
@@ -18086,7 +18400,11 @@
    "feed_school_ids": [
     "gz-440113-db61be15"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-db61be15"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18097,7 +18415,11 @@
    "feed_school_ids": [
     "gz-440113-b2a39869"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-b2a39869"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18108,7 +18430,11 @@
    "feed_school_ids": [
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 88
@@ -18128,7 +18454,11 @@
    "feed_school_ids": [
     "gz-440113-303a40d7"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-303a40d7"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18139,7 +18469,11 @@
    "feed_school_ids": [
     "gz-440113-0bb52d06"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-0bb52d06"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18159,7 +18493,11 @@
    "feed_school_ids": [
     "gz-440113-eca20a50"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-eca20a50"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18170,7 +18508,11 @@
    "feed_school_ids": [
     "gz-440113-73d685ac"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-73d685ac"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -18181,7 +18523,11 @@
    "feed_school_ids": [
     "gz-440113-badb274e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-badb274e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 86
@@ -18201,7 +18547,11 @@
    "feed_school_ids": [
     "gz-440113-76992454"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-76992454"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18212,7 +18562,11 @@
    "feed_school_ids": [
     "gz-440113-6a13dc63"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-6a13dc63"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18251,7 +18605,12 @@
     "gz-440113-7cdbe028",
     "gz-440113-c07e3ddb"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-7cdbe028",
+     "gz-440113-c07e3ddb"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 93
@@ -18268,7 +18627,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -18297,7 +18666,11 @@
    "feed_school_ids": [
     "gz-440113-527391ff"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-527391ff"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18326,7 +18699,11 @@
    "feed_school_ids": [
     "gz-440113-8a0b2cb9"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-8a0b2cb9"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -18337,7 +18714,11 @@
    "feed_school_ids": [
     "gz-440113-cbaa8160"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-cbaa8160"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18358,7 +18739,12 @@
     "gz-440113-443448d2",
     "gz-440113-67864b8b"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-443448d2",
+     "gz-440113-67864b8b"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 95
@@ -18369,7 +18755,11 @@
    "feed_school_ids": [
     "gz-440113-2570c29b"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-2570c29b"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18386,7 +18776,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -18398,7 +18798,12 @@
     "gz-440113-527391ff",
     "gz-440113-9fa97423"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-527391ff",
+     "gz-440113-9fa97423"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 81
@@ -18409,7 +18814,11 @@
    "feed_school_ids": [
     "gz-440113-badb274e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-badb274e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 86
@@ -18420,7 +18829,11 @@
    "feed_school_ids": [
     "gz-440113-b2a39869"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-b2a39869"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18431,7 +18844,11 @@
    "feed_school_ids": [
     "gz-440113-2570c29b"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-2570c29b"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18448,7 +18865,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -18459,7 +18886,11 @@
    "feed_school_ids": [
     "gz-440113-a0992d0c"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-a0992d0c"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18470,7 +18901,11 @@
    "feed_school_ids": [
     "gz-440113-303a40d7"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-303a40d7"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18490,7 +18925,11 @@
    "feed_school_ids": [
     "gz-440113-443448d2"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-443448d2"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18503,7 +18942,13 @@
     "gz-440113-43d027a5",
     "gz-440113-94c76638"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-97e0acaa",
+     "gz-440113-43d027a5",
+     "gz-440113-94c76638"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 80
@@ -18532,7 +18977,11 @@
    "feed_school_ids": [
     "gz-440113-e121d1b3"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-e121d1b3"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 87
@@ -18543,7 +18992,11 @@
    "feed_school_ids": [
     "gz-440113-76992454"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-76992454"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18563,7 +19016,11 @@
    "feed_school_ids": [
     "gz-440113-303a40d7"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-303a40d7"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18574,7 +19031,11 @@
    "feed_school_ids": [
     "gz-440113-f744f14a"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-f744f14a"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18594,7 +19055,11 @@
    "feed_school_ids": [
     "gz-440113-a5f31e18"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-a5f31e18"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -18606,7 +19071,12 @@
     "gz-440113-527391ff",
     "gz-440113-9fa97423"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-527391ff",
+     "gz-440113-9fa97423"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 81
@@ -18617,7 +19087,11 @@
    "feed_school_ids": [
     "gz-440113-e7ca2b33"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-e7ca2b33"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18634,7 +19108,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -18645,7 +19129,11 @@
    "feed_school_ids": [
     "gz-440113-3d5242b3"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-3d5242b3"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18656,7 +19144,11 @@
    "feed_school_ids": [
     "gz-440113-b33076d3"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-b33076d3"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -18667,7 +19159,11 @@
    "feed_school_ids": [
     "gz-440113-eca20a50"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-eca20a50"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18684,7 +19180,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -18695,7 +19201,11 @@
    "feed_school_ids": [
     "gz-440113-0b275c37"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-0b275c37"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18706,7 +19216,11 @@
    "feed_school_ids": [
     "gz-440113-1b12edfd"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-1b12edfd"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 88
@@ -18717,7 +19231,11 @@
    "feed_school_ids": [
     "gz-440113-527391ff"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-527391ff"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18728,7 +19246,11 @@
    "feed_school_ids": [
     "gz-440113-b5ff857b"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-b5ff857b"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 93
@@ -18739,7 +19261,11 @@
    "feed_school_ids": [
     "gz-440113-8f5e4721"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_paidui": [
+     "gz-440113-8f5e4721"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 91
@@ -18750,7 +19276,11 @@
    "feed_school_ids": [
     "gz-440113-51a65e7c"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-51a65e7c"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18761,7 +19291,11 @@
    "feed_school_ids": [
     "gz-440113-badb274e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-badb274e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 86
@@ -18772,7 +19306,11 @@
    "feed_school_ids": [
     "gz-440113-95be9ccc"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-95be9ccc"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -18801,7 +19339,11 @@
    "feed_school_ids": [
     "gz-440113-c51f439d"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-c51f439d"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -18812,7 +19354,11 @@
    "feed_school_ids": [
     "gz-440113-b2a39869"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-b2a39869"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18832,7 +19378,11 @@
    "feed_school_ids": [
     "gz-440113-67864b8b"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-67864b8b"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18843,7 +19393,11 @@
    "feed_school_ids": [
     "gz-440113-527391ff"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-527391ff"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18864,7 +19418,12 @@
     "gz-440113-b5ff857b",
     "gz-440113-e7ca2b33"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-b5ff857b",
+     "gz-440113-e7ca2b33"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 81
@@ -18884,7 +19443,11 @@
    "feed_school_ids": [
     "gz-440113-76992454"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-76992454"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18896,7 +19459,12 @@
     "gz-440113-7cdbe028",
     "gz-440113-c07e3ddb"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-7cdbe028",
+     "gz-440113-c07e3ddb"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 90
@@ -18907,7 +19475,11 @@
    "feed_school_ids": [
     "gz-440113-cdfe162a"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-cdfe162a"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 93
@@ -18918,7 +19490,11 @@
    "feed_school_ids": [
     "gz-440113-8f5e4721"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_paidui": [
+     "gz-440113-8f5e4721"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 91
@@ -18929,7 +19505,11 @@
    "feed_school_ids": [
     "gz-440113-db61be15"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-db61be15"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18940,7 +19520,11 @@
    "feed_school_ids": [
     "gz-440113-e121d1b3"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-e121d1b3"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 87
@@ -18951,7 +19535,11 @@
    "feed_school_ids": [
     "gz-440113-f744f14a"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-f744f14a"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18971,7 +19559,11 @@
    "feed_school_ids": [
     "gz-440113-db61be15"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-db61be15"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -18984,7 +19576,13 @@
     "gz-440113-43d027a5",
     "gz-440113-94c76638"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-97e0acaa",
+     "gz-440113-43d027a5",
+     "gz-440113-94c76638"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 80
@@ -19001,7 +19599,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -19012,7 +19620,11 @@
    "feed_school_ids": [
     "gz-440113-76992454"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-76992454"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -19023,7 +19635,11 @@
    "feed_school_ids": [
     "gz-440113-eab4ae0e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-eab4ae0e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -19034,7 +19650,11 @@
    "feed_school_ids": [
     "gz-440113-e121d1b3"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-e121d1b3"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 87
@@ -19045,7 +19665,11 @@
    "feed_school_ids": [
     "gz-440113-a0992d0c"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-a0992d0c"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -19056,7 +19680,11 @@
    "feed_school_ids": [
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 88
@@ -19067,7 +19695,11 @@
    "feed_school_ids": [
     "gz-440113-51a65e7c"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-51a65e7c"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -19078,7 +19710,11 @@
    "feed_school_ids": [
     "gz-440113-b2a39869"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-b2a39869"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -19091,7 +19727,13 @@
     "gz-440113-43d027a5",
     "gz-440113-94c76638"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-97e0acaa",
+     "gz-440113-43d027a5",
+     "gz-440113-94c76638"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 80
@@ -19102,7 +19744,11 @@
    "feed_school_ids": [
     "gz-440113-badb274e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-badb274e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 86
@@ -19113,7 +19759,11 @@
    "feed_school_ids": [
     "gz-440113-0b275c37"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-0b275c37"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -19130,7 +19780,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -19150,7 +19810,11 @@
    "feed_school_ids": [
     "gz-440113-1b12edfd"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-1b12edfd"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 88
@@ -19161,7 +19825,11 @@
    "feed_school_ids": [
     "gz-440113-0bb52d06"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-0bb52d06"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -19172,7 +19840,11 @@
    "feed_school_ids": [
     "gz-440113-f744f14a"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-f744f14a"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -19189,7 +19861,17 @@
     "gz-440113-7f18cc62",
     "gz-440113-24ea052e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-acf92324",
+     "gz-440113-e121d1b3",
+     "gz-440113-b7541529",
+     "gz-440113-f543c46b",
+     "gz-440113-37f452f3",
+     "gz-440113-7f18cc62",
+     "gz-440113-24ea052e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 79
@@ -19200,7 +19882,11 @@
    "feed_school_ids": [
     "gz-440113-cbaa8160"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-cbaa8160"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -19211,7 +19897,11 @@
    "feed_school_ids": [
     "gz-440113-badb274e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-badb274e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 86
@@ -19222,7 +19912,11 @@
    "feed_school_ids": [
     "gz-440113-f4a10736"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-f4a10736"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 93
@@ -19233,7 +19927,11 @@
    "feed_school_ids": [
     "gz-440113-cbaa8160"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-cbaa8160"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -19245,7 +19943,12 @@
     "gz-440113-cbaa8160",
     "gz-440113-a0992d0c"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-cbaa8160",
+     "gz-440113-a0992d0c"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 81
@@ -19257,7 +19960,12 @@
     "gz-440113-67864b8b",
     "gz-440113-443448d2"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-67864b8b",
+     "gz-440113-443448d2"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 96
@@ -19268,7 +19976,11 @@
    "feed_school_ids": [
     "gz-440113-f890218e"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-f890218e"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 84
@@ -19279,7 +19991,11 @@
    "feed_school_ids": [
     "gz-440113-4d474674"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-4d474674"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -19290,7 +20006,11 @@
    "feed_school_ids": [
     "gz-440113-eca20a50"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-eca20a50"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -19301,7 +20021,11 @@
    "feed_school_ids": [
     "gz-440113-cbaa8160"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "single_zone": [
+     "gz-440113-cbaa8160"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 78
@@ -19313,7 +20037,12 @@
     "gz-440113-6dbdc462",
     "gz-440113-2570c29b"
    ],
-   "feed_school_ids_by_mechanism": {},
+   "feed_school_ids_by_mechanism": {
+    "group_paidui": [
+     "gz-440113-6dbdc462",
+     "gz-440113-2570c29b"
+    ]
+   },
    "feed_unresolved": [],
    "feed_unresolved_by_mechanism": {},
    "group_id": 97
