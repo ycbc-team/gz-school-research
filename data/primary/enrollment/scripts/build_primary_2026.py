@@ -142,6 +142,21 @@ def load_records(district_key):
         t = json.load(open(os.path.join(TRANSCRIPTS, "panyu_2026_official.json"), encoding="utf-8"))
         sheets = t["sheets"]
         sh = sheets.get("公办小学招生地段、计划", [])
+        # 2026-10-08（大学城片区地段：raw 转录驱动，零手工文本）：官方小学表小谷围街段
+        # 三行中「广州大学附属小学」「华南师范大学附属广州大学城小学」地段列为空（官方未单列，
+        # 同段穗石小学行有原文）——从同官方文件初中表「广州大学附属中学大学城校区」招生范围
+        # （scope，官方原文）机械转写小学口径（「小学应届毕业生」→「适龄儿童」）补 zone。
+        # 名单=官方小学表行名（事实）；南校区经 resolve_all 法人展开自动继承同一 zone。
+        _m_sh = sheets.get("公办初中招生范围、计划", [])
+        _ucity_scope = ""
+        for _r in _m_sh[3:]:
+            if "广州大学附属中学大学城校区" in str(_r[1] or ""):
+                _ucity_scope = str(_r[3] or "").strip()
+                break
+        if _ucity_scope:
+            _ucity_zone = _ucity_scope.replace("小学应届毕业生", "适龄儿童").rstrip("。")
+        else:
+            _ucity_zone = ""
         out = []
         district = ""
         for r in range(3, len(sh)):
@@ -154,6 +169,9 @@ def load_records(district_key):
             plan = sh[r][2]
             zone = str(sh[r][3]).strip()
             note = str(sh[r][4]).strip()
+            if (not zone and _ucity_zone
+                    and school in ("广州大学附属小学", "华南师范大学附属广州大学城小学")):
+                zone = _ucity_zone
             out.append(rec(school, district, plan, zone, note))
         return out, t.get("title", "番禺区教育局2026")
     raise KeyError(dk)

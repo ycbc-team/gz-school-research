@@ -238,6 +238,7 @@ const XS_MECH_LABELS: Record<string, string> = {
   single_zone: '单校划片',
   group_paidui: '多校电脑派位',
   single_paidui: '电脑派位',
+  single_chouqian: '电脑抽签',
   min_zi_zhu: '自主招生',
 };
 const mechanismBlocks = computed<MechBlock[]>(() => {
@@ -253,7 +254,7 @@ const mechanismBlocks = computed<MechBlock[]>(() => {
   for (const m of middleEnrolls.value) {
     const key = `${m.district}|${m.record.mechanism}`;
     let b = byKey.get(key);
-    if (!b) { b = { district: m.district, mech: m.record.mechanism, label: m.record.label ?? m.mechanismDef.label, showDistrict: false, subBlocks: [] }; byKey.set(key, b); order.push(key); }
+    if (!b) { b = { district: m.district, mech: m.record.mechanism, label: m.mechanismDef.label, showDistrict: false, subBlocks: [] }; byKey.set(key, b); order.push(key); }
     const rec = m.record;
     // 多校电脑派位：同一 group_id 合并为一个子块，组名作子块标题
     if (b.mech === 'group_paidui' && rec.group_id) {
@@ -754,6 +755,7 @@ function goCampus(item: { id: string; name: string }) {
 .badge.zhi_sheng { background: #047857; }
 .badge.group_paidui { background: #1e40af; }
 .badge.single_paidui { background: #dc2626; }
+.badge.single_chouqian { background: #ea580c; }
 .badge.min_zi_zhu { background: #7c3aed; }
 .badge.no_plan { background: #6b7280; }
 .plan-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }

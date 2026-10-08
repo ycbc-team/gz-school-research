@@ -21,6 +21,9 @@ mechanism 枚举（区级定义，UI 据此渲染）:
   zhi_sheng       对口直升（小学对口直升初中，不参加电脑派位）
   group_paidui    多校电脑派位（组内学校兜底，不安排到组外）
   single_paidui   电脑派位（自愿报名+超额电脑派位，未派中回原学区）
+  single_chouqian 电脑抽签（2026-10-08：番禺报名+超计划电脑抽签录取——官方计划表「电脑抽签」、
+                  区属简章「超计划电脑派位」同机制（随机录取），未派中回户籍地学区为兜底路径；
+                  天河/越秀官方原文为「电脑派位」保持 single_paidui）
   min_zi_zhu      自主招生（民办/企事业办学校初中部）
   no_plan         2026 无招生计划
 """
@@ -446,6 +449,7 @@ MECHANISMS = {
     "zhi_sheng":      {"label": "对口直升",     "can_lose": False, "lose_text": None},
     "group_paidui":   {"label": "多校电脑派位", "can_lose": False, "lose_text": "派位组内学校随机分配，组内兜底，不安排到组外。"},
     "single_paidui":  {"label": "电脑派位",     "can_lose": True,  "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时由区教育局统一组织电脑派位；未派中者回户籍地学区申请入读公办初中，不保证安排到本校。"},
+    "single_chouqian": {"label": "电脑抽签",    "can_lose": True,  "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时电脑抽签随机录取；未派中者回户籍地学区申请入读公办初中，不保证安排到本校。"},
     "min_zi_zhu":     {"label": "自主招生",     "can_lose": False, "lose_text": None},
     "no_plan":        {"label": "2026 无招生计划", "can_lose": False, "lose_text": None},
 }
@@ -481,7 +485,9 @@ def build_panyu():
         if school in SQ_GROUP:
             mech = "group_paidui"
         elif "电脑抽签" in note:
-            mech = "single_paidui"
+            # 2026-10-08（机制枚举化）：官方计划表措辞「电脑抽签」→ single_chouqian
+            # （报名+超计划电脑抽签录取；未派中回户籍地学区是兜底路径，非本机制）
+            mech = "single_chouqian"
         elif "电脑派位" in note:
             mech = "group_paidui"
         else:
@@ -520,22 +526,18 @@ def build_panyu():
         if school == "广东第二师范学院广州南站附属学校":
             sid = "gz-440113-0bb52d06"
         _ss = _scope_primary_ids(scope, "440113") if scope else None
-        # 2026-10-08（官方用语覆盖 label）：番禺计划表措辞「电脑抽签」——招生机制为
-        # 报名+超计划随机录取（未派中回户籍地学区是兜底路径，非本机制）；
-        # 区属简章「超计划电脑派位」同机制（抽签录取）。记录级覆盖枚举 label
-        # （天河/越秀官方原文「电脑派位」保持枚举值不动）。
-        _label = "电脑抽签" if mech == "single_paidui" else None
         recs.append({
             "school": school, "school_id": sid,
             **({"school_ids": sids} if sids else {}),
             "plan_classes": plan_n, "scope": scope,
             **({"scope_school_ids": _ss} if _ss else {}),
             "mechanism": mech, "mechanism_note": note or None,
-            **({"label": _label} if _label else {}),
             "group_members": members,
         })
     # 区属初中面向全区（或属地镇街）招生简章批次（2026-09-24 补解析，转录 panyu_2026_quju.json）：
-    # 自愿报名、超计划电脑派位；中签自动取消属地正常安排的学位、未派中回户籍地学区 → single_paidui。
+    # 自愿报名、超计划电脑派位；中签自动取消属地正常安排的学位、未派中回户籍地学区。
+    # 2026-10-08（机制枚举化）：招生机制本身是报名+超计划电脑抽签（未派中回学区是兜底路径，
+    # 非本机制）→ single_chouqian（区属简章「超计划电脑派位」同机制，抽签录取）。
     # 与计划表（属地划片/派位）互补，同校并存为两种机制（如仲元一校区 市桥划片 + 面向全区电脑派位）。
     quju = json.load(open(os.path.join(RAW, "panyu_2026_quju.json")))
     for q in quju["records"]:
@@ -546,8 +548,7 @@ def build_panyu():
             "school": q["school"], "school_id": qsid,
             **({"school_ids": qsids} if qsids else {}),
             "plan_classes": None, "scope": None,
-            "mechanism": "single_paidui", "mechanism_note": qnote,
-            "label": "电脑抽签",  # 2026-10-08：机制为报名+超计划抽签录取，未派中回学区是兜底
+            "mechanism": "single_chouqian", "mechanism_note": qnote,
             "group_members": None,
         })
     return {

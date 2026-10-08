@@ -62,7 +62,8 @@ export interface XiaoshengchuFactRecord {
   /** 仅当与组级 data_gaps 不同时存在（记录级覆盖） */
   data_gaps?: string | null;
   /** 2026-10-08（天河双机制拆分）：feed 按机制分组（机制→[初中 id]；single_zone 划片 /
-   * single_paidui 电脑派位池 / group_paidui 派位组各自成组），前端按机制块渲染对应 feed。
+   * single_paidui 电脑派位池 / single_chouqian 电脑抽签池 / group_paidui 派位组各自成组），
+   * 前端按机制块渲染对应 feed。
    * 2026-10-08（字段精简）：全量扁平 feed_school_ids/feed_unresolved 已删除，
    * 全量列表由消费方从本分组并集派生（单一真源，避免两套数据不一致）。 */
   feed_school_ids_by_mechanism?: Record<string, string[]>;
@@ -173,7 +174,7 @@ export interface EnrollmentSnapshot {
 }
 
 /** data/middle/enrollment/dist/middle_enrollment_2026_*.json —— 初中视角招生计划 */
-export type MiddleMechanism = 'single_zone' | 'zhi_sheng' | 'group_paidui' | 'single_paidui' | 'min_zi_zhu' | 'no_plan';
+export type MiddleMechanism = 'single_zone' | 'zhi_sheng' | 'group_paidui' | 'single_paidui' | 'single_chouqian' | 'min_zi_zhu' | 'no_plan';
 export interface MiddleMechanismDef {
   label: string;
   can_lose: boolean;
@@ -191,10 +192,6 @@ export interface MiddleEnrollmentRecord {
   scope_school_ids?: Record<string, string[]>;
   mechanism: MiddleMechanism;
   mechanism_note: string | null;
-  /** 官方用语覆盖枚举 label（2026-10-08：番禺「电脑抽签」vs 区属简章「电脑派位」——
-   * 招生机制本身是报名+超计划随机录取，未派中回学区为兜底路径；官方计划表措辞
-   * 「电脑抽签」。天河/越秀官方原文为「电脑派位」，仅番禺记录覆盖） */
-  label?: string;
   /** dist 合并结构（2026-09-23）：组表 group_id（派位/直升组）；2026-09-24 dist 不再存 school 名称（前端按 school_id 联查实体名，parsed 审计层保留） */
   group_id?: string | null;
 }

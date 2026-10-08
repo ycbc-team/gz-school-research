@@ -37,7 +37,7 @@ const write = (p, o) => fs.writeFileSync(path.isAbsolute(p) ? p : path.join(ROOT
 
 const src = read(_src);
 // 机制枚举输出顺序（对齐初中 MECH_ORDER；数据层已固化，这里仅保序去重）
-const XS_MECH_ORDER = ['zhi_sheng', 'single_zone', 'group_paidui', 'single_paidui', 'min_zi_zhu'];
+const XS_MECH_ORDER = ['zhi_sheng', 'single_zone', 'group_paidui', 'single_chouqian', 'single_paidui', 'min_zi_zhu'];
 let primaryHit = 0, feedHit = 0, feedMiss = 0;
 const outRecords = src.records.map((r) => {
   // school_id / feed_school_ids_by_mechanism / direct_feed_school_id 由 Python xs_resolver 解析

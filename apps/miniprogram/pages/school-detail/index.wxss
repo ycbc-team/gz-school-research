@@ -20,6 +20,7 @@
 .badge.single_zone { background: #0f766e; }
 .badge.group_paidui { background: #1e40af; }
 .badge.single_paidui { background: #dc2626; }
+.badge.single_chouqian { background: #ea580c; }
 .badge.min_zi_zhu { background: #7c3aed; }
 .mech-row { display: flex; flex-wrap: wrap; gap: 12rpx; margin: 4rpx 0 8rpx; }
 .xs-mech-block-first { margin-top: 4rpx; }

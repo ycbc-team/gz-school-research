@@ -113,7 +113,7 @@ def MECH_OF(group):
     if '附件10' in group and '天河区' in group:
         add('min_zi_zhu')                          # 天河附件10 自主报名电脑派位（初中天河 min_zi_zhu）
     elif '电脑抽签' in group:
-        add('single_paidui')                       # 番禺电脑抽签 → 电脑派位（初中番禺同口径）
+        add('single_chouqian')                     # 番禺电脑抽签（报名+超计划随机录取；2026-10-08 枚举化）
     elif '电脑派位' in group and not no_paidui:
         add('group_paidui')                        # 海珠/荔湾/黄埔/越秀派位组 → 多校电脑派位
     if '多校' in group or '部分毕业生' in group:
@@ -122,7 +122,7 @@ def MECH_OF(group):
 
 
 # 机制枚举输出顺序（对齐初中 MECH_ORDER；数据层统一排序，前端零排序逻辑）
-XS_MECH_ORDER = ('zhi_sheng', 'single_zone', 'group_paidui', 'single_paidui', 'min_zi_zhu')
+XS_MECH_ORDER = ('zhi_sheng', 'single_zone', 'group_paidui', 'single_chouqian', 'single_paidui', 'min_zi_zhu')
 
 
 def build_district(adcode, district_label, name_map, direct_map, no_feed, source_url, source_note, extra_note_fn=None):
