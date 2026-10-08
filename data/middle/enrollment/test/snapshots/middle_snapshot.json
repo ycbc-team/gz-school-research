@@ -2961,33 +2961,23 @@
     },
     "华南理工大学附属实验学校": {
      "group_members": null,
-     "mechanism": "min_zi_zhu",
+     "mechanism": "zhi_sheng",
      "mechanism_note": null,
-     "plan_classes": 4,
+     "plan_classes": null,
      "school": "华南理工大学附属实验学校",
      "school_id": "gz-440106-9bed7efb",
      "school_ids": null,
      "scope": null
     },
-    "天河区智谷第一实验学校": {
-     "group_members": null,
-     "mechanism": "no_plan",
-     "mechanism_note": "2026 年官方初中招生计划未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
-     "plan_classes": null,
-     "school": "天河区智谷第一实验学校",
-     "school_id": "gz-440106-d311ea50",
-     "school_ids": null,
-     "scope": null
-    },
     "广东实验中学天河学校": {
      "group_members": null,
-     "mechanism": "single_paidui",
+     "mechanism": "zhi_sheng",
      "mechanism_note": null,
      "plan_classes": null,
      "school": "广东实验中学天河学校",
      "school_id": "gz-440106-0eb93435",
      "school_ids": null,
-     "scope": "广东实验中学天河学校：初中部电脑派位招生计划84人。面向学校周边3公里范围内的天河区公办、企事业办小学的穗籍毕业生招生（含符合条件的广州市政策性照顾学生）。具体学校名单如下：岑村小学、棠东小学、沐陂小学、五山小学、员村小学、昌乐小学、棠下小学、华景小学、车陂小学、棠德南小学、泰安小学、骏景小学、华融小学、中海康城小学、天府路小学、御景小学、华南师范大学附属小学、华南农业大学附属小学、华颖外国语学校（小学部）、汇景实验学校（小学部）、华南理工大学附属实验学校（小学部）。"
+     "scope": null
     },
     "广州中学": {
      "group_members": null,
@@ -3005,13 +2995,13 @@
     },
     "广州中学天河燕园学校": {
      "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": "剩余计划面向兴华、沙东、沙河、元岗4个街道范围内公办、企事业单位配套小区的天河户籍跨地段生、返区生（电脑派位）",
-     "plan_classes": 6,
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
+     "plan_classes": null,
      "school": "广州中学天河燕园学校",
      "school_id": "gz-440106-15ca1554",
      "school_ids": null,
-     "scope": "恒越花园、雅序苑"
+     "scope": null
     },
     "广州天省实验学校": {
      "group_members": null,
@@ -3035,6 +3025,19 @@
       "gz-440106-fa9338a2"
      ],
      "scope": "中山大道中1099号至尖塔路1号以西，中山大道中1099号转车陂路转广深铁路至科韵路以北，科韵路接新滘路以东，新塘街南界接吉岐街西界；智谷校区招生地段：广氮花园、棠安花园、天健上城、阳华国花苑、天河壹品、金地峯荟、消防总队经济适用房"
+    },
+    "广州奥林匹克中学（含智谷校区）": {
+     "group_members": null,
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
+     "plan_classes": null,
+     "school": "广州奥林匹克中学（含智谷校区）",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-d40d0dbe",
+      "gz-440106-fa9338a2"
+     ],
+     "scope": null
     },
     "广州市华美英语实验学校": {
      "group_members": null,
@@ -3262,15 +3265,15 @@
      "school_ids": null,
      "scope": null
     },
-    "广州市天河区暨南第一实验学校": {
+    "广州市天河区智谷第一实验学校": {
      "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": "特教班1个，招收10名特殊儿童",
-     "plan_classes": "4+1（特教）",
-     "school": "广州市天河区暨南第一实验学校",
-     "school_id": "gz-440106-11e15e8d",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
+     "plan_classes": null,
+     "school": "广州市天河区智谷第一实验学校",
+     "school_id": "gz-440106-d311ea50",
      "school_ids": null,
-     "scope": "保利棠馨花园"
+     "scope": null
     },
     "广州市天河区棠福学校": {
      "group_members": null,
@@ -3332,24 +3335,11 @@
      "school_ids": null,
      "scope": "润熙花园、珠江四季花园"
     },
-    "广州市天河外国语学校": {
-     "group_members": null,
-     "mechanism": "single_zone",
-     "mechanism_note": "剩余计划面向岗顶街道范围内公办、企事业单位配套小区及东圃快速路以北区域内公办完全小学的天河户籍毕业生（电脑派位）",
-     "plan_classes": 6,
-     "school": "广州市天河外国语学校",
-     "school_id": null,
-     "school_ids": [
-      "gz-440106-069ddb41",
-      "gz-440106-b711d94a"
-     ],
-     "scope": "合生骏景、湖雍花园"
-    },
     "广州市天河外国语学校（珠江新城校区）、广州市天河外国语学校（智慧城校区）": {
      "group_members": null,
      "mechanism": "single_paidui",
      "mechanism_note": null,
-     "plan_classes": 6,
+     "plan_classes": "6+10",
      "school": "广州市天河外国语学校（珠江新城校区）、广州市天河外国语学校（智慧城校区）",
      "school_id": null,
      "school_ids": [
@@ -3360,8 +3350,8 @@
     },
     "广州市天河外国语智谷学校": {
      "group_members": null,
-     "mechanism": "no_plan",
-     "mechanism_note": "2026 年官方初中招生计划未收录本校，初中招生暂未开办；以区教育局当年正式文件为准。",
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
      "plan_classes": null,
      "school": "广州市天河外国语智谷学校",
      "school_id": "gz-440106-d042314d",
@@ -3489,12 +3479,37 @@
     },
     "暨南大学附属实验学校（初中部）": {
      "group_members": null,
-     "mechanism": "min_zi_zhu",
+     "mechanism": "zhi_sheng",
      "mechanism_note": null,
-     "plan_classes": 6,
+     "plan_classes": null,
      "school": "暨南大学附属实验学校（初中部）",
      "school_id": "gz-440106-11e15e8d",
      "school_ids": null,
+     "scope": null
+    },
+    "清华附中湾区学校": {
+     "group_members": null,
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
+     "plan_classes": null,
+     "school": "清华附中湾区学校",
+     "school_id": null,
+     "school_ids": [
+      "gz-440106-31895452",
+      "gz-440106-e32237e4"
+     ],
+     "scope": null
+    },
+    "清华附中湾区学校（智慧城校区）": {
+     "group_members": null,
+     "mechanism": "zhi_sheng",
+     "mechanism_note": null,
+     "plan_classes": null,
+     "school": "清华附中湾区学校（智慧城校区）",
+     "school_id": "gz-440106-31895452",
+     "school_ids": [
+      "gz-440106-e32237e4"
+     ],
      "scope": null
     },
     "清华附中湾区学校（智谷校区）、清华附中湾区学校（智慧城校区）": {

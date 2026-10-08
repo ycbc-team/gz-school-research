@@ -6635,7 +6635,7 @@
     "gz-440106-d311ea50"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河区智谷第一实验学校划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -6659,7 +6659,7 @@
     "gz-440106-22156e02"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市泰安中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -6668,14 +6668,16 @@
   },
   {
    "data_gaps": null,
-   "direct_feed_school_id": null,
+   "direct_feed_school_id": "gz-440106-11e15e8d",
    "feed_school_ids": [
-    "gz-440106-11e15e8d"
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区九年制/企事业办学校小学部内部直升",
+   "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
-    "zhi_sheng"
+    "zhi_sheng",
+    "single_paidui"
    ],
    "school_id": "gz-440106-05ed1da2",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -6696,12 +6698,15 @@
    "feed_school_ids": [
     "gz-440106-867e6c05",
     "gz-440106-a989804b",
-    "gz-440106-f7cdfb7e"
+    "gz-440106-f7cdfb7e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-0b79aecf",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -6714,7 +6719,7 @@
     "gz-440106-621b20d3"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第七十五中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -6738,7 +6743,7 @@
     "gz-440106-22156e02"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市泰安中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -6757,12 +6762,10 @@
   },
   {
    "data_gaps": null,
-   "direct_feed_school_id": null,
-   "feed_school_ids": [
-    "gz-440106-0eb93435"
-   ],
+   "direct_feed_school_id": "gz-440106-0eb93435",
+   "feed_school_ids": [],
    "feed_unresolved": [],
-   "group": "天河区九年制/企事业办学校小学部内部直升",
+   "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -6795,24 +6798,25 @@
    "feed_school_ids": [
     "gz-440106-867e6c05",
     "gz-440106-a989804b",
-    "gz-440106-f7cdfb7e"
+    "gz-440106-f7cdfb7e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-155698db",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
   {
    "data_gaps": null,
-   "direct_feed_school_id": null,
-   "feed_school_ids": [
-    "gz-440106-15ca1554"
-   ],
+   "direct_feed_school_id": "gz-440106-15ca1554",
+   "feed_school_ids": [],
    "feed_unresolved": [],
-   "group": "天河区九年制/企事业办学校小学部内部直升",
+   "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -6825,12 +6829,15 @@
    "feed_school_ids": [
     "gz-440106-867e6c05",
     "gz-440106-a989804b",
-    "gz-440106-f7cdfb7e"
+    "gz-440106-f7cdfb7e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-182b1ae3",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -6849,13 +6856,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
+    "gz-440106-d40d0dbe",
     "gz-440106-fa9338a2",
-    "gz-440106-051b0157"
+    "gz-440106-22fcbcd6"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）、广州市天河外国语均和学校划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-1c0a974d",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -6872,14 +6881,17 @@
   },
   {
    "data_gaps": null,
-   "direct_feed_school_id": null,
+   "direct_feed_school_id": "gz-440106-9bed7efb",
    "feed_school_ids": [
-    "gz-440106-9bed7efb"
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区九年制/企事业办学校小学部内部直升",
+   "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
-    "zhi_sheng"
+    "zhi_sheng",
+    "single_paidui"
    ],
    "school_id": "gz-440106-23f2dfc8",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -6890,12 +6902,15 @@
    "feed_school_ids": [
     "gz-440106-867e6c05",
     "gz-440106-a989804b",
-    "gz-440106-f7cdfb7e"
+    "gz-440106-f7cdfb7e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-24586ef1",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -6915,12 +6930,15 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2f8a4424",
-    "gz-440106-dd16c13e"
+    "gz-440106-dd16c13e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-269a9629",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -6932,7 +6950,7 @@
     "gz-440106-8f55ab34"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第八十九中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -6945,12 +6963,15 @@
    "feed_school_ids": [
     "gz-440106-2f8a4424",
     "gz-440106-dd16c13e",
-    "gz-440106-7c81ab92"
+    "gz-440106-dab5b807",
+    "gz-440106-7c81ab92",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河中学、广州市第一一三中学陶育实验学校划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-2ab62791",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -6960,28 +6981,28 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2e9f6f7b",
-    "gz-440106-b049d65a"
+    "gz-440106-b049d65a",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-2cd346f1",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
   {
    "data_gaps": null,
-   "direct_feed_school_id": null,
-   "feed_school_ids": [
-    "gz-440106-e32237e4",
-    "gz-440106-31895452"
-   ],
+   "direct_feed_school_id": "gz-440106-31895452",
+   "feed_school_ids": [],
    "feed_unresolved": [],
-   "group": "天河区九年制学校内部直升（官方未单列小学部直升，按区属九年制直升惯例）+ 附件10全区电脑派位",
+   "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
-    "zhi_sheng",
-    "min_zi_zhu"
+    "zhi_sheng"
    ],
    "school_id": "gz-440106-31895452",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -6994,7 +7015,7 @@
     "gz-440106-621b20d3"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第七十五中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7005,12 +7026,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-b7d476f7"
+    "gz-440106-b7d476f7",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市骏景中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-34cffe8f",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7019,12 +7043,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-7c81ab92"
+    "gz-440106-dab5b807",
+    "gz-440106-7c81ab92",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第一一三中学陶育实验学校划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-35cad4e6",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7034,12 +7061,16 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2e9f6f7b",
-    "gz-440106-b049d65a"
+    "gz-440106-b049d65a",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-368a8ac7",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7048,12 +7079,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-fa9338a2"
+    "gz-440106-d40d0dbe",
+    "gz-440106-fa9338a2",
+    "gz-440106-22fcbcd6"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-394a30e4",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7065,7 +7099,7 @@
     "gz-440106-7077b270"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市长兴中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7076,11 +7110,11 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-ef4076c1",
-    "gz-440106-3a61d518"
+    "gz-440106-3a61d518",
+    "gz-440106-ef4076c1"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第十八中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7104,7 +7138,7 @@
     "gz-440106-7077b270"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市长兴中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7115,12 +7149,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-0d1e149e"
+    "gz-440106-0d1e149e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-3bc362f9",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7130,12 +7167,16 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2e9f6f7b",
-    "gz-440106-b049d65a"
+    "gz-440106-b049d65a",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-3bf77656",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7155,12 +7196,16 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2e9f6f7b",
-    "gz-440106-b049d65a"
+    "gz-440106-b049d65a",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-3f600b79",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7169,12 +7214,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-fa9338a2"
+    "gz-440106-d40d0dbe",
+    "gz-440106-fa9338a2",
+    "gz-440106-dab5b807"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-404ea6c6",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7184,12 +7232,16 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2e9f6f7b",
-    "gz-440106-b049d65a"
+    "gz-440106-b049d65a",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-4462c607",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7219,12 +7271,15 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2f8a4424",
-    "gz-440106-dd16c13e"
+    "gz-440106-dd16c13e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-4a26a58c",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7233,12 +7288,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-b7d476f7"
+    "gz-440106-b7d476f7",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市骏景中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-4ca3816f",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7247,13 +7305,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
+    "gz-440106-3a61d518",
     "gz-440106-ef4076c1",
-    "gz-440106-3a61d518"
+    "gz-440106-dab5b807"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第十八中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-4d4c3ab8",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7263,12 +7323,16 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2e9f6f7b",
-    "gz-440106-b049d65a"
+    "gz-440106-b049d65a",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-4dbb5b90",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7279,12 +7343,15 @@
    "feed_school_ids": [
     "gz-440106-867e6c05",
     "gz-440106-a989804b",
-    "gz-440106-f7cdfb7e"
+    "gz-440106-f7cdfb7e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-4dc94b4b",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7294,12 +7361,16 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2e9f6f7b",
-    "gz-440106-b049d65a"
+    "gz-440106-b049d65a",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-4eab4155",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7312,7 +7383,7 @@
     "gz-440106-621b20d3"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第七十五中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7333,12 +7404,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-fa9338a2"
+    "gz-440106-d40d0dbe",
+    "gz-440106-fa9338a2",
+    "gz-440106-dab5b807"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-51651124",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7349,12 +7423,15 @@
    "feed_school_ids": [
     "gz-440106-867e6c05",
     "gz-440106-a989804b",
-    "gz-440106-f7cdfb7e"
+    "gz-440106-f7cdfb7e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-53bc251b",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7363,11 +7440,11 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-ef4076c1",
-    "gz-440106-3a61d518"
+    "gz-440106-3a61d518",
+    "gz-440106-ef4076c1"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第十八中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7378,12 +7455,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-fa9338a2"
+    "gz-440106-d40d0dbe",
+    "gz-440106-fa9338a2",
+    "gz-440106-22fcbcd6"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-579bdc60",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7392,12 +7472,16 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-fa9338a2"
+    "gz-440106-d40d0dbe",
+    "gz-440106-fa9338a2",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-59e89ce7",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7409,7 +7493,7 @@
     "gz-440106-8f55ab34"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第八十九中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7422,12 +7506,15 @@
    "feed_school_ids": [
     "gz-440106-867e6c05",
     "gz-440106-a989804b",
-    "gz-440106-f7cdfb7e"
+    "gz-440106-f7cdfb7e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-5e40124c",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7436,12 +7523,16 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-0d1e149e"
+    "gz-440106-0d1e149e",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-617fa509",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7451,12 +7542,14 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2e9f6f7b",
-    "gz-440106-b049d65a"
+    "gz-440106-b049d65a",
+    "gz-440106-dab5b807"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-6618e0e7",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7478,7 +7571,7 @@
     "gz-440106-7077b270"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市长兴中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7500,12 +7593,16 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2e9f6f7b",
-    "gz-440106-b049d65a"
+    "gz-440106-b049d65a",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-6dc5833a",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7524,12 +7621,16 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-0d1e149e"
+    "gz-440106-0d1e149e",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-73e86142",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7538,12 +7639,16 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-0d1e149e"
+    "gz-440106-0d1e149e",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-7548682a",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7562,12 +7667,14 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-7077b270"
+    "gz-440106-7077b270",
+    "gz-440106-0eb93435"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市长兴中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-78aa2e37",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7586,12 +7693,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-fa9338a2"
+    "gz-440106-d40d0dbe",
+    "gz-440106-fa9338a2",
+    "gz-440106-22fcbcd6"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-8224c016",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7603,7 +7713,7 @@
     "gz-440106-8f55ab34"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第八十九中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7614,12 +7724,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-22156e02"
+    "gz-440106-22156e02",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市泰安中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-8755820f",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7631,7 +7744,7 @@
     "gz-440106-8f55ab34"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第八十九中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7642,12 +7755,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-8b3ee7d2"
+    "gz-440106-dab5b807",
+    "gz-440106-8b3ee7d2",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河中学猎德实验学校划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-8b3ee7d2",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7666,12 +7782,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-0d1e149e"
+    "gz-440106-0d1e149e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-8d6ca869",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7680,13 +7799,16 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
+    "gz-440106-3a61d518",
     "gz-440106-ef4076c1",
-    "gz-440106-3a61d518"
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第十八中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-93dce356",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7699,7 +7821,7 @@
     "gz-440106-621b20d3"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第七十五中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7714,7 +7836,7 @@
     "gz-440106-621b20d3"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第七十五中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7729,7 +7851,7 @@
     "gz-440106-621b20d3"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第七十五中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7750,12 +7872,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-22156e02"
+    "gz-440106-22156e02",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市泰安中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-997cb2e4",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7764,10 +7889,11 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
+    "gz-440106-d40d0dbe",
     "gz-440106-fa9338a2"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7791,7 +7917,7 @@
     "gz-440106-8f55ab34"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第八十九中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7805,7 +7931,7 @@
     "gz-440106-7077b270"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市长兴中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7816,12 +7942,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-fa9338a2"
+    "gz-440106-d40d0dbe",
+    "gz-440106-fa9338a2",
+    "gz-440106-22fcbcd6"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-a52ecc01",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7833,7 +7962,7 @@
     "gz-440106-8f55ab34"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第八十九中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7844,26 +7973,27 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-b0d40cc4"
+    "gz-440106-dab5b807",
+    "gz-440106-b0d40cc4",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市南国学校划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-a64c6e57",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
   {
    "data_gaps": null,
-   "direct_feed_school_id": null,
-   "feed_school_ids": [
-    "gz-440106-fa9338a2"
-   ],
+   "direct_feed_school_id": "gz-440106-d40d0dbe",
+   "feed_school_ids": [],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州奥林匹克中学（含智谷校区）划片）",
+   "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
-    "single_zone"
+    "zhi_sheng"
    ],
    "school_id": "gz-440106-a7cac9ec",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7885,7 +8015,7 @@
     "gz-440106-90c47ff5"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天荣中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7898,12 +8028,15 @@
    "feed_school_ids": [
     "gz-440106-867e6c05",
     "gz-440106-a989804b",
-    "gz-440106-f7cdfb7e"
+    "gz-440106-f7cdfb7e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-ad7011bb",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7924,12 +8057,15 @@
    "feed_school_ids": [
     "gz-440106-867e6c05",
     "gz-440106-a989804b",
-    "gz-440106-f7cdfb7e"
+    "gz-440106-f7cdfb7e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-b2701f92",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7952,7 +8088,7 @@
     "gz-440106-621b20d3"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第七十五中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -7964,12 +8100,15 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2f8a4424",
-    "gz-440106-dd16c13e"
+    "gz-440106-dd16c13e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-b69bcbc4",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -7978,12 +8117,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-22156e02"
+    "gz-440106-22156e02",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市泰安中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-b7efb60d",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8003,12 +8145,16 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2e9f6f7b",
-    "gz-440106-b049d65a"
+    "gz-440106-b049d65a",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-ba79c3ea",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8018,12 +8164,15 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2f8a4424",
-    "gz-440106-dd16c13e"
+    "gz-440106-dd16c13e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-bd76b30f",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8032,12 +8181,14 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-7077b270"
+    "gz-440106-7077b270",
+    "gz-440106-0eb93435"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市长兴中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-bee8ea7b",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8046,12 +8197,14 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-22156e02"
+    "gz-440106-22156e02",
+    "gz-440106-0eb93435"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市泰安中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-c351d016",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8081,12 +8234,15 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2f8a4424",
-    "gz-440106-dd16c13e"
+    "gz-440106-dd16c13e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-cdfda274",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8095,11 +8251,11 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-ef4076c1",
-    "gz-440106-3a61d518"
+    "gz-440106-3a61d518",
+    "gz-440106-ef4076c1"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第十八中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -8108,12 +8264,10 @@
   },
   {
    "data_gaps": null,
-   "direct_feed_school_id": null,
-   "feed_school_ids": [
-    "gz-440106-d042314d"
-   ],
+   "direct_feed_school_id": "gz-440106-d042314d",
+   "feed_school_ids": [],
    "feed_unresolved": [],
-   "group": "天河区九年制/企事业办学校小学部内部直升",
+   "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -8122,12 +8276,10 @@
   },
   {
    "data_gaps": null,
-   "direct_feed_school_id": null,
-   "feed_school_ids": [
-    "gz-440106-d311ea50"
-   ],
+   "direct_feed_school_id": "gz-440106-d311ea50",
+   "feed_school_ids": [],
    "feed_unresolved": [],
-   "group": "天河区九年制/企事业办学校小学部内部直升",
+   "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
     "zhi_sheng"
    ],
@@ -8138,12 +8290,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-90c47ff5"
+    "gz-440106-90c47ff5",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天荣中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-d343b055",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8155,7 +8310,7 @@
     "gz-440106-7077b270"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市长兴中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -8166,28 +8321,27 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-dab5b807"
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市华颖外国语学校（广州市华颖中学）划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-dab5b807",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
   },
   {
    "data_gaps": null,
-   "direct_feed_school_id": null,
-   "feed_school_ids": [
-    "gz-440106-e32237e4",
-    "gz-440106-31895452"
-   ],
+   "direct_feed_school_id": "gz-440106-31895452",
+   "feed_school_ids": [],
    "feed_unresolved": [],
-   "group": "天河区九年制学校内部直升（官方未单列小学部直升，按区属九年制直升惯例）+ 附件10全区电脑派位",
+   "group": "天河区小升初对口直升（不参加电脑派位）",
    "mechanisms": [
-    "zhi_sheng",
-    "min_zi_zhu"
+    "zhi_sheng"
    ],
    "school_id": "gz-440106-e32237e4",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8208,12 +8362,15 @@
    "feed_school_ids": [
     "gz-440106-867e6c05",
     "gz-440106-a989804b",
-    "gz-440106-f7cdfb7e"
+    "gz-440106-f7cdfb7e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-e591e421",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8224,12 +8381,15 @@
    "feed_school_ids": [
     "gz-440106-867e6c05",
     "gz-440106-a989804b",
-    "gz-440106-f7cdfb7e"
+    "gz-440106-f7cdfb7e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-e66204ca",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8249,12 +8409,16 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2e9f6f7b",
-    "gz-440106-b049d65a"
+    "gz-440106-b049d65a",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第一一三中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-ecfc1a19",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8263,12 +8427,16 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-0d1e149e"
+    "gz-440106-0d1e149e",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-ed39fc64",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8280,7 +8448,7 @@
     "gz-440106-8f55ab34"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市第八十九中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
     "single_zone"
    ],
@@ -8303,12 +8471,15 @@
    "feed_school_ids": [
     "gz-440106-867e6c05",
     "gz-440106-a989804b",
-    "gz-440106-f7cdfb7e"
+    "gz-440106-f7cdfb7e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-ee85c675",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8317,12 +8488,16 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-0d1e149e"
+    "gz-440106-0d1e149e",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河区汇景实验学校划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-efcdec9d",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8343,12 +8518,16 @@
    "feed_school_ids": [
     "gz-440106-867e6c05",
     "gz-440106-a989804b",
-    "gz-440106-f7cdfb7e"
+    "gz-440106-f7cdfb7e",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-f11f4361",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8357,12 +8536,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-22156e02"
+    "gz-440106-22156e02",
+    "gz-440106-dab5b807",
+    "gz-440106-0eb93435"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市泰安中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-f56704cf",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8372,12 +8554,15 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2f8a4424",
-    "gz-440106-dd16c13e"
+    "gz-440106-dd16c13e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-f69544d1",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8387,12 +8572,15 @@
    "direct_feed_school_id": null,
    "feed_school_ids": [
     "gz-440106-2f8a4424",
-    "gz-440106-dd16c13e"
+    "gz-440106-dd16c13e",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天河中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-fafdbff4",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"
@@ -8411,12 +8599,15 @@
    "data_gaps": null,
    "direct_feed_school_id": null,
    "feed_school_ids": [
-    "gz-440106-90c47ff5"
+    "gz-440106-90c47ff5",
+    "gz-440106-dab5b807",
+    "gz-440106-a565a93c"
    ],
    "feed_unresolved": [],
-   "group": "天河区公办初中对口直升（广州市天荣中学划片）",
+   "group": "天河区小升初对口（单校划片）",
    "mechanisms": [
-    "single_zone"
+    "single_zone",
+    "single_paidui"
    ],
    "school_id": "gz-440106-fee58b73",
    "source_url": "http://www.thnet.gov.cn/attachment/8/8016/8016210/10791180.pdf"

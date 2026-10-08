@@ -2095,11 +2095,11 @@ DISTRICT_ADCODE = {'yuexiu': '440104', 'liwan': '440103', 'baiyun': '440111', 'p
 
 
 def load_from_middle_mechanisms():
-    """初中反推机制（parsed/from_middle，5 区）：{school_id: [机制枚举]}。
+    """初中反推机制（parsed/from_middle，6 区）：{school_id: [机制枚举]}。
     dist 的机制以初中反推为准（raw 同源：初中转录层即有 mechanism，from_middle 直接复用）；
-    天河/番禺无 from_middle，保持官方转录解析。"""
+    番禺无 from_middle，保持官方转录解析。"""
     out = {}
-    for key in ['yuexiu', 'liwan', 'baiyun', 'haizhu', 'huangpu']:
+    for key in ['yuexiu', 'liwan', 'baiyun', 'haizhu', 'huangpu', 'tianhe']:
         p = os.path.join(AUDIT_DIR, f'xiaoshengchu_from_middle_{key}_2026.json')
         if not os.path.exists(p):
             continue
@@ -2151,29 +2151,31 @@ if __name__ == '__main__':
         del args[i:i + 2]
     target = args[0] if args else 'yuexiu'
     if target in DISTRICTS:
-        if target in ("yuexiu", "liwan", "baiyun", "haizhu", "huangpu"):
-            # 2026-09-30（用户指示）：五区小升初数据源切换为初中转录反推，不再由本脚本构建
+        if target in ("yuexiu", "liwan", "baiyun", "haizhu", "huangpu", "tianhe"):
+            # 2026-09-30（用户指示）：五区小升初数据源切换为初中转录反推，不再由本脚本构建；
+            # 2026-10-08：天河接入初中反推（附件6/10/7 对口/派位池/九年制直升），同样不再自建
             print(f"[跳过] {target} 小升初数据由 build_xiaoshengchu_from_middle.py 反推产出"
-                  f"（dist/xiaoshengchu_{target}.json），本脚本仅构建番禺/天河并汇总")
+                  f"（dist/xiaoshengchu_{target}.json），本脚本仅构建番禺并汇总")
             sys.exit(0)
         _, label, fn = DISTRICTS[target]
         recs, covered, missing = fn()
         dump(target, label, recs, covered, missing)
     elif target == 'all_done':
-        # 全链路：五区（越秀/荔湾/白云/海珠/黄埔）小升初数据源 = 初中转录反推
-        # （build_xiaoshengchu_from_middle.py 产出 dist，2026-09-30 用户指示不再自建）；
-        # 本脚本仅构建番禺/天河 + 汇总（--out-dir 指定输出目录，快照测试用临时目录，不碰正式 dist）
+        # 全链路：六区（越秀/荔湾/白云/海珠/黄埔/天河）小升初数据源 = 初中转录反推
+        # （build_xiaoshengchu_from_middle.py 产出 dist；五区 2026-09-30、天河 2026-10-08 接入，
+        #  用户指示不再自建）；本脚本仅构建番禺 + 汇总
+        # （--out-dir 指定输出目录，快照测试用临时目录，不碰正式 dist）
         _self_dir = os.path.dirname(os.path.abspath(__file__))
         _from_middle = [sys.executable, os.path.join(_self_dir, "build_xiaoshengchu_from_middle.py"),
-                        "yuexiu", "liwan", "baiyun", "haizhu", "huangpu"]
+                        "yuexiu", "liwan", "baiyun", "haizhu", "huangpu", "tianhe"]
         if "--out-dir" in sys.argv:
             _i = sys.argv.index("--out-dir")
             _from_middle += ["--out-dir", sys.argv[_i + 1]]
         r = subprocess.run(_from_middle, cwd=ROOT)
         if r.returncode != 0:
-            print("[汇总] 反推脚本失败：五区 dist 未产出，中止")
+            print("[汇总] 反推脚本失败：六区 dist 未产出，中止")
             sys.exit(r.returncode)
-        for key in ['panyu', 'tianhe']:
+        for key in ['panyu']:
             _, label, fn = DISTRICTS[key]
             recs, covered, missing = fn()
             dump(key, label, recs, covered, missing)

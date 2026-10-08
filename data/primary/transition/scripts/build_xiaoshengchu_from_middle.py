@@ -9,7 +9,9 @@
   data/primary/transition/parsed/xiaoshengchu_from_middle_<区>_2026.json
   data/primary/transition/parsed/xiaoshengchu_from_middle_compare_<区>_2026.json
 
-默认仅处理可直接反推的五区：越秀、荔湾、白云、海珠、黄埔。
+默认处理可反推的六区：越秀、荔湾、白云、海珠、黄埔、天河。
+（2026-10-08 天河接入：附件6 对口小学列 + 九年制小学部直升 zhi_sheng + 附件10 派位池，
+均挂载在初中直建记录 _group_primaries 上，由本脚本反推。）
 现有 dist/xiaoshengchu_<区>.json 只读，用于比较，绝不覆盖。
 """
 import argparse
@@ -22,7 +24,7 @@ from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 OUT = os.path.join(ROOT, "data", "primary", "transition", "parsed")
-DISTRICTS = ("yuexiu", "liwan", "baiyun", "haizhu", "huangpu")
+DISTRICTS = ("yuexiu", "liwan", "baiyun", "haizhu", "huangpu", "tianhe")
 # 机制枚举输出顺序（对齐初中 MECH_ORDER：zhi_sheng → single_zone → group_paidui → single_paidui → min_zi_zhu）
 XS_MECH_ORDER = ("zhi_sheng", "single_zone", "group_paidui", "single_paidui", "min_zi_zhu")
 
@@ -187,7 +189,12 @@ def reverse_district(district, entity_names):
             # 2026-10-04（修复2）：直升判定补齐 zhi_sheng 机制——此前仅认 single_zone，
             # 海珠/越秀等区 zhi_sheng 直升初中（如五中附属初级中学）被漏判、混入派位 feed、
             # direct_feed 全空（昌岗中路小学页「直升 + 电脑派位」矛盾根因）。
-            is_direct = district in {"yuexiu", "haizhu", "huangpu"} and r.get("mechanism") in ("single_zone", "zhi_sheng")
+            # 2026-10-08（天河接入）：天河九年制小学部直升（zhi_sheng）→ direct_feed，
+            # 与越秀/海珠/黄埔统一；天河单校划片（single_zone，附件6 对口）保持 feed
+            # （与白云单校划片同口径），不入 direct。
+            _m = r.get("mechanism")
+            is_direct = ((_m in ("single_zone", "zhi_sheng") and district in {"yuexiu", "haizhu", "huangpu"})
+                         or (_m == "zhi_sheng" and district == "tianhe"))
             if campus_map:
                 effective = [mid for mid, names in campus_map.items()
                              if any(_same_school(nm, official_primary) for nm in names)]
@@ -302,6 +309,8 @@ def main():
         # 2026-09-30：反推仅覆盖官方初中转录出现的生源小学；无对口公办初中的
         # 民办/特教/新开学校（切换前 legacy 的 data_gaps 兜底记录）并入 dist，
         # 避免这些公办小学变孤儿（data_quality 孤儿清单 +14 处漂移触发）。
+        # 2026-10-08：天河切换前同样建 legacy 快照（parsed/xiaoshengchu_tianhe_legacy_2026.json），
+        # 民办/特教/待核 gap 记录由本步并入。
         # 仅并「无 feed 且有 data_gaps 说明」的记录；反推已覆盖的同名小学不重复。
         legacy_path = os.path.join(ROOT, "data", "primary", "transition", "parsed",
                                    f"xiaoshengchu_{district}_legacy_2026.json")
@@ -331,7 +340,7 @@ def main():
         s = report["summary"]
         print(f"{district}: reverse {s['reverse_pairs']} / current {s['current_pairs']}; "
               f"only reverse {s['only_reverse']}, only current {s['only_current']} -> {base}")
-        print(f"  dist {len(dist_records)} 条 -> {dist_path}（五区 dist 由反推产出）")
+        print(f"  dist {len(dist_records)} 条 -> {dist_path}（六区 dist 由反推产出）")
 
 
 if __name__ == "__main__":

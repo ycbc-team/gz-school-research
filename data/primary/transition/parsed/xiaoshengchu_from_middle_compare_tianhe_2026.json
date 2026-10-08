@@ -1,0 +1,964 @@
+{
+  "basis": "official middle-enrollment transcripts vs existing xiaoshengchu district dist; entity IDs are compared after each chain's current resolver.",
+  "district": "天河区",
+  "only_current": [
+    {
+      "middle": "华南理工大学附属实验学校(中学部)",
+      "middle_school_id": "gz-440106-9bed7efb",
+      "primary": "华南理工大学附属实验学校(小学部)",
+      "primary_school_id": "gz-440106-23f2dfc8"
+    },
+    {
+      "middle": "广州市天河外国语均和学校",
+      "middle_school_id": "gz-440106-051b0157",
+      "primary": "均和小学",
+      "primary_school_id": "gz-440106-1c0a974d"
+    },
+    {
+      "middle": "天河区智谷第一实验学校",
+      "middle_school_id": "gz-440106-d311ea50",
+      "primary": "天河区智谷第一实验学校",
+      "primary_school_id": "gz-440106-d311ea50"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "广东实验中学天河学校",
+      "primary_school_id": "gz-440106-0eb93435"
+    },
+    {
+      "middle": "广州中学天河燕园学校",
+      "middle_school_id": "gz-440106-15ca1554",
+      "primary": "广州中学天河燕园学校",
+      "primary_school_id": "gz-440106-15ca1554"
+    },
+    {
+      "middle": "广州奥林匹克中学(智谷校区)",
+      "middle_school_id": "gz-440106-fa9338a2",
+      "primary": "广州奥林匹克中学（智谷校区）小学部",
+      "primary_school_id": "gz-440106-a7cac9ec"
+    },
+    {
+      "middle": "广州市天河外国语智谷学校",
+      "middle_school_id": "gz-440106-d042314d",
+      "primary": "广州市天河外国语智谷学校",
+      "primary_school_id": "gz-440106-d042314d"
+    },
+    {
+      "middle": "暨南大学附属中学",
+      "middle_school_id": "gz-440106-11e15e8d",
+      "primary": "暨南大学附属实验学校",
+      "primary_school_id": "gz-440106-05ed1da2"
+    },
+    {
+      "middle": "清华附中湾区学校",
+      "middle_school_id": "gz-440106-e32237e4",
+      "primary": "清华附中湾区学校",
+      "primary_school_id": "gz-440106-e32237e4"
+    },
+    {
+      "middle": "清华附中湾区学校（智慧城校区）",
+      "middle_school_id": "gz-440106-31895452",
+      "primary": "清华附中湾区学校",
+      "primary_school_id": "gz-440106-e32237e4"
+    },
+    {
+      "middle": "清华附中湾区学校",
+      "middle_school_id": "gz-440106-e32237e4",
+      "primary": "清华附中湾区学校（智慧城校区）",
+      "primary_school_id": "gz-440106-31895452"
+    },
+    {
+      "middle": "清华附中湾区学校（智慧城校区）",
+      "middle_school_id": "gz-440106-31895452",
+      "primary": "清华附中湾区学校（智慧城校区）",
+      "primary_school_id": "gz-440106-31895452"
+    }
+  ],
+  "only_reverse": [
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "东圃小学",
+      "primary_school_id": "gz-440106-4d4c3ab8"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "中海康城小学",
+      "primary_school_id": "gz-440106-59e89ce7"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "中海康城小学",
+      "primary_school_id": "gz-440106-59e89ce7"
+    },
+    {
+      "middle": "广州市奥林匹克中学(黄村西路校区)",
+      "middle_school_id": "gz-440106-d40d0dbe",
+      "primary": "中海康城小学",
+      "primary_school_id": "gz-440106-59e89ce7"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "五一小学",
+      "primary_school_id": "gz-440106-3bc362f9"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "五一小学",
+      "primary_school_id": "gz-440106-3bc362f9"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "五一小学红英校区",
+      "primary_school_id": "gz-440106-8d6ca869"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "五一小学红英校区",
+      "primary_school_id": "gz-440106-8d6ca869"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "五山小学(西校区)",
+      "primary_school_id": "gz-440106-73e86142"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "五山小学(西校区)",
+      "primary_school_id": "gz-440106-73e86142"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "五山小学(西校区)",
+      "primary_school_id": "gz-440106-73e86142"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "体育东路小学",
+      "primary_school_id": "gz-440106-fafdbff4"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "体育东路小学",
+      "primary_school_id": "gz-440106-fafdbff4"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "体育东路小学兴国学校",
+      "primary_school_id": "gz-440106-cdfda274"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "体育东路小学兴国学校",
+      "primary_school_id": "gz-440106-cdfda274"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "体育东路小学海明学校",
+      "primary_school_id": "gz-440106-bd76b30f"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "体育东路小学海明学校",
+      "primary_school_id": "gz-440106-bd76b30f"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "体育西路小学(东校区)",
+      "primary_school_id": "gz-440106-fee58b73"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "体育西路小学(东校区)",
+      "primary_school_id": "gz-440106-fee58b73"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "体育西路小学(西校区)",
+      "primary_school_id": "gz-440106-d343b055"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "体育西路小学(西校区)",
+      "primary_school_id": "gz-440106-d343b055"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "冼村小学",
+      "primary_school_id": "gz-440106-f69544d1"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "冼村小学",
+      "primary_school_id": "gz-440106-f69544d1"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "华南农业大学附属小学",
+      "primary_school_id": "gz-440106-617fa509"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "华南农业大学附属小学",
+      "primary_school_id": "gz-440106-617fa509"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "华南农业大学附属小学",
+      "primary_school_id": "gz-440106-617fa509"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "华南师范大学附属小学",
+      "primary_school_id": "gz-440106-f11f4361"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "华南师范大学附属小学",
+      "primary_school_id": "gz-440106-f11f4361"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "华南师范大学附属小学",
+      "primary_school_id": "gz-440106-f11f4361"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "华南理工大学附属实验学校(小学部)",
+      "primary_school_id": "gz-440106-23f2dfc8"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "华南理工大学附属实验学校(小学部)",
+      "primary_school_id": "gz-440106-23f2dfc8"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "华南理工大学附属实验学校(小学部)",
+      "primary_school_id": "gz-440106-23f2dfc8"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "华康小学(海欣校区)",
+      "primary_school_id": "gz-440106-ad7011bb"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "华康小学(海欣校区)",
+      "primary_school_id": "gz-440106-ad7011bb"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "华景小学(北校区)",
+      "primary_school_id": "gz-440106-2cd346f1"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "华景小学(北校区)",
+      "primary_school_id": "gz-440106-2cd346f1"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "华景小学(北校区)",
+      "primary_school_id": "gz-440106-2cd346f1"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "华景小学(南校区)",
+      "primary_school_id": "gz-440106-3f600b79"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "华景小学(南校区)",
+      "primary_school_id": "gz-440106-3f600b79"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "华景小学(南校区)",
+      "primary_school_id": "gz-440106-3f600b79"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "华阳小学(华成校区)",
+      "primary_school_id": "gz-440106-0b79aecf"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "华阳小学(华成校区)",
+      "primary_school_id": "gz-440106-0b79aecf"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "华阳小学(天河东校区)",
+      "primary_school_id": "gz-440106-e591e421"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "华阳小学(天河东校区)",
+      "primary_school_id": "gz-440106-e591e421"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "华阳小学(林和东校区)",
+      "primary_school_id": "gz-440106-155698db"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "华阳小学(林和东校区)",
+      "primary_school_id": "gz-440106-155698db"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "南国学校(小学部)",
+      "primary_school_id": "gz-440106-a64c6e57"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "南国学校(小学部)",
+      "primary_school_id": "gz-440106-a64c6e57"
+    },
+    {
+      "middle": "广州市奥林匹克中学(黄村西路校区)",
+      "middle_school_id": "gz-440106-d40d0dbe",
+      "primary": "吉山小学",
+      "primary_school_id": "gz-440106-579bdc60"
+    },
+    {
+      "middle": "执信中学(天河校区)",
+      "middle_school_id": "gz-440106-22fcbcd6",
+      "primary": "吉山小学",
+      "primary_school_id": "gz-440106-579bdc60"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "员村小学",
+      "primary_school_id": "gz-440106-4462c607"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "员村小学",
+      "primary_school_id": "gz-440106-4462c607"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "员村小学",
+      "primary_school_id": "gz-440106-4462c607"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "员村小学(美林分校)",
+      "primary_school_id": "gz-440106-3bf77656"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "员村小学(美林分校)",
+      "primary_school_id": "gz-440106-3bf77656"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "员村小学(美林分校)",
+      "primary_school_id": "gz-440106-3bf77656"
+    },
+    {
+      "middle": "广州市奥林匹克中学(黄村西路校区)",
+      "middle_school_id": "gz-440106-d40d0dbe",
+      "primary": "均和小学",
+      "primary_school_id": "gz-440106-1c0a974d"
+    },
+    {
+      "middle": "执信中学(天河校区)",
+      "middle_school_id": "gz-440106-22fcbcd6",
+      "primary": "均和小学",
+      "primary_school_id": "gz-440106-1c0a974d"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "天府路小学",
+      "primary_school_id": "gz-440106-6dc5833a"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "天府路小学",
+      "primary_school_id": "gz-440106-6dc5833a"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "天府路小学",
+      "primary_school_id": "gz-440106-6dc5833a"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "天府路小学翠湖校区",
+      "primary_school_id": "gz-440106-4dbb5b90"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "天府路小学翠湖校区",
+      "primary_school_id": "gz-440106-4dbb5b90"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "天府路小学翠湖校区",
+      "primary_school_id": "gz-440106-4dbb5b90"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "天河区五山小学(东校区)",
+      "primary_school_id": "gz-440106-7548682a"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "天河区五山小学(东校区)",
+      "primary_school_id": "gz-440106-7548682a"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "天河区五山小学(东校区)",
+      "primary_school_id": "gz-440106-7548682a"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "天河区新元小学",
+      "primary_school_id": "gz-440106-51651124"
+    },
+    {
+      "middle": "广州市奥林匹克中学(黄村西路校区)",
+      "middle_school_id": "gz-440106-d40d0dbe",
+      "primary": "天河区新元小学",
+      "primary_school_id": "gz-440106-51651124"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "天河区石东小学",
+      "primary_school_id": "gz-440106-6618e0e7"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "天河第一小学(华利校区)",
+      "primary_school_id": "gz-440106-4a26a58c"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "天河第一小学(华利校区)",
+      "primary_school_id": "gz-440106-4a26a58c"
+    },
+    {
+      "middle": "广州市奥林匹克中学(黄村西路校区)",
+      "middle_school_id": "gz-440106-d40d0dbe",
+      "primary": "奥体东小学",
+      "primary_school_id": "gz-440106-394a30e4"
+    },
+    {
+      "middle": "执信中学(天河校区)",
+      "middle_school_id": "gz-440106-22fcbcd6",
+      "primary": "奥体东小学",
+      "primary_school_id": "gz-440106-394a30e4"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "广州市华颖外国语学校",
+      "primary_school_id": "gz-440106-dab5b807"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "广州市华颖外国语学校",
+      "primary_school_id": "gz-440106-dab5b807"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "广州市天河中学猎德实验学校",
+      "primary_school_id": "gz-440106-8b3ee7d2"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "广州市天河中学猎德实验学校",
+      "primary_school_id": "gz-440106-8b3ee7d2"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "广州市天河区华康小学(华文校区)",
+      "primary_school_id": "gz-440106-4dc94b4b"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "广州市天河区华康小学(华文校区)",
+      "primary_school_id": "gz-440106-4dc94b4b"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "广州市天河区华融小学",
+      "primary_school_id": "gz-440106-368a8ac7"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "广州市天河区华融小学",
+      "primary_school_id": "gz-440106-368a8ac7"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "广州市天河区华融小学",
+      "primary_school_id": "gz-440106-368a8ac7"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "广州市天河区华阳小学(天润校区)",
+      "primary_school_id": "gz-440106-182b1ae3"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "广州市天河区华阳小学(天润校区)",
+      "primary_school_id": "gz-440106-182b1ae3"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "广州市天河区天府路小学建业校区",
+      "primary_school_id": "gz-440106-ecfc1a19"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "广州市天河区天府路小学建业校区",
+      "primary_school_id": "gz-440106-ecfc1a19"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "广州市天河区天府路小学建业校区",
+      "primary_school_id": "gz-440106-ecfc1a19"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "广州市天河区岑村小学",
+      "primary_school_id": "gz-440106-bee8ea7b"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "广州市天河区昌乐小学",
+      "primary_school_id": "gz-440106-ba79c3ea"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "广州市天河区昌乐小学",
+      "primary_school_id": "gz-440106-ba79c3ea"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "广州市天河区昌乐小学",
+      "primary_school_id": "gz-440106-ba79c3ea"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "广州市天河区棠德南小学(北校区)",
+      "primary_school_id": "gz-440106-8755820f"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "广州市天河区棠德南小学(北校区)",
+      "primary_school_id": "gz-440106-8755820f"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "广州市天河区泰安小学",
+      "primary_school_id": "gz-440106-b7efb60d"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "广州市天河区泰安小学",
+      "primary_school_id": "gz-440106-b7efb60d"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "广州市天河区第一实验小学",
+      "primary_school_id": "gz-440106-b69bcbc4"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "广州市天河区第一实验小学",
+      "primary_school_id": "gz-440106-b69bcbc4"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "广州市天河区长征小学",
+      "primary_school_id": "gz-440106-b2701f92"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "广州市天河区长征小学",
+      "primary_school_id": "gz-440106-b2701f92"
+    },
+    {
+      "middle": "广州市奥林匹克中学(黄村西路校区)",
+      "middle_school_id": "gz-440106-d40d0dbe",
+      "primary": "广州市天河区黄村小学",
+      "primary_school_id": "gz-440106-9a67aee6"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "广州市天河区龙口西小学(帝景校区)",
+      "primary_school_id": "gz-440106-24586ef1"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "广州市天河区龙口西小学(帝景校区)",
+      "primary_school_id": "gz-440106-24586ef1"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "广州市天河第一小学(华穗校区)",
+      "primary_school_id": "gz-440106-269a9629"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "广州市天河第一小学(华穗校区)",
+      "primary_school_id": "gz-440106-269a9629"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "广州市第一一三中学陶育实验学校小学部",
+      "primary_school_id": "gz-440106-35cad4e6"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "广州市第一一三中学陶育实验学校小学部",
+      "primary_school_id": "gz-440106-35cad4e6"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "御景小学",
+      "primary_school_id": "gz-440106-78aa2e37"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "旭景小学",
+      "primary_school_id": "gz-440106-404ea6c6"
+    },
+    {
+      "middle": "广州市奥林匹克中学(黄村西路校区)",
+      "middle_school_id": "gz-440106-d40d0dbe",
+      "primary": "旭景小学",
+      "primary_school_id": "gz-440106-404ea6c6"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "昌乐小学(旭日校区)",
+      "primary_school_id": "gz-440106-4eab4155"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "昌乐小学(旭日校区)",
+      "primary_school_id": "gz-440106-4eab4155"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "昌乐小学(旭日校区)",
+      "primary_school_id": "gz-440106-4eab4155"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "暨南大学附属实验学校",
+      "primary_school_id": "gz-440106-05ed1da2"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "暨南大学附属实验学校",
+      "primary_school_id": "gz-440106-05ed1da2"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "棠下小学",
+      "primary_school_id": "gz-440106-34cffe8f"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "棠下小学",
+      "primary_school_id": "gz-440106-34cffe8f"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "棠东小学",
+      "primary_school_id": "gz-440106-f56704cf"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "棠东小学",
+      "primary_school_id": "gz-440106-f56704cf"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "棠德南小学南校区",
+      "primary_school_id": "gz-440106-997cb2e4"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "棠德南小学南校区",
+      "primary_school_id": "gz-440106-997cb2e4"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "汇景实验学校（华园校区）小学部",
+      "primary_school_id": "gz-440106-ed39fc64"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "汇景实验学校（华园校区）小学部",
+      "primary_school_id": "gz-440106-ed39fc64"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "汇景实验学校（华园校区）小学部",
+      "primary_school_id": "gz-440106-ed39fc64"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "汇景实验学校（小学部）",
+      "primary_school_id": "gz-440106-efcdec9d"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "汇景实验学校（小学部）",
+      "primary_school_id": "gz-440106-efcdec9d"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "汇景实验学校（小学部）",
+      "primary_school_id": "gz-440106-efcdec9d"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "沐陂小学",
+      "primary_school_id": "gz-440106-c351d016"
+    },
+    {
+      "middle": "广州市奥林匹克中学(黄村西路校区)",
+      "middle_school_id": "gz-440106-d40d0dbe",
+      "primary": "灵秀小学",
+      "primary_school_id": "gz-440106-a52ecc01"
+    },
+    {
+      "middle": "执信中学(天河校区)",
+      "middle_school_id": "gz-440106-22fcbcd6",
+      "primary": "灵秀小学",
+      "primary_school_id": "gz-440106-a52ecc01"
+    },
+    {
+      "middle": "广州市奥林匹克中学(黄村西路校区)",
+      "middle_school_id": "gz-440106-d40d0dbe",
+      "primary": "珠村小学",
+      "primary_school_id": "gz-440106-8224c016"
+    },
+    {
+      "middle": "执信中学(天河校区)",
+      "middle_school_id": "gz-440106-22fcbcd6",
+      "primary": "珠村小学",
+      "primary_school_id": "gz-440106-8224c016"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "石牌小学",
+      "primary_school_id": "gz-440106-2ab62791"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "石牌小学",
+      "primary_school_id": "gz-440106-2ab62791"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "车陂小学",
+      "primary_school_id": "gz-440106-93dce356"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "车陂小学",
+      "primary_school_id": "gz-440106-93dce356"
+    },
+    {
+      "middle": "广东实验中学天河学校",
+      "middle_school_id": "gz-440106-0eb93435",
+      "primary": "骏景小学",
+      "primary_school_id": "gz-440106-4ca3816f"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "骏景小学",
+      "primary_school_id": "gz-440106-4ca3816f"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "龙口西小学(天阳校区)",
+      "primary_school_id": "gz-440106-5e40124c"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "龙口西小学(天阳校区)",
+      "primary_school_id": "gz-440106-5e40124c"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "龙口西小学(瑞安校区)",
+      "primary_school_id": "gz-440106-ee85c675"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "龙口西小学(瑞安校区)",
+      "primary_school_id": "gz-440106-ee85c675"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "龙口西小学(穗园校区)",
+      "primary_school_id": "gz-440106-53bc251b"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "龙口西小学(穗园校区)",
+      "primary_school_id": "gz-440106-53bc251b"
+    },
+    {
+      "middle": "华南师范大学附属中学初中部",
+      "middle_school_id": "gz-440106-a565a93c",
+      "primary": "龙口西小学(龙口校区)",
+      "primary_school_id": "gz-440106-e66204ca"
+    },
+    {
+      "middle": "广州市华颖外国语学校",
+      "middle_school_id": "gz-440106-dab5b807",
+      "primary": "龙口西小学(龙口校区)",
+      "primary_school_id": "gz-440106-e66204ca"
+    }
+  ],
+  "summary": {
+    "current_pairs": 161,
+    "equal": false,
+    "only_current": 12,
+    "only_reverse": 146,
+    "reverse_pairs": 295
+  },
+  "year": 2026
+}
