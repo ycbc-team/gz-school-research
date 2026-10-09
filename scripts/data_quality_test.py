@@ -422,6 +422,8 @@ def main():
                 _has_quota = True
             if not _has_quota: _lacks.append("无升学")
         else:  # high
+            if _e["school_id"] in _MID_LEFT_NOTE_SIDS:
+                continue  # 业务确认（高中部校区录取分聚合主实体/国际课程，src/leftover_notes.json），非孤儿
             if _e["school_id"] not in _sc26 and _e["school_id"] not in _sc25: _lacks.append("无招生")
             if _lacks: _lacks.append("无升学(高考未采集)")
         if _lacks:

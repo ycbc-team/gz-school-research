@@ -44,7 +44,7 @@ OUT = ROOT / "data" / "high" / "cutoff_score" / "dist"
 
 # 统一匹配库：norm 本体收敛至 school_match.normName（原 norm_name 定义已删，规则与 build_entities/support 一致）
 sys.path.insert(0, str(ROOT / "data" / "registry" / "entity" / "scripts"))
-from school_match import matchNorm, normName as norm_name
+from school_match import SchoolMatcher
 
 def clean_html(h: str) -> str:
     h = re.sub(r"<script.*?</script>", "", h, flags=re.S)
@@ -188,25 +188,6 @@ def parse_file(fname: str, batch: int):
     return rows_out
 
 
-def load_entity_index():
-    """实体表（dimension）name/aliases → school_id（norm 全等，与 build_entities.py 同规则）。"""
-    ents = json.loads((ROOT / "data" / "registry" / "entity" / "dist" / "entities.json").read_text(encoding="utf-8"))["entities"]
-    idx = {}
-    idx_exact = {}
-    for e in ents:
-        if e.get("stage") != "high":
-            continue
-        for k in [e["name"]] + e.get("aliases", []):
-            nk = matchNorm(k)
-            if nk:
-                idx.setdefault(nk, set()).add(e["school_id"])
-                _flat = nk.replace("(", "").replace(")", "")
-                if _flat != nk:
-                    idx.setdefault(_flat, set()).add(e["school_id"])
-            idx_exact.setdefault(norm_name(k), set()).add(e["school_id"])
-    return idx, idx_exact
-
-
 def build(year: int):
     records = []
     for batch, fname, _title, _url in PAGES[year]:
@@ -220,30 +201,28 @@ def main():
     out_dir = OUT
     if "--out-dir" in sys.argv:
         out_dir = Path(sys.argv[sys.argv.index("--out-dir") + 1])
-    idx, idx_exact = load_entity_index()
+    # 统一匹配：SchoolMatcher.resolve_all —— 官方名带校区括号 → 精确命中该校区（宁缺毋滥，
+    # 如真光中学（广钢校区/校本部/汾水校区）各行只挂本校区，不扩散）；官方名只写法人（无校区，
+    # 如「广州市第四十一中学」）→ 同法人全部 high 校区展开（法人行公布即适用于全部校区，
+    # 校区详情页与本部展示一致录取分）。RESOLVE_OVERRIDE 无高中名校，默认锚定不影响。
+    ents = json.loads((ROOT / "data" / "registry" / "entity" / "dist" / "entities.json")
+                      .read_text(encoding="utf-8"))["entities"]
+    matcher = SchoolMatcher()
+    matcher.add_entities(ents)
     for year in (2025, 2026):
         records = build(year)
         by_sid, unmapped = {}, []
         for r in records:
-            n = matchNorm(r["name"])
-            ids = idx.get(n, set())
-            if not ids:
-                _flat = n.replace("(", "").replace(")", "")
-                if _flat != n:
-                    ids = idx.get(_flat, set())
-            if not ids:
-                # 官方名带校区括号（如「广州市海珠外国语实验中学（校本部）」）而实体无括号：
-                # normName 删括号精确键回退（多校区 norm 撞车宁缺，不走错配）
-                ids = idx_exact.get(norm_name(r["name"]), set())
-            if len(ids) > 1:
-                # matchNorm 剥区后歧义（如「白云艺术中学」→「艺术中学」越秀/白云两家）：
-                # 回退 normName 精确键（带区名），仅唯一候选可挂；仍歧义则宁缺不跨区错挂
-                ids = idx_exact.get(norm_name(r["name"]), set())
+            # override 锚定（民办中小学一体实体等）可能返回非 high 实体——录取分只挂高中段：
+            # 结果统一过滤 stage==high（官方名无校区法人展开同理，只保留高中段校区实体）。
+            resolved = matcher.resolve_all(r["name"], preferred_stage="高中")
+            ids = sorted({e["school_id"] for e in resolved
+                          if e.get("school_id") and e.get("stage") == "high"})
             rec = {k: v for k, v in r.items() if k not in ("name", "raw_name")}
             if not ids:
                 unmapped.append({"official_name": r["name"], "raw_name": r["raw_name"], **rec})
                 continue
-            for sid in sorted(ids):
+            for sid in ids:
                 by_sid.setdefault(sid, []).append(
                     {"official_name": r["name"], **rec})
         payload = {

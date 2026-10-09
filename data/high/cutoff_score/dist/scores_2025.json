@@ -160,6 +160,15 @@
     "batch": 3,
     "kind": "public",
     "gongfei": false
+   },
+   {
+    "official_name": "华南师范大学附属中学南海实验高级中学",
+    "nature": "民办",
+    "scope": "全市",
+    "min_score": 564,
+    "batch": 4,
+    "kind": "private",
+    "gongfei": false
    }
   ],
   "gz-440103-d78c848a": [
@@ -183,6 +192,19 @@
     "huji": 667,
     "feihuji": 689,
     "waiqu": null,
+    "batch": 3,
+    "kind": "public",
+    "gongfei": false
+   }
+  ],
+  "gz-440104-089a2a5b": [
+   {
+    "official_name": "广东实验中学越秀学校",
+    "nature": "公办",
+    "scope": "全市",
+    "huji": 627,
+    "feihuji": 641,
+    "waiqu": 630,
     "batch": 3,
     "kind": "public",
     "gongfei": false
@@ -223,6 +245,17 @@
     "feihuji_last": 489,
     "batch": 1,
     "kind": "lang_art",
+    "gongfei": false
+   },
+   {
+    "official_name": "广州市白云艺术中学",
+    "nature": "公办",
+    "scope": "白云区",
+    "huji": 547,
+    "feihuji": 601,
+    "waiqu": null,
+    "batch": 4,
+    "kind": "public",
     "gongfei": false
    }
   ],
@@ -402,6 +435,19 @@
     "gongfei": false
    }
   ],
+  "gz-440105-13585057": [
+   {
+    "official_name": "广州市第四十一中学",
+    "nature": "公办",
+    "scope": "全市",
+    "huji": 609,
+    "feihuji": 630,
+    "waiqu": 631,
+    "batch": 3,
+    "kind": "public",
+    "gongfei": false
+   }
+  ],
   "gz-440105-25137088": [
    {
     "official_name": "广州市海华高级中学",
@@ -476,6 +522,19 @@
     "huji": 670,
     "feihuji": 668,
     "waiqu": 670,
+    "batch": 3,
+    "kind": "public",
+    "gongfei": false
+   }
+  ],
+  "gz-440105-b210556b": [
+   {
+    "official_name": "广州市第四十一中学",
+    "nature": "公办",
+    "scope": "全市",
+    "huji": 609,
+    "feihuji": 630,
+    "waiqu": 631,
     "batch": 3,
     "kind": "public",
     "gongfei": false
@@ -681,6 +740,19 @@
     "gongfei": false
    }
   ],
+  "gz-440106-5b430017": [
+   {
+    "official_name": "广州市第七十五中学",
+    "nature": "公办",
+    "scope": "全市",
+    "huji": 627,
+    "feihuji": 627,
+    "waiqu": 628,
+    "batch": 3,
+    "kind": "public",
+    "gongfei": false
+   }
+  ],
   "gz-440106-5f78f6a9": [
    {
     "official_name": "广州市第一一三中学",
@@ -779,6 +851,19 @@
     "gongfei": false
    }
   ],
+  "gz-440106-ced6bbff": [
+   {
+    "official_name": "广州市第一一三中学",
+    "nature": "公办",
+    "scope": "全市",
+    "huji": 667,
+    "feihuji": 668,
+    "waiqu": 670,
+    "batch": 3,
+    "kind": "public",
+    "gongfei": false
+   }
+  ],
   "gz-440106-d5983217": [
    {
     "official_name": "华南师范大学附属中学（石牌校区）",
@@ -822,6 +907,19 @@
     "min_score": 507,
     "batch": 4,
     "kind": "private",
+    "gongfei": false
+   }
+  ],
+  "gz-440111-0cf700fb": [
+   {
+    "official_name": "广州市白云区广州空港实验中学",
+    "nature": "公办",
+    "scope": "全市",
+    "huji": 587,
+    "feihuji": 628,
+    "waiqu": 588,
+    "batch": 3,
+    "kind": "public",
     "gongfei": false
    }
   ],
@@ -1186,6 +1284,17 @@
     "feihuji_last": 550,
     "batch": 1,
     "kind": "lang_art",
+    "gongfei": false
+   },
+   {
+    "official_name": "广州市白云艺术中学",
+    "nature": "公办",
+    "scope": "白云区",
+    "huji": 547,
+    "feihuji": 601,
+    "waiqu": null,
+    "batch": 4,
+    "kind": "public",
     "gongfei": false
    }
   ],
@@ -1555,26 +1664,6 @@
     "waiqu": 703,
     "batch": 3,
     "kind": "public",
-    "gongfei": false
-   }
-  ],
-  "gz-440113-c181d193": [
-   {
-    "official_name": "广州市番禺区祈福英语实验学校（国内班）",
-    "nature": "民办",
-    "scope": "全市",
-    "min_score": 487,
-    "batch": 4,
-    "kind": "private",
-    "gongfei": false
-   },
-   {
-    "official_name": "广州市番禺区祈福英语实验学校（港澳台班）",
-    "nature": "民办",
-    "scope": "全市",
-    "min_score": 490,
-    "batch": 4,
-    "kind": "private",
     "gongfei": false
    }
   ],
@@ -2440,6 +2529,26 @@
    "gongfei": false
   },
   {
+   "official_name": "广州市番禺区祈福英语实验学校（国内班）",
+   "raw_name": "广州市番禺区祈福英语实验学校（国内班）",
+   "nature": "民办",
+   "scope": "全市",
+   "min_score": 487,
+   "batch": 4,
+   "kind": "private",
+   "gongfei": false
+  },
+  {
+   "official_name": "广州市番禺区祈福英语实验学校（港澳台班）",
+   "raw_name": "广州市番禺区祈福英语实验学校（港澳台班）",
+   "nature": "民办",
+   "scope": "全市",
+   "min_score": 490,
+   "batch": 4,
+   "kind": "private",
+   "gongfei": false
+  },
+  {
    "official_name": "广州市华万高中有限公司",
    "raw_name": "广州市华万高中有限公司",
    "nature": "民办",
@@ -2585,16 +2694,6 @@
    "nature": "民办",
    "scope": "全市",
    "min_score": 487,
-   "batch": 4,
-   "kind": "private",
-   "gongfei": false
-  },
-  {
-   "official_name": "华南师范大学附属中学南海实验高级中学",
-   "raw_name": "华南师范大学附属中学南海实验高级中学",
-   "nature": "民办",
-   "scope": "全市",
-   "min_score": 564,
    "batch": 4,
    "kind": "private",
    "gongfei": false
