@@ -78,6 +78,9 @@ const loaders: DataLoaders = {
 export const repository = createRepository(loaders);
 /** 派位组表（dist 合并 groups：district/name/primaryIds，2026-09-24 精简），详情页组名 Badge/生源小学用 */
 export const middleEnrollmentGroups = loaders.middleEnrollmentGroups;
+/** 初中招生记录（7 区快照数组）与机制定义（school_id 级筛选/徽章 label 用，dist 单一真源） */
+export const middleEnrollments = loaders.middleEnrollments;
+export const middleEnrollmentMechanisms = loaders.middleEnrollmentMechanisms;
 
 /** 地图点位集（三学段合并/去重/分类，构建一次；小程序同构导出） */
 export const mapPoints: MapPointFull[] = buildPoints(loaders);
