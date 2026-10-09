@@ -77,47 +77,17 @@
   <!-- 蒙层：仅筛选展开时显示，压暗地图、点击收起面板（不保存改动） -->
   <view wx:if="{{menu}}" class="mask" bindtap="closeSheet"></view>
 
-  <!-- 图例区 -->
-  <view class="legend {{card?'legend-up':''}}">
+  <!-- 图例区：位置固定不变（学校卡弹出时被卡片盖住，不移动） -->
+  <view class="legend">
     <view class="lg"><view class="lg-dot" style="background:#2F5CD6"></view>小学</view>
     <view class="lg"><view class="lg-dot" style="background:#E8850C"></view>初中</view>
     <view class="lg"><view class="lg-dot" style="background:#0F9D58"></view>高中</view>
     <view class="lg"><view class="lg-dot lg-multi"></view>多学段</view>
   </view>
 
-  <!-- 学校卡（点选点位后，最上层，盖住导航栏；06 半窗 / 07 全屏长图）。
-       半窗默认 45% 屏高（cardH = windowHeight*0.45）；整卡可上滑 → 全屏 07 长图（goDetail 跳转详情页，tab 选中态延续）。 -->
-  <view wx:if="{{card}}" class="cardbot" style="height:{{cardH}}px" catchtouchstart="cardTouchStart" catchtouchend="cardTouchEnd">
-    <view class="handle" bindtap="onHandleTap"></view>
-    <view class="cclose" catchtap="closeCard">×</view>
-
-    <!-- 多学段学段 tab 条（06C）：handle 之下、校名之上；顺序 高中>初中>小学；只显示该校实际所含学段 -->
-    <view wx:if="{{card.multiStage}}" class="cbstagebar">
-      <view wx:for="{{card.tabs}}" wx:key="stage" class="cbstage {{item.on?'on':''}}" data-stage="{{item.stage}}" catchtap="onCardStageTap">
-        <view class="cbstage-dot {{item.stage}}"></view>{{item.label}}
-      </view>
-    </view>
-
-    <view class="cbhead" bindtap="expandCard">
-      <view class="cbtop"><text class="nm">{{card.name}}</text></view>
-      <view class="cbtags">
-        <view wx:for="{{card.tags}}" wx:key="key" class="tag m tag-{{item.cls}}">{{item.text}}</view>
-      </view>
-    </view>
-
-    <!-- 半窗预览模块（截取详情长图顶部 + 渐隐遮罩）；点「展开详情」/ 上滑 → 全屏长图（07） -->
-    <view class="cbpreview">
-      <block wx:for="{{card.preview}}" wx:key="title" wx:for-item="mod">
-        <view class="cbmod">
-          <view class="cbmod-h"><b>{{mod.title}}</b></view>
-          <view wx:if="{{mod.rows.length}}" wx:for="{{mod.rows}}" wx:for-item="r" wx:key="k" class="cbkv"><text class="k">{{r.k}}</text><text class="v">{{r.v}}</text></view>
-          <view wx:if="{{mod.note}}" class="cbnote">{{mod.note}}</view>
-        </view>
-      </block>
-      <view class="cbfade"></view>
-    </view>
-    <view class="cbmore" catchtap="expandCard">展开详情</view>
-  </view>
+  <!-- 学校卡（分包组件）：半窗 / 全屏 单层级原位生长；context=overlay 浮于地图之上。
+       卡片全部渲染在分包组件内，主包只传 校名/实体id/初始学段；✕ 关闭 → bindclose；关联校区跳转 → bindgoto。 -->
+  <school-card wx:if="{{card}}" context="overlay" schoolId="{{card.schoolId}}" name="{{card.name}}" stage="{{card.stage}}" bindclose="closeCard" bindgoto="onCardGoto" />
 
   <!-- 筛选结果为空 · 地图中央浮层（UI 稿异常态 C：不遮挡地图手势，点浮层外关闭浮层保留筛选） -->
   <view wx:if="{{filterEmpty}}" class="fempty">
@@ -130,7 +100,6 @@
   <!-- 定位授权引导弹窗（UI 稿 01B） -->
   <view wx:if="{{locTip}}" class="loctip-mask" bindtap="onLocDeny">
     <view class="loctip" catchtap="noop">
-      <view class="loctip-handle"></view>
       <view class="loctip-title">开启定位，找附近的学校</view>
       <view class="loctip-desc">开启后，地图会自动移动到你附近，并按距离展示周边学校。位置信息仅用于本校小程序内的地图定位与筛选，不会存储或对外分享。</view>
       <view class="loctip-btns">

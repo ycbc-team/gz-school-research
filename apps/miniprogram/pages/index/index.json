@@ -1,4 +1,10 @@
 {
   "navigationStyle": "custom",
-  "navigationBarTitleText": "首页"
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "school-card": "/pages/school-detail/components/school-card/index"
+  },
+  "componentPlaceholder": {
+    "school-card": "view"
+  }
 }
