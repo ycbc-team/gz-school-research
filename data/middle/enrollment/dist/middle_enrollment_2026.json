@@ -821,6 +821,13 @@
      }
     },
     {
+     "mechanism": "no_plan",
+     "mechanism_note": "2026 年官方初中招生计划（《2026 年白云区义务教育阶段学校招生计划表》）未收录本校：人和片公办初中重组（空港实验中学东/西/本部、六中实验中学空港/福和校区、民航学校人和校区承接），初中招生停止；原 73 中小学部生源改由空港实验中学（东校区）对口。",
+     "plan_classes": null,
+     "school_id": "gz-440111-96d35d17",
+     "scope": null
+    },
+    {
      "mechanism": "single_zone",
      "mechanism_note": null,
      "plan_classes": 4,
