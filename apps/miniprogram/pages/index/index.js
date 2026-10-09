@@ -79,11 +79,8 @@ Page({
     // 半窗学段分组选中态
     stagePri: true, stageMid: true, hM: true, hD: true, hN: true,
     centerLat: 23.1150, centerLng: 113.3245, scale: 15,
-    // 学校卡
+    // 学校卡（分包组件）：仅持有最小标识，渲染交给 school-card 组件
     card: null,
-    cardExpanded: false,
-    // 半窗卡高度：默认占屏幕高度 45%（UI 稿 06：上滑/点展开详情→全屏长图），由 initNavMetrics 计算
-    cardH: 0,
     // 筛选结果为空浮层（UI 稿异常态 C）
     filterEmpty: false,
     // 搜索页
@@ -236,14 +233,11 @@ Page({
           if (win.windowWidth && cap.left) padRight = Math.max(0, win.windowWidth - cap.left + 4);
         }
       }
-      // 半窗学校卡高度 = 屏幕可视高度 × 0.45（UI 稿 06：默认占屏 45%，上滑/点展开详情→全屏长图）
-      const cardH = Math.round((win.windowHeight || 812) * 0.45);
       this.setData({
         statusBarHeight: padTop,
         searchHeadTop: headTop,
         searchHeadRight: padRight,
         topcoverH: padTop + 40,
-        cardH,
       });
     } catch (e) { /* 保底默认值 */ }
   },
@@ -627,82 +621,28 @@ Page({
       fail: applyCenter,
     });
   },
-  // UI 稿 06 / 06C：半窗学校卡 = 学段 tab（多学段时）+ 校名 + 行政区／学段／办学性质 标签 + 顶部预览模块 + 「展开详情」。
-  // 注：原 UI 稿 06 卡内的「学校信号」模块依赖 tier1 口碑数据，已于 2026-09-30 废弃归档、模型不再输出，
-  // 故半窗预览改为展示真实可读的「招生计划（2026年）」模块（小学 plan_classes / 初中 note / 高中 录取线），与详情页口径一致。
+  // UI 稿 06 / 06C：学校卡（分包 school-card 组件）浮层。
+  // 仅传最小标识（校名 / 实体 id / 初始学段），渲染与半窗↔全屏生长全部在组件内完成；
+  // 关联校区跳转通过 bindgoto 在本页原位切换该校（不跳新页面）。
   showCard(pt) {
     const stages = (pt.stages || []).slice().sort((a, b) => STAGE_PRI[b] - STAGE_PRI[a]); // 学段 tab 顺序：高中>初中>小学
     const main = pt.mainStage || stages[0];
-    const card = {
-      name: pt.name,
-      schoolId: pt.school_id || '',
-      multiStage: stages.length > 1,
-      tabs: stages.map((s) => ({ stage: s, label: STAGE_LABEL[s], on: s === main })),
-      activeStage: main,
-      tags: this.buildCardTags(pt, main),
-      preview: this.buildCardPreview(pt, main),
-    };
-    this.setData({ card, cardExpanded: false });
+    // 多学段预激活：优先以主学段（高中>初中>小学）进入，组件内会按 availableStages 校正
+    const card = { schoolId: pt.school_id || '', name: pt.name, stage: main };
+    this.setData({ card });
     this.setTabBarHidden(true);
   },
-  // 学段标签：单学段显示该学段；多学段只显示当前选中 tab 对应学段（UI 稿 06C：学段标签只展示选中 tab 对应学段）
-  buildCardTags(pt, activeStage) {
-    const tags = [{ key: 'dist', cls: 'dist', text: districtByAdcode[pt.adcode] || '—' }];
-    tags.push({ key: 'stage', cls: 'stage', text: STAGE_LABEL[activeStage] });
-    const nat = (pt.natureOf && pt.natureOf[activeStage]) || 'public';
-    tags.push({ key: 'nat', cls: 'nat', text: nat === 'private' ? '民办' : '公办' });
-    return tags;
+  // 关联校区链接：在地图页原位打开目标学校（组件 emit 'goto'）
+  onCardGoto(e) {
+    const { name, id } = e.detail || {};
+    const pt = mapPoints.find((p) => p.school_id === id) || mapPoints.find((p) => p.name === name);
+    if (pt) this.focusPoint(pt);
   },
-  // 半窗预览模块：复用 shared.buildDetailModel，按当前学段取详情长图顶部模块（数据来自主包 repository，避免引入分包详情数据）
-  buildCardPreview(pt, stage) {
-    const model = shared.buildDetailModel(stage, pt.name, repository, pt.school_id);
-    const mods = [];
-    if (stage === 'primary') {
-      if (model.enrollment) {
-        const rows = [];
-        if (model.enrollment.plan_classes != null) rows.push({ k: '计划班数', v: `${model.enrollment.plan_classes} 个班` });
-        if (model.enrollment.plan_count != null) rows.push({ k: '计划人数', v: `${model.enrollment.plan_count} 人` });
-        const src = model.enrollment.source
-          || (model.enrollment.district ? `${model.enrollment.district}区教育局《2026 年义务教育学校招生计划》` : '')
-          || '以各区教育局当年公布为准';
-        if (src) rows.push({ k: '数据来源', v: src });
-        mods.push({ title: '招生计划（2026年）', rows });
-      } else {
-        mods.push({ title: '招生计划（2026年）', note: '未在 2026 招生计划中匹配到数据' });
-      }
-    } else if (stage === 'high') {
-      const rows = (model.admissionRows || []).slice(0, 4).map((r) => ({ k: r.label, v: r.value }));
-      if (rows.length) mods.push({ title: '招生计划（2026）', rows });
-      else mods.push({ title: '招生计划（2026）', note: '暂无录取线数据' });
-    } else if (stage === 'middle') {
-      mods.push({ title: '招生计划（2026）', note: model.enrollNote || '暂无招生计划数据：以区教育局当年正式文件为准' });
-    }
-    return mods;
+  closeCard() {
+    this.setData({ card: null, activeMarkerId: null });
+    this.renderMarkers();
+    this.setTabBarHidden(false);
   },
-  // 多学段 tab 切换：整体刷新校名/标签/预览模块为选中学段（UI 稿 06C）
-  onCardStageTap(e) {
-    if (!this.data.card) return;
-    const stage = e.currentTarget.dataset.stage;
-    if (stage === this.data.card.activeStage) return;
-    const pt = this.currentPt;
-    const card = Object.assign({}, this.data.card);
-    card.activeStage = stage;
-    card.tabs = card.tabs.map((t) => Object.assign({}, t, { on: t.stage === stage }));
-    card.tags = this.buildCardTags(pt, stage);
-    card.preview = this.buildCardPreview(pt, stage);
-    this.setData({ card });
-  },
-  // 半窗 ↔ 全屏长图（07）：点「展开详情」/ 上滑 / 点卡片内容 → 跳转学校详情长图页（当前学段延续），不另起页内全屏层
-  expandCard() { this.goDetail(); },
-  onHandleTap() { this.goDetail(); },
-  cardTouchStart(e) { this._cy = e.touches[0].clientY; },
-  cardTouchEnd(e) {
-    if (this._cy == null) return;
-    const dy = e.changedTouches[0].clientY - this._cy;
-    this._cy = null;
-    if (dy < -40) this.goDetail();
-  },
-  closeCard() { this.setData({ card: null, activeMarkerId: null, cardExpanded: false }); this.renderMarkers(); this.setTabBarHidden(false); },
   onMapTap(e) {
     if (this.ignoreNextMapTap || (e && e.detail && e.detail.markerId !== undefined)) { this.ignoreNextMapTap = false; clearTimeout(this.ignoreMapTapTimer); return; }
     // 点浮层外区域：仅关闭筛选空态浮层、保留当前筛选（UI 稿异常态 C）
@@ -725,9 +665,13 @@ Page({
     }
   },
   goDetail() {
+    // 保留为兜底：若将来需从地图直接跳独立详情页（如分享卡片），可由组件外层调用。
+    // 当前交互走 school-card 组件原位生长，不再使用。
     const pt = this.currentPt;
     if (!pt) return;
-    const stage = (this.data.card && this.data.card.activeStage) || pt.mainStage;
-    wx.navigateTo({ url: `/pages/school-detail/index?name=${encodeURIComponent(pt.name)}&stage=${stage}&id=${encodeURIComponent(pt.school_id || '')}` });
+    const stage = (this.data.card && this.data.card.stage) || pt.mainStage;
+    wx.navigateTo({
+      url: `/pages/school-detail/index?name=${encodeURIComponent(pt.name)}&stage=${stage}&id=${encodeURIComponent(pt.school_id || '')}`,
+    });
   },
 });

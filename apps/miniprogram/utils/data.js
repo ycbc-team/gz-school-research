@@ -27,12 +27,13 @@ const baseLoaders = {
   entities: cast(hydrate(require('../data/registry/entity/dist/entities.js'))),
   xiaoshengchu: cast(hydrate(require('../data/primary/xiaoshengchu_2026.js'))),
   middleEnrollNotes: cast(hydrate(require('../data/primary/middle_enroll_notes.js'))),
-  // ---- 详情域空壳（分包 pages/school-detail/data/ 提供真实数据；结构同步 dist ids/schools 并行） ----
+  // ---- 详情域空壳（品牌/教育集团/linkage 模块由分包 pages/school-detail 提供真实数据） ----
+  brandGroups: { brands: [] },
+  educationGroups: { groups: [] },
   quotaMatrix: { ids: [], schools: [] },
   specialMatrix: { high_school_ids: {}, autonomy_plan: {}, special_plan: {} },
   batch2Scores: { ids: {}, schools: {} },
   districtQuota: { ids: {}, schools: {} },
-  brandGroups: { brands: [] },
 };
 
 const repository = createRepository(baseLoaders);

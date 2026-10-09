@@ -1,0 +1,238 @@
+<!-- 学校卡（半窗 / 全屏 单层级，原位生长；context=overlay 浮于地图，context=page 整屏宿主） -->
+<view class="scard {{context}} {{mode}} {{dragging ? 'dragging' : ''}}" style="{{rootStyle}}"
+      bindtouchstart="cardTouchStart" bindtouchmove="cardTouchMove" bindtouchend="cardTouchEnd">
+
+  <!-- 全屏态顶栏：返回 + 标题（滚动后切换为校名，单行省略号）；半窗态不显示 -->
+  <view wx:if="{{mode === 'full'}}" class="stop" style="padding-top:{{statusBarHeight}}px">
+    <view class="sback" bindtap="onBack">‹</view>
+    <view class="stt">{{topTitle}}</view>
+  </view>
+
+  <!-- 半窗态：grabber + 关闭按钮（仅 overlay 浮层有 ✕） -->
+  <view wx:if="{{mode === 'half' && context === 'overlay'}}" class="sgrab" bindtap="expand"></view>
+  <view wx:if="{{mode === 'half' && context === 'overlay'}}" class="sclose" catchtap="onClose">×</view>
+
+  <!-- 多学段 tab 条（高中>初中>小学；只显示实际所含学段） -->
+  <view wx:if="{{tabs.length > 1}}" class="stagebar">
+    <view wx:for="{{tabs}}" wx:key="stage" class="stab {{item.stage}} {{item.on ? 'on' : ''}}" data-stage="{{item.stage}}" catchtap="onStageTap">
+      <view class="stab-dot"></view>{{item.label}}
+    </view>
+  </view>
+
+  <!-- 半窗：内容裁剪 + 底部渐隐；全屏：scroll-view 滚动 -->
+  <view wx:if="{{mode === 'half'}}" class="sclip">
+    <template is="detailContent" data="{{activeStage, primary, middle, high, brand, tags, name}}" />
+    <view class="sfade"></view>
+  </view>
+  <scroll-view wx:else class="sscroll" scroll-y bindscroll="onBodyScroll">
+    <template is="detailContent" data="{{activeStage, primary, middle, high, brand, tags, name}}" />
+    <view class="pad-bottom"></view>
+  </scroll-view>
+
+  <!-- 半窗「展开详情」胶囊（叠于渐隐区之上） -->
+  <view wx:if="{{mode === 'half'}}" class="smore" catchtap="expand">展开详情</view>
+</view>
+
+<!-- 详情内容（半窗裁剪 / 全屏滚动 共用同一份，保证生长时内容无缝衔接） -->
+<template name="detailContent">
+  <view class="dh1" bindtap="expand">{{name}}</view>
+  <view class="dtags">
+    <view wx:for="{{tags}}" wx:key="cls" class="tag m tag-{{item.cls}}">{{item.text}}</view>
+  </view>
+
+  <!-- ============ 小学（07） ============ -->
+  <block wx:if="{{activeStage === 'primary'}}">
+    <view class="dmod">
+      <view class="dmod-h">
+        <view class="dmod-h-t">招生计划（2026年）</view>
+        <text wx:if="{{primary.plan.has && primary.plan.meta}}" class="dmod-meta">{{primary.plan.meta}}</text>
+      </view>
+      <block wx:if="{{primary.plan.has}}">
+        <view class="grp-t">招生地段</view>
+        <view class="grpbox" style="margin-top:0"><view class="zone">{{primary.plan.zone}}</view></view>
+      </block>
+      <view wx:else class="dnote">{{primary.plan.empty}}</view>
+    </view>
+    <view class="dmod">
+      <view class="dmod-h"><view class="dmod-h-t">升学路线参考（2026年）</view></view>
+      <view wx:for="{{primary.routes.groups}}" wx:key="n" wx:for-item="g" class="route-block">
+        <view class="route-h"><text class="rh-n">{{g.n ? '招生方式'+g.n : '招生方式'}}</text><text class="tag m tag-mech">{{g.label}}</text></view>
+        <view class="grpbox">
+          <view wx:for="{{g.schools}}" wx:key="name" wx:for-item="r" class="route">
+            <text class="lk" data-to="{{r.to}}" bindtap="goSchool">{{r.name}}</text>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{primary.routes.note}}" class="dnote">{{primary.routes.note}}</view>
+    </view>
+  </block>
+
+  <!-- ============ 初中（07B / 07D） ============ -->
+  <block wx:if="{{activeStage === 'middle'}}">
+    <block wx:if="{{middle.hasPlan}}">
+      <view wx:for="{{middle.plans}}" wx:key="mechLabel" wx:for-item="p" class="dmod">
+        <view class="dmod-h">
+          <view class="dmod-h-t">招生计划（2026年）</view>
+          <text class="tag m tag-mech">{{p.mechLabel}}</text>
+        </view>
+        <view wx:if="{{p.planClasses !== null}}" class="kv"><text class="k">计划班数</text><text class="v">{{p.planClasses}} 个班</text></view>
+        <view wx:if="{{p.scope}}" class="kv"><text class="k">招生范围</text><text class="v">{{p.scope}}</text></view>
+        <view wx:if="{{p.schools.length}}" class="dsub">招生小学名单</view>
+        <view wx:if="{{p.schools.length}}" class="grpbox">
+          <view wx:if="{{p.groupName}}" class="grp-l">{{p.groupName}}</view>
+          <view wx:for="{{p.schools}}" wx:key="name" wx:for-item="s" class="grp-row">
+            <text wx:if="{{s.to}}" class="lk" data-to="{{s.to}}" bindtap="goSchool">{{s.name}}</text>
+            <text wx:else>{{s.name}}</text>
+          </view>
+        </view>
+        <view wx:if="{{p.note}}" class="kv"><text class="k">官方备注</text><text class="v">{{p.note}}</text></view>
+      </view>
+    </block>
+    <view wx:else class="dmod">
+      <view class="dmod-h"><view class="dmod-h-t">招生计划（2026年）</view></view>
+      <view class="dnote">{{middle.enrollNote || '暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。'}}</view>
+    </view>
+    <view wx:if="{{middle.linkage.has}}" class="dmod">
+      <view class="dmod-h"><view class="dmod-h-t">中考报考情况</view></view>
+      <view class="dsub">第二批次</view>
+      <block wx:if="{{middle.linkage.quota}}">
+        <view class="kv"><text class="k">名额考生数</text><text class="v">{{middle.linkage.quota.kaosheng}} 人</text></view>
+        <view class="kv"><text class="k">省市属高中录取名额</text><text class="v">{{middle.linkage.quota.sheng}} 个</text></view>
+        <view class="kv"><text class="k">区属高中录取名额</text><text class="v">{{middle.linkage.quota.qu}} 个</text></view>
+      </block>
+      <view wx:if="{{middle.linkage.campuses.length}}">
+        <view class="ddiv"></view>
+        <view class="dsub">与其他初中共享计划的校区</view>
+        <view class="grpbox">
+          <view wx:for="{{middle.linkage.campuses}}" wx:key="name" wx:for-item="c" class="grp-row">
+            <text wx:if="{{c.to}}" class="lk" data-to="{{c.to}}" bindtap="goSchool">{{c.name}}</text>
+            <text wx:else>{{c.name}}</text>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{middle.linkage.city.length}}">
+        <view class="ddiv"></view>
+        <view class="dsub">省市属高中录取明细</view>
+        <view class="chartbox">
+          <view class="thead"><text>高中</text><text>名额</text><text>录取最低分</text></view>
+          <view wx:for="{{middle.linkage.city}}" wx:key="name" wx:for-item="r" class="trow">
+            <text wx:if="{{r.to}}" class="lk" data-to="{{r.to}}" bindtap="goSchool">{{r.name}}</text>
+            <text wx:else>{{r.name}}</text>
+            <text class="tc">{{r.n}}</text><text class="tc">{{r.min || '—'}}</text>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{middle.linkage.district.length}}">
+        <view class="ddiv"></view>
+        <view class="dsub">区属高中录取明细</view>
+        <view class="chartbox">
+          <view class="thead"><text>高中</text><text>名额</text><text>录取最低分</text></view>
+          <view wx:for="{{middle.linkage.district}}" wx:key="name" wx:for-item="r" class="trow">
+            <text wx:if="{{r.to}}" class="lk" data-to="{{r.to}}" bindtap="goSchool">{{r.name}}</text>
+            <text wx:else>{{r.name}}</text>
+            <text class="tc">{{r.n}}</text><text class="tc">{{r.min || '—'}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="dnote">具体名额以官方公布为准，第三批第四批无法获取。</view>
+    </view>
+  </block>
+
+  <!-- ============ 高中（07E） ============ -->
+  <block wx:if="{{activeStage === 'high'}}">
+    <view wx:if="{{high.gaokao.length}}" class="dmod">
+      <view class="dmod-h">
+        <view class="dmod-h-t">高考信息</view>
+        <text class="dmod-meta">信息来源各校喜报或网传，仅供参考</text>
+      </view>
+      <view wx:for="{{high.gaokao}}" wx:key="label" wx:for-item="r" class="kv"><text class="k">{{r.label}}</text><text class="v">{{r.value}}</text></view>
+    </view>
+    <view wx:if="{{high.admission.length}}" class="dmod">
+      <view class="dmod-h"><view class="dmod-h-t">招生计划</view></view>
+      <view wx:for="{{high.admission}}" wx:key="label" wx:for-item="r" class="kv"><text class="k">{{r.label}}</text><text class="v">{{r.value}}</text></view>
+    </view>
+    <view wx:if="{{high.special}}" class="dmod">
+      <view class="dmod-h"><view class="dmod-h-t">第一批招生（2026）</view></view>
+      <view class="dsub">自主招生 / 体育 / 艺术特长生为全市统一竞争的特殊通道，考生自由报名、按志愿和成绩投档录取，不分配到校。</view>
+      <view wx:if="{{high.special.planNotes.length}}">
+        <view wx:if="{{high.special.planNotes.indexOf('reserve') > -1}}" class="dnote">本校体育特长生计划含"优秀体育后备人才"名额；未用完名额滚入同项目体育特长生计划。</view>
+        <view wx:if="{{high.special.planNotes.indexOf('lingjun') > -1}}" class="dnote">本校为青少年足球人才培养改革试点"领军龙"学校：足球招生计划单列、面向全市。</view>
+      </view>
+      <view wx:if="{{high.special.autonomyPlan !== null}}" class="kv"><text class="k">自主招生计划</text><text class="v">{{high.special.autonomyPlan}} 人</text></view>
+      <view wx:if="{{high.special.sportsPlan !== null}}" class="kv"><text class="k">体育特长生计划</text><text class="v">{{high.special.sportsPlan}} 人</text></view>
+      <view wx:if="{{high.special.sportsProjects.length}}" class="proj">
+        <view wx:for="{{high.special.sportsProjects}}" wx:key="project" wx:for-item="pp" class="proj-row"><text>{{pp.project}}</text><text class="pc">{{pp.plan}} 人</text></view>
+      </view>
+      <view wx:if="{{high.special.artsPlan !== null}}" class="kv"><text class="k">艺术特长生计划</text><text class="v">{{high.special.artsPlan}} 人</text></view>
+      <view wx:if="{{high.special.artsProjects.length}}" class="proj">
+        <view wx:for="{{high.special.artsProjects}}" wx:key="project" wx:for-item="pp" class="proj-row"><text>{{pp.project}}</text><text class="pc">{{pp.plan}} 人</text></view>
+      </view>
+    </view>
+    <view wx:if="{{high.coverage}}" class="dmod">
+      <view class="dmod-h"><view class="dmod-h-t">第二批招生（2026）</view></view>
+      <view wx:if="{{high.coverage.city.length}}">
+        <view class="dsub">省市属高中（面向全市）覆盖初中</view>
+        <view class="chartbox">
+          <view class="thead"><text>初中</text><text>所在区</text><text>名额</text></view>
+          <view wx:for="{{high.coverage.city}}" wx:key="name" wx:for-item="r" class="trow">
+            <text wx:if="{{r.to}}" class="lk" data-to="{{r.to}}" bindtap="goSchool">{{r.name}}</text>
+            <text wx:else>{{r.name}}</text>
+            <text class="tc">{{r.districts}}</text><text class="tc">{{r.n}}</text>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{high.coverage.district.length}}">
+        <view class="ddiv"></view>
+        <view class="dsub">区属高中（面向本区）覆盖初中</view>
+        <view class="chartbox">
+          <view class="thead"><text>初中</text><text>名额</text></view>
+          <view wx:for="{{high.coverage.district}}" wx:key="name" wx:for-item="r" class="trow">
+            <text wx:if="{{r.to}}" class="lk" data-to="{{r.to}}" bindtap="goSchool">{{r.name}}</text>
+            <text wx:else>{{r.name}}</text>
+            <text class="tc">{{r.n}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- ============ 关联校区（各学段共用，置末） ============ -->
+  <view wx:if="{{brand}}" class="dmod">
+    <view class="dmod-h"><view class="dmod-h-t">关联校区</view></view>
+    <block wx:if="{{brand.multi}}">
+      <view class="grp-l">多校区</view>
+      <view class="grpbox">
+        <view wx:for="{{brand.multi}}" wx:key="name" wx:for-item="r" class="grp-row">
+          <text wx:if="{{r.to && !r.isCurrent}}" class="lk" data-to="{{r.to}}" bindtap="goSchool">{{r.name}}</text>
+          <text wx:else>{{r.name}}</text>
+          <view wx:for="{{r.stages}}" wx:key="text" wx:for-item="st" class="tag m tag-stage">{{st.text}}</view>
+          <view wx:if="{{r.isCurrent}}" class="pill cur">当前查看</view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="grp-t">所属集团</view>
+      <view class="grpbox"><view class="grp-row">{{brand.group}}</view></view>
+      <view wx:if="{{brand.pubNote}}" class="pubbox">{{brand.pubNote}}</view>
+      <view wx:if="{{brand.core.length}}" class="grp-t">集团核心校</view>
+      <view wx:if="{{brand.core.length}}" class="grpbox">
+        <view wx:for="{{brand.core}}" wx:key="name" wx:for-item="r" class="grp-row">
+          <text wx:if="{{r.to && !r.isCurrent}}" class="lk" data-to="{{r.to}}" bindtap="goSchool">{{r.name}}</text>
+          <text wx:else>{{r.name}}</text>
+          <view wx:for="{{r.stages}}" wx:key="text" wx:for-item="st" class="tag m tag-stage">{{st.text}}</view>
+          <view wx:if="{{r.isCurrent}}" class="pill cur">当前查看</view>
+        </view>
+      </view>
+      <view wx:if="{{brand.member.length}}" class="grp-t">集团成员校</view>
+      <view wx:if="{{brand.member.length}}" class="grpbox">
+        <view wx:for="{{brand.member}}" wx:key="name" wx:for-item="r" class="grp-row">
+          <text wx:if="{{r.to && !r.isCurrent}}" class="lk" data-to="{{r.to}}" bindtap="goSchool">{{r.name}}</text>
+          <text wx:else>{{r.name}}</text>
+          <view wx:for="{{r.stages}}" wx:key="text" wx:for-item="st" class="tag m tag-stage">{{st.text}}</view>
+          <view wx:if="{{r.isCurrent}}" class="pill cur">当前查看</view>
+        </view>
+      </view>
+    </block>
+    <view class="dnote">集团归属与成员校信息以教育局公示文件为准；点击学校名可在地图中定位到该学校。</view>
+  </view>
+</template>

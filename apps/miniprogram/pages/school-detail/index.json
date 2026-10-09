@@ -1,4 +1,7 @@
 {
   "navigationStyle": "custom",
-  "navigationBarTitleText": "学校详情"
+  "navigationBarTitleText": "学校详情",
+  "usingComponents": {
+    "school-card": "/pages/school-detail/components/school-card/school-card"
+  }
 }

@@ -1388,16 +1388,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
               <div class="grp-row">东风东路教育集团</div>
             </div>
             <div class="pubbox">公示文件说明：越秀区教育局集团化办学名单（2024 年公示）</div>
-            <div class="grp-t">同一法人单位（集团本体/分校区）</div>
+            <div class="grp-t">集团核心校</div>
             <div class="grpbox">
-              <div class="grp-l">集团核心校</div>
               <div class="grp-row"><span class="lk">东风东路小学</span><span class="tag m tag-stage">小学</span><span class="pill cur">当前查看</span></div>
-              <div class="grp-l">集团成员校</div>
-              <div class="grp-row"><span class="lk">水荫路小学</span><span class="tag m tag-stage">小学</span></div>
             </div>
-            <div class="grp-t">独立法人单位（集团合作）</div>
+            <div class="grp-t">集团成员校</div>
             <div class="grpbox">
-              <div class="grp-l">集团成员校</div>
+              <div class="grp-row"><span class="lk">水荫路小学</span><span class="tag m tag-stage">小学</span></div>
               <div class="grp-row"><span class="lk">中星小学</span><span class="tag m tag-stage">小学</span></div>
               <div class="grp-row"><span class="lk">雅荷塘小学</span><span class="tag m tag-stage">小学</span></div>
               <div class="grp-row"><span class="lk">署前路小学</span><span class="tag m tag-stage">小学</span></div>
@@ -1411,10 +1408,10 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <b>学校详情长图 · 小学（视觉规范）</b>
  <p>
 · 全屏长图详情页模块自上而下：招生计划 2026 → 升学路线参考 2026 → 关联校区。<br>
-· <b>层级四档（一眼分主次）</b>：① 一级＝模块标题——17px／700／近黑 <code>#10182B</code>＋左侧 4px 知性蓝竖条，模块间距加大（上 22px）＋顶部分隔线；② 二级＝子标题「招生地段／招生方式 N／所属集团／同一法人单位／独立法人单位」——14px／600／<code>#33405C</code>，纯文字、无边框无底色；③ 三级＝正文——13px／400／<code>#33405C</code>（学校链接行、校区行、地段正文；链接知性蓝＋›、字重 500）；盒内分组小标「集团核心校／集团成员校」为层内标签（12px／600／<code>#64708C</code>，弱于二级）；④ 说明小字＝<code>.dnote</code>／<code>.pubbox</code>（11.5px／<code>#8B96AD</code>）。本版以 <code>.dbody.v2</code> 作用域先应用于 07／07A-2／07F（小学），评审通过后推广 07B/07C/07E 与半窗预览。<br>
+· <b>层级四档（一眼分主次）</b>：① 一级＝模块标题——17px／700／近黑 <code>#10182B</code>＋左侧 4px 知性蓝竖条，模块间距加大（上 22px）＋顶部分隔线；② 二级＝子标题「招生地段／招生方式 N／所属集团／集团核心校／集团成员校」——14px／600／<code>#33405C</code>，纯文字、无边框无底色；③ 三级＝正文——13px／400／<code>#33405C</code>（学校链接行、校区行、地段正文；链接知性蓝＋›、字重 500）；盒内分组小标（如多校区情形「多校区」小标题，12px／600／<code>#64708C</code>，弱于二级）；④ 说明小字＝<code>.dnote</code>／<code>.pubbox</code>（11.5px／<code>#8B96AD</code>）。本版以 <code>.dbody.v2</code> 作用域先应用于 07／07A-2／07F（小学），评审通过后推广 07B/07C/07E 与半窗预览。<br>
 · 招生计划：模块标题右侧灰蓝小字展示「计划 x 个班」（x＝<code>plan_classes</code>，如「计划 10 个班」）；<b>模块仅含「招生地段」一项</b>——字段名单独一行（与其他字段名同列同样式），正文用浅底分组盒（grpbox）置于字段名下方、占满整行宽度，随盒宽自动换行；原「计划班数／数据来源」字段不再单列。<br>
 · 升学路线参考（<b>统一布局</b>，机制数 ≥1 均同构——单机制＝只有「招生方式」一组（不带序号））：模块标题右上角<b>不放标签</b>，标题下方逐条「招生方式 N」＝左文案 + 一枚全局 <code>tag-mech</code> 蓝色标签（标签文案按项目实际枚举 <code>XS_MECH_LABELS</code> 共 5 种：对口直升／单校划片／多校电脑派位／电脑派位／自主招生），每条下方用浅底分组盒（grpbox）框住该机制的对口／派位初中名；行内<b>不逐校标注标签</b>；学校名为可点击链接（知性蓝 + ›）。多机制示例见 <b>07A-2</b>。<br>
-· 关联校区（两种情形）：①<b>有所属教育集团</b>——三级层级，模块标题（一级）；成员类型「所属集团／同一法人单位／独立法人单位」（二级，同层同样式小标题、左对齐）；成员校（三级，灰底圆角盒、左对齐）；②<b>无教育集团、仅多校区</b>——仅一个子标题「多校区」（样式等同「集团核心校」小标题 <code>.grp-l</code>），其下并列多个校区行（<code>.grp-row</code>：校区名 + 学段标签 + 「当前查看」标），校区行展示与情形①一致。视觉示例见 07F。<br>
+· 关联校区（两种情形）：①<b>有所属教育集团</b>——层级：模块标题（一级）；所属集团（二级·展示所属教育集团名）／集团核心校（二级）／集团成员校（二级）；成员校（三级，灰底圆角盒、左对齐）；②<b>无教育集团、仅多校区</b>——仅一个子标题「多校区」（样式等同「集团核心校」小标题 <code>.grp-l</code>），其下并列多个校区行（<code>.grp-row</code>：校区名 + 学段标签 + 「当前查看」标），校区行展示与情形①一致。视觉示例见 07F。<br>
 · 链接视觉：知性蓝 + ›；点击当前学校的 toast 见规范表「Toast 轻提示」行。
  </p>
         <div class="ixn">
@@ -1477,16 +1474,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
               <div class="grp-row">东风东路教育集团</div>
             </div>
             <div class="pubbox">公示文件说明：越秀区教育局集团化办学名单（2024 年公示）</div>
-            <div class="grp-t">同一法人单位（集团本体/分校区）</div>
+            <div class="grp-t">集团核心校</div>
             <div class="grpbox">
-              <div class="grp-l">集团核心校</div>
               <div class="grp-row"><span class="lk">东风东路小学</span><span class="tag m tag-stage">小学</span><span class="pill cur">当前查看</span></div>
-              <div class="grp-l">集团成员校</div>
-              <div class="grp-row"><span class="lk">水荫路小学</span><span class="tag m tag-stage">小学</span></div>
             </div>
-            <div class="grp-t">独立法人单位（集团合作）</div>
+            <div class="grp-t">集团成员校</div>
             <div class="grpbox">
-              <div class="grp-l">集团成员校</div>
+              <div class="grp-row"><span class="lk">水荫路小学</span><span class="tag m tag-stage">小学</span></div>
               <div class="grp-row"><span class="lk">中星小学</span><span class="tag m tag-stage">小学</span></div>
               <div class="grp-row"><span class="lk">雅荷塘小学</span><span class="tag m tag-stage">小学</span></div>
               <div class="grp-row"><span class="lk">署前路小学</span><span class="tag m tag-stage">小学</span></div>
@@ -1620,15 +1614,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="grp-t">所属集团</div>
             <div class="grpbox"><div class="grp-row">xx教育集团</div></div>
             <div class="pubbox">公示文件说明（区教育局集团名单公示文件链接）</div>
-            <div class="grp-t">同一法人单位（集团本体/分校区）</div>
+            <div class="grp-t">集团核心校</div>
             <div class="grpbox">
-              <div class="grp-l">集团核心校</div>
               <div class="grp-row"><span class="lk">祈福英语实验学校（小学部）</span><span class="tag m tag-stage">小学</span></div>
               <div class="grp-row"><span class="lk">祈福英语实验学校（初中部）</span><span class="tag m tag-stage">初中</span><span class="pill cur">当前查看</span></div>
             </div>
-            <div class="grp-t">独立法人单位（集团合作）</div>
+            <div class="grp-t">集团成员校</div>
             <div class="grpbox">
-              <div class="grp-l">集团成员校</div>
               <div class="grp-row"><span class="lk">xx中学</span><span class="tag m tag-stage">初中</span></div>
               <div class="grp-row"><span class="lk">xx实验学校</span><span class="tag m tag-stage">小学</span></div>
               <div class="grp-row"><span class="lk">xx学校</span><span class="tag m tag-stage">初中</span></div>
@@ -1643,10 +1635,10 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
 · 多学段学校（同一 school_id 跨 ≥2 学段，如九年一贯制小学+初中、十二年一贯制小学+初中+高中）的详情卡，<b>学段切换 tab 条位于顶栏之下、校名之上</b>；tab 为<b>胶囊式</b>（描边胶囊，选中态浅蓝底 #F2F6FE + #98B6EC 描边 + 深蓝字，与筛选选项选中态同族；左侧学段色点：小学蓝／初中橙／高中绿），<b>tab 左对齐内容区左缘、按内容宽度排列（不拉伸占满整行）</b>，<b>顺序按学段优先级 高中&gt;初中&gt;小学 排列</b>，tab 数量 = 该校实际所含学段数（2–3 枚），<b>不显示该校不存在的学段</b>（本示例校为三学段：高中＋初中＋小学，3 枚 tab；两学段示例见 06C 完全中学）。<br>
 · <b>tab 之下才是校名与三标签</b>；三标签中的「学段」标签<b>只展示当前选中 tab 对应的学段</b>（不罗列全部学段）。默认选中主学段（高中&gt;初中&gt;小学，见 01 主学部规则）；用户点其他 tab 即切换该学段详情，<b>校名、学段标签、全部模块随 tab 整体刷新</b>（各学段模块独立：小学含「小升初升学路线」，初中为<b>招生计划（2026年）／中考报考情况／关联校区</b>三模块，见下）。<br>
 · 单学段学校（如纯小学）不显示 tab 条，退化为 07 单学段版。<br>
-· <b>初中三模块（按交互稿）</b>：① <b>招生计划（2026年）</b>——标题右侧<b>招生规则标签</b>（三变体见 07D）；② <b>中考报考情况</b>——区分批次（如第二批次：名额考生数／省市属高中录取名额／区属高中录取名额）、与其他初中共享计划的校区（附温馨提示）、省市属高中录取明细／区属高中录取明细（均为<b>图表区</b>，明细表列：高中｜名额｜录取最低分），明细下小字「具体名额以官方公布为准，第三批第四批无法获取」；③ <b>关联校区</b>——含所属集团、公示文件说明、同一法人单位（集团本体/分校区：集团核心校／集团成员校）、独立法人单位（集团合作：集团成员校），成员校行带学级标签，当前校带「当前查看」标记。<br>
+· <b>初中三模块（按交互稿）</b>：① <b>招生计划（2026年）</b>——标题右侧<b>招生规则标签</b>（三变体见 07D）；② <b>中考报考情况</b>——区分批次（如第二批次：名额考生数／省市属高中录取名额／区属高中录取名额）、与其他初中共享计划的校区（附温馨提示）、省市属高中录取明细／区属高中录取明细（均为<b>图表区</b>，明细表列：高中｜名额｜录取最低分），明细下小字「具体名额以官方公布为准，第三批第四批无法获取」；③ <b>关联校区</b>——含所属集团（展示集团名）、公示文件说明、集团核心校、集团成员校，成员校行带学级标签，当前校带「当前查看」标记。<br>
 · <b>招生计划规则标签三变体（随 mechanism 取值切换）</b>：单校划片（含对口直升）／多校电脑派位／单校电脑抽签；多校电脑派位时<b>招生小学名单按派位组分组</b>——各校名旁重复的小字（派位组名）提取为分组小标题，组内只列校名；单校电脑抽签变体在名单下方展示固定温馨提示（见 07D）。<br>
 · <b>关联校区排序</b>：同集团成员校优先展示当前查看的学校，其余按「同行政区 &gt; 拼音首字母」排列。<br>
-· <b>模块层级与字号规范（全学段统一·v2 层级四档）</b>：与小学 07／07A-2／07F 同一套 <code>.dbody.v2</code> 作用域——① 一级＝模块标题（17px／700／近黑 #10182B + 左侧 4px 知性蓝竖条，模块间距加大 + 顶部分隔线）；② 二级＝子标题（招生地段／招生方式 N／所属集团／同一法人单位／独立法人单位／招生小学名单／第二批次／省市属·区属高中录取明细等，14px／600／#33405C，纯文字无竖条无底色）；③ 三级＝正文（kv 字段值行／集团成员校 grp-row／地段正文，13px／400／#33405C；链接知性蓝 + ›、字重 500）；盒内分组小标（集团核心校／集团成员校 grp-l，12px／600／#64708C，弱于二级）；④ 说明小字（dnote／pubbox，11.5px／#8B96AD）。分组容器底色 #FAFBFC＋描边表达层内归属；层级感由「标题竖条 → 子标题加粗 → 正文常规 → 小字灰」四档字号字重梯度一眼区分，<b>不再同层同灰</b>。<br>
+· <b>模块层级与字号规范（全学段统一·v2 层级四档）</b>：与小学 07／07A-2／07F 同一套 <code>.dbody.v2</code> 作用域——① 一级＝模块标题（17px／700／近黑 #10182B + 左侧 4px 知性蓝竖条，模块间距加大 + 顶部分隔线）；② 二级＝子标题（招生地段／招生方式 N／所属集团／集团核心校／集团成员校／招生小学名单／第二批次／省市属·区属高中录取明细等，14px／600／#33405C，纯文字无竖条无底色）；③ 三级＝正文（kv 字段值行／集团成员校 grp-row／地段正文，13px／400／#33405C；链接知性蓝 + ›、字重 500）；盒内分组小标（集团核心校／集团成员校 grp-l，12px／600／#64708C，弱于二级）；④ 说明小字（dnote／pubbox，11.5px／#8B96AD）。分组容器底色 #FAFBFC＋描边表达层内归属；层级感由「标题竖条 → 子标题加粗 → 正文常规 → 小字灰」四档字号字重梯度一眼区分，<b>不再同层同灰</b>。<br>
 · <b>半窗卡同步展示 tab</b>：半窗卡内 tab 条同样位于最上方（handle 之下、校名之上，压缩版胶囊），点 tab 半窗内容整体刷新；上滑展开全屏后 tab 选中状态延续（半窗示例见 06C）。<br>
 · <b>顶部字段滚动替换（关键交互）</b>：展开全屏后初始顶栏显示「学校详情」；<b>用户向上滑动长图</b>，内容区大标题（校名）随之上移，顶栏「学校详情」<b>平滑过渡替换为当前学段对应的校名</b>（如「祈福英语实验学校」），呈滚动联动而非突变；下滑回顶部则还原为「学校详情」。学段 tab 条在全屏滚动时<b>吸顶固定在顶栏之下</b>，不随内容滚走。<br>
 · 详见 07C：同一卡片滚动后的顶栏替换态。
@@ -1697,9 +1689,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="dmod-h"><b>关联校区</b></div>
             <div class="grp-t">所属集团</div>
             <div class="grpbox"><div class="grp-row">祈福关联校区</div></div>
-            <div class="grp-t">同一法人单位（集团本体/分校区）</div>
+            <div class="grp-t">集团核心校</div>
             <div class="grpbox">
-              <div class="grp-l">集团核心校</div>
               <div class="grp-row"><span class="lk">祈福英语实验学校（小学部）</span><span class="tag m tag-stage">小学</span></div>
               <div class="grp-row"><span class="lk">祈福英语实验学校（初中部）</span><span class="tag m tag-stage">初中</span><span class="pill cur">当前查看</span></div>
             </div>
@@ -1827,17 +1818,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="grp-t">所属集团</div>
             <div class="grpbox"><div class="grp-row">广东实验中学教育集团</div></div>
             <div class="pubbox">公示文件说明（区教育局集团名单公示文件链接）</div>
-            <div class="grp-t">同一法人单位（集团本体/分校区）</div>
+            <div class="grp-t">集团核心校</div>
             <div class="grpbox">
-              <div class="grp-l">集团核心校</div>
               <div class="grp-row"><span class="lk">广东实验中学（高中部）</span><span class="tag m tag-stage">高中</span><span class="pill cur">当前查看</span></div>
-              <div class="grp-l">集团成员校</div>
+            </div>
+            <div class="grp-t">集团成员校</div>
+            <div class="grpbox">
               <div class="grp-row"><span class="lk">广东实验中学（初中部）</span><span class="tag m tag-stage">初中</span></div>
               <div class="grp-row"><span class="lk">广东实验中学（白云校区）</span><span class="tag m tag-stage">高中</span></div>
-            </div>
-            <div class="grp-t">独立法人单位（集团合作）</div>
-            <div class="grpbox">
-              <div class="grp-l">集团成员校</div>
               <div class="grp-row"><span class="lk">xx实验学校</span><span class="tag m tag-stage">初中</span></div>
               <div class="grp-row"><span class="lk">xx中学</span><span class="tag m tag-stage">高中</span></div>
             </div>
@@ -1891,7 +1879,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <tr><td>地图点位</td><td>地图层，按真实位置落点</td><td>直径 16 白描边圆点 + 投影；学段分色（小学蓝 #2F5CD6／初中橙 #E8850C／高中绿 #0F9D58）；<b>多学段点位</b>按所含学段以扇形拼圆（2 学段各半圆、3 学段各 1/3 圆）；<b>选中态</b>：放大至 22、<span class="mono">zIndex</span> 置顶，并加<b>知性蓝外圈光晕</b>（圆点外一圈明显可见的蓝色光环：软光晕 + 外缘实心环；<b>不是</b>仅把描边由白换成蓝，否则真机下与常态圆点区分度不足）+ <b>名称气泡常显</b>（白底圆角、下方小箭头，<span class="mono">callout.display</span> 取 <span class="mono">ALWAYS</span>；未选中点位为点击才显示）。示例点位：东风东路小学本部／越秀区育才学校／东风东锦城校区／铁一小学／东风实验学校／育才东·西校区／铁一中学</td></tr>
         <tr><td>图例区</td><td>首页 / 地图层左下角</td><td>白底 96% 透明图例卡（r=12），四行：小学蓝 #2F5CD6／初中橙 #E8850C／高中绿 #0F9D58／<b>多学段</b>（三色按所含学段扇形拼圆：2 学段各半圆、3 学段各 1/3 圆）；字号 11.5、色点直径 9</td></tr>
         <tr><td>半窗学校卡</td><td>地图层底部（点选点位后弹出，默认约 45% 高）</td><td>白底 + 上投影、上圆角 18，顶部拖拽 handle，<b>右上 ✕ 关闭</b>；<b>多学段学校：学段 tab 条（压缩版胶囊）位于最上方（handle 之下、校名之上）</b>，顺序按学段优先级 高中&gt;初中&gt;小学、只显示实际学段（见 06C）；<b>tab 之下是校名</b> 16/600 + 行政区／学段／办学性质中标签（<b>行政区固定带「区」字</b>；<b>「学段」标签只显示当前选中 tab 对应的学段</b>，单学段学校则显示该校学段）；下方<em>直接复用详情长图内容</em>，按半窗高度自动截取可视部分（顶部模块，如「招生计划（2026年）」），底部<em>渐隐遮罩</em>，「展开详情」胶囊（白底描边 + 投影）<b>叠于渐隐区之上、不单独占行</b>（卡体总高约 365px＝45%）。上滑或点「展开详情」→ 全屏长图页（tab 选中状态延续）；<b>层级最上层，底部导航栏压在卡片之下；地图左下角学段图例保持原位、不因半窗弹出而移动</b></td></tr>
-        <tr><td>学校详情长图</td><td>半窗卡上滑后全屏（07 屏）</td><td>顶部「‹ 学校详情」（无关闭按钮，返回即收起）；模块自上而下：<b>招生计划（2026年）</b>（标题右侧「计划 x 个班」；仅含招生地段长文本，无数据字段不展示）→ <b>升学路线参考（2026年）</b>（标题下方逐条「招生方式 N」+ 各机制 <code>tag-mech</code> 标签，浅底分组盒框住对口／派位初中名——单 / 多机制同一布局；学校名为<b>可点击链接</b>：知性蓝 + 「›」，点击跳转地图定位）→ <b>关联校区</b>（两种情形：有集团＝三级层级，模块标题一级，所属集团／同一法人单位（本体/分校区）／独立法人单位（合作）为二级（左侧色条小标题），方框内容为三级（灰底圆角盒缩进），校名为可点击链接 + 学段标签；当前查看校加「当前查看」标识；无集团多校区＝单列「多校区」+ 多校区行）；点击学校名跳转地图定位；模块间分隔线；画框随内容加高（大长图）；<b>全学段统一层级四档</b>：模块标题一级（17px／700 近黑 + 左侧 4px 知性蓝竖条）／子标题二级（招生地段·招生方式 N·所属集团等，14px／600／#33405C）／正文三级（学校链接·字段值·地段正文，13px／400／#33405C）／说明小字四级（dnote／pubbox，11.5px／#8B96AD）；初中另含「中考报考情况」、高中另含「高考信息／中考录取情况」模块，层级同构</td></tr>
+        <tr><td>学校详情长图</td><td>半窗卡上滑后全屏（07 屏）</td><td>顶部「‹ 学校详情」（无关闭按钮，返回即收起）；模块自上而下：<b>招生计划（2026年）</b>（标题右侧「计划 x 个班」；仅含招生地段长文本，无数据字段不展示）→ <b>升学路线参考（2026年）</b>（标题下方逐条「招生方式 N」+ 各机制 <code>tag-mech</code> 标签，浅底分组盒框住对口／派位初中名——单 / 多机制同一布局；学校名为<b>可点击链接</b>：知性蓝 + 「›」，点击跳转地图定位）→ <b>关联校区</b>（两种情形：有集团＝层级，模块标题一级，所属集团（展示集团名）／集团核心校／集团成员校为二级（子标题、无竖条），成员校为三级（灰底圆角盒缩进），校名为可点击链接 + 学段标签；当前查看校加「当前查看」标识；无集团多校区＝单列「多校区」+ 多校区行）；点击学校名跳转地图定位；模块间分隔线；画框随内容加高（大长图）；<b>全学段统一层级四档</b>：模块标题一级（17px／700 近黑 + 左侧 4px 知性蓝竖条）／子标题二级（招生地段·招生方式 N·所属集团等，14px／600／#33405C）／正文三级（学校链接·字段值·地段正文，13px／400／#33405C）／说明小字四级（dnote／pubbox，11.5px／#8B96AD）；初中另含「中考报考情况」、高中另含「高考信息／中考录取情况」模块，层级同构</td></tr>
         <tr><td>学校详情卡</td><td>学校卡上滑展开（首版仅小学，确认后复用至初中／高中）</td><td>白底上圆角 20 + 上投影，handle；头部 校名 18/600 ＋ 关注（星）／关闭（×）36 圆形控件；<b>四类中标签</b>；关键信息行（地址／联系电话／创办时间，mk 灰 60 宽 + mv 正文）；「办学规模」四格数据块（数字 15 知性蓝 + 9.5px 注释）；「荣誉与特色」中标签组；底部「加入关注」描边按钮 ＋「查看完整详情」通栏主按钮</td></tr>
         <tr><td>导航栏</td><td>首页 / 地图层底部，两项</td><td><b>置底通栏（小程序原生 tabBar 规范）</b>：宽 100%、高 56 + 底部安全区、白底 + 顶部 1px 分隔线，无圆角、无投影、非悬浮；内含两枚 tab 高 40 —— 首页 / 政策；选中 #F2F6FE 底胶囊 + #C3D5F6 描边 + #254BAE 字并加粗，未选透明底 + #64708C 字</td></tr>
         <tr><td>空状态</td><td>搜索无结果（08 A）／筛选结果为空（10 C）</td><td>四要素结构：灰底圆形插画 88px + 标题 15.5/600 + 说明 12.5 次级色 + 主操作胶囊按钮；搜索空态主操作「清空并重新搜索」（清输入 + 重置筛选）；地图筛选空态用<b>异常弹窗</b>（240 宽，同全局弹窗统一规格）居中提示，右上角「×」可关闭、地图不加遮罩且手势仍可用，主操作「重置筛选」恢复默认全选</td></tr>
