@@ -293,13 +293,13 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .bottomdock{position:absolute;left:0;right:0;bottom:0;z-index:7}
 /* 详情卡为最上层：整层盖住底部导航 tab（导航栏退到卡片之下） */
 .bottomdock .navdock.inline{position:absolute;left:0;right:0;bottom:0;margin:0;z-index:1}
-.cardbot{position:relative;z-index:2;background:var(--white);border-radius:18px 18px 0 0;padding:10px 16px 12px;box-shadow:0 -6px 22px rgba(8,14,28,.22)}
+.cardbot{position:relative;z-index:2;background:var(--white);border-radius:18px 18px 0 0;padding:10px 16px 12px;box-shadow:0 -6px 22px rgba(8,14,28,.22);height:365px;display:flex;flex-direction:column}
 .cardbot .handle{width:36px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 12px}
 .cardbot .cbtop{display:flex;align-items:flex-start;gap:10px}
 .cardbot .cbtop .nm{flex:1;font-size:16px;font-weight:600;line-height:1.35}
 .cardbot .cbtags{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
 .cardbot .cbclose{position:absolute;top:10px;right:12px;width:30px;height:30px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-500)}
-.cardbot .cbpreview{position:relative;margin-top:12px;max-height:255px;overflow:hidden}
+.cardbot .cbpreview{position:relative;margin-top:12px;flex:1;overflow:hidden}
 .cardbot .cbpreview .dmod{margin-top:16px;padding-top:12px;border-top:1px solid var(--line-2)}
 .cardbot .cbpreview .dmod:first-child{margin-top:0;padding-top:14px;border-top:1px solid var(--line-2)}
 .cardbot .cbpreview .dmod-h b{font-size:14.5px;font-weight:700;color:var(--ink-700)}
@@ -320,7 +320,7 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .phone.longpage{height:auto;min-height:812px;background:var(--white)}
 .dtop{display:flex;align-items:center;gap:10px;padding:14px 98px 14px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:4;background:var(--white)}
 .dtop .back,.dtop .close{width:36px;height:36px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-700);flex:none}
-.dtop .tt{flex:1;text-align:center;font-size:16px;font-weight:600}
+.dtop .tt{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:16px;font-weight:600;max-width:196px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .dbody{padding:0 16px 26px}
 .dh1{font-size:20px;font-weight:700;margin-top:16px}
 .dbody .dtags{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap}
@@ -349,6 +349,20 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .route-h .tag{margin:0;flex:none}
 .route-h .rh-n{font-weight:700}
 .pubbox{border:1px dashed var(--line);border-radius:10px;padding:9px 12px;font-size:12px;color:var(--ink-500);margin:8px 0 0}
+/* 07 小学详情卡 · 层级重排 v2（评审作用域：07/07A-2/07F 的 .dbody.v2；通过后推广全学段） */
+.v2 .dmod{margin-top:22px;padding-top:16px;border-top:1px solid var(--line-2)}
+.v2 .dmod-h{margin-bottom:8px}
+.v2 .dmod-h b{font-size:17px;font-weight:700;color:#10182B;display:inline-flex;align-items:center}
+.v2 .dmod-h b::before{content:"";flex:none;width:4px;height:15px;border-radius:2px;background:var(--ib-600);margin-right:9px}
+.v2 .grp-t,.v2 .route-h{font-size:14px;font-weight:600;color:#33405C;margin:16px 0 8px}
+.v2 .rh-n{font-weight:600}
+.v2 .route,.v2 .grp-row{font-size:13px;font-weight:400;color:#33405C;padding:8px 0}
+.v2 .route .lk,.v2 .grp-row .lk{font-weight:500}
+.v2 .grp-l{font-size:12px;font-weight:600;color:#64708C;margin:10px 0 2px}
+.v2 .dnote{font-size:11.5px;color:#8B96AD}
+.v2 .pubbox{font-size:11.5px;color:#8B96AD}
+.v2 .dsub{font-size:14px;font-weight:600;color:#33405C;margin:16px 0 8px}
+
 .grp-t{font-size:13px;font-weight:700;color:var(--ink-700);margin:14px 0 7px}
 .grpbox{background:#FAFBFC;border:1px solid var(--line-2);border-radius:10px;padding:8px 12px 10px}
 .grp-l{font-size:13px;font-weight:600;color:var(--ink-500);margin:6px 0 2px}
@@ -595,7 +609,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <div class="dtop">
           <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <span class="tt">学校详情</span>
-          <span class="close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+          
         </div>
         <div class="estate">
           <div class="eicon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 5.6-2.8M12.7 15.2a6 6 0 0 0-3.4.4"></path><path d="M2.5 9a15 15 0 0 1 8-3.8M14 8.6A15 15 0 0 1 21.5 9"></path><circle cx="12" cy="18.5" r="0.6" fill="currentColor"></circle><path d="M4 4l16 16"></path></svg></div>
@@ -818,8 +832,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
         <div class="mask"></div>
         <div class="sheet">
-          <div class="handle"></div>
-          <div style="padding:4px 18px 0;font-size:17px;font-weight:700;color:var(--ink-900)">开启定位，找附近的学校</div>
+          <div style="padding:16px 18px 0;font-size:17px;font-weight:700;color:var(--ink-900)">开启定位，找附近的学校</div>
           <div style="padding:10px 18px 2px;font-size:13.5px;line-height:1.75;color:var(--ink-500)">开启后，地图会自动移动到你附近，并按距离展示周边学校。位置信息仅用于本校小程序内的地图定位与筛选，不会存储或对外分享。</div>
           <div class="sfoot" style="border-top:none;padding:16px 16px 6px"><span class="none">暂不开启</span><span class="ok">开启定位</span></div>
           <div style="text-align:center;font-size:11px;color:var(--ink-400);padding-bottom:20px">可在微信「设置－位置信息」中随时更改授权</div>
@@ -1109,11 +1122,21 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
               <span class="tag m tag-stage">小学</span>
               <span class="tag m tag-nature">公办</span>
             </div>
-            <div class="cbpreview">
+            <div class="cbpreview v2">
               <div class="dmod">
-                <div class="dmod-h"><b>招生计划（2026年）</b></div>
-                <div class="kv"><span class="k">计划班数</span><span class="v">10 个班</span></div>
-                <div class="kv"><span class="k">数据来源</span><span class="v">越秀区教育局《2026 年义务教育学校招生计划》</span></div>
+                <div class="dmod-h"><b>招生计划（2026年）</b><span class="dmod-meta">计划10个班</span></div>
+                <div class="kv"><span class="k">招生地段</span></div>
+                <div class="grpbox" style="margin-top:0"><div style="font-size:13px;line-height:1.6;color:#33405C">东风东路470号之四—756号（双号）、犀牛路单号、菜园东路段等公安门牌段，具体以越秀区教育局当年公布为准。</div></div>
+              </div>
+              <div class="dmod">
+                <div class="dmod-h"><b>升学路线参考（2026年）</b></div>
+                <div class="route-h"><span class="rh-n">招生方式</span><span class="tag m tag-mech">多校电脑派位</span></div>
+                <div class="grpbox">
+                  <div class="route"><span class="lk">培正中学</span></div>
+                  <div class="route"><span class="lk">广州市第七中学</span></div>
+                  <div class="route"><span class="lk">广州市第十六中学</span></div>
+                  <div class="route"><span class="lk">育才中学</span></div>
+                </div>
               </div>
               <div class="cbfade"></div>
             </div>
@@ -1129,7 +1152,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           · 点位为<em>真实学校</em>按实际位置落点：小学 4（东风东路小学本部／越秀区育才学校／东风东锦城校区／铁一小学）、初中 1（东风实验学校）、高中 4（育才东／西校区、铁一中学、培正中学）。<br>
           · <em>搜索框与筛选栏为悬浮层</em>，浮在地图之上：白底 96% 透明 + 投影，不占页面版式。<br>
           · 左下角为<em>学校类型图例</em>（小学蓝／初中橙／高中绿／多学段）；同一学校实体含多个学段时合并为<em>一个多学段点位</em>，按所含学段以扇形拼圆：小学+初中=蓝橙各半圆，小学+初中+高中=三色各 1/3 圆（圆心同点）。点击具体学校，<em>底部展示学校详情卡</em>，选中点位放大高亮（加<em>知性蓝外圈光晕</em>）并<em>常显名称气泡</em>。<br>
-          · <em>半窗学校卡（卡体总高约 365px，即 812 屏的 45%）</em>：右上 ✕ 关闭；<em>多学段学校学段 tab 条位于最上方（校名之上，见 06C）</em>、校名 + 行政区／学段／办学性质三标签（学段标签只显示选中 tab 对应学段）；下方<em>直接复用详情长图内容</em>，按半窗高度自动截取可视部分（顶部模块，如「招生计划（2026年）」），底部<em>渐隐遮罩</em>；「展开详情」胶囊<em>叠于渐隐区之上</em>（右下角，不单独占行）；点击／上滑即展开为全屏长图（07 屏）。<br>
+          · <em>半窗学校卡（卡体固定高约 365px，即 812 屏的 45%，不随内容压缩；预览区弹性填充剩余空间，内容超出即被渐隐截取）</em>：右上 ✕ 关闭；<em>多学段学校学段 tab 条位于最上方（校名之上，见 06C）</em>、校名 + 行政区／学段／办学性质三标签（学段标签只显示选中 tab 对应学段）；下方<em>直接复用详情长图内容</em>，按半窗高度自动截取可视部分（顶部模块，如「招生计划（2026年）」），底部<em>渐隐遮罩</em>；「展开详情」胶囊<em>叠于渐隐区之上</em>（右下角，不单独占行）；点击／上滑即展开为全屏长图（07 屏）。<br>
           · <em>详情卡为最上层</em>：整层盖住底部区域，<em>底部导航 tab 被遮挡在卡片之下</em>（收起卡片后才露出）。
         </p>
         <div class="ixn">
@@ -1196,11 +1219,21 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
               <span class="tag m tag-stage">小学</span>
               <span class="tag m tag-nature">公办</span>
             </div>
-            <div class="cbpreview">
+            <div class="cbpreview v2">
               <div class="dmod">
-                <div class="dmod-h"><b>招生计划（2026年）</b></div>
-                <div class="kv"><span class="k">计划班数</span><span class="v">10 个班</span></div>
-                <div class="kv"><span class="k">数据来源</span><span class="v">越秀区教育局《2026 年义务教育学校招生计划》</span></div>
+                <div class="dmod-h"><b>招生计划（2026年）</b><span class="dmod-meta">计划10个班</span></div>
+                <div class="kv"><span class="k">招生地段</span></div>
+                <div class="grpbox" style="margin-top:0"><div style="font-size:13px;line-height:1.6;color:#33405C">东风东路470号之四—756号（双号）、犀牛路单号、菜园东路段等公安门牌段，具体以越秀区教育局当年公布为准。</div></div>
+              </div>
+              <div class="dmod">
+                <div class="dmod-h"><b>升学路线参考（2026年）</b></div>
+                <div class="route-h"><span class="rh-n">招生方式</span><span class="tag m tag-mech">多校电脑派位</span></div>
+                <div class="grpbox">
+                  <div class="route"><span class="lk">培正中学</span></div>
+                  <div class="route"><span class="lk">广州市第七中学</span></div>
+                  <div class="route"><span class="lk">广州市第十六中学</span></div>
+                  <div class="route"><span class="lk">育才中学</span></div>
+                </div>
               </div>
               <div class="cbfade"></div>
             </div>
@@ -1275,13 +1308,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
               <span class="tag m tag-stage">高中</span>
               <span class="tag m tag-nature">公办</span>
             </div>
-            <div class="cbpreview">
+            <div class="cbpreview v2">
               <div class="dmod">
-                <div class="dmod-h"><b>招生计划（2026年）· 高中</b></div>
-
-                <div class="kv"><span class="k">中考录取线2025</span><span class="v">711 分（第三批次 · 户籍生最低分）</span></div>
-
-                <div class="kv"><span class="k">中考录取线2026</span><span class="v">705 分（第三批次 · 户籍生最低分）</span></div>
+                <div class="dmod-h"><b>高考信息</b><span>信息来源各校喜报或网传，仅供参考</span></div>
+                <div class="kv"><span class="k">高分段2025</span><span class="v">600分以上占比超80%；年级均分620；清北25+</span></div>
+                <div class="kv"><span class="k">高分段2026</span><span class="v">拔尖创新人才班级均分保持全省顶尖</span></div>
+                <div class="kv"><span class="k">特控线上线率2025</span><span class="v">具体率未公布（600分以上占比超80%）</span></div>
+                <div class="kv"><span class="k">特控线上线率2026</span><span class="v">全省关键位次人数稳居全市前列（具体率未公布）</span></div>
               </div>
               <div class="cbfade"></div>
             </div>
@@ -1293,7 +1326,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「06C 地图层 · 多学段半窗卡（tab）」</p>
         <b>多学段半窗卡（视觉规范）</b>
         <p>
-· 半窗学校卡默认高度 <em>45% 屏高</em>（约 365px／812 屏），单屏可直接看到「招生计划（2026年）」等顶部模块，底部渐隐 + 「展开详情」。<br>
+· 半窗学校卡<em>固定高度 45% 屏高</em>（约 365px／812 屏，不随内容压缩；预览区弹性填充剩余空间），单屏可直接看到「高考信息」等顶部模块（与 07E 高中长图首模块一致），底部渐隐 + 「展开详情」。<br>
 · 多学段学校半窗卡：<em>学段 tab 条位于半窗卡最上方</em>（拖拽 handle 之下、校名之上）——胶囊式 tab，<em>顺序按学段优先级 高中&gt;初中&gt;小学 排列</em>、只显示该校实际所含学段（2–3 枚），<em>tab 左对齐下方文字的左缘、按内容宽度排列（不拉伸占满整行）</em>，左侧学段色点同全屏版（小学蓝／初中橙／高中绿），默认选中主学段；<em>tab 之下才是校名</em>；校名下方三标签中的「学段」标签<em>只展示当前选中 tab 对应的学段</em>（如本示例选中高中 → 标签为 海珠区／高中／公办）。单学段学校不显示 tab 条。<br>
 · <em>点 tab：半窗内校名、标签、预览模块整体刷新为该学段内容</em>（本示例当前为「高中」态：主学段优先级 高中&gt;初中&gt;小学，五中含初中+高中、主学段为高中，故默认选中高中）。<br>
 · <em>卡内各行间距统一 12px</em>：handle → 学段 tab → 校名 → 标签 → 预览区分隔线，与详情页头部节奏一致。<br>
@@ -1320,9 +1353,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <div class="dtop">
           <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <span class="tt">学校详情</span>
-          <span class="close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+          
         </div>
-        <div class="dbody">
+        <div class="dbody v2">
           <div class="dh1">东风东路小学</div>
           <div class="dtags">
             <span class="tag m tag-dist">越秀区</span>
@@ -1332,16 +1365,19 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
 
           <div class="dmod">
             <div class="dmod-h"><b>招生计划（2026年）</b><span class="dmod-meta">计划10个班</span></div>
-            <div class="kv"><span class="k">招生地段</span></div>
-            <div class="grpbox" style="margin-top:0"><div style="font-size:12.5px;line-height:1.6;color:var(--ink-700)">东风东路470号之四—756号（双号）、犀牛路单号、菜园东路段等公安门牌段，具体以越秀区教育局当年公布为准。</div></div>
+            <div class="grp-t">招生地段</div>
+            <div class="grpbox" style="margin-top:0"><div style="font-size:13px;line-height:1.6;color:#33405C">东风东路470号之四—756号（双号）、犀牛路单号、菜园东路段等公安门牌段，具体以越秀区教育局当年公布为准。</div></div>
           </div>
 
           <div class="dmod">
-            <div class="dmod-h"><b>升学路线参考（2026年）</b><span class="tag m tag-mech">多校电脑派位</span></div>
-            <div class="route"><span class="lk">培正中学</span></div>
-            <div class="route"><span class="lk">广州市第七中学</span></div>
-            <div class="route"><span class="lk">广州市第十六中学</span></div>
-            <div class="route"><span class="lk">育才中学</span></div>
+            <div class="dmod-h"><b>升学路线参考（2026年）</b></div>
+            <div class="route-h"><span class="rh-n">招生方式</span><span class="tag m tag-mech">多校电脑派位</span></div>
+            <div class="grpbox">
+              <div class="route"><span class="lk">培正中学</span></div>
+              <div class="route"><span class="lk">广州市第七中学</span></div>
+              <div class="route"><span class="lk">广州市第十六中学</span></div>
+              <div class="route"><span class="lk">育才中学</span></div>
+            </div>
             <div class="dnote">分组电脑派位，分组与名额以越秀区教育局当年公布为准。</div>
           </div>
 
@@ -1375,9 +1411,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <b>学校详情长图 · 小学（视觉规范）</b>
  <p>
 · 全屏长图详情页模块自上而下：招生计划 2026 → 升学路线参考 2026 → 关联校区。<br>
+· <b>层级四档（一眼分主次）</b>：① 一级＝模块标题——17px／700／近黑 <code>#10182B</code>＋左侧 4px 知性蓝竖条，模块间距加大（上 22px）＋顶部分隔线；② 二级＝子标题「招生地段／招生方式 N／所属集团／同一法人单位／独立法人单位」——14px／600／<code>#33405C</code>，纯文字、无边框无底色；③ 三级＝正文——13px／400／<code>#33405C</code>（学校链接行、校区行、地段正文；链接知性蓝＋›、字重 500）；盒内分组小标「集团核心校／集团成员校」为层内标签（12px／600／<code>#64708C</code>，弱于二级）；④ 说明小字＝<code>.dnote</code>／<code>.pubbox</code>（11.5px／<code>#8B96AD</code>）。本版以 <code>.dbody.v2</code> 作用域先应用于 07／07A-2／07F（小学），评审通过后推广 07B/07C/07E 与半窗预览。<br>
 · 招生计划：模块标题右侧灰蓝小字展示「计划 x 个班」（x＝<code>plan_classes</code>，如「计划 10 个班」）；<b>模块仅含「招生地段」一项</b>——字段名单独一行（与其他字段名同列同样式），正文用浅底分组盒（grpbox）置于字段名下方、占满整行宽度，随盒宽自动换行；原「计划班数／数据来源」字段不再单列。<br>
-· 升学路线参考（单机制布局）：<b>招生方式标签展示在模块标题右上角</b>（复用全局 <code>tag-mech</code> 蓝色标签，随数据 <code>mechanism</code> 取一枚；标签文案按项目实际枚举 <code>XS_MECH_LABELS</code> 共 5 种：对口直升／单校划片／多校电脑派位／电脑派位／自主招生），行内<b>不逐校标注标签</b>、仅列对口／派位初中名；学校名为可点击链接（知性蓝 + ›）。<br>
-· 升学路线参考（多机制变体，<code>mechanism</code> 含 ≥2 种机制时）：标题右上角<b>不再放合并标签</b>，改为逐条「招生方式一／二」各自带标签 + 各自学校框布局，详见 <b>07A-2</b>。<br>
+· 升学路线参考（<b>统一布局</b>，机制数 ≥1 均同构——单机制＝只有「招生方式」一组（不带序号））：模块标题右上角<b>不放标签</b>，标题下方逐条「招生方式 N」＝左文案 + 一枚全局 <code>tag-mech</code> 蓝色标签（标签文案按项目实际枚举 <code>XS_MECH_LABELS</code> 共 5 种：对口直升／单校划片／多校电脑派位／电脑派位／自主招生），每条下方用浅底分组盒（grpbox）框住该机制的对口／派位初中名；行内<b>不逐校标注标签</b>；学校名为可点击链接（知性蓝 + ›）。多机制示例见 <b>07A-2</b>。<br>
 · 关联校区（两种情形）：①<b>有所属教育集团</b>——三级层级，模块标题（一级）；成员类型「所属集团／同一法人单位／独立法人单位」（二级，同层同样式小标题、左对齐）；成员校（三级，灰底圆角盒、左对齐）；②<b>无教育集团、仅多校区</b>——仅一个子标题「多校区」（样式等同「集团核心校」小标题 <code>.grp-l</code>），其下并列多个校区行（<code>.grp-row</code>：校区名 + 学段标签 + 「当前查看」标），校区行展示与情形①一致。视觉示例见 07F。<br>
 · 链接视觉：知性蓝 + ›；点击当前学校的 toast 见规范表「Toast 轻提示」行。
  </p>
@@ -1402,9 +1438,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <div class="dtop">
           <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <span class="tt">学校详情</span>
-          <span class="close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+          
         </div>
-        <div class="dbody">
+        <div class="dbody v2">
           <div class="dh1">东风东路小学</div>
           <div class="dtags">
             <span class="tag m tag-dist">越秀区</span>
@@ -1414,8 +1450,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
 
           <div class="dmod">
             <div class="dmod-h"><b>招生计划（2026年）</b><span class="dmod-meta">计划10个班</span></div>
-            <div class="kv"><span class="k">招生地段</span></div>
-            <div class="grpbox" style="margin-top:0"><div style="font-size:12.5px;line-height:1.6;color:var(--ink-700)">东风东路470号之四—756号（双号）、犀牛路单号、菜园东路段等公安门牌段，具体以越秀区教育局当年公布为准。</div></div>
+            <div class="grp-t">招生地段</div>
+            <div class="grpbox" style="margin-top:0"><div style="font-size:13px;line-height:1.6;color:#33405C">东风东路470号之四—756号（双号）、犀牛路单号、菜园东路段等公安门牌段，具体以越秀区教育局当年公布为准。</div></div>
           </div>
 
           <div class="dmod">
@@ -1464,11 +1500,11 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <b>升学路线参考 · 多机制变体（视觉规范）</b>
  <p>
 · 触发：小学的招生机制数组（<code>mechanism</code>）含 <b>≥ 2 种</b>招生方式时启用本变体（真实分布：对口直升+多校电脑派位 32 所、单校划片+多校电脑派位 7 所、对口直升+自主招生 2 所，全库共 41 所）。<br>
-· 模块标题「升学路线参考（2026年）」<b>不再在右上角展示合并标签</b>，改为标题下方逐条列出「招生方式 N」（N 从「一」起算）。<br>
+· 模块标题「升学路线参考（2026年）」<b>不再在右上角展示合并标签</b>，多机制时才递增编号：标题下方逐条列出「招生方式一／二／三…」（单机制仅一组，写「招生方式」不带序号）。<br>
 · 每条「招生方式 N」＝ 左文案「招生方式一／二／三」+ 右侧一枚 <code>tag-mech</code> 标签（该机制对应的招生方式名）；<b>排序按机制优先级：对口直升 ＞ 多校电脑派位 ＞ 单校划片 ＞ 电脑派位 ＞ 自主招生</b>（含对口直升时优先置顶为「招生方式一」）。<br>
 · 每条「招生方式 N」下方用浅底分组盒（<code>grpbox</code>，与「招生地段」正文盒同款样式）框住该机制对应的对口／派位初中名，校名为可点击链接（知性蓝 + ›），点击跳转地图定位与该校学校卡。<br>
-· 仅 1 种招生机制的小学仍走单标签布局（见 07A：标题右上角一枚 tag-mech + 下方直接列校名，不出现「招生方式」分组）。<br>
-· 两种布局由前端按 <code>mechanism.length</code> 自动切换，无需后端区分。
+· 仅 1 种招生机制的小学<b>同样使用本布局</b>（只有「招生方式」一组、不带序号，视觉与多机制完全一致，见 07 单机制示例）。<br>
+· 单 / 多机制共用同一布局模板，前端按 <code>mechanism</code> 渲染 1…N 组「招生方式」，无需区分两套样式。
  </p>
       </div>
     </div>
@@ -1481,9 +1517,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <div class="dtop">
           <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <span class="tt">学校详情</span>
-          <span class="close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+          
         </div>
-        <div class="dbody">
+        <div class="dbody v2">
           <div class="dh1">东风西路小学</div>
           <div class="dtags">
             <span class="tag m tag-dist">越秀区</span>
@@ -1520,9 +1556,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <div class="dtop">
           <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <span class="tt">学校详情</span>
-          <span class="close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+          
         </div>
-        <div class="dbody">
+        <div class="dbody v2">
           <div class="stagebar">
             <span class="stab h"><i></i>高中</span>
             <span class="stab m on"><i></i>初中</span>
@@ -1541,7 +1577,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="kv"><span class="k">计划班数</span><span class="v">8 个班</span></div>
             <div class="kv"><span class="k">招生范围</span><span class="v">番禺区</span></div>
             <div class="kv"><span class="k">派位组成员</span><span class="v">同组 6 所初中</span></div>
-            <div class="dsub" style="margin-top:10px">招生小学名单</div>
+            <div class="dsub">招生小学名单</div>
             <div class="grpbox">
               <div class="grp-l">番禺区公办初中第 1 组电脑派位</div>
               <div class="grp-row"><span class="lk">xx小学</span></div>
@@ -1610,7 +1646,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
 · <b>初中三模块（按交互稿）</b>：① <b>招生计划（2026年）</b>——标题右侧<b>招生规则标签</b>（三变体见 07D）；② <b>中考报考情况</b>——区分批次（如第二批次：名额考生数／省市属高中录取名额／区属高中录取名额）、与其他初中共享计划的校区（附温馨提示）、省市属高中录取明细／区属高中录取明细（均为<b>图表区</b>，明细表列：高中｜名额｜录取最低分），明细下小字「具体名额以官方公布为准，第三批第四批无法获取」；③ <b>关联校区</b>——含所属集团、公示文件说明、同一法人单位（集团本体/分校区：集团核心校／集团成员校）、独立法人单位（集团合作：集团成员校），成员校行带学级标签，当前校带「当前查看」标记。<br>
 · <b>招生计划规则标签三变体（随 mechanism 取值切换）</b>：单校划片（含对口直升）／多校电脑派位／单校电脑抽签；多校电脑派位时<b>招生小学名单按派位组分组</b>——各校名旁重复的小字（派位组名）提取为分组小标题，组内只列校名；单校电脑抽签变体在名单下方展示固定温馨提示（见 07D）。<br>
 · <b>关联校区排序</b>：同集团成员校优先展示当前查看的学校，其余按「同行政区 &gt; 拼音首字母」排列。<br>
-· <b>模块层级与字号规范</b>：<b>同一模块内重要程度相同的文字统一样式</b>——模块内的分组小节标题（「招生小学名单」「第二批次」「省市属高中录取明细」等）与行项字段名<b>同字号、同颜色、同字重</b>（13px 一档灰），统一左对齐、不加竖条等修饰，不放大加重（避免同层文字出现两种视觉权重）；<b>关联校区模块的三个成员类型标题（「所属集团」「同一法人单位」「独立法人单位」）为独立的统一层级</b>，三枚样式一致（13px/700 深色，不加竖条）；分组容器底色减淡为 <b>#FAFBFC</b>，层级感靠描边、底色与小节标题表达，不靠重底色；容器内的父子层级：<b>分组小标题（grp-l，13px 灰）字号略大于名单行（12.5px 深色）</b>。<br>
+· <b>模块层级与字号规范（全学段统一·v2 层级四档）</b>：与小学 07／07A-2／07F 同一套 <code>.dbody.v2</code> 作用域——① 一级＝模块标题（17px／700／近黑 #10182B + 左侧 4px 知性蓝竖条，模块间距加大 + 顶部分隔线）；② 二级＝子标题（招生地段／招生方式 N／所属集团／同一法人单位／独立法人单位／招生小学名单／第二批次／省市属·区属高中录取明细等，14px／600／#33405C，纯文字无竖条无底色）；③ 三级＝正文（kv 字段值行／集团成员校 grp-row／地段正文，13px／400／#33405C；链接知性蓝 + ›、字重 500）；盒内分组小标（集团核心校／集团成员校 grp-l，12px／600／#64708C，弱于二级）；④ 说明小字（dnote／pubbox，11.5px／#8B96AD）。分组容器底色 #FAFBFC＋描边表达层内归属；层级感由「标题竖条 → 子标题加粗 → 正文常规 → 小字灰」四档字号字重梯度一眼区分，<b>不再同层同灰</b>。<br>
 · <b>半窗卡同步展示 tab</b>：半窗卡内 tab 条同样位于最上方（handle 之下、校名之上，压缩版胶囊），点 tab 半窗内容整体刷新；上滑展开全屏后 tab 选中状态延续（半窗示例见 06C）。<br>
 · <b>顶部字段滚动替换（关键交互）</b>：展开全屏后初始顶栏显示「学校详情」；<b>用户向上滑动长图</b>，内容区大标题（校名）随之上移，顶栏「学校详情」<b>平滑过渡替换为当前学段对应的校名</b>（如「祈福英语实验学校」），呈滚动联动而非突变；下滑回顶部则还原为「学校详情」。学段 tab 条在全屏滚动时<b>吸顶固定在顶栏之下</b>，不随内容滚走。<br>
 · 详见 07C：同一卡片滚动后的顶栏替换态。
@@ -1635,9 +1671,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <div class="dtop">
           <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <span class="tt">祈福英语实验学校</span>
-          <span class="close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+          
         </div>
-        <div class="dbody" style="padding-top:0">
+        <div class="dbody v2" style="padding-top:0">
           <div class="stagebar">
             <span class="stab h"><i></i>高中</span>
             <span class="stab m on"><i></i>初中</span>
@@ -1690,7 +1726,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="dmod-h"><b>招生计划（2026年）</b><span class="tag m tag-mech">单校划片</span></div>
             <div class="kv"><span class="k">计划班数</span><span class="v">10 个班</span></div>
             <div class="kv"><span class="k">招生范围</span><span class="v">番禺区</span></div>
-            <div class="dsub" style="margin-top:10px">招生小学名单</div>
+            <div class="dsub">招生小学名单</div>
             <div class="grpbox">
               <div class="grp-row"><span class="lk">xx小学</span></div>
               <div class="grp-row"><span class="lk">xx实验小学</span></div>
@@ -1703,7 +1739,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="kv"><span class="k">计划班数</span><span class="v">8 个班</span></div>
             <div class="kv"><span class="k">招生范围</span><span class="v">番禺区</span></div>
             <div class="kv"><span class="k">派位组成员</span><span class="v">同组 6 所初中</span></div>
-            <div class="dsub" style="margin-top:10px">招生小学名单</div>
+            <div class="dsub">招生小学名单</div>
             <div class="grpbox">
               <div class="grp-l">xx区公办初中第 1 组电脑派位</div>
               <div class="grp-row"><span class="lk">xx小学</span></div>
@@ -1720,7 +1756,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="dmod-h"><b>招生计划（2026年）</b><span class="tag m tag-mech">单校电脑抽签</span></div>
             <div class="kv"><span class="k">计划班数</span><span class="v">6 个班</span></div>
             <div class="kv"><span class="k">招生范围</span><span class="v">番禺区</span></div>
-            <div class="dsub" style="margin-top:10px">招生小学名单</div>
+            <div class="dsub">招生小学名单</div>
             <div class="grpbox">
               <div class="grp-row"><span class="lk">xx小学</span></div>
               <div class="grp-row"><span class="lk">xx小学</span></div>
@@ -1749,9 +1785,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <div class="dtop">
           <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <span class="tt">学校详情</span>
-          <span class="close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+          
         </div>
-        <div class="dbody">
+        <div class="dbody v2">
           <div class="dh1">广东实验中学（高中部）</div>
           <div class="dtags">
             <span class="tag m tag-dist">荔湾区</span>
@@ -1816,7 +1852,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
 · 单学段高中不显示学段 tab 条；多学段学校切到「高中」tab 时模块同本帧（tab 规则见 07B）。<br>
 · 高中四模块（按交互稿）：① <b>高考信息</b>——标题右侧小字「信息来源各校喜报或网传，仅供参考」，行项：高分段2025（只展示人数）／高分段2026／特控线上线率2025（只展示百分比）／特控线上线率2026／备注（有信息才展示，无信息整行不展示，也不展示公办民办）；② <b>招生计划</b>——中考录取线2025／2026，底部小字说明「录取线来源于官方信息：公办为户籍生最低分，民办为最低分（含公费班），外语艺术类为末位考生分数（官方文件附录）」；③ <b>中考录取情况</b>——按批次分节（第一批／第二批…，某批无数据则该节不展示），批内分「省市属高中录取明细」「区属高中录取明细」两个图表区（列：高中｜名额｜录取最低分），完全无数据时模块内展示空状态默认文案（文案待产品确认）；④ <b>关联校区</b>——同 07B。<br>
 · <b>品牌关联排序</b>：同品牌多校优先展示当前所在学校，其余按「同行政区 ＞ 拼音首字母」排列。<br>
-· 模块层级与字号规范同 07B（同层文字同样式、容器底色 #FAFBFC）。
+· 模块层级与字号规范同 07／07B 的 <code>.dbody.v2</code> 层级四档（模块标题一级蓝竖条／子标题二级／正文三级／说明小字四级，见 07B 视觉规范）。
         </p>
         <div class="ixn">
         <b>交互描述（交互稿口径）</b>
@@ -1855,13 +1891,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <tr><td>地图点位</td><td>地图层，按真实位置落点</td><td>直径 16 白描边圆点 + 投影；学段分色（小学蓝 #2F5CD6／初中橙 #E8850C／高中绿 #0F9D58）；<b>多学段点位</b>按所含学段以扇形拼圆（2 学段各半圆、3 学段各 1/3 圆）；<b>选中态</b>：放大至 22、<span class="mono">zIndex</span> 置顶，并加<b>知性蓝外圈光晕</b>（圆点外一圈明显可见的蓝色光环：软光晕 + 外缘实心环；<b>不是</b>仅把描边由白换成蓝，否则真机下与常态圆点区分度不足）+ <b>名称气泡常显</b>（白底圆角、下方小箭头，<span class="mono">callout.display</span> 取 <span class="mono">ALWAYS</span>；未选中点位为点击才显示）。示例点位：东风东路小学本部／越秀区育才学校／东风东锦城校区／铁一小学／东风实验学校／育才东·西校区／铁一中学</td></tr>
         <tr><td>图例区</td><td>首页 / 地图层左下角</td><td>白底 96% 透明图例卡（r=12），四行：小学蓝 #2F5CD6／初中橙 #E8850C／高中绿 #0F9D58／<b>多学段</b>（三色按所含学段扇形拼圆：2 学段各半圆、3 学段各 1/3 圆）；字号 11.5、色点直径 9</td></tr>
         <tr><td>半窗学校卡</td><td>地图层底部（点选点位后弹出，默认约 45% 高）</td><td>白底 + 上投影、上圆角 18，顶部拖拽 handle，<b>右上 ✕ 关闭</b>；<b>多学段学校：学段 tab 条（压缩版胶囊）位于最上方（handle 之下、校名之上）</b>，顺序按学段优先级 高中&gt;初中&gt;小学、只显示实际学段（见 06C）；<b>tab 之下是校名</b> 16/600 + 行政区／学段／办学性质中标签（<b>行政区固定带「区」字</b>；<b>「学段」标签只显示当前选中 tab 对应的学段</b>，单学段学校则显示该校学段）；下方<em>直接复用详情长图内容</em>，按半窗高度自动截取可视部分（顶部模块，如「招生计划（2026年）」），底部<em>渐隐遮罩</em>，「展开详情」胶囊（白底描边 + 投影）<b>叠于渐隐区之上、不单独占行</b>（卡体总高约 365px＝45%）。上滑或点「展开详情」→ 全屏长图页（tab 选中状态延续）；<b>层级最上层，底部导航栏压在卡片之下；地图左下角学段图例保持原位、不因半窗弹出而移动</b></td></tr>
-        <tr><td>学校详情长图</td><td>半窗卡上滑后全屏（07 屏）</td><td>顶部「‹ 学校详情 ✕」；模块自上而下：<b>招生计划（2026年）</b>（标题右侧「计划 x 个班」；仅含招生地段长文本，无数据字段不展示）→ <b>升学路线参考（2026年）</b>（标题右上角「招生方式」标签：单校划片／多校电脑派位／单校电脑抽签，随 mechanism；行内仅列对口／派位初中名，学校名为<b>可点击链接</b>：知性蓝 + 「›」，点击跳转地图定位）→ <b>关联校区</b>（两种情形：有集团＝三级层级，模块标题一级，所属集团／同一法人单位（本体/分校区）／独立法人单位（合作）为二级（左侧色条小标题），方框内容为三级（灰底圆角盒缩进），校名为可点击链接 + 学段标签；当前查看校加「当前查看」标识；无集团多校区＝单列「多校区」+ 多校区行）；点击学校名跳转地图定位；模块间分隔线；画框随内容加高（大长图）</td></tr>
+        <tr><td>学校详情长图</td><td>半窗卡上滑后全屏（07 屏）</td><td>顶部「‹ 学校详情」（无关闭按钮，返回即收起）；模块自上而下：<b>招生计划（2026年）</b>（标题右侧「计划 x 个班」；仅含招生地段长文本，无数据字段不展示）→ <b>升学路线参考（2026年）</b>（标题下方逐条「招生方式 N」+ 各机制 <code>tag-mech</code> 标签，浅底分组盒框住对口／派位初中名——单 / 多机制同一布局；学校名为<b>可点击链接</b>：知性蓝 + 「›」，点击跳转地图定位）→ <b>关联校区</b>（两种情形：有集团＝三级层级，模块标题一级，所属集团／同一法人单位（本体/分校区）／独立法人单位（合作）为二级（左侧色条小标题），方框内容为三级（灰底圆角盒缩进），校名为可点击链接 + 学段标签；当前查看校加「当前查看」标识；无集团多校区＝单列「多校区」+ 多校区行）；点击学校名跳转地图定位；模块间分隔线；画框随内容加高（大长图）；<b>全学段统一层级四档</b>：模块标题一级（17px／700 近黑 + 左侧 4px 知性蓝竖条）／子标题二级（招生地段·招生方式 N·所属集团等，14px／600／#33405C）／正文三级（学校链接·字段值·地段正文，13px／400／#33405C）／说明小字四级（dnote／pubbox，11.5px／#8B96AD）；初中另含「中考报考情况」、高中另含「高考信息／中考录取情况」模块，层级同构</td></tr>
         <tr><td>学校详情卡</td><td>学校卡上滑展开（首版仅小学，确认后复用至初中／高中）</td><td>白底上圆角 20 + 上投影，handle；头部 校名 18/600 ＋ 关注（星）／关闭（×）36 圆形控件；<b>四类中标签</b>；关键信息行（地址／联系电话／创办时间，mk 灰 60 宽 + mv 正文）；「办学规模」四格数据块（数字 15 知性蓝 + 9.5px 注释）；「荣誉与特色」中标签组；底部「加入关注」描边按钮 ＋「查看完整详情」通栏主按钮</td></tr>
         <tr><td>导航栏</td><td>首页 / 地图层底部，两项</td><td><b>置底通栏（小程序原生 tabBar 规范）</b>：宽 100%、高 56 + 底部安全区、白底 + 顶部 1px 分隔线，无圆角、无投影、非悬浮；内含两枚 tab 高 40 —— 首页 / 政策；选中 #F2F6FE 底胶囊 + #C3D5F6 描边 + #254BAE 字并加粗，未选透明底 + #64708C 字</td></tr>
         <tr><td>空状态</td><td>搜索无结果（08 A）／筛选结果为空（10 C）</td><td>四要素结构：灰底圆形插画 88px + 标题 15.5/600 + 说明 12.5 次级色 + 主操作胶囊按钮；搜索空态主操作「清空并重新搜索」（清输入 + 重置筛选）；地图筛选空态用<b>异常弹窗</b>（240 宽，同全局弹窗统一规格）居中提示，右上角「×」可关闭、地图不加遮罩且手势仍可用，主操作「重置筛选」恢复默认全选</td></tr>
         <tr><td>网络异常</td><td>详情页／列表接口超时或失败（09 B）</td><td>标题「网络开小差了」+ 说明 + 主按钮「重新加载」；<b>局部重试</b>只重拉失败模块、不整页刷新；连续 2 次失败追加「反馈问题」入口；请求期展示<b>骨架屏</b>（浅灰圆角占位块），超 10s 未返回自动转网络异常态</td></tr>
         <tr><td>确认弹窗</td><td>搜索页「清空」等破坏性操作二次确认（11 屏）</td><td>统一按第 01 节「通用 · 异常态与全局弹窗 · 全局弹窗统一规格」执行：宽 240px（<b>全稿唯一弹窗宽度档</b>，与地图异常弹窗同档）、r=16、白底 + 投影；标题 16/600 居中、正文 13 次级色居中；按钮两枚等宽 高 44 r=999 —— 取消（白底描边）+ 主操作；<b>破坏性主按钮用警示红 #E5484D</b>，非破坏性确认与重试类用知性蓝；遮罩黑 42%，<b>点遮罩不关闭</b>，弹窗期间背景不可滚动；动效 淡入+轻微放大 150–200ms</td></tr><tr><td>小程序胶囊</td><td>全屏右上角系统导航（覆盖所有页面）</td><td>微信小程序原生胶囊：圆角矩形（87×32，r=16）白底 82% + 1px 浅灰描边 + 投影，内分两钮——左「··· 更多」、右「⊕ 退出小程序」；两钮间 1px 竖分隔。z-index 最高、非自定义元素，<b>所有页面（地图层／搜索页／详情页／异常态）统一常驻右上角</b>；首页/地图层顶部第一行左侧为小程序名、右侧为胶囊，白底常驻盖住地图；搜索框位于第二行全宽悬浮；搜索页（02/03）搜索框与胶囊同行且同高 32px 齐平，自定义顶栏右侧预留 98px 安全位避免遮挡。<b>对齐实现口径</b>：搜索页头行高 44px，搜索框 32px 在行内垂直居中 —— 故头行 top ＝ 胶囊 top − (44 − 32)/2 ＝ 胶囊 top − 6px，行内右侧 padding ＝ 屏宽 − 胶囊左缘 + 4px（375 画框下即 98px）；首页小程序名行（.brandrow 32px）直接与胶囊<b>顶对齐</b>（顶行 top ＝ 胶囊 top）。<b>不得只用状态栏高度顶对齐</b>，否则搜索框会比胶囊低 6px、视觉错位。点击「···」唤起微信转发/收藏等系统菜单，点击「⊕」退出小程序回微信会话。</td></tr>
-<tr><td>定位授权弹窗</td><td>首页进入后自动弹出（01B）</td><td>底部半窗样式（上圆角 20 + handle + 蒙层黑 42%）：标题 17/700 + 正文 13.5 次级色 + 两按钮（「暂不开启」白底描边 高 44 ／「开启定位」知性蓝实心通栏）+ 底部小字「可在微信「设置－位置信息」中随时更改授权」；每次冷启动最多自动提示 1 次；系统授权点「不允许」后 30 个自然天内不再自动弹出、超过 30 天后的首次冷启动可再提示一次；允许授权后地图自动移动到定位点附近并显示当前位置标记</td></tr>
+<tr><td>定位授权弹窗</td><td>首页进入后自动弹出（01B）</td><td>底部半窗样式（上圆角 20 + 蒙层黑 42%，无拖拽 handle）：标题 17/700 + 正文 13.5 次级色 + 两按钮（「暂不开启」白底描边 高 44 ／「开启定位」知性蓝实心通栏）+ 底部小字「可在微信「设置－位置信息」中随时更改授权」；每次冷启动最多自动提示 1 次；系统授权点「不允许」后 30 个自然天内不再自动弹出、超过 30 天后的首次冷启动可再提示一次；允许授权后地图自动移动到定位点附近并显示当前位置标记</td></tr>
       </tbody>
     </table>
   </div>
