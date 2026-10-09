@@ -8360,15 +8360,6 @@
     },
     {
       "aliases": [
-        "广东华侨中学白云校区",
-        "广东华侨中学"
-      ],
-      "name": "广东华侨中学(金沙洲校区)",
-      "school_id": "gz-440111-99d97ada",
-      "stage": "middle"
-    },
-    {
-      "aliases": [
         "广外附中"
       ],
       "name": "广东外语外贸大学实验中学",
@@ -8799,12 +8790,6 @@
       "stage": "middle"
     },
     {
-      "aliases": [],
-      "name": "广州市第六十六中学",
-      "school_id": "gz-440111-b50dea4b",
-      "stage": "middle"
-    },
-    {
       "aliases": [
         "铁一中学白云校区初中部",
         "铁一中学"
@@ -9055,10 +9040,10 @@
     },
     {
       "aliases": [
-        "黄埔区中黄外国语实验学校",
-        "中黄外国语实验学校"
+        "中黄外国语实验学校丰巢快递柜",
+        "黄埔区中黄外国语实验学校"
       ],
-      "name": "中黄外国语实验学校丰巢快递柜",
+      "name": "中黄外国语实验学校",
       "nature": "民办",
       "school_id": "gz-440112-673fa2c9",
       "stage": "middle"
@@ -9661,12 +9646,6 @@
     },
     {
       "aliases": [],
-      "name": "广东番禺中学",
-      "school_id": "gz-440113-5f62f75c",
-      "stage": "middle"
-    },
-    {
-      "aliases": [],
       "name": "广东番禺中学教育集团兴南学校",
       "school_id": "gz-440113-4d474674",
       "stage": "middle"
@@ -9684,12 +9663,6 @@
       "aliases": [],
       "name": "广东第二师范学院广州南站附属学校",
       "school_id": "gz-440113-0bb52d06",
-      "stage": "middle"
-    },
-    {
-      "aliases": [],
-      "name": "广东第二师范学院番禺附属中学",
-      "school_id": "gz-440113-83a6a219",
       "stage": "middle"
     },
     {
@@ -10058,12 +10031,6 @@
       "stage": "middle"
     },
     {
-      "aliases": [],
-      "name": "石北中学",
-      "school_id": "gz-440113-809482e2",
-      "stage": "middle"
-    },
-    {
       "aliases": [
         "石楼镇第二中学"
       ],
@@ -10122,12 +10089,6 @@
       ],
       "name": "象圣中学",
       "school_id": "gz-440113-1b12edfd",
-      "stage": "middle"
-    },
-    {
-      "aliases": [],
-      "name": "象贤中学",
-      "school_id": "gz-440113-fe0cfa1f",
       "stage": "middle"
     },
     {
@@ -10586,6 +10547,7 @@
     },
     {
       "aliases": [
+        "广东华侨中学白云校区",
         "广东华侨中学"
       ],
       "name": "广东华侨中学(金沙洲校区)",
