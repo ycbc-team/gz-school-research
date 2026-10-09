@@ -13,6 +13,16 @@
      "school_ids": null,
      "scope": null
     },
+    "广东华侨中学(金沙洲校区)": {
+     "group_members": null,
+     "mechanism": "no_plan",
+     "mechanism_note": "2026 年官方初中计划未收录本校（《2026 年白云区义务教育阶段学校招生计划表》）：2025 年起停止初一新招（南都/广州日报报道），初中部现有初二/初三继续办学至毕业，升学（中考/名额分配）按现有在校生。",
+     "plan_classes": null,
+     "school": "广东华侨中学(金沙洲校区)",
+     "school_id": "gz-440111-99d97ada",
+     "school_ids": null,
+     "scope": null
+    },
     "广东外语外贸大学实验中学": {
      "group_members": null,
      "mechanism": "single_zone",
@@ -660,6 +670,16 @@
   "haizhu": {
    "district": "海珠区",
    "records": {
+    "中山大学附属中学": {
+     "group_members": null,
+     "mechanism": "no_plan",
+     "mechanism_note": "企事业单位办学（中山大学附属中学，2022 年转公后为公办）：2026 年招生经中大附中自主渠道（中大教职工子女报读指南 2026-01-19 官网发布），官方《2026 年海珠区公办初中招生计划表》不列企事业单位办学校，招生方式以中大附中当年方案为准。",
+     "plan_classes": null,
+     "school": "中山大学附属中学",
+     "school_id": "gz-440105-e363a214",
+     "school_ids": null,
+     "scope": null
+    },
     "广东实验中学琶洲学校": {
      "group_members": [
       "广州市第六中学",

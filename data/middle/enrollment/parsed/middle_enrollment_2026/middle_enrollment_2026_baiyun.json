@@ -915,6 +915,15 @@
   },
   {
    "group_members": null,
+   "mechanism": "no_plan",
+   "mechanism_note": "2026 年官方初中计划未收录本校（《2026 年白云区义务教育阶段学校招生计划表》）：2025 年起停止初一新招（南都/广州日报报道），初中部现有初二/初三继续办学至毕业，升学（中考/名额分配）按现有在校生。",
+   "plan_classes": null,
+   "school": "广东华侨中学(金沙洲校区)",
+   "school_id": "gz-440111-99d97ada",
+   "scope": null
+  },
+  {
+   "group_members": null,
    "mechanism": "single_zone",
    "mechanism_note": null,
    "plan_classes": 4,
