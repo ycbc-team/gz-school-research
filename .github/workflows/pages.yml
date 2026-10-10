@@ -48,6 +48,7 @@ jobs:
           # 校验关键产物存在，缺失则构建失败，避免静默产出打不开的站点
           test -f _site/index.html
           test -f _site/img/guangzhou-xuetu-144.png
+          test -f _site/version.json   # 发版检测依赖，缺失会导致前端无法自动切新版
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
