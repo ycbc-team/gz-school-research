@@ -29,6 +29,12 @@
     ]
   },
   "sitemapLocation": "sitemap.json",
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": ["pages/school-detail"]
+    }
+  },
   "permission": {
     "scope.userLocation": {
       "desc": "用于在地图上展示你附近的学校并帮你定位筛选"

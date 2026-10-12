@@ -85,9 +85,12 @@
     <view class="lg"><view class="lg-dot lg-multi"></view>多学段</view>
   </view>
 
-  <!-- 学校卡（分包组件）：半窗 / 全屏 单层级原位生长；context=overlay 浮于地图之上。
-       卡片全部渲染在分包组件内，主包只传 校名/实体id/初始学段；✕ 关闭 → bindclose；关联校区跳转 → bindgoto。 -->
-  <school-card wx:if="{{card}}" context="overlay" schoolId="{{card.schoolId}}" name="{{card.name}}" stage="{{card.stage}}" bindclose="closeCard" bindgoto="onCardGoto" />
+  <!-- 学校卡（分包组件，context=overlay 浮于地图之上）：半窗 / 全屏 单层级原位生长。
+       主包仅传最小标识（校名 / 实体 id / 初始学段）；渲染与半窗↔全屏生长全在组件内。
+       分包就绪（wx.loadSubpackage success）前不渲染任何占位——未就绪点学校由页面弹「学校信息加载中」toast；
+       ✕ 关闭 → bindclose；关联校区跳转 → bindgoto。
+       注：componentPlaceholder("view") 为主包页引用分包组件的编译硬性要求，wx:if 门控下永不显示。 -->
+  <school-card wx:if="{{card && subReady}}" context="overlay" schoolId="{{card.schoolId}}" name="{{card.name}}" stage="{{card.stage}}" bindclose="closeCard" bindgoto="onCardGoto" />
 
   <!-- 筛选结果为空 · 地图中央浮层（UI 稿异常态 C：不遮挡地图手势，点浮层外关闭浮层保留筛选） -->
   <view wx:if="{{filterEmpty}}" class="fempty">

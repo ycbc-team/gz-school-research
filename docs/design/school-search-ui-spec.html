@@ -308,7 +308,8 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .cardbot .cbpreview .kv .k{width:70px;flex:none;color:var(--ink-500)}
 .cardbot .cbpreview .kv .v{flex:1;min-width:0;color:var(--ink-700)}
 .cardbot .cbfade{position:absolute;left:0;right:0;bottom:0;height:48px;background:linear-gradient(to bottom,rgba(255,255,255,0),var(--white) 80%);pointer-events:none}
-.cardbot .cbmore{position:absolute;right:14px;bottom:12px;height:34px;padding:0 16px;border-radius:999px;background:var(--white);color:var(--ib-600);font-size:13px;font-weight:600;display:flex;align-items:center;border:1px solid var(--ib-100);box-shadow:0 4px 14px rgba(31,66,146,.16)}
+.cardbot .cbmore{position:absolute;right:14px;bottom:12px;height:38px;padding:0 18px;border-radius:999px;background:#2F5CD6;color:#fff;font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:5px;box-shadow:0 6px 18px rgba(47,92,214,.34)}
+.cardbot .cbcaret{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #fff;margin-top:2px}
 /* 半窗卡内的压缩版学段 tab 条（多学段学校专用，胶囊式，位于校名上方） */
 .cardbot .stagebar{display:flex;gap:8px;margin:12px 40px 12px 0;padding:0;position:static;background:transparent}
 .cardbot .stagebar .stab{flex:1;display:inline-flex;align-items:center;justify-content:center;height:30px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--white);font-size:12.5px;font-weight:600;color:var(--ink-400)}
@@ -320,6 +321,7 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .phone.longpage{height:auto;min-height:812px;background:var(--white)}
 .dtop{display:flex;align-items:center;gap:10px;padding:14px 98px 14px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:4;background:var(--white)}
 .dtop .back,.dtop .close{width:36px;height:36px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-700);flex:none}
+/* 返回按钮几何对齐：底边与右上角微信胶囊底边对齐 → 返回按钮→下划线 与 胶囊→下划线 间隔一致（视觉对称）；箭头放大更醒目。实际设备 capTop/capH 取 wx.getMenuButtonBoundingClientRect() 实测，.dtop 总高=胶囊底+对称间隙、下划线紧贴其下 */
 .dtop .tt{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:16px;font-weight:600;max-width:196px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .dbody{padding:0 16px 26px}
 .dh1{font-size:20px;font-weight:700;margin-top:16px}
@@ -607,7 +609,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
         <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
         <div class="dtop">
-          <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <span class="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <span class="tt">学校详情</span>
           
         </div>
@@ -1140,7 +1142,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
               </div>
               <div class="cbfade"></div>
             </div>
-            <span class="cbmore">展开详情</span>
+            <span class="cbmore">展开详情<i class="cbcaret"></i></span>
           </div>
         </div>
       </div>
@@ -1152,7 +1154,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           · 点位为<em>真实学校</em>按实际位置落点：小学 4（东风东路小学本部／越秀区育才学校／东风东锦城校区／铁一小学）、初中 1（东风实验学校）、高中 4（育才东／西校区、铁一中学、培正中学）。<br>
           · <em>搜索框与筛选栏为悬浮层</em>，浮在地图之上：白底 96% 透明 + 投影，不占页面版式。<br>
           · 左下角为<em>学校类型图例</em>（小学蓝／初中橙／高中绿／多学段）；同一学校实体含多个学段时合并为<em>一个多学段点位</em>，按所含学段以扇形拼圆：小学+初中=蓝橙各半圆，小学+初中+高中=三色各 1/3 圆（圆心同点）。点击具体学校，<em>底部展示学校详情卡</em>，选中点位放大高亮（加<em>知性蓝外圈光晕</em>）并<em>常显名称气泡</em>。<br>
-          · <em>半窗学校卡（卡体固定高约 365px，即 812 屏的 45%，不随内容压缩；预览区弹性填充剩余空间，内容超出即被渐隐截取）</em>：右上 ✕ 关闭；<em>多学段学校学段 tab 条位于最上方（校名之上，见 06C）</em>、校名 + 行政区／学段／办学性质三标签（学段标签只显示选中 tab 对应学段）；下方<em>直接复用详情长图内容</em>，按半窗高度自动截取可视部分（顶部模块，如「招生计划（2026年）」），底部<em>渐隐遮罩</em>；「展开详情」胶囊<em>叠于渐隐区之上</em>（右下角，不单独占行）；点击／上滑即展开为全屏长图（07 屏）。<br>
+          · <em>半窗学校卡（卡体固定高约 365px，即 812 屏的 45%，不随内容压缩；预览区弹性填充剩余空间，内容超出即被渐隐截取）</em>：右上 ✕ 关闭；<em>多学段学校学段 tab 条位于最上方（校名之上，见 06C）</em>、校名 + 行政区／学段／办学性质三标签（学段标签只显示选中 tab 对应学段）；下方<em>直接复用详情长图内容</em>，按半窗高度自动截取可视部分（顶部模块，如「招生计划（2026年）」），底部<em>渐隐遮罩</em>；「展开详情」<em>实心蓝色高亮胶囊（带向下箭头）</em>叠于渐隐区之上（右下角，不单独占行）；点击／上滑即展开为全屏长图（07 屏）。<br>
           · <em>详情卡为最上层</em>：整层盖住底部区域，<em>底部导航 tab 被遮挡在卡片之下</em>（收起卡片后才露出）。
         </p>
         <div class="ixn">
@@ -1237,7 +1239,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
               </div>
               <div class="cbfade"></div>
             </div>
-            <span class="cbmore">展开详情</span>
+            <span class="cbmore">展开详情<i class="cbcaret"></i></span>
           </div>
         </div>
       </div>
@@ -1318,7 +1320,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
               </div>
               <div class="cbfade"></div>
             </div>
-            <span class="cbmore">展开详情</span>
+            <span class="cbmore">展开详情<i class="cbcaret"></i></span>
           </div>
         </div>
       </div>
@@ -1326,7 +1328,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「06C 地图层 · 多学段半窗卡（tab）」</p>
         <b>多学段半窗卡（视觉规范）</b>
         <p>
-· 半窗学校卡<em>固定高度 45% 屏高</em>（约 365px／812 屏，不随内容压缩；预览区弹性填充剩余空间），单屏可直接看到「高考信息」等顶部模块（与 07E 高中长图首模块一致），底部渐隐 + 「展开详情」。<br>
+· 半窗学校卡<em>固定高度 45% 屏高</em>（约 365px／812 屏，不随内容压缩；预览区弹性填充剩余空间），单屏可直接看到「高考信息」等顶部模块（与 07E 高中长图首模块一致），底部渐隐 + <em>实心蓝色高亮「展开详情」按钮</em>。<br>
 · 多学段学校半窗卡：<em>学段 tab 条位于半窗卡最上方</em>（拖拽 handle 之下、校名之上）——胶囊式 tab，<em>顺序按学段优先级 高中&gt;初中&gt;小学 排列</em>、只显示该校实际所含学段（2–3 枚），<em>tab 左对齐下方文字的左缘、按内容宽度排列（不拉伸占满整行）</em>，左侧学段色点同全屏版（小学蓝／初中橙／高中绿），默认选中主学段；<em>tab 之下才是校名</em>；校名下方三标签中的「学段」标签<em>只展示当前选中 tab 对应的学段</em>（如本示例选中高中 → 标签为 海珠区／高中／公办）。单学段学校不显示 tab 条。<br>
 · <em>点 tab：半窗内校名、标签、预览模块整体刷新为该学段内容</em>（本示例当前为「高中」态：主学段优先级 高中&gt;初中&gt;小学，五中含初中+高中、主学段为高中，故默认选中高中）。<br>
 · <em>卡内各行间距统一 12px</em>：handle → 学段 tab → 校名 → 标签 → 预览区分隔线，与详情页头部节奏一致。<br>
@@ -1351,7 +1353,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       <div class="phone longpage">
           <div class="capsule" style="top:14px"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
         <div class="dtop">
-          <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <span class="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <span class="tt">学校详情</span>
           
         </div>
@@ -1433,7 +1435,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       <div class="phone longpage">
           <div class="capsule" style="top:14px"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
         <div class="dtop">
-          <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <span class="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <span class="tt">学校详情</span>
           
         </div>
@@ -1509,7 +1511,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       <div class="phone longpage">
         <div class="capsule" style="top:14px"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
         <div class="dtop">
-          <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <span class="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <span class="tt">学校详情</span>
           
         </div>
@@ -1548,7 +1550,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       <div class="phone longpage">
           <div class="capsule" style="top:14px"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
         <div class="dtop">
-          <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <span class="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <span class="tt">学校详情</span>
           
         </div>
@@ -1661,7 +1663,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       <div class="phone longpage">
           <div class="capsule" style="top:14px"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
         <div class="dtop">
-          <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <span class="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <span class="tt">祈福英语实验学校</span>
           
         </div>
@@ -1774,7 +1776,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       <div class="phone longpage">
           <div class="capsule" style="top:14px"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
         <div class="dtop">
-          <span class="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <span class="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <span class="tt">学校详情</span>
           
         </div>

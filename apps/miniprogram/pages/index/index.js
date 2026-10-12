@@ -79,8 +79,11 @@ Page({
     // 半窗学段分组选中态
     stagePri: true, stageMid: true, hM: true, hD: true, hN: true,
     centerLat: 23.1150, centerLng: 113.3245, scale: 15,
-    // 学校卡（分包组件）：仅持有最小标识，渲染交给 school-card 组件
+    // 学校卡（分包组件）：仅持有最小标识，渲染交给 school-card 组件。
+    // subReady=详情分包已下载并执行完毕；未就绪点学校 → toast「学校信息加载中」并后台预热，
+    // 就绪后需用户主动再点学校才出真卡（不自动弹，避免用户已滑到别处时突兀弹出）。
     card: null,
+    subReady: false,
     // 筛选结果为空浮层（UI 稿异常态 C）
     filterEmpty: false,
     // 搜索页
@@ -106,6 +109,9 @@ Page({
 
   onLoad() {
     this.initNavMetrics();
+    // 预热分包与页面渲染严格解耦：预热环节任何异常（个别环境缺 wx.loadSubpackage 等）
+    // 都不允许中断 onLoad——否则点位 markers、定位引导弹窗全部不渲染（第二十六轮教训）。
+    try { this.warmSubpackage(); } catch (e) { console.error('[index] warmSubpackage 异常', e); }
     this.setData({
       districts: DISTRICTS.map((d) => ({ name: d.name, adcode: d.adcode })),
       SCHOOL_NATURE_TABS,
@@ -342,6 +348,8 @@ Page({
   onChipTap(e) {
     const dim = e.currentTarget.dataset.dim;
     if (this.data.menu === dim) { this.closeSheet(); return; }
+    // 同一屏幕只允许一个操作窗口：学校卡（半窗/全屏浮层）正打开时，先自动关闭再展开筛选面板
+    if (this.data.card) this.closeCard();
     if (!this.data.menu) this.draft = this.committedState();
     this.setData({ menu: dim });
     this.syncDraftView();
@@ -414,7 +422,9 @@ Page({
 
   /* ---------- 搜索页 ---------- */
   openSearch() {
-    // 从筛选面板点搜索框：先收起面板（菜单保持收起），再开搜索页（PRD 04 §5）
+    // 从筛选面板点搜索框：先收起面板（菜单保持收起），再开搜索页（PRD 04 §5）。
+    // 同一屏幕只允许一个操作窗口：学校卡正打开时先自动关闭，避免与搜索页并存。
+    if (this.data.card) this.closeCard();
     this.setData({ menu: '', searchVisible: true, searchFocus: true, kw: '', assocs: [], history: this.loadHistory() });
     this.setTabBarHidden(true);
   },
@@ -498,9 +508,34 @@ Page({
     return out;
   },
 
+  /* ---------- 详情分包就绪（require.async 预热方案） ---------- */
+  // 就绪 = 分包 JS 已下载并执行（school-card 组件可安全实例化）。
+  // 【关键】小程序运行时没有 wx.loadSubpackage（那是小游戏 API）；
+  // 正确的运行时加载通道是 require.async（分包异步化，基础库 ≥2.17.3）：下载 + 执行 + Promise 回调。
+  // 未就绪点学校：只弹 toast，不渲染半窗；就绪后不自动弹卡，等用户主动再点。
+  // SUB_CARD 指向分包组件入口，require.async 它即执行整个分包 chunk。
+  warmSubpackage() {
+    console.log('[index] warmSubpackage: subReady=', this.data.subReady, 'loading=', !!this._subLoading);
+    if (this.data.subReady || this._subLoading) return;
+    this._subLoading = true;
+    require.async('../../pages/school-detail/components/school-card/index')
+      .then(() => {
+        this._subLoading = false;
+        const a = getApp();
+        if (a && a.globalData) a.globalData.detailSubReady = true;
+        console.log('[index] 分包预热完成（require.async）');
+        this.setData({ subReady: true });
+      })
+      .catch((err) => {
+        this._subLoading = false;
+        console.warn('[index] 分包预热失败，下次点击重试', err && (err.errMsg || err.message) || err);
+      });
+  },
+
   /* ---------- 地图交互 ---------- */
   onMarkerTap(e) {
     const pt = this.visible[e.detail.markerId];
+    console.log('[index] markertap id=', e.detail.markerId, '->', pt ? pt.name : '(无匹配点位!)');
     if (!pt) return;
     this.ignoreNextMapTap = true;
     this.lastMarkerTapAt = Date.now();
@@ -509,9 +544,14 @@ Page({
     this.focusPoint(pt, e.detail.markerId);
   },
   focusPoint(pt, markerId) {
+    console.log('[index] focusPoint ->', pt && pt.name);
     if (!pt) return;
     this.currentPt = pt;
-    this.showCard(pt);
+    try {
+      this.showCard(pt);
+    } catch (err) {
+      console.error('[index] showCard 抛异常:', err && err.stack || err);
+    }
     let id = (markerId === undefined || markerId === null) ? this.visible.indexOf(pt) : markerId;
     // 搜索命中的学校若被当前筛选条件过滤掉 → 恢复默认筛选，保证点位可见且呈选中态
     // （UI 稿 06B「地图自动定位并缩放至结果学校、该点位进入选中态」）
@@ -624,13 +664,29 @@ Page({
   // UI 稿 06 / 06C：学校卡（分包 school-card 组件）浮层。
   // 仅传最小标识（校名 / 实体 id / 初始学段），渲染与半窗↔全屏生长全部在组件内完成；
   // 关联校区跳转通过 bindgoto 在本页原位切换该校（不跳新页面）。
+  // 分包已就绪：直接出真卡。未就绪：只弹「学校信息加载中」toast + 后台预热，
+  // 不挂卡、不暂存；待就绪后由用户主动再点学校才出真卡（不自动弹）。
   showCard(pt) {
     const stages = (pt.stages || []).slice().sort((a, b) => STAGE_PRI[b] - STAGE_PRI[a]); // 学段 tab 顺序：高中>初中>小学
     const main = pt.mainStage || stages[0];
     // 多学段预激活：优先以主学段（高中>初中>小学）进入，组件内会按 availableStages 校正
     const card = { schoolId: pt.school_id || '', name: pt.name, stage: main };
-    this.setData({ card });
-    this.setTabBarHidden(true);
+    // 回查全局哨兵：分包可能已由 app 启动预热 / 组件注入等路径执行完毕，页面数据位尚未同步
+    const app = getApp();
+    if (!this.data.subReady && app && app.globalData && app.globalData.detailSubReady) {
+      this.setData({ subReady: true });
+    }
+    if (this.data.subReady) {
+      // 同一屏幕只允许一个操作窗口：若筛选面板正展开，先收起再挂学校卡（避免两者并存）
+      if (this.data.menu) this.setData({ menu: '' });
+      console.log('[index] showCard: 分包已就绪，直接挂真卡', pt.name);
+      this.setData({ card });
+      this.setTabBarHidden(true);
+    } else {
+      console.log('[index] showCard: 分包未就绪，弹 toast + 后台预热', pt.name);
+      wx.showToast({ title: '学校信息加载中', icon: 'none', duration: 2000 });
+      this.warmSubpackage();
+    }
   },
   // 关联校区链接：在地图页原位打开目标学校（组件 emit 'goto'）
   onCardGoto(e) {
@@ -653,7 +709,8 @@ Page({
     const det = e.detail || {};
     const causedBy = det.causedBy;
     const byUser = causedBy === 'drag' || causedBy === 'scale' || causedBy === 'gesture';
-    if (e.type === 'begin' && byUser && this.data.card) this.closeCard();
+    // 注：卡片打开时不再因地图被拖动而关闭——地图在卡片外可正常平移（见学校卡 .sgrabzone 手势兜底），
+    // 仅「用户手动拖动／缩放结束」回写中心点，使地图停在用户平移后的位置。
     // 只有「用户手动拖动／缩放结束」才回写中心点。
     // 程序化相机（includePoints / scale 变更）引起的 regionchange 若也回写，
     // 会与地图自身动画互相触发，导致地图持续抖动、来回切换到不同位置。

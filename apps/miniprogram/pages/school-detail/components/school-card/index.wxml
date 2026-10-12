@@ -1,16 +1,23 @@
 <!-- 学校卡（半窗 / 全屏 单层级，原位生长；context=overlay 浮于地图，context=page 整屏宿主） -->
+<!-- 根容器一律 bind 不用 catch：catch 在祖先容器上会吞掉子节点的手势（真机实测：scroll-view 滚不动、tap 失效）。
+     半窗态手势隔离由 .halfbody 的 catch 承担；全屏态卡片盖住整屏、地图是兄弟节点收不到冒泡，无需 catch。 -->
 <view class="scard {{context}} {{mode}} {{dragging ? 'dragging' : ''}}" style="{{rootStyle}}"
-      bindtouchstart="cardTouchStart" bindtouchmove="cardTouchMove" bindtouchend="cardTouchEnd">
+      bindtouchstart="cardTouchStart" bindtouchend="cardTouchEnd">
 
-  <!-- 全屏态顶栏：返回 + 标题（滚动后切换为校名，单行省略号）；半窗态不显示 -->
-  <view wx:if="{{mode === 'full'}}" class="stop" style="padding-top:{{statusBarHeight}}px">
-    <view class="sback" bindtap="onBack">‹</view>
-    <view class="stt">{{topTitle}}</view>
-  </view>
-
-  <!-- 半窗态：grabber + 关闭按钮（仅 overlay 浮层有 ✕） -->
-  <view wx:if="{{mode === 'half' && context === 'overlay'}}" class="sgrab" bindtap="expand"></view>
+  <!-- 半窗态关闭按钮（仅 overlay 浮层有 ✕）；绝对定位于卡片右上角 -->
   <view wx:if="{{mode === 'half' && context === 'overlay'}}" class="sclose" catchtap="onClose">×</view>
+
+  <!-- 全屏态顶栏：返回 + 标题（滚动后切换为校名）；半窗态不显示。
+       严格按 UI 稿 07 .dtop：状态栏占位 + 64px 内容行（上下 14px 内边距 + 36px 返回按钮），
+       border-bottom 1px #E3E8F0（--line）紧贴内容行下沿；标题绝对居中、max-width 196px 超长省略。 -->
+  <!-- 全屏态顶栏：返回 + 标题（滚动后切换为校名）；半窗态不显示。
+       与右侧小程序胶囊对齐：capTop/capH 来自 wx.getMenuButtonBoundingClientRect() 实测，
+       标题与胶囊垂直同中心；返回按钮(36px)底边与胶囊底边对齐 → 返回按钮→下划线 与 胶囊→下划线 间隔一致；
+       .stop 总高 = 胶囊底 + 对称间隙，下划线紧贴其下。 -->
+  <view wx:if="{{mode === 'full'}}" class="stop" style="height:{{dtopH}}px">
+    <view class="sback" style="top:{{sbackTop}}px" bindtap="onBack">‹</view>
+    <view class="stt" style="top:{{capTop}}px;height:{{capH}}px;line-height:{{capH}}px">{{topTitle}}</view>
+  </view>
 
   <!-- 多学段 tab 条（高中>初中>小学；只显示实际所含学段） -->
   <view wx:if="{{tabs.length > 1}}" class="stagebar">
@@ -19,23 +26,29 @@
     </view>
   </view>
 
-  <!-- 半窗：内容裁剪 + 底部渐隐；全屏：scroll-view 滚动 -->
-  <view wx:if="{{mode === 'half'}}" class="sclip">
-    <template is="detailContent" data="{{activeStage, primary, middle, high, brand, tags, name}}" />
-    <view class="sfade"></view>
+  <!-- 半窗：内容裁剪 + 底部渐隐；整段包在 .halfbody 上（catch 三兄弟驱动跟手展开 + 阻止事件外传）。
+       全屏：scroll-view 滚动（祖先链上无任何 catch，滚动自由）。 -->
+  <view wx:if="{{mode === 'half'}}" class="halfbody" catchtouchstart="cardTouchStart" catchtouchmove="cardTouchMove" catchtouchend="cardTouchEnd">
+    <!-- 透明手势兜底区：覆盖卡片顶缘上方 ~56px，吞掉"擦着卡片上沿起手"的滑动，避免误传原生地图 -->
+    <view class="sgrabzone"></view>
+    <view class="sgrab" mark:act="expand" bindtap="expand"></view>
+    <view class="sclip">
+      <template is="detailContent" data="{{activeStage, primary, middle, high, brand, tags, name}}" />
+      <view class="sfade"></view>
+    </view>
+    <view class="smore" mark:act="expand" catchtap="expand">展开详情<view class="smore-caret"></view></view>
   </view>
-  <scroll-view wx:else class="sscroll" scroll-y bindscroll="onBodyScroll">
-    <template is="detailContent" data="{{activeStage, primary, middle, high, brand, tags, name}}" />
-    <view class="pad-bottom"></view>
-  </scroll-view>
-
-  <!-- 半窗「展开详情」胶囊（叠于渐隐区之上） -->
-  <view wx:if="{{mode === 'half'}}" class="smore" catchtap="expand">展开详情</view>
+  <view wx:else class="sfullwrap">
+    <scroll-view class="sscroll" scroll-y bindscroll="onBodyScroll">
+      <template is="detailContent" data="{{activeStage, primary, middle, high, brand, tags, name}}" />
+      <view class="pad-bottom"></view>
+    </scroll-view>
+  </view>
 </view>
 
 <!-- 详情内容（半窗裁剪 / 全屏滚动 共用同一份，保证生长时内容无缝衔接） -->
 <template name="detailContent">
-  <view class="dh1" bindtap="expand">{{name}}</view>
+  <view class="dh1" mark:act="expand" bindtap="expand">{{name}}</view>
   <view class="dtags">
     <view wx:for="{{tags}}" wx:key="cls" class="tag m tag-{{item.cls}}">{{item.text}}</view>
   </view>
@@ -213,7 +226,6 @@
     <block wx:else>
       <view class="grp-t">所属集团</view>
       <view class="grpbox"><view class="grp-row">{{brand.group}}</view></view>
-      <view wx:if="{{brand.pubNote}}" class="pubbox">{{brand.pubNote}}</view>
       <view wx:if="{{brand.core.length}}" class="grp-t">集团核心校</view>
       <view wx:if="{{brand.core.length}}" class="grpbox">
         <view wx:for="{{brand.core}}" wx:key="name" wx:for-item="r" class="grp-row">
@@ -233,6 +245,5 @@
         </view>
       </view>
     </block>
-    <view class="dnote">集团归属与成员校信息以教育局公示文件为准；点击学校名可在地图中定位到该学校。</view>
   </view>
 </template>

@@ -14,31 +14,38 @@
   padding-bottom: calc(env(safe-area-inset-bottom) + 12rpx);
 }
 .scard.overlay.dragging { transition: none; }       /* 跟手：关过渡 */
-.scard.overlay.full { border-radius: 0; }
+/* 全屏态：top:0 + height:100% 严格贴合 webview 视口（statusBar 下沿→页面底），
+   不再依赖 bottom:0 + height:winH（winH 计算偏差会让顶栏伸出屏幕）。顶栏 .stop 高度见下方 07 规格。 */
+.scard.overlay.full { top: 0; height: 100%; border-radius: 0; padding-bottom: 0; }
+/* 半窗态内容容器：包住 grabber / 内容 / 展开胶囊，单独承载 catchtouchmove（驱动跟手展开 +
+   阻止透给原生 map），且不作为全屏 scroll-view 的祖先（否则拦截其滚动）。 */
+.halfbody { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; }
 /* page：详情页整屏宿主，始终全屏 */
 .scard.page {
   position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 1;
   height: 100%;
 }
 
-/* ===== 全屏态顶栏（返回 + 标题） ===== */
+/* ===== 全屏态顶栏（返回 + 标题）—— 严格按 UI 稿 07 .dtop ===== */
+/* .stop = 状态栏占位 + 64px 内容行（上下 14px + 36px 按钮）；border-bottom 紧贴内容行下沿 */
 .stop {
-  flex: none; display: flex; align-items: center; gap: 10px;
-  padding: 0 98px 0 16px;
-  border-bottom: 1px solid #E3E8F0; background: #fff;
+  position: relative; flex: none;
+  background: #fff; border-bottom: 1px solid #E3E8F0;
 }
+/* 返回按钮：36px 圆（UI 稿尺寸）；底边与胶囊底边对齐（行内 top 给出）。箭头放大到 30px + 加粗，更醒目 */
 .sback {
-  width: 36px; height: 36px; border-radius: 50%;
+  position: absolute; left: 16px; width: 36px; height: 36px; border-radius: 50%;
   background: #F5F7FB; border: 1px solid #E3E8F0;
   display: flex; align-items: center; justify-content: center;
-  color: #33405C; flex: none; font-size: 24px; line-height: 1; margin-top: 14px; margin-bottom: 14px;
+  color: #33405C; font-size: 30px; font-weight: 700; line-height: 1;
 }
-/* 标题绝对居中：flex 居中会因右侧 98px 胶囊避让 padding 偏左 */
+/* 标题：绝对居中（UI 稿 .tt：left:50% 平移居中、max-width 196px、单行省略），
+   top/height/line-height 由行内样式按胶囊实测坐标给出（与胶囊垂直同中心），此处为兜底值 */
 .stt {
-  position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+  position: absolute; left: 50%; transform: translateX(-50%); max-width: 196px;
+  height: 32px; line-height: 32px; text-align: center;
   font-size: 16px; font-weight: 600; color: #10182B;
-  max-width: 196px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  margin-top: 20px; /* 避让状态栏（stop 已含 padding-top） */
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 
 /* ===== 半窗态 grabber + 关闭 ===== */
@@ -49,6 +56,11 @@
 .sclose {
   position: absolute; top: 14rpx; right: 22rpx; width: 56rpx; height: 56rpx; line-height: 52rpx; text-align: center;
   border-radius: 50%; background: #F2F4F8; color: #5A647C; font-size: 40rpx; font-weight: 600; z-index: 3;
+}
+/* 透明手势兜底区：卡片顶缘上方 ~56px（仅 overlay 半窗态），扩张卡片自身的手势接管范围，
+   防止"擦着卡片上沿起手"的滑动漏给原生地图导致地图平移；无背景故不显白条、不挡地图。 */
+.sgrabzone {
+  position: absolute; left: 0; right: 0; top: -56px; height: 56px;
 }
 
 /* ===== 多学段 tab 条 ===== */
@@ -69,16 +81,26 @@
 
 /* ===== 内容区 ===== */
 .sclip { position: relative; flex: 1; min-height: 0; overflow: hidden; padding: 0 32rpx; }
-.sscroll { flex: 1; min-height: 0; padding: 4rpx 32rpx 0; box-sizing: border-box; }
+/* 全屏滚动容器：scroll-view 绝对铺满 → 高度为像素级确定，
+   不依赖 flex/百分比推导（scroll-view 高度不确定时真机会直接不滚） */
+.sfullwrap { position: relative; flex: 1; min-height: 0; }
+.sscroll { position: absolute; left: 0; right: 0; top: 0; bottom: 0; padding: 4rpx 32rpx 0; box-sizing: border-box; }
 .sfade {
   position: absolute; left: 0; right: 0; bottom: 0; height: 120rpx;
   background: linear-gradient(to bottom, rgba(255,255,255,0), #fff 80%); pointer-events: none;
 }
+/* 展开详情：实心蓝色高亮胶囊（右下角，叠于渐隐区之上），带向下箭头，投影突出 */
 .smore {
-  position: absolute; right: 24rpx; bottom: calc(env(safe-area-inset-bottom) + 20rpx); z-index: 4;
-  height: 68rpx; padding: 0 32rpx; border-radius: 999px;
-  background: #F2F6FE; color: #254BAE; font-size: 26rpx; font-weight: 600;
-  display: flex; align-items: center; border: 1rpx solid #E2EBFB;
+  position: absolute; right: 24rpx; bottom: calc(env(safe-area-inset-bottom) + 24rpx); z-index: 5;
+  height: 76rpx; padding: 0 36rpx; border-radius: 999px;
+  background: #2F5CD6; color: #fff; font-size: 28rpx; font-weight: 700;
+  display: flex; align-items: center; gap: 10rpx;
+  box-shadow: 0 8rpx 22rpx rgba(47,92,214,.34);
+}
+.smore-caret {
+  width: 0; height: 0; margin-top: 4rpx;
+  border-left: 10rpx solid transparent; border-right: 10rpx solid transparent;
+  border-top: 12rpx solid #fff;
 }
 .pad-bottom { height: calc(env(safe-area-inset-bottom) + 24px); }
 
@@ -108,7 +130,6 @@
 
 .dnote { font-size: 22rpx; color: #8B96AD; background: #F5F7FB; border-radius: 16rpx; padding: 16rpx 20rpx; margin-top: 16rpx; line-height: 1.6; }
 
-.pubbox { border: 1rpx dashed #E3E8F0; border-radius: 20rpx; padding: 16rpx 24rpx; font-size: 24rpx; color: #64708C; margin: 16rpx 0 0; }
 .grp-t { font-size: 26rpx; font-weight: 700; color: #33405C; margin: 28rpx 0 14rpx; }
 .grpbox { background: #FAFBFC; border: 1rpx solid #EFF2F7; border-radius: 20rpx; padding: 16rpx 24rpx 20rpx; }
 .grp-l { font-size: 26rpx; font-weight: 600; color: #64708C; margin: 12rpx 0 4rpx; }

@@ -9,26 +9,57 @@
  *
  * 用法：首页（地图）以 wx:if 挂载（context="overlay"），详情页以整屏挂载（context="page"）。
  */
-const { shared, baseLoaders } = require('../../../../utils/data.js');
-const { hydrate, createRepository, buildDetailModel, buildLinkageModel } = shared;
-
 const cast = (v) => v;
-/** 全量 loaders：主包 baseLoaders（含 POI / 实体 / 招生等地图数据）+ 本分包详情数据（linkage / 品牌 / 教育集团 / 初中 2026 招生） */
-const middleEnroll2026 = cast(hydrate(require('../../data/middle/enrollment/dist/middle_enrollment_2026.js')));
-const loaders = {
-  ...baseLoaders,
-  quotaMatrix: cast(hydrate(require('../../data/linkage/quota_matrix.js'))),
-  specialMatrix: cast(hydrate(require('../../data/linkage/special_matrix.js'))),
-  batch2Scores: cast(hydrate(require('../../data/linkage/batch2_scores.js'))),
-  districtQuota: cast(hydrate(require('../../data/linkage/district_quota.js'))),
-  brandGroups: cast(hydrate(require('../../data/registry/group/src/brand_groups.js'))),
-  educationGroups: cast(hydrate(require('../../data/registry/group/dist/education_groups.js'))),
-  // 初中 2026 招生计划（dist 合并一份：{districts,groups,mechanisms}）
-  middleEnrollments: Object.values(middleEnroll2026.districts),
-  middleEnrollmentMechanisms: middleEnroll2026.mechanisms,
-  middleEnrollmentGroups: middleEnroll2026.groups,
-};
-const repository = createRepository(loaders);
+
+// 分包内详情数据（同包，安全 require）；仅声明原始紧凑模块，hydrate 延后到运行时取主包 shared。
+// ⚠️ 严禁在此 require 主包模块（utils/data.js / shared）：分包组件跨包 require 主包会在
+// componentPlaceholder 异步单组件注入路径下报 i.functions 崩溃；改为由 app.js 注入 globalData 读取。
+const rawMiddleEnroll2026 = require('../../data/middle/enrollment/dist/middle_enrollment_2026.js');
+const rawQuotaMatrix = require('../../data/linkage/quota_matrix.js');
+const rawSpecialMatrix = require('../../data/linkage/special_matrix.js');
+const rawBatch2Scores = require('../../data/linkage/batch2_scores.js');
+const rawDistrictQuota = require('../../data/linkage/district_quota.js');
+const rawBrandGroups = require('../../data/registry/group/src/brand_groups.js');
+const rawEducationGroups = require('../../data/registry/group/dist/education_groups.js');
+
+// 就绪哨兵：本模块（分包代码）一旦被执行，立即向 globalData 标记「详情分包已就绪」，
+// 供主包地图页同步查询（wx.loadSubpackage 预热 / componentPlaceholder 注入 / 详情页加载，
+// 任一路径执行到分包代码都会经过这里），页面据此把 subReady 置真、点学校直接出真卡。
+try {
+  const g = (typeof getApp === 'function') ? getApp() : null;
+  if (g && g.globalData) g.globalData.detailSubReady = true;
+} catch (e) { /* 极端场景（如独立分包环境）忽略 */ }
+
+// 主包 shared（函数）/ baseLoaders（数据）由 app.js 启动时注入 globalData，运行时读取，避免跨包 require。
+let _ctx = null;
+function ctx() {
+  if (_ctx && _ctx.repository) return _ctx;
+  const g = (typeof getApp === 'function') ? getApp() : null;
+  const shared = g && g.globalData && g.globalData.shared;
+  const baseLoaders = g && g.globalData && g.globalData.baseLoaders;
+  if (!shared || !baseLoaders) {
+    throw new Error('school-card: 主包数据未就绪（globalData.shared / baseLoaders 缺失）');
+  }
+  const { hydrate, createRepository } = shared;
+  const middleEnroll2026 = cast(hydrate(rawMiddleEnroll2026));
+  const loaders = {
+    ...baseLoaders,
+    quotaMatrix: cast(hydrate(rawQuotaMatrix)),
+    specialMatrix: cast(hydrate(rawSpecialMatrix)),
+    batch2Scores: cast(hydrate(rawBatch2Scores)),
+    districtQuota: cast(hydrate(rawDistrictQuota)),
+    brandGroups: cast(hydrate(rawBrandGroups)),
+    educationGroups: cast(hydrate(rawEducationGroups)),
+    middleEnrollments: Object.values(middleEnroll2026.districts),
+    middleEnrollmentMechanisms: middleEnroll2026.mechanisms,
+    middleEnrollmentGroups: middleEnroll2026.groups,
+  };
+  _ctx = { shared, baseLoaders, loaders, repository: createRepository(loaders) };
+  return _ctx;
+}
+// 与上方 ctx() 配套：延迟取主包 shared 的构建函数，避免模块顶层跨包 require。
+function buildDetailModel(...args) { return ctx().shared.buildDetailModel(...args); }
+function buildLinkageModel(...args) { return ctx().shared.buildLinkageModel(...args); }
 
 const STAGE_SHORT = { primary: '小学', middle: '初中', high: '高中' };
 const STAGE_ORDER = { high: 0, middle: 1, primary: 2 };
@@ -76,7 +107,10 @@ Component({
     topTitle: '学校详情',
     scrollTop: 0,
     statusBarHeight: 20,
-    dtopH: 84,
+    capTop: 26,
+    capH: 32,
+    sbackTop: 24,
+    dtopH: 64,
     winH: 812,
     cardH: 365,
     cardDrag: 0,
@@ -88,18 +122,32 @@ Component({
   },
   lifetimes: {
     attached() {
+      console.log('[school-card] attached, name=', this.properties.name, 'context=', this.properties.context);
       this._metrics();
       this._init();
     },
   },
   methods: {
-    /* ---------- 度量：状态栏 / 屏高 / 半窗高度 ---------- */
+    /* ---------- 度量：状态栏 / 屏高 / 半窗高度 / 顶栏对齐胶囊 ---------- */
     _metrics() {
       try {
         const win = (typeof wx.getWindowInfo === 'function') ? wx.getWindowInfo() : wx.getSystemInfoSync();
         const sb = win.statusBarHeight || 20;
         const wh = win.windowHeight || 812;
-        this.setData({ statusBarHeight: sb, dtopH: sb + 64, winH: wh, cardH: Math.round(wh * 0.45) });
+        // 顶栏与右侧胶囊对齐：拿胶囊实测坐标（top/height），内容行 = 胶囊上下各留 (capsule.top - statusBar) 的对称间距，
+        // 返回按钮/标题与胶囊垂直居中。胶囊 API 不可用时退化为「sb + 6 / 32px」的通用近似值。
+        let capTop = sb + 6, capH = 32;
+        try {
+          if (typeof wx.getMenuButtonBoundingClientRect === 'function') {
+            const rect = wx.getMenuButtonBoundingClientRect();
+            if (rect && rect.height > 0 && rect.top >= sb) { capTop = rect.top; capH = rect.height; }
+          }
+        } catch (e2) { /* 用近似值 */ }
+        const gap = Math.max(capTop - sb, 4);            // 胶囊距状态栏的间隙（对称用于下划线之下）
+        const dtopH = capTop + capH + gap;               // 顶栏总高 = 状态栏 + 胶囊行 + 对称间隙，下划线紧贴其下
+        // 返回按钮底边与胶囊底边对齐：返回按钮→下划线 与 胶囊→下划线 间隔一致（用户要求两侧间隔对齐）
+        const sbackTop = capTop + capH - 36;
+        this.setData({ statusBarHeight: sb, capTop, capH, sbackTop, dtopH, winH: wh, cardH: Math.round(wh * 0.45) });
       } catch (e) { /* 保底默认值 */ }
       this.updateStyle();
     },
@@ -107,7 +155,7 @@ Component({
     updateStyle() {
       let h;
       if (this.properties.context === 'page') h = '100%';
-      else if (this.data.mode === 'full') h = this.data.winH + 'px';
+      else if (this.data.mode === 'full') h = '100%'; // overlay.full：配合 .scard.overlay.full 的 top:0 覆盖整个 webview
       else h = (this.data.dragging ? this.data.cardH + this.data.cardDrag : this.data.cardH) + 'px';
       this.setData({ rootStyle: 'height:' + h + ';' });
     },
@@ -117,24 +165,30 @@ Component({
       const id = this.properties.schoolId;
       const stageParam = this.properties.stage;
       if (!name) return;
-      const probe = buildDetailModel('primary', name, repository, id);
-      const stages = probe.availableStages;
-      let active = 'primary';
-      if (stages.length) {
-        if (stageParam && stages.indexOf(stageParam) > -1) active = stageParam;
-        else active = stages[0];
+      // 数据链路兜底：真机一旦抛错（globalData 未注入 / 数据模块异常），给出可见提示而非渲染一张空卡
+      try {
+        const probe = buildDetailModel('primary', name, ctx().repository, id);
+        const stages = probe.availableStages;
+        let active = 'primary';
+        if (stages.length) {
+          if (stageParam && stages.indexOf(stageParam) > -1) active = stageParam;
+          else active = stages[0];
+        }
+        this.applyStage(active);
+        this.setData({ mode: this.properties.context === 'page' ? 'full' : 'half', cardDrag: 0, dragging: false, topTitle: '学校详情', scrollTop: 0 });
+        this.updateStyle();
+      } catch (e) {
+        console.error('[school-card] 初始化失败:', e);
+        wx.showToast({ title: '学校信息加载失败，请重试', icon: 'none', duration: 2500 });
       }
-      this.applyStage(active);
-      this.setData({ mode: this.properties.context === 'page' ? 'full' : 'half', cardDrag: 0, dragging: false, topTitle: '学校详情', scrollTop: 0 });
-      this.updateStyle();
     },
     /* ---------- 切换学段：重建视图 ---------- */
     applyStage(stage) {
       const name = this.properties.name;
       const id = this.properties.schoolId;
-      const model = buildDetailModel(stage, name, repository, id);
+      const model = buildDetailModel(stage, name, ctx().repository, id);
       const rawLinkage = (stage === 'middle' || stage === 'high')
-        ? buildLinkageModel(stage, name, repository, id || null)
+        ? buildLinkageModel(stage, name, ctx().repository, id || null)
         : null;
       const tabs = sortStages(model.availableStages).map((s) => ({ stage: s, label: STAGE_SHORT[s], on: s === stage }));
       const tags = [
@@ -182,8 +236,8 @@ Component({
 
     /* ---------- 初中（07B / 07D） ---------- */
     buildMiddleView(model, linkage) {
-      const matches = repository.middleEnrollmentsOf(this.properties.schoolId) || [];
-      const groups = loaders.middleEnrollmentGroups || {};
+      const matches = ctx().repository.middleEnrollmentsOf(this.properties.schoolId) || [];
+      const groups = ctx().loaders.middleEnrollmentGroups || {};
       const plans = matches.map((mt) => {
         const rec = mt.record;
         const def = mt.mechanismDef;
@@ -252,18 +306,19 @@ Component({
 
     /* ---------- 关联校区（07 / 07B / 07E / 07F）：所属集团 / 集团核心校 / 集团成员校（不区分法人维度） ---------- */
     buildBrandView(model) {
+      // 当前查看的学校排在其所属模块（集团核心校 / 集团成员校）首位
+      const sortCurrentFirst = (arr) => arr.slice().sort((a, b) => (b.isCurrent ? 1 : 0) - (a.isCurrent ? 1 : 0));
       const toRow = (r) => ({ name: r.name, isCurrent: !!r.isCurrent, stages: (r.stages || []).map((s) => ({ text: s })), to: r.link || null });
       if (model.brandCardUseful && model.brandCard) {
         const bc = model.brandCard;
         const rows = bc.groups.reduce((acc, g) => acc.concat(g.rows), []);
-        const core = rows.filter((r) => r.legal === 'same' && r.role === '核心校').map(toRow);
-        const member = rows.filter((r) => !(r.legal === 'same' && r.role === '核心校')).map(toRow);
-        const pubNote = bc.note || (bc.sourceUrls && bc.sourceUrls.length ? `公示文件说明：${bc.sourceUrls.join('、')}` : '');
-        return { group: bc.brand, pubNote, core, member, multi: null };
+        const core = sortCurrentFirst(rows.filter((r) => r.legal === 'same' && r.role === '核心校').map(toRow));
+        const member = sortCurrentFirst(rows.filter((r) => !(r.legal === 'same' && r.role === '核心校')).map(toRow));
+        return { group: bc.brand, core, member, multi: null };
       }
       if (model.multiCampusCardUseful && model.multiCampusCard) {
-        const rows = model.multiCampusCard.groups.reduce((acc, g) => acc.concat(g.rows), []).map(toRow);
-        return { group: '', pubNote: '', core: null, member: null, multi: rows };
+        const rows = sortCurrentFirst(model.multiCampusCard.groups.reduce((acc, g) => acc.concat(g.rows), []).map(toRow));
+        return { group: '', core: null, member: null, multi: rows };
       }
       return null;
     },
@@ -310,6 +365,9 @@ Component({
     cardTouchStart(e) {
       const t = e.touches && e.touches[0];
       if (!t) return;
+      // 记录起手元素是否落在「展开」类触点（grabber / 校名 / 展开按钮）；
+      // 用 mark 透传，避免依赖 tap 事件（catchtouch 父容器内轻点常因微小位移被吞、tap 不触发）。
+      this._act = (e.mark && e.mark.act) || '';
       if (this.data.mode === 'full') {
         // 全屏态：仅记录坐标，用于「从左往右滑返回半窗」判定（不拦截 scroll-view 滚动）
         this._sx = t.clientX; this._sy = t.clientY;
@@ -336,20 +394,24 @@ Component({
           const dy = t.clientY - this._sy;
           if (dx > 60 && dx > Math.abs(dy) * 1.5) this.onBack();
         }
-        this._sx = null; this._sy = null;
+        this._sx = null; this._sy = null; this._act = '';
         return;
       }
-      if (this._sy == null) return;
+      if (this._sy == null) { this._act = ''; return; }
       const t = e.changedTouches && e.changedTouches[0];
       const startY = this._sy;
       this._sy = null;
-      if (!t) { if (this.data.dragging) this.setData({ dragging: false, cardDrag: 0 }); this.updateStyle(); return; }
+      if (!t) { if (this.data.dragging) this.setData({ dragging: false, cardDrag: 0 }); this.updateStyle(); this._act = ''; return; }
       const dy = startY - t.clientY;
+      const moved = Math.abs(dy);
       const v = (t.clientY - this._ly) / Math.max(1, Date.now() - this._lt);
       const span = this.data.winH - this.data.cardH;
-      if (dy > span * 0.28 || (dy > 60 && v < -0.5)) this.expand();
-      else if (this.data.dragging || this.data.cardDrag) this.setData({ dragging: false, cardDrag: 0 });
+      if (dy > span * 0.28 || (dy > 60 && v < -0.5)) { this.expand(); this._act = ''; return; }
+      if (this.data.dragging || this.data.cardDrag) this.setData({ dragging: false, cardDrag: 0 });
+      // 轻点「展开」类触点（位移很小）→ 兜底触发展开；真机上 tap 在 catchtouch 父容器内常被吞，故此处补一手
+      if (moved < 16 && this._act === 'expand') this.expand();
       this.updateStyle();
+      this._act = '';
     },
   },
 });
