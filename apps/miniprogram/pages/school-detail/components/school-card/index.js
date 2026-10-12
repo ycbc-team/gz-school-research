@@ -231,6 +231,10 @@ Component({
         schools: schoolsOf(g),
       }));
       const routes = { groups, note: model.feedGap || (model.feedJuniors && model.feedJuniors.source_note) || '' };
+      // 升学路线空状态：无任何可跳转学校名时，按办学性质给统一文案
+      // （民办 → 不参与公办电脑派位；公办无数据 → 暂无数据）
+      const hasLink = groups.some((g) => (g.schools || []).some((s) => s.to));
+      routes.empty = hasLink ? '' : (model.nature === '民办' ? '不参与公办电脑派位' : '暂无数据');
       return { plan, routes };
     },
 

@@ -68,15 +68,18 @@
     </view>
     <view class="dmod">
       <view class="dmod-h"><view class="dmod-h-t">升学路线参考（2026年）</view></view>
-      <view wx:for="{{primary.routes.groups}}" wx:key="n" wx:for-item="g" class="route-block">
-        <view class="route-h"><text class="rh-n">{{g.n ? '招生方式'+g.n : '招生方式'}}</text><text class="tag m tag-mech">{{g.label}}</text></view>
-        <view class="grpbox">
-          <view wx:for="{{g.schools}}" wx:key="name" wx:for-item="r" class="route">
-            <text class="lk" data-to="{{r.to}}" bindtap="goSchool">{{r.name}}</text>
+      <block wx:if="{{primary.routes.groups.length}}">
+        <view wx:for="{{primary.routes.groups}}" wx:key="n" wx:for-item="g" class="route-block">
+          <view class="route-h"><text class="rh-n">{{g.n ? '招生方式'+g.n : '招生方式'}}</text><text class="tag m tag-mech">{{g.label}}</text></view>
+          <view class="grpbox">
+            <view wx:for="{{g.schools}}" wx:key="name" wx:for-item="r" class="route">
+              <text class="lk" data-to="{{r.to}}" bindtap="goSchool">{{r.name}}</text>
+            </view>
           </view>
         </view>
-      </view>
-      <view wx:if="{{primary.routes.note}}" class="dnote">{{primary.routes.note}}</view>
+        <view wx:if="{{primary.routes.note}}" class="dnote">{{primary.routes.note}}</view>
+      </block>
+      <view wx:else class="dnote">{{primary.routes.empty}}</view>
     </view>
   </block>
 
