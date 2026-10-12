@@ -94,6 +94,11 @@ test('全量：所有小学 mechanisms 合法、有序、有 label；dist group 
       assert.ok(legal.has(k), `非法机制枚举 ${k}（${p.name}）`);
       assert.ok(XS_MECH_LABELS[k], `缺少 label ${k}（${p.name}）`);
     }
+    // 渲染路径（routeGroups 实际用于页面 招生方式 badge）标签必须与初中文案一致，
+    // 不得回退为原始机制 key（曾因 quota.ts 本地 XS_MECH_LABELS 漏 single_chouqian 漏出 raw key）
+    for (const g of m.routeGroups || []) {
+      assert.equal(g.label, XS_MECH_LABELS[g.mechanism], `routeGroups 标签应与初中对齐（${p.name}: ${g.mechanism}）`);
+    }
     // 顺序对齐初中 MECH_ORDER
     const sorted = MECH_ORDER.filter((m) => mechs.includes(m));
     assert.deepEqual(mechs, sorted, `机制顺序应对齐初中 MECH_ORDER（${p.name}: ${mechs}）`);

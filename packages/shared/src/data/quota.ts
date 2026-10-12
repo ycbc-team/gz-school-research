@@ -254,6 +254,7 @@ export function createQuotaApi(loaders: DataLoaders) {
     single_zone: '单校划片',
     group_paidui: '多校电脑派位',
     single_paidui: '电脑派位',
+    single_chouqian: '电脑抽签',  // 与初中 DEFAULT_DEFS / detail/model.ts 同值；番禺报名+超计划电脑抽签录取
     min_zi_zhu: '自主招生',
   };
   const XS_MECH_PRIORITY: Record<string, number> = {
