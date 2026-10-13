@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>广州中心7区 · 区属高中出口矩阵 v9（仅正规来源）</title>
+<style>
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; margin: 20px; background: #fafafa; color: #222; }
+  h1 { font-size: 20px; margin-bottom: 4px; }
+  .meta { color: #666; font-size: 13px; margin-bottom: 16px; line-height: 1.7; }
+  .meta b { color: #c0392b; }
+  .toolbar { margin-bottom: 12px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .toolbar input { padding: 6px 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; width: 240px; }
+  .legend { font-size: 12px; color: #666; }
+  table { border-collapse: collapse; width: 100%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); font-size: 12px; }
+  th, td { border: 1px solid #e0e0e0; padding: 6px 7px; text-align: center; vertical-align: middle; }
+  th { background: #f5f5f5; font-weight: 600; position: sticky; top: 0; cursor: pointer; font-size: 11.5px; }
+  th:hover { background: #e8e8e8; }
+  td.name { text-align: left; font-weight: 500; }
+  td.district { color: #666; font-size: 12px; writing-mode: vertical-lr; text-orientation: upright; letter-spacing: 2px; }
+  .star { color: #e67e22; font-weight: bold; }
+  .na { color: #bbb; font-size: 11px; }
+  .cell-good { background: #d9f7be; font-weight: 600; }
+  .cell-mid { background: #fff7e6; }
+  .cell-bad { background: #fff1f0; }
+  .src { font-size: 10px; color: #999; font-weight: normal; }
+  .tag { display: inline-block; padding: 1px 5px; border-radius: 3px; font-size: 10px; margin-right: 2px; }
+  .tag-official { background: #f6ffed; color: #52c41a; }
+  .tag-media { background: #f0f5ff; color: #2f54eb; }
+  .tag-excluded { background: #f0f0f0; color: #999; }
+  tr.head-row { background: #fffbe6; }
+  tr:hover { background: #f9f9f9; }
+  .note { margin-top: 20px; padding: 14px; background: #fffbe6; border-left: 4px solid #faad14; font-size: 13px; line-height: 1.7; }
+  .note h3 { margin-top: 0; font-size: 14px; }
+  .note ul { margin: 6px 0; padding-left: 20px; }
+  .warn { background: #fff1f0; border-left-color: #ff4d4f; }
+</style>
+</head>
+<body>
+
+<h1>广州中心 7 区 · 区属高中出口矩阵 <span style="font-size:13px;color:#999">v9 · 2026-10-13 · 仅校方官方 + 正规媒体</span></h1>
+<div class="meta">
+  <b>数据纪律（按你的要求）</b>：只采用 <span class="tag tag-official">校方官方</span>（官网/招办公文/官方公众号）和 <span class="tag tag-media">正规媒体</span>（广州日报/南方+/新快报/信息时报/羊城晚报/区政府通稿）。
+  <span class="tag tag-excluded">网传</span> = 抖音/头条家长号/搜狐软文来源，<b>一律剔除不采信</b>。
+  <br>⭐ = 每区头部前 2（按 2026 中考户籍分）。<b>⚠️ 重要：2025 届各校特控率等喜报数字正规渠道缺失，本表不填；有官方/媒体来源的 2026 届数据另行标注。</b>
+</div>
+
+<div class="toolbar">
+  <input type="text" id="search" placeholder="搜索学校名 / 区 / 关键词…" onkeyup="filterTable()">
+  <span class="legend">绿 = 有强信号；黄 = 半定量/区间；灰 = 无正规来源</span>
+</div>
+
+<table id="mainTable">
+<thead>
+<tr>
+  <th>区</th>
+  <th>学校</th>
+  <th>2026中考<br>户籍分</th>
+  <th>2026届 官方/媒体披露</th>
+  <th>2025届 综评出口<br><span class="src">华工综评(媒体)</span></th>
+  <th>2025届 综评出口<br><span class="src">中大区级(官方)</span></th>
+  <th>广工 2024<br><span class="src">官方PDF</span></th>
+  <th>广工 2023<br><span class="src">官方贺信</span></th>
+  <th>广大 2024<br><span class="src">官方公众号+广州日报</span></th>
+  <th>汕大 2024<br><span class="src">官方/媒体</span></th>
+  <th>深大 2024<br><span class="src">媒体&gt;20</span></th>
+  <th>中大+华工 2024 综评<br><span class="src">官方PDF含中学</span></th>
+  <th>中大+华工 2023 综评<br><span class="src">官方PDF含中学</span></th>
+  <th>985/211 录取信号<br><span class="src">仅官方/媒体</span></th>
+</tr>
+</thead>
+<tbody>
+
+<!-- ==================== 荔湾区 ==================== -->
+<tr class="head-row"><td class="district" rowspan="5">荔湾</td>
+  <td class="name"><span class="star">⭐</span> 真光中学（本部）</td>
+  <td>690</td>
+  <td class="cell-mid"><span class="tag tag-media">媒体</span>特控上线超七成半<br><span class="src">广州日报/南方+/信息时报 2026.7</span></td>
+  <td class="cell-mid">华工综评 5 人<br><span class="src">广州日报 2025.7</span></td>
+  <td class="na">区级归荔湾（含省市属）</td>
+  <td class="cell-mid">57</td><td class="cell-mid">59</td>
+  <td class="cell-mid">28</td>
+  <td class="cell-mid">10</td>
+  <td class="cell-mid">&gt;20<br><span class="src">广州日报 2024.8</span></td>
+  <td class="cell-mid">中大 3</td><td class="cell-mid">中大 6</td><td class="na">未披露分校数</td></tr>
+
+<tr class="head-row"><td class="name"><span class="star">⭐</span> 第四中学</td>
+  <td>667</td>
+  <td class="na">2026 官方媒体未点名披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">12</td><td class="cell-mid">19</td>
+  <td class="cell-mid">15</td>
+  <td class="na">未达10人</td>
+  <td class="na">未点名</td>
+  <td class="na">未上榜</td><td class="cell-mid">中大 4</td><td class="na">—</td></tr>
+
+<tr><td class="name">第一中学</td>
+  <td>655</td>
+  <td class="cell-mid"><span class="tag tag-media">媒体</span>纯文化特控率六成<br>本科率 100%<br><span class="src">广州日报/南方+ 2026.7 · 新快报补+近20pp</span></span></td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">31</td><td class="cell-mid">23</td>
+  <td class="cell-mid">20</td>
+  <td class="na">未达10人</td>
+  <td class="na">未点名</td>
+  <td class="na">未上榜</td><td class="cell-mid">中大 1</td><td class="na">—</td></tr>
+
+<tr><td class="name">西关外国语</td>
+  <td>632</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">20</td><td class="cell-mid">26</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">南海中学</td>
+  <td>606</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">6</td><td class="cell-mid">2</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<!-- ==================== 越秀区 ==================== -->
+<tr class="head-row"><td class="district" rowspan="7">越秀</td>
+  <td class="name"><span class="star">⭐</span> 第七中学（校本部）</td>
+  <td>712</td>
+  <td class="cell-mid"><span class="tag tag-media">媒体</span>600 分以上占比超四成<br>多人跻身全省前列<br><span class="src">广州日报 2026.7</span></td>
+  <td class="cell-mid">华工综评 3 人<br><span class="src">广州日报 2025.7</span></td>
+  <td class="na">区级归越秀</td>
+  <td class="cell-mid">30</td><td class="cell-mid">55</td>
+  <td class="na">未达10人</td>
+  <td class="na">未达10人</td>
+  <td class="na">未点名</td>
+  <td class="cell-mid">中大 6 · 华工 5</td><td class="cell-mid">中大 13 · 华工 5</td><td class="na">—</td></tr>
+
+<tr class="head-row"><td class="name"><span class="star">⭐</span> 第十六中学（校本部）</td>
+  <td>712</td>
+  <td class="cell-mid"><span class="tag tag-media">媒体</span>3 人入围空军招飞<br><span class="src">广州日报 2026.7</span></td>
+  <td class="cell-mid">华工综评 5 人<br><span class="src">广州日报 2025.7</span></td>
+  <td class="na">区级归越秀</td>
+  <td class="cell-mid">40</td><td class="cell-mid">50</td>
+  <td class="cell-mid">19</td>
+  <td class="na">未达10人</td>
+  <td class="na">未点名</td>
+  <td class="cell-mid">中大 4 · 华工 6</td><td class="cell-mid">中大 5 · 华工 2</td><td class="na">"泛985 63人"<span class="tag tag-excluded">网传剔除</span></td></tr>
+
+<tr><td class="name">培正中学</td>
+  <td>690</td>
+  <td class="na">未点名披露</td>
+  <td class="cell-mid">综评超 10 人<br><span class="src">省政府公示 2025.9</span></td>
+  <td class="na">—</td>
+  <td class="cell-mid">38</td><td class="cell-mid">21</td>
+  <td class="cell-mid">23</td>
+  <td class="na">未达10人</td>
+  <td class="na">未点名</td>
+  <td class="na">未上榜</td><td class="cell-mid">华工 2</td><td class="na">—</td></tr>
+
+<tr><td class="name">第三中学</td>
+  <td>677</td>
+  <td class="na">未点名披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">16</td><td class="cell-mid">10</td>
+  <td class="cell-mid">14</td>
+  <td class="na">未达10人</td>
+  <td class="na">未点名</td>
+  <td class="cell-mid">中大 1</td><td class="cell-mid">中大 2</td><td class="na">"985上线50人"<span class="tag tag-excluded">网传剔除</span></td></tr>
+
+<tr><td class="name">育才中学</td>
+  <td>661</td>
+  <td class="na">未点名披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">18</td><td class="cell-mid">18</td>
+  <td class="cell-mid">11</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="cell-mid">华工 2</td><td class="cell-mid">中大 1</td><td class="na">—</td></tr>
+
+<tr><td class="name">第十七中学</td>
+  <td>632</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">6</td><td class="cell-mid">8</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="cell-mid">中大 1 · 华工 1</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">省实越秀</td>
+  <td>632</td>
+  <td class="na">未披露</td>
+  <td class="cell-mid">华工综评 2 人<br><span class="src">广州日报 2025.7</span></td>
+  <td class="na">—</td>
+  <td class="cell-mid">9<br><span class="src">官方PDF（页62）</span></td><td class="cell-mid">7</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="cell-mid">中大 2</td><td class="na">—</td></tr>
+
+<!-- ==================== 海珠区 ==================== -->
+<tr class="head-row"><td class="district" rowspan="5">海珠</td>
+  <td class="name"><span class="star">⭐</span> 第五中学（校本部）</td>
+  <td>705</td>
+  <td class="cell-good"><span class="tag tag-media">媒体</span>物理类特控接近九成<br>历史类接近八成<br>600 分以上近 260 人（+近100人）<br><span class="src">广州日报/南方+ 2026.7 · 南都补充600+</span></span></td>
+  <td class="cell-mid">华工综评 2 人<br><span class="src">广州日报 2025.7</span><br>综评总超 10 人</td>
+  <td class="na">区级归海珠</td>
+  <td class="cell-mid">44</td><td class="cell-mid">33</td>
+  <td class="cell-mid">23</td>
+  <td class="na">未达10人</td>
+  <td class="cell-mid">&gt;20<br><span class="src">广州日报 2024.8</span></td>
+  <td class="cell-mid">中大 7 · 华工 2</td><td class="cell-mid">中大 11</td><td class="cell-mid"><span class="tag tag-official">官方喜报</span><br>中大 29 / 华工 26<br>华农 45 / 哈工大 2<br><span class="src">五中官微+广州日报 2024.9</span></td></tr>
+
+<tr class="head-row"><td class="name"><span class="star">⭐</span> 南武中学（校本部）</td>
+  <td>683</td>
+  <td class="cell-mid"><span class="tag tag-media">媒体</span>特控率较 2025 提升超 10pp<br>600+ 较 2025 翻番<br><span class="src">广州日报/南方+ 2026.7</span></td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">34</td><td class="cell-mid">38</td>
+  <td class="cell-mid">24</td>
+  <td class="na">未达10人</td>
+  <td class="na">未点名</td>
+  <td class="cell-mid">华工 1</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">海珠外国语实验</td>
+  <td>672</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">14</td><td class="cell-mid">13</td>
+  <td class="cell-mid">11</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="cell-mid">中大 1</td><td class="cell-mid">中大 1</td><td class="na">—</td></tr>
+
+<tr><td class="name">第九十七中学</td>
+  <td>645</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">14</td><td class="cell-mid">5</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">第四十一中学</td>
+  <td>621</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">5</td><td class="cell-mid">12</td>
+  <td class="cell-mid">14</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="cell-mid">华工 1</td><td class="cell-mid">中大 2</td><td class="na">—</td></tr>
+
+<!-- ==================== 天河区 ==================== -->
+<tr class="head-row"><td class="district" rowspan="7">天河</td>
+  <td class="name"><span class="star">⭐</span> 天河外国语学校</td>
+  <td>708</td>
+  <td class="cell-good"><span class="tag tag-media">媒体</span>特控率超九成<br>龙头校持续高位领跑<br><span class="src">南方+ 2026.7</span></td>
+  <td class="cell-mid">华工综评 3 人<br><span class="src">广州日报 2025.7</span><br>综评总超 10 人</td>
+  <td class="na">区级归天河</td>
+  <td class="cell-mid">9</td><td class="cell-mid">9</td>
+  <td class="na">未达10人</td>
+  <td class="na">未达10人</td>
+  <td class="na">未点名</td>
+  <td class="cell-mid">中大 4 · 华工 5</td><td class="cell-mid">中大 7 · 华工 1</td><td class="cell-mid"><span class="tag tag-official">官方区府通稿</span><br>2022 特控 93.1%<br>600+ 占比 50%<br>双一流率 ~70%<br><span class="src">天河区政府 2023</span></td></tr>
+
+<tr class="head-row"><td class="name"><span class="star">⭐</span> 广州中学</td>
+  <td>708</td>
+  <td class="cell-good"><span class="tag tag-media">媒体</span>特控上线总人数超 600 人<br>600 分以上占比近四成<br><span class="src">南方+ 2026.7 · 南都补充600+占比</span></span></td>
+  <td class="cell-mid">华工综评 4 人<br><span class="src">广州日报 2025.7</span></td>
+  <td class="na">区级归天河</td>
+  <td class="cell-mid">42</td><td class="cell-mid">63</td>
+  <td class="cell-mid">13</td>
+  <td class="na">未达10人</td>
+  <td class="na">未点名</td>
+  <td class="cell-mid">中大 6 · 华工 3</td><td class="cell-mid">中大 6 · 华工 2</td><td class="na">—</td></tr>
+
+<tr><td class="name">天河中学</td>
+  <td>676</td>
+  <td class="na">未点名披露</td>
+  <td class="cell-mid">华工综评 6 人<br><span class="src">广州日报 2025.7</span><br>综评总超 10 人</td>
+  <td class="na">—</td>
+  <td class="cell-mid">46</td><td class="cell-mid">47</td>
+  <td class="cell-mid">24</td>
+  <td class="na">未达10人</td>
+  <td class="na">未点名</td>
+  <td class="cell-mid">华工 2</td><td class="cell-mid">华工 1</td><td class="na">—</td></tr>
+
+<tr><td class="name">第一一三中学（金融城）</td>
+  <td>672</td>
+  <td class="na">未点名披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">19</td><td class="cell-mid">20</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="cell-mid">华工 1</td><td class="cell-mid">华工 2</td><td class="na">—</td></tr>
+
+<tr><td class="name">第八十九中学</td>
+  <td>645</td>
+  <td class="na">未点名披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">32</td><td class="cell-mid">11</td>
+  <td class="cell-mid">20</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="cell-mid">华工 1</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">第七十五中学</td>
+  <td>632</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">8</td><td class="cell-mid">15</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">奥林匹克中学</td>
+  <td>632</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">11</td><td class="cell-mid">10</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<!-- ==================== 白云区 ==================== -->
+<tr class="head-row"><td class="district" rowspan="7">白云</td>
+  <td class="name"><span class="star">⭐</span> 培英中学（白云新城）</td>
+  <td>712</td>
+  <td class="cell-good"><span class="tag tag-media">媒体</span>云城校区特控率首破八成<br>鹤洞校区首破六成<br><span class="src">广州日报 2026.7</span></td>
+  <td class="na">未上榜</td>
+  <td class="na">区级归白云</td>
+  <td class="cell-mid">23</td><td class="cell-mid">18</td>
+  <td class="cell-mid">20</td>
+  <td class="cell-mid">10</td>
+  <td class="na">未点名</td>
+  <td class="na">未上榜</td><td class="cell-mid">中大 1</td><td class="cell-mid"><span class="tag tag-official">官方区府通稿</span><br>云城 2025 首跻身<br>中考招生全市第一梯队<br><span class="src">白云区政府 2026.6</span></td></tr>
+
+<tr class="head-row"><td class="name"><span class="star">⭐</span> 第六十五中学（江高）</td>
+  <td>672</td>
+  <td class="cell-mid"><span class="tag tag-media">媒体</span>特控率接近五成<br>本科率近乎全覆盖<br><span class="src">广州日报 2026.7</span></td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">17</td><td class="cell-mid">29</td>
+  <td class="cell-mid">11</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="cell-mid">中大 1</td><td class="na">—</td></tr>
+
+<tr><td class="name">大同中学</td>
+  <td>635</td>
+  <td class="na">区府通稿点名"培养续航强"<br><span class="src">白云区政府 2026.6</span></td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">16</td><td class="cell-mid">25</td>
+  <td class="cell-mid">12</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">广外实验中学</td>
+  <td>632</td>
+  <td class="na">区府通稿点名"培养续航强"<br><span class="src">白云区政府 2026.6</span></td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">6</td><td class="cell-mid">9</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">白云中学</td>
+  <td>619</td>
+  <td class="na">区府通稿点名"培养续航强"<br><span class="src">白云区政府 2026.6</span></td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">2</td><td class="cell-mid">4</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">空港实验</td>
+  <td>599</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">2</td><td class="cell-mid">5</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">彭加木纪念中学</td>
+  <td>592</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">1</td><td class="na">未上榜</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<!-- ==================== 黄埔区 ==================== -->
+<tr class="head-row"><td class="district" rowspan="4">黄埔</td>
+  <td class="name"><span class="star">⭐</span> 玉岩中学</td>
+  <td>712</td>
+  <td class="cell-good"><span class="tag tag-media">媒体</span>文化类本科线 100% 覆盖<br>超八成纯文化考生超特控线<br><span class="src">广州日报 2026.7</span></td>
+  <td class="cell-mid">华工综评 2 人<br><span class="src">广州日报 2025.7</span><br>综评总超 10 人</td>
+  <td class="na">区级归黄埔</td>
+  <td class="cell-mid">48</td><td class="cell-mid">49</td>
+  <td class="cell-mid">22</td>
+  <td class="na">未达10人</td>
+  <td class="na">未点名</td>
+  <td class="cell-mid">中大 5 · 华工 2</td><td class="cell-mid">中大 7 · 华工 1</td><td class="na">—</td></tr>
+
+<tr class="head-row"><td class="name"><span class="star">⭐</span> 第八十六中学</td>
+  <td>698</td>
+  <td class="cell-mid"><span class="tag tag-media">媒体</span>成绩创历史新高<br><span class="src">黄埔区政府 2026.7</span></td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">23</td><td class="cell-mid">20</td>
+  <td class="cell-mid">20</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="cell-mid">中大 1 · 华工 1</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">科学城中学</td>
+  <td>672</td>
+  <td class="na">未点名披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">10</td><td class="cell-mid">19</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">北师大广州实验</td>
+  <td>672</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">4</td><td class="cell-mid">6</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="cell-mid">中大 1</td><td class="na">—</td></tr>
+
+<!-- ==================== 番禺区 ==================== -->
+<tr class="head-row"><td class="district" rowspan="8">番禺</td>
+  <td class="name"><span class="star">⭐</span> 仲元中学</td>
+  <td>709</td>
+  <td class="cell-mid"><span class="tag tag-media">媒体</span>物理/历史拔尖学子<br>均跻身全省前列<br><span class="src">广州日报 2026.7</span><br><span class="tag tag-official">官方区府通稿</span><br>"仲元君子之风数理实验班"<br><span class="src">番禺区政府 2025.4</span></td>
+  <td class="cell-mid">华工综评未点名<br>综评总超 10 人<br><span class="src">省政府公示 2025.9</span></td>
+  <td class="na">区级归番禺</td>
+  <td class="cell-mid">83</td><td class="cell-mid">76</td>
+  <td class="cell-good">38<br><span class="src">广大官微+广州日报 2024.9</span></td>
+  <td class="cell-mid">12<br><span class="src">广州日报 2024.8</span></td>
+  <td class="cell-mid">&gt;20<br><span class="src">广州日报 2024.8</span></td>
+  <td class="cell-mid">华工 2</td><td class="cell-mid">中大 3 · 华工 1</td><td class="cell-mid"><span class="tag tag-media">媒体</span>深大 2025 生源榜<br>录取 33 人<br><span class="src">广州日报/大洋网 2025.8</span><br>深大 2023 生源榜 29 人<br><span class="src">广州日报 2023.8</span></td></tr>
+
+<tr class="head-row"><td class="name"><span class="star">⭐</span> 广东番禺中学</td>
+  <td>672</td>
+  <td class="cell-mid"><span class="tag tag-media">媒体</span>特控上线率跨越新台阶<br>近 100% 上本科线<br><span class="src">广州日报 2026.7</span></td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">40</td><td class="cell-mid">36</td>
+  <td class="cell-mid">24</td>
+  <td class="na">未达10人</td>
+  <td class="na">未点名</td>
+  <td class="cell-mid">中大 1</td><td class="cell-mid">中大 1</td><td class="na">—</td></tr>
+
+<tr><td class="name">象贤中学</td>
+  <td>666</td>
+  <td class="na">未点名披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">28</td><td class="cell-mid">25</td>
+  <td class="cell-mid">27</td>
+  <td class="cell-mid">11<br><span class="src">广州日报 2024.8</span></td>
+  <td class="na">未点名</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">番禺区实验中学</td>
+  <td>633</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">15</td><td class="cell-mid">24</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">禺山高级中学</td>
+  <td>632</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">10</td><td class="cell-mid">12</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">二师番附</td>
+  <td>596</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">14</td><td class="cell-mid">4</td>
+  <td class="cell-mid">10</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">大龙中学</td>
+  <td>593</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">5</td><td class="cell-mid">5</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+<tr><td class="name">洛溪新城中学</td>
+  <td>592</td>
+  <td class="na">未披露</td>
+  <td class="na">未上榜</td>
+  <td class="na">—</td>
+  <td class="cell-mid">2</td><td class="cell-mid">4</td>
+  <td class="na">未达10人</td>
+  <td class="na">—</td>
+  <td class="na">—</td>
+  <td class="na">未上榜</td><td class="na">未上榜</td><td class="na">—</td></tr>
+
+</tbody>
+</table>
+
+<div class="note warn">
+<h3>🚫 本版已剔除的"网传"数据（不再采信）</h3>
+<ul>
+  <li>仲元 2025 特控率 89%、600+ 200+、省排位分布——<span class="tag tag-excluded">抖音/搜狐</span></li>
+  <li>真光 2025 特控率 69%/72.4%/73.46%、600+ 122~168——<span class="tag tag-excluded">抖音/头条</span>（且两版互相矛盾）</li>
+  <li>五中 2025 特控率 ~90%、600+ 178、物理最高 676 省排 514——<span class="tag tag-excluded">抖音/weitoutiao</span></li>
+  <li>十六中 2025 特控 &gt;90%、泛 985 63 人 (11.7%)、泛 211 153 人——<span class="tag tag-excluded">抖音</span></li>
+  <li>七中 2025 特控 92.4%、600+ ~100——<span class="tag tag-excluded">抖音</span></li>
+  <li>培英 2025 ~70%、海东青班均分——<span class="tag tag-excluded">搜狐软文/抖音</span></li>
+  <li>天河中学 2025 71.9%、417 人、600+ 105——<span class="tag tag-excluded">抖音</span></li>
+  <li>一一三中 2025 48%、八十九中 2025 36%、象贤 30%+、番禺实验 29.2%、禺山 ~15%——<span class="tag tag-excluded">抖音</span></li>
+  <li>南武 2025 物理最高 675 省排 591——<span class="tag tag-excluded">抖音</span></li>
+  <li>玉岩北大 1（体育生肖芷萱）——<span class="tag tag-excluded">羊城晚报视频号（可保留为媒体证据，已入 note）</span></li>
+</ul>
+</div>
+
+<div class="note">
+<h3>📌 数据来源说明（v9 · 含 2026-10-13 溯源修正）</h3>
+<ul>
+  <li><b>2026 届媒体披露（数据溯源修正 2026-10-13）</b>：五中/南武/一中/广州中学/六十五/番中 的 2026 届出口数据在 v6/v7/v8 已以 <span class="tag tag-media">广州日报/南方+</span> 为来源入表，本轮不再重复；经信息时报/南都数字报/新快报核实，<b>仅 3 处为真正新增的精确细节</b>：五中（600+ 近 260 人，+近100人，南都 2026-07-16）、广州中学（600+ 占比近四成，南都）、一中（特控率较预期提升近两成，新快报/信息时报）。其余渠道（信息时报 2026-07-04 11 区答卷 / 南方+ 2026-07-14 逆袭专稿 / 新快报 2026-07-07）均用于交叉验证，未改变表中数值。</li>
+  <li><b>广工 2024</b>：<span class="tag tag-official">官方 PDF</span>（广工招办 zsb.gdut.edu.cn），精确到每所中学录取人数，普通批为主、含所有通道。全表最硬的一列，已存档 <code>gdut_2024_school_counts_v2.json</code>（2026-10-12 修正版：修复跨行校名漏抓，象贤 28 / 仲元 83 / 广州中学 42 / 西关外语 20 / 天外 9 / 海珠外语 14 / 广外实验 6 / 空港 2 等此前全部缺失）。</li>
+  <li><b>广工 2023</b>：<span class="tag tag-official">官方贺信</span>（zsb.gdut.edu.cn/info/1143/4257.htm，2023-09-03，"2023 年我校在各中学录取的考生名单"：中学/人数/名单三列表，普通批全量，官方声明录取 10151 人）。2026-10-12 提取 1495 所中学/10026 人（差 125 人未逐名列全），43 所区属全部命中：仲元76/广州中学63/真光59/七中55/十六中50/玉岩49/天河中学47/南武38/番中36/五中33/六十五29/西关外语26/象贤25/大同25/番实24/一中23/培正21/一一三20/八十六20/四中19/科学城19/培英18/育才18/七十五15/海珠外语13/四十一12/八十九11/三中10/奥中10/天外9/广外实验9/省实越秀7/北师大广实6/九十七5/空港5/大龙5/二师番附4/白云4/洛溪4/南海2/彭加木<b>未上榜（当年无广工录取，真实情况）</b>。<b>2022 版贺信同格式存在（zsb.gdut.edu.cn PDF），文本流解析未成功，待补。</b></li>
+  <li><b>广大 2024</b>：<span class="tag tag-official">"广大招生"官方公众号 2024-09-02</span> 发布三期广州片区本科录取喜报，公布被广大录取 10 人及以上的广州高中名单；<span class="tag tag-media">广州日报新花城 2024-09-10</span> 全文整编（仲元38/秀全34/增城32/六中29/真光28/象贤27/番中24/南武24/天河中学24/五中23/培正23/玉岩22/八十九20/八十六20/一中20/培英20/十六中19/铁一19/从化17/广雅17/华侨17/南沙天元15/四中15/三中14/四十一14/协和14/广州中学13/大同12/六十五11/海珠外国语11/育才11/邝维煜10/黄广10/南沙一中10/二师番附10）。<b>注意口径：只列 ≥10 人的中学，10 人以下未公布；表中"未达10人"表示未在名单中（可能 &lt;10 或未披露）。</b> 2025 届是否发布未获公开渠道确认。</li>
+  <li><b>汕大 2024</b>：<span class="tag tag-official">汕头大学官网/招生办</span> + <span class="tag tag-media">广州日报 2024-08-12</span>：广州 6 所中学上榜（≥10人）：增城中学24、秀全14、仲元12、象贤11、培英10、真光10。其余未达 10 人未公布。</li>
+  <li><b>深大 2024</b>：<span class="tag tag-media">广州日报大洋网 2024-08-12</span>：广东广雅、执信、五中、二中、仲元、省实、真光、铁一、六中"均有超过 20 人被录取"——<b>半定量（只给 &gt;20，无精确数）</b>；精确生源榜仅披露超 100 人中学（红岭119/潮阳实验114/东华109/深圳科学高中100，均非广州）。</li>
+  <li><b>中大 2024 综评</b>：<span class="tag tag-official">中大招办官方 PDF</span>（admission.sysu.edu.cn，2024-07-17 公示，495 人全量，<b>含"毕业中学"列</b>——2024 版与 2025 版（无中学列）不同，是可精确到校的官方数据）。本表按"毕业中学"逐校统计。广州 137 人、区属 40 人。</li>
+  <li><b>华工 2024 综评</b>：<span class="tag tag-official">华工招办官方 PDF</span>（admission.scut.edu.cn，2024-07-17 公示，300 人全量，含"毕业学校名称"列）。广州 84 人、区属 35 人。<b>中大+华工 2024 综评区属合计 75 人，是当前"985/211 录取信号"列之外最强的官方精确数据。</b></li>
+  <li><b>中大 2023 综评</b>：<span class="tag tag-official">中大招办官方 PDF</span>（admission.sysu.edu.cn，2023-07-17 公示，620 人全量含"毕业中学"列）。区属 75 人（七中13/五中11/天外7/玉岩7/真光6/广州中学6/十六中5/四中4/仲元3/三中2/省实越秀2/四十一2/一中1/育才1/海珠外语1/培英1/六十五1/北师大广实1/番中1）。<b>华工 2023 综评</b>：<span class="tag tag-official">官方名单（zizzs 存档，8页）</span> 293 人含中学列，区属 17 人（七中5/十六中2/培正2/广州中学2/一一三2/天外1/天河中学1/玉岩1/仲元1）。<b>中大+华工 2023 综评区属合计 92 人，与 2024 列（75 人）对比：七中 18→11、五中 11→9、天外 8→9、玉岩 8→7——头部格局稳定。</b></li>
+  <li><b>4 所广州 985/211 普通批分中学数据结论（2023/2024 一致）</b>：<b>中大、华工、暨大、华师四校普通批"按中学完整名单"公开渠道均不存在</b>——中大/华工仅在综评名单（含中学列，本表已全部提取）与对部分高中的录取喜报中披露；暨大只公布省内录取前 10/12 名中学 TOP 榜（2023 年"省内前10"、2024 年"前12"，广州仅二中/执信等省市属，<b>无区属上榜</b>）；华师只公布分专业分数统计（statics.scnu.edu.cn），从未披露生源中学。<b>这是广东省属 985/211 的信息披露现状：除广工（贺信全量公开）外，无一所公布普通批分中学录取名单。</b>媒体"新生大数据"（广州日报/新快报 2023-09-19 等）仅转述各校 TOP 榜，不提供区属可用的精确数据。</li>
+  <li><b>微博高中官号调研（2026-10-12）</b>：搜索 site:weibo.com 与全站定向检索（五中/真光/仲元/广州中学/天外/玉岩/培英等官号喜报），<b>未发现广州区属高中在微博发布 2024/2025 高考喜报</b>——广州区属高中官号的喜报发布渠道集中在微信公众号（mp.weixin.qq.com，通用搜索不可抓取）。<b>反例佐证渠道规律</b>：华附官网设有"多所高校发来录取喜报"专栏（hsfz.net.cn/list_42/，南大/中大/华工等发来 PDF 喜报存档）——这是"高校→中学喜报"的官方存档形态，但华附为省市属、不在本表范围；区属高中未发现同等官网专栏。</li>
+  <li><b>华工 2025 综评</b>：<span class="tag tag-media">广州日报大洋网 2025-07-17</span> 汇总的华工广东省综合评价录取名单（广州 108 人），精确到中学。</li>
+  <li><b>中大 2025 综评区级</b>：<span class="tag tag-official">中大招办官方 PDF</span>（2025-07-17 公示，493 人，无中学列），按考生号前 6 位统计到区；<b>注意该口径含区内省市属学校</b>（如华附在天河、省实在天河/越秀）。</li>
+  <li><b>2026 届媒体披露</b>：广州日报大洋网/南方+/新快报/信息时报 2026 年 7 月放榜报道、各区区政府通稿。这些是 <b>2026 届（最新一届）</b>数据，不是 2025。</li>
+  <li><b>省政府/市政府 2025-09-10 综评公示</b>：12 所高校在广东录取 2964 人、广州 980 人；区属输送超 10 人的：七中、铁一、广外、天河中学、实验外语、真光、五中、天外、天省、仲元、黄广、玉岩、培正。</li>
+  <li><b>深大 2025 生源榜</b>：仲元 33 人（广州日报大洋网 2025-08-09）。</li>
+  <li><b>五中 2024 高校喜报</b>：<span class="tag tag-official">五中官微 2024-09-08</span> 晒出高校喜报 + <span class="tag tag-media">广州日报 2024-09-10</span> 整编：哈工大 2、中大 29、华工 26、华农 45（后两者附全名单）。这是"高校→中学喜报"的典型样本。</li>
+  <li><b>未披露生源明细的高校（已排查）</b>：广东外语外贸大学（只披露佛山南海中学 75 人居首、十六中为优质生源基地"近三年平均约25人/年"，无广州区属精确名单）；广州医科大学（仅录取总数与分数统计）；广东财经大学（仅分专业录取统计）；广州中医药大学 2024 录取 20 人以上高中名单中广州仅广雅（省市属），无区属上榜；中大/华工/华师/暨大仅披露全省 TOP 榜（前 5~15 名），区属头部不在榜。</li>
+</ul>
+<h3>🔍 正规来源下的结论</h3>
+<ul>
+  <li><b>高校录取分布的正规披露正在补齐</b>：广工（全量 PDF）、广大（广州片区 ≥10）、汕大（广州 ≥10）、深大（&gt;20 半定量）、中大/华工/华农对头部高中的喜报——是当前区属高中大学出口可用的全部正规来源。其中<b>仲元</b>（广工83/广大38/汕大12/深大&gt;20/深大2025·33）、<b>真光</b>（广工57/广大28/汕大10/深大&gt;20）、<b>五中</b>（广工44/广大23/深大&gt;20/中大29/华工26/华农45）三校信号最全，与录取分头部一致。</li>
+  <li><b>985/211 录取数的官方/媒体来源仍稀缺</b>：除五中（高校喜报）与仲元（深大生源榜）外，区属高中基本没有正规渠道披露大学录取分布。天外"985 67 人/211 125 人"源头是家长统计（weitoutiao），<b>按纪律已降级为存疑</b>，本表未采信。<b>中大+华工 2024 综评列</b>是新的官方精确来源：七中 11、十六中 10、五中 9、天外 9、广州中学 9、玉岩 7、真光 3、八十六 2、天河中学 2、育才 2、十七中 2、仲元 2、三中 1、南武 1、海珠外语 1、四十一 1、一一三 1、八十九 1、番中 1——与录取分头部高度吻合，且仲元/番中等"普通批强校"在综评赛道偏弱（仲元仅华工 2 人），印证综评≠总录取（仲元广工 83 人即主要走普通批）。</li>
+  <li><b>2026 届（正规媒体可查）区属格局</b>：五中物理特控近 90%、玉岩超八成纯文化超特控、培英云城破 80%、天外特控超 90%、广州中学特控上线超 600 人、真光本部超 75%、一中纯文化 60%+本科 100%、六十五中近 50%、番中近 100% 上本科——<b>这是目前可信度最高的区属出口横截面</b>。</li>
+  <li><b>区级综评信号</b>（含省市属干扰）：中大 2025 综评广州 183 人 → 天河 48 / 荔湾 43 / 越秀 23 / 番禺 22 / 黄埔 17 / 海珠 16 / 白云 <b>0</b>。白云区属（培英、六十五中）在综评赛道明显缺席，与"培英重普通批、强在分数加工"的定位吻合。</li>
+</ul>
+<h3>⏭ v6 建议</h3>
+<ul>
+  <li>抓取各校微信公众号官方喜报原文（需登录微信生态，可用浏览器自动化）</li>
+  <li>大学维度：等中大/华工 2026 生源榜（9 月已发，可抓官方公众号转载）；深大 2026 生源榜</li>
+  <li>广工 2025 录取名单（广工每年发 2024 版 PDF，2025 版发布后替换）；广大 2025 片区喜报（公众号历史消息）</li>
+</ul>
+</div>
+
+<script>
+function filterTable() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const rows = document.querySelectorAll('#mainTable tbody tr');
+  rows.forEach(r => {
+    r.style.display = r.innerText.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>
