@@ -15,7 +15,7 @@
        标题与胶囊垂直同中心；返回按钮(36px)底边与胶囊底边对齐 → 返回按钮→下划线 与 胶囊→下划线 间隔一致；
        .stop 总高 = 胶囊底 + 对称间隙，下划线紧贴其下。 -->
   <view wx:if="{{mode === 'full'}}" class="stop" style="height:{{dtopH}}px">
-    <view class="sback" style="top:{{sbackTop}}px" bindtap="onBack">‹</view>
+    <view class="sback" style="top:{{capTop}}px;width:{{capH}}px;height:{{capH}}px" bindtap="onBack"><view class="sback-chev" style="transform:scale({{capH / 32}})"></view></view>
     <view class="stt" style="top:{{capTop}}px;height:{{capH}}px;line-height:{{capH}}px">{{topTitle}}</view>
   </view>
 
@@ -31,15 +31,15 @@
   <view wx:if="{{mode === 'half'}}" class="halfbody" catchtouchstart="cardTouchStart" catchtouchmove="cardTouchMove" catchtouchend="cardTouchEnd">
     <!-- 透明手势兜底区：覆盖卡片顶缘上方 ~56px，吞掉"擦着卡片上沿起手"的滑动，避免误传原生地图 -->
     <view class="sgrabzone"></view>
-    <view class="sgrab" mark:act="expand" bindtap="expand"></view>
+    <view class="sgrab" mark:act="expand"></view>
     <view class="sclip">
       <template is="detailContent" data="{{activeStage, primary, middle, high, brand, tags, name}}" />
       <view class="sfade"></view>
     </view>
-    <view class="smore" mark:act="expand" catchtap="expand">展开详情<view class="smore-caret"></view></view>
+    <view class="smore" mark:act="expand">展开详情<view class="smore-caret"></view></view>
   </view>
   <view wx:else class="sfullwrap">
-    <scroll-view class="sscroll" scroll-y bindscroll="onBodyScroll">
+    <scroll-view class="sscroll" scroll-y="{{scrollEnabled}}" enhanced show-scrollbar="{{false}}" bindscroll="onBodyScroll">
       <template is="detailContent" data="{{activeStage, primary, middle, high, brand, tags, name}}" />
       <view class="pad-bottom"></view>
     </scroll-view>
@@ -48,7 +48,7 @@
 
 <!-- 详情内容（半窗裁剪 / 全屏滚动 共用同一份，保证生长时内容无缝衔接） -->
 <template name="detailContent">
-  <view class="dh1" mark:act="expand" bindtap="expand">{{name}}</view>
+  <view class="dh1" mark:act="expand">{{name}}</view>
   <view class="dtags">
     <view wx:for="{{tags}}" wx:key="cls" class="tag m tag-{{item.cls}}">{{item.text}}</view>
   </view>

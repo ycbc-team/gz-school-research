@@ -16,20 +16,24 @@ const require = createRequire(import.meta.url);
 // 颜色唯一真源：@gz/shared（STAGE_COLOR / MARKER_SELECTED_COLOR，与 Web MapView 共用；build:mp 前置已构建 shared）
 const { STAGE_COLOR, MARKER_SELECTED_COLOR } = require(join(ROOT, 'packages', 'shared', 'dist', 'cjs', 'index.js'));
 
-const SIZE = 48;
-const D = 30;
+// 高清化：源图从 48px 提升到 120px（SCALE=2.5）。真机 devicePixelRatio 多为 2~3，
+// 显示 38px 需 ~114px 源图，旧 48px 源被放大→糊（用户反馈「小圆圈放大就糊」）。
+// 显示尺寸（28/38 逻辑 px）由 index.js 的 MARKER_OFF/MARKER_ON 控制、与本源分辨率无关——
+// 现在 120px 源按 28/38 显示是「缩」而非「放」，边缘自然清晰（与 UI 稿矢量画法对齐）。
+const SCALE = 2.5;
+const SIZE = Math.round(48 * SCALE);   // 120
+const D = 30 * SCALE;
 const STROKE = '#FFFFFF';
 const FILL_ALPHA = 0.92;
-const STROKE_W = 1.4;      // 常态白描边
-const SEL_STROKE_W = 2.2;  // 选中态白描边（略加粗，让彩色圆点更实）
+const STROKE_W = 1.4 * SCALE;        // 常态白描边
+const SEL_STROKE_W = 2.2 * SCALE;    // 选中态白描边（略加粗，让彩色圆点更实）
 // 选中态「知性蓝光晕」：软光晕 + 外缘实心环，明显区别于常态白描边圆点。
-// 注：图标以 48px 画布生成、地图上按 22px 显示（缩放 ≈0.46），
-// 故环宽需按画布尺寸给足，否则缩到 22px 后只剩 1px 细线、看不出区别（旧版 SEL_STROKE_W=3.4 即此问题）。
-const HALO_IN = 16.0;      // 光晕内缘半径（圆点 r=15，留 1px 呼吸位）
-const HALO_MID = 20.5;     // 软光晕 → 实心外环 分界
-const HALO_OUT = 23.0;     // 光晕外缘半径（离 48px 画布边 1px）
-const HALO_GLOW_A = 0.42;  // 光晕内缘不透明度
-const HALO_RING_A = 0.95;  // 外缘实心环不透明度
+// 几何均按 SCALE 放大，保持与旧 48px 版完全一致的视觉比例（只是更清晰）。
+const HALO_IN = 16.0 * SCALE;        // 光晕内缘半径（圆点 r=15·SCALE，留 1px 呼吸位）
+const HALO_MID = 20.5 * SCALE;       // 软光晕 → 实心外环 分界
+const HALO_OUT = 23.0 * SCALE;       // 光晕外缘半径（离 120px 画布边 = 2.5px）
+const HALO_GLOW_A = 0.42;            // 光晕内缘不透明度
+const HALO_RING_A = 0.95;            // 外缘实心环不透明度
 
 /* ---------- PNG 编码（最小实现） ---------- */
 const CRC_TABLE = (() => {
@@ -88,7 +92,7 @@ function hasSamePixels(file, next) {
 const CENTER = SIZE / 2;
 function inCircle(x, y, r) {
   const dist = Math.hypot(x - CENTER, y - CENTER);
-  const aa = 0.6;
+  const aa = 0.6 * SCALE;
   if (dist >= r) return 0;
   if (dist <= r - aa) return 1;
   return (r - dist) / aa;

@@ -190,7 +190,7 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .navdock .np.on{background:var(--ib-50);border-color:var(--ib-200);color:var(--ib-600);font-weight:600}
 .navdock.inline{position:static;margin:0}
 
-/* tabBar（原型为「首页 / 政策」两项） */
+/* tabBar（原型为「首页 / 学校」两项） */
 .tabbar{height:56px;flex:none;border-top:1px solid var(--line);background:rgba(255,255,255,.98);display:flex;padding:0 4px}
 .tabbar .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10.5px;color:var(--ink-400)}
 .tabbar .tab .ic{width:20px;height:20px;border-radius:6px;border:1.8px solid currentColor;position:relative}
@@ -247,17 +247,18 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 /* 半窗内的维度胶囊：与上方搜索栏同一左右边距 → 等宽对齐 */
 .sheet .dims{display:flex;gap:8px;padding:0 14px 12px;border-bottom:1px solid var(--line-2)}
 .sheet .dims .chip{flex:1;min-width:0;justify-content:center;padding:0 8px}
-.sheet .optwrap{padding:16px 16px 18px}
-.sheet .opts{display:flex;flex-wrap:wrap;gap:9px}
+.sheet .optwrap,.scfpanel .optwrap{padding:16px 16px 18px}
+.sheet .opts,.scfpanel .opts{display:flex;flex-wrap:wrap;gap:9px}
 /* 选项分组竖排：每组一个标题，组内选项平铺（学段维度用） */
 .sheet .optgrp{margin-bottom:16px}
 .sheet .optgrp:last-child{margin-bottom:0}
 .sheet .optgrp .ghd{font-size:13px;font-weight:600;color:var(--ink-700);margin-bottom:8px}
-.sheet .opt{height:34px;padding:0 14px;border-radius:999px;background:var(--bg);border:1px solid var(--line);font-size:13px;color:var(--ink-700);display:flex;align-items:center}
-.sheet .opt.on{background:var(--ib-50);border-color:var(--ib-300);color:var(--ib-600);font-weight:600}
-.sheet .sfoot{margin-top:auto;display:flex;align-items:center;gap:12px;padding:18px 16px 20px;border-top:1px solid var(--line-2)}
-.sheet .sfoot .none{flex:none;height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);display:flex;align-items:center;font-size:14px;color:var(--ink-700);background:var(--white)}
-.sheet .sfoot .ok{flex:1;height:44px;border-radius:999px;background:var(--ib-500);color:#fff;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-blue)}
+.sheet .opt,.scfpanel .opt{height:34px;padding:0 14px;border-radius:999px;background:var(--bg);border:1px solid var(--line);font-size:13px;color:var(--ink-700);display:flex;align-items:center}
+.sheet .opt.on,.scfpanel .opt.on{background:var(--ib-50);border-color:var(--ib-300);color:var(--ib-600);font-weight:600}
+.sheet .sfoot{margin-top:auto}
+.sheet .sfoot,.scfpanel .sfoot{display:flex;align-items:center;gap:12px;padding:18px 16px 20px;border-top:1px solid var(--line-2)}
+.sheet .sfoot .none,.scfpanel .sfoot .none{flex:none;height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);display:flex;align-items:center;font-size:14px;color:var(--ink-700);background:var(--white)}
+.sheet .sfoot .ok,.scfpanel .sfoot .ok{flex:1;height:44px;border-radius:999px;background:var(--ib-500);color:#fff;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-blue)}
 /* ============ 区域分类 · 三列下钻（行政区/板块 · 地铁） ============ */
 .drill{display:flex;gap:0;padding:4px 0 2px;min-height:236px;max-height:260px}
 .drill .dcol{flex:1;min-width:0;overflow-y:auto;padding:4px 6px;border-right:1px solid var(--line-2)}
@@ -325,14 +326,13 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .cardbot .stagebar{display:flex;gap:8px;margin:12px 40px 12px 0;padding:0;position:static;background:transparent}
 .cardbot .stagebar .stab{flex:1;display:inline-flex;align-items:center;justify-content:center;height:30px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--white);font-size:12.5px;font-weight:600;color:var(--ink-400)}
 .cardbot .stagebar .stab.on{background:var(--ib-50);border-color:var(--ib-300);color:var(--ib-600)}
-.cardbot .stagebar .stab i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
-.cardbot .stagebar .stab.p i{background:#2F5CD6}.cardbot .stagebar .stab.m i{background:#E8850C}.cardbot .stagebar .stab.h i{background:#0F9D58}
 
 /* ============ 07 学校详情长图 · 小学（全屏页，按交互稿模块清单） ============ */
 .phone.longpage{height:auto;min-height:812px;background:var(--white)}
 .dtop{display:flex;align-items:center;gap:10px;padding:14px 98px 14px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:4;background:var(--white)}
-.dtop .back,.dtop .close{width:36px;height:36px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-700);flex:none}
-/* 返回按钮几何对齐：底边与右上角微信胶囊底边对齐 → 返回按钮→下划线 与 胶囊→下划线 间隔一致（视觉对称）；箭头放大更醒目。实际设备 capTop/capH 取 wx.getMenuButtonBoundingClientRect() 实测，.dtop 总高=胶囊底+对称间隙、下划线紧贴其下 */
+.dtop .back{width:32px;height:32px;border-radius:50%;background:transparent;border:1px solid rgba(51,64,92,0.10);display:flex;align-items:center;justify-content:center;flex:none}
+.dtop .close{width:36px;height:36px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-700);flex:none}
+/* 返回按钮（全屏详情顶栏）：外圈尺寸 = 右上角微信胶囊实测高度（capH）、top = 胶囊实测 top（capTop）→ 上下沿与胶囊完全重合对齐（异形设备按 capH 动态，wxml 行内 scale 适配）；外圈透明底 + 淡描边圆圈（rgba(51,64,92,0.10)），对齐小程序退出按钮「描边圆圈无底色」风格；内置 CSS 绘制左向 chevron（矢量无模糊、不随放大发糊），视觉高度 ≈ 胶囊内图标（约 0.5×capH），经多轮反馈定稿：箭头偏小、描边偏浅 */
 .dtop .tt{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:16px;font-weight:600;max-width:196px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .dbody{padding:0 16px 26px}
 .dh1{font-size:20px;font-weight:700;margin-top:16px}
@@ -341,8 +341,6 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .stagebar{display:flex;gap:10px;margin:14px -16px 2px;padding:0 16px 8px;position:sticky;top:45px;z-index:3;background:var(--white)}
 .stagebar .stab{flex:1;display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 20px;border-radius:999px;border:1px solid var(--line);background:var(--white);font-size:13.5px;font-weight:600;color:var(--ink-400)}
 .stagebar .stab.on{background:var(--ib-50);border-color:var(--ib-300);color:var(--ib-600)}
-.stagebar .stab i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
-.stagebar .stab.p i{background:#2F5CD6}.stagebar .stab.m i{background:#E8850C}.stagebar .stab.h i{background:#0F9D58}
 .dmod{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
 .dmod-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:4px}
 .dmod-h b{font-size:15px;font-weight:700;color:var(--ink-700)}
@@ -398,6 +396,35 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .thead.qt,.trow.qt{grid-template-columns:minmax(0,1fr) 56px 84px}
 .thead.qt span:not(:first-child),.trow.qt span:not(:first-child){text-align:right}
 
+/* ---------- 12 学校页 · 小学列表 ---------- */
+.chip.on{background:var(--ib-50);border-color:var(--ib-300);color:var(--ib-600)}
+.sctop{padding:2px 14px 10px}
+/* 学校页：学段用分段控件样式（灰底整体容器+选中白底浮起），与下方描边筛选胶囊区分层级 */
+.sctop .stagebar{gap:0;margin:10px 0 2px;padding:3px;background:var(--bg);border-radius:12px}
+.sctop .stagebar .stab{height:30px;border:none;border-radius:9px;background:transparent;color:var(--ink-400);font-size:13px}
+.sctop .stagebar .stab.on{background:var(--white);border:none;color:var(--ib-600);box-shadow:0 1px 3px rgba(16,24,43,.08)}
+/* 学校页顶部：左侧品牌标题「广州学途」（与首页地图层 brandrow 同款），不重复底部 tab 文案 */
+.navbar.brand{justify-content:flex-start;padding:0 16px}
+.navbar.brand b{font-size:17px;font-weight:600;color:var(--ink-900);letter-spacing:.2px}
+.scfilter{position:relative;z-index:9;padding:10px 14px;background:var(--white);border-bottom:1px solid var(--line-2)}
+/* 校园荣誉筛选面板：与首页筛选面板同款交互——展开态时 状态栏→品牌标题→学段→筛选栏→面板 整块白底浮于遮罩之上（同首页筛选面板整体窗口），遮罩只压暗下方列表；点遮罩或「完成」收起 */
+.scfwin{position:relative;z-index:9;background:var(--white)}
+.scfpanel{position:relative;background:var(--white);border-bottom:1px solid var(--line)}
+.scfpanel .optwrap{padding:12px 16px 14px}
+.scfpanel .sfoot{padding:12px 16px 14px}
+.sclist{flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;background:var(--white);padding-bottom:16px}
+/* 区分组头＝详情页一级模块标题同款（蓝竖条 + 17px 加粗，不写学校数量）；区与区之间 1px 分隔（同详情卡模块间分隔） */
+.scsec{position:sticky;top:0;z-index:2;display:flex;align-items:center;margin-top:14px;padding:14px 16px 8px;background:var(--white);font-size:17px;font-weight:700;color:#10182B;border-top:1px solid var(--line)}
+.scsec::before{content:"";flex:none;width:4px;height:15px;border-radius:2px;background:var(--ib-600);margin-right:9px}
+.scsec:first-child{margin-top:0;border-top:none}
+/* 组内表单＝详情页表单同款（chartbox 容器 + thead/trow 带表头），两列：学校｜校园荣誉（窄列靠右） */
+.sctbl{margin:0 16px}
+.thead.sq,.trow.sq{grid-template-columns:minmax(0,1fr) 104px}
+.thead.sq span:not(:first-child),.trow.sq span:not(:first-child){min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trow.sq .na{color:var(--ink-300)}
+/* 校名链接字重与详情页表单（.v2 .trow .lk）一致 */
+.sclist .trow .lk{font-weight:500}
+
 /* ---------- 规范表 ---------- */
 table{width:100%;border-collapse:collapse;font-size:12.5px}
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}
@@ -441,7 +468,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       <div class="doc-role">本文档为 UI/UE 设计规范，描述界面视觉、交互、组件、动效与状态；对应的产品功能需求（功能、业务规则、用户场景）见同级文件 <code>school-search-prd.md</code>。</div>
 <b>本轮范围：</b>共 <b>8 屏（含 06C 多学段半窗卡）＋ 多学段详情卡 2 屏（07B/07C）</b> ＋ <b>异常状态 3 态（08–10）＋ 通用弹窗（11）</b> —— 首页（地图层）／搜索页（默认态）／搜索页（联想词态）／筛选栏半窗（选中「行政区」）／筛选栏半窗（切换「学段」）／地图层／<b>学校详情卡（小学 · 07）</b>／<b>学校详情卡 · 多学段（tab 切换 07B ＋ 滚动态 07C，示例初中）</b>。
       其中<b>首页与地图层均为「整张地图铺满全屏 + 顶部小程序名行（白底常驻盖地图）／搜索框／筛选栏／图例区悬浮 + 底部导航栏置底」</b>的同一套结构；地图背景取自<b>育才中学（东校区）周边真实地图（示意）</b>，点位按真实相对位置落位，产品默认视野为广州中心城区中轴线（珠江新城—广州塔一带）。
-      均按原型稿中实际出现的元素绘制。初中多学段详情卡（tab 切换 ＋ 顶栏滚动替换）已随 07B/07C 补充，多学段半窗卡（压缩版 tab）见 06C；其余页面（<b>学校详情长图·高中</b>、品牌关联·多学段 tab 页、政策 tab 等）待指定后再出。
+      均按原型稿中实际出现的元素绘制。初中多学段详情卡（tab 切换 ＋ 顶栏滚动替换）已随 07B/07C 补充，多学段半窗卡（压缩版 tab）见 06C；其余页面（<b>学校详情长图·高中</b>、品牌关联·多学段 tab 页、学校 tab·初中·高中 等）待指定后再出。
     </div>
   </div>
 </header>
@@ -806,7 +833,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           </div>
         </div>
         <div class="navdock">
-          <span class="np on">首页</span><span class="np">政策</span>
+          <span class="np on">首页</span><span class="np">学校</span>
         </div>
       </div>
       <div class="anno">
@@ -818,7 +845,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           2）点击搜索框 → 弹出搜索页（02）；点击筛选栏维度胶囊 → <b>两步位移展开</b>对应维度筛选面板（04／05）。筛选栏胶囊只显示维度名（单选时显示选中内容，行政区显示<b>带「区」字的全名</b>），<b>不显示任何数量角标</b>。<br>
           3）地图支持双指缩放、单指拖动；左下角图例说明点位三色含义。<br>
           4）点击学校点位 → 底部弹出半窗学校卡（默认 45% 高），点位呈选中态（06）。<br>
-          5）底部导航：首页／政策 两个 tab，<b>置底通栏固定于屏幕底缘</b>（小程序原生 tabBar 规范，含底部安全区高度），点击切换、当前项高亮。
+          5）底部导航：首页／学校 两个 tab，<b>置底通栏固定于屏幕底缘</b>（小程序原生 tabBar 规范，含底部安全区高度），点击切换、当前项高亮。
         </p>
           <p>6）右上角常驻<em>小程序系统胶囊（··· 更多 ／ ⊕ 退出小程序）</em>，覆盖全部页面（地图层、搜索页、详情页、异常态），为微信原生非自定义元素；首页/地图层顶部第一行为「小程序名 + 胶囊」，白底常驻盖住地图（非悬浮）；搜索框下移一行、全宽悬浮于地图；搜索页搜索框与胶囊同行且同高（32px）齐平。</p>
       </div>
@@ -1249,7 +1276,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
         <div class="bottomdock">
           <div class="navdock inline">
-            <span class="np on">首页</span><span class="np">政策</span>
+            <span class="np on">首页</span><span class="np">学校</span>
           </div>
           <div class="cardbot">
             <div class="handle"></div>
@@ -1301,7 +1328,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           1）默认显示范围：按<em>广州中心城区中轴线（珠江新城—广州塔一带）</em>视野定位展示（后续版本增加定位授权弹窗；本稿底图为示意区域）。<br>
           2）地图交互：左下角有学校类型图例；支持手势放大、缩小，跟随手指滑动移动地图。<br>
           3）点击学校点位 → 底部弹出半窗学校卡（默认 45% 高，内容为详情长图按高度自动截取），选中点位 UI 呈选中态；点击其他点位切换卡片。<br>
-          4）半窗 ↔ 全屏：卡片内上滑／点右下角「展开详情」／点击卡片内容 → 页面上滑展开为全屏详情长图（07）——<em>「展开详情」按钮与上滑手势走同一套展开交互</em>（同一手势展开通道，按钮不另设独立展开逻辑，二者共用同一「从下往上延展直至全屏」的过渡动画、完全对齐，不会瞬跳全屏）；<em>全屏态页面经 `bindmodechange` 用 `wx:if` 显式卸载原生地图，展开后只看到详情层、看不到背后地图</em>；<em>半窗态向下滑动（跟手）可关闭半窗卡</em>；全屏页滑到顶部后继续往下／点返回 → 收起回半窗卡（45% 高，与展开方向相反）；点 ✕ 或半窗卡以外区域 → 关闭卡片。<br>
+          4）半窗 ↔ 全屏：卡片内上滑／点右下角「展开详情」／点击卡片内容 → 页面上滑展开为全屏详情长图（07）——<em>「展开详情」按钮与上滑手势走同一套展开交互</em>（同一手势展开通道，按钮不另设独立展开逻辑，二者共用同一「从下往上延展直至全屏」的过渡动画、完全对齐，不会瞬跳全屏）；<em>全屏态页面经 `bindmodechange` 用 `wx:if` 显式卸载原生地图，展开后只看到详情层、看不到背后地图</em>；<em>半窗态向下滑动（跟手）可关闭半窗卡</em>；全屏页左右任意横向滑动（含屏幕边缘侧滑）／点返回 → 收起回半窗卡（45% 高，与展开方向相反）；点 ✕ 或半窗卡以外区域 → 关闭卡片。<br>
           5）搜索框／筛选栏为悬浮层，交互同首页。
         </p>
       </div>
@@ -1346,7 +1373,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
         <div class="bottomdock">
           <div class="navdock inline">
-            <span class="np on">首页</span><span class="np">政策</span>
+            <span class="np on">首页</span><span class="np">学校</span>
           </div>
           <div class="cardbot">
             <div class="handle"></div>
@@ -1431,14 +1458,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
         <div class="bottomdock">
           <div class="navdock inline">
-            <span class="np on">首页</span><span class="np">政策</span>
+            <span class="np on">首页</span><span class="np">学校</span>
           </div>
           <div class="cardbot">
             <div class="handle"></div>
             <span class="cbclose"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
             <div class="stagebar">
-              <span class="stab h on"><i></i>高中</span>
-              <span class="stab m"><i></i>初中</span>
+              <span class="stab h on">高中</span>
+              <span class="stab m">初中</span>
             </div>
             <div class="cbtop">
               <span class="nm">广州市第五中学</span>
@@ -1467,11 +1494,11 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <b>多学段半窗卡（视觉规范）</b>
         <p>
 · 半窗学校卡<em>固定高度 45% 屏高</em>（约 365px／812 屏，不随内容压缩；预览区弹性填充剩余空间），单屏可直接看到「高考信息」等顶部模块（与 07E 高中长图首模块一致），底部渐隐 + <em>实心蓝色高亮「展开详情」按钮</em>。<br>
-· 多学段学校半窗卡：<em>学段 tab 条位于半窗卡最上方</em>（拖拽 handle 之下、校名之上）——胶囊式 tab，<em>顺序按学段优先级 高中&gt;初中&gt;小学 排列</em>、只显示该校实际所含学段（2–3 枚），<em>tab 左对齐下方文字的左缘、按内容宽度排列（不拉伸占满整行）</em>，左侧学段色点同全屏版（小学蓝／初中橙／高中绿），默认选中主学段；<em>tab 之下才是校名</em>；校名下方三标签中的「学段」标签<em>只展示当前选中 tab 对应的学段</em>（如本示例选中高中 → 标签为 海珠区／高中／公办）。单学段学校不显示 tab 条。<br>
+· 多学段学校半窗卡：<em>学段 tab 条位于半窗卡最上方</em>（拖拽 handle 之下、校名之上）——胶囊式 tab，<em>顺序按学段优先级 高中&gt;初中&gt;小学 排列</em>、只显示该校实际所含学段（2–3 枚），<em>tab 左对齐下方文字的左缘、按内容宽度排列（不拉伸占满整行）</em>，<b>tab 不带学段色点</b>（纯文字胶囊），默认选中主学段；<em>tab 之下才是校名</em>；校名下方三标签中的「学段」标签<em>只展示当前选中 tab 对应的学段</em>（如本示例选中高中 → 标签为 海珠区／高中／公办）。单学段学校不显示 tab 条。<br>
 · <em>点 tab：半窗内校名、标签、预览模块整体刷新为该学段内容</em>（本示例当前为「高中」态：主学段优先级 高中&gt;初中&gt;小学，五中含初中+高中、主学段为高中，故默认选中高中）。<br>
 · <em>卡内各行间距统一 12px</em>：handle → 学段 tab → 校名 → 标签 → 预览区分隔线，与详情页头部节奏一致。<br>
 · 地图左下角<em>学段图例保持原位不动</em>，不因半窗卡弹出而移动（半窗卡为最上层，展开时自然遮住图例，收起即恢复可见）。<br>
-· 上滑／点「展开详情」→ 展开全屏长图，<em>tab 选中状态延续</em>到全屏（07B）；<em>全屏态滑到页面最顶部后继续从上往下滑（跟手）收起回半窗</em>，tab 状态同样保留；<em>全屏态背景地图已显式卸载（只显示详情层）</em>。<br>
+· 上滑／点「展开详情」→ 展开全屏长图，<em>tab 选中状态延续</em>到全屏（07B）；<em>全屏态左右任意横向滑动（含屏幕边缘侧滑，横向主导）收起回半窗</em>，tab 状态同样保留；<em>全屏态背景地图已显式卸载（只显示详情层）</em>。<br>
 · 本屏地图沿用 06 示意区域绘制；实际产品中示例校（广州市第五中学，完全中学）位于海珠区，按真实坐标落点为橙绿各半圆的多学段点位；三学段学校（小学+初中+高中，如祈福英语实验学校）则为三色各 1/3 圆、半窗卡 3 枚 tab（顺序 高中&gt;初中&gt;小学）。
         </p>
         <div class="ixn">
@@ -1479,7 +1506,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <p>
           1）点击多学段点位 → 弹出半窗卡（tab 条位于最上方，顺序 高中&gt;初中&gt;小学，默认选中主学段），点位呈选中态（放大 + 蓝色光晕 + 名称气泡常显）。<br>
           2）点其他学段 tab → 半窗内容整体切换为该学段（学段标签同步换为该学段）；tab 选中态随之移动。<br>
-          3）半窗内上滑／点「展开详情」→ 全屏长图（当前学段延续，见 07B）；**半窗态向下滑动（跟手）可关闭半窗卡**；全屏滑到顶部后继续下滑收回半窗；点 ✕ 或半窗外区域关闭。
+          3）半窗内上滑／点「展开详情」→ 全屏长图（当前学段延续，见 07B）；**半窗态向下滑动（跟手）可关闭半窗卡**；全屏态左右任意横向滑动（含屏幕边缘侧滑）／点返回收回半窗；点 ✕ 或半窗外区域关闭。
         </p>
       </div>
       </div>
@@ -1558,7 +1585,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <b>交互描述（交互稿口径）</b>
         <p>
           1）弹出来源：点击地图点位、搜索入口查询或其他页面点击学校名，均先弹出半窗学校卡。<br>
-          2）半窗 ↔ 全屏：默认 45% 卡片高度；往上滑变为全屏展示（与「展开详情」按钮同一套延展动画，完全对齐、不瞬跳）；**半窗态向下滑动（跟手）可关闭半窗卡**；全屏页提供返回按钮（回到上一级半窗卡片），全屏页滑到顶部后继续往下／从左往右滑也能回到半窗卡片（与展开方向相反）；**全屏态背景地图显式卸载、只显示详情层**；点击关闭按钮或页面白色空白处 → 关闭卡片；点击右下角「展开详情」按钮或在卡片内点击 → 展开为全屏页。<br>
+          2）半窗 ↔ 全屏：默认 45% 卡片高度；往上滑变为全屏展示（与「展开详情」按钮同一套延展动画，完全对齐、不瞬跳）；**半窗态向下滑动（跟手）可关闭半窗卡**；全屏页提供返回按钮（回到上一级半窗卡片），全屏页左右任意横向滑动（含屏幕边缘侧滑）／点返回也能回到半窗卡片（与展开方向相反）；**全屏态背景地图显式卸载、只显示详情层**；点击关闭按钮或页面白色空白处 → 关闭卡片；点击右下角「展开详情」按钮或在卡片内点击 → 展开为全屏页。<br>
           3）展示信息：卡片顶部区 = 官方学校名 + 标签（行政区／学段／办学性质）；下方详情区按学校所属学段展示不同信息模块，模块之间有分隔线。<br>
           4）多学段学校：半窗卡与全屏详情卡的<em>学段切换 tab 条均位于校名上方</em>（半窗在 handle 之下、全屏在顶栏之下；胶囊式，顺序按学段优先级 高中&gt;初中&gt;小学，tab 数量＝该校实际所含学段 2–3 枚，不显示不存在的学段），默认选中主学段（见 01），可切换其他学段 tab；点 tab 后校名／学段标签／模块整体刷新为该学段内容（学段标签只显示选中 tab 对应学段），半窗示例见 <b>06C</b>，全屏视觉与顶栏滚动替换交互见 <b>07B / 07C</b>。<br>
           5）可点击元素：升学路线／关联校区模块内的学校名（蓝色 + 「›」）→ 跳转地图并定位到该学校。
@@ -1695,9 +1722,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
         <div class="dbody v2">
           <div class="stagebar">
-            <span class="stab h"><i></i>高中</span>
-            <span class="stab m on"><i></i>初中</span>
-            <span class="stab p"><i></i>小学</span>
+            <span class="stab h">高中</span>
+            <span class="stab m on">初中</span>
+            <span class="stab p">小学</span>
           </div>
           <div class="dh1">祈福英语实验学校</div>
           <div class="dtags">
@@ -1772,7 +1799,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「07 学校详情卡 · 小学（长图）／07B 多学段（初中）」</p>
         <b>学校详情卡 · 多学段（tab 切换，视觉规范）</b>
         <p>
-· 多学段学校（同一 school_id 跨 ≥2 学段，如九年一贯制小学+初中、十二年一贯制小学+初中+高中）的详情卡，<b>学段切换 tab 条位于顶栏之下、校名之上</b>；tab 为<b>胶囊式</b>（描边胶囊，选中态浅蓝底 #F2F6FE + #98B6EC 描边 + 深蓝字，与筛选选项选中态同族；左侧学段色点：小学蓝／初中橙／高中绿），<b>tab 左对齐内容区左缘、按内容宽度排列（不拉伸占满整行）</b>，<b>顺序按学段优先级 高中&gt;初中&gt;小学 排列</b>，tab 数量 = 该校实际所含学段数（2–3 枚），<b>不显示该校不存在的学段</b>（本示例校为三学段：高中＋初中＋小学，3 枚 tab；两学段示例见 06C 完全中学）。<br>
+· 多学段学校（同一 school_id 跨 ≥2 学段，如九年一贯制小学+初中、十二年一贯制小学+初中+高中）的详情卡，<b>学段切换 tab 条位于顶栏之下、校名之上</b>；tab 为<b>胶囊式</b>（描边胶囊，选中态浅蓝底 #F2F6FE + #98B6EC 描边 + 深蓝字，与筛选选项选中态同族；<b>tab 为纯文字、不带学段色点</b>），<b>tab 左对齐内容区左缘、按内容宽度排列（不拉伸占满整行）</b>，<b>顺序按学段优先级 高中&gt;初中&gt;小学 排列</b>，tab 数量 = 该校实际所含学段数（2–3 枚），<b>不显示该校不存在的学段</b>（本示例校为三学段：高中＋初中＋小学，3 枚 tab；两学段示例见 06C 完全中学）。<br>
 · <b>tab 之下才是校名与三标签</b>；三标签中的「学段」标签<b>只展示当前选中 tab 对应的学段</b>（不罗列全部学段）。默认选中主学段（高中&gt;初中&gt;小学，见 01 主学部规则）；用户点其他 tab 即切换该学段详情，<b>校名、学段标签、全部模块随 tab 整体刷新</b>（各学段模块独立：小学含「小升初升学路线」，初中为<b>招生计划（2026年）／中考报考情况／关联校区</b>三模块，见下）。<br>
 · 单学段学校（如纯小学）不显示 tab 条，退化为 07 单学段版。<br>
 · <b>初中三模块（按交互稿）</b>：① <b>招生计划（2026年）</b>——标题右侧灰蓝小字「计划 x 个班」（同小学），标题下方平铺「招生方式」（每条＝左文案 + 右侧机制标签 + 下方学校名单盒）；② <b>中考报考情况</b>——区分批次（如第二批次：名额考生数／省市属高中录取名额／区属高中录取名额）、与其他初中共享计划的校区（附温馨提示）、省市属高中录取明细／区属高中录取明细（均为<b>图表区</b>，明细表列：高中｜名额｜录取最低分；表头与数据行<b>同网格对齐</b>——第一列高中校名尽量占宽 <code>minmax(0,1fr)</code>、名额／录取最低分窄列靠右；校名单行最大约 10 个汉字宽度，超出用「…」截断），明细下小字「具体名额以官方公布为准，第三批第四批无法获取」；③ <b>关联校区</b>——含所属集团（展示集团名）、公示文件说明、集团核心校、集团成员校，成员校行带学级标签，当前校带「当前查看」标记。<br>
@@ -1807,9 +1834,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
         <div class="dbody v2" style="padding-top:0">
           <div class="stagebar">
-            <span class="stab h"><i></i>高中</span>
-            <span class="stab m on"><i></i>初中</span>
-            <span class="stab p"><i></i>小学</span>
+            <span class="stab h">高中</span>
+            <span class="stab m on">初中</span>
+            <span class="stab p">小学</span>
           </div>
           <div class="dmod">
             <div class="dmod-h"><b>招生计划（2026年）</b><span class="dmod-meta">计划8个班</span></div>
@@ -1941,6 +1968,113 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       </div>
     </div>
 
+  <!-- 12 学校页（底部第 2 tab）· 小学 -->
+  <div class="frame">
+    <div class="cap"><b>12 学校页（底部第 2 tab）· 小学</b><span>顶部 小学/初中/高中 分段切换 · 列表按行政区归类 · 区域/校园荣誉 两胶囊筛选</span></div>
+    <div class="phone">
+      <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+      <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+      <div class="navbar brand"><b>广州学途</b></div>
+      <div class="sctop"><div class="stagebar">
+        <span class="stab p on">小学</span>
+        <span class="stab m">初中</span>
+        <span class="stab h">高中</span>
+      </div></div>
+      <div class="scfilter"><div class="filterrow">
+        <span class="chip">区域 <i class="caret"></i></span>
+        <span class="chip">校园荣誉 <i class="caret"></i></span>
+      </div></div>
+      <div class="sclist">
+        <div class="scsec">越秀区</div>
+        <div class="chartbox sctbl">
+          <div class="thead sq"><span>学校</span><span>校园荣誉</span></div>
+          <div class="trow sq"><span class="lk"><span class="tx">东风东路小学</span></span><span>全国文明校园</span></div>
+          <div class="trow sq"><span class="lk"><span class="tx">东山培正小学</span></span><span>广东省文明校园</span></div>
+          <div class="trow sq"><span class="lk"><span class="tx">文德路小学</span></span><span class="na">—</span></div>
+        </div>
+        <div class="scsec">天河区</div>
+        <div class="chartbox sctbl">
+          <div class="thead sq"><span>学校</span><span>校园荣誉</span></div>
+          <div class="trow sq"><span class="lk"><span class="tx">华阳小学</span></span><span>全国文明校园</span></div>
+          <div class="trow sq"><span></span><span>广东省文明校园</span></div>
+          <div class="trow sq"><span class="lk"><span class="tx">龙洞小学</span></span><span class="na">—</span></div>
+          <div class="trow sq"><span class="lk"><span class="tx">天府路小学</span></span><span>广州市文明校园</span></div>
+        </div>
+      </div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+    </div>
+    <div class="anno">
+      <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「12 学校页（底部第 2 tab）· 小学」</p>
+      <b>学校页 · 小学 tab（视觉规范）</b>
+      <p>
+        · 顶部结构：<b>与其他页顶部规范完全一致</b>——状态栏 → <b>左侧品牌标题「广州学途」</b>（与首页地图层 brandrow 同款，左对齐）→ <b>右上角系统胶囊（···／◎）常驻</b>，位置、尺寸与首页／详情卡各页统一，不得缺失；<b>导航标题不写「学校」</b>（与底部 tab 文案重复）。<br>
+        · 学段切换：<b>分段控件样式</b>（整块浅灰底圆角容器内三段平分，选中段白底浮起 + 加粗知性蓝）——<b>不带学段色点</b>（全局学段 tab 均已去色点）；与下方描边胶囊筛选栏<b>层级区分</b>：分段控件为页面级切换（主），筛选胶囊为列表过滤（次）。<br>
+        · 筛选栏（吸顶于列表上方）：<b>两枚胶囊</b>＝<b>区域</b>／<b>校园荣誉</b>，等宽铺满、与首页筛选栏同款（高 32、r=999、白底描边）；已应用的维度胶囊转浅蓝底（.chip.on）。<b>区域为单选维度：选中后胶囊文案替换为所选项名</b>（选行政区显示「xx区」、选板块显示板块名，如「天河区」「万博-长隆」），清除后恢复「区域」；校园荣誉点开后在筛选栏下方展开多选面板（见 12A）。<br>
+        · <b>页面底色＝白色</b>（不用灰底）；列表<b>按行政区归类展示</b>，<b>区与区之间用 1px 分隔线</b>（同学校详情卡各模块之间的分隔方式）。每区结构：<b>区名分组头＝详情页一级模块标题同款</b>（蓝竖条 + 17px 加粗，sticky 吸顶；<b>区名旁不写学校数量</b>，<b>无计数行</b>），分组头下方为<b>带表头的两列表单</b>（与详情页表单同款：<code>chartbox</code> 容器 + <code>thead</code>/<code>trow</code>，颜色字号直接复用详情页同一套类：表头 12px 加粗墨色、正文 13px 墨色、校名知性蓝 + ›、字重 500 同 <code>.v2 .trow .lk</code>）——表头＝<b>学校｜校园荣誉</b>（第二列窄列靠右、超宽省略）；<b>第一列＝学校</b>名（可点击链接，超宽单行省略）、<b>第二列＝校园荣誉</b>（无荣誉显「—」置灰）；<b>一校有多条荣誉时每条荣誉独立一行</b>（校名只在首行显示，续行学校列留空）；<b>区内学校名按拼音首字母排序</b>。<br>
+        · <b>区排序规则</b>：已开启定位且未筛选区域时，<b>所属行政区置顶</b>，其余区按与定位点的距离<b>由近及远</b>排列；未开定位或已筛选区域时按固定区序（荔湾→越秀→海珠→天河→白云→黄埔→番禺）。<b>校园荣誉取值与 web「小学明细」一致</b>：全国文明校园／广东省文明校园／广州市文明校园／创建先进学校（储备）／其他。<br>
+        · 本页为 web「广州七区小学明细」(PrimaryRankingView) 的移动端重设计：原表格三列（学校/校区｜位置｜校园荣誉）转为<b>按区归类两列表单</b>，原「分组（不分组/按区）」筛选取消（固定按行政区归类）、「位置」并入区域胶囊。
+      </p>
+      <div class="ixn">
+        <b>交互描述</b>
+        <p>
+          1）入口：底部第 2 个 tab「学校」→ 进入学校页，默认选中「小学」tab（与首页地图默认小学点位一致）。<br>
+          2）学段切换：点 初中／高中分段 → 列表整体刷新为该学段数据（初中/高中 tab 详情待 12B/12C 补充）；默认小学。<br>
+          3）筛选：点「区域」→ 复用 04 三列下钻（区域·板块/地铁），<b>单选</b>——选定一项即收起面板、胶囊回显所选项名，再次点选其他项替换、点已选项取消并恢复「区域」；点「校园荣誉」→ <b>筛选栏正下方展开多选面板</b>（<b>4 项</b>，默认全选；展开态整个顶部到面板为白底整体窗口浮于遮罩上，同首页筛选面板，见 12A）；两维度已选状态独立保留；<b>胶囊不显示数量角标</b>。<br>
+          4）列表滚动：区名分组头吸顶（同区多校连续滚动、切区时新分组头顶替）；点学校名 → 打开该校详情卡半窗（06/07）。<br>
+          5）筛选结果为空 → 转空状态（见规范表「空状态」行，异常弹窗「重置筛选」）。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12A 学校页·小学·筛选弹层 -->
+  <div class="frame">
+    <div class="cap"><b>12A 学校页 · 小学 · 筛选面板</b><span>校园荣誉多选面板（筛选栏下方整体展开，同首页筛选面板）· 区域为单选（复用 04 下钻）</span></div>
+    <div class="phone">
+      <div class="scfwin">
+      <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+      <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+      <div class="navbar brand"><b>广州学途</b></div>
+      <div class="sctop"><div class="stagebar">
+        <span class="stab p on">小学</span>
+        <span class="stab m">初中</span>
+        <span class="stab h">高中</span>
+      </div></div>
+      <div class="scfilter"><div class="filterrow">
+        <span class="chip">区域 <i class="caret"></i></span>
+        <span class="chip on">校园荣誉 <i class="caret"></i></span>
+      </div></div>
+      <div class="scfpanel">
+        <div class="optwrap"><div class="opts">
+          <span class="opt on">全国文明校园</span>
+          <span class="opt on">广东省文明校园</span>
+          <span class="opt on">广州市文明校园</span>
+          <span class="opt on">创建先进学校（储备）</span>
+        </div></div>
+        <div class="sfoot"><span class="none">全不选</span><span class="ok">完成</span></div>
+      </div>
+      </div>
+      <div class="mask"></div>
+      <div class="sclist">
+        <div class="scsec">越秀区</div>
+        <div class="chartbox sctbl">
+          <div class="thead sq"><span>学校</span><span>校园荣誉</span></div>
+          <div class="trow sq"><span class="lk"><span class="tx">东风东路小学</span></span><span>全国文明校园</span></div>
+          <div class="trow sq"><span class="lk"><span class="tx">东山培正小学</span></span><span>广东省文明校园</span></div>
+        </div>
+      </div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+    </div>
+    <div class="anno">
+      <b>筛选面板（视觉规范）</b>
+      <p>
+        · <b>校园荣誉面板</b>（<b>与首页筛选面板同款交互</b>）：点「校园荣誉」胶囊 → 面板在<b>筛选栏正下方展开</b>；<b>展开态时 状态栏→品牌标题→学段分段→筛选栏→面板 整块白底作为一个整体窗口浮于遮罩之上</b>（同首页筛选面板：整个顶部到面板是一整体、<b>不压遮罩</b>），遮罩（黑 42%）只压暗面板下方的列表区；选项＝<b>4 枚胶囊</b>（全国文明校园／广东省文明校园／广州市文明校园／创建先进学校（储备）），默认全选（浅蓝底 .opt.on），多选；面板底部「全不选」（次按钮）+「完成」（主按钮，知性蓝通栏）；<b>点遮罩或「完成」收起面板</b>。<br>
+        · <b>区域为单选维度，不走该面板</b>：点「区域」胶囊复用 04 三列下钻（同样在筛选栏下方展开），选定一项即收起并把<b>所选项名回显到区域胶囊</b>（如「天河区」「万博-长隆」），再点已选项取消、恢复「区域」文案。<br>
+        · 两筛选维度已选状态各自独立保留；「全不选」仅作用于校园荣誉面板；应用后列表实时刷新；胶囊不显示数量角标、已应用的维度胶囊转浅蓝底。
+      </p>
+    </div>
+  </div>
+
   </div>
 </section>
 
@@ -1970,7 +2104,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <tr><td>半窗学校卡</td><td>地图层底部（点选点位后弹出，默认约 45% 高）</td><td>白底 + 上投影、上圆角 18，顶部拖拽 handle，<b>右上 ✕ 关闭</b>；<b>多学段学校：学段 tab 条（压缩版胶囊）位于最上方（handle 之下、校名之上）</b>，顺序按学段优先级 高中&gt;初中&gt;小学、只显示实际学段（见 06C）；<b>tab 之下是校名</b> 16/600 + 行政区／学段／办学性质中标签（<b>行政区固定带「区」字</b>；<b>「学段」标签只显示当前选中 tab 对应的学段</b>，单学段学校则显示该校学段）；下方<em>直接复用详情长图内容</em>，按半窗高度自动截取可视部分（顶部模块，如「招生计划（2026年）」），底部<em>渐隐遮罩</em>，「展开详情」胶囊（白底描边 + 投影）<b>叠于渐隐区之上、不单独占行</b>（卡体总高约 365px＝45%）。上滑或点「展开详情」→ 全屏长图页（tab 选中状态延续）；<b>层级最上层，底部导航栏压在卡片之下；地图左下角学段图例保持原位、不因半窗弹出而移动</b></td></tr>
         <tr><td>学校详情长图</td><td>半窗卡上滑后全屏（07 屏）</td><td>顶部「‹ 学校详情」（无关闭按钮，返回即收起）；模块自上而下：<b>招生计划（2026年）</b>（标题右侧「计划 x 个班」；仅含招生地段长文本，无数据字段不展示）→ <b>升学路线参考（2026年）</b>（标题下方逐条「招生方式 N」+ 各机制 <code>tag-mech</code> 标签，浅底分组盒框住对口／派位初中名——单 / 多机制同一布局；学校名为<b>可点击链接</b>：知性蓝 + 「›」，点击跳转地图定位）→ <b>关联校区</b>（两种情形：有集团＝层级，模块标题一级，所属集团（展示集团名）／集团核心校／集团成员校为二级（子标题、无竖条），成员校为三级（灰底圆角盒缩进），校名为可点击链接 + 学段标签；当前查看校加「当前查看」标识；无集团多校区＝单列「多校区」+ 多校区行）；点击学校名跳转地图定位；模块间分隔线；画框随内容加高（大长图）；<b>全学段统一层级四档</b>：模块标题一级（17px／700 近黑 + 左侧 4px 知性蓝竖条）／子标题二级（招生地段·招生方式 N·所属集团等，14px／600／#33405C）／正文三级（学校链接·字段值·地段正文，13px／400／#33405C）／说明小字四级（dnote／pubbox，11.5px／#8B96AD）；初中另含「中考报考情况」、高中另含「高考信息／中考录取情况」模块，层级同构</td></tr>
         <tr><td>学校详情卡</td><td>学校卡上滑展开（首版仅小学，确认后复用至初中／高中）</td><td>白底上圆角 20 + 上投影，handle；头部 校名 18/600 ＋ 关注（星）／关闭（×）36 圆形控件；<b>四类中标签</b>；关键信息行（地址／联系电话／创办时间，mk 灰 60 宽 + mv 正文）；「办学规模」四格数据块（数字 15 知性蓝 + 9.5px 注释）；「荣誉与特色」中标签组；底部「加入关注」描边按钮 ＋「查看完整详情」通栏主按钮</td></tr>
-        <tr><td>导航栏</td><td>首页 / 地图层底部，两项</td><td><b>置底通栏（小程序原生 tabBar 规范）</b>：宽 100%、高 56 + 底部安全区、白底 + 顶部 1px 分隔线，无圆角、无投影、非悬浮；内含两枚 tab 高 40 —— 首页 / 政策；选中 #F2F6FE 底胶囊 + #C3D5F6 描边 + #254BAE 字并加粗，未选透明底 + #64708C 字</td></tr>
+        <tr><td>导航栏</td><td>首页 / 地图层底部，两项</td><td><b>置底通栏（小程序原生 tabBar 规范）</b>：宽 100%、高 56 + 底部安全区、白底 + 顶部 1px 分隔线，无圆角、无投影、非悬浮；内含两枚 tab 高 40 —— 首页 / 学校；选中 #F2F6FE 底胶囊 + #C3D5F6 描边 + #254BAE 字并加粗，未选透明底 + #64708C 字</td></tr>
         <tr><td>空状态</td><td>搜索无结果（08 A）／筛选结果为空（10 C）</td><td>四要素结构：灰底圆形插画 88px + 标题 15.5/600 + 说明 12.5 次级色 + 主操作胶囊按钮；搜索空态主操作「清空并重新搜索」（清输入 + 重置筛选）；地图筛选空态用<b>异常弹窗</b>（240 宽，同全局弹窗统一规格）居中提示，右上角「×」可关闭、地图不加遮罩且手势仍可用，主操作「重置筛选」恢复默认全选</td></tr>
         <tr><td>网络异常</td><td>详情页／列表接口超时或失败（09 B）</td><td>标题「网络开小差了」+ 说明 + 主按钮「重新加载」；<b>局部重试</b>只重拉失败模块、不整页刷新；连续 2 次失败追加「反馈问题」入口；请求期展示<b>骨架屏</b>（浅灰圆角占位块），超 10s 未返回自动转网络异常态</td></tr>
         <tr><td>确认弹窗</td><td>搜索页「清空」等破坏性操作二次确认（11 屏）</td><td>统一按第 01 节「通用 · 异常态与全局弹窗 · 全局弹窗统一规格」执行：宽 240px（<b>全稿唯一弹窗宽度档</b>，与地图异常弹窗同档）、r=16、白底 + 投影；标题 16/600 居中、正文 13 次级色居中；按钮两枚等宽 高 44 r=999 —— 取消（白底描边）+ 主操作；<b>破坏性主按钮用警示红 #E5484D</b>，非破坏性确认与重试类用知性蓝；遮罩黑 42%，<b>点遮罩不关闭</b>，弹窗期间背景不可滚动；动效 淡入+轻微放大 150–200ms</td></tr><tr><td>小程序胶囊</td><td>全屏右上角系统导航（覆盖所有页面）</td><td>微信小程序原生胶囊：圆角矩形（87×32，r=16）白底 82% + 1px 浅灰描边 + 投影，内分两钮——左「··· 更多」、右「⊕ 退出小程序」；两钮间 1px 竖分隔。z-index 最高、非自定义元素，<b>所有页面（地图层／搜索页／详情页／异常态）统一常驻右上角</b>；首页/地图层顶部第一行左侧为小程序名、右侧为胶囊，白底常驻盖住地图；搜索框位于第二行全宽悬浮；搜索页（02/03）搜索框与胶囊同行且同高 32px 齐平，自定义顶栏右侧预留 98px 安全位避免遮挡。<b>对齐实现口径</b>：搜索页头行高 44px，搜索框 32px 在行内垂直居中 —— 故头行 top ＝ 胶囊 top − (44 − 32)/2 ＝ 胶囊 top − 6px，行内右侧 padding ＝ 屏宽 − 胶囊左缘 + 4px（375 画框下即 98px）；首页小程序名行（.brandrow 32px）直接与胶囊<b>顶对齐</b>（顶行 top ＝ 胶囊 top）。<b>不得只用状态栏高度顶对齐</b>，否则搜索框会比胶囊低 6px、视觉错位。点击「···」唤起微信转发/收藏等系统菜单，点击「⊕」退出小程序回微信会话。</td></tr>

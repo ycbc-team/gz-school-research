@@ -1,6 +1,9 @@
 <view class="page">
-  <!-- 整屏地图背景 -->
+  <!-- 整屏地图背景。全屏学校详情页时隐藏地图（cardFull）：原生 <map> 组件渲染在 WebView 之上，
+       即使详情卡覆盖全屏也需显式隐藏，确保「展开后只看到详情层、看不到背后地图」。
+       centerLat/Lng/scale 在用户平移后会回写（onRegionChange），重建时无缝复位。 -->
   <map
+    wx:if="{{!cardFull}}"
     id="gzmap"
     class="map"
     latitude="{{centerLat}}"
@@ -90,7 +93,7 @@
        分包就绪（wx.loadSubpackage success）前不渲染任何占位——未就绪点学校由页面弹「学校信息加载中」toast；
        ✕ 关闭 → bindclose；关联校区跳转 → bindgoto。
        注：componentPlaceholder("view") 为主包页引用分包组件的编译硬性要求，wx:if 门控下永不显示。 -->
-  <school-card wx:if="{{card && subReady}}" context="overlay" schoolId="{{card.schoolId}}" name="{{card.name}}" stage="{{card.stage}}" bindclose="closeCard" bindgoto="onCardGoto" />
+  <school-card wx:if="{{card && subReady}}" context="overlay" schoolId="{{card.schoolId}}" name="{{card.name}}" stage="{{card.stage}}" bindclose="closeCard" bindgoto="onCardGoto" bindmodechange="onCardMode" />
 
   <!-- 筛选结果为空 · 地图中央浮层（UI 稿异常态 C：不遮挡地图手势，点浮层外关闭浮层保留筛选） -->
   <view wx:if="{{filterEmpty}}" class="fempty">

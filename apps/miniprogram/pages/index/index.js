@@ -17,9 +17,11 @@ function markerIcon(stages, selected) {
   return `/assets/markers-index/marker-${key}${selected ? '-sel' : ''}.png`;
 }
 
-// 点位图标尺寸：常态 16 / 选中 22（UI 稿规范表「地图点位」）
-const MARKER_OFF = 16;
-const MARKER_ON = 22;
+// 点位图标尺寸：常态 28 / 选中 38（UI 稿规范表「地图点位」）。
+// 源图 120×120（gen-markers-index.mjs，SCALE=2.5），真机 2~3x DPR 下显示 38px 仍是「缩」图、边缘清晰；
+// 尺寸即点按热区——用户反馈 16/22 太小常点不中，故放大显示尺寸（与源分辨率无关）。
+const MARKER_OFF = 28;
+const MARKER_ON = 38;
 // 选中态名称气泡（白底圆角、下方小箭头）
 // ⚠️ display 只能取 'BYCLICK' / 'ALWAYS'。写成 'BYALWAYS' 是非法值，
 // 会被地图组件退化成「点击才显示」，表现为「搜索定位后点位上不显示校名」。
@@ -84,6 +86,9 @@ Page({
     // 就绪后需用户主动再点学校才出真卡（不自动弹，避免用户已滑到别处时突兀弹出）。
     card: null,
     subReady: false,
+    // 学校卡全屏态标记：组件 expand→full / collapse→half 通过 bindmodechange 通知；
+    // 全屏时隐藏地图（原生 <map> 在 WebView 之上，需显式隐藏才能只看到详情层）。半窗态保持地图可见（设计如此）。
+    cardFull: false,
     // 筛选结果为空浮层（UI 稿异常态 C）
     filterEmpty: false,
     // 搜索页
@@ -695,9 +700,17 @@ Page({
     if (pt) this.focusPoint(pt);
   },
   closeCard() {
-    this.setData({ card: null, activeMarkerId: null });
+    this.setData({ card: null, activeMarkerId: null, cardFull: false });
     this.renderMarkers();
     this.setTabBarHidden(false);
+  },
+  // 学校卡模式变化（overlay 上下文）：full → 隐藏地图；half/closed → 显示地图。
+  // 地图 center/scale 已被 onRegionChange 回写，重建时无缝复位。
+  onCardMode(e) {
+    const full = (e.detail && e.detail.mode) === 'full';
+    this.setData({ cardFull: full }, () => {
+      if (!full && this.mapCtx) this.mapCtx = wx.createMapContext('gzmap', this);
+    });
   },
   onMapTap(e) {
     if (this.ignoreNextMapTap || (e && e.detail && e.detail.markerId !== undefined)) { this.ignoreNextMapTap = false; clearTimeout(this.ignoreMapTapTimer); return; }
