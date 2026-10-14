@@ -7,7 +7,18 @@ import { normName } from '../../support.js';
 import type { HighLevelSchool, SchoolStage, SchoolsSnapshot } from '../../types.js';
 import type { DataLoaders } from '../../data/loader.js';
 import type { MapPoint } from './filters.js';
-import { districtByAdcode, STAGE_PRIORITY, type ClsKey, type SchoolNature } from './constants.js';
+import { districtByAdcode, STAGE_PRIORITY, METRO_RADIUS_KM, type ClsKey, type SchoolNature } from './constants.js';
+
+/** 两经纬度间距离（km），等距圆柱近似（小范围精度足够） */
+function kmBetween(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const R = 6371;
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLng = ((lng2 - lng1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLng / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
 
 /** 完整点位（含信息卡所需字段） */
 export interface MapPointFull extends MapPoint {
@@ -74,6 +85,7 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
         stages: [], clsOf: {} as Record<SchoolStage, ClsKey>, natureOf: {} as Record<SchoolStage, SchoolNature>,
         rec: null, mainStage: stage,
         ids: {}, names: [], stageNames: {},
+        plateId: undefined, stationIds: [],
       };
       ptByKey.set(key, pt);
       allPoints.push(pt);
@@ -106,6 +118,34 @@ export function buildPoints(loaders: DataLoaders): MapPointFull[] {
     pt.mainStage = pt.stages[pt.stages.length - 1]!;
     if (pt.stageNames[pt.mainStage]) pt.name = pt.stageNames[pt.mainStage]!;
     if (!pt.ids[pt.mainStage] && pt.school_id) pt.ids[pt.mainStage] = pt.school_id;
+  }
+
+  // 区域/地铁归属（UI 04/04B 三列下钻过滤用）：板块 = 同区内最近板块中心；站点 = 半径内集合。
+  // 数据源缺失（如 Web 端未注入）时安全跳过，点位退化为无 plateId/stationIds。
+  const plates = loaders.plates;
+  const metro = loaders.metro;
+  if (plates && plates.districts) {
+    for (const pt of allPoints) {
+      const list = plates.districts[pt.adcode];
+      if (!list || !list.length) continue;
+      let best: { id: string; d: number } | null = null;
+      for (const p of list) {
+        const d = kmBetween(pt.lat, pt.lng, p.center[1], p.center[0]);
+        if (!best || d < best.d) best = { id: p.id, d };
+      }
+      if (best) pt.plateId = best.id;
+    }
+  }
+  if (metro && metro.lines && metro.lines.length) {
+    const stations: Array<{ id: string; lat: number; lng: number }> = [];
+    for (const line of metro.lines) for (const st of line.stations) stations.push({ id: st.id, lat: st.lat, lng: st.lng });
+    for (const pt of allPoints) {
+      const ids: string[] = [];
+      for (const st of stations) {
+        if (kmBetween(pt.lat, pt.lng, st.lat, st.lng) <= METRO_RADIUS_KM) ids.push(st.id);
+      }
+      pt.stationIds = ids;
+    }
   }
   return allPoints;
 }

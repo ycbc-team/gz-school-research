@@ -31,7 +31,7 @@
     <!-- 筛选栏胶囊：常态为入口（显示维度名/选中项）；展开时即面板 dims（同 3 枚胶囊，等宽） -->
     <view class="filterrow {{menu ? 'dims' : ''}}">
       <view class="chip {{menu==='district'?'on-soft':''}}" data-dim="district" bindtap="onChipTap">
-        <text>{{districtLabel}}</text>
+        <text>{{regionLabel}}</text>
         <view class="caret"></view>
       </view>
       <view class="chip {{menu==='stage'?'on-soft':''}}" data-dim="stage" bindtap="onChipTap">
@@ -46,8 +46,31 @@
 
     <!-- 面板体（仅展开时渲染，与搜索框/筛选栏同属一个白色窗口） -->
     <scroll-view wx:if="{{menu}}" scroll-y class="optscroll">
-      <view wx:if="{{menu==='district'}}" class="opts">
-        <view wx:for="{{districts}}" wx:key="adcode" class="opt {{item.checked?'on':''}}" data-adcode="{{item.adcode}}" bindtap="toggleDistrict">{{item.name}}</view>
+      <view wx:if="{{menu==='district'}}" class="drill">
+        <scroll-view scroll-y class="dcol">
+          <view class="dh">筛选维度</view>
+          <view class="di {{regionDim==='district'?'on':''}}" data-dim="district" bindtap="onRegionDimTap">行政区/板块<text class="cr">›</text></view>
+          <view class="di {{regionDim==='metro'?'on':''}}" data-dim="metro" bindtap="onRegionDimTap">地铁<text class="cr">›</text></view>
+        </scroll-view>
+        <scroll-view scroll-y class="dcol">
+          <view class="dh">{{col2Header}}</view>
+          <block wx:if="{{regionDim==='district'}}">
+            <view wx:for="{{districts}}" wx:key="adcode" class="di {{item.checked?'on':''}}" data-adcode="{{item.adcode}}" bindtap="toggleDistrict">{{item.name}}<text wx:if="{{item.adcode===focusDistrict}}" class="cr">›</text></view>
+          </block>
+          <block wx:else>
+            <view wx:for="{{metroLines}}" wx:key="id" class="di {{item.checked?'on':''}} {{item.id===focusLine?'fcs':''}}" data-id="{{item.id}}" bindtap="focusLineTap">{{item.name}}<text wx:if="{{item.id===focusLine}}" class="cr">›</text></view>
+          </block>
+        </scroll-view>
+        <scroll-view scroll-y class="dcol">
+          <view class="dh">{{col3Header}}</view>
+          <block wx:if="{{regionDim==='district'}}">
+            <view class="di feat {{allPlateOn?'on':''}}" data-ad="{{focusDistrict}}" bindtap="toggleAllPlates">全部{{focusDistrictName}}</view>
+            <view wx:for="{{plateCol}}" wx:key="id" class="di {{item.checked?'on':''}}" data-id="{{item.id}}" bindtap="togglePlate">{{item.name}}</view>
+          </block>
+          <block wx:else>
+            <view wx:for="{{stationCol}}" wx:key="id" class="di {{item.checked?'on':''}}" data-id="{{item.id}}" bindtap="toggleStation">{{item.name}}</view>
+          </block>
+        </scroll-view>
       </view>
       <view wx:if="{{menu==='stage'}}" class="optgroups">
         <view class="optgrp">
@@ -71,9 +94,13 @@
         <view wx:for="{{SCHOOL_NATURE_TABS}}" wx:key="v" class="opt {{item.checked?'on':''}}" data-nature="{{item.v}}" bindtap="toggleNature">{{item.l}}</view>
       </view>
     </scroll-view>
-    <view wx:if="{{menu}}" class="sfoot">
+    <view wx:if="{{menu && menu !== 'district'}}" class="sfoot">
       <view class="none" bindtap="clearDim">全不选</view>
       <view class="ok" bindtap="confirmSheet">确认</view>
+    </view>
+    <!-- 区域弹窗（底部右对齐）：重置 → 清空行政区/板块/地铁选择，展示 7 个区全部学校 -->
+    <view wx:if="{{menu === 'district'}}" class="sfoot sfoot-reset">
+      <view class="reset" bindtap="resetRegion">重置</view>
     </view>
   </view>
 

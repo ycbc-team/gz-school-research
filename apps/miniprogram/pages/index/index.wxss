@@ -120,6 +120,11 @@
   display: flex; align-items: center; justify-content: center; gap: 6rpx;
 }
 .chip.on-soft { background: #F2F6FE; color: #254BAE; font-weight: 600; }
+/* 胶囊文案单行省略：选项名（如地铁站名/板块名）过长时截断加 …，绝不折成两行 */
+.chip text {
+  max-width: 100%; min-width: 0; flex: 0 1 auto;
+  overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
 /* 注：筛选胶囊不显示任何数量角标（UI 稿 01 帧修正：与维度名混淆、视觉杂乱） */
 
 /* 图例区：必须整体位于底部 tabBar 之上（UI 稿 .legendbox bottom:88px）；位置固定，不随学校卡显隐移动 */
@@ -163,6 +168,21 @@
   font-size: 26rpx; color: #33405C; display: flex; align-items: center;
 }
 .opt.on { background: #F2F6FE; border-color: #98B6EC; color: #254BAE; font-weight: 600; }
+
+/* 区域三列下钻（UI 04/04B）：固定高度三列、列间 1px 分隔、各列纵向滚动，不随条目增多变高 */
+.drill { display: flex; height: 480rpx; }
+.dcol { flex: 1 1 0; width: 0; display: flex; flex-direction: column; }
+.dcol + .dcol { border-left: 1rpx solid #EFF2F7; }
+.dcol .dh { flex: none; padding: 12rpx 24rpx 16rpx; font-size: 24rpx; color: #8B96AD; font-weight: 600; }
+.dcol .di {
+  display: flex; align-items: center;
+  padding: 18rpx 24rpx; margin: 0 10rpx 6rpx;
+  font-size: 26rpx; color: #33405C; border-radius: 12rpx;
+}
+.dcol .di.on { color: #254BAE; font-weight: 600; }
+.dcol .di.fcs { color: #10182B; font-weight: 600; }
+.dcol .di .cr { margin-left: auto; color: #9AA6BD; font-size: 30rpx; line-height: 1; flex: none; }
+
 .optgroups { display: flex; flex-direction: column; gap: 32rpx; padding-bottom: 16rpx; }
 .optgrp:last-child { margin-bottom: 0; }
 .optgrp .ghd { font-size: 26rpx; font-weight: 600; color: #33405C; margin-bottom: 16rpx; }
@@ -180,6 +200,13 @@
   background: #2F5CD6; color: #fff; font-size: 32rpx; font-weight: 600;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 6rpx 16rpx rgba(47,92,214,.28);
+}
+/* 区域弹窗「重置」：整行右对齐，仅一枚重置按钮 */
+.sfoot-reset { justify-content: flex-end; }
+.sfoot .reset {
+  flex: none; height: 88rpx; padding: 0 44rpx; border-radius: 999px;
+  border: 1rpx solid #E3E8F0; background: #fff; color: #33405C;
+  font-size: 28rpx; display: flex; align-items: center;
 }
 
 /* 筛选面板展开动画 */

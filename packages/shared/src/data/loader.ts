@@ -87,4 +87,12 @@ export interface DataLoaders {
   yueyunbeiAwards?: Record<string, { yueyunbei_awards: { stages: Record<string, Record<string, { gold: number; silver: number; bronze: number }>> } }>;
   /** 竞赛获奖明细，供获奖页展示年份、项目与获奖学生 */
   detailedRecords?: Array<Record<string, unknown>>;
+  /** 板块数据源（UI 04/04B 行政区·板块维度）：按 adcode 分组的板块列表（id/name/center[lng,lat]） */
+  plates?: {
+    districts: Record<string, Array<{ id: string; name: string; center: [number, number] }>>;
+  };
+  /** 地铁数据源（UI 04B 地铁维度）：线路 + 站点（id/name/lng/lat） */
+  metro?: {
+    lines: Array<{ id: string; name: string; stations: Array<{ id: string; name: string; lng: number; lat: number }> }>;
+  };
 }

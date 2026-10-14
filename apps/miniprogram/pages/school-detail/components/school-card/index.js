@@ -85,6 +85,16 @@ function schoolTo(name, stage, id) {
   if (!name) return null;
   return `/school/${encodeURIComponent(name)}?stage=${stage}${id ? `&id=${id}` : ''}`;
 }
+/** 校名（含别名）→ 实体 school_id，解析跳转目标 id 以免校名撞名误跳转 */
+function nameToId(name) {
+  if (!name) return '';
+  const ents = (ctx().repository && ctx().repository.entities) || [];
+  const nk = (s) => (s || '').replace(/\s+/g, '').replace(/[（）\(\)]/g, '');
+  const t = nk(name);
+  let hit = ents.find((e) => nk(e.name) === t);
+  if (!hit) hit = ents.find((e) => (e.aliases || []).some((a) => nk(a) === t));
+  return hit ? hit.school_id : '';
+}
 
 Component({
   options: { multipleSlots: false, addGlobalClass: false },
@@ -256,48 +266,71 @@ Component({
     buildMiddleView(model, linkage) {
       const matches = ctx().repository.middleEnrollmentsOf(this.properties.schoolId) || [];
       const groups = ctx().loaders.middleEnrollmentGroups || {};
-      const plans = matches.map((mt) => {
+      const CN_NUM = ['一', '二', '三', '四', '五', '六', '七', '八', '九'];
+      // 按招生机制（mechLabel）聚合为「招生方式」块：
+      // 单机制 → 标题「招生方式」；多机制 → 「招生方式一 / 二 …」。
+      // 每条机制下 生源小学 按 派位组（group_id → groups[name]）分组列出，无派位组则按 scope_school_ids 平列；
+      // 仅当记录带 scope 文本且无 scope_school_ids 时，作为「服务范围」单独呈现（UI 07B）。
+      const byMech = new Map();
+      let totalClasses = 0;
+      matches.forEach((mt) => {
         const rec = mt.record;
         const def = mt.mechanismDef;
-        let schools = [];
-        let groupName = '';
-        const grp = rec.group_id ? groups[rec.group_id] : null;
-        if (grp && grp.primaryIds) {
-          groupName = grp.name || '';
-          schools = Object.keys(grp.primaryIds).map((nm) => {
-            const ids = grp.primaryIds[nm] || [];
-            return { name: nm, to: ids[0] ? schoolTo(nm, 'primary', ids[0]) : null, isCurrent: ids.indexOf(this.properties.schoolId) > -1 };
-          });
-        } else if (rec.scope_school_ids) {
-          schools = Object.keys(rec.scope_school_ids).map((nm) => {
-            const ids = rec.scope_school_ids[nm] || [];
-            return { name: nm, to: ids[0] ? schoolTo(nm, 'primary', ids[0]) : null, isCurrent: ids.indexOf(this.properties.schoolId) > -1 };
-          });
-        } else if (rec.scope) {
-          schools = [{ name: rec.scope, to: null, isCurrent: false }];
-        }
-        return {
-          mechLabel: def ? def.label : rec.mechanism,
-          planClasses: rec.plan_classes,
-          scope: rec.scope && !rec.scope_school_ids ? rec.scope : '',
-          schools,
-          groupName,
-          note: rec.mechanism_note || '',
-        };
+        const mechLabel = def ? def.label : rec.mechanism;
+        if (!byMech.has(mechLabel)) byMech.set(mechLabel, []);
+        byMech.get(mechLabel).push(mt);
+        if (typeof rec.plan_classes === 'number') totalClasses += rec.plan_classes;
       });
+      let gctr = 0;
+      const plans = [];
+      let pidx = 0;
+      byMech.forEach((mts, mechLabel) => {
+        pidx += 1;
+        let scope = '';
+        const grpList = [];
+        mts.forEach((mt) => {
+          const rec = mt.record;
+          // 服务范围：只要记录带 scope 文本就呈现（UI 07B）；不再因同时有 scope_school_ids 而吞掉
+          if (rec.scope && !scope) scope = rec.scope;
+          // 生源小学：优先用派位组（group_id → primaryIds，且必须非空）；派位组为空（数据缺口）则回退 scope_school_ids
+          const grp = rec.group_id ? groups[rec.group_id] : null;
+          const grpIds = grp && grp.primaryIds ? Object.keys(grp.primaryIds) : [];
+          if (grp && grpIds.length) {
+            const schools = grpIds.map((nm) => {
+              const ids = grp.primaryIds[nm] || [];
+              return { name: nm, to: ids[0] ? schoolTo(nm, 'primary', ids[0]) : null };
+            });
+            grpList.push({ gkey: 'g' + (gctr++), name: grp.name || '', schools });
+          } else if (rec.scope_school_ids) {
+            const schools = Object.keys(rec.scope_school_ids).map((nm) => {
+              const ids = rec.scope_school_ids[nm] || [];
+              return { name: nm, to: ids[0] ? schoolTo(nm, 'primary', ids[0]) : null };
+            });
+            grpList.push({ gkey: 'g' + (gctr++), name: '', schools });
+          }
+        });
+        plans.push({
+          key: mechLabel,
+          title: byMech.size > 1 ? ('招生方式' + (CN_NUM[pidx - 1] || pidx)) : '招生方式',
+          label: mechLabel,
+          scope,
+          groups: grpList,
+        });
+      });
+      const planMeta = totalClasses > 0 ? `计划 ${totalClasses} 个班` : '';
       let link = null;
       if (linkage && linkage.hasMiddleData) {
         link = {
           has: true,
           quota: linkage.quota ? { kaosheng: linkage.quota.kaosheng, sheng: linkage.quota.sheng_quota, qu: linkage.quota.qu_quota } : null,
-          campuses: (linkage.campuses || []).map((c) => ({ name: c.campus, to: c.poiName ? schoolTo(c.poiName, 'middle', c.schoolId) : null })),
-          city: (linkage.batchMerged || []).map((r) => ({ name: r.campusFull || r.campus, n: r.n, min: r.min, to: r.poiName ? schoolTo(r.poiName, 'high', '') : null })),
-          district: (linkage.districtRows || []).map((r) => ({ name: r.name, n: r.n, min: r.min, to: r.poiName ? schoolTo(r.poiName, 'high', '') : null })),
+          campuses: (linkage.campuses || []).map((c) => ({ name: c.campus || c.poiName || '', to: c.poiName ? schoolTo(c.poiName, 'middle', c.schoolId || nameToId(c.poiName)) : null })),
+          city: (linkage.batchMerged || []).map((r) => ({ name: r.campusFull || r.campus, n: r.n, min: r.min, to: r.poiName ? schoolTo(r.poiName, 'high', nameToId(r.poiName)) : null })),
+          district: (linkage.districtRows || []).map((r) => ({ name: r.name, n: r.n, min: r.min, to: r.poiName ? schoolTo(r.poiName, 'high', nameToId(r.poiName)) : null })),
         };
       } else {
         link = { has: false };
       }
-      return { hasPlan: matches.length > 0, enrollNote: model.enrollNote, plans, linkage: link };
+      return { hasPlan: matches.length > 0, planMeta, enrollNote: model.enrollNote, plans, linkage: link };
     },
 
     /* ---------- 高中（07E） ---------- */
@@ -311,12 +344,12 @@ Component({
         : null;
       const coverage = (linkage && (linkage.highCoverage.length || linkage.highDistrictCoverage.length))
         ? {
-            city: linkage.highCoverage.map((r) => ({
-              name: r.school, n: r.n, districts: (r.districts || []).join('、'),
-              to: r.poiName ? schoolTo(r.poiName, 'middle', '') : null,
-              campuses: (r.campuses || []).map((c) => ({ name: c.campus, to: c.poiName ? schoolTo(c.poiName, 'middle', c.schoolId) : null })),
-            })),
-            district: linkage.highDistrictCoverage.map((r) => ({ name: r.school, n: r.n, to: r.poiName ? schoolTo(r.poiName, 'middle', '') : null })),
+          city: linkage.highCoverage.map((r) => ({
+            name: r.school, n: r.n, districts: (r.districts || []).join('、'),
+            to: r.poiName ? schoolTo(r.poiName, 'middle', nameToId(r.poiName)) : null,
+            campuses: (r.campuses || []).map((c) => ({ name: c.campus || c.poiName || '', to: c.poiName ? schoolTo(c.poiName, 'middle', c.schoolId || nameToId(c.poiName)) : null })),
+          })),
+          district: linkage.highDistrictCoverage.map((r) => ({ name: r.school, n: r.n, to: r.poiName ? schoolTo(r.poiName, 'middle', nameToId(r.poiName)) : null })),
           }
         : null;
       return { gaokao: model.gaokaoRows || [], admission: model.admissionRows || [], special, coverage };
@@ -469,6 +502,10 @@ Component({
       // 轻点「展开」类触点（位移很小）→ 与上滑同走本手势通道展开；触点元素只挂 mark:act="expand"，
       // 不再各设 bindtap/catchtap 独立展开入口（用户要求：展开交互只有手势这一条路径）
       if (moved < 16 && this._act === 'expand') this.expand();
+      // 半窗学段 tab：tab 嵌在 .halfbody（catchtouch*）内，祖先 catch 会吞掉 tab 的 bindtap；
+      // 故在此用 mark:stage 兜底——轻点 tab（位移很小）即切换学段。全屏态 tab 在 .halfbody 之外，
+      // 走 bindtap 正常；此处命中后 onStageTap 内部会因「已是当前学段」而幂等，不会重复切换。
+      if (moved < 16 && e.mark && e.mark.stage) { this.onStageTap({ currentTarget: { dataset: { stage: e.mark.stage } } }); this._act = ''; this.updateStyle(); return; }
       this.updateStyle();
       this._act = '';
     },

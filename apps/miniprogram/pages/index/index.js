@@ -4,11 +4,12 @@
  * 仅实现首页自己的展示、搜索页、筛选半窗、底部悬浮导航与学校卡。
  * 老地图页（pages/map）已下线：详情页"在地图中查看"通过 getApp().pendingFocus + switchTab 回到本页定位。
  */
-const { shared, repository, mapPoints } = require('../../utils/data.js');
+const { shared, repository, mapPoints, plates, metro } = require('../../utils/data.js');
 const {
   DISTRICTS, STAGE_TABS, SCHOOL_NATURE_TABS, STAGE_LABEL,
   districtByAdcode, initialFilterState, toggleDistrict, toggleStage, toggleGrade,
-  toggleNature, isVisible, searchSchools,
+  toggleNature, isVisible, searchSchools, setRegionDim, togglePlate,
+  selectAllPlatesInDistrict, toggleStation,
 } = shared;
 
 const STAGE_KEY = { primary: 'p', middle: 'm', high: 'h' };
@@ -75,9 +76,23 @@ Page({
     menu: '',            // '' | 'district' | 'stage' | 'nature'
     // 筛选胶囊显示文案：单选显示选中内容，多选/未选显示维度名（UI 稿 筛选栏入口规则）
     // 注：胶囊不显示任何数量角标（UI 稿 01 帧修正）
-    districtLabel: '行政区',
+    regionLabel: '区域',
     stageLabel: '学段',
     natureLabel: '办学性质',
+    // 区域三列下钻（UI 04/04B）视图状态
+    regionDim: 'district',          // 'district' | 'metro'
+    selectedPlates: [],
+    selectedStations: [],
+    plateCol: [],
+    stationCol: [],
+    metroLines: [],
+    focusDistrict: '',
+    focusLine: '',
+    focusDistrictName: '',
+    focusLineName: '',
+    allPlateOn: false,
+    col2Header: '行政区',
+    col3Header: '板块',
     // 半窗学段分组选中态
     stagePri: true, stageMid: true, hM: true, hD: true, hN: true,
     centerLat: 23.1150, centerLng: 113.3245, scale: 15,
@@ -117,9 +132,14 @@ Page({
     // 预热分包与页面渲染严格解耦：预热环节任何异常（个别环境缺 wx.loadSubpackage 等）
     // 都不允许中断 onLoad——否则点位 markers、定位引导弹窗全部不渲染（第二十六轮教训）。
     try { this.warmSubpackage(); } catch (e) { console.error('[index] warmSubpackage 异常', e); }
+    // 区域/地铁数据源（UI 04/04B）：districts 按 adcode 分组 + 线路列表，供三列下钻使用
+    this.platesByDistrict = (plates && plates.districts) || {};
+    this.metroLines = (metro && metro.lines) || [];
     this.setData({
       districts: DISTRICTS.map((d) => ({ name: d.name, adcode: d.adcode })),
       SCHOOL_NATURE_TABS,
+      focusDistrict: DISTRICTS[0] ? DISTRICTS[0].adcode : '',
+      focusLine: (this.metroLines[0] && this.metroLines[0].id) || '',
     });
     this.draft = initialFilterState();
     this.syncState(this.draft);
@@ -261,6 +281,9 @@ Page({
       selectedStages: new Set(d.selectedStages),
       selectedGrades: new Set(d.selectedGrades),
       selectedNatures: new Set(d.selectedNatures),
+      regionDim: d.regionDim,
+      selectedPlates: new Set(d.selectedPlates),
+      selectedStations: new Set(d.selectedStations),
     };
   },
   syncState(st) {
@@ -270,11 +293,15 @@ Page({
       selectedStages: [...selS],
       selectedGrades: [...selG],
       selectedNatures: [...selN],
+      regionDim: st.regionDim,
+      selectedPlates: [...st.selectedPlates],
+      selectedStations: [...st.selectedStations],
       districts: this.data.districts.map((d) => ({ ...d, checked: selD.has(d.adcode) })),
       SCHOOL_NATURE_TABS: this.data.SCHOOL_NATURE_TABS.map((o) => ({ ...o, checked: selN.has(o.v) })),
     });
     this.syncStageGroups(st);
     this.applyChipLabels();
+    this.syncDrillView();
   },
   syncStageGroups(st) {
     const selS = st.selectedStages, selG = st.selectedGrades;
@@ -286,17 +313,38 @@ Page({
     this.setData({ stagePri, stageMid, hM, hD, hN });
   },
   // 筛选胶囊标签：单选显示选中内容，多选/未选显示维度名（UI 稿 筛选栏入口规则）
-  // 行政区固定显示全名（带「区」字），不做去字处理
+  // 区域胶囊：随维度与选中状态变化（行政区单选区名 / 地铁 N 站 / 其他「区域」）
   applyChipLabels() {
     const d = this.data;
-    const dsel = d.districts.filter((x) => x.checked);
-    const districtLabel = dsel.length === 1 ? dsel[0].name : '行政区';
+    const dsel = (d.selectedDistricts || []);
+    const psel = (d.selectedPlates || []);
+    const ssel = (d.selectedStations || []);
+    let regionLabel;
+    if (d.regionDim === 'metro') {
+      // 单选地铁站：胶囊直接显示站名（超长由 CSS 省略号兜底，不折行）
+      if (ssel.length === 1) {
+        // 注意：this.metroLines 是带 stations 的源数据；this.data.metroLines 已被 syncDrillView 重写为只含 id/name/checked 的视图，
+        // 故此处必须用 this.metroLines 才能按 id 反查站名。
+        const stn = (this.metroLines || []).reduce((acc, l) => acc.concat(l.stations || []), []).find((s) => s.id === ssel[0]);
+        regionLabel = stn ? stn.name : '区域';
+      } else {
+        regionLabel = ssel.length ? `地铁·${ssel.length}站` : '区域';
+      }
+    } else if (dsel.length === 1 && psel.length === 0) {
+      regionLabel = districtByAdcode[dsel[0]] || '区域';
+    } else if (dsel.length === 1 && psel.length === 1) {
+      const plist = this.platesByDistrict[dsel[0]] || [];
+      const pn = plist.find((p) => p.id === psel[0]);
+      regionLabel = pn ? pn.name : (districtByAdcode[dsel[0]] || '区域');
+    } else {
+      regionLabel = '区域';
+    }
     const nsel = d.SCHOOL_NATURE_TABS.filter((x) => x.checked);
     const natureLabel = nsel.length === 1 ? nsel[0].l : '办学性质';
     const groups = [['stagePri', '小学'], ['stageMid', '初中'], ['hM', '省市属示范'], ['hD', '区属示范'], ['hN', '其他学校']];
     const son = groups.filter(([k]) => d[k]).map(([, v]) => v);
     const stageLabel = son.length === 1 ? son[0] : '学段';
-    this.setData({ districtLabel, stageLabel, natureLabel });
+    this.setData({ regionLabel, stageLabel, natureLabel });
   },
   // 半窗草稿态同步到视图：选项勾选态 + 学段分组态（保证点选项即时高亮）
   syncDraftView() {
@@ -312,6 +360,40 @@ Page({
       stagePri, stageMid, hM, hD, hN,
     });
     this.applyChipLabels();
+    this.syncDrillView();
+  },
+  // 区域三列下钻视图：依据 regionDim 重建二/三级列表（UI 04/04B）
+  syncDrillView() {
+    const d = this.draft;
+    if (!d) return;
+    if (d.regionDim === 'metro') {
+      const lines = (this.metroLines || []).map((line) => ({
+        id: line.id, name: line.name,
+        checked: line.stations.some((s) => d.selectedStations.has(s.id)),
+      }));
+      let focusLine = this.data.focusLine;
+      if (!lines.some((l) => l.id === focusLine)) focusLine = lines[0] ? lines[0].id : '';
+      const lineObj = (this.metroLines || []).find((l) => l.id === focusLine);
+      const stationCol = (lineObj ? lineObj.stations : []).map((s) => ({ id: s.id, name: s.name, checked: d.selectedStations.has(s.id) }));
+      const focusLineName = lineObj ? lineObj.name : '';
+      this.setData({
+        regionDim: 'metro',
+        metroLines: lines, stationCol, focusLine, focusLineName,
+        col2Header: '地铁线路', col3Header: focusLineName ? `${focusLineName} · 站点` : '站点',
+      });
+    } else {
+      const districts = (this.data.districts || []).map((x) => ({ ...x, checked: d.selectedDistricts.has(x.adcode) }));
+      let focusDistrict = this.data.focusDistrict;
+      if (!districts.some((x) => x.adcode === focusDistrict)) focusDistrict = DISTRICTS[0] ? DISTRICTS[0].adcode : '';
+      const plates = (this.platesByDistrict[focusDistrict] || []).map((p) => ({ id: p.id, name: p.name, checked: d.selectedPlates.has(p.id) }));
+      const allPlateOn = d.selectedDistricts.has(focusDistrict) && !plates.some((p) => p.checked);
+      const focusDistrictName = districtByAdcode[focusDistrict] || '';
+      this.setData({
+        regionDim: 'district',
+        districts, plateCol: plates, allPlateOn, focusDistrict, focusDistrictName,
+        col2Header: '行政区', col3Header: focusDistrictName ? `${focusDistrictName} · 板块` : '板块',
+      });
+    }
   },
 
   renderMarkers() {
@@ -355,7 +437,18 @@ Page({
     if (this.data.menu === dim) { this.closeSheet(); return; }
     // 同一屏幕只允许一个操作窗口：学校卡（半窗/全屏浮层）正打开时，先自动关闭再展开筛选面板
     if (this.data.card) this.closeCard();
-    if (!this.data.menu) this.draft = this.committedState();
+    if (!this.data.menu) {
+      const base = this.committedState();
+      // 区域维度：弹窗拉起时按「当前聚焦行」呈现单选预览（不沿用已提交多选）；
+      // 地铁清空站点，由用户重新点选单站。预览态不写回已提交筛选，面板内仅 col3 点击才真正应用。
+      if (dim === 'district') {
+        base.selectedDistricts = new Set([this.data.focusDistrict].filter(Boolean));
+        base.selectedPlates = new Set();
+      } else if (dim === 'metro') {
+        base.selectedStations = new Set();
+      }
+      this.draft = base;
+    }
     this.setData({ menu: dim });
     this.syncDraftView();
     this.setTabBarHidden(true);
@@ -368,7 +461,84 @@ Page({
     // 收起面板：仅当详情卡 / 定位引导也未占用底部栏时才恢复自定义 tabBar
     this.setTabBarHidden(!!(this.data.card || this.data.locTip));
   },
-  toggleDistrict(e) { this.draft = toggleDistrict(this.draft, e.currentTarget.dataset.adcode); this.syncDraftView(); },
+  // 区域维度：单选行政区（清除其余区与已选板块），仅更新聚焦行；弹窗保持展开，待第三列点击才提交
+  toggleDistrict(e) {
+    const ad = e.currentTarget.dataset.adcode;
+    this.draft = {
+      ...this.draft,
+      selectedDistricts: new Set([ad]),
+      selectedPlates: new Set(),
+    };
+    this.setData({ focusDistrict: ad });
+    this.syncDraftView();
+  },
+  // ---- 区域三列下钻（UI 04/04B） ----
+  onRegionDimTap(e) {
+    const dim = e.currentTarget.dataset.dim;
+    this.draft = setRegionDim(this.draft, dim);
+    this.syncDrillView();
+    this.applyChipLabels();
+  },
+  // 点第三列具体板块：单选该板块 → 立即提交、收起弹窗、范围圈定
+  togglePlate(e) {
+    const id = e.currentTarget.dataset.id;
+    this.draft = {
+      ...this.draft,
+      selectedDistricts: new Set([this.data.focusDistrict]),
+      selectedPlates: new Set([id]),
+    };
+    this.applyRegionSelectionAndClose();
+  },
+  // 点第三列「全部xx区」：单选该区（全部板块）→ 立即提交、收起弹窗、范围圈定
+  toggleAllPlates(e) {
+    const ad = e.currentTarget.dataset.ad;
+    this.draft = {
+      ...this.draft,
+      selectedDistricts: new Set([ad]),
+      selectedPlates: new Set(),
+    };
+    this.applyRegionSelectionAndClose();
+  },
+  // 地铁维度：单选站点 → 立即提交、收起弹窗、范围圈定
+  toggleStation(e) {
+    const id = e.currentTarget.dataset.id;
+    this.draft = { ...this.draft, selectedStations: new Set([id]) };
+    this.applyRegionSelectionAndClose();
+  },
+  // 区域/地铁：提交当前单选草稿、收起弹窗，并立即将视野圈定到结果范围
+  applyRegionSelectionAndClose() {
+    // 单选维度互斥：提交某维度时清除另一维度残留选择，避免 isVisible 切换维度后旧选仍滞留
+    if (this.draft.regionDim === 'metro') {
+      this.draft = { ...this.draft, selectedDistricts: new Set(), selectedPlates: new Set() };
+    } else {
+      this.draft = { ...this.draft, selectedStations: new Set() };
+    }
+    this.syncState(this.draft);
+    this.renderMarkers();
+    this.setData({ menu: '', filterEmpty: this.visible.length === 0 });
+    // 收起面板：仅当详情卡 / 定位引导也未占用底部栏时才恢复自定义 tabBar
+    this.setTabBarHidden(!!(this.data.card || this.data.locTip));
+    if (this.visible.length) this.fitVisible();
+  },
+  // 区域弹窗「重置」：把区域维度恢复到「7 个区全部选中」默认态（initialFilterState 的 selectedDistricts 即含全部 7 区），
+  // 清空板块/地铁站点选择，从而展示 7 个区全部学校（不影响学段/办学性质筛选）。
+  // 注意：selectedDistricts 为空集合 = 0 校，必须回填全部 7 区 adcode（initialFilterState 口径）。
+  resetRegion() {
+    const base = this.committedState();
+    const init = initialFilterState();
+    base.selectedDistricts = new Set(init.selectedDistricts);
+    base.selectedPlates = new Set();
+    base.selectedStations = new Set();
+    base.regionDim = 'district';
+    this.draft = base;
+    this.syncState(this.draft);
+    this.renderMarkers();
+    this.setData({ menu: '', filterEmpty: this.visible.length === 0 });
+    // 收起面板：仅当详情卡 / 定位引导也未占用底部栏时才恢复自定义 tabBar
+    this.setTabBarHidden(!!(this.data.card || this.data.locTip));
+    if (this.visible.length) this.fitVisible();
+  },
+  focusLineTap(e) { this.setData({ focusLine: e.currentTarget.dataset.id }); this.syncDrillView(); },
   toggleStage(e) {
     const s = e.currentTarget.dataset.stage;
     let st = toggleStage(this.draft, s);
@@ -389,27 +559,34 @@ Page({
   },
   clearDim() {
     const d = this.draft;
-    if (this.data.menu === 'district') d.selectedDistricts = new Set();
-    else if (this.data.menu === 'nature') d.selectedNatures = new Set();
+    if (this.data.menu === 'district') {
+      if (d.regionDim === 'metro') d.selectedStations = new Set();
+      else { d.selectedDistricts = new Set(); d.selectedPlates = new Set(); }
+    } else if (this.data.menu === 'nature') d.selectedNatures = new Set();
     else if (this.data.menu === 'stage') {
       d.selectedStages = new Set();
       d.selectedGrades = new Set();
     }
     this.syncDraftView();
   },
+  // 区域选择签名（用于判定确认时是否需要缩放到结果范围）
+  regionSig(s) {
+    const d = [...s.selectedDistricts].sort().join(',');
+    const p = [...s.selectedPlates].sort().join(',');
+    const st = [...s.selectedStations].sort().join(',');
+    return `${s.regionDim}|${d}|${p}|${st}`;
+  },
   confirmSheet() {
-    const prevD = (this.data.selectedDistricts || []).slice().sort().join(',');
+    const before = this.regionSig(this.committedState());
     this.syncState(this.draft);
     this.renderMarkers();
+    const after = this.regionSig(this.committedState());
     this.setData({ menu: '', filterEmpty: this.visible.length === 0 });
     // 确认收起面板：恢复自定义 tabBar（除非详情卡 / 定位引导仍占用底部栏）
     this.setTabBarHidden(!!(this.data.card || this.data.locTip));
-    // 行政区是「地理维度」：选区变化且收窄（非全选）时，把视野自动适配到筛选结果范围，
-    // 否则会出现「人停在番禺、筛了荔湾、地图却不动」的错位（UI 稿 04 帧 / 规范表「筛选半窗」）。
+    // 区域选区收窄（选定某区/板块/站点）时，把视野自动适配到筛选结果范围（UI 稿 04 帧 / 规范表「筛选半窗」）；
     // 学段 / 办学性质是「属性维度」，不改变学校地理位置，故不移动相机。
-    const nextD = (this.data.selectedDistricts || []).slice().sort().join(',');
-    const narrowed = (this.data.selectedDistricts || []).length < DISTRICTS.length;
-    if (this.visible.length && prevD !== nextD && narrowed) this.fitVisible();
+    if (this.visible.length && before !== after) this.fitVisible();
   },
 
   /* ---------- 重置筛选（UI 稿异常态 A/C 主操作） ---------- */
@@ -590,6 +767,7 @@ Page({
         { latitude: target.latitude + latDelta, longitude: target.longitude + lngDelta },
       ],
       padding: [80, 60, 300, 60],
+      success: applyCenter,
       fail: applyCenter,
     });
   },
@@ -629,6 +807,7 @@ Page({
       ],
       // padding = [上, 右, 下, 左]：上避让小程序名行 + 搜索框 + 筛选栏；下避让图例 + 底部导航
       padding: [150, 70, 200, 70],
+      success: applyCenter,
       fail: applyCenter,
     });
   },
@@ -663,6 +842,7 @@ Page({
       ],
       // padding = [上, 右, 下, 左]：上避让小程序名行 + 搜索框 + 筛选栏；下避让图例 + 底部导航
       padding: [150, 70, 200, 70],
+      success: applyCenter,
       fail: applyCenter,
     });
   },

@@ -259,6 +259,8 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .sheet .sfoot,.scfpanel .sfoot{display:flex;align-items:center;gap:12px;padding:18px 16px 20px;border-top:1px solid var(--line-2)}
 .sheet .sfoot .none,.scfpanel .sfoot .none{flex:none;height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);display:flex;align-items:center;font-size:14px;color:var(--ink-700);background:var(--white)}
 .sheet .sfoot .ok,.scfpanel .sfoot .ok{flex:1;height:44px;border-radius:999px;background:var(--ib-500);color:#fff;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-blue)}
+.sheet .sfoot-reset,.scfpanel .sfoot-reset{justify-content:flex-end}
+.sheet .sfoot .reset,.scfpanel .sfoot .reset{flex:none;height:44px;padding:0 22px;border-radius:999px;border:1px solid var(--line);display:flex;align-items:center;font-size:14px;color:var(--ink-700);background:var(--white)}
 /* ============ 区域分类 · 三列下钻（行政区/板块 · 地铁） ============ */
 .drill{display:flex;gap:0;padding:4px 0 2px;min-height:236px;max-height:260px}
 .drill .dcol{flex:1;min-width:0;overflow-y:auto;padding:4px 6px;border-right:1px solid var(--line-2)}
@@ -266,10 +268,9 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .drill .dh{font-size:11.5px;color:var(--ink-400);padding:4px 8px 6px;font-weight:600}
 .drill .di{height:38px;display:flex;align-items:center;padding:0 10px;border-radius:8px;font-size:13.5px;color:var(--ink-700);cursor:pointer}
 .drill .di:hover{background:var(--bg)}
-.drill .di.on{background:var(--ib-50);color:var(--ib-600);font-weight:600}
+.drill .di.on{color:var(--ib-600);font-weight:600}
 .drill .di .cr{margin-left:auto;color:var(--ink-300);font-size:13px}
-.drill .di.feat{color:var(--ink-900);font-weight:500}
-.drill .di .dot-a{width:6px;height:6px;border-radius:50%;background:var(--ib-500);margin-right:7px;flex:none}
+.drill .di.feat:not(.on){color:var(--ink-900);font-weight:500}
 
 /* ============ 06 地图层（整屏地图 + 悬浮搜索 / 筛选） ============ */
 .phone.mapmode{background:#EDEFF3}
@@ -424,6 +425,25 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .trow.sq .na{color:var(--ink-300)}
 /* 校名链接字重与详情页表单（.v2 .trow .lk）一致 */
 .sclist .trow .lk{font-weight:500}
+/* 初中 tab：量化三列表单——学校｜指标比例｜指标数（列名随「指标」切换，见 12B 说明）；民办 tag */
+.thead.mq3,.trow.mq3{grid-template-columns:minmax(0,1fr) 104px 76px}
+.thead.mq3 span:not(:first-child),.trow.mq3 span:not(:first-child){min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trow .mbtag{display:inline-flex;align-items:center;height:16px;margin-left:6px;padding:0 5px;border-radius:4px;font-size:10px;font-weight:600;font-style:normal;background:#E9F7F0;color:#1F7A55;flex:none}
+/* 初中 tab：最低分指标 5 列横滑表格（12B-B）——整表宽度超出屏宽、默认露出约 3.5 列，可向左滑动查看剩余列（表头随内容一起滑动、无首列冻结） */
+.hscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+/* 5 列横滑：全定宽像素精算——chartbox 452px（border-box，含 26px 边框+左右 padding）→ 内容 426px；
+   列 160/60/84/44/54 + 4×6px gap = 426；可见区 346px（375 - 16 margin - 1 边框 - 12 padding）内
+   前三列占 322px，第 4 列「指标数」露出 346-322 = 24px ≈ 半列（44px 的一半） */
+.sctbl.mq5{width:452px;min-width:0}
+.thead.mq5,.trow.mq5{grid-template-columns:160px 60px 84px 44px 54px}
+.thead.mq5 span:not(:first-child),.trow.mq5 span:not(:first-child){min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.swhint{display:flex;align-items:center;justify-content:flex-end;gap:5px;padding:7px 14px 9px;font-size:11px;color:var(--ink-400);background:var(--white)}
+.swhint::after{content:"›";font-size:14px;line-height:1;color:var(--ib-500)}
+/* 高中 tab：3 列表单（12C）——学校｜2025录取线｜2026录取线（固定 3 列，屏内完整展示不横滑）
+   注意：不设 width（block 自动宽度会正确扣除 margin:0 16px）；若写 width:100% 会按父容器内容宽解析、
+   再叠加自身 margin 导致右溢 16px、第三列被截（实测踩坑） */
+.thead.mq4,.trow.mq4{grid-template-columns:minmax(0,1fr) 88px 88px}
+.thead.mq4 span:nth-child(n+2),.trow.mq4 span:nth-child(n+2){min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
 /* ---------- 规范表 ---------- */
 table{width:100%;border-collapse:collapse;font-size:12.5px}
@@ -554,7 +574,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <span class="tag tag-nature">公办</span><span class="tag tag-nature">民办</span>
       </span></div>
       <div class="tr"><span class="k">招生方式</span><span class="v">
-        <span class="tag tag-mech">对口直升</span><span class="tag tag-mech">单校划片</span><span class="tag tag-mech">多校电脑派位</span><span class="tag tag-mech">电脑派位</span><span class="tag tag-mech">自主招生</span>
+        <span class="tag tag-mech">对口直升</span><span class="tag tag-mech">单校划片</span><span class="tag tag-mech">多校电脑派位</span><span class="tag tag-mech">电脑派位</span><span class="tag tag-mech">电脑抽签</span><span class="tag tag-mech">自主招生</span>
       </span></div>
       <div class="taggrp">尺寸档 · 2 档（同一组 4 类取值，仅尺寸不同，颜色不变）</div>
       <div class="tr"><span class="k">小标签</span><span class="v">
@@ -1048,7 +1068,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
               </div>
               <div class="dcol">
                 <div class="dh">番禺区 · 板块</div>
-                <div class="di feat on"><span class="dot-a"></span>全部番禺区</div>
+                <div class="di feat on">全部番禺区</div>
                 <div class="di">万博-长隆</div>
                 <div class="di">市桥</div>
                 <div class="di">桥南</div>
@@ -1064,10 +1084,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
               </div>
             </div>
           </div>
-          <div class="sfoot">
-            <span class="none">全不选</span>
-            <span class="ok">确认</span>
-          </div>
+          <div class="sfoot sfoot-reset"><span class="reset">重置</span></div>
         </div>
       </div>
       <div class="anno">
@@ -1075,11 +1092,11 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <div class="ixn">
         <b>交互描述</b>
         <p>
-          1）入口：点击筛选栏「区域」胶囊 → <b>分两步展开</b>：<b>第一步</b>，搜索框与筛选栏整体上移（<b>搜索框移至与右上角胶囊同一行</b>）；<b>第二步</b>，筛选面板自所点维度胶囊处<b>由上向下推出</b>，展开为顶部通栏白色面板——搜索框、筛选栏、三列下钻选项<b>同属一个白色窗口</b>；<b>面板下方地图覆盖灰色蒙层</b>。<br>
+          1）入口：点击筛选栏「区域」胶囊 → <b>分两步展开</b>：<b>第一步</b>，搜索框与筛选栏整体上移（<b>搜索框移至与右上角胶囊同一行</b>）；<b>第二步</b>，筛选面板自所点维度胶囊处<b>由上向下推出</b>，展开为顶部通栏白色面板——搜索框、筛选栏、三列下钻选项<b>同属一个白色窗口</b>；<b>面板下方地图覆盖灰色蒙层</b>。<b>区域维度为单选、面板底部无「全不选 / 确认」按钮</b>（见第 3、4 条）。<br>
           <b>对齐与间距硬约束（实现口径，须严格遵守）</b>：① 面板头部<b>并非另起一个覆盖弹层，而是首页原顶部悬浮栏（搜索框 + 三枚筛选胶囊）整体上移位移而成</b>；② 展开态搜索框右缘<b>对齐右上角胶囊左缘</b>；③ 三枚筛选胶囊<b>等宽（flex:1）且横向间距 8px</b>；④ 搜索框／筛选栏／选项区<b>左缘统一内缩 28rpx</b>、三段<b>纵向间距统一 16rpx</b>；⑤ 三列下钻区等宽三列、列间 1px 分隔线，整块高度约 236–260px（**与「学段」筛选窗口等高，不随列内条目增多而变高**），三列各自纵向滚动。<br>
           2）<b>三列下钻结构</b>：<b>第一列＝筛选维度</b>（行政区/板块 ／ 地铁，单选高亮）；<b>第二列＝维度下的一级项</b>（行政区/板块 维度下＝七区；地铁维度下＝各线路）；<b>第三列＝二级项</b>（点某区 → 该区板块列表；点某线 → 该线站点列表）。<b>仅行政区/板块维度</b>的第三列首行固定「全部 xx 区」（如「全部番禺区」），选它表示<b>不限定板块、展示整个区</b>；<b>地铁维度第三列直接列出选中线的站点，不置「全部 x 号线」行</b>。板块列表见各分区定义（本稿以番禺区为例列出 12 个板块）。<br>
-          3）点选二级项即选中、再点取消，选中态高亮（浅蓝底 + 深蓝字）；<b>第一列切换维度</b>（行政区/板块 ↔ 地铁）时，二三列整体替换为对应层级，已选状态各自保留。<br>
-          4）点「确认」应用筛选并收起面板，搜索栏与筛选栏复位；<b>区域选区收窄（选定某区或某板块）时，地图视野自动缩放到对应行政边界</b>（板块无独立边界数据时回退到所属区边界）；<b>点面板下方灰色蒙层 → 收起面板并复位、不保存本次改动</b>。<br>5）面板展开期间顶部搜索框保持可见，点击搜索框 → 收起面板并跳转搜索页（02）；此时搜索页点返回 → 直接回首页，面板保持收起。
+          3）<b>单选 drill 选中模型</b>：三列下钻同一时刻仅一条 drill 路径（维度＋一级项＋二级项）<b>整行呈选中态</b>——<b>选中态＝仅文字变蓝（#254BAE）加粗、无底色块</b>，三列对应单元格文字同时变蓝；「全部 xx 区」行<b>无圆点等任何前缀标记</b>（与普通选项同款纯文字）。<b>弹窗拉起时默认不预勾选任何独立选项、也不按当前地图区域把按钮置为选中</b>——仅按【当前已生效区域】高亮对应行：当前展示某区则（维度＋该区＋全部该区）<b>整行文字变蓝、其余均不选中</b>；当前展示全城（未限定区域）则<b>无任何行选中</b>。各列点选规则：① 点第一列切换维度（行政区/板块 ↔ 地铁）时二三列整体替换、并选中该维度当前已选路径；② 点第二列某区/某线 → 该行文字变蓝（行政区维度同时选中「全部 xx 区」、地铁维度选中该线已选站/首站），其余一级项取消选中（<b>面板保持展开</b>）；③ 点第三列某二级项（板块/站点）→ <b>弹窗立即关闭并执行范围圈定、地图显示对应点位（无「确认」步骤）</b>。<br>
+          4）<b>应用与关闭</b>：区域维度面板<b>无「全不选」「确认」按钮，底部仅一枚右对齐的「重置」按钮</b>（仅区域维度有；点它把区域恢复为<b>默认不限区域态＝展示全部学校/全城</b>，清空板块/地铁选择并关闭面板，不影响学段/办学性质筛选）。<b>应用时机＝点第三列二级项即时生效并关闭面板</b>；点面板下方灰色蒙层或维度胶囊以外的收起操作 → 面板收起、<b>不应用</b>、还原到展开前已生效的区域（不保存本次浏览的临时高亮）。选定某区或某板块后<b>地图视野自动缩放</b>到对应范围（选板块优先用板块聚合边界，无板块边界数据时回退所属区行政边界；选「全部 xx 区」或全城默认不额外缩放）。<br>5）面板展开期间顶部搜索框保持可见，点击搜索框 → 收起面板并跳转搜索页（02）；此时搜索页点返回 → 直接回首页，面板保持收起。
         </p>
       </div>
       </div>
@@ -1158,10 +1175,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
               </div>
             </div>
           </div>
-          <div class="sfoot">
-            <span class="none">全不选</span>
-            <span class="ok">确认</span>
-          </div>
+          <div class="sfoot sfoot-reset"><span class="reset">重置</span></div>
         </div>
       </div>
       <div class="anno">
@@ -1170,8 +1184,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <b>交互描述（地铁维度）</b>
         <p>
           1）第一列切「地铁」→ 第二列列出广州地铁所有线路（1 / 2 / 3 / 3 北延段 / 4–14 / 18 / 21 / 22 / 广佛线 / APM 线，共 20 条）；点某线 → 第三列展示该线站点。<br>
-          2）第三列直接列出选中线的站点（无「全部 x 号线」首行），站点名可点击选中、再次点击取消高亮。<br>
-          3）地铁维度与行政区/板块维度互斥单选、各自保留已选；点「确认」后地图按所选线/站点周边范围缩放到对应点位（无线路边界数据，回退到站点聚合中心）。<br>
+          2）第三列直接列出选中线的站点（无「全部 x 号线」首行）；<b>点第三列某站点 → 弹窗立即关闭并缩放到该站周边范围（无「确认」步骤）</b>。<br>
+          3）地铁维度与行政区/板块维度互斥单选、各自保留已选路径；<b>点某线仅移动高亮（默认高亮该线已选站/首站）、面板保持展开，点其站点方才即时应用并缩放</b>（无线路边界数据，回退到站点聚合中心）。<br>
           4）本稿 1 号线站点为真实站序（西塱 → 广州东站，15 站）；其余线路站点清单为占位、上线前需按最新运营线网补全。
         </p>
       </div>
@@ -1662,7 +1676,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
  <p>
 · 触发：小学的招生机制数组（<code>mechanism</code>）含 <b>≥ 2 种</b>招生方式时启用本变体（真实分布：对口直升+多校电脑派位 32 所、单校划片+多校电脑派位 7 所、对口直升+自主招生 2 所，全库共 41 所）。<br>
 · 模块标题「升学路线参考（2026年）」<b>不再在右上角展示合并标签</b>，多机制时才递增编号：标题下方逐条列出「招生方式一／二／三…」（单机制仅一组，写「招生方式」不带序号）。<br>
-· 每条「招生方式 N」＝ 左文案「招生方式一／二／三」+ 右侧一枚 <code>tag-mech</code> 标签（该机制对应的招生方式名）；<b>排序按机制优先级：对口直升 ＞ 多校电脑派位 ＞ 单校划片 ＞ 电脑派位 ＞ 自主招生</b>（含对口直升时优先置顶为「招生方式一」）。<br>
+· 每条「招生方式 N」＝ 左文案「招生方式一／二／三」+ 右侧一枚 <code>tag-mech</code> 标签（该机制对应的招生方式名）；<b>排序按机制优先级：对口直升 ＞ 多校电脑派位 ＞ 单校划片 ＞ 电脑派位 ＞ 电脑抽签 ＞ 自主招生</b>（含对口直升时优先置顶为「招生方式一」）。<br>
 · 每条「招生方式 N」下方用浅底分组盒（<code>grpbox</code>，与「招生地段」正文盒同款样式）框住该机制对应的对口／派位初中名，校名为可点击链接（知性蓝 + ›），点击跳转地图定位与该校学校卡。<br>
 · 仅 1 种招生机制的小学<b>同样使用本布局</b>（只有「招生方式」一组、不带序号，视觉与多机制完全一致，见 07 单机制示例）。<br>
 · 单 / 多机制共用同一布局模板，前端按 <code>mechanism</code> 渲染 1…N 组「招生方式」，无需区分两套样式。
@@ -1803,7 +1817,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
 · <b>tab 之下才是校名与三标签</b>；三标签中的「学段」标签<b>只展示当前选中 tab 对应的学段</b>（不罗列全部学段）。默认选中主学段（高中&gt;初中&gt;小学，见 01 主学部规则）；用户点其他 tab 即切换该学段详情，<b>校名、学段标签、全部模块随 tab 整体刷新</b>（各学段模块独立：小学含「小升初升学路线」，初中为<b>招生计划（2026年）／中考报考情况／关联校区</b>三模块，见下）。<br>
 · 单学段学校（如纯小学）不显示 tab 条，退化为 07 单学段版。<br>
 · <b>初中三模块（按交互稿）</b>：① <b>招生计划（2026年）</b>——标题右侧灰蓝小字「计划 x 个班」（同小学），标题下方平铺「招生方式」（每条＝左文案 + 右侧机制标签 + 下方学校名单盒）；② <b>中考报考情况</b>——区分批次（如第二批次：名额考生数／省市属高中录取名额／区属高中录取名额）、与其他初中共享计划的校区（附温馨提示）、省市属高中录取明细／区属高中录取明细（均为<b>图表区</b>，明细表列：高中｜名额｜录取最低分；表头与数据行<b>同网格对齐</b>——第一列高中校名尽量占宽 <code>minmax(0,1fr)</code>、名额／录取最低分窄列靠右；校名单行最大约 10 个汉字宽度，超出用「…」截断），明细下小字「具体名额以官方公布为准，第三批第四批无法获取」；③ <b>关联校区</b>——含所属集团（展示集团名）、公示文件说明、集团核心校、集团成员校，成员校行带学级标签，当前校带「当前查看」标记。<br>
-· <b>招生计划 · 招生方式平铺（随 mechanism 取值切换）</b>：模块仅保留「标题右侧『计划 x 个班』+『招生方式』列举 + 服务范围 + 生源小学」——每条「招生方式」＝左文案（单机制写「招生方式」不带序号，多机制递增「招生方式一／二…」）+ 右侧 <code>tag-mech</code> 标签（单校划片（含对口直升）／多校电脑派位／单校电脑抽签）；「招生方式」内依次展示：<b>服务范围</b>（二级标题 + 浅底正文盒，仅当该方式存在 <code>scope</code> 信息时展示、无则整段不显示，样式同小学「招生地段」）+ <b>生源小学</b>（二级标题 + 浅底分组盒列学校名，多校电脑派位按派位组分组：组名提取为分组小标题 <code>grp-l</code>、组内只列校名）；原计划班数／派位组成员／官方备注等字段不再展示。<br>
+· <b>招生计划 · 招生方式平铺（随 mechanism 取值切换）</b>：模块仅保留「标题右侧『计划 x 个班』+『招生方式』列举 + 服务范围 + 生源小学」——每条「招生方式」＝左文案（单机制写「招生方式」不带序号，多机制递增「招生方式一／二…」）+ 右侧 <code>tag-mech</code> 标签（单校划片／对口直升／多校电脑派位／电脑派位／电脑抽签／自主招生）；「招生方式」内依次展示：<b>服务范围</b>（二级标题 + 浅底正文盒，仅当该方式存在 <code>scope</code> 信息时展示、无则整段不显示，样式同小学「招生地段」）+ <b>生源小学</b>（二级标题 + 浅底分组盒列学校名，多校电脑派位按派位组分组：组名提取为分组小标题 <code>grp-l</code>、组内只列校名）；原计划班数／派位组成员／官方备注等字段不再展示。<br>
 · <b>关联校区排序</b>：同集团成员校优先展示当前查看的学校，其余按「同行政区 &gt; 拼音首字母」排列。<br>
 · <b>模块层级与字号规范（全学段统一·v2 层级四档）</b>：与小学 07／07A-2／07F 同一套 <code>.dbody.v2</code> 作用域——① 一级＝模块标题（17px／700／近黑 #10182B + 左侧 4px 知性蓝竖条，模块间距加大 + 顶部分隔线）；② 二级＝子标题（招生地段／服务范围／生源小学／招生方式 N／所属集团／集团核心校／集团成员校／第二批次／省市属·区属高中录取明细等，14px／600／#33405C，纯文字无竖条无底色）；③ 三级＝正文（kv 字段值行／集团成员校 grp-row／地段正文，13px／400／#33405C；链接知性蓝 + ›、字重 500）；盒内分组小标（集团核心校／集团成员校 grp-l，12px／600／#64708C，弱于二级）；④ 说明小字（dnote／pubbox，11.5px／#8B96AD）。分组容器底色 #FAFBFC＋描边表达层内归属；层级感由「标题竖条 → 子标题加粗 → 正文常规 → 小字灰」四档字号字重梯度一眼区分，<b>不再同层同灰</b>。<br>
 · <b>半窗卡同步展示 tab</b>：半窗卡内 tab 条同样位于最上方（handle 之下、校名之上，压缩版胶囊），点 tab 半窗内容整体刷新；上滑展开全屏后 tab 选中状态延续（半窗示例见 06C）。<br>
@@ -2009,7 +2023,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       <p>
         · 顶部结构：<b>与其他页顶部规范完全一致</b>——状态栏 → <b>左侧品牌标题「广州学途」</b>（与首页地图层 brandrow 同款，左对齐）→ <b>右上角系统胶囊（···／◎）常驻</b>，位置、尺寸与首页／详情卡各页统一，不得缺失；<b>导航标题不写「学校」</b>（与底部 tab 文案重复）。<br>
         · 学段切换：<b>分段控件样式</b>（整块浅灰底圆角容器内三段平分，选中段白底浮起 + 加粗知性蓝）——<b>不带学段色点</b>（全局学段 tab 均已去色点）；与下方描边胶囊筛选栏<b>层级区分</b>：分段控件为页面级切换（主），筛选胶囊为列表过滤（次）。<br>
-        · 筛选栏（吸顶于列表上方）：<b>两枚胶囊</b>＝<b>区域</b>／<b>校园荣誉</b>，等宽铺满、与首页筛选栏同款（高 32、r=999、白底描边）；已应用的维度胶囊转浅蓝底（.chip.on）。<b>区域为单选维度：选中后胶囊文案替换为所选项名</b>（选行政区显示「xx区」、选板块显示板块名，如「天河区」「万博-长隆」），清除后恢复「区域」；校园荣誉点开后在筛选栏下方展开多选面板（见 12A）。<br>
+        · 筛选栏（吸顶于列表上方）：<b>两枚胶囊</b>＝<b>区域</b>／<b>校园荣誉</b>，等宽铺满、与首页筛选栏同款（高 32、r=999、白底描边）；已应用的维度胶囊转浅蓝底（.chip.on）。<b>区域为单选维度，但胶囊文案固定展示「区域」、不回显所选项名</b>（已应用状态仅以浅蓝底标记）；校园荣誉点开后在筛选栏下方展开多选面板（见 12A）。<br>
         · <b>页面底色＝白色</b>（不用灰底）；列表<b>按行政区归类展示</b>，<b>区与区之间用 1px 分隔线</b>（同学校详情卡各模块之间的分隔方式）。每区结构：<b>区名分组头＝详情页一级模块标题同款</b>（蓝竖条 + 17px 加粗，sticky 吸顶；<b>区名旁不写学校数量</b>，<b>无计数行</b>），分组头下方为<b>带表头的两列表单</b>（与详情页表单同款：<code>chartbox</code> 容器 + <code>thead</code>/<code>trow</code>，颜色字号直接复用详情页同一套类：表头 12px 加粗墨色、正文 13px 墨色、校名知性蓝 + ›、字重 500 同 <code>.v2 .trow .lk</code>）——表头＝<b>学校｜校园荣誉</b>（第二列窄列靠右、超宽省略）；<b>第一列＝学校</b>名（可点击链接，超宽单行省略）、<b>第二列＝校园荣誉</b>（无荣誉显「—」置灰）；<b>一校有多条荣誉时每条荣誉独立一行</b>（校名只在首行显示，续行学校列留空）；<b>区内学校名按拼音首字母排序</b>。<br>
         · <b>区排序规则</b>：已开启定位且未筛选区域时，<b>所属行政区置顶</b>，其余区按与定位点的距离<b>由近及远</b>排列；未开定位或已筛选区域时按固定区序（荔湾→越秀→海珠→天河→白云→黄埔→番禺）。<b>校园荣誉取值与 web「小学明细」一致</b>：全国文明校园／广东省文明校园／广州市文明校园／创建先进学校（储备）／其他。<br>
         · 本页为 web「广州七区小学明细」(PrimaryRankingView) 的移动端重设计：原表格三列（学校/校区｜位置｜校园荣誉）转为<b>按区归类两列表单</b>，原「分组（不分组/按区）」筛选取消（固定按行政区归类）、「位置」并入区域胶囊。
@@ -2018,8 +2032,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <b>交互描述</b>
         <p>
           1）入口：底部第 2 个 tab「学校」→ 进入学校页，默认选中「小学」tab（与首页地图默认小学点位一致）。<br>
-          2）学段切换：点 初中／高中分段 → 列表整体刷新为该学段数据（初中/高中 tab 详情待 12B/12C 补充）；默认小学。<br>
-          3）筛选：点「区域」→ 复用 04 三列下钻（区域·板块/地铁），<b>单选</b>——选定一项即收起面板、胶囊回显所选项名，再次点选其他项替换、点已选项取消并恢复「区域」；点「校园荣誉」→ <b>筛选栏正下方展开多选面板</b>（<b>4 项</b>，默认全选；展开态整个顶部到面板为白底整体窗口浮于遮罩上，同首页筛选面板，见 12A）；两维度已选状态独立保留；<b>胶囊不显示数量角标</b>。<br>
+          2）学段切换：点 初中／高中分段 → 列表整体刷新为该学段数据（初中 tab 见 12B；高中 tab 待 12C 补充）；默认小学。<br>
+          3）筛选：点「区域」→ 复用 04 三列下钻（区域·板块/地铁，<b>单选 drill、面板无「全不选 / 确认」、底部右对齐一枚「重置」按钮</b>）——点第三列二级项<b>即时应用并关闭面板、列表刷新</b>，点第二列仅移动选中、不关闭（见 04）；<b>胶囊文案固定展示「区域」、不回显所选项名</b>（已应用仅转浅蓝底）；点「校园荣誉」→ <b>筛选栏正下方展开多选面板</b>（<b>4 项</b>，默认全选；展开态整个顶部到面板为白底整体窗口浮于遮罩上，同首页筛选面板，见 12A）；两维度已选状态独立保留；<b>胶囊不显示数量角标</b>。<br>
           4）列表滚动：区名分组头吸顶（同区多校连续滚动、切区时新分组头顶替）；点学校名 → 打开该校详情卡半窗（06/07）。<br>
           5）筛选结果为空 → 转空状态（见规范表「空状态」行，异常弹窗「重置筛选」）。
         </p>
@@ -2069,8 +2083,309 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       <b>筛选面板（视觉规范）</b>
       <p>
         · <b>校园荣誉面板</b>（<b>与首页筛选面板同款交互</b>）：点「校园荣誉」胶囊 → 面板在<b>筛选栏正下方展开</b>；<b>展开态时 状态栏→品牌标题→学段分段→筛选栏→面板 整块白底作为一个整体窗口浮于遮罩之上</b>（同首页筛选面板：整个顶部到面板是一整体、<b>不压遮罩</b>），遮罩（黑 42%）只压暗面板下方的列表区；选项＝<b>4 枚胶囊</b>（全国文明校园／广东省文明校园／广州市文明校园／创建先进学校（储备）），默认全选（浅蓝底 .opt.on），多选；面板底部「全不选」（次按钮）+「完成」（主按钮，知性蓝通栏）；<b>点遮罩或「完成」收起面板</b>。<br>
-        · <b>区域为单选维度，不走该面板</b>：点「区域」胶囊复用 04 三列下钻（同样在筛选栏下方展开），选定一项即收起并把<b>所选项名回显到区域胶囊</b>（如「天河区」「万博-长隆」），再点已选项取消、恢复「区域」文案。<br>
-        · 两筛选维度已选状态各自独立保留；「全不选」仅作用于校园荣誉面板；应用后列表实时刷新；胶囊不显示数量角标、已应用的维度胶囊转浅蓝底。
+        · <b>区域为单选维度，复用 04 三列下钻</b>（同样在筛选栏下方展开，<b>单选 drill、面板无「全不选 / 确认」、底部「重置」</b>）：点「区域」胶囊展开三列下钻，<b>点第三列二级项即应用并关闭面板、地图范围圈定</b>；点第二列仅移动高亮、不关闭；弹窗拉起时按当前已生效区域高亮对应行（全城则无高亮）；<b>区域胶囊文案固定展示「区域」、不回显所选项名</b>（已应用仅以浅蓝底标记）。<br>
+        · 两筛选维度已选状态各自独立保留；「全不选」仅作用于多选面板（校园荣誉/招生机制/学校分类），<b>区域维度无此按钮</b>；应用后列表实时刷新；胶囊不显示数量角标、已应用的维度胶囊转浅蓝底。
+      </p>
+    </div>
+  </div>
+
+  <!-- 12B 学校页（底部第 2 tab）· 初中 -->
+  <div class="frame">
+    <div class="cap"><b>12B 学校页（底部第 2 tab）· 初中</b><span>学段分段(初中选中) · 区域/校园荣誉/招生机制/指标 四胶囊 · 表头列名取自 web 初中明细（学校｜区属指标比例｜区属指标数）</span></div>
+    <div class="phone">
+      <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+      <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+      <div class="navbar brand"><b>广州学途</b></div>
+      <div class="sctop"><div class="stagebar">
+        <span class="stab p">小学</span>
+        <span class="stab m on">初中</span>
+        <span class="stab h">高中</span>
+      </div></div>
+      <div class="scfilter"><div class="filterrow">
+        <span class="chip">区域 <i class="caret"></i></span>
+        <span class="chip">校园荣誉 <i class="caret"></i></span>
+        <span class="chip">招生机制 <i class="caret"></i></span>
+        <span class="chip">指标 <i class="caret"></i></span>
+      </div></div>
+      <div class="sclist">
+        <div class="scsec">越秀区</div>
+        <div class="chartbox sctbl">
+          <div class="thead mq3"><span>学校</span><span>区属指标比例</span><span>区属指标数</span></div>
+          <div class="trow mq3"><span class="lk"><span class="tx">广州市第七中学</span></span><span>12.3%</span><span>142</span></div>
+          <div class="trow mq3"><span class="lk"><span class="tx">广州市第十六中学</span></span><span>11.8%</span><span>138</span></div>
+          <div class="trow mq3"><span class="lk"><span class="tx">广州市育才实验学校</span><i class="mbtag">民办</i></span><span>6.5%</span><span>64</span></div>
+        </div>
+        <div class="scsec">天河区</div>
+        <div class="chartbox sctbl">
+          <div class="thead mq3"><span>学校</span><span>区属指标比例</span><span>区属指标数</span></div>
+          <div class="trow mq3"><span class="lk"><span class="tx">广州中学</span></span><span>10.1%</span><span>156</span></div>
+          <div class="trow mq3"><span class="lk"><span class="tx">广州市天河外国语学校</span></span><span>9.4%</span><span>88</span></div>
+          <div class="trow mq3"><span class="lk"><span class="tx">广州市第一一三中学</span></span><span>8.7%</span><span>112</span></div>
+        </div>
+      </div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+    </div>
+    <div class="anno">
+      <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「12B 学校页（底部第 2 tab）· 初中」</p>
+      <b>学校页 · 初中 tab（视觉规范）</b>
+      <p>
+        · 顶部结构、学段分段、页面底色、区名分组头、区与区分隔：<b>与小学 tab（12）完全一致</b>——状态栏 → 左侧品牌「广州学途」→ 系统胶囊常驻；学段分段选中「初中」（不带色点）；列表按区归类、区名分组头蓝竖条+17px 加粗吸顶、区间 1px 分隔；无计数行。<br>
+        · 筛选栏：<b>四枚胶囊</b>＝区域／校园荣誉／招生机制／指标，等宽铺满（与首页筛选栏同款、已应用转浅蓝底）。<b>筛选项与表头列名均取自 web 初中明细 (RankingView)</b>：区域（单选下钻，同小学）、<b>校园荣誉（5 项多选面板：全国文明校园／广东省文明校园／广州市文明校园／创建先进学校（储备）／其他——与 web 初中明细 <code>CIVILIZED_FILTERS</code> 完全一致，默认全选）</b>、<b>招生机制（7 项多选面板：单校划片／对口直升／多校电脑派位／电脑派位／电脑抽签／自主招生／2026 无招生计划）</b>、<b>指标（单选面板，驱动表头列名，默认＝区属指标比例）</b>。<br>
+        · 列表＝带表头三列表单（chartbox+thead/trow，<b>列宽＝学校 minmax(0,1fr)｜指标列 104px｜指标数 76px，后两列靠右</b>）：<b>第一列＝学校</b>名（可点击链接，知性蓝+›；民办公办在校名后加「民办」标签）；<b>第二、三列＝指标列</b>，列名随「指标」切换——默认/区属指标比例→「区属指标比例｜区属指标数」、省市属指标比例→「省市属指标比例｜省市属指标数」、指标×高中特控率→「指标×高中特控率｜考生数」、最低分模式（省市属/区属/TOP14）→「最低分｜近3年平均分｜指标数｜浪费率」（5 列横滑表格，<b>横滑演示见 12B-B</b>）；比例/特控率带「%」、最低分纯整数、无数据「—」。<b>区内学校按当前指标值排序</b>（比例/特控率降序、最低分升序、null 置后），与 web 初中明细一致。<br>
+        · <b>本屏不展示「校园荣誉」列</b>（校园荣誉仅作筛选维度，与 web 初中明细一致）；其余交互（面板遮罩、点遮罩/完成收起、区排序定位置顶、点校名→07B 初中详情卡）与小学 tab 同。
+      </p>
+      <div class="ixn">
+        <b>交互描述</b>
+        <p>
+          1）入口：底部第 2 tab「学校」→ 学校页，点「初中」分段进入本 tab；默认指标＝区属指标比例。<br>
+          2）筛选：<b>区域复用 04 三列下钻（单选 drill、无「全不选/确认」、底部「重置」，点第三列二级项即时应用并关闭，见 04）</b>；校园荣誉/招生机制/指标 为筛选栏正下方展开面板（整体窗口浮于遮罩、点遮罩或「完成」收起）；<b>四枚胶囊文案固定展示（区域／校园荣誉／招生机制／指标），单选/多选均不回显所选项名，已应用仅转浅蓝底</b>；校园荣誉/招生机制多选默认全选、指标单选默认区属指标比例；各维度独立保留、胶囊不显数量角标。<br>
+          3）列表滚动/区名吸顶/点校名→07B/空状态：同小学 tab。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12B-A 学校页·初中·招生机制面板 -->
+  <div class="frame">
+    <div class="cap"><b>12B-A 学校页 · 初中 · 招生机制面板</b><span>招生机制多选面板（筛选栏下方整体展开，同首页筛选面板）· 7 项来自 web 初中明细</span></div>
+    <div class="phone">
+      <div class="scfwin">
+      <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+      <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+      <div class="navbar brand"><b>广州学途</b></div>
+      <div class="sctop"><div class="stagebar">
+        <span class="stab p">小学</span>
+        <span class="stab m on">初中</span>
+        <span class="stab h">高中</span>
+      </div></div>
+      <div class="scfilter"><div class="filterrow">
+        <span class="chip">区域 <i class="caret"></i></span>
+        <span class="chip">校园荣誉 <i class="caret"></i></span>
+        <span class="chip on">招生机制 <i class="caret"></i></span>
+        <span class="chip">指标 <i class="caret"></i></span>
+      </div></div>
+      <div class="scfpanel">
+        <div class="optwrap"><div class="opts">
+          <span class="opt on">单校划片</span>
+          <span class="opt on">对口直升</span>
+          <span class="opt on">多校电脑派位</span>
+          <span class="opt on">电脑派位</span>
+          <span class="opt on">电脑抽签</span>
+          <span class="opt on">自主招生</span>
+          <span class="opt on">2026 无招生计划</span>
+        </div></div>
+        <div class="sfoot"><span class="none">全不选</span><span class="ok">完成</span></div>
+      </div>
+      </div>
+      <div class="mask"></div>
+      <div class="sclist">
+        <div class="scsec">越秀区</div>
+        <div class="chartbox sctbl">
+          <div class="thead mq3"><span>学校</span><span>区属指标比例</span><span>区属指标数</span></div>
+          <div class="trow mq3"><span class="lk"><span class="tx">广州市第七中学</span></span><span>12.3%</span><span>142</span></div>
+        </div>
+      </div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+    </div>
+    <div class="anno">
+      <b>招生机制面板（视觉规范）</b>
+      <p>
+        · <b>招生机制面板</b>（与首页筛选面板同款交互）：点「招生机制」胶囊 → 面板在筛选栏正下方展开；展开态 状态栏→品牌→学段→筛选栏→面板 整块白底浮于遮罩之上、遮罩只压列表；选项＝<b>7 枚胶囊</b>（单校划片／对口直升／多校电脑派位／电脑派位／电脑抽签／自主招生／2026 无招生计划，文案与 web 初中明细 <code>MECH_FILTERS</code> 一致、来自 <code>middleEnrollmentMechanisms</code> label），默认全选（浅蓝底 .opt.on），多选；底部「全不选」+「完成」；点遮罩或「完成」收起。<br>
+        · 指标面板（单选，默认区属指标比例）同款交互，选项＝web `METRIC_GROUPS`（默认/区属指标比例/省市属指标比例/指标×高中特控率/省市属指标最低分/区属指标最低分/TOP14指标最低分），切换即改表头列名（见 12B 列名表）；其余（区域/校园荣誉）交互同小学 tab（12/12A）。
+      </p>
+    </div>
+  </div>
+
+  <!-- 12B-B 学校页·初中·最低分指标 5 列横滑表格 -->
+  <div class="frame">
+    <div class="cap"><b>12B-B 学校页 · 初中 · 最低分指标 5 列横滑表格</b><span>指标＝区属指标最低分 · 默认露出约 3.5 列，整表可向左滑动查看剩余列</span></div>
+    <div class="phone">
+      <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+      <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+      <div class="navbar brand"><b>广州学途</b></div>
+      <div class="sctop"><div class="stagebar">
+        <span class="stab p">小学</span>
+        <span class="stab m on">初中</span>
+        <span class="stab h">高中</span>
+      </div></div>
+      <div class="scfilter"><div class="filterrow">
+        <span class="chip">区域 <i class="caret"></i></span>
+        <span class="chip">校园荣誉 <i class="caret"></i></span>
+        <span class="chip">招生机制 <i class="caret"></i></span>
+        <span class="chip on">指标 <i class="caret"></i></span>
+      </div></div>
+      <div class="sclist">
+        <div class="scsec">越秀区</div>
+        <div class="hscroll">
+          <div class="chartbox sctbl mq5">
+            <div class="thead mq5"><span>学校</span><span>最低分</span><span>近3年平均分</span><span>指标数</span><span>浪费率</span></div>
+            <div class="trow mq5"><span class="lk"><span class="tx">广州市第七中学</span></span><span>619</span><span>621</span><span>142</span><span>3.2%</span></div>
+            <div class="trow mq5"><span class="lk"><span class="tx">广州市培正中学</span></span><span>612</span><span>615</span><span>96</span><span>5.4%</span></div>
+            <div class="trow mq5"><span class="lk"><span class="tx">广州市第三中学</span></span><span>608</span><span>611</span><span>88</span><span>6.1%</span></div>
+            <div class="trow mq5"><span class="lk"><span class="tx">省实越秀学校</span></span><span>602</span><span>606</span><span>120</span><span>2.8%</span></div>
+          </div>
+        </div>
+        <div class="swhint">可向左滑动查看更多列</div>
+      </div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+    </div>
+    <div class="anno">
+      <b>5 列横滑表格（视觉规范）</b>
+      <p>
+        · 触发：<b>「指标」切到最低分模式（省市属指标最低分／区属指标最低分／TOP14指标最低分）</b>时，表单由 3 列变 <b>5 列</b>——学校｜最低分｜近3年平均分｜指标数｜浪费率（列名随所选项变化，见 12B 列名表）；<b>筛选胶囊文案固定展示「指标」，不回显所选项名</b>，已应用仅以浅蓝底（.chip.on）标记。<br>
+        · 横滑交互：<b>整表（含表头）宽度超出屏宽，默认视口露出约 3.5 列</b>（学校＋最低分＋近3年平均分＋「指标数」约半列），<b>表格可继续向左滑动查看剩余列</b>（指标数｜浪费率）；<b>表头随内容一起横滑、首列不冻结</b>；表单底部首屏显示「可向左滑动查看更多列」提示，用户滑动一次后消失。<br>
+        · 数值规范同 12B：最低分纯整数（如 619）、近3年平均分纯整数、指标数整数、浪费率带「%」、无数据「—」；区内按最低分升序（null 置后）；其余（顶部/筛选/区归类/遮罩面板）同 12B。
+      </p>
+    </div>
+  </div>
+
+  <!-- 12C 学校页·高中·默认态 -->
+  <div class="frame">
+    <div class="cap"><b>12C 学校页 · 高中 · 默认态</b><span>按行政区归类 · 3 列表单（学校｜2025录取线｜2026录取线）· 屏内完整展示不横滑 · 取自 web 高中明细</span></div>
+    <div class="phone">
+      <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+      <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+      <div class="navbar brand"><b>广州学途</b></div>
+      <div class="sctop"><div class="stagebar">
+        <span class="stab p">小学</span>
+        <span class="stab m">初中</span>
+        <span class="stab h on">高中</span>
+      </div></div>
+      <div class="scfilter"><div class="filterrow">
+        <span class="chip">区域 <i class="caret"></i></span>
+        <span class="chip">校园荣誉 <i class="caret"></i></span>
+        <span class="chip">学校分类 <i class="caret"></i></span>
+        <span class="chip on">排序 <i class="caret"></i></span>
+      </div></div>
+      <div class="sclist">
+        <div class="scsec">越秀区</div>
+        <div class="chartbox sctbl mq4">
+          <div class="thead mq4"><span>学校</span><span>2025录取线</span><span>2026录取线</span></div>
+          <div class="trow mq4"><span class="cschool"><span class="lk"><span class="tx">广州市第七中学</span></span></span><span>619</span><span>621</span></div>
+          <div class="trow mq4"><span class="cschool"><span class="lk"><span class="tx">广州市培正中学</span></span></span><span>612</span><span>615</span></div>
+          <div class="trow mq4"><span class="cschool"><span class="lk"><span class="tx">广州市第三中学</span></span></span><span>608</span><span>611</span></div>
+          <div class="trow mq4"><span class="cschool"><span class="lk"><span class="tx">省实越秀学校</span></span></span><span>602</span><span>606</span></div>
+        </div>
+      </div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+    </div>
+    <div class="anno">
+      <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「12C 学校页（底部第 2 tab）· 高中」</p>
+      <b>学校页 · 高中 tab（视觉规范）</b>
+      <p>
+        · 顶部结构、学段分段、页面底色、区名分组头、区与区分隔：<b>与小学/初中 tab 完全一致</b>——状态栏 → 左侧品牌「广州学途」→ 系统胶囊常驻；学段分段选中「高中」（不带色点）；列表按区归类、区名分组头蓝竖条+17px 加粗吸顶、区间 1px 分隔；无计数行。<br>
+        · 筛选栏：<b>四枚胶囊</b>＝区域／校园荣誉／学校分类／排序，等宽铺满（与首页筛选栏同款、已应用转浅蓝底）。<b>筛选项均取自 web 高中明细 (HighRankingView)</b>：区域（单选下钻，同小学）、<b>校园荣誉（5 项多选面板：全国文明校园／广东省文明校园／广州市文明校园／创建先进学校（储备）／其他——与 web <code>CIVILIZED_FILTERS</code> 一致，默认全选）</b>、<b>学校分类（10 项多选面板：省市属示范／荔湾属示范／越秀属示范／海珠属示范／天河属示范／白云属示范／黄埔属示范／番禺属示范／普通公办高中／民办高中——与 web <code>SCHOOL_FILTERS</code> 一致，默认全选）</b>、<b>排序（单选面板，默认＝按 2026 分排）</b>。<br>
+        · 列表＝带表头<b>三列表单</b>（chartbox+thead/trow，固定 3 列、<b>屏内完整展示不横滑</b>）：<b>第一列＝学校</b>（校名可点击链接知性蓝+›，<b>仅展示校名——不显示民办标签、校名下方不显示其他信息</b>）；<b>第二、三列＝2025 / 2026 中考录取线</b>（右对齐、纯整数分、无数据「—」）。<b>录取线口径＝公办普通高中户籍生最低录取分：优先第三批，无第三批户籍生分取第四批；不含第一批、非户籍生、外区生、民办及中外合作办学项目分数</b>（同 web 高中明细 <code>SCORE_NOTE</code>）。<b>区内学校按当前排序维度降序</b>（2026 分 / 2025 分 / 历年平均分，null 置后）。<br>
+        · <b>本屏不展示「校园荣誉」列</b>（校园荣誉仅作筛选维度，与 web 高中明细一致）；其余交互（面板遮罩、点遮罩/完成收起、区排序定位置顶、点校名→07C 高中详情卡）与小学 tab 同。
+      </p>
+      <div class="ixn">
+        <b>交互描述</b>
+        <p>
+          1）入口：底部第 2 tab「学校」→ 学校页，点「高中」分段进入本 tab；默认排序＝按 2026 分排。<br>
+          2）筛选：<b>区域复用 04 三列下钻（单选 drill、无「全不选/确认」、底部「重置」，点第三列二级项即时应用并关闭，见 04）</b>；校园荣誉/学校分类/排序 为筛选栏正下方展开面板（整体窗口浮于遮罩、点遮罩或「完成」收起）；<b>四枚胶囊文案固定展示（区域／校园荣誉／学校分类／排序），单选/多选均不回显所选项名，已应用仅转浅蓝底</b>；校园荣誉/学校分类多选默认全选、排序单选默认按 2026 分排；各维度独立保留、胶囊不显数量角标。<br>
+          3）列表滚动/区名吸顶/点校名→07C/空状态：同小学 tab。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12C-A 学校页·高中·学校分类面板 -->
+  <div class="frame">
+    <div class="cap"><b>12C-A 学校页 · 高中 · 学校分类面板</b><span>学校分类多选面板（筛选栏下方整体展开，同首页筛选面板）· 10 项来自 web 高中明细</span></div>
+    <div class="phone">
+      <div class="scfwin">
+      <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+      <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+      <div class="navbar brand"><b>广州学途</b></div>
+      <div class="sctop"><div class="stagebar">
+        <span class="stab p">小学</span>
+        <span class="stab m">初中</span>
+        <span class="stab h on">高中</span>
+      </div></div>
+      <div class="scfilter"><div class="filterrow">
+        <span class="chip">区域 <i class="caret"></i></span>
+        <span class="chip">校园荣誉 <i class="caret"></i></span>
+        <span class="chip on">学校分类 <i class="caret"></i></span>
+        <span class="chip">排序 <i class="caret"></i></span>
+      </div></div>
+      <div class="scfpanel">
+        <div class="optwrap"><div class="opts">
+          <span class="opt on">省市属示范</span>
+          <span class="opt on">荔湾属示范</span>
+          <span class="opt on">越秀属示范</span>
+          <span class="opt on">海珠属示范</span>
+          <span class="opt on">天河属示范</span>
+          <span class="opt on">白云属示范</span>
+          <span class="opt on">黄埔属示范</span>
+          <span class="opt on">番禺属示范</span>
+          <span class="opt on">普通公办高中</span>
+          <span class="opt on">民办高中</span>
+        </div></div>
+        <div class="sfoot"><span class="none">全不选</span><span class="ok">完成</span></div>
+      </div>
+      </div>
+      <div class="mask"></div>
+      <div class="sclist">
+        <div class="scsec">越秀区</div>
+        <div class="chartbox sctbl mq4">
+          <div class="thead mq4"><span>学校</span><span>2025录取线</span><span>2026录取线</span></div>
+          <div class="trow mq4"><span class="cschool"><span class="lk"><span class="tx">广州市第七中学</span></span></span><span>619</span><span>621</span></div>
+        </div>
+      </div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+    </div>
+    <div class="anno">
+      <b>学校分类面板（视觉规范）</b>
+      <p>
+        · <b>学校分类面板</b>（与首页筛选面板同款交互）：点「学校分类」胶囊 → 面板在筛选栏正下方展开；展开态 状态栏→品牌→学段→筛选栏→面板 整块白底浮于遮罩之上、遮罩只压列表；选项＝<b>10 枚胶囊</b>（省市属示范／荔湾属示范／越秀属示范／海珠属示范／天河属示范／白云属示范／黄埔属示范／番禺属示范／普通公办高中／民办高中，文案与 web 高中明细 <code>SCHOOL_FILTERS</code> 一致），默认全选（浅蓝底 .opt.on），多选；底部「全不选」+「完成」；点遮罩或「完成」收起。<br>
+        · 其余（区域/校园荣誉/排序）面板交互同小学「校园荣誉面板」。
+      </p>
+    </div>
+  </div>
+
+  <!-- 12C-B 学校页·高中·排序面板 -->
+  <div class="frame">
+    <div class="cap"><b>12C-B 学校页 · 高中 · 排序面板</b><span>排序单选面板（筛选栏下方整体展开，同首页筛选面板）· 3 项来自 web 高中明细</span></div>
+    <div class="phone">
+      <div class="scfwin">
+      <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+      <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+      <div class="navbar brand"><b>广州学途</b></div>
+      <div class="sctop"><div class="stagebar">
+        <span class="stab p">小学</span>
+        <span class="stab m">初中</span>
+        <span class="stab h on">高中</span>
+      </div></div>
+      <div class="scfilter"><div class="filterrow">
+        <span class="chip">区域 <i class="caret"></i></span>
+        <span class="chip">校园荣誉 <i class="caret"></i></span>
+        <span class="chip">学校分类 <i class="caret"></i></span>
+        <span class="chip on">排序 <i class="caret"></i></span>
+      </div></div>
+      <div class="scfpanel">
+        <div class="optwrap"><div class="opts">
+          <span class="opt">按 2025 分排</span>
+          <span class="opt on">按 2026 分排</span>
+          <span class="opt">按全部年份平均分排</span>
+        </div></div>
+        <div class="sfoot"><span class="ok">完成</span></div>
+      </div>
+      </div>
+      <div class="mask"></div>
+      <div class="sclist">
+        <div class="scsec">越秀区</div>
+        <div class="chartbox sctbl mq4">
+          <div class="thead mq4"><span>学校</span><span>2025录取线</span><span>2026录取线</span></div>
+          <div class="trow mq4"><span class="cschool"><span class="lk"><span class="tx">广州市第七中学</span></span></span><span>619</span><span>621</span></div>
+        </div>
+      </div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+    </div>
+    <div class="anno">
+      <b>排序面板（视觉规范）</b>
+      <p>
+        · <b>排序面板</b>（与首页筛选面板同款交互）：点「排序」胶囊 → 面板在筛选栏正下方展开、整体窗口浮于遮罩；<b>单选</b>（非多选），选项＝3 枚胶囊（按 2025 分排／按 2026 分排／按全部年份平均分排，文案与 web <code>sortBy</code> 一致），默认选中「按 2026 分排」（浅蓝底 .opt.on），<b>选中即生效、点其他项切换、再点已选项保持选中（单选不可取消到无）</b>；底部仅「完成」按钮（无「全不选」，因排序必选其一）；点遮罩或「完成」收起。<br>
+        · 切换排序即改列表区内学校排序（降序；2026 分 / 2025 分 / 历年平均分，null 置后），表头列名不变（始终是 2025 / 2026 两录取线）。
       </p>
     </div>
   </div>
@@ -2087,10 +2402,10 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       <thead><tr><th>控件</th><th>位置 / 用法</th><th>样式规范</th></tr></thead>
       <tbody>
         <tr><td>搜索框</td><td>首页 / 地图层，悬浮于地图之上，占位「搜索广州小初高学校」</td><td>高 40–42、r=999、白底 96–97% + 投影；不占版式，浮在地图上</td></tr>
-        <tr><td>筛选栏入口</td><td>首页 / 地图层搜索框下方，共 3 个，同为悬浮层</td><td>胶囊 高 32；维度顺序 <b>行政区／学段／办学性质</b>；<b>3 个胶囊等宽铺满一行，左右边缘与搜索框严格对齐</b>（面板内与搜索栏同边距）；多选显示维度名，单选显示选中内容（行政区单选显示<b>全名带「区」字</b>，如「越秀区」）；<b>胶囊一律不显示已选数量角标等任何数字</b>（与维度名混读、视觉杂乱）；展开中为浅蓝底 #F2F6FE；白底 94% + 投影</td></tr>
-        <tr><td>筛选面板</td><td>屏幕顶部通栏展开（点维度胶囊展开，04／05）</td><td><b>顶部通栏白色窗口</b>：搜索框（与右上角胶囊同一行）+ 筛选栏（无下分隔线）+ 维度选项区 + 底部「全不选／确认」同属一个白底面板，面板底部圆角 20 + 下投影；<b>面板下方地图覆盖灰色蒙层</b>，点蒙层收起并复位、不保存。展开分两步：搜索框与筛选栏先整体上移，面板再自所点维度胶囊处由上向下推出。同一时刻<b>只展示当前选中维度的选项组</b>；切维度即整组替换，各维度已选状态各自保留；「全不选」只作用于当前维度；<b>无拖拽 handle</b>（面板头部第一行即搜索框，点击收起面板并跳转搜索页）；点「确认」应用筛选并收起复位，<b>若行政区维度发生变化且收窄（非七区全选），地图视野自动缩放到恰好完整框住所选行政区</b>（各区行政边界外接矩形 + 四周安全边距，不额外扩大到未选区；学段／办学性质为属性维度、不改变学校地理位置，故不移动相机；零结果不移动，转异常态 C）</td></tr>
+        <tr><td>筛选栏入口</td><td>首页 / 地图层搜索框下方，共 3 个，同为悬浮层</td><td>胶囊 高 32；维度顺序 <b>行政区／学段／办学性质</b>；<b>3 个胶囊等宽铺满一行，左右边缘与搜索框严格对齐</b>（面板内与搜索栏同边距）；多选显示维度名，<b>单选显示选中内容</b>（行政区单选显示<b>全名带「区」字</b>，如「越秀区」；地铁单选显示<b>站名</b>或「地铁·N 站」）；<b>不显示已选数量角标等任何数字</b>（与维度名混读、视觉杂乱）；已应用维度转浅蓝底 #F2F6FE；白底 94% + 投影</td></tr>
+        <tr><td>筛选面板</td><td>屏幕顶部通栏展开（点维度胶囊展开，04／05）</td><td><b>顶部通栏白色窗口</b>：搜索框（与右上角胶囊同一行）+ 筛选栏（无下分隔线）+ 维度选项区同属一个白底面板，面板底部圆角 20 + 下投影；<b>面板下方地图覆盖灰色蒙层</b>，点蒙层收起并复位、不保存。<b>区域维度（04 三列下钻）为单选、面板底部无「全不选／确认」按钮</b>——点第三列二级项即时应用并关闭（见 04）；<b>学段／办学性质维度（05）为多选，保留底部「全不选／确认」</b>。展开分两步：搜索框与筛选栏先整体上移，面板再自所点维度胶囊处由上向下推出。同一时刻<b>只展示当前选中维度的选项组</b>；切维度即整组替换，各维度已选状态各自保留；「全不选」只作用于当前多选维度；<b>无拖拽 handle</b>（面板头部第一行即搜索框，点击收起面板并跳转搜索页）；<b>学段／办学性质</b>点「确认」应用筛选并收起复位，<b>若行政区维度发生变化且收窄（非七区全选），地图视野自动缩放到恰好完整框住所选行政区</b>（各区行政边界外接矩形 + 四周安全边距，不额外扩大到未选区；学段／办学性质为属性维度、不改变学校地理位置，故不移动相机；零结果不移动，转异常态 C）</td></tr>
         <tr><td>筛选选项</td><td>面板内，默认全选</td><td>胶囊 高 34；选中 #F2F6FE 底 + #98B6EC 描边 + #254BAE 字并加粗；未选白底描边。学段维度按交互稿<b>分组竖排</b>：组标题 13/600 + 组内胶囊平铺（小学／初中各 1 项；高中组含 省市属示范・区属示范・其他学校）</td></tr>
-        <tr><td>全不选 / 确认</td><td>面板底部</td><td>「全不选」次按钮 高 44 描边；「确认」主按钮 高 44 通栏 r=999 知性蓝 #2F5CD6 实心</td></tr>
+        <tr><td>全不选 / 确认</td><td>学段／办学性质（多选）维度面板底部；<b>区域维度（04 三列下钻）无此行，改为整行右对齐的单枚「重置」按钮</b>（恢复默认不限区域＝全城）</td><td>「全不选」次按钮 高 44 描边；「确认」主按钮 高 44 通栏 r=999 知性蓝 #2F5CD6 实心；「重置」次按钮 高 44 白底描边胶囊、<b>整行右对齐</b></td></tr>
         <tr><td>搜索按钮</td><td>搜索栏右侧</td><td>无输入不展示；有输入后淡入 + 左移约 180ms 流畅出现、搜索框同步变窄约 220ms，知性蓝主按钮 #2F5CD6</td></tr>
          <tr><td>Toast 轻提示</td><td>屏幕居中偏下（全局通用，规范见第 01 节「通用 · Toast 轻提示」）</td><td>半透明黑底 rgba(0,0,0,.78)、白字 13px、圆角 999、padding 10×18；「已在当前学校」等轻提示约 1.5s 自动淡出，不阻断操作、不加遮罩、全屏同时只存在一个</td></tr>
                 <tr><td>返回按钮</td><td>搜索页左上角（筛选面板不含返回按钮，搜索框位于面板头部、与右上角胶囊同行）</td><td><b>40×40 圆形</b>控件：浅底 #F5F7FB + 1px #E3E8F0 描边，内置 20×20 线性箭头（描边 2.4），点击区 ≥ 40</td></tr>

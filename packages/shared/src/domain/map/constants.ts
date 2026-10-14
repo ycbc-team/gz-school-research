@@ -40,6 +40,10 @@ export const MARKER_SELECTED_COLOR = '#2F5CD6';
 /** 学段优先级：多学部点主学部取最高（信息卡用主学部） */
 export const STAGE_PRIORITY: Record<SchoolStage, number> = { primary: 0, middle: 1, high: 2 };
 
+/** 地铁过滤半径（km）：点位落在该半径内的站点集合即视为「靠近该站」，用于 04B 地铁维度过滤。
+ *  站点坐标为近似占位（PRD 待补全），取 1.2km 步行+接驳容忍半径，降低近似坐标导致的漏判。 */
+export const METRO_RADIUS_KM = 1.2;
+
 export const STAGE_LABEL: Record<SchoolStage, string> = { primary: '小学', middle: '初中', high: '高中' };
 export const STAGE_TABS: Array<{ v: SchoolStage; l: string }> = [
   { v: 'primary', l: '小学' },

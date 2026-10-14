@@ -76,21 +76,20 @@
   position: absolute; left: 0; right: 0; top: -56px; height: 56px;
 }
 
-/* ===== 多学段 tab 条 ===== */
+/* ===== 多学段 tab 条（UI 稿 .stagebar/.stab，半窗 06C 与全屏 07B 同款） ===== */
+/* 大胶囊：等分拉伸占满整行（spec: .stab{flex:1}）、高 34px、白底灰边、选中浅蓝底+蓝边蓝字 */
 .stagebar {
-  flex: none; display: flex; gap: 16rpx; margin: 4rpx 24rpx 8rpx; padding: 12rpx 0 8rpx;
-  background: #fff;
+  flex: none; display: flex; gap: 20rpx; margin: 20rpx 32rpx 8rpx; padding: 0; background: transparent;
 }
 .stab {
-  display: inline-flex; align-items: center; height: 60rpx; padding: 0 24rpx;
-  border-radius: 999px; background: #F2F4F8; color: #5A647C;
-  font-size: 25rpx; font-weight: 500; border: 1rpx solid transparent;
+  flex: 1; display: flex; align-items: center; justify-content: center; height: 68rpx; padding: 0 20rpx;
+  border-radius: 999px; border: 1rpx solid #E3E8F0; background: #fff;
+  font-size: 27rpx; font-weight: 600; color: #8B96AD; box-sizing: border-box;
 }
-.stab.on { background: #F2F6FE; color: #254BAE; font-weight: 600; border-color: #C3D5F6; }
-.stab-dot { width: 16rpx; height: 16rpx; border-radius: 50%; margin-right: 10rpx; flex: none; }
-.stab.p .stab-dot { background: #2F5CD6; }
-.stab.m .stab-dot { background: #E8850C; }
-.stab.h .stab-dot { background: #0F9D58; }
+.stab.on { background: #F2F6FE; border-color: #98B6EC; color: #254BAE; }
+/* 半窗态：handle 之下、校名之上，行距与 06C「handle → 学段 tab → 校名」统一；
+   padding-right 让出右上角关闭按钮（right:22rpx+56rpx 宽=左缘 78rpx 处）的占位，避免 tab 与 ✕ 重叠 / 误触 */
+.stagebar.inhalf { margin: 4rpx 32rpx 12rpx; padding-right: 54rpx; box-sizing: content-box; }
 
 /* ===== 内容区 ===== */
 .sclip { position: relative; flex: 1; min-height: 0; overflow: hidden; padding: 0 32rpx; }
@@ -135,8 +134,8 @@
 .zone { font-size: 25rpx; line-height: 1.6; color: #33405C; white-space: pre-line; }
 
 .route { display: flex; align-items: center; gap: 16rpx; padding: 14rpx 0; font-size: 25rpx; font-weight: 600; color: #33405C; }
-.route .lk, .grp-row .lk { display: inline-flex; align-items: center; gap: 8rpx; color: #2F5CD6; }
-.route .lk::after, .grp-row .lk::after { content: "›"; font-size: 30rpx; line-height: 1; margin-top: -4rpx; opacity: .7; }
+.route .lk, .grp-row .lk, .trow .lk { display: inline-flex; align-items: center; gap: 8rpx; color: #2F5CD6; }
+.route .lk::after, .grp-row .lk::after, .trow .lk::after { content: "›"; font-size: 30rpx; line-height: 1; margin-top: -4rpx; opacity: .7; }
 
 .route-block { margin-top: 24rpx; }
 .route-h { display: flex; align-items: center; gap: 16rpx; margin: 8rpx 0 14rpx; font-size: 26rpx; font-weight: 700; color: #33405C; }
@@ -160,6 +159,10 @@
 .thead { display: grid; grid-template-columns: 1fr 120rpx 168rpx; gap: 12rpx; font-weight: 700; color: #33405C; padding-bottom: 12rpx; border-bottom: 1rpx solid #EFF2F7; }
 .trow { display: grid; grid-template-columns: 1fr 120rpx 168rpx; gap: 12rpx; align-items: center; padding: 14rpx 0; font-size: 26rpx; color: #33405C; }
 .trow .tc { text-align: right; }
+/* 中考报考情况录取明细表（UI 07B .qt）：高中名可压缩截断、名额/最低分定宽右对齐 */
+.thead.qt, .trow.qt { grid-template-columns: minmax(0,1fr) 56px 84px; }
+.trow.qt > text, .trow.qt .lk { min-width: 0; }
+.tx { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .proj { display: flex; flex-direction: column; gap: 8rpx; margin: 8rpx 0 16rpx; }
 .proj-row { display: flex; gap: 32rpx; font-size: 25rpx; color: #64708C; }
 .proj-row .pc { margin-left: auto; }

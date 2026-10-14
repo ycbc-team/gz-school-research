@@ -11,6 +11,12 @@ export interface MapFilterState {
   selectedStages: Set<SchoolStage>;
   selectedGrades: Set<ClsKey>;
   selectedNatures: Set<SchoolNature>;
+  /** 地理维度：行政区/板块 与 地铁 互斥单选（UI 04/04B），各自保留已选 */
+  regionDim: 'district' | 'metro';
+  /** 板块（id 形如 `440113-p1`，前缀即 adcode）选中集合；空 = 不限板块 */
+  selectedPlates: Set<string>;
+  /** 地铁站点（id 形如 `line-1-s1`）选中集合；空 = 不限地铁 */
+  selectedStations: Set<string>;
 }
 
 export function initialFilterState(): MapFilterState {
@@ -19,6 +25,9 @@ export function initialFilterState(): MapFilterState {
     selectedStages: new Set<SchoolStage>(ALL_STAGES),
     selectedGrades: new Set<ClsKey>(ALL_GRADES),
     selectedNatures: new Set<SchoolNature>(ALL_SCHOOL_NATURES),
+    regionDim: 'district',
+    selectedPlates: new Set<string>(),
+    selectedStations: new Set<string>(),
   };
 }
 
@@ -40,6 +49,34 @@ export function toggleGrade(state: MapFilterState, v: ClsKey): MapFilterState {
 }
 export function toggleNature(state: MapFilterState, v: SchoolNature): MapFilterState {
   return { ...state, selectedNatures: toggleSet(state.selectedNatures, v) };
+}
+
+/** 地理维度切换（行政区/板块 ↔ 地铁），互斥单选、各自保留已选 */
+export function setRegionDim(state: MapFilterState, dim: 'district' | 'metro'): MapFilterState {
+  return { ...state, regionDim: dim };
+}
+/** 板块单选：选中时同步把其所属行政区加入 selectedDistricts（板块必落于某区） */
+export function togglePlate(state: MapFilterState, plateId: string): MapFilterState {
+  const ad = plateId.split('-')[0]!;
+  const plates = toggleSet(state.selectedPlates, plateId);
+  let districts = state.selectedDistricts;
+  if (plates.has(plateId)) {
+    districts = new Set(state.selectedDistricts);
+    districts.add(ad);
+  }
+  return { ...state, selectedPlates: plates, selectedDistricts: districts };
+}
+/** 「全部 xx 区」：确保该区整体选中并清除其下已选板块（= 不限定板块）。
+ *  幂等：本就整体选中时仍保持整体选中（不再反转为取消），取消某区由第一列行政区行承担。 */
+export function selectAllPlatesInDistrict(state: MapFilterState, adcode: string): MapFilterState {
+  const districts = new Set(state.selectedDistricts);
+  districts.add(adcode);
+  const plates = new Set([...state.selectedPlates].filter((pid) => pid.split('-')[0] !== adcode));
+  return { ...state, selectedDistricts: districts, selectedPlates: plates };
+}
+/** 地铁站点单选（维度内独立，线由 focus 单独控制） */
+export function toggleStation(state: MapFilterState, stationId: string): MapFilterState {
+  return { ...state, selectedStations: toggleSet(state.selectedStations, stationId) };
 }
 
 /** 全选/全不选翻转 */
@@ -88,10 +125,26 @@ export interface MapPoint {
   natureOf: Record<SchoolStage, SchoolNature>;
   /** 主学部：stages 中优先级最高的（信息卡/描边/晕光判定用） */
   mainStage: SchoolStage;
+  /** 所属板块 id（同区内最近板块中心，id 前缀即 adcode）；无板块数据时为 undefined */
+  plateId?: string;
+  /** 半径内地铁站点 id 集合（04B 地铁维度过滤用）；无地铁数据时为 [] */
+  stationIds: string[];
 }
 
-/** 点位可见性：区域必选 + 多学部任一学段满足「学段×分级」双选 */
+/** 点位可见性：学段×分级×性质（属性维度，与地理维度正交，始终生效）
+ *  + 地理维度（行政区/板块 或 地铁，互斥）：
+ *    - 地铁维度：忽略行政区/板块，仅按选中站点过滤；
+ *    - 行政区/板块维度：行政区必选；板块仅当该区有选中板块时才限制到选中板块。 */
 export function isVisible(state: MapFilterState, pt: MapPoint): boolean {
+  if (!pt.stages.some((s) => state.selectedStages.has(s) && state.selectedGrades.has(pt.clsOf[s]) && state.selectedNatures.has(pt.natureOf[s]))) return false;
+  if (state.regionDim === 'metro') {
+    if (state.selectedStations.size === 0) return true;
+    return (pt.stationIds || []).some((id) => state.selectedStations.has(id));
+  }
   if (!state.selectedDistricts.has(pt.adcode)) return false;
-  return pt.stages.some((s) => state.selectedStages.has(s) && state.selectedGrades.has(pt.clsOf[s]) && state.selectedNatures.has(pt.natureOf[s]));
+  if (state.selectedPlates.size === 0) return true;
+  // 仅当该区有板块被选中时才限制到选中板块（plateId 前缀即 adcode，可直接比对）
+  const restricted = [...state.selectedPlates].some((pid) => pid.split('-')[0] === pt.adcode);
+  if (!restricted) return true;
+  return !!pt.plateId && state.selectedPlates.has(pt.plateId);
 }

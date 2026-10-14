@@ -27,6 +27,9 @@ const baseLoaders = {
   entities: cast(hydrate(require('../data/registry/entity/dist/entities.js'))),
   xiaoshengchu: cast(hydrate(require('../data/primary/xiaoshengchu_2026.js'))),
   middleEnrollNotes: cast(hydrate(require('../data/primary/middle_enroll_notes.js'))),
+  // ---- 区域/地铁数据源（UI 04/04B 三列下钻过滤）：data/region 真源 → 由 build.mjs 拷入 apps/miniprogram/data/region ----
+  plates: cast(require('../data/region/plates')),
+  metro: cast(require('../data/region/metro')),
   // ---- 详情域空壳（品牌/教育集团/linkage 模块由分包 pages/school-detail 提供真实数据） ----
   brandGroups: { brands: [] },
   educationGroups: { groups: [] },
@@ -50,4 +53,6 @@ module.exports = {
   highSchools: baseLoaders.highSchools,
   highLevels: baseLoaders.highLevels,
   enrollments: baseLoaders.enrollments,
+  plates: baseLoaders.plates,
+  metro: baseLoaders.metro,
 };
