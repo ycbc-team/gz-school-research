@@ -347,9 +347,19 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .dmod-h b{font-size:15px;font-weight:700;color:var(--ink-700)}
 .dmod-h span{font-size:11px;color:var(--ink-400);flex:none}
 .dmod-h .dmod-meta{margin-left:auto;flex:none;font-size:12.5px;font-weight:600;color:var(--ib-600)}
+/* 字段行：左字段名定宽（宽度须容纳最长字段名「省市属高中录取名额」9 字，否则 nowrap 溢出会吃掉间距），右侧填充值 */
 .kv{display:flex;gap:24px;padding:7px 0;font-size:13px;line-height:1.6}
-.kv .k{width:108px;flex:none;white-space:nowrap;color:var(--ink-500)}
+.kv .k{width:130px;flex:none;white-space:nowrap;color:var(--ink-500)}
 .kv .v{flex:1;min-width:0;color:var(--ink-700)}
+/* 第一批招生（07E）：整模块一张表——表头「项目 / 计划人数」置于模块最上方，其下依次一级通道行与二级项目行 */
+.kv .v.num{text-align:right}
+.sphead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding-bottom:6px;font-size:11px;font-weight:700;color:var(--ink-400);border-bottom:1px solid var(--line-2)}
+.sphead .sn{flex:1;min-width:0}
+.sphead .sc{flex:none}
+.sublist{margin:0 0 3px 12px}
+.subrow{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:4px 0;font-size:12px;color:var(--ink-500)}
+.subrow .sn{flex:1;min-width:0}
+.subrow .sc{flex:none}
 .dnote{font-size:11px;color:var(--ink-400);background:var(--bg);border-radius:8px;padding:8px 10px;margin-top:8px;line-height:1.6}
 .dpara{font-size:13px;color:var(--ink-700);line-height:1.7;margin:4px 0 0}
 .route{display:flex;align-items:center;gap:8px;padding:7px 0;font-size:12.5px;font-weight:600;color:var(--ink-700)}
@@ -379,6 +389,10 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .grpbox{background:#FAFBFC;border:1px solid var(--line-2);border-radius:10px;padding:8px 12px 10px}
 .grp-l{font-size:13px;font-weight:600;color:var(--ink-500);margin:6px 0 2px}
 .grp-row{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:12.5px;font-weight:600;color:var(--ink-700)}
+/* 分组/关联校区行：标签【紧跟校名】、不右对齐（.grp-row 的 gap 即固定间距）；
+   校名 flex:0 1 auto —— 名字短按实际字数展示、标签紧随其后，标签多/名字长时才收缩截断，始终单行不换行 */
+.grp-row .gn{flex:0 1 auto;min-width:0;overflow:hidden}
+.grp-row .tx{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .pill{height:26px;padding:0 12px;border-radius:999px;font-size:11.5px;font-weight:600;display:inline-flex;align-items:center;flex:none}
 .pill.cur{background:var(--ib-50);color:var(--ib-600);border:1px solid var(--ib-100)}
 .dsub{font-size:13px;font-weight:400;color:var(--ink-500);margin:10px 0 2px}
@@ -386,16 +400,20 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .chartbox{border:1px solid var(--line-2);border-radius:10px;padding:10px 12px;margin:8px 0 0;font-size:12px;color:var(--ink-700)}
 .thead{display:grid;grid-template-columns:1fr 64px 84px;gap:6px;font-weight:700;color:var(--ink-700);padding-bottom:6px;border-bottom:1px solid var(--line-2)}
 .trow{display:grid;grid-template-columns:1fr 64px 84px;gap:6px;align-items:center;padding:7px 0;font-size:13px;color:var(--ink-700)}
-/* 第二批招生 · 覆盖初中表：第一列尽量占宽（minmax(0,1fr)），后两列窄列靠右；校名单行省略 */
-.thead.q3,.trow.q3{grid-template-columns:minmax(0,1fr) 72px 56px}
-.thead.q3 span:not(:first-child),.trow.q3 span:not(:first-child){text-align:right}
-.thead.q2,.trow.q2{grid-template-columns:minmax(0,1fr) 56px}
-.thead.q2 span:not(:first-child),.trow.q2 span:not(:first-child){text-align:right}
+/* 表单统一规范：表头与数据行共用同一套网格列定义（.q3／.q2／.qt 只换列数、不换对齐）；
+   窄列只给够用宽度（约「表头字数×字号」），余下宽度全部让给第一列校名；
+   表头与数据同向对齐（右对齐），视觉上表头与下方数值落在同一列；第一列校名单行省略。 */
+.thead.q3,.trow.q3{grid-template-columns:minmax(0,1fr) 46px 40px}
+.thead.q2,.trow.q2{grid-template-columns:minmax(0,1fr) 40px}
 .trow .lk{min-width:0;max-width:100%}
 .trow .lk .tx{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-/* 中考报考情况 · 高中录取明细表（初中态）：表头/数据行同网格对齐，第一列占宽、窄列靠右 */
-.thead.qt,.trow.qt{grid-template-columns:minmax(0,1fr) 56px 84px}
+/* 中考报考情况 · 高中录取明细表（初中态）：高中 | 名额 | 录取最低分 */
+.thead.qt,.trow.qt{grid-template-columns:minmax(0,1fr) 40px 70px}
+.thead.q3 span:not(:first-child),.trow.q3 span:not(:first-child),
+.thead.q2 span:not(:first-child),.trow.q2 span:not(:first-child),
 .thead.qt span:not(:first-child),.trow.qt span:not(:first-child){text-align:right}
+/* 表头与数据行列宽一致：表头也按同一网格断行，避免「表头左对齐、数值右对齐」看起来像两列 */
+.thead.q3 span,.thead.q2 span,.thead.qt span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
 /* ---------- 12 学校页 · 小学列表 ---------- */
 .chip.on{background:var(--ib-50);border-color:var(--ib-300);color:var(--ib-600)}
@@ -488,7 +506,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
       <div class="doc-role">本文档为 UI/UE 设计规范，描述界面视觉、交互、组件、动效与状态；对应的产品功能需求（功能、业务规则、用户场景）见同级文件 <code>school-search-prd.md</code>。</div>
 <b>本轮范围：</b>共 <b>8 屏（含 06C 多学段半窗卡）＋ 多学段详情卡 2 屏（07B/07C）</b> ＋ <b>异常状态 3 态（08–10）＋ 通用弹窗（11）</b> —— 首页（地图层）／搜索页（默认态）／搜索页（联想词态）／筛选栏半窗（选中「行政区」）／筛选栏半窗（切换「学段」）／地图层／<b>学校详情卡（小学 · 07）</b>／<b>学校详情卡 · 多学段（tab 切换 07B ＋ 滚动态 07C，示例初中）</b>。
       其中<b>首页与地图层均为「整张地图铺满全屏 + 顶部小程序名行（白底常驻盖地图）／搜索框／筛选栏／图例区悬浮 + 底部导航栏置底」</b>的同一套结构；地图背景取自<b>育才中学（东校区）周边真实地图（示意）</b>，点位按真实相对位置落位，产品默认视野为广州中心城区中轴线（珠江新城—广州塔一带）。
-      均按原型稿中实际出现的元素绘制。初中多学段详情卡（tab 切换 ＋ 顶栏滚动替换）已随 07B/07C 补充，多学段半窗卡（压缩版 tab）见 06C；其余页面（<b>学校详情长图·高中</b>、品牌关联·多学段 tab 页、学校 tab·初中·高中 等）待指定后再出。
+      均按原型稿中实际出现的元素绘制。初中多学段详情卡（tab 切换 ＋ 顶栏滚动替换）已随 07B/07C 补充，多学段半窗卡（压缩版 tab）见 06C；其余页面（品牌关联·多学段 tab 页 等）待指定后再出（学校详情长图·高中见 07E，学校 tab·初中／高中见 12B／12C，均已补入本稿）。
     </div>
   </div>
 </header>
@@ -1095,8 +1113,12 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           1）入口：点击筛选栏「区域」胶囊 → <b>分两步展开</b>：<b>第一步</b>，搜索框与筛选栏整体上移（<b>搜索框移至与右上角胶囊同一行</b>）；<b>第二步</b>，筛选面板自所点维度胶囊处<b>由上向下推出</b>，展开为顶部通栏白色面板——搜索框、筛选栏、三列下钻选项<b>同属一个白色窗口</b>；<b>面板下方地图覆盖灰色蒙层</b>。<b>区域维度为单选、面板底部无「全不选 / 确认」按钮</b>（见第 3、4 条）。<br>
           <b>对齐与间距硬约束（实现口径，须严格遵守）</b>：① 面板头部<b>并非另起一个覆盖弹层，而是首页原顶部悬浮栏（搜索框 + 三枚筛选胶囊）整体上移位移而成</b>；② 展开态搜索框右缘<b>对齐右上角胶囊左缘</b>；③ 三枚筛选胶囊<b>等宽（flex:1）且横向间距 8px</b>；④ 搜索框／筛选栏／选项区<b>左缘统一内缩 28rpx</b>、三段<b>纵向间距统一 16rpx</b>；⑤ 三列下钻区等宽三列、列间 1px 分隔线，整块高度约 236–260px（**与「学段」筛选窗口等高，不随列内条目增多而变高**），三列各自纵向滚动。<br>
           2）<b>三列下钻结构</b>：<b>第一列＝筛选维度</b>（行政区/板块 ／ 地铁，单选高亮）；<b>第二列＝维度下的一级项</b>（行政区/板块 维度下＝七区；地铁维度下＝各线路）；<b>第三列＝二级项</b>（点某区 → 该区板块列表；点某线 → 该线站点列表）。<b>仅行政区/板块维度</b>的第三列首行固定「全部 xx 区」（如「全部番禺区」），选它表示<b>不限定板块、展示整个区</b>；<b>地铁维度第三列直接列出选中线的站点，不置「全部 x 号线」行</b>。板块列表见各分区定义（本稿以番禺区为例列出 12 个板块）。<br>
-          3）<b>单选 drill 选中模型</b>：三列下钻同一时刻仅一条 drill 路径（维度＋一级项＋二级项）<b>整行呈选中态</b>——<b>选中态＝仅文字变蓝（#254BAE）加粗、无底色块</b>，三列对应单元格文字同时变蓝；「全部 xx 区」行<b>无圆点等任何前缀标记</b>（与普通选项同款纯文字）。<b>弹窗拉起时默认不预勾选任何独立选项、也不按当前地图区域把按钮置为选中</b>——仅按【当前已生效区域】高亮对应行：当前展示某区则（维度＋该区＋全部该区）<b>整行文字变蓝、其余均不选中</b>；当前展示全城（未限定区域）则<b>无任何行选中</b>。各列点选规则：① 点第一列切换维度（行政区/板块 ↔ 地铁）时二三列整体替换、并选中该维度当前已选路径；② 点第二列某区/某线 → 该行文字变蓝（行政区维度同时选中「全部 xx 区」、地铁维度选中该线已选站/首站），其余一级项取消选中（<b>面板保持展开</b>）；③ 点第三列某二级项（板块/站点）→ <b>弹窗立即关闭并执行范围圈定、地图显示对应点位（无「确认」步骤）</b>。<br>
-          4）<b>应用与关闭</b>：区域维度面板<b>无「全不选」「确认」按钮，底部仅一枚右对齐的「重置」按钮</b>（仅区域维度有；点它把区域恢复为<b>默认不限区域态＝展示全部学校/全城</b>，清空板块/地铁选择并关闭面板，不影响学段/办学性质筛选）。<b>应用时机＝点第三列二级项即时生效并关闭面板</b>；点面板下方灰色蒙层或维度胶囊以外的收起操作 → 面板收起、<b>不应用</b>、还原到展开前已生效的区域（不保存本次浏览的临时高亮）。选定某区或某板块后<b>地图视野自动缩放</b>到对应范围（选板块优先用板块聚合边界，无板块边界数据时回退所属区行政边界；选「全部 xx 区」或全城默认不额外缩放）。<br>5）面板展开期间顶部搜索框保持可见，点击搜索框 → 收起面板并跳转搜索页（02）；此时搜索页点返回 → 直接回首页，面板保持收起。
+          3）<b>单选 drill 选中模型</b>：三列下钻同一时刻仅一条 drill 路径（维度＋一级项＋二级项）<b>整行呈选中态</b>——<b>选中态＝仅文字变蓝（#254BAE）加粗、无底色块</b>，三列对应单元格文字同时变蓝；「全部 xx 区」行<b>无圆点等任何前缀标记</b>（与普通选项同款纯文字）。<b>弹窗拉起时默认不预勾选任何独立选项、也不按当前地图区域把按钮置为选中</b>——仅按【当前已生效区域】高亮对应行：当前展示某区则（维度＋该区＋全部该区）<b>整行文字变蓝、其余均不选中</b>；当前展示全城（未限定区域）则<b>无任何行选中</b>。各列点选规则：① 点第一列切换维度（行政区/板块 ↔ 地铁）时二三列整体替换、并选中该维度当前已选路径；② 点第二列某区/某线 → 该行文字变蓝（行政区维度同时选中「全部 xx 区」、地铁维度选中该线已选站/首站），其余一级项取消选中（<b>面板保持展开</b>）；③ 点第三列某二级项 → <b>弹窗立即关闭并即时生效（无「确认」步骤）</b>；<b>板块 / 地铁站＝仅把地图切过去，不筛选点位</b>，<b>只有行政区（含「全部 xx 区」）才筛选点位</b>（详见下方 4）。<br>
+          4）<b>应用与关闭</b>：区域维度面板<b>无「全不选」「确认」按钮，底部仅一枚右对齐的「重置」按钮</b>（仅区域维度有；点它把区域恢复为<b>默认不限区域态＝展示全部学校/全城</b>，清空板块/地铁选择并关闭面板，不影响学段/办学性质筛选）。<b>应用时机＝点第三列二级项即时生效并关闭面板</b>；点面板下方灰色蒙层或维度胶囊以外的收起操作 → 面板收起、<b>不应用</b>、还原到展开前已生效的区域（不保存本次浏览的临时高亮）。<br>
+          4-1）<b>【核心口径】行政区筛选点位，板块/地铁仅定位</b>：
+          <b>行政区</b>（含第三列首行「全部 xx 区」）＝<b>按行政区过滤</b>，只保留该区学校，并把视野缩放到该区全部点位的外接矩形（安全边距，不扩大到未选区）；<br>
+          <b>板块 / 地铁站</b>＝<b>不做任何点位过滤</b>，地图只把相机切换到该选项及其邻域，<b>七区全部学校点位仍然都在</b>（不按 plateId 单值映射、也不按站点半径剔除学校，避免吞掉板块交界与站点周边本该可见的学校）；
+          定位视野＝<b>板块按「该板块归属学校的实际范围」定框</b>（剔除离群 15% 后取外接矩形、外扩约 12%），<b>地铁站取站点周边 0.8km 方框</b>；再按「视口 − 边距」反推包围盒，使<b>一屏可视宽度夹在 1.3~2.8km</b>（竖屏约 1.7~2.8km 宽 × 3.5~5.8km 高，街区级尺度）——既要看出定位落在所选板块，又不能把邻区（如荔湾选板块却框进海珠）一起显示。<br>5）面板展开期间顶部搜索框保持可见，点击搜索框 → 收起面板并跳转搜索页（02）；此时搜索页点返回 → 直接回首页，面板保持收起。
         </p>
       </div>
       </div>
@@ -1184,8 +1206,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <b>交互描述（地铁维度）</b>
         <p>
           1）第一列切「地铁」→ 第二列列出广州地铁所有线路（1 / 2 / 3 / 3 北延段 / 4–14 / 18 / 21 / 22 / 广佛线 / APM 线，共 20 条）；点某线 → 第三列展示该线站点。<br>
-          2）第三列直接列出选中线的站点（无「全部 x 号线」首行）；<b>点第三列某站点 → 弹窗立即关闭并缩放到该站周边范围（无「确认」步骤）</b>。<br>
-          3）地铁维度与行政区/板块维度互斥单选、各自保留已选路径；<b>点某线仅移动高亮（默认高亮该线已选站/首站）、面板保持展开，点其站点方才即时应用并缩放</b>（无线路边界数据，回退到站点聚合中心）。<br>
+          2）第三列直接列出选中线的站点（无「全部 x 号线」首行）；<b>点第三列某站点 → 弹窗立即关闭，地图切到该站及其邻域（无「确认」步骤）</b>。<br>
+          3）地铁维度与行政区/板块维度互斥单选、各自保留已选路径；<b>点某线仅移动高亮（默认高亮该线已选站/首站）、面板保持展开，点其站点方才即时应用</b>。<b>⚠️ 地铁站与板块同为「仅定位、不过滤」：切过去后七区全部学校点位仍在地图上，不按站点半径剔除任何学校</b>（见 04 第 4-1 条）。<br>
           4）本稿 1 号线站点为真实站序（西塱 → 广州东站，15 站）；其余线路站点清单为占位、上线前需按最新运营线网补全。
         </p>
       </div>
@@ -1797,8 +1819,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="pubbox">公示文件说明（区教育局集团名单公示文件链接）</div>
             <div class="grp-t">集团核心校</div>
             <div class="grpbox">
-              <div class="grp-row"><span class="lk">祈福英语实验学校（小学部）</span><span class="tag m tag-stage">小学</span></div>
-              <div class="grp-row"><span class="lk">祈福英语实验学校（初中部）</span><span class="tag m tag-stage">初中</span><span class="pill cur">当前查看</span></div>
+              <div class="grp-row"><span class="gn lk"><span class="tx">祈福英语实验学校（小学部）</span></span><span class="tag m tag-stage">小学</span></div>
+              <div class="grp-row"><span class="gn lk"><span class="tx">祈福英语实验学校（初中部）</span></span><span class="tag m tag-stage">初中</span><span class="pill cur">当前查看</span></div>
             </div>
             <div class="grp-t">集团成员校</div>
             <div class="grpbox">
@@ -1819,6 +1841,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
 · <b>初中三模块（按交互稿）</b>：① <b>招生计划（2026年）</b>——标题右侧灰蓝小字「计划 x 个班」（同小学），标题下方平铺「招生方式」（每条＝左文案 + 右侧机制标签 + 下方学校名单盒）；② <b>中考报考情况</b>——区分批次（如第二批次：名额考生数／省市属高中录取名额／区属高中录取名额）、与其他初中共享计划的校区（附温馨提示）、省市属高中录取明细／区属高中录取明细（均为<b>图表区</b>，明细表列：高中｜名额｜录取最低分；表头与数据行<b>同网格对齐</b>——第一列高中校名尽量占宽 <code>minmax(0,1fr)</code>、名额／录取最低分窄列靠右；校名单行最大约 10 个汉字宽度，超出用「…」截断），明细下小字「具体名额以官方公布为准，第三批第四批无法获取」；③ <b>关联校区</b>——含所属集团（展示集团名）、公示文件说明、集团核心校、集团成员校，成员校行带学级标签，当前校带「当前查看」标记。<br>
 · <b>招生计划 · 招生方式平铺（随 mechanism 取值切换）</b>：模块仅保留「标题右侧『计划 x 个班』+『招生方式』列举 + 服务范围 + 生源小学」——每条「招生方式」＝左文案（单机制写「招生方式」不带序号，多机制递增「招生方式一／二…」）+ 右侧 <code>tag-mech</code> 标签（单校划片／对口直升／多校电脑派位／电脑派位／电脑抽签／自主招生）；「招生方式」内依次展示：<b>服务范围</b>（二级标题 + 浅底正文盒，仅当该方式存在 <code>scope</code> 信息时展示、无则整段不显示，样式同小学「招生地段」）+ <b>生源小学</b>（二级标题 + 浅底分组盒列学校名，多校电脑派位按派位组分组：组名提取为分组小标题 <code>grp-l</code>、组内只列校名）；原计划班数／派位组成员／官方备注等字段不再展示。<br>
 · <b>关联校区排序</b>：同集团成员校优先展示当前查看的学校，其余按「同行政区 &gt; 拼音首字母」排列。<br>
+· <b>表单（表格）统一规范</b>：本屏「中考报考情况」的录取明细表、以及 07E 第一批 / 第二批招生表单，共用同一套规范——<b>表头与数据行同网格、数值列（名额 / 录取最低分 / 计划人数）的表头与数值一律右对齐</b>（避免表头左对齐、数值右对齐看起来像两列）；窄列只给够用宽度（名额 40px、录取最低分 70px），<b>余下宽度全部让给第一列校名</b>；第一列校名与关联校区行内校名<b>均单行省略</b>（超出「…」截断、不换行成 2 行，见 07E 视觉规范「表单统一规范」全条）。<br>
+        · <b>第二批次字段行（<code>.kv</code>）</b>：名额考生数／<b>省市属高中录取名额</b>／区属高中录取名额三行——左字段名<b>定宽 130px</b>（以最长字段名「省市属高中录取名额」为准，保证 9 字不溢出）、右侧填充值，两者间距约 24px，三行数值靠同一列起排（见 07E 规范第 ⑤ 条）。<br>
 · <b>模块层级与字号规范（全学段统一·v2 层级四档）</b>：与小学 07／07A-2／07F 同一套 <code>.dbody.v2</code> 作用域——① 一级＝模块标题（17px／700／近黑 #10182B + 左侧 4px 知性蓝竖条，模块间距加大 + 顶部分隔线）；② 二级＝子标题（招生地段／服务范围／生源小学／招生方式 N／所属集团／集团核心校／集团成员校／第二批次／省市属·区属高中录取明细等，14px／600／#33405C，纯文字无竖条无底色）；③ 三级＝正文（kv 字段值行／集团成员校 grp-row／地段正文，13px／400／#33405C；链接知性蓝 + ›、字重 500）；盒内分组小标（集团核心校／集团成员校 grp-l，12px／600／#64708C，弱于二级）；④ 说明小字（dnote／pubbox，11.5px／#8B96AD）。分组容器底色 #FAFBFC＋描边表达层内归属；层级感由「标题竖条 → 子标题加粗 → 正文常规 → 小字灰」四档字号字重梯度一眼区分，<b>不再同层同灰</b>。<br>
 · <b>半窗卡同步展示 tab</b>：半窗卡内 tab 条同样位于最上方（handle 之下、校名之上，压缩版胶囊），点 tab 半窗内容整体刷新；上滑展开全屏后 tab 选中状态延续（半窗示例见 06C）。<br>
 · <b>顶部字段滚动替换（关键交互）</b>：展开全屏后初始顶栏显示「学校详情」；<b>用户向上滑动长图</b>，内容区大标题（校名）随之上移，顶栏「学校详情」<b>平滑过渡替换为当前学段对应的校名</b>（如「祈福英语实验学校」），呈滚动联动而非突变；下滑回顶部则还原为「学校详情」。学段 tab 条在全屏滚动时<b>吸顶固定在顶栏之下</b>，不随内容滚走。<br>
@@ -1878,8 +1902,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="grpbox"><div class="grp-row">祈福关联校区</div></div>
             <div class="grp-t">集团核心校</div>
             <div class="grpbox">
-              <div class="grp-row"><span class="lk">祈福英语实验学校（小学部）</span><span class="tag m tag-stage">小学</span></div>
-              <div class="grp-row"><span class="lk">祈福英语实验学校（初中部）</span><span class="tag m tag-stage">初中</span><span class="pill cur">当前查看</span></div>
+              <div class="grp-row"><span class="gn lk"><span class="tx">祈福英语实验学校（小学部）</span></span><span class="tag m tag-stage">小学</span></div>
+              <div class="grp-row"><span class="gn lk"><span class="tx">祈福英语实验学校（初中部）</span></span><span class="tag m tag-stage">初中</span><span class="pill cur">当前查看</span></div>
             </div>
           </div>
         </div>
@@ -1898,7 +1922,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
 
     <!-- 07E 学校详情卡 · 高中 -->
     <div class="frame">
-      <div class="cap"><b>07E 学校详情卡 · 高中</b><span>高中数据放出 · 高考信息／招生计划／第二批招生（2026）／关联校区</span></div>
+      <div class="cap"><b>07E 学校详情卡 · 高中</b><span>高中数据放出 · 高考信息／招生计划／第一批招生（2026）／第二批招生（2026）／关联校区</span></div>
       <div class="phone longpage">
           <div class="capsule" style="top:14px"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
         <div class="dtop">
@@ -1931,14 +1955,41 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           </div>
 
           <div class="dmod">
+            <div class="dmod-h"><b>第一批招生（2026）</b></div>
+            <div class="dnote">自主招生 / 体育 / 艺术特长生为全市统一竞争的特殊通道，考生自由报名、按志愿和成绩投档录取，不分配到校。</div>
+            <div class="sphead"><span class="sn">项目</span><span class="sc">计划人数</span></div>
+            <div class="kv"><span class="k">自主招生</span><span class="v num">83 人</span></div>
+            <div class="kv"><span class="k">体育特长生计划</span><span class="v num">32 人</span></div>
+            <div class="sublist">
+              <div class="subrow"><span class="sn">羽毛球</span><span class="sc">6 人</span></div>
+              <div class="subrow"><span class="sn">游泳</span><span class="sc">10 人</span></div>
+              <div class="subrow"><span class="sn">田径</span><span class="sc">10 人</span></div>
+              <div class="subrow"><span class="sn">网球</span><span class="sc">6 人</span></div>
+            </div>
+            <div class="kv"><span class="k">艺术特长生计划</span><span class="v num">25 人</span></div>
+            <div class="sublist">
+              <div class="subrow"><span class="sn">交响乐</span><span class="sc">15 人</span></div>
+              <div class="subrow"><span class="sn">舞蹈</span><span class="sc">10 人</span></div>
+            </div>
+            <div class="dnote">本校体育特长生计划含"优秀体育后备人才"名额；未用完名额滚入同项目体育特长生计划。</div>
+          </div>
+
+          <div class="dmod">
             <div class="dmod-h"><b>第二批招生（2026）</b></div>
             <div class="grp-t">省市属高中（面向全市）覆盖初中</div>
             <div class="chartbox">
-              <div class="thead q3"><span>学校</span><span>所在区</span><span>名额</span></div>
-              <div class="trow q3"><span class="lk"><span class="tx">xx初中</span></span><span>越秀区</span><span>18</span></div>
+              <div class="thead q3"><span>初中</span><span>所在区</span><span>名额</span></div>
+              <div class="trow q3"><span class="lk"><span class="tx">广州市第一中学（姜中宏校区）</span></span><span>荔湾区</span><span>4</span></div>
               <div class="trow q3"><span class="lk"><span class="tx">xx实验中学</span></span><span>天河区</span><span>15</span></div>
               <div class="trow q3"><span class="lk"><span class="tx">xx中学</span></span><span>海珠区</span><span>12</span></div>
               <div class="trow q3"><span class="lk"><span class="tx">xx外国语学校</span></span><span>荔湾区</span><span>9</span></div>
+            </div>
+            <div class="grp-t">区属高中（面向本区）覆盖初中</div>
+            <div class="chartbox">
+              <div class="thead q2"><span>初中</span><span>名额</span></div>
+              <div class="trow q2"><span class="lk"><span class="tx">广州市第二十六中学</span></span><span>4</span></div>
+              <div class="trow q2"><span class="lk"><span class="tx">xx中学</span></span><span>3</span></div>
+              <div class="trow q2"><span class="lk"><span class="tx">xx九年一贯学校</span></span><span>3</span></div>
             </div>
             <div class="dnote">具体名额以官方公布为准，第三批第四批无法获取。</div>
           </div>
@@ -1950,14 +2001,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
             <div class="pubbox">公示文件说明（区教育局集团名单公示文件链接）</div>
             <div class="grp-t">集团核心校</div>
             <div class="grpbox">
-              <div class="grp-row"><span class="lk">广东实验中学（高中部）</span><span class="tag m tag-stage">高中</span><span class="pill cur">当前查看</span></div>
+              <div class="grp-row"><span class="gn lk"><span class="tx">广东实验中学（高中部）</span></span><span class="tag m tag-stage">高中</span><span class="pill cur">当前查看</span></div>
             </div>
             <div class="grp-t">集团成员校</div>
             <div class="grpbox">
-              <div class="grp-row"><span class="lk">广东实验中学（初中部）</span><span class="tag m tag-stage">初中</span></div>
-              <div class="grp-row"><span class="lk">广东实验中学（白云校区）</span><span class="tag m tag-stage">高中</span></div>
-              <div class="grp-row"><span class="lk">xx实验学校</span><span class="tag m tag-stage">初中</span></div>
-              <div class="grp-row"><span class="lk">xx中学</span><span class="tag m tag-stage">高中</span></div>
+              <div class="grp-row"><span class="gn lk"><span class="tx">广东实验中学（初中部）</span></span><span class="tag m tag-stage">初中</span></div>
+              <div class="grp-row"><span class="gn lk"><span class="tx">广东实验中学（白云校区）</span></span><span class="tag m tag-stage">高中</span></div>
+              <div class="grp-row"><span class="gn lk"><span class="tx">广州市白云区星悦实验学校（初中部）</span></span><span class="tag m tag-stage">初中</span></div>
+              <div class="grp-row"><span class="gn"><span class="tx">广东实验中学荔湾学校花地湾校区（小学部）</span></span><span class="tag m tag-stage">小学</span></div>
             </div>
             <div class="dnote">集团归属与成员校为示意数据，待教育局公示文件核实后替换；点击学校名可跳转回地图并定位到新学校。</div>
           </div>
@@ -1968,7 +2019,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <b>学校详情卡 · 高中（视觉规范）</b>
         <p>
 · 单学段高中不显示学段 tab 条；多学段学校切到「高中」tab 时模块同本帧（tab 规则见 07B）。<br>
-· 高中四模块（按交互稿）：① <b>高考信息</b>——标题右侧小字「信息来源各校喜报或网传，仅供参考」，行项：高分段2025（只展示人数）／高分段2026／特控线上线率2025（只展示百分比）／特控线上线率2026／备注（有信息才展示，无信息整行不展示，也不展示公办民办）；② <b>招生计划</b>——中考录取线2025／2026，底部小字说明「录取线来源于官方信息：公办为户籍生最低分，民办为最低分（含公费班），外语艺术类为末位考生分数（官方文件附录）」；③ <b>第二批招生（2026）</b>——模块标题随学校属性切换两种版式：<b>市属高中</b>（含省市属示范，scope＝全市）标题写「省市属高中（面向全市）覆盖初中」，下方表单三列＝<b>学校</b>（第一列，可点击链接，样式同其他可跳转学校名 <code>.lk</code>：知性蓝 + ›，点击跳转地图定位并拉起该校详情卡）｜ 所在区 ｜ 名额；<b>区属高中</b>（区属示范／普通高中，scope＝本区）标题写「区属高中（面向本区）覆盖初中」，下方表单两列＝<b>学校</b>（可点击链接）｜ 名额（无「所在区」列）；表单用 <code>chartbox</code> 容器 + <code>thead</code>/<code>trow</code> 网格行：<b>第一列尽量占宽</b>（<code>minmax(0,1fr)</code>），所在区／名额为窄列靠右（市属三列 <code>q3</code>＝minmax(0,1fr) 72px 56px、区属两列 <code>q2</code>＝minmax(0,1fr) 56px）；第一列校名单行展示、<b>最大约 10 个汉字宽度，超出用「…」截断</b>（CSS ellipsis，点进该校详情卡后可见全名）；某高中无第二批覆盖初中数据时模块内展示空状态默认文案（文案待产品确认）；底部小字「具体名额以官方公布为准，第三批第四批无法获取」；④ <b>关联校区</b>——同 07B。<br>
+· 高中五模块（按交互稿）：① <b>高考信息</b>——标题右侧小字「信息来源各校喜报或网传，仅供参考」，行项：高分段2025（只展示人数）／高分段2026／特控线上线率2025（只展示百分比）／特控线上线率2026／备注（有信息才展示，无信息整行不展示，也不展示公办民办）；② <b>招生计划</b>——中考录取线2025／2026，底部小字说明「录取线来源于官方信息：公办为户籍生最低分，民办为最低分（含公费班），外语艺术类为末位考生分数（官方文件附录）」；③ <b>第一批招生（2026）</b>——<b>不用色块／卡片容器，只做两级正文</b>：<b>一级＝三条正文行</b>，复用 <code>.kv</code>（左通道名＝「自主招生／体育特长生计划／艺术特长生计划」，右＝计划数，计划数用 <code>.v.num</code> <b>右对齐</b>）；<b>二级＝该通道有分项目计划时</b>，紧接其正文行下方用 <code>.sublist</code>（左缩进 12px）列「<b>项目名 ＋ 计划人数</b>」（<code>.subrow</code>，12px／<code>--ink-500</code>，无边框、无底色）；
+            <b>整模块只用一张表、表头置顶</b>：表头 <code>.sphead</code>（左「<b>项目</b>」／右「<b>计划人数</b>」，11px／<code>--ink-400</code> 加粗、下方 1px 分隔线，两列左右对齐与数据行一致）放在模块最上方——<b>顺序＝表头 → 自主招生 → 体育特长生计划 →（其二级项目）→ 艺术特长生计划 →（其二级项目）</b>，<b>不在每个二级小表前重复表头</b>；一级行与二级行的数值右边缘对齐同一列；<b>右列口径＝官方公布的分项目招生计划人数（计划数，非实际录取人数）</b>，故列名定「计划人数」，值格式「N 人」；<b>项目级 note（如「其中体育后备人才不超3人」不展示</b>，保证行短、模块不冗长）；模块顶部一句<b>灰色小字</b>说明（<code>.dnote</code> 小字样式，与下方政策说明同一档，<b>不用 <code>.dsub</code> 正文级字号</b>）：「自主招生／体育／艺术特长生为全市统一竞争的特殊通道，考生自由报名、按志愿和成绩投档录取，不分配到校」；模块末尾按需展示政策说明 <code>.dnote</code>：「优秀体育后备人才」名额滚入规则（本校体育项目 note 含「体育后备人才」时出现）／「领军龙」足球单列规则（note 含「领军龙」时出现）；三条通道均无数据时整模块不展示；④ <b>第二批招生（2026）</b>——模块标题随学校属性切换两种版式：<b>市属高中</b>（含省市属示范，scope＝全市）标题写「省市属高中（面向全市）覆盖初中」，下方表单<b>三列</b>＝<b>初中</b>（第一列，可点击链接，样式同其他可跳转学校名 <code>.lk</code>：知性蓝 + ›，点击跳转地图定位并拉起该校详情卡）｜ 所在区 ｜ 名额（<code>q3</code>）；<b>区属高中</b>（区属示范／普通高中，scope＝本区）标题写「区属高中（面向本区）覆盖初中」，下方表单<b>两列</b>＝<b>初中</b>（可点击链接）｜ 名额（<code>q2</code>，<b>无「所在区」列</b>）；两种版式均为 <code>chartbox</code> 容器 + <code>thead</code>/<code>trow</code> 网格行，<b>列定义共用一套规范</b>（见下「表单统一规范」）；某高中无第二批覆盖初中数据时模块内展示空状态默认文案（文案待产品确认）；底部小字「具体名额以官方公布为准，第三批第四批无法获取」；⑤ <b>关联校区</b>——同 07B，行内校名<b>单行省略</b>（见下「表单统一规范」第 4 条）。<br>
+· <b>表单统一规范（07E／07B／12B／12C 通用）</b>：① <b>表头与数据行共用同一套网格列定义</b>（<code>.q3</code>／<code>.q2</code>／<code>.qt</code> 只换列数、不换对齐方式），表头与其下方数据<b>同向对齐</b>（数值列／短标签列表头与值一律右对齐），避免「表头左对齐、数值右对齐」看起来像两列；② <b>窄列只给够用宽度</b>（约「表头字数 × 字号」）：市属三列 <code>q3</code>＝minmax(0,1fr) 46px 40px、区属两列 <code>q2</code>＝minmax(0,1fr) 40px、录取明细 <code>qt</code>＝minmax(0,1fr) 40px 70px，<b>余下宽度全部让给第一列校名</b>，所在区／名额／录取最低分不占多余空间；③ <b>第一列校名尽可能占宽</b>，单行展示（<code>white-space:nowrap</code>）、超出用「…」截断（CSS ellipsis，点进该校详情卡后可见全名），<b>不换行成 2 行</b>；④ <b>分组行（关联校区 / 生源小学 / 共享计划校区等 <code>.grp-row</code>）</b>：<b>标签紧跟校名、不右对齐</b>（行内 <code>gap</code> 即固定间距，校名与标签之间不留弹性空白）；校名 <code>.gn</code> 用 <code>flex:0 1 auto;min-width:0</code>——<b>名字短就按实际字数展示、标签紧随其后</b>，只有<b>标签多（如 学段 + 学段 + 「当前查看」）或名字过长</b>时才收缩、单行「…」截断，<b>永不换行成 2 行</b>（学段标签、「当前查看」胶囊 <code>flex:none</code> 先占位）；⑤ <b>字段行 <code>.kv</code></b>：左字段名<b>定宽 130px</b>（须容纳最长字段名「省市属高中录取名额」9 字，否则 <code>nowrap</code> 溢出会把间距吃掉、看起来「贴在一起」）、右侧填充值，两者间距约 24px。<br>
 · <b>品牌关联排序</b>：同品牌多校优先展示当前所在学校，其余按「同行政区 ＞ 拼音首字母」排列。<br>
 · 模块层级与字号规范同 07／07B 的 <code>.dbody.v2</code> 层级四档（模块标题一级蓝竖条／子标题二级／正文三级／说明小字四级，见 07B 视觉规范）。
         </p>

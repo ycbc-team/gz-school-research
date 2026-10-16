@@ -132,19 +132,14 @@ export interface MapPoint {
 }
 
 /** 点位可见性：学段×分级×性质（属性维度，与地理维度正交，始终生效）
- *  + 地理维度（行政区/板块 或 地铁，互斥）：
- *    - 地铁维度：忽略行政区/板块，仅按选中站点过滤；
- *    - 行政区/板块维度：行政区必选；板块仅当该区有选中板块时才限制到选中板块。 */
+ *  + 地理维度（行政区 / 板块 / 地铁，互斥）：
+ *    - **只有行政区维度执行过滤**（按 adcode 剔除区外点位）；
+ *    - 板块 / 地铁站为「仅定位、不过滤」：选中后地图只切到该选项及其邻域，
+ *      学校点位保持全量展示，不再因plateId/半径映射吞掉周边学校。 */
 export function isVisible(state: MapFilterState, pt: MapPoint): boolean {
   if (!pt.stages.some((s) => state.selectedStages.has(s) && state.selectedGrades.has(pt.clsOf[s]) && state.selectedNatures.has(pt.natureOf[s]))) return false;
-  if (state.regionDim === 'metro') {
-    if (state.selectedStations.size === 0) return true;
-    return (pt.stationIds || []).some((id) => state.selectedStations.has(id));
-  }
-  if (!state.selectedDistricts.has(pt.adcode)) return false;
-  if (state.selectedPlates.size === 0) return true;
-  // 仅当该区有板块被选中时才限制到选中板块（plateId 前缀即 adcode，可直接比对）
-  const restricted = [...state.selectedPlates].some((pid) => pid.split('-')[0] === pt.adcode);
-  if (!restricted) return true;
-  return !!pt.plateId && state.selectedPlates.has(pt.plateId);
+  // 板块 / 地铁站选中 → 纯定位，不做任何地理过滤（点位全量保留）
+  if (state.selectedPlates.size > 0 || state.selectedStations.size > 0) return true;
+  if (state.regionDim === 'metro') return true; // 地铁维度未选任何站点 → 全量
+  return state.selectedDistricts.has(pt.adcode);
 }

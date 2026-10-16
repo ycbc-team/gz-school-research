@@ -57,6 +57,36 @@ const HIST_KEY = 'gz_index_search_history';
 const DIST_ORDER = {};
 DISTRICTS.forEach((d, i) => { DIST_ORDER[d.adcode] = i; });
 const STAGE_PRI = { primary: 0, middle: 1, high: 2 };
+// 板块 / 地铁站「仅定位、不过滤」模式：选中后地图切到该选项范围，点位全量保留。
+// 视野口径（2026-10-16 收紧）：不再用「固定半径 + 大包围盒」——那会让一屏跨 5~6km、看不出定位在哪。
+// 改为：板块按【该板块实际归属学校的范围】定框（去掉最远的 15% 离群点，避免个别远校把视野撑爆），
+// 地铁站用站点周边固定半径。可视宽度（= m/px × 屏宽）夹在 1.3~2.8km 之间，
+// 竖屏下对应一屏约 1.7~2.8km 宽 × 3.5~5.8km 高，落在「街区级」尺度。
+const PLATE_FOCUS_MARGIN = 1.12;   // 目标包围盒外扩比例（留一点四周余量）
+const PLATE_FOCUS_KM = 1.0;        // 板块无可定位学校时的兜底半径
+const STATION_FOCUS_KM = 0.8;      // 地铁站邻域半径
+const FOCUS_VIS_MIN_KM = 1.3;      // 可视宽度下限（防空视野）
+const FOCUS_VIS_MAX_KM = 2.8;      // 可视宽度上限（防离群点把视野拉飞）
+// 聚焦用边距 [上, 右, 下, 左]：上下避让搜索/筛选栏与图例/导航，左右只留最小边——
+// 左右边距直接决定「可视范围 ÷ 目标范围」的放大倍数，留大了一屏就看不出定位点在哪。
+const FOCUS_PAD = [190, 12, 150, 12];
+// 两点球面距离（km）——仅用于剔除板块内离群点
+function distKm(la1, lo1, la2, lo2) {
+  const R = 6371, dLa = (la2 - la1) * Math.PI / 180, dLo = (lo2 - lo1) * Math.PI / 180;
+  const a = Math.sin(dLa / 2) ** 2 + Math.cos(la1 * Math.PI / 180) * Math.cos(la2 * Math.PI / 180) * Math.sin(dLo / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+// 剔除离质心最远的 15%（至少保留 3 个）：个别远校（如归属错分的校区）会把板块包围盒撑到十几公里
+function focusCore(points) {
+  const pts = points || [];
+  if (pts.length <= 3) return pts;
+  let sLat = 0, sLng = 0;
+  for (const p of pts) { sLat += p.lat; sLng += p.lng; }
+  const cLat = sLat / pts.length, cLng = sLng / pts.length;
+  const keep = Math.max(3, Math.ceil(pts.length * 0.85));
+  const cut = pts.map((p) => distKm(cLat, cLng, p.lat, p.lng)).sort((a, b) => a - b)[keep - 1];
+  return pts.filter((p) => distKm(cLat, cLng, p.lat, p.lng) <= cut);
+}
 
 // 省市属示范高中推荐排序用：首字拼音首字母（覆盖数据中出现的字，确定性排序）
 const PY = { 广: 'g', 东: 'd', 州: 'z', 省: 's', 实: 's', 验: 'y', 华: 'h', 南: 'n', 师: 's', 范: 'f', 大: 'd', 学: 'x', 附: 'f', 中: 'z', 第: 'd', 二: 'e', 六: 'l', 执: 'z', 信: 'x', 铁: 't', 一: 'y', 协: 'x', 和: 'h', 仲: 'z', 元: 'y', 真: 'z', 雅: 'y', 光: 'g', 培: 'p', 英: 'y', 育: 'y', 外: 'w', 国: 'g', 侨: 'q', 天: 't', 河: 'h', 清: 'q', 黄: 'h', 岗: 'g', 爱: 'a', 群: 'q', 贤: 'x', 正: 'z', 衡: 'h', 维: 'w', 为: 'w', 明: 'm', 邝: 'k', 体: 't', 艺: 'y', 曦: 'x', 市: 's', 属: 's', 湾: 'w', 语: 'y', 校: 'x', 区: 'q' };
@@ -479,17 +509,26 @@ Page({
     this.syncDrillView();
     this.applyChipLabels();
   },
-  // 点第三列具体板块：单选该板块 → 立即提交、收起弹窗、范围圈定
+  // 点第三列具体板块：单选该板块 → 立即提交、收起弹窗。
+  // ⚠️ 板块仅作【地图定位】，不做点位过滤（isVisible 对板块选中态直接放行），
+  // 否则 plateId 单值映射会吞掉板块边缘/交界处的学校。
+  // 定位视野以「该板块归属学校的范围」为准（而非固定 3km 半径），一屏落在街区级尺度。
   togglePlate(e) {
     const id = e.currentTarget.dataset.id;
+    const ad = this.data.focusDistrict;
+    const plate = (this.platesByDistrict[ad] || []).find((p) => p.id === id);
     this.draft = {
       ...this.draft,
-      selectedDistricts: new Set([this.data.focusDistrict]),
+      selectedDistricts: new Set([ad]),
       selectedPlates: new Set([id]),
     };
-    this.applyRegionSelectionAndClose();
+    this.applyRegionSelectionAndClose(plate ? {
+      lat: plate.center[1], lng: plate.center[0],
+      points: mapPoints.filter((p) => p.plateId === id),
+      radiusKm: PLATE_FOCUS_KM,
+    } : null);
   },
-  // 点第三列「全部xx区」：单选该区（全部板块）→ 立即提交、收起弹窗、范围圈定
+  // 点第三列「全部xx区」：单选该区（全部板块）→ 立即提交、收起弹窗、按行政区过滤并圈定视野
   toggleAllPlates(e) {
     const ad = e.currentTarget.dataset.ad;
     this.draft = {
@@ -499,14 +538,23 @@ Page({
     };
     this.applyRegionSelectionAndClose();
   },
-  // 地铁维度：单选站点 → 立即提交、收起弹窗、范围圈定
+  // 地铁维度：单选站点 → 立即提交、收起弹窗。
+  // ⚠️ 与板块同理，站点仅作【地图定位】，不做半径内点位过滤。
   toggleStation(e) {
     const id = e.currentTarget.dataset.id;
+    const stn = (this.metroLines || [])
+      .reduce((acc, l) => acc.concat(l.stations || []), [])
+      .find((s) => s.id === id);
     this.draft = { ...this.draft, selectedStations: new Set([id]) };
-    this.applyRegionSelectionAndClose();
+    this.applyRegionSelectionAndClose(stn ? {
+      lat: stn.lat, lng: stn.lng,
+      radiusKm: STATION_FOCUS_KM,
+    } : null);
   },
-  // 区域/地铁：提交当前单选草稿、收起弹窗，并立即将视野圈定到结果范围
-  applyRegionSelectionAndClose() {
+  // 区域/地铁：提交当前单选草稿、收起弹窗，并立即处理相机。
+  // focus 为空 → 行政区维度（真过滤），按结果点位包围盒圈定视野；
+  // focus 非空 → 板块/地铁（仅定位），切到该点邻域，不动过滤。
+  applyRegionSelectionAndClose(focus) {
     // 单选维度互斥：提交某维度时清除另一维度残留选择，避免 isVisible 切换维度后旧选仍滞留
     if (this.draft.regionDim === 'metro') {
       this.draft = { ...this.draft, selectedDistricts: new Set(), selectedPlates: new Set() };
@@ -518,11 +566,13 @@ Page({
     this.setData({ menu: '', filterEmpty: this.visible.length === 0 });
     // 收起面板：仅当详情卡 / 定位引导也未占用底部栏时才恢复自定义 tabBar
     this.setTabBarHidden(!!(this.data.card || this.data.locTip));
-    if (this.visible.length) this.fitVisible();
+    if (focus) this.focusArea(focus);
+    else if (this.visible.length) this.fitVisible();
   },
   // 区域弹窗「重置」：把区域维度恢复到「7 个区全部选中」默认态（initialFilterState 的 selectedDistricts 即含全部 7 区），
   // 清空板块/地铁站点选择，从而展示 7 个区全部学校（不影响学段/办学性质筛选）。
   // 注意：selectedDistricts 为空集合 = 0 校，必须回填全部 7 区 adcode（initialFilterState 口径）。
+  // 关键：重置【只重绘点位、不动相机】——不调用 fitVisible，避免地图缩放/平移回广州全景，保持用户当前视野。
   resetRegion() {
     const base = this.committedState();
     const init = initialFilterState();
@@ -536,7 +586,7 @@ Page({
     this.setData({ menu: '', filterEmpty: this.visible.length === 0 });
     // 收起面板：仅当详情卡 / 定位引导也未占用底部栏时才恢复自定义 tabBar
     this.setTabBarHidden(!!(this.data.card || this.data.locTip));
-    if (this.visible.length) this.fitVisible();
+    // 注意：此处【不】调用 fitVisible——重置仅恢复全部学校点位，地图视野保持不变。
   },
   focusLineTap(e) { this.setData({ focusLine: e.currentTarget.dataset.id }); this.syncDrillView(); },
   toggleStage(e) {
@@ -807,6 +857,63 @@ Page({
       ],
       // padding = [上, 右, 下, 左]：上避让小程序名行 + 搜索框 + 筛选栏；下避让图例 + 底部导航
       padding: [150, 70, 200, 70],
+      success: applyCenter,
+      fail: applyCenter,
+    });
+  },
+  // 板块 / 地铁站「仅定位」相机：把视野切到该选项范围（点位仍全量保留，不做过滤）。
+  // 目标范围：板块＝其归属学校（去离群后）的包围盒；地铁站＝站点周边 STATION_FOCUS_KM 的方框。
+  // 再由「可视区（视口 - 边距）」反推 includePoints 需要的包围盒，使
+  //   可视跨度 = m × 视口，且 m 恰好容纳目标范围（并夹在 FOCUS_VIS_MIN/MAX 之间）。
+  // 若直接传「目标范围」给 includePoints，上下大边距 + 竖屏会把可视范围放大约 2.5 倍，定位就看不出来了。
+  // 铁律同 zoomTo / fitVisible：只用 includePoints 单向驱动，成功后回写 center，绝不反向回写。
+  focusArea({ lat, lng, points, radiusKm }) {
+    const info = (typeof wx.getWindowInfo === 'function') ? wx.getWindowInfo() : wx.getSystemInfoSync();
+    const W = (info && info.windowWidth) || 375;
+    const H = (info && info.windowHeight) || 780;
+    const uW = Math.max(100, W - FOCUS_PAD[1] - FOCUS_PAD[3]);
+    const uH = Math.max(100, H - FOCUS_PAD[0] - FOCUS_PAD[2]);
+    // 1) 目标包围盒（地面 km）：先剔除离群点（离质心最远的 15%），避免个别远校把视野撑爆
+    const core = focusCore(points);
+    let cLat = lat, cLng = lng, tw, th;
+    if (core.length) {
+      let mnLa = Infinity, mxLa = -Infinity, mnLn = Infinity, mxLn = -Infinity;
+      for (const p of core) {
+        if (p.lat < mnLa) mnLa = p.lat;
+        if (p.lat > mxLa) mxLa = p.lat;
+        if (p.lng < mnLn) mnLn = p.lng;
+        if (p.lng > mxLn) mxLn = p.lng;
+      }
+      cLat = (mnLa + mxLa) / 2; cLng = (mnLn + mxLn) / 2;
+      const cosC = Math.cos(cLat * Math.PI / 180);
+      tw = (mxLn - mnLn) * 111 * cosC;
+      th = (mxLa - mnLa) * 111;
+    } else {
+      tw = th = 2 * radiusKm;
+    }
+    tw *= PLATE_FOCUS_MARGIN; th *= PLATE_FOCUS_MARGIN;
+    // 2) 求 km/px（地图上横竖同一地面尺度）：既要装下目标范围，又夹在可视跨度上下限内
+    const cos = Math.cos(cLat * Math.PI / 180);
+    let m = Math.max(tw / uW, th / uH);
+    m = Math.min(Math.max(m, FOCUS_VIS_MIN_KM / W), FOCUS_VIS_MAX_KM / W);
+    // 3) 反推 includePoints 的包围盒：恰好铺满「可视区」，于是可视跨度 = m × 视口
+    const halfLat = (m * uH) / 2 / 111;
+    const halfLng = (m * uW) / 2 / (111 * cos);
+    const minLat = cLat - halfLat, maxLat = cLat + halfLat;
+    const minLng = cLng - halfLng, maxLng = cLng + halfLng;
+    const token = (this.cameraToken || 0) + 1;
+    this.cameraToken = token;
+    const applyCenter = () => {
+      if (this.cameraToken !== token) return;
+      this.setData({ centerLat: cLat, centerLng: cLng });
+    };
+    if (!this.mapCtx || typeof this.mapCtx.includePoints !== 'function') return applyCenter();
+    this.mapCtx.includePoints({
+      points: [
+        { latitude: minLat, longitude: minLng },
+        { latitude: maxLat, longitude: maxLng },
+      ],
+      padding: FOCUS_PAD,
       success: applyCenter,
       fail: applyCenter,
     });
