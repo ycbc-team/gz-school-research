@@ -59,6 +59,12 @@ const state = () => ({
   selectedStages: selectedStages.value,
   selectedGrades: selectedGrades.value,
   selectedNatures: selectedNatures.value,
+  // Web 地图筛选 UI 仅含 行政区/学段/性质/分级 四维（无板块/地铁下钻），
+  // 但共享 isVisible 现依赖 regionDim/selectedPlates/selectedStations 字段，
+  // 必须补齐默认值，否则 isVisible 读 .size 抛错 → applyFilters 中断 → 点位全不渲染。
+  regionDim: 'district' as const,
+  selectedPlates: new Set<string>(),
+  selectedStations: new Set<string>(),
 });
 function toggleDistrictAd(ad: string) { closeInfo(); selectedDistricts.value = toggleDistrict(state(), ad).selectedDistricts; }
 function toggleStageTab(v: SchoolStage) { closeInfo(); selectedStages.value = toggleStage(state(), v).selectedStages; }
