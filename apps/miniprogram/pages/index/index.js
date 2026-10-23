@@ -251,8 +251,13 @@ Page({
       },
     });
   },
-  // 点「暂不开启」或弹窗外空白 → 关闭弹窗、保持默认视野；本次会话不再自动弹（_locPrompted 已置 true）
-  onLocDeny() { this.hideLocTip(); },
+  // 点「暂不开启」或弹窗外空白 → 关闭弹窗、保持默认视野；与系统授权「不允许」同等对待＝视为用户拒绝开启：
+  // 记录拒绝日期，此后 30 个自然天内不再自动弹出，超过 30 天后的首次冷启动可再自动提示一次（UI 稿 01B 第 4 条 / 规范表「定位授权弹窗」）。
+  // 本次会话不再自动弹由 _locPrompted 保证（已在 maybePromptLocation 置 true）。
+  onLocDeny() {
+    try { wx.setStorageSync(this.LOC_DENY_KEY, this.todayStr()); } catch (e) {}
+    this.hideLocTip();
+  },
   todayStr() {
     const n = new Date();
     const p = (x) => (x < 10 ? '0' + x : '' + x);
