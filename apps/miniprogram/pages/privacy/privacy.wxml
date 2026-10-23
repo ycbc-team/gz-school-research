@@ -1,0 +1,29 @@
+<view class="dpage">
+  <!-- 顶栏：全局统一返回按钮（.gback，唯一规格）+ 品牌名 + 微信系统胶囊；白底固定 -->
+  <view class="dptop" style="padding-top:{{capTop}}px">
+    <view class="dprow" style="height:{{capH}}px">
+      <view class="gback" style="top:{{(capH - 32) / 2}}px" bindtap="onBack"><view class="gback-chev"></view></view>
+      <view class="dpbrand">广州学途</view>
+    </view>
+  </view>
+
+  <!-- 正文：页标题 + 生效日期 + 8 节分点长文 -->
+  <view class="dpbody" style="padding-top:{{bodyTop}}px">
+    <view class="dptitle">隐私政策</view>
+    <view class="dpmeta">{{meta}}</view>
+
+    <view class="dpp dpintro">
+      <text wx:for="{{intro}}" wx:key="id" class="{{item.b ? 'b' : ''}}">{{item.t}}</text>
+    </view>
+
+    <view wx:for="{{secs}}" wx:key="id" class="dpsec">
+      <view class="dpsec-h">{{item.h}}</view>
+      <view wx:for="{{item.ps}}" wx:for-item="p" wx:key="id" class="dpp">
+        <text wx:for="{{p.runs}}" wx:for-item="r" wx:key="id" class="{{r.b ? 'b' : ''}}">{{r.t}}</text>
+      </view>
+    </view>
+
+    <!-- 页底相关文件（长文末尾不再重复放返回按钮） -->
+    <view class="dprelated">相关文件：<text class="dplink" bindtap="openPolicy">《免责声明》</text></view>
+  </view>
+</view>

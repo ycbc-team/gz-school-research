@@ -1,0 +1,18 @@
+<view class="page">
+  <!-- 顶部：状态栏占位 + 品牌行（沿用现网样式：不自绘标题栏、不加返回键；右侧避让微信胶囊） -->
+  <view class="phead" style="padding-top:{{capTop}}px">
+    <view class="pbrand">广州学途</view>
+  </view>
+
+  <!-- L0：两行文件入口。平铺在白底上（不套外层卡片、无圆角边框），行间 1px 分割线，整行可点 -->
+  <view class="slist">
+    <view class="srow" hover-class="srow-hover" bindtap="openPolicy">
+      <text class="sname">免责声明</text>
+      <text class="sarrow">›</text>
+    </view>
+    <view class="srow" hover-class="srow-hover" bindtap="openPrivacy">
+      <text class="sname">隐私政策</text>
+      <text class="sarrow">›</text>
+    </view>
+  </view>
+</view>

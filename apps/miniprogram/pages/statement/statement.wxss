@@ -1,0 +1,30 @@
+/* 声明 tab 落地页（UI 稿 04 节 L0）：白底、无外层卡片、两行平铺 */
+page { background: #fff; }
+
+.page {
+  min-height: 100vh;
+  background: #fff;
+  /* 底部预留自定义 tabBar（56px + 安全区），避免内容被导航栏压住 */
+  padding-bottom: calc(112rpx + env(safe-area-inset-bottom));
+}
+
+/* 品牌行：与首页 / 学校页同款（高 32px、16px 字重 600、左 16px） */
+.phead { background: #fff; padding-right: 196rpx; }
+.pbrand {
+  height: 64rpx; display: flex; align-items: center;
+  padding-left: 32rpx;
+  font-size: 34rpx; font-weight: 600; color: #10182B;
+  letter-spacing: .2px;
+}
+
+/* 两行入口：无卡片边框，仅行间 1px 分割线；整行热区 16px 内边距 */
+.slist { background: #fff; }
+.srow {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 32rpx;
+  font-size: 28rpx; color: #33405C;
+}
+.srow + .srow { border-top: 1rpx solid #E3E8F0; }
+.srow-hover { background: #F5F7FB; }
+.sname { line-height: 1.4; }
+.sarrow { color: #B6BFCE; font-size: 32rpx; line-height: 1; }

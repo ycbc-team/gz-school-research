@@ -139,6 +139,8 @@
         <view class="loctip-deny" bindtap="onLocDeny">暂不开启</view>
         <view class="loctip-allow" bindtap="onLocAllow">开启定位</view>
       </view>
+      <!-- 隐私政策告知（文案见 PRD 13.4 五；链接进 pages/privacy） -->
+      <view class="loctip-priv">开启定位即表示您已阅读并同意<text class="plink" catchtap="openPrivacy">《隐私政策》</text>。</view>
       <view class="loctip-foot">可在微信「设置－位置信息」中随时更改授权</view>
     </view>
   </view>
@@ -146,7 +148,8 @@
   <!-- 搜索页（全屏层） -->
   <view wx:if="{{searchVisible}}" class="searchpage">
     <view class="searchhead" style="padding-top:{{searchHeadTop}}px;padding-right:{{searchHeadRight}}px">
-      <view class="back" bindtap="closeSearch"><view class="chev"></view></view>
+      <!-- 返回：全局唯一返回按钮（.gback，同学校详情页全屏顶栏），top 使其与 44px 头行垂直居中 -->
+      <view class="gback" style="top:{{searchHeadTop + 6}}px" bindtap="closeSearch"><view class="gback-chev"></view></view>
       <view class="sip {{kw?'typed':''}}">
         <view class="mag"></view>
         <input class="sinput" focus="{{searchFocus}}" placeholder="支持广州小初高学校搜索" placeholder-class="ph" value="{{kw}}" confirm-type="search" bindinput="onSearchInput" bindconfirm="onSearchConfirm" />

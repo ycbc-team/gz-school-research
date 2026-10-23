@@ -29,14 +29,6 @@
   border-radius: 2rpx;
   transform: rotate(45deg);
 }
-/* 返回箭头（纯 CSS 左 chevron） */
-.chev {
-  width: 18rpx; height: 18rpx;
-  border-left: 3rpx solid #10182B;
-  border-bottom: 3rpx solid #10182B;
-  transform: rotate(45deg);
-  margin-left: 6rpx;
-}
 /* 下拉三角 */
 .caret {
   width: 0; height: 0;
@@ -218,12 +210,9 @@
 /* 头行高 44px（=88rpx，与 UI 稿 .searchhead 一致），搜索框 32px 垂直居中 → 与右上角微信胶囊
    同行且同高齐平。行首 top 由 inline style 的 searchHeadTop 控制（= 胶囊 top − 6px），
    右侧 padding 由 searchHeadRight 控制（= 屏宽 − 胶囊左缘 + 4px）。 */
-.searchhead { height: 88rpx; flex: none; display: flex; align-items: center; gap: 18rpx; padding-left: 24rpx; padding-right: 24rpx; border-bottom: 1rpx solid #EFF2F7; box-sizing: content-box; }
-.searchhead .back {
-  width: 80rpx; height: 80rpx; border-radius: 50%;
-  background: #F5F7FB; border: 1rpx solid #E3E8F0;
-  display: flex; align-items: center; justify-content: center; flex: none;
-}
+/* 头行：相对定位（承载绝对定位的全局返回按钮）；左侧留出「返回按钮 16 + 32 + 间距 10 = 58px」，
+   搜索框紧接其后；行高 44px（=88rpx，与 UI 稿 .searchhead 一致）。 */
+.searchhead { position: relative; height: 88rpx; flex: none; display: flex; align-items: center; gap: 18rpx; padding-left: 58px; padding-right: 24rpx; border-bottom: 1rpx solid #EFF2F7; box-sizing: content-box; }
 .searchhead .sip {
   flex: 1; height: 64rpx; border-radius: 999px;
   background: #F5F7FB; border: 1rpx solid #E3E8F0;
@@ -330,3 +319,6 @@
   font-size: 28rpx; display: flex; align-items: center; justify-content: center;
 }
 .loctip-foot { margin-top: 24rpx; font-size: 22rpx; color: #8B96AD; text-align: center; }
+/* 定位弹窗底部隐私政策告知（UI 稿 04 节 L5）：一行小字 + 可点《隐私政策》链接 */
+.loctip-priv { margin-top: 24rpx; font-size: 22rpx; color: #8B96AD; line-height: 1.7; }
+.loctip-priv .plink { color: #2F5CD6; font-weight: 600; text-decoration: underline; }

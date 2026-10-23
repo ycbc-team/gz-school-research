@@ -5,6 +5,7 @@
  * 老地图页（pages/map）已下线：详情页"在地图中查看"通过 getApp().pendingFocus + switchTab 回到本页定位。
  */
 const { shared, repository, mapPoints, plates, metro } = require('../../utils/data.js');
+const { ensurePrivacy } = require('../../utils/privacy.js');
 const {
   DISTRICTS, STAGE_TABS, SCHOOL_NATURE_TABS, STAGE_LABEL,
   districtByAdcode, initialFilterState, toggleDistrict, toggleStage, toggleGrade,
@@ -232,9 +233,13 @@ Page({
   // 弹 / 收定位引导弹窗：同为底部半窗，需隐藏自定义 tabBar，否则按钮被 tabBar 盖住（UI 稿 01B 帧无底部导航）
   showLocTip() { this.setData({ locTip: true }); this.setTabBarHidden(true); },
   hideLocTip() { this.setData({ locTip: false }); this.setTabBarHidden(!!(this.data.card || this.data.menu)); },
-  // 点「开启定位」：触发微信系统位置授权
+  // 点「开启定位」：先走官方隐私授权（若后台已配置），再触发微信系统位置授权
   onLocAllow() {
     this.hideLocTip();
+    ensurePrivacy().then(() => this.locate());
+  },
+  // 实际取位置：弹窗「开启定位」与冷启动「已授权直接定位」共用
+  locate(silent) {
     wx.getLocation({
       type: 'gcj02',
       success: (res) => {
@@ -247,7 +252,7 @@ Page({
         if (msg.indexOf('auth') >= 0 || msg.indexOf('deny') >= 0) {
           try { wx.setStorageSync(this.LOC_DENY_KEY, this.todayStr()); } catch (e) {}
         }
-        wx.showToast({ title: '已保持默认视野', icon: 'none' });
+        if (!silent) wx.showToast({ title: '已保持默认视野', icon: 'none' });
       },
     });
   },
@@ -264,14 +269,8 @@ Page({
     return `${n.getFullYear()}-${p(n.getMonth() + 1)}-${p(n.getDate())}`;
   },
   doLocate() {
-    wx.getLocation({
-      type: 'gcj02',
-      success: (res) => {
-        this.setData({ showLoc: true, locateLat: res.latitude, locateLng: res.longitude });
-        this.zoomToLocation(res.latitude, res.longitude);
-      },
-      fail: () => {},
-    });
+    // 冷启动即已授权：静默定位（失败不打扰用户）
+    ensurePrivacy().then(() => this.locate(true));
   },
   // 定位弹窗内部 catchtap 占位，阻止冒泡到蒙层（避免误触关闭）
   noop() {},
@@ -667,6 +666,12 @@ Page({
     this.setTabBarHidden(true);
   },
   closeSearch() { this.setData({ searchVisible: false, searchFocus: false }); this.setTabBarHidden(!!(this.data.card || this.data.menu)); },
+  // 定位弹窗（01B）底部《隐私政策》链接：收起弹窗后进隐私政策页（L1）。
+  // 仅收起不改写 30 天拒绝标记——用户是去阅读政策，不等于拒绝定位。
+  openPrivacy() {
+    this.hideLocTip();
+    wx.navigateTo({ url: '/pages/privacy/privacy' });
+  },
   onSearchInput(e) {
     const kw = e.detail.value;
     this.setData({ kw, assocs: kw ? this.buildAssocs(kw) : [] });

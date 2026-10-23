@@ -1,0 +1,48 @@
+/* ============================================================================
+   长文页统一版式（隐私政策 pages/privacy · 免责声明 pages/policy）
+   ---------------------------------------------------------------------------
+   UI 稿 04 节 L1 / L2：两页同一套长文版式 —— 同字号 / 同行距 / 同左右留白，
+   顶栏 = 全局统一返回按钮（.gback，见 styles/gback.wxss）+ 品牌名 + 微信胶囊；
+   正文为普通长文（非卡片、非富文本容器），页底一行「相关文件」。
+   ============================================================================ */
+.dpage { background: #fff; min-height: 100vh; }
+
+/* 顶栏：白底固定，下缘 1px 分隔线；高度 = 状态栏/胶囊行（行内 padding-top）+ 32px 内容行 */
+.dptop {
+  position: fixed; left: 0; right: 0; top: 0; z-index: 30;
+  background: #fff; border-bottom: 1rpx solid #E3E8F0;
+}
+/* 内容行：返回按钮（absolute，left 16px）+ 品牌名（距按钮 10px → margin-left 58px），右侧避让胶囊；
+   行高由行内样式按胶囊实测高度给出（与胶囊同高、垂直同中心） */
+.dprow { position: relative; display: flex; align-items: center; height: 32px; padding-right: 98px; }
+.dpbrand {
+  margin-left: 58px;
+  font-size: 32rpx; font-weight: 600; color: #10182B; letter-spacing: .2px;
+}
+
+/* 正文：左右 18px 留白；上间距由行内 padding-top 按顶栏实测高度给定 */
+.dpbody { padding: 0 36rpx; }
+.dptitle { font-size: 44rpx; font-weight: 700; color: #10182B; line-height: 1.35; }
+.dpmeta {
+  margin-top: 14rpx; padding-bottom: 22rpx;
+  border-bottom: 1rpx solid #E3E8F0;
+  font-size: 23rpx; color: #8B96AD;
+}
+.dpsec { margin-top: 36rpx; }
+.dpsec-h { font-size: 30rpx; font-weight: 700; color: #10182B; line-height: 1.5; }
+.dpp {
+  font-size: 28rpx; line-height: 1.85; color: #33405C;
+  margin-top: 18rpx; word-break: break-word;
+}
+/* 免责声明 6 条分点：段间再松一点，便于逐条阅读 */
+.ditem { margin-top: 24rpx; }
+.dpp .b { font-weight: 600; color: #10182B; }
+/* 引出语（生效日期下第一段）留出更明显的段前距 */
+.dpintro { margin-top: 26rpx; }
+/* 页底相关文件（唯一入口补充，长文末尾不再重复放返回按钮） */
+.dprelated {
+  margin-top: 48rpx; padding: 24rpx 0 calc(56rpx + env(safe-area-inset-bottom));
+  border-top: 1rpx solid #E3E8F0;
+  font-size: 23rpx; color: #8B96AD;
+}
+.dplink { color: #2F5CD6; font-weight: 600; }

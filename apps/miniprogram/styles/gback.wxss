@@ -1,0 +1,51 @@
+/* ============================================================================
+   全局唯一返回按钮（UI 稿 03 节「全局 · 返回按钮（全稿唯一规格）」）
+   ---------------------------------------------------------------------------
+   · 32×32 圆形、透明底 + 1px rgba(51,64,92,.10) 描边
+   · 22×22 线性左箭头（stroke 2.6）—— 以 CSS 双细条实现（11px 盒，视觉宽度≈22px 箭头）
+   · 距屏左 16px；top 由使用方行内给定（= 右上角微信胶囊 top，使圆与胶囊垂直同中心）
+   · 热区 ≥44×44：用 ::after 外扩 6px（不放大圆本身、不影响布局）
+   · 【唯一真源】app.wxss 与 school-card 组件 wxss 均 @import 本文件，
+     任何页面都不得再复制一套返回按钮样式（旧 40×40 浅底款 / 纯字符 ‹ 均已废止）。
+   ============================================================================ */
+.gback {
+  position: absolute;
+  left: 16px;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(51, 64, 92, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #33405C;
+  z-index: 2;
+}
+/* 热区外扩：圆仍为 32px，点击区 44×44 */
+.gback::after {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: -6px;
+  right: -6px;
+  bottom: -6px;
+}
+/* 箭头：两臂 ±45° 细条交于左中点；left:1px 让顶点 x=1、臂端 x≈10，视觉重心落在 11px 盒中心 */
+.gback-chev { position: relative; width: 11px; height: 11px; }
+.gback-chev::before,
+.gback-chev::after {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 50%;
+  width: 9px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transform-origin: left center;
+}
+.gback-chev::before { transform: translateY(-50%) rotate(45deg); }
+.gback-chev::after  { transform: translateY(-50%) rotate(-45deg); }

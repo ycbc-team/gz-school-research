@@ -8,14 +8,12 @@
   <view wx:if="{{mode === 'half' && context === 'overlay'}}" class="sclose" catchtap="onClose">×</view>
 
   <!-- 全屏态顶栏：返回 + 标题（滚动后切换为校名）；半窗态不显示。
-       严格按 UI 稿 07 .dtop：状态栏占位 + 64px 内容行（上下 14px 内边距 + 36px 返回按钮），
-       border-bottom 1px #E3E8F0（--line）紧贴内容行下沿；标题绝对居中、max-width 196px 超长省略。 -->
-  <!-- 全屏态顶栏：返回 + 标题（滚动后切换为校名）；半窗态不显示。
        与右侧小程序胶囊对齐：capTop/capH 来自 wx.getMenuButtonBoundingClientRect() 实测，
-       标题与胶囊垂直同中心；返回按钮(36px)底边与胶囊底边对齐 → 返回按钮→下划线 与 胶囊→下划线 间隔一致；
+       标题与胶囊垂直同中心；返回按钮＝全局唯一返回按钮（.gback，32×32 圆 / 透明底 / 22×22 箭头，
+       规格见 styles/gback.wxss），top = 胶囊 top + (胶囊高 − 32)/2。
        .stop 总高 = 胶囊底 + 对称间隙，下划线紧贴其下。 -->
   <view wx:if="{{mode === 'full'}}" class="stop" style="height:{{dtopH}}px">
-    <view class="sback" style="top:{{capTop}}px;width:{{capH}}px;height:{{capH}}px" bindtap="onBack"><view class="sback-chev" style="transform:scale({{capH / 32}})"></view></view>
+    <view class="gback" style="top:{{backTop}}px" bindtap="onBack"><view class="gback-chev"></view></view>
     <view class="stt" style="top:{{capTop}}px;height:{{capH}}px;line-height:{{capH}}px">{{topTitle}}</view>
   </view>
 
@@ -74,6 +72,7 @@
         <view class="grpbox" style="margin-top:0"><view class="zone">{{primary.plan.zone}}</view></view>
       </block>
       <view wx:else class="dnote">{{primary.plan.empty}}</view>
+      <view wx:if="{{primary.plan.has}}" class="dentry">招生计划以各区教育局<text class="b">当年正式文件</text>为准；分校区、新建校数据可能暂缺，后续补录。</view>
     </view>
     <view class="dmod">
       <view class="dmod-h"><view class="dmod-h-t">升学路线参考（2026年）</view></view>
@@ -123,6 +122,7 @@
         </view>
       </block>
       <view wx:else class="dnote">{{middle.enrollNote || '暂无招生计划数据：2026 公办初中招生计划表未收录本校，以区教育局当年正式文件为准。'}}</view>
+      <view wx:if="{{middle.hasPlan}}" class="dentry">招生计划以各区教育局<text class="b">当年正式文件</text>为准；分校区、新建校数据可能暂缺，后续补录。</view>
     </view>
     <view wx:if="{{middle.linkage.has}}" class="dmod">
       <view class="dmod-h"><view class="dmod-h-t">中考报考情况</view></view>
@@ -167,22 +167,22 @@
           </view>
         </view>
       </view>
-      <view class="dnote">具体名额以官方公布为准，第三批第四批无法获取。</view>
+      <view class="dentry">数据来源：各区教育局"指标到校"录取公示。<text class="b">名额与最低分以官方最新公布为准</text>；第三批、第四批数据暂无法获取。</view>
     </view>
   </block>
 
   <!-- ============ 高中（07E） ============ -->
   <block wx:if="{{activeStage === 'high'}}">
     <view wx:if="{{high.gaokao.length}}" class="dmod">
-      <view class="dmod-h">
-        <view class="dmod-h-t">高考信息</view>
-        <text class="dmod-meta">信息来源各校喜报或网传，仅供参考</text>
-      </view>
+      <view class="dmod-h"><view class="dmod-h-t">高考信息</view></view>
       <view wx:for="{{high.gaokao}}" wx:key="label" wx:for-item="r" class="kv"><text class="k">{{r.label}}</text><text class="v">{{r.value}}</text></view>
+      <!-- L3 模块底部声明（灰底小字 · 纯文案：不可点、无箭头、不弹层） -->
+      <view class="dentry">信息来源为各校喜报或网络流传，<text class="b">未经核实，仅供参考</text>；请勿据此单独判断学校实力，以学校官方发布为准。</view>
     </view>
     <view wx:if="{{high.admission.length}}" class="dmod">
       <view class="dmod-h"><view class="dmod-h-t">招生计划</view></view>
       <view wx:for="{{high.admission}}" wx:key="label" wx:for-item="r" class="kv"><text class="k">{{r.label}}</text><text class="v">{{r.value}}</text></view>
+      <view class="dentry">招生计划以各区教育局<text class="b">当年正式文件</text>为准；分校区、新建校数据可能暂缺，后续补录。</view>
     </view>
     <view wx:if="{{high.special}}" class="dmod">
       <view class="dmod-h"><view class="dmod-h-t">第一批招生（2026）</view></view>
@@ -278,5 +278,7 @@
         </view>
       </view>
     </block>
+    <!-- L3 模块底部声明（灰底小字 · 纯文案：不可点、无箭头、不弹层） -->
+    <view class="dentry">集团归属、核心校/成员校、多校区关系以官方登记信息为准，可能存在调整，仅供参考。</view>
   </view>
 </template>

@@ -1,5 +1,9 @@
 /* 学校卡组件（半窗 / 全屏 单层级）。样式隔离：本文件定义卡片容器 + 详情模块全部类。 */
 
+/* 全局唯一返回按钮（UI 稿 03 节「全稿唯一规格」）：本组件是全稿该按钮的原型出处，
+   样式统一收敛到 styles/gback.wxss，组件内 @import 复用同一份（不复制第二套）。 */
+@import "../../../../styles/gback.wxss";
+
 /* ===== 根容器 ===== */
 .scard {
   display: flex; flex-direction: column;
@@ -28,30 +32,15 @@
 }
 
 /* ===== 全屏态顶栏（返回 + 标题）—— 严格按 UI 稿 07 .dtop ===== */
-/* .stop = 状态栏占位 + 64px 内容行（上下 14px + 36px 按钮）；border-bottom 紧贴内容行下沿 */
+/* .stop = 状态栏占位 + 内容行（★ 全局返回按钮 32px 与右上角胶囊同中心，行高按胶囊实测给定）；
+   border-bottom 紧贴内容行下沿 */
 .stop {
   position: relative; flex: none;
   background: #fff; border-bottom: 1px solid #E3E8F0;
 }
-/* 返回按钮：36px 圆（UI 稿尺寸）；底边与胶囊底边对齐（行内 top 给出）。 */
-/* 返回按钮外圈：与右侧原生胶囊完全对齐（用户要求）——尺寸=胶囊高（wxml 行内 width/height=capH，
-   此处 32px 为兜底）、top=capTop（上下沿分别对齐胶囊最高/最低点）；描边为淡墨色细线圈、无底色，
-   对齐小程序胶囊「描边圆圈无底色」风格（比旧版 0.28 更浅） */
-.sback {
-  position: absolute; left: 16px; width: 32px; height: 32px; border-radius: 50%;
-  background: transparent; border: 1px solid rgba(51,64,92,0.10);
-  display: flex; align-items: center; justify-content: center;
-}
-/* 返回箭头：CSS 绘制的左向 chevron，以 32px 胶囊为基准设计（wxml 按 capH/32 行内 scale 适配）。
-   两臂 ±45° 实心细条交于左中点，top:50% 垂直天然居中，left:1px 使水平视觉重心（顶点 x=1、臂端 x≈10，中点≈5.5）落在 11px 盒中心。 */
-.sback-chev { position: relative; width: 11px; height: 11px; }
-.sback-chev::before, .sback-chev::after {
-  content: ''; position: absolute; left: 1px; top: 50%;
-  width: 9px; height: 2px; background: #33405C; border-radius: 2px;
-  transform-origin: left center;
-}
-.sback-chev::before { transform: translateY(-50%) rotate(45deg); }
-.sback-chev::after  { transform: translateY(-50%) rotate(-45deg); }
+/* 返回按钮：全局唯一规格（.gback，见 styles/gback.wxss）—— 32×32 圆、透明底 + 淡描边、
+   22×22 左箭头；top 由行内样式给出（= 胶囊 top + (胶囊高 − 32)/2，与胶囊垂直同中心）。
+   旧 .sback / .sback-chev（按胶囊高缩放）已废止，全稿不再有第二种返回按钮样式。 */
 /* 标题：绝对居中（UI 稿 .tt：left:50% 平移居中、max-width 196px、单行省略），
    top/height/line-height 由行内样式按胶囊实测坐标给出（与胶囊垂直同中心），此处为兜底值 */
 .stt {
@@ -145,6 +134,10 @@
 .route-h .tag { margin: 0; flex: none; }
 
 .dnote { font-size: 22rpx; color: #8B96AD; background: #F5F7FB; border-radius: 16rpx; padding: 16rpx 20rpx; margin-top: 16rpx; line-height: 1.6; }
+/* L3 声明条（UI 稿 04 节 L3）：模块最底部一条灰底 #F1F3F7 + 11.5px 灰字，
+   纯展示文案 —— 不可点、无箭头、不弹层；与模块内容留 10px 间距。 */
+.dentry { margin-top: 20rpx; background: #F1F3F7; border-radius: 16rpx; padding: 16rpx 20rpx; font-size: 23rpx; color: #8B96AD; line-height: 1.7; }
+.dentry .b { color: #64708C; font-weight: 600; }
 
 .grp-t { font-size: 26rpx; font-weight: 700; color: #33405C; margin: 28rpx 0 14rpx; }
 .grpbox { background: #FAFBFC; border: 1rpx solid #EFF2F7; border-radius: 20rpx; padding: 16rpx 24rpx 20rpx; }

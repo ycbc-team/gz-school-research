@@ -120,6 +120,13 @@
 /* 区分组：区间 1px 分隔（首组无线、无上边距）＋ 区名分组头吸顶 */
 .scsec { margin-top: 28rpx; border-top: 1rpx solid #E3E8F0; }
 .scsec:first-child { margin-top: 0; border-top: none; }
+/* L4 列表下方声明条（UI 稿 04 节 L4）：列表块外部下方、留 10px 间距，灰底 #F1F3F7 + 11.5px 灰字，
+   只展示、不可点、不弹层；不与表格相连、不加分割线 */
+.ldentry {
+  margin: 20rpx 32rpx 0; background: #F1F3F7; border-radius: 16rpx;
+  padding: 16rpx 20rpx; font-size: 23rpx; color: #8B96AD; line-height: 1.7;
+}
+.ldentry .b { color: #64708C; font-weight: 600; }
 /* 区名分组头＝详情页一级模块标题同款：蓝竖条 + 17px 加粗（用户要求不吸顶，随列表正常滚动） */
 .sectitle {
   display: flex; align-items: center;

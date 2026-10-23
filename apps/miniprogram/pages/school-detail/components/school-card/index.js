@@ -119,6 +119,7 @@ Component({
     statusBarHeight: 20,
     capTop: 26,
     capH: 32,
+    backTop: 26,
     dtopH: 64,
     winH: 812,
     winW: 375,
@@ -160,10 +161,10 @@ Component({
         } catch (e2) { /* 用近似值 */ }
         const gap = Math.max(capTop - sb, 4);            // 胶囊距状态栏的间隙（对称用于下划线之下）
         const dtopH = capTop + capH + gap;               // 顶栏总高 = 状态栏 + 胶囊行 + 对称间隙，下划线紧贴其下
-        // 返回按钮外圈与右侧胶囊完全对齐（用户要求）：top/bottom 分别对齐胶囊最高/最低点 →
-        // 圆圈尺寸 = capH、top = capTop（wxml 行内样式给定）；内部 chevron 以 32px 胶囊为基准
-        // 设计、按 capH/32 行内缩放，箭头视觉高度 ≈ 胶囊内图标高度（0.55 * capH）。
-        this.setData({ statusBarHeight: sb, capTop, capH, dtopH, winH: wh, winW: (win.windowWidth || 375), cardH: Math.round(wh * 0.45) });
+        // 返回按钮＝全局唯一返回按钮（.gback，32×32 圆）：top 取胶囊内垂直居中的位置，
+        // 与胶囊同中心；尺寸固定 32px（不再按胶囊高缩放，全稿唯一规格）。
+        const backTop = capTop + Math.max((capH - 32) / 2, 0);
+        this.setData({ statusBarHeight: sb, capTop, capH, backTop, dtopH, winH: wh, winW: (win.windowWidth || 375), cardH: Math.round(wh * 0.45) });
       } catch (e) { /* 保底默认值 */ }
       this.updateStyle();
     },

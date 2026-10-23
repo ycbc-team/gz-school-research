@@ -5,6 +5,7 @@ Component({
     list: [
       { pagePath: '/pages/index/index', text: '首页' },
       { pagePath: '/pages/school/school', text: '学校' },
+      { pagePath: '/pages/statement/statement', text: '声明' },
     ],
   },
   methods: {
