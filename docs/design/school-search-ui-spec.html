@@ -190,7 +190,7 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .navdock .np.on{background:var(--ib-50);border-color:var(--ib-200);color:var(--ib-600);font-weight:600}
 .navdock.inline{position:static;margin:0}
 
-/* tabBar（原型为「首页 / 学校」两项） */
+/* tabBar（首页 / 学校 / 声明 三项） */
 .tabbar{height:56px;flex:none;border-top:1px solid var(--line);background:rgba(255,255,255,.98);display:flex;padding:0 4px}
 .tabbar .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10.5px;color:var(--ink-400)}
 .tabbar .tab .ic{width:20px;height:20px;border-radius:6px;border:1.8px solid currentColor;position:relative}
@@ -200,8 +200,9 @@ h3.blk::before{content:"";width:3px;height:14px;border-radius:2px;background:var
 .tabbar .tab.on .ic::after{background:#fff}
 
 /* ============ 02 / 03 搜索页 ============ */
-.searchhead{height:44px;flex:none;display:flex;align-items:center;gap:9px;padding:0 98px 0 12px;border-bottom:1px solid var(--line-2)}
-.searchhead .back{width:40px;height:40px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-900);flex:none}
+.searchhead{height:44px;flex:none;display:flex;align-items:center;gap:8px;padding:0 98px 0 16px;border-bottom:1px solid var(--line-2)}
+/* 搜索页返回按钮 = 全局统一返回按钮（同学校详情页全屏 .dtop .back），不再使用 40×40 浅底款 */
+.searchhead .back{width:32px;height:32px;border-radius:50%;background:transparent;border:1px solid rgba(51,64,92,.10);display:flex;align-items:center;justify-content:center;color:var(--ink-700);flex:none}
 .searchhead .sip{flex:1;height:32px;border-radius:999px;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;padding:0 12px;font-size:13.5px;color:var(--ink-400);gap:6px}
 .searchhead .sip.typed{background:var(--white);border-color:var(--ib-300);color:var(--ink-900);box-shadow:0 0 0 3px rgba(47,92,214,.08)}
 .searchhead .sgo{height:32px;padding:0 14px;border-radius:999px;background:#DCE2EC;color:#98A2B6;font-size:13px;font-weight:600;display:flex;align-items:center;flex:none}
@@ -487,6 +488,72 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
 .req-ref code{background:#E7EDFB;padding:1px 5px;border-radius:4px;font-size:12px;color:#2F5CD6}
 .doc-role{margin:0 0 16px;padding:12px 16px;background:#F4F7FF;border:1px solid #D8E2FB;border-radius:10px;font-size:13px;color:#3A4A66;line-height:1.7}
 .doc-role code{background:#E7EDFB;padding:1px 5px;border-radius:4px;color:#2F5CD6}
+
+/* ---------- 04 法律声明与隐私政策 · 展示设计 ---------- */
+.ltbl{margin-top:4px}
+.ltbl td:first-child{font-family:ui-monospace,Menlo,monospace;color:var(--ib-600);font-weight:600;white-space:nowrap}
+.lnote{font-size:11.5px;color:var(--ink-400);line-height:1.75}
+.lnote b{color:var(--ink-700)}
+.llink{color:var(--ib-600);text-decoration:underline;cursor:pointer;font-weight:600}
+.mock{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:16px}
+.mock h4{font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.mock h4::before{content:"";width:3px;height:14px;border-radius:2px;background:var(--ib-500)}
+.mock .mdesc{font-size:12px;color:var(--ink-500);margin-bottom:12px;line-height:1.7}
+.mod-card{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.mod-card .mh{font-size:12.5px;font-weight:600;color:var(--ink-700)}
+.mod-card .dnote{font-size:11.5px;color:var(--ink-400);margin-top:8px;line-height:1.7;border-top:1px dashed var(--line);padding-top:8px}
+.poplg{width:300px;max-width:100%;margin:0 auto;background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh-md);padding:18px}
+.poplg .pt{font-size:15px;font-weight:700;margin-bottom:8px}
+.poplg .pb{font-size:12.5px;color:var(--ink-500);line-height:1.7;margin-bottom:12px}
+.poplg .pbtn{height:40px;border-radius:999px;background:var(--ib-500);color:#fff;font-weight:600;display:flex;align-items:center;justify-content:center;font-size:14.5px;margin-bottom:8px}
+.poplg .pbtn.ghost{background:var(--white);color:var(--ib-600);border:1px solid var(--ib-200)}
+.poplg .pft{font-size:11px;color:var(--ink-400);line-height:1.6;border-top:1px solid var(--line);padding-top:9px}
+.privacy-page{padding:18px;background:var(--white);border:1px solid var(--line);border-radius:14px;max-width:560px}
+.privacy-page .meta{font-size:11px;color:var(--ink-400);border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:6px}
+.privacy-page h4{font-size:14px;font-weight:700;margin:14px 0 6px}
+.privacy-page h4:first-child{margin-top:0}
+.privacy-page p{font-size:12px;color:var(--ink-500);line-height:1.8;margin-bottom:6px}
+.privacy-page .ptitle{font-size:15px;font-weight:700;margin:0 0 8px}
+.privacy-page p.ditem{margin-bottom:9px}
+.privacy-page p.ditem b{color:var(--ink-700)}
+.privacy-page .prelated{font-size:11.5px;color:var(--ink-400);border-top:1px solid var(--line);padding-top:10px;margin-top:14px;line-height:1.8}
+/* 文件页顶栏：全局返回按钮 + 品牌名 + 微信胶囊（同学校详情页自绘顶栏） */
+.privacy-page .ptop{display:flex;align-items:center;margin:-18px -18px 12px;padding:6px 14px 6px 16px;border-bottom:1px solid var(--line);background:var(--white);border-radius:14px 14px 0 0}
+.privacy-page .pback{width:32px;height:32px;border-radius:50%;background:transparent;border:1px solid rgba(51,64,92,.10);display:flex;align-items:center;justify-content:center;color:var(--ink-700);flex:none}
+.privacy-page .pbrand{font-size:16px;font-weight:600;color:var(--ink-900);letter-spacing:.2px}
+.privacy-page .pcaps{margin-left:auto;display:flex;height:26px;width:74px;border-radius:13px;border:1px solid rgba(0,0,0,.12);background:rgba(255,255,255,.9);align-items:center;overflow:hidden}
+.privacy-page .pcaps span{flex:1;display:flex;align-items:center;justify-content:center;color:#4b5563}
+.privacy-page .pcaps span+span{border-left:1px solid rgba(0,0,0,.12)}
+
+/* L0 声明 tab 落地页 */
+.stmtpage{position:relative;max-width:340px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--white)}
+.stmtpage .sbd{padding:8px 0 18px}
+.stmtpage .slist{background:var(--white)}
+.stmtpage .srow{display:flex;align-items:center;justify-content:space-between;padding:16px;font-size:14px;color:var(--ink-700)}
+.stmtpage .srow+.srow{border-top:1px solid var(--line)}
+.stmtpage .srow .cv{color:#B6BFCE;font-size:15px;line-height:1}
+.stmtpage .navdock{position:static;margin:0;border-top:1px solid var(--line);box-shadow:none;background:var(--white)}
+
+/* 全局返回按钮示意（03 节「全局 · 返回按钮」） */
+.backdemo{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.bdcase{width:212px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.bdcase.ng{border-style:dashed}
+.bdcase .bdhd{height:44px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line-2);margin-bottom:8px}
+.bdcase .bdtt{font-size:13px;font-weight:600;color:var(--ink-900);max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bdcase .bdmeta{font-size:11.5px;color:var(--ink-400);line-height:1.6}
+.gback{width:32px;height:32px;border-radius:50%;background:transparent;border:1px solid rgba(51,64,92,.10);display:flex;align-items:center;justify-content:center;color:var(--ink-700);flex:none}
+.gback.bad{width:40px;height:40px;border-radius:50%;background:var(--bg);border:1px solid var(--line);color:var(--ink-500)}
+.gback.txt{border:none;font-size:20px;line-height:1}
+
+/* 模块内容占位 */
+.mod-card .mrow{margin-top:9px;background:var(--white);border:1px solid var(--line-2);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--ink-500);line-height:1.8}
+
+/* L3 / L4 灰底小字条（纯文案，不可点、无弹层） */
+.dentry{background:#F1F3F7;border-radius:8px;padding:8px 10px;margin-top:10px;font-size:11.5px;color:var(--ink-400);line-height:1.7}
+.listblock{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.listblock .grp{font-size:13px;font-weight:600;color:var(--ink-700);margin-bottom:8px}
+.listblock .row{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-700);padding:5px 0;border-bottom:1px solid var(--line-2)}
+.listblock .row:last-child{border-bottom:none}
 </style>
 </head>
 <body>
@@ -666,7 +733,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
         <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
         <div class="searchhead">
-          <span class="back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <span class="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <div class="sip typed">东风东风</div>
           <span class="sgo on">搜索</span>
         </div>
@@ -772,7 +839,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
         <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
         <div class="searchhead">
-          <span class="back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <span class="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <div class="sip">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
             支持广州小初高学校搜索
@@ -872,7 +939,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           </div>
         </div>
         <div class="navdock">
-          <span class="np on">首页</span><span class="np">学校</span>
+          <span class="np on">首页</span><span class="np">学校</span><span class="np">声明</span>
         </div>
       </div>
       <div class="anno">
@@ -884,7 +951,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           2）点击搜索框 → 弹出搜索页（02）；点击筛选栏维度胶囊 → <b>两步位移展开</b>对应维度筛选面板（04／05）。筛选栏胶囊只显示维度名（单选时显示选中内容，行政区显示<b>带「区」字的全名</b>），<b>不显示任何数量角标</b>。<br>
           3）地图支持双指缩放、单指拖动；左下角图例说明点位三色含义。<br>
           4）点击学校点位 → 底部弹出半窗学校卡（默认 45% 高），点位呈选中态（06）。<br>
-          5）底部导航：首页／学校 两个 tab，<b>置底通栏固定于屏幕底缘</b>（小程序原生 tabBar 规范，含底部安全区高度），点击切换、当前项高亮。
+          5）底部导航：首页／学校／声明 三个 tab，<b>置底通栏固定于屏幕底缘</b>（小程序原生 tabBar 规范，含底部安全区高度），点击切换、当前项高亮；其中「声明」为第 3 项，落地页承载免责声明与隐私政策两行入口（见 04 章 L0）。
         </p>
           <p>6）右上角常驻<em>小程序系统胶囊（··· 更多 ／ ⊕ 退出小程序）</em>，覆盖全部页面（地图层、搜索页、详情页、异常态），为微信原生非自定义元素；首页/地图层顶部第一行为「小程序名 + 胶囊」，白底常驻盖住地图（非悬浮）；搜索框下移一行、全宽悬浮于地图；搜索页搜索框与胶囊同行且同高（32px）齐平。</p>
       </div>
@@ -949,7 +1016,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
         <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
         <div class="searchhead">
-          <span class="back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <span class="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <div class="sip">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
             支持广州小初高学校搜索
@@ -1007,7 +1074,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
         <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
         <div class="searchhead">
-          <span class="back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
+          <span class="back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span>
           <div class="sip typed">东风东</div>
           <span class="sgo on">搜索</span>
         </div>
@@ -1316,7 +1383,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
         <div class="bottomdock">
           <div class="navdock inline">
-            <span class="np on">首页</span><span class="np">学校</span>
+            <span class="np on">首页</span><span class="np">学校</span><span class="np">声明</span>
           </div>
           <div class="cardbot">
             <div class="handle"></div>
@@ -1413,7 +1480,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
         <div class="bottomdock">
           <div class="navdock inline">
-            <span class="np on">首页</span><span class="np">学校</span>
+            <span class="np on">首页</span><span class="np">学校</span><span class="np">声明</span>
           </div>
           <div class="cardbot">
             <div class="handle"></div>
@@ -1498,7 +1565,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
         <div class="bottomdock">
           <div class="navdock inline">
-            <span class="np on">首页</span><span class="np">学校</span>
+            <span class="np on">首页</span><span class="np">学校</span><span class="np">声明</span>
           </div>
           <div class="cardbot">
             <div class="handle"></div>
@@ -2072,7 +2139,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           <div class="trow sq"><span class="lk"><span class="tx">天府路小学</span></span><span>广州市文明校园</span></div>
         </div>
       </div>
-      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span><span class="np">声明</span></div>
     </div>
     <div class="anno">
       <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「12 学校页（底部第 2 tab）· 小学」</p>
@@ -2134,7 +2201,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           <div class="trow sq"><span class="lk"><span class="tx">东山培正小学</span></span><span>广东省文明校园</span></div>
         </div>
       </div>
-      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span><span class="np">声明</span></div>
     </div>
     <div class="anno">
       <b>筛选面板（视觉规范）</b>
@@ -2180,7 +2247,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           <div class="trow mq3"><span class="lk"><span class="tx">广州市第一一三中学</span></span><span>8.7%</span><span>112</span></div>
         </div>
       </div>
-      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span><span class="np">声明</span></div>
     </div>
     <div class="anno">
       <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「12B 学校页（底部第 2 tab）· 初中」</p>
@@ -2242,7 +2309,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           <div class="trow mq3"><span class="lk"><span class="tx">广州市第七中学</span></span><span>12.3%</span><span>142</span></div>
         </div>
       </div>
-      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span><span class="np">声明</span></div>
     </div>
     <div class="anno">
       <b>招生机制面板（视觉规范）</b>
@@ -2284,7 +2351,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         </div>
         <div class="swhint">可向左滑动查看更多列</div>
       </div>
-      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span><span class="np">声明</span></div>
     </div>
     <div class="anno">
       <b>5 列横滑表格（视觉规范）</b>
@@ -2324,7 +2391,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           <div class="trow mq4"><span class="cschool"><span class="lk"><span class="tx">省实越秀学校</span></span></span><span>602</span><span>606</span></div>
         </div>
       </div>
-      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span><span class="np">声明</span></div>
     </div>
     <div class="anno">
       <p class="req-ref">产品功能需求详见 <code>school-search-prd.md</code> ·「12C 学校页（底部第 2 tab）· 高中」</p>
@@ -2389,7 +2456,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           <div class="trow mq4"><span class="cschool"><span class="lk"><span class="tx">广州市第七中学</span></span></span><span>619</span><span>621</span></div>
         </div>
       </div>
-      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span><span class="np">声明</span></div>
     </div>
     <div class="anno">
       <b>学校分类面板（视觉规范）</b>
@@ -2436,7 +2503,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
           <div class="trow mq4"><span class="cschool"><span class="lk"><span class="tx">广州市第七中学</span></span></span><span>619</span><span>621</span></div>
         </div>
       </div>
-      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span></div>
+      <div class="navdock"><span class="np">首页</span><span class="np on">学校</span><span class="np">声明</span></div>
     </div>
     <div class="anno">
       <b>排序面板（视觉规范）</b>
@@ -2465,7 +2532,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <tr><td>全不选 / 确认</td><td>学段／办学性质（多选）维度面板底部；<b>区域维度（04 三列下钻）无此行，改为整行右对齐的单枚「重置」按钮</b>（恢复默认不限区域＝全城）</td><td>「全不选」次按钮 高 44 描边；「确认」主按钮 高 44 通栏 r=999 知性蓝 #2F5CD6 实心；「重置」次按钮 高 44 白底描边胶囊、<b>整行右对齐</b></td></tr>
         <tr><td>搜索按钮</td><td>搜索栏右侧</td><td>无输入不展示；有输入后淡入 + 左移约 180ms 流畅出现、搜索框同步变窄约 220ms，知性蓝主按钮 #2F5CD6</td></tr>
          <tr><td>Toast 轻提示</td><td>屏幕居中偏下（全局通用，规范见第 01 节「通用 · Toast 轻提示」）</td><td>半透明黑底 rgba(0,0,0,.78)、白字 13px、圆角 999、padding 10×18；「已在当前学校」等轻提示约 1.5s 自动淡出，不阻断操作、不加遮罩、全屏同时只存在一个</td></tr>
-                <tr><td>返回按钮</td><td>搜索页左上角（筛选面板不含返回按钮，搜索框位于面板头部、与右上角胶囊同行）</td><td><b>40×40 圆形</b>控件：浅底 #F5F7FB + 1px #E3E8F0 描边，内置 20×20 线性箭头（描边 2.4），点击区 ≥ 40</td></tr>
+                <tr><td>返回按钮（全局唯一）</td><td>搜索页 / 学校详情页全屏 / 隐私政策页 / 免责声明页；<b>tabBar 页（首页 / 学校 / 声明）不设返回</b>（筛选面板也不含，搜索框位于面板头部、与右上角胶囊同行）</td><td><b>32×32 圆形</b>：透明底 + 1px rgba(51,64,92,.10) 描边，内置 <b>22×22 线性左箭头</b>（描边 2.6，路径 <span class="mono">M15 5l-7 7 7 7</span>），距屏左 <b>16px</b>、与右上角微信胶囊<b>垂直同中心</b>（<span class="mono">top = capTop</span>）；点击热区 ≥ 44px（不足时在圆外再包一层透明 padding，<b>不改圆形尺寸</b>）。<b>全稿唯一返回按钮样式，禁止另造其他款（详见 03 节「全局 · 返回按钮」）</b></td></tr>
         <tr><td>历史记录</td><td>搜索页 · 默认态</td><td><b>胶囊平铺</b>（<span class="mono">flex-wrap</span> 自动换行，一条一个圈），不再整行一条；胶囊 高 32、r=999、#F5F7FB 底 + #E3E8F0 描边、12.5px；超长名称单行省略</td></tr>
         <tr><td>联想词条</td><td>有输入时，铺满全页的关联词条区</td><td>行高 48，词条名 14 用 #10182B 单行省略；右侧小标签显示<b>标签类型</b>（行政区／学段）；<b>行政区标签固定为全名并带「区」字</b>（如「番禺区」，不写「番禺」）；<b>多学段学校按学段拆成多枚独立学段标签</b>（如 初中 + 高中 各一枚，共 3 枚标签），<b>不合并写成「初中/高中」</b>；列表可上下滑</td></tr>
         <tr><td>标签（Tag）</td><td>列表词条 / 学校卡 / 详情信息行</td><td><b>一类一色相，底色浅调 + 文字深调，无描边</b>，共 4 类：行政区 #EEF3FE/#3A62C8；学段 #E9F6FB/#1F7A9B；示范等级 #F1EDFD/#5B49C9；办学性质 #E9F7F0/#1F7A55；<b>同一类别出现多个取值时（多学段、多行政区）一律拆成多枚标签并排，不合并进一枚</b>（禁止「初中/高中」「越秀区/天河区」这类斜杠写法）；<b>行政区取值固定为全名带「区」字</b></td></tr>
@@ -2476,13 +2543,208 @@ footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-400)
         <tr><td>半窗学校卡</td><td>地图层底部（点选点位后弹出，默认约 45% 高）</td><td>白底 + 上投影、上圆角 18，顶部拖拽 handle，<b>右上 ✕ 关闭</b>；<b>多学段学校：学段 tab 条（压缩版胶囊）位于最上方（handle 之下、校名之上）</b>，顺序按学段优先级 高中&gt;初中&gt;小学、只显示实际学段（见 06C）；<b>tab 之下是校名</b> 16/600 + 行政区／学段／办学性质中标签（<b>行政区固定带「区」字</b>；<b>「学段」标签只显示当前选中 tab 对应的学段</b>，单学段学校则显示该校学段）；下方<em>直接复用详情长图内容</em>，按半窗高度自动截取可视部分（顶部模块，如「招生计划（2026年）」），底部<em>渐隐遮罩</em>，「展开详情」胶囊（白底描边 + 投影）<b>叠于渐隐区之上、不单独占行</b>（卡体总高约 365px＝45%）。上滑或点「展开详情」→ 全屏长图页（tab 选中状态延续）；<b>层级最上层，底部导航栏压在卡片之下；地图左下角学段图例保持原位、不因半窗弹出而移动</b></td></tr>
         <tr><td>学校详情长图</td><td>半窗卡上滑后全屏（07 屏）</td><td>顶部「‹ 学校详情」（无关闭按钮，返回即收起）；模块自上而下：<b>招生计划（2026年）</b>（标题右侧「计划 x 个班」；仅含招生地段长文本，无数据字段不展示）→ <b>升学路线参考（2026年）</b>（标题下方逐条「招生方式 N」+ 各机制 <code>tag-mech</code> 标签，浅底分组盒框住对口／派位初中名——单 / 多机制同一布局；学校名为<b>可点击链接</b>：知性蓝 + 「›」，点击跳转地图定位）→ <b>关联校区</b>（两种情形：有集团＝层级，模块标题一级，所属集团（展示集团名）／集团核心校／集团成员校为二级（子标题、无竖条），成员校为三级（灰底圆角盒缩进），校名为可点击链接 + 学段标签；当前查看校加「当前查看」标识；无集团多校区＝单列「多校区」+ 多校区行）；点击学校名跳转地图定位；模块间分隔线；画框随内容加高（大长图）；<b>全学段统一层级四档</b>：模块标题一级（17px／700 近黑 + 左侧 4px 知性蓝竖条）／子标题二级（招生地段·招生方式 N·所属集团等，14px／600／#33405C）／正文三级（学校链接·字段值·地段正文，13px／400／#33405C）／说明小字四级（dnote／pubbox，11.5px／#8B96AD）；初中另含「中考报考情况」、高中另含「高考信息／中考录取情况」模块，层级同构</td></tr>
         <tr><td>学校详情卡</td><td>学校卡上滑展开（首版仅小学，确认后复用至初中／高中）</td><td>白底上圆角 20 + 上投影，handle；头部 校名 18/600 ＋ 关注（星）／关闭（×）36 圆形控件；<b>四类中标签</b>；关键信息行（地址／联系电话／创办时间，mk 灰 60 宽 + mv 正文）；「办学规模」四格数据块（数字 15 知性蓝 + 9.5px 注释）；「荣誉与特色」中标签组；底部「加入关注」描边按钮 ＋「查看完整详情」通栏主按钮</td></tr>
-        <tr><td>导航栏</td><td>首页 / 地图层底部，两项</td><td><b>置底通栏（小程序原生 tabBar 规范）</b>：宽 100%、高 56 + 底部安全区、白底 + 顶部 1px 分隔线，无圆角、无投影、非悬浮；内含两枚 tab 高 40 —— 首页 / 学校；选中 #F2F6FE 底胶囊 + #C3D5F6 描边 + #254BAE 字并加粗，未选透明底 + #64708C 字</td></tr>
+        <tr><td>导航栏</td><td>首页 / 地图层 / 学校 / 声明页底部，三项</td><td><b>置底通栏（小程序原生 tabBar 规范）</b>：宽 100%、高 56 + 底部安全区、白底 + 顶部 1px 分隔线，无圆角、无投影、非悬浮；内含三枚 tab 高 40 —— 首页 / 学校 / 声明；选中 #F2F6FE 底胶囊 + #C3D5F6 描边 + #254BAE 字并加粗，未选透明底 + #64708C 字</td></tr>
         <tr><td>空状态</td><td>搜索无结果（08 A）／筛选结果为空（10 C）</td><td>四要素结构：灰底圆形插画 88px + 标题 15.5/600 + 说明 12.5 次级色 + 主操作胶囊按钮；搜索空态主操作「清空并重新搜索」（清输入 + 重置筛选）；地图筛选空态用<b>异常弹窗</b>（240 宽，同全局弹窗统一规格）居中提示，右上角「×」可关闭、地图不加遮罩且手势仍可用，主操作「重置筛选」恢复默认全选</td></tr>
         <tr><td>网络异常</td><td>详情页／列表接口超时或失败（09 B）</td><td>标题「网络开小差了」+ 说明 + 主按钮「重新加载」；<b>局部重试</b>只重拉失败模块、不整页刷新；连续 2 次失败追加「反馈问题」入口；请求期展示<b>骨架屏</b>（浅灰圆角占位块），超 10s 未返回自动转网络异常态</td></tr>
         <tr><td>确认弹窗</td><td>搜索页「清空」等破坏性操作二次确认（11 屏）</td><td>统一按第 01 节「通用 · 异常态与全局弹窗 · 全局弹窗统一规格」执行：宽 240px（<b>全稿唯一弹窗宽度档</b>，与地图异常弹窗同档）、r=16、白底 + 投影；标题 16/600 居中、正文 13 次级色居中；按钮两枚等宽 高 44 r=999 —— 取消（白底描边）+ 主操作；<b>破坏性主按钮用警示红 #E5484D</b>，非破坏性确认与重试类用知性蓝；遮罩黑 42%，<b>点遮罩不关闭</b>，弹窗期间背景不可滚动；动效 淡入+轻微放大 150–200ms</td></tr><tr><td>小程序胶囊</td><td>全屏右上角系统导航（覆盖所有页面）</td><td>微信小程序原生胶囊：圆角矩形（87×32，r=16）白底 82% + 1px 浅灰描边 + 投影，内分两钮——左「··· 更多」、右「⊕ 退出小程序」；两钮间 1px 竖分隔。z-index 最高、非自定义元素，<b>所有页面（地图层／搜索页／详情页／异常态）统一常驻右上角</b>；首页/地图层顶部第一行左侧为小程序名、右侧为胶囊，白底常驻盖住地图；搜索框位于第二行全宽悬浮；搜索页（02/03）搜索框与胶囊同行且同高 32px 齐平，自定义顶栏右侧预留 98px 安全位避免遮挡。<b>对齐实现口径</b>：搜索页头行高 44px，搜索框 32px 在行内垂直居中 —— 故头行 top ＝ 胶囊 top − (44 − 32)/2 ＝ 胶囊 top − 6px，行内右侧 padding ＝ 屏宽 − 胶囊左缘 + 4px（375 画框下即 98px）；首页小程序名行（.brandrow 32px）直接与胶囊<b>顶对齐</b>（顶行 top ＝ 胶囊 top）。<b>不得只用状态栏高度顶对齐</b>，否则搜索框会比胶囊低 6px、视觉错位。点击「···」唤起微信转发/收藏等系统菜单，点击「⊕」退出小程序回微信会话。</td></tr>
 <tr><td>定位授权弹窗</td><td>首页进入后自动弹出（01B）</td><td>底部半窗样式（上圆角 20 + 蒙层黑 42%，无拖拽 handle）：标题 17/700 + 正文 13.5 次级色 + 两按钮（「暂不开启」白底描边 高 44 ／「开启定位」知性蓝实心通栏）+ 底部小字「可在微信「设置－位置信息」中随时更改授权」；每次冷启动最多自动提示 1 次；<b>除点「开启定位」并允许授权外，其余任何关闭方式（系统弹窗「不允许」／「暂不开启」／点弹窗外空白）一律视为拒绝：记录拒绝日期，30 个自然天内不再自动弹出，超过 30 天后的首次冷启动可再提示一次</b>；允许授权后地图自动移动到定位点附近并显示当前位置标记</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <h3 class="blk">全局 · 返回按钮（全稿唯一规格）</h3>
+  <div class="card">
+    <p class="lnote" style="color:var(--ink-700)">所有需要「返回上一层」的页面，一律使用<b>同一枚返回按钮</b>——即<b>学校详情页全屏顶栏（<span class="mono">.dtop .back</span>）的那一枚</b>。全稿不再存在第二种返回按钮样式。</p>
+    <table class="ltbl" style="margin-top:10px">
+      <thead><tr><th>项目</th><th>规范</th></tr></thead>
+      <tbody>
+        <tr><td>尺寸</td><td><b>32 × 32 圆形</b>（<span class="mono">border-radius:50%</span>）</td></tr>
+        <tr><td>底与描边</td><td><b>透明底</b>（不填色）+ <span class="mono">1px rgba(51,64,92,.10)</span> 描边 —— 与微信原生胶囊「描边圆圈无底色」同风格</td></tr>
+        <tr><td>箭头</td><td><b>22 × 22 线性左箭头</b>：<span class="mono">stroke 2.6</span>、圆头圆角、路径 <span class="mono">M15 5l-7 7 7 7</span>，色 <span class="mono">#33405C</span>，在圆内水平垂直居中</td></tr>
+        <tr><td>位置</td><td>距屏左 <b>16px</b>，与右上角微信胶囊<b>垂直同中心</b>（<span class="mono">top = capTop</span>；胶囊不可用时退化 <span class="mono">statusBarHeight + 6</span>）</td></tr>
+        <tr><td>热区</td><td>点击区 <b>≥ 44 × 44</b>；不足 44 时在圆外再包一层透明 padding 扩大热区，<b>不得放大圆本身</b></td></tr>
+        <tr><td>行为</td><td>点按 = <span class="mono">wx.navigateBack()</span>（详情全屏态为收起长图回半窗）；iOS 左缘右滑、Android 物理返回键等效</td></tr>
+        <tr><td>适用范围</td><td>搜索页（02 / 03 / 08）、学校详情页全屏（07 / 07B / 07C / 07E）、隐私政策页、免责声明页</td></tr>
+        <tr><td>不适用</td><td>tabBar 三页（首页 / 学校 / 声明）、首页筛选面板（搜索框在面板头部、与胶囊同行）</td></tr>
+        <tr><td>实现</td><td>封装为<b>全局唯一样式类 <span class="mono">.gback</span></b>（或自定义组件 <span class="mono">back-btn</span>），各页直接复用；<b>不复制样式、不各写一套</b></td></tr>
+      </tbody>
+    </table>
+    <div class="backdemo">
+      <div class="bdcase">
+        <div class="bdhd"><span class="gback"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span><span class="bdtt">搜索页</span></div>
+        <div class="bdmeta">通栏头行左侧，右侧为搜索输入框</div>
+      </div>
+      <div class="bdcase">
+        <div class="bdhd"><span class="gback"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span><span class="bdtt">东风东路小学</span></div>
+        <div class="bdmeta">学校详情页（全屏）顶栏左侧，右侧胶囊</div>
+      </div>
+      <div class="bdcase">
+        <div class="bdhd"><span class="gback"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span><span class="bdtt">广州学途</span></div>
+        <div class="bdmeta">隐私政策 / 免责声明页顶栏左侧，品牌名同行</div>
+      </div>
+      <div class="bdcase ng">
+        <div class="bdhd"><span class="gback bad"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span><span class="bdtt" style="color:var(--warn)">✕ 禁止 · 40 浅底</span></div>
+        <div class="bdmeta">旧搜索页 40×40 + #F5F7FB 底款，已废止</div>
+      </div>
+      <div class="bdcase ng">
+        <div class="bdhd"><span class="gback txt">‹</span><span class="bdtt" style="color:var(--warn)">✕ 禁止 · 纯字符</span></div>
+        <div class="bdmeta">无框纯字符 ‹，已废止</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-head"><span class="sec-num">04</span><h2>法律声明与隐私政策 · 展示位置设计</h2></div>
+  <p class="sec-desc">本文定义法律声明 / 隐私政策文案在 mini-program 各触点的<b>展示位置、形态与入口</b>；文案原文与合规硬动作见需求文档《13 法律声明与隐私政策》。设计原则：<b>底部 tabBar 新增第 3 项「声明」集中承载两份文件；免责声明为常规文本分点长文；详情卡与列表页只在模块 / 列表底部挂一条灰底小字，纯展示、不可点、不弹层</b>。下表为 7 处展示触点总览。</p>
+
+  <div class="card" style="margin-bottom:22px">
+    <h3 class="blk">一、展示触点总览（7 处）</h3>
+    <table class="ltbl">
+      <thead><tr><th>编号</th><th>展示位置</th><th>形态</th><th>触发 / 入口</th></tr></thead>
+      <tbody>
+        <tr><td>L0</td><td>「声明」tab 落地页 <span class="mono">pages/statement</span></td><td>两行平铺清单（无外层卡片、仅行间 1px 分割线），一行一条（免责声明 / 隐私政策），右侧箭头，整行可点</td><td>底部 tabBar 第 3 项「声明」</td></tr>
+        <tr><td>L1</td><td>隐私政策独立页 <span class="mono">pages/privacy</span></td><td>顶栏＝全局返回按钮 + 品牌名 + 胶囊；长文滚动页（章节一全文，8 节分点）</td><td>L0 第 2 行；01B 定位弹窗链接</td></tr>
+        <tr><td>L2</td><td>免责声明页 <span class="mono">pages/policy</span></td><td>同款顶栏；常规文本页：标题 + 生效日期 + 6 条分点平铺（<b>无红框置顶块</b>）</td><td>L0 第 1 行</td></tr>
+        <tr><td>L3</td><td>学校详情卡 <span class="mono">school-card</span> 各模块底部</td><td>模块底部一条灰底小字（11.5px），<b>纯展示文案</b>：不可点、无箭头、不弹层</td><td>A 高考信息 / B 中考报考 / C 招生计划 / D 关联校区 四模块底部</td></tr>
+        <tr><td>L4</td><td>学校列表页 <span class="mono">pages/school</span> 列表下方</td><td>列表块外侧下方一条灰底小字（不与表格相连、不加分割线），<b>纯展示文案</b></td><td>12 / 12B / 12C 列表内容下方</td></tr>
+        <tr><td>L5</td><td>定位授权弹窗 <span class="mono">01B</span> 底部</td><td>小字 + 可点《隐私政策》链接（维持原设计）</td><td>冷启动定位引导弹窗</td></tr>
+        <tr><td>L6</td><td>搜索历史披露</td><td>并入 L1 第 1 / 3 条（无独立 UI）</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="blk">二、各触点视觉与放置示意</h3>
+
+  <!-- L0 声明 tab 落地页 -->
+  <div class="mock">
+    <h4>L0 · 「声明」tab 落地页（pages/statement）</h4>
+    <p class="mdesc">底部 tabBar 由两项扩为三项：<b>首页 / 学校 / 声明</b>。点「声明」进入本页 —— 页面<b>顶部沿用现网样式</b>（状态栏 + 小程序品牌名「广州学途」+ 微信系统胶囊，与首页 / 学校页完全一致，不自绘标题栏）；品牌行下方<b>两行直接平铺在页面白底上</b>（<b>不套外层卡片、无圆角边框</b>），<b>一行一条</b>、行间一条 1px 分割线、右侧 ›：第 1 行「免责声明」→ <span class="mono">pages/policy</span>；第 2 行「隐私政策」→ <span class="mono">pages/privacy</span>。整行为热区，不加说明文字。</p>
+    <div class="stmtpage">
+      <div class="sbar"><span>9:41</span><span class="r"><span class="bars"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="bat"></span></span></div>
+      <div class="capsule"><span class="capbtn cap-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span class="capbtn cap-exit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></div>
+      <div class="navbar brand"><b>广州学途</b></div>
+      <div class="sbd">
+        <div class="slist">
+          <div class="srow"><span>免责声明</span><span class="cv">›</span></div>
+          <div class="srow"><span>隐私政策</span><span class="cv">›</span></div>
+        </div>
+      </div>
+      <div class="navdock"><span class="np">首页</span><span class="np">学校</span><span class="np on">声明</span></div>
+    </div>
+  </div>
+
+  <!-- L1 隐私政策页 -->
+  <div class="mock">
+    <h4>L1 · 隐私政策独立页（pages/privacy）</h4>
+    <p class="mdesc">完整隐私政策长文，仅承载章节一全文（位置信息 / 搜索记录 / 存储共享 / 第三方数据 / 免责 / 未成年人 / 联系 / 更新）。<b>顶部沿用现网顶栏并加返回</b>：左侧为<b>全局统一返回按钮</b>（32×32 圆、透明底 + 1px rgba(51,64,92,.10) 描边、22×22 箭头 stroke 2.6，与学校详情页全屏顶栏同一枚，见 03 节）+ 品牌名「广州学途」+ 右侧微信胶囊；其下为生效日期，正文分 8 节，末节附《重要声明》回链。以通用长文页呈现，不套地图/卡片外壳。</p>
+    <div class="privacy-page">
+      <div class="ptop">
+        <span class="pback"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span><span class="pbrand">广州学途</span>
+        <span class="pcaps"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></span>
+      </div>
+      <div class="meta">隐私政策 · 生效日期：2026 年 X 月 X 日</div>
+      <h4>1. 我们收集的信息</h4>
+      <p>位置信息：开启定位时获取精确地理位置（GCJ-02 坐标），仅用于地图展示附近学校、按距离筛选。</p>
+      <p>搜索记录：仅保存在本机微信本地存储，用于历史快捷回访。</p>
+      <h4>2. 信息的使用目的</h4>
+      <p>仅用于地图定位、周边学校筛选与搜索历史展示，不作其他用途。</p>
+      <h4>3. 信息的存储与共享</h4>
+      <p>位置信息仅本次会话使用，不存储服务器、不对外分享；搜索记录仅存本机、不上传。</p>
+      <p class="lnote" style="color:var(--ink-500)">… 4. 第三方数据与来源 / 5. 免责声明 / 6. 未成年人保护 / 7. 联系我们 / 8. 政策更新（全文见 PRD 13.2）</p>
+    </div>
+  </div>
+
+  <!-- L2 免责声明页 -->
+  <div class="mock">
+    <h4>L2 · 免责声明页（pages/policy）</h4>
+    <p class="mdesc"><b>常规文本页</b>：顶栏同 L1（全局返回按钮 + 品牌名 + 胶囊）；其下页标题 + 生效日期 + 一句引出语 + 6 条分点正文平铺，条内不再套醒目色块、不加红框警示；页底一行「相关文件」指向《隐私政策》。与 L1 隐私政策页同一套长文版式（同字号、同行距、同左右留白），仅内容不同。</p>
+    <div class="privacy-page">
+      <div class="ptop">
+        <span class="pback"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></span><span class="pbrand">广州学途</span>
+        <span class="pcaps"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/></svg></span></span>
+      </div>
+      <div class="ptitle">免责声明</div>
+      <div class="meta">生效日期：2026 年 X 月 X 日</div>
+      <p style="margin-bottom:10px">广州学途（以下简称"本小程序"）所展示的数据均整理自公开渠道，使用前请阅读以下说明。</p>
+      <p class="ditem"><b>1. 信息仅供参考</b>：本小程序所有数据（招生计划、招生地段、录取分数线、名额分配、高考/中考信息、校园荣誉、集团关系等）均整理自公开渠道，仅供参考，不构成任何升学、报考建议或录取承诺。</p>
+      <p class="ditem"><b>2. 以官方为准</b>：具体政策、计划、分数线、录取结果，请务必以广州市及各区教育局、招生学校当年官方发布的正式文件为准。</p>
+      <p class="ditem"><b>3. 非官方排名</b>：列表中的排序、评分（如"指标×高中特控率"等）仅为基于公开数据的客观整理，不构成官方排名或学校质量评价。</p>
+      <p class="ditem"><b>4. 数据来源</b>：数据来源于各区教育局公示、学校官方公布及公开渠道，版权与解释权归原来源方；我们对数据已尽力核验，但不保证其完整、准确、实时。</p>
+      <p class="ditem"><b>5. 未核实信息</b>：标注"网传"的高考等信息未经核实，请勿据此单独决策。</p>
+      <p class="ditem"><b>6. 风险自担</b>：因信赖本小程序信息所作的任何决策及后果，由使用者自行承担；如与官方信息不一致，以官方信息为准。</p>
+      <p class="prelated">相关文件：<span class="llink">《隐私政策》</span></p>
+    </div>
+  </div>
+
+  <!-- L3 详情卡模块底部灰底小字（纯文案） -->
+  <div class="mock">
+    <h4>L3 · 学校详情卡 · 模块底部灰底小字（纯展示）</h4>
+    <p class="mdesc">四个模块的声明统一<b>挂在模块最底部</b>（不放标题下方、不做表内备注、不与表格共用边框）：一条灰底（#F1F3F7）圆角块，内为 11.5px 灰色文案，<b>只展示、不可点、不挂箭头、不弹层</b>；段落自动换行，与模块内容留 10px 间距。四模块示意：</p>
+    <div class="mod-card">
+      <div class="mh">A · 高考信息</div>
+      <div class="mrow">… 特控率 / 本科率 / 600 分以上人数 …（模块内容区）</div>
+      <div class="dentry">信息来源为各校喜报或网络流传，<b>未经核实，仅供参考</b>；请勿据此单独判断学校实力，以学校官方发布为准。</div>
+    </div>
+    <div class="mod-card">
+      <div class="mh">B · 中考报考情况</div>
+      <div class="mrow">… 录取最低分 / 名额分配表 …（模块内容区）</div>
+      <div class="dentry">数据来源：各区教育局"指标到校"录取公示。<b>名额与最低分以官方最新公布为准</b>；第三批、第四批数据暂无法获取。</div>
+    </div>
+    <div class="mod-card">
+      <div class="mh">C · 招生计划</div>
+      <div class="mrow">… 第一批招生 / 计划人数表 …（模块内容区）</div>
+      <div class="dentry">招生计划以各区教育局<b>当年正式文件</b>为准；分校区、新建校数据可能暂缺，后续补录。</div>
+    </div>
+    <div class="mod-card">
+      <div class="mh">D · 关联校区</div>
+      <div class="mrow">… 所属集团 / 核心校 / 成员校 …（模块内容区）</div>
+      <div class="dentry">集团归属、核心校/成员校、多校区关系以官方登记信息为准，可能存在调整，仅供参考。</div>
+    </div>
+  </div>
+
+  <!-- L4 列表页 列表下方灰底小字（纯文案） -->
+  <div class="mock">
+    <h4>L4 · 学校列表页 · 列表下方灰底小字（纯展示）</h4>
+    <p class="mdesc">列表（12 / 12B / 12C）滚到内容末尾后，在<b>列表块外部下方、留 10px 间距</b>单独放一条灰底小字，<b>不与表格 / 名单相连、不加分割线、不放进表格容器</b>；同样<b>只展示、不可点、不弹层</b>。</p>
+    <div class="listblock">
+      <div class="grp">番禺区</div>
+      <div class="row"><span>广州市番禺区某中学</span><span>719</span></div>
+      <div class="row"><span>广州市番禺区某实验学校</span><span>—</span></div>
+    </div>
+    <div class="dentry" style="margin-top:10px">表中录取分数线、指标比例与最低分等数据来源各区教育局公示，<b>仅供参考，以官方发布为准</b>。</div>
+  </div>
+
+  <!-- L5 定位授权弹窗补充 -->
+  <div class="mock">
+    <h4>L5 · 定位授权弹窗补充文案（01B）</h4>
+    <p class="mdesc">保留 01B 现有文案；在底部"可在微信设置中更改授权"前新增一行可点《隐私政策》链接（指向 pages/privacy）。</p>
+    <div class="poplg">
+      <div class="pt">开启定位，找附近的学校</div>
+      <div class="pb">开启后，地图会自动移动到你附近，并按距离展示周边学校。位置信息仅用于本校小程序内的地图定位与筛选，不会存储或对外分享。</div>
+      <div class="pbtn">开启定位</div>
+      <div class="pbtn ghost">暂不开启</div>
+      <div class="pft">开启定位即表示您已阅读并同意《<span class="llink" style="text-decoration:underline;color:var(--ib-600);font-weight:600">隐私政策</span>》。<br>位置信息仅用于本校小程序内的地图定位与筛选，不会存储或对外分享。<br>可在微信「设置－位置信息」中随时更改授权。</div>
+    </div>
+  </div>
+
+  <h3 class="blk">三、入口设计（tabBar 新增第 3 项「声明」）</h3>
+  <div class="card">
+    <p class="lnote" style="color:var(--ink-700)"><b>结构：</b>底部 tabBar 由两项扩为三项 —— <b>首页 / 学校 / 声明</b>。第 3 项「声明」指向 <span class="mono">pages/statement/statement</span>，落地页<b>顶部完全沿用现网样式</b>（状态栏 + 品牌名「广州学途」+ 微信系统胶囊，不自绘标题栏、不加返回键），品牌行下方仅两行文件入口（一行一条）：<br>
+      ①「免责声明」→ <span class="mono">pages/policy/policy</span>　②「隐私政策」→ <span class="mono">pages/privacy/privacy</span>。两页均为<b>普通页面</b>（非 tab 页），由声明页 <span class="mono">wx.navigateTo</span> 进入，顶部同样保留品牌行 + 胶囊，返回由系统导航承担。</p>
+    <p class="lnote" style="color:var(--ink-700);margin-top:10px"><b>代码落地四处：</b>① <span class="mono">app.json</span> → <span class="mono">pages</span> 注册 <span class="mono">pages/statement/statement</span> 与 <span class="mono">pages/privacy/privacy</span>（<span class="mono">pages/policy/policy</span> 已注册）；② <span class="mono">app.json</span> → <span class="mono">tabBar.list</span> 追加 <span class="mono">{"pagePath":"pages/statement/statement","text":"声明"}</span>；③ 本项目 tabBar 为 <span class="mono">custom:true</span>，需同步改自定义组件 <span class="mono">custom-tab-bar/index</span>（wxml 三枚 tab + js 里的 list / 高亮索引）；④ 三页顶部均沿用现网品牌行（不新增自绘标题栏），页面配置 <span class="mono">navigationStyle</span> 与现有页面保持一致。</p>
+    <p class="lnote" style="color:var(--ink-700);margin-top:10px"><b>返回机制（L1 / L2 共用）：</b>两页由 <span class="mono">wx.navigateTo</span> 打开，顶栏左侧为<b>全局统一返回按钮</b>（与学校详情页全屏顶栏同一枚，规格见 03 节「全局 · 返回按钮」，<b>不另造样式</b>），点击 <span class="mono">wx.navigateBack()</span> 回上一页；同时小程序原生支持 iOS 左缘右滑返回、Android 物理返回键，无需额外按钮。兜底：若页面栈里没有上一页（从分享卡片 / 扫码直达），返回改为 <span class="mono">wx.switchTab('/pages/statement/statement')</span> 回「声明」页。长文末尾不再重复放「返回」按钮。<b>「声明」落地页是 tab 页，不设返回</b>（由 tabBar 切换）。</p>
+    <p class="lnote" style="color:var(--ink-700);margin-top:10px"><b>不采用的其他入口（已弃）：</b>首页品牌行（左上「广州学途」）点击进入、首页图例区下方「免责声明 ›」文字链 —— 品牌行可点不符合用户预期；首页底部安全区上方已有图例区与定位浮标，再叠文字链会挤占地图操作区，且入口可发现性差。</p>
+    <p class="lnote" style="color:var(--ink-700);margin-top:10px"><b>二级可达性：</b>01B 定位弹窗内《隐私政策》链接（L5）、L2 免责声明页页底「相关文件」链接 —— 保证任意路径下都能回到两份文件。L3 / L4 仅为展示文案，不承担入口职能。</p>
+  </div>
+
+  <h3 class="blk">四、合规硬动作（非文案，代码 / 后台）</h3>
+  <div class="note" style="max-width:none">
+    <b>发布前必须配合的三件硬动作（文案之外）：</b><br>
+    ① 微信公众平台后台配置《用户隐私保护指引》；<br>
+    ② 首次调用 <span class="mono">getLocation</span> 前接入官方隐私授权（<span class="mono">wx.requirePrivacyAuthorize</span> / 官方隐私弹窗组件）；<br>
+    ③ 在 <span class="mono">app.json</span> 注册 <span class="mono">pages/statement</span>、<span class="mono">pages/policy</span>、<span class="mono">pages/privacy</span> 三个页面，并由 tabBar「声明」页保证两份文件均可达。<br>
+    <span style="color:#8A6413">规则会更新，以微信公众平台 / 开放社区最新口径为准。</span>
   </div>
 </section>
 

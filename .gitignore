@@ -55,6 +55,9 @@ apps/miniprogram/pages/school-detail/data/
 # 学校页（主包）本地同步数据产物（初中升学信号/招生计划，由 build:mp 的 compact 生成）
 apps/miniprogram/pages/school/data/
 
+# logo 设计产物（SVG/PNG 二进制，只在本地查看，不进 git）
+outputs/logo/
+
 # WorkBuddy 运行时数据 / 本地 app 配置（项目数据，不进 git）
 .workbuddy/
 .wbapp_*.genie
