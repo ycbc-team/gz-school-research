@@ -457,7 +457,7 @@ MECHANISMS = {
     "single_paidui":  {"label": "电脑派位",     "can_lose": True,  "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时由区教育局统一组织电脑派位；未派中者回户籍地学区申请入读公办初中，不保证安排到本校。"},
     "single_chouqian": {"label": "电脑抽签",    "can_lose": True,  "lose_text": "符合报名条件 ≠ 一定录取。报名人数超计划时电脑抽签随机录取；未派中者回户籍地学区申请入读公办初中，不保证安排到本校。"},
     "min_zi_zhu":     {"label": "自主招生",     "can_lose": False, "lose_text": None},
-    "no_plan":        {"label": "2026 无招生计划", "can_lose": False, "lose_text": None},
+    "no_plan":        {"label": "其他", "can_lose": False, "lose_text": None},
 }
 
 # ---------- 番禺 ----------

@@ -348,6 +348,29 @@ const SCHOOL_TARGETS = [
 for (const file of SCHOOL_TARGETS) emit(file, OUT_CJS_SCHOOL, 'cjs');
 for (const file of WEB_TARGETS) stats.push(emit(file, OUT_ESM, 'esm'));
 
+/* ---------- region 数据源（UI 04/04B 三列下钻：行政区/板块/地铁站）----------
+ * data/region/{plates,metro}.json 结构不是 records 表，不走紧凑编译；但上面第 274 行会整目录清空
+ * OUT_CJS_MAIN，所以必须由本脚本在清空后自行补产出 —— 否则「单跑 compact.mjs」或「npm run check」
+ * 都会把 apps/miniprogram/data/region 删掉，导致 utils/data.js 的 require 找不到模块、小程序启动直接白屏
+ * （2026-10-23 实际故障，此前 2026-10-14 也踩过一次）。
+ * 微信小程序 require 不能可靠加载显式 .json（会回退找 .json.js 报 not defined），故此处在构建期直接
+ * 写 .js 模块，页面侧用无扩展名 require('../data/region/plates') 加载。 */
+{
+  const regionSrc = join(DATA_SRC, 'region');
+  const regionDest = join(OUT_CJS_MAIN, 'region');
+  let regionCount = 0;
+  for (const name of ['plates', 'metro']) {
+    const jsonPath = join(regionSrc, `${name}.json`);
+    if (!existsSync(jsonPath)) continue;
+    const json = readFileSync(jsonPath, 'utf8');
+    JSON.parse(json); // 构建期校验合法 JSON，非法立即抛错
+    mkdirSync(regionDest, { recursive: true });
+    writeFileSync(join(regionDest, `${name}.js`), `module.exports = ${json};\n`, 'utf8');
+    regionCount += 1;
+  }
+  if (regionCount) console.log(`[compact] region 数据 → ${relative(ROOT, regionDest)}/ (${regionCount} 个模块)`);
+}
+
 // 构建自检：前端 import 的每个输出 rel 必须已生成（WEB_TARGETS 白名单漏登记源文件时在此报错）
 for (const rel of WEB_OUTPUT_RELS) {
   if (!existsSync(join(OUT_ESM, rel))) {

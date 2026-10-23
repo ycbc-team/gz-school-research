@@ -45,7 +45,7 @@ function highScoreText(arr) {
   return '—';
 }
 function highCivilizedMatch(schoolId, sel) {
-  if (sel === 'all') return true;
+  if (sel === 'all' || (Array.isArray(sel) && sel.length === 0)) return true;   // 空选（全不选）→ 展示全部
   const hits = HONOR_BY_SCHOOL.get(schoolId) || [];
   if (sel.indexOf('other') >= 0 && hits.length === 0) return true;
   return hits.some((k) => sel.indexOf(k) >= 0);
@@ -55,8 +55,10 @@ function highMatchFilter(row, token) {
   if (token === 'normal-public') return row.category === '普通高中' && !row.minban;
   if (token === 'private') return !!row.minban;
   if (token.indexOf('district-demo:') === 0) {
+    // 数据侧 affiliation 形如「荔湾区属」（带「区属」后缀，见 highLevels），不能直接与「荔湾」全等比较，
+    // 否则 7 个区属示范选项恒为 0 所（2026-10-23 修复）。用前缀匹配兼容「荔湾」「荔湾区属」两种写法。
     const d = token.slice('district-demo:'.length);
-    return row.category === '区属示范' && row.affiliation === d;
+    return row.category === '区属示范' && typeof row.affiliation === 'string' && row.affiliation.indexOf(d) === 0;
   }
   return false;
 }
@@ -283,12 +285,17 @@ Page({
     this.setData({ columns, groups, showScroll, middleLoading, gridCols, emptyOn: !middleLoading && groups.length === 0 });
   },
 
-  // 小学：实体按区归类 + 校园荣誉多行（仅展示右侧校园荣誉列非空的学校；校园荣誉筛选只保留命中档）
+  // 小学：实体按区归类 + 校园荣誉多行（默认展示全部学校，无荣誉的校园荣誉列显示空值 '-'）
   buildPrimaryGroups() {
     const entities = (baseLoaders.entities && baseLoaders.entities.entities) || [];
     const selDist = this.curRegion().selectedDistricts;
     const civSel = this.pFilters.civilized;
-    const civArr = (civSel === 'all' || !civSel) ? [] : civSel;
+    // 校园荣誉筛选语义（默认=全选，与行政区一致）：
+    //  'all' 默认态 / [] 全不选态：展示「全部学校」，无荣誉的显示 '-'（不再默认隐藏无荣誉学校）
+    //  数组态：仅保留命中所选档；含 'other' 时额外展示无荣誉学校（'-'）
+    const wantOther = civSel === 'all' || !civSel || civSel.length === 0 || civSel.indexOf('other') >= 0;
+    const showAllHonors = civSel === 'all' || !civSel || civSel.length === 0;
+    const civArr = showAllHonors ? null : civSel;
     const seen = new Set();
     const rows = [];
     for (const e of entities) {
@@ -299,10 +306,14 @@ Page({
       if (selDist.length && selDist.indexOf(adcode) < 0) continue;
       const hits = HONOR_BY_SCHOOL.get(e.school_id) || [];
       const allKeys = CIVILIZED_ORDER.filter((h) => hits.indexOf(h) >= 0);
-      // 仅展示右侧「校园荣誉」列非空的学校（空值学校不展示）
-      if (allKeys.length === 0) continue;
-      // 校园荣誉筛选：只保留命中所选档的行；学校未命中任何所选档则不展示
-      const shownKeys = civArr.length ? allKeys.filter((h) => civArr.indexOf(h) >= 0) : allKeys;
+      // 无任何荣誉标签的学校：默认/全选态即展示（与「所有学校都在列表里」一致），校园荣誉列显示空值 '-'
+      if (allKeys.length === 0) {
+        if (!wantOther) continue;
+        rows.push({ schoolId: e.school_id, name: e.name, adcode, honors: ['-'] });
+        continue;
+      }
+      // 有荣誉学校：默认/全选态展示全部荣誉档；数组态仅保留命中所选档
+      const shownKeys = civArr ? allKeys.filter((h) => civArr.indexOf(h) >= 0) : allKeys;
       if (shownKeys.length === 0) continue;
       rows.push({ schoolId: e.school_id, name: e.name, adcode, honors: shownKeys.map((h) => CIVILIZED_LABEL[h]) });
     }
@@ -343,7 +354,7 @@ Page({
       let items = g.items;
       if (selDist.length) items = items.filter((it) => selDist.indexOf(it.adcode) >= 0);
       if (civ !== 'all') items = items.filter((it) => highCivilizedMatch(it.schoolId, civ));
-      if (sf !== 'all') items = items.filter((it) => sf.some((t) => highMatchFilter(it, t)));
+      if (sf !== 'all' && sf.length) items = items.filter((it) => sf.some((t) => highMatchFilter(it, t)));
       if (!items.length) continue;
       out.push({
         district: g.title, title: g.title,
@@ -419,7 +430,8 @@ Page({
 
   closePanel() {
     this.setData({ panel: '' });
-    this.buildChips();
+    // 点「完成」才应用已选筛选并刷新表单结果（各筛选维度的点选不再即时刷新，空选=全选展示）
+    this.renderGroups();
   },
 
   // 多选面板「全不选」：按当前面板分发
@@ -448,7 +460,7 @@ Page({
       ['national', '全国文明校园'], ['provincial', '广东省文明校园'],
       ['municipal', '广州市文明校园'], ['advanced', '创建先进学校（储备）'],
     ];
-    if (this.data.stage !== 'p') opts.push(['other', '其他']);
+    opts.push(['other', '其他']);   // 各学段通用：「其他」代表无任何荣誉标签的学校
     const sel = this.stageCivilized();
     return opts.map(([k, l]) => ({ key: k, label: l, on: sel === 'all' || sel.indexOf(k) >= 0 }));
   },
@@ -459,12 +471,11 @@ Page({
   toggleCivilized(e) {
     const key = e.currentTarget.dataset.key;
     let sel = this.stageCivilized();
-    if (sel === 'all') sel = CIVILIZED_ORDER.concat(this.data.stage !== 'p' ? ['other'] : []);
+    if (sel === 'all') sel = CIVILIZED_ORDER.concat(['other']);
     const i = sel.indexOf(key);
     if (i >= 0) sel.splice(i, 1); else sel.push(key);
     this.setCivilized(sel);
     this.setData({ civilizedOpts: this.buildCivilizedOpts() });
-    this.renderGroups();
   },
   setCivilized(sel) {
     if (this.data.stage === 'p') this.pFilters.civilized = sel;
@@ -474,7 +485,6 @@ Page({
   clearCivilized() {
     this.setCivilized([]);
     this.setData({ civilizedOpts: this.buildCivilizedOpts() });
-    this.renderGroups();
   },
 
   /* ---------- 招生机制面板（初中多选） ---------- */
@@ -493,9 +503,8 @@ Page({
     if (i >= 0) sel.splice(i, 1); else sel.push(key);
     this.mFilters.mech = sel;
     this.setData({ mechOpts: this.buildMechOpts() });
-    this.renderGroups();
   },
-  clearMech() { this.mFilters.mech = []; this.setData({ mechOpts: this.buildMechOpts() }); this.renderGroups(); },
+  clearMech() { this.mFilters.mech = []; this.setData({ mechOpts: this.buildMechOpts() }); },
 
   /* ---------- 指标面板（初中单选，驱动表头） ---------- */
   buildMetricOpts() {
@@ -519,7 +528,6 @@ Page({
     const v = e.currentTarget.dataset.v;
     this.mFilters.metric = v;
     this.setData({ metricOpts: this.buildMetricOpts() });
-    this.renderGroups();
   },
 
   /* ---------- 学校分类面板（高中多选） ---------- */
@@ -543,9 +551,8 @@ Page({
     if (i >= 0) sel.splice(i, 1); else sel.push(v);
     this.hFilters.schoolFilter = sel;
     this.setData({ schoolFilterOpts: this.buildSchoolFilterOpts() });
-    this.renderGroups();
   },
-  clearSchoolFilter() { this.hFilters.schoolFilter = []; this.setData({ schoolFilterOpts: this.buildSchoolFilterOpts() }); this.renderGroups(); },
+  clearSchoolFilter() { this.hFilters.schoolFilter = []; this.setData({ schoolFilterOpts: this.buildSchoolFilterOpts() }); },
 
   /* ---------- 排序面板（高中单选） ---------- */
   buildSortOpts() {
@@ -558,10 +565,9 @@ Page({
     const v = e.currentTarget.dataset.v;
     this.hFilters.sortBy = v;
     this.setData({ sortOpts: this.buildSortOpts() });
-    this.renderGroups();
   },
 
-  /* ---------- 区域筛选（单层级行政区多选；平铺 7 区，交互同校园荣誉：点选即时应用、全不选、完成） ---------- */
+  /* ---------- 区域筛选（单层级行政区多选；平铺 7 区，交互同校园荣誉：点选延迟到「完成」才应用、全不选=全选、完成） ---------- */
   openRegionPanel() {
     this.setData({ panel: 'region', regionOpts: this.buildRegionOpts() });
   },
@@ -578,12 +584,10 @@ Page({
     const i = sel.indexOf(adcode);
     if (i >= 0) sel.splice(i, 1); else sel.push(adcode);
     this.setData({ regionOpts: this.buildRegionOpts() });
-    this.renderGroups();
   },
   clearRegion() {
     this.curRegion().selectedDistricts = [];
     this.setData({ regionOpts: this.buildRegionOpts() });
-    this.renderGroups();
   },
 
   /* ---------- 点校名 → 详情页 ---------- */

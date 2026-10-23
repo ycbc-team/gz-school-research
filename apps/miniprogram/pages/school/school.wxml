@@ -87,7 +87,7 @@
               <text wx:if="{{it.minban}}" class="mb">民办</text>
               <text wx:if="{{it.showSchool}}" class="ar">›</text>
             </view>
-            <view wx:for="{{it.cells}}" wx:for-item="cell" wx:key="*this" class="tc num {{cell==='—'?'na':''}}">{{cell}}</view>
+            <view wx:for="{{it.cells}}" wx:for-item="cell" wx:key="*this" class="tc num {{cell==='—'||cell==='-'?'na':''}}">{{cell}}</view>
           </view>
         </view>
       </scroll-view>
@@ -104,7 +104,7 @@
             <text wx:if="{{it.minban}}" class="mb">民办</text>
             <text wx:if="{{it.showSchool}}" class="ar">›</text>
           </view>
-          <view wx:for="{{it.cells}}" wx:for-item="cell" wx:key="*this" class="tc num {{cell==='—'?'na':''}}">{{cell}}</view>
+          <view wx:for="{{it.cells}}" wx:for-item="cell" wx:key="*this" class="tc num {{cell==='—'||cell==='-'?'na':''}}">{{cell}}</view>
         </view>
       </view>
 

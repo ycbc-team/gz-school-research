@@ -49,9 +49,9 @@ function normDistrict(d) {
   return d.replace(/区$/, '');
 }
 
-/** 单行指标取值（null=无数据，排序置后） */
+/** 单行指标取值（null=无数据，排序置后；户口生为 0 时比例无意义，返回 null 避免出现 NaN%） */
 function metricValue(s, metric) {
-  const k = s.kaosheng != null ? s.kaosheng : null;
+  const k = s.kaosheng != null && s.kaosheng > 0 ? s.kaosheng : null;
   switch (metric) {
     case 'default':
     case 'qu_ratio': return k != null && s.qu_quota != null ? (s.qu_quota / k) * 100 : null;
@@ -150,6 +150,50 @@ function buildRows(loaders) {
     };
   });
 
+  // 默认态必须展示「全部学校」：rankingMiddle 只覆盖有 2026 中考数据/已并校的学校，
+  // 新校区、当年无毕业生的学校会整体缺席（七区内约 40 所）。这里用实体表补齐，
+  // 指标列全部为 null（渲染成 '—'，排序自然置后），保证列表不漏学校。
+  const SEVEN_ADCODES = new Set(
+    Object.keys(DISTRICT_NAME).filter((code) => DISTRICT_ORDER.indexOf(DISTRICT_NAME[code]) >= 0),
+  );
+  const coveredIds = new Set();
+  for (const r of rows) {
+    if (r.school_id) coveredIds.add(r.school_id);
+    for (const id of (r.school_ids || [])) if (id) coveredIds.add(id);
+  }
+  const seenNames = new Set(rows.map((r) => shortName(r.name)));
+  for (const e of (entities.entities || [])) {
+    if (e.stage !== 'middle' || !e.school_id) continue;
+    const adcode = e.school_id.slice(3, 9);
+    if (!SEVEN_ADCODES.has(adcode)) continue;
+    if (coveredIds.has(e.school_id)) continue;
+    const sn = shortName(e.name);
+    if (seenNames.has(sn)) continue;   // 同名校区别名不重复加行
+    seenNames.add(sn);
+    rows.push({
+      name: e.name,
+      school_id: e.school_id,
+      school_ids: null,
+      district: normDistrict(districtFull(e.school_id) || '其他'),
+      minban: e.nature === '民办',
+      kaosheng: null,
+      sheng_quota: null,
+      qu_quota: null,
+      sheng_min_score: null,
+      qu_min_score: null,
+      top14_min_score: null,
+      top14_min_3y_avg: null,
+      top14_quota: null,
+      top14_waste_rate: null,
+      sheng_min_3y_avg: null,
+      qu_min_3y_avg: null,
+      sheng_waste_rate: null,
+      qu_waste_rate: null,
+      autonomy_count: 0,
+      tekong_quota_rate: null,
+    });
+  }
+
   // 校园荣誉：school_id 命中即记录对应荣誉档
   const civBySchool = new Map();
   for (const [key, ids] of Object.entries(civilizedCampusSchoolIds || {})) {
@@ -182,7 +226,7 @@ function buildMechBySchool(middleEnrollments) {
 
 /** 招生机制命中任一选中机制即显示 */
 function mechVisible(row, selectedMechs, mechBySchool) {
-  if (!selectedMechs || selectedMechs === 'all') return true;
+  if (!selectedMechs || selectedMechs === 'all' || (Array.isArray(selectedMechs) && selectedMechs.length === 0)) return true;   // 空选（全不选）→ 展示全部
   const ids = [row.school_id, ...(row.school_ids || [])].filter(Boolean);
   for (const id of ids) {
     const set = mechBySchool.get(id);
@@ -194,7 +238,7 @@ function mechVisible(row, selectedMechs, mechBySchool) {
 
 /** 校园荣誉可见：全选(null)→全部；否则选中档命中即显；'other'＝未命中其余任何档 */
 function civilizedVisible(row, selectedCivilized) {
-  if (!selectedCivilized || selectedCivilized === 'all') return true;
+  if (!selectedCivilized || selectedCivilized === 'all' || (Array.isArray(selectedCivilized) && selectedCivilized.length === 0)) return true;   // 空选（全不选）→ 展示全部
   if (selectedCivilized.indexOf('other') >= 0 && (!row.civilized || row.civilized.length === 0)) return true;
   return (row.civilized || []).some((k) => selectedCivilized.indexOf(k) >= 0);
 }
