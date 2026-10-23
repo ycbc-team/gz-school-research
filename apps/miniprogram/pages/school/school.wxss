@@ -1,0 +1,189 @@
+/* ===== 学校页（底部第 2 tab）· 小学 / 初中 / 高中 =====
+   视觉真源：docs/design/school-search-ui-spec.html 第 12/12A/12B/12B-B/12C 节（1px=2rpx） */
+
+.page { background: #fff; min-height: 100vh; }
+
+/* 状态栏白底占位 */
+.topcover {
+  position: fixed; left: 0; right: 0; top: 0;
+  background: #fff; z-index: 19;
+}
+
+/* 头部：品牌 + 学段分段 + 筛选栏 + 面板；展开筛选时整块白底窗口浮于遮罩之上（UI 12A） */
+.headbar {
+  position: fixed; left: 0; right: 0; top: 0; z-index: 300;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex; flex-direction: column;
+}
+/* 展开态：整块白底窗口（品牌行/学段/筛选栏 均不位移），遮罩只压暗下方列表 */
+.headbar.inpanel {
+  max-height: 86vh;
+  overflow: hidden;
+  border-bottom: 1rpx solid #E3E8F0;
+  box-shadow: 0 24rpx 48rpx rgba(16,24,43,.20);
+  z-index: 301;
+}
+
+.brandrow {
+  height: 64rpx; display: flex; align-items: center;
+  padding-left: 32rpx; padding-right: 196rpx;
+  font-size: 34rpx; font-weight: 600; color: #10182B;
+  letter-spacing: .2px;
+}
+
+/* 学段分段控件（UI 12：整块浅灰底圆角容器、无间隙三段平分、选中段白底浮起，不带色点） */
+.stabs {
+  display: flex; gap: 0; margin: 20rpx 28rpx 4rpx;
+  background: #F5F7FB; border-radius: 24rpx; padding: 6rpx;
+  box-sizing: border-box;
+}
+.stab {
+  flex: 1; height: 60rpx; border-radius: 18rpx;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26rpx; font-weight: 600; color: #8B96AD;
+}
+.stab.on { background: #fff; color: #254BAE; box-shadow: 0 2rpx 6rpx rgba(16,24,43,.08); }
+
+/* 筛选栏（UI 12：吸顶于列表上方，白底、下缘 1px 分隔线） */
+.filterrow {
+  display: flex; gap: 16rpx;
+  margin: 16rpx 28rpx 0; padding: 20rpx 0;
+  border-bottom: 1rpx solid #EFF2F7;
+}
+.filterrow .chip { flex: 1; min-width: 0; justify-content: center; padding: 0 16rpx; }
+.chip {
+  height: 64rpx; border-radius: 999rpx; padding: 0 26rpx;
+  background: #fff; border: 1rpx solid #E3E8F0;
+  color: #33405C; font-size: 27rpx; font-weight: 500; white-space: nowrap;
+  display: flex; align-items: center; justify-content: center; gap: 10rpx;
+  box-sizing: border-box;
+}
+/* 学校页筛选胶囊：底色/字体恒定（白底黑字），激活态仅由文案体现（单选回显值/多选回显维度名），不切换底色与字体色 */
+.chip.on { /* 故意留空：与基础 .chip 完全一致，不区分已选/未选视觉 */ }
+.chip text {
+  max-width: 100%; min-width: 0; flex: 0 1 auto;
+  overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+.caret {
+  width: 0; height: 0;
+  border-left: 7rpx solid transparent; border-right: 7rpx solid transparent;
+  border-top: 9rpx solid currentColor;
+  opacity: .85; flex: none;
+}
+
+/* 面板体（筛选展开时，同首页筛选面板：optwrap padding 12/16/14） */
+.optscroll { flex: none; padding: 24rpx 32rpx 28rpx; animation: fpDrop .22s ease; }
+.opts { display: flex; flex-wrap: wrap; gap: 18rpx; }
+.opt {
+  height: 68rpx; padding: 0 28rpx; border-radius: 999rpx;
+  background: #F5F7FB; border: 1rpx solid #E3E8F0;
+  font-size: 26rpx; color: #33405C; display: flex; align-items: center;
+  box-sizing: border-box;
+}
+.opt.on { background: #F2F6FE; border-color: #98B6EC; color: #254BAE; font-weight: 600; }
+.optgroups { display: flex; flex-direction: column; gap: 28rpx; }
+.optgrp .ghd { font-size: 24rpx; font-weight: 600; color: #64708C; margin-bottom: 16rpx; }
+
+/* 面板底部操作（UI 12A sfoot：全不选 + 完成通栏） */
+.sfoot {
+  display: flex; align-items: center; gap: 24rpx;
+  padding: 24rpx 32rpx 28rpx; border-top: 1rpx solid #EFF2F7;
+  animation: fpDrop .24s ease;
+}
+.sfoot .none {
+  flex: none; height: 88rpx; padding: 0 36rpx; border-radius: 999rpx;
+  border: 1rpx solid #E3E8F0; display: flex; align-items: center;
+  font-size: 28rpx; color: #33405C; background: #fff;
+}
+.sfoot .ok {
+  flex: 1; height: 88rpx; border-radius: 999rpx;
+  background: #2F5CD6; color: #fff; font-size: 32rpx; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 12rpx 32rpx rgba(47,92,214,.28);
+}
+
+/* 蒙层（黑 42%，仅压暗面板下方列表；头部白底窗口浮于其上） */
+/* 遮罩：黑 42%，覆盖头部窗口下方的列表与底部导航（mask z 200 高于自定义 tabBar z 100），头部白底窗口 z 300 浮于其上 */
+.mask { position: fixed; inset: 0; z-index: 200; background: rgba(16,24,43,.42); animation: maskIn .2s ease; }
+
+/* 列表（页面底色＝白；按区归类；底部留白避开自定义 tabBar：tabBar 高 112rpx + 安全区 + 余量） */
+.list { background: #fff; padding-bottom: calc(112rpx + env(safe-area-inset-bottom) + 48rpx); }
+
+/* 横滑提示（UI 12B-B .swhint：白底右对齐 + ›） */
+.scrhint {
+  display: flex; align-items: center; justify-content: flex-end; gap: 10rpx;
+  padding: 14rpx 28rpx 18rpx; font-size: 22rpx; color: #8B96AD; background: #fff;
+}
+.scrhint::after { content: "›"; font-size: 28rpx; line-height: 1; color: #2F5CD6; }
+
+/* 区分组：区间 1px 分隔（首组无线、无上边距）＋ 区名分组头吸顶 */
+.scsec { margin-top: 28rpx; border-top: 1rpx solid #E3E8F0; }
+.scsec:first-child { margin-top: 0; border-top: none; }
+/* 区名分组头＝详情页一级模块标题同款：蓝竖条 + 17px 加粗（用户要求不吸顶，随列表正常滚动） */
+.sectitle {
+  display: flex; align-items: center;
+  padding: 28rpx 32rpx 16rpx; background: #fff;
+  font-size: 34rpx; font-weight: 700; color: #10182B;
+}
+.sectitle::before {
+  content: ""; flex: none; width: 8rpx; height: 30rpx;
+  border-radius: 4rpx; background: #2F5CD6; margin-right: 18rpx;
+}
+
+/* 表格卡片＝详情页表单同款 chartbox：描边圆角容器、左右 16px 边距（UI .sctbl{margin:0 16px}） */
+.chartbox {
+  margin: 0 32rpx;
+  border: 1rpx solid #EFF2F7; border-radius: 20rpx;
+  padding: 20rpx 24rpx; box-sizing: border-box;
+}
+/* 表头：无底色、墨色加粗、下缘 1px 分隔（UI .thead） */
+.thead, .trow { display: grid; grid-template-columns: var(--gc); column-gap: 12rpx; align-items: center; }
+.thead { padding-bottom: 12rpx; border-bottom: 1rpx solid #EFF2F7; }
+.thead .tc { font-size: 24rpx; color: #33405C; font-weight: 700; }
+/* 数据行：无行间分隔线（UI .trow{padding:7px 0}） */
+.trow { padding: 14rpx 0; }
+.trow .tc { font-size: 26rpx; color: #33405C; }
+
+.tc.name { min-width: 0; display: flex; align-items: center; gap: 8rpx; }
+/* 校名链接＝详情页 .v2 .trow .lk 同款：知性蓝 + 字重 500 + › */
+.tc.name.tap { color: #254BAE; }
+.tc.name .nm { flex: 0 1 auto; min-width: 0; font-weight: 500; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.tc.name .ar { flex: none; font-size: 30rpx; line-height: 1; opacity: .7; }
+.tc.num { text-align: right; white-space: nowrap; }
+.tc.num.na { color: #8B96AD; }
+.mb {
+  flex: none; height: 32rpx; margin-left: 12rpx; padding: 0 10rpx; border-radius: 8rpx;
+  background: #E9F7F0; color: #1F7A55; font-size: 20rpx; font-weight: 600;
+  display: flex; align-items: center; box-sizing: border-box;
+}
+
+/* 最低分 5 列横滑表格（UI 12B-B）：整卡（含边框内边距）在 .hscroll 内横滑、首列不冻结
+   卡片定宽 452px=904rpx（border-box），内容 = 320+120+168+88+108 + 4×12 gap = 852rpx */
+.xscroll { width: 100%; white-space: nowrap; }
+.xscroll .chartbox.mq5 { width: 904rpx; }
+
+/* 初中加载中 */
+.loadingwrap { display: flex; align-items: center; justify-content: center; min-height: 60vh; }
+.loading { font-size: 28rpx; color: #8B96AD; }
+
+/* 空状态（异常弹窗：重置筛选） */
+.fempty {
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 480rpx; z-index: 30;
+  background: rgba(255,255,255,.97); border-radius: 32rpx;
+  box-shadow: 0 8rpx 32rpx rgba(8,14,28,.24);
+  padding: 44rpx 36rpx 40rpx;
+  display: flex; flex-direction: column; align-items: center;
+}
+.fempty-t { font-size: 29rpx; font-weight: 600; color: #10182B; }
+.fempty-d { margin-top: 10rpx; font-size: 24rpx; color: #64708C; line-height: 1.5; }
+.fempty-btn {
+  margin-top: 32rpx; height: 72rpx; padding: 0 44rpx; border-radius: 999rpx;
+  background: #2F5CD6; color: #fff; font-size: 26rpx; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 12rpx 32rpx rgba(47,92,214,.28);
+}
+
+@keyframes maskIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fpDrop { from { opacity: 0; transform: translateY(-8rpx); } to { opacity: 1; transform: none; } }

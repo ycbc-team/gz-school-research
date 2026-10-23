@@ -52,6 +52,9 @@ apps/web/src/data/compact/
 # 小程序分包紧凑数据产物（同主包，由 build:mp 生成）
 apps/miniprogram/pages/school-detail/data/
 
+# 学校页（主包）本地同步数据产物（初中升学信号/招生计划，由 build:mp 的 compact 生成）
+apps/miniprogram/pages/school/data/
+
 # WorkBuddy 运行时数据 / 本地 app 配置（项目数据，不进 git）
 .workbuddy/
 .wbapp_*.genie

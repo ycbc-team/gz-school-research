@@ -1,0 +1,135 @@
+<view class="page">
+  <!-- 状态栏白底占位 -->
+  <view class="topcover" style="height:{{statusBarHeight}}px"></view>
+
+  <!-- 头部：品牌 + 学段分段 + 筛选栏；展开筛选时整块（含品牌行）白底浮于遮罩之上，均不位移 -->
+  <view class="headbar {{panel?'inpanel':''}}" style="padding-top:{{statusBarHeight}}px">
+    <view class="brandrow">广州学途</view>
+
+    <!-- 学段分段控件（纯文字、不带学段色点） -->
+    <view class="stabs">
+      <view class="stab {{stage==='p'?'on':''}}" data-stage="p" bindtap="onStageTap">小学</view>
+      <view class="stab {{stage==='m'?'on':''}}" data-stage="m" bindtap="onStageTap">初中</view>
+      <view class="stab {{stage==='h'?'on':''}}" data-stage="h" bindtap="onStageTap">高中</view>
+    </view>
+
+    <!-- 筛选栏胶囊（吸顶） -->
+    <view class="filterrow">
+      <view wx:for="{{chips}}" wx:key="key" class="chip {{item.on?'on':''}}" data-dim="{{item.key}}" bindtap="onChipTap">
+        <text>{{item.label}}</text>
+        <view class="caret"></view>
+      </view>
+    </view>
+
+    <!-- 面板体（仅展开时渲染；在筛选栏正下方原位展开，不位移头部） -->
+    <view wx:if="{{panel}}" class="optscroll">
+      <!-- 区域：单层级行政区多选（平铺 7 区，交互同校园荣誉） -->
+      <view wx:if="{{panel==='region'}}" class="opts">
+        <view wx:for="{{regionOpts}}" wx:key="adcode" class="opt {{item.on?'on':''}}" data-adcode="{{item.adcode}}" bindtap="toggleRegion">{{item.name}}</view>
+      </view>
+
+      <!-- 校园荣誉（多选） -->
+      <view wx:if="{{panel==='civilized'}}" class="opts">
+        <view wx:for="{{civilizedOpts}}" wx:key="key" class="opt {{item.on?'on':''}}" data-key="{{item.key}}" bindtap="toggleCivilized">{{item.label}}</view>
+      </view>
+
+      <!-- 招生机制（多选） -->
+      <view wx:if="{{panel==='mech'}}" class="opts">
+        <view wx:for="{{mechOpts}}" wx:key="key" class="opt {{item.on?'on':''}}" data-key="{{item.key}}" bindtap="toggleMech">{{item.label}}</view>
+      </view>
+
+      <!-- 指标（单选，分组） -->
+      <view wx:if="{{panel==='metric'}}" class="optgroups">
+        <view wx:for="{{metricOpts}}" wx:key="title" class="optgrp">
+          <view class="ghd">{{item.title}}</view>
+          <view class="opts">
+            <view wx:for="{{item.items}}" wx:for-item="it" wx:key="v" class="opt {{it.on?'on':''}}" data-v="{{it.v}}" bindtap="selectMetric">{{it.label}}</view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 学校分类（多选） -->
+      <view wx:if="{{panel==='schoolFilter'}}" class="opts">
+        <view wx:for="{{schoolFilterOpts}}" wx:key="v" class="opt {{item.on?'on':''}}" data-v="{{item.v}}" bindtap="toggleSchoolFilter">{{item.label}}</view>
+      </view>
+
+      <!-- 排序（单选） -->
+      <view wx:if="{{panel==='sort'}}" class="opts">
+        <view wx:for="{{sortOpts}}" wx:key="v" class="opt {{item.on?'on':''}}" data-v="{{item.v}}" bindtap="selectSort">{{item.label}}</view>
+      </view>
+    </view>
+
+    <!-- 面板底部操作（区域/校园荣誉/招生机制/学校分类：全不选 + 完成） -->
+    <view wx:if="{{panel}}" class="sfoot">
+      <view wx:if="{{panel==='civilized'||panel==='mech'||panel==='schoolFilter'||panel==='region'}}" class="none" bindtap="clearDim">全不选</view>
+      <view class="ok" bindtap="closePanel">完成</view>
+    </view>
+  </view>
+
+  <!-- 蒙层：仅压暗列表（头部白底窗口浮于其上） -->
+  <view wx:if="{{panel}}" class="mask" bindtap="closePanel"></view>
+
+  <!-- 列表（页面底色白、按区归类带表头表单） -->
+  <view wx:if="{{!middleLoading}}" class="list" style="padding-top:{{headH}}px">
+    <view wx:for="{{groups}}" wx:key="district" class="scsec">
+      <view class="sectitle">{{item.title}}</view>
+
+      <!-- 最低分 5 列横滑表格（UI 12B-B：整卡在 .hscroll 内横滑、表头随内容滑动、首列不冻结） -->
+      <scroll-view wx:if="{{showScroll}}" scroll-x class="xscroll" bindscroll="onXScroll">
+        <view class="chartbox mq5">
+          <view class="thead" style="--gc:{{gridCols}}">
+            <view class="tc name">学校</view>
+            <view wx:for="{{columns}}" wx:for-item="c" wx:key="*this" class="tc num">{{c}}</view>
+          </view>
+          <view wx:for="{{item.items}}" wx:for-item="it" wx:key="navId" class="trow" style="--gc:{{gridCols}}">
+            <view class="tc name {{it.showSchool?'tap':''}}" data-id="{{it.navId}}" data-name="{{it.navName}}" bindtap="onSchoolTap">
+              <text class="nm">{{it.school}}</text>
+              <text wx:if="{{it.minban}}" class="mb">民办</text>
+              <text wx:if="{{it.showSchool}}" class="ar">›</text>
+            </view>
+            <view wx:for="{{it.cells}}" wx:for-item="cell" wx:key="*this" class="tc num {{cell==='—'?'na':''}}">{{cell}}</view>
+          </view>
+        </view>
+      </scroll-view>
+
+      <!-- 默认表格（屏内完整展示，不横滑） -->
+      <view wx:else class="chartbox">
+        <view class="thead" style="--gc:{{gridCols}}">
+          <view class="tc name">学校</view>
+          <view wx:for="{{columns}}" wx:for-item="c" wx:key="*this" class="tc num">{{c}}</view>
+        </view>
+        <view wx:for="{{item.items}}" wx:for-item="it" wx:key="navId" class="trow" style="--gc:{{gridCols}}">
+          <view class="tc name {{it.showSchool?'tap':''}}" data-id="{{it.navId}}" data-name="{{it.navName}}" bindtap="onSchoolTap">
+            <text class="nm">{{it.school}}</text>
+            <text wx:if="{{it.minban}}" class="mb">民办</text>
+            <text wx:if="{{it.showSchool}}" class="ar">›</text>
+          </view>
+          <view wx:for="{{it.cells}}" wx:for-item="cell" wx:key="*this" class="tc num {{cell==='—'?'na':''}}">{{cell}}</view>
+        </view>
+      </view>
+
+      <!-- 横滑提示（UI 12B-B：表单底部首屏显示，滑动一次后消失） -->
+      <view wx:if="{{showScroll && index===0 && !scrHintOff}}" class="scrhint">可向左滑动查看更多列</view>
+    </view>
+  </view>
+
+  <!-- 初中数据加载中 -->
+  <view wx:if="{{middleLoading}}" class="list loadingwrap" style="padding-top:{{headH}}px">
+    <view class="loading">初中数据加载中…</view>
+  </view>
+
+  <!-- 初中数据获取失败（兜底：用户友好文案 + 重试） -->
+  <view wx:if="{{middleError && stage==='m' && !middleLoading}}" class="fempty">
+    <view class="fempty-t">数据获取失败</view>
+    <view class="fempty-d">请稍后重试</view>
+    <view class="fempty-btn" bindtap="retryMiddle">重试</view>
+  </view>
+
+  <!-- 空状态（筛选无匹配） -->
+  <view wx:if="{{emptyOn && !middleLoading && !middleError}}" class="fempty">
+    <view class="fempty-t">当前筛选下无匹配学校</view>
+    <view class="fempty-d">试试取消部分筛选条件</view>
+    <view class="fempty-d">或扩大行政区范围</view>
+    <view class="fempty-btn" bindtap="resetAllFilters">重置筛选</view>
+  </view>
+</view>

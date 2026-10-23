@@ -22,6 +22,9 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DATA_SRC = join(ROOT, 'data');
 const OUT_CJS_MAIN = process.argv[2] || join(ROOT, 'apps', 'miniprogram', 'data');
 const OUT_CJS_SUB = process.argv[3] || join(ROOT, 'apps', 'miniprogram', 'pages', 'school-detail', 'data');
+// 主包学校页本地数据（初中升学信号 + 2026 招生计划）：学校页（主包页面）同步 require，
+// 避免主包 require.async 跨包加载 school-detail 分包数据的时序/构建产物脆弱性（真机易静默无数据）。
+const OUT_CJS_SCHOOL = join(ROOT, 'apps', 'miniprogram', 'pages', 'school', 'data');
 const OUT_ESM = process.argv[4] || join(ROOT, 'apps', 'web', 'src', 'data', 'compact');
 
 /** 高重复值字段 → 字典化（值唯一数少才启用）；listDicts 为数组元素字典（如初中实体 id 列表）。
@@ -162,6 +165,9 @@ const MP_SUB_TARGETS = [
   'data/linkage/dist/batch2_scores.json',
   'data/linkage/dist/district_quota.json',
   'data/linkage/dist/quota_outcome.json',
+  // 初中升学信号（自招/指标/特控率）：学校页 12B 移植 RankingView，主包 require.async 子包数据跑，
+  // 须进分包（SRC_REMAP 已映射 linkage/ranking_middle.js）
+  'data/linkage/dist/ranking_middle.json',
   // 初中 2026 招生计划（一校多规则：mechanism/plan_classes/scope/派位组生源小学），
   // 详情页 07B「招生计划（2026年）」模块消费（Web 端同名产物已编译）
   'data/middle/enrollment/dist/middle_enrollment_2026.json',
@@ -265,7 +271,7 @@ function compileValue(v, opts = {}) {
 }
 
 /* ---------- 主流程 ---------- */
-for (const dir of [OUT_CJS_MAIN, OUT_CJS_SUB, OUT_ESM]) {
+for (const dir of [OUT_CJS_MAIN, OUT_CJS_SUB, OUT_CJS_SCHOOL, OUT_ESM]) {
   rmSync(dir, { recursive: true, force: true });
   mkdirSync(dir, { recursive: true });
 }
@@ -332,6 +338,14 @@ const relPath = (SRC_REMAP[relRaw.replace(/\.json$/, '')] ?? relRaw.replace(/\.j
 const stats = [];
 for (const file of MP_MAIN_TARGETS) stats.push(emit(file, OUT_CJS_MAIN, 'cjs', { trim: MP_TRIM[file] }));
 for (const file of MP_SUB_TARGETS) stats.push(emit(file, OUT_CJS_SUB, 'cjs'));
+// 学校页（主包）本地同步数据：初中升学信号 + 2026 招生计划（与 MP_SUB_TARGETS 同源，多输出一份到主包 pages/school/data，学校页同步 require）
+const SCHOOL_TARGETS = [
+  'data/linkage/dist/ranking_middle.json',
+  'data/linkage/dist/quota_matrix.json',
+  'data/linkage/dist/quota_outcome.json',
+  'data/middle/enrollment/dist/middle_enrollment_2026.json',
+];
+for (const file of SCHOOL_TARGETS) emit(file, OUT_CJS_SCHOOL, 'cjs');
 for (const file of WEB_TARGETS) stats.push(emit(file, OUT_ESM, 'esm'));
 
 // 构建自检：前端 import 的每个输出 rel 必须已生成（WEB_TARGETS 白名单漏登记源文件时在此报错）

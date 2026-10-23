@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/school/school",
     "pages/policy/policy"
   ],
   "subpackages": [
@@ -25,7 +26,7 @@
     "borderStyle": "white",
     "list": [
       { "pagePath": "pages/index/index", "text": "首页" },
-      { "pagePath": "pages/policy/policy", "text": "政策" }
+      { "pagePath": "pages/school/school", "text": "学校" }
     ]
   },
   "sitemapLocation": "sitemap.json",

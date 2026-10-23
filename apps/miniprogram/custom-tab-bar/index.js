@@ -4,7 +4,7 @@ Component({
     hidden: false,
     list: [
       { pagePath: '/pages/index/index', text: '首页' },
-      { pagePath: '/pages/policy/policy', text: '政策' },
+      { pagePath: '/pages/school/school', text: '学校' },
     ],
   },
   methods: {
