@@ -318,7 +318,7 @@
   background: #fff; border: 1rpx solid #E3E8F0; color: #33405C;
   font-size: 28rpx; display: flex; align-items: center; justify-content: center;
 }
-.loctip-foot { margin-top: 24rpx; font-size: 22rpx; color: #8B96AD; text-align: center; }
-/* 定位弹窗底部隐私政策告知（UI 稿 04 节 L5）：一行小字 + 可点《隐私政策》链接 */
-.loctip-priv { margin-top: 24rpx; font-size: 22rpx; color: #8B96AD; line-height: 1.7; }
-.loctip-priv .plink { color: #2F5CD6; font-weight: 600; text-decoration: underline; }
+/* 定位弹窗底部单行小字（UI 稿 04 节 L5）：隐私政策告知 + 授权更改提示合为一行，
+   字号 20rpx（10px）保证 28 字在 320~414 宽机型上都不断行；超长字体缩放时允许自然折行不裁切 */
+.loctip-foot { margin-top: 28rpx; font-size: 20rpx; color: #8B96AD; line-height: 1.6; text-align: center; }
+.loctip-foot .plink { color: #2F5CD6; font-weight: 600; text-decoration: underline; }

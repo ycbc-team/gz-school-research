@@ -139,9 +139,8 @@
         <view class="loctip-deny" bindtap="onLocDeny">暂不开启</view>
         <view class="loctip-allow" bindtap="onLocAllow">开启定位</view>
       </view>
-      <!-- 隐私政策告知（文案见 PRD 13.4 五；链接进 pages/privacy） -->
-      <view class="loctip-priv">开启定位即表示您已阅读并同意<text class="plink" catchtap="openPrivacy">《隐私政策》</text>。</view>
-      <view class="loctip-foot">可在微信「设置－位置信息」中随时更改授权</view>
+      <!-- 隐私政策告知 + 授权更改提示：合并为一行小字（控件见 .loctip-foot），《隐私政策》可点 -->
+      <view class="loctip-foot">开启定位即表示您同意<text class="plink" catchtap="openPrivacy">《隐私政策》</text>，可在微信设置中更改授权</view>
     </view>
   </view>
 
