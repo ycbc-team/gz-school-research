@@ -4,10 +4,14 @@
  * 经 hydrate 还原为原 JSON 结构），组装 DataLoaders 注入 createRepository。
  * 构建产物勿手改。
  *
- * 主包/分包拆分：地图页消费的主包数据 15 个在此加载；详情页专用数据（linkage/brandGroups/
- * educationGroups 7 个）在 pages/school-detail 分包，由详情页 require 分包模块后
- * 与 baseLoaders 合并为全量 loaders 再 createRepository（buildDetailModel/buildLinkageModel 消费）。
- * 主包 repository 的详情域方法（quota/special/batch2/coverage/brand 等）因空壳数据返回空，地图页不消费。
+ * 主包 / 分包拆分（体积治理，详见 scripts/data/compact.mjs）：
+ *   - 主包保留（地图首页 + 学校页同步消费）：POI / 高中分层(highLevels) / 实体注册表(entities) / 升学备注。
+ *     highLevels 必须留主包：地图点位分学段（buildPoints 遍历 highLevels.schools）同步依赖。
+ *   - 迁出主包 → pages/school-detail 分包（学校页 onLoad 经 require.async 拉取，app.js 合并进
+ *     globalData.baseLoaders 供详情卡）：enrollments / xiaoshengchu / highScores2025/2026 / 初中 linkage / 初中招生计划。
+ *     主包 baseLoaders 对迁出项保留兼容空壳，createRepository 不会因空数据崩溃（子 API 对空数组/空对象均有保护）。
+ *   - 详情域空壳（brandGroups / educationGroups / quotaMatrix / specialMatrix / batch2Scores / districtQuota）：
+ *     真实数据由分包 school-card 组件 require 分包模块提供，主包仅占位。
  */
 const shared = require('../shared/index.js');
 
@@ -35,22 +39,29 @@ try {
   console.error('[data] 缺少 data/region/metro，已降级为空线网（请执行 npm run build:mp 重建）', err && err.message);
 }
 
-/** 主包 loaders（含详情域空壳，供详情页分包展开合并） */
+/** 主包 loaders（地图首页 + 学校页同步消费）。迁出项以兼容空壳占位，详情域亦为空壳。 */
 const baseLoaders = {
+  // —— 主包同步数据（真实） ——
   primarySchools: cast(hydrate(require('../data/poi/dist/primary_poi.js'))),
   middleSchools: cast(hydrate(require('../data/poi/dist/middle_poi.js'))),
   highSchools: cast(hydrate(require('../data/poi/dist/high_poi.js'))),
+  // 高中分层：必须留主包（地图点位分学段同步依赖）
   highLevels: cast(hydrate(require('../data/high/level/src/levels.js'))),
-  highScores2025: cast(hydrate(require('../data/high/cutoff_score/dist/scores_2025.js'))),
-  highScores2026: cast(hydrate(require('../data/high/cutoff_score/dist/scores_2026.js'))),
-  enrollments: cast(splitEnrollments(hydrate(require('../data/primary/enrollments/2026-all.js')))),
+  // 实体注册表：首页搜索 + 学校页默认展示同步依赖
   entities: cast(hydrate(require('../data/registry/entity/dist/entities.js'))),
-  xiaoshengchu: cast(hydrate(require('../data/primary/xiaoshengchu_2026.js'))),
   middleEnrollNotes: cast(hydrate(require('../data/primary/middle_enroll_notes.js'))),
-  // ---- 区域/地铁数据源（UI 04/04B 三列下钻过滤）：真源 data/region → compact.mjs 产出 apps/miniprogram/data/region ----
+  // 区域 / 地铁数据源（UI 04/04B 三列下钻）
   plates: cast(regionPlates),
   metro: cast(regionMetro),
-  // ---- 详情域空壳（品牌/教育集团/linkage 模块由分包 pages/school-detail 提供真实数据） ----
+
+  // —— 迁出主包 → 分包 school-detail（学校页 onLoad 经 require.async 拉取，app.js 合并进 globalData） ——
+  // 空壳仅为占位，createRepository / 子 API 对空数组/空对象均有保护，不会崩溃。
+  enrollments: [],                                  // EnrollmentSnapshot[] 空壳
+  xiaoshengchu: { groups: [], records: [] },        // { groups, records } 空壳
+  highScores2025: { by_school_id: {} },             // HighScores 空壳
+  highScores2026: { by_school_id: {} },             // HighScores 空壳
+
+  // —— 详情域空壳（品牌/教育集团/linkage 模块由分包 pages/school-detail 提供真实数据） ——
   brandGroups: { brands: [] },
   educationGroups: { groups: [] },
   quotaMatrix: { ids: [], schools: [] },
@@ -72,7 +83,6 @@ module.exports = {
   middleSchools: baseLoaders.middleSchools,
   highSchools: baseLoaders.highSchools,
   highLevels: baseLoaders.highLevels,
-  enrollments: baseLoaders.enrollments,
   plates: baseLoaders.plates,
   metro: baseLoaders.metro,
 };

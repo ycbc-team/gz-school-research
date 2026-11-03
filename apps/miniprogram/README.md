@@ -1,6 +1,6 @@
 # 微信小程序（原生）
 
-广州学校升学调研的微信小程序端，原生小程序（WXML/WXSS/JS），复用 `@gz/shared` 逻辑与 `data/` JSON 真源。
+上学指南针的微信小程序端，原生小程序（WXML/WXSS/JS），复用 `@gz/shared` 逻辑与 `data/` JSON 真源。
 
 ## 结构
 

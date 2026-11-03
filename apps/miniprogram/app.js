@@ -13,9 +13,25 @@ App({
     // 那是小游戏 API；正确的分包异步加载通道是 require.async，基础库 ≥2.17.3，下载+执行+Promise 回调）。
     // 就绪后记入 globalData.detailSubReady 供各页面同步查询（避免各页重复预热/回调丢失）。
     try {
-      require.async('./pages/school-detail/components/school-card/index')
-        .then(() => { this.globalData.detailSubReady = true; })
-        .catch(() => { /* 预热失败：首页点学校时会再次尝试 */ });
+      Promise.all([
+        require.async('./pages/school-detail/components/school-card/index'),
+        require.async('./pages/school-detail/extra-loaders'),
+      ]).then(([, extra]) => {
+        this.globalData.detailSubReady = true;
+        // 把主包迁出的重数据（enrollments / xiaoshengchu / 录取分）合并回 globalData.baseLoaders，
+        // 供分包 school-card 详情卡读取全量数据（主包 baseLoaders 仅留空壳占位）。
+        if (extra && extra.rawExtra) {
+          const { shared } = data;
+          const merged = Object.assign({}, data.baseLoaders);
+          for (const k of Object.keys(extra.rawExtra)) {
+            const raw = extra.rawExtra[k];
+            merged[k] = (k === 'enrollments')
+              ? shared.splitEnrollments(shared.hydrate(raw))
+              : shared.hydrate(raw);
+          }
+          this.globalData.baseLoaders = merged;
+        }
+      }).catch(() => { /* 预热失败：首页点学校时会再次尝试 */ });
     } catch (e) { /* 预热失败不影响主包使用 */ }
   },
 });

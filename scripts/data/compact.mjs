@@ -22,9 +22,8 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DATA_SRC = join(ROOT, 'data');
 const OUT_CJS_MAIN = process.argv[2] || join(ROOT, 'apps', 'miniprogram', 'data');
 const OUT_CJS_SUB = process.argv[3] || join(ROOT, 'apps', 'miniprogram', 'pages', 'school-detail', 'data');
-// 主包学校页本地数据（初中升学信号 + 2026 招生计划）：学校页（主包页面）同步 require，
-// 避免主包 require.async 跨包加载 school-detail 分包数据的时序/构建产物脆弱性（真机易静默无数据）。
-const OUT_CJS_SCHOOL = join(ROOT, 'apps', 'miniprogram', 'pages', 'school', 'data');
+// 注：学校页自带数据（初中升学信号 + 2026 招生计划）已并入分包 pages/school-detail/data（与 MP_SUB_TARGETS 同源），
+// 由学校页 onLoad 经 require.async 拉取，不再在主包 pages/school/data 复制一份（主包体积治理）。
 const OUT_ESM = process.argv[4] || join(ROOT, 'apps', 'web', 'src', 'data', 'compact');
 
 /** 高重复值字段 → 字典化（值唯一数少才启用）；listDicts 为数组元素字典（如初中实体 id 列表）。
@@ -142,17 +141,22 @@ const WEB_OUTPUT_RELS = [
   'registry/group/src/brand_groups.js',
   'specialty_schools/dist/specialty_schools.js',
 ];
-// 小程序主包数据（地图页 + 首页消费）：POI/levels/招生/实体/升学路线/官方录取分
+// 小程序主包数据（地图首页 + 学校页同步消费，必须进主包）：POI / 高中分层 / 实体注册表 / 升学备注。
+// 留主包原因：地图点位分学段（buildPoints 遍历 highLevels.schools）、首页搜索（repository.entities）、学校页默认展示均同步依赖。
 const MP_MAIN_TARGETS = [
   'data/poi/dist/primary_poi.json',
-  'data/primary/transition/dist/xiaoshengchu_2026.json',
   'data/middle/enrollment/src/middle_enroll_notes.json',
   'data/poi/dist/middle_poi.json',
   'data/poi/dist/high_poi.json',
   'data/registry/affiliation/src/levels.json',
+  'data/registry/entity/dist/entities.json',
+];
+// 迁往 school-detail 分包（学校页 onLoad 经 require.async 拉取；app.js 合并进 globalData.baseLoaders 供详情卡）。
+// 体量最大且非地图首页同步必需：小学招生合并产物 / 小升初 / 官方录取分。
+const MP_MAIN_EXTRA = [
+  'data/primary/transition/dist/xiaoshengchu_2026.json',
   'data/high/cutoff_score/dist/scores_2025.json',
   'data/high/cutoff_score/dist/scores_2026.json',
-  'data/registry/entity/dist/entities.json',
   'data/primary/enrollment/dist/2026-all.json',
 ];
 // 小学招生 C 层合并产物（dist/2026-all.json）通用编译为 enrollments/2026-all.js
@@ -271,7 +275,7 @@ function compileValue(v, opts = {}) {
 }
 
 /* ---------- 主流程 ---------- */
-for (const dir of [OUT_CJS_MAIN, OUT_CJS_SUB, OUT_CJS_SCHOOL, OUT_ESM]) {
+for (const dir of [OUT_CJS_MAIN, OUT_CJS_SUB, OUT_ESM]) {
   rmSync(dir, { recursive: true, force: true });
   mkdirSync(dir, { recursive: true });
 }
@@ -338,14 +342,8 @@ const relPath = (SRC_REMAP[relRaw.replace(/\.json$/, '')] ?? relRaw.replace(/\.j
 const stats = [];
 for (const file of MP_MAIN_TARGETS) stats.push(emit(file, OUT_CJS_MAIN, 'cjs', { trim: MP_TRIM[file] }));
 for (const file of MP_SUB_TARGETS) stats.push(emit(file, OUT_CJS_SUB, 'cjs'));
-// 学校页（主包）本地同步数据：初中升学信号 + 2026 招生计划（与 MP_SUB_TARGETS 同源，多输出一份到主包 pages/school/data，学校页同步 require）
-const SCHOOL_TARGETS = [
-  'data/linkage/dist/ranking_middle.json',
-  'data/linkage/dist/quota_matrix.json',
-  'data/linkage/dist/quota_outcome.json',
-  'data/middle/enrollment/dist/middle_enrollment_2026.json',
-];
-for (const file of SCHOOL_TARGETS) emit(file, OUT_CJS_SCHOOL, 'cjs');
+// 主包迁出数据 → 分包（与 MP_SUB_TARGETS 同源，但由学校页 / 详情卡按需 require.async 加载，不再进主包）
+for (const file of MP_MAIN_EXTRA) stats.push(emit(file, OUT_CJS_SUB, 'cjs', { trim: MP_TRIM[file] }));
 for (const file of WEB_TARGETS) stats.push(emit(file, OUT_ESM, 'esm'));
 
 /* ---------- region 数据源（UI 04/04B 三列下钻：行政区/板块/地铁站）----------

@@ -15,7 +15,7 @@
     }
   ],
   "window": {
-    "navigationBarTitleText": "广州学校升学调研",
+    "navigationBarTitleText": "上学指南针",
     "navigationBarBackgroundColor": "#F4F3EE",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#F4F3EE"
@@ -33,6 +33,7 @@
     ]
   },
   "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
   "preloadRule": {
     "pages/index/index": {
       "network": "all",

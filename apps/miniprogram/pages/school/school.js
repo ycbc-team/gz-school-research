@@ -1,10 +1,11 @@
 /**
  * 学校页（底部第 2 tab）· 小学 / 初中 / 高中 分段。
  * 实现 UI 稿 12 / 12A / 12B / 12B-A / 12B-B / 12C / 12C-A / 12C-B 与对应 PRD。
- * 数据：小学 / 高中用主包数据（entities · buildHighRankingGroups）；初中用主包本地数据 pages/school/data（同步 require）跑移植的 RankingView。
+ * 数据：小学 / 高中用主包数据（entities · buildHighRankingGroups）；初中 RankingView 所需 linkage / 招生计划
+ * 来自 school-detail 分包（主包迁出的重数据），onLoad 经 require.async 拉取后并入 fullBaseLoaders。
  */
-const data = require('../../utils/data.js');
-const { shared, repository, baseLoaders, plates, metro } = data;
+const mainData = require('../../utils/data.js');
+const { shared, baseLoaders, plates, metro, mapPoints } = mainData;
 const civilized = require('./civilized_campus_school_ids.js');
 const middleRanking = require('./middle-ranking.js');
 
@@ -75,6 +76,8 @@ Page({
     scrHintOff: false,  // 横滑提示：用户滑动一次后消失（UI 12B-B）
     middleLoading: false,
     middleError: false,
+    pageLoading: false,
+    pageError: false,
     emptyOn: false,
     panel: '',          // '' | region | civilized | mech | metric | schoolFilter | sort
     headH: 0,           // 头部高度（px，onReady 实测），用于列表 padding-top 与区头 sticky
@@ -103,10 +106,11 @@ Page({
     this.locatedDistrict = '';
     this._middleLoaded = false;
     this._middleLoading = false;
+    this._dataReady = false;
+    this.fullBaseLoaders = baseLoaders;   // 数据就绪前先用主包 loaders（renderGroups 会先判 _dataReady）
     this.tryLocate();
     this.buildChips();
-    this.renderGroups();
-    this.loadMiddleData();
+    this.loadExtraData();   // 异步拉取主包迁出的重数据（enrollments/xiaoshengchu/录取分/初中 linkage），就绪后渲染
   },
 
   onShow() {
@@ -147,7 +151,7 @@ Page({
               type: 'gcj02',
               success: (r) => {
                 // 简单取最近点位所属区
-                const pts = (data.mapPoints || []);
+                const pts = (mapPoints || []);
                 let best = null, bestD = Infinity;
                 for (const p of pts) {
                   const d = (p.lat - r.latitude) ** 2 + (p.lng - r.longitude) ** 2;
@@ -251,6 +255,11 @@ Page({
   /* ---------- 列表构建 ---------- */
   renderGroups() {
     this.buildChips();   // 筛选变动后即时刷新胶囊文案（单选回显值/多选回显维度名）
+    // 主包迁出的重数据尚未经 require.async 拉取完成前，先空列表 + 加载态，避免用空壳 loaders 渲染
+    if (!this._dataReady) {
+      this.setData({ columns: [], groups: [], pageLoading: true, middleLoading: false, gridCols: '', emptyOn: false });
+      return;
+    }
     const stage = this.data.stage;
     let columns = [], groups = [], showScroll = false, middleLoading = false, gridCols = '';
     if (stage === 'p') {
@@ -287,7 +296,7 @@ Page({
 
   // 小学：实体按区归类 + 校园荣誉多行（默认展示全部学校，无荣誉的校园荣誉列显示空值 '-'）
   buildPrimaryGroups() {
-    const entities = (baseLoaders.entities && baseLoaders.entities.entities) || [];
+    const entities = (this.fullBaseLoaders.entities && this.fullBaseLoaders.entities.entities) || [];
     const selDist = this.curRegion().selectedDistricts;
     const civSel = this.pFilters.civilized;
     // 校园荣誉筛选语义（默认=全选，与行政区一致）：
@@ -345,7 +354,7 @@ Page({
   // 高中：buildHighRankingGroups + 区域 / 校园荣誉 / 学校分类 过滤 + 排序
   buildHighGroups() {
     const sortBy = this.hFilters.sortBy || 'score2026';
-    const all = shared.buildHighRankingGroups(baseLoaders, { groupBy: 'district', sortBy });
+    const all = shared.buildHighRankingGroups(this.fullBaseLoaders, { groupBy: 'district', sortBy });
     const selDist = this.curRegion().selectedDistricts;
     const civ = this.hFilters.civilized;
     const sf = this.hFilters.schoolFilter;
@@ -372,22 +381,48 @@ Page({
     return out;
   },
 
-  /* ---------- 初中数据（主包本地同步加载，已编译进 pages/school/data，无需跨包 require.async） ---------- */
+  /* ---------- 主包迁出的重数据：经 school-detail 分包 require.async 拉取（enrollments/xiaoshengchu/录取分/初中 linkage） ---------- */
+  async loadExtraData() {
+    if (this._dataReady) return;
+    this.setData({ pageLoading: true });
+    try {
+      const mod = await require.async('../../pages/school-detail/extra-loaders');
+      const raw = mod.rawExtra;
+      const extraLoaders = {
+        enrollments: shared.splitEnrollments(shared.hydrate(raw.enrollments)),
+        xiaoshengchu: shared.hydrate(raw.xiaoshengchu),
+        highScores2025: shared.hydrate(raw.highScores2025),
+        highScores2026: shared.hydrate(raw.highScores2026),
+        rankingMiddle: shared.hydrate(raw.rankingMiddle),
+        quotaMatrix: shared.hydrate(raw.quotaMatrix),
+        quotaOutcome: shared.hydrate(raw.quotaOutcome),
+        middleEnrollment2026: shared.hydrate(raw.middleEnrollment2026),
+      };
+      this.fullBaseLoaders = Object.assign({}, baseLoaders, extraLoaders);
+      this._dataReady = true;
+      this.setData({ pageLoading: false });
+      this.renderGroups();
+      if (this.data.stage === 'm') this.loadMiddleData();
+    } catch (e) {
+      console.error('[school] 扩展数据加载失败', e);
+      this.setData({ pageLoading: false, pageError: true });
+    }
+  },
+
+  /* ---------- 初中数据（来自分包 extra-loaders，经 fullBaseLoaders 提供） ---------- */
   loadMiddleData() {
     if (this._middleLoaded) return;
+    if (!this._dataReady) return;   // 等扩展数据（分包）就绪后由 loadExtraData 回调
     try {
-      const rm = require('./data/linkage/ranking_middle');
-      const qm = require('./data/linkage/quota_matrix');
-      const qo = require('./data/linkage/quota_outcome');
-      const me = require('./data/middle/enrollment/dist/middle_enrollment_2026');
-      const meH = shared.hydrate(me);
+      const bl = this.fullBaseLoaders;
+      const meH = shared.hydrate(bl.middleEnrollment2026);
       this.middleLoaders = {
-        rankingMiddle: shared.hydrate(rm),
-        quotaMatrix: shared.hydrate(qm),
-        quotaOutcome: shared.hydrate(qo),
+        rankingMiddle: shared.hydrate(bl.rankingMiddle),
+        quotaMatrix: shared.hydrate(bl.quotaMatrix),
+        quotaOutcome: shared.hydrate(bl.quotaOutcome),
         middleEnrollments: Object.values(meH.districts || {}).map((d) => ({ records: d.records || [] })),
         middleEnrollmentMechanisms: meH.mechanisms || {},
-        entities: baseLoaders.entities,
+        entities: bl.entities,
         civilizedCampusSchoolIds: civilized,
       };
       this.mechLabelMap = this.middleLoaders.middleEnrollmentMechanisms || {};

@@ -23,7 +23,7 @@
        点筛选胶囊展开时整体变为顶部白色面板窗口（搜索框上移至与胶囊同行、筛选栏即 dims、下方展开选项 + 操作），
        对应 UI 稿 04「搜索框与筛选栏整体上移 → 面板向下推出、同属一个白色窗口」 -->
   <view class="floatbar {{menu ? 'inpanel' : ''}}" style="top:{{menu ? 0 : statusBarHeight}}px;padding-top:{{menu ? statusBarHeight : 0}}px">
-    <view class="brandrow {{menu ? 'hide' : ''}}">广州学途</view>
+    <view class="brandrow {{menu ? 'hide' : ''}}">上学指南针</view>
     <view class="sbox {{menu ? 'docked' : ''}}" style="{{menu ? ('margin-right:' + searchHeadRight + 'px') : ''}}" bindtap="openSearch">
       <view class="mag"></view>
       <text class="sbox-ph">搜索广州小初高学校</text>

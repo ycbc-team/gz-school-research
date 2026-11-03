@@ -3,7 +3,7 @@
   <view class="dptop" style="padding-top:{{capTop}}px">
     <view class="dprow" style="height:{{capH}}px">
       <view class="gback" style="top:{{(capH - 32) / 2}}px" bindtap="onBack"><view class="gback-chev"></view></view>
-      <view class="dpbrand">广州学途</view>
+      <view class="dpbrand">上学指南针</view>
     </view>
   </view>
 

@@ -4,7 +4,7 @@
 
   <!-- 头部：品牌 + 学段分段 + 筛选栏；展开筛选时整块（含品牌行）白底浮于遮罩之上，均不位移 -->
   <view class="headbar {{panel?'inpanel':''}}" style="padding-top:{{statusBarHeight}}px">
-    <view class="brandrow">广州学途</view>
+    <view class="brandrow">上学指南针</view>
 
     <!-- 学段分段控件（纯文字、不带学段色点） -->
     <view class="stabs">
@@ -115,6 +115,18 @@
     <!-- L4 列表下方声明（灰底小字 · 纯文案）：列表块外部下方、留 10px 间距，
          不与表格 / 名单相连、不加分割线、不放进表格容器；只展示、不可点、不弹层 -->
     <view class="ldentry">表中录取分数线、指标比例与最低分等数据来源各区教育局公示，<text class="b">仅供参考，以官方发布为准</text>。</view>
+  </view>
+
+  <!-- 主包迁出数据首屏加载中（enrollments/xiaoshengchu/录取分/初中 linkage 经分包 require.async 拉取） -->
+  <view wx:if="{{pageLoading && !pageError}}" class="list loadingwrap" style="padding-top:{{headH}}px">
+    <view class="loading">数据加载中…</view>
+  </view>
+
+  <!-- 主包迁出数据加载失败（兜底） -->
+  <view wx:if="{{pageError}}" class="fempty">
+    <view class="fempty-t">数据获取失败</view>
+    <view class="fempty-d">请稍后重试</view>
+    <view class="fempty-btn" bindtap="loadExtraData">重试</view>
   </view>
 
   <!-- 初中数据加载中 -->
