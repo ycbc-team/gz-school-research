@@ -5,7 +5,6 @@
  * 老地图页（pages/map）已下线：详情页"在地图中查看"通过 getApp().pendingFocus + switchTab 回到本页定位。
  */
 const { shared, repository, mapPoints, plates, metro } = require('../../utils/data.js');
-const { ensurePrivacy } = require('../../utils/privacy.js');
 const {
   DISTRICTS, STAGE_TABS, SCHOOL_NATURE_TABS, STAGE_LABEL,
   districtByAdcode, initialFilterState, toggleDistrict, toggleStage, toggleGrade,
@@ -152,11 +151,6 @@ Page({
     searchHeadRight: 0,
     // 顶部白底常驻条高度（状态栏 + 小程序名行），UI 稿 .topcover
     topcoverH: 60,
-    // 定位授权引导弹窗（UI 稿 01B）
-    locTip: false,            // 定位授权引导弹窗显隐
-    showLoc: false,           // 地图当前位置蓝点
-    locateLat: null,
-    locateLng: null,
   },
 
   onLoad() {
@@ -178,25 +172,26 @@ Page({
     this.renderMarkers();
     this.recommends = this.buildRecommends();
     this.setData({ recommends: this.recommends.map((r) => ({ name: r.name })) });
-    this.maybePromptLocation();
   },
 
   onShow() {
     const tab = this.getTabBar && this.getTabBar();
     if (tab) {
       tab.setData({ selected: 0 });
-      tab.setData({ hidden: !!(this.data.card || this.data.menu || this.data.locTip) });
+      tab.setData({ hidden: !!(this.data.card || this.data.menu) });
     }
     // 详情页"在地图中查看"：switchTab 回到本页后定位目标学校（对齐原 pages/map 的 focus 行为：放大居中 + 信息卡）
     const app = getApp();
     if (app && app.pendingFocus) {
       const name = app.pendingFocus;
       app.pendingFocus = null;
-      const pt = mapPoints.find((p) => p.school_id === name) || mapPoints.find((p) => p.name === name) || mapPoints.find((p) => p.name.includes(name));
+      const pt = this.findPointByName(name);
       if (pt) this.focusPoint(pt);
     }
   },
   onHide() {
+    // 页面不可见时不要残留「回半窗后重推相机」的定时器
+    clearTimeout(this._rebuildTimer); this._rebuildTimer = null;
     const tab = this.getTabBar && this.getTabBar();
     if (tab) tab.setData({ hidden: false });
   },
@@ -206,74 +201,6 @@ Page({
     const tab = this.getTabBar && this.getTabBar();
     if (tab) tab.setData({ hidden: !!hidden });
   },
-
-  /* ---------- 定位授权引导（UI 稿 01B） ---------- */
-  LOC_DENY_KEY: 'gz_loc_deny_date',
-  // 进入首页后，满足条件才弹出定位授权引导：未授予权限 + 不在 30 天拒绝冷静期 + 本次会话尚未弹过
-  maybePromptLocation() {
-    if (this._locPrompted) return;            // 本次会话最多提示 1 次
-    this._locPrompted = true;
-    // 30 个自然天内曾拒绝系统授权 → 不再自动弹出
-    try {
-      const d = wx.getStorageSync(this.LOC_DENY_KEY);
-      if (d) {
-        const days = (Date.now() - new Date(d + 'T00:00:00').getTime()) / 86400000;
-        if (days >= 0 && days < 30) return;
-      }
-    } catch (e) { /* ignore */ }
-    wx.getSetting({
-      success: (res) => {
-        // 已授权：直接定位，不再弹引导
-        if (res.authSetting['scope.userLocation']) { this.doLocate(); return; }
-        this.showLocTip();                    // 未授权/未询问 → 弹引导弹窗
-      },
-      fail: () => { this.showLocTip(); },
-    });
-  },
-  // 弹 / 收定位引导弹窗：同为底部半窗，需隐藏自定义 tabBar，否则按钮被 tabBar 盖住（UI 稿 01B 帧无底部导航）
-  showLocTip() { this.setData({ locTip: true }); this.setTabBarHidden(true); },
-  hideLocTip() { this.setData({ locTip: false }); this.setTabBarHidden(!!(this.data.card || this.data.menu)); },
-  // 点「开启定位」：先走官方隐私授权（若后台已配置），再触发微信系统位置授权
-  onLocAllow() {
-    this.hideLocTip();
-    ensurePrivacy().then(() => this.locate());
-  },
-  // 实际取位置：弹窗「开启定位」与冷启动「已授权直接定位」共用
-  locate(silent) {
-    wx.getLocation({
-      type: 'gcj02',
-      success: (res) => {
-        this.setData({ showLoc: true, locateLat: res.latitude, locateLng: res.longitude });
-        this.zoomToLocation(res.latitude, res.longitude);   // 定位后自动缩放到至少含一所学校的视野
-      },
-      fail: (err) => {
-        const msg = (err && err.errMsg) || '';
-        // 系统授权点「不允许」：记录拒绝日期，30 天内不再自动弹
-        if (msg.indexOf('auth') >= 0 || msg.indexOf('deny') >= 0) {
-          try { wx.setStorageSync(this.LOC_DENY_KEY, this.todayStr()); } catch (e) {}
-        }
-        if (!silent) wx.showToast({ title: '已保持默认视野', icon: 'none' });
-      },
-    });
-  },
-  // 点「暂不开启」或弹窗外空白 → 关闭弹窗、保持默认视野；与系统授权「不允许」同等对待＝视为用户拒绝开启：
-  // 记录拒绝日期，此后 30 个自然天内不再自动弹出，超过 30 天后的首次冷启动可再自动提示一次（UI 稿 01B 第 4 条 / 规范表「定位授权弹窗」）。
-  // 本次会话不再自动弹由 _locPrompted 保证（已在 maybePromptLocation 置 true）。
-  onLocDeny() {
-    try { wx.setStorageSync(this.LOC_DENY_KEY, this.todayStr()); } catch (e) {}
-    this.hideLocTip();
-  },
-  todayStr() {
-    const n = new Date();
-    const p = (x) => (x < 10 ? '0' + x : '' + x);
-    return `${n.getFullYear()}-${p(n.getMonth() + 1)}-${p(n.getDate())}`;
-  },
-  doLocate() {
-    // 冷启动即已授权：静默定位（失败不打扰用户）
-    ensurePrivacy().then(() => this.locate(true));
-  },
-  // 定位弹窗内部 catchtap 占位，阻止冒泡到蒙层（避免误触关闭）
-  noop() {},
 
   onReady() {
     this.mapCtx = wx.createMapContext('gzmap', this);
@@ -494,7 +421,7 @@ Page({
     this.syncDraftView();
     this.applyChipLabels();
     // 收起面板：仅当详情卡 / 定位引导也未占用底部栏时才恢复自定义 tabBar
-    this.setTabBarHidden(!!(this.data.card || this.data.locTip));
+    this.setTabBarHidden(!!(this.data.card));
   },
   // 区域维度：单选行政区（清除其余区与已选板块），仅更新聚焦行；弹窗保持展开，待第三列点击才提交
   toggleDistrict(e) {
@@ -570,7 +497,7 @@ Page({
     this.renderMarkers();
     this.setData({ menu: '', filterEmpty: this.visible.length === 0 });
     // 收起面板：仅当详情卡 / 定位引导也未占用底部栏时才恢复自定义 tabBar
-    this.setTabBarHidden(!!(this.data.card || this.data.locTip));
+    this.setTabBarHidden(!!(this.data.card));
     if (focus) this.focusArea(focus);
     else if (this.visible.length) this.fitVisible();
   },
@@ -590,7 +517,7 @@ Page({
     this.renderMarkers();
     this.setData({ menu: '', filterEmpty: this.visible.length === 0 });
     // 收起面板：仅当详情卡 / 定位引导也未占用底部栏时才恢复自定义 tabBar
-    this.setTabBarHidden(!!(this.data.card || this.data.locTip));
+    this.setTabBarHidden(!!(this.data.card));
     // 注意：此处【不】调用 fitVisible——重置仅恢复全部学校点位，地图视野保持不变。
   },
   focusLineTap(e) { this.setData({ focusLine: e.currentTarget.dataset.id }); this.syncDrillView(); },
@@ -638,7 +565,7 @@ Page({
     const after = this.regionSig(this.committedState());
     this.setData({ menu: '', filterEmpty: this.visible.length === 0 });
     // 确认收起面板：恢复自定义 tabBar（除非详情卡 / 定位引导仍占用底部栏）
-    this.setTabBarHidden(!!(this.data.card || this.data.locTip));
+    this.setTabBarHidden(!!(this.data.card));
     // 区域选区收窄（选定某区/板块/站点）时，把视野自动适配到筛选结果范围（UI 稿 04 帧 / 规范表「筛选半窗」）；
     // 学段 / 办学性质是「属性维度」，不改变学校地理位置，故不移动相机。
     if (this.visible.length && before !== after) this.fitVisible();
@@ -666,12 +593,6 @@ Page({
     this.setTabBarHidden(true);
   },
   closeSearch() { this.setData({ searchVisible: false, searchFocus: false }); this.setTabBarHidden(!!(this.data.card || this.data.menu)); },
-  // 定位弹窗（01B）底部《隐私政策》链接：收起弹窗后进隐私政策页（L1）。
-  // 仅收起不改写 30 天拒绝标记——用户是去阅读政策，不等于拒绝定位。
-  openPrivacy() {
-    this.hideLocTip();
-    wx.navigateTo({ url: '/pages/privacy/privacy' });
-  },
   onSearchInput(e) {
     const kw = e.detail.value;
     this.setData({ kw, assocs: kw ? this.buildAssocs(kw) : [] });
@@ -832,46 +753,6 @@ Page({
       fail: applyCenter,
     });
   },
-  // 定位后相机：把视野调整到「用户位置 + 最近的一所可见学校」都能框入的范围，
-  // 保证授权定位后周围至少能看到一个学校点位，而不是聚焦过近导致四周无学校。
-  // 同样遵守铁律：只用 includePoints 单向驱动、绝不回写 center，避免抖动。
-  zoomToLocation(lat, lng) {
-    const pts = (this.visible && this.visible.length) ? this.visible : [];
-    let minLat = lat, maxLat = lat, minLng = lng, maxLng = lng;
-    if (pts.length) {
-      // 找离用户最近的可见学校
-      let best = null, bestD = Infinity;
-      for (const p of pts) {
-        const d = (p.lat - lat) ** 2 + (p.lng - lng) ** 2;
-        if (d < bestD) { bestD = d; best = p; }
-      }
-      if (best) {
-        minLat = Math.min(lat, best.lat); maxLat = Math.max(lat, best.lat);
-        minLng = Math.min(lng, best.lng); maxLng = Math.max(lng, best.lng);
-      }
-    }
-    // 最小跨度兜底：即便用户与最近学校几乎重合，也保留 ≈1.3km 可视范围（≈ scale 14，必含若干点位）
-    const MIN_SPAN = 0.012;
-    if (maxLat - minLat < MIN_SPAN) { const c = (minLat + maxLat) / 2; minLat = c - MIN_SPAN / 2; maxLat = c + MIN_SPAN / 2; }
-    if (maxLng - minLng < MIN_SPAN) { const c = (minLng + maxLng) / 2; minLng = c - MIN_SPAN / 2; maxLng = c + MIN_SPAN / 2; }
-    const token = (this.cameraToken || 0) + 1;
-    this.cameraToken = token;
-    const applyCenter = () => {
-      if (this.cameraToken !== token) return;
-      this.setData({ centerLat: (minLat + maxLat) / 2, centerLng: (minLng + maxLng) / 2, scale: 14 });
-    };
-    if (!this.mapCtx || typeof this.mapCtx.includePoints !== 'function') return applyCenter();
-    this.mapCtx.includePoints({
-      points: [
-        { latitude: minLat, longitude: minLng },
-        { latitude: maxLat, longitude: maxLng },
-      ],
-      // padding = [上, 右, 下, 左]：上避让小程序名行 + 搜索框 + 筛选栏；下避让图例 + 底部导航
-      padding: [150, 70, 200, 70],
-      success: applyCenter,
-      fail: applyCenter,
-    });
-  },
   // 板块 / 地铁站「仅定位」相机：视野以【板块/站点中心】为锚，大小按归属学校包围盒自适应
   // （地铁站＝站点周边 STATION_FOCUS_KM 的方框）。再由「可视区（视口 - 边距）」反推
   // includePoints 需要的包围盒，使 可视跨度 = m × 视口，且 m 恰好容纳目标范围（夹在 FOCUS_VIS_MIN/MAX）。
@@ -981,8 +862,13 @@ Page({
     if (this.data.subReady) {
       // 同一屏幕只允许一个操作窗口：若筛选面板正展开，先收起再挂学校卡（避免两者并存）
       if (this.data.menu) this.setData({ menu: '' });
-      console.log('[index] showCard: 分包已就绪，直接挂真卡', pt.name);
-      this.setData({ card });
+      // 【全屏详情里换学校】cardFull=true 时地图被 .offscreen 移出视口（不是销毁）。
+      // 换学校 = 卡片退回半窗，必须同步把 cardFull 置回 false 让地图移回可视区，
+      // 否则地图区域只剩 .page 底色（#2B3444，看着就是"地图灰的"、也没有任何点位）。
+      // 移回后相机再推一次：旧视野里的目标点位会被半窗卡挡住，看不出选中效果。
+      const wasFull = !!this.data.cardFull;
+      console.log('[index] showCard: 分包已就绪，直接挂真卡', pt.name, wasFull ? '（从全屏态复位）' : '');
+      this.setData({ card, cardFull: false }, () => { if (wasFull) this.afterMapRebuild(); });
       this.setTabBarHidden(true);
     } else {
       console.log('[index] showCard: 分包未就绪，弹 toast + 后台预热', pt.name);
@@ -990,24 +876,56 @@ Page({
       this.warmSubpackage();
     }
   },
+  // 卡片从全屏回到半窗后重推一次相机。
+  // 地图已改为常驻（全屏时只是 top 移出视口、不销毁），所以这里不再等原生层重建，
+  // 但目标点位可能正好落在半窗卡的遮挡区，仍需 includePoints 把它推到卡片上方的可视区；
+  // 等一帧让卡片高度与地图位置落定再推，避免用旧的 padding 视口算一次无效定位。
+  afterMapRebuild() {
+    clearTimeout(this._rebuildTimer);
+    this._rebuildTimer = setTimeout(() => {
+      this._rebuildTimer = null;
+      if (this.data.cardFull) return;   // 期间用户又把卡片拉回全屏 → 地图又移出视口，不必定位
+      const pt = this.currentPt;
+      if (!pt) return;
+      this.zoomTo(pt);
+      console.log('[index] 回半窗后重新定位 ->', pt.name);
+    }, 80);
+  },
   // 关联校区链接：在地图页原位打开目标学校（组件 emit 'goto'）
   onCardGoto(e) {
     const { name, id } = e.detail || {};
-    const pt = mapPoints.find((p) => p.school_id === id) || mapPoints.find((p) => p.name === name);
+    const pt = this.findPointByName(name, id);
     if (pt) this.focusPoint(pt);
+  },
+  // 关联链接只带校名/实体 id，且详情里的校名常带「广州市xx区」前缀，
+  // 与 mapPoints 里的短名不完全相等 —— 依次按 实体 id → 全名 → 别名 → 包含 逐级放宽匹配，
+  // 否则找不到点位时点击会"静默无反应"（卡片不换、地图不动）。
+  findPointByName(name, id) {
+    if (id) {
+      const byId = mapPoints.find((p) => p.school_id === id);
+      if (byId) return byId;
+    }
+    const n = (name || '').trim();
+    if (!n) return null;
+    const nk = (s) => (s || '').replace(/\s+/g, '').replace(/[（）\(\)]/g, '');
+    const t = nk(n);
+    return mapPoints.find((p) => nk(p.name) === t)
+      || mapPoints.find((p) => (p.names || []).some((x) => nk(x) === t))
+      || mapPoints.find((p) => (p.names || []).some((x) => nk(x).includes(t) || t.includes(nk(x))))
+      || mapPoints.find((p) => nk(p.name).includes(t) || t.includes(nk(p.name)))
+      || null;
   },
   closeCard() {
     this.setData({ card: null, activeMarkerId: null, cardFull: false });
     this.renderMarkers();
     this.setTabBarHidden(false);
   },
-  // 学校卡模式变化（overlay 上下文）：full → 隐藏地图；half/closed → 显示地图。
-  // 地图 center/scale 已被 onRegionChange 回写，重建时无缝复位。
+  // 学校卡模式变化（overlay 上下文）：full → 地图整体移出视口（.offscreen）；half/closed → 移回。
+  // 地图常驻不销毁，mapCtx 与相机状态全程有效，不需要重建上下文；值没变时直接返回，省一次渲染。
   onCardMode(e) {
     const full = (e.detail && e.detail.mode) === 'full';
-    this.setData({ cardFull: full }, () => {
-      if (!full && this.mapCtx) this.mapCtx = wx.createMapContext('gzmap', this);
-    });
+    if (this.data.cardFull === full) return;
+    this.setData({ cardFull: full });
   },
   onMapTap(e) {
     if (this.ignoreNextMapTap || (e && e.detail && e.detail.markerId !== undefined)) { this.ignoreNextMapTap = false; clearTimeout(this.ignoreMapTapTimer); return; }

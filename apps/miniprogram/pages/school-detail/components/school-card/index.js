@@ -141,6 +141,7 @@ Component({
     },
     detached() {
       if (this._collapseTimer) { clearTimeout(this._collapseTimer); this._collapseTimer = null; }
+      if (this._noAnimTimer) { clearTimeout(this._noAnimTimer); this._noAnimTimer = null; }
     },
   },
   methods: {
@@ -180,6 +181,16 @@ Component({
       else h = (this.data.dragging ? this.data.cardH + this.data.cardDrag : this.data.cardH) + 'px';
       this.setData({ rootStyle: 'height:' + h + ';' });
     },
+    // 撤销「换学校」时写进 rootStyle 的临时 transition:none（等高度已落到半窗后再恢复过渡，
+    // 否则后续手势展开/收起会失去平滑动画）
+    _restoreAnim() {
+      if (this._noAnimTimer) { clearTimeout(this._noAnimTimer); this._noAnimTimer = null; }
+      this._noAnimTimer = setTimeout(() => {
+        this._noAnimTimer = null;
+        if (this.data.dragging || this.data.collapsing) return; // 手势进行中：交由其自身的 updateStyle 收尾
+        this.updateStyle();
+      }, 120);
+    },
     /* ---------- 通知外部（地图页）当前模式，用于全屏时隐藏地图 ---------- */
     notifyMode() {
       if (this.properties.context === 'overlay') this.triggerEvent('modechange', { mode: this.data.mode });
@@ -199,16 +210,32 @@ Component({
           if (stageParam && stages.indexOf(stageParam) > -1) active = stageParam;
           else active = stages[0];
         }
-        this.applyStage(active);
-        this.setData({ mode: this.properties.context === 'page' ? 'full' : 'half', cardDrag: 0, dragging: false, collapsing: false, scrollEnabled: true, topTitle: '学校详情', scrollTop: 0 });
-        this.updateStyle();
+        // 【换学校直接落到半窗】全屏态点「升学路线参考」里的学校时，卡片要立刻以半窗高度出现。
+        // 两个要点缺一不可：
+        //  ① 高度不能交给 .scard 的 transition:height 去演「winH → cardH」（会先出一张接近全屏的卡再往下掉）；
+        //  ② 详情内容与 mode / 高度必须落在【同一次 setData】里（见 applyStage 的 extra 参数），
+        //     否则中间会闪一帧「新学校内容 + 旧的全屏高度」。
+        const isPage = this.properties.context === 'page';
+        const nextMode = isPage ? 'full' : 'half';
+        const dropToHalf = !isPage && this.data.mode === 'full';
+        const resetPatch = { mode: nextMode, cardDrag: 0, dragging: false, collapsing: false, scrollEnabled: true, scrollTop: 0 };
+        // 内联 transition:none 让高度瞬时到位（内联优先级高于 class 的 transition）
+        if (dropToHalf) resetPatch.rootStyle = 'height:' + this.data.cardH + 'px;transition:none;';
+        this.applyStage(active, resetPatch);
+        if (dropToHalf) this._restoreAnim(); else this.updateStyle();
+        // 【必须】换学校会把 mode 复位为 half，此时必须通知宿主：overlay 上下文里 cardFull 否则永远停在 true，
+        // 首页 <map wx:if="{{!cardFull}}"> 就不会重建，地图区域只剩 .page 底色（表现为"地图灰屏"）。
+        // 注意要放在 setData 之后：notifyMode 读的是 this.data.mode 的最新值。
+        this.notifyMode();
       } catch (e) {
         console.error('[school-card] 初始化失败:', e);
         wx.showToast({ title: '学校信息加载失败，请重试', icon: 'none', duration: 2500 });
       }
     },
     /* ---------- 切换学段：重建视图 ---------- */
-    applyStage(stage) {
+    // extra：并入本次 setData 的额外字段。用于「换学校」时把 mode / rootStyle 与详情内容
+    // 塞进同一次渲染——若分成两次 setData，中间会闪出一帧「新学校内容 + 旧的（全屏）高度」。
+    applyStage(stage, extra) {
       const name = this.properties.name;
       const id = this.properties.schoolId;
       const model = buildDetailModel(stage, name, ctx().repository, id);
@@ -221,7 +248,7 @@ Component({
         { cls: 'stage', text: STAGE_SHORT[stage] },
         { cls: 'nature', text: model.nature || '公办' },
       ];
-      this.setData({
+      this.setData(Object.assign({
         activeStage: stage,
         tabs,
         tags,
@@ -230,7 +257,7 @@ Component({
         high: stage === 'high' ? this.buildHighView(model, rawLinkage) : null,
         brand: this.buildBrandView(model),
         topTitle: '学校详情',
-      });
+      }, extra || {}));
     },
 
     /* ---------- 小学（07） ---------- */

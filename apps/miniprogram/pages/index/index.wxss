@@ -6,11 +6,23 @@
   background: #2B3444;
   overflow: hidden;
 }
+/* 学校卡全屏态：地图已移出视口，页面底色即卡片背后的可见区域。
+   卡片展开/收起有 0.22s 的高度动画，此间上半屏露的是页面底色——用白底与卡片同色，
+   视觉上是卡片从底部"长"成整屏，而不是一块深灰被白色盖住。 */
+.page.fullview { background: #fff; }
 .map {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   width: 100%;
   height: 100%;
+}
+/* 全屏学校详情时把地图整体移到视口下方（不是销毁）：
+   原生 <map> 盖在 WebView 之上，普通 view 压不住它；而销毁重建会带来原生层初始化 + 底图重载的卡顿。
+   用 top 位移而非 transform —— 原生组件对 transform 的支持在各基础库版本上不稳定。 */
+.map.offscreen {
+  top: 100vh;
+  bottom: auto;
+  height: 100vh;
 }
 
 /* 放大镜图标（纯 CSS，避免 emoji） */
@@ -296,29 +308,3 @@
   box-shadow: 0 6rpx 16rpx rgba(47,92,214,.28);
 }
 
-/* 定位授权引导弹窗（UI 稿 01B，底部半窗 + 蒙层压暗） */
-.loctip-mask { position: absolute; inset: 0; z-index: 350; display: flex; align-items: flex-end; background: rgba(16,24,43,.42); }
-.loctip {
-  position: relative; z-index: 1; width: 100%;
-  background: #fff; border-radius: 40rpx 40rpx 0 0;
-  padding: 32rpx 32rpx calc(env(safe-area-inset-bottom) + 40rpx);
-  box-shadow: 0 -12rpx 44rpx rgba(8,14,28,.22);
-}
-.loctip-title { font-size: 34rpx; font-weight: 700; color: #10182B; }
-.loctip-desc { margin-top: 18rpx; font-size: 27rpx; color: #64708C; line-height: 1.75; }
-.loctip-btns { display: flex; align-items: center; gap: 24rpx; margin-top: 32rpx; }
-.loctip-allow {
-  flex: 1; height: 88rpx; border-radius: 999px;
-  background: #2F5CD6; color: #fff; font-size: 32rpx; font-weight: 600;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 6rpx 16rpx rgba(47,92,214,.28);
-}
-.loctip-deny {
-  flex: none; height: 88rpx; padding: 0 36rpx; border-radius: 999px;
-  background: #fff; border: 1rpx solid #E3E8F0; color: #33405C;
-  font-size: 28rpx; display: flex; align-items: center; justify-content: center;
-}
-/* 定位弹窗底部单行小字（UI 稿 04 节 L5）：隐私政策告知 + 授权更改提示合为一行，
-   字号 20rpx（10px）保证 28 字在 320~414 宽机型上都不断行；超长字体缩放时允许自然折行不裁切 */
-.loctip-foot { margin-top: 28rpx; font-size: 20rpx; color: #8B96AD; line-height: 1.6; text-align: center; }
-.loctip-foot .plink { color: #2F5CD6; font-weight: 600; text-decoration: underline; }

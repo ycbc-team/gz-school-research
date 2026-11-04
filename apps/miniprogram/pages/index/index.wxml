@@ -1,11 +1,11 @@
-<view class="page">
-  <!-- 整屏地图背景。全屏学校详情页时隐藏地图（cardFull）：原生 <map> 组件渲染在 WebView 之上，
-       即使详情卡覆盖全屏也需显式隐藏，确保「展开后只看到详情层、看不到背后地图」。
-       centerLat/Lng/scale 在用户平移后会回写（onRegionChange），重建时无缝复位。 -->
+<view class="page {{cardFull ? 'fullview' : ''}}">
+  <!-- 整屏地图背景。【常驻不销毁】原生 <map> 渲染在 WebView 之上，全屏学校详情时无法被普通 view 覆盖，
+       故用 `.offscreen` 把它整体平移到视口下方（原生组件对 transform 支持不稳，这里改 top，最可靠）。
+       这样全屏↔半窗切换不再触发 map 销毁/重建，省掉原生层初始化与底图重新加载的整段卡顿。
+       centerLat/Lng/scale 在用户平移后会回写（onRegionChange），回到可视区时无缝复位。 -->
   <map
-    wx:if="{{!cardFull}}"
     id="gzmap"
-    class="map"
+    class="map {{cardFull ? 'offscreen' : ''}}"
     latitude="{{centerLat}}"
     longitude="{{centerLng}}"
     scale="{{scale}}"
@@ -13,7 +13,7 @@
     bindmarkertap="onMarkerTap"
     bindtap="onMapTap"
     bindregionchange="onRegionChange"
-    show-location="{{showLoc}}"
+    show-location="{{false}}"
   ></map>
 
   <!-- 顶部白底常驻条（UI 稿 .topcover：状态栏 + 小程序名行，白底盖住地图，非悬浮） -->
@@ -128,20 +128,6 @@
     <view class="fempty-d">试试取消部分筛选条件</view>
     <view class="fempty-d">或扩大行政区范围</view>
     <view class="fempty-btn" catchtap="resetFilters">重置筛选</view>
-  </view>
-
-  <!-- 定位授权引导弹窗（UI 稿 01B） -->
-  <view wx:if="{{locTip}}" class="loctip-mask" bindtap="onLocDeny">
-    <view class="loctip" catchtap="noop">
-      <view class="loctip-title">开启定位，找附近的学校</view>
-      <view class="loctip-desc">开启后，地图会自动移动到你附近，并按距离展示周边学校。位置信息仅用于本校小程序内的地图定位与筛选，不会存储或对外分享。</view>
-      <view class="loctip-btns">
-        <view class="loctip-deny" bindtap="onLocDeny">暂不开启</view>
-        <view class="loctip-allow" bindtap="onLocAllow">开启定位</view>
-      </view>
-      <!-- 隐私政策告知 + 授权更改提示：合并为一行小字（控件见 .loctip-foot），《隐私政策》可点 -->
-      <view class="loctip-foot">开启定位即表示您同意<text class="plink" catchtap="openPrivacy">《隐私政策》</text>，可在微信设置中更改授权</view>
-    </view>
   </view>
 
   <!-- 搜索页（全屏层） -->
