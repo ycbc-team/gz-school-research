@@ -251,7 +251,7 @@ function districtVisible(row, selectedDistricts) {
 
 /**
  * 构建初中分组表格。
- * opts: { metric, selectedDistricts:[adcode...]|[], selectedCivilized:[keys]|'all'|null, selectedMechs:[...]|'all'|null, locatedDistrict }
+ * opts: { metric, selectedDistricts:[adcode...]|[], selectedCivilized:[keys]|'all'|null, selectedMechs:[...]|'all'|null }
  */
 function buildMiddleGroups(loaders, opts) {
   const metric = opts.metric || 'default';
@@ -279,11 +279,9 @@ function buildMiddleGroups(loaders, opts) {
     map.get(key).push(s);
   }
 
-  // 区排序：未筛选区域且已定位 → 定位区置顶；其余按固定区序；其余区（花都等）补尾
-  const located = opts.locatedDistrict;
+  // 区排序：按固定区序；其余区（花都等）补尾
   const orderIndex = (d) => {
     const i = DISTRICT_ORDER.indexOf(d);
-    if (located && d === located) return -1;
     return i < 0 ? 99 : i;
   };
   const keys = [...map.keys()].sort((a, b) => orderIndex(a) - orderIndex(b));

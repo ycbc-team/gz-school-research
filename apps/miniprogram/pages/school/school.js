@@ -103,12 +103,10 @@ Page({
     this.pFilters = { civilized: 'all' };
     this.mFilters = { civilized: 'all', mech: 'all', metric: 'default' };
     this.hFilters = { civilized: 'all', schoolFilter: 'all', sortBy: 'score2026' };
-    this.locatedDistrict = '';
     this._middleLoaded = false;
     this._middleLoading = false;
     this._dataReady = false;
     this.fullBaseLoaders = baseLoaders;   // 数据就绪前先用主包 loaders（renderGroups 会先判 _dataReady）
-    this.tryLocate();
     this.buildChips();
     this.loadExtraData();   // 异步拉取主包迁出的重数据（enrollments/xiaoshengchu/录取分/初中 linkage），就绪后渲染
   },
@@ -141,32 +139,6 @@ Page({
     } catch (e) { /* 保底默认值 */ }
   },
 
-  // 已授权则取定位点所属区，用于区排序定位置顶
-  tryLocate() {
-    try {
-      wx.getSetting({
-        success: (res) => {
-          if (res.authSetting['scope.userLocation']) {
-            wx.getLocation({
-              type: 'gcj02',
-              success: (r) => {
-                // 简单取最近点位所属区
-                const pts = (mapPoints || []);
-                let best = null, bestD = Infinity;
-                for (const p of pts) {
-                  const d = (p.lat - r.latitude) ** 2 + (p.lng - r.longitude) ** 2;
-                  if (d < bestD) { bestD = d; best = p; }
-                }
-                if (best && best.adcode) this.locatedDistrict = (districtByAdcode[best.adcode] || '').replace('区', '');
-                if (this.data.stage) this.renderGroups();
-              },
-              fail: () => {},
-            });
-          }
-        },
-      });
-    } catch (e) {}
-  },
 
   /* ---------- 学段切换 ---------- */
   onStageTap(e) {
@@ -281,7 +253,6 @@ Page({
           selectedDistricts: this.curRegion().selectedDistricts,
           selectedCivilized: this.mFilters.civilized,
           selectedMechs: this.mFilters.mech,
-          locatedDistrict: this.locatedDistrict,
         });
         columns = r.columns;
         groups = r.groups;
@@ -332,9 +303,8 @@ Page({
       if (!map.has(k)) map.set(k, []);
       map.get(k).push(r);
     }
-    const orderIndex = (d) => {
-      if (this.locatedDistrict && d.replace('区', '') === this.locatedDistrict) return -1;
-      const i = DISTRICTS.findIndex((x) => x.name.replace('区', '') === d.replace('区', ''));
+      const orderIndex = (d) => {
+        const i = DISTRICTS.findIndex((x) => x.name.replace('区', '') === d.replace('区', ''));
       return i < 0 ? 99 : i;
     };
     const keys = [...map.keys()].sort((a, b) => orderIndex(a) - orderIndex(b));
@@ -372,11 +342,6 @@ Page({
           cells: [highScoreText(it.score2025), highScoreText(it.score2026)],
         })),
       });
-    }
-    // 已开定位且未筛区域：定位区置顶（与小学/初中一致）
-    if (this.locatedDistrict && !selDist.length) {
-      const idx = out.findIndex((g) => (g.title || '').replace('区', '') === this.locatedDistrict);
-      if (idx > 0) { const [g] = out.splice(idx, 1); out.unshift(g); }
     }
     return out;
   },
